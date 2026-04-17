@@ -116,18 +116,7 @@ The reproduction attempt informs the grilling session and the agent brief. A con
 
 ### Step 4: Grilling session (if needed)
 
-If the issue needs to be fleshed out before it's ready for an agent, interview the maintainer to build a complete specification. Follow the /grill-me pattern:
-
-- Ask questions one at a time
-- Provide a recommended answer for each question
-- If a question can be answered by exploring the codebase, explore the codebase instead
-
-The goal is to reach a point where you can write a complete agent brief. Keep going until you have:
-
-- A clear summary of the desired behavior
-- Concrete acceptance criteria
-- Key interfaces that may need to change
-- A clear boundary of what's out of scope
+If the issue needs to be fleshed out before it's ready for an agent, interview the maintainer to build a complete specification.
 
 ### Step 5: Apply the outcome
 
