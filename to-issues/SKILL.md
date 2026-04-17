@@ -1,19 +1,17 @@
 ---
-name: prd-to-issues
-description: Break a PRD into independently-grabbable GitHub issues using tracer-bullet vertical slices. Use when user wants to convert a PRD to issues, create implementation tickets, or break down a PRD into work items.
+name: to-issues
+description: Break a plan, spec, or PRD into independently-grabbable GitHub issues using tracer-bullet vertical slices. Use when user wants to convert a plan into issues, create implementation tickets, or break down work into issues.
 ---
 
-# PRD to Issues
+# To Issues
 
-Break a PRD into independently-grabbable GitHub issues using vertical slices (tracer bullets).
+Break a plan into independently-grabbable GitHub issues using vertical slices (tracer bullets).
 
 ## Process
 
-### 1. Locate the PRD
+### 1. Gather context
 
-Ask the user for the PRD GitHub issue number (or URL).
-
-If the PRD is not already in your context window, fetch it with `gh issue view <number>` (with comments).
+Work from whatever is already in the conversation context. If the user passes a GitHub issue number or URL as an argument, fetch it with `gh issue view <number>` (with comments).
 
 ### 2. Explore the codebase (optional)
 
@@ -21,7 +19,7 @@ If you have not already explored the codebase, do so to understand the current s
 
 ### 3. Draft vertical slices
 
-Break the PRD into **tracer bullet** issues. Each issue is a thin vertical slice that cuts through ALL integration layers end-to-end, NOT a horizontal slice of one layer.
+Break the plan into **tracer bullet** issues. Each issue is a thin vertical slice that cuts through ALL integration layers end-to-end, NOT a horizontal slice of one layer.
 
 Slices may be 'HITL' or 'AFK'. HITL slices require human interaction, such as an architectural decision or a design review. AFK slices can be implemented and merged without human interaction. Prefer AFK over HITL where possible.
 
@@ -38,7 +36,7 @@ Present the proposed breakdown as a numbered list. For each slice, show:
 - **Title**: short descriptive name
 - **Type**: HITL / AFK
 - **Blocked by**: which other slices (if any) must complete first
-- **User stories covered**: which user stories from the PRD this addresses
+- **User stories covered**: which user stories this addresses (if the source material has them)
 
 Ask the user:
 
@@ -56,13 +54,13 @@ For each approved slice, create a GitHub issue using `gh issue create`. Use the 
 Create issues in dependency order (blockers first) so you can reference real issue numbers in the "Blocked by" field.
 
 <issue-template>
-## Parent PRD
+## Parent
 
-#<prd-issue-number>
+#<parent-issue-number> (if the source was a GitHub issue, otherwise omit this section)
 
 ## What to build
 
-A concise description of this vertical slice. Describe the end-to-end behavior, not layer-by-layer implementation. Reference specific sections of the parent PRD rather than duplicating content.
+A concise description of this vertical slice. Describe the end-to-end behavior, not layer-by-layer implementation.
 
 ## Acceptance criteria
 
@@ -76,13 +74,6 @@ A concise description of this vertical slice. Describe the end-to-end behavior, 
 
 Or "None - can start immediately" if no blockers.
 
-## User stories addressed
-
-Reference by number from the parent PRD:
-
-- User story 3
-- User story 7
-
 </issue-template>
 
-Do NOT close or modify the parent PRD issue.
+Do NOT close or modify any parent issue.
