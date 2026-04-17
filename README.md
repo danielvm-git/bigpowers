@@ -12,12 +12,6 @@ These skills help you think through problems before writing code.
   npx skills@latest add mattpocock/skills/write-a-prd
   ```
 
-- **prd-to-plan** — Turn a PRD into a multi-phase implementation plan using tracer-bullet vertical slices.
-
-  ```
-  npx skills@latest add mattpocock/skills/prd-to-plan
-  ```
-
 - **prd-to-issues** — Break a PRD into independently-grabbable GitHub issues using vertical slices.
 
   ```
