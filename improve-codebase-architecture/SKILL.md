@@ -1,19 +1,30 @@
 ---
 name: improve-codebase-architecture
-description: Explore a codebase to find opportunities for architectural improvement, focusing on making the codebase more testable by deepening shallow modules. Use when user wants to improve architecture, find refactoring opportunities, consolidate tightly-coupled modules, or make a codebase more AI-navigable.
+description: Find deepening opportunities in a codebase, informed by the domain language in CONTEXT.md and the decisions in docs/adr/. Use when the user wants to improve architecture, find refactoring opportunities, consolidate tightly-coupled modules, or make a codebase more testable and AI-navigable.
 ---
 
 # Improve Codebase Architecture
 
-Explore a codebase like an AI would, surface architectural friction, discover opportunities for improving testability, and propose module-deepening refactors as GitHub issue RFCs.
+Surface architectural friction and propose deepening opportunities — refactors that consolidate shallow modules into deeper ones with smaller interfaces. The aim is testability and AI-navigability.
 
-A **deep module** (John Ousterhout, "A Philosophy of Software Design") has a small interface hiding a large implementation. Deep modules are more testable, more AI-navigable, and let you test at the boundary instead of inside.
+A **deep module** (Ousterhout, "A Philosophy of Software Design") has a small interface hiding a large implementation. Deep modules are easier to test at the boundary and easier for both humans and AI to navigate.
+
+This skill is _informed_ by the project's domain model — `CONTEXT.md` and any `docs/adr/`. The domain language gives names to good module boundaries; ADRs record decisions the skill should not re-litigate.
+
+See [CONTEXT-FORMAT.md](../domain-model/CONTEXT-FORMAT.md) and [ADR-FORMAT.md](../domain-model/ADR-FORMAT.md) for the file formats.
 
 ## Process
 
-### 1. Explore the codebase
+### 1. Explore
 
-Use the Agent tool with subagent_type=Explore to navigate the codebase naturally. Do NOT follow rigid heuristics — explore organically and note where you experience friction:
+Read existing documentation first:
+
+- `CONTEXT.md` (or `CONTEXT-MAP.md` + each `CONTEXT.md` in a multi-context repo)
+- Relevant ADRs in `docs/adr/` (and any context-scoped `docs/adr/` directories)
+
+If any of these files don't exist, proceed silently — don't flag their absence or suggest creating them upfront.
+
+Then use the Agent tool with `subagent_type=Explore` to walk the codebase. Don't follow rigid heuristics — explore organically and note where you experience friction:
 
 - Where does understanding one concept require bouncing between many small files?
 - Where are modules so shallow that the interface is nearly as complex as the implementation?
@@ -25,52 +36,26 @@ The friction you encounter IS the signal.
 
 ### 2. Present candidates
 
-Present a numbered list of deepening opportunities. For each candidate, show:
+Present a numbered list of deepening opportunities. For each candidate:
 
-- **Cluster**: Which modules/concepts are involved
-- **Why they're coupled**: Shared types, call patterns, co-ownership of a concept
-- **Dependency category**: See [REFERENCE.md](REFERENCE.md) for the four categories
-- **Test impact**: What existing tests would be replaced by boundary tests
+- **Cluster**: which modules/concepts are involved
+- **Why they're coupled**: shared types, call patterns, co-ownership of a concept
+- **Dependency category**: see [DEEPENING.md](DEEPENING.md)
+- **Test impact**: what existing tests would be replaced by boundary tests
+
+**Use CONTEXT.md vocabulary when describing candidates.** If `CONTEXT.md` defines "Order," talk about "the Order intake module" rather than "the FooBarHandler."
+
+**ADR conflicts**: if a candidate contradicts an existing ADR, only surface it when the friction you noticed is real enough to warrant revisiting the ADR. Mark it clearly (e.g. _"contradicts ADR-0007 — but worth reopening because…"_). Don't list every theoretical refactor an ADR forbids.
 
 Do NOT propose interfaces yet. Ask the user: "Which of these would you like to explore?"
 
-### 3. User picks a candidate
+### 3. Grilling loop
 
-### 4. Frame the problem space
+Once the user picks a candidate, drop into a grilling conversation. Walk the design tree with them — constraints, dependencies, the shape of the deepened module, what gets hidden, what tests survive.
 
-Before spawning sub-agents, write a user-facing explanation of the problem space for the chosen candidate:
+Side effects happen inline as decisions crystallize:
 
-- The constraints any new interface would need to satisfy
-- The dependencies it would need to rely on
-- A rough illustrative code sketch to make the constraints concrete — this is not a proposal, just a way to ground the constraints
-
-Show this to the user, then immediately proceed to Step 5. The user reads and thinks about the problem while the sub-agents work in parallel.
-
-### 5. Design multiple interfaces
-
-Spawn 3+ sub-agents in parallel using the Agent tool. Each must produce a **radically different** interface for the deepened module.
-
-Prompt each sub-agent with a separate technical brief (file paths, coupling details, dependency category, what's being hidden). This brief is independent of the user-facing explanation in Step 4. Give each agent a different design constraint:
-
-- Agent 1: "Minimize the interface — aim for 1-3 entry points max"
-- Agent 2: "Maximize flexibility — support many use cases and extension"
-- Agent 3: "Optimize for the most common caller — make the default case trivial"
-- Agent 4 (if applicable): "Design around the ports & adapters pattern for cross-boundary dependencies"
-
-Each sub-agent outputs:
-
-1. Interface signature (types, methods, params)
-2. Usage example showing how callers use it
-3. What complexity it hides internally
-4. Dependency strategy (how deps are handled — see [REFERENCE.md](REFERENCE.md))
-5. Trade-offs
-
-Present designs sequentially, then compare them in prose.
-
-After comparing, give your own recommendation: which design you think is strongest and why. If elements from different designs would combine well, propose a hybrid. Be opinionated — the user wants a strong read, not just a menu.
-
-### 6. User picks an interface (or accepts recommendation)
-
-### 7. Create GitHub issue
-
-Create a refactor RFC as a GitHub issue using `gh issue create`. Use the template in [REFERENCE.md](REFERENCE.md). Do NOT ask the user to review before creating — just create it and share the URL.
+- **Naming a deepened module after a concept not in `CONTEXT.md`?** Add the term to `CONTEXT.md` — same discipline as `/domain-model` (see [CONTEXT-FORMAT.md](../domain-model/CONTEXT-FORMAT.md)). Create the file lazily if it doesn't exist.
+- **Sharpening a fuzzy term during the conversation?** Update `CONTEXT.md` right there.
+- **User rejects the candidate with a load-bearing reason?** Offer an ADR, framed as: _"Want me to record this as an ADR so future architecture reviews don't re-suggest it?"_ Only offer when the reason would actually be needed by a future explorer to avoid re-suggesting the same thing — skip ephemeral reasons ("not worth it right now") and self-evident ones. See [ADR-FORMAT.md](../domain-model/ADR-FORMAT.md).
+- **Want to explore alternative interfaces for the deepened module?** See [INTERFACE-DESIGN.md](INTERFACE-DESIGN.md).

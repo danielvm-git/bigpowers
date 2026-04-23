@@ -52,7 +52,7 @@ These skills help you write, refactor, and fix code.
   npx skills@latest add mattpocock/skills/triage-issue
   ```
 
-- **improve-codebase-architecture** — Explore a codebase for architectural improvement opportunities, focusing on deepening shallow modules and improving testability.
+- **improve-codebase-architecture** — Find deepening opportunities in a codebase, informed by the domain language in `CONTEXT.md` and the decisions in `docs/adr/`.
 
   ```
   npx skills@latest add mattpocock/skills/improve-codebase-architecture
