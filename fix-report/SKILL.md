@@ -1,43 +1,44 @@
 ---
 name: fix-report
-description: End-to-end bug fix workflow covering triage, diagnosis, TDD implementation, and GitHub reporting. Use when fixing bugs with GitHub tracking.
+description: Disciplined bug-fix workflow covering triage, root cause analysis, TDD implementation, and automated GitHub reporting. Use when handling terminal errors, stack traces, bug reports, or when a disciplined fix with audit logging (CSV) and GitHub issue tracking is required.
 ---
 
 # Fix and Report
 
-A disciplined workflow for fixing bugs and keeping GitHub issues in sync.
+A high-integrity workflow for fixing bugs, ensuring regression testing, and maintaining a GitHub-synced audit trail.
 
-## Process
+## Quick start
 
-### Phase 1: Triage & Diagnose
-1. **Capture**: Get the problem description or error.
-2. **Investigate**: Explore the codebase to find the root cause.
-3. **Report**: Create a GitHub issue using `gh issue create` with the initial findings.
-4. **Analysis**: State the root cause, location, and trigger condition.
+1. **Triage**: Find the bug location and root cause.
+2. **Issue**: Create a GitHub issue with `gh issue create`.
+3. **TDD**: Write a failing test, then the fix.
+4. **Log**: Run `node fix-report/scripts/log-bug.js` to update `docs/bugs/bug-log.csv`.
+5. **Close**: Update the GitHub issue with the final report.
 
-### Phase 2: Plan & TDD
-1. **Fix Plan**: List files to change, why, and risk level.
-2. **TDD Cycles**: Design a series of RED-GREEN cycles (test first, then code).
-   - **RED**: Write a test that fails due to the bug.
-   - **GREEN**: Minimal code change to fix it.
+## Workflows
 
-### Phase 3: Implement & Prevent
-1. **Execute**: Implement the fix following the TDD plan.
-2. **Prevent**: Add prevention mechanisms (type guards, Zod schemas, assertions, etc.).
-3. **Regression**: Ensure a permanent regression test is in place.
+### 1. Diagnosis & Issue Creation
+- **Explore**: Use `git log` and codebase search to trace the error path.
+- **Isolate**: Identify the exact trigger (state, input, or environment).
+- **GitHub**: Create the issue early. See [REFERENCE.md](REFERENCE.md) for the Initial Triage template.
 
-### Phase 4: Verify & Log
-1. **Verify**: Run full test suite, type check, and linter.
-2. **Log**: Update `docs/bugs/bug-log.csv` (create if missing). See [REFERENCE.md](REFERENCE.md) for format.
-3. **Report**: Update the GitHub issue with the final **Bug Fix Report**.
+### 2. TDD Fix Cycle
+- **Plan**: List affected files and rate risk (Low/Med/High).
+- **Red**: Add a test case to the existing suite that reproduces the failure.
+- **Green**: Apply the minimal fix. Follow existing style; no unrelated refactors.
 
-### Phase 5: Handoff
-1. **Git Commands**: Provide Conventional Commit commands for the user to run.
-2. **Summary**: Print the issue URL and a one-line fix summary.
+### 3. Prevention & Verification
+- **Harden**: Add a type guard, Zod schema update, or invariant check.
+- **Verify**: Run `npm test`, `tsc`, and `lint`. Ensure ALL tests pass, not just the new one.
+- **Audit**: Append the fix to `docs/bugs/bug-log.csv`. Use the helper script to ensure column alignment.
+
+### 4. Reporting & Handoff
+- **GitHub**: Post the final **Bug Fix Report** as a comment or update the issue body.
+- **Git**: Provide the user with Conventional Commit commands (`fix(scope): ...`).
 
 ## Guidelines
-- **Minimum Fix**: No refactors or cleanups unless related to the bug.
-- **Always Test**: A bug fix without a regression test is incomplete.
-- **GitHub First**: Create/link the issue early to track progress.
+- **Durability**: Write tests that assert on observable behavior (API/UI), not internal state.
+- **No Suppression**: Never use `@ts-ignore` or `as any` to "fix" a bug.
+- **Audit Trail**: Always update the CSV log; it's the project's memory of past failures.
 
-See [REFERENCE.md](REFERENCE.md) for detailed templates and logging formats.
+See [REFERENCE.md](REFERENCE.md) for templates and [EXAMPLES.md](EXAMPLES.md) for scenarios.

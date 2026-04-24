@@ -5,11 +5,12 @@
 ### Initial Triage (Phase 1)
 ```md
 ## Problem
-[Description]
+[Description of actual vs expected behavior]
 
 ## Initial Diagnosis
 - **Location**: [file:line]
-- **Potential Root Cause**: [hypothesis]
+- **Potential Root Cause**: [Why it fails]
+- **Reproducer**: [Minimal steps or test command]
 ```
 
 ### Final Bug Fix Report (Phase 4)
@@ -27,14 +28,14 @@
 | Trigger | [cause] |
 
 ### Root Cause
-[explanation]
+[2-3 sentences max]
 
 ### Fix Applied
-[file list and approach]
+[Approach and file list]
 
 ### Prevention
-- **Mechanism**: [type guard / schema / assertion / etc.]
-- **Details**: [what was added]
+- **Mechanism**: [type guard / schema / assertion / lint rule / env check]
+- **Details**: [what was added to prevent recurrence]
 
 ### Test Coverage
 - New tests: [count]
@@ -45,40 +46,56 @@
 `[conventional commit message]`
 ```
 
-## Bug Log CSV Format (Phase 4)
+## Automated Logging (Phase 4)
+
+To update the `docs/bugs/bug-log.csv` without formatting errors, use the helper script. 
+
+### Step 1: Prepare JSON
+Create a temporary file `bug.json` with all 25 fields (see CSV format below).
+
+### Step 2: Run Script
+```bash
+# Preview the CSV row
+node fix-report/scripts/log-bug.js "$(cat bug.json)"
+
+# Append to log
+node fix-report/scripts/log-bug.js "$(cat bug.json)" >> docs/bugs/bug-log.csv
+```
+
+## Bug Log CSV Format
 File: `docs/bugs/bug-log.csv`
 
-| Column | Format |
-|---|---|
-| bug_id | `BUG-YYYY-MM-DD-NNN` |
-| date | `YYYY-MM-DD` |
-| severity | `critical|high|medium|low` |
-| priority | `p0|p1|p2|p3` |
-| scope | `kebab-case` |
-| error_message | `escaped string` |
-| location | `file:line` |
-| root_cause | `string` |
-| trigger | `string` |
-| files_changed | `semicolon-separated` |
-| approach | `string` |
-| risk_level | `low|medium|high` |
-| breaking_change | `yes|no` |
-| prevention_mechanism | `semicolon-separated` |
-| prevention_details | `string` |
-| new_tests | `int` |
-| updated_tests | `int` |
-| total_tests | `int` |
-| type_check | `pass|fail` |
-| lint | `pass|fail` |
-| commit_type | `fix|feat|fix!|feat!` |
-| release_type | `patch|minor|major` |
-| commit_message | `string` |
-| github_issue | `pending|URL` |
-| follow_ups | `semicolon-separated` |
+| # | Column | Format |
+|---|---|---|
+| 1 | bug_id | `BUG-YYYY-MM-DD-NNN` |
+| 2 | date | `YYYY-MM-DD` |
+| 3 | severity | `critical|high|medium|low` |
+| 4 | priority | `p0|p1|p2|p3` |
+| 5 | scope | `kebab-case` |
+| 6 | error_message | `string` |
+| 7 | location | `file:line` |
+| 8 | root_cause | `string` |
+| 9 | trigger | `string` |
+| 10 | files_changed | `semicolon-separated` |
+| 11 | approach | `string` |
+| 12 | risk_level | `low|medium|high` |
+| 13 | breaking_change | `yes|no` |
+| 14 | prevention_mechanism | `semicolon-separated` |
+| 15 | prevention_details | `string` |
+| 16 | new_tests | `int` |
+| 17 | updated_tests | `int` |
+| 18 | total_tests | `int` |
+| 19 | type_check | `pass|fail` |
+| 20 | lint | `pass|fail` |
+| 21 | commit_type | `fix|feat|fix!|feat!` |
+| 22 | release_type | `patch|minor|major` |
+| 23 | commit_message | `string` |
+| 24 | github_issue | `URL` |
+| 25 | follow_ups | `semicolon-separated` |
 
 ## Git Command Template (Phase 5)
 ```bash
-git add <files> docs/bugs/bug-log.csv
-git commit -m "fix(<scope>): <description>" -m "Root cause: <explanation>"
+git add .
+git commit -m "fix(<scope>): <description>" -m "Root cause: <explanation>" -m "Refs: #<issue-number>"
 git push origin <branch>
 ```
