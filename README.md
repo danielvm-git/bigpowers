@@ -1,121 +1,138 @@
 # Agent Skills
 
-A collection of agent skills that extend capabilities across planning, development, and tooling.
+A collection of agent skills (each folder has a `SKILL.md`) for planning, development, and tooling. This **GitHub repository** is the source for the skill content; the recommended way to install it into [Cursor](https://cursor.com) for yourself and your team is the open **`npx skills`** CLI (see below). This repo is **not** published to npm as its own package.
 
-## Planning & Design
+**GitHub address:** use `https://github.com/OWNER/skills` where `OWNER` is your org or user (this project’s public remote is `danielvm-git/skills`—swap in your fork if you use one).
 
-These skills help you think through problems before writing code.
+## Install with npx (team, Cursor)
 
-- **to-prd** — Turn the current conversation context into a PRD and submit it as a GitHub issue. No interview — just synthesizes what you've already discussed.
+The [`skills` package on npm](https://www.npmjs.com/package/skills) is a **third-party** CLI that installs skills from a Git public repository into multiple coding agents, including Cursor. Project home: [MattCraftsCode/skills](https://github.com/MattCraftsCode/skills). You can also browse the ecosystem at [skills.sh](https://skills.sh).
 
-  ```
-  npx skills@latest add mattpocock/skills/to-prd
-  ```
+**Requirements:** [Node.js](https://nodejs.org/) (for `npx`) and a way to read this repo from GitHub (public `https` or authenticated `git` for private repos).
 
-- **to-issues** — Break any plan, spec, or PRD into independently-grabbable GitHub issues using vertical slices.
-
-  ```
-  npx skills@latest add mattpocock/skills/to-issues
-  ```
-
-- **grill-me** — Get relentlessly interviewed about a plan or design until every branch of the decision tree is resolved.
-
-  ```
-  npx skills@latest add mattpocock/skills/grill-me
-  ```
-
-- **design-an-interface** — Generate multiple radically different interface designs for a module using parallel sub-agents.
-
-  ```
-  npx skills@latest add mattpocock/skills/design-an-interface
-  ```
-
-- **request-refactor-plan** — Create a detailed refactor plan with tiny commits via user interview, then file it as a GitHub issue.
-
-  ```
-  npx skills@latest add mattpocock/skills/request-refactor-plan
-  ```
-
-## Development
-
-These skills help you write, refactor, and fix code.
-
-- **tdd** — Test-driven development with a red-green-refactor loop. Builds features or fixes bugs one vertical slice at a time.
-
-  ```
-  npx skills@latest add mattpocock/skills/tdd
-  ```
-
-- **triage-issue** — Investigate a bug by exploring the codebase, identify the root cause, and file a GitHub issue with a TDD-based fix plan.
-
-  ```
-  npx skills@latest add mattpocock/skills/triage-issue
-  ```
-
-- **improve-codebase-architecture** — Find deepening opportunities in a codebase, informed by the domain language in `CONTEXT.md` and the decisions in `docs/adr/`.
-
-  ```
-  npx skills@latest add mattpocock/skills/improve-codebase-architecture
-  ```
-
-- **migrate-to-shoehorn** — Migrate test files from `as` type assertions to @total-typescript/shoehorn.
-
-  ```
-  npx skills@latest add mattpocock/skills/migrate-to-shoehorn
-  ```
-
-- **scaffold-exercises** — Create exercise directory structures with sections, problems, solutions, and explainers.
-
-  ```
-  npx skills@latest add mattpocock/skills/scaffold-exercises
-  ```
-
-## Tooling & Setup
-
-- **setup-pre-commit** — Set up Husky pre-commit hooks with lint-staged, Prettier, type checking, and tests.
-
-  ```
-  npx skills@latest add mattpocock/skills/setup-pre-commit
-  ```
-
-- **git-guardrails-claude-code** — Set up Claude Code hooks to block dangerous git commands (push, reset --hard, clean, etc.) before they execute.
-
-  ```
-  npx skills@latest add mattpocock/skills/git-guardrails-claude-code
-  ```
-
-## Writing & Knowledge
-
-- **write-a-skill** — Create new skills with proper structure, progressive disclosure, and bundled resources.
-
-  ```
-  npx skills@latest add mattpocock/skills/write-a-skill
-  ```
-
-- **edit-article** — Edit and improve articles by restructuring sections, improving clarity, and tightening prose.
-
-  ```
-  npx skills@latest add mattpocock/skills/edit-article
-  ```
-
-- **ubiquitous-language** — Extract a DDD-style ubiquitous language glossary from the current conversation.
-
-  ```
-  npx skills@latest add mattpocock/skills/ubiquitous-language
-  ```
-
-- **obsidian-vault** — Search, create, and manage notes in an Obsidian vault with wikilinks and index notes.
-
-  ```
-  npx skills@latest add mattpocock/skills/obsidian-vault
-  ```
-
-## Cursor (global `~/.cursor/skills`)
-
-After `git pull` in this repository, install or refresh skills for Cursor from your local clone:
+**Preview skills without installing** (clone is temporary; nothing is written to your agent dirs beyond the CLI’s cache):
 
 ```sh
+npx skills@latest add OWNER/skills --list
+```
+
+**Install all skills for Cursor, globally, without prompts** (typical one-liner for teammates—replace `OWNER`):
+
+```sh
+npx skills@latest add OWNER/skills -g -a cursor -y --skill '*'
+```
+
+- **Global (`-g`)** installs to **`~/.cursor/skills`**, one directory per skill (for example `~/.cursor/skills/tdd/SKILL.md`). This matches a machine-wide setup similar to the shell script in this repository.
+- **Install specific skills only:** add `--skill name` (repeat or see upstream docs). Use a quoted `'*'` to mean all skills, as in the one-liner above.
+- If **symlinks** are a problem on your system, add **`--copy`** to the same command so files are copied instead of linked.
+- If the agent does not pick up changes, start a new chat or reload the window.
+
+**After this repo is updated on GitHub**, refresh installed skills with:
+
+```sh
+npx skills check
+npx skills update
+```
+
+or run the `npx skills@latest add ...` command again.
+
+**Private GitHub repo:** use a full URL or ssh remote so git credentials apply, for example:
+
+```sh
+npx skills@latest add https://github.com/ORG/skills
+npx skills@latest add git@github.com:ORG/skills.git
+```
+
+**Project-scoped install (no `-g`)** install skills inside an application checkout (for committing them with a product repo). The upstream CLI places Cursor’s project skills under **`.agents/skills/`** for that run; see the [CLI README](https://github.com/MattCraftsCode/skills) for scope and flags.
+
+**Example** using the public `OWNER` for this collection:
+
+```sh
+npx skills@latest add danielvm-git/skills -g -a cursor -y --skill '*'
+```
+
+## Install with the shell script (no npx)
+
+If you prefer not to use Node, or you want a straight **rsync** from a local tree into `~/.cursor/skills`, use [`scripts/install-cursor-skills.sh`](scripts/install-cursor-skills.sh) from a clone or archive of this repository.
+
+### Without cloning
+
+Download a **snapshot** of the default branch, extract, and run the script. GitHub unpacks the archive into a folder named **`skills-main`** (branch `main` + repository name). Replace `OWNER` in the URL.
+
+```sh
+curl -L https://github.com/OWNER/skills/archive/refs/heads/main.tar.gz -o skills.tar.gz
+tar -xzf skills.tar.gz
+cd skills-main
 ./scripts/install-cursor-skills.sh
 ```
 
-Override paths if needed: `SOURCE_DIR=/path/to/clone TARGET_DIR=~/.cursor/skills ./scripts/install-cursor-skills.sh`
+**ZIP (e.g. Windows):** `https://github.com/OWNER/skills/archive/refs/heads/main.zip` — unzip, `cd` into `skills-main`, then run the script.
+
+**Updates:** download and extract again, then re-run the script from the new tree.
+
+### With git clone
+
+```sh
+git clone --depth 1 https://github.com/OWNER/skills.git
+cd skills
+./scripts/install-cursor-skills.sh
+```
+
+**Updates:** `git pull` in the clone, then `./scripts/install-cursor-skills.sh` again.
+
+### Script options
+
+By default, skills are written to **`~/.cursor/skills`**, and re-runs **overwrite** the same paths.
+
+| Variable     | Default              | Purpose                                     |
+| ------------ | -------------------- | -------------------------------------------- |
+| `SOURCE_DIR` | Root of the tree     | Where to read skill folders from             |
+| `TARGET_DIR` | `~/.cursor/skills`  | Where Cursor should find installed skills   |
+
+```sh
+SOURCE_DIR=/path/to/skills-main ./scripts/install-cursor-skills.sh
+TARGET_DIR=/path/to/your-project/.cursor/skills ./scripts/install-cursor-skills.sh
+```
+
+## Planning and design
+
+- **to-prd** — Turn the current conversation into a PRD and submit it as a GitHub issue.
+- **to-issues** — Break a plan, spec, or PRD into vertical-slice GitHub issues.
+- **grill-me** — Stress-test a plan or design through structured questioning.
+- **domain-model** — Stress-test a plan against the domain model and update `CONTEXT.md` / ADRs as you decide.
+- **design-an-interface** — Explore multiple interface designs for a module with parallel sub-agents.
+- **request-refactor-plan** — Build a small-commit refactor plan via interview, then file it as a GitHub issue.
+- **zoom-out** — Ask the agent to step up a level of abstraction and map modules and callers.
+
+## Development
+
+- **tdd** — Red–green–refactor and vertical slices.
+- **triage-issue** — Find root cause in the repo and file a GitHub issue with a TDD-oriented fix plan.
+- **improve-codebase-architecture** — Use `CONTEXT.md` and `docs/adr/` to find architectural improvements.
+- **migrate-to-shoehorn** — Move tests from `as` assertions to `@total-typescript/shoehorn`.
+- **scaffold-exercises** — Create exercise layouts with problems, solutions, and explainers.
+
+## Tooling and setup
+
+- **setup-pre-commit** — Husky, lint-staged, Prettier, typecheck, and tests on commit.
+- **git-guardrails-claude-code** — Block dangerous git commands via hooks in Claude Code.
+
+## GitHub and QA
+
+- **github-triage** — Triage issues with a label-based workflow and `gh`.
+- **qa** — Conversational bug reports; agent explores the codebase and files GitHub issues.
+
+## Writing and knowledge
+
+- **write-a-skill** — Author new skills with structure and progressive disclosure.
+- **edit-article** — Revise articles for structure, clarity, and tone.
+- **ubiquitous-language** — Build a DDD-style glossary from the conversation.
+- **obsidian-vault** — Work with an Obsidian vault, wikilinks, and index notes.
+
+## Other
+
+- **caveman** — Ultra-compressed communication mode (invoked with user phrases like “caveman mode”).
+
+## Repository layout
+
+Each skill is a **top-level directory** in this repo containing **`SKILL.md`**. The install script only syncs those directories; hidden top-level directories (names starting with `.`) are skipped. The `npx skills` CLI discovers the same set of skills from GitHub (recursive search for valid `SKILL.md` files).
