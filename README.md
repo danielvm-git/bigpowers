@@ -109,3 +109,13 @@ These skills help you write, refactor, and fix code.
   ```
   npx skills@latest add mattpocock/skills/obsidian-vault
   ```
+
+## Cursor (global `~/.cursor/skills`)
+
+After `git pull` in this repository, install or refresh skills for Cursor from your local clone:
+
+```sh
+./scripts/install-cursor-skills.sh
+```
+
+Override paths if needed: `SOURCE_DIR=/path/to/clone TARGET_DIR=~/.cursor/skills ./scripts/install-cursor-skills.sh`
