@@ -16,6 +16,11 @@
       "sourceType": "github",
       "computedHash": "ad678ff77b997e483e7849530ea8f168002d77bff9e68ae00579cec1deffd291"
     },
+    "fix-and-report": {
+      "source": "danielvm-git/skills",
+      "sourceType": "github",
+      "computedHash": "e5bce7dd9484e77f9a21d234d744320a15a14432f658cebbc750f481f6c18c34"
+    },
     "grill-me": {
       "source": "danielvm-git/skills",
       "sourceType": "github",

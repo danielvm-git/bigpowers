@@ -137,6 +137,7 @@ cd /path/to/your-app && /path/to/skills/scripts/install-cursor-skills-local.sh
 
 - **tdd** — Red–green–refactor and vertical slices.
 - **triage-issue** — Find root cause in the repo and file a GitHub issue with a TDD-oriented fix plan.
+- **fix-and-report** — End-to-end bug fix: triage, diagnose, implement TDD fix, and report to GitHub.
 - **improve-codebase-architecture** — Use `CONTEXT.md` and `docs/adr/` to find architectural improvements.
 - **migrate-to-shoehorn** — Move tests from `as` assertions to `@total-typescript/shoehorn`.
 - **scaffold-exercises** — Create exercise layouts with problems, solutions, and explainers.
