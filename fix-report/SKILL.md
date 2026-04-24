@@ -1,5 +1,5 @@
 ---
-name: fix-and-report
+name: fix-report
 description: End-to-end bug fix workflow covering triage, diagnosis, TDD implementation, and GitHub reporting. Use when fixing bugs with GitHub tracking.
 ---
 
