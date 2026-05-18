@@ -15,10 +15,11 @@ Closing the "Meta-Task" loophole and restoring planning discipline after the v1.
 - [x] Run `sync-skills.sh` to propagate changes
 - [x] Plan v1.9.0 (Git-Worktree Lifecycle Hardening)
 - [x] Implement v1.9.0 (Harden kickoff/release and cleanup script)
-- [x] Plan v1.10.0 (Agentic Gherkin Compliance Harness)
-- [x] Implement v1.10.0 (Agentic Gherkin Compliance Harness)
+- [x] Plan v1.11.0 (Compliance Reference Features)
+- [x] Implement v1.11.0 (Compliance Reference Features)
 
 ## Project Capabilities
+- **Gherkin Compliance Features**: Defined benchmarks for Akita, Karpathy, Clean Code, Pocock, BMAD, and Superpowers.
 - **Agentic Gherkin Compliance Harness**: Automated (agent-judged) auditing of skills against Gherkin feature files.
 - **Git-Worktree Lifecycle Hardening**: Robust kickoff/release and automated cleanup scripts.
 - **Session State Management**: Persistent tracking of project lifecycle phase and git metadata.
