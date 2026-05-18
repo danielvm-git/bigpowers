@@ -26,6 +26,9 @@ sequenceDiagram
     SK->>Sp: reads specs/ if it exists
     SK-->>D: phase map + next skill suggestion
 
+    D->>SK: map-codebase
+    SK->>Sp: high-fidelity survey → specs/CONTEXT.md
+
     D->>SK: elaborate-spec
     SK-->>D: refined spec via dialogue (no files written)
 

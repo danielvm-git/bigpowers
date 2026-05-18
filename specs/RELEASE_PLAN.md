@@ -19,22 +19,22 @@ This document outlines the sequential release strategy to address gaps identifie
 
 ## Release Sequence
 
-| Release | Gap | Target Commit Message | Bump | Baseline: `v1.0.0` |
+| Release | Status | Gap | Target Commit Message | Bump |
 | :--- | :--- | :--- | :--- | :--- |
-| **v1.1.0** | N/A | `feat(compliance): enforce Conventional Commits and SemVer in CONVENTIONS.md` | Minor | New Version: `v1.1.0` |
-| **v1.2.0** | GSD | `feat(survey): introduce map-codebase skill for high-fidelity surveying` | Minor | New Version: `v1.2.0` |
-| **v1.3.0** | GSD | `feat(utility): introduce session-state skill to prevent context rot` | Minor | New Version: `v1.3.0` |
-| **v1.4.0** | #1 | `feat(develop-tdd): add 'Think Before Coding' assumption-surfacing gate` | Minor | New Version: `v1.4.0` |
-| **v1.5.0** | #2 | `feat(skills): implement HARD-GATE callout blocks for critical execution points` | Minor | New Version: `v1.5.0` |
-| **v1.6.0** | #3 | `feat(zoom-out): introduce zoom-out utility skill` | Minor | New Version: `v1.6.0` |
-| **v1.7.0** | #4 | `feat(develop-tdd): append 'red flags' table for common agent rationalizations` | Minor | New Version: `v1.7.0` |
-| **v1.8.0** | #5 | `feat(terse-mode): extend terse-mode with caveman token-reduction rules` | Minor | New Version: `v1.8.0` |
-| **v1.9.0** | #6 | `feat(audit-code): add 'Surgical Changes' diff check` | Minor | New Version: `v1.9.0` |
-| **v1.10.0** | #7 | `feat(handoff): introduce handoff utility skill` | Minor | New Version: `v1.10.0` |
-| **v1.11.0** | #8 | `feat(architecture): introduce improve-codebase-architecture sustain skill` | Minor | New Version: `v1.11.0` |
-| **v1.12.0** | #9 | `feat(audit-code): integrate agent-readability lens checklist` | Minor | New Version: `v1.12.0` |
-| **v1.13.0** | #12 | `feat(audit-code): add Clean Code heuristics reference catalog` | Minor | New Version: `v1.13.0` |
-| **v1.14.0** | #13 | `feat(integrations): introduce to-issues and triage skills for tracker sync` | Minor | New Version: `v1.14.0` |
+| **v1.1.0** | ✅ | N/A | `feat(compliance): enforce Conventional Commits and SemVer in CONVENTIONS.md` | Minor |
+| **v1.2.0** | ✅ | GSD | `feat(survey): introduce map-codebase skill for high-fidelity surveying` | Minor |
+| **v1.3.0** | ⏳ | GSD | `feat(utility): introduce session-state skill to prevent context rot` | Minor |
+| **v1.4.0** | ⏳ | #1 | `feat(develop-tdd): add 'Think Before Coding' assumption-surfacing gate` | Minor |
+| **v1.5.0** | ⏳ | #2 | `feat(skills): implement HARD-GATE callout blocks for critical execution points` | Minor |
+| **v1.6.0** | ⏳ | #3 | `feat(zoom-out): introduce zoom-out utility skill` | Minor |
+| **v1.7.0** | ⏳ | #4 | `feat(develop-tdd): append 'red flags' table for common agent rationalizations` | Minor |
+| **v1.8.0** | ⏳ | #5 | `feat(terse-mode): extend terse-mode with caveman token-reduction rules` | Minor |
+| **v1.9.0** | ⏳ | #6 | `feat(audit-code): add 'Surgical Changes' diff check` | Minor |
+| **v1.10.0** | ⏳ | #7 | `feat(handoff): introduce handoff utility skill` | Minor |
+| **v1.11.0** | ⏳ | #8 | `feat(architecture): introduce improve-codebase-architecture sustain skill` | Minor |
+| **v1.12.0** | ⏳ | #9 | `feat(audit-code): integrate agent-readability lens checklist` | Minor |
+| **v1.13.0** | ⏳ | #12 | `feat(audit-code): add Clean Code heuristics reference catalog` | Minor |
+| **v1.14.0** | ⏳ | #13 | `feat(integrations): introduce to-issues and triage skills for tracker sync` | Minor |
 
 ---
 

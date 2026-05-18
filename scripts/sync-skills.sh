@@ -89,9 +89,12 @@ for skill_dir in "$REPO_ROOT"/*/; do
 done
 
 # Assemble final gemini-extension.json
+pkg_version=$(grep '"version":' "$REPO_ROOT/package.json" | sed 's/.*: "\(.*\)".*/\1/')
+pkg_desc=$(grep '"description":' "$REPO_ROOT/package.json" | sed 's/.*: "\(.*\)".*/\1/')
+
 jq -n --arg name "bigpowers" \
-      --arg version "1.0.0" \
-      --arg desc "39 agent skills for production-ready, TDD-driven software by solo developers" \
+      --arg version "$pkg_version" \
+      --arg desc "$skill_count+ $pkg_desc" \
       '{name: $name, version: $version, description: $desc}' > "$GEMINI_MANIFEST"
 
 echo "sync-skills: $skill_count skills synced"
