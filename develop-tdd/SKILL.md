@@ -128,7 +128,9 @@ After every behavior cycle, run the verify command from `specs/PLAN.md` if one e
 
 ```
 [ ] Test describes behavior, not implementation
-[ ] Test uses public interface only
+[ ] No test is ignored without an explicit ambiguity note (T4)
+[ ] Boundary conditions tested: empty, max, min, off-by-one (T5)
+[ ] Tests verify behavior through public interface only — no private methods (T8)
 [ ] Test would survive internal refactor
 [ ] Code is minimal for this test
 [ ] No speculative features added

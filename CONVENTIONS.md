@@ -76,6 +76,7 @@ Every skill that produces written output writes to `specs/` at the project root:
 - Every new function gets a test. Every bug fix gets a regression test.
 - Mocks for external I/O are named fake classes, not inline stubs.
 - Tests are **F**ast, **I**ndependent, **R**epeatable, **S**elf-Validating, **T**imely.
+- Never skip or @ignore a test without an explicit ambiguity note explaining what is unresolved (T4); silently ignored tests are prohibited.
 - Test boundary conditions (T5): every suite must cover exact edge values — empty input, maximum, minimum, and off-by-one.
 - Test through public interfaces only (T8): assert on observable outcomes (return values, API responses, UI state). Never assert on internal state or private methods.
 - Every change must be verifiable with a single runnable command before it is marked done.

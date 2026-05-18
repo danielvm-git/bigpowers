@@ -3,8 +3,10 @@ Feature: Akita Compliance (Clean Code for AI Agents)
   I want my code to be agent-friendly
   So that future agents can easily read and navigate it
 
-  Scenario: Agent-Friendly Code Structure
+  Background:
     Given a project with bigpowers conventions
+
+  Scenario: Agent-Friendly Code Structure
     Then functions should be small (4-20 lines)
     And each module should follow the Single Responsibility Principle
     And names should be meaningful and unique
@@ -20,7 +22,6 @@ Feature: Akita Compliance (Clean Code for AI Agents)
     And there should be no redundant comments that restate code
 
   Scenario: Agent-Friendly Navigation and Self-Correction
-    Given a project with bigpowers conventions
     Then public symbols should be unique enough to be searched with 'grep' (< 5 results)
     And filenames should accurately describe their contents to minimize 'read_file' calls
     And error messages should include a "remediation hint" for the agent

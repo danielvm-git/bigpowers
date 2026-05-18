@@ -3,12 +3,12 @@
 ## Current Milestone
 
 Remediating audit compliance gaps release by release (v1.14.0 → v1.21.0).
-Next up: v1.15.0 — Superpowers Gates.
+Next up: v1.17.0 — Guardrails.
 
 ## Git Metadata
 
 - **Branch**: main
-- **Hash**: 6207082
+- **Hash**: TBD (post-commit)
 
 ## Completed Releases
 
@@ -19,12 +19,13 @@ Next up: v1.15.0 — Superpowers Gates.
 - [x] v1.13.0 — Harness falsification suites + `npm run compliance`
 - [x] v1.13.1 — execute-plan + plan-work: PLAN.md → RELEASE-PLAN.md fix
 - [x] v1.14.0 — Karpathy behavioral mandates: interpretations gate, loop-until-correct, complexity pushback; 10 evidence scripts (karpathy.feature 10/10 PASS)
+- [x] v1.15.0 — Superpowers gates: mandatory session bootstrap in CLAUDE.md, red-flag self-check in plan-work + audit-code, 94% merge threshold in request-review
+
+- [x] v1.16.0 — Testing mandates: T4/T5/T8 in CONVENTIONS.md + develop-tdd checklist, Background: blocks in cleancode + akita features; +3 PASS (5→8)
 
 ## Pending Releases
 
-- [ ] v1.15.0 — Superpowers gates (session bootstrap, red-flag self-check, 94% threshold) — plan: `specs/PLAN-v1.15.0.md`
-- [ ] v1.16.0 — Testing mandates (T4/T5/T8 in develop-tdd, Background: blocks) — plan: `specs/PLAN-v1.16.0.md`
-- [ ] v1.17.0 — Guardrails: zoom-out mandate, surgical changes discipline
+- [ ] v1.17.0 — Guardrails: zoom-out mandate, surgical changes discipline ← **next**
 - [ ] v1.18.0 — BMAD lifecycle + issue tracker integration
 - [ ] v1.19.0 — Taxonomy metadata (type/context fields, provenance links)
 - [ ] v1.20.0 — Architectural complexity (Demeter, concurrency, module depth)
@@ -53,4 +54,6 @@ Next up: v1.15.0 — Superpowers Gates.
 | v1.12.0 baseline | ~75% (67/89) | First measured score |
 | v1.12.1 | ~84% (~75/89) | +8 from CONVENTIONS.md heuristics |
 | v1.14.0 | ~87% (~77/89) | +2 from karpathy.feature (10/10 PASS) |
-| v1.16.0 target | ~93% (~83/89) | After superpowers + testing mandates |
+| v1.15.0 | ~90–91% (~80–81/89) | +3–4 from superpowers.feature gates |
+| v1.16.0 | ~93% (~83/89) | +3 from cleancode.feature T4/T5/T8 (5→8 PASS) |
+| v1.17.0 target | ~96% (~85/89) | After guardrails |

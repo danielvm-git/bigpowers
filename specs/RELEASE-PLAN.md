@@ -2,7 +2,7 @@
 
 This document outlines the sequential strategy for building our model-judged compliance infrastructure and remediating codebase quality gaps.
 
-Current audit score: **~87% (~77/89)** — estimated post-v1.14.0, Claude-judged, 2026-05-18.
+Current audit score: **~93% (~83/89)** — estimated post-v1.16.0, Claude-judged, 2026-05-18.
 
 ## Release Sequence
 
@@ -16,8 +16,8 @@ Ordered by WSJF: (Business Value + Time Criticality + Risk Reduction) / Job Size
 | **v1.13.0** | ✅ | 7.3 | Harness | Falsification suites + `npm run compliance` integration | Minor |
 | **v1.13.1** | ✅ | — | Skills | Fix execute-plan + plan-work: PLAN.md → RELEASE-PLAN.md | Patch |
 | **v1.14.0** | ✅ | 5.0 | Karpathy | Behavioral mandates: ambiguity handling, loop-until-correct, pushback | Minor |
-| **v1.15.0** | ⏳ | 4.2 | Superpowers | Auto bootstrap, red-flag detection, quality threshold gate | Minor |
-| **v1.16.0** | ⏳ | 3.8 | Testing | F.I.R.S.T mandates: T4/T5/T8 explicit, Background: pre-conditions | Minor |
+| **v1.15.0** | ✅ | 4.2 | Superpowers | Auto bootstrap, red-flag detection, quality threshold gate | Minor |
+| **v1.16.0** | ✅ | 3.8 | Testing | F.I.R.S.T mandates: T4/T5/T8 explicit, Background: pre-conditions | Minor |
 | **v1.17.0** | ⏳ | 3.2 | Guardrails | "Zoom-out" before modify + surgical-changes discipline | Minor |
 | **v1.18.0** | ⏳ | 2.8 | Lifecycle | BMAD phase model (discover → sustain) + issue tracker integration | Minor |
 | **v1.19.0** | ⏳ | 2.1 | Taxonomy | Metadata standards: Provenance, Type, Context in plans | Minor |
@@ -67,15 +67,15 @@ Added to CONVENTIONS.md:
 - `execute-plan`: behavioral correctness note — mechanical green ≠ behaviorally correct.
 - 10 evidence scripts added to `specs/audit/steps/` for karpathy.feature.
 
-### v1.15.0: Superpowers Gates (WSJF 4.2) ⏳
-*Audit gaps fixed: 4 superpowers.feature fails.*
+### v1.15.0: Superpowers Gates (WSJF 4.2) ✅
+*Shipped 3cdd81a. Audit gaps fixed: superpowers.feature gates.*
 
 - **Auto bootstrap**: make session-state loading mandatory at session start — add to CLAUDE.md as a required first step, not opt-in.
 - **Red-flag detection**: add a "red flag" self-check to `plan-work` and `audit-code` — agent must name any rationalization for skipping a gate.
 - **94% quality threshold**: define a numeric quality score in `request-review` output; set 94% as the merge gate threshold.
 
-### v1.16.0: Testing Mandates (WSJF 3.8) ⏳
-*Audit gaps fixed: 3 cleancode.feature testing fails.*
+### v1.16.0: Testing Mandates (WSJF 3.8) ✅
+*Shipped. cleancode.feature Professional Testing: +3 PASS (T4/T5/T8). Total: 5→8 PASS.*
 
 - **T4 (Ignored Tests)**: add explicit prohibition on ignored tests without ambiguity note — to CONVENTIONS.md and `develop-tdd`.
 - **T5 (Boundary Conditions)**: mandate boundary testing in `develop-tdd` checklist and CONVENTIONS.md.
