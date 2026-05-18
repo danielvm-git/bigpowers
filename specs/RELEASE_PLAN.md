@@ -81,34 +81,34 @@ This document outlines the sequential release strategy to address gaps identifie
 
 ---
 
-### v1.10.0: "Think Before Coding" Gate
+### v1.12.0: "Think Before Coding" Gate
 - **Target:** `develop-tdd/SKILL.md`
 - **Change:** Add a mandatory step in the Research/Strategy phase to surface assumptions and interpret the request in 2-3 ways before writing any code.
 
-### v1.11.0: `zoom-out` Utility
+### v1.13.0: `zoom-out` Utility
 - **Target:** `zoom-out/SKILL.md` (New)
 - **Change:** Create a skill that requires the agent to explain the target code's purpose and relationships within the broader system *before* modifying it.
 
-### v1.13.0: Caveman Terse Mode
+### v1.15.0: Caveman Terse Mode
 - **Target:** `terse-mode/SKILL.md`
 - **Change:** Add rules for dropping articles (the, a, an), filler language, and aggressive token compression.
 
-### v1.14.0: Surgical Changes Audit
+### v1.16.0: Surgical Changes Audit
 - **Target:** `audit-code/SKILL.md`
 - **Change:** Add a checklist item verifying that the diff is "surgical"—affecting only the necessary files and lines for the task.
 
-### v1.15.0: `handoff` Utility
+### v1.17.0: `handoff` Utility
 - **Target:** `handoff/SKILL.md` (New)
 - **Change:** Create a skill to compact the current session state into a concise document for a "cold-start" by a subsequent agent.
 
-### v1.16.0: `improve-codebase-architecture` Skill
+### v1.18.0: `improve-codebase-architecture` Skill
 - **Target:** `improve-codebase-architecture/SKILL.md` (New)
 - **Change:** Implement an audit skill based on John Ousterhout's "A Philosophy of Software Design" (module depth vs. interface breadth).
 
-### v1.17.0: Clean Code Heuristics Catalog
+### v1.19.0: Clean Code Heuristics Catalog
 - **Target:** `audit-code/HEURISTICS.md` (New)
 - **Change:** A comprehensive reference of Martin's heuristics (G1-G35, etc.) linked from `audit-code/SKILL.md`.
 
-### v1.18.0: Issue Tracker Integration
+### v1.20.0: Issue Tracker Integration
 - **Target:** `to-issues/SKILL.md`, `triage/SKILL.md` (New)
 - **Change:** Skills for syncing `specs/*.md` artifacts with GitHub/Linear issue trackers.

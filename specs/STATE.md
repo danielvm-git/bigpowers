@@ -14,7 +14,9 @@ Closing the "Meta-Task" loophole and restoring planning discipline after the v1.
 - [x] Update `develop-tdd/SKILL.md` to strengthen the "No Plan = No Code" gate
 - [x] Run `sync-skills.sh` to propagate changes
 - [x] Plan v1.9.0 (Git-Worktree Lifecycle Hardening)
-- [ ] Implement v1.9.0 (Harden kickoff/release and cleanup script)
+- [x] Implement v1.9.0 (Harden kickoff/release and cleanup script)
+- [x] Plan v1.10.0 (Agentic Gherkin Compliance Harness)
+- [ ] Implement v1.10.0 (Agentic Gherkin Compliance Harness)
 
 ## Active Decisions
 - **Decision: Retroactive Plans**: We will create one consolidated plan for the skipped versions to avoid polluting `specs/` while maintaining a complete audit trail.
