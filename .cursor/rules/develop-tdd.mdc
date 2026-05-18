@@ -80,8 +80,9 @@ Apply the **enforce-first** F.I.R.S.T rubric when writing tests: Fast, Independe
 Write ONE test that confirms ONE thing about the system:
 
 ```
-RED:   Write test for first behavior → test fails
-GREEN: Write minimal code to pass → test passes
+RED:    Write test for first behavior → test fails
+GREEN:  Write minimal code to pass → test passes
+COMMIT: git commit -m "feat/fix(<scope>): first tracer bullet..."
 ```
 
 This is your tracer bullet — proves the path works end-to-end.
@@ -91,8 +92,9 @@ This is your tracer bullet — proves the path works end-to-end.
 For each remaining behavior:
 
 ```
-RED:   Write next test → fails
-GREEN: Minimal code to pass → passes
+RED:    Write next test → fails
+GREEN:  Minimal code to pass → passes
+COMMIT: git commit -m "<type>(<scope>): <behavior description>"
 ```
 
 Rules:
@@ -101,6 +103,7 @@ Rules:
 - Only enough code to pass current test
 - Don't anticipate future tests
 - Keep tests focused on observable behavior
+- **Atomic Commits**: Commit after every GREEN phase to record progress and prevent large diffs.
 
 ### 4. Refactor
 
@@ -126,6 +129,7 @@ After every behavior cycle, run the verify command from `specs/PLAN.md` if one e
 [ ] Test would survive internal refactor
 [ ] Code is minimal for this test
 [ ] No speculative features added
+[ ] Progress committed (Conventional Commits)
 [ ] verify: command passes
 ```
 

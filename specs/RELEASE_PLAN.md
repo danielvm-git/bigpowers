@@ -33,7 +33,7 @@ This document outlines the sequential release strategy to address gaps identifie
 | **v1.3.0** | ✅ | GSD | `feat(utility): introduce session-state and harden process gates` | Minor |
 | **v1.4.0** | ✅ | GSD | `feat(guard): implement PreToolUse hook for Conventional Commits & main-branch protection` | Minor |
 | **v1.5.0** | ✅ | #2 | `feat(skills): implement HARD-GATE callout blocks for critical execution points` | Minor |
-| **v1.6.0** | ⏳ | GSD | `feat(develop-tdd): bake 'Commit-on-Green' requirement into the TDD loop` | Minor |
+| **v1.6.0** | ✅ | GSD | `feat(develop-tdd): bake 'Commit-on-Green' requirement into the TDD loop` | Minor |
 | **v1.7.0** | ✅ | #4 | `feat(develop-tdd): append 'red flags' table for common agent rationalizations` | Minor |
 | **v1.8.0** | ⏳ | GSD | `feat(session-state): sync git branch/hash automatically in specs/STATE.md` | Minor |
 | **v1.9.0** | ⏳ | GSD | `feat(kickoff): harden git-worktree lifecycle and automated cleanup` | Minor |
