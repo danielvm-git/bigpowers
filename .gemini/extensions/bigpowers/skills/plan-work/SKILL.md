@@ -18,6 +18,13 @@ Before writing the plan, check if `define-success` has been run. If the task's s
 
 Read any existing `specs/` files: RELEASE-PLAN.md, SCOPE.md, TASKS.md, CONTEXT.md, UBIQUITOUS_LANGUAGE.md.
 
+> **ZOOM-OUT MANDATE** (v1.17.0 Guardrails) — If this plan modifies an existing module, function, or behavior:
+> 1. State the module's **purpose** — what is it responsible for?
+> 2. Name the **callers** — who depends on it?
+> 3. List the **contracts** — what invariants or interfaces must be preserved?
+> 
+> If you cannot answer all three without deep code archaeology, the scope is misunderstood. Stop and clarify with the user before writing steps.
+
 If this plan touches an existing module or symbol, run `assess-impact` first to understand the blast radius before writing steps.
 
 **Multiple interpretations**: if the task statement admits ≥2 valid interpretations, list them and get a decision from the user before drafting any steps.

@@ -24,6 +24,7 @@ Run this self-review before asking anyone else to look at the code. The goal is 
 - [ ] Changes are limited to what was asked — nothing extra refactored or reorganized
 - [ ] No speculative features added
 - [ ] No files touched outside the stated scope
+- [ ] Changes are surgical: only code strictly required for the task; no refactoring, reorganization, or cleanup outside task scope (Boy Scout Rule applied surgically, not broadly)
 
 ### Boy Scout Rule
 
