@@ -113,6 +113,9 @@ commands:
   - name: validate-fix
     description: "Prove a fix works before declaring done — re-run the failing test, run the full suite, typecheck, lint, and harden against recurrence. Use after implementing a bug fix, when user says "is this fixed?", or before closing an investigation."
     prompt_file: commands/validate-fix.md
+  - name: visual-dashboard
+    description: "Start a browser-based dashboard that visualizes architecture, implementation plans, and project status. Use when showing complex diagrams, progress roadmaps, or UI mockups would be clearer than text. Persists artifacts in .bigpowers/dashboard/."
+    prompt_file: commands/visual-dashboard.md
   - name: wire-observability
     description: "Add structured JSON logging, observability commands, and idempotent setup scripts to a project. Use when a project needs production-readiness instrumentation, when user wants structured logging, or as a production-readiness gate at any phase of development."
     prompt_file: commands/wire-observability.md

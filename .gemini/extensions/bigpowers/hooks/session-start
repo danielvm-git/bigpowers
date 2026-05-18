@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+# session-start hook for bigpowers
+
+set -euo pipefail
+
+# 1. Find the project root (contains scripts/ and .gemini/)
+FIND_ROOT="$(cd "$(dirname "$0")" && pwd)"
+while [[ "$FIND_ROOT" != "/" && ! -d "$FIND_ROOT/scripts" ]]; do
+  FIND_ROOT="$(dirname "$FIND_ROOT")"
+done
+
+if [[ ! -d "$FIND_ROOT/scripts" ]]; then
+  # Fallback to a relative guess if we can't find it by walking up
+  SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+  FIND_ROOT="$(cd "${SCRIPT_DIR}/../../.." && pwd)"
+fi
+
+# 2. Run the project survey
+survey_content=$("${FIND_ROOT}/scripts/project-survey.sh" 2>&1 || echo "Error running project survey at ${FIND_ROOT}")
+
+# 3. Read the Bigpowers bootstrap skill
+bootstrap_content=$(cat "${FIND_ROOT}/.gemini/extensions/bigpowers/commands/using-bigpowers.md" 2>/dev/null || echo "Bigpowers skills system active.")
+
+# Escape string for JSON embedding
+escape_for_json() {
+    local s="$1"
+    s="${s//\\/\\\\}"
+    s="${s//\"/\\\"}"
+    s="${s//$'\n'/\\n}"
+    s="${s//$'\r'/\\r}"
+    s="${s//$'\t'/\\t}"
+    printf '%s' "$s"
+}
+
+survey_escaped=$(escape_for_json "$survey_content")
+bootstrap_escaped=$(escape_for_json "$bootstrap_content")
+
+# Combined context
+session_context="<BIGPOWERS_BOOTSTRAP>\n${survey_escaped}\n\n---\n\n${bootstrap_escaped}\n</BIGPOWERS_BOOTSTRAP>"
+
+# Output based on platform
+if [ -n "${CURSOR_PLUGIN_ROOT:-}" ]; then
+  printf '{\n  "additional_context": "%s"\n}\n' "$session_context"
+elif [ -n "${CLAUDE_PLUGIN_ROOT:-}" ] && [ -z "${COPILOT_CLI:-}" ]; then
+  printf '{\n  "hookSpecificOutput": {\n    "hookEventName": "SessionStart",\n    "additionalContext": "%s"\n  }\n}\n' "$session_context"
+else
+  printf '{\n  "additionalContext": "%s"\n}\n' "$session_context"
+fi
