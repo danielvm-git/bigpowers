@@ -1,11 +1,12 @@
 {
   "name": "bigpowers",
-  "version": "1.12.0",
+  "version": "1.13.0",
   "description": "agent skills for spec-driven, test-first software development by solo developers.",
   "main": "index.js",
   "scripts": {
     "sync": "bash scripts/sync-skills.sh",
-    "install": "bash scripts/install.sh"
+    "install": "bash scripts/install.sh",
+    "compliance": "bash scripts/audit-compliance.sh"
   },
   "keywords": [
     "ai",
