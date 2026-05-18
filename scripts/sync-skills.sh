@@ -6,17 +6,22 @@ set -euo pipefail
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 CURSOR_RULES="$REPO_ROOT/.cursor/rules"
 GEMINI_COMMANDS="$REPO_ROOT/.gemini/extensions/bigpowers/commands"
-GEMINI_EXT="$REPO_ROOT/.gemini/extensions/bigpowers/gemini_extension.yaml"
+REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+CURSOR_RULES="$REPO_ROOT/.cursor/rules"
+GEMINI_EXT_DIR="$REPO_ROOT/.gemini/extensions/bigpowers"
+GEMINI_SKILLS="$GEMINI_EXT_DIR/skills"
+GEMINI_COMMANDS="$GEMINI_EXT_DIR/commands"
+GEMINI_MANIFEST="$GEMINI_EXT_DIR/gemini-extension.json"
 
-mkdir -p "$CURSOR_RULES" "$GEMINI_COMMANDS"
+mkdir -p "$CURSOR_RULES" "$GEMINI_SKILLS" "$GEMINI_COMMANDS"
 
-# Start fresh gemini_extension.yaml
-cat > "$GEMINI_EXT" <<'YAML_HEADER'
-name: bigpowers
-version: 1.0.0
-description: "37 agent skills for production-ready, TDD-driven software by solo developers"
-commands:
-YAML_HEADER
+# Clear old artifacts to ensure a clean sync
+rm -rf "${GEMINI_SKILLS:?}"/*
+rm -rf "${GEMINI_COMMANDS:?}"/*
+
+# We'll collect metadata for the manifest if needed, 
+# though skills/commands are auto-discovered.
+# Manifest is still good for extension-level name/version.
 
 skill_count=0
 
@@ -34,10 +39,8 @@ for skill_dir in "$REPO_ROOT"/*/; do
   [[ -z "$name" ]] && continue
 
   # Build concatenated content: SKILL.md body + all other *.md files alphabetically
-  body=""
   # Strip frontmatter from SKILL.md (content between second --- and EOF)
-  skill_body=$(awk '/^---/{f++; next} f>=2{print}' "$skill_md")
-  body="$skill_body"
+  body=$(awk '/^---/{f++; next} f>=2{print}' "$skill_md")
 
   for extra_md in $(find "$skill_dir" -maxdepth 1 -name "*.md" ! -name "SKILL.md" | sort); do
     body="$body"$'\n\n'"---"$'\n\n'"$(cat "$extra_md")"
@@ -46,7 +49,7 @@ for skill_dir in "$REPO_ROOT"/*/; do
   # Strip disable-model-invocation lines
   body=$(echo "$body" | grep -v 'disable-model-invocation')
 
-  # Write .cursor/rules/<name>.mdc
+  # 1. Write .cursor/rules/<name>.mdc
   cursor_file="$CURSOR_RULES/$name.mdc"
   {
     echo "---"
@@ -57,20 +60,42 @@ for skill_dir in "$REPO_ROOT"/*/; do
     echo "$body"
   } > "$cursor_file"
 
-  # Write .gemini/extensions/bigpowers/commands/<name>.md
-  echo "$body" > "$GEMINI_COMMANDS/$name.md"
-
-  # Append to gemini_extension.yaml
+  # 2. Write Gemini Agent Skill: .gemini/extensions/bigpowers/skills/<name>/SKILL.md
+  mkdir -p "$GEMINI_SKILLS/$name"
   {
-    echo "  - name: $name"
-    echo "    description: \"$description\""
-    echo "    prompt_file: commands/$name.md"
-  } >> "$GEMINI_EXT"
+    echo "---"
+    echo "name: $name"
+    echo "description: \"$description\""
+    echo "---"
+    echo ""
+    echo "$body"
+  } > "$GEMINI_SKILLS/$name/SKILL.md"
+
+  # 3. Write Gemini Slash Command: .gemini/extensions/bigpowers/commands/<name>.toml
+  # We use a dedicated prompt file to keep the TOML clean
+  mkdir -p "$GEMINI_COMMANDS/prompts"
+  prompt_file="commands/prompts/$name.md"
+  echo "$body" > "$GEMINI_EXT_DIR/$prompt_file"
+  
+  # Escape double quotes and backslashes for TOML
+  description_toml=$(echo "$description" | sed 's/\\/\\\\/g; s/"/\\"/g')
+  
+  {
+    echo "description = \"$description_toml\""
+    echo "prompt = \"@{$prompt_file}\""
+  } > "$GEMINI_COMMANDS/$name.toml"
 
   skill_count=$((skill_count + 1))
 done
 
+# Assemble final gemini-extension.json
+jq -n --arg name "bigpowers" \
+      --arg version "1.0.0" \
+      --arg desc "39 agent skills for production-ready, TDD-driven software by solo developers" \
+      '{name: $name, version: $version, description: $desc}' > "$GEMINI_MANIFEST"
+
 echo "sync-skills: $skill_count skills synced"
 echo "  → .cursor/rules/ ($skill_count .mdc files)"
-echo "  → .gemini/extensions/bigpowers/commands/ ($skill_count .md files)"
-echo "  → .gemini/extensions/bigpowers/gemini_extension.yaml"
+echo "  → .gemini/extensions/bigpowers/skills/ (Agent Skills)"
+echo "  → .gemini/extensions/bigpowers/commands/ (Slash Commands)"
+echo "  → .gemini/extensions/bigpowers/gemini-extension.json"

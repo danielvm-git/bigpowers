@@ -1,39 +1,44 @@
-# [Project Name] — Gemini CLI
+# bigpowers — Gemini CLI
 
 Read CONVENTIONS.md before any GitHub or git operation.
 
 ## Project
 
-[One sentence. What this codebase does.]
-Stack: [language, framework, runtime]
+bigpowers — 38+ agent skills for spec-driven, test-first software development by solo developers.
+Stack: Markdown / Bash (documentation-based; skills integrate with Claude Code, Cursor, Gemini CLI)
 
 ## Commands
 
 | Action | Command |
 |--------|---------|
-| Run    | `[cmd]` |
-| Test   | `[cmd]` |
-| Build  | `[cmd]` |
-| Lint   | `[cmd]` |
+| Run    | `bash scripts/sync-skills.sh` |
+| Test   | N/A (documentation project) |
+| Build  | `bash scripts/install.sh` |
+| Lint   | `bash scripts/sync-skills.sh` (validates SKILL.md syntax) |
 
 ## Architecture
 
-[1–2 sentences. Key modules and their relationships.]
+Collection of 38+ verb-noun skills, each with a SKILL.md source file and supporting documentation. The sync-skills.sh script auto-generates artifacts for Cursor (.cursor/rules) and Gemini CLI (.gemini/extensions/bigpowers/) from SKILL.md sources. All planning and spec output goes to specs/ at the project root.
 
 ## Conventions
 
-- [e.g. Named exports only]
-- [e.g. All queries go through the repository layer]
+- Skill directories use verb-noun naming (two words, kebab-case)
+- Every skill has a single SKILL.md file as its source of truth
+- All planning/spec output goes to specs/ at project root
+- Artifacts in .cursor/rules and .gemini/ are auto-generated; edit SKILL.md, not artifacts
+- Run sync-skills.sh after any SKILL.md changes to regenerate artifacts
 
 ## Never
 
-- [Hard stop — e.g. Never touch legacy/]
-- [Hard stop — e.g. Never run seed in production]
+- Never edit .cursor/rules or .gemini/extensions/ directly — these are generated files
+- Never create a skill without a SKILL.md file and proper verb-noun naming
+- Never push changes without running sync-skills.sh first
 
 ## Agent Rules
 
 - Read specs/ and CONVENTIONS.md before writing code.
 - Write the minimum code that solves the stated problem. Nothing extra.
-- Never refactor outside the task scope.
+- Never refactor, rename, or reorganize code outside the task scope.
 - Run tests after every change. Show evidence before declaring done.
+- One clarifying question beats a wrong assumption baked into 200 lines.
 - All written output (plans, specs, investigations) goes in specs/.

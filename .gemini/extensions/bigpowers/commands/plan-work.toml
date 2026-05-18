@@ -1,0 +1,2 @@
+description = "Write a detailed implementation plan to specs/PLAN.md. Every step must include a runnable verify command (Karpathy verification template). Use when user has a task to implement and needs a step-by-step plan with evidence checkpoints, or after slice-tasks produces specs/TASKS.md."
+prompt = "@{commands/prompts/plan-work.md}"

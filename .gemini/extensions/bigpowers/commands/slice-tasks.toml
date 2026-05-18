@@ -1,0 +1,2 @@
+description = "Break a plan, spec, or PRD into independently-grabbable tasks using tracer-bullet vertical slices. Saves to specs/TASKS.md. Use when user wants to convert a plan into tasks, create implementation tickets, or break down work into slices."
+prompt = "@{commands/prompts/slice-tasks.md}"

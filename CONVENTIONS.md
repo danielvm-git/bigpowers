@@ -73,7 +73,10 @@ Every skill that produces written output writes to `specs/` at the project root:
 - Structured JSON for debugging / observability.
 - Plain text only for user-facing CLI output.
 
-## Defensive Code (project must list which categories apply)
+## Defensive Code
 
-- Rate limit | Retry with backoff | Circuit breaker | Timeout | Graceful degradation
-- The agent implements defensive code only for categories explicitly listed here.
+- Retry with backoff (for API/network calls in skill implementations)
+- Timeout (for long-running operations)
+- Graceful degradation (when external services/dependencies fail)
+
+The agent implements defensive code only for categories explicitly listed here.

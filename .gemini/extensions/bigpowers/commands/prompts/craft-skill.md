@@ -1,7 +1,3 @@
----
-name: craft-skill
-description: Create new bigpowers skills with proper structure, progressive disclosure, and bundled resources. Use when user wants to create, write, or build a new skill for the bigpowers lifecycle.
----
 
 # Craft Skill
 
@@ -49,10 +45,8 @@ skill-name/
 ## SKILL.md Template
 
 ```md
----
 name: skill-name
 description: Brief description of capability. Use when [specific triggers].
----
 
 # Skill Name
 

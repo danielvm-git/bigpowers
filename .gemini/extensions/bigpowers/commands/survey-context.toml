@@ -1,0 +1,2 @@
+description = "Per-task context survey — reads specs/ and CONVENTIONS.md, maps the current lifecycle phase, and suggests the next skill to invoke. Use at the start of any new task, when returning to a project after a break, or when unsure what to do next."
+prompt = "@{commands/prompts/survey-context.md}"

@@ -1,0 +1,2 @@
+description = "Stress-test a plan's assumptions by grounding every challenge in real library or API documentation URLs. Prevents hallucinated API usage before it gets into code. Use when the plan depends on a specific library or external API, when user wants to validate assumptions against real docs, or as a variant of grill-me for doc-grounded challenges."
+prompt = "@{commands/prompts/grill-with-docs.md}"

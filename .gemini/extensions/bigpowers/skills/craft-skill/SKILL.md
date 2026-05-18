@@ -1,3 +1,8 @@
+---
+name: craft-skill
+description: "Create new bigpowers skills with proper structure, progressive disclosure, and bundled resources. Use when user wants to create, write, or build a new skill for the bigpowers lifecycle."
+---
+
 
 # Craft Skill
 
@@ -100,8 +105,10 @@ If the skill produces written output, it goes in `specs/` at the project root. D
 
 After adding a new skill directory with SKILL.md, run `scripts/sync-skills.sh` from the bigpowers repo root. This automatically generates:
 - `.cursor/rules/<name>.mdc` — for Cursor
-- `.gemini/extensions/bigpowers/commands/<name>.md` — for Gemini CLI
-- Updated `gemini_extension.yaml`
+- `.gemini/extensions/bigpowers/skills/<name>/SKILL.md` — Agent Skill
+- `.gemini/extensions/bigpowers/commands/<name>.toml` — Slash Command
+- `.gemini/extensions/bigpowers/commands/prompts/<name>.md` — Command Prompt
+- Updated `gemini-extension.json`
 
 ## Review Checklist
 

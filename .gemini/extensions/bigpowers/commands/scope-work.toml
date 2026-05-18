@@ -1,0 +1,2 @@
+description = "Turn the current conversation context into a PRD and save it as specs/SCOPE.md. Use when user wants to define scope, create a PRD, or produce a spec from the current context."
+prompt = "@{commands/prompts/scope-work.md}"
