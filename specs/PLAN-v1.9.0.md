@@ -4,9 +4,9 @@
 Improve the reliability of `kickoff-branch` and `release-branch` when using `git worktree`. Current implementations are optimistic and don't handle collisions, "ghost" worktrees, or manual directory deletions well.
 
 ## Goals
-- [ ] Prevent `kickoff-branch` from failing due to existing directories or branches.
-- [ ] Ensure `release-branch` can recover from manually deleted worktree directories.
-- [ ] Introduce a standalone cleanup utility for "ghost" worktrees.
+- [x] Prevent `kickoff-branch` from failing due to existing directories or branches.
+- [x] Ensure `release-branch` can recover from manually deleted worktree directories.
+- [x] Introduce a standalone cleanup utility for "ghost" worktrees.
 
 ## Steps
 

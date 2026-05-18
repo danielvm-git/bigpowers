@@ -36,7 +36,7 @@ This document outlines the sequential release strategy to address gaps identifie
 | **v1.6.0** | ✅ | GSD | `feat(develop-tdd): bake 'Commit-on-Green' requirement into the TDD loop` | Minor |
 | **v1.7.0** | ✅ | #4 | `feat(develop-tdd): append 'red flags' table for common agent rationalizations` | Minor |
 | **v1.8.0** | ✅ | GSD | `feat(session-state): sync git branch/hash automatically in specs/STATE.md` | Minor |
-| **v1.9.0** | ⏳ | GSD | `feat(kickoff): harden git-worktree lifecycle and automated cleanup` | Minor |
+| **v1.9.0** | ✅ | GSD | `feat(kickoff): harden git-worktree lifecycle and automated cleanup` | Minor |
 | **v1.10.0** | ⏳ | ALL | `feat(audit): implement agentic gherkin compliance harness` | Minor |
 | **v1.11.0** | ⏳ | ALL | `test(audit): define reference features (Akita, Karpathy, Clean Code, Pocock, BMAD, Super)` | No Bump |
 | **v1.12.0** | ⏳ | #1 | `feat(develop-tdd): add 'Think Before Coding' assumption-surfacing gate` | Minor |

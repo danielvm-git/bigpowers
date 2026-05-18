@@ -82,8 +82,12 @@ gh pr merge --squash --delete-branch
 
 ```bash
 # From the main repo root
-git worktree remove ../<branch-name>
+git worktree prune             # clear stale metadata
+git worktree remove ../<branch-name> 2>/dev/null || true
 git branch -d <branch-name>
 ```
+
+- If `git worktree remove` fails due to uncommitted changes, ask the user: "There are uncommitted changes in the worktree. Force remove? (y/n)". If yes: `git worktree remove -f ../<branch-name>`.
+- If the directory `../<branch-name>` is already missing, `git worktree remove` might fail; the `|| true` ensures the process continues to branch deletion.
 
 Report: "Branch released. PR: <URL>. Worktree cleaned up."

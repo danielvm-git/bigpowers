@@ -27,7 +27,27 @@ git log --oneline -5  # confirm you're on the right base branch
 
 If working tree is dirty, ask the user to stash or commit first.
 
-### 3. Create worktree + branch
+### 3. Pre-flight & Conflict Resolution
+
+Before creating the worktree, verify the target environment is clean:
+
+```bash
+# 1. Check for existing directory
+ls -d ../<task-slug> 2>/dev/null
+
+# 2. Check for existing branch
+git branch --list <task-slug>
+
+# 3. Check for "ghost" worktrees (metadata exists but directory is gone)
+git worktree list | grep "<task-slug>"
+```
+
+**Handling Conflicts:**
+- **Directory exists:** If `../<task-slug>` already exists, ask the user if they want to use it or delete it.
+- **Branch exists:** If the branch exists but no worktree is attached, ask to use the existing branch (`git worktree add ../<task-slug> <task-slug>`) or delete it.
+- **Ghost worktree:** If `git worktree list` shows the path but the directory is missing, run `git worktree prune` to clear the stale metadata.
+
+### 4. Create worktree + branch
 
 ```bash
 # From the main repo root (not another worktree)
