@@ -2,11 +2,10 @@
 
 ## Copy layout
 
-The main script resolves `lib/git-guardrails-core.sh` relative to its own directory. After copy, you should have:
+The main script is `pre-tool-use.sh`.
 
 ```text
-<hooks-dir>/block-dangerous-git.sh
-<hooks-dir>/lib/git-guardrails-core.sh
+<hooks-dir>/pre-tool-use.sh
 ```
 
 Example project locations:
@@ -34,7 +33,7 @@ Hook command does **not** need `GIT_GUARDRAILS_MODE` (defaults to `claude`).
         "hooks": [
           {
             "type": "command",
-            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/block-dangerous-git.sh"
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/pre-tool-use.sh"
           }
         ]
       }
@@ -42,36 +41,14 @@ Hook command does **not** need `GIT_GUARDRAILS_MODE` (defaults to `claude`).
   }
 }
 ```
-
-**Global** (`~/.claude/settings.json`):
-
-```json
-{
-  "hooks": {
-    "PreToolUse": [
-      {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/hooks/block-dangerous-git.sh"
-          }
-        ]
-      }
-    ]
-  }
-}
-```
-
-If `hooks` / `PreToolUse` already exists, **append** this object to the `PreToolUse` array (or merge Bash matcher entries) without removing other hooks.
 
 ---
 
 ## Cursor and Cursor CLI
 
-Use `beforeShellExecution` so stdin includes a top-level `command` field. Set `GIT_GUARDRAILS_MODE=cursor` for explicit mode (behavior matches `claude`: block with exit code `2` and stderr).
+Use `beforeShellExecution`. Set `GIT_GUARDRAILS_MODE=cursor`.
 
-**Project** (`.cursor/hooks.json` at repo root). Hooks run with the project root as cwd, so use a **relative** path to the script:
+**Project** (`.cursor/hooks.json`):
 
 ```json
 {
@@ -79,7 +56,7 @@ Use `beforeShellExecution` so stdin includes a top-level `command` field. Set `G
   "hooks": {
     "beforeShellExecution": [
       {
-        "command": "GIT_GUARDRAILS_MODE=cursor .cursor/hooks/block-dangerous-git.sh",
+        "command": "GIT_GUARDRAILS_MODE=cursor .cursor/hooks/pre-tool-use.sh",
         "matcher": "git"
       }
     ]
@@ -87,17 +64,11 @@ Use `beforeShellExecution` so stdin includes a top-level `command` field. Set `G
 }
 ```
 
-**User** (`~/.cursor/hooks.json`): install scripts under `~/.cursor/hooks/` and reference them as `./hooks/block-dangerous-git.sh` or `hooks/block-dangerous-git.sh` (paths are relative to `~/.cursor/`).
-
-Optional: add `"failClosed": true` if you want the shell action blocked when the hook crashes or times out.
-
-Merge: preserve `version`, other events, and existing `beforeShellExecution` entries.
-
 ---
 
 ## Gemini CLI
 
-Use `BeforeTool` with matcher `run_shell_command`. The hook must set **`GIT_GUARDRAILS_MODE=gemini`** so blocked commands return JSON `{"decision":"deny","reason":"..."}` on stdout (compact, single-line JSON).
+Use `BeforeTool` with matcher `run_shell_command`. Set **`GIT_GUARDRAILS_MODE=gemini`**.
 
 **Project** (`.gemini/settings.json`):
 
@@ -111,7 +82,7 @@ Use `BeforeTool` with matcher `run_shell_command`. The hook must set **`GIT_GUAR
           {
             "name": "git-guardrails",
             "type": "command",
-            "command": "GIT_GUARDRAILS_MODE=gemini \"$GEMINI_PROJECT_DIR\"/.gemini/hooks/block-dangerous-git.sh",
+            "command": "GIT_GUARDRAILS_MODE=gemini \"$GEMINI_PROJECT_DIR\"/.gemini/hooks/pre-tool-use.sh",
             "timeout": 5000
           }
         ]
@@ -121,69 +92,45 @@ Use `BeforeTool` with matcher `run_shell_command`. The hook must set **`GIT_GUAR
 }
 ```
 
-**User** (`~/.gemini/settings.json`): point `command` at `~/.gemini/hooks/block-dangerous-git.sh` with the same `GIT_GUARDRAILS_MODE=gemini` prefix.
-
-Gemini CLI merges settings with project over user; see [Gemini CLI hooks](https://github.com/google-gemini/gemini-cli/blob/main/docs/hooks/reference.md).
-
 ---
 
 ## Google Antigravity
 
-Antigravity does not use this shell hook. Configure the agent in **Antigravity → Settings → Terminal**:
+Add **Deny list** entries in **Antigravity → Settings → Terminal**:
 
-1. Set **Terminal Command Auto Execution** to a mode that respects denials (e.g. avoid full auto-approve if you need guardrails).
-2. Add **Deny list** entries for commands that should never auto-run. Suggested substrings aligned with this skill’s policy:
-
-   - `git push`
-   - `git push --force`
-   - `git reset --hard`
-   - `git clean`
-   - `git branch -D`
-   - `git checkout .`
-   - `git restore .`
-
-Adjust to match how your build splits or validates command strings. See [Google’s Antigravity getting started / security](https://codelabs.developers.google.com/getting-started-google-antigravity).
+- `git push`
+- `git push --force`
+- `git reset --hard`
+- `git clean`
+- `git branch -D`
+- `git checkout .`
+- `git restore .`
 
 ---
 
 ## Verify (local tests)
 
-From the directory that contains `block-dangerous-git.sh` (or pass the full path to the script):
-
-**Claude-shaped input (expect stderr + exit 2):**
-
+**1. Dangerous Pattern (Claude mode):**
 ```bash
-echo '{"tool_input":{"command":"git push origin main"}}' | ./block-dangerous-git.sh || true
+echo '{"tool_input":{"command":"git push origin main"}}' | ./pre-tool-use.sh
+# Expected: exit 2, stderr message
 ```
 
-**Cursor-shaped input (expect exit 2 on block):**
-
+**2. Conventional Commits (Gemini mode):**
 ```bash
-echo '{"command":"git push"}' | GIT_GUARDRAILS_MODE=cursor ./block-dangerous-git.sh || true
+echo '{"tool_input":{"command":"git commit -m \"bad message\""}}' | GIT_GUARDRAILS_MODE=gemini ./pre-tool-use.sh
+# Expected: exit 0, {"decision":"deny", "reason":"..."}
 ```
 
-**Allow (expect exit 0, no stderr for claude/cursor):**
-
+**3. Protected Branch (Cursor mode):**
 ```bash
-echo '{"tool_input":{"command":"git status"}}' | ./block-dangerous-git.sh; echo "exit=$?"
+# Run on 'main' branch
+echo '{"command":"git commit -m \"feat: valid message\""}' | GIT_GUARDRAILS_MODE=cursor ./pre-tool-use.sh
+# Expected: exit 2, "Direct commits to protected branch 'main' are forbidden"
 ```
 
-**Gemini (expect one-line JSON, exit 0):**
-
+**4. Allow (Gemini mode):**
 ```bash
-echo '{"tool_input":{"command":"git reset --hard"}}' | GIT_GUARDRAILS_MODE=gemini ./block-dangerous-git.sh
+echo '{"tool_input":{"command":"git status"}}' | GIT_GUARDRAILS_MODE=gemini ./pre-tool-use.sh
+# Expected: exit 0, {"decision":"allow"}
 ```
-
-**Gemini allow:**
-
-```bash
-echo '{"tool_input":{"command":"git log -1"}}' | GIT_GUARDRAILS_MODE=gemini ./block-dangerous-git.sh
-```
-
-Expected: `{"decision":"allow"}` or similar one-line allow JSON.
-
----
-
-## Customization
-
-Edit the copied `lib/git-guardrails-core.sh`: change `GIT_GUARDRAILS_PATTERNS` (extended regex for `grep -E`). Keep patterns conservative—overly broad regex can block benign commands.

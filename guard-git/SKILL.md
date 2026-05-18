@@ -1,26 +1,25 @@
 ---
 name: guard-git
-description: Block dangerous git commands (push, force push, reset --hard, clean, branch -D, checkout/restore .) before an AI agent runs them. Installs hook scripts for Claude Code, Cursor, Cursor CLI, and Gemini CLI; documents Google Antigravity Terminal deny lists. Use when the user wants git safety hooks, to block git push or destructive git in agents, or to mirror the same policy across AI coding tools.
+description: Block dangerous git commands (push, force push, reset --hard, clean, branch -D, checkout/restore .) and enforce Conventional Commits & Branch Protection before an AI agent runs them. Installs hook scripts for Claude Code, Cursor, Cursor CLI, and Gemini CLI; documents Google Antigravity Terminal deny lists. Use when the user wants git safety hooks, to block git push or destructive git in agents, or to mirror the same policy across AI coding tools.
 ---
 
 # Guard Git
 
-Installs a shared hook that blocks destructive git operations. **Requires `jq` on the agent's PATH** when the hook runs.
+Installs a shared hook that blocks destructive git operations and enforces workflow discipline. **Requires `jq` on the agent's PATH** when the hook runs.
 
-## What gets blocked
+## What gets blocked/enforced
 
-- `git push` (including `--force`)
-- `git reset --hard`, `git clean -f` / `git clean -fd`
-- `git branch -D`
-- `git checkout .` / `git restore .`
+- **Safety**: `git push` (including `--force`), `git reset --hard`, `git clean -f`, `git branch -D`, `git checkout .`, `git restore .`.
+- **Discipline**: Blocks direct commits or pushes to protected branches (`main`, `master`).
+- **Standardization**: Enforces [Conventional Commits](https://www.conventionalcommits.org/) for all `git commit` commands.
 
 ## Quick start
 
 1. **Scope**: ask project-only vs global (paths differ per product).
-2. **Copy the hook bundle** from this skill's [scripts/](scripts/) to the client's hooks directory, **keeping** `block-dangerous-git.sh` and `lib/git-guardrails-core.sh` together (the main script sources the core file).
-3. **Run `chmod +x`** on `block-dangerous-git.sh`.
+2. **Copy the hook bundle** from the root [hooks/](hooks/) directory to the client's hooks directory.
+3. **Run `chmod +x`** on `pre-tool-use.sh`.
 4. **Merge** the hook snippet from [REFERENCE.md](REFERENCE.md) into the right settings file — do not wipe unrelated keys.
-5. **Verify** with the echo tests in [REFERENCE.md](REFERENCE.md).
+5. **Verify** with the tests in [REFERENCE.md](REFERENCE.md).
 
 | Client | Mechanism | Config |
 |--------|-----------|--------|
@@ -29,11 +28,11 @@ Installs a shared hook that blocks destructive git operations. **Requires `jq` o
 | Gemini CLI | `BeforeTool` + `run_shell_command` | `.gemini/settings.json` or `~/.gemini/settings.json` |
 | Google Antigravity | Built-in Terminal **Deny list** | Settings UI (no shell hook) |
 
-**Modes (env on the hook command):** `GIT_GUARDRAILS_MODE` is `claude` (default) or `cursor` → stderr + exit `2` on block. Set `gemini` for Gemini CLI → JSON `decision` on stdout (see [REFERENCE.md](REFERENCE.md)).
+**Modes (env on the hook command):** `GIT_GUARDRAILS_MODE` is `claude` (default) or `cursor` → stderr + exit `2` on block. Set `gemini` for Gemini CLI → JSON `decision` on stdout.
 
 ## Customization
 
-To add or remove patterns, edit `lib/git-guardrails-core.sh` in the copied bundle (array `GIT_GUARDRAILS_PATTERNS`).
+To add or remove patterns or protected branches, edit `pre-tool-use.sh`.
 
 ## Advanced
 
