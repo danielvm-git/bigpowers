@@ -1,17 +1,17 @@
 
 # Execute Plan
 
-Execute the tasks in `specs/PLAN.md` one at a time, showing evidence after each step before proceeding.
+Execute the tasks in `specs/RELEASE-PLAN.md` one at a time, showing evidence after each step before proceeding.
 
 > **HARD GATE** — Do NOT proceed if on `main` or `master`. Run `kickoff-branch` first to create a feature branch or worktree.
 >
-> **HARD GATE** — Do NOT execute a plan if `specs/PLAN.md` does not exist or if its steps lack runnable `verify:` commands. If the plan is missing or weak, run `plan-work` first.
+> **HARD GATE** — Do NOT execute a plan if `specs/RELEASE-PLAN.md` does not exist or if its tasks lack runnable `verify:` commands. If the plan is missing or weak, run `plan-release` then `plan-work` first.
 
 ## Process
 
 ### 1. Read the plan
 
-Read `specs/PLAN.md` in full. Confirm with the user:
+Read `specs/RELEASE-PLAN.md` in full. Confirm with the user:
 - How many steps are there?
 - Any steps to skip or reorder?
 - Should you stop after a specific step?
@@ -33,7 +33,7 @@ Implement the step using the appropriate approach:
 - Spawn a subagent via `delegate-task` for complex isolated work
 
 **c. Run the verify command**
-Every step in `specs/PLAN.md` must have a `verify: <cmd>`. Run it and show the output.
+Every task in `specs/RELEASE-PLAN.md` must have a `verify: <cmd>`. Run it and show the output.
 
 **d. Checkpoint**
 Report the result and ask: "Step N complete. Proceed to step N+1?" (or proceed automatically if the user asked for fully autonomous execution)

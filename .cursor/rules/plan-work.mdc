@@ -1,12 +1,12 @@
 ---
-description: "Write a detailed implementation plan to specs/PLAN.md. Every step must include a runnable verify command (Karpathy verification template). Use when user has a task to implement and needs a step-by-step plan with evidence checkpoints, or after plan-release produces specs/RELEASE-PLAN.md."
+description: "Write a detailed implementation plan to specs/RELEASE-PLAN.md. Every step must include a runnable verify command (Karpathy verification template). Use when user has a task to implement and needs a step-by-step plan with evidence checkpoints, or after plan-release produces specs/RELEASE-PLAN.md."
 alwaysApply: false
 ---
 
 
 # Plan Work
 
-Produce a detailed, verifiable implementation plan in `specs/PLAN.md`. Every step must be paired with a runnable verify command — "I think it works" is not a step.
+Produce a detailed, verifiable implementation plan in `specs/RELEASE-PLAN.md`. Every step must be paired with a runnable verify command — "I think it works" is not a step.
 
 > **HARD GATE** — Do NOT proceed with a plan until the task's success criteria are clear. If success is ambiguous, run `define-success` first to convert the task into "step → verify: <cmd>" pairs.
 >
@@ -37,17 +37,15 @@ Break the implementation into the smallest possible steps where each step:
 - Has exactly one observable outcome
 - Can be verified with a single runnable command
 
-### 3. Write specs/PLAN.md
+### 3. Write specs/RELEASE-PLAN.md
 
-Save the plan to `specs/PLAN.md`. Create the `specs/` directory if it doesn't exist.
+Append the detailed steps under the relevant story in `specs/RELEASE-PLAN.md`. Create the `specs/` directory if it doesn't exist.
 
 <plan-template>
 
-# Plan: [feature name]
+### Story [X.Y]: [title] — Implementation Steps
 
-## Context
-
-[One paragraph: what this implements and why, referencing specs/SCOPE.md if it exists]
+**Context**: [One paragraph: what this story implements and why]
 
 ## Steps
 
@@ -96,4 +94,4 @@ Before finalizing, confirm:
 - Is the granularity right (not too coarse, not too fine)?
 - Are the verify commands actually runnable in this project?
 
-After writing `specs/PLAN.md`, suggest `kickoff-branch` (if not already on a feature branch) then `execute-plan` or `develop-tdd`.
+After writing `specs/RELEASE-PLAN.md`, suggest `kickoff-branch` (if not already on a feature branch) then `execute-plan` or `develop-tdd`.
