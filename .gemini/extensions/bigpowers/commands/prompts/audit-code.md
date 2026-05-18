@@ -64,6 +64,10 @@ Run this self-review before asking anyone else to look at the code. The goal is 
 - [ ] Types are explicit (no `any`, no inferred return types for public APIs)
 - [ ] Code avoids deep nesting (max 2 levels) and uses early returns
 
+### Red Flags
+
+Before reporting, name any rationalization you caught yourself making for skipping a checklist item. Silence is not acceptable — if you skipped an item, state the reason explicitly.
+
 ## Output
 
 Report the checklist with ✓ / ✗ per item. For each ✗, describe what needs to be fixed.

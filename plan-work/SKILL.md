@@ -40,6 +40,8 @@ Break the implementation into the smallest possible steps where each step:
 - Has exactly one observable outcome
 - Can be verified with a single runnable command
 
+**Red-flag check**: before moving to Step 3, name any rationalization you caught yourself making — skipping a gate, adding out-of-scope steps, omitting a verify command. Write them out; do not suppress them.
+
 ### 3. Write specs/RELEASE-PLAN.md
 
 Append the detailed steps under the relevant story in `specs/RELEASE-PLAN.md`. Create the `specs/` directory if it doesn't exist.

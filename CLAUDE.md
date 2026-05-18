@@ -34,6 +34,15 @@ Collection of 38+ verb-noun skills, each with a SKILL.md source file and support
 - Never create a skill without a SKILL.md file and proper verb-noun naming
 - Never push changes without running sync-skills.sh first
 
+## Session Start
+
+Before any task, run this sequence — not optional:
+
+1. Read `CLAUDE.md` (this file)
+2. Read `CONVENTIONS.md`
+3. Read `specs/STATE.md` if it exists — current milestone and pending work
+4. Read `specs/RELEASE-PLAN.md` if it exists — active release context
+
 ## Agent Rules
 
 - Read specs/ and CONVENTIONS.md before writing code.

@@ -59,6 +59,10 @@ Run the verify command and report the result.
 When the reviewer returns:
 - Read every finding before acting on any
 - Note the verify command result
+- Compute the quality score: `100 × (total_items − must_fix − should_fix) / total_items`
+- Report the score to the user
+
+> **HARD GATE** — If score < 94%, do NOT merge. Run `respond-review` to resolve must-fix and should-fix findings first.
 
 ### 4. Hand off to respond-review
 
