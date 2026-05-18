@@ -11,20 +11,23 @@ Get a brief description of the issue from the user. If they haven't provided one
 
 Do NOT ask follow-up questions yet. Start investigating immediately.
 
-### 2. Explore and diagnose
+### 2. Explore and diagnose (4-phase RCA)
 
-Use the Agent tool with subagent_type=Explore to deeply investigate the codebase. Your goal is to find:
+Use the Agent tool with subagent_type=Explore to investigate the codebase. Run these phases in order:
 
-- **Where** the bug manifests (entry points, UI, API responses)
-- **What** code path is involved (trace the flow)
-- **Why** it fails (the root cause, not just the symptom)
-- **What** related code exists (similar patterns, tests, adjacent modules)
+**Phase 1 — Reproduce**: Confirm the failure is consistent. Document exact inputs, environment, and observed vs. expected output. Do not proceed until you can reproduce reliably.
 
-Look at:
-- Related source files and their dependencies
+**Phase 2 — Isolate**: Trace the code path from entry point to failure. Binary-search the call stack to find which layer first produces wrong output. Target: a single function or module where the wrong behavior first appears.
+
+**Phase 3 — Hypothesize**: Write a falsifiable hypothesis: "The bug occurs because [condition] causes [behavior] instead of [expected]." Generate at least 2 alternatives. Rank by probability.
+
+**Phase 4 — Verify**: Add a targeted assertion or log that fires if your top hypothesis is correct. Run the reproduction case. If confirmed, document the root cause. If not, return to Phase 3 with new evidence.
+
+> **HARD GATE** — Do NOT proceed to Step 3 (Fix Approach) until Phase 4 produces a verified root cause. "It probably is X" is not verified.
+
+Also look at:
+- Recent changes to affected files (`git log --oneline <file>`)
 - Existing tests (what's tested, what's missing)
-- Recent changes to affected files (`git log` on relevant files)
-- Error handling in the code path
 - Similar patterns elsewhere in the codebase that work correctly
 
 ### 3. Identify the fix approach

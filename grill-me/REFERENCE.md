@@ -1,13 +1,10 @@
+# Docs Mode — Full Process
 
-# Grill with Docs
+Triggered by "grill me with docs" or when a plan depends on a specific library or external API.
 
-Like `grill-me`, but every challenge is grounded in real documentation. No assumption about a library's behavior goes unchecked.
+**Why this matters:** AI agents hallucinate API methods, argument orders, and behaviors. Every assumption about an external dependency must be validated against the actual docs before code is written.
 
-**Why this matters:** AI agents hallucinate API methods, argument orders, and behaviors. This skill forces every assumption about external dependencies to be validated against the actual docs before code is written.
-
-## Process
-
-### 1. Identify the dependencies
+## Step 1 — Identify the dependencies
 
 From the plan or conversation, list:
 - Every external library being used
@@ -16,7 +13,7 @@ From the plan or conversation, list:
 
 Ask: "Which of these are you most confident about? Which are you less sure of?"
 
-### 2. Fetch the relevant docs
+## Step 2 — Fetch the relevant docs
 
 For each dependency, fetch the actual documentation:
 
@@ -30,7 +27,7 @@ Prioritize:
 - Migration guides if upgrading from a previous version
 - Known gotchas / FAQ sections
 
-### 3. Challenge each assumption
+## Step 3 — Challenge each assumption
 
 For every assumption in the plan, find the corresponding doc section and ask:
 
@@ -42,7 +39,7 @@ For every assumption in the plan, find the corresponding doc section and ask:
 
 Ask one question at a time. For each challenge, cite the specific URL and section.
 
-### 4. Surface hallucinations
+## Step 4 — Surface hallucinations
 
 When an assumption doesn't match the docs:
 
@@ -50,7 +47,7 @@ When an assumption doesn't match the docs:
 
 Document each discrepancy clearly.
 
-### 5. Update the plan
+## Step 5 — Update the plan
 
 For each confirmed discrepancy, recommend a concrete fix:
 - Correct method signature
@@ -58,7 +55,7 @@ For each confirmed discrepancy, recommend a concrete fix:
 - Alternative approach that matches what the library actually supports
 - Whether a spike (`spike-prototype`) is needed to validate a remaining uncertainty
 
-### 6. Sign off
+## Step 6 — Sign off
 
 When all major assumptions have been validated against docs, report:
 - Which assumptions were confirmed ✓

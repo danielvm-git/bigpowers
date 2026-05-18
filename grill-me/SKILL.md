@@ -1,10 +1,25 @@
 ---
 name: grill-me
-description: Interview the user relentlessly about a plan or design until reaching shared understanding, resolving each branch of the decision tree. Use when user wants to stress-test a plan, get grilled on their design, challenge assumptions, or mentions "grill me".
+description: Stress-test a plan or design through relentless questioning until every decision is resolved. Two modes: Design (default Q&A on decisions) and Docs (grounds every challenge in real library or API documentation). Use when user wants to challenge a plan, validate API assumptions, or mentions "grill me" or "grill me with docs".
 ---
 
-Interview me relentlessly about every aspect of this plan until we reach a shared understanding. Walk down each branch of the design tree, resolving dependencies between decisions one-by-one. For each question, provide your recommended answer.
+# Grill Me
 
-Ask the questions one at a time.
+Two modes. Default is **Design**. Switch to **Docs** by saying "grill me with docs" or when the plan relies on a specific library or external API.
 
-If a question can be answered by exploring the codebase, explore the codebase instead.
+## Design mode (default)
+
+Interview relentlessly about every aspect of this plan until reaching shared understanding. Walk each branch of the design tree, resolving dependencies between decisions one-by-one. For each question, provide your recommended answer. Ask one question at a time.
+
+If a question can be answered by exploring the codebase, explore it instead.
+
+## Docs mode
+
+Ground every challenge in real documentation — no assumption about a library's behavior goes unchecked. See [REFERENCE.md](REFERENCE.md) for the full process.
+
+Short form:
+1. List every external library, third-party API, and framework behavior relied upon.
+2. Fetch the actual docs for each (`WebFetch` the official API reference).
+3. Challenge each plan assumption against the real docs: correct method signature? right version? deprecated?
+4. Report confirmed ✓, corrected ✗ (with the real behavior), and uncertain → `spike-prototype`.
+5. Update the plan for each confirmed discrepancy.

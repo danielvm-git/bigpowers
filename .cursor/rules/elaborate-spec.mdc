@@ -64,6 +64,7 @@ Ask: "Is this an accurate summary? Anything missing or wrong?"
 
 Once the spec is clear, recommend the next step:
 - If domain model needs work → `model-domain`
-- If ready to plan → `scope-work` then `slice-tasks` then `plan-work`
+- If ready to plan → `plan-release` then `plan-work` per story
 - If a spike is needed first → `spike-prototype`
 - If architecture decisions are needed → `deepen-architecture` or `grill-me`
+- If the plan depends on a specific library or API → `grill-me` in docs mode

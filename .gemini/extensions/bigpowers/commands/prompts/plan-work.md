@@ -11,7 +11,9 @@ Produce a detailed, verifiable implementation plan in `specs/PLAN.md`. Every ste
 
 Before writing the plan, check if `define-success` has been run. If the task's success criteria are unclear, run `define-success` first to convert the task into "step → verify: <cmd>" pairs.
 
-Read any existing `specs/` files: SCOPE.md, TASKS.md, CONTEXT.md, UBIQUITOUS_LANGUAGE.md.
+Read any existing `specs/` files: RELEASE-PLAN.md, SCOPE.md, TASKS.md, CONTEXT.md, UBIQUITOUS_LANGUAGE.md.
+
+If this plan touches an existing module or symbol, run `assess-impact` first to understand the blast radius before writing steps.
 
 ## Process
 

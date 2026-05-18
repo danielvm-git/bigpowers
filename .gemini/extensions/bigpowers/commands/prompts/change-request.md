@@ -1,0 +1,101 @@
+
+# Change Request
+
+> **HARD GATE** — `specs/RELEASE-PLAN.md` must exist before running either mode. If it doesn't, run `plan-release` first.
+>
+> → verify: `[ -f specs/RELEASE-PLAN.md ] && echo "ready" || echo "BLOCKED: run plan-release first"`
+
+Two modes. State which one you want or the skill will ask.
+
+## Mode A — Add
+
+Intake a new requirement mid-flight without disrupting work in progress.
+
+1. **Capture**: What is the change? What problem does it solve?
+2. **Locate**: Which existing stories does it affect or replace?
+3. **Draft**: Write the new story in RELEASE-PLAN.md format (with Gherkin AC and tasks + verify commands).
+4. **Place**: Append as a new story under an existing epic, or open a new epic if needed.
+5. **Score**: Compute WSJF score for the new story; note if it outranks in-progress work.
+
+→ verify: `grep -c "Story" specs/RELEASE-PLAN.md`
+
+## Mode B — Reorder
+
+Value-engineering pass over the full release plan using WSJF.
+
+See [REFERENCE.md](REFERENCE.md) for the full WSJF scoring rubric.
+
+1. **Score** each epic/story: Business Value (1–10) + Time Criticality (1–10) + Risk Reduction (1–10) / Job Size (1–10).
+2. **Re-sort** epics and stories by WSJF score descending.
+3. **Flag cut candidates**: stories where Effort is L and Value is Low (WSJF < 1.5).
+4. **Update** `specs/RELEASE-PLAN.md` — add WSJF scores, new order, short rationale for any reordering.
+5. **Report** the delta: what moved up, what moved down, what is a cut candidate.
+
+→ verify: `grep -c "WSJF:" specs/RELEASE-PLAN.md`
+
+## After either mode
+
+Suggest `plan-work` for the top-ranked unstarted story.
+
+---
+
+# WSJF Scoring Reference
+
+Weighted Shortest Job First: **WSJF = (Business Value + Time Criticality + Risk Reduction) / Job Size**
+
+All dimensions scored 1–10 using a Fibonacci-like scale: 1, 2, 3, 5, 8, 10.
+
+## Business Value
+
+| Score | Meaning |
+|-------|---------|
+| 10 | Core revenue path, legal requirement, blocking launch |
+| 8  | Significant user value, major pain point removed |
+| 5  | Notable improvement, medium user segment affected |
+| 3  | Nice-to-have, minor convenience |
+| 1  | Cosmetic or speculative |
+
+## Time Criticality
+
+| Score | Meaning |
+|-------|---------|
+| 10 | Hard deadline (regulatory, contract, launch date) |
+| 8  | Competitive window closing, partner dependency |
+| 5  | Would delay next milestone if deferred |
+| 3  | Flexible, can slip one sprint |
+| 1  | No urgency |
+
+## Risk Reduction (or Opportunity Enablement)
+
+| Score | Meaning |
+|-------|---------|
+| 10 | Eliminates critical architectural risk or enables a new capability |
+| 8  | Reduces a known failure mode or unblocks high-value work |
+| 5  | Moderate risk mitigation or enablement |
+| 3  | Low risk reduction |
+| 1  | No risk relevance |
+
+## Job Size (effort denominator — larger = lower WSJF)
+
+| Score | Meaning |
+|-------|---------|
+| 1  | Hours |
+| 2  | 1 day |
+| 3  | 2–3 days |
+| 5  | 1 week |
+| 8  | 2 weeks |
+| 10 | 1 month+ |
+
+## Cut threshold
+
+Stories with WSJF < 1.5 are cut candidates: high effort, low combined value.
+
+## Example
+
+Story: "Add OAuth login"
+- Business Value: 8 (removes major sign-up friction)
+- Time Criticality: 5 (Q3 launch nice, not hard)
+- Risk Reduction: 3 (minor security improvement)
+- Job Size: 5 (one week)
+
+WSJF = (8 + 5 + 3) / 5 = **3.2** — healthy, implement early.

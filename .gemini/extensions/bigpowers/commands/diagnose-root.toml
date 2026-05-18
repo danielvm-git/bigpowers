@@ -1,2 +1,0 @@
-description = "Run a 4-phase root cause analysis on an active problem: reproduce, isolate, hypothesize, verify. Use when a bug is confirmed but the root cause is unclear, when investigation needs to go deeper than symptoms, or when user mentions \"root cause\" or \"why is this happening\"."
-prompt = "@{commands/prompts/diagnose-root.md}"
