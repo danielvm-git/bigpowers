@@ -51,6 +51,12 @@ Every skill that produces written output writes to `specs/` at the project root:
 - Early returns over nested ifs. Max 2 levels of indentation.
 - Conditionals: expressed as positives (G29). Avoid negative flags or `unless` logic where possible.
 - The Stepdown Rule (G34): functions should descend exactly one level of abstraction.
+- Names describe side-effects (N7): if a function sends email, writes to disk, or mutates state, the name must say so (`sendWelcomeEmail`, not `processUser`).
+- No magic strings or numbers (G25): every bare string literal or numeric literal used in logic must be extracted to a named constant.
+- Boolean logic in named functions (G28): complex boolean expressions must be extracted into a named predicate function, not inlined.
+- Prefer exceptions over error codes: throw/raise an exception rather than returning a numeric or boolean error sentinel.
+- Remove dead code (G9/F4): unused functions, unreachable branches, and stale imports must be deleted — not commented out.
+- Boy Scout Rule: leave every file you touch at least as clean as you found it. Fix the first broken window you see.
 - Exception messages must include the offending value, expected shape, and an actionable remediation hint for the agent.
 - SOLID beyond SRP: favor interfaces over concrete types (DIP) when injecting dependencies.
 
@@ -62,6 +68,7 @@ Every skill that produces written output writes to `specs/` at the project root:
 - Docstrings on public functions: intent + one usage example.
 - Reference issue numbers / commit SHAs when a line exists because of a specific bug.
 - No obvious comments that restate the code.
+- No commented-out code (C5): dead code must be deleted, not commented out. Use git history to recover it.
 
 ## Tests (F.I.R.S.T — Uncle Bob Ch 9)
 
@@ -69,6 +76,9 @@ Every skill that produces written output writes to `specs/` at the project root:
 - Every new function gets a test. Every bug fix gets a regression test.
 - Mocks for external I/O are named fake classes, not inline stubs.
 - Tests are **F**ast, **I**ndependent, **R**epeatable, **S**elf-Validating, **T**imely.
+- Test boundary conditions (T5): every suite must cover exact edge values — empty input, maximum, minimum, and off-by-one.
+- Test through public interfaces only (T8): assert on observable outcomes (return values, API responses, UI state). Never assert on internal state or private methods.
+- Every change must be verifiable with a single runnable command before it is marked done.
 
 ## Dependencies
 
