@@ -6,7 +6,6 @@ Track the current state of implementation, including decisions made, pending tas
 ## Goal
 
 Maintain a single source of truth for the *current* state of the work in `specs/STATE.md`. This file acts as the project's short-term memory, complementing the long-term memory of `specs/CONTEXT.md` and the task-specific instructions in `specs/PLAN.md`.
-
 ## Workflow
 
 ### 1. Initialize (Session Start)
@@ -14,20 +13,22 @@ Maintain a single source of truth for the *current* state of the work in `specs/
 If `specs/STATE.md` does not exist, or if starting a new major phase:
 
 - [ ] Read `specs/PLAN.md` and `specs/SCOPE.md`.
-- [ ] Create `specs/STATE.md` with the current milestone, pending tasks, and any active decisions.
+- [ ] Get git metadata: `git branch --show-current` and `git rev-parse HEAD`.
+- [ ] Create `specs/STATE.md` with the current milestone, git metadata, pending tasks, and any active decisions.
 
 ### 2. Load (Context Refresh)
 
 When starting a new session or after a significant context flush:
 
 - [ ] Read `specs/STATE.md` to understand where the previous agent left off.
-- [ ] Verify the current state matches the actual codebase (e.g., run tests, check branch).
-- [ ] Surface any discrepancies to the user.
+- [ ] Verify the current state matches the actual codebase (run `git branch` and `git diff`).
+- [ ] Surface any discrepancies between recorded git hash and current hash.
 
 ### 3. Update (Decision Point/Milestone)
 
 Whenever a significant decision is made or a milestone is reached:
 
+- [ ] Update git metadata if the branch or hash has changed.
 - [ ] Update the `Active Decisions` section with the rationale for the choice.
 - [ ] Mark completed tasks as done.
 - [ ] Add new pending tasks discovered during implementation.
@@ -41,8 +42,13 @@ Whenever a significant decision is made or a milestone is reached:
 ## Current Milestone
 [What is being worked on right now]
 
+## Git Metadata
+- **Branch**: [branch-name]
+- **Hash**: [commit-hash]
+
 ## Pending Tasks
-- [ ] Task 1
+...
+```
 - [ ] Task 2
 
 ## Active Decisions
