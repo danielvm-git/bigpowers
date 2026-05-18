@@ -43,19 +43,20 @@ Every skill that produces written output writes to `specs/` at the project root:
 ## Code Style
 
 - Functions: 4–20 lines. Split if longer.
-- Files: under 500 lines, ideally 200–300. Split by responsibility.
+- Files: under 300 lines. Split by responsibility to ensure content fits within a single agent context window.
 - One thing per function, one responsibility per module (SRP).
 - Names: specific and unique. Avoid `data`, `handler`, `Manager`, `Service`. Prefer names whose grep returns < 5 hits in this codebase.
 - Types: explicit. No `any`, no untyped public functions.
 - No code duplication. Extract shared logic into a function/module.
 - Early returns over nested ifs. Max 2 levels of indentation.
-- Exception messages must include the offending value and expected shape.
+- Exception messages must include the offending value, expected shape, and an actionable remediation hint for the agent.
 - SOLID beyond SRP: favor interfaces over concrete types (DIP) when injecting dependencies.
 
 ## Comments
 
 - Keep your own comments. Never strip them on refactor — they carry intent and provenance.
 - Write WHY, not WHAT.
+- Complex or non-obvious logic must include "Provenance" links (e.g., Jira issue, GitHub commit SHA, or ADR filename).
 - Docstrings on public functions: intent + one usage example.
 - Reference issue numbers / commit SHAs when a line exists because of a specific bug.
 - No obvious comments that restate the code.
