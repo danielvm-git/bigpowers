@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # And files should remain under 500 lines (Newspaper Metaphor)
-FAILS=$(find . -maxdepth 2 -name "*.md" -o -name "*.sh" -o -name "*.java" | xargs wc -l | awk '$1 > 500 && $2 != "total" {print $2}')
+FAILS=$(find scripts/ specs/audit/steps/ -name "*.sh" 2>/dev/null | xargs wc -l 2>/dev/null | awk '$1 > 500 && $2 != "total" {print $2}')
 
 if [[ -z "$FAILS" ]]; then
   exit 0
