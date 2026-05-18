@@ -9,6 +9,7 @@ This document outlines the sequential release strategy to address gaps identifie
 - **Initial Development:** During `v0.x.y`, the public API is not stable.
 
 ## Commit Message Specification
+- **Mandate:** NEVER include `Co-authored-by` footers in commit messages.
 - **Format:** `<type>(<scope>): <description>`
 - **Space:** A space MUST be provided after the colon.
 - **Types:** `feat` (Minor), `fix` (Patch), `perf` (Patch), `chore`, `docs`, `refactor`, `style`, `test`.
