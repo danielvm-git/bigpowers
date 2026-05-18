@@ -16,7 +16,12 @@ Closing the "Meta-Task" loophole and restoring planning discipline after the v1.
 - [x] Plan v1.9.0 (Git-Worktree Lifecycle Hardening)
 - [x] Implement v1.9.0 (Harden kickoff/release and cleanup script)
 - [x] Plan v1.10.0 (Agentic Gherkin Compliance Harness)
-- [ ] Implement v1.10.0 (Agentic Gherkin Compliance Harness)
+- [x] Implement v1.10.0 (Agentic Gherkin Compliance Harness)
+
+## Project Capabilities
+- **Agentic Gherkin Compliance Harness**: Automated (agent-judged) auditing of skills against Gherkin feature files.
+- **Git-Worktree Lifecycle Hardening**: Robust kickoff/release and automated cleanup scripts.
+- **Session State Management**: Persistent tracking of project lifecycle phase and git metadata.
 
 ## Active Decisions
 - **Decision: Retroactive Plans**: We will create one consolidated plan for the skipped versions to avoid polluting `specs/` while maintaining a complete audit trail.
