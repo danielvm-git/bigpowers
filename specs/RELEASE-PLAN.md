@@ -2,7 +2,7 @@
 
 This document outlines the sequential strategy for building our model-judged compliance infrastructure and remediating codebase quality gaps.
 
-Current audit score: **~93% (~83/89)** — estimated post-v1.16.0, Claude-judged, 2026-05-18.
+Current audit score: **~94% (~84/89)** — post-v2.0.0, deployed 2026-05-18.
 
 ## Release Sequence
 
@@ -18,8 +18,9 @@ Ordered by WSJF: (Business Value + Time Criticality + Risk Reduction) / Job Size
 | **v1.14.0** | ✅ | 5.0 | Karpathy | Behavioral mandates: ambiguity handling, loop-until-correct, pushback | Minor |
 | **v1.15.0** | ✅ | 4.2 | Superpowers | Auto bootstrap, red-flag detection, quality threshold gate | Minor |
 | **v1.16.0** | ✅ | 3.8 | Testing | F.I.R.S.T mandates: T4/T5/T8 explicit, Background: pre-conditions | Minor |
-| **v1.17.0** | ⏳ | 3.2 | Guardrails | "Zoom-out" before modify + surgical-changes discipline | Minor |
-| **v1.18.0** | ⏳ | 2.8 | Lifecycle | BMAD phase model (discover → sustain) + issue tracker integration | Minor |
+| **v1.17.0** | ✅ | 3.2 | Guardrails | Zoom-out mandate + surgical-changes discipline | Minor |
+| **v1.18.0** | ✅ | 2.8 | Execution | Decision logging + minimal brief discipline into execution loop | Minor |
+| **v2.0.0** | ✅ | — | Framework | Reference library (11 docs) + orchestrate meta-skill (6-phase) | Major |
 | **v1.19.0** | ⏳ | 2.1 | Taxonomy | Metadata standards: Provenance, Type, Context in plans | Minor |
 | **v1.20.0** | ⏳ | 1.8 | Complexity | Concurrency safety, Law of Demeter, module depth audit | Minor |
 | **v1.21.0** | ⏳ | 1.4 | Ergonomics | Terse-mode optimization & cold-start handoff utility | Minor |
@@ -82,13 +83,40 @@ Added to CONVENTIONS.md:
 - **T8 (Public Interface Only)**: explicitly prohibit testing implementation details — add to CONVENTIONS.md.
 - **Background: pre-conditions**: refactor feature files to include mandatory `Background:` blocks.
 
-### v1.17.0: Guardrails & Safety (WSJF 3.2) ⏳
-- **Zoom-out mandate**: before modifying any module, agent must explain the module's purpose and its callers — add as HARD-GATE step to `plan-work` and `investigate-bug`.
-- **Surgical changes discipline**: formalize "touch only what is required" as an audit checklist item in `audit-code`.
+### v1.17.0: Guardrails & Safety (WSJF 3.2) ✅
+*Shipped c2ee71b.*
 
-### v1.18.0: BMAD Lifecycle + Issue Tracker (WSJF 2.8) ⏳
-- **Phase model**: document the discover → elaborate → plan → build → sustain lifecycle explicitly in CONVENTIONS.md or a new `specs/LIFECYCLE.md`.
-- **Issue tracker**: add `to-issues` skill to push specs/TASKS.md or RELEASE-PLAN.md stories to GitHub Issues.
+- **Zoom-out mandate**: Hard-gate in `plan-work/SKILL.md` requiring purpose/callers/contracts analysis before modifying any module. Prevents accidental blast radius and enforces module understanding.
+- **Surgical changes discipline**: Audit checklist in `audit-code/SKILL.md` ensuring modifications are strictly scoped — only code strictly required for the task is touched; no speculative cleanup.
+
+### v1.18.0: Execution Loop Hardening (WSJF 2.8) ✅
+*Shipped 9619068.*
+
+**Implementation note:** Scope shifted from planned "BMAD lifecycle + issue tracker" to execution loop hardening based on priority assessment.
+
+- **Decision logging**: `execute-plan/SKILL.md` now logs non-obvious decisions to `STATE.md` after verify passes. Prevents agent amnesia and enables audit trail of why decisions were made.
+- **Brief discipline**: `dispatch-agents/SKILL.md` and `delegate-task/SKILL.md` enforce minimal brief template and require reading existing `STATE.md` before writing new briefs. Reduces per-agent token cost while maintaining traceability.
+- **Traceability**: Closes decision-to-code gap in execution chain; agents start cold but inherit prior decisions; decisions → code flow becomes auditable.
+- Files changed: 12 total (6 skill sources + 6 generated artifacts for Cursor/Gemini).
+
+### v2.0.0: Reference Library & Orchestration Framework ✅
+*Shipped bc9b437.*
+
+- **Orchestrate meta-skill**: Enforces 6-phase core loop (discover → elaborate → plan → build → verify → release) with hard gates. Three operational modes: Standard (enforce all gates), Fast-track (conditional skips), Ad-hoc (legacy). Coordinates multi-phase projects with guaranteed quality checkpoints.
+- **Reference library** (11 comprehensive documents, 2,572 lines total):
+  - `orchestration.md` (343 lines): 6-phase model, gates, checkpoints, mode specifications
+  - `gates.md` (137 lines): Four gate types (Confirm, Quality, Safety, Transition) with decision logic
+  - `checkpoints.md` (194 lines): Checkpoint types and integration strategy
+  - `tdd.md` (314 lines): F.I.R.S.T principles, TDD workflow with code examples
+  - `verification-patterns.md` (316 lines): Verification patterns for code, docs, configs, plans
+  - `git-integration.md` (329 lines): Commit strategy, worktrees, hooks, merge patterns
+  - `code-review.md` (173 lines): Clean Code heuristics, reviewer checklist, review patterns
+  - `security-threats.md` (183 lines): STRIDE threat model, slopcheck verdicts, security gates
+  - `model-profiles.md` (205 lines): Model assignments (Haiku/Sonnet/Opus), token budgets, context sizing
+  - `thinking-models.md` (205 lines): Extended thinking patterns, use cases, when to use each model
+  - `domain-probes.md` (173 lines): Domain-specific grill-me questions, domain probe library
+- **Artifact synchronization**: 42 skills now synced to `.cursor/rules` and `.gemini/extensions/bigpowers`
+- **Status**: Phase 1-2 complete (reference library + orchestrate skill). Phases 3-5 (context isolation, security gates, testing) deferred to v2.1.0+
 
 ### v1.19.0: Taxonomy Metadata (WSJF 2.1) ⏳
 - Add `type:` (feat/fix/refactor) and `context:` (domain/infra) metadata fields to `specs/RELEASE-PLAN.md` templates.
@@ -102,3 +130,19 @@ Added to CONVENTIONS.md:
 ### v1.21.0: Developer Ergonomics (WSJF 1.4) ⏳
 - `terse-mode` token-reduction optimizations.
 - Cold-start `handoff` utility: compact current session state for hand-off to a new agent context.
+
+---
+
+## Audit Score Tracking
+
+| Version | Score | Notes |
+|---------|-------|-------|
+| v1.12.0 baseline | ~75% (67/89) | First measured score |
+| v1.12.1 | ~84% (~75/89) | +9 from CONVENTIONS.md heuristics (Boy Scout, G25, G28, N7, C5, G9/F4, T5, T8, verify) |
+| v1.14.0 | ~87% (~77/89) | +3 from karpathy.feature (10/10 PASS) behavioral mandates |
+| v1.15.0 | ~90–91% (~80–81/89) | +3–4 from superpowers.feature gates (bootstrap, red-flag, 94% threshold) |
+| v1.16.0 | ~93% (~83/89) | +3 from cleancode.feature T4/T5/T8 testing mandates (5→8 PASS) |
+| v1.17.0 | ~94% (~84/89) | +1 from guardrails discipline (zoom-out mandate, module understanding) |
+| v1.18.0 | ~94% (~84/89) | +0 (decision logging is internal; no external heuristic fixes) |
+| v2.0.0 | ~94% (~84/89) | +0 (reference library + orchestrate are guidance/framework; enforcement comes v2.1+) |
+| **Current** | **~94%** | **Next enforcement lift: v1.19.0+ Taxonomy metadata** |

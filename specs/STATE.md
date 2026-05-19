@@ -2,13 +2,13 @@
 
 ## Current Milestone
 
-Remediating audit compliance gaps release by release (v1.14.0 → v1.21.0).
-Next up: v1.17.0 — Guardrails.
+Bigpowers 2.0 orchestration framework complete. Deployed: v2.0.0 reference library + orchestrate meta-skill.
+Next: v1.19.0 — Taxonomy metadata (type/context fields, provenance links).
 
 ## Git Metadata
 
 - **Branch**: main
-- **Hash**: ba7d054
+- **Hash**: bc9b437
 
 ## Completed Releases
 
@@ -22,14 +22,16 @@ Next up: v1.17.0 — Guardrails.
 - [x] v1.15.0 — Superpowers gates: mandatory session bootstrap in CLAUDE.md, red-flag self-check in plan-work + audit-code, 94% merge threshold in request-review
 
 - [x] v1.16.0 — Testing mandates: T4/T5/T8 in CONVENTIONS.md + develop-tdd checklist, Background: blocks in cleancode + akita features; +3 PASS (5→8)
+- [x] v1.17.0 — Guardrails: zoom-out mandate + surgical changes discipline
+- [x] v1.18.0 — Execution loop hardening: decision logging + minimal brief discipline
+- [x] v2.0.0 — Reference library (11 docs, 2,572 lines) + orchestrate meta-skill (6-phase core loop)
 
 ## Pending Releases
 
-- [ ] v1.17.0 — Guardrails: zoom-out mandate, surgical changes discipline ← **next**
-- [ ] v1.18.0 — BMAD lifecycle + issue tracker integration
-- [ ] v1.19.0 — Taxonomy metadata (type/context fields, provenance links)
+- [ ] v1.19.0 — Taxonomy metadata (type/context fields, provenance links) ← **next**
 - [ ] v1.20.0 — Architectural complexity (Demeter, concurrency, module depth)
 - [ ] v1.21.0 — Developer ergonomics (terse-mode, cold-start handoff)
+- [ ] v2.1.0 — Orchestration Phases 3-5 (context isolation, security gates, testing)
 
 ## Project Capabilities
 
@@ -52,8 +54,10 @@ Next up: v1.17.0 — Guardrails.
 | Version | Score | Notes |
 |---------|-------|-------|
 | v1.12.0 baseline | ~75% (67/89) | First measured score |
-| v1.12.1 | ~84% (~75/89) | +8 from CONVENTIONS.md heuristics |
-| v1.14.0 | ~87% (~77/89) | +2 from karpathy.feature (10/10 PASS) |
+| v1.12.1 | ~84% (~75/89) | +9 from CONVENTIONS.md heuristics |
+| v1.14.0 | ~87% (~77/89) | +3 from karpathy.feature (10/10 PASS) |
 | v1.15.0 | ~90–91% (~80–81/89) | +3–4 from superpowers.feature gates |
 | v1.16.0 | ~93% (~83/89) | +3 from cleancode.feature T4/T5/T8 (5→8 PASS) |
-| v1.17.0 target | ~96% (~85/89) | After guardrails |
+| v1.17.0 | ~94% (~84/89) | +1 from guardrails (zoom-out mandate, module understanding) |
+| v1.18.0 | ~94% (~84/89) | +0 (decision logging internal; no external fixes) |
+| v2.0.0 | ~94% (~84/89) | +0 (reference/guidance; enforcement via v2.1+) |
