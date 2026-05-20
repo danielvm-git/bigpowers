@@ -1,0 +1,2 @@
+description = "Detect GSD, spec-kit, or BMAD spec artifacts in the current project and transform them into bigpowers format (specs/ directory, CONTEXT.md, SCOPE.md, TASKS.md, RELEASE-PLAN.md, ADRs). Use when user has an existing project with foreign spec docs and wants to adopt bigpowers conventions, or says \"migrate\", \"import specs\", \"convert from GSD/BMAD/spec-kit\"."
+prompt = "@{commands/prompts/migrate-spec.md}"

@@ -45,6 +45,7 @@ Before any task, run this sequence — not optional:
 
 ## Agent Rules
 
+- **Workflow Mandate:** You MUST use the bigpowers skills (e.g., `plan-work`, `develop-tdd`, `craft-skill`) to perform tasks. DO NOT write code directly in response to a user prompt like "build this feature".
 - Read specs/ and CONVENTIONS.md before writing code.
 - Write the minimum code that solves the stated problem. Nothing extra.
 - Never refactor, rename, or reorganize code outside the task scope.

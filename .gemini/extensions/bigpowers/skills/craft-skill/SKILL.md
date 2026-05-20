@@ -15,7 +15,13 @@ description: "Create new bigpowers skills with proper structure, progressive dis
    - Any reference materials to include?
    - What specs/ output does it produce (if any)?
 
-2. **Draft the skill** — create:
+2. **Verify Principles** — Ensure the skill aligns with [PRINCIPLES.md](../PRINCIPLES.md):
+   - Is it atomic (verb-noun)?
+   - Is it "deep" (simple interface, complex internal logic)?
+   - Does it include Hard Gates?
+   - Is it verifiable with a `.feature` file?
+
+3. **Draft the skill** — create:
    - SKILL.md with concise instructions
    - Additional reference files if content exceeds 100 lines
    - Utility scripts if deterministic operations needed

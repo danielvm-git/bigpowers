@@ -24,6 +24,18 @@ All changes to this repository MUST follow the [Conventional Commits 1.0.0](http
 - Never call GitHub REST API directly (curl, fetch, etc.)
 - Never create GitHub issues from automated workflows — produce local .md files in specs/ instead
 
+## Agent Workflow Mandates
+
+**AGENTS MUST NEVER BYPASS THE BIGPOWERS WORKFLOW.**
+You are operating within the `bigpowers` spec-driven development methodology.
+- **No Direct Coding:** When a user issues a directive like "build feature X" or "go epic 10", you MUST NOT execute the request by writing code directly.
+- **Required Skills:** You MUST route all work through the appropriate bigpowers skills.
+  - Start with `survey-context` if you lack context.
+  - Use `plan-work` to generate a verifiable plan in `specs/PLAN.md` before writing any feature code.
+  - Use `develop-tdd` or `execute-plan` to implement the plan.
+  - Use `investigate-bug` for bug reports before writing a fix.
+- **Verification:** You MUST verify every change with tests. Code generation without a corresponding plan in `specs/` is strictly forbidden.
+
 ## specs/ — All Planning Output Goes Here
 
 Every skill that produces written output writes to `specs/` at the project root:

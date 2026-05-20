@@ -1,0 +1,471 @@
+
+# Migrate Spec
+
+Transform existing GSD, spec-kit, or BMAD planning artifacts into the bigpowers `specs/` model. No code is written — the output is a set of bigpowers-format spec files the user can use immediately.
+
+## Quick start
+
+1. Run this skill from the root of the project being migrated (not the bigpowers repo itself).
+2. The skill auto-detects the source framework and presents its findings before transforming anything.
+3. All output goes to `specs/` at the project root.
+
+
+## Red flags — stop and ask
+
+Before proceeding, check for these rationalization traps:
+
+- **Partial artifact set** — only one fingerprint file found (e.g. just `spec.md` with no `plan.md`). Don't assume it's a complete project. Ask: "I found only X — is this the full set of your spec artifacts?"
+- **Wrong trigger** — user said "migrate my code" or "migrate the database", not "migrate my specs". Confirm before running.
+- **Stale source** — source artifacts have commit dates older than 6 months with no recent activity. Flag: "These specs appear inactive since <date>. Are they still the source of truth?"
+- **Active divergence** — source `STATE.md` or `sprint-status.yaml` shows in-progress work. Flag: "There is active work in flight. Migrating now may lose in-progress context. Proceed?"
+
+If any red flag fires: surface it, wait for explicit user confirmation before continuing.
+
+
+## Process
+
+### Step 1 — Detect the source framework
+
+Scan for the fingerprints below. Stop at first match; if multiple match, list them and ask the user which is primary.
+
+| Framework | Fingerprints (any one is sufficient) |
+|-----------|--------------------------------------|
+| **GSD** | `.planning/` directory; `.planning/ROADMAP.md`; `.planning/REQUIREMENTS.md` with `REQ-` IDs |
+| **spec-kit** | `.specify/` directory; `spec.md` + `plan.md` at root; `.github/skills/speckit-*/SKILL.md` |
+| **BMAD** | `_bmad/` directory; `_bmad-output/` directory; `prd.md` with `FR-` IDs; `epic-*.md` or `story-*.md` |
+
+If none found: ask the user which framework before proceeding.
+
+→ verify: `ls .planning/ 2>/dev/null && echo "GSD" || ls .specify/ 2>/dev/null && echo "spec-kit" || ls _bmad/ 2>/dev/null && echo "BMAD" || echo "BLOCKED: no known framework detected"`
+
+### Step 2 — Inventory the source artifacts
+
+List every artifact found matching the detected framework. Present the list to the user:
+
+```
+Detected: GSD
+Found:
+  ✓ .planning/ROADMAP.md
+  ✓ .planning/REQUIREMENTS.md  (12 REQ-XX items)
+  ✓ .planning/STATE.md
+  ✓ .planning/phases/01-auth/01-CONTEXT.md
+  ✗ .planning/METHODOLOGY.md  (not present)
+
+Skipping:
+  .planning/phases/01-auth/01-01-SUMMARY.md  (execution record; archived only)
+
+Proceed with migration? [yes / skip <artifact> / abort]
+```
+
+→ verify: `find . -maxdepth 4 \( -name "ROADMAP.md" -o -name "spec.md" -o -name "prd.md" -o -name "REQUIREMENTS.md" \) 2>/dev/null | grep -v ".git" | head -15`
+
+### Step 3 — Transform (one artifact at a time, show diffs)
+
+Apply the mapping from [REFERENCE.md](./REFERENCE.md) and [REFERENCE-GSD.md](./REFERENCE-GSD.md). For each target file:
+
+1. Show what will be created or appended (title + first 20 lines).
+2. Ask: "Create this? [yes / edit / skip]"
+3. On yes: write to `specs/`.
+
+> **HARD GATE** — Never overwrite an existing `specs/` file without explicit user confirmation. Merge into it if it exists; don't clobber.
+>
+> → verify: `git diff --name-only HEAD -- specs/ 2>/dev/null | head -20`
+
+→ verify: `ls specs/*.md 2>/dev/null | head -15`
+
+### Step 4 — Generate STATE.md
+
+Always regenerate `specs/STATE.md` from scratch in bigpowers format:
+
+```markdown
+# Session State: <project name>
+
+## Current Milestone
+
+Migrated from <framework> on <date>. Next: review generated specs and run plan-work.
+
+## Git Metadata
+
+- **Branch**: <current branch>
+- **Hash**: <git rev-parse HEAD>
+
+## Completed Releases
+
+(none — migration starting point)
+
+## Pending Releases
+
+- [ ] Review migrated specs
+- [ ] Run elaborate-spec to validate scope
+- [ ] Run plan-work to produce first release plan
+```
+
+→ verify: `[ -f specs/STATE.md ] && echo "ok" || echo "MISSING: specs/STATE.md not created"`
+
+### Step 5 — Surface learnings (optional)
+
+After migration, offer the user a brief analysis of what the source framework did that bigpowers doesn't have yet.
+
+Use the learnings table from [REFERENCE.md](./REFERENCE.md#learnings-to-adopt). Present as checkboxes so the user can decide which to adopt.
+
+→ verify: `grep -c "\- \[ \]" specs/STATE.md 2>/dev/null && echo "pending items recorded" || echo "no pending items in STATE.md"`
+
+
+## Artifact Mapping Summary
+
+Full mapping tables: [REFERENCE-GSD.md](./REFERENCE-GSD.md) (GSD) · [REFERENCE.md](./REFERENCE.md) (spec-kit, BMAD, learnings).
+
+| Source | Target |
+|--------|--------|
+| GSD `ROADMAP.md` | `specs/RELEASE-PLAN.md` |
+| GSD `REQUIREMENTS.md` | `specs/SCOPE.md` |
+| GSD `CONTEXT.md` (phases) | `specs/CONTEXT.md` + `specs/adr/` |
+| GSD `PLAN.md` | `specs/PLAN-vX.Y.Z.md` |
+| GSD `METHODOLOGY.md` | `specs/SPIKE-methodology.md` |
+| spec-kit `spec.md` | `specs/SCOPE.md` + `specs/CONTEXT.md` |
+| spec-kit `plan.md` | `specs/CONTEXT.md` + `specs/PLAN.md` |
+| spec-kit `tasks.md` | `specs/TASKS.md` |
+| BMAD `prd.md` | `specs/SCOPE.md` |
+| BMAD `architecture.md` | `specs/CONTEXT.md` + `specs/adr/` |
+| BMAD `epic-*.md` | `specs/RELEASE-PLAN.md` |
+| BMAD `story-*.md` | `specs/TASKS.md` |
+| BMAD `project-context.md` | `CLAUDE.md` (append project-specific section) |
+| BMAD `decision-log.md` | `specs/adr/` (one ADR per logged decision) |
+
+
+## Rules
+
+- **Preserve source IDs** — REQ-XX, FR-XX, UJ-XX become inline comments in bigpowers targets. Never silently renumber.
+- **Never merge contradictory docs** — if source has both `CONTEXT.md` and `architecture.md`, create sections in bigpowers `CONTEXT.md`; don't collapse them.
+- **ADRs are opt-in** — only create an ADR when: hard to reverse, surprising without context, result of a real trade-off. Lightweight decisions go to `specs/DECISION-LOG.md`.
+- **STATE.md is always regenerated** — never migrate source STATE verbatim; bigpowers STATE.md needs its own format.
+- **specs/ is the only output location** — no files are created outside `specs/` and `CLAUDE.md`.
+
+---
+
+# migrate-spec Reference — GSD
+
+Full artifact transformation rules for migrating GSD projects to bigpowers.
+
+See [REFERENCE.md](./REFERENCE.md) for spec-kit, BMAD, learnings, and ADR/DECISION-LOG formats.
+
+---
+
+## Artifact Locations
+
+GSD stores everything under `.planning/` at the project root.
+
+```
+.planning/
+├── ROADMAP.md
+├── STATE.md
+├── REQUIREMENTS.md
+├── METHODOLOGY.md
+├── HANDOFF.json
+├── .continue-here.md
+└── phases/
+    └── XX-name/
+        ├── XX-CONTEXT.md
+        ├── XX-YY-PLAN.md
+        ├── XX-YY-SUMMARY.md
+        └── XX-DISCUSSION-LOG.md
+    spikes/
+        └── SPIKE-NNN/README.md
+```
+
+---
+
+## Transformation Rules
+
+### `.planning/ROADMAP.md` → `specs/RELEASE-PLAN.md`
+
+GSD ROADMAP has: milestone name, phases, success criteria per phase, plan count.
+
+bigpowers RELEASE-PLAN needs: release version, status, WSJF, focus, objective.
+
+Transform:
+- Each GSD phase → one release entry in RELEASE-PLAN.md
+- Phase name → release name (add version number e.g. v1.0.0)
+- GSD success criteria → "Success Criteria" subsection under each release entry
+- Phase plan count → "Job Size" hint for WSJF (ask user to score)
+- Completed phases → `✅` status; active phase → `⏳`; future phases → `📋`
+
+---
+
+### `.planning/REQUIREMENTS.md` → `specs/SCOPE.md`
+
+GSD REQUIREMENTS has: REQ-XX IDs, Validated/Active/Out-of-Scope categories, traceability.
+
+Transform:
+- Copy REQ-XX IDs as-is (preserve for cross-referencing)
+- Validated requirements → "In Scope" section
+- Out-of-Scope → "Out of Scope" section
+- Active (in-progress) → "In Scope (WIP)" section
+- Add header: `# Scope — migrated from GSD REQUIREMENTS.md`
+
+---
+
+### `.planning/phases/XX-name/XX-CONTEXT.md` → `specs/CONTEXT.md` + `specs/adr/`
+
+GSD CONTEXT.md has 6 sections: domain, decisions, canonical_refs, code_context, specifics, deferred.
+
+Transform:
+- `domain` → `specs/CONTEXT.md` Domain section (domain model, terms, aggregates)
+- `decisions` → scan each: if hard-to-reverse + surprising → `specs/adr/NNNN-{slug}.md`; if lightweight → `specs/DECISION-LOG.md`
+- `canonical_refs` → Reference links in CONTEXT.md
+- `code_context` → `specs/CONTEXT.md` Architecture section
+- `specifics` → merge into relevant CONTEXT.md section
+- `deferred` → `specs/SCOPE.md` Out-of-Scope section (with "(deferred from GSD)" note)
+
+---
+
+### `.planning/phases/XX-name/XX-YY-PLAN.md` → `specs/PLAN-vX.Y.Z.md`
+
+GSD PLAN has: frontmatter (depends-on, verify), objective, typed tasks, success criteria, output spec.
+
+Transform:
+- Preserve task structure
+- Keep `verify: <command>` lines (same format bigpowers uses)
+- Map GSD `depends-on` to a "Dependencies" note in bigpowers PLAN header
+- Add bigpowers frontmatter with release version
+- SUMMARY.md (execution record) → append as "## Execution Record" if needed; otherwise skip
+
+---
+
+### `.planning/METHODOLOGY.md` → `specs/SPIKE-methodology.md`
+
+GSD METHODOLOGY.md is a standing reference for analytical lenses (Bayesian updating, STRIDE, cost-of-delay). bigpowers has no direct equivalent.
+
+Transform:
+- Copy each lens as a section in `specs/SPIKE-methodology.md`
+- Add header: `# Project Methodology — migrated from GSD`
+- Note: "These lenses should inform `plan-work` and `audit-code` sessions."
+
+---
+
+### `.planning/HANDOFF.json` + `.continue-here.md` → `specs/STATE.md` (resume block)
+
+GSD HANDOFF has: current phase, last plan, blocking reason, required reading list.
+
+Transform — add a "## Session Resume" block to `specs/STATE.md`:
+
+```markdown
+## Session Resume
+
+- Last active: <phase/plan from HANDOFF>
+- Blocking: <reason if any>
+- Required reading before next session: <required_reading list>
+```
+
+---
+
+### `.planning/spikes/SPIKE-NNN/README.md` → `specs/SPIKE-{name}.md`
+
+GSD spike README has: YAML frontmatter (verdict, validates, related), methodology, findings, recommendation.
+
+Transform:
+- Flatten directory into single `specs/SPIKE-{name}.md`
+- Preserve frontmatter as YAML block comment at top
+- Keep verdict prominently: `**Verdict:** ADOPTED / REJECTED / DEFERRED`
+
+---
+
+## Skip List
+
+These GSD artifacts are not migrated — they are execution records, not planning inputs:
+
+| Artifact | Reason |
+|----------|--------|
+| `.planning/phases/XX/XX-YY-SUMMARY.md` | Execution log; no bigpowers equivalent |
+| `.planning/phases/XX/XX-DISCUSSION-LOG.md` | Audit trail only; not consumed by agents |
+| `.planning/USER-PROFILE.md` | User calibration; bigpowers has no profile system |
+| `.planning/sketches/` | Visual exploration; not spec artifacts |
+
+---
+
+# migrate-spec Reference — spec-kit, BMAD, Learnings
+
+Transformation rules for spec-kit and BMAD projects, plus learnings to adopt and output formats.
+
+See [REFERENCE-GSD.md](./REFERENCE-GSD.md) for full GSD → bigpowers mapping.
+
+---
+
+## spec-kit → bigpowers Mapping
+
+### Artifact Locations
+
+```
+project-root/
+├── spec.md         ← user journeys, success criteria, scope
+├── plan.md         ← technology, architecture, constraints
+├── tasks.md        ← atomic task list
+└── .specify/
+    ├── workflow-catalogs.yml
+    └── workflows/runs/<id>/
+        ├── state.json
+        └── log.jsonl
+```
+
+### `spec.md` → `specs/SCOPE.md` + `specs/CONTEXT.md`
+
+spec-kit `spec.md` focuses on: who uses it, user journeys, success criteria, what's in/out of scope.
+
+Transform:
+- User journeys → `specs/SCOPE.md` "Success Criteria" subsection (observable behaviors)
+- In/out of scope → `specs/SCOPE.md` main sections
+- Domain terms / glossary → `specs/CONTEXT.md` glossary section
+- Problem statement / vision → first paragraph of `specs/CONTEXT.md`
+
+### `plan.md` → `specs/CONTEXT.md` + `specs/PLAN.md`
+
+spec-kit `plan.md` covers: technology stack, architectural patterns, implementation constraints.
+
+Transform:
+- Technology decisions → `specs/CONTEXT.md` "Technology" section
+- Architecture patterns → `specs/CONTEXT.md` "Architecture" section
+- Hard decisions with trade-offs → `specs/adr/NNNN-{slug}.md`
+- Phased approach / milestones → `specs/RELEASE-PLAN.md` release entries
+- Implementation steps → `specs/PLAN.md` task list
+
+### `tasks.md` → `specs/TASKS.md`
+
+spec-kit tasks are atomic, verifiable in isolation — same principle as bigpowers `verify:` mandate.
+
+Transform:
+- Copy tasks directly; preserve task numbers
+- Add `verify:` line if spec-kit task has an acceptance criterion
+- Group into phases matching `specs/RELEASE-PLAN.md` releases
+
+### `.specify/` state
+
+Discard — workflow engine state; not meaningful in the bigpowers skill model.
+
+---
+
+## BMAD → bigpowers Mapping
+
+### Artifact Locations
+
+```
+project-root/
+├── _bmad/bmm/config.yaml
+├── _bmad-output/
+│   ├── product-brief.md
+│   ├── prfaq-{project}.md
+│   ├── prd.md
+│   ├── addendum.md
+│   ├── decision-log.md
+│   ├── ux-spec.md
+│   └── architecture.md
+├── project-context.md
+└── docs/
+    ├── epic-{slug}.md
+    └── story-{slug}.md
+```
+
+### `product-brief.md` / `prfaq-{project}.md` → `specs/CONTEXT.md` (Vision)
+
+Transform:
+- Vision + core value → `specs/CONTEXT.md` Vision section (first section)
+- Target users → personas list in CONTEXT.md
+- prfaq customer FAQ → can inform success criteria in SCOPE.md
+
+### `prd.md` → `specs/SCOPE.md`
+
+BMAD `prd.md` has: Glossary, FR-XX functional requirements, UJ-XX user journeys, NFRs, assumptions.
+
+Transform:
+- Glossary → `specs/CONTEXT.md` Glossary section (keep exactly; it's domain language)
+- FR-XX items → `specs/SCOPE.md` "In Scope" with IDs preserved as comments: `<!-- FR-3 -->`
+- UJ-XX user journeys → `specs/SCOPE.md` "Success Criteria" section
+- NFRs → `specs/SCOPE.md` "Constraints" section
+- `[ASSUMPTION: ...]` inline tags → `specs/SCOPE.md` "Assumptions" section (collected)
+- Out-of-scope features → `specs/SCOPE.md` "Out of Scope" section
+
+### `addendum.md` + `decision-log.md` → `specs/adr/` + `specs/DECISION-LOG.md`
+
+Transform:
+- Hard, irreversible, surprising decisions → individual `specs/adr/NNNN-{slug}.md`
+- Lightweight decisions → `specs/DECISION-LOG.md` (date | decision | rationale)
+- `addendum.md` change signals → note at top of SCOPE.md: "PRD amended: see decision-log"
+
+### `architecture.md` → `specs/CONTEXT.md` + `specs/adr/`
+
+Transform:
+- ADR sections → individual `specs/adr/NNNN-{slug}.md` files
+- System overview / data models → `specs/CONTEXT.md` Architecture section
+- API contracts → keep at `docs/api.md` or similar; link from CONTEXT.md
+
+### `epic-*.md` → `specs/RELEASE-PLAN.md`
+
+Each epic → one release entry. Epic acceptance criteria → "Success Criteria" subsection.
+
+### `story-*.md` → `specs/TASKS.md`
+
+Each story → one entry. Acceptance criteria → `verify:` lines. Story tasks → subtask checklist.
+
+### `project-context.md` → `CLAUDE.md`
+
+Add a "## Project Context" section to `CLAUDE.md` (or create `PROJECT-CONTEXT.md` if CLAUDE.md is bigpowers-managed). Copy tech stack, coding rules, preferences verbatim. Note: `<!-- Migrated from BMAD project-context.md -->`.
+
+---
+
+## Learnings to Adopt
+
+Optional enhancements to offer the user after migration. Present as checkboxes.
+
+### From GSD
+
+- [ ] **`specs/METHODOLOGY.md`** — Standing analytical lenses (Bayesian updating, STRIDE, cost-of-delay). Agents read this before planning.
+- [ ] **Session Resume block in STATE.md** — Last skill used, last step completed, required reading for next session.
+- [ ] **ID tracking in SCOPE.md** — Add SCOPE-XX IDs to requirements for spec → plan → verification traceability.
+
+### From spec-kit
+
+- [ ] **Two-pass spec writing** — User-journey pass first (what/why, no technical details), then technical-decisions pass. Cleaner specs.
+- [ ] **Explicit inter-phase gate** — "Approve to proceed?" checkpoint at end of `elaborate-spec` before starting `plan-work`.
+- [ ] **`specs/TASKS.md` isolation guarantee** — Each task entry completable and verifiable in isolation; declared dependencies explicit.
+
+### From BMAD
+
+- [ ] **FR-XX + UJ-XX in SCOPE.md** — Functional requirement + user journey numbering for rigorous traceability.
+- [ ] **`specs/DECISION-LOG.md`** — Lightweight decision log for PRD-level choices below the ADR threshold. Format: `date | decision | rationale | alternatives`.
+- [ ] **`PROJECT-CONTEXT.md`** — Project-specific constitution read by all implementation agents. Generated from `model-domain` output.
+- [ ] **Adversarial review pass** — Dedicated critique pass on the plan before `develop-tdd`. Critic checks for gaps, edge cases, contradictions with SCOPE.md.
+
+---
+
+## Output Formats
+
+### ADR format (bigpowers)
+
+Use `model-domain/ADR-FORMAT.md`. Only create when all three apply: hard to reverse, surprising without context, result of a real trade-off.
+
+```markdown
+# ADR-NNNN: {Title}
+
+**Status:** Accepted
+**Date:** YYYY-MM-DD
+
+## Context
+[What situation forced this decision?]
+
+## Decision
+[What was decided?]
+
+## Consequences
+[What becomes easier or harder?]
+```
+
+### DECISION-LOG.md format
+
+For lightweight decisions that don't warrant a full ADR:
+
+```markdown
+# Decision Log
+
+| Date | Decision | Rationale | Alternatives |
+|------|----------|-----------|--------------|
+| 2026-05-19 | Use Postgres | Existing ops expertise | SQLite (limited), DynamoDB (no local dev) |
+```

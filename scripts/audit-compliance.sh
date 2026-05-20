@@ -68,34 +68,18 @@ fi
 TOTAL_GLOBAL_PASS=0
 TOTAL_GLOBAL_FAIL=0
 
-process_step() {
+# --- Judging Logic ---
+
+judge_with_gemini() {
   local step="$1"
   local feature_name="$2"
   local scenario_name="$3"
-  local report_file="$4"
-  echo "    [STEP] $step"
+  local evidence="$4"
+  local report_file="$5"
+
+  echo "    [JUDGE] Sending evidence to Gemini CLI..."
   
-  if [[ "$DRY_RUN" == "true" ]]; then
-    return 0
-  fi
-
-  # Sanitize step name for file lookup: lowercase, kebab-case, remove special chars
-  local sanitized_step
-  sanitized_step=$(echo "$step" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9]/-/g' | sed 's/--*/-/g' | sed 's/^-//;s/-$//')
-  local step_script="specs/audit/steps/${sanitized_step}.sh"
-
-  if [[ -f "$step_script" ]]; then
-    echo "    [EXEC] Gathering evidence: $step_script"
-    # Capture both stdout and stderr as evidence
-    local evidence
-    evidence=$(bash "$step_script" 2>&1)
-    local exit_code=$?
-
-    if [[ "$JUDGE" == "gemini" ]]; then
-      echo "    [JUDGE] Sending evidence to Gemini CLI..."
-      
-      # Build prompt
-      local prompt="You are the Master Test Architect judging a compliance audit.
+  local prompt="You are the Master Test Architect judging a compliance audit.
 Benchmark Feature: $feature_name
 Scenario: $scenario_name
 Compliance Step: $step
@@ -110,50 +94,83 @@ Respond strictly in the following format:
 VERDICT: [PASS/FAIL]
 RATIONALE: [One sentence explanation]"
 
-      local model_output
-      local gemini_cmd="gemini --approval-mode plan"
-      if [[ -n "$MODEL" ]]; then
-        gemini_cmd="$gemini_cmd -m $MODEL"
-      fi
-      
-      # Use the Gemini CLI (headless mode)
-      model_output=$($gemini_cmd -p "$prompt" 2>&1)
-      local exit_code=$?
+  local model_output
+  local gemini_cmd="gemini --approval-mode plan"
+  if [[ -n "$MODEL" ]]; then
+    gemini_cmd="$gemini_cmd -m $MODEL"
+  fi
+  
+  model_output=$($gemini_cmd -p "$prompt" 2>&1)
+  local exit_code=$?
 
-      if [[ $exit_code -eq 0 ]]; then
-        local verdict
-        verdict=$(echo "$model_output" | grep "VERDICT:" | cut -d' ' -f2)
-        local rationale
-        rationale=$(echo "$model_output" | grep "RATIONALE:" | cut -d' ' -f2-)
+  if [[ $exit_code -eq 0 ]]; then
+    local verdict
+    verdict=$(echo "$model_output" | grep "VERDICT:" | cut -d' ' -f2)
+    local rationale
+    rationale=$(echo "$model_output" | grep "RATIONALE:" | cut -d' ' -f2-)
 
-        if [[ "$verdict" == "PASS" ]]; then
-          echo "      Result: PASS"
-          echo "- [x] $step (PASS) - $rationale" >> "$report_file"
-          return 0
-        else
-          echo "      Result: FAIL"
-          echo "- [ ] $step (FAIL) - $rationale" >> "$report_file"
-          return 1
-        fi
-      else
-        echo "      Result: ERROR (Gemini CLI failed)"
-        echo "- [ ] $step (ERROR) - Gemini CLI exit code $exit_code. Output: $model_output" >> "$report_file"
-        return 1
-      fi
+    if [[ "$verdict" == "PASS" ]]; then
+      echo "      Result: PASS"
+      echo "- [x] $step (PASS) - $rationale" >> "$report_file"
+      return 0
     else
-      # Binary Judge (Legacy)
-      if [[ $exit_code -eq 0 ]]; then
-        echo "      Result: PASS"
-        echo "- [x] $step (PASS)" >> "$report_file"
-        return 0
-      else
-        echo "      Result: FAIL"
-        echo "- [ ] $step (FAIL) - $evidence" >> "$report_file"
-        return 1
-      fi
+      echo "      Result: FAIL"
+      echo "- [ ] $step (FAIL) - $rationale" >> "$report_file"
+      return 1
     fi
   else
-    # Fallback for missing evidence
+    echo "      Result: ERROR (Gemini CLI failed)"
+    echo "- [ ] $step (ERROR) - Gemini CLI exit code $exit_code. Output: $model_output" >> "$report_file"
+    return 1
+  fi
+}
+
+judge_binary() {
+  local step="$1"
+  local exit_code="$2"
+  local evidence="$3"
+  local report_file="$4"
+
+  if [[ $exit_code -eq 0 ]]; then
+    echo "      Result: PASS"
+    echo "- [x] $step (PASS)" >> "$report_file"
+    return 0
+  else
+    echo "      Result: FAIL"
+    echo "- [ ] $step (FAIL) - $evidence" >> "$report_file"
+    return 1
+  fi
+}
+
+# --- Core Execution ---
+
+process_step() {
+  local step="$1"
+  local feature_name="$2"
+  local scenario_name="$3"
+  local report_file="$4"
+  echo "    [STEP] $step"
+  
+  if [[ "$DRY_RUN" == "true" ]]; then
+    return 0
+  fi
+
+  local sanitized_step
+  sanitized_step=$(echo "$step" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9]/-/g' | sed 's/--*/-/g' | sed 's/^-//;s/-$//')
+  local step_script="specs/audit/steps/${sanitized_step}.sh"
+
+  if [[ -f "$step_script" ]]; then
+    echo "    [EXEC] Gathering evidence: $step_script"
+    local evidence
+    evidence=$(bash "$step_script" 2>&1)
+    local exit_code=$?
+
+    if [[ "$JUDGE" == "gemini" ]]; then
+      judge_with_gemini "$step" "$feature_name" "$scenario_name" "$evidence" "$report_file"
+    else
+      judge_binary "$step" "$exit_code" "$evidence" "$report_file"
+    fi
+  else
     echo "      Result: FAIL (Missing evidence: $step_script)"
     echo "- [ ] $step (FAIL) - No verification script found at $step_script" >> "$report_file"
     return 1
