@@ -57,7 +57,7 @@
 | Skill | Model | Budget | Rationale |
 |-------|-------|--------|-----------|
 | `orchestrate` | **Sonnet** | 200K | Coordination; needs judgment |
-| `publish-release` | **Haiku** | 100K | Tag, push, notes; mechanical |
+| `release-branch` | **Haiku** | 100K | Tag, push, notes; mechanical |
 
 ---
 

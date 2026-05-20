@@ -5,9 +5,6 @@ set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 CURSOR_RULES="$REPO_ROOT/.cursor/rules"
-GEMINI_COMMANDS="$REPO_ROOT/.gemini/extensions/bigpowers/commands"
-REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-CURSOR_RULES="$REPO_ROOT/.cursor/rules"
 GEMINI_EXT_DIR="$REPO_ROOT/.gemini/extensions/bigpowers"
 GEMINI_SKILLS="$GEMINI_EXT_DIR/skills"
 GEMINI_COMMANDS="$GEMINI_EXT_DIR/commands"

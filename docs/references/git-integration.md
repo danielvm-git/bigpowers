@@ -325,5 +325,5 @@ git push -u origin feat/new-feature
 - CONVENTIONS.md — More git rules (no `git push --force`, etc.)
 - orchestration.md — When does git happen? (Release phase)
 - execute-plan (SKILL.md) — Creates commits during Build phase
-- publish-release (SKILL.md) — Tags and pushes during Release phase
+- release-branch (SKILL.md) — Tags and pushes during Release phase
 - verify: git log --oneline | head -10

@@ -1,3 +1,7 @@
+---
+name: orchestrate-project
+description: Meta-skill that enforces the 6-phase core loop (discover → elaborate → plan → build → verify → release) with hard gates. Use to coordinate multi-phase projects with guaranteed quality checkpoints. One-time command for the entire project lifecycle.
+---
 
 # Orchestrate
 
@@ -165,7 +169,7 @@ Orchestrate (Phase 5 — Verify):
   → Produces: VERIFICATION.md (all success criteria met ✅)
 
 Orchestrate (Phase 6 — Release):
-  → publish-release: Creates tag v2.1.0, writes release notes
+  → release-branch: Creates tag v2.1.0, writes release notes
   → Safety checkpoint: "About to push to main. Type 'release' to confirm:"
   → User: "release"
   → Pushed to origin/main ✅
@@ -323,6 +327,7 @@ claude /orchestrate --mode standard --resume
 - `plan-work` (SKILL.md) — Planning workflow
 - CLAUDE.md — Session start checklist
 
+---
 
 ## verify
 
@@ -337,3 +342,4 @@ verify: test -f specs/PROJECT.md && \
         test -f specs/RELEASE-NOTE.md && \
         echo "✅ All 6 phases complete"
 ```
+

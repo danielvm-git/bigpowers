@@ -26,7 +26,7 @@
 - `node-ipc` (2022) — Malicious post-install hook wiped node_modules
 - `@babel/core` vs `@babel-core` — Typosquatter with 100K+ installs
 
-**Bigpowers Mitigation:** slopcheck integration in plan-work
+**Bigpowers Mitigation:** slopcheck integration in plan-work (Planned: v2.1.0)
 
 ---
 
