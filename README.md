@@ -1,43 +1,116 @@
 # bigpowers — Best-in-Class Agentic Skills
 
-44+ agent skills for high-integrity, spec-driven development by solo developers.
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+![Version](https://img.shields.io/badge/version-1.14.0-blue.svg)
+![Skills](https://img.shields.io/badge/skills-44+-brightgreen.svg)
 
-## Quick Start
+**44+ agent skills for high-integrity, spec-driven, test-first software development by solo developers.**
+
+`bigpowers` provides a prescriptive, vertical-slice methodology for building software with AI agents (Claude Code, Gemini CLI, Cursor). It bridges the gap between raw LLM capabilities and professional engineering standards.
+
+---
+
+## 🚀 Quick Start
 
 ```bash
-# Sync skills to Cursor (.cursor/rules) and Gemini CLI (.gemini/extensions)
-bash scripts/sync-skills.sh
+# 1. Clone the repository
+git clone https://github.com/danielvm-git/bigpowers.git && cd bigpowers
 
-# Run the full compliance audit
-npm run compliance
+# 2. Install globally (links to Claude, Gemini, and Cursor)
+bash scripts/install.sh
+
+# 3. Sync artifacts
+npm run sync
 ```
 
-## The BMAD Lifecycle
+---
 
-Every task follows a prescriptive 5-phase arc:
-1. **Discover**: Investigate context and map unknowns.
-2. **Elaborate**: Lock design decisions (ADRs).
-3. **Plan**: Write verifiable implementation roadmaps.
-4. **Build**: Execute via TDD and vertical slices.
-5. **Sustain**: Audit quality and release.
+## 🛠 Prerequisites
 
-## Hierarchy of Truth
+- **Bash**: Required for all scripts.
+- **Node.js**: Required for `npm` commands.
+- **jq**: (Highly Recommended) Used for robust configuration of tool settings.
+- **AI Tools**: One or more of:
+  - [Claude Code](https://claude.ai/code)
+  - [Gemini CLI](https://github.com/google/gemini-cli)
+  - [Cursor](https://cursor.sh/)
+
+---
+
+## 🔄 Maintenance (Update & Uninstall)
+
+### Update
+To get the latest skills and performance improvements:
+```bash
+git pull
+npm run sync
+```
+*Note: Since the installation uses symlinks, syncing automatically updates the tools.*
+
+### Uninstall
+To remove all managed symlinks and configuration hooks:
+```bash
+bash scripts/install.sh --uninstall
+```
+
+### Reinstall
+If you need a fresh start:
+```bash
+bash scripts/install.sh --uninstall && bash scripts/install.sh
+```
+
+---
+
+## 🏗 The BMAD Lifecycle
+
+Every task in `bigpowers` follows a prescriptive 5-phase arc to ensure integrity:
+
+1.  **Discover**: Investigate context, map unknowns, and survey requirements.
+2.  **Elaborate**: Formalize specs and lock design decisions (ADRs).
+3.  **Plan**: Write a verifiable, Karpathy-style implementation roadmap.
+4.  **Build**: Execute via TDD, vertical slices, and small commits.
+5.  **Sustain**: Audit quality, verify compliance, and release.
+
+---
+
+## 📖 Hierarchy of Truth
 
 | Level | Document | Responsibility |
-|---|---|---|
-| **Vision** | `PRINCIPLES.md` | Philosophical foundations and chronological evolution. |
-| **Context** | `specs/CONTEXT.md` | Technology, architecture, glossary, and key decisions. |
-| **Scope** | `specs/SCOPE.md` | In-scope / out-of-scope / constraints / success criteria. |
-| **Decisions** | `specs/adr/` | Individual ADRs for hard, irreversible architectural choices. |
-| **Roadmap** | `specs/RELEASE-PLAN.md` | WSJF-prioritized releases and success criteria. |
-| **Current** | `specs/STATE.md` | Current milestone, session state, and pending releases. |
-| **Index** | `SKILL-INDEX.md` | Canonical list of all 44 active skills (+ 6 planned). |
-| **Style** | `CONVENTIONS.md` | Coding, testing, documentation, and naming standards. |
+| :--- | :--- | :--- |
+| **Vision** | `PRINCIPLES.md` | Philosophical foundations and evolution. |
+| **Context** | `specs/CONTEXT.md` | Tech stack, architecture, and glossary. |
+| **Scope** | `specs/SCOPE.md` | In-scope / out-of-scope and success criteria. |
+| **Decisions** | `specs/adr/` | Architectural Decision Records (irreversible choices). |
+| **Roadmap** | `specs/RELEASE-PLAN.md` | WSJF-prioritized releases and stories. |
+| **Current** | `specs/STATE.md` | Current milestone and session progress. |
+| **Index** | `SKILL-INDEX.md` | Canonical list of all active skills. |
+| **Style** | `CONVENTIONS.md` | Coding, testing, and naming standards. |
 
-## References
+---
 
-- `references/` — external framework sources (Akita, BMAD, GSD, Karpathy, Ousterhout, Pocock, spec-kit, superpowers, Uncle Bob, Wasowski)
-- `docs/` — bigpowers internal reference library (orchestration, gates, TDD, verification, security, model profiles)
+## 📁 Project Structure
+
+- `scripts/`: Installation, syncing, and compliance tools.
+- `specs/`: The "Brain" of your project — all planning and decisions live here.
+- `references/`: Theoretical foundations (Uncle Bob, Ousterhout, Karpathy, etc.).
+- `[skill-name]/`: Source files for each of the 44+ skills.
+
+---
+
+## 🤝 References & Credits
+
+`bigpowers` stands on the shoulders of giants. It integrates patterns from:
+- **Akita**: Architectural patterns.
+- **BMAD**: Bold, Minimal, Actionable, Durable documentation.
+- **Clean Code**: Robert C. Martin (Uncle Bob).
+- **A Philosophy of Software Design**: John Ousterhout.
+- **GSD (Get Stuff Done)**: Pragmatic workflow frameworks.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 *“Simplicity is the ultimate sophistication, but integrity is the ultimate requirement.”*
