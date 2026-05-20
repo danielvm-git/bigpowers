@@ -4,7 +4,7 @@ Read CONVENTIONS.md before any GitHub or git operation.
 
 ## Project
 
-bigpowers — 38+ agent skills for spec-driven, test-first software development by solo developers.
+bigpowers — 44 agent skills for spec-driven, test-first software development by solo developers.
 Stack: Markdown / Bash (documentation-based; skills integrate with Claude Code, Cursor, Gemini CLI)
 
 ## Commands
@@ -18,7 +18,7 @@ Stack: Markdown / Bash (documentation-based; skills integrate with Claude Code, 
 
 ## Architecture
 
-Collection of 38+ verb-noun skills, each with a SKILL.md source file and supporting documentation. The sync-skills.sh script auto-generates artifacts for Cursor (.cursor/rules) and Gemini CLI (.gemini/extensions/bigpowers/) from SKILL.md sources. All planning and spec output goes to specs/ at the project root.
+Collection of 44 verb-noun skills, each with a SKILL.md source file and supporting documentation. The sync-skills.sh script auto-generates artifacts for Cursor (.cursor/rules) and Gemini CLI (.gemini/extensions/bigpowers/) from SKILL.md sources. All planning and spec output goes to specs/ at the project root.
 
 ## Conventions
 

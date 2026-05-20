@@ -121,3 +121,17 @@ Every skill that produces written output writes to `specs/` at the project root:
 - Graceful degradation (when external services/dependencies fail)
 
 The agent implements defensive code only for categories explicitly listed here.
+
+## Skill Naming — Conventions and Exceptions
+
+All skill directories use a two-word `verb-noun` kebab-case pair (ADR-0001). Grep for any skill
+name must return < 5 results across the repo.
+
+**Documented exceptions** (adjective-noun retained for clarity; renaming would reduce usability):
+
+| Skill | Convention deviation | Rationale |
+|-------|----------------------|-----------|
+| `terse-mode` | adjective-noun | `enable-terse` implies a toggle; `terse-mode` names a mode state |
+| `visual-dashboard` | adjective-noun | `view-dashboard` implies read-only; `show-dashboard` collides with `show` verbs |
+
+Any new exception requires an entry in this table before the skill is published.
