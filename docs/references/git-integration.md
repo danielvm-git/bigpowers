@@ -55,57 +55,39 @@ Co-Authored-By: Claude Haiku 4.5 <noreply@anthropic.com>
 
 ---
 
-## Branching Strategy (Trunk-Based Development)
+## Branching Strategy (Automated Semantic Release)
 
 ### Main Branch Rules
-- `main` is always production-ready
-- All work branches merge into main
-- All commits trigger CI/CD
-- Tags on main are releases (semantic versioning)
+- `main` is the canonical source of truth and the only branch that triggers production releases.
+- **NEVER** commit directly to `main`. All changes must arrive via a Pull Request.
+- **Releases are automated**: Every merge to `main` triggers `semantic-release`, which analyzes the commit history, determines the version bump (SemVer), creates a Git tag, and generates a changelog.
+- **Tags**: Automated tags use the `vX.Y.Z` format.
 
 ### Feature Branches
 ```bash
-# Create feature branch (short-lived, max 1 week)
+# 1. Create feature branch from main
 git checkout -b feat/orchestrate-skill
 
-# Commit frequently
+# 2. Commit frequently using Conventional Commits
 git commit -m "feat(orchestrate): add 6-phase core loop"
-git commit -m "feat(orchestrate): add gate enforcement"
-git commit -m "feat(orchestrate): add state tracking"
+git commit -m "fix(orchestrate): handle null context"
 
-# Create PR for code review
-gh pr create --title "feat(orchestrate): add 6-phase core loop" \
-             --body "..."
+# 3. Keep branch up to date
+git fetch origin main
+git rebase origin/main
 
-# After review & approval, squash or rebase onto main
-git checkout main
-git rebase feat/orchestrate-skill
-git push origin main
-
-# Delete feature branch
-git branch -d feat/orchestrate-skill
+# 4. Create PR
+gh pr create --title "feat(orchestrate): add 6-phase core loop" --body "..."
 ```
 
-### Release Branches (Semver-Based)
-```bash
-# Create release branch when ready to ship
-git checkout -b release/v2.0.0 main
-
-# Bump version in version files
-# Add release notes
-# Commit: chore(release): v2.0.0
-
-git commit -m "chore(release): v2.0.0"
-git tag -a v2.0.0 -m "Release v2.0.0"
-
-# Merge back to main
-git checkout main
-git merge release/v2.0.0
-git push origin main --tags
-
-# Delete release branch
-git branch -d release/v2.0.0
-```
+### The Release Process (CI-Driven)
+Manual release branches (`release/v1.0.0`) are **deprecated**. Versioning is reactive:
+1. **Merge**: When a PR is merged via **Squash and Merge**, the PR title is used as the commit message.
+2. **Analysis**: `semantic-release` runs on the CI for the `main` branch.
+3. **Automated Bump**: 
+   - `fix:` commits → **Patch** bump (1.0.0 → 1.0.1)
+   - `feat:` commits → **Minor** bump (1.0.0 → 1.1.0)
+   - `BREAKING CHANGE:` or `!:` → **Major** bump (1.0.0 → 2.0.0)
 
 ---
 

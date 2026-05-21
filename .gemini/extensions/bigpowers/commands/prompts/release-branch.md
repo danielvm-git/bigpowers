@@ -45,21 +45,27 @@ Confirm:
 - [ ] No secrets, credentials, or personal data in the diff
 - [ ] CONVENTIONS.md compliance across all changes
 
-### 4. Decision
+### 5. Decision
 
 Present the user with the options:
 
 | Option | When to choose |
 |--------|---------------|
-| **Merge via PR** | Feature is complete, tests pass, ready to ship |
+| **Open PR for Release** | Feature is complete, tests pass, ready to trigger automated release |
 | **Keep branch** | More work needed; preserve for later |
 | **Discard** | Approach was wrong; start over |
 
-### 5. Create PR (if merging)
+### 6. Create PR (Triggers Automated Release)
+
+The PR title is the **single source of truth** for the version bump. It MUST follow Conventional Commits.
 
 ```bash
+# Verify PR Title first
+PR_TITLE="<type>(<scope>): <description>"
+echo "$PR_TITLE" | grep -vE "^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\(.+\))?!?: .+$" && echo "❌ ERROR: PR Title must follow Conventional Commits"
+
 gh pr create \
-  --title "<type>(<scope>): <description>" \
+  --title "$PR_TITLE" \
   --body "$(cat <<'EOF'
 ## Summary
 - [What this PR does]
@@ -69,6 +75,7 @@ gh pr create \
 - [ ] All tests pass
 - [ ] Coverage gates met (≥80% overall, ≥95% business logic)
 - [ ] CONVENTIONS.md compliance verified
+- [ ] PR Title follows Conventional Commits (for automated release)
 
 ## specs/ artifacts
 - [List any specs/ files produced or updated]
@@ -76,12 +83,21 @@ EOF
 )"
 ```
 
-Wait for CI to pass. Then merge:
+### 7. Merge (Automated)
+
+Wait for CI to pass. Merge using **Squash and Merge** to ensure the PR title becomes the commit message on `main`.
+
 ```bash
 gh pr merge --squash --delete-branch
 ```
 
-### 6. Clean up worktree (if using git worktree)
+`semantic-release` will now automatically:
+1. Detect the commit on `main`.
+2. Determine the SemVer bump from the commit type.
+3. Tag the repo (e.g., `v2.1.0`).
+4. Generate release notes.
+
+### 8. Clean up worktree (if using git worktree)
 
 ```bash
 # From the main repo root

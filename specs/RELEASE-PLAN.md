@@ -1,6 +1,8 @@
 # Release Plan: bigpowers
 
-Current audit score: **~94% (~84/89)** — post-v2.0.0, deployed 2026-05-18.
+Current audit score: **~94% (~84/89)** — post-v2.0.0.
+
+> **Note on Versioning:** This plan uses "Target Milestones" for planning. Actual version numbers are determined automatically by `semantic-release` at merge time based on commit types (Conventional Commits).
 
 Ordered by WSJF: (Business Value + Time Criticality + Risk Reduction) / Job Size.
 
@@ -8,10 +10,10 @@ Ordered by WSJF: (Business Value + Time Criticality + Risk Reduction) / Job Size
 
 ## Release Sequence
 
-| Release | Status | WSJF | Focus | Objective |
-|:--------|:-------|:-----|:------|:----------|
+| Milestone | Status | WSJF | Focus | Objective |
+|:----------|:-------|:-----|:------|:----------|
 | v1.11.0–v1.18.0 | ✅ | — | Foundation | Benchmarks → harness → conventions → guardrails → execution loop |
-| **v2.0.0** | ✅ | — | Framework | Reference library (11 docs) + `orchestrate-project` meta-skill |
+| v2.0.0 | ✅ | — | Framework | Reference library (11 docs) + `orchestrate-project` meta-skill |
 | **v2.1.0** | ⏳ | **8.0** | Repo Health | Documentation refactoring: specs/ restructure, SKILL-INDEX accuracy, ADRs |
 | **v2.2.0** | 📋 | **4.2** | Security | slopcheck supply-chain gates in `plan-work` + `audit-code` |
 | **v2.3.0** | 📋 | **3.5** | Ergonomics | `handoff` skill + `terse-mode` hardening |
