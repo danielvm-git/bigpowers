@@ -61,21 +61,50 @@ From [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/
 
 Common **types** (not exhaustive): `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`, `chore` — as in [Angular / commitlint conventions](https://github.com/conventional-changelog/commitlint).
 
-## Release type from commits
+## Advanced Specification Patterns
 
-The table below matches the **idea** used by [semantic-release](https://github.com/semantic-release/semantic-release) with typical **Conventional Commits** / Angular-style presets (e.g. [danielvm-git/semantic-release-baby](https://github.com/danielvm-git/semantic-release-baby) fork of semantic-release, which documents the same commit rules). Exact behavior is **plugin + preset** dependent.
+### Reverts
+If the commit reverts a previous commit, it should begin with `revert:`, followed by the header of the reverted commit. In the body, it should say: `This reverts commit <hash>.`.
 
-| Commit pattern | Typical release |
-|----------------|-----------------|
-| `fix:` or patches bug behavior | **Patch** |
-| `feat:` | **Minor** |
-| `BREAKING CHANGE:` in footer, or `!` after type/scope | **Major** |
-| `perf:` (no breaking) | Often **patch** in default angular preset |
-| `docs:`, `chore:`, `ci:`, `style:`, `test:` | Often **no** version bump for library consumers — many teams still ship these without semver bump, or use a project-specific rule |
+```text
+revert: feat(api): add user endpoint
 
-**Major without `feat`:** any type can be major if the footer documents a breaking change.
+This reverts commit 676104e.
+```
 
-## Custom repositories
+### Breaking Changes
+A breaking change can be signaled by:
+1.  A **`!`** after the type/scope: `feat(api)!: change user response shape`
+2.  A **`BREAKING CHANGE:`** footer (must be uppercase).
+
+**Pro-tip:** Use both for maximum visibility in auto-generated changelogs.
+
+### Footers (Tokens & Values)
+Footers follow the same `Token: value` pattern as Git Trailers. Common tokens:
+- `Refs: #123`
+- `See-also: docs/ADR-001.md`
+- `Co-authored-by: Name <email>`
+- `Signed-off-by: Name <email>`
+
+**Multi-line footers:** If a footer value spans multiple lines, each subsequent line must be indented.
+
+### Squashing & History
+When using `gh pr merge --squash`, the PR title is usually used as the commit subject. 
+- **PR Title:** MUST follow `<type>(<scope>): <description>`
+- **PR Body:** Content will be moved to the commit body.
+
+## Release Type Mapping (Strict)
+
+| Commit pattern | Release |
+|----------------|---------|
+| `fix:` | Patch |
+| `feat:` | Minor |
+| `any type!:` | Major |
+| `BREAKING CHANGE:` in footer | Major |
+| `perf:`, `refactor:`, `style:` | Patch (usually) |
+| `docs:`, `chore:`, `test:`, `ci:` | None |
+
+## Custom Repositories
 
 - Read `release.config.js`, `.releaserc`, or `package.json` → `release` / `semantic-release` config.
 - The **@semantic-release/commit-analyzer** preset may map types differently; prefer **their** rules when they conflict with this reference.

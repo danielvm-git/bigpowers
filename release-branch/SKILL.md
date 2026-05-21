@@ -19,11 +19,14 @@ Run the full suite one last time on the feature branch:
 <full test command>
 <typecheck command>
 <lint command>
+# Verify Conventional Commits history
+git log main...HEAD --oneline | grep -vE "^[a-f0-9]+ (feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\(.+\))?!?: .+$" && echo "❌ ERROR: Non-conventional commits found" || echo "✅ Commits verified"
 ```
 
 - [ ] All tests pass
 - [ ] No type errors
 - [ ] No lint violations
+- [ ] All commits in branch history follow Conventional Commits 1.0.0
 
 ### 2. Coverage check
 
