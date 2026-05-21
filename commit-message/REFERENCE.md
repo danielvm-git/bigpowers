@@ -31,10 +31,10 @@ This reverts commit 676104e.
 
 ### Breaking Changes
 A breaking change can be signaled by:
-1.  A **`!`** after the type/scope: `feat(api)!: change user response shape`
-2.  A **`BREAKING CHANGE:`** footer (must be uppercase).
+1.  A **`BREAKING CHANGE:`** footer (must be uppercase, at the start of the footer). This is the **most compatible** way to trigger a Major release in `semantic-release` (Angular preset).
+2.  A **`!`** after the type/scope: `feat(api)!: change user response shape`.
 
-**Pro-tip:** Use both for maximum visibility in auto-generated changelogs.
+**Pro-tip:** For maximum compatibility with all tooling (older and newer), use BOTH the `!` and the `BREAKING CHANGE:` footer.
 
 ### Footers (Tokens & Values)
 Footers follow the same `Token: value` pattern as Git Trailers. Common tokens:
@@ -50,16 +50,20 @@ When using `gh pr merge --squash`, the PR title is usually used as the commit su
 - **PR Title:** MUST follow `<type>(<scope>): <description>`
 - **PR Body:** Content will be moved to the commit body.
 
-## Release Type Mapping (Strict)
+## Release Type Mapping (Default Angular Preset)
 
-| Commit pattern | Release |
-|----------------|---------|
-| `fix:` | Patch |
-| `feat:` | Minor |
-| `any type!:` | Major |
-| `BREAKING CHANGE:` in footer | Major |
-| `perf:`, `refactor:`, `style:` | Patch (usually) |
-| `docs:`, `chore:`, `test:`, `ci:` | None |
+This table reflects the **out-of-the-box** behavior of `semantic-release` using the `@semantic-release/commit-analyzer` default (Angular) rules.
+
+| Commit pattern | Release | Notes |
+|----------------|---------|-------|
+| `fix:` | **Patch** | Bug fixes |
+| `feat:` | **Minor** | New features |
+| `perf:` | **Patch** | Performance improvements |
+| `any type` + `BREAKING CHANGE:` footer | **Major** | **Mandatory** for Major version bumps in default configs. |
+| `any type!:` (exclamation mark) | **Major** | Supported by modern CC parsers, but use footer for max safety. |
+| `docs:`, `chore:`, `test:`, `ci:`, `refactor:`, `style:` | **None** | Does not trigger a new release by default. |
+
+> **Warning:** While `refactor:` and `style:` improve code, they do NOT trigger a release in the default Angular preset. Use `fix:` if a refactor also fixes a bug, or `feat:` if it adds new behavior.
 
 ## Custom Repositories
 
