@@ -21,7 +21,7 @@ DANGEROUS_PATTERNS=(
   "push --force"
   "reset --hard"
 )
-CONVENTIONAL_COMMITS_REGEX='^(feat|fix|docs|style|refactor|perf|test|build|ci|chore)(\(.+\))?:[[:space:]].+'
+CONVENTIONAL_COMMITS_REGEX='^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\(.+\))?!?:[[:space:]].+'
 
 # Detect mode from environment (for Gemini/Claude/Cursor parity)
 # GIT_GUARDRAILS_MODE: claude (default) | cursor | gemini
