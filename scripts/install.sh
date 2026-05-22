@@ -194,13 +194,26 @@ uninstall_cursor() {
 
 # ── OpenCode ──────────────────────────────────────────────────────────────────
 
+install_opencode() {
+  local opencode_config="$REPO_ROOT/opencode.json"
+  if [[ ! -f "$opencode_config" ]]; then
+    echo "Creating opencode.json..."
+    {
+      echo "{"
+      echo "  \"\$schema\": \"https://opencode.ai/config.json\","
+      echo "  \"instructions\": [\".cursor/rules/*.mdc\"]"
+      echo "}"
+    } > "$opencode_config"
+  else
+    echo "opencode.json already exists, skipping."
+  fi
+}
+
 print_opencode_instructions() {
   echo ""
-  echo "OpenCode — manual setup (no standard global path):"
-  echo "  Add to your project's opencode.json:"
-  echo "    {\"rules\": [\"$(ls "$REPO_ROOT"/.cursor/rules/*.mdc 2>/dev/null | head -1 | xargs dirname 2>/dev/null || echo "$REPO_ROOT/.cursor/rules")/**/*.mdc\"]}"
-  echo "  Or symlink the rules directory into your project:"
-  echo "    ln -sfn $CURSOR_RULES_SRC .cursor/rules"
+  echo "OpenCode — integration active:"
+  echo "  - opencode.json created (points to .cursor/rules/*.mdc)"
+  echo "  - Add AGENTS.md for project-specific rules if needed"
 }
 
 # ── main ──────────────────────────────────────────────────────────────────────
@@ -219,6 +232,7 @@ else
   install_claude
   install_gemini
   install_cursor
+  install_opencode
   print_opencode_instructions
   echo ""
   echo "bigpowers installed. Future updates:"
