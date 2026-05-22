@@ -35,6 +35,7 @@ You are operating within the `bigpowers` spec-driven development methodology.
   - Use `develop-tdd` or `execute-plan` to implement the plan.
   - Use `investigate-bug` for bug reports before writing a fix.
 - **Verification:** You MUST verify every change with tests. Code generation without a corresponding plan in `specs/` is strictly forbidden.
+- **Stream Continuity:** When writing large files or long documents, you MUST output continuously in chunks of ~200 lines. Do not pause between sections. Continue immediately until complete. If you need time to process, emit a placeholder comment or heading rather than going silent to prevent stream idle timeouts.
 
 ## specs/ — All Planning Output Goes Here
 

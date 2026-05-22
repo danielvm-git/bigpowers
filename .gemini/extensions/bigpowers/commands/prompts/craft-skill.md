@@ -23,7 +23,7 @@
    - Additional reference files if content exceeds 100 lines
    - Utility scripts if deterministic operations needed
 
-> **STREAM CONTINUITY** — When writing file content, output in continuous chunks of ~200 lines. Do not pause between sections. Continue immediately until complete. If you need time to think, emit a placeholder heading rather than going silent.
+> **STREAM CONTINUITY** — When writing file content, output in continuous chunks of ~200 lines. Do not pause. Continue immediately until complete. If you need time, emit a placeholder comment rather than going silent.
 
 4. **Review with user** — present draft and ask:
    - Does this cover your use cases?

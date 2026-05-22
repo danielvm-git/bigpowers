@@ -36,7 +36,7 @@ Implement the step using the appropriate approach:
 - Write/edit code directly for small focused changes
 - Spawn a subagent via `delegate-task` for complex isolated work
 
-> **STREAM CONTINUITY** — When writing file content, output in continuous chunks of ~200 lines. Do not pause between sections. Continue immediately until complete. If you need time to think, emit a placeholder heading rather than going silent.
+> **STREAM CONTINUITY** — When writing file content, output in continuous chunks of ~200 lines. Do not pause. Continue immediately until complete. If you need time, emit a placeholder comment rather than going silent.
 
 **c. Run the verify command**
 Every task in `specs/RELEASE-PLAN.md` must have a `verify: <cmd>`. Run it and show the output.

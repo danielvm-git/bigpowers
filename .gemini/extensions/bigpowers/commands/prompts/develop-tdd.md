@@ -88,7 +88,7 @@ This is your tracer bullet — proves the path works end-to-end.
 
 ### 3. Incremental Loop
 
-> **STREAM CONTINUITY** — When writing file content, output in continuous chunks of ~200 lines. Do not pause between sections. Continue immediately until complete. If you need time to think, emit a placeholder heading rather than going silent.
+> **STREAM CONTINUITY** — When writing file content, output in continuous chunks of ~200 lines. Do not pause. Continue immediately until complete. If you need time, emit a placeholder comment rather than going silent.
 
 For each remaining behavior:
 
