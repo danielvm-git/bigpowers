@@ -34,6 +34,13 @@ Collection of 44 verb-noun skills, each with a SKILL.md source file and supporti
 - Never create a skill without a SKILL.md file and proper verb-noun naming
 - Never push changes without running sync-skills.sh first
 
+## Token Management
+
+- **Auto-Terse**: When a session exceeds 20 turns or the context window feels "heavy" (latency increasing), you MUST switch to `terse-mode` to save tokens.
+- **Context Compaction**: Every 10 turns, summarize the current session state and implementation decisions into a short, high-density note.
+- **Minimal Output**: Prefer text-only output for simple status; use `web_fetch` or `run_shell_command` only for evidence.
+- **Stream Stability**: When writing large files or long documents, output continuously in chunks of ~200 lines. Do not pause. If you need time to process, emit a placeholder comment rather than going silent.
+
 ## Session Start
 
 Before any task, run this sequence — not optional:
