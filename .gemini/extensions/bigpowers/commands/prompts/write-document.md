@@ -28,6 +28,8 @@ Choose the correct BMAD-BigPowers artifact:
 
 ### 2. Draft with Semantic Velocity
 
+> **STREAM CONTINUITY** — When writing file content, output in continuous chunks of ~200 lines. Do not pause between sections. Continue immediately until complete. If you need time to think, emit a placeholder heading rather than going silent.
+
 Write the document focusing on "Expert Collaboration":
 - **Instructions over Descriptions**: Tell the reader (human or AI) exactly how to interact with the system.
 - **Provenance Links**: Link to ADRs, Issues, or Commits to preserve intent.
