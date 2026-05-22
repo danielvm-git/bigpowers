@@ -26,6 +26,7 @@ Next: v2.2.0 — Supply-Chain Security (slopcheck integration).
 - [x] v1.18.0 — Execution loop hardening: decision logging + minimal brief discipline
 - [x] v2.0.0 — Reference library (11 docs) + orchestrate-project meta-skill (6-phase core loop)
 - [x] v2.1.0 — Repo Health: specs/ restructure, 6 ADRs, SKILL-INDEX reconciliation, RELEASE-PLAN reorder
+- [x] v2.1.1 — OpenCode Integration: automated `opencode.json` and `AGENTS.md` generation
 
 ## Pending Releases
 

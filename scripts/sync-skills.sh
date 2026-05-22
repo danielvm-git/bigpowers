@@ -94,8 +94,17 @@ jq -n --arg name "bigpowers" \
       --arg desc "$skill_count+ $pkg_desc" \
       '{name: $name, version: $version, description: $desc}' > "$GEMINI_MANIFEST"
 
+# 4. Write OpenCode configuration: opencode.json
+{
+  echo "{"
+  echo "  \"\$schema\": \"https://opencode.ai/config.json\","
+  echo "  \"instructions\": [\".cursor/rules/*.mdc\"]"
+  echo "}"
+} > "$REPO_ROOT/opencode.json"
+
 echo "sync-skills: $skill_count skills synced"
 echo "  → .cursor/rules/ ($skill_count .mdc files)"
 echo "  → .gemini/extensions/bigpowers/skills/ (Agent Skills)"
 echo "  → .gemini/extensions/bigpowers/commands/ (Slash Commands)"
 echo "  → .gemini/extensions/bigpowers/gemini-extension.json"
+echo "  → opencode.json"
