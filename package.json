@@ -21,7 +21,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/bigpowers.git"
+    "url": "https://github.com/danielvm-git/bigpowers.git"
   },
   "bin": {
     "bigpowers": "./bin/bigpowers.js"
