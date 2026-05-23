@@ -1,0 +1,27 @@
+name: Sync Skills on Push
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - 'skills/**/*.md'
+      - 'scripts/sync-skills.sh'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Sync skills
+        run: bash scripts/sync-skills.sh
+      
+      - name: Commit & push if changed
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add .cursor/rules .gemini/extensions/bigpowers/
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: sync skills artifacts" && git push)

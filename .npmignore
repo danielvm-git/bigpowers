@@ -1,0 +1,11 @@
+.git
+.github
+.cursor
+.gemini
+node_modules
+*.test.js
+specs/
+docs/
+.DS_Store
+.env
+.env.local

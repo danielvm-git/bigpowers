@@ -1,28 +1,40 @@
 {
   "name": "bigpowers",
-  "version": "1.14.0",
-  "description": "agent skills for spec-driven, test-first software development by solo developers.",
+  "version": "1.0.0",
+  "description": "44 agent skills for spec-driven, test-first software development by solo developers",
   "main": "index.js",
   "scripts": {
     "sync": "bash scripts/sync-skills.sh",
     "install": "bash scripts/install.sh",
-    "compliance": "bash scripts/audit-compliance.sh specs/audit/features",
-    "compliance:gemini": "npm run compliance -- --judge gemini"
+    "postinstall": "bash scripts/sync-skills.sh && bash scripts/install.sh",
+    "release": "semantic-release"
   },
   "keywords": [
-    "ai",
-    "agent",
     "skills",
-    "tdd",
-    "clean-code"
+    "agents",
+    "claude",
+    "development",
+    "spec-driven",
+    "test-first"
   ],
-  "author": "danielvm",
+  "author": "Daniel",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/bigpowers.git"
+  },
+  "bin": {
+    "bigpowers": "./bin/bigpowers.js"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
   "devDependencies": {
-    "semantic-release": "^24.0.0",
-    "@semantic-release/commit-analyzer": "^13.0.0",
-    "@semantic-release/release-notes-generator": "^14.0.0",
-    "@semantic-release/changelog": "^6.0.0",
-    "@semantic-release/git": "^10.0.0"
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/commit-analyzer": "^11.1.0",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^9.2.6",
+    "@semantic-release/release-notes-generator": "^12.1.0",
+    "semantic-release": "^22.0.12"
   }
 }
