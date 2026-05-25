@@ -17,7 +17,9 @@ All changes to this repository MUST follow the [Conventional Commits 1.0.0](http
 ## GitHub & Git Operations
 
 - No direct work on `main` or `master`. Every task MUST start with a feature branch or worktree via `kickoff-branch`.
-- Use `gh pr create` not `git push` + manual PR
+- **Integrate (team default):** Use `gh pr create` and `gh pr merge --squash` via `release-branch` (team-pr mode). Prefer `gh` over ad-hoc `git push` + manual PR UI.
+- **Integrate (solo profile):** When `profiles/solo-git.md` or `specs/WORKFLOW-solo-git.md` is active, ship with `bash scripts/land-branch.sh <branch> "<conventional message>"` after `release-branch` gates — local squash to `main`, then push. PR is optional (remote CI / branch protection only).
+- `git push origin <feature-branch>` is allowed for backup or CI; never push directly to `main`/`master` except via `land-branch.sh` (`GIT_BIGPOWERS_LAND=1`).
 - Use `gh repo clone` not `git clone` for GitHub repos
 - Use `gh run view` / `gh run watch` for CI status
 - Verify auth with `gh auth status` before operations

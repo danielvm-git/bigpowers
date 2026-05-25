@@ -10,8 +10,9 @@ Installs a shared hook that blocks destructive git operations and enforces workf
 
 ## What gets blocked/enforced
 
-- **Safety**: `git push` (including `--force`), `git reset --hard`, `git clean -f`, `git branch -D`, `git checkout .`, `git restore .`.
-- **Discipline**: Blocks direct commits or pushes to protected branches (`main`, `master`).
+- **Safety**: `git push --force`, `git reset --hard`, `git clean -f`, `git branch -D`, `git checkout .`, `git restore .`.
+- **Discipline**: Blocks direct commits or pushes to protected branches (`main`, `master`) unless `GIT_BIGPOWERS_LAND=1` (set only by `scripts/land-branch.sh`).
+- **Allows**: `git push origin <feature-branch>` for backup/CI; solo land push to `main` only inside `land-branch.sh`.
 - **Standardization**: Enforces [Conventional Commits](https://www.conventionalcommits.org/) for all `git commit` commands.
 - **Secrets**: Blocks commits containing common secret patterns (`sk-`, `ghp_`, `AKIA`, `xoxb-`, `-----BEGIN` private keys) — see [REFERENCE.md](REFERENCE.md).
 
@@ -154,8 +155,9 @@ Use `BeforeTool` with matcher `run_shell_command`. Set **`GIT_GUARDRAILS_MODE=ge
 
 Add **Deny list** entries in **Antigravity → Settings → Terminal**:
 
-- `git push`
 - `git push --force`
+- `git push origin main`
+- `git push origin master`
 - `git reset --hard`
 - `git clean`
 - `git branch -D`
@@ -166,26 +168,43 @@ Add **Deny list** entries in **Antigravity → Settings → Terminal**:
 
 ## Verify (local tests)
 
-**1. Dangerous Pattern (Claude mode):**
+**1. Block push to main without land mode (Claude mode):**
 ```bash
 echo '{"tool_input":{"command":"git push origin main"}}' | ./pre-tool-use.sh
-# Expected: exit 2, stderr message
+# Expected: exit 2, protected branch message
 ```
 
-**2. Conventional Commits (Gemini mode):**
+**2. Allow push to main with GIT_BIGPOWERS_LAND=1:**
+```bash
+GIT_BIGPOWERS_LAND=1 echo '{"tool_input":{"command":"git push origin main"}}' | ./pre-tool-use.sh
+# Expected: exit 0 (when on main)
+```
+
+**3. Allow push to feature branch:**
+```bash
+echo '{"tool_input":{"command":"git push -u origin feat/my-task"}}' | ./pre-tool-use.sh
+# Expected: exit 0
+```
+
+**4. Conventional Commits (Gemini mode):**
 ```bash
 echo '{"tool_input":{"command":"git commit -m \"bad message\""}}' | GIT_GUARDRAILS_MODE=gemini ./pre-tool-use.sh
 # Expected: exit 0, {"decision":"deny", "reason":"..."}
 ```
 
-**3. Protected Branch (Cursor mode):**
+**5. Protected Branch commit (Cursor mode):**
 ```bash
 # Run on 'main' branch
 echo '{"command":"git commit -m \"feat: valid message\""}' | GIT_GUARDRAILS_MODE=cursor ./pre-tool-use.sh
 # Expected: exit 2, "Direct commits to protected branch 'main' are forbidden"
 ```
 
-**4. Allow (Gemini mode):**
+**6. Land script exists:**
+```bash
+test -x scripts/land-branch.sh && echo OK
+```
+
+**7. Allow (Gemini mode):**
 ```bash
 echo '{"tool_input":{"command":"git status"}}' | GIT_GUARDRAILS_MODE=gemini ./pre-tool-use.sh
 # Expected: exit 0, {"decision":"allow"}

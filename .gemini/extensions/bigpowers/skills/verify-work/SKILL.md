@@ -8,9 +8,18 @@ description: "Multi-phase UAT gate — cold-start smoke, build, typecheck, lint,
 
 > **HARD GATE** — No story is "done" until its `## Verification Script` from RELEASE-PLAN.md is confirmed by the user or agent with evidence.
 
+> **HARD GATE** — Do NOT run verify-work on `main` or `master`. Run from the feature branch or worktree created by `kickoff-branch`.
+
 Review answers "is the code good?"; Verify answers "does the built thing do what was promised?"
 
 ## Process
+
+0. **Branch check** (before any gates):
+
+```bash
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+# Must not be main or master — run kickoff-branch first
+```
 
 1. Read the story's `## Verification Script` from `specs/RELEASE-PLAN.md`.
 2. **Cold-start smoke** (if app): stop server, clear caches, boot from scratch.

@@ -13,14 +13,21 @@ Create an isolated working environment before touching any code. A clean baselin
 
 Ask if not already known: "What's the name of this feature or task?" Use it as the branch name slug (kebab-case, max 40 chars).
 
-### 2. Check current state
+### 2. Anchor on default branch (main or master)
+
+> **HARD GATE** — Kickoff MUST start from an updated, clean default branch in the **primary** repository root (not a linked worktree).
 
 ```bash
-git status          # ensure working tree is clean
-git log --oneline -5  # confirm you're on the right base branch
+# Detect default branch
+DEFAULT=$(git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@' || echo main)
+
+git checkout "$DEFAULT"
+git pull --ff-only origin "$DEFAULT"   # skip if no remote
+git status                             # working tree MUST be clean
+git log --oneline -5
 ```
 
-If working tree is dirty, ask the user to stash or commit first.
+If working tree is dirty, ask the user to stash or commit first. If not on `$DEFAULT` after checkout, stop and fix before continuing.
 
 ### 3. Pre-flight & Conflict Resolution
 
@@ -80,4 +87,4 @@ Worktree: ../<task-slug>
 Ready to develop.
 ```
 
-Suggest next skill: `develop-tdd` to start the TDD loop, or `execute-plan` if a specs/PLAN.md already exists.
+Suggest next skill: `develop-tdd` to start the TDD loop, or `execute-plan` if `specs/RELEASE-PLAN.md` already exists.

@@ -30,15 +30,21 @@ Detailed documentation for the `orchestrate-project` meta-skill.
 
 ### PHASE 5: VERIFY
 - **Goal**: Validate success criteria and ensure production readiness.
-- **Deliverables**: `VERIFICATION.md`, audit results.
-- **Skills**: `validate-fix`, `audit-code`, `request-review`.
-- **Gate**: Quality ≥94%, coverage ≥95%, audits ≥93%.
+- **Deliverables**: UAT evidence, eval results.
+- **Skills**: `run-evals`, `verify-work`, `audit-code`, `request-review` (optional).
+- **Gate**: Verification Script confirmed; `verify-work` not on `main`/`master`.
 
-### PHASE 6: RELEASE
-- **Goal**: Ship to production with full traceability.
-- **Deliverables**: Release tag (vX.Y.Z), release notes.
+### PHASE 6: RELEASE (Integrate)
+- **Goal**: Ship to `main` with full traceability.
+- **Deliverables**: Release tag (vX.Y.Z), release notes via semantic-release.
 - **Skills**: `commit-message`, `release-branch`.
-- **Gate**: Safety ("About to push to main. Confirm?").
+- **Git arc**:
+  1. Plan on `main` (Discover / Plan)
+  2. `kickoff-branch` → worktree + feature branch + clean baseline
+  3. Build / Verify / Review on feature branch
+  4. Integrate: **solo-local** (`scripts/land-branch.sh`) or **team-pr** (`gh pr create` → squash merge)
+  5. Cleanup worktree; **end on `main`** in primary repo root
+- **Gate**: Safety ("About to land on main. Confirm?").
 
 ---
 

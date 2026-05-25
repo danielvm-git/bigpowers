@@ -24,6 +24,7 @@
 
 ## Active Decisions
 
+- **Solo Git profile** active — integrate via `scripts/land-branch.sh` (solo-local); see `profiles/solo-git.md` and `specs/WORKFLOW-solo-git.md`.
 - **RELEASE-PLAN.md** is the single planning artifact (no PLAN.md).
 - **handoff** folded into `session-state` (no standalone handoff skill).
 - **search-skills** uses lexical index only (no embeddings).

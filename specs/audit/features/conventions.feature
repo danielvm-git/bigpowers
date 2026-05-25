@@ -17,3 +17,5 @@ Feature: Conventions Compliance
     And it must mandate the "Boy Scout Rule" (Leave code cleaner)
     And it must prohibit direct work on main/master branches
     And it must require every change to be verified with a runnable command
+    And land branch script exists
+    And solo git profile exists

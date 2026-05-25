@@ -66,11 +66,22 @@ UTILITY     terse-mode / craft-skill / edit-document (any phase)
 | Bug to fix | `investigate-bug` |
 | Code ready for review | `audit-code` |
 | Shipping a feature | `commit-message` → `release-branch` |
+| Solo dev, PRs feel heavy | Enable `profiles/solo-git.md` → `specs/WORKFLOW-solo-git.md` → land via `scripts/land-branch.sh` |
+
+## Solo Git profile
+
+If you work alone and do not want PR ceremony every task:
+
+1. Read [profiles/solo-git.md](../profiles/solo-git.md).
+2. Register with `compose-workflow` → `specs/WORKFLOW-solo-git.md`.
+3. Ship with `release-branch` in **solo-local** mode (`land-branch.sh`), not `gh pr create`.
+
+You still use worktrees, protected `main`, and verification gates — only the integrate step changes.
 
 ## Key conventions
 
 - **specs/ is your memory.** All domain docs, plans, and investigation outputs go in `specs/` at your project root.
-- **`gh` for PRs only.** Never create GitHub issues from skills — use local Markdown files instead.
+- **Integrate:** team default is `gh pr` (team-pr); solo profile uses `land-branch.sh`. Never create GitHub issues from skills — use local Markdown files instead.
 - **One skill, one thing.** If you're unsure which skill to call, call `survey-context` — it reads your current state and recommends the next step.
 - **verify: every step.** Every task in `specs/RELEASE-PLAN.md` must have a `verify: <runnable command>`. Evidence over claims.
 - **58 skills.** See `SKILL-INDEX.md`; find skills with `search-skills`.

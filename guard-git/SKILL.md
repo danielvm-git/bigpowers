@@ -10,8 +10,9 @@ Installs a shared hook that blocks destructive git operations and enforces workf
 
 ## What gets blocked/enforced
 
-- **Safety**: `git push` (including `--force`), `git reset --hard`, `git clean -f`, `git branch -D`, `git checkout .`, `git restore .`.
-- **Discipline**: Blocks direct commits or pushes to protected branches (`main`, `master`).
+- **Safety**: `git push --force`, `git reset --hard`, `git clean -f`, `git branch -D`, `git checkout .`, `git restore .`.
+- **Discipline**: Blocks direct commits or pushes to protected branches (`main`, `master`) unless `GIT_BIGPOWERS_LAND=1` (set only by `scripts/land-branch.sh`).
+- **Allows**: `git push origin <feature-branch>` for backup/CI; solo land push to `main` only inside `land-branch.sh`.
 - **Standardization**: Enforces [Conventional Commits](https://www.conventionalcommits.org/) for all `git commit` commands.
 - **Secrets**: Blocks commits containing common secret patterns (`sk-`, `ghp_`, `AKIA`, `xoxb-`, `-----BEGIN` private keys) — see [REFERENCE.md](REFERENCE.md).
 
