@@ -8,7 +8,7 @@ description: "Test-driven development with red-green-refactor loop using vertica
 
 > **HARD GATE** — Do NOT proceed if on `main` or `master`. Run `kickoff-branch` first to create a feature branch or worktree.
 >
-> **HARD GATE** — Do NOT write code before you have a plan. If you are starting a new task, run `plan-work` to create `specs/RELEASE-PLAN.md`. If you are fixing a bug, run `investigate-bug` to create `specs/DIAGNOSIS.md`.
+> **HARD GATE** — Do NOT write code before you have a plan. If you are starting a new task, run `plan-work` to create `specs/RELEASE-PLAN.md`. If you are fixing a bug, run `investigate-bug` to create `specs/bugs/BUG-*.md`.
 >
 > **RECURSIVE DISCIPLINE** — This lifecycle apply to EVERY task, including updating these skills. Never skip planning because a task is "meta" or "just documentation."
 
@@ -65,7 +65,7 @@ If you find yourself thinking these things, you are likely deviating from produc
 
 Before writing any code:
 
-- [ ] Read `specs/RELEASE-PLAN.md` or `specs/DIAGNOSIS.md` if they exist — understand the task and verify steps
+- [ ] Read `specs/RELEASE-PLAN.md` or `specs/bugs/BUG-*.md` if they exist — understand the task and verify steps
 - [ ] Confirm with user what interface changes are needed
 - [ ] Confirm with user which behaviors to test (prioritize)
 - [ ] Identify opportunities for [deep modules](deep-modules.md) (small interface, deep implementation)

@@ -28,6 +28,7 @@ Choose the correct BMAD-BigPowers artifact:
 - **Context Map**: For system-wide architectural mapping (`specs/CONTEXT.md`).
 - **Technical Guide**: For "How-to" with verification (saved to `<module>/REFERENCE.md`).
 - **Behavioral Feature**: Gherkin-style compliance specs (saved to `specs/audit/features/`).
+- **Project README**: Project-facing documentation (saved to `README.md` at project root).
 
 **Cross-Cutting Concerns**: If a doc affects multiple modules, place the authoritative source in the lowest common ancestor directory and use "Delegates" (one-line pointers) in sub-directories to maintain the Single Source of Truth without violating the Stepdown Rule.
 
@@ -40,6 +41,15 @@ Write the document focusing on "Expert Collaboration":
 - **Provenance Links**: Link to ADRs, Issues, or Commits to preserve intent.
 - **The Stepdown Rule**: Information should descend exactly one level of abstraction. If a root doc needs to explain a leaf-level detail, it must point to a sub-index first.
 
+### Quick README (Project READMEs only)
+
+1. Ask: "Project name? One-sentence description?"
+2. Generate `README.md` at project root using the template in [REFERENCE.md](REFERENCE.md) — no TOC, no second interview round.
+3. Fill gaps from `CLAUDE.md` commands if available; use `TODO` markers otherwise.
+4. Output and suggest `edit-document` for polish.
+
+→ verify: `grep -c "^## " README.md | awk '{if($1>=7) print "OK"}'`
+
 ### 3. Apply the 94% Quality Gate
 
 Before finalizing, audit the document against these red flags:
@@ -50,7 +60,7 @@ Before finalizing, audit the document against these red flags:
 
 ### 4. Sync and Organize
 
-- **Big Powers Hierarchy**: Place the document in the correct tier (Global -> Project -> Sub-directory).
+- **Big Powers Hierarchy**: Place the document in the correct tier (Global -> Project -> Sub-directory). Project READMEs are an exception — they go to project root (`README.md`), not `specs/`.
 - **Nested Indexing**: If adding a module-level doc, ensure the module's `GEMINI.md` is updated. If the module's index is new, add it to the root `GEMINI.md`.
 - **Sync**: Run `scripts/sync-skills.sh` if the document is a `SKILL.md` or affects generated artifacts.
 

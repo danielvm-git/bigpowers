@@ -52,10 +52,11 @@ Every skill that produces written output writes to `specs/` at the project root:
 | Scope definition | `specs/SCOPE.md` |
 | Task breakdown | `specs/TASKS.md` |
 | Implementation plan | `specs/PLAN.md` (or `specs/PLAN-<feature>.md`) |
+| Project README | `README.md` (project root) |
 | Refactor plan | `specs/REFACTOR.md` |
 | Spike learnings | `specs/SPIKE-<name>.md` |
-| Bug investigation | `specs/DIAGNOSIS.md` |
-| QA session log | `specs/BUG-LOG.md` |
+| Bug investigation | `specs/bugs/BUG-*.md` |
+| QA session log | `specs/bugs/BUG-LOG.md` |
 
 ## Code Style
 

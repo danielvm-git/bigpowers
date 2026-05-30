@@ -23,6 +23,7 @@ Choose the correct BMAD-BigPowers artifact:
 - **Context Map**: For system-wide architectural mapping (`specs/CONTEXT.md`).
 - **Technical Guide**: For "How-to" with verification (saved to `<module>/REFERENCE.md`).
 - **Behavioral Feature**: Gherkin-style compliance specs (saved to `specs/audit/features/`).
+- **Project README**: Project-facing documentation (saved to `README.md` at project root).
 
 **Cross-Cutting Concerns**: If a doc affects multiple modules, place the authoritative source in the lowest common ancestor directory and use "Delegates" (one-line pointers) in sub-directories to maintain the Single Source of Truth without violating the Stepdown Rule.
 
@@ -35,6 +36,15 @@ Write the document focusing on "Expert Collaboration":
 - **Provenance Links**: Link to ADRs, Issues, or Commits to preserve intent.
 - **The Stepdown Rule**: Information should descend exactly one level of abstraction. If a root doc needs to explain a leaf-level detail, it must point to a sub-index first.
 
+### Quick README (Project READMEs only)
+
+1. Ask: "Project name? One-sentence description?"
+2. Generate `README.md` at project root using the template in [REFERENCE.md](REFERENCE.md) — no TOC, no second interview round.
+3. Fill gaps from `CLAUDE.md` commands if available; use `TODO` markers otherwise.
+4. Output and suggest `edit-document` for polish.
+
+→ verify: `grep -c "^## " README.md | awk '{if($1>=7) print "OK"}'`
+
 ### 3. Apply the 94% Quality Gate
 
 Before finalizing, audit the document against these red flags:
@@ -45,7 +55,7 @@ Before finalizing, audit the document against these red flags:
 
 ### 4. Sync and Organize
 
-- **Big Powers Hierarchy**: Place the document in the correct tier (Global -> Project -> Sub-directory).
+- **Big Powers Hierarchy**: Place the document in the correct tier (Global -> Project -> Sub-directory). Project READMEs are an exception — they go to project root (`README.md`), not `specs/`.
 - **Nested Indexing**: If adding a module-level doc, ensure the module's `GEMINI.md` is updated. If the module's index is new, add it to the root `GEMINI.md`.
 - **Sync**: Run `scripts/sync-skills.sh` if the document is a `SKILL.md` or affects generated artifacts.
 
@@ -57,3 +67,172 @@ Before finalizing, audit the document against these red flags:
 
 
 Suggest next skill: `audit-code` or `sync-skills.sh`.
+
+---
+
+# Project README Template
+
+Combined from dbader/readme-template and jehna/readme-best-practices. No TOC.
+
+## Sections
+
+### 1. Title + Badges
+
+```markdown
+# Project Name
+
+![License](https://img.shields.io/badge/License-MIT-yellow.svg)
+![npm version](https://img.shields.io/npm/v/your-package.svg)
+
+```
+
+Fill badges from CLAUDE.md stack info if available. Default to license + version badges.
+
+### 2. Tagline
+
+```markdown
+> One-line description of what this project does and why it matters.
+```
+
+### 3. Description
+
+2-3 paragraphs: what problem it solves, who it's for, and what makes it different.
+
+### 4. Prerequisites
+
+```markdown
+## Prerequisites
+
+- **Runtime**: Node.js v18+ (from CLAUDE.md)
+- **Package manager**: npm (or pnpm/yarn)
+```
+
+Auto-fill from CLAUDE.md commands section when possible.
+
+### 5. Installation
+
+```markdown
+## Installation
+
+```bash
+npm install -g your-package
+# or
+npx your-package
+```
+```
+
+Prefer npx one-shot if applicable; list global install as alternative.
+
+### 6. Usage
+
+```markdown
+## Usage
+
+```bash
+your-command --help
+your-command do-something
+```
+```
+
+Include the most common 1-2 commands. Link to full docs if they exist.
+
+### 7. Features
+
+```markdown
+## Features
+
+- Feature 1: short description
+- Feature 2: short description
+```
+
+3-6 bullet points of what the project does. Derived from the project's purpose.
+
+### 8. Configuration
+
+```markdown
+## Configuration
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `VAR_NAME` | `value` | What it controls |
+```
+
+Use `TODO` markers if unknown.
+
+### 9. Development Setup
+
+```markdown
+## Development
+
+```bash
+git clone <repo-url>
+cd project
+npm install
+```
+```
+
+Auto-fill from CLAUDE.md `Run` and `Build` commands.
+
+### 10. Running Tests
+
+```markdown
+## Tests
+
+```bash
+npm test
+npm run lint
+```
+```
+
+Auto-fill from CLAUDE.md `Test` and `Lint` commands.
+
+### 11. Contributing
+
+```markdown
+## Contributing
+
+1. Fork the repo.
+2. Create a feature branch (`git checkout -b feature/my-thing`).
+3. Commit changes (`git commit -am 'Add my thing'`).
+4. Push (`git push origin feature/my-thing`).
+5. Open a Pull Request.
+```
+
+### 12. Changelog
+
+```markdown
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) or [Releases](https://github.com/user/repo/releases).
+```
+
+### 13. Links
+
+```markdown
+## Links
+
+- Repository: https://github.com/user/repo
+- Issue tracker: https://github.com/user/repo/issues
+```
+
+### 14. License
+
+```markdown
+## License
+
+MIT — see [LICENSE](LICENSE) for details.
+```
+
+Detect from CLAUDE.md or project LICENSE file.
+
+### 15. Credits (optional)
+
+```markdown
+## Credits
+
+Built with [bigpowers](https://github.com/danielvm-git/bigpowers).
+```
+
+## Verify
+
+After generation, run: `grep -c "^## " README.md` — expect ≥ 7 section headings.

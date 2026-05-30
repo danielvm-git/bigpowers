@@ -59,9 +59,9 @@ For every bug fixed, add at least one prevention layer:
 - [ ] At least one hardening mechanism added
 - [ ] Hardening mechanism is tested
 
-### 6. Update specs/DIAGNOSIS.md
+### 6. Update the bug file and BUG-LOG.md
 
-If a `specs/DIAGNOSIS.md` exists for this bug, append the resolution:
+Find the most recent `specs/bugs/BUG-*.md` file and append the resolution:
 
 ```markdown
 ## Resolution
@@ -74,14 +74,17 @@ If a `specs/DIAGNOSIS.md` exists for this bug, append the resolution:
 **Commit:** `fix(<scope>): <description>`
 ```
 
-- [ ] specs/DIAGNOSIS.md updated with resolution
+Also update the corresponding row in `specs/bugs/BUG-LOG.md`: set `status` to `fixed`, fill in `files_changed`, `approach`, `risk_level`, `commit_message`, and any other resolution fields.
+
+- [ ] specs/bugs/BUG-*.md updated with resolution
+- [ ] specs/bugs/BUG-LOG.md row updated with resolution fields
 
 ### 7. Behavioral Proof (HARD GATE)
 
 Mechanical verification (tests passing) is only half the fix. You must prove **behavioral correctness**.
 
 - [ ] Manually demonstrate the fixed behavior (e.g., via `run_shell_command` or `web_fetch`)
-- [ ] Compare the output/state against the "Expected Behavior" in `specs/DIAGNOSIS.md`
+- [ ] Compare the output/state against the "Expected Behavior" in the bug file
 - [ ] Show the user evidence of the behavior, not just the test logs
 
 ## Rules
@@ -89,6 +92,6 @@ Mechanical verification (tests passing) is only half the fix. You must prove **b
 - **Loop until behavioral correctness is verified**: if any checklist item fails, or if the behavior is still incorrect despite passing tests, return to step 1 and run all checks again from the top — do not declare done until every item is green and the behavior is proven correct in a single run.
 - **Never use `@ts-ignore`, `as any`, or `// eslint-disable`** to "fix" a bug — these suppress the symptom without fixing the root cause
 - **Never mark the task done if any test is still failing**
-- **The verify command from specs/DIAGNOSIS.md or specs/PLAN.md must pass**
+- **The verify command from specs/bugs/BUG-*.md or specs/PLAN.md must pass**
 
 Suggest next skill: `audit-code` → `commit-message`.

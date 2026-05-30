@@ -1,7 +1,7 @@
 
 # Inspect Quality
 
-Run an interactive QA session. The user describes problems they're encountering. You clarify, explore the codebase for context, and log each issue to `specs/BUG-LOG.md` with a structured, durable format.
+Run an interactive QA session. The user describes problems they're encountering. You clarify, explore the codebase for context, and log each issue to `specs/bugs/BUG-LOG.md` with a structured, durable format.
 
 ## For each issue the user raises
 
@@ -36,9 +36,9 @@ Keep as a single issue when:
 - It's one behavior that's wrong in one place
 - The symptoms are all caused by the same root behavior
 
-### 4. Log to specs/BUG-LOG.md
+### 4. Log to specs/bugs/BUG-LOG.md
 
-Append the issue to `specs/BUG-LOG.md`. Create the file and `specs/` directory if they don't exist.
+Append the issue to `specs/bugs/BUG-LOG.md`. Create the `specs/bugs/` directory if it doesn't exist.
 
 #### BUG-LOG.md format
 
@@ -46,7 +46,7 @@ The file maintains a Markdown table with the following columns (derived from str
 
 | Field | Description |
 |-------|-------------|
-| `bug_id` | `BUG-YYYY-MM-DD-NNN` |
+| `bug_id` | `BUG-YYYY-MM-DDTHHMMSS` |
 | `date` | `YYYY-MM-DD` |
 | `severity` | `critical` / `high` / `medium` / `low` |
 | `priority` | `p0` / `p1` / `p2` / `p3` |
@@ -65,6 +65,7 @@ The file maintains a Markdown table with the following columns (derived from str
 | `release_type` | `patch` / `minor` / `major` (filled in after fix) |
 | `commit_message` | Conventional Commits message (filled in after fix) |
 | `follow_ups` | semicolon-separated follow-up items |
+| `file` | path to detailed `specs/bugs/BUG-*.md` (filled in by investigate-bug) |
 | `status` | `open` / `in-progress` / `fixed` / `wont-fix` |
 
 When a bug is fixed (via `validate-fix`), update the relevant row with the resolution fields.
@@ -74,7 +75,7 @@ When a bug is fixed (via `validate-fix`), update the relevant row with the resol
 For each bug, also append a detail section:
 
 ```markdown
-### BUG-YYYY-MM-DD-NNN: [short title]
+### BUG-YYYY-MM-DDTHHMMSS: [short title]
 
 **What happened:** [actual behavior, plain language]
 **What I expected:** [expected behavior]
@@ -87,6 +88,7 @@ For each bug, also append a detail section:
 
 #### Rules for all entries
 
+- **bug_id** uses full timestamp: `BUG-YYYY-MM-DDTHHMMSS` — matches the individual bug file name in `specs/bugs/`
 - **No file paths or line numbers** — these go stale
 - **Use the project's domain language** (check `specs/UBIQUITOUS_LANGUAGE.md` if it exists)
 - **Describe behaviors, not code** — "the sync service fails to apply the patch" not "applyPatch() throws"

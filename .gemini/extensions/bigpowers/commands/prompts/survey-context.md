@@ -21,8 +21,7 @@ specs/
 ├── TASKS.md            → task breakdown status
 ├── RELEASE-PLAN.md     → implementation plan status
 ├── REFACTOR.md         → refactor plan status
-├── DIAGNOSIS.md        → active bug investigation
-├── BUG-LOG.md          → historical bug log
+├── bugs/               → bug investigations (BUG-*.md) + BUG-LOG.md
 └── SPIKE-*.md          → spike learning notes
 ```
 
@@ -54,7 +53,7 @@ Based on what you've found, identify which PMBOK phase this project is currently
 | **Initiate** | On a feature branch; no code changes yet |
 | **Execute** | RELEASE-PLAN.md exists; on feature branch; steps in progress |
 | **Verify** | Implementation done; run `verify-work` or `run-evals`; awaiting UAT |
-| **Bug** | DIAGNOSIS.md exists; on `main`/`master` |
+| **Bug** | `specs/bugs/BUG-*.md` exists; on `main`/`master` |
 | **Review** | All code written; no PR yet |
 | **Integrate** | PR open; tests passing |
 | **Sustain** | Ongoing; no active task |
@@ -83,7 +82,7 @@ Be specific — name the exact skill and why. If multiple options exist, list th
 
 If something looks wrong:
 - Broken tests in the baseline
-- DIAGNOSIS.md open with no active fix branch
+- `specs/bugs/BUG-*.md` open with no active fix branch
 - RELEASE-PLAN.md with missing verify commands or Verification Script sections
 - CONVENTIONS.md violations in recent commits
 

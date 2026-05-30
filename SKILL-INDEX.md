@@ -66,8 +66,8 @@
 | 31 | Harden | `wire-observability` | Structured logging + observability | src/, CLAUDE.md | ✅ Active |
 | 32 | Verify | `verify-work` | Multi-phase UAT; loop on gaps | (dialogue) | ✅ Active |
 | 33 | Verify | `run-evals` | EDD capability + regression evals | EVALS-&lt;feature&gt;.md | ✅ Active |
-| 34 | Bug | `investigate-bug` | Investigate bug → diagnosis | DIAGNOSIS.md | ✅ Active |
-| 35 | Bug | `diagnose-root` | 4-phase root cause analysis | DIAGNOSIS.md | ✅ Active |
+| 34 | Bug | `investigate-bug` | Investigate bug → diagnosis | bugs/BUG-*.md | ✅ Active |
+| 35 | Bug | `diagnose-root` | 4-phase root cause analysis | bugs/BUG-*.md | ✅ Active |
 | 36 | Bug | `validate-fix` | Prove fix works | (verify) | ✅ Active |
 | 37 | Review | `audit-code` | Self-review checklist | (checklist) | ✅ Active |
 | 38 | Review | `request-review` | Fresh reviewer agent | review-report | ✅ Active |

@@ -152,7 +152,7 @@ Links to design docs, RFCs, ADRs, prior stories, datasets, prototypes.
 
 ---
 
-## Bug-fix specs (DIAGNOSIS.md)
+## Bug-fix specs (bugs/BUG-*.md)
 
 Bug fixes use the same header block and the same 20 sections. The minimum required for "Countable" on a bug fix:
 
