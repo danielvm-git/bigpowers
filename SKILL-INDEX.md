@@ -2,7 +2,7 @@
 
 **Purpose:** One canonical reference for all bigpowers skills. Referenced by README.md, RELEASE-PLAN.md, and CONVENTIONS.md. Updated per-release.
 
-**Last updated:** 2026-05-25 (v3.0.0 — consolidation release; 58 active, 0 planned, Verify phase)
+**Last updated:** 2026-05-31 (v3.0.0 — maintain-wiki + Obsidian wiki layer; 59 active, 0 planned, Verify phase)
 
 ---
 
@@ -24,8 +24,8 @@
 | **Review** | 4 | audit-code, request-review, respond-review, trace-requirement |
 | **Integrate** | 2 | commit-message, release-branch |
 | **Sustain** | 4 | inspect-quality, organize-workspace, stocktake-skills, evolve-skill |
-| **Utility** | 12 | terse-mode, craft-skill, edit-document, session-state, migrate-spec, visual-dashboard, write-document, setup-environment, reset-baseline, search-skills, compose-workflow, simulate-agents |
-| **TOTAL** | **58** | |
+| **Utility** | 13 | terse-mode, craft-skill, edit-document, session-state, migrate-spec, visual-dashboard, write-document, setup-environment, reset-baseline, search-skills, compose-workflow, simulate-agents, maintain-wiki |
+| **TOTAL** | **59** | |
 
 ---
 
@@ -91,8 +91,9 @@
 | 56 | Utility | `search-skills` | Natural language → right skill | SKILL-SEARCH-INDEX.md | ✅ Active |
 | 57 | Utility | `compose-workflow` | Chain skills into workflow recipe | WORKFLOW-&lt;name&gt;.md | ✅ Active |
 | 58 | Utility | `simulate-agents` | Mock User + Auditor simulation | SIMULATION-&lt;feature&gt;.md | ✅ Active |
+| 59 | Utility | `maintain-wiki` | LLM wiki sync / ingest / lint | specs/wiki/ | ✅ Active |
 
-**Total: 58 ✅ Active, 0 📋 Planned.**
+**Total: 59 ✅ Active, 0 📋 Planned.**
 
 ---
 
@@ -128,7 +129,8 @@ survey-context → research-first → elaborate-spec → map-codebase
 
 Transversal utilities (any phase):
   terse-mode, craft-skill, edit-document, session-state, migrate-spec, visual-dashboard,
-  write-document, setup-environment, reset-baseline, search-skills, compose-workflow, simulate-agents
+  write-document, setup-environment, reset-baseline, search-skills, compose-workflow, simulate-agents,
+  maintain-wiki
 ```
 
 ---

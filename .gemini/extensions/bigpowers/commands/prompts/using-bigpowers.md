@@ -1,7 +1,7 @@
 
 # Using bigpowers
 
-Welcome to **bigpowers** — a lifecycle of **58** agent skills for production-ready, TDD-driven software by solo developers.
+Welcome to **bigpowers** — a lifecycle of **59** agent skills for production-ready, TDD-driven software by solo developers.
 
 ## Install
 
@@ -73,13 +73,23 @@ If you work alone and do not want PR ceremony every task:
 
 You still use worktrees, protected `main`, and verification gates — only the integrate step changes.
 
+## Obsidian wiki cockpit (optional)
+
+For accumulated project understanding and a read-only PM view:
+
+1. Read [profiles/obsidian-wiki.md](../profiles/obsidian-wiki.md).
+2. Open `specs/` as an Obsidian vault; landing page `COCKPIT.md`.
+3. Run `maintain-wiki` **sync** before merge (merge gate).
+
+Operational specs (STATE, RELEASE-PLAN) stay source of truth; `specs/wiki/` is LLM-synthesized navigation.
+
 ## Key conventions
 
 - **specs/ is your memory.** All domain docs, plans, and investigation outputs go in `specs/` at your project root.
 - **Integrate:** team default is `gh pr` (team-pr); solo profile uses `land-branch.sh`. Never create GitHub issues from skills — use local Markdown files instead.
 - **One skill, one thing.** If you're unsure which skill to call, call `survey-context` — it reads your current state and recommends the next step.
 - **verify: every step.** Every task in `specs/RELEASE-PLAN.md` must have a `verify: <runnable command>`. Evidence over claims.
-- **58 skills.** See `SKILL-INDEX.md`; find skills with `search-skills`.
+- **59 skills.** See `SKILL-INDEX.md`; find skills with `search-skills`.
 
 ## After this
 

@@ -1,0 +1,2 @@
+description = "Maintain the LLM-owned wiki layer in specs/wiki/ — sync from repo sources at merge, ingest external clips, query with compounding synthesis, lint link health. Use before land/merge (sync), when dropping files in specs/raw/ (ingest), or for wiki health checks (lint)."
+prompt = "@{commands/prompts/maintain-wiki.md}"

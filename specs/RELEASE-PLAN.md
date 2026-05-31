@@ -107,9 +107,10 @@ Current audit score: **~94%** — must remain ≥ 94% after merge.
 
 | Gate | Command | Target |
 |------|---------|--------|
-| Skill count | `find . -maxdepth 2 -name SKILL.md \| grep -v .git\|.cursor\|.gemini \| wc -l` | 58 |
-| Sync | `bash scripts/sync-skills.sh` | 58 skills synced |
+| Skill count | `find . -maxdepth 2 -name SKILL.md \| grep -v .git\|.cursor\|.gemini \| wc -l` | 59 |
+| Sync | `bash scripts/sync-skills.sh` | 59 skills synced |
 | Compliance | `npm run compliance` | all suites ≥ 94% |
+| Wiki sync | `maintain-wiki` sync mode | index + entities + synthesis present; 0 lint errors |
 | Benchmark | bigpowers-benchmark repo | ≥ baseline |
 
 ---

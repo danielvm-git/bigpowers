@@ -4,9 +4,10 @@
 .openhands
 node_modules
 _bmad
-_bmad-outputspecs/audit/reports/
-
+_bmad-output
 specs/audit/reports/
+.obsidian/
+specs/.obsidian/
 .env
 .env.local
 .env.development.local
