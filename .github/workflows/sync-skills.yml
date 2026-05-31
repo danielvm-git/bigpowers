@@ -4,26 +4,31 @@ on:
   push:
     branches: [ main, develop ]
     paths:
-      - 'skills/**/*.md'
+      - '*/SKILL.md'
       - 'scripts/sync-skills.sh'
+      - 'scripts/build-skill-index.sh'
+  workflow_dispatch:
 
 jobs:
   sync:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
-    
+      contents: read
+
     steps:
       - uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-      
+
       - name: Sync skills
         run: bash scripts/sync-skills.sh
-      
-      - name: Commit & push if changed
+
+      - name: Verify generated artifacts are committed
         run: |
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
-          git add .cursor/rules .gemini/extensions/bigpowers/
-          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: sync skills artifacts" && git push)
+          git diff --exit-code \
+            .cursor/rules \
+            .gemini/extensions/bigpowers/ \
+            specs/SKILL-SEARCH-INDEX.md \
+            opencode.json || {
+            echo "::error::Generated artifacts are out of date. Run: bash scripts/sync-skills.sh && git add -A && git commit"
+            git diff --stat .cursor/rules .gemini/extensions/bigpowers/ specs/SKILL-SEARCH-INDEX.md opencode.json
+            exit 1
+          }
