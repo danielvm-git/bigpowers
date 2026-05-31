@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/danielvm-git/bigpowers/compare/v1.1.2...v1.2.0) (2026-05-31)
+
+
+### Features
+
+* **maintain-wiki:** add LLM wiki layer and Obsidian cockpit profile ([d2e2c5b](https://github.com/danielvm-git/bigpowers/commit/d2e2c5b3d29a68b5dabf83e484778fd44290d69b))
+
 ## [1.1.2](https://github.com/danielvm-git/bigpowers/compare/v1.1.1...v1.1.2) (2026-05-31)
 
 
