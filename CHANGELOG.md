@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/danielvm-git/bigpowers/compare/v1.1.0...v1.1.1) (2026-05-31)
+
+
+### Bug Fixes
+
+* **scripts:** exit 0 to prevent false failure when OPN_TARGET is unset ([76bffd8](https://github.com/danielvm-git/bigpowers/commit/76bffd8cb7dd58f1e1e620017857d5491f10399e))
+
 # [1.1.0](https://github.com/danielvm-git/bigpowers/compare/v1.0.0...v1.1.0) (2026-05-31)
 
 
