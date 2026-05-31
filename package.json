@@ -6,6 +6,7 @@
   "scripts": {
     "compliance": "bash scripts/audit-compliance.sh specs/audit/features",
     "sync": "bash scripts/sync-skills.sh",
+    "version": "bash scripts/sync-skills.sh && git add .gemini/extensions/bigpowers/gemini-extension.json specs/SKILL-SEARCH-INDEX.md",
     "install": "bash scripts/install.sh",
     "postinstall": "bash scripts/sync-skills.sh && bash scripts/install.sh",
     "release": "semantic-release"

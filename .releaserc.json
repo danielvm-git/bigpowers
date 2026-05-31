@@ -8,7 +8,13 @@
     [
       "@semantic-release/git",
       {
-        "assets": ["CHANGELOG.md", "package.json", "skills-lock.json"],
+        "assets": [
+          "CHANGELOG.md",
+          "package.json",
+          "skills-lock.json",
+          ".gemini/extensions/bigpowers/gemini-extension.json",
+          "specs/SKILL-SEARCH-INDEX.md"
+        ],
         "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
       }
     ],

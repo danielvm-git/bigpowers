@@ -7,6 +7,7 @@ on:
       - '*/SKILL.md'
       - 'scripts/sync-skills.sh'
       - 'scripts/build-skill-index.sh'
+      - '.github/workflows/sync-skills.yml'
   workflow_dispatch:
 
 jobs:
@@ -25,10 +26,14 @@ jobs:
         run: |
           git diff --exit-code \
             .cursor/rules \
-            .gemini/extensions/bigpowers/ \
-            specs/SKILL-SEARCH-INDEX.md \
-            opencode.json || {
-            echo "::error::Generated artifacts are out of date. Run: bash scripts/sync-skills.sh && git add -A && git commit"
-            git diff --stat .cursor/rules .gemini/extensions/bigpowers/ specs/SKILL-SEARCH-INDEX.md opencode.json
+            .gemini/extensions/bigpowers/skills \
+            .gemini/extensions/bigpowers/commands || {
+            echo "::error::Skill artifacts out of date. Run: bash scripts/sync-skills.sh && git add -A && git commit"
+            git diff --stat .cursor/rules .gemini/extensions/bigpowers/skills .gemini/extensions/bigpowers/commands
+            exit 1
+          }
+          bash scripts/build-skill-index.sh
+          git diff --exit-code specs/SKILL-SEARCH-INDEX.md || {
+            echo "::error::SKILL-SEARCH-INDEX.md out of date. Run: bash scripts/sync-skills.sh && git commit"
             exit 1
           }

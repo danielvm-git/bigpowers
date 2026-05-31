@@ -1,5 +1,5 @@
 {
   "name": "bigpowers",
-  "version": "1.1.2",
+  "version": "1.2.1\nbash scripts/sync-skills.sh && git add .gemini/extensions/bigpowers/gemini-extension.json specs/SKILL-SEARCH-INDEX.md",
   "description": "59+ 59 agent skills for spec-driven, test-first software development by solo developers"
 }

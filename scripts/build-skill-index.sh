@@ -13,7 +13,7 @@ mkdir -p "$(dirname "$OUT")"
   echo ""
   echo "| name | model | description |"
   echo "|------|-------|-------------|"
-  for skill_dir in "$REPO_ROOT"/*/; do
+  for skill_dir in $(find "$REPO_ROOT" -maxdepth 1 -mindepth 1 -type d | sort); do
     skill_md="$skill_dir/SKILL.md"
     [[ -f "$skill_md" ]] || continue
     name=$(awk '/^---/{f++} f==1 && /^name:/{print; exit}' "$skill_md" | sed 's/^name:[[:space:]]*//')
