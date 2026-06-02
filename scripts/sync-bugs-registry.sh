@@ -27,16 +27,18 @@ for path in sorted(bugs_dir.glob("BUG-*.md")):
         k, _, v = line.partition(":")
         data[k.strip()] = v.strip().strip('"').strip("'")
     bug_id = data.get("bug_id") or path.stem
-    entries.append(
-        {
-            "id": bug_id,
-            "status": data.get("status", "open"),
-            "severity": data.get("severity", "medium"),
-            "scope": data.get("scope", "general"),
-            "title": data.get("title", path.stem),
-            "file": f"bugs/{path.name}",
-        }
-    )
+    entry = {
+        "id": bug_id,
+        "status": data.get("status", "open"),
+        "severity": data.get("severity", "medium"),
+        "scope": data.get("scope", "general"),
+        "title": data.get("title", path.stem),
+        "file": f"bugs/{path.name}",
+    }
+    for opt in ("files_changed", "approach", "risk_level", "commit_message"):
+        if data.get(opt):
+            entry[opt] = data[opt]
+    entries.append(entry)
 
 out = bugs_dir / "registry.yaml"
 lines = ["# AUTO-GENERATED — sync-bugs-registry.sh", "bugs:"]
@@ -47,6 +49,10 @@ for e in entries:
     lines.append(f"    scope: {e['scope']}")
     lines.append(f"    title: \"{e['title'].replace(chr(34), '')}\"")
     lines.append(f"    file: {e['file']}")
+    for opt in ("files_changed", "approach", "risk_level", "commit_message"):
+        if e.get(opt):
+            val = e[opt].replace('"', "'")
+            lines.append(f'    {opt}: "{val}"')
 lines.append("")
 out.write_text("\n".join(lines), encoding="utf-8")
 print(f"sync-bugs-registry: {len(entries)} bugs -> {out}")

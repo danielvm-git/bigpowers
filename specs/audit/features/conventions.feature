@@ -19,3 +19,4 @@ Feature: Conventions Compliance
     And it must require every change to be verified with a runnable command
     And land branch script exists
     And solo git profile exists
+    And sync skills preserves plus in descriptions

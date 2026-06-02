@@ -142,4 +142,23 @@ echo "  → .gemini/extensions/bigpowers/commands/ (Slash Commands)"
 echo "  → .gemini/extensions/bigpowers/gemini-extension.json"
 echo "  → opencode.json (CLAUDE.md + CONVENTIONS.md instructions)"
 [[ -n "$OPN_TARGET" ]] && echo "  → bigpowers-opencode: $opencode_count skills"
+
+# Regression guard (BUG-2026-06-02T164500): BSD sed without -E strips '+' from descriptions
+trace_mdc="$REPO_ROOT/.cursor/rules/trace-requirement.mdc"
+if [[ -f "$trace_mdc" ]] && ! grep -q 'release-plan.yaml + epic' "$trace_mdc"; then
+  echo "sync-skills: FAIL — '+' missing from trace-requirement; use sed -E for whitespace collapse" >&2
+  exit 1
+fi
+manifest="$REPO_ROOT/.gemini/extensions/bigpowers/gemini-extension.json"
+if [[ -f "$manifest" ]]; then
+  ext_ver=$(jq -r '.version // empty' "$manifest")
+  pkg_ver=$(jq -r '.version // empty' "$REPO_ROOT/package.json")
+  if [[ -z "$ext_ver" || -z "$pkg_ver" ]]; then
+    : # skip version compare when either field is missing
+  elif [[ "$ext_ver" != "$pkg_ver" ]]; then
+    echo "sync-skills: FAIL — gemini-extension.json version ($ext_ver) != package.json ($pkg_ver)" >&2
+    exit 1
+  fi
+fi
+
 exit 0

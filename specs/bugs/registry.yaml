@@ -6,3 +6,7 @@ bugs:
     scope: ci
     title: "GitHub Actions Sync Skills and Release failed after YAML follow-up"
     file: bugs/BUG-2026-06-02T164500.md
+    files_changed: "scripts/sync-skills.sh, package-lock.json, .github/workflows/publish.yml, .cursor/rules/trace-requirement.mdc, .gemini/extensions/bigpowers/gemini-extension.json"
+    approach: "sed -E whitespace collapse, jq version/description, lockfile refresh, Node 22 in publish workflow"
+    risk_level: "high"
+    commit_message: "fix(ci): repair sync-skills sed and refresh package-lock; fix(ci): use Node 22 for semantic-release workflow"
