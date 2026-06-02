@@ -31,7 +31,7 @@ for skill_dir in "$REPO_ROOT"/*/; do
   description=$(awk '/^---/{f++} f==1 && /^description:/{p=1} p && !/^---/{print} f==2{exit}' "$skill_md" \
     | sed 's/^description:[[:space:]]*//' \
     | tr -d '\n' \
-    | sed 's/[[:space:]]\+/ /g')
+    | sed -E 's/[[:space:]]+/ /g')
 
   [[ -z "$name" ]] && continue
 
@@ -85,13 +85,13 @@ for skill_dir in "$REPO_ROOT"/*/; do
   skill_count=$((skill_count + 1))
 done
 
-# Assemble final gemini-extension.json
-pkg_version=$(grep '"version":' "$REPO_ROOT/package.json" | sed 's/.*: "\(.*\)".*/\1/')
-pkg_desc=$(grep '"description":' "$REPO_ROOT/package.json" | sed 's/.*: "\(.*\)".*/\1/')
+# Assemble final gemini-extension.json (top-level fields only — not scripts.version)
+pkg_version=$(jq -r '.version' "$REPO_ROOT/package.json")
+pkg_desc=$(jq -r '.description' "$REPO_ROOT/package.json")
 
 jq -n --arg name "bigpowers" \
       --arg version "$pkg_version" \
-      --arg desc "$skill_count+ $pkg_desc" \
+      --arg desc "${skill_count} skills — ${pkg_desc}" \
       '{name: $name, version: $version, description: $desc}' > "$GEMINI_MANIFEST"
 
 # 4. Write OpenCode configuration: opencode.json (minimal project-level config)

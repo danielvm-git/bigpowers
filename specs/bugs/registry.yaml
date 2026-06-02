@@ -1,2 +1,8 @@
 # AUTO-GENERATED — sync-bugs-registry.sh
-bugs: []
+bugs:
+  - id: BUG-2026-06-02T164500
+    status: fixed
+    severity: high
+    scope: ci
+    title: "GitHub Actions Sync Skills and Release failed after YAML follow-up"
+    file: bugs/BUG-2026-06-02T164500.md
