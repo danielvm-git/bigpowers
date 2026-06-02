@@ -1,3 +1,11 @@
+## [1.3.1](https://github.com/danielvm-git/bigpowers/compare/v1.3.0...v1.3.1) (2026-06-02)
+
+
+### Bug Fixes
+
+* **ci:** repair sync-skills sed and refresh package-lock ([29d6e7c](https://github.com/danielvm-git/bigpowers/commit/29d6e7cee82ab25eae5188628d1ae2bc73c99e57))
+* **ci:** use Node 22 for semantic-release workflow ([43edf78](https://github.com/danielvm-git/bigpowers/commit/43edf7801ef06714861e16ed833e6b8b4c3eb66c))
+
 # [1.3.0](https://github.com/danielvm-git/bigpowers/compare/v1.2.3...v1.3.0) (2026-06-02)
 
 
