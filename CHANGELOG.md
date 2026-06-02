@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/danielvm-git/bigpowers/compare/v1.3.1...v1.3.2) (2026-06-02)
+
+
+### Bug Fixes
+
+* **ci:** guard sync-skills description and manifest version ([f1d5ac3](https://github.com/danielvm-git/bigpowers/commit/f1d5ac35c2fe543aa5b65ab8cb6e929476e357e3))
+
 ## [1.3.1](https://github.com/danielvm-git/bigpowers/compare/v1.3.0...v1.3.1) (2026-06-02)
 
 
