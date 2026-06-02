@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/danielvm-git/bigpowers/compare/v1.2.3...v1.3.0) (2026-06-02)
+
+
+### Features
+
+* **specs:** complete YAML cockpit cohesion migration ([0a3cf16](https://github.com/danielvm-git/bigpowers/commit/0a3cf16b8030ef6b87ad5113b15265c76ea012c5))
+
 ## [1.2.3](https://github.com/danielvm-git/bigpowers/compare/v1.2.2...v1.2.3) (2026-05-31)
 
 
