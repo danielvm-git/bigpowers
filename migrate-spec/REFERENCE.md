@@ -2,7 +2,7 @@
 
 Transformation rules for spec-kit and BMAD projects, plus learnings to adopt and output formats.
 
-See [REFERENCE-GSD.md](./REFERENCE-GSD.md) for full GSD → bigpowers mapping.
+See [REFERENCE-GSD.md](./REFERENCE-GSD.md) for full GSD → bigpowers YAML mapping.
 
 ---
 
@@ -22,35 +22,35 @@ project-root/
         └── log.jsonl
 ```
 
-### `spec.md` → `specs/SCOPE.md` + `specs/CONTEXT.md`
+### `spec.md` → `specs/requirements/SCOPE_LATEST.yaml` + `specs/plans/TECH_STACK_LATEST.md`
 
 spec-kit `spec.md` focuses on: who uses it, user journeys, success criteria, what's in/out of scope.
 
 Transform:
-- User journeys → `specs/SCOPE.md` "Success Criteria" subsection (observable behaviors)
-- In/out of scope → `specs/SCOPE.md` main sections
-- Domain terms / glossary → `specs/CONTEXT.md` glossary section
-- Problem statement / vision → first paragraph of `specs/CONTEXT.md`
+- User journeys → `SCOPE_LATEST.yaml` success criteria / `in_scope` entries
+- In/out of scope → `in_scope` / `out_of_scope` sections
+- Domain terms / glossary → `requirements/GLOSSARY_LATEST.yaml`
+- Problem statement / vision → `requirements/VISION_LATEST.yaml`
 
-### `plan.md` → `specs/CONTEXT.md` + `specs/PLAN.md`
+### `plan.md` → `specs/plans/TECH_STACK_LATEST.md` + `specs/release-plan.yaml` + `specs/epics/`
 
 spec-kit `plan.md` covers: technology stack, architectural patterns, implementation constraints.
 
 Transform:
-- Technology decisions → `specs/CONTEXT.md` "Technology" section
-- Architecture patterns → `specs/CONTEXT.md` "Architecture" section
+- Technology decisions → `plans/TECH_STACK_LATEST.md` Technology section
+- Architecture patterns → Architecture section
 - Hard decisions with trade-offs → `specs/adr/NNNN-{slug}.md`
-- Phased approach / milestones → `specs/RELEASE-PLAN.md` release entries
-- Implementation steps → `specs/PLAN.md` task list
+- Phased approach / milestones → `release-plan.yaml` epic entries
+- Implementation steps → `epics/eNN-*.yaml` task list with `verify:`
 
-### `tasks.md` → `specs/TASKS.md`
+### `tasks.md` → `specs/epics/` (via slice-tasks)
 
 spec-kit tasks are atomic, verifiable in isolation — same principle as bigpowers `verify:` mandate.
 
 Transform:
-- Copy tasks directly; preserve task numbers
+- Copy tasks into epic shard `tasks[]`; preserve task numbers
 - Add `verify:` line if spec-kit task has an acceptance criterion
-- Group into phases matching `specs/RELEASE-PLAN.md` releases
+- Group into epics matching `release-plan.yaml` entries
 
 ### `.specify/` state
 
@@ -79,50 +79,50 @@ project-root/
     └── story-{slug}.md
 ```
 
-### `product-brief.md` / `prfaq-{project}.md` → `specs/CONTEXT.md` (Vision)
+### `product-brief.md` / `prfaq-{project}.md` → `specs/requirements/VISION_LATEST.yaml`
 
 Transform:
-- Vision + core value → `specs/CONTEXT.md` Vision section (first section)
-- Target users → personas list in CONTEXT.md
-- prfaq customer FAQ → can inform success criteria in SCOPE.md
+- Vision + core value → `VISION_LATEST.yaml` north_star / success_criteria
+- Target users → notes in VISION or SCOPE
+- prfaq customer FAQ → can inform success criteria in SCOPE
 
-### `prd.md` → `specs/SCOPE.md`
+### `prd.md` → `specs/requirements/SCOPE_LATEST.yaml` + `GLOSSARY_LATEST.yaml`
 
 BMAD `prd.md` has: Glossary, FR-XX functional requirements, UJ-XX user journeys, NFRs, assumptions.
 
 Transform:
-- Glossary → `specs/CONTEXT.md` Glossary section (keep exactly; it's domain language)
-- FR-XX items → `specs/SCOPE.md` "In Scope" with IDs preserved as comments: `<!-- FR-3 -->`
-- UJ-XX user journeys → `specs/SCOPE.md` "Success Criteria" section
-- NFRs → `specs/SCOPE.md` "Constraints" section
-- `[ASSUMPTION: ...]` inline tags → `specs/SCOPE.md` "Assumptions" section (collected)
-- Out-of-scope features → `specs/SCOPE.md` "Out of Scope" section
+- Glossary → `GLOSSARY_LATEST.yaml`
+- FR-XX items → `in_scope` with IDs preserved
+- UJ-XX user journeys → success criteria
+- NFRs → `constraints` section
+- `[ASSUMPTION: ...]` inline tags → collected in scope YAML
+- Out-of-scope features → `out_of_scope`
 
 ### `addendum.md` + `decision-log.md` → `specs/adr/` + `specs/DECISION-LOG.md`
 
 Transform:
 - Hard, irreversible, surprising decisions → individual `specs/adr/NNNN-{slug}.md`
 - Lightweight decisions → `specs/DECISION-LOG.md` (date | decision | rationale)
-- `addendum.md` change signals → note at top of SCOPE.md: "PRD amended: see decision-log"
+- `addendum.md` change signals → note in `SCOPE_LATEST.yaml` metadata
 
-### `architecture.md` → `specs/CONTEXT.md` + `specs/adr/`
+### `architecture.md` → `specs/plans/TECH_STACK_LATEST.md` + `specs/adr/`
 
 Transform:
 - ADR sections → individual `specs/adr/NNNN-{slug}.md` files
-- System overview / data models → `specs/CONTEXT.md` Architecture section
-- API contracts → keep at `docs/api.md` or similar; link from CONTEXT.md
+- System overview / data models → TECH_STACK Architecture section
+- API contracts → keep at `docs/api.md` or similar; link from TECH_STACK
 
-### `epic-*.md` → `specs/RELEASE-PLAN.md`
+### `epic-*.md` → `specs/release-plan.yaml` + `specs/epics/eNN-*.yaml`
 
-Each epic → one release entry. Epic acceptance criteria → "Success Criteria" subsection.
+Each epic → one release-plan entry + one epic shard. Acceptance criteria → story tasks with `verify:`.
 
-### `story-*.md` → `specs/TASKS.md`
+### `story-*.md` → `specs/epics/` stories
 
-Each story → one entry. Acceptance criteria → `verify:` lines. Story tasks → subtask checklist.
+Each story → one story entry in epic shard. Acceptance criteria → `verify:` lines.
 
 ### `project-context.md` → `CLAUDE.md`
 
-Add a "## Project Context" section to `CLAUDE.md` (or create `PROJECT-CONTEXT.md` if CLAUDE.md is bigpowers-managed). Copy tech stack, coding rules, preferences verbatim. Note: `<!-- Migrated from BMAD project-context.md -->`.
+Add a "## Project Context" section to `CLAUDE.md`. Copy tech stack, coding rules, preferences verbatim.
 
 ---
 
@@ -132,22 +132,21 @@ Optional enhancements to offer the user after migration. Present as checkboxes.
 
 ### From GSD
 
-- [ ] **`specs/METHODOLOGY.md`** — Standing analytical lenses (Bayesian updating, STRIDE, cost-of-delay). Agents read this before planning.
-- [ ] **Session Resume block in STATE.md** — Last skill used, last step completed, required reading for next session.
-- [ ] **ID tracking in SCOPE.md** — Add SCOPE-XX IDs to requirements for spec → plan → verification traceability.
+- [ ] **`specs/plans/METHODOLOGY_LATEST.md`** — Standing analytical lenses. Agents read before planning.
+- [ ] **`handoff` block in state.yaml** — Last skill, last step, required reading for next session.
+- [ ] **ID tracking in SCOPE_LATEST.yaml** — FR/UJ IDs for spec → plan → verification traceability.
 
 ### From spec-kit
 
-- [ ] **Two-pass spec writing** — User-journey pass first (what/why, no technical details), then technical-decisions pass. Cleaner specs.
-- [ ] **Explicit inter-phase gate** — "Approve to proceed?" checkpoint at end of `elaborate-spec` before starting `plan-work`.
-- [ ] **`specs/TASKS.md` isolation guarantee** — Each task entry completable and verifiable in isolation; declared dependencies explicit.
+- [ ] **Two-pass spec writing** — User-journey pass first, then technical-decisions pass.
+- [ ] **Explicit inter-phase gate** — "Approve to proceed?" at end of `elaborate-spec`.
+- [ ] **Epic task isolation** — Each task completable in isolation; `depends-on` explicit in epic YAML.
 
 ### From BMAD
 
-- [ ] **FR-XX + UJ-XX in SCOPE.md** — Functional requirement + user journey numbering for rigorous traceability.
-- [ ] **`specs/DECISION-LOG.md`** — Lightweight decision log for PRD-level choices below the ADR threshold. Format: `date | decision | rationale | alternatives`.
-- [ ] **`PROJECT-CONTEXT.md`** — Project-specific constitution read by all implementation agents. Generated from `model-domain` output.
-- [ ] **Adversarial review pass** — Dedicated critique pass on the plan before `develop-tdd`. Critic checks for gaps, edge cases, contradictions with SCOPE.md.
+- [ ] **FR-XX + UJ-XX in SCOPE_LATEST.yaml** — Rigorous traceability.
+- [ ] **`specs/DECISION-LOG.md`** — Lightweight decisions below ADR threshold.
+- [ ] **Adversarial review pass** — Critique epic shard before `develop-tdd`.
 
 ---
 

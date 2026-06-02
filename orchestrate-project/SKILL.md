@@ -11,7 +11,7 @@ The orchestrate skill coordinates projects through a prescriptive 6-phase core l
 ## Quick Start
 
 ```bash
-# Start a new project (creates PROJECT.md and begins discover phase)
+# Start a new project (initializes specs/ YAML cockpit and begins discover phase)
 claude /orchestrate --mode standard
 
 # Or resume an existing project at the current phase
@@ -23,12 +23,12 @@ claude /orchestrate --mode fast-track
 
 ## The 6-Phase Core Loop
 
-1. **DISCOVER** (3-6 hours): Understand problem. Deliverables: PROJECT.md, CONTEXT.md.
-2. **ELABORATE** (3-6 hours): Research solutions. Deliverables: RESEARCH.md.
-3. **PLAN** (2-4 hours): Write verifiable plan. Deliverables: PLAN.md.
-4. **BUILD** (1-8 hours): Execute plan. Deliverables: Code, SUMMARY.md.
-5. **VERIFY** (1-3 hours): Validate success criteria. Deliverables: VERIFICATION.md.
-6. **RELEASE** (30 min - 2 hours): Ship to production. Deliverables: Release tag.
+1. **DISCOVER** (3-6 hours): Understand problem. Deliverables: `requirements/VISION_LATEST.yaml`, `requirements/SCOPE_LATEST.yaml`, `plans/TECH_STACK_LATEST.md`.
+2. **ELABORATE** (3-6 hours): Research solutions. Deliverables: Prior art in scope YAML, ADRs in `specs/adr/`.
+3. **PLAN** (2-4 hours): Write verifiable plan. Deliverables: `release-plan.yaml`, `epics/eNN-*.yaml` with `verify:` per task.
+4. **BUILD** (1-8 hours): Execute plan. Deliverables: Code; update `execution-status.yaml`.
+5. **VERIFY** (1-3 hours): Validate success criteria. Deliverables: UAT evidence, `specs/EVALS-*.md` if used.
+6. **RELEASE** (30 min - 2 hours): Ship to production. Deliverables: Release tag (vX.Y.Z), `state.yaml` `release.last_tag`.
 
 See [REFERENCE.md](REFERENCE.md) for detailed phase specifications and gate types.
 
@@ -54,5 +54,5 @@ See [REFERENCE.md](REFERENCE.md) for full mode behaviors.
 
 All phases complete with artifacts:
 ```bash
-verify: test -f specs/PROJECT.md && test -f specs/PLAN.md && test -f specs/VERIFICATION.md && echo "✅ All phases complete"
+verify: test -f specs/state.yaml && test -f specs/release-plan.yaml && test -f specs/requirements/SCOPE_LATEST.yaml && ls specs/epics/*.yaml 1>/dev/null && echo "✅ All phases complete"
 ```

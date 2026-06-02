@@ -114,8 +114,9 @@ Every task in `bigpowers` follows a prescriptive lifecycle (see `SKILL-INDEX.md`
 | Level | Document | Responsibility |
 | :--- | :--- | :--- |
 | **Vision** | `docs/PRINCIPLES.md` | Philosophical foundations and evolution. |
-| **Context** | `specs/CONTEXT.md` | Tech stack, architecture, and glossary. |
-| **Scope** | `specs/SCOPE.md` | In-scope / out-of-scope and success criteria. |
+| **Context** | `specs/plans/TECH_STACK_LATEST.md` | Tech stack, architecture, and domain notes. |
+| **Scope** | `specs/requirements/SCOPE_LATEST.yaml` | In-scope / out-of-scope and success criteria. |
+| **Vision** | `specs/requirements/VISION_LATEST.yaml` | North star and initiative success criteria. |
 | **Decisions** | `specs/adr/` | Architectural Decision Records (irreversible choices). |
 | **Roadmap** | `specs/release-plan.yaml` + `specs/epics/` | WSJF-prioritized epics and stories. |
 | **Current** | `specs/state.yaml` | Session flow, active epic, handoff. |
@@ -127,7 +128,8 @@ Every task in `bigpowers` follows a prescriptive lifecycle (see `SKILL-INDEX.md`
 ## 📁 Project Structure
 
 - `scripts/`: Installation, syncing, and compliance tools.
-- `specs/`: The "Brain" of your project — all planning and decisions live here.
+- `specs/`: The "Brain" of your project — all planning and decisions live here (YAML cockpit: `state.yaml`, `release-plan.yaml`, `epics/`, `requirements/`).
+- `specs/wiki/`: Deprecated Obsidian layer — use `visual-dashboard` HTTP cockpit instead of `maintain-wiki`.
 - `docs/references/`: Theoretical foundations (Uncle Bob, Ousterhout, Karpathy, etc.).
 - `[skill-name]/`: Source files for each of the 61 skills.
 

@@ -82,7 +82,7 @@ slopcheck install malware-pkg --json
 **Workflow:**
 
 ```
-plan-work creates specs/RELEASE-PLAN.md:
+plan-work creates tasks in specs/epics/eNN-*.yaml:
 
 Step 1: Install dependency @openai/api@4.28.0
 Step 2: Configure API client
@@ -93,7 +93,7 @@ During planning, before recommending packages:
 │  ├─ @openai/api → [OK]
 │  └─ colors → [SUS]
 │
-├─ Tag packages in RELEASE-PLAN.md:
+├─ Tag packages in epic task descriptions:
 │  ├─ [OK] @openai/api v4.28.0
 │  └─ [SUS] colors v2.0.0 — **requires human verification**
 │

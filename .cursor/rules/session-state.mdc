@@ -12,7 +12,7 @@ Track the current state of implementation, including decisions made, pending tas
 
 Maintain a single source of truth for the *current* session in `specs/state.yaml`. This complements long-term docs in `specs/plans/` and delivery detail in `specs/epics/` + `specs/release-plan.yaml`.
 
-Legacy `specs/state.yaml` is deprecated — use `state.yaml` only.
+Legacy markdown (`specs/archive/STATE.md`, `RELEASE-PLAN.md`) is **not** SoT when YAML exists — use `specs/state.yaml` only.
 
 ## Handoff block (cold start)
 

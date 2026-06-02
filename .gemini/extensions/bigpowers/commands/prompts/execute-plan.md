@@ -44,3 +44,7 @@ Report blocker; ask skip/adapt/stop; update epic shard if plan changes.
 ### 4. Final report
 
 Suggest: `verify-work` → `run-evals` → `audit-code` → `simulate-agents` → `commit-message` → `release-branch`
+
+## Rules
+
+- **Loop until behavioral correctness is verified**: if a verify command passes but the observed behavior is still wrong, return to step 1 and run the execution cycle again.

@@ -128,10 +128,10 @@ Full mapping tables: [REFERENCE-GSD.md](./REFERENCE-GSD.md) (GSD) · [REFERENCE.
 | GSD `ROADMAP.md` | `specs/release-plan.yaml + epic shards` |
 | GSD `REQUIREMENTS.md` | `specs/requirements/SCOPE_LATEST.yaml` |
 | GSD `CONTEXT.md` (phases) | `specs/plans/TECH_STACK_LATEST.md` + `specs/adr/` |
-| GSD `PLAN.md` | `specs/PLAN-vX.Y.Z.md` |
-| GSD `METHODOLOGY.md` | `specs/SPIKE-methodology.md` |
+| GSD `PLAN.md` | `specs/epics/eNN-*.yaml` (tasks with verify) |
+| GSD `METHODOLOGY.md` | `specs/plans/METHODOLOGY_LATEST.md` |
 | spec-kit `spec.md` | `specs/requirements/SCOPE_LATEST.yaml` + `specs/plans/TECH_STACK_LATEST.md` |
-| spec-kit `plan.md` | `specs/plans/TECH_STACK_LATEST.md` + `specs/PLAN.md` |
+| spec-kit `plan.md` | `specs/plans/TECH_STACK_LATEST.md` + `specs/release-plan.yaml` + `specs/epics/` |
 | spec-kit `tasks.md` | `specs/epics/ (see slice-tasks)` |
 | BMAD `prd.md` | `specs/requirements/SCOPE_LATEST.yaml` |
 | BMAD `architecture.md` | `specs/plans/TECH_STACK_LATEST.md` + `specs/adr/` |

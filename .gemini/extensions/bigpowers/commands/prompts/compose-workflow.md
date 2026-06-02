@@ -28,7 +28,7 @@ See [REFERENCE.md](REFERENCE.md) for template.
 
 | Step | Skill | Output | verify |
 |------|-------|--------|--------|
-| 1 | survey-context | STATE.md | ... |
-| 2 | research-first | Prior Art | ... |
-| 3 | plan-work | RELEASE-PLAN.md | ... |
+| 1 | survey-context | state.yaml handoff | ... |
+| 2 | research-first | Prior Art in SCOPE_LATEST.yaml | ... |
+| 3 | plan-work | epics/eNN-*.yaml tasks | ... |
 ```

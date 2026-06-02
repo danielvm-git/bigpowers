@@ -6,7 +6,7 @@ The orchestrate skill coordinates projects through a prescriptive 6-phase core l
 ## Quick Start
 
 ```bash
-# Start a new project (creates PROJECT.md and begins discover phase)
+# Start a new project (initializes specs/ YAML cockpit and begins discover phase)
 claude /orchestrate --mode standard
 
 # Or resume an existing project at the current phase
@@ -18,12 +18,12 @@ claude /orchestrate --mode fast-track
 
 ## The 6-Phase Core Loop
 
-1. **DISCOVER** (3-6 hours): Understand problem. Deliverables: PROJECT.md, CONTEXT.md.
-2. **ELABORATE** (3-6 hours): Research solutions. Deliverables: RESEARCH.md.
-3. **PLAN** (2-4 hours): Write verifiable plan. Deliverables: PLAN.md.
-4. **BUILD** (1-8 hours): Execute plan. Deliverables: Code, SUMMARY.md.
-5. **VERIFY** (1-3 hours): Validate success criteria. Deliverables: VERIFICATION.md.
-6. **RELEASE** (30 min - 2 hours): Ship to production. Deliverables: Release tag.
+1. **DISCOVER** (3-6 hours): Understand problem. Deliverables: `requirements/VISION_LATEST.yaml`, `requirements/SCOPE_LATEST.yaml`, `plans/TECH_STACK_LATEST.md`.
+2. **ELABORATE** (3-6 hours): Research solutions. Deliverables: Prior art in scope YAML, ADRs in `specs/adr/`.
+3. **PLAN** (2-4 hours): Write verifiable plan. Deliverables: `release-plan.yaml`, `epics/eNN-*.yaml` with `verify:` per task.
+4. **BUILD** (1-8 hours): Execute plan. Deliverables: Code; update `execution-status.yaml`.
+5. **VERIFY** (1-3 hours): Validate success criteria. Deliverables: UAT evidence, `specs/EVALS-*.md` if used.
+6. **RELEASE** (30 min - 2 hours): Ship to production. Deliverables: Release tag (vX.Y.Z), `state.yaml` `release.last_tag`.
 
 See [REFERENCE.md](REFERENCE.md) for detailed phase specifications and gate types.
 
@@ -49,7 +49,7 @@ See [REFERENCE.md](REFERENCE.md) for full mode behaviors.
 
 All phases complete with artifacts:
 ```bash
-verify: test -f specs/PROJECT.md && test -f specs/PLAN.md && test -f specs/VERIFICATION.md && echo "✅ All phases complete"
+verify: test -f specs/state.yaml && test -f specs/release-plan.yaml && test -f specs/requirements/SCOPE_LATEST.yaml && ls specs/epics/*.yaml 1>/dev/null && echo "✅ All phases complete"
 ```
 
 ---
@@ -62,25 +62,25 @@ Detailed documentation for the `orchestrate-project` meta-skill.
 
 ### PHASE 1: DISCOVER
 - **Goal**: Understand the problem completely and map existing context.
-- **Deliverables**: `PROJECT.md`, `CONTEXT.md`.
+- **Deliverables**: `requirements/VISION_LATEST.yaml`, `requirements/SCOPE_LATEST.yaml`, `plans/TECH_STACK_LATEST.md`.
 - **Skills**: `survey-context`, `elaborate-spec`, `grill-me`.
 - **Gate**: Confirm ("Is the problem clear?").
 
 ### PHASE 2: ELABORATE
 - **Goal**: Research solutions and lock architectural design.
-- **Deliverables**: `RESEARCH.md`, ADRs (Architecture Decision Records).
+- **Deliverables**: Prior art in scope YAML, ADRs in `specs/adr/`.
 - **Skills**: `model-domain`, `define-language`, `challenge-design`.
 - **Gate**: Quality ≥94% (via `request-review`) + Confirm ("Are decisions locked?").
 
 ### PHASE 3: PLAN
 - **Goal**: Write a verifiable implementation plan with success criteria.
-- **Deliverables**: `PLAN.md` with `verify:` commands.
+- **Deliverables**: `release-plan.yaml`, `epics/eNN-*.yaml` with `verify:` per task.
 - **Skills**: `scope-work`, `slice-tasks`, `define-success`, `plan-work`.
 - **Gate**: Quality (request-review ≥94%) + slopcheck [SUS]/[SLOP].
 
 ### PHASE 4: BUILD
 - **Goal**: Execute the plan step-by-step using TDD and vertical slices.
-- **Deliverables**: Code, `SUMMARY.md`.
+- **Deliverables**: Code; `execution-status.yaml` updated per story.
 - **Skills**: `kickoff-branch`, `develop-tdd`, `delegate-task`, `execute-plan`.
 - **Gate**: Integration tests PASS.
 
@@ -116,7 +116,7 @@ Detailed documentation for the `orchestrate-project` meta-skill.
 ### Mode 2: Fast-Track (Skip Negotiable Gates)
 **Use Case**: Hotfixes, minor improvements, refactors on well-tested code.
 **Behavior**:
-- Skip Discover if `PROJECT.md` exists.
+- Skip Discover if `requirements/SCOPE_LATEST.yaml` exists.
 - Skip Elaborate if design decisions are already locked.
 - Skip Verify if coverage ≥95% + all tests PASS.
 - Soft gates auto-approve if baseline conditions are met.
@@ -142,10 +142,10 @@ Detailed documentation for the `orchestrate-project` meta-skill.
 ---
 
 ## Error Recovery & State
-Orchestrate maintains `specs/STATE.md` to track:
-- **Current Phase**: Position in the loop.
-- **Artifacts**: Checklist of completed deliverables.
-- **Decisions**: Audit trail of architectural choices.
-- **Risks**: Active project risks and mitigation status.
+Orchestrate maintains `specs/state.yaml` to track:
+- **Current flow / epic**: `active_flow`, `active_epic_id`, `epic_cycle`.
+- **Handoff**: `last_step_completed`, `open_decisions`, `required_reading`, `next_skill`.
+- **Git**: `branch`, `hash` for session continuity.
+- **Progress**: Story status lives in `execution-status.yaml` only.
 
 In the event of a crash or exit, run `claude /orchestrate --resume` to pick up exactly where the session left off.

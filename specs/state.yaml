@@ -1,18 +1,18 @@
-active_flow: build_epic
-active_epic_id: e01
+active_flow: sustain
+active_epic_id: null
 active_story_id: null
 release:
   target_version: "3.0.0"
-  last_tag: null
+  last_tag: "v3.0.0"
   last_publish: null
 epic_cycle:
   current_step: null
-  next_skill: survey-context
+  next_skill: null
   completed_steps: []
 git:
   branch: main
-  hash: c5fee46
+  hash: 0a3cf16
 handoff:
-  last_step_completed: null
+  last_step_completed: "v3.0.0 Consolidation — epics e01–e10 done; compliance 87/87 PASS"
   open_decisions: []
-  next_skill: survey-context
+  next_skill: stocktake-skills

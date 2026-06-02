@@ -6,25 +6,25 @@ Detailed documentation for the `orchestrate-project` meta-skill.
 
 ### PHASE 1: DISCOVER
 - **Goal**: Understand the problem completely and map existing context.
-- **Deliverables**: `PROJECT.md`, `CONTEXT.md`.
+- **Deliverables**: `requirements/VISION_LATEST.yaml`, `requirements/SCOPE_LATEST.yaml`, `plans/TECH_STACK_LATEST.md`.
 - **Skills**: `survey-context`, `elaborate-spec`, `grill-me`.
 - **Gate**: Confirm ("Is the problem clear?").
 
 ### PHASE 2: ELABORATE
 - **Goal**: Research solutions and lock architectural design.
-- **Deliverables**: `RESEARCH.md`, ADRs (Architecture Decision Records).
+- **Deliverables**: Prior art in scope YAML, ADRs in `specs/adr/`.
 - **Skills**: `model-domain`, `define-language`, `challenge-design`.
 - **Gate**: Quality ≥94% (via `request-review`) + Confirm ("Are decisions locked?").
 
 ### PHASE 3: PLAN
 - **Goal**: Write a verifiable implementation plan with success criteria.
-- **Deliverables**: `PLAN.md` with `verify:` commands.
+- **Deliverables**: `release-plan.yaml`, `epics/eNN-*.yaml` with `verify:` per task.
 - **Skills**: `scope-work`, `slice-tasks`, `define-success`, `plan-work`.
 - **Gate**: Quality (request-review ≥94%) + slopcheck [SUS]/[SLOP].
 
 ### PHASE 4: BUILD
 - **Goal**: Execute the plan step-by-step using TDD and vertical slices.
-- **Deliverables**: Code, `SUMMARY.md`.
+- **Deliverables**: Code; `execution-status.yaml` updated per story.
 - **Skills**: `kickoff-branch`, `develop-tdd`, `delegate-task`, `execute-plan`.
 - **Gate**: Integration tests PASS.
 
@@ -60,7 +60,7 @@ Detailed documentation for the `orchestrate-project` meta-skill.
 ### Mode 2: Fast-Track (Skip Negotiable Gates)
 **Use Case**: Hotfixes, minor improvements, refactors on well-tested code.
 **Behavior**:
-- Skip Discover if `PROJECT.md` exists.
+- Skip Discover if `requirements/SCOPE_LATEST.yaml` exists.
 - Skip Elaborate if design decisions are already locked.
 - Skip Verify if coverage ≥95% + all tests PASS.
 - Soft gates auto-approve if baseline conditions are met.
@@ -86,10 +86,10 @@ Detailed documentation for the `orchestrate-project` meta-skill.
 ---
 
 ## Error Recovery & State
-Orchestrate maintains `specs/STATE.md` to track:
-- **Current Phase**: Position in the loop.
-- **Artifacts**: Checklist of completed deliverables.
-- **Decisions**: Audit trail of architectural choices.
-- **Risks**: Active project risks and mitigation status.
+Orchestrate maintains `specs/state.yaml` to track:
+- **Current flow / epic**: `active_flow`, `active_epic_id`, `epic_cycle`.
+- **Handoff**: `last_step_completed`, `open_decisions`, `required_reading`, `next_skill`.
+- **Git**: `branch`, `hash` for session continuity.
+- **Progress**: Story status lives in `execution-status.yaml` only.
 
 In the event of a crash or exit, run `claude /orchestrate --resume` to pick up exactly where the session left off.

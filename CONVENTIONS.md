@@ -34,7 +34,7 @@ You are operating within the `bigpowers` spec-driven development methodology.
 - **No Direct Coding:** When a user issues a directive like "build feature X" or "go epic 10", you MUST NOT execute the request by writing code directly.
 - **Required Skills:** You MUST route all work through the appropriate bigpowers skills.
   - Start with `survey-context` if you lack context.
-  - Use `plan-work` to generate a verifiable plan in `specs/PLAN.md` before writing any feature code.
+  - Use `plan-work` to flesh out tasks in `specs/epics/eNN-*.yaml` (with `verify:` per task) before writing any feature code.
   - Use `develop-tdd` or `execute-plan` to implement the plan.
   - Use `investigate-bug` for bug reports before writing a fix.
 - **Verification Mandate:** Every story implementation MUST end with a step-by-step manual verification script provided to the user. You must wait for the user to confirm behavioral correctness (UAT) before declaring the story done or moving to the next.

@@ -1,8 +1,9 @@
 version: "1"
 north_star: "Maintain senior-grade quality while scaling agentic autonomy"
 success_criteria:
-  - "Compliance suite >= 94%"
-  - "59 skills synced and documented"
+  - "Compliance suite >= 94% (87/87 PASS at release)"
+  - "61 skills synced and documented"
+  - "YAML cockpit: state, release-plan, execution-status, epics, requirements"
 out_of_scope:
   - "Domain-specific scaffold skills"
   - "SaaS tracker integrations"

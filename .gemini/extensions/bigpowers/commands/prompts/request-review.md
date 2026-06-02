@@ -17,7 +17,7 @@ Write a self-contained brief for the reviewer agent. Include:
 
 - What was built (feature description, not implementation)
 - Which files changed (the diff context)
-- What `specs/` artifacts are relevant (PLAN.md, bugs/BUG-*.md, SCOPE.md)
+- What `specs/` artifacts are relevant (active `epics/eNN-*.yaml`, `requirements/SCOPE_LATEST.yaml`, `bugs/BUG-*.md`)
 - What CONVENTIONS.md requires
 - What the verify command is
 - What you're most uncertain about (where you want fresh eyes)
@@ -31,7 +31,7 @@ You are a code reviewer. Review the following code changes.
 
 Context: [feature description]
 CONVENTIONS.md rules: [paste relevant sections]
-specs/PLAN.md: [paste or summarize]
+Active epic shard: [paste or summarize from specs/epics/]
 
 Diff: [paste git diff or describe changed files]
 

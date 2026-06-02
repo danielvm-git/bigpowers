@@ -68,7 +68,7 @@ Stack: [language, framework, runtime]
 ## Agent Rules
 - **Workflow Mandate:** You MUST use the bigpowers skills (e.g. `plan-work`, `develop-tdd`, `orchestrate-project`) to perform tasks. DO NOT write code directly in response to a user prompt like "build this feature".
 - Read specs/ before writing code.
-- All planning and specifications MUST be written to `specs/` (e.g. `specs/PLAN.md`) before any code is generated.
+- All planning and specifications MUST be written to `specs/` (`requirements/SCOPE_LATEST.yaml`, `release-plan.yaml`, `epics/`) before any code is generated.
 - Write the minimum code that solves the stated problem. Nothing extra.
 - Never refactor, rename, or reorganize code outside the task scope.
 - Run tests after every change. Show evidence before declaring done.
@@ -108,7 +108,7 @@ Stack: [language, framework, runtime]
 ## Agent Rules
 - **Workflow Mandate:** You MUST use the bigpowers skills (e.g. `plan-work`, `develop-tdd`, `orchestrate-project`) to perform tasks. DO NOT write code directly in response to a user prompt like "build this feature".
 - Read specs/ before writing code.
-- All planning and specifications MUST be written to `specs/` (e.g. `specs/PLAN.md`) before any code is generated.
+- All planning and specifications MUST be written to `specs/` (`requirements/SCOPE_LATEST.yaml`, `release-plan.yaml`, `epics/`) before any code is generated.
 - Write the minimum code that solves the stated problem. Nothing extra.
 - Never refactor, rename, or reorganize code outside the task scope.
 - Run tests after every change. Show evidence before declaring done.
@@ -148,7 +148,7 @@ Stack: [language, framework, runtime]
 ## Agent Rules
 - **Workflow Mandate:** You MUST use the bigpowers skills (e.g. `plan-work`, `develop-tdd`, `orchestrate-project`) to perform tasks. DO NOT write code directly in response to a user prompt like "build this feature".
 - Read specs/ before writing code.
-- All planning and specifications MUST be written to `specs/` (e.g. `specs/PLAN.md`) before any code is generated.
+- All planning and specifications MUST be written to `specs/` (`requirements/SCOPE_LATEST.yaml`, `release-plan.yaml`, `epics/`) before any code is generated.
 - Write the minimum code that solves the stated problem. Nothing extra.
 - Never refactor, rename, or reorganize code outside the task scope.
 - Run tests after every change. Show evidence before declaring done.

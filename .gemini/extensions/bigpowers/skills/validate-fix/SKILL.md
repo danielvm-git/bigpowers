@@ -92,6 +92,6 @@ Mechanical verification (tests passing) is only half the fix. You must prove **b
 - **Loop until behavioral correctness is verified**: if any checklist item fails, or if the behavior is still incorrect despite passing tests, return to step 1 and run all checks again from the top — do not declare done until every item is green and the behavior is proven correct in a single run.
 - **Never use `@ts-ignore`, `as any`, or `// eslint-disable`** to "fix" a bug — these suppress the symptom without fixing the root cause
 - **Never mark the task done if any test is still failing**
-- **The verify command from specs/bugs/BUG-*.md or specs/PLAN.md must pass**
+- **The verify command from specs/bugs/BUG-*.md or the active epic task `verify` field must pass**
 
 Suggest next skill: `audit-code` → `commit-message`.

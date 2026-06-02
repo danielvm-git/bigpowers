@@ -1,0 +1,9 @@
+version: "1"
+latest:
+  vision: VISION_LATEST.yaml
+  scope: SCOPE_LATEST.yaml
+  glossary: GLOSSARY_LATEST.yaml
+snapshots:
+  - id: release-3.0.0
+    path: snapshots/release-3.0.0/
+    date: "2026-06-02"

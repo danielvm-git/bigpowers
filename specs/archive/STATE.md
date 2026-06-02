@@ -2,9 +2,9 @@
 
 ## Current Milestone
 
-**v3.0.0 — Consolidation Release** (in progress)
+**v3.0.0 — Consolidation Release** (done)
 
-- 58 active skills (14 new), Verify phase, stack profiles, benchmark-gated evolve-skill
+- 61 active skills, Verify phase, stack profiles, YAML cockpit, benchmark-gated evolve-skill
 - Supersedes phased v2.2.0→v3.0.0 sequence in RELEASE-PLAN.md
 
 ## Git Metadata
@@ -20,12 +20,12 @@
 
 ## Pending
 
-- [ ] v3.0.0 merge — compliance 85/85 PASS; run full benchmark scoring at merge if required by release checklist
+- [x] v3.0.0 merge — compliance 87/87 PASS (2026-06-02); YAML cockpit + skills aligned to SoT
 
 ## Active Decisions
 
 - **Solo Git profile** active — integrate via `scripts/land-branch.sh` (solo-local); see `profiles/solo-git.md` and `specs/WORKFLOW-solo-git.md`.
-- **RELEASE-PLAN.md** is the single planning artifact (no PLAN.md).
+- **release-plan.yaml** + **epics/** is the planning artifact (legacy RELEASE-PLAN.md in archive/).
 - **handoff** folded into `session-state` (no standalone handoff skill).
 - **search-skills** uses lexical index only (no embeddings).
 - **Benchmark hard gate** for `evolve-skill` via bigpowers-benchmark repo.

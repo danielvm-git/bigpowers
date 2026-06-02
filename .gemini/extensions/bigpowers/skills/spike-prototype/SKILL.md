@@ -1,12 +1,12 @@
 ---
 name: spike-prototype
-description: "Throw-away prototype for unknown problem spaces. Output is learning notes in specs/SPIKE-<name>.md, not production code. Use when the domain or technology is unexplored, when estimates are impossible without experimentation, or when user says "spike", "prototype", or "proof of concept"."
+description: "Throw-away prototype for unknown problem spaces. Output is learning notes in specs/archive/spikes/SPIKE-<name>.md, not production code. Use when the domain or technology is unexplored, when estimates are impossible without experimentation, or when user says "spike", "prototype", or "proof of concept"."
 ---
 
 
 # Spike Prototype
 
-A spike is a time-boxed experiment to answer a specific question. The code is thrown away. The learning is kept in `specs/SPIKE-<name>.md`.
+A spike is a time-boxed experiment to answer a specific question. The code is thrown away. The learning is kept in `specs/archive/spikes/SPIKE-<name>.md`.
 
 **The spike produces learning, not code to ship.** If you find yourself cleaning up spike code for production, stop — run `plan-work` and `develop-tdd` instead with the insights you gained.
 
@@ -46,9 +46,9 @@ Write the simplest code that could answer the question. Ignore:
 
 Focus entirely on answering the question.
 
-### 4. Write specs/SPIKE-<name>.md
+### 4. Write specs/archive/spikes/SPIKE-<name>.md
 
-Save the learning to `specs/SPIKE-<name>.md`. Create the `specs/` directory if it doesn't exist.
+Save the learning to `specs/archive/spikes/SPIKE-<name>.md`. Create the `specs/` directory if it doesn't exist.
 
 <spike-template>
 
@@ -90,4 +90,4 @@ After writing the findings, delete or discard the spike code. It is not meant to
 
 ### 6. Feed back into plan-work
 
-The spike findings are the input to `plan-work`. Call `plan-work` next, informed by `specs/SPIKE-<name>.md`.
+The spike findings are the input to `plan-work`. Call `plan-work` next, informed by `specs/archive/spikes/SPIKE-<name>.md`.

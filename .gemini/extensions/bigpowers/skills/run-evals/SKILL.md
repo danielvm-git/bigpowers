@@ -54,4 +54,4 @@ description: "Eval-Driven Development — define capability and regression evals
 
 ## pass@k
 
-Run capability evals k times (default k=3). Ship when all k pass or document known flake in STATE.md.
+Run capability evals k times (default k=3). Ship when all k pass or document known flake in `specs/state.yaml` `handoff.open_decisions`.
