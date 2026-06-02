@@ -1,7 +1,7 @@
 
 # Inspect Quality
 
-Run an interactive QA session. The user describes problems they're encountering. You clarify, explore the codebase for context, and log each issue to `specs/bugs/BUG-LOG.md` with a structured, durable format.
+Run an interactive QA session. The user describes problems they're encountering. You clarify, explore the codebase for context, and log each issue to `specs/bugs/registry.yaml` with a structured, durable format.
 
 ## For each issue the user raises
 
@@ -36,11 +36,11 @@ Keep as a single issue when:
 - It's one behavior that's wrong in one place
 - The symptoms are all caused by the same root behavior
 
-### 4. Log to specs/bugs/BUG-LOG.md
+### 4. Log to specs/bugs/registry.yaml
 
-Append the issue to `specs/bugs/BUG-LOG.md`. Create the `specs/bugs/` directory if it doesn't exist.
+Append the issue to `specs/bugs/registry.yaml`. Create the `specs/bugs/` directory if it doesn't exist.
 
-#### BUG-LOG.md format
+#### registry.yaml format
 
 The file maintains a Markdown table with the following columns (derived from structured audit practice):
 

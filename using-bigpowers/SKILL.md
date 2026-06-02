@@ -6,7 +6,7 @@ description: One-time bootstrap that introduces the bigpowers skills system, the
 
 # Using bigpowers
 
-Welcome to **bigpowers** — a lifecycle of **59** agent skills for production-ready, TDD-driven software by solo developers.
+Welcome to **bigpowers** — a lifecycle of **61** agent skills for production-ready, TDD-driven software by solo developers.
 
 ## Install
 
@@ -78,23 +78,24 @@ If you work alone and do not want PR ceremony every task:
 
 You still use worktrees, protected `main`, and verification gates — only the integrate step changes.
 
-## Obsidian wiki cockpit (optional)
+## YAML cockpit and dashboard
 
-For accumulated project understanding and a read-only PM view:
+Operational source of truth:
 
-1. Read [profiles/obsidian-wiki.md](../profiles/obsidian-wiki.md).
-2. Open `specs/` as an Obsidian vault; landing page `COCKPIT.md`.
-3. Run `maintain-wiki` **sync** before merge (merge gate).
+- `specs/state.yaml` — session, active epic/story, handoff
+- `specs/release-plan.yaml` — release index and epic list
+- `specs/epics/eNN-*.yaml` — stories and tasks with `verify`
+- `specs/execution-status.yaml` — done/pending per story
 
-Operational specs (STATE, RELEASE-PLAN) stay source of truth; `specs/wiki/` is LLM-synthesized navigation.
+Start the HTTP dashboard with `visual-dashboard` → `GET /api/status?projectDir=<abs>` and `GET /cockpit.html` for a read-only PM view.
 
 ## Key conventions
 
 - **specs/ is your memory.** All domain docs, plans, and investigation outputs go in `specs/` at your project root.
 - **Integrate:** team default is `gh pr` (team-pr); solo profile uses `land-branch.sh`. Never create GitHub issues from skills — use local Markdown files instead.
 - **One skill, one thing.** If you're unsure which skill to call, call `survey-context` — it reads your current state and recommends the next step.
-- **verify: every step.** Every task in `specs/RELEASE-PLAN.md` must have a `verify: <runnable command>`. Evidence over claims.
-- **59 skills.** See `SKILL-INDEX.md`; find skills with `search-skills`.
+- **verify: every step.** Every epic task must have `verify: <runnable command>`. Evidence over claims.
+- **61 skills.** See `SKILL-INDEX.md`; find skills with `search-skills`.
 
 ## After this
 

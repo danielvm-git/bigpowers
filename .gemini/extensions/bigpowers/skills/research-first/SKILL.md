@@ -10,10 +10,10 @@ description: "Look-before-build — search registries, repo, existing skills, an
 
 ## Process
 
-1. Read `specs/SCOPE.md`, `specs/RELEASE-PLAN.md`, and the current task statement.
+1. Read `specs/requirements/SCOPE_LATEST.yaml`, `specs/release-plan.yaml + epic shards`, and the current task statement.
 2. Search in order: this repo → bigpowers skills (`search-skills`) → package registries → web docs.
 3. For each candidate: note name, URL/path, fit (adopt | extend | compose | build).
-4. Append `## Prior Art` to the active spec (SCOPE.md or story in RELEASE-PLAN.md).
+4. Append `## Prior Art` to `requirements/SCOPE_LATEST.yaml` notes or the active epic story.
 
 ## Outcome matrix
 
@@ -26,7 +26,7 @@ description: "Look-before-build — search registries, repo, existing skills, an
 
 ## Verify
 
-→ verify: `grep -c "Prior Art" specs/SCOPE.md specs/RELEASE-PLAN.md 2>/dev/null | awk '{s+=$1} END {if(s>0) print "OK"; else print "MISSING"}'`
+→ verify: `grep -c "Prior Art" specs/requirements/SCOPE_LATEST.yaml specs/release-plan.yaml + epic shards 2>/dev/null | awk '{s+=$1} END {if(s>0) print "OK"; else print "MISSING"}'`
 
 See [REFERENCE.md](REFERENCE.md) for search commands and registry checklist.
 

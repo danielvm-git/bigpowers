@@ -1,0 +1,15 @@
+id: e03
+title: "Discovery & Planning"
+wsjf: 4.0
+covers: []
+stories:
+  - id: e03s01
+    title: "`research-first`, `scope-work`, `slice-tasks`, `grill-with-docs`"
+    tasks:
+      - desc: "`research-first`, `scope-work`, `slice-tasks`, `grill-with-docs`"
+        verify: "ls scope-work/SKILL.md slice-tasks/SKILL.md grill-with-docs/SKILL.md research-first/SKILL.md"
+  - id: e03s02
+    title: "`using-bigpowers` lifecycle updated"
+    tasks:
+      - desc: "`using-bigpowers` lifecycle updated"
+        verify: "ls scope-work/SKILL.md slice-tasks/SKILL.md grill-with-docs/SKILL.md research-first/SKILL.md"

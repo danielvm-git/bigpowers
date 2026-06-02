@@ -1,0 +1,10 @@
+id: e08
+title: "Wave Execution"
+wsjf: 2.5
+covers: []
+stories:
+  - id: e08s01
+    title: "Wave Execution"
+    tasks:
+      - desc: "Waves + `depends-on:` in execute-plan"
+        verify: "grep -c 'depends-on' execute-plan/SKILL.md | awk '{if($1>0) print \"OK\"}'"

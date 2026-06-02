@@ -1,0 +1,20 @@
+id: e04
+title: "Ergonomics"
+wsjf: 3.8
+covers: []
+stories:
+  - id: e04s01
+    title: "Handoff + compaction in `session-state`"
+    tasks:
+      - desc: "Handoff + compaction in `session-state`"
+        verify: "grep -c Handoff session-state/SKILL.md | awk '{if($1>0) print \"OK\"}'"
+  - id: e04s02
+    title: "`terse-mode` caveman rules (existing)"
+    tasks:
+      - desc: "`terse-mode` caveman rules (existing)"
+        verify: "grep -c Handoff session-state/SKILL.md | awk '{if($1>0) print \"OK\"}'"
+  - id: e04s03
+    title: "`organize-workspace` gitignore section (existing)"
+    tasks:
+      - desc: "`organize-workspace` gitignore section (existing)"
+        verify: "grep -c Handoff session-state/SKILL.md | awk '{if($1>0) print \"OK\"}'"

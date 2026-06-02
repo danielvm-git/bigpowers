@@ -1,6 +1,6 @@
 ---
 name: develop-tdd
-description: "Test-driven development with red-green-refactor loop using vertical slices. Use when user wants to build features or fix bugs using TDD, mentions "red-green-refactor", wants integration tests, asks for test-first development, or wants to implement a task from specs/PLAN.md."
+description: "Test-driven development with red-green-refactor loop using vertical slices. Use for features (epic tasks) or bugs (specs/bugs/BUG-*.md)."
 ---
 
 
@@ -8,7 +8,7 @@ description: "Test-driven development with red-green-refactor loop using vertica
 
 > **HARD GATE** — Do NOT proceed if on `main` or `master`. Run `kickoff-branch` first to create a feature branch or worktree.
 >
-> **HARD GATE** — Do NOT write code before you have a plan. If you are starting a new task, run `plan-work` to create `specs/RELEASE-PLAN.md`. If you are fixing a bug, run `investigate-bug` to create `specs/bugs/BUG-*.md`.
+> **HARD GATE** — Do NOT write code before you have a plan. New feature: `plan-work` → epic shard tasks. Bug: `investigate-bug` → `specs/bugs/BUG-*.md` (or use `fix-bug` orchestrator).
 >
 > **RECURSIVE DISCIPLINE** — This lifecycle apply to EVERY task, including updating these skills. Never skip planning because a task is "meta" or "just documentation."
 
@@ -65,7 +65,7 @@ If you find yourself thinking these things, you are likely deviating from produc
 
 Before writing any code:
 
-- [ ] Read `specs/RELEASE-PLAN.md` or `specs/bugs/BUG-*.md` if they exist — understand the task and verify steps
+- [ ] Read active `specs/epics/*.yaml` story tasks or `specs/bugs/BUG-*.md` — understand verify steps
 - [ ] Confirm with user what interface changes are needed
 - [ ] Confirm with user which behaviors to test (prioritize)
 - [ ] Identify opportunities for [deep modules](deep-modules.md) (small interface, deep implementation)
@@ -136,12 +136,12 @@ After all tests pass, look for [refactor candidates](refactoring.md):
 
 ### 5. Verify step
 
-After every behavior cycle, run the verify command from `specs/RELEASE-PLAN.md` if one exists for this step. Show evidence before declaring the step done.
+After every behavior cycle, run the verify command from the active epic task if one exists. Show evidence before declaring the step done.
 
 ### 6. Manual Verification Handover
 
 Once the story is complete and all tests pass:
-1. Locate the **Verification Script** in `specs/RELEASE-PLAN.md` for this story.
+1. Locate the **Verification Script** in the active epic shard (`specs/epics/`) for this story.
 2. Present the script to the user as a step-by-step guide.
 3. Wait for the user to confirm the behavioral correctness before moving to the next story or declaring the task done.
 

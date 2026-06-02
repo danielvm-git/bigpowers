@@ -1,2 +1,2 @@
-description = "Batch-execute tasks from specs/RELEASE-PLAN.md sequentially, with a human checkpoint after each step. Use when user has an approved plan and wants to execute it step-by-step with oversight, or mentions \"execute the plan\" or \"run the plan\"."
+description = "Batch-execute tasks from the active epic shard sequentially, with a human checkpoint after each step. Use when user has an approved plan and wants step-by-step oversight."
 prompt = "@{commands/prompts/execute-plan.md}"

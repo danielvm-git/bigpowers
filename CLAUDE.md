@@ -4,7 +4,7 @@ Read CONVENTIONS.md before any GitHub or git operation.
 
 ## Project
 
-bigpowers — 59 agent skills for spec-driven, test-first software development by solo developers.
+bigpowers — 61 agent skills for spec-driven, test-first software development by solo developers.
 Stack: Markdown / Bash (documentation-based; skills integrate with Claude Code, Cursor, Gemini CLI)
 
 ## Commands
@@ -16,11 +16,12 @@ Stack: Markdown / Bash (documentation-based; skills integrate with Claude Code, 
 | Test    | N/A (documentation project) |
 | Build   | `bash scripts/install.sh` (from source) |
 | Lint    | `bash scripts/sync-skills.sh` (validates SKILL.md syntax) |
+| Validate specs YAML | `bash scripts/validate-specs-yaml.sh` |
 | Compliance | `npm run compliance` |
 
 ## Architecture
 
-Collection of 59 verb-noun skills, each with a SKILL.md source file and supporting documentation. LLM-maintained wiki layer lives in `specs/wiki/`; run `maintain-wiki` sync before merge. Obsidian cockpit: open `specs/` as vault, landing page `COCKPIT.md` (see `profiles/obsidian-wiki.md`). Includes Verify phase (verify-work, run-evals) and optional stack profiles in profiles/. The sync-skills.sh script auto-generates artifacts for Cursor (.cursor/rules) and Gemini CLI (.gemini/extensions/bigpowers/) from SKILL.md sources. All planning and spec output goes to specs/ at the project root.
+Collection of 61 verb-noun skills, each with a SKILL.md source file and supporting documentation. Runtime specs live in `specs/state.yaml`, `specs/release-plan.yaml`, and `specs/execution-status.yaml`; intent in `specs/requirements/`; epic shards in `specs/epics/`. The sync-skills.sh script auto-generates artifacts for Cursor (.cursor/rules) and Gemini CLI (.gemini/extensions/bigpowers/) from SKILL.md sources. All planning output goes to specs/ at the project root.
 
 ## Conventions
 
@@ -49,8 +50,8 @@ Before any task, run this sequence — not optional:
 
 1. Read `CLAUDE.md` (this file)
 2. Read `CONVENTIONS.md`
-3. Read `specs/STATE.md` if it exists — current milestone and pending work
-4. Read `specs/RELEASE-PLAN.md` if it exists — active release context
+3. Read `specs/state.yaml` if it exists — current session and active epic
+4. Read `specs/release-plan.yaml` if it exists — active release context
 
 ## Agent Rules
 

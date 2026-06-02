@@ -1,87 +1,46 @@
 
 # Execute Plan
 
-Execute the tasks in `specs/RELEASE-PLAN.md` one at a time, showing evidence after each step before proceeding.
+Execute tasks from the **active epic** (`specs/epics/eNN-*.yaml` story `tasks[]`) one at a time, showing evidence after each step before proceeding.
 
-> **HARD GATE** — Do NOT proceed if on `main` or `master`. Run `kickoff-branch` first to create a feature branch or worktree.
+> **HARD GATE** — Do NOT proceed if on `main` or `master`. Run `kickoff-branch` first.
 >
-> **HARD GATE** — Do NOT execute a plan if `specs/RELEASE-PLAN.md` does not exist or if its tasks lack runnable `verify:` commands. If the plan is missing or weak, run `plan-release` then `plan-work` first.
+> **HARD GATE** — Active epic must exist with runnable `verify` on each task. If missing, run `plan-release` then `plan-work` or `build-epic`.
 
 ## Process
 
 ### 1. Read the plan
 
-Read `specs/RELEASE-PLAN.md` in full. Parse `depends-on:` fields from `specs/TASKS.md` or story steps to build **execution waves** (steps with no unresolved deps run in parallel when user approves).
+Read `specs/state.yaml` (`active_epic`, `active_story`) and the matching `specs/epics/*.yaml`. Parse `depends-on` in task descriptions for execution waves.
 
-> **CONTEXT ISOLATION** — Spawn each skill invocation (via `delegate-task` / subagent) with a **fresh context window**. Pass decisions only through `specs/STATE.md` — never rely on chat history from prior spawns.
+> **CONTEXT ISOLATION** — Spawn each skill with a **fresh context window**. Pass decisions only through `specs/state.yaml` `handoff` — never rely on prior chat history.
 
-Confirm with the user:
-- How many steps are there?
-- Any steps to skip or reorder?
-- Should you stop after a specific step?
+Confirm with the user: step count, skip/reorder, stop-after step.
 
 ### 2. Execute step by step
 
-For each step in the plan:
+For each task in the active story:
 
-**a. Announce the step**
-```
-─── Step N of M ─────────────────────────
-Task: [step description]
-verify: [verify command]
-```
+**a. Announce** — task `desc` and `verify` command.
 
-**b. Execute the work**
+**b. Execute** — code or `delegate-task` / `dispatch-agents` for waves.
 
-For **wave execution**: group steps that share no `depends-on:` edges; run wave members in parallel via `dispatch-agents`; wait for all verify commands green before next wave. Use atomic `STATE.md` updates (read-modify-write one block) to avoid race conditions.
+**c. Run verify** — must be green before advancing.
 
-Implement each step using:
-- Write/edit code directly for small focused changes
-- Spawn a subagent via `delegate-task` for complex isolated work (fresh context; read STATE.md first)
+**d. Log** — non-obvious decisions in `specs/state.yaml` under `decisions[]` or `handoff` block.
 
-> **STREAM CONTINUITY** — When writing file content, output in continuous chunks of ~200 lines. Do not pause. Continue immediately until complete. If you need time, emit a placeholder comment rather than going silent.
+**e. Checkpoint** — ask to proceed unless autonomous mode requested.
 
-**c. Run the verify command**
-Every task in `specs/RELEASE-PLAN.md` must have a `verify: <cmd>`. Run it and show the output.
+**f. Story UAT** — after last task, run manual verification script from story notes or `verify-work`.
 
-**d. Log the decision**
-After verify passes, append to `specs/STATE.md` under `## Active Decisions`:
-```
-**Step N — [short name]**: [what approach was chosen and why — one sentence]
-```
-Only log if a non-obvious decision was made (approach chosen, constraint discovered, blocker resolved). Skip if the step was mechanical.
+On verify failure: fix and re-run; never advance on red.
 
-**e. Checkpoint**
-Report the result and ask: "Step N complete. Proceed to step N+1?" (or proceed automatically if the user asked for fully autonomous execution)
+Update `specs/execution-status.yaml` when a story/epic completes (`bash scripts/sync-status-from-epics.sh` or direct edit).
 
-**f. Story Verification (UAT)**
-After the last step of a Story is completed:
-1. Present the **Verification Script** from `specs/RELEASE-PLAN.md` for this story.
-2. Ask the user to perform the manual verification steps.
-3. Wait for the user to confirm "pass" or describe issues.
-4. If issues are reported, log them and stop execution for diagnosis.
+### 3. Blockers
 
-If verify fails:
-- Do NOT move to the next step — never advance on a red verify
-- Diagnose the failure
-- Fix it and re-run verify
-- Loop on this step until the verify command is green
-- Only then proceed to the next step
-
-If verify passes but behavioral correctness is in doubt, do not advance — a mechanical green is not enough; confirm behavior is correct first.
-
-### 3. Handle blockers
-
-If a step cannot be completed as written:
-- Report the blocker clearly
-- Ask the user whether to skip, adapt, or stop
-- Update `specs/RELEASE-PLAN.md` if the plan needs revision
+Report blocker; ask skip/adapt/stop; update epic shard if plan changes.
 
 ### 4. Final report
 
-After all steps complete:
-```
-✓ Plan complete: N/N steps executed
-All verify commands passed.
-Suggested next: verify-work → run-evals → audit-code → simulate-agents → commit-message → release-branch
-```
+Suggest: `verify-work` → `run-evals` → `audit-code` → `simulate-agents` → `commit-message` → `release-branch`

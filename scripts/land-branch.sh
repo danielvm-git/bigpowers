@@ -88,7 +88,11 @@ run_verify_suite() {
     if jq -e '.scripts.test' package.json >/dev/null 2>&1; then
       local test_script
       test_script=$(jq -r '.scripts.test' package.json)
-      if [ "$test_script" != "echo \"Error: no test specified\" && exit 1" ] && [ "$test_script" != "false" ]; then
+      if [ "$test_script" = "echo \"Error: no test specified\" && exit 1" ]; then
+        :
+      elif [ "$test_script" = "false" ]; then
+        :
+      else
         npm test
         return
       fi

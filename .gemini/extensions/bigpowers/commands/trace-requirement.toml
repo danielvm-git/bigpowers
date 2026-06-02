@@ -1,2 +1,2 @@
-description = "Link story IDs from specs/RELEASE-PLAN.md to the implementing code and tests. Produces specs/TRACEABILITY.md. Use when you want to verify coverage of a release plan, audit which stories are implemented, or find \"dark\" stories with no code."
+description = "Link story IDs from specs/release-plan.yaml  epic shards to the implementing code and tests. Produces specs/TRACEABILITY.md. Use when you want to verify coverage of a release plan, audit which stories are implemented, or find \"dark\" stories with no code."
 prompt = "@{commands/prompts/trace-requirement.md}"

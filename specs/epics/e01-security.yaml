@@ -1,0 +1,25 @@
+id: e01
+title: "Security"
+wsjf: 4.5
+covers: []
+stories:
+  - id: e01s01
+    title: "slopcheck tags in `plan-work` ([OK]/[SUS]/[SLOP])"
+    tasks:
+      - desc: "slopcheck tags in `plan-work` ([OK]/[SUS]/[SLOP])"
+        verify: "grep -r slopcheck plan-work/SKILL.md audit-code/SKILL.md | wc -l | awk '{if($1>=2) print \"OK\"}'"
+  - id: e01s02
+    title: "Supply-chain + OWASP in `audit-code`"
+    tasks:
+      - desc: "Supply-chain + OWASP in `audit-code`"
+        verify: "grep -r slopcheck plan-work/SKILL.md audit-code/SKILL.md | wc -l | awk '{if($1>=2) print \"OK\"}'"
+  - id: e01s03
+    title: "Secret patterns documented in `guard-git`"
+    tasks:
+      - desc: "Secret patterns documented in `guard-git`"
+        verify: "grep -r slopcheck plan-work/SKILL.md audit-code/SKILL.md | wc -l | awk '{if($1>=2) print \"OK\"}'"
+  - id: e01s04
+    title: "`docs/references/security-threats.md` reconciled"
+    tasks:
+      - desc: "`docs/references/security-threats.md` reconciled"
+        verify: "grep -r slopcheck plan-work/SKILL.md audit-code/SKILL.md | wc -l | awk '{if($1>=2) print \"OK\"}'"

@@ -1,40 +1,35 @@
 ---
 name: verify-work
-description: "Multi-phase UAT gate — cold-start smoke, build, typecheck, lint, tests, step-by-step manual verification, gaps-closure loop. Use after execute-plan or develop-tdd, before audit-code, when a story needs proof it works.model: haiku"
+description: "Multi-phase UAT gate — cold-start smoke, build, typecheck, lint, tests, step-by-step manual verification, gaps-closure loop. Use after execute-plan or develop-tdd, before audit-code.model: haiku"
 ---
 
 
 # Verify Work
 
-> **HARD GATE** — No story is "done" until its `## Verification Script` from RELEASE-PLAN.md is confirmed by the user or agent with evidence.
-
-> **HARD GATE** — Do NOT run verify-work on `main` or `master`. Run from the feature branch or worktree created by `kickoff-branch`.
+> **HARD GATE** — No story is "done" until manual UAT for the active story is confirmed with evidence.
+>
+> **HARD GATE** — Do NOT run on `main` or `master`. Use the feature branch from `kickoff-branch`.
 
 Review answers "is the code good?"; Verify answers "does the built thing do what was promised?"
 
 ## Process
 
-0. **Branch check** (before any gates):
+0. **Branch check** — must not be `main`/`master`.
 
-```bash
-BRANCH=$(git rev-parse --abbrev-ref HEAD)
-# Must not be main or master — run kickoff-branch first
-```
-
-1. Read the story's `## Verification Script` from `specs/RELEASE-PLAN.md`.
+1. Read active story tasks and any **Verification Script** notes in `specs/epics/{active}.yaml` or story `.md` under `specs/epics/eNN/stories/`.
 2. **Cold-start smoke** (if app): stop server, clear caches, boot from scratch.
-3. Run mechanical gates: build → typecheck → lint → full test suite (commands from CLAUDE.md).
-4. **Step-by-step UAT**: one user-observable action at a time; record pass/fail.
-5. **Gaps loop**: failed steps → log as Gaps → feed back to `plan-work` → re-verify until pass.
+3. Mechanical gates: build → typecheck → lint → tests (from `CLAUDE.md`).
+4. **Step-by-step UAT** — one user-observable action at a time.
+5. **Gaps loop** — failures → log → `plan-work` → re-verify.
 
 ## UAT dialogue
 
-- Pass: user confirms `yes` / `next` / `ok` per step.
-- Fail: capture expected vs actual; do not mark story done.
+- Pass: user confirms per step.
+- Fail: capture expected vs actual; do not mark done in `execution-status.yaml`.
 
 ## Verify
 
-→ verify: `grep -c "Verification Script" specs/RELEASE-PLAN.md | awk '{if($1>0) print "OK"; else print "MISSING"}'`
+→ verify: `grep -c 'verify:' specs/epics/*.yaml | awk '{if($1>0) print "OK"; else print "MISSING"}'`
 
 See [REFERENCE.md](REFERENCE.md) for cold-start and gaps template.
 

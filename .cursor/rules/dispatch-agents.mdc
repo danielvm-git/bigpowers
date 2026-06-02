@@ -35,7 +35,7 @@ If any two tasks conflict, sequence them with `delegate-task` or `execute-plan` 
 
 ### 2. Write task briefs
 
-Before writing briefs, read `specs/STATE.md` if it exists — each agent gets only the decisions relevant to its task, nothing else.
+Before writing briefs, read `specs/state.yaml` if it exists — each agent gets only the decisions relevant to its task, nothing else.
 
 For each task, use this minimal template (each agent starts cold — brief size directly controls token cost and hallucination risk):
 
@@ -44,7 +44,7 @@ Goal: [one sentence — what success looks like]
 In scope: [explicit file or module list]
 Out of bounds: [what NOT to touch]
 Verify: [runnable command]
-Prior decisions: [relevant entries from specs/STATE.md — omit section if none apply]
+Prior decisions: [relevant entries from specs/state.yaml — omit section if none apply]
 ```
 
 Do not include the full conversation, full file contents, or decisions unrelated to this agent's task.

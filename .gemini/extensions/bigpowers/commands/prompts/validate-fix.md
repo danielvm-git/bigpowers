@@ -54,7 +54,7 @@ For every bug fixed, add at least one prevention layer:
 - [ ] At least one hardening mechanism added
 - [ ] Hardening mechanism is tested
 
-### 6. Update the bug file and BUG-LOG.md
+### 6. Update the bug file and registry.yaml
 
 Find the most recent `specs/bugs/BUG-*.md` file and append the resolution:
 
@@ -69,10 +69,10 @@ Find the most recent `specs/bugs/BUG-*.md` file and append the resolution:
 **Commit:** `fix(<scope>): <description>`
 ```
 
-Also update the corresponding row in `specs/bugs/BUG-LOG.md`: set `status` to `fixed`, fill in `files_changed`, `approach`, `risk_level`, `commit_message`, and any other resolution fields.
+Also update the corresponding row in `specs/bugs/registry.yaml`: set `status` to `fixed`, fill in `files_changed`, `approach`, `risk_level`, `commit_message`, and any other resolution fields.
 
 - [ ] specs/bugs/BUG-*.md updated with resolution
-- [ ] specs/bugs/BUG-LOG.md row updated with resolution fields
+- [ ] specs/bugs/registry.yaml row updated with resolution fields
 
 ### 7. Behavioral Proof (HARD GATE)
 

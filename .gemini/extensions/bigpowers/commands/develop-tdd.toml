@@ -1,2 +1,2 @@
-description = "Test-driven development with red-green-refactor loop using vertical slices. Use when user wants to build features or fix bugs using TDD, mentions \"red-green-refactor\", wants integration tests, asks for test-first development, or wants to implement a task from specs/PLAN.md."
+description = "Test-driven development with red-green-refactor loop using vertical slices. Use for features (epic tasks) or bugs (specs/bugs/BUG-*.md)."
 prompt = "@{commands/prompts/develop-tdd.md}"

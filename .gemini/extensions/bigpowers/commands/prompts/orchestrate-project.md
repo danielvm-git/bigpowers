@@ -29,16 +29,13 @@ See [REFERENCE.md](REFERENCE.md) for detailed phase specifications and gate type
 
 ## How Orchestrate Works
 
-1. **Maintains STATE.md** — Tracks current phase, artifacts, decisions, risks.
-2. **Spawns appropriate skills** — Reads each skill's `model:` frontmatter and routes (haiku/sonnet/opus). Calls survey-context, research-first, elaborate-spec, plan-work, develop-tdd, verify-work, run-evals, etc. Decisions pass only via `specs/STATE.md` between spawns.
-3. **Methodology lenses** — If `specs/METHODOLOGY.md` exists, apply active reasoning modes (STRIDE, Cost-of-Delay) at phase gates.
+1. **Maintains state.yaml** — Tracks current phase, `active_epic`, `active_flow`, decisions, risks.
+2. **Spawns appropriate skills** — Routes by `model:` frontmatter. Decisions pass only via `specs/state.yaml` `handoff` between spawns.
+3. **Methodology lenses** — If `specs/plans/TEST_PLAN_LATEST.md` or ADRs exist, apply at phase gates.
 4. **Enforces gates** — Hard stops if success criteria not met.
-5. **The Gatekeeper** (v1.19.0) — Between every Story implementation in PHASE 4:
-   - READ `specs/RELEASE-PLAN.md` to verify completion.
-   - REQUIRE that the previous Story is marked `[x] Done`.
-   - REFUSE to call `update_topic` for a new Story until the previous one is physically evidenced as complete.
+5. **The Gatekeeper** — Between stories in BUILD: read `specs/execution-status.yaml`; previous story must be `done` before starting the next; use `build-epic` for the 8-step epic cycle.
 6. **Pauses for confirmation** — After each phase, asks "Ready to proceed?".
-7. **Archives history** — Saves RELEASE-PLAN snapshots as specs/RELEASE-PLAN-vX.Y.Z.md when needed.
+7. **Snapshots** — `bash scripts/bp-yaml-snapshot.sh` before major release cuts.
 
 ## Orchestration Modes
 

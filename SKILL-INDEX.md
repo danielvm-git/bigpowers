@@ -2,7 +2,7 @@
 
 **Purpose:** One canonical reference for all bigpowers skills. Referenced by README.md, RELEASE-PLAN.md, and CONVENTIONS.md. Updated per-release.
 
-**Last updated:** 2026-05-31 (v3.0.0 — maintain-wiki + Obsidian wiki layer; 59 active, 0 planned, Verify phase)
+**Last updated:** 2026-06-02 (v3.0.0 — YAML cockpit; 61 active, 0 planned; maintain-wiki removed; build-epic, run-planning, fix-bug added)
 
 ---
 
@@ -17,15 +17,15 @@
 | **Plan** | 8 | assess-impact, change-request, scope-work, slice-tasks, define-success, plan-work, plan-refactor, plan-release |
 | **Spike** | 1 | spike-prototype |
 | **Initiate** | 4 | kickoff-branch, guard-git, hook-commits, seed-conventions |
-| **Build** | 5 | develop-tdd, enforce-first, delegate-task, dispatch-agents, execute-plan |
+| **Build** | 8 | develop-tdd, enforce-first, delegate-task, dispatch-agents, execute-plan, build-epic, run-planning, fix-bug |
 | **Harden** | 1 | wire-observability |
 | **Verify** | 2 | verify-work, run-evals |
 | **Bug** | 3 | investigate-bug, diagnose-root, validate-fix |
 | **Review** | 4 | audit-code, request-review, respond-review, trace-requirement |
 | **Integrate** | 2 | commit-message, release-branch |
 | **Sustain** | 4 | inspect-quality, organize-workspace, stocktake-skills, evolve-skill |
-| **Utility** | 13 | terse-mode, craft-skill, edit-document, session-state, migrate-spec, visual-dashboard, write-document, setup-environment, reset-baseline, search-skills, compose-workflow, simulate-agents, maintain-wiki |
-| **TOTAL** | **59** | |
+| **Utility** | 12 | terse-mode, craft-skill, edit-document, session-state, migrate-spec, visual-dashboard, write-document, setup-environment, reset-baseline, search-skills, compose-workflow, simulate-agents |
+| **TOTAL** | **61** | |
 
 ---
 
@@ -82,7 +82,7 @@
 | 47 | Utility | `terse-mode` | Ultra-terse output (fallback) | (prompt) | ✅ Active |
 | 48 | Utility | `craft-skill` | Build new bigpowers skill | skills/&lt;name&gt;/SKILL.md | ✅ Active |
 | 49 | Utility | `edit-document` | Edit documents in specs/ | specs/&lt;name&gt;.md | ✅ Active |
-| 50 | Utility | `session-state` | Track decisions in STATE.md | STATE.md | ✅ Active |
+| 50 | Utility | `session-state` | Track decisions in state.yaml | state.yaml | ✅ Active |
 | 51 | Utility | `migrate-spec` | Migrate foreign spec formats | specs/ | ✅ Active |
 | 52 | Utility | `visual-dashboard` | Browser dashboard | .bigpowers/dashboard/ | ✅ Active |
 | 53 | Utility | `write-document` | BMAD technical documents | specs/&lt;name&gt;.md | ✅ Active |
@@ -91,9 +91,11 @@
 | 56 | Utility | `search-skills` | Natural language → right skill | SKILL-SEARCH-INDEX.md | ✅ Active |
 | 57 | Utility | `compose-workflow` | Chain skills into workflow recipe | WORKFLOW-&lt;name&gt;.md | ✅ Active |
 | 58 | Utility | `simulate-agents` | Mock User + Auditor simulation | SIMULATION-&lt;feature&gt;.md | ✅ Active |
-| 59 | Utility | `maintain-wiki` | LLM wiki sync / ingest / lint | specs/wiki/ | ✅ Active |
+| 59 | Build | `build-epic` | Eight-step epic build cycle | state.yaml, epics/ | ✅ Active |
+| 60 | Build | `run-planning` | Discover-phase workflow tracker | planning-status.yaml | ✅ Active |
+| 61 | Bug | `fix-bug` | Bug fix orchestrator | bugs/BUG-*.md | ✅ Active |
 
-**Total: 59 ✅ Active, 0 📋 Planned.**
+**Total: 61 ✅ Active, 0 📋 Planned.**
 
 ---
 
@@ -113,13 +115,15 @@ survey-context → research-first → elaborate-spec → map-codebase
                          ↓
        [Unknown domain?] spike-prototype → (learnings feed back to plan-work)
                          ↓
-  develop-tdd (+ enforce-first) ←→ delegate-task / dispatch-agents / execute-plan
+  develop-tdd (+ enforce-first) ←→ delegate-task / dispatch-agents / execute-plan / build-epic
+                         ↓
+  run-planning (discover workflows → planning-status.yaml)
                          ↓
         wire-observability (production-readiness gate, any phase)
                          ↓
               ★ VERIFY ★  run-evals → verify-work  (prove it works)
                          ↓
-    investigate-bug → diagnose-root → validate-fix
+    fix-bug → investigate-bug → diagnose-root → validate-fix
                          ↓
       audit-code → request-review → respond-review → trace-requirement
                          ↓
@@ -129,8 +133,7 @@ survey-context → research-first → elaborate-spec → map-codebase
 
 Transversal utilities (any phase):
   terse-mode, craft-skill, edit-document, session-state, migrate-spec, visual-dashboard,
-  write-document, setup-environment, reset-baseline, search-skills, compose-workflow, simulate-agents,
-  maintain-wiki
+  write-document, setup-environment, reset-baseline, search-skills, compose-workflow, simulate-agents
 ```
 
 ---

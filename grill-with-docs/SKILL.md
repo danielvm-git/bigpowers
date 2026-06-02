@@ -10,7 +10,7 @@ model: opus
 
 ## Process
 
-1. Read the plan or design under test (`specs/RELEASE-PLAN.md`, INTERFACE-OPTIONS.md, etc.).
+1. Read the plan or design under test (`specs/release-plan.yaml + epic shards`, INTERFACE-OPTIONS.md, etc.).
 2. List assumptions that depend on external libraries or APIs.
 3. For each assumption: fetch or quote official docs; challenge with "docs say X, plan says Y."
 4. Resolve or update the plan inline; unresolved items block `plan-work`.

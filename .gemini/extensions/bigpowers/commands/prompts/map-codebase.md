@@ -31,8 +31,8 @@ Look for signals that will influence upcoming plans:
 - **Integration Points:** "We need to talk to the Stripe API, but there's no wrapper yet."
 - **Conventions:** "The team always uses functional components over classes."
 
-### 5. Persist to specs/CONTEXT.md
-Compile all findings into `specs/CONTEXT.md`. This file serves as the project's "Long-Term Memory".
+### 5. Persist to specs/plans/TECH_STACK_LATEST.md
+Compile all findings into `specs/plans/TECH_STACK_LATEST.md`. This file serves as the project's "Long-Term Memory".
 
 ```markdown
 # Project Context
@@ -59,4 +59,4 @@ Compile all findings into `specs/CONTEXT.md`. This file serves as the project's 
 - When first joining a project.
 - Before a major refactor or architectural change.
 - When `survey-context` reveals a lack of domain knowledge.
-- To refresh `specs/CONTEXT.md` after significant changes.
+- To refresh `specs/plans/TECH_STACK_LATEST.md` after significant changes.

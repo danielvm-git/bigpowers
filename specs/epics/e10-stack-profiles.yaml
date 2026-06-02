@@ -1,0 +1,15 @@
+id: e10
+title: "Stack Profiles"
+wsjf: 1.8
+covers: []
+stories:
+  - id: e10s01
+    title: "profiles/swift.md, typescript-vue.md, node-service.md"
+    tasks:
+      - desc: "profiles/swift.md, typescript-vue.md, node-service.md"
+        verify: "ls profiles/*.md | wc -l | awk '{if($1==3) print \"OK\"}'"
+  - id: e10s02
+    title: "seed-conventions profile picker"
+    tasks:
+      - desc: "seed-conventions profile picker"
+        verify: "ls profiles/*.md | wc -l | awk '{if($1==3) print \"OK\"}'"

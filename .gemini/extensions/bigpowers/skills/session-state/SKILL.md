@@ -1,6 +1,6 @@
 ---
 name: session-state
-description: "Track implementation decisions and progress in specs/STATE.md to prevent context rot. Use at the start of a session to load context, and whenever a significant decision is made or a milestone is reached."
+description: "Track implementation decisions and progress in specs/state.yaml to prevent context rot. Use at the start of a session to load context, and whenever a significant decision is made or a milestone is reached."
 ---
 
 
@@ -10,82 +10,91 @@ Track the current state of implementation, including decisions made, pending tas
 
 ## Goal
 
-Maintain a single source of truth for the *current* state of the work in `specs/STATE.md`. This file acts as the project's short-term memory, complementing the long-term memory of `specs/CONTEXT.md` and the task-specific instructions in `specs/RELEASE-PLAN.md`.
+Maintain a single source of truth for the *current* session in `specs/state.yaml`. This complements long-term docs in `specs/plans/` and delivery detail in `specs/epics/` + `specs/release-plan.yaml`.
+
+Legacy `specs/state.yaml` is deprecated — use `state.yaml` only.
 
 ## Handoff block (cold start)
 
-When ending a session or before a context-heavy spawn, write a **Handoff** section at the top of STATE.md:
+When ending a session or before a context-heavy spawn, update `handoff` in `state.yaml`:
 
-```markdown
-## Handoff
-- **Last step completed:** ...
-- **Open decisions:** ...
-- **Required reading:** CONVENTIONS.md, RELEASE-PLAN.md story X.Y, ...
-- **Next skill:** verify-work | develop-tdd | ...
+```yaml
+handoff:
+  last_step_completed: "e02s01 verify-work passed"
+  open_decisions:
+    - "Use folder mode for e07 (>5 stories)"
+  required_reading:
+    - CONVENTIONS.md
+    - specs/epics/e02-verification/epic.yaml
+  next_skill: develop-tdd
 ```
 
 ## Strategic compaction
 
 | Trigger | Action |
 |---------|--------|
-| Phase transition (Plan → Build → Verify) | Compact Handoff; archive verbose decisions to ADR |
+| Phase transition (Plan → Build → Verify) | Compact handoff; archive verbose decisions to ADR |
 | Context > 70% estimated | Run terse-mode for status only; move detail to specs/ |
-| Before `dispatch-agents` wave | STATE.md only channel between spawns |
+| Before `dispatch-agents` wave | `state.yaml` only channel between spawns |
 
 ## Workflow
 
 ### 1. Initialize (Session Start)
 
-If `specs/STATE.md` does not exist, or if starting a new major phase:
+If `specs/state.yaml` does not exist, or if starting a new major phase:
 
-- [ ] Read `specs/RELEASE-PLAN.md` and `specs/SCOPE.md`.
-- [ ] Get git metadata: `git branch --show-current` and `git rev-parse HEAD`.
-- [ ] Create `specs/STATE.md` with the current milestone, git metadata, pending tasks, and any active decisions.
+- [ ] Read `specs/release-plan.yaml` and `specs/requirements/SCOPE_LATEST.yaml`.
+- [ ] Get git metadata: `git branch --show-current` and `git rev-parse --short HEAD`.
+- [ ] Create `specs/state.yaml` with active flow, git, handoff, and epic cycle if in build.
 
 ### 2. Load (Context Refresh)
 
 When starting a new session or after a significant context flush:
 
-- [ ] Read `specs/STATE.md` to understand where the previous agent left off.
-- [ ] Verify the current state matches the actual codebase (run `git branch` and `git diff`).
-- [ ] Surface any discrepancies between recorded git hash and current hash.
+- [ ] Read `specs/state.yaml` to understand where the previous agent left off.
+- [ ] Read `specs/execution-status.yaml` for story progress (do not infer from release-plan).
+- [ ] Verify git matches `state.yaml` `git.branch` / `git.hash`.
 
 ### 3. Update (Decision Point/Milestone)
 
 Whenever a significant decision is made or a milestone is reached:
 
-- [ ] Update git metadata if the branch or hash has changed.
-- [ ] Update the `Active Decisions` section with the rationale for the choice.
-- [ ] Mark completed tasks as done.
-- [ ] Add new pending tasks discovered during implementation.
-- [ ] Record any "Open Questions" that need user clarification.
+- [ ] Patch via `bash scripts/bp-yaml-set.sh specs/state.yaml git.hash <hash>` (or edit directly).
+- [ ] Update `handoff.open_decisions` with rationale.
+- [ ] Update `epic_cycle` when advancing `ship-epic` steps.
+- [ ] Record open questions under `handoff.open_decisions` or an ADR.
 
-## File Format: specs/STATE.md
+→ verify: `bash scripts/validate-specs-yaml.sh`
 
-```markdown
-# Session State: [Feature Name]
+## File Format: specs/state.yaml
 
-## Current Milestone
-[What is being worked on right now]
-
-## Git Metadata
-- **Branch**: [branch-name]
-- **Hash**: [commit-hash]
-
-## Pending Tasks
-...
-```
-- [ ] Task 2
-
-## Active Decisions
-- **Decision Name**: [Rationale and impact]
-
-## Open Questions
-- [Question for the user]
+```yaml
+active_flow: build_epic       # planning | build_epic | fix_bug
+active_epic_id: e02
+active_story_id: e02s01       # required when epic mode: folder
+active_bug_id: null           # BUG-2026-06-01T143022 when fix_bug
+release:
+  target_version: "3.0.0"
+  last_tag: null
+  last_publish: null
+epic_cycle:
+  current_step: develop-tdd
+  next_skill: develop-tdd
+  completed_steps: [kickoff-branch]
+bug_cycle:
+  current_step: null
+  completed_steps: []
+git:
+  branch: feat/e02-verify
+  hash: abc1234
+handoff:
+  last_step_completed: null
+  open_decisions: []
+  next_skill: survey-context
 ```
 
 ## Anti-Patterns
 
-- **Duplicate Plan**: Don't just copy `specs/RELEASE-PLAN.md`. The plan is the *intended* path; the state is the *actual* progress and the deviations from that path.
-- **Stale State**: Forgetting to update `specs/STATE.md` after a major refactor or decision.
-- **Verbose History**: Keep it focused on the *current* state. Use git history for the past.
+- **Duplicate Plan**: Don't copy `release-plan.yaml` or epic shards into `state.yaml`.
+- **Stale State**: Forgetting to update `state.yaml` after a major refactor or decision.
+- **Status in release-plan**: Story/epic status lives only in `execution-status.yaml`.

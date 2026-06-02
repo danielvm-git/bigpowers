@@ -1,0 +1,57 @@
+release:
+  version: "3.0.0"
+  codename: Consolidation
+  status: in_progress
+  semantic_release: true
+  bump_hint: minor
+epics:
+  - id: e01
+    title: "Security"
+    wsjf: 4.5
+    file: epics/e01-security.yaml
+    mode: flat
+  - id: e02
+    title: "Verification & Evals"
+    wsjf: 4.3
+    file: epics/e02-verification-evals.yaml
+    mode: flat
+  - id: e03
+    title: "Discovery & Planning"
+    wsjf: 4.0
+    file: epics/e03-discovery-planning.yaml
+    mode: flat
+  - id: e04
+    title: "Ergonomics"
+    wsjf: 3.8
+    file: epics/e04-ergonomics.yaml
+    mode: flat
+  - id: e05
+    title: "Context Isolation + Routing"
+    wsjf: 3.3
+    file: epics/e05-context-isolation-routing.yaml
+    mode: flat
+  - id: e06
+    title: "Taxonomy & Provenance"
+    wsjf: 3.0
+    file: epics/e06-taxonomy-provenance.yaml
+    mode: flat
+  - id: e07
+    title: "Architectural Complexity"
+    wsjf: 2.8
+    file: epics/e07-architectural-complexity.yaml
+    mode: flat
+  - id: e08
+    title: "Wave Execution"
+    wsjf: 2.5
+    file: epics/e08-wave-execution.yaml
+    mode: flat
+  - id: e09
+    title: "Self-Evolution"
+    wsjf: 2.0
+    file: epics/e09-self-evolution.yaml
+    mode: flat
+  - id: e10
+    title: "Stack Profiles"
+    wsjf: 1.8
+    file: epics/e10-stack-profiles.yaml
+    mode: flat

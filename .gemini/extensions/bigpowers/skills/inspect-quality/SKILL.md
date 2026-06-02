@@ -1,12 +1,12 @@
 ---
 name: inspect-quality
-description: "Interactive QA session where user reports bugs or issues conversationally, and the agent logs them to specs/bugs/BUG-LOG.md with a structured audit schema. Explores the codebase in the background for context and domain language. Use when user wants to report bugs, do QA, or mentions "QA session"."
+description: "Interactive QA session where user reports bugs or issues conversationally, and the agent logs them to specs/bugs/registry.yaml with a structured audit schema. Explores the codebase in the background for context and domain language. Use when user wants to report bugs, do QA, or mentions "QA session"."
 ---
 
 
 # Inspect Quality
 
-Run an interactive QA session. The user describes problems they're encountering. You clarify, explore the codebase for context, and log each issue to `specs/bugs/BUG-LOG.md` with a structured, durable format.
+Run an interactive QA session. The user describes problems they're encountering. You clarify, explore the codebase for context, and log each issue to `specs/bugs/registry.yaml` with a structured, durable format.
 
 ## For each issue the user raises
 
@@ -41,11 +41,11 @@ Keep as a single issue when:
 - It's one behavior that's wrong in one place
 - The symptoms are all caused by the same root behavior
 
-### 4. Log to specs/bugs/BUG-LOG.md
+### 4. Log to specs/bugs/registry.yaml
 
-Append the issue to `specs/bugs/BUG-LOG.md`. Create the `specs/bugs/` directory if it doesn't exist.
+Append the issue to `specs/bugs/registry.yaml`. Create the `specs/bugs/` directory if it doesn't exist.
 
-#### BUG-LOG.md format
+#### registry.yaml format
 
 The file maintains a Markdown table with the following columns (derived from structured audit practice):
 

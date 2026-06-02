@@ -1,7 +1,7 @@
 ---
 name: model-domain
 model: sonnet
-description: Grilling session that challenges your plan against the existing domain model, sharpens terminology, and updates specs/CONTEXT.md and specs/adr/ inline as decisions crystallise. Use when user wants to stress-test a plan against their project's domain language and documented decisions.
+description: Grilling session that challenges your plan against the existing domain model, sharpens terminology, and updates specs/plans/TECH_STACK_LATEST.md and specs/adr/ inline as decisions crystallise. Use when user wants to stress-test a plan against their project's domain language and documented decisions.
 ---
 
 Interview me relentlessly about every aspect of this plan until we reach a shared understanding. Walk down each branch of the design tree, resolving dependencies between decisions one-by-one. For each question, provide your recommended answer.
@@ -46,13 +46,13 @@ If a `specs/CONTEXT-MAP.md` exists, the repo has multiple contexts. The map poin
             └── adr/
 ```
 
-Create files lazily — only when you have something to write. If no `specs/CONTEXT.md` exists, create it when the first term is resolved. If no `specs/adr/` exists, create it when the first ADR is needed.
+Create files lazily — only when you have something to write. If no `specs/plans/TECH_STACK_LATEST.md` exists, create it when the first term is resolved. If no `specs/adr/` exists, create it when the first ADR is needed.
 
 ## During the session
 
 ### Challenge against the glossary
 
-When the user uses a term that conflicts with the existing language in `specs/CONTEXT.md`, call it out immediately. "Your glossary defines 'cancellation' as X, but you seem to mean Y — which is it?"
+When the user uses a term that conflicts with the existing language in `specs/plans/TECH_STACK_LATEST.md`, call it out immediately. "Your glossary defines 'cancellation' as X, but you seem to mean Y — which is it?"
 
 ### Sharpen fuzzy language
 
@@ -66,11 +66,11 @@ When domain relationships are being discussed, stress-test them with specific sc
 
 When the user states how something works, check whether the code agrees. If you find a contradiction, surface it: "Your code cancels entire Orders, but you just said partial cancellation is possible — which is right?"
 
-### Update specs/CONTEXT.md inline
+### Update specs/plans/TECH_STACK_LATEST.md inline
 
-When a term is resolved, update `specs/CONTEXT.md` right there. Don't batch these up — capture them as they happen. Use the format in [CONTEXT-FORMAT.md](./CONTEXT-FORMAT.md).
+When a term is resolved, update `specs/plans/TECH_STACK_LATEST.md` right there. Don't batch these up — capture them as they happen. Use the format in [CONTEXT-FORMAT.md](./CONTEXT-FORMAT.md).
 
-Don't couple `specs/CONTEXT.md` to implementation details. Only include terms that are meaningful to domain experts.
+Don't couple `specs/plans/TECH_STACK_LATEST.md` to implementation details. Only include terms that are meaningful to domain experts.
 
 ### Offer ADRs sparingly
 
@@ -89,4 +89,4 @@ When the plan touches shared state, async, or multi-threaded code:
 - [ ] List every **shared mutable** location (globals, singletons, module-level caches).
 - [ ] For each: who reads, who writes, synchronization mechanism (lock, actor, immutable copy).
 - [ ] Flag **race risks** (check-then-act, non-atomic read-modify-write) with severity.
-- [ ] Record findings in `specs/CONTEXT.md` under `## Concurrency` or in an ADR if architectural.
+- [ ] Record findings in `specs/plans/TECH_STACK_LATEST.md` under `## Concurrency` or in an ADR if architectural.

@@ -11,7 +11,7 @@ Transform "do X" into "step → verify: <cmd>" pairs. This is the pre-flight che
 
 ### 1. Read the task statement
 
-Take the task as stated (from conversation, or from `specs/TASKS.md`, or from `specs/SCOPE.md`).
+Take the task as stated (from conversation, or from `specs/epics/ (see slice-tasks)`, or from `specs/requirements/SCOPE_LATEST.yaml`).
 
 ### 2. Break into observable outcomes
 

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>bigpowers cockpit</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; margin: 0; display: grid; grid-template-rows: auto 1fr; height: 100vh; }
+    header { padding: 1rem 1.5rem; background: #1a1a2e; color: #eee; display: flex; gap: 2rem; flex-wrap: wrap; }
+    header span { opacity: 0.85; }
+    main { display: grid; grid-template-columns: 1fr 1fr; gap: 0; min-height: 0; }
+    section { padding: 1rem 1.5rem; overflow: auto; border-top: 1px solid #ddd; }
+    section h2 { margin-top: 0; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.05em; color: #555; }
+    .epic { padding: 0.5rem 0; border-bottom: 1px solid #eee; }
+    .epic strong { color: #1a1a2e; }
+    .done { color: #0a7; }
+    .pending { color: #c80; }
+    #err { color: #c00; padding: 1rem; }
+  </style>
+</head>
+<body>
+  <header id="hdr">Loading…</header>
+  <main>
+    <section id="planning"><h2>Planning</h2><div id="planning-body"></div></section>
+    <section id="build"><h2>Epics &amp; status</h2><div id="build-body"></div></section>
+  </main>
+  <div id="err" hidden></div>
+  <script>
+    const params = new URLSearchParams(location.search);
+    const projectDir = params.get('projectDir') || '';
+    const apiBase = location.origin;
+
+    async function load() {
+      if (!projectDir) {
+        document.getElementById('err').hidden = false;
+        document.getElementById('err').textContent = 'Missing projectDir query param';
+        return;
+      }
+      const res = await fetch(apiBase + '/api/status?projectDir=' + encodeURIComponent(projectDir));
+      if (!res.ok) throw new Error(await res.text());
+      const data = await res.json();
+      const r = data.release || {};
+      document.getElementById('hdr').innerHTML =
+        '<div><strong>Release</strong> ' + (r.version || '?') + ' · ' + (r.status || '') + '</div>' +
+        '<span>flow: ' + (data.state.active_flow || '—') + '</span>' +
+        '<span>epic: ' + (data.active_epic_id || '—') + '</span>' +
+        '<span>branch: ' + ((data.state.git || {}).branch || '—') + '</span>';
+
+      const pw = data.planning_status || {};
+      document.getElementById('planning-body').innerHTML = Object.entries(pw).map(([k, v]) => {
+        const st = (v && v.status) || v || 'unknown';
+        return '<div class="epic"><strong>' + k + '</strong> — <span class="' + st + '">' + st + '</span></div>';
+      }).join('') || '<p>No planning-status.yaml</p>';
+
+      document.getElementById('build-body').innerHTML = (data.epics || []).map(e =>
+        '<div class="epic"><strong>' + e.id + '</strong> ' + e.title +
+        ' <span class="' + e.status + '">(' + e.status + ')</span> WSJF ' + e.wsjf + '</div>'
+      ).join('');
+    }
+    load().catch(e => {
+      document.getElementById('err').hidden = false;
+      document.getElementById('err').textContent = e.message;
+    });
+  </script>
+</body>
+</html>

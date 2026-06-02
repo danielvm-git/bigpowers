@@ -1,0 +1,20 @@
+id: e05
+title: "Context Isolation + Routing"
+wsjf: 3.3
+covers: []
+stories:
+  - id: e05s01
+    title: "`model:` on all SKILL.md"
+    tasks:
+      - desc: "`model:` on all SKILL.md"
+        verify: "grep -rl '^model:' */SKILL.md 2>/dev/null | wc -l | awk '{if($1==58) print \"OK\"; else print $1}'"
+  - id: e05s02
+    title: "`execute-plan` isolation + STATE.md channel"
+    tasks:
+      - desc: "`execute-plan` isolation + STATE.md channel"
+        verify: "grep -rl '^model:' */SKILL.md 2>/dev/null | wc -l | awk '{if($1==58) print \"OK\"; else print $1}'"
+  - id: e05s03
+    title: "`orchestrate-project` reads model + spawn list"
+    tasks:
+      - desc: "`orchestrate-project` reads model + spawn list"
+        verify: "grep -rl '^model:' */SKILL.md 2>/dev/null | wc -l | awk '{if($1==58) print \"OK\"; else print $1}'"

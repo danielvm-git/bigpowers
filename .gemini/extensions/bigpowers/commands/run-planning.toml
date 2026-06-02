@@ -1,0 +1,2 @@
+description = "Advance discover-phase workflows and update specs/planning-status.yaml. Use for survey, scope, research, plan-release chain without touching build epics."
+prompt = "@{commands/prompts/run-planning.md}"

@@ -101,6 +101,8 @@ h1 { color: #333; } p { color: #666; }</style>
 const frameTemplate = fs.readFileSync(path.join(__dirname, 'frame-template.html'), 'utf-8');
 const helperScript = fs.readFileSync(path.join(__dirname, 'helper.js'), 'utf-8');
 const helperInjection = '<script>\n' + helperScript + '\n</script>';
+const cockpitTemplate = fs.readFileSync(path.join(__dirname, 'cockpit.html'), 'utf-8');
+const { readSpecsStatus } = require('./read-specs-status.cjs');
 
 // ========== Helper Functions ==========
 
@@ -126,8 +128,46 @@ function getNewestScreen() {
 
 // ========== HTTP Request Handler ==========
 
+function parseQuery(url) {
+  const i = url.indexOf('?');
+  if (i < 0) return {};
+  const q = {};
+  for (const part of url.slice(i + 1).split('&')) {
+    const [k, v] = part.split('=').map(decodeURIComponent);
+    if (k) q[k] = v || '';
+  }
+  return q;
+}
+
 function handleRequest(req, res) {
   touchActivity();
+  const urlPath = req.url.split('?')[0];
+
+  if (req.method === 'GET' && urlPath === '/api/status') {
+    const q = parseQuery(req.url);
+    const projectDir = q.projectDir ? path.resolve(q.projectDir) : null;
+    if (!projectDir || !fs.existsSync(path.join(projectDir, 'specs'))) {
+      res.writeHead(400, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ error: 'projectDir must point to a repo with specs/' }));
+      return;
+    }
+    try {
+      const body = JSON.stringify(readSpecsStatus(projectDir));
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      res.end(body);
+    } catch (e) {
+      res.writeHead(500, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ error: e.message }));
+    }
+    return;
+  }
+
+  if (req.method === 'GET' && urlPath === '/cockpit.html') {
+    res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+    res.end(cockpitTemplate);
+    return;
+  }
+
   if (req.method === 'GET' && req.url === '/') {
     const screenFile = getNewestScreen();
     let html = screenFile

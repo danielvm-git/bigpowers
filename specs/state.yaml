@@ -1,0 +1,18 @@
+active_flow: build_epic
+active_epic_id: e01
+active_story_id: null
+release:
+  target_version: "3.0.0"
+  last_tag: null
+  last_publish: null
+epic_cycle:
+  current_step: null
+  next_skill: survey-context
+  completed_steps: []
+git:
+  branch: main
+  hash: c5fee46
+handoff:
+  last_step_completed: null
+  open_decisions: []
+  next_skill: survey-context

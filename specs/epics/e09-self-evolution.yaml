@@ -1,0 +1,30 @@
+id: e09
+title: "Self-Evolution"
+wsjf: 2.0
+covers: []
+stories:
+  - id: e09s01
+    title: "stocktake-skills, evolve-skill, search-skills, compose-workflow, simulate-agents"
+    tasks:
+      - desc: "stocktake-skills, evolve-skill, search-skills, compose-workflow, simulate-agents"
+        verify: "ls evolve-skill/SKILL.md specs/METHODOLOGY.md"
+  - id: e09s02
+    title: "`specs/METHODOLOGY.md`"
+    tasks:
+      - desc: "`specs/METHODOLOGY.md`"
+        verify: "ls evolve-skill/SKILL.md specs/METHODOLOGY.md"
+  - id: e09s03
+    title: "craft-skill README generator"
+    tasks:
+      - desc: "craft-skill README generator"
+        verify: "ls evolve-skill/SKILL.md specs/METHODOLOGY.md"
+  - id: e09s04
+    title: "Iterative retrieval in dispatch-agents / delegate-task"
+    tasks:
+      - desc: "Iterative retrieval in dispatch-agents / delegate-task"
+        verify: "ls evolve-skill/SKILL.md specs/METHODOLOGY.md"
+  - id: e09s05
+    title: "evolve-skill benchmark path documented; run `bash scripts/score_run.sh` in bigpo"
+    tasks:
+      - desc: "evolve-skill benchmark path documented; run `bash scripts/score_run.sh` in bigpowers-benchmark repo at release merge"
+        verify: "ls evolve-skill/SKILL.md specs/METHODOLOGY.md"

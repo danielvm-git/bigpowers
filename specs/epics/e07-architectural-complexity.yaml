@@ -1,0 +1,20 @@
+id: e07
+title: "Architectural Complexity"
+wsjf: 2.8
+covers: []
+stories:
+  - id: e07s01
+    title: "Demeter in CONVENTIONS.md + audit-code"
+    tasks:
+      - desc: "Demeter in CONVENTIONS.md + audit-code"
+        verify: "grep -c Demeter CONVENTIONS.md audit-code/SKILL.md | awk -F: '{s+=$2} END {if(s>=2) print \"OK\"}'"
+  - id: e07s02
+    title: "Module Depth score in deepen-architecture"
+    tasks:
+      - desc: "Module Depth score in deepen-architecture"
+        verify: "grep -c Demeter CONVENTIONS.md audit-code/SKILL.md | awk -F: '{s+=$2} END {if(s>=2) print \"OK\"}'"
+  - id: e07s03
+    title: "Concurrency audit in model-domain"
+    tasks:
+      - desc: "Concurrency audit in model-domain"
+        verify: "grep -c Demeter CONVENTIONS.md audit-code/SKILL.md | awk -F: '{s+=$2} END {if(s>=2) print \"OK\"}'"

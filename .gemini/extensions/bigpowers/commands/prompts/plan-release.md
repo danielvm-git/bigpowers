@@ -3,69 +3,93 @@
 
 > **HARD GATE** — Do NOT run this skill unless `elaborate-spec` has produced a clear spec or the user has already defined the feature in detail. If the problem is still fuzzy, run `elaborate-spec` first.
 
-Synthesize the conversation context into `specs/RELEASE-PLAN.md`. No new interview — only clarify if something is genuinely ambiguous.
+> **HARD GATE** — `specs/requirements/SCOPE_LATEST.yaml` (or legacy `specs/requirements/SCOPE_LATEST.yaml`) must exist. If missing, run `scope-work` first.
+
+Synthesize the conversation context into `specs/release-plan.yaml` (index) and shard detail under `specs/epics/`. No new interview — only clarify if something is genuinely ambiguous.
+
+## Outputs
+
+| File | Content |
+|------|---------|
+| `specs/release-plan.yaml` | `release.version`, semver bump hint, WSJF-ordered epic list (`id: e01`, `file:`, `mode:`) — **no story status** |
+| `specs/epics/eNN-<slug>.yaml` | Epic metadata, `covers: [fr-x]`, stories with tasks and `verify:` |
+| `specs/execution-status.yaml` | Regenerate keys via `bash scripts/sync-status-from-epics.sh` after epics exist |
 
 ## Process
 
 ### 1. Draft epics and stories
 
 From the conversation context, define:
-- **Epics** — major capability areas (Priority: P1/P2/P3 | Value: High/Med/Low | Effort: S/M/L)
-- **Stories** — "As a [actor], I want [feature] so that [benefit]"
+- **Epics** — `e01`, `e02`, … (stable IDs; WSJF order in `release-plan.yaml` only)
+- **Stories** — `e01s01`, `e01s02`, … with Gherkin acceptance criteria
 
 WSJF-sort epics: score = (Business Value + Time Criticality + Risk Reduction) / Job Size. Highest score first.
 
 ### 2. Write acceptance criteria (Gherkin)
 
-For each story, write at least one happy-path and one edge-case scenario:
-
-```
-Acceptance Criteria:
-  Feature: [name]
-    Scenario: [happy path]
-      Given [initial state]
-      When  [user action]
-      Then  [observable outcome]
-    Scenario: [edge case]
-      Given ...
-      When  ...
-      Then  ...
-```
+For each story, write at least one happy-path and one edge-case scenario (countable format §17 if maturity ≥ 3).
 
 ### 3. Write tasks with verify commands
 
-Under each story, list implementation tasks:
-
-```
-Tasks:
-  - [ ] Write failing test for scenario 1 → verify: <cmd>
-  - [ ] Implement [module/function]       → verify: <cmd>
-  - [ ] Integrate and smoke-test          → verify: <cmd>
-```
-
 Every task must have a `verify:` command. No verify command = not a task.
 
-### 4. Save specs/RELEASE-PLAN.md
+### 4. Save specs/release-plan.yaml
 
+```yaml
+release:
+  version: "3.0.0"
+  codename: "Feature Name"
+  status: planning          # planning | in_progress | released
+  semantic_release: true
+  bump_hint: minor          # patch | minor | major — CI decides at merge
+epics:
+  - id: e01
+    title: Security
+    wsjf: 4.5
+    file: epics/e01-security.yaml
+    mode: flat              # flat | folder (folder if >5 stories)
+  - id: e02
+    title: Verification
+    wsjf: 4.3
+    file: epics/e02-verification/epic.yaml
+    mode: folder
 ```
-## Epic 1: [Name]
-Priority: P1 | Value: High | Effort: M | WSJF: [score]
 
-### Story 1.1: As a [actor], I want [feature] so that [benefit]
-Status: [ ] Not started
+### 5. Save epic shards
 
-Acceptance Criteria:
-  Feature: ...
-    Scenario: ...
+**Flat** (`mode: flat`, ≤ ~5 stories):
 
-Tasks:
-  - [ ] ... → verify: <cmd>
+```yaml
+id: e01
+title: Security
+wsjf: 4.5
+covers: [fr-08]
+stories:
+  - id: e01s01
+    title: Guard git hooks
+    tasks:
+      - desc: Block push on main
+        verify: "grep -q guard-git .cursor/rules/guard-git.mdc"
 ```
 
-→ verify: `grep -c "Scenario:" specs/RELEASE-PLAN.md`
+**Folder GSD** (`mode: folder`): `epics/e02-verification/epic.yaml` + `stories/e02s01-*.md` with YAML frontmatter for tasks.
 
-### 5. Suggest next steps
+→ verify: `bash scripts/validate-specs-yaml.sh`
+
+→ verify: `grep -c 'id: e' specs/release-plan.yaml`
+
+### 6. Sync execution status
+
+```bash
+bash scripts/sync-status-from-epics.sh
+```
+
+### 7. Snapshot on planning close (optional)
+
+Copy to `specs/requirements/snapshots/release-<version>/` when the user approves the plan.
+
+### 8. Suggest next steps
 
 - Run `assess-impact` before `plan-work` for any story touching existing modules.
-- Run `plan-work` per story to produce the detailed step-by-step plan.
+- Run `plan-work` per story for detailed steps inside the epic shard.
 - Run `change-request` if a new requirement arrives mid-flight.

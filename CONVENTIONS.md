@@ -43,20 +43,62 @@ You are operating within the `bigpowers` spec-driven development methodology.
 
 ## specs/ — All Planning Output Goes Here
 
-Every skill that produces written output writes to `specs/` at the project root:
+Every skill that produces written output writes to `specs/` at the project root.
+
+### YAML cockpit (runtime + delivery)
+
+| Layer | File | Answers |
+|-------|------|---------|
+| Session | `specs/state.yaml` | Active flow, epic/bug, ship-epic step, git |
+| Release index | `specs/release-plan.yaml` | Target semver, WSJF epic list, pointers to `epics/` |
+| Progress | `specs/execution-status.yaml` | Flat status keys (`e01`, `e01s01`) — sole SoT for story state |
+| Planning UI | `specs/planning-status.yaml` | Discover-phase workflow checklist (optional) |
+
+**Do not** put story status in `release-plan.yaml`. **Do not** duplicate the release plan inside `state.yaml`.
+
+### Intent vs delivery vs execution
+
+| Question | File | Format |
+|----------|------|--------|
+| What should the product do? | `specs/requirements/SCOPE_LATEST.yaml` | YAML |
+| North star / initiative | `specs/requirements/VISION_LATEST.yaml` | YAML |
+| Glossary | `specs/requirements/GLOSSARY_LATEST.yaml` | YAML |
+| What ships in this release, in what order? | `specs/release-plan.yaml` | YAML |
+| How to implement an epic/story? | `specs/epics/eNN-*.yaml` or `specs/epics/eNN-*/stories/` | YAML + MD |
+| Where are we in the session? | `specs/state.yaml` | YAML |
+
+Epic IDs: `e01`, `e30`. Story IDs: `e01s01`. One FR in SCOPE may span multiple epics or releases.
+
+### Frozen release (ex-baseline)
+
+When planning closes, copy to `specs/requirements/snapshots/release-<version>/` (`release-plan.yaml`, `SCOPE_LATEST.yaml`, `VISION_LATEST.yaml`). No separate `baselines/` folder.
+
+### Semantic-release — three places
+
+1. **Planning intent** — `specs/release-plan.yaml` → `release.version`, `release.bump_hint` (minor/patch/major expectation).
+2. **Published version** — repo root: `package.json`, git tag `vX.Y.Z`, `CHANGELOG.md` (CI semantic-release; not hand-edited in specs).
+3. **Dashboard optional** — `specs/state.yaml` → `release.last_tag`, `release.last_publish` (from tags/CI).
+
+### Guardrails and other artifacts
 
 | Document | Path |
 |----------|------|
-| Domain context + ADRs | `specs/CONTEXT.md` + `specs/adr/` |
-| Domain glossary | `specs/UBIQUITOUS_LANGUAGE.md` |
-| Scope definition | `specs/SCOPE.md` |
-| Task breakdown | `specs/TASKS.md` |
-| Implementation plan | `specs/PLAN.md` (or `specs/PLAN-<feature>.md`) |
-| Project README | `README.md` (project root) |
-| Refactor plan | `specs/REFACTOR.md` |
-| Spike learnings | `specs/SPIKE-<name>.md` |
-| Bug investigation | `specs/bugs/BUG-*.md` |
-| QA session log | `specs/bugs/BUG-LOG.md` |
+| Stack / architecture | `specs/plans/TECH_STACK_LATEST.md` |
+| Security / test / design plans | `specs/plans/*_PLAN_LATEST.md` |
+| Domain context + ADRs | `specs/plans/TECH_STACK_LATEST.md` or legacy `specs/CONTEXT.md` + `specs/adr/` |
+| Bug investigation | `specs/bugs/BUG-*.md` + `specs/bugs/registry.yaml` (generated) |
+| Refactor / impact | `specs/plans/REFACTOR_LATEST.md`, `specs/plans/IMPACT_LATEST.md` |
+| Legacy markdown | `specs/archive/` after `bash scripts/convert-legado.sh` |
+
+Validate YAML layout: `bash scripts/validate-specs-yaml.sh`. Patch runtime keys: `bash scripts/bp-yaml-set.sh specs/state.yaml git.branch feat/foo`.
+
+### Legacy paths (migrate away)
+
+| Old | New |
+|-----|-----|
+| `specs/STATE.md` | `specs/state.yaml` |
+| `specs/RELEASE-PLAN.md` | `specs/release-plan.yaml` + `specs/epics/` |
+| `specs/SCOPE.md` | `specs/requirements/SCOPE_LATEST.yaml` |
 
 ## Code Style
 
@@ -76,7 +118,7 @@ Every skill that produces written output writes to `specs/` at the project root:
 - Remove dead code (G9/F4): unused functions, unreachable branches, and stale imports must be deleted — not commented out.
 - Boy Scout Rule: leave every file you touch at least as clean as you found it. Fix the first broken window you see.
 - **Law of Demeter:** A method should call only its immediate collaborators — not `a.getB().getC().doX()`. Chain violations need explicit justification in code review.
-- **Verification mandate:** Every story in `specs/RELEASE-PLAN.md` must include a `## Verification Script`. No story is done until `verify-work` confirms it (or user explicitly waives with documented reason in STATE.md).
+- **Verification mandate:** Every story must include runnable `verify:` commands (in epic shards or story files). No story is done until `verify-work` confirms it (or user explicitly waives with documented reason in `specs/state.yaml` handoff).
 - Exception messages must include the offending value, expected shape, and an actionable remediation hint for the agent.
 - SOLID beyond SRP: favor interfaces over concrete types (DIP) when injecting dependencies.
 

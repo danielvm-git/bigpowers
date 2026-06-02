@@ -3,91 +3,43 @@
 
 Browser-based visual companion for bigpowers. Visualizes architecture, plans, and status.
 
+## HTTP cockpit (YAML SoT)
+
+Start the server:
+
+```bash
+bash visual-dashboard/scripts/start-server.sh
+```
+
+Endpoints:
+
+| Route | Purpose |
+|-------|---------|
+| `GET /api/status?projectDir=<abs>` | JSON: `state`, `release`, `epics[]`, `planning_status`, `active_epic` |
+| `GET /cockpit.html?projectDir=<abs>` | Read-only PM view (planning left, epics right) |
+| `GET /` | Agent-pushed HTML screens (legacy, unchanged) |
+
+Example:
+
+```bash
+curl -s "http://127.0.0.1:PORT/api/status?projectDir=$PWD" | jq .release.version
+```
+
+Implementation: `visual-dashboard/scripts/read-specs-status.cjs` + `server.cjs`.
+
 ## Opencode Progress Panel
 
-Projects using bigpowers in opencode get a **live progress panel** (right sidebar) that reads `specs/STATE.md` and `specs/RELEASE-PLAN.md` directly. Toggle it with the document icon (⬚) in the opencode session header.
+Projects using bigpowers in opencode can read `specs/state.yaml`, `specs/release-plan.yaml`, and active `specs/epics/*.yaml` directly (no checkbox `### WS1` markdown).
 
-### Spec file format requirements
+Required YAML keys:
 
-**`specs/STATE.md`** — the parser extracts:
-- Project name from `# Session State: <name>`
-- Milestone from `## Current Milestone` → first `**bold**` = name, `(parens)` = status
-- Pending items from `## Pending` → `- [ ]` / `- [x]` lines
+- **state.yaml** — `active_flow`, `active_epic_id`, `git`, `handoff`, `epic_cycle`
+- **release-plan.yaml** — `release.version`, `epics[]` with `id`, `title`, `wsjf`, `file`
+- **execution-status.yaml** — `development_status` map (story/epic → `done` | `pending`)
+- **planning-status.yaml** — discover workflows and `status: done|pending`
 
-```markdown
-# Session State: my-project
+## Agent screens (optional)
 
-## Current Milestone
+Push HTML to the dashboard session dir for rich diagrams. See `start-server.sh` for `CONTENT_DIR`.
 
-**v1.0.0 — Feature Name** (in progress)
-
-## Pending
-
-- [ ] Remaining task
-- [x] Completed task
-```
-
-**`specs/RELEASE-PLAN.md`** — the parser extracts:
-- Workstreams from `### WSN — Title · WSJF N.N` headings
-- Steps from `- [ ]` / `- [x]` lines inside each workstream block
-
-```markdown
-## Workstreams (WSJF order)
-
-### WS1 — Feature Area · WSJF 4.5
-
-- [x] Step already done
-- [ ] Step pending
-
-→ verify: `<command>`
-```
-
-**Parser rules:**
-- Only `[ ]` and `[x]`/`[X]` are recognised as step markers.
-- `→ verify:` lines are ignored.
-- Steps outside a `### WSN —` block are not picked up.
-- Missing `## Current Milestone` → panel shows "No specs found".
-
-After completing a step, update the checkbox in-place; the panel auto-refreshes every 30 s or on manual ↺.
-
-
-## When to Use
-
-Use when the user would understand the project state better by seeing it than reading it.
-
-- **Architecture maps** — visualizing module dependencies and "code rot."
-- **Implementation progress** — seeing the vertical slices of a `PLAN.md` as a visual roadmap.
-- **UI brainstorming** — wireframes and layout options.
-- **Complexity audits** — visualizing "God classes" vs "Clean modules."
-
-## How It Works
-
-The server watches for updates to your artifacts and serves a dashboard to the browser. You write visual representations (HTML fragments) to the dashboard's `screen_dir`, and the user interacts with them.
-
-## Starting a Session
-
-```bash
-# Start server with project persistence
-visual-dashboard/scripts/start-server.sh --project-dir $(pwd)
-```
-
-Save the `url`, `screen_dir`, and `state_dir` from the response. Tell the user to open the dashboard.
-
-## Dashboard Loops
-
-### 1. The Architecture View
-When using `deepen-architecture`, push a Mermaid diagram of the target modules to the dashboard.
-Filename: `architecture.html`
-
-### 2. The Plan View
-When using `plan-work`, push a step-by-step progress map.
-Filename: `plan.html`
-
-### 3. User Interaction
-Read `state_dir/events` to see which components or options the user clicked in the dashboard. Use this to refine your next design pass.
-
-## Cleaning Up
-
-```bash
-visual-dashboard/scripts/stop-server.sh $SESSION_DIR
-```
+→ verify: `test -f visual-dashboard/scripts/read-specs-status.cjs && test -f visual-dashboard/scripts/cockpit.html`

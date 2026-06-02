@@ -1,0 +1,25 @@
+id: e02
+title: "Verification & Evals"
+wsjf: 4.3
+covers: []
+stories:
+  - id: e02s01
+    title: "`verify-work`, `run-evals` skills"
+    tasks:
+      - desc: "`verify-work`, `run-evals` skills"
+        verify: "test -d verify-work && test -d run-evals && echo OK"
+  - id: e02s02
+    title: "Verification Script template in `plan-work`"
+    tasks:
+      - desc: "Verification Script template in `plan-work`"
+        verify: "test -d verify-work && test -d run-evals && echo OK"
+  - id: e02s03
+    title: "UAT checkpoint in `execute-plan`"
+    tasks:
+      - desc: "UAT checkpoint in `execute-plan`"
+        verify: "test -d verify-work && test -d run-evals && echo OK"
+  - id: e02s04
+    title: "RED/GREEN/REFACTOR commits in `develop-tdd`"
+    tasks:
+      - desc: "RED/GREEN/REFACTOR commits in `develop-tdd`"
+        verify: "test -d verify-work && test -d run-evals && echo OK"

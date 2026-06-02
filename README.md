@@ -2,9 +2,9 @@
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 ![npm version](https://img.shields.io/npm/v/bigpowers.svg)
-![Skills](https://img.shields.io/badge/skills-59-brightgreen.svg)
+![Skills](https://img.shields.io/badge/skills-61-brightgreen.svg)
 
-**59 agent skills for high-integrity, spec-driven, test-first software development by solo developers.**
+**61 agent skills for high-integrity, spec-driven, test-first software development by solo developers.**
 
 `bigpowers` provides a prescriptive, vertical-slice methodology for building software with AI agents (Claude Code, Gemini CLI, Cursor). It bridges the gap between raw LLM capabilities and professional engineering standards.
 
@@ -117,8 +117,8 @@ Every task in `bigpowers` follows a prescriptive lifecycle (see `SKILL-INDEX.md`
 | **Context** | `specs/CONTEXT.md` | Tech stack, architecture, and glossary. |
 | **Scope** | `specs/SCOPE.md` | In-scope / out-of-scope and success criteria. |
 | **Decisions** | `specs/adr/` | Architectural Decision Records (irreversible choices). |
-| **Roadmap** | `specs/RELEASE-PLAN.md` | WSJF-prioritized releases and stories. |
-| **Current** | `specs/STATE.md` | Current milestone and session progress. |
+| **Roadmap** | `specs/release-plan.yaml` + `specs/epics/` | WSJF-prioritized epics and stories. |
+| **Current** | `specs/state.yaml` | Session flow, active epic, handoff. |
 | **Index** | `SKILL-INDEX.md` | Canonical list of all active skills. |
 | **Style** | `CONVENTIONS.md` | Coding, testing, and naming standards. |
 
@@ -129,7 +129,7 @@ Every task in `bigpowers` follows a prescriptive lifecycle (see `SKILL-INDEX.md`
 - `scripts/`: Installation, syncing, and compliance tools.
 - `specs/`: The "Brain" of your project — all planning and decisions live here.
 - `docs/references/`: Theoretical foundations (Uncle Bob, Ousterhout, Karpathy, etc.).
-- `[skill-name]/`: Source files for each of the 59 skills.
+- `[skill-name]/`: Source files for each of the 61 skills.
 
 ---
 

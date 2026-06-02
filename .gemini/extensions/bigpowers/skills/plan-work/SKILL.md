@@ -1,12 +1,12 @@
 ---
 name: plan-work
-description: "Write a detailed implementation plan to specs/RELEASE-PLAN.md. Every step must include a runnable verify command (Karpathy verification template). Use when user has a task to implement and needs a step-by-step plan with evidence checkpoints, or after plan-release produces specs/RELEASE-PLAN.md."
+description: "Write detailed implementation tasks into the active epic shard (specs/epics/eNN-*.yaml). Every task must include a runnable verify command. Use when user needs step-by-step plan with evidence, or after plan-release."
 ---
 
 
 # Plan Work
 
-Produce a detailed, verifiable implementation plan in `specs/RELEASE-PLAN.md`. Every step must be paired with a runnable verify command — "I think it works" is not a step.
+Produce a detailed, verifiable implementation plan in the **active epic shard** (`specs/epics/eNN-*.yaml` under the target story's `tasks[]`). Every step must be paired with a runnable verify command — "I think it works" is not a step.
 
 > **HARD GATE** — Do NOT proceed with a plan until the task's success criteria are clear. If success is ambiguous, run `define-success` first to convert the task into "step → verify: <cmd>" pairs.
 >
@@ -16,7 +16,7 @@ Produce a detailed, verifiable implementation plan in `specs/RELEASE-PLAN.md`. E
 
 Before writing the plan, check if `define-success` has been run. If the task's success criteria are unclear, run `define-success` first to convert the task into "step → verify: <cmd>" pairs.
 
-Read any existing `specs/` files: RELEASE-PLAN.md, SCOPE.md, TASKS.md, CONTEXT.md, UBIQUITOUS_LANGUAGE.md.
+Read any existing `specs/` files: `release-plan.yaml`, `requirements/SCOPE_LATEST.yaml`, active `epics/*.yaml`, `plans/TECH_STACK_LATEST.md`, `requirements/GLOSSARY_LATEST.yaml`.
 
 > **ZOOM-OUT MANDATE** (v1.17.0 Guardrails) — If this plan modifies an existing module, function, or behavior:
 > 1. State the module's **purpose** — what is it responsible for?
@@ -58,9 +58,9 @@ Break the implementation into the smallest possible steps where each step:
 
 **Red-flag check**: before moving to Step 3, name any rationalization you caught yourself making — skipping a gate, adding out-of-scope steps, omitting a verify command. Write them out; do not suppress them.
 
-### 3. Write specs/RELEASE-PLAN.md
+### 3. Write epic shard tasks
 
-Append the detailed steps under the relevant story in `specs/RELEASE-PLAN.md`. Create the `specs/` directory if it doesn't exist.
+Append tasks under the relevant story in `specs/epics/{epic-id}-*.yaml` (`tasks[]` with `desc` + `verify`). Update `specs/release-plan.yaml` if a new story is needed. Run `bash scripts/sync-status-from-epics.sh` after structural changes.
 
 <plan-template>
 
@@ -126,4 +126,4 @@ Before finalizing, confirm:
 - Is the granularity right (not too coarse, not too fine)?
 - Are the verify commands actually runnable in this project?
 
-After writing `specs/RELEASE-PLAN.md`, suggest `kickoff-branch` (if not already on a feature branch) then `execute-plan` or `develop-tdd`.
+After writing epic tasks, suggest `kickoff-branch` (if not already on a feature branch) then `build-epic`, `execute-plan`, or `develop-tdd`.

@@ -1,23 +1,23 @@
 
 # Trace Requirement
 
-Build a traceability matrix from `specs/RELEASE-PLAN.md` to implementing code and tests. Surfaces gaps in both directions: stories with no code, and code with no story.
+Build a traceability matrix from `specs/release-plan.yaml + epic shards` to implementing code and tests. Surfaces gaps in both directions: stories with no code, and code with no story.
 
 ## Pre-flight
 
-> **HARD GATE** — `specs/RELEASE-PLAN.md` must exist. If it doesn't, run `plan-release` first.
+> **HARD GATE** — `specs/release-plan.yaml + epic shards` must exist. If it doesn't, run `plan-release` first.
 
-→ verify: `[ -f specs/RELEASE-PLAN.md ] && echo "ready" || echo "BLOCKED: run plan-release first"`
+→ verify: `[ -f specs/release-plan.yaml + epic shards ] && echo "ready" || echo "BLOCKED: run plan-release first"`
 
-Read `specs/RELEASE-PLAN.md` fully before proceeding.
+Read `specs/release-plan.yaml + epic shards` fully before proceeding.
 
 ## Process
 
 ### 1. Extract story IDs
 
-From RELEASE-PLAN.md, collect all story IDs (e.g. `1.1`, `1.2`, `2.1`).
+From release-plan.yaml, collect all story IDs (e.g. `1.1`, `1.2`, `2.1`).
 
-→ verify: `grep -o "Story [0-9]\+\.[0-9]\+" specs/RELEASE-PLAN.md | sort -u`
+→ verify: `grep -o "Story [0-9]\+\.[0-9]\+" specs/release-plan.yaml + epic shards | sort -u`
 
 ### 2. Search for story tags in code
 
@@ -36,7 +36,7 @@ For each story ID:
 - **Tested**: list test files that contain `// story: X.Y`
 - **Dark**: story has no tag in any file — flag as unimplemented
 
-For each tagged file with no matching story ID in RELEASE-PLAN.md:
+For each tagged file with no matching story ID in release-plan.yaml:
 - **Orphan**: code exists but story was removed or never planned — flag for cleanup
 
 ### 4. Write specs/TRACEABILITY.md

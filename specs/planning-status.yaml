@@ -1,0 +1,23 @@
+# Discover-phase workflows (dashboard left panel)
+workflows:
+  survey-context:
+    status: done
+    path: survey-context/SKILL.md
+  scope-work:
+    status: done
+    path: scope-work/SKILL.md
+  research-first:
+    status: done
+    path: research-first/SKILL.md
+  elaborate-spec:
+    status: optional
+    path: elaborate-spec/SKILL.md
+  plan-release:
+    status: done
+    path: plan-release/SKILL.md
+  slice-tasks:
+    status: done
+    path: slice-tasks/SKILL.md
+  assess-impact:
+    status: optional
+    path: assess-impact/SKILL.md

@@ -8,7 +8,7 @@
    - Trigger ("Use when...")
    - Ordered steps: `skill → artefact → verify`
    - HARD GATEs between phases
-3. Register in STATE.md Active Decisions.
+3. Register in state.yaml Active Decisions.
 4. Optional: reference from `orchestrate-project` Ad-Hoc mode.
 
 ## Verify

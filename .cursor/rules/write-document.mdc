@@ -25,7 +25,7 @@ Create high-signal technical documentation that serves as an expert collaborator
 
 Choose the correct BMAD-BigPowers artifact:
 - **Decision Record (ADR)**: For "Why" decisions (saved to `specs/adr/`).
-- **Context Map**: For system-wide architectural mapping (`specs/CONTEXT.md`).
+- **Context Map**: For system-wide architectural mapping (`specs/plans/TECH_STACK_LATEST.md`).
 - **Technical Guide**: For "How-to" with verification (saved to `<module>/REFERENCE.md`).
 - **Behavioral Feature**: Gherkin-style compliance specs (saved to `specs/audit/features/`).
 - **Project README**: Project-facing documentation (saved to `README.md` at project root).

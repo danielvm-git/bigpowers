@@ -1,0 +1,20 @@
+id: e06
+title: "Taxonomy & Provenance"
+wsjf: 3.0
+covers: []
+stories:
+  - id: e06s01
+    title: "`type:` / `context:` in plan-work template"
+    tasks:
+      - desc: "`type:` / `context:` in plan-work template"
+        verify: "grep -c 'type:' plan-work/SKILL.md | awk '{if($1>0) print \"OK\"}'"
+  - id: e06s02
+    title: "ADR/SHA refs on steps"
+    tasks:
+      - desc: "ADR/SHA refs on steps"
+        verify: "grep -c 'type:' plan-work/SKILL.md | awk '{if($1>0) print \"OK\"}'"
+  - id: e06s03
+    title: "`audit-code` metadata checks"
+    tasks:
+      - desc: "`audit-code` metadata checks"
+        verify: "grep -c 'type:' plan-work/SKILL.md | awk '{if($1>0) print \"OK\"}'"

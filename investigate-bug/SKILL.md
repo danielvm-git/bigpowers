@@ -14,7 +14,7 @@ Investigate a reported problem, find its root cause, and write a TDD fix plan to
 
 Before starting diagnosis:
 
-1. Read `specs/bugs/BUG-LOG.md` (if it exists) — check for prior bugs in the same `scope` or with similar symptoms.
+1. Read `specs/bugs/registry.yaml` (if it exists) — check for prior bugs in the same `scope` or with similar symptoms.
 2. If a relevant prior bug is found, read the corresponding `specs/bugs/BUG-*.md` file to understand previous root cause analysis and fix approach.
 3. Note in your investigation whether this is a recurrence, a related issue, or novel.
 
@@ -71,7 +71,7 @@ Rules:
 
 Save the investigation and fix plan to `specs/bugs/BUG-YYYY-MM-DDTHHMMSS.md`. Create the `specs/bugs/` directory if it doesn't exist.
 
-After writing, append a row to `specs/bugs/BUG-LOG.md` with: bug_id (same timestamp), date, severity, priority, scope, summary, and file path. Create `specs/bugs/BUG-LOG.md` if it doesn't exist.
+After writing, append a row to `specs/bugs/registry.yaml` with: bug_id (same timestamp), date, severity, priority, scope, summary, and file path. Create `specs/bugs/registry.yaml` if it doesn't exist.
 
 <diagnosis-template>
 

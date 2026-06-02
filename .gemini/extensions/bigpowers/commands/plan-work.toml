@@ -1,2 +1,2 @@
-description = "Write a detailed implementation plan to specs/RELEASE-PLAN.md. Every step must include a runnable verify command (Karpathy verification template). Use when user has a task to implement and needs a step-by-step plan with evidence checkpoints, or after plan-release produces specs/RELEASE-PLAN.md."
+description = "Write detailed implementation tasks into the active epic shard (specs/epics/eNN-*.yaml). Every task must include a runnable verify command. Use when user needs step-by-step plan with evidence, or after plan-release."
 prompt = "@{commands/prompts/plan-work.md}"

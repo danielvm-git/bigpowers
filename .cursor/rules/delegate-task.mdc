@@ -14,7 +14,7 @@ Delegate a single complex task to a subagent with a two-stage review gate before
 
 ### 1. Define the task
 
-Before spawning the agent, read `specs/STATE.md` if it exists. Then write a minimal self-contained brief using this template (brief size directly controls token cost and hallucination risk — do not pad):
+Before spawning the agent, read `specs/state.yaml` if it exists. Then write a minimal self-contained brief using this template (brief size directly controls token cost and hallucination risk — do not pad):
 
 ```
 Goal: [one sentence — specific, measurable outcome]
@@ -22,14 +22,14 @@ In scope: [explicit file or module list]
 Out of bounds: [what NOT to do]
 Constraints: [relevant CONVENTIONS.md rules, existing patterns, test requirements]
 Verify: [runnable command]
-Prior decisions: [relevant entries from specs/STATE.md — omit section if none apply]
+Prior decisions: [relevant entries from specs/state.yaml — omit section if none apply]
 ```
 
 Do not include full file contents, full conversation history, or decisions unrelated to this task.
 
 ### 2. Spawn the subagent (iterative retrieval, max 3 cycles)
 
-Use the Agent tool with a **fresh context** per spawn. Pass prior decisions only via `specs/STATE.md`.
+Use the Agent tool with a **fresh context** per spawn. Pass prior decisions only via `specs/state.yaml`.
 
 **Cycle:** dispatch → evaluate output vs goal → refine brief → re-spawn if needed (max 3 cycles).
 
@@ -67,7 +67,7 @@ Check:
 - **Revise**: send back to the subagent with specific feedback
 - **Reject**: discard and re-approach differently
 
-**After accepting**, append to `specs/STATE.md` under `## Active Decisions`:
+**After accepting**, append to `specs/state.yaml` under `## Active Decisions`:
 ```
 **[task short name]**: [what approach the agent chose and why — one sentence]
 ```

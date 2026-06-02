@@ -14,23 +14,30 @@ Read the project's current state and give a phase map + next-skill recommendatio
 
 If `CONVENTIONS.md` exists at the project root, read it first. It contains the rules all agents must follow in this project.
 
-### 2. Read specs/
+### 2. Read specs/ (YAML-first)
 
 Scan the `specs/` directory if it exists:
 
 ```
 specs/
-├── CONTEXT.md          → domain model status
-├── UBIQUITOUS_LANGUAGE.md → glossary status
-├── SCOPE.md            → scope definition status
-├── TASKS.md            → task breakdown status
-├── RELEASE-PLAN.md     → implementation plan status
-├── REFACTOR.md         → refactor plan status
-├── bugs/               → bug investigations (BUG-*.md) + BUG-LOG.md
-└── SPIKE-*.md          → spike learning notes
+├── state.yaml                  → session: active_flow, epic, git, handoff
+├── release-plan.yaml           → target version, WSJF epic index
+├── execution-status.yaml       → flat story/epic status
+├── planning-status.yaml        → discover-phase checklist (optional)
+├── requirements/
+│   ├── VISION_LATEST.yaml
+│   ├── SCOPE_LATEST.yaml
+│   └── GLOSSARY_LATEST.yaml
+├── plans/                      → TECH_STACK, TEST_PLAN, etc.
+├── epics/                      → eNN shards (flat yaml or eNN/stories/)
+└── bugs/                       → BUG-*.md + registry.yaml
 ```
 
-For each file found, note: does it exist? Is it complete? Does it have open items?
+For each YAML file found, note: exists? keys populated? `handoff.next_skill`?
+
+Legacy markdown (`specs/archive/STATE.md`, `RELEASE-PLAN.md`) is **not** SoT if YAML exists.
+
+→ verify: `bash scripts/validate-specs-yaml.sh 2>/dev/null || echo "YAML layout incomplete"`
 
 ### 3. Read CLAUDE.md
 
@@ -44,7 +51,7 @@ git log --oneline -5
 git branch --show-current
 ```
 
-Note: is there a feature branch active? Are there uncommitted changes? Are there unpushed commits?
+Note: is there a feature branch active? Are there uncommitted changes? Do they match `specs/state.yaml` `git` block?
 
 ### 5. Map the lifecycle phase
 
@@ -52,33 +59,36 @@ Based on what you've found, identify which PMBOK phase this project is currently
 
 | Phase | Signals |
 |-------|---------|
-| **Discover** | No specs/ yet, or only rough notes |
-| **Design** | specs/SCOPE.md exists but no RELEASE-PLAN.md |
-| **Plan** | specs/TASKS.md or RELEASE-PLAN.md exists; on `main`/`master` branch |
+| **Discover** | No `requirements/SCOPE_LATEST.yaml` yet, or only rough notes |
+| **Design** | SCOPE exists but no `release-plan.yaml` |
+| **Plan** | `release-plan.yaml` exists; on `main`/`master` branch |
 | **Initiate** | On a feature branch; no code changes yet |
-| **Execute** | RELEASE-PLAN.md exists; on feature branch; steps in progress |
-| **Verify** | Implementation done; run `verify-work` or `run-evals`; awaiting UAT |
-| **Bug** | `specs/bugs/BUG-*.md` exists; on `main`/`master` |
+| **Execute** | `state.yaml` `active_flow: build_epic`; epic shard in progress |
+| **Verify** | Implementation done; run `verify-work` or `run-evals` |
+| **Bug** | `state.yaml` `active_flow: fix_bug` or open `specs/bugs/BUG-*.md` |
 | **Review** | All code written; no PR yet |
 | **Integrate** | PR open; tests passing |
 | **Sustain** | Ongoing; no active task |
+
+Prefer `specs/state.yaml` `active_flow` and `handoff.next_skill` when present.
 
 ### 6. Suggest next skill
 
 Based on the phase and state, recommend the most useful next step:
 
 - **If in Plan/Bug phase and on `main`**: Suggest `kickoff-branch` next.
-- **If in Initiate phase**: Suggest `develop-tdd` or `execute-plan`.
-- **If in Execute phase**: Suggest `develop-tdd` (continue step X) or `execute-plan`.
-- **If in Verify phase**: Suggest `verify-work` (UAT) or `run-evals` (capability evals).
+- **If in Initiate phase**: Suggest `develop-tdd` or `execute-plan` or `ship-epic`.
+- **If in Execute phase**: Suggest `ship-epic` (resume) or `develop-tdd` for `active_story_id`.
+- **If in Verify phase**: Suggest `verify-work` (UAT) or `run-evals`.
 
 Example:
 ```
-Phase: Plan
-Active branch: main
-RELEASE-PLAN.md: exists
+Phase: Execute
+Active branch: feat/e02-verify (state.yaml matches)
+release-plan.yaml: v3.0.0, 10 epics
+active_epic_id: e02
 
-Suggested next: kickoff-branch (to create feature/auth branch)
+Suggested next: ship-epic (resume e02s01 at develop-tdd)
 ```
 
 Be specific — name the exact skill and why. If multiple options exist, list them in priority order.
@@ -87,8 +97,9 @@ Be specific — name the exact skill and why. If multiple options exist, list th
 
 If something looks wrong:
 - Broken tests in the baseline
-- `specs/bugs/BUG-*.md` open with no active fix branch
-- RELEASE-PLAN.md with missing verify commands or Verification Script sections
-- CONVENTIONS.md violations in recent commits
+- Open `specs/bugs/BUG-*.md` with no active fix branch
+- Epic shards missing `verify:` on tasks
+- `validate-specs-yaml.sh` fails
+- Git hash in `state.yaml` stale vs `git rev-parse`
 
 Report blockers first, before recommendations.

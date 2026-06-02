@@ -10,7 +10,7 @@ model: opus
 
 ## Loop
 
-1. Run `bigpowers-benchmark` (external repo); save report path in STATE.md.
+1. Run `bigpowers-benchmark` (external repo); save report path in state.yaml.
 2. Identify target skill + measurable gap from report.
 3. `plan-work` — minimal change proposal with verify commands.
 4. Edit via `craft-skill` / direct SKILL.md edit; run `sync-skills.sh`.
@@ -19,6 +19,6 @@ model: opus
 
 ## Verify
 
-→ verify: benchmark report shows post-change score ≥ baseline (document paths in STATE.md)
+→ verify: benchmark report shows post-change score ≥ baseline (document paths in state.yaml)
 
 See [REFERENCE.md](REFERENCE.md) for ADR template.
