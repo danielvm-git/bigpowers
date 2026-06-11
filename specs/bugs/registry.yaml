@@ -11,11 +11,21 @@ bugs:
     risk_level: "high"
     commit_message: "fix(ci): repair sync-skills sed and refresh package-lock; fix(ci): use Node 22 for semantic-release workflow"
   - id: BUG-2026-06-11T120000
-    status: open
+    status: fixed
     severity: medium
     scope: dashboard/tui
     title: "TUI markup tags render as literal text; layout diverges from prototype"
     file: bugs/BUG-2026-06-11T120000.md
     files_changed: "dashboard/src/tui/index.js, dashboard/src/tui/pipeline.js, dashboard/src/tui/metrics-bar.js, dashboard/src/tui/epic-queue.js, dashboard/src/tui/state-yaml.js, dashboard/src/tui/filesystem.js"
     approach: "Add tags:true to all blessed.box() calls; refactor pipeline to horizontal strip; expand metrics to 6-cell row; add title bar and ALL-CAPS panel headers"
+    risk_level: "low"
+    commit_message: "feat(dashboard/tui): render blessed tags and improve layout (fba0e49)"
+  - id: BUG-2026-06-11T160000
+    status: open
+    severity: medium
+    scope: dashboard/tui
+    title: "{dim} and {|} render as literal text after TUI prototype adaptation"
+    file: bugs/BUG-2026-06-11T160000.md
+    files_changed: "dashboard/src/tui/metrics-bar.js, dashboard/src/tui/pipeline.js, dashboard/src/tui/state-yaml.js, dashboard/src/tui/epic-queue.js, dashboard/src/tui/ledger.js, dashboard/src/tui/index.js"
+    approach: "Replace {dim}/{/dim} with {gray-fg}/{/gray-fg}; remove {|} from status line"
     risk_level: "low"
