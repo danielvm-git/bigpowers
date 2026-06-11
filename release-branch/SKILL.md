@@ -132,6 +132,21 @@ gh pr merge --squash --delete-branch
 3. Tag the repo (e.g., `v2.1.0`).
 4. Generate release notes.
 
+### 7a. Archive completed epic capsule
+
+> **HARD GATE** — When an epic's stories are all complete (all marked `done` in `execution-status.yaml`), move the epic capsule directory to the archive.
+
+```bash
+EPIC_CAPSULE="specs/epics/eNN-slug"
+if [ -d "$EPIC_CAPSULE" ]; then
+  mkdir -p specs/epics/archive
+  mv "$EPIC_CAPSULE" "specs/epics/archive/"
+  echo "Archived: $EPIC_CAPSULE → specs/epics/archive/"
+fi
+```
+
+**Rationale:** Archiving completed epics removes inactive context from the agent workspace, preserving token budget (C2/C6). The capsule directory (epic.yaml + stories + tasks + epic-local ADRs) moves as a unit — nothing is orphaned.
+
 ### 8. Clean up worktree (if not done by land-branch.sh)
 
 ```bash

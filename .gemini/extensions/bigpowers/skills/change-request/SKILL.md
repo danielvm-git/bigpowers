@@ -1,6 +1,6 @@
 ---
 name: change-request
-description: "Add a new requirement or reorder epics by WSJF against specs/release-plan.yaml and epic shards. Modes Add and Reorder. Use when a new requirement arrives mid-release or the plan needs prioritization."
+description: "Add a new requirement or reorder epics by WSJF against specs/release-plan.yaml and epic capsule directories. Modes Add and Reorder. Use when a new requirement arrives mid-release or the plan needs prioritization."
 ---
 
 
@@ -19,10 +19,10 @@ Intake a new requirement mid-flight without disrupting work in progress.
 1. **Capture**: What is the change? What problem does it solve?
 2. **Locate**: Which existing stories in `specs/epics/` does it affect or replace?
 3. **Draft**: Add story + `tasks[]` with Gherkin-style AC in epic YAML (each task has `verify`).
-4. **Place**: Append story under existing epic shard, or create `specs/epics/eNN-slug.yaml` and register in `release-plan.yaml` `epics[]`.
+4. **Place**: Append story under existing epic capsule, or create `specs/epics/eNN-slug.yaml` and register in `release-plan.yaml` `epics[]`.
 5. **Score**: Compute WSJF; note if it outranks in-progress work.
 
-→ verify: `grep -c 'stories:' specs/epics/*.yaml`
+→ verify: `grep -c 'stories:' specs/epics/*/epic.yaml`
 
 ## Mode B — Reorder
 
@@ -36,7 +36,7 @@ See [REFERENCE.md](REFERENCE.md) for the full WSJF scoring rubric.
 4. **Update** `specs/release-plan.yaml` and epic `wsjf` keys with rationale.
 5. **Report** the delta.
 
-→ verify: `grep -c 'wsjf' specs/release-plan.yaml specs/epics/*.yaml`
+→ verify: `grep -c 'wsjf' specs/release-plan.yaml specs/epics/*/epic.yaml`
 
 ## After either mode
 

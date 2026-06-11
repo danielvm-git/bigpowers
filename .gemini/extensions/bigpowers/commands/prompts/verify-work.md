@@ -16,7 +16,7 @@ Review answers "is the code good?"; Verify answers "does the built thing do what
 
 0. **Branch check** — must not be `main`/`master`.
 
-1. Read active story tasks and any **Verification Script** notes in `specs/epics/{active}.yaml` or story `.md` under `specs/epics/eNN/stories/`.
+1. Read active story tasks from `specs/epics/<capsule>/eNNsYY-tasks.yaml` and story spec from `specs/epics/<capsule>/eNNsYY-<slug>.md` (countable-story-format, Gherkin in §17).
 2. **Cold-start smoke** (if app): stop server, clear caches, boot from scratch.
 3. Mechanical gates: build → typecheck → lint → tests (from `CLAUDE.md`).
 4. **Step-by-step UAT** — one user-observable action at a time.
@@ -50,9 +50,42 @@ After UAT, identify and close any gaps between promised behavior and actual beha
 - Pass: user confirms per step.
 - Fail: capture expected vs actual; do not mark done in `execution-status.yaml`.
 
+## Persist verification evidence
+
+After UAT passes, write structured evidence to `specs/verifications/eNNsYY-verify.yaml`:
+
+```yaml
+story_id: e01s01
+verified_at: "2026-06-11T14:30:00Z"
+verifier: verify-work
+phases:
+  smoke:
+    passed: true
+  build:
+    passed: true
+    command: "npm run build"
+  typecheck:
+    passed: true
+  lint:
+    passed: true
+  tests:
+    passed: true
+    coverage: "94.2%"
+  manual:
+    steps:
+      - step: "Open /login"
+        expected: "Login form renders"
+        actual: "Login form rendered correctly"
+        passed: true
+  gaps:
+    closed: true
+```
+
+> **HARD GATE** — Verification evidence MUST be persisted before marking the story done. No evidence = not verified.
+
 ## Verify
 
-→ verify: `grep -c 'verify:' specs/epics/*.yaml | awk '{if($1>0) print "OK"; else print "MISSING"}'`
+→ verify: `test -f specs/verifications/<story_id>-verify.yaml && echo "Evidence persisted"`
 
 See [REFERENCE.md](REFERENCE.md) for cold-start and gaps template.
 

@@ -14,7 +14,7 @@ Orchestrates the **build** flow for a single epic: survey → plan tasks → kic
 | Step | Skill / action |
 |------|----------------|
 | 1 | `survey-context` — confirm epic + story |
-| 2 | `plan-work` — flesh out story `tasks[]` in `specs/epics/eNN-*.yaml` |
+| 2 | `plan-work` — flesh out story `tasks[]` in `specs/epics/eNN-slug/epic.yaml` |
 | 3 | `kickoff-branch` — feature branch + clean baseline |
 | 4 | `develop-tdd` — red-green per task |
 | 5 | `verify-work` — UAT + mechanical gates |
@@ -24,8 +24,8 @@ Orchestrates the **build** flow for a single epic: survey → plan tasks → kic
 
 ## Process
 
-1. Read `specs/state.yaml`, `specs/execution-status.yaml`, `specs/release-plan.yaml`, active `specs/epics/eNN-*.yaml`.
-2. **BCP Tracking (Step 2):** After `plan-work` completes, read the `bcps:` count from the epic shard and carry it into `state.yaml` as `epic_cycle.story_bcps = N`.
+1. Read `specs/state.yaml`, `specs/execution-status.yaml`, `specs/release-plan.yaml`, active `specs/epics/eNN-slug/epic.yaml`.
+2. **BCP Tracking (Step 2):** After `plan-work` completes, read the `bcps:` count from the epic capsule and carry it into `state.yaml` as `epic_cycle.story_bcps = N`.
 3. If `epic_cycle.step` missing, set to `1`.
 4. Run **only the current step** (resume mode) unless user asked for full auto-run.
 5. After step verify passes, increment `epic_cycle.step` in `state.yaml` (or `bash scripts/bp-yaml-set.sh` if available).
@@ -37,4 +37,4 @@ Write `handoff.next_skill` and `handoff.context` in `state.yaml` when pausing mi
 
 ## Verify
 
-→ verify: `grep -q 'active_flow: build_epic' specs/state.yaml && test -f specs/epics/*.yaml`
+→ verify: `grep -q 'active_flow: build_epic' specs/state.yaml && test -f specs/epics/*/epic.yaml`

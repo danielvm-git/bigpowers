@@ -22,9 +22,9 @@ git log --oneline -10 -- [file-path]
 
 ### 3. Map to release plan stories
 
-Read `specs/release-plan.yaml + epic shards` (if it exists). For each dependent found in Step 2, identify which story owns that module. List stories that will be affected by the change.
+Read `specs/release-plan.yaml + epic capsule directories` (if it exists). For each dependent found in Step 2, identify which story owns that module. List stories that will be affected by the change.
 
-→ verify: `grep -c "Story" specs/release-plan.yaml + epic shards 2>/dev/null || echo "no release plan"`
+→ verify: `grep -c "Story" specs/release-plan.yaml + epic capsule directories 2>/dev/null || echo "no release plan"`
 
 ### 4. List test coverage
 

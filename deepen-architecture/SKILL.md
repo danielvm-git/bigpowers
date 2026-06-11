@@ -1,7 +1,7 @@
 ---
 name: deepen-architecture
 model: sonnet
-description: Find deepening opportunities in a codebase, informed by the domain language in specs/plans/TECH_STACK_LATEST.md and the decisions in specs/adr/. Use when the user wants to improve architecture, find refactoring opportunities, consolidate tightly-coupled modules, or make a codebase more testable and AI-navigable.
+description: Find deepening opportunities in a codebase, informed by the domain language in specs/tech-architecture/tech-stack.md and the decisions in specs/adr/. Use when the user wants to improve architecture, find refactoring opportunities, consolidate tightly-coupled modules, or make a codebase more testable and AI-navigable.
 ---
 
 # Deepen Architecture
@@ -29,7 +29,7 @@ Key principles (see [LANGUAGE.md](LANGUAGE.md) for the full list):
 - **The interface is the test surface.**
 - **One adapter = hypothetical seam. Two adapters = real seam.**
 
-This skill is _informed_ by the project's domain model — `specs/plans/TECH_STACK_LATEST.md` and any `specs/adr/`. The domain language gives names to good seams; ADRs record decisions the skill should not re-litigate. See [CONTEXT-FORMAT.md](../model-domain/CONTEXT-FORMAT.md) and [ADR-FORMAT.md](../model-domain/ADR-FORMAT.md).
+This skill is _informed_ by the project's domain model — `specs/tech-architecture/tech-stack.md` and any `specs/adr/`. The domain language gives names to good seams; ADRs record decisions the skill should not re-litigate. See [CONTEXT-FORMAT.md](../model-domain/CONTEXT-FORMAT.md) and [ADR-FORMAT.md](../model-domain/ADR-FORMAT.md).
 
 ## Process
 
@@ -37,7 +37,7 @@ This skill is _informed_ by the project's domain model — `specs/plans/TECH_STA
 
 Read existing documentation first:
 
-- `specs/plans/TECH_STACK_LATEST.md` (or `specs/CONTEXT-MAP.md` + each `specs/plans/TECH_STACK_LATEST.md` in a multi-context repo)
+- `specs/tech-architecture/tech-stack.md` (or `specs/tech-architecture/tech-stack.md` + each `specs/tech-architecture/tech-stack.md` in a multi-context repo)
 - Relevant ADRs in `specs/adr/`
 
 If any of these files don't exist, proceed silently — don't flag their absence or suggest creating them upfront.
@@ -73,7 +73,7 @@ Present a numbered list of deepening opportunities. For each candidate:
 - **Solution** — plain English description of what would change
 - **Benefits** — explained in terms of locality and leverage, and how tests would improve
 
-**Use `specs/plans/TECH_STACK_LATEST.md` vocabulary for the domain, and [LANGUAGE.md](LANGUAGE.md) vocabulary for the architecture.**
+**Use `specs/tech-architecture/tech-stack.md` vocabulary for the domain, and [LANGUAGE.md](LANGUAGE.md) vocabulary for the architecture.**
 
 **ADR conflicts**: if a candidate contradicts an existing ADR, only surface it when the friction is real enough to warrant revisiting the ADR. Mark it clearly. Don't list every theoretical refactor an ADR forbids.
 
@@ -85,7 +85,7 @@ Once the user picks a candidate, drop into a grilling conversation. Walk the des
 
 Side effects happen inline as decisions crystallize:
 
-- **Naming a deepened module after a concept not in `specs/plans/TECH_STACK_LATEST.md`?** Add the term to `specs/plans/TECH_STACK_LATEST.md` — same discipline as `model-domain` (see [CONTEXT-FORMAT.md](../model-domain/CONTEXT-FORMAT.md)). Create the file lazily if it doesn't exist.
-- **Sharpening a fuzzy term during the conversation?** Update `specs/plans/TECH_STACK_LATEST.md` right there.
+- **Naming a deepened module after a concept not in `specs/tech-architecture/tech-stack.md`?** Add the term to `specs/tech-architecture/tech-stack.md` — same discipline as `model-domain` (see [CONTEXT-FORMAT.md](../model-domain/CONTEXT-FORMAT.md)). Create the file lazily if it doesn't exist.
+- **Sharpening a fuzzy term during the conversation?** Update `specs/tech-architecture/tech-stack.md` right there.
 - **User rejects the candidate with a load-bearing reason?** Offer an ADR, framed as: _"Want me to record this as an ADR so future architecture reviews don't re-suggest it?"_ Only offer when the reason would actually be needed by a future explorer. See [ADR-FORMAT.md](../model-domain/ADR-FORMAT.md).
 - **Want to explore alternative interfaces for the deepened module?** See [INTERFACE-DESIGN.md](INTERFACE-DESIGN.md).

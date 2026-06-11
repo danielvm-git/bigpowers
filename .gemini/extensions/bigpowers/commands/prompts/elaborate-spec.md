@@ -58,12 +58,12 @@ Once the user has answered the main questions, probe for assumptions:
 
 ### 4. Synthesize and confirm
 
-Summarize your understanding in 3–5 bullet points:
-- The problem
-- The solution
-- The key constraints
-- The success criteria
-- What's out of scope
+Summarize your understanding in 3–5 bullet points aligned with [countable-story-format.md](file:///Users/danielvm/Developer/bigpowers/countable-story-format.md):
+- The problem (feeds into §1 Business narrative)
+- The solution and main flow (feeds into §5)
+- The key constraints and alternative flows (feeds into §6)
+- The success criteria (feeds into §17 Gherkin)
+- What's out of scope (feeds into §18)
 
 Ask: "Is this an accurate summary? Anything missing or wrong?"
 
@@ -71,7 +71,7 @@ Ask: "Is this an accurate summary? Anything missing or wrong?"
 
 Once the spec is clear, recommend the next step:
 - If domain model needs work → `model-domain`
-- If ready to plan → `plan-release` then `plan-work` per story
+- If ready to plan → `plan-release` (creates epic capsules with `epic.yaml` + story `.md` + `-tasks.yaml`) then `plan-work` per story
 - If a spike is needed first → `spike-prototype`
 - If architecture decisions are needed → `deepen-architecture` or `grill-me`
 - If the plan depends on a specific library or API → `grill-me` in docs mode

@@ -1,2 +1,2 @@
-description = "Define what is in and out of scope for the current effort and save as specs/requirements/SCOPE_LATEST.yaml. Use when user wants a PRD, scope definition, or before plan-release on a new initiative.model: sonnet"
+description = "Define what is in and out of scope for the current effort and save as specs/product/SCOPE_LATEST.yaml. Use when user wants a PRD, scope definition, or before plan-release on a new initiative.model: sonnet"
 prompt = "@{commands/prompts/scope-work.md}"

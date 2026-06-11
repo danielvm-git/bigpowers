@@ -1,12 +1,12 @@
 ---
 name: plan-work
 model: opus
-description: Write detailed implementation tasks into the active epic shard (specs/epics/eNN-*.yaml). Every task must include a runnable verify command. Use when user needs step-by-step plan with evidence, or after plan-release.
+description: Write detailed implementation tasks into the active epic capsule directory (specs/epics/eNN-slug/). Produces decoupled story .md specs (countable-story-format) and runnable -tasks.yaml files. Every task must include a runnable verify command. Use when user needs step-by-step plan with evidence, or after plan-release.
 ---
 
 # Plan Work
 
-Produce a detailed, verifiable implementation plan in the **active epic shard** (`specs/epics/eNN-*.yaml` under the target story's `tasks[]`). Every step must be paired with a runnable verify command — "I think it works" is not a step.
+Produce a detailed, verifiable implementation plan in the **active epic capsule directory** (`specs/epics/eNN-slug/`). Output: a story spec `.md` file (countable-story-format) and a decoupled `eNNsYY-tasks.yaml` with runnable verify commands. "I think it works" is not a step.
 
 > **HARD GATE** — Do NOT proceed with a plan until the task's success criteria are clear. If success is ambiguous, run `define-success` first to convert the task into "step → verify: <cmd>" pairs.
 >
@@ -16,7 +16,7 @@ Produce a detailed, verifiable implementation plan in the **active epic shard** 
 
 Before writing the plan, check if `define-success` has been run. If the task's success criteria are unclear, run `define-success` first to convert the task into "step → verify: <cmd>" pairs.
 
-Read any existing `specs/` files: `release-plan.yaml`, `requirements/SCOPE_LATEST.yaml`, active `epics/*.yaml`, `plans/TECH_STACK_LATEST.md`, `requirements/GLOSSARY_LATEST.yaml`.
+Read any existing `specs/` files: `release-plan.yaml`, `product/SCOPE_LATEST.yaml`, active epic capsule `epics/<capsule_dir>/epic.yaml`, `tech-architecture/tech-stack.md`, `product/GLOSSARY_LATEST.yaml`.
 
 > **ZOOM-OUT MANDATE** (v1.17.0 Guardrails) — If this plan modifies an existing module, function, or behavior:
 > 1. State the module's **purpose** — what is it responsible for?
@@ -63,11 +63,27 @@ Break the implementation into the smallest possible steps where each step:
 
 **Red-flag check**: before moving to Step 3, name any rationalization you caught yourself making — skipping a gate, adding out-of-scope steps, omitting a verify command. Write them out; do not suppress them.
 
-### 3. Write epic shard tasks
+### 3. Write capsule story spec + tasks
 
-Append tasks under the relevant story in `specs/epics/{epic-id}-*.yaml` (`tasks[]` with `desc` + `verify`). Update `specs/release-plan.yaml` if a new story is needed. Run `bash scripts/sync-status-from-epics.sh` after structural changes.
+Output two files inside the active epic capsule directory:
 
-**BCP Accounting:** Each task line MUST be prefixed `[BCP N]` where N is its sequence number. After all tasks, write `bcps: <total>` to the epic shard YAML under the story's metadata.
+**Story spec:** `specs/epics/<capsule>/eNNsYY-<slug>.md` — populated [countable-story-format](file:///Users/danielvm/Developer/bigpowers/countable-story-format.md) with all 20 sections. Minimum maturity: 3 (Countable). Acceptance criteria in §17.
+
+**Task checklist:** `specs/epics/<capsule>/eNNsYY-tasks.yaml` — decoupled execution steps:
+
+```yaml
+story_id: e01s01
+title: Login
+status: todo
+bcps: 3
+tasks:
+  - id: 1
+    description: "Add login form component tests"
+    verify: "npm test -- login-form.test.tsx"
+    status: todo
+```
+
+Update `specs/epics/<capsule>/epic.yaml` manifest to list the story and its BCPs. Run `bash scripts/sync-status-from-epics.sh` after structural changes.
 
 <plan-template>
 
@@ -133,7 +149,7 @@ Before finalizing, confirm:
 - Is the granularity right (not too coarse, not too fine)?
 - Are the verify commands actually runnable in this project?
 
-After writing epic tasks, suggest `kickoff-branch` (if not already on a feature branch) then `build-epic`, `execute-plan`, or `develop-tdd`.
+After writing capsule tasks, suggest `kickoff-branch` (if not already on a feature branch) then `build-epic`, `execute-plan`, or `develop-tdd`.
 
 ## Sub-operations
 

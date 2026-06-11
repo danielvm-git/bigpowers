@@ -1,2 +1,2 @@
-description = "Write detailed implementation tasks into the active epic shard (specs/epics/eNN-*.yaml). Every task must include a runnable verify command. Use when user needs step-by-step plan with evidence, or after plan-release."
+description = "Write detailed implementation tasks into the active epic capsule directory (specs/epics/eNN-slug/). Produces decoupled story .md specs (countable-story-format) and runnable -tasks.yaml files. Every task must include a runnable verify command. Use when user needs step-by-step plan with evidence, or after plan-release."
 prompt = "@{commands/prompts/plan-work.md}"

@@ -1,12 +1,12 @@
 ---
 name: execute-plan
 model: haiku
-description: Batch-execute tasks from the active epic shard sequentially, with a human checkpoint after each step. Use when user has an approved plan and wants step-by-step oversight.
+description: Batch-execute tasks from the active epic capsule sequentially, with a human checkpoint after each step. Use when user has an approved plan and wants step-by-step oversight.
 ---
 
 # Execute Plan
 
-Execute tasks from the **active epic** (`specs/epics/eNN-*.yaml` story `tasks[]`) one at a time, showing evidence after each step before proceeding.
+Execute tasks from the **active epic** (`specs/epics/eNN-slug/epic.yaml` story `tasks[]`) one at a time, showing evidence after each step before proceeding.
 
 > **HARD GATE** — Do NOT proceed if on `main` or `master`. Run `kickoff-branch` first.
 >
@@ -16,7 +16,7 @@ Execute tasks from the **active epic** (`specs/epics/eNN-*.yaml` story `tasks[]`
 
 ### 1. Read the plan
 
-Read `specs/state.yaml` (`active_epic`, `active_story`) and the matching `specs/epics/*.yaml`. Parse `depends-on` in task descriptions for execution waves.
+Read `specs/state.yaml` (`active_epic`, `active_story`) and the matching `specs/epics/*/epic.yaml`. Parse `depends-on` in task descriptions for execution waves.
 
 > **CONTEXT ISOLATION** — Spawn each skill with a **fresh context window**. Pass decisions only through `specs/state.yaml` `handoff` — never rely on prior chat history.
 
@@ -44,7 +44,7 @@ Update `specs/execution-status.yaml` when a story/epic completes (`bash scripts/
 
 ### 3. Blockers
 
-Report blocker; ask skip/adapt/stop; update epic shard if plan changes.
+Report blocker; ask skip/adapt/stop; update epic capsule if plan changes.
 
 ### 4. Final report
 

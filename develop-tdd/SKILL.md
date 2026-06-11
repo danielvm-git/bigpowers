@@ -8,7 +8,7 @@ description: Test-driven development with red-green-refactor loop using vertical
 
 > **HARD GATE** — Do NOT proceed if on `main` or `master`. Run `kickoff-branch` first to create a feature branch or worktree.
 >
-> **HARD GATE** — Do NOT write code before you have a plan. New feature: `plan-work` → epic shard tasks. Bug: `investigate-bug` → `specs/bugs/BUG-*.md` (or use `fix-bug` orchestrator).
+> **HARD GATE** — Do NOT write code before you have a plan. New feature: `plan-work` → epic capsule tasks. Bug: `investigate-bug` → `specs/bugs/BUG-*.md` (or use `fix-bug` orchestrator).
 >
 > **RECURSIVE DISCIPLINE** — This lifecycle apply to EVERY task, including updating these skills. Never skip planning because a task is "meta" or "just documentation."
 
@@ -65,7 +65,7 @@ If you find yourself thinking these things, you are likely deviating from produc
 
 Before writing any code:
 
-- [ ] Read active `specs/epics/*.yaml` story tasks or `specs/bugs/BUG-*.md` — understand verify steps
+- [ ] Read active `specs/epics/*/epic.yaml` story tasks or `specs/bugs/BUG-*.md` — understand verify steps
 - [ ] Confirm with user what interface changes are needed
 - [ ] Confirm with user which behaviors to test (prioritize)
 - [ ] Identify opportunities for [deep modules](deep-modules.md) (small interface, deep implementation)
@@ -141,7 +141,7 @@ After every behavior cycle, run the verify command from the active epic task if 
 ### 6. Manual Verification Handover
 
 Once the story is complete and all tests pass:
-1. Locate the **Verification Script** in the active epic shard (`specs/epics/`) for this story.
+1. Locate the **Verification Script** in the active epic capsule (`specs/epics/`) for this story.
 2. Present the script to the user as a step-by-step guide.
 3. Wait for the user to confirm the behavioral correctness before moving to the next story or declaring the task done.
 

@@ -20,11 +20,11 @@ alwaysApply: false
 
 ## Artefact
 
-`specs/EVALS-<feature>.md` — see [REFERENCE.md](REFERENCE.md) for template.
+`specs/verifications/eNNsYY-eval-report.md` — see [REFERENCE.md](REFERENCE.md) for template. Eval reports are stored alongside verification evidence in `specs/verifications/`, keyed by story ID for traceability.
 
 ## Verify
 
-→ verify: `ls specs/EVALS-*.md 2>/dev/null | head -1 | grep -q EVALS && echo OK || echo MISSING`
+→ verify: `find specs/verifications -name "*-eval-report.md" | wc -l | awk '{if($1>0) print "OK: "$1" eval reports"; else print "MISSING"}'`
 
 ---
 

@@ -69,7 +69,7 @@ Rules:
 
 ### 5. Write the bug file
 
-Save the investigation and fix plan to `specs/bugs/BUG-YYYY-MM-DDTHHMMSS.md`. Create the `specs/bugs/` directory if it doesn't exist.
+Save the investigation and fix plan to `specs/bugs/BUG-NNN-slug.md`. Create the `specs/bugs/` directory if it doesn't exist.
 
 After writing, append a row to `specs/bugs/registry.yaml` with: bug_id (same timestamp), date, severity, priority, scope, summary, and file path. Create `specs/bugs/registry.yaml` if it doesn't exist.
 

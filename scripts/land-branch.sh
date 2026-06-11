@@ -143,6 +143,34 @@ if git remote get-url origin >/dev/null 2>&1; then
   git push origin "$DEFAULT_BRANCH"
 fi
 
+# Epic capsule archival (evolved bigpowers v4.0.0+)
+# Move completed epic capsules to archive when all stories are done
+echo "==> Checking for completed epic capsules to archive..."
+if [ -d specs/epics ] && [ -f specs/execution-status.yaml ]; then
+  for capsule in specs/epics/e[0-9]*-*/; do
+    [ -d "$capsule" ] || continue
+    capsule_name=$(basename "$capsule")
+    epic_id=$(echo "$capsule_name" | grep -o '^e[0-9]*' || true)
+    [ -n "$epic_id" ] || continue
+    # Check if all stories in this epic are done
+    ALL_DONE=true
+    if [ -f "$capsule/epic.yaml" ]; then
+      for story_id in $(grep -o 'e[0-9]*s[0-9]*' "$capsule/epic.yaml" 2>/dev/null || true); do
+        STATUS=$(grep "$story_id:" specs/execution-status.yaml 2>/dev/null | awk '{print $2}' || echo "todo")
+        if [ "$STATUS" != "done" ]; then
+          ALL_DONE=false
+          break
+        fi
+      done
+    fi
+    if [ "$ALL_DONE" = true ]; then
+      mkdir -p specs/epics/archive
+      echo "  Archiving completed epic: $capsule_name → specs/epics/archive/"
+      mv "$capsule" "specs/epics/archive/"
+    fi
+  done
+fi
+
 # Worktree cleanup
 WORKTREE_PATH="../$FEATURE_BRANCH"
 if git worktree list --porcelain 2>/dev/null | grep -q "^worktree $WORKTREE_PATH$"; then

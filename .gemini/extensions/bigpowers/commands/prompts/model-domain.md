@@ -27,7 +27,7 @@ Most repos have a single context:
 └── src/
 ```
 
-If a `specs/CONTEXT-MAP.md` exists, the repo has multiple contexts. The map points to where each one lives:
+If a `specs/tech-architecture/tech-stack.md` exists, the repo has multiple contexts. The map points to where each one lives:
 
 ```
 /
@@ -45,13 +45,13 @@ If a `specs/CONTEXT-MAP.md` exists, the repo has multiple contexts. The map poin
             └── adr/
 ```
 
-Create files lazily — only when you have something to write. If no `specs/plans/TECH_STACK_LATEST.md` exists, create it when the first term is resolved. If no `specs/adr/` exists, create it when the first ADR is needed.
+Create files lazily — only when you have something to write. If no `specs/tech-architecture/tech-stack.md` exists, create it when the first term is resolved. If no `specs/adr/` exists, create it when the first ADR is needed.
 
 ## During the session
 
 ### Challenge against the glossary
 
-When the user uses a term that conflicts with the existing language in `specs/plans/TECH_STACK_LATEST.md`, call it out immediately. "Your glossary defines 'cancellation' as X, but you seem to mean Y — which is it?"
+When the user uses a term that conflicts with the existing language in `specs/tech-architecture/tech-stack.md`, call it out immediately. "Your glossary defines 'cancellation' as X, but you seem to mean Y — which is it?"
 
 ### Sharpen fuzzy language
 
@@ -65,11 +65,11 @@ When domain relationships are being discussed, stress-test them with specific sc
 
 When the user states how something works, check whether the code agrees. If you find a contradiction, surface it: "Your code cancels entire Orders, but you just said partial cancellation is possible — which is right?"
 
-### Update specs/plans/TECH_STACK_LATEST.md inline
+### Update specs/tech-architecture/tech-stack.md inline
 
-When a term is resolved, update `specs/plans/TECH_STACK_LATEST.md` right there. Don't batch these up — capture them as they happen. Use the format in [CONTEXT-FORMAT.md](./CONTEXT-FORMAT.md).
+When a term is resolved, update `specs/tech-architecture/tech-stack.md` right there. Don't batch these up — capture them as they happen. Use the format in [CONTEXT-FORMAT.md](./CONTEXT-FORMAT.md).
 
-Don't couple `specs/plans/TECH_STACK_LATEST.md` to implementation details. Only include terms that are meaningful to domain experts.
+Don't couple `specs/tech-architecture/tech-stack.md` to implementation details. Only include terms that are meaningful to domain experts.
 
 ### Offer ADRs sparingly
 
@@ -88,7 +88,7 @@ When the plan touches shared state, async, or multi-threaded code:
 - [ ] List every **shared mutable** location (globals, singletons, module-level caches).
 - [ ] For each: who reads, who writes, synchronization mechanism (lock, actor, immutable copy).
 - [ ] Flag **race risks** (check-then-act, non-atomic read-modify-write) with severity.
-- [ ] Record findings in `specs/plans/TECH_STACK_LATEST.md` under `## Concurrency` or in an ADR if architectural.
+- [ ] Record findings in `specs/tech-architecture/tech-stack.md` under `## Concurrency` or in an ADR if architectural.
 
 ---
 

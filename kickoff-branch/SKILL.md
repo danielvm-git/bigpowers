@@ -92,7 +92,7 @@ Worktree: ../<task-slug>
 Ready to develop.
 ```
 
-Suggest next skill: `develop-tdd` to start the TDD loop, or `execute-plan` if `specs/release-plan.yaml + epic shards` already exists.
+Suggest next skill: `develop-tdd` to start the TDD loop, or `execute-plan` if `specs/release-plan.yaml + epic capsule directories` already exists.
 
 ## Handoff
 

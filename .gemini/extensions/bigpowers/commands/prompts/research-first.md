@@ -5,7 +5,7 @@
 
 ## Process
 
-1. Read `specs/requirements/SCOPE_LATEST.yaml`, `specs/release-plan.yaml + epic shards`, and the current task statement.
+1. Read `specs/product/SCOPE_LATEST.yaml`, `specs/release-plan.yaml + epic shards`, and the current task statement.
 2. Search in order: this repo → bigpowers skills (`search-skills`) → package registries → web docs.
 3. For each candidate: note name, URL/path, fit (adopt | extend | compose | build).
 4. Append `## Prior Art` to `requirements/SCOPE_LATEST.yaml` notes or the active epic story.
@@ -21,7 +21,7 @@
 
 ## Verify
 
-→ verify: `grep -c "Prior Art" specs/requirements/SCOPE_LATEST.yaml specs/release-plan.yaml + epic shards 2>/dev/null | awk '{s+=$1} END {if(s>0) print "OK"; else print "MISSING"}'`
+→ verify: `grep -c "Prior Art" specs/product/SCOPE_LATEST.yaml specs/release-plan.yaml + epic shards 2>/dev/null | awk '{s+=$1} END {if(s>0) print "OK"; else print "MISSING"}'`
 
 See [REFERENCE.md](REFERENCE.md) for search commands and registry checklist.
 

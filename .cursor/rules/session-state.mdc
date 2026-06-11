@@ -12,7 +12,7 @@ Track the current state of implementation, including decisions made, pending tas
 
 ## Goal
 
-Maintain a single source of truth for the *current* session in `specs/state.yaml`. This complements long-term docs in `specs/plans/` and delivery detail in `specs/epics/` + `specs/release-plan.yaml`.
+Maintain a single source of truth for the *current* session in `specs/state.yaml`. This complements long-term docs in `specs/tech-architecture/` and delivery detail in `specs/epics/` + `specs/release-plan.yaml`.
 
 Legacy markdown (`specs/archive/STATE.md`, `RELEASE-PLAN.md`) is **not** SoT when YAML exists — use `specs/state.yaml` only.
 
@@ -45,7 +45,7 @@ handoff:
 
 If `specs/state.yaml` does not exist, or if starting a new major phase:
 
-- [ ] Read `specs/release-plan.yaml` and `specs/requirements/SCOPE_LATEST.yaml`.
+- [ ] Read `specs/release-plan.yaml` and `specs/product/SCOPE_LATEST.yaml`.
 - [ ] Get git metadata: `git branch --show-current` and `git rev-parse --short HEAD`.
 - [ ] Create `specs/state.yaml` with active flow, git, handoff, and epic cycle if in build.
 
@@ -68,6 +68,32 @@ Whenever a significant decision is made or a milestone is reached:
 
 → verify: `bash scripts/validate-specs-yaml.sh`
 
+## State Write-Lock Protocol
+
+> **HARD GATE** — Before any write to `specs/state.yaml` or `specs/execution-status.yaml`, acquire `specs/state.yaml.lock`. Release it immediately after the write. A stale lock (>60s) may be force-released.
+
+### Acquire
+
+1. Check if `specs/state.yaml.lock` exists.
+2. If it exists, read the agent ID and timestamp inside.
+3. If the lock is stale (>60s old), remove it and proceed.
+4. If the lock is fresh (<60s), wait 2s and retry (max 15 attempts = 30s).
+5. Write `agent_id: <name>\nacquired_at: <ISO-8601>` to `specs/state.yaml.lock`.
+
+### Release
+
+1. After the write to `state.yaml` or `execution-status.yaml` completes:
+2. `rm specs/state.yaml.lock`
+
+### Lock format (`specs/state.yaml.lock`)
+
+```yaml
+agent_id: session-state
+acquired_at: "2026-06-11T14:30:00Z"
+```
+
+
+
 ## Operations
 
 ### show-state (absorbed)
@@ -80,7 +106,12 @@ Clear ephemeral session state. Set `active_epic_id`, `active_story_id`, and `epi
 
 ### compact-state (absorbed)
 
-Archive verbose decisions before a context transition. Move all entries from `handoff.open_decisions` to `specs/adr/` as individual ADR files, then reset `handoff.open_decisions` to an empty list.
+Archive verbose decisions before a context transition. Move all entries from `handoff.open_decisions` to their appropriate location:
+
+- **System-wide decisions** → `specs/adr/NNNN-slug.md` (global Architectural Decision Records)
+- **Epic-scoped decisions** → `specs/epics/<active_epic_id>-<slug>/adr/NNNN-slug.md` (epic-local ADRs, archived with epic)
+
+After archiving, reset `handoff.open_decisions` to an empty list.
 
 ## File Format: specs/state.yaml
 

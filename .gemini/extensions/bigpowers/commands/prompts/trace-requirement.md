@@ -1,15 +1,15 @@
 
 # Trace Requirement
 
-Build a traceability matrix from `specs/release-plan.yaml + epic shards` to implementing code and tests. Surfaces gaps in both directions: stories with no code, and code with no story.
+Build a traceability matrix from `specs/release-plan.yaml + epic capsule directories` to implementing code and tests. Surfaces gaps in both directions: stories with no code, and code with no story.
 
 ## Pre-flight
 
-> **HARD GATE** — `specs/release-plan.yaml + epic shards` must exist. If it doesn't, run `plan-release` first.
+> **HARD GATE** — `specs/release-plan.yaml + epic capsule directories` must exist. If it doesn't, run `plan-release` first.
 
-→ verify: `[ -f specs/release-plan.yaml + epic shards ] && echo "ready" || echo "BLOCKED: run plan-release first"`
+→ verify: `[ -f specs/release-plan.yaml + epic capsule directories ] && echo "ready" || echo "BLOCKED: run plan-release first"`
 
-Read `specs/release-plan.yaml + epic shards` fully before proceeding.
+Read `specs/release-plan.yaml + epic capsule directories` fully before proceeding.
 
 ## Process
 
@@ -17,7 +17,7 @@ Read `specs/release-plan.yaml + epic shards` fully before proceeding.
 
 From release-plan.yaml, collect all story IDs (e.g. `1.1`, `1.2`, `2.1`).
 
-→ verify: `grep -o "Story [0-9]\+\.[0-9]\+" specs/release-plan.yaml + epic shards | sort -u`
+→ verify: `grep -o "Story [0-9]\+\.[0-9]\+" specs/release-plan.yaml + epic capsule directories | sort -u`
 
 ### 2. Search for story tags in code
 

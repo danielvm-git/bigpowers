@@ -62,7 +62,7 @@ Based on what you've found, identify which PMBOK phase this project is currently
 | **Design** | SCOPE exists but no `release-plan.yaml` |
 | **Plan** | `release-plan.yaml` exists; on `main`/`master` branch |
 | **Initiate** | On a feature branch; no code changes yet |
-| **Execute** | `state.yaml` `active_flow: build_epic`; epic shard in progress |
+| **Execute** | `state.yaml` `active_flow: build_epic`; epic capsule in progress |
 | **Verify** | Implementation done; run `verify-work` or `run-evals` |
 | **Bug** | `state.yaml` `active_flow: fix_bug` or open `specs/bugs/BUG-*.md` |
 | **Review** | All code written; no PR yet |
@@ -111,7 +111,7 @@ At story start, write `metrics.story_start` with the current ISO 8601 timestamp 
 
 ### list-epics (absorbed)
 
-Loop through all `specs/epics/*.yaml` files and print a summary of story counts per epic. Useful for understanding overall project scope and epic distribution.
+Loop through all `specs/epics/*/epic.yaml` files and print a summary of story counts per epic. Useful for understanding overall project scope and epic distribution.
 
 ### check-gates (absorbed)
 
