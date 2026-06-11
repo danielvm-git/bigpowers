@@ -1,5 +1,7 @@
 
 # Run Planning
+> **HARD GATE** — **HARD GATE** — Before running planning skills, confirm the epic shard exists and the active story is clear. Planning without a target is noise.
+
 
 Updates `specs/planning-status.yaml` as discover-phase skills complete.
 

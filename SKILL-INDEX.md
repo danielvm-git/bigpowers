@@ -2,7 +2,7 @@
 
 **Purpose:** One canonical reference for all bigpowers skills. Referenced by README.md, RELEASE-PLAN.md, and CONVENTIONS.md. Updated per-release.
 
-**Last updated:** 2026-06-02 (v3.0.0 — YAML cockpit; 61 active, 0 planned; maintain-wiki removed; build-epic, run-planning, fix-bug added)
+**Last updated:** 2026-06-10 (v3.1.0 — YAML cockpit; 61 active, 0 planned; 18 sub-ops absorbed into parent skills)
 
 ---
 
@@ -49,8 +49,8 @@
 | 14 | Plan | `change-request` | Add requirement or WSJF reorder | RELEASE-PLAN.md | ✅ Active |
 | 15 | Plan | `scope-work` | Define in/out boundaries | SCOPE.md | ✅ Active |
 | 16 | Plan | `slice-tasks` | Vertical slices | TASKS.md | ✅ Active |
-| 17 | Plan | `define-success` | Step → verify pairs | (dialogue) | ✅ Active |
-| 18 | Plan | `plan-work` | Detailed plan with verify steps | RELEASE-PLAN.md | ✅ Active |
+| 17 | Plan | `define-success` | Step → verify pairs; absorbs zoom-out, slopcheck | (dialogue) | ✅ Active |
+| 18 | Plan | `plan-work` | Detailed plan with verify steps; absorbs plan-work-fast | RELEASE-PLAN.md | ✅ Active |
 | 19 | Plan | `plan-refactor` | Refactor plan via interview | REFACTOR.md | ✅ Active |
 | 20 | Plan | `plan-release` | Release plan with Gherkin criteria | RELEASE-PLAN.md | ✅ Active |
 | 21 | Spike | `spike-prototype` | Throw-away spike | SPIKE-&lt;name&gt;.md | ✅ Active |
@@ -58,23 +58,23 @@
 | 23 | Initiate | `guard-git` | Block dangerous git commands | (git state) | ✅ Active |
 | 24 | Initiate | `hook-commits` | Pre-commit hooks | (git state) | ✅ Active |
 | 25 | Initiate | `seed-conventions` | CLAUDE.md + CONVENTIONS.md + specs/ | CLAUDE.md, CONVENTIONS.md | ✅ Active |
-| 26 | Build | `develop-tdd` | Red → green → refactor TDD | src/ | ✅ Active |
+| 26 | Build | `develop-tdd` | Red → green → refactor TDD; absorbs red-phase, green-phase, refactor-phase | src/ | ✅ Active |
 | 27 | Build | `enforce-first` | F.I.R.S.T test-quality rubric | (checklist) | ✅ Active |
 | 28 | Build | `delegate-task` | One subagent, sequential + review | (code) | ✅ Active |
 | 29 | Build | `dispatch-agents` | Parallel subagents on independent tasks | (code) | ✅ Active |
 | 30 | Build | `execute-plan` | Batch execute plan with checkpoints | src/ | ✅ Active |
 | 31 | Harden | `wire-observability` | Structured logging + observability | src/, CLAUDE.md | ✅ Active |
-| 32 | Verify | `verify-work` | Multi-phase UAT; loop on gaps | (dialogue) | ✅ Active |
+| 32 | Verify | `verify-work` | Multi-phase UAT; loop on gaps; absorbs cold-start-smoke, gaps-loop, verify-work-smoke | (dialogue) | ✅ Active |
 | 33 | Verify | `run-evals` | EDD capability + regression evals | EVALS-&lt;feature&gt;.md | ✅ Active |
 | 34 | Bug | `investigate-bug` | Investigate bug → diagnosis | bugs/BUG-*.md | ✅ Active |
 | 35 | Bug | `diagnose-root` | 4-phase root cause analysis | bugs/BUG-*.md | ✅ Active |
 | 36 | Bug | `validate-fix` | Prove fix works | (verify) | ✅ Active |
-| 37 | Review | `audit-code` | Self-review checklist | (checklist) | ✅ Active |
+| 37 | Review | `audit-code` | Self-review checklist; absorbs audit-code-quick | (checklist) | ✅ Active |
 | 38 | Review | `request-review` | Fresh reviewer agent | review-report | ✅ Active |
 | 39 | Review | `respond-review` | Act on reviewer feedback | src/ | ✅ Active |
 | 40 | Review | `trace-requirement` | Story ID → code/tests | TRACEABILITY.md | ✅ Active |
-| 41 | Integrate | `commit-message` | Conventional Commits + semver | (git message) | ✅ Active |
-| 42 | Integrate | `release-branch` | Merge/PR decision + cleanup | (git PR) | ✅ Active |
+| 41 | Integrate | `commit-message` | Conventional Commits + semver; absorbs commit-message-fix | (git message) | ✅ Active |
+| 42 | Integrate | `release-branch` | Merge/PR decision + cleanup; absorbs release-branch-hotfix | (git PR) | ✅ Active |
 | 43 | Sustain | `inspect-quality` | Structured QA session | BUG-LOG.md | ✅ Active |
 | 44 | Sustain | `organize-workspace` | Safe workspace cleanup | (filesystem) | ✅ Active |
 | 45 | Sustain | `stocktake-skills` | Batch audit of skill catalog | specs/ audit report | ✅ Active |
@@ -82,7 +82,7 @@
 | 47 | Utility | `terse-mode` | Ultra-terse output (fallback) | (prompt) | ✅ Active |
 | 48 | Utility | `craft-skill` | Build new bigpowers skill | skills/&lt;name&gt;/SKILL.md | ✅ Active |
 | 49 | Utility | `edit-document` | Edit documents in specs/ | specs/&lt;name&gt;.md | ✅ Active |
-| 50 | Utility | `session-state` | Track decisions in state.yaml | state.yaml | ✅ Active |
+| 50 | Utility | `session-state` | Track decisions in state.yaml; absorbs show-state, reset-state, compact-state, list-epics, check-gates | state.yaml | ✅ Active |
 | 51 | Utility | `migrate-spec` | Migrate foreign spec formats | specs/ | ✅ Active |
 | 52 | Utility | `visual-dashboard` | Browser dashboard | .bigpowers/dashboard/ | ✅ Active |
 | 53 | Utility | `write-document` | BMAD technical documents | specs/&lt;name&gt;.md | ✅ Active |

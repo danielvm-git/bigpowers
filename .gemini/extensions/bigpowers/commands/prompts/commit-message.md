@@ -1,5 +1,7 @@
 
 # Commit Message
+> **HARD GATE** — **HARD GATE** — Commits must follow Conventional Commits spec (type(scope): description). Do NOT use vague messages like 'fix' or 'updates.' The message must explain the 'why,' not the 'what.'
+
 
 ## Modes
 

@@ -1,5 +1,7 @@
 
 # Validate Fix
+> **HARD GATE** — **HARD GATE** — Fix must not regress. Run full test suite and manual UAT before declaring success. A fix that passes tests but breaks something else is a failure.
+
 
 Prove the fix works. "I think it works" is not evidence. Run the suite, show the output, then harden against recurrence.
 

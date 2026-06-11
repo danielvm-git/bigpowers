@@ -5,6 +5,13 @@ description: Reviews working-tree changes, then drafts a Conventional Commits ti
 ---
 
 # Commit Message
+> **HARD GATE** — **HARD GATE** — Commits must follow Conventional Commits spec (type(scope): description). Do NOT use vague messages like 'fix' or 'updates.' The message must explain the 'why,' not the 'what.'
+
+
+## Modes
+
+- Default: standard Conventional Commits message
+- --fix-type: Forces type=fix. Use when commit type is unambiguous.
 
 ## What "last chat" means
 
@@ -38,3 +45,8 @@ If the repo uses a custom `@semantic-release/commit-analyzer` preset, note that 
 ## Further reading
 
 - [REFERENCE.md](REFERENCE.md) — Message shape, footers, release mapping, squashing notes.
+
+## Handoff
+
+Gate: READY -> next: release-branch
+Writes: state.yaml handoff.next_skill = release-branch

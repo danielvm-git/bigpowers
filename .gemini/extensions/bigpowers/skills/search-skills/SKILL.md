@@ -5,6 +5,8 @@ description: "Find the right bigpowers skill from natural-language intent using 
 
 
 # Search Skills
+> **HARD GATE** — **HARD GATE** — Search results must be ranked by relevance. Do NOT return all matches without prioritization. Use skill metadata (phase, purpose, frequency) to rank.
+
 
 Lexical search only — no embedding service (ADR: zero external dependency).
 

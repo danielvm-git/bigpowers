@@ -8,6 +8,8 @@ description: Refine a rough idea into a clear, detailed specification through di
 
 Turn a rough idea into a clear specification through focused dialogue. No code is written during this skill — the output is shared understanding and a refined problem statement.
 
+> **HARD GATE** — Do NOT proceed with planning or implementation until the problem space is clearly understood. Success criteria, actors, and scope must be explicit before drafting a plan.
+
 ## Process
 
 ### 1. Listen first

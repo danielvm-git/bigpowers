@@ -8,6 +8,8 @@ description: Stress-test a plan or design through relentless questioning until e
 
 Two modes. Default is **Design**. Switch to **Docs** by saying "grill me with docs" or when the plan relies on a specific library or external API.
 
+> **HARD GATE** — Do NOT accept a design until every hard decision has been stress-tested. "Seems right" is not a decision. Grilling must identify and resolve tensions before build begins.
+
 ## Design mode (default)
 
 Interview relentlessly about every aspect of this plan until reaching shared understanding. Walk each branch of the design tree, resolving dependencies between decisions one-by-one. For each question, provide your recommended answer. Ask one question at a time.

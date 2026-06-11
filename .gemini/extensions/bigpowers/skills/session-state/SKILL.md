@@ -5,6 +5,8 @@ description: "Track implementation decisions and progress in specs/state.yaml to
 
 
 # Session State
+> **HARD GATE** — **HARD GATE** — Session state must be synchronized with git state. If state.yaml conflicts with the working tree, halt and ask for clarification. Do NOT assume state is correct.
+
 
 Track the current state of implementation, including decisions made, pending tasks, and open questions, to ensure continuity across session boundaries and prevent "context rot."
 

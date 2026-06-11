@@ -5,6 +5,8 @@ description: Add structured JSON logging, observability commands, and idempotent
 ---
 
 # Wire Observability
+> **HARD GATE** — **HARD GATE** — Observability is not optional. Before shipping, verify: structured logging is in place, key metrics are instrumented, error cases emit signals. 'We'll add metrics later' becomes 'never.'
+
 
 Add structured logging, observability commands, and idempotent setup scripts. Can be invoked at any phase — recommended at the end of the first working slice, before the first deploy.
 

@@ -5,6 +5,8 @@ model: sonnet
 ---
 
 # Compose Workflow
+> **HARD GATE** — **HARD GATE** — Workflows are orchestration, not automation. Do NOT create workflows for tasks that should be single skills. Workflow complexity must be justified.
+
 
 ## Process
 

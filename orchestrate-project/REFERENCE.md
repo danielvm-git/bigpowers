@@ -13,7 +13,7 @@ Detailed documentation for the `orchestrate-project` meta-skill.
 ### PHASE 2: ELABORATE
 - **Goal**: Research solutions and lock architectural design.
 - **Deliverables**: Prior art in scope YAML, ADRs in `specs/adr/`.
-- **Skills**: `model-domain`, `define-language`, `challenge-design`.
+- **Skills**: `grill-me`, `model-domain`, `define-language`, `deepen-architecture`, `design-interface`.
 - **Gate**: Quality ≥94% (via `request-review`) + Confirm ("Are decisions locked?").
 
 ### PHASE 3: PLAN

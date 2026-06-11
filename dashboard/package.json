@@ -1,0 +1,18 @@
+{
+  "name": "bigpowers-dashboard",
+  "version": "1.0.0",
+  "description": "Factory dashboard for bigpowers projects",
+  "private": true,
+  "main": "src/tui/index.js",
+  "scripts": {
+    "start": "node bin/dashboard.js",
+    "web": "node bin/dashboard.js --web",
+    "test": "node test/watcher.test.js && node test/smoke.test.js"
+  },
+  "dependencies": {
+    "blessed": "0.1.81",
+    "chokidar": "3.6.0",
+    "express": "4.19.0",
+    "js-yaml": "4.1.0"
+  }
+}

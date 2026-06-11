@@ -5,6 +5,8 @@ model: sonnet
 ---
 
 # Simulate Agents
+> **HARD GATE** — **HARD GATE** — Simulations are hypothetical. Do NOT use sim results to make production decisions without validation on real agents. Sims help discover gaps, not replace testing.
+
 
 Two roles, **isolated contexts** (no shared state with BUILD agent):
 

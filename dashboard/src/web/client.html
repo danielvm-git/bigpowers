@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BigPowers Dashboard</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0d1117;
+      color: #c9d1d9;
+      font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+      font-size: 12px;
+      line-height: 1.6;
+      padding: 16px;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 20px;
+      margin-bottom: 24px;
+      color: #58a6ff;
+      border-bottom: 2px solid #30363d;
+      padding-bottom: 8px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .panel {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      padding: 16px;
+    }
+
+    .panel h2 {
+      font-size: 14px;
+      margin-bottom: 12px;
+      color: #79c0ff;
+      border-bottom: 1px solid #30363d;
+      padding-bottom: 8px;
+    }
+
+    .metric-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 0;
+      border-bottom: 1px solid #21262d;
+    }
+
+    .metric-row:last-child {
+      border-bottom: none;
+    }
+
+    .metric-label {
+      color: #8b949e;
+    }
+
+    .metric-value {
+      color: #79c0ff;
+      font-weight: bold;
+    }
+
+    .step-container {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .step {
+      flex: 1;
+      min-width: 80px;
+      padding: 8px;
+      background: #21262d;
+      border: 1px solid #30363d;
+      border-radius: 4px;
+      text-align: center;
+      font-size: 10px;
+      color: #8b949e;
+      transition: all 0.2s ease;
+    }
+
+    .step.active {
+      background: #238636;
+      border-color: #2ea043;
+      color: #aff5b4;
+      font-weight: bold;
+    }
+
+    .step-label {
+      display: block;
+      margin-bottom: 4px;
+      word-break: break-word;
+    }
+
+    .state-pairs {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .state-pair {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .state-key {
+      color: #8b949e;
+      font-size: 11px;
+    }
+
+    .state-value {
+      color: #79c0ff;
+      word-break: break-all;
+      margin-top: 2px;
+    }
+
+    .ledger-row {
+      padding: 6px 0;
+      border-bottom: 1px solid #21262d;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .ledger-row:last-child {
+      border-bottom: none;
+    }
+
+    .ledger-id {
+      color: #8b949e;
+      min-width: 60px;
+    }
+
+    .ledger-value {
+      color: #79c0ff;
+      font-weight: bold;
+    }
+
+    .ledger-meta {
+      color: #6e7681;
+      font-size: 10px;
+      margin-top: 2px;
+    }
+
+    .epic-item {
+      padding: 8px;
+      background: #21262d;
+      border-left: 3px solid #30363d;
+      margin-bottom: 6px;
+      border-radius: 2px;
+    }
+
+    .epic-title {
+      color: #79c0ff;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    .epic-stories {
+      margin-left: 8px;
+      color: #8b949e;
+      font-size: 11px;
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 2px 6px;
+      background: #21262d;
+      border: 1px solid #30363d;
+      border-radius: 3px;
+      font-size: 10px;
+      color: #8b949e;
+      margin-right: 4px;
+      margin-bottom: 2px;
+    }
+
+    .status-active {
+      background: #238636;
+      border-color: #2ea043;
+      color: #aff5b4;
+    }
+
+    .status-complete {
+      background: #1a414b;
+      border-color: #238636;
+      color: #7ee787;
+    }
+
+    .empty {
+      color: #6e7681;
+      font-style: italic;
+    }
+
+    .connection-status {
+      position: fixed;
+      bottom: 16px;
+      right: 16px;
+      padding: 8px 12px;
+      background: #238636;
+      color: #aff5b4;
+      border-radius: 4px;
+      font-size: 11px;
+      border: 1px solid #2ea043;
+    }
+
+    .connection-status.disconnected {
+      background: #da3633;
+      border-color: #f85149;
+      color: #f5a8a8;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>BigPowers Dashboard</h1>
+
+    <div class="grid">
+      <!-- Pipeline Panel -->
+      <div class="panel">
+        <h2>Pipeline</h2>
+        <div class="step-container" id="pipeline"></div>
+      </div>
+
+      <!-- Metrics Panel -->
+      <div class="panel">
+        <h2>Metrics</h2>
+        <div id="metrics"></div>
+      </div>
+
+      <!-- State Panel -->
+      <div class="panel">
+        <h2>State</h2>
+        <div class="state-pairs" id="state"></div>
+      </div>
+
+      <!-- Epic Queue Panel -->
+      <div class="panel">
+        <h2>Epic Queue</h2>
+        <div id="epics"></div>
+      </div>
+
+      <!-- Cycle-Time Ledger Panel -->
+      <div class="panel">
+        <h2>Cycle-Time Ledger</h2>
+        <div id="ledger"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="connection-status" id="status">Live</div>
+
+  <script>
+    const PIPELINE_STEPS = [
+      'survey-context',
+      'plan-work',
+      'kickoff-branch',
+      'develop-tdd',
+      'verify-work',
+      'audit-code',
+      'commit-message',
+      'release-branch'
+    ];
+
+    let eventSource = null;
+    let pollInterval = null;
+
+    function render(data) {
+      if (!data) return;
+
+      renderPipeline(data);
+      renderMetrics(data);
+      renderState(data);
+      renderEpics(data);
+      renderLedger(data);
+    }
+
+    function renderPipeline(data) {
+      const container = document.getElementById('pipeline');
+      const activeFlow = data.state?.activeFlow;
+      const activeIndex = activeFlow ? PIPELINE_STEPS.indexOf(activeFlow) : -1;
+
+      container.innerHTML = PIPELINE_STEPS.map((step, idx) => {
+        const isActive = idx === activeIndex;
+        const className = isActive ? 'step active' : 'step';
+        return `<div class="${className}"><span class="step-label">${step}</span></div>`;
+      }).join('');
+    }
+
+    function renderMetrics(data) {
+      const container = document.getElementById('metrics');
+      const metrics = data.projectMetrics;
+      const velocity = data.currentVelocity;
+      const timestamp = data.timestamp;
+
+      let html = '';
+      if (metrics) {
+        html += `<div class="metric-row">
+          <span class="metric-label">Total BCPs</span>
+          <span class="metric-value">${metrics.totalBcps}</span>
+        </div>`;
+        html += `<div class="metric-row">
+          <span class="metric-label">Avg BCP/Hour</span>
+          <span class="metric-value">${metrics.avgBcpPerHour.toFixed(2)}</span>
+        </div>`;
+      }
+      if (velocity) {
+        html += `<div class="metric-row">
+          <span class="metric-label">Current Velocity</span>
+          <span class="metric-value">${velocity.avgBcpPerHour.toFixed(2)} BCP/h</span>
+        </div>`;
+      }
+      if (data.state?.release?.version) {
+        html += `<div class="metric-row">
+          <span class="metric-label">Version</span>
+          <span class="metric-value">${data.state.release.version}</span>
+        </div>`;
+      }
+      if (timestamp) {
+        html += `<div class="metric-row">
+          <span class="metric-label">Updated</span>
+          <span class="metric-value" style="font-size: 10px;">${new Date(timestamp).toLocaleTimeString()}</span>
+        </div>`;
+      }
+      container.innerHTML = html || '<p class="empty">No metrics available</p>';
+    }
+
+    function renderState(data) {
+      const container = document.getElementById('state');
+      const state = data.state || {};
+
+      const pairs = [
+        { key: 'Active Flow', value: state.activeFlow },
+        { key: 'Active Epic', value: state.activeEpic },
+        { key: 'Active Story', value: state.activeStory },
+        { key: 'Git Branch', value: state.gitBranch }
+      ];
+
+      container.innerHTML = pairs.map(pair => {
+        const val = pair.value || '(none)';
+        return `
+          <div class="state-pair">
+            <span class="state-key">${pair.key}</span>
+            <span class="state-value">${val}</span>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderEpics(data) {
+      const container = document.getElementById('epics');
+      const epics = data.epics || [];
+
+      if (epics.length === 0) {
+        container.innerHTML = '<p class="empty">No epics available</p>';
+        return;
+      }
+
+      container.innerHTML = epics.map(epic => {
+        const stories = epic.stories || [];
+        const storyCount = stories.length;
+        return `
+          <div class="epic-item">
+            <div class="epic-title">${epic.id || 'Unknown'}</div>
+            <div style="color: #8b949e; font-size: 11px; margin-bottom: 4px;">${epic.title || 'Untitled'}</div>
+            <div class="epic-stories">${storyCount} stories</div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderLedger(data) {
+      const container = document.getElementById('ledger');
+      const cycleTimes = data.cycleTimes || [];
+
+      if (cycleTimes.length === 0) {
+        container.innerHTML = '<p class="empty">No cycle-time data available</p>';
+        return;
+      }
+
+      const recentRows = cycleTimes.slice(-8);
+      container.innerHTML = recentRows.map(row => {
+        const end = row.end ? new Date(row.end).toLocaleDateString() : '(active)';
+        return `
+          <div class="ledger-row">
+            <div class="ledger-id">${row.id}</div>
+            <div style="text-align: right;">
+              <div class="ledger-value">${row.bcps} BCP</div>
+              <div class="ledger-meta">${row.cycleMin}min | ${row.bcpPerHour.toFixed(2)}/h</div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function setConnectionStatus(connected) {
+      const status = document.getElementById('status');
+      if (connected) {
+        status.textContent = 'Live';
+        status.classList.remove('disconnected');
+      } else {
+        status.textContent = 'Polling...';
+        status.classList.add('disconnected');
+      }
+    }
+
+    function startEventSource() {
+      eventSource = new EventSource('/events');
+      setConnectionStatus(true);
+
+      eventSource.onmessage = (event) => {
+        try {
+          const data = JSON.parse(event.data);
+          render(data);
+        } catch (err) {
+          console.error('Failed to parse SSE data:', err);
+        }
+      };
+
+      eventSource.onerror = (err) => {
+        console.warn('SSE connection lost, falling back to polling');
+        eventSource.close();
+        setConnectionStatus(false);
+        startPolling();
+      };
+    }
+
+    function startPolling() {
+      if (pollInterval) return;
+
+      pollInterval = setInterval(() => {
+        fetch('/api/state')
+          .then(res => res.json())
+          .then(data => {
+            render(data);
+            setConnectionStatus(false);
+          })
+          .catch(err => console.error('Poll failed:', err));
+      }, 5000);
+    }
+
+    function stopPolling() {
+      if (pollInterval) {
+        clearInterval(pollInterval);
+        pollInterval = null;
+      }
+    }
+
+    // Initial load
+    window.addEventListener('load', () => {
+      fetch('/api/state')
+        .then(res => res.json())
+        .then(data => {
+          render(data);
+          startEventSource();
+        })
+        .catch(err => {
+          console.error('Initial load failed:', err);
+          startPolling();
+        });
+    });
+  </script>
+</body>
+</html>

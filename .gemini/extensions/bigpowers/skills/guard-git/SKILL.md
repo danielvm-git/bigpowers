@@ -5,6 +5,8 @@ description: "Block dangerous git commands (push, force push, reset --hard, clea
 
 
 # Guard Git
+> **HARD GATE** — **HARD GATE** — Before committing, verify: branch is not main/master, author is correct, git user is configured. Bad commits are hard to fix.
+
 
 Installs a shared hook that blocks destructive git operations and enforces workflow discipline. **Requires `jq` on the agent's PATH** when the hook runs.
 

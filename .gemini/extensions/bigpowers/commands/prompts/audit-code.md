@@ -1,5 +1,7 @@
 
 # Audit Code
+> **HARD GATE** — **HARD GATE** — Audit must check for: bugs (correctness), security, performance, and clarity. Do NOT skip security review if the code touches user data, auth, or external APIs.
+
 
 Run this self-review before asking anyone else to look at the code. The goal is to catch everything that is clearly wrong or missing — so the reviewer can focus on design and architecture, not hygiene.
 

@@ -8,6 +8,8 @@ alwaysApply: false
 
 Based on "Design It Twice" from "A Philosophy of Software Design": your first idea is unlikely to be the best. Generate multiple radically different designs, then compare.
 
+> **HARD GATE** — Multiple design options must be explored. Do NOT settle on first idea. Compare trade-offs (UX, complexity, extensibility, performance) before committing.
+
 ## Workflow
 
 ### 1. Gather Requirements

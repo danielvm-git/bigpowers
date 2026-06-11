@@ -5,6 +5,8 @@ description: "Set up pre-commit hooks with lint-staged (Prettier), type checking
 
 
 # Hook Commits
+> **HARD GATE** — **HARD GATE** — Pre-commit and commit-msg hooks must run before any commit lands. Skipping hooks (`--no-verify`) is forbidden unless explicitly authorized for a specific commit and documented.
+
 
 ## What This Sets Up
 

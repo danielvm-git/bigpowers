@@ -5,6 +5,8 @@ alwaysApply: false
 
 
 # Dispatch Agents
+> **HARD GATE** — **HARD GATE** — Agent work must be parallelizable and have explicit synchronization points. Do NOT dispatch work that has hidden dependencies between agents.
+
 
 Run multiple subagents in parallel on independent tasks. Use when tasks are genuinely decoupled — no agent needs the output of another to start.
 

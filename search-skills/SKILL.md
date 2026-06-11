@@ -5,6 +5,8 @@ model: haiku
 ---
 
 # Search Skills
+> **HARD GATE** — **HARD GATE** — Search results must be ranked by relevance. Do NOT return all matches without prioritization. Use skill metadata (phase, purpose, frequency) to rank.
+
 
 Lexical search only — no embedding service (ADR: zero external dependency).
 

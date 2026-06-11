@@ -1,5 +1,7 @@
 
 # Using bigpowers
+> **HARD GATE** — **HARD GATE** — This skill is the entry point. Do NOT skip it when onboarding new users or starting a new session. It establishes the bigpowers methodology, lifecycle phases, and conventions.
+
 
 Welcome to **bigpowers** — a lifecycle of **61** agent skills for production-ready, TDD-driven software by solo developers.
 

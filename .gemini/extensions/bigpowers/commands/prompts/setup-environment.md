@@ -1,5 +1,7 @@
 
 # Setup Environment
+> **HARD GATE** — **HARD GATE** — Environment setup must be idempotent and reproducible. If setup fails, provide clear error messages and remediation steps. Do NOT assume prior state.
+
 
 Idempotent prep so BUILD phase commands succeed on first run.
 

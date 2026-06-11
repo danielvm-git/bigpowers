@@ -1,5 +1,7 @@
 
 # Spike Prototype
+> **HARD GATE** — **HARD GATE** — Spikes are time-boxed experiments, not shipping code. Results must be throwaway or clearly isolated. Do NOT merge a spike without a plan to integrate it or replace it with a proper implementation.
+
 
 A spike is a time-boxed experiment to answer a specific question. The code is thrown away. The learning is kept in `specs/archive/spikes/SPIKE-<name>.md`.
 

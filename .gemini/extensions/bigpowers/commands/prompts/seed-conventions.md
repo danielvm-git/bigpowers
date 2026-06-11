@@ -1,5 +1,7 @@
 
 # Seed Conventions
+> **HARD GATE** — **HARD GATE** — Before any new code lands, confirm the project conventions are understood. Ask: 'What does a good commit message look like in this project?'
+
 
 Bootstrap a new project with the AI agent conventions it needs. Run this once at the start of a greenfield project.
 

@@ -5,6 +5,8 @@ description: One-time bootstrap that introduces the bigpowers skills system, the
 ---
 
 # Using bigpowers
+> **HARD GATE** — **HARD GATE** — This skill is the entry point. Do NOT skip it when onboarding new users or starting a new session. It establishes the bigpowers methodology, lifecycle phases, and conventions.
+
 
 Welcome to **bigpowers** — a lifecycle of **61** agent skills for production-ready, TDD-driven software by solo developers.
 
@@ -24,6 +26,8 @@ Package: [bigpowers on npm](https://www.npmjs.com/package/bigpowers)
 A curated set of skills organized around the PMBOK developer lifecycle. Each skill does one thing. Skills reference each other by name only — low coupling, high cohesion. All written output goes to `specs/` at your project root.
 
 ## The lifecycle at a glance
+
+See orchestrate-project for the canonical 6-phase lifecycle.
 
 ```
 BOOTSTRAP   using-bigpowers (this skill, first time only)

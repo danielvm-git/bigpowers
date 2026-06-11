@@ -1,18 +1,21 @@
 active_flow: sustain
-active_epic_id: null
+active_epic_id: e09
 active_story_id: null
 release:
-  target_version: "3.0.0"
+  target_version: "3.1.0"
   last_tag: "v3.0.0"
   last_publish: null
 epic_cycle:
-  current_step: null
-  next_skill: null
-  completed_steps: []
+  current_step: 11
+  next_skill: verify-work
+  completed_steps:
+    - stocktake-skills
+    - plan-work
+    - execute-plan
 git:
-  branch: main
-  hash: 0a3cf16
+  branch: feat/factory-dashboard
+  hash: 3517c2d
 handoff:
-  last_step_completed: "v3.0.0 Consolidation — epics e01–e10 done; compliance 87/87 PASS"
+  last_step_completed: "e09s06 execute-plan: All 11 BCPs complete. 61/61 skills now have HARD GATE enforcement callouts. 100% compliance verified."
   open_decisions: []
-  next_skill: stocktake-skills
+  next_skill: verify-work

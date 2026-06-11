@@ -5,6 +5,8 @@ description: "Start a browser-based dashboard that visualizes architecture, impl
 
 
 # Visual Dashboard
+> **HARD GATE** — **HARD GATE** — Dashboards are read-only. Do NOT use visualization to make decisions without consulting the source data. 'The chart looks better' is not a decision.
+
 
 Browser-based visual companion for bigpowers. Visualizes architecture, plans, and status.
 

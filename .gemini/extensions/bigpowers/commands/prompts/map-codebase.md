@@ -3,6 +3,8 @@
 
 Perform a deep architectural and structural analysis of the codebase. Unlike `survey-context` which identifies "where we are", `map-codebase` identifies "what we are dealing with" and "how things are done".
 
+> **HARD GATE** — Cold analysis only. Do NOT assume architectural patterns without reading the code. If the codebase structure surprises you, call out the delta.
+
 ## Process
 
 ### 1. Identify Core Stack & Dependencies

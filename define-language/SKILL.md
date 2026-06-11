@@ -8,6 +8,8 @@ description: Extract a DDD-style ubiquitous language glossary from the current c
 
 Extract and formalize domain terminology from the current conversation into a consistent glossary, saved to `specs/UBIQUITOUS_LANGUAGE.md`.
 
+> **HARD GATE** — Ubiquitous language is NOT optional. Every term in the domain that could be misunderstood must be glossed. Ambiguity = rework.
+
 ## Process
 
 1. **Scan the conversation** for domain-relevant nouns, verbs, and concepts

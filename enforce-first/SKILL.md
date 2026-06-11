@@ -5,6 +5,8 @@ description: Apply the F.I.R.S.T test quality rubric (Fast, Independent, Repeata
 ---
 
 # Enforce FIRST
+> **HARD GATE** — **HARD GATE** — Before shipping, ALL enforcement checks must pass: lint, typecheck, tests, coverage gates. Do NOT disable or skip checks to get to green.
+
 
 Apply the F.I.R.S.T rubric (Uncle Bob, Clean Code Chapter 9) to evaluate and improve tests.
 

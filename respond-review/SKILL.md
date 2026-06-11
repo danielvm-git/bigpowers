@@ -5,6 +5,8 @@ description: Act on a reviewer agent's feedback systematically — categorize fi
 ---
 
 # Respond Review
+> **HARD GATE** — **HARD GATE** — Every reviewer comment must be addressed (fix, disagree + document reason, or ask clarification). Do NOT ignore feedback and merge.
+
 
 Work through reviewer findings systematically. Don't apply changes blindly — categorize first, then decide, then fix, then verify.
 

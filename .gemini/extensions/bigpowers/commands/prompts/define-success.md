@@ -3,6 +3,8 @@
 
 Transform "do X" into "step → verify: <cmd>" pairs. This is the pre-flight check before `plan-work` or `develop-tdd` — it makes success observable and removes ambiguity about when you're done.
 
+> **HARD GATE** — Success criteria must be testable and user-observable. "Code should be fast" is not testable. "Pageload latency < 2s" is testable.
+
 ## Why this matters
 
 "Implement user authentication" is not a plan. It has no checkpoints, no evidence requirement, and no way to know if you're done. The Karpathy principle: every step must be independently verifiable with a runnable command. If you can't verify it, you can't prove it works.

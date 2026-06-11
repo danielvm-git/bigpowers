@@ -5,6 +5,8 @@ description: Track implementation decisions and progress in specs/state.yaml to 
 ---
 
 # Session State
+> **HARD GATE** — **HARD GATE** — Session state must be synchronized with git state. If state.yaml conflicts with the working tree, halt and ask for clarification. Do NOT assume state is correct.
+
 
 Track the current state of implementation, including decisions made, pending tasks, and open questions, to ensure continuity across session boundaries and prevent "context rot."
 
@@ -65,6 +67,20 @@ Whenever a significant decision is made or a milestone is reached:
 - [ ] Record open questions under `handoff.open_decisions` or an ADR.
 
 → verify: `bash scripts/validate-specs-yaml.sh`
+
+## Operations
+
+### show-state (absorbed)
+
+Print the current session state: `cat specs/state.yaml`, then display `active_flow` and `handoff.next_skill` for quick reference.
+
+### reset-state (absorbed)
+
+Clear ephemeral session state. Set `active_epic_id`, `active_story_id`, and `epic_cycle.current_step` to `null` in `specs/state.yaml`. Use when ending a phase or starting a new project context.
+
+### compact-state (absorbed)
+
+Archive verbose decisions before a context transition. Move all entries from `handoff.open_decisions` to `specs/adr/` as individual ADR files, then reset `handoff.open_decisions` to an empty list.
 
 ## File Format: specs/state.yaml
 
