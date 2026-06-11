@@ -1,3 +1,31 @@
+# [2.0.0](https://github.com/danielvm-git/bigpowers/compare/v1.5.1...v2.0.0) (2026-06-11)
+
+
+* feat(skills)!: evolve to capsule-dir structure (50/50 SDD adequacy) ([77a4e88](https://github.com/danielvm-git/bigpowers/commit/77a4e88ceeb3d454079a5a499362e53c0f904379))
+
+
+### BREAKING CHANGES
+
+* Renames specs/requirements/ → specs/product/,
+specs/plans/ → specs/tech-architecture/. Epics use capsule
+directories (epic.yaml + story .md + -tasks.yaml). Adds
+specs/verifications/, state.yaml.lock, epic archive, bug registry.
+
+- 30 SKILL.md files updated across 8 change themes
+- Path renames (A+B): 10 skills for product/, 10 for tech-architecture/
+- Capsule dirs (C): 17 skills — epic.yaml manifests, countable-story
+  .md specs, decoupled -tasks.yaml
+- Verification ledger (D): verify-work + run-evals → specs/verifications/
+- State lock (E): session-state + 6 skills acquire/release state.yaml.lock
+- Bug registry (F): BUG-NNN-slug.md naming, registry.yaml
+- ADR split (G): epic-local adr/ vs global specs/adr/
+- Scripts: land-branch.sh epic archive, sync-skills.sh regeneration
+- HARD GATES: 73 callouts across 61 skills (100% coverage confirmed)
+
+Source: projected-structure-bigpowers-evolved.md (50.0/50.0 in SDD
+adequacy), sdd-adequacy-ranking.md (22-method comparison).
+Plan: specs/plans/PLAN-evolve-harmonized.md
+
 ## [1.5.1](https://github.com/danielvm-git/bigpowers/compare/v1.5.0...v1.5.1) (2026-06-11)
 
 
