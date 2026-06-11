@@ -1,3 +1,10 @@
+## [2.1.1](https://github.com/danielvm-git/bigpowers/compare/v2.1.0...v2.1.1) (2026-06-11)
+
+
+### Bug Fixes
+
+* **dashboard/tui:** replace invalid {dim} tags with {gray-fg} across all render modules ([f029360](https://github.com/danielvm-git/bigpowers/commit/f02936068b024107e7685accb62fe2bb1b0917b7))
+
 # [2.1.0](https://github.com/danielvm-git/bigpowers/compare/v2.0.1...v2.1.0) (2026-06-11)
 
 
