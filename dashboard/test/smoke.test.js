@@ -4,6 +4,12 @@ const reader = require('../src/loaders/reader');
 const metrics = require('../src/loaders/metrics');
 const pipelineMap = require('../src/loaders/pipeline-map');
 const gateStatus = require('../src/loaders/gate-status');
+const { renderMetricsBar } = require('../src/tui/metrics-bar');
+const { renderPipeline } = require('../src/tui/pipeline');
+const { renderStateYaml } = require('../src/tui/state-yaml');
+const { renderEpicQueue } = require('../src/tui/epic-queue');
+const { renderFilesystem } = require('../src/tui/filesystem');
+const { renderLedger } = require('../src/tui/ledger');
 
 let passed = 0;
 
@@ -55,5 +61,37 @@ try {
   process.exit(1);
 }
 
-console.log(`Smoke test: PASS (${passed}/4 assertions)`);
+try {
+  // Test 5: TUI render functions do not emit invalid blessed markup tags
+  // Hardening against BUG-2026-06-11T160000: {dim} and {|} should never appear
+  const mockBox = { content: '', setContent(c) { this.content = c; } };
+  const testStateData = { activeFlow: 'test', release: { target_version: '1.0' }, gitBranch: 'main', epicCycle: { current_step: 1 } };
+  const testEpics = [{ id: 'e01', title: 'Test', stories: [] }];
+
+  renderMetricsBar(mockBox, { totalBcps: 5, totalMin: 120, avgBcpPerHour: 2.5 }, testStateData, testEpics, []);
+  assert.ok(!mockBox.content.includes('{dim}') && !mockBox.content.includes('{|}'), 'metrics-bar should not contain {dim} or {|}');
+
+  renderPipeline(mockBox, testStateData);
+  assert.ok(!mockBox.content.includes('{dim}'), 'pipeline should not contain {dim}');
+
+  renderStateYaml(mockBox, testStateData);
+  assert.ok(!mockBox.content.includes('{dim}'), 'state-yaml should not contain {dim}');
+
+  renderEpicQueue(mockBox, testEpics, null);
+  assert.ok(!mockBox.content.includes('{dim}'), 'epic-queue should not contain {dim}');
+
+  renderFilesystem(mockBox, path.join(__dirname, '..', '..', '..'));
+  assert.ok(!mockBox.content.includes('{dim}'), 'filesystem should not contain {dim}');
+
+  renderLedger(mockBox, [{ id: 's01', bcps: 3, cycleMin: 60, epic: 'e01' }]);
+  assert.ok(!mockBox.content.includes('{dim}'), 'ledger should not contain {dim}');
+
+  passed++;
+  console.log('  ✓ Test 5: TUI render output does not contain invalid blessed markup tags');
+} catch (err) {
+  console.error('✗ Test 5 failed:', err.message);
+  process.exit(1);
+}
+
+console.log(`Smoke test: PASS (${passed}/5 assertions)`);
 process.exit(0);
