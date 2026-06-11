@@ -1,22 +1,25 @@
 active_flow: sustain
 active_epic_id: e09
 active_story_id: null
+completed_epic: true
 release:
   target_version: "3.1.0"
   last_tag: "v3.0.0"
   last_publish: null
 epic_cycle:
-  current_step: 12
-  next_skill: release-branch
+  current_step: 13
+  next_skill: null
   completed_steps:
     - stocktake-skills
     - plan-work
     - execute-plan
     - verify-work
+    - release-branch
 git:
-  branch: feat/factory-dashboard
-  hash: 3517c2d
+  branch: main
+  hash: 9d02d50
+  pushed: true
 handoff:
-  last_step_completed: "e09s06 verify-work: All 11 BCP verification tasks pass. 69 HARD GATE callouts verified. sync-skills.sh artifacts regenerated. Ready for release."
+  last_step_completed: "e09s06 release-branch: Squash-merged to main (9d02d50). Pushed to origin/main. Semantic release will auto-tag as v3.1.0."
   open_decisions: []
-  next_skill: release-branch
+  next_skill: null
