@@ -2,7 +2,7 @@
 
 **Purpose:** One canonical reference for all bigpowers skills. Referenced by README.md, RELEASE-PLAN.md, and CONVENTIONS.md. Updated per-release.
 
-**Last updated:** 2026-06-10 (v3.1.0 — YAML cockpit; 61 active, 0 planned; 18 sub-ops absorbed into parent skills)
+**Last updated:** 2026-06-11 (v3.1.0 — verified 61 active skills; 18 sub-op concepts absorbed as sub-sections into parent SKILL.md files; count confirmed accurate)
 
 ---
 
@@ -95,7 +95,7 @@
 | 60 | Build | `run-planning` | Discover-phase workflow tracker | planning-status.yaml | ✅ Active |
 | 61 | Bug | `fix-bug` | Bug fix orchestrator | bugs/BUG-*.md | ✅ Active |
 
-**Total: 61 ✅ Active, 0 📋 Planned.**
+**Total: 61 active skills.** 18 sub-op concepts (zoom-out, slopcheck, red-phase, green-phase, refactor-phase, cold-start-smoke, gaps-loop, plan-work-fast, commit-message-fix, release-branch-hotfix, audit-code-quick, verify-work-smoke, show-state, reset-state, compact-state, list-epics, check-gates) are documented as sub-sections within parent SKILL.md files; none were standalone SKILL.md directories, so the count remains 61.
 
 ---
 

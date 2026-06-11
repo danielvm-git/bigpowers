@@ -1,12 +1,10 @@
-const chalk = require('chalk');
-
 function renderLedger(box, cycleTimes) {
   if (!box || typeof box.setContent !== 'function') {
     return;
   }
 
   if (!cycleTimes || cycleTimes.length === 0) {
-    box.setContent(chalk.dim('{center}no completed stories yet{/center}'));
+    box.setContent('{center}{dim}no completed stories yet{/dim}{/center}');
     return;
   }
 
@@ -30,10 +28,10 @@ function renderLedger(box, cycleTimes) {
 
   // Data rows
   cycleTimes.forEach((cycle) => {
-    const storyId = cycle.story_id || '—';
+    const storyId = cycle.id || '—';
     const epicPrefix = cycle.epic || '—';
     const bcps = cycle.bcps || 0;
-    const minutes = cycle.cycle_minutes || 0;
+    const minutes = cycle.cycleMin || 0;
     const bcpPerHour = minutes > 0 ? ((bcps * 60) / minutes).toFixed(1) : '—';
 
     totalBCPs += bcps;

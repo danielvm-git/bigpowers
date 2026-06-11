@@ -1,3 +1,6 @@
+# ARCHIVED: 2026-06-10 — Plan overstated actual work. See specs/audit/SCOPE-CORRECTION-2026-06-10.md for accurate scope.
+# Original claim: 18 BCPs new work. Actual: ~10 BCPs new + pre-existing TUI/web skeleton reused. Tests broken at ship (fixed v1.5.0).
+
 # Plan: bigpowers factory dashboard
 
 **Created:** 2026-06-10  

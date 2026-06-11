@@ -103,10 +103,11 @@ function readCycleTimes(projectRoot) {
     const stories = data.stories || [];
     return stories.map(s => ({
       id: s.id || null,
+      epic: s.epic || null,
       bcps: s.bcps || 0,
       start: s.start || null,
       end: s.end || null,
-      cycleMin: s.cycle_min || 0,
+      cycleMin: s.cycle_minutes || 0,
       bcpPerHour: s.bcp_per_hour || 0
     }));
   } catch (err) {

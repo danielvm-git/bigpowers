@@ -1,7 +1,7 @@
 const path = require('path');
 const { watch } = require('../loaders/watcher');
 const { readStateYaml, readExecutionStatus, readEpicShards, readCycleTimes } = require('../loaders/reader');
-const { getMetrics } = require('../loaders/metrics');
+const { computeProjectMetrics } = require('../loaders/metrics');
 const { renderPipeline } = require('./pipeline');
 const { renderEpicQueue } = require('./epic-queue');
 const { renderMetricsBar } = require('./metrics-bar');
@@ -126,7 +126,7 @@ function start(projectRoot) {
     const executionStatus = readExecutionStatus(projectRoot);
     const epics = readEpicShards(projectRoot);
     const cycleTimes = readCycleTimes(projectRoot);
-    const metrics = getMetrics(cycleTimes);
+    const metrics = computeProjectMetrics(cycleTimes);
 
     renderMetricsBar(metricsBar, metrics, stateData);
     renderPipeline(pipeline, stateData);

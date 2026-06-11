@@ -1,25 +1,25 @@
 active_flow: sustain
-active_epic_id: e09
-active_story_id: null
+active_epic_id: e11
+active_story_id: e11s05
 completed_epic: true
 release:
   target_version: "3.1.0"
   last_tag: "v3.0.0"
   last_publish: null
 epic_cycle:
-  current_step: 13
-  next_skill: null
+  current_step: 6
+  next_skill: release-branch
   completed_steps:
-    - stocktake-skills
     - plan-work
-    - execute-plan
+    - kickoff-branch
+    - develop-tdd
     - verify-work
-    - release-branch
+    - commit-message
 git:
   branch: main
   hash: 85fdff9
   pushed: true
 handoff:
-  last_step_completed: "e09 complete + feat/factory-dashboard: 42 BCPs (24 refactor-skills + 18 build-dashboard) merged to main"
+  last_step_completed: "e11 complete. s05: SKILL-INDEX verified accurate at 61 skills (18 sub-ops were never standalone SKILL.md dirs); dashboard/src/data/ dead code absent. All 5 stories done."
   open_decisions: []
   next_skill: null

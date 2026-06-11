@@ -1,57 +1,74 @@
 release:
-  version: "3.0.0"
-  codename: Consolidation
-  status: done
+  version: "3.1.0"
+  codename: Sustain-Cleanup
+  status: in_progress
   semantic_release: true
-  bump_hint: minor
+  bump_hint: patch
 epics:
   - id: e01
     title: "Security"
     wsjf: 4.5
+    bcps: 4
     file: epics/e01-security.yaml
     mode: flat
   - id: e02
     title: "Verification & Evals"
     wsjf: 4.3
+    bcps: 4
     file: epics/e02-verification-evals.yaml
     mode: flat
   - id: e03
     title: "Discovery & Planning"
     wsjf: 4.0
+    bcps: 2
     file: epics/e03-discovery-planning.yaml
     mode: flat
   - id: e04
     title: "Ergonomics"
     wsjf: 3.8
+    bcps: 3
     file: epics/e04-ergonomics.yaml
     mode: flat
   - id: e05
     title: "Context Isolation + Routing"
     wsjf: 3.3
+    bcps: 3
     file: epics/e05-context-isolation-routing.yaml
     mode: flat
   - id: e06
     title: "Taxonomy & Provenance"
     wsjf: 3.0
+    bcps: 3
     file: epics/e06-taxonomy-provenance.yaml
     mode: flat
   - id: e07
     title: "Architectural Complexity"
     wsjf: 2.8
+    bcps: 3
     file: epics/e07-architectural-complexity.yaml
     mode: flat
   - id: e08
     title: "Wave Execution"
     wsjf: 2.5
+    bcps: 1
     file: epics/e08-wave-execution.yaml
     mode: flat
   - id: e09
     title: "Self-Evolution"
     wsjf: 2.0
+    bcps: 11
     file: epics/e09-self-evolution.yaml
     mode: flat
   - id: e10
     title: "Stack Profiles"
     wsjf: 1.8
+    bcps: 2
     file: epics/e10-stack-profiles.yaml
     mode: flat
+  - id: e11
+    title: "Sustain Cleanup"
+    wsjf: 1.0
+    bcps: 10
+    file: epics/e11-sustain-cleanup.yaml
+    mode: flat
+    note: "Ad-hoc execution 2026-06-10 — see specs/plans/PLAN-sustain-cleanup.md"

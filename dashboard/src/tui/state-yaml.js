@@ -1,12 +1,10 @@
-const chalk = require('chalk');
-
 function renderStateYaml(box, stateData) {
   if (!box || typeof box.setContent !== 'function') {
     return;
   }
 
   if (!stateData) {
-    box.setContent(chalk.dim('{center}state.yaml not found{/center}'));
+    box.setContent('{center}state.yaml not found{/center}');
     return;
   }
 
@@ -27,17 +25,17 @@ function renderStateYaml(box, stateData) {
   pairs.forEach(({ key, value }) => {
     let displayValue = String(value || '—');
 
-    // Color rules
+    // Color rules: use blessed markup, not chalk
     if (key === 'git.branch') {
       if (displayValue === 'main') {
-        displayValue = chalk.green(displayValue);
+        displayValue = `{green-fg}${displayValue}{/green-fg}`;
       } else if (displayValue.startsWith('feat/')) {
-        displayValue = chalk.yellow(displayValue);
+        displayValue = `{yellow-fg}${displayValue}{/yellow-fg}`;
       }
     }
 
     if (key === 'next_skill' && value) {
-      displayValue = chalk.green(displayValue);
+      displayValue = `{green-fg}${displayValue}{/green-fg}`;
     }
 
     lines.push(`  {dim}${key}:{/dim} ${displayValue}`);

@@ -1,3 +1,6 @@
+# ARCHIVED: 2026-06-10 — Plan overstated actual work. See specs/audit/SCOPE-CORRECTION-2026-06-10.md for accurate scope.
+# Original claim: 24 BCPs. Actual: ~4 BCPs remaining (BCP accounting + ledger). Core refactor (consolidation, plumbing) was 80% done by prior epic.
+
 # Plan: Refactor bigpowers skills to v2 workflow
 
 **Created:** 2026-06-10  

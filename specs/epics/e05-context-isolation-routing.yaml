@@ -1,6 +1,7 @@
 id: e05
 title: "Context Isolation + Routing"
 wsjf: 3.3
+bcps: 3
 covers: []
 stories:
   - id: e05s01

@@ -1,6 +1,7 @@
 id: e08
 title: "Wave Execution"
 wsjf: 2.5
+bcps: 1
 covers: []
 stories:
   - id: e08s01

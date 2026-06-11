@@ -1,6 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-const chalk = require('chalk');
 
 function renderFilesystem(box, projectRoot) {
   if (!box || typeof box.setContent !== 'function') {
@@ -10,7 +9,7 @@ function renderFilesystem(box, projectRoot) {
   const specsPath = path.join(projectRoot, 'specs');
 
   if (!fs.existsSync(specsPath)) {
-    box.setContent(chalk.dim('{center}specs/ not found{/center}'));
+    box.setContent('{center}{dim}specs/ not found{/dim}{/center}');
     return;
   }
 
@@ -58,7 +57,7 @@ function renderFilesystem(box, projectRoot) {
           let displayName = entry.name;
 
           if (entry.isDirectory()) {
-            displayName = chalk.blue(displayName);
+            displayName = `{blue-fg}${displayName}{/blue-fg}`;
             lines.push(prefix + connector + displayName);
 
             if (depth < 1) {
@@ -73,7 +72,7 @@ function renderFilesystem(box, projectRoot) {
             const age = now - mtime;
 
             if (age < 60000) {
-              displayName = chalk.yellow(displayName + ' ★');
+              displayName = `{yellow-fg}${displayName} ★{/yellow-fg}`;
             }
 
             lines.push(prefix + connector + displayName);
@@ -86,7 +85,7 @@ function renderFilesystem(box, projectRoot) {
 
     buildTree(specsPath);
   } catch (err) {
-    lines.push(chalk.dim('Error reading specs/'));
+    lines.push('{dim}Error reading specs/{/dim}');
   }
 
   box.setContent(lines.join('\n'));

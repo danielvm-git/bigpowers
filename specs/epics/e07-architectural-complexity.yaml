@@ -1,6 +1,7 @@
 id: e07
 title: "Architectural Complexity"
 wsjf: 2.8
+bcps: 3
 covers: []
 stories:
   - id: e07s01
