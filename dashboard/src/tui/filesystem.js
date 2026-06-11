@@ -15,8 +15,6 @@ function renderFilesystem(box, projectRoot) {
 
   const now = Date.now();
   const lines = [];
-  lines.push('{bold}FILE SYSTEM{/bold}');
-
   let fileCount = 0;
 
   try {

@@ -1,5 +1,7 @@
 const { STEPS } = require('../loaders/pipeline-map');
 
+const STEP_ABBR = ['sur','pla','kic','tdd','ver','aud','com','rel'];
+
 function renderPipeline(box, stateData) {
   if (!box || typeof box.setContent !== 'function') {
     return;
@@ -10,33 +12,27 @@ function renderPipeline(box, stateData) {
     return;
   }
 
-  const currentStep = stateData.epicCycle?.current_step || null;
-  const completedSteps = stateData.epicCycle?.completed_steps || [];
+  // current_step is a 0-based index (number) in state.yaml
+  const rawStep = stateData.epicCycle?.current_step;
+  const currentIdx = typeof rawStep === 'number' ? rawStep : STEPS.indexOf(rawStep);
 
-  // Build horizontal pipeline strip
-  const steps = STEPS.map((step, index) => {
-    const isCompleted = completedSteps.includes(step);
-    const isCurrent = step === currentStep;
-
-    let display = `${index + 1} ${step}`;
-
-    if (isCurrent) {
-      display = `{reverse}${display}{/reverse}`;
-    } else if (isCompleted) {
-      display = `{green-fg}${display}{/green-fg}`;
+  // Build pipeline strip
+  const strip = STEPS.map((step, i) => {
+    const abbr = STEP_ABBR[i];
+    if (i < currentIdx) {
+      return `{green-fg}${i + 1} ${step}{/green-fg}`;
+    } else if (i === currentIdx) {
+      return `{reverse}{cyan-fg}${i + 1} ${step}{/cyan-fg}{/reverse}`;
     } else {
-      display = `{dim}${display}{/dim}`;
+      return `{dim}${i + 1} ${step}{/dim}`;
     }
+  }).join(' {dim}›{/dim} ');
 
-    return display;
-  }).join(' {bold}›{/bold} ');
+  const stepLabel = currentIdx >= 0 && currentIdx < STEPS.length
+    ? `{dim}step{/dim} {cyan-fg}${currentIdx + 1}{/cyan-fg}{dim}/${STEPS.length}{/dim}  {dim}—{/dim}  ${STEPS[currentIdx]}`
+    : '{dim}no active step{/dim}';
 
-  const lines = [];
-  lines.push(`{bold}{cyan}Pipeline{/cyan}{/bold}  step ${STEPS.indexOf(currentStep) + 1} / ${STEPS.length}`);
-  lines.push('');
-  lines.push(steps);
-
-  box.setContent(lines.join('\n'));
+  box.setContent(stepLabel + '\n\n' + strip);
 }
 
 module.exports = { renderPipeline };

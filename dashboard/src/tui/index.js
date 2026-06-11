@@ -35,14 +35,14 @@ function start(projectRoot) {
   });
 
   // Check terminal size
-  if (screen.width < 120 || screen.height < 30) {
+  if (screen.width < 120 || screen.height < 34) {
     const msg = blessed.box({
       parent: screen,
       top: 'center',
       left: 'center',
       width: 60,
       height: 10,
-      content: '{center}Terminal must be at least 120x30{/center}\n{center}Please resize and try again{/center}',
+      content: '{center}Terminal must be at least 120x34{/center}\n{center}Please resize and try again{/center}',
       border: 'line',
       tags: true,
       style: { border: { fg: 'yellow' } }
@@ -58,17 +58,16 @@ function start(projectRoot) {
     left: 0,
     width: '100%',
     height: 1,
-    border: 'line',
     tags: true,
-    style: { border: { fg: 'magenta' } }
   });
 
+  // height 5 = 3 content lines + top/bottom borders: status bar, step info, stats row
   const metricsBar = blessed.box({
     parent: screen,
     top: 1,
     left: 0,
     width: '100%',
-    height: 3,
+    height: 5,
     border: 'line',
     tags: true,
     style: { border: { fg: 'blue' } }
@@ -76,54 +75,58 @@ function start(projectRoot) {
 
   const pipeline = blessed.box({
     parent: screen,
-    top: 4,
+    top: 6,
     left: 0,
     width: '100%',
     height: 5,
     border: 'line',
     tags: true,
-    style: { border: { fg: 'cyan' } }
+    label: ' {green-fg}≡ PIPELINE{/green-fg} ',
+    style: { border: { fg: 'green' } }
   });
 
   const epicQueue = blessed.box({
     parent: screen,
-    top: 9,
+    top: 11,
     left: 0,
     width: '33%',
-    height: screen.height - 21,
+    height: screen.height - 23,
     border: 'line',
     scrollable: true,
     mouse: true,
     keys: true,
     tags: true,
+    label: ' {green-fg}≡ EPIC QUEUE{/green-fg} ',
     style: { border: { fg: 'green' } }
   });
 
   const actionLog = blessed.box({
     parent: screen,
-    top: 9,
+    top: 11,
     left: '33%',
     width: '33%',
-    height: screen.height - 21,
+    height: screen.height - 23,
     border: 'line',
     scrollable: true,
     mouse: true,
     keys: true,
     tags: true,
-    style: { border: { fg: 'yellow' } }
+    label: ' {cyan-fg}>_ STATE.YAML{/cyan-fg} ',
+    style: { border: { fg: 'cyan' } }
   });
 
   const fsPanel = blessed.box({
     parent: screen,
-    top: 9,
+    top: 11,
     left: '66%',
     width: '34%',
-    height: screen.height - 21,
+    height: screen.height - 23,
     border: 'line',
     scrollable: true,
     mouse: true,
     keys: true,
     tags: true,
+    label: ' {magenta-fg}□ FILESYSTEM{/magenta-fg} ',
     style: { border: { fg: 'magenta' } }
   });
 
@@ -138,7 +141,8 @@ function start(projectRoot) {
     mouse: true,
     keys: true,
     tags: true,
-    style: { border: { fg: 'white' } }
+    label: ' {cyan-fg}⊙ CYCLE TIME LEDGER — BCPS · TIMESTAMPS · THROUGHPUT{/cyan-fg} ',
+    style: { border: { fg: 'cyan' } }
   });
 
   // Refresh function
@@ -149,12 +153,10 @@ function start(projectRoot) {
     const cycleTimes = readCycleTimes(projectRoot);
     const metrics = computeProjectMetrics(cycleTimes);
 
-    // Render title bar
-    const epicTitle = stateData?.active_epic || '—';
-    const stepNum = stateData?.epicCycle?.current_step ? (stateData.epicCycle.completed_steps?.length || 0) + 1 : 0;
-    titleBar.setContent(`{bold}{magenta}bigpowers factory{/magenta}{/bold} — ${epicTitle} — step ${stepNum} / 8`);
+    // Title bar: fixed project identity
+    titleBar.setContent(' {bold}{cyan-fg}⚙ bigpowers factory{/cyan-fg}{/bold} {dim}v2 — seed {cyan-fg}→{/cyan-fg} epics {cyan-fg}→{/cyan-fg} mvp{/dim}');
 
-    renderMetricsBar(metricsBar, metrics, stateData, epics);
+    renderMetricsBar(metricsBar, metrics, stateData, epics, cycleTimes);
     renderPipeline(pipeline, stateData);
     renderEpicQueue(epicQueue, epics, executionStatus);
     renderStateYaml(actionLog, stateData);
