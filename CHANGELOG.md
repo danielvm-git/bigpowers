@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/danielvm-git/bigpowers/compare/v2.0.0...v2.0.1) (2026-06-11)
+
+
+### Bug Fixes
+
+* **dashboard/tui:** render blessed tags and improve layout ([ca3a161](https://github.com/danielvm-git/bigpowers/commit/ca3a1617a341d05dacf3b571abf58cb6c0cfceeb))
+
 # [2.0.0](https://github.com/danielvm-git/bigpowers/compare/v1.5.1...v2.0.0) (2026-06-11)
 
 
