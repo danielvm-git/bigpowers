@@ -8,7 +8,7 @@ function renderPipeline(box, stateData) {
   }
 
   if (!stateData) {
-    box.setContent('{dim}state.yaml not loaded{/dim}');
+    box.setContent('{gray-fg}state.yaml not loaded{/gray-fg}');
     return;
   }
 
@@ -24,13 +24,13 @@ function renderPipeline(box, stateData) {
     } else if (i === currentIdx) {
       return `{reverse}{cyan-fg}${i + 1} ${step}{/cyan-fg}{/reverse}`;
     } else {
-      return `{dim}${i + 1} ${step}{/dim}`;
+      return `{gray-fg}${i + 1} ${step}{/gray-fg}`;
     }
-  }).join(' {dim}›{/dim} ');
+  }).join(' {gray-fg}›{/gray-fg} ');
 
   const stepLabel = currentIdx >= 0 && currentIdx < STEPS.length
-    ? `{dim}step{/dim} {cyan-fg}${currentIdx + 1}{/cyan-fg}{dim}/${STEPS.length}{/dim}  {dim}—{/dim}  ${STEPS[currentIdx]}`
-    : '{dim}no active step{/dim}';
+    ? `{gray-fg}step{/gray-fg} {cyan-fg}${currentIdx + 1}{/cyan-fg}{gray-fg}/${STEPS.length}{/gray-fg}  {gray-fg}—{/gray-fg}  ${STEPS[currentIdx]}`
+    : '{gray-fg}no active step{/gray-fg}';
 
   box.setContent(stepLabel + '\n\n' + strip);
 }

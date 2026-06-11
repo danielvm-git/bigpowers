@@ -154,7 +154,7 @@ function start(projectRoot) {
     const metrics = computeProjectMetrics(cycleTimes);
 
     // Title bar: fixed project identity
-    titleBar.setContent(' {bold}{cyan-fg}⚙ bigpowers factory{/cyan-fg}{/bold} {dim}v2 — seed {cyan-fg}→{/cyan-fg} epics {cyan-fg}→{/cyan-fg} mvp{/dim}');
+    titleBar.setContent(' {bold}{cyan-fg}⚙ bigpowers factory{/cyan-fg}{/bold} {gray-fg}v2 — seed {cyan-fg}→{/cyan-fg} epics {cyan-fg}→{/cyan-fg} mvp{/gray-fg}');
 
     renderMetricsBar(metricsBar, metrics, stateData, epics, cycleTimes);
     renderPipeline(pipeline, stateData);

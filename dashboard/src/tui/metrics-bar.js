@@ -41,11 +41,11 @@ function renderMetricsBar(box, projectMetrics, stateData, epics, cycleTimes) {
 
   // ── Line 1: status bar ──
   const statusLine =
-    `{dim}BCPs:{/dim} {yellow-fg}${deliveredBcps}{/yellow-fg}{dim}/${targetBcps}{/dim}` +
-    `  {dim}│{/dim}  {dim}Cycle:{/dim} ${cycleDisplay}` +
-    `  {dim}│{/dim}  {dim}BCP/hr:{/dim} {${bphColor}-fg}${bphDisplay}{/${bphColor}-fg}` +
-    `  {dim}│{/dim}  {dim}v{/dim}{green-fg}${version}{/green-fg}` +
-    `{|}  {dim}branch:{/dim} {green-fg}${branch}{/green-fg}  `;
+    `{gray-fg}BCPs:{/gray-fg} {yellow-fg}${deliveredBcps}{/yellow-fg}{gray-fg}/${targetBcps}{/gray-fg}` +
+    `  {gray-fg}│{/gray-fg}  {gray-fg}Cycle:{/gray-fg} ${cycleDisplay}` +
+    `  {gray-fg}│{/gray-fg}  {gray-fg}BCP/hr:{/gray-fg} {${bphColor}-fg}${bphDisplay}{/${bphColor}-fg}` +
+    `  {gray-fg}│{/gray-fg}  {gray-fg}v{/gray-fg}{green-fg}${version}{/green-fg}` +
+    `  {gray-fg}branch:{/gray-fg} {green-fg}${branch}{/green-fg}`;
 
   // ── Line 2: step info ──
   const currentStep = stateData?.epicCycle?.current_step;
@@ -60,21 +60,21 @@ function renderMetricsBar(box, projectMetrics, stateData, epics, cycleTimes) {
     ? `{yellow-fg}running{/yellow-fg}`
     : `{green-fg}ready{/green-fg}`;
   const storyDesc = isActive
-    ? `{dim}${activeEpic}{/dim} {dim}›{/dim} {cyan-fg}${activeStory}{/cyan-fg} {dim}—{/dim} ${stepName}`
-    : `{dim}flow:{/dim} ${activeFlow}  {dim}next:{/dim} {cyan-fg}${stateData?.epicCycle?.next_skill ?? 'survey-context'}{/cyan-fg}`;
+    ? `{gray-fg}${activeEpic}{/gray-fg} {gray-fg}›{/gray-fg} {cyan-fg}${activeStory}{/cyan-fg} {gray-fg}—{/gray-fg} ${stepName}`
+    : `{gray-fg}flow:{/gray-fg} ${activeFlow}  {gray-fg}next:{/gray-fg} {cyan-fg}${stateData?.epicCycle?.next_skill ?? 'survey-context'}{/cyan-fg}`;
   const stepLine =
-    `{dim}step {/dim}{cyan-fg}${doneStories}{/cyan-fg}{dim}/${totalStories}{/dim}` +
-    `  {dim}—{/dim}  ${statusWord}` +
-    `  {dim}—{/dim}  ${storyDesc}`;
+    `{gray-fg}step {/gray-fg}{cyan-fg}${doneStories}{/cyan-fg}{gray-fg}/${totalStories}{/gray-fg}` +
+    `  {gray-fg}—{/gray-fg}  ${statusWord}` +
+    `  {gray-fg}—{/gray-fg}  ${storyDesc}`;
 
   // ── Line 3: stats row ──
   const statsLine =
-    `{dim}[{/dim} epics {green-fg}${doneEpics}${doneEpics > 0 ? '' : ''}{/green-fg}{dim}/${totalEpics} ]{/dim}` +
-    `   {dim}[{/dim} stories {cyan-fg}${doneStories}{/cyan-fg}{dim}/${totalStories} ]{/dim}` +
-    `   {dim}[{/dim} BCPs {yellow-fg}${deliveredBcps}{/yellow-fg}{dim}/${targetBcps} ]{/dim}` +
-    `   {dim}[{/dim} cycle ${cycleDisplay}{dim} ]{/dim}` +
-    `   {dim}[{/dim} BCP/hr {${bphColor}-fg}${bphDisplay}{/${bphColor}-fg}{dim} ]{/dim}` +
-    `   {dim}[{/dim} v{green-fg}${version}{/green-fg}{dim} ]{/dim}`;
+    `{gray-fg}[{/gray-fg} epics {green-fg}${doneEpics}${doneEpics > 0 ? '' : ''}{/green-fg}{gray-fg}/${totalEpics} ]{/gray-fg}` +
+    `   {gray-fg}[{/gray-fg} stories {cyan-fg}${doneStories}{/cyan-fg}{gray-fg}/${totalStories} ]{/gray-fg}` +
+    `   {gray-fg}[{/gray-fg} BCPs {yellow-fg}${deliveredBcps}{/yellow-fg}{gray-fg}/${targetBcps} ]{/gray-fg}` +
+    `   {gray-fg}[{/gray-fg} cycle ${cycleDisplay}{gray-fg} ]{/gray-fg}` +
+    `   {gray-fg}[{/gray-fg} BCP/hr {${bphColor}-fg}${bphDisplay}{/${bphColor}-fg}{gray-fg} ]{/gray-fg}` +
+    `   {gray-fg}[{/gray-fg} v{green-fg}${version}{/green-fg}{gray-fg} ]{/gray-fg}`;
 
   box.setContent([statusLine, stepLine, statsLine].join('\n'));
 }

@@ -9,7 +9,7 @@ function renderFilesystem(box, projectRoot) {
   const specsPath = path.join(projectRoot, 'specs');
 
   if (!fs.existsSync(specsPath)) {
-    box.setContent('{center}{dim}specs/ not found{/dim}{/center}');
+    box.setContent('{center}{gray-fg}specs/ not found{/gray-fg}{/center}');
     return;
   }
 
@@ -39,7 +39,7 @@ function renderFilesystem(box, projectRoot) {
     }
 
     fileCount = countFiles(specsPath);
-    lines.push(`{dim}[${fileCount} files]{/dim}`);
+    lines.push(`{gray-fg}[${fileCount} files]{/gray-fg}`);
     lines.push('');
 
     // Build tree
@@ -83,7 +83,7 @@ function renderFilesystem(box, projectRoot) {
 
     buildTree(specsPath);
   } catch (err) {
-    lines.push('{dim}Error reading specs/{/dim}');
+    lines.push('{gray-fg}Error reading specs/{/gray-fg}');
   }
 
   box.setContent(lines.join('\n'));

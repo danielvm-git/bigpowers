@@ -9,7 +9,7 @@ function renderLedger(box, cycleTimes) {
   }
 
   if (!cycleTimes || cycleTimes.length === 0) {
-    box.setContent('{dim}stories complete here as they land{/dim}');
+    box.setContent('{gray-fg}stories complete here as they land{/gray-fg}');
     return;
   }
 
@@ -22,7 +22,7 @@ function renderLedger(box, cycleTimes) {
   lines.push(
     `{cyan-fg}{bold}${pad('Story ID', W.sid)}${pad('Epic', W.epic)}${pad('BCPs', W.bcps)}${pad('Minutes', W.min)}${pad('BCP/hr', W.bhr)}{/bold}{/cyan-fg}`
   );
-  lines.push('{dim}' + '─'.repeat(W.sid + W.epic + W.bcps + W.min + W.bhr) + '{/dim}');
+  lines.push('{gray-fg}' + '─'.repeat(W.sid + W.epic + W.bcps + W.min + W.bhr) + '{/gray-fg}');
 
   let totalBCPs = 0;
   let totalMinutes = 0;
@@ -39,14 +39,14 @@ function renderLedger(box, cycleTimes) {
 
     lines.push(
       `{white-fg}${pad(storyId, W.sid)}{/white-fg}` +
-      `{dim}${pad(epicId, W.epic)}{/dim}` +
+      `{gray-fg}${pad(epicId, W.epic)}{/gray-fg}` +
       `{yellow-fg}${pad(bcps, W.bcps)}{/yellow-fg}` +
-      `{dim}${pad(minutes, W.min)}{/dim}` +
+      `{gray-fg}${pad(minutes, W.min)}{/gray-fg}` +
       `{green-fg}${pad(bph, W.bhr)}{/green-fg}`
     );
   });
 
-  lines.push('{dim}' + '─'.repeat(W.sid + W.epic + W.bcps + W.min + W.bhr) + '{/dim}');
+  lines.push('{gray-fg}' + '─'.repeat(W.sid + W.epic + W.bcps + W.min + W.bhr) + '{/gray-fg}');
 
   const avgBph = totalMinutes > 0 ? ((totalBCPs * 60) / totalMinutes).toFixed(1) : '—';
   lines.push(

@@ -10,7 +10,7 @@ function renderStateYaml(box, stateData) {
   }
 
   if (!stateData) {
-    box.setContent('{center}{dim}state.yaml not found{/dim}{/center}');
+    box.setContent('{center}{gray-fg}state.yaml not found{/gray-fg}{/center}');
     return;
   }
 
@@ -34,7 +34,7 @@ function renderStateYaml(box, stateData) {
     const isDash = v === '—';
     let colored;
     if (isDash) {
-      colored = `{dim}${v}{/dim}`;
+      colored = `{gray-fg}${v}{/gray-fg}`;
     } else if (fields.find(f => f.key === key)?.color === 'cyan') {
       colored = `{cyan-fg}${v}{/cyan-fg}`;
     } else if (fields.find(f => f.key === key)?.color === 'green') {
@@ -42,19 +42,19 @@ function renderStateYaml(box, stateData) {
     } else if (fields.find(f => f.key === key)?.color === 'yellow') {
       colored = `{yellow-fg}${v}{/yellow-fg}`;
     } else if (fields.find(f => f.key === key)?.color === 'dim') {
-      colored = `{dim}${v}{/dim}`;
+      colored = `{gray-fg}${v}{/gray-fg}`;
     } else {
       colored = v;
     }
-    return `{dim}${key}:{/dim} ${colored}`;
+    return `{gray-fg}${key}:{/gray-fg} ${colored}`;
   });
 
   // Stage tracker strip
   const tracker = STEP_ABBR.map((abbr, i) => {
     if (i < currentIdx) return `{green-fg}${abbr}{/green-fg}`;
     if (i === currentIdx) return `{cyan-fg}{bold}${abbr}{/bold}{/cyan-fg}`;
-    return `{dim}${abbr}{/dim}`;
-  }).join(' {dim}·{/dim} ');
+    return `{gray-fg}${abbr}{/gray-fg}`;
+  }).join(' {gray-fg}·{/gray-fg} ');
 
   lines.push('');
   lines.push(tracker);
