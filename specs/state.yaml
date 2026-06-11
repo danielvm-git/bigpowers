@@ -1,20 +1,25 @@
-active_flow: "sustain"
+active_flow: "release"
 active_epic_id: "e11"
 active_story_id: "e11s05"
 completed_epic: true
 release:
   target_version: "2.0.0"
-  last_tag: "v3.0.0"
-  last_publish: "null"
+  last_tag: "v2.0.0"
+  last_publish: "2026-06-11T12:16:20Z"
 epic_cycle:
-  current_step: 6
-  next_skill: "release-branch"
-  completed_steps:
+  current_step: 7
+  next_skill: "survey-context"
+  completed_steps: "e11 sustain cleanup complete and released on main (commit 46f2ff3)"
+metrics:
+  story_start: "2026-06-10T14:00:00Z"
+  story_end: "2026-06-11T12:16:20Z"
+  cycle_minutes: 1376
+  bcp_per_hour: 0.44
 git:
   branch: "main"
-  hash: "77a4e88"
-  pushed: true
+  hash: "46f2ff3"
+  pushed: false
 handoff:
-  last_step_completed: "e11 complete. s05: SKILL-INDEX verified accurate at 61 skills (18 sub-ops were never standalone SKILL.md dirs); dashboard/src/data/ dead code absent. All 5 stories done."
+  last_step_completed: "release-branch: Finalized e11 sustain cleanup release. All 5 stories delivered (10 BCPs). Updated CONVENTIONS.md with v2.0.0 BCP accounting & cycle-time ledger mandates. Added WORKFLOW-SOP-v2.md. Version alignment v3.1.0→v2.0.0. Archived e11 epic."
   open_decisions: "[]"
-  next_skill: "null"
+  next_skill: "survey-context"

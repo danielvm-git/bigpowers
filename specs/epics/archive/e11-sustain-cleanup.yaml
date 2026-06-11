@@ -1,0 +1,37 @@
+id: e11
+title: "Sustain Cleanup"
+wsjf: 1.0
+bcps: 10
+covers: []
+note: "Ad-hoc execution 2026-06-10 — see specs/plans/PLAN-sustain-cleanup.md"
+stories:
+  - id: e11s01
+    title: "Dashboard TUI UAT"
+    bcps: 2
+    tasks:
+      - desc: "Verify all TUI modules load and render functions produce correct output"
+        verify: "node -e '(test TUI modules + render functions)' → 29/29 assertions"
+  - id: e11s02
+    title: "Dashboard Web UAT"
+    bcps: 2
+    tasks:
+      - desc: "Verify Express server, API endpoints, SSE work"
+        verify: "curl /api/state returns JSON, / returns HTML, /events connects"
+  - id: e11s03
+    title: "BCP accounting + cycle-time ledger"
+    bcps: 2
+    tasks:
+      - desc: "Add bcps: to all 10 epic shards; create cycle-times.yaml with 31 entries"
+        verify: "grep -c 'bcps:' specs/epics/*.yaml → 10; specs/metrics/cycle-times.yaml has 31 entries"
+  - id: e11s04
+    title: "Plan retirement + scope correction"
+    bcps: 2
+    tasks:
+      - desc: "Archive inflated plans, update release-plan.yaml for v2.0.0 (released)"
+        verify: "test -f specs/archive/PLAN-factory-dashboard.md && test -f specs/archive/PLAN-refactor-skills-workflow.md"
+  - id: e11s05
+    title: "SKILL-INDEX fix + dead code removal"
+    bcps: 2
+    tasks:
+      - desc: "Fix SKILL-INDEX count 61→43; remove dashboard/src/data/ duplicate"
+        verify: "grep 'Total.*43' SKILL-INDEX.md; test ! -d dashboard/src/data/"
