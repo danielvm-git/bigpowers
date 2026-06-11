@@ -13,32 +13,28 @@ function renderPipeline(box, stateData) {
   const currentStep = stateData.epicCycle?.current_step || null;
   const completedSteps = stateData.epicCycle?.completed_steps || [];
 
-  // Build pipeline visualization
-  const lines = [];
-  lines.push('{bold}{cyan}Pipeline{/cyan}{/bold}');
-  lines.push('');
-
-  // Create step display
-  const stepDisplay = STEPS.map((step, index) => {
+  // Build horizontal pipeline strip
+  const steps = STEPS.map((step, index) => {
     const isCompleted = completedSteps.includes(step);
     const isCurrent = step === currentStep;
 
-    let display = `  ${index + 1}. ${step}`;
+    let display = `${index + 1} ${step}`;
 
     if (isCurrent) {
-      display = `{reverse}{bold}${display}{/bold}{/reverse}`;
+      display = `{reverse}${display}{/reverse}`;
     } else if (isCompleted) {
       display = `{green-fg}${display}{/green-fg}`;
     } else {
-      display = `{gray-fg}${display}{/gray-fg}`;
+      display = `{dim}${display}{/dim}`;
     }
 
     return display;
-  }).join('\n');
+  }).join(' {bold}›{/bold} ');
 
-  lines.push(stepDisplay);
+  const lines = [];
+  lines.push(`{bold}{cyan}Pipeline{/cyan}{/bold}  step ${STEPS.indexOf(currentStep) + 1} / ${STEPS.length}`);
   lines.push('');
-  lines.push(`{dim}Current: ${currentStep || '—'}{/dim}`);
+  lines.push(steps);
 
   box.setContent(lines.join('\n'));
 }

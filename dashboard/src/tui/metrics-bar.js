@@ -1,9 +1,26 @@
-function renderMetricsBar(box, projectMetrics, stateData) {
+function renderMetricsBar(box, projectMetrics, stateData, epics) {
   if (!box || typeof box.setContent !== 'function') {
     return;
   }
 
-  const totalBcps = projectMetrics?.totalBcps ?? '-';
+  // Count epics and stories
+  let epicCount = 0;
+  let storyCount = 0;
+  let targetBcps = 0;
+
+  if (epics && Array.isArray(epics)) {
+    epicCount = epics.length;
+    epics.forEach(epic => {
+      if (epic.stories && Array.isArray(epic.stories)) {
+        storyCount += epic.stories.length;
+        epic.stories.forEach(story => {
+          targetBcps += story.bcps || 0;
+        });
+      }
+    });
+  }
+
+  const deliveredBcps = projectMetrics?.totalBcps ?? '-';
   const totalMin = projectMetrics?.totalMin ?? '-';
   const avgBcpPerHour = projectMetrics?.avgBcpPerHour ?? '-';
   const version = stateData?.release?.target_version ?? '-';
@@ -22,7 +39,7 @@ function renderMetricsBar(box, projectMetrics, stateData) {
   const avgCycleTime = totalMin === '-' ? '-' : `${totalMin}m`;
   const bcpHrDisplay = typeof avgBcpPerHour === 'number' ? avgBcpPerHour.toFixed(2) : avgBcpPerHour;
 
-  const line = `BCPs: ${totalBcps} | Cycle: ${avgCycleTime} | {${bcpHrColor}}BCP/hr: ${bcpHrDisplay}{/${bcpHrColor}} | v${version}`;
+  const line = `epics: ${epicCount} | stories: ${storyCount} | BCPs: ${deliveredBcps}/${targetBcps} | cycle: ${avgCycleTime} | {${bcpHrColor}}BCP/hr: ${bcpHrDisplay}{/${bcpHrColor}} | v${version}`;
 
   box.setContent(line);
 }

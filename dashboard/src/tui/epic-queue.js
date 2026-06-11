@@ -11,6 +11,8 @@ function renderEpicQueue(box, epics, executionStatus) {
   }
 
   let lines = [];
+  lines.push('{bold}EPIC QUEUE{/bold}');
+  lines.push('');
   let totalBcps = 0;
 
   epics.forEach(epic => {

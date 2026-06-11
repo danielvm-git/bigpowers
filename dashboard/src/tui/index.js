@@ -9,6 +9,9 @@ const { renderStateYaml } = require('./state-yaml');
 const { renderFilesystem } = require('./filesystem');
 const { renderLedger } = require('./ledger');
 
+// Blessed box defaults — tags must be enabled for markup to render
+const BOX_DEFAULTS = { tags: true };
+
 let blessed;
 try {
   blessed = require('blessed');
@@ -41,6 +44,7 @@ function start(projectRoot) {
       height: 10,
       content: '{center}Terminal must be at least 120x30{/center}\n{center}Please resize and try again{/center}',
       border: 'line',
+      tags: true,
       style: { border: { fg: 'yellow' } }
     });
     screen.render();
@@ -48,75 +52,92 @@ function start(projectRoot) {
   }
 
   // Create layout zones
-  const metricsBar = blessed.box({
+  const titleBar = blessed.box({
     parent: screen,
     top: 0,
     left: 0,
     width: '100%',
+    height: 1,
+    border: 'line',
+    tags: true,
+    style: { border: { fg: 'magenta' } }
+  });
+
+  const metricsBar = blessed.box({
+    parent: screen,
+    top: 1,
+    left: 0,
+    width: '100%',
     height: 3,
     border: 'line',
+    tags: true,
     style: { border: { fg: 'blue' } }
   });
 
   const pipeline = blessed.box({
     parent: screen,
-    top: 3,
+    top: 4,
     left: 0,
     width: '100%',
     height: 5,
     border: 'line',
+    tags: true,
     style: { border: { fg: 'cyan' } }
   });
 
   const epicQueue = blessed.box({
     parent: screen,
-    top: 8,
+    top: 9,
     left: 0,
     width: '33%',
-    height: screen.height - 20,
+    height: screen.height - 21,
     border: 'line',
     scrollable: true,
     mouse: true,
     keys: true,
+    tags: true,
     style: { border: { fg: 'green' } }
   });
 
   const actionLog = blessed.box({
     parent: screen,
-    top: 8,
+    top: 9,
     left: '33%',
     width: '33%',
-    height: screen.height - 20,
+    height: screen.height - 21,
     border: 'line',
     scrollable: true,
     mouse: true,
     keys: true,
+    tags: true,
     style: { border: { fg: 'yellow' } }
   });
 
   const fsPanel = blessed.box({
     parent: screen,
-    top: 8,
+    top: 9,
     left: '66%',
     width: '34%',
-    height: screen.height - 20,
+    height: screen.height - 21,
     border: 'line',
     scrollable: true,
     mouse: true,
     keys: true,
+    tags: true,
     style: { border: { fg: 'magenta' } }
   });
 
   const ledger = blessed.box({
     parent: screen,
-    top: screen.height - 12,
+    top: screen.height - 11,
     left: 0,
     width: '100%',
-    height: 12,
+    height: 11,
     border: 'line',
     scrollable: true,
     mouse: true,
     keys: true,
+    tags: true,
     style: { border: { fg: 'white' } }
   });
 
@@ -128,7 +149,12 @@ function start(projectRoot) {
     const cycleTimes = readCycleTimes(projectRoot);
     const metrics = computeProjectMetrics(cycleTimes);
 
-    renderMetricsBar(metricsBar, metrics, stateData);
+    // Render title bar
+    const epicTitle = stateData?.active_epic || '—';
+    const stepNum = stateData?.epicCycle?.current_step ? (stateData.epicCycle.completed_steps?.length || 0) + 1 : 0;
+    titleBar.setContent(`{bold}{magenta}bigpowers factory{/magenta}{/bold} — ${epicTitle} — step ${stepNum} / 8`);
+
+    renderMetricsBar(metricsBar, metrics, stateData, epics);
     renderPipeline(pipeline, stateData);
     renderEpicQueue(epicQueue, epics, executionStatus);
     renderStateYaml(actionLog, stateData);
