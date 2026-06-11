@@ -9,7 +9,7 @@ function renderStateYaml(box, stateData) {
   }
 
   const lines = [];
-  lines.push('{bold}{cyan}state.yaml{/cyan}{/bold}');
+  lines.push('{bold}CURRENT ACTION{/bold}');
   lines.push('');
 
   const pairs = [
