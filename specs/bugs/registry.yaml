@@ -21,7 +21,8 @@ bugs:
     risk_level: "low"
     commit_message: "feat(dashboard/tui): render blessed tags and improve layout (fba0e49)"
   - id: BUG-2026-06-11T160000
-    status: open
+    status: fixed
+    commit_message: "fix(dashboard/tui): replace invalid {dim} tags with {gray-fg} (ce06c07)"
     severity: medium
     scope: dashboard/tui
     title: "{dim} and {|} render as literal text after TUI prototype adaptation"
