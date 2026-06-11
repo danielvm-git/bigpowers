@@ -1,4 +1,4 @@
-const { STEPS } = require('../data/pipeline-map');
+const { STEPS } = require('../loaders/pipeline-map');
 
 function renderPipeline(box, stateData) {
   if (!box || typeof box.setContent !== 'function') {

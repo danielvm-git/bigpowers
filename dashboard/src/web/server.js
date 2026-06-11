@@ -1,7 +1,7 @@
 const path = require('path');
-const { watch } = require('../data/watcher');
-const reader = require('../data/reader');
-const metrics = require('../data/metrics');
+const { watch } = require('../loaders/watcher');
+const reader = require('../loaders/reader');
+const metrics = require('../loaders/metrics');
 
 let express;
 try {

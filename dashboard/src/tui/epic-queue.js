@@ -1,4 +1,4 @@
-const { gateIcon, gateColor } = require('../data/gate-status');
+const { gateIcon, gateColor } = require('../loaders/gate-status');
 
 function renderEpicQueue(box, epics, executionStatus) {
   if (!box || typeof box.setContent !== 'function') {

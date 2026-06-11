@@ -1,7 +1,7 @@
 const path = require('path');
-const { watch } = require('../data/watcher');
-const { readStateYaml, readExecutionStatus, readEpicShards, readCycleTimes } = require('../data/reader');
-const { getMetrics } = require('../data/metrics');
+const { watch } = require('../loaders/watcher');
+const { readStateYaml, readExecutionStatus, readEpicShards, readCycleTimes } = require('../loaders/reader');
+const { getMetrics } = require('../loaders/metrics');
 const { renderPipeline } = require('./pipeline');
 const { renderEpicQueue } = require('./epic-queue');
 const { renderMetricsBar } = require('./metrics-bar');

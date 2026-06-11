@@ -6,16 +6,17 @@ release:
   last_tag: "v3.0.0"
   last_publish: null
 epic_cycle:
-  current_step: 11
-  next_skill: verify-work
+  current_step: 12
+  next_skill: release-branch
   completed_steps:
     - stocktake-skills
     - plan-work
     - execute-plan
+    - verify-work
 git:
   branch: feat/factory-dashboard
   hash: 3517c2d
 handoff:
-  last_step_completed: "e09s06 execute-plan: All 11 BCPs complete. 61/61 skills now have HARD GATE enforcement callouts. 100% compliance verified."
+  last_step_completed: "e09s06 verify-work: All 11 BCP verification tasks pass. 69 HARD GATE callouts verified. sync-skills.sh artifacts regenerated. Ready for release."
   open_decisions: []
-  next_skill: verify-work
+  next_skill: release-branch
