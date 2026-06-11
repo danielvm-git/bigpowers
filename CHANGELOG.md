@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/danielvm-git/bigpowers/compare/v1.5.0...v1.5.1) (2026-06-11)
+
+
+### Bug Fixes
+
+* **dashboard:** correct require path typo in test files ([8f7e8eb](https://github.com/danielvm-git/bigpowers/commit/8f7e8ebf02b43495c9698f4e4832b8894977d066))
+
 # [1.5.0](https://github.com/danielvm-git/bigpowers/compare/v1.4.0...v1.5.0) (2026-06-11)
 
 
