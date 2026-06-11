@@ -1,9 +1,9 @@
 const assert = require('assert');
 const path = require('path');
-const reader = require('../sr./loaders/reader');
-const metrics = require('../sr./loaders/metrics');
-const pipelineMap = require('../sr./loaders/pipeline-map');
-const gateStatus = require('../sr./loaders/gate-status');
+const reader = require('../src/loaders/reader');
+const metrics = require('../src/loaders/metrics');
+const pipelineMap = require('../src/loaders/pipeline-map');
+const gateStatus = require('../src/loaders/gate-status');
 
 let passed = 0;
 

@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-const { watch } = require('../sr./loaders/watcher');
+const { watch } = require('../src/loaders/watcher');
 
 const testFixturesDir = path.join(__dirname, 'fixtures');
 let changeEventFired = false;
