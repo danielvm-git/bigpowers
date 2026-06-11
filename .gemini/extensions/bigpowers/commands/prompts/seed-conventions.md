@@ -198,7 +198,7 @@ touch specs/tech-architecture/design.md
 touch specs/tech-architecture/REFACTOR_LATEST.md
 touch specs/tech-architecture/IMPACT_LATEST.md
 touch specs/bugs/registry.yaml
-echo "# Specs\n\nAll planning documents for this project. Evolved bigpowers structure (v4.0.0+)." > specs/README.md
+echo "# Specs\n\nAll planning documents for this project. Evolved bigpowers structure (v2.0.0+)." > specs/README.md
 ```
 
 **Note:** `specs/state.yaml.lock` is NOT pre-created — it is acquired and released dynamically during writes to prevent concurrency conflicts.
