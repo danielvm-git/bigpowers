@@ -4,7 +4,7 @@
 **Status:** ready  
 **Type:** sustain-cleanup  
 **Context:** Post-e09 scope correction audit (specs/audit/SCOPE-CORRECTION-2026-06-10.md). Dashboard built but unverified; skill consolidation done but misreported; BCP accounting and cycle-time ledger missing; inflated plans need retirement.  
-**Target version:** 3.1.0  
+**Target version:** 2.0.0 (released as v2.0.0, planned as v3.1.0)  
 **Scope baseline:** ~10 BCPs across 4 stories  
 **Entry skill:** plan-work → build-epic × each story below  
 **Audit basis:** specs/audit/SCOPE-CORRECTION-2026-06-10.md
@@ -181,8 +181,8 @@ None have been verified with a real browser.
   - Retain original content for historical reference but mark as archived
   - verify: `test -f specs/archive/PLAN-factory-dashboard.md && test -f specs/archive/PLAN-refactor-skills-workflow.md`
 
-- [BCP 8] **Update release-plan.yaml for v3.1.0:** Set `release.status: planned`, `release.version: "3.1.0"`, and `release.bump_hint: patch`. Add an `e11` entry for the sustain cleanup epic referencing `specs/epics/e11-sustain-cleanup.yaml` (will be created by build-epic).
-  - verify: `python3 -c "import yaml; d=yaml.safe_load(open('specs/release-plan.yaml')); assert d['release']['status'] == 'planned'; assert d['release']['version'] == '3.1.0'"`
+- [BCP 8] **Update release-plan.yaml for v2.0.0:** Set `release.status: planned`, `release.version: "2.0.0"`, and `release.bump_hint: patch`. Add an `e11` entry for the sustain cleanup epic referencing `specs/epics/e11-sustain-cleanup.yaml` (will be created by build-epic).
+  - verify: `python3 -c "import yaml; d=yaml.safe_load(open('specs/release-plan.yaml')); assert d['release']['status'] == 'planned'; assert d['release']['version'] == '2.0.0'"`
 
 ---
 
@@ -222,7 +222,7 @@ None have been verified with a real browser.
 - [ ] All 10 epic shards have `bcps:` field
 - [ ] `specs/metrics/cycle-times.yaml` has 10+ entries
 - [ ] Inflated plans archived in `specs/archive/`
-- [ ] `release-plan.yaml` reflects v3.1.0
+- [ ] `release-plan.yaml` reflects v2.0.0
 - [ ] `state.yaml` `active_flow` updated to reflect current state
 - [ ] SKILL-INDEX.md reads 43 standalone skills
 - [ ] `dashboard/src/data/` directory removed

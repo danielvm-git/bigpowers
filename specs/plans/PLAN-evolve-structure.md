@@ -3,7 +3,7 @@
 **Status:** Draft
 **Author:** dvm
 **Date:** 2026-06-11
-**Target Release:** 4.0.0 (breaking)
+**Target Release:** 2.0.0 (breaking)
 **Source Documents:**
 - `docs/file-structure/projected-structure-bigpowers-evolved.md` (target directory layout)
 - `specs/sdd-adequacy-ranking.md` (methodology comparison that justifies design)
@@ -395,7 +395,7 @@ Phase 5: Scripts & Validation (depends on Phase 4)
 
 Phase 6: Documentation & Index
   ├── SKILL-INDEX.md update
-  ├── RELEASE.md update (4.0.0 notes)
+  ├── RELEASE.md update (2.0.0 notes)
   └── README.md update
 ```
 
@@ -506,7 +506,7 @@ For projects currently using Original bigpowers (33.5):
 | Risk | Likelihood | Impact | Mitigation |
 |------|-----------|--------|------------|
 | Skills fail to find files at old paths | High | Medium | Phase 2 renames all paths; skill verification catches misses |
-| Existing projects break on upgrade | High | High | `convert-legacy.sh` migration script; 4.0.0 is breaking by design |
+| Existing projects break on upgrade | High | High | `convert-legacy.sh` migration script; 2.0.0 is breaking by design |
 | Epic capsule format incompatibility between skills | Medium | High | Standardized `epic.yaml` schema validated by CI |
 | State write-lock deadlocks | Low | High | Lock timeout (60s) + force-release mechanism |
 | Token budget increase from capsule dirs | Low | Medium | Archiving completed epics offsets; decoupled tasks YAML reduces loads |
@@ -519,7 +519,7 @@ For projects currently using Original bigpowers (33.5):
 2. **Switch to build agent** to execute Phase 1
 3. Execute phases 1–6 sequentially
 4. After Phase 6: `stocktake-skills` to verify compliance
-5. Publish as `v4.0.0` with `BREAKING CHANGE:` commit
+5. Publish as `v2.0.0` with `BREAKING CHANGE:` commit
 
 ---
 

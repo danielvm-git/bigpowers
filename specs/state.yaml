@@ -1,25 +1,20 @@
-active_flow: sustain
-active_epic_id: e11
-active_story_id: e11s05
+active_flow: "sustain"
+active_epic_id: "e11"
+active_story_id: "e11s05"
 completed_epic: true
 release:
-  target_version: "3.1.0"
+  target_version: "2.0.0"
   last_tag: "v3.0.0"
-  last_publish: null
+  last_publish: "null"
 epic_cycle:
   current_step: 6
-  next_skill: release-branch
+  next_skill: "release-branch"
   completed_steps:
-    - plan-work
-    - kickoff-branch
-    - develop-tdd
-    - verify-work
-    - commit-message
 git:
-  branch: main
-  hash: 85fdff9
+  branch: "main"
+  hash: "77a4e88"
   pushed: true
 handoff:
   last_step_completed: "e11 complete. s05: SKILL-INDEX verified accurate at 61 skills (18 sub-ops were never standalone SKILL.md dirs); dashboard/src/data/ dead code absent. All 5 stories done."
-  open_decisions: []
-  next_skill: null
+  open_decisions: "[]"
+  next_skill: "null"

@@ -3,7 +3,7 @@
 **Status:** Draft
 **Author:** dvm
 **Date:** 2026-06-11
-**Target Release:** 4.0.0 (breaking)
+**Target Release:** 2.0.0 (breaking)
 **Merges:**
 - `specs/plans/PLAN-evolve-structure.md` (output paths, capsule dirs, verification ledger, state lock)
 - `specs/plans/PLAN-add-hard-gates.md` (HARD GATE enforcement callouts for 35+ skills)
@@ -252,7 +252,7 @@ This harmonized plan **supersedes** both `PLAN-evolve-structure.md` and `PLAN-ad
 2. **Phase 0**: Create `specs/plans/HARD-GATES-REFERENCE.md`
 3. **Switch to build agent** for Phase 1–6 execution
 4. **Phase 6 verification**: `stocktake-skills` confirms 100% compliance on both structure and HARD GATES
-5. **Release**: `v4.0.0` with `BREAKING CHANGE:` commit message
+5. **Release**: `v2.0.0` with `BREAKING CHANGE:` commit message
 
 ---
 

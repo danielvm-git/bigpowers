@@ -27,7 +27,7 @@ stories:
     title: "Plan retirement + scope correction"
     bcps: 2
     tasks:
-      - desc: "Archive inflated plans, update release-plan.yaml for v3.1.0"
+      - desc: "Archive inflated plans, update release-plan.yaml for v2.0.0 (released)"
         verify: "test -f specs/archive/PLAN-factory-dashboard.md && test -f specs/archive/PLAN-refactor-skills-workflow.md"
   - id: e11s05
     title: "SKILL-INDEX fix + dead code removal"
