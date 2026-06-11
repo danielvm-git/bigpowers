@@ -140,6 +140,33 @@ Once the story is complete and all tests pass:
 2. Present the script to the user as a step-by-step guide.
 3. Wait for the user to confirm the behavioral correctness before moving to the next story or declaring the task done.
 
+## TDD phases
+
+### Red Phase
+
+Write a failing test first that confirms the behavior you want to implement:
+
+- Test describes the desired observable behavior through the public interface
+- Run the test to confirm it fails for the right reason (not a syntax error, not a typo)
+- Commit the failing test: `git commit -m "test(<scope>): <description>"`
+
+### Green Phase
+
+Write the minimum amount of code to make the test pass:
+
+- No extra logic, no anticipated future cases, no premature optimization
+- Focus only on making the current test pass
+- Commit the passing code: `git commit -m "feat(<scope>): <description>" or "fix(<scope>): <description>"`
+
+### Refactor Phase
+
+Improve the code structure, naming, and clarity without changing behavior:
+
+- Extract duplication, apply SOLID principles where natural, deepen modules
+- Run tests after each refactor step to ensure behavior is preserved
+- Commit refactoring: `git commit -m "refactor(<scope>): <description>"`
+- Apply the Boy Scout Rule: leave the code cleaner than you found it
+
 ## Checklist Per Cycle
 
 ```
@@ -154,6 +181,11 @@ Once the story is complete and all tests pass:
 [ ] Progress committed (Conventional Commits)
 [ ] verify: command passes
 ```
+
+## Handoff
+
+Gate: READY -> next: verify-work
+Writes: state.yaml handoff.next_skill = verify-work
 
 ---
 

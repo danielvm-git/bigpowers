@@ -1,6 +1,8 @@
 
 # Build Epic
 
+Scope: one story. Called by orchestrate-project Phase 4. Not a replacement for orchestrate-project.
+
 Orchestrates the **build** flow for a single epic: survey → plan tasks → kickoff → TDD → verify → audit → commit → release.
 
 > **HARD GATE** — Set `specs/state.yaml` `active_flow: build_epic` and `active_epic: eNN` before starting.
@@ -23,10 +25,11 @@ Orchestrates the **build** flow for a single epic: survey → plan tasks → kic
 ## Process
 
 1. Read `specs/state.yaml`, `specs/execution-status.yaml`, `specs/release-plan.yaml`, active `specs/epics/eNN-*.yaml`.
-2. If `epic_cycle.step` missing, set to `1`.
-3. Run **only the current step** (resume mode) unless user asked for full auto-run.
-4. After step verify passes, increment `epic_cycle.step` in `state.yaml` (or `bash scripts/bp-yaml-set.sh` if available).
-5. On story complete, set `execution-status.yaml` story key to `done`; run `bash scripts/sync-status-from-epics.sh`.
+2. **BCP Tracking (Step 2):** After `plan-work` completes, read the `bcps:` count from the epic shard and carry it into `state.yaml` as `epic_cycle.story_bcps = N`.
+3. If `epic_cycle.step` missing, set to `1`.
+4. Run **only the current step** (resume mode) unless user asked for full auto-run.
+5. After step verify passes, increment `epic_cycle.step` in `state.yaml` (or `bash scripts/bp-yaml-set.sh` if available).
+6. On story complete, set `execution-status.yaml` story key to `done`; run `bash scripts/sync-status-from-epics.sh`.
 
 ## Handoff
 

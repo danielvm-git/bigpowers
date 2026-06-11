@@ -39,6 +39,11 @@ If this plan touches an existing module or symbol, run `assess-impact` first to 
 
 > **SLOPCHECK (HARD GATE)** — For every external package proposed in the plan, run slopcheck (or manual registry check) and tag: `[OK]`, `[SUS]`, or `[SLOP]`. `[SUS]` and `[SLOP]` require explicit human approval before the step may execute. Document tags inline next to the package name.
 
+## Invocation modes
+
+- Default: full plan with zoom-out mandate, impact assessment, slopcheck
+- --fast (formerly plan-work-fast): Skip zoom-out and impact assessment. Use for tasks under 3 BCPs with no module interface changes.
+
 ## Process
 
 ### 1. Explore the codebase
@@ -61,6 +66,8 @@ Break the implementation into the smallest possible steps where each step:
 ### 3. Write epic shard tasks
 
 Append tasks under the relevant story in `specs/epics/{epic-id}-*.yaml` (`tasks[]` with `desc` + `verify`). Update `specs/release-plan.yaml` if a new story is needed. Run `bash scripts/sync-status-from-epics.sh` after structural changes.
+
+**BCP Accounting:** Each task line MUST be prefixed `[BCP N]` where N is its sequence number. After all tasks, write `bcps: <total>` to the epic shard YAML under the story's metadata.
 
 <plan-template>
 
@@ -127,3 +134,40 @@ Before finalizing, confirm:
 - Are the verify commands actually runnable in this project?
 
 After writing epic tasks, suggest `kickoff-branch` (if not already on a feature branch) then `build-epic`, `execute-plan`, or `develop-tdd`.
+
+## Sub-operations
+
+### Define Success (absorbed)
+
+Before planning, convert task statements into observable "step → verify: <cmd>" pairs:
+
+- Break the task into observable outcomes (behaviors) rather than implementation steps
+- Write pairs in the format: [What must be true] → verify: <runnable command>
+- Challenge completeness: are there any required behaviors not covered?
+- Get user confirmation: "Does this capture everything the task requires?"
+- Once confirmed, these pairs become the skeleton for plan-work steps
+
+### Zoom-Out Check (absorbed)
+
+When modifying an existing module, confirm scope is understood:
+
+- State the module's **purpose** — what is it responsible for?
+- Name the **callers** — who depends on it?
+- List the **contracts** — what invariants or interfaces must be preserved?
+
+If you cannot answer all three without deep code archaeology, scope is misunderstood. Clarify with the user before writing steps.
+
+### Slopcheck (absorbed)
+
+For every external package proposed in the plan, tag each with one of:
+
+- `[OK]` — package is mature, actively maintained, appropriate scope
+- `[SUS]` — package is suspiciously broad, has maintenance concerns, or unclear fit
+- `[SLOP]` — package is unmaintained, has known security issues, or out of scope
+
+`[SUS]` and `[SLOP]` require explicit human approval before the step may execute. Document tags inline next to the package name.
+
+## Handoff
+
+Gate: READY -> next: kickoff-branch
+Writes: state.yaml handoff.next_skill = kickoff-branch

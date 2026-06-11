@@ -61,6 +61,20 @@ Whenever a significant decision is made or a milestone is reached:
 
 → verify: `bash scripts/validate-specs-yaml.sh`
 
+## Operations
+
+### show-state (absorbed)
+
+Print the current session state: `cat specs/state.yaml`, then display `active_flow` and `handoff.next_skill` for quick reference.
+
+### reset-state (absorbed)
+
+Clear ephemeral session state. Set `active_epic_id`, `active_story_id`, and `epic_cycle.current_step` to `null` in `specs/state.yaml`. Use when ending a phase or starting a new project context.
+
+### compact-state (absorbed)
+
+Archive verbose decisions before a context transition. Move all entries from `handoff.open_decisions` to `specs/adr/` as individual ADR files, then reset `handoff.open_decisions` to an empty list.
+
 ## File Format: specs/state.yaml
 
 ```yaml

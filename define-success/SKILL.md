@@ -1,3 +1,5 @@
+ARCHIVED: content absorbed into plan-work
+
 ---
 name: define-success
 model: sonnet

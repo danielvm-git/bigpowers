@@ -88,3 +88,8 @@ Ready to develop.
 ```
 
 Suggest next skill: `develop-tdd` to start the TDD loop, or `execute-plan` if `specs/release-plan.yaml + epic shards` already exists.
+
+## Handoff
+
+Gate: READY -> next: develop-tdd
+Writes: state.yaml handoff.next_skill = develop-tdd

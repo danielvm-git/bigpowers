@@ -5,6 +5,11 @@ Run this self-review before asking anyone else to look at the code. The goal is 
 
 **Distinct from `request-review`:** This is the coding agent checking its own work. No second agent is involved. Run this first; run `request-review` after this passes.
 
+## Modes
+
+- Default: full checklist
+- --quick: Run only Supply Chain and Test Coverage. Use for changes under 50 LOC.
+
 ## Checklist
 
 ### Supply Chain & Security
@@ -92,6 +97,11 @@ Report the checklist with ✓ / ✗ per item. For each ✗, describe what needs 
 
 If all items pass: suggest running `request-review` for an independent second opinion.
 If any items fail: fix them before proceeding.
+
+## Handoff
+
+Gate: READY -> next: commit-message
+Writes: state.yaml handoff.next_skill = commit-message
 
 ---
 

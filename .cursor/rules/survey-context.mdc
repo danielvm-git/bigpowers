@@ -8,6 +8,8 @@ alwaysApply: false
 
 Read the project's current state and give a phase map + next-skill recommendation. This is the "where am I?" skill — run it at the start of every task.
 
+Orchestrate-project 6 phases: Phase 1 Discover - Phase 2 Elaborate - Phase 3 Plan - Phase 4 Build - Phase 5 Verify - Phase 6 Release
+
 ## Process
 
 ### 1. Read CONVENTIONS.md
@@ -103,3 +105,22 @@ If something looks wrong:
 - Git hash in `state.yaml` stale vs `git rev-parse`
 
 Report blockers first, before recommendations.
+
+### 8. Record story start timestamp
+
+At story start, write `metrics.story_start` with the current ISO 8601 timestamp to `specs/state.yaml` for cycle-time tracking.
+
+## Utility outputs
+
+### list-epics (absorbed)
+
+Loop through all `specs/epics/*.yaml` files and print a summary of story counts per epic. Useful for understanding overall project scope and epic distribution.
+
+### check-gates (absorbed)
+
+Print the current `active_flow` from `specs/state.yaml`, run `bash scripts/validate-specs-yaml.sh` to verify YAML integrity, and show `git status` to report uncommitted changes and branch state. Use before handoffs or context transitions.
+
+## Handoff
+
+Gate: READY -> next: plan-work
+Writes: state.yaml handoff.next_skill = plan-work

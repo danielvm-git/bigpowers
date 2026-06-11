@@ -26,7 +26,7 @@ claude /orchestrate --mode fast-track
 1. **DISCOVER** (3-6 hours): Understand problem. Deliverables: `requirements/VISION_LATEST.yaml`, `requirements/SCOPE_LATEST.yaml`, `plans/TECH_STACK_LATEST.md`.
 2. **ELABORATE** (3-6 hours): Research solutions. Deliverables: Prior art in scope YAML, ADRs in `specs/adr/`.
 3. **PLAN** (2-4 hours): Write verifiable plan. Deliverables: `release-plan.yaml`, `epics/eNN-*.yaml` with `verify:` per task.
-4. **BUILD** (1-8 hours): Execute plan. Deliverables: Code; update `execution-status.yaml`.
+4. **BUILD** (1-8 hours): Execute plan. Runs build-epic once per story in WSJF order. Deliverables: Code; update `execution-status.yaml`.
 5. **VERIFY** (1-3 hours): Validate success criteria. Deliverables: UAT evidence, `specs/EVALS-*.md` if used.
 6. **RELEASE** (30 min - 2 hours): Ship to production. Deliverables: Release tag (vX.Y.Z), `state.yaml` `release.last_tag`.
 
@@ -74,7 +74,7 @@ Detailed documentation for the `orchestrate-project` meta-skill.
 ### PHASE 2: ELABORATE
 - **Goal**: Research solutions and lock architectural design.
 - **Deliverables**: Prior art in scope YAML, ADRs in `specs/adr/`.
-- **Skills**: `model-domain`, `define-language`, `challenge-design`.
+- **Skills**: `grill-me`, `model-domain`, `define-language`, `deepen-architecture`, `design-interface`.
 - **Gate**: Quality ≥94% (via `request-review`) + Confirm ("Are decisions locked?").
 
 ### PHASE 3: PLAN

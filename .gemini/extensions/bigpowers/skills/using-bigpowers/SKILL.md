@@ -25,6 +25,8 @@ A curated set of skills organized around the PMBOK developer lifecycle. Each ski
 
 ## The lifecycle at a glance
 
+See orchestrate-project for the canonical 6-phase lifecycle.
+
 ```
 BOOTSTRAP   using-bigpowers (this skill, first time only)
               ↓

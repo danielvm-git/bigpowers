@@ -5,6 +5,10 @@
 
 Finalize a completed feature branch: verify coverage gates, integrate onto `main`, and clean up the worktree.
 
+## Additional modes
+
+- --hotfix: Emergency fix. Cherry-pick to main plus immediate tag. Skip PR in solo profile.
+
 ## Integrate mode
 
 Choose mode from project profile or explicit user request:
@@ -135,6 +139,25 @@ git branch -d <branch-name>
 - If `git worktree remove` fails due to uncommitted changes, ask the user: "There are uncommitted changes in the worktree. Force remove? (y/n)". If yes: `git worktree remove -f ../<branch-name>`.
 - If the directory `../<branch-name>` is already missing, `git worktree remove` might fail; the `|| true` ensures the process continues to branch deletion.
 
+### 8a. Cycle-time recording
+
+After landing the branch, record delivery metrics for this story:
+
+1. Write `metrics.story_end` with the current ISO 8601 timestamp to `specs/state.yaml`
+2. Compute `cycle_minutes`: `story_end` minus `story_start` in minutes
+3. Compute `bcp_per_hour`: `epic_cycle.story_bcps` divided by `(cycle_minutes / 60)`
+4. Append a row to `specs/metrics/cycle-times.yaml` with fields: `id`, `bcps`, `start`, `end`, `cycle_minutes`, `bcp_per_hour`
+
+Example row:
+```yaml
+- id: e01s01
+  bcps: 3
+  start: "2026-06-10T09:45:00Z"
+  end: "2026-06-10T11:15:00Z"
+  cycle_minutes: 90
+  bcp_per_hour: 2.0
+```
+
 ### 9. Return to main (primary worktree)
 
 ```bash
@@ -149,3 +172,8 @@ Confirm:
 - [ ] cwd is the primary repository root, not `../<task-slug>`
 
 Report: "Branch released. Integrate mode: <solo-local|team-pr>. cwd: $(pwd) on $(git branch --show-current)."
+
+## Handoff
+
+Gate: READY -> next: survey-context
+Writes: state.yaml handoff.next_skill = survey-context

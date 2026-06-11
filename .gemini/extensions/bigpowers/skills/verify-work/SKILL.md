@@ -12,6 +12,11 @@ description: "Multi-phase UAT gate — cold-start smoke, build, typecheck, lint,
 
 Review answers "is the code good?"; Verify answers "does the built thing do what was promised?"
 
+## Modes
+
+- Default: full UAT plus gaps loop
+- --smoke: Cold-start only plus one happy-path flow. Use for hotfixes.
+
 ## Process
 
 0. **Branch check** — must not be `main`/`master`.
@@ -21,6 +26,29 @@ Review answers "is the code good?"; Verify answers "does the built thing do what
 3. Mechanical gates: build → typecheck → lint → tests (from `CLAUDE.md`).
 4. **Step-by-step UAT** — one user-observable action at a time.
 5. **Gaps loop** — failures → log → `plan-work` → re-verify.
+
+## Verify sub-operations
+
+### Cold-Start Smoke (absorbed)
+
+For applications, verify correctness from a clean state:
+
+- Stop the running server (if any)
+- Clear any caches (browser, application caches, compiled artifacts)
+- Boot the application from scratch
+- Verify that no stale artifacts or configuration are affecting the behavior
+
+This catches environment-specific bugs and ensures the build is reproducible.
+
+### Gaps Loop (absorbed)
+
+After UAT, identify and close any gaps between promised behavior and actual behavior:
+
+- Capture what was promised in the epic task description
+- Document what actually happened (expected vs actual)
+- If behavior doesn't match the promises, log the gap
+- Loop back to `plan-work` or `develop-tdd` to fix the gap
+- Re-verify until all gaps are closed (gaps count = 0)
 
 ## UAT dialogue
 
@@ -32,6 +60,11 @@ Review answers "is the code good?"; Verify answers "does the built thing do what
 → verify: `grep -c 'verify:' specs/epics/*.yaml | awk '{if($1>0) print "OK"; else print "MISSING"}'`
 
 See [REFERENCE.md](REFERENCE.md) for cold-start and gaps template.
+
+## Handoff
+
+Gate: READY -> next: audit-code
+Writes: state.yaml handoff.next_skill = audit-code
 
 ---
 
