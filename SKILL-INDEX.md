@@ -2,7 +2,7 @@
 
 **Purpose:** One canonical reference for all bigpowers skills. Referenced by README.md, RELEASE-PLAN.md, and CONVENTIONS.md. Updated per-release.
 
-**Last updated:** 2026-06-11 (v3.1.0 — verified 61 active skills; 18 sub-op concepts absorbed as sub-sections into parent SKILL.md files; count confirmed accurate)
+**Last updated:** 2026-06-11 (v2.0.0 — verified 61 active skills; 18 sub-op concepts absorbed as sub-sections into parent SKILL.md files; count confirmed accurate)
 
 ---
 
@@ -84,7 +84,7 @@
 | 49 | Utility | `edit-document` | Edit documents in specs/ | specs/&lt;name&gt;.md | ✅ Active |
 | 50 | Utility | `session-state` | Track decisions in state.yaml; absorbs show-state, reset-state, compact-state, list-epics, check-gates | state.yaml | ✅ Active |
 | 51 | Utility | `migrate-spec` | Migrate foreign spec formats | specs/ | ✅ Active |
-| 52 | Utility | `visual-dashboard` | Browser dashboard | .bigpowers/dashboard/ | ✅ Active |
+| 52 | Utility | `visual-dashboard` | Browser dashboard (HTTP cockpit) | `npm run visual-dashboard` → GET /cockpit.html | ✅ Active |
 | 53 | Utility | `write-document` | BMAD technical documents | specs/&lt;name&gt;.md | ✅ Active |
 | 54 | Utility | `setup-environment` | Pre-install deps before work | (.env, packages) | ✅ Active |
 | 55 | Utility | `reset-baseline` | Restore clean known state | (clean tree) | ✅ Active |

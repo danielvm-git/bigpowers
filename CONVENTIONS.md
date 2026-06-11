@@ -49,12 +49,28 @@ Every skill that produces written output writes to `specs/` at the project root.
 
 | Layer | File | Answers |
 |-------|------|---------|
-| Session | `specs/state.yaml` | Active flow, epic/bug, ship-epic step, git |
-| Release index | `specs/release-plan.yaml` | Target semver, WSJF epic list, pointers to `epics/` |
+| Session | `specs/state.yaml` | Active flow, epic/bug, ship-epic step, git, `handoff.next_skill`, `metrics.story_start` |
+| Release index | `specs/release-plan.yaml` | Target semver, WSJF epic list, BCP baseline per story |
 | Progress | `specs/execution-status.yaml` | Flat status keys (`e01`, `e01s01`) — sole SoT for story state |
+| Cycle-time ledger | `specs/metrics/cycle-times.yaml` | Per-story: BCPs, start, end, cycle minutes, BCP/hr **(v2.0.0)** |
 | Planning UI | `specs/planning-status.yaml` | Discover-phase workflow checklist (optional) |
 
 **Do not** put story status in `release-plan.yaml`. **Do not** duplicate the release plan inside `state.yaml`.
+
+### BCP accounting mandate (v2.0.0)
+
+Every task written by `plan-work` MUST be labeled `[BCP N]` where N is the estimated Build Commit Points for that task. The story total is summed and written to `state.yaml` as `epic_cycle.story_bcps`. The BCP baseline for each story MUST appear in `specs/release-plan.yaml` before implementation begins. `release-branch` automatically appends a row to `specs/metrics/cycle-times.yaml` with the final BCP/hr after the story lands.
+
+### Timestamp mandate (v2.0.0)
+
+- `survey-context` MUST write `metrics.story_start` (ISO 8601) to `specs/state.yaml` at the start of every story.
+- `release-branch` MUST write `metrics.story_end`, `metrics.cycle_minutes`, and `metrics.bcp_per_hour` to `specs/state.yaml` and append a row to `specs/metrics/cycle-times.yaml` when the story lands.
+
+Missing timestamps are a gate violation — do not advance past `release-branch` without them.
+
+### next_skill signaling mandate (v2.0.0)
+
+Every critical-path skill (survey-context, plan-work, kickoff-branch, develop-tdd, verify-work, audit-code, commit-message, release-branch) MUST write `handoff.next_skill` to `specs/state.yaml` as its last action. Agents MUST read `state.yaml` and follow `handoff.next_skill` before asking "what comes next?".
 
 ### Intent vs delivery vs execution
 

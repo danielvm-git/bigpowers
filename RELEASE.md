@@ -48,12 +48,27 @@ npm view bigpowers
 # GitHub → Releases
 ```
 
+## Per-Project Semver Convention (v2.0.0)
+
+When using bigpowers to build a *project* (not the bigpowers package itself), the recommended semver lifecycle is:
+
+| Stage | Version | How |
+|-------|---------|-----|
+| Pre-delivery | `0.0.0-β` | Initial state after `seed-conventions` |
+| Each `feat:` story lands | `0.1.0`, `0.2.0`, … | `semantic-release` minor bump |
+| Developer declares MVP | `1.0.0` | Allow the `1.0.0` tag in release config |
+| Post-MVP features | `1.1.0`, `1.2.0`, … | Normal semver from Conventional Commits |
+
+> This keeps all pre-MVP work in the `0.x.x` range, making the `1.0.0` tag a meaningful project milestone rather than an arbitrary number.
+
+---
+
 ## Commit Message Format
 
 **Required for automatic releases:**
 
 ```
-feat(scope): description          # Minor version bump (1.0.0 → 1.1.0)
+feat(scope): description          # Minor version bump (0.1.0 → 0.2.0 or 1.0.0 → 1.1.0)
 fix(scope): description           # Patch version bump (1.0.0 → 1.0.1)
 docs: description                 # No version bump
 ```

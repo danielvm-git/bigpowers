@@ -8,7 +8,7 @@
 
 `bigpowers` provides a prescriptive, vertical-slice methodology for building software with AI agents (Claude Code, Gemini CLI, Cursor). It bridges the gap between raw LLM capabilities and professional engineering standards.
 
-Published on npm: [bigpowers@1.0.0](https://www.npmjs.com/package/bigpowers)
+Published on npm: [bigpowers@2.0.0](https://www.npmjs.com/package/bigpowers)
 
 ---
 
@@ -96,16 +96,39 @@ bigpowers
 
 ---
 
-## 🏗 The BMAD Lifecycle
+## 🏗 The v2.0.0 Lifecycle
 
-Every task in `bigpowers` follows a prescriptive lifecycle (see `SKILL-INDEX.md`):
+Every project follows the **orchestrate-project 6-phase model** (full SOP: [`docs/WORKFLOW-SOP-v2.md`](docs/WORKFLOW-SOP-v2.md)):
 
-1.  **Discover**: survey-context, research-first, elaborate-spec.
-2.  **Elaborate / Plan**: scope-work, plan-work, slice-tasks.
-3.  **Build**: develop-tdd, execute-plan.
-4.  **Verify**: verify-work, run-evals — prove it works before review.
-5.  **Review / Release**: audit-code, request-review, release-branch.
-6.  **Sustain**: stocktake-skills, evolve-skill (benchmark-gated).
+```
+ONE TIME    seed-conventions  (CLAUDE.md, .claude/, .gemini/, agents/, skill sync)
+              ↓
+ONCE/PROJECT orchestrate-project
+              │
+              ├─ Ph1 DISCOVER   survey-context, research-first, elaborate-spec
+              ├─ Ph2 ELABORATE  model-domain, grill-me, define-language, deepen-architecture
+              ├─ Ph3 PLAN       scope-work, slice-tasks, plan-work → release-plan.yaml (BCP baseline)
+              ├─ Ph4 BUILD      build-epic × N stories
+              │
+              │  Per story — 8-step build-epic cycle:
+              │   1. survey-context   ← stamps story_start in state.yaml
+              │   2. plan-work        ← [BCP N] tasks + verify: commands
+              │   3. kickoff-branch   ← worktree + feature branch
+              │   4. develop-tdd      ← RED → GREEN → REFACTOR
+              │   5. verify-work      ← UAT gate
+              │   6. audit-code       ← quality gate ≥ 94%
+              │   7. commit-message   ← Conventional Commits + semver
+              │   8. release-branch   ← land to main; writes story_end + cycle-times.yaml
+              │
+              ├─ Ph5 VERIFY     run-evals, verify-work (project-level)
+              └─ Ph6 RELEASE    semantic-release → v1.0.0 MVP tag
+```
+
+**Semver:** projects start at `0.0.0-β`; each `feat:` story → minor bump; developer declares MVP → `1.0.0`.
+
+**BCP accounting:** every task labeled `[BCP N]`; story total in `state.yaml`; BCP/hr logged to `specs/metrics/cycle-times.yaml`.
+
+**next_skill signaling:** each critical-path skill writes `handoff.next_skill` to `state.yaml`. Call `survey-context` after any interruption to resume exactly where you left off.
 
 ---
 
@@ -118,8 +141,9 @@ Every task in `bigpowers` follows a prescriptive lifecycle (see `SKILL-INDEX.md`
 | **Scope** | `specs/requirements/SCOPE_LATEST.yaml` | In-scope / out-of-scope and success criteria. |
 | **Vision** | `specs/requirements/VISION_LATEST.yaml` | North star and initiative success criteria. |
 | **Decisions** | `specs/adr/` | Architectural Decision Records (irreversible choices). |
-| **Roadmap** | `specs/release-plan.yaml` + `specs/epics/` | WSJF-prioritized epics and stories. |
-| **Current** | `specs/state.yaml` | Session flow, active epic, handoff. |
+| **Roadmap** | `specs/release-plan.yaml` + `specs/epics/` | WSJF-prioritized epics and stories with BCP baseline. |
+| **Current** | `specs/state.yaml` | Session flow, active epic, `handoff.next_skill`, timestamps. |
+| **Metrics** | `specs/metrics/cycle-times.yaml` | Per-story BCPs, cycle minutes, BCP/hr (v2.0.0). |
 | **Index** | `SKILL-INDEX.md` | Canonical list of all active skills. |
 | **Style** | `CONVENTIONS.md` | Coding, testing, and naming standards. |
 
@@ -128,8 +152,10 @@ Every task in `bigpowers` follows a prescriptive lifecycle (see `SKILL-INDEX.md`
 ## 📁 Project Structure
 
 - `scripts/`: Installation, syncing, and compliance tools.
-- `specs/`: The "Brain" of your project — all planning and decisions live here (YAML cockpit: `state.yaml`, `release-plan.yaml`, `epics/`, `requirements/`).
-- `specs/wiki/`: Deprecated Obsidian layer — use `visual-dashboard` HTTP cockpit instead of `maintain-wiki`.
+- `specs/`: YAML cockpit — `state.yaml`, `release-plan.yaml`, `epics/`, `execution-status.yaml`, `requirements/`.
+- `specs/metrics/`: Cycle-time ledger (`cycle-times.yaml`) — per-story BCPs, timestamps, BCP/hr (v2.0.0).
+- `dashboard/`: Live monitoring tool — TUI (`npm run dashboard`) and web (`npm run dashboard:web`, port 7742).
+- `docs/`: Guides including `WORKFLOW-SOP-v2.md` (full SDLC SOP) and `using-bigpowers.md`.
 - `docs/references/`: Theoretical foundations (Uncle Bob, Ousterhout, Karpathy, etc.).
 - `[skill-name]/`: Source files for each of the 61 skills.
 
