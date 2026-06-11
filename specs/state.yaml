@@ -17,9 +17,9 @@ metrics:
   bcp_per_hour: 0.44
 git:
   branch: "main"
-  hash: "46f2ff3"
+  hash: "5a954f1"
   pushed: false
 handoff:
-  last_step_completed: "release-branch: Finalized e11 sustain cleanup release. All 5 stories delivered (10 BCPs). Updated CONVENTIONS.md with v2.0.0 BCP accounting & cycle-time ledger mandates. Added WORKFLOW-SOP-v2.md. Version alignment v3.1.0→v2.0.0. Archived e11 epic."
+  last_step_completed: "release-branch: TUI dashboard prototype adaptation complete. Rendered blessed box labels, expanded metricsBar to 3 lines (status/step-info/stats), fixed box colors (STATE.YAML→cyan, LEDGER→cyan, PIPELINE→green), added stage tracker (sur·pla·kic·tdd·ver·aud·com·rel), improved epic-queue with per-epic progress & release baseline footer. All smoke tests pass. Commit 5a954f1."
   open_decisions: "[]"
   next_skill: "survey-context"
