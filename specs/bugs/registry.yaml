@@ -31,3 +31,11 @@ bugs:
     risk_level: "low"
     commit_message: "fix(dashboard/tui): replace invalid {dim} tags with {gray-fg} (ce06c07)"
     hardening: "Test 5 in smoke.test.js asserts no literal {dim} or {|} in render output"
+  - id: BUG-2026-06-11T183000
+    status: open
+    severity: medium
+    scope: dashboard/cli
+    title: "dashboard CLI not exposed as bin entry — only works inside bigpowers repo"
+    file: bugs/BUG-2026-06-11T183000.md
+    approach: "Add bigpowers-dashboard to bin field in package.json pointing to dashboard/bin/dashboard.js"
+    risk_level: "low"
