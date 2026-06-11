@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/danielvm-git/bigpowers/compare/v1.4.0...v1.5.0) (2026-06-11)
+
+
+### Features
+
+* **skills+dashboard:** consolidation 61→43 and factory dashboard ([e9d2d8c](https://github.com/danielvm-git/bigpowers/commit/e9d2d8c5d5210a2422b8675d2d5a51060ac21851))
+
 # [1.4.0](https://github.com/danielvm-git/bigpowers/compare/v1.3.2...v1.4.0) (2026-06-11)
 
 
