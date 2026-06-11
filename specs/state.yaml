@@ -17,9 +17,9 @@ epic_cycle:
     - release-branch
 git:
   branch: main
-  hash: 9d02d50
+  hash: 85fdff9
   pushed: true
 handoff:
-  last_step_completed: "e09s06 release-branch: Squash-merged to main (9d02d50). Pushed to origin/main. Semantic release will auto-tag as v3.1.0."
+  last_step_completed: "e09 complete + feat/factory-dashboard: 42 BCPs (24 refactor-skills + 18 build-dashboard) merged to main"
   open_decisions: []
   next_skill: null
