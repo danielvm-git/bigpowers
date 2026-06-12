@@ -1,3 +1,10 @@
+## [2.1.3](https://github.com/danielvm-git/bigpowers/compare/v2.1.2...v2.1.3) (2026-06-12)
+
+
+### Bug Fixes
+
+* **dashboard:** resolve wrong folder targeting and update TUI metrics ([bc8d84a](https://github.com/danielvm-git/bigpowers/commit/bc8d84af6221aa59aa131bf3fdd03f25bc67ac33))
+
 ## [2.1.2](https://github.com/danielvm-git/bigpowers/compare/v2.1.1...v2.1.2) (2026-06-12)
 
 
