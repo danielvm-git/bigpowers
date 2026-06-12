@@ -1,3 +1,10 @@
+## [2.1.2](https://github.com/danielvm-git/bigpowers/compare/v2.1.1...v2.1.2) (2026-06-12)
+
+
+### Bug Fixes
+
+* **dashboard:** support alternative epic id and title keys in yaml parser ([d911e8f](https://github.com/danielvm-git/bigpowers/commit/d911e8f61c608a96d8d3d42cb4a4d19cff71ee3d))
+
 ## [2.1.1](https://github.com/danielvm-git/bigpowers/compare/v2.1.0...v2.1.1) (2026-06-11)
 
 

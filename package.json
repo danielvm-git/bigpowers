@@ -1,6 +1,6 @@
 {
   "name": "bigpowers",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "61 agent skills for spec-driven, test-first software development by solo developers",
   "main": "index.js",
   "scripts": {
