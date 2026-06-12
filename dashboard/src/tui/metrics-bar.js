@@ -1,29 +1,40 @@
-function renderMetricsBar(box, projectMetrics, stateData, epics, cycleTimes) {
+function renderMetricsBar(box, projectMetrics, stateData, epics, cycleTimes, executionStatus) {
   if (!box || typeof box.setContent !== 'function') {
     return;
   }
 
-  const ct = cycleTimes || [];
   const epicList = epics && Array.isArray(epics) ? epics : [];
+  const statusMap = executionStatus?.epics || new Map();
 
-  // Compute totals
+  // Compute totals and completed counts dynamically from execution-status.yaml
   let totalStories = 0;
   let targetBcps = 0;
+  let doneStories = 0;
+  let deliveredBcps = 0;
+  let doneEpics = 0;
+
   epicList.forEach(epic => {
+    let epicDone = true;
+    let hasStories = false;
     if (epic.stories && Array.isArray(epic.stories)) {
-      totalStories += epic.stories.length;
-      epic.stories.forEach(s => { targetBcps += s.bcps || 0; });
+      epic.stories.forEach(s => {
+        hasStories = true;
+        totalStories++;
+        targetBcps += s.bcps || 0;
+        if (statusMap.get(s.id) === 'done') {
+          doneStories++;
+          deliveredBcps += s.bcps || 0;
+        } else {
+          epicDone = false;
+        }
+      });
+    }
+    if (hasStories && epicDone) {
+      doneEpics++;
     }
   });
 
-  const doneStories = ct.length;
   const totalEpics = epicList.length;
-  const doneStoryIds = new Set(ct.map(c => c.id));
-  const doneEpics = epicList.filter(e =>
-    e.stories && e.stories.length > 0 && e.stories.every(s => doneStoryIds.has(s.id))
-  ).length;
-
-  const deliveredBcps = projectMetrics?.totalBcps ?? 0;
   const totalMin = projectMetrics?.totalMin ?? 0;
   const avgBcpPerHour = projectMetrics?.avgBcpPerHour;
   const version = stateData?.release?.target_version ?? '—';

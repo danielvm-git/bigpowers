@@ -156,7 +156,7 @@ function start(projectRoot) {
     // Title bar: fixed project identity
     titleBar.setContent(' {bold}{cyan-fg}⚙ bigpowers factory{/cyan-fg}{/bold} {gray-fg}v2 — seed {cyan-fg}→{/cyan-fg} epics {cyan-fg}→{/cyan-fg} mvp{/gray-fg}');
 
-    renderMetricsBar(metricsBar, metrics, stateData, epics, cycleTimes);
+    renderMetricsBar(metricsBar, metrics, stateData, epics, cycleTimes, executionStatus);
     renderPipeline(pipeline, stateData);
     renderEpicQueue(epicQueue, epics, executionStatus);
     renderStateYaml(actionLog, stateData);

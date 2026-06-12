@@ -66,14 +66,31 @@ function readEpicShards(projectRoot) {
     if (!fs.existsSync(epicsDir)) {
       return null;
     }
-    const files = fs.readdirSync(epicsDir)
-      .filter(f => f.endsWith('.yaml'))
-      .sort();
-
     const epics = [];
-    for (const file of files) {
-      const filePath = path.join(epicsDir, file);
-      const content = fs.readFileSync(filePath, 'utf8');
+
+    function scanDir(dirPath) {
+      if (!fs.existsSync(dirPath)) return;
+      const entries = fs.readdirSync(dirPath);
+      for (const entry of entries) {
+        const entryPath = path.join(dirPath, entry);
+        const stat = fs.statSync(entryPath);
+        if (stat.isDirectory()) {
+          if (entry === 'archive') {
+            scanDir(entryPath);
+          } else {
+            const possibleYaml = path.join(entryPath, 'epic.yaml');
+            if (fs.existsSync(possibleYaml)) {
+              loadYaml(possibleYaml);
+            }
+          }
+        } else if (stat.isFile() && entry.endsWith('.yaml')) {
+          loadYaml(entryPath);
+        }
+      }
+    }
+
+    function loadYaml(yamlPath) {
+      const content = fs.readFileSync(yamlPath, 'utf8');
       const data = yaml.load(content);
       epics.push({
         id: data.id || data.epic || null,
@@ -81,6 +98,16 @@ function readEpicShards(projectRoot) {
         stories: data.stories || []
       });
     }
+
+    scanDir(epicsDir);
+
+    // Sort epics by ID numerically/alphabetically
+    epics.sort((a, b) => {
+      const idA = a.id || '';
+      const idB = b.id || '';
+      return idA.localeCompare(idB, undefined, { numeric: true, sensitivity: 'base' });
+    });
+
     return epics.length > 0 ? epics : null;
   } catch (err) {
     return null;
