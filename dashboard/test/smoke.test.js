@@ -93,5 +93,40 @@ try {
   process.exit(1);
 }
 
-console.log(`Smoke test: PASS (${passed}/5 assertions)`);
+try {
+  // Test 6: reader.readEpicShards with alternative keys (epic, name)
+  const fs = require('fs');
+  const tempProjectRoot = path.join(__dirname, 'temp_mock_project');
+  const tempSpecsDir = path.join(tempProjectRoot, 'specs');
+  const tempEpicsDir = path.join(tempSpecsDir, 'epics');
+  
+  fs.mkdirSync(tempEpicsDir, { recursive: true });
+  
+  const mockEpicContent = `
+epic: e99
+name: Mock Epic Title
+stories:
+  - id: e99s01
+    title: Story One
+`;
+  fs.writeFileSync(path.join(tempEpicsDir, 'e99-mock.yaml'), mockEpicContent, 'utf8');
+  
+  const epicsResult = reader.readEpicShards(tempProjectRoot);
+  
+  // clean up
+  fs.rmSync(tempProjectRoot, { recursive: true, force: true });
+  
+  assert.ok(Array.isArray(epicsResult) && epicsResult.length === 1, 'Should load one epic');
+  assert.strictEqual(epicsResult[0].id, 'e99', 'Should map data.epic to id');
+  assert.strictEqual(epicsResult[0].title, 'Mock Epic Title', 'Should map data.name to title');
+  assert.strictEqual(epicsResult[0].stories.length, 1, 'Should parse stories');
+  
+  passed++;
+  console.log('  ✓ Test 6: reader.readEpicShards with alternative keys');
+} catch (err) {
+  console.error('✗ Test 6 failed:', err.message);
+  process.exit(1);
+}
+
+console.log(`Smoke test: PASS (${passed}/6 assertions)`);
 process.exit(0);

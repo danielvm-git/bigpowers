@@ -41,7 +41,7 @@ function parseEpicsFromReleasePlan(text) {
   const blocks = text.split(/\n\s*-\s+id:\s+/).slice(1);
   for (const block of blocks) {
     const id = block.match(/^(\S+)/)?.[1];
-    const title = block.match(/title:\s*"?([^"\n]+)"?/)?.[1];
+    const title = block.match(/(?:title|name):\s*"?([^"\n]+)"?/)?.[1];
     const wsjf = parseFloat(block.match(/wsjf:\s*([\d.]+)/)?.[1] || '0');
     const file = block.match(/file:\s*(\S+)/)?.[1];
     if (id) epics.push({ id, title: title || id, wsjf, file });
@@ -50,7 +50,7 @@ function parseEpicsFromReleasePlan(text) {
 }
 
 function parseSimpleEpic(text) {
-  const title = text.match(/^title:\s*"?([^"\n]+)"?/m)?.[1];
+  const title = text.match(/^(?:title|name):\s*"?([^"\n]+)"?/m)?.[1];
   const stories = [];
   const storyBlocks = text.split(/\n\s*-\s+id:\s+/).slice(1);
   for (const sb of storyBlocks) {

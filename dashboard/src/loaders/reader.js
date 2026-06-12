@@ -76,8 +76,8 @@ function readEpicShards(projectRoot) {
       const content = fs.readFileSync(filePath, 'utf8');
       const data = yaml.load(content);
       epics.push({
-        id: data.id || null,
-        title: data.title || null,
+        id: data.id || data.epic || null,
+        title: data.title || data.name || null,
         stories: data.stories || []
       });
     }
