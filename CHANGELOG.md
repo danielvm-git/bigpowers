@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/danielvm-git/bigpowers/compare/v2.1.3...v2.2.0) (2026-06-13)
+
+
+### Features
+
+* **skills:** enforce tiered SKILL.md size cap (Epic 4) ([5b66257](https://github.com/danielvm-git/bigpowers/commit/5b66257bcb7c5c01246e8cbf02e6cb701120eae0))
+
 ## [2.1.3](https://github.com/danielvm-git/bigpowers/compare/v2.1.2...v2.1.3) (2026-06-12)
 
 
