@@ -249,6 +249,18 @@ echo "============================================================"
 echo "Global Audit Summary:"
 echo "  TOTAL PASS: $TOTAL_GLOBAL_PASS"
 echo "  TOTAL FAIL: $TOTAL_GLOBAL_FAIL"
+TOTAL_GLOBAL_ALL=$((TOTAL_GLOBAL_PASS + TOTAL_GLOBAL_FAIL))
+if [[ $TOTAL_GLOBAL_ALL -gt 0 ]]; then
+  SCORE=$(awk "BEGIN { printf \"%d\", $TOTAL_GLOBAL_PASS * 100 / $TOTAL_GLOBAL_ALL }")
+else
+  SCORE=0
+fi
+echo "  SCORE: ${SCORE}% (threshold 94%)"
+if [[ $SCORE -ge 94 ]]; then
+  echo "  GATE: PASS"
+else
+  echo "  GATE: FAIL (below 94%)"
+fi
 echo "============================================================"
 
 if [[ $TOTAL_GLOBAL_FAIL -gt 0 ]]; then

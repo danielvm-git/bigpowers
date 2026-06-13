@@ -183,3 +183,30 @@ For lightweight decisions that don't warrant a full ADR:
 |------|----------|-----------|--------------|
 | 2026-05-19 | Use Postgres | Existing ops expertise | SQLite (limited), DynamoDB (no local dev) |
 ```
+
+### `specs/state.yaml` template format
+
+Generated during Step 4 of migration. Regenerate from scratch in bigpowers format:
+
+```markdown
+# Session State: <project name>
+
+## Current Milestone
+
+Migrated from <framework> on <date>. Next: review generated specs and run plan-work.
+
+## Git Metadata
+
+- **Branch**: <current branch>
+- **Hash**: <git rev-parse HEAD>
+
+## Completed Releases
+
+(none — migration starting point)
+
+## Pending Releases
+
+- [ ] Review migrated specs
+- [ ] Run elaborate-spec to validate scope
+- [ ] Run plan-work to produce first release plan
+```

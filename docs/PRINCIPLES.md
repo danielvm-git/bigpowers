@@ -23,6 +23,8 @@ As systems grew, we learned that "small functions" (from Uncle Bob) could lead t
 - **Information Hiding:** Reducing the "cognitive surface area" (and later, the token surface area) that an agent must understand.
 - **Define Errors Out of Existence:** Designing APIs so that agents cannot easily trigger invalid states.
 
+There is an apparent tension between Uncle Bob's guidance to keep functions small (4–20 lines) and Ousterhout's preference for deep modules — but the two principles are complementary, not contradictory. A deep module is a cohesive *set* of small, single-responsibility functions united behind a simple interface; depth is achieved at the file or module level by hiding many small functions from callers, not by writing large, monolithic functions. Small functions remain the unit of implementation; the module's interface remains the unit of abstraction.
+
 ---
 
 ## 3. The Agentic Pivot: Behavioral Integrity (2023-2024)
@@ -64,7 +66,7 @@ This is the definitive "Update" to Uncle Bob. We optimize the foundation specifi
 - **The 6-Phase Lifecycle:** A canonical arc (Discover → Elaborate → Plan → Build → Verify → Release). Note: *Sustain* is a session flow state, not a lifecycle phase.
 - **Hard Gates:** Explicit blocks that prevent execution until quality criteria are met.
 - **Session Governance:** Using `specs/state.yaml` and `specs/release-plan.yaml` to prevent context rot and drift.
-- **94% Quality Threshold:** A near-perfect compliance mandate against all the above heuristics.
+- **94% Quality Threshold:** Running `npm run compliance` (via `scripts/audit-compliance.sh`) prints a `PASS/TOTAL` count and a percentage; the project must score at least 94%, meaning at least 94% of the Gherkin scenarios in `specs/verifications/features/` pass. Falling below this threshold is treated as a Hard Stop.
 
 ---
 
@@ -97,7 +99,7 @@ When creating a new skill, it must meet these "Best-in-Class" requirements deriv
 1.  **Atomic Naming (Akita/Superpowers):** Must be a unique two-word `verb-noun` pair. Searchable with a single `grep` (< 5 results).
 2.  **High-Density Description:** The description must contain specific triggers ("Use when...") to minimize unnecessary skill loading (Token Economy).
 3.  **Hard-Gated Workflows:** Processes must include explicit checkpoints or checklists to stop execution if quality criteria are not met.
-4.  **Information Hiding (Ousterhout):** The `SKILL.md` must be < 100 lines. Advanced details, examples, and logic must be delegated to `REFERENCE.md` or `scripts/`.
+4.  **Information Hiding (Ousterhout):** `SKILL.md` size is lint-enforced by `scripts/check-skill-size.sh`: target under 100 lines; hard cap is 120 lines for utility skills and 150 lines for critical-path lifecycle skills. When a `SKILL.md` would exceed its cap, advanced procedures and examples must be moved into a peer `REFERENCE.md`, keeping the primary interface minimal.
 5.  **Provenance-Ready:** If the skill modifies code, it must include a step to document *why* (link to ADR or spec).
 6.  **Empirically Verifiable:** Every new skill should have a corresponding `.feature` file in `specs/verifications/features/` to verify its own implementation.
 

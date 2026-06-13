@@ -7,16 +7,14 @@ Finalize a completed feature branch: verify coverage gates, integrate onto `main
 
 ## Additional modes
 
-- --hotfix: Emergency fix. Cherry-pick to main plus immediate tag. Skip PR in solo profile.
+- `--hotfix`: Emergency fix. Cherry-pick to main plus immediate tag. Skip PR in solo profile.
 
 ## Integrate mode
 
-Choose mode from project profile or explicit user request:
-
 | Mode | When | Ship path |
 |------|------|-----------|
-| **solo-local** | `profiles/solo-git.md` or `specs/WORKFLOW-solo-git.md` active | `bash scripts/land-branch.sh <branch> "<conventional message>"` — no PR |
-| **team-pr** | Default, or collaboration / remote CI required | `gh pr create` → `gh pr merge --squash` (§6–7) |
+| **solo-local** | `profiles/solo-git.md` active | `bash scripts/land-branch.sh <branch> "<conventional message>"` |
+| **team-pr** | Default / remote CI required | `gh pr create` → `gh pr merge --squash` |
 
 If unsure and working alone, prefer **solo-local**.
 
@@ -24,71 +22,82 @@ If unsure and working alone, prefer **solo-local**.
 
 ### 1. Final verification
 
-Run the full suite one last time on the feature branch:
-
 ```bash
-<full test command>
-<typecheck command>
-<lint command>
-# Verify Conventional Commits history
-git log main...HEAD --oneline | grep -vE "^[a-f0-9]+ (feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\(.+\))?!?: .+$" && echo "❌ ERROR: Non-conventional commits found" || echo "✅ Commits verified"
+<full test command> && <typecheck command> && <lint command>
+git log main...HEAD --oneline | grep -vE "^[a-f0-9]+ (feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\(.+\))?!?: .+$" && echo "❌ Non-conventional commits found" || echo "✅ Commits verified"
 ```
 
-- [ ] All tests pass
-- [ ] No type errors
-- [ ] No lint violations
-- [ ] All commits in branch history follow Conventional Commits 1.0.0
+- [ ] All tests pass, no type errors, no lint violations, all commits follow Conventional Commits
 
 ### 2. Coverage check
 
-Verify coverage meets the project gates:
-
-- [ ] Overall coverage ≥ 80%
-- [ ] Business logic / domain layer coverage ≥ 95%
-
-If coverage is below the gate, stop and return to `develop-tdd` to add missing tests.
+- [ ] Overall coverage ≥ 80%; business logic coverage ≥ 95%
 
 ### 3. Diff review
 
-```bash
-git diff main...HEAD --stat
-git log main...HEAD --oneline
-```
-
-Confirm:
-- [ ] All commits are intentional — no debug commits, no "WIP" commits
-- [ ] No secrets, credentials, or personal data in the diff
-- [ ] CONVENTIONS.md compliance across all changes
+- [ ] All commits intentional, no secrets, CONVENTIONS.md compliance
 
 ### 4. Decision
 
-Present the user with the options:
-
-| Option | When to choose |
-|--------|---------------|
-| **Release (solo-local)** | Feature complete; solo profile active — land via script |
-| **Open PR for Release** | Feature complete; team-pr mode or remote CI gate needed |
-| **Keep branch** | More work needed; preserve for later |
-| **Discard** | Approach was wrong; start over |
+Options: **Release (solo-local)** / **Open PR** / **Keep branch** / **Discard**
 
 ### 5. Solo-local integrate
 
-From the **primary** repository root (not the feature worktree):
-
-1. Run `commit-message` to produce the squash commit subject.
-2. Land:
-
+Run `commit-message` to produce the squash commit subject, then:
 ```bash
 bash scripts/land-branch.sh <task-slug> "feat(scope): description"
 ```
 
-The script will: update `main`, squash-merge, commit, push, remove worktree, delete branch, and leave you on `main`.
-
-Skip duplicate cleanup in §8 if the script succeeded.
-
 ### 6. Create PR (team-pr only)
 
-The PR title is the **single source of truth** for the version bump. It MUST follow Conventional Commits.
+See [REFERENCE.md](REFERENCE.md) for the full PR body template and gh commands.
+
+### 7. Merge (team-pr only)
+
+```bash
+gh pr merge --squash --delete-branch
+```
+
+`semantic-release` auto-detects the commit, bumps SemVer, tags the repo, generates release notes.
+
+### 7a. Archive completed epic capsule
+
+> **HARD GATE** — When all epic stories are done (all `done` in `execution-status.yaml`), archive the capsule:
+
+```bash
+mv specs/epics/eNN-slug specs/epics/archive/
+```
+
+### 8. Clean up worktree
+
+```bash
+git worktree prune
+git worktree remove ../<branch-name> 2>/dev/null || true
+git branch -d <branch-name>
+```
+
+### 8a. Cycle-time recording
+
+After landing, record delivery metrics. See [REFERENCE.md](REFERENCE.md) for fields and example row.
+
+### 9. Return to main
+
+```bash
+git checkout main && git status && pwd
+```
+
+Report: "Branch released. Integrate mode: <solo-local|team-pr>. cwd: $(pwd) on $(git branch --show-current)."
+
+## Handoff
+
+Gate: READY -> next: survey-context
+Writes: state.yaml handoff.next_skill = survey-context
+
+---
+
+# Release Branch — Reference
+
+## PR body template (team-pr mode)
 
 ```bash
 PR_TITLE="<type>(<scope>): <description>"
@@ -113,36 +122,7 @@ EOF
 )"
 ```
 
-### 7. Merge (team-pr only)
-
-Wait for CI to pass. Merge using **Squash and Merge** so the PR title becomes the commit message on `main`.
-
-```bash
-gh pr merge --squash --delete-branch
-```
-
-`semantic-release` will automatically:
-1. Detect the commit on `main`.
-2. Determine the SemVer bump from the commit type.
-3. Tag the repo (e.g., `v2.1.0`).
-4. Generate release notes.
-
-### 7a. Archive completed epic capsule
-
-> **HARD GATE** — When an epic's stories are all complete (all marked `done` in `execution-status.yaml`), move the epic capsule directory to the archive.
-
-```bash
-EPIC_CAPSULE="specs/epics/eNN-slug"
-if [ -d "$EPIC_CAPSULE" ]; then
-  mkdir -p specs/epics/archive
-  mv "$EPIC_CAPSULE" "specs/epics/archive/"
-  echo "Archived: $EPIC_CAPSULE → specs/epics/archive/"
-fi
-```
-
-**Rationale:** Archiving completed epics removes inactive context from the agent workspace, preserving token budget (C2/C6). The capsule directory (epic.yaml + stories + tasks + epic-local ADRs) moves as a unit — nothing is orphaned.
-
-### 8. Clean up worktree (if not done by land-branch.sh)
+## Worktree cleanup details
 
 ```bash
 # From the main repo root
@@ -151,19 +131,17 @@ git worktree remove ../<branch-name> 2>/dev/null || true
 git branch -d <branch-name>
 ```
 
-- If `git worktree remove` fails due to uncommitted changes, ask the user: "There are uncommitted changes in the worktree. Force remove? (y/n)". If yes: `git worktree remove -f ../<branch-name>`.
-- If the directory `../<branch-name>` is already missing, `git worktree remove` might fail; the `|| true` ensures the process continues to branch deletion.
+If `git worktree remove` fails due to uncommitted changes, ask: "There are uncommitted changes in the worktree. Force remove? (y/n)". If yes: `git worktree remove -f ../<branch-name>`.
 
-### 8a. Cycle-time recording
+## Cycle-time recording
 
 After landing the branch, record delivery metrics for this story:
 
-1. Write `metrics.story_end` with the current ISO 8601 timestamp to `specs/state.yaml`
+1. Write `metrics.story_end` (ISO 8601) to `specs/state.yaml`
 2. Compute `cycle_minutes`: `story_end` minus `story_start` in minutes
-3. Compute `bcp_per_hour`: `epic_cycle.story_bcps` divided by `(cycle_minutes / 60)`
-4. Append a row to `specs/metrics/cycle-times.yaml` with fields: `id`, `bcps`, `start`, `end`, `cycle_minutes`, `bcp_per_hour`
+3. Compute `bcp_per_hour`: `epic_cycle.story_bcps / (cycle_minutes / 60)`
+4. Append a row to `specs/metrics/cycle-times.yaml`:
 
-Example row:
 ```yaml
 - id: e01s01
   bcps: 3
@@ -172,23 +150,3 @@ Example row:
   cycle_minutes: 90
   bcp_per_hour: 2.0
 ```
-
-### 9. Return to main (primary worktree)
-
-```bash
-cd <primary-repo-root>
-git checkout main   # or master
-git status
-pwd
-```
-
-Confirm:
-- [ ] Current branch is `main` (or project default)
-- [ ] cwd is the primary repository root, not `../<task-slug>`
-
-Report: "Branch released. Integrate mode: <solo-local|team-pr>. cwd: $(pwd) on $(git branch --show-current)."
-
-## Handoff
-
-Gate: READY -> next: survey-context
-Writes: state.yaml handoff.next_skill = survey-context

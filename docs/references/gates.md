@@ -19,7 +19,7 @@
 ## 2. Quality Gate
 
 **When:** Output quality must meet threshold before proceeding  
-**Pass Condition:** Measurable quality score ≥ threshold (e.g., 94% from request-review)  
+**Pass Condition:** Measurable quality score ≥ threshold (e.g., 94% from request-review). The score is the SCORE value emitted by `npm run compliance` (scripts/audit-compliance.sh): SCORE = passing Gherkin scenarios / total scenarios × 100; 94% is the pass threshold.  
 **Fail Condition:** Quality score < threshold; routes to remediation  
 **Example:** request-review returns 89/100 → must fix before advancing
 

@@ -108,7 +108,14 @@ else
     | grep -v "specs/archive\|\.git\|node_modules\|\.gemini\|\.cursor\|validate-doctrine\.sh" | head -5 >&2
 fi
 
-# Epic 4 SKILL.md size cap assertion added here after check-skill-size.sh exists.
+# ── Epic 4: SKILL.md size cap ─────────────────────────────────────────────────
+echo "--- [Epic 4] SKILL.md size cap ---"
+if bash "$REPO_ROOT/scripts/check-skill-size.sh" >/dev/null 2>&1; then
+  pass "all SKILL.md files within tiered size cap (150 critical-path / 120 utility)"
+else
+  fail "a SKILL.md exceeds its size cap — run: bash scripts/check-skill-size.sh"
+  bash "$REPO_ROOT/scripts/check-skill-size.sh" 2>&1 | grep "^FAIL:" >&2 || true
+fi
 
 # ── Summary ────────────────────────────────────────────────────────────────────
 echo "---"

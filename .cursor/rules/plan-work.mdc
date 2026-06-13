@@ -10,66 +10,59 @@ Produce a detailed, verifiable implementation plan in the **active epic capsule 
 
 > **HARD GATE** — Do NOT proceed with a plan until the task's success criteria are clear. If success is ambiguous, run `define-success` first to convert the task into "step → verify: <cmd>" pairs.
 >
-> **RECURSIVE DISCIPLINE** — This lifecycle apply to EVERY task, including updating these skills. Never skip planning because a task is "meta" or "just documentation."
+> **RECURSIVE DISCIPLINE** — This lifecycle applies to EVERY task, including updating these skills. Never skip planning because a task is "meta" or "just documentation."
 
 ## Pre-flight
 
-Before writing the plan, check if `define-success` has been run. If the task's success criteria are unclear, run `define-success` first to convert the task into "step → verify: <cmd>" pairs.
+Read: `release-plan.yaml`, `product/SCOPE_LATEST.yaml`, active `epics/<capsule>/epic.yaml`, `tech-architecture/tech-stack.md`, `product/GLOSSARY_LATEST.yaml`.
 
-Read any existing `specs/` files: `release-plan.yaml`, `product/SCOPE_LATEST.yaml`, active epic capsule `epics/<capsule_dir>/epic.yaml`, `tech-architecture/tech-stack.md`, `product/GLOSSARY_LATEST.yaml`.
+> **ZOOM-OUT MANDATE** (v1.17.0) — If modifying an existing module: (1) State the module's **purpose**. (2) Name its **callers**. (3) List its **contracts**. Cannot answer all three? Stop — scope is misunderstood.
 
-> **ZOOM-OUT MANDATE** (v1.17.0 Guardrails) — If this plan modifies an existing module, function, or behavior:
-> 1. State the module's **purpose** — what is it responsible for?
-> 2. Name the **callers** — who depends on it?
-> 3. List the **contracts** — what invariants or interfaces must be preserved?
-> 
-> If you cannot answer all three without deep code archaeology, the scope is misunderstood. Stop and clarify with the user before writing steps.
+If this plan touches an existing module, run `assess-impact` first to understand blast radius.
 
-If this plan touches an existing module or symbol, run `assess-impact` first to understand the blast radius before writing steps.
+> **DISCOVERY MANDATE** (v1.18.0) — For external API integration, verify the API signature via local docs or search and quote at least one technical detail in the step's context.
 
-> **DISCOVERY MANDATE** (v1.18.0 Guardrails) — For any step involving external API integration (e.g., macOS CGEventTap, AWS SDK, Third-party libraries):
-> 1. You MUST perform a `google_web_search` or `grep_search` of local documentation to verify the API signature and constraints.
-> 2. You MUST quote at least one technical detail (method name, parameter, or error case) from your discovery in the step's context.
-> 
-> Plans that skip discovery for complex integrations are [SUS] and should be rejected.
+> **MULTIPLE INTERPRETATIONS (HARD GATE)** — If the task admits ≥2 valid interpretations, list them and get a user decision before drafting any steps.
 
-> **MULTIPLE INTERPRETATIONS (HARD GATE)** — If the task statement admits ≥2 valid interpretations, you must list them and get a decision from the user before drafting any steps. Do not assume intent.
+> **COMPLEXITY PUSHBACK (HARD GATE)** — Every new abstraction MUST include a one-sentence "Reason for Depth." If it can't be filled non-trivially, the abstraction is premature — use inline code instead.
 
-> **COMPLEXITY PUSHBACK (HARD GATE)** — Every step introducing a new abstraction (class, interface, helper, layer) MUST include a one-sentence "Reason for Depth": _"This abstraction is needed because [forcing function]..."_. If the sentence cannot be filled with a non-trivial reason, the abstraction is premature. Delete it and use inline code instead.
-
-> **SLOPCHECK (HARD GATE)** — For every external package proposed in the plan, run slopcheck (or manual registry check) and tag: `[OK]`, `[SUS]`, or `[SLOP]`. `[SUS]` and `[SLOP]` require explicit human approval before the step may execute. Document tags inline next to the package name.
+> **SLOPCHECK (HARD GATE)** — For every external package, tag it `[OK]`, `[SUS]`, or `[SLOP]`. `[SUS]`/`[SLOP]` require human approval before execution.
 
 ## Invocation modes
 
 - Default: full plan with zoom-out mandate, impact assessment, slopcheck
-- --fast (formerly plan-work-fast): Skip zoom-out and impact assessment. Use for tasks under 3 BCPs with no module interface changes.
+- `--fast`: Skip zoom-out and impact assessment. Use for tasks under 3 BCPs with no module interface changes.
 
 ## Process
 
-### 1. Explore the codebase
+1. **Explore** — Use `Explore` subagent to understand affected modules, existing test patterns, similar prior art, and dependencies.
 
-Use the Agent tool with subagent_type=Explore to understand:
-- Affected modules and their current interfaces
-- Existing test patterns to follow
-- Any similar features already implemented (prior art)
-- Dependencies that will be needed
+2. **Draft steps** — Break implementation into the smallest possible steps where each step leaves the codebase working, has one observable outcome, and can be verified with a single command. Red-flag check: name any rationalization you caught before moving to step 3.
 
-### 2. Draft steps
+3. **Write capsule story spec + tasks** — Output two files inside the active epic capsule. See [REFERENCE.md](REFERENCE.md) for file formats and the plan-template.
 
-Break the implementation into the smallest possible steps where each step:
-- Leaves the codebase in a working state (tests pass)
-- Has exactly one observable outcome
-- Can be verified with a single runnable command
+4. **Verify step format** — Every step MUST follow: `N. <What to do> → verify: <runnable command>`. See [REFERENCE.md](REFERENCE.md) for good/bad examples.
 
-**Red-flag check**: before moving to Step 3, name any rationalization you caught yourself making — skipping a gate, adding out-of-scope steps, omitting a verify command. Write them out; do not suppress them.
+5. **Review with user** — Confirm step order, granularity, and that verify commands are runnable in this project.
 
-### 3. Write capsule story spec + tasks
+After writing capsule tasks, suggest `kickoff-branch` (if not already on a feature branch) then `build-epic`, `execute-plan`, or `develop-tdd`.
 
-Output two files inside the active epic capsule directory:
+## Handoff
 
-**Story spec:** `specs/epics/<capsule>/eNNsYY-<slug>.md` — populated [countable-story-format](file:///Users/danielvm/Developer/bigpowers/countable-story-format.md) with all 20 sections. Minimum maturity: 3 (Countable). Acceptance criteria in §17.
+Gate: READY -> next: kickoff-branch
+Writes: state.yaml handoff.next_skill = kickoff-branch
 
-**Task checklist:** `specs/epics/<capsule>/eNNsYY-tasks.yaml` — decoupled execution steps:
+---
+
+# Plan Work — Reference
+
+## Output file formats
+
+### Story spec: `specs/epics/<capsule>/eNNsYY-<slug>.md`
+
+Populated countable-story-format with all 20 sections. Minimum maturity: 3 (Countable). Acceptance criteria in §17.
+
+### Task checklist: `specs/epics/<capsule>/eNNsYY-tasks.yaml`
 
 ```yaml
 story_id: e01s01
@@ -85,32 +78,28 @@ tasks:
 
 Update `specs/epics/<capsule>/epic.yaml` manifest to list the story and its BCPs. Run `bash scripts/sync-status-from-epics.sh` after structural changes.
 
-<plan-template>
+## Plan template
 
+```
 ### Story [X.Y]: [title] — Implementation Steps
 
-**type:** feat | fix | refactor  
-**context:** domain | infra  
+**type:** feat | fix | refactor
+**context:** domain | infra
 **Context**: [One paragraph: what this story implements and why]
 
 ## Steps
 
 1. [Step description] (ref: ADR-NNNN or commit SHA) → verify: `<runnable command>`
-
 2. [Step description] (ref: ADR-NNNN or commit SHA) → verify: `<runnable command>`
-
-3. [Step description] (ref: ADR-NNNN or commit SHA) → verify: `<runnable command>`
-
 ...
 
 ## Verification Script (Step-by-Step)
 
-[A human-readable, step-by-step script for the user to verify the story's outcome. Focus on user-observable behavior.]
+[A human-readable, step-by-step script for the user to verify the story's outcome.]
 
 1. [Action 1: e.g. Start the server]
 2. [Action 2: e.g. Open browser to http://localhost:3000]
-3. [Action 3: e.g. Click 'Login']
-4. [Observation: e.g. Verify that the login modal appears]
+3. [Observation: e.g. Verify that the login modal appears]
 
 ## Out of scope
 
@@ -119,71 +108,53 @@ Update `specs/epics/<capsule>/epic.yaml` manifest to list the story and its BCPs
 ## Risks
 
 - [Anything that could go wrong and how to detect it early]
+```
 
-</plan-template>
-
-### 4. Verify step format rules
+## Verify step format rules
 
 Every step MUST follow this exact format:
 ```
 N. <What to do> → verify: <runnable command that proves it worked>
 ```
 
-Good examples:
+**Good examples:**
 ```
 1. Add User model with email and name fields → verify: npm test -- user.test.ts
 2. Add POST /users endpoint → verify: curl -s -X POST http://localhost:3000/users -d '{"email":"a@b.com"}' | jq .id
 3. Add email uniqueness constraint → verify: npm test -- user-uniqueness.test.ts
 ```
 
-Bad examples (no verify command):
+**Bad examples (no verify command):**
 ```
 1. Implement the user creation flow
 2. Write tests for the API
 ```
 
-### 5. Review with user
-
-Before finalizing, confirm:
-- Does the step order make sense?
-- Is the granularity right (not too coarse, not too fine)?
-- Are the verify commands actually runnable in this project?
-
-After writing capsule tasks, suggest `kickoff-branch` (if not already on a feature branch) then `build-epic`, `execute-plan`, or `develop-tdd`.
-
 ## Sub-operations
 
-### Define Success (absorbed)
+### Define Success
 
 Before planning, convert task statements into observable "step → verify: <cmd>" pairs:
-
 - Break the task into observable outcomes (behaviors) rather than implementation steps
-- Write pairs in the format: [What must be true] → verify: <runnable command>
-- Challenge completeness: are there any required behaviors not covered?
+- Write pairs in the format: `[What must be true] → verify: <runnable command>`
+- Challenge completeness: are all required behaviors covered?
 - Get user confirmation: "Does this capture everything the task requires?"
 - Once confirmed, these pairs become the skeleton for plan-work steps
 
-### Zoom-Out Check (absorbed)
+### Zoom-Out Check
 
 When modifying an existing module, confirm scope is understood:
-
 - State the module's **purpose** — what is it responsible for?
 - Name the **callers** — who depends on it?
 - List the **contracts** — what invariants or interfaces must be preserved?
 
 If you cannot answer all three without deep code archaeology, scope is misunderstood. Clarify with the user before writing steps.
 
-### Slopcheck (absorbed)
+### Slopcheck
 
 For every external package proposed in the plan, tag each with one of:
-
 - `[OK]` — package is mature, actively maintained, appropriate scope
-- `[SUS]` — package is suspiciously broad, has maintenance concerns, or unclear fit
-- `[SLOP]` — package is unmaintained, has known security issues, or out of scope
+- `[SUS]` — suspiciously broad, has maintenance concerns, or unclear fit
+- `[SLOP]` — unmaintained, known security issues, or out of scope
 
 `[SUS]` and `[SLOP]` require explicit human approval before the step may execute. Document tags inline next to the package name.
-
-## Handoff
-
-Gate: READY -> next: kickoff-branch
-Writes: state.yaml handoff.next_skill = kickoff-branch

@@ -82,26 +82,13 @@ Apply the mapping from [REFERENCE.md](./REFERENCE.md) and [REFERENCE-GSD.md](./R
 
 ### Step 4 — Generate state.yaml
 
-Always regenerate `specs/state.yaml` from scratch in bigpowers format:
+Always regenerate `specs/state.yaml` from scratch in bigpowers format (see REFERENCE.md for template):
 
 ```markdown
 # Session State: <project name>
-
 ## Current Milestone
-
 Migrated from <framework> on <date>. Next: review generated specs and run plan-work.
-
-## Git Metadata
-
-- **Branch**: <current branch>
-- **Hash**: <git rev-parse HEAD>
-
-## Completed Releases
-
-(none — migration starting point)
-
 ## Pending Releases
-
 - [ ] Review migrated specs
 - [ ] Run elaborate-spec to validate scope
 - [ ] Run plan-work to produce first release plan

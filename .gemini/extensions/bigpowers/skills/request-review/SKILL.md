@@ -62,7 +62,7 @@ When the reviewer returns:
 - Compute the quality score: `100 × (total_items − must_fix − should_fix) / total_items`
 - Report the score to the user
 
-> **HARD GATE** — If score < 94%, do NOT merge. Run `respond-review` to resolve must-fix and should-fix findings first.
+> **HARD GATE** — If score < 94%, do NOT merge. Run `respond-review` to resolve must-fix and should-fix findings first. The 94% threshold also applies to the compliance SCORE computed by `npm run compliance` (scripts/audit-compliance.sh): SCORE = passing Gherkin scenarios / total × 100.
 
 ### 4. Hand off to respond-review
 
