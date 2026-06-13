@@ -6,6 +6,8 @@ description: "Investigate a bug or issue by exploring the codebase to find root 
 
 # Investigate Bug
 
+**Boundary**: End-to-end bug entry point — history check → RCA (via `diagnose-root`) → fix approach → TDD plan → bug file. Delegates the 4-phase RCA to `diagnose-root`; does not re-implement it.
+
 Investigate a reported problem, find its root cause, and write a TDD fix plan to `specs/bugs/BUG-*.md`. This is a mostly hands-off workflow — minimize questions to the user.
 
 ## Process
@@ -26,22 +28,14 @@ Do NOT ask follow-up questions yet. Start investigating immediately.
 
 ### 2. Explore and diagnose (4-phase RCA)
 
-Use the Agent tool with subagent_type=Explore to investigate the codebase. Run these phases in order:
-
-**Phase 1 — Reproduce**: Confirm the failure is consistent. Document exact inputs, environment, and observed vs. expected output. Do not proceed until you can reproduce reliably.
-
-**Phase 2 — Isolate**: Trace the code path from entry point to failure. Binary-search the call stack to find which layer first produces wrong output. Target: a single function or module where the wrong behavior first appears.
-
-**Phase 3 — Hypothesize**: Write a falsifiable hypothesis: "The bug occurs because [condition] causes [behavior] instead of [expected]." Generate at least 2 alternatives. Rank by probability.
-
-**Phase 4 — Verify**: Add a targeted assertion or log that fires if your top hypothesis is correct. Run the reproduction case. If confirmed, document the root cause. If not, return to Phase 3 with new evidence.
-
-> **HARD GATE** — Do NOT proceed to Step 3 (Fix Approach) until Phase 4 produces a verified root cause. "It probably is X" is not verified.
+Run the 4-phase root-cause analysis via the `diagnose-root` skill (Reproduce → Isolate → Hypothesize → Verify). That skill is the canonical RCA engine — do not re-implement the phases here.
 
 Also look at:
 - Recent changes to affected files (`git log --oneline <file>`)
 - Existing tests (what's tested, what's missing)
 - Similar patterns elsewhere in the codebase that work correctly
+
+> **HARD GATE** — Do NOT proceed to Step 3 (Fix Approach) until `diagnose-root` Phase 4 produces a verified root cause. "It probably is X" is not verified.
 
 ### 3. Identify the fix approach
 

@@ -3,6 +3,8 @@
 
 Read the project's current state and give a phase map + next-skill recommendation. This is the "where am I?" skill — run it at the start of every task.
 
+> **Use this vs map-codebase:** `survey-context` consumes existing specs and docs (fast; does not re-derive). `map-codebase` builds the tech-stack doc from scratch by scanning the codebase. Run `map-codebase` when `specs/tech-architecture/tech-stack.md` doesn't exist yet; run `survey-context` when it does.
+
 > **HARD GATE** — Read specs/ files before suggesting next steps. If state.yaml is stale or contradicts the codebase, request clarification rather than assuming intent.
 
 Orchestrate-project 6 phases: Phase 1 Discover - Phase 2 Elaborate - Phase 3 Plan - Phase 4 Build - Phase 5 Verify - Phase 6 Release

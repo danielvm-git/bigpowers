@@ -1,6 +1,8 @@
 
 # Plan Work
 
+> **Spine position:** Step 3 — scope-work → slice-tasks → plan-work.
+
 Produce a detailed, verifiable implementation plan in the **active epic capsule directory** (`specs/epics/eNN-slug/`). Output: a story spec `.md` file (countable-story-format) and a decoupled `eNNsYY-tasks.yaml` with runnable verify commands. "I think it works" is not a step.
 
 > **HARD GATE** — Do NOT proceed with a plan until the task's success criteria are clear. If success is ambiguous, run `define-success` first to convert the task into "step → verify: <cmd>" pairs.

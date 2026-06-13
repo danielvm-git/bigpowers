@@ -1,12 +1,14 @@
 ---
 name: survey-context
 model: haiku
-description: Per-task context survey — reads specs/ and CONVENTIONS.md, maps the current lifecycle phase, and suggests the next skill to invoke. Use at the start of any new task, when returning to a project after a break, or when unsure what to do next.
+description: Per-task context bootstrap — reads existing specs/ and tech-architecture docs to map the current lifecycle phase and suggest the next skill. Use at the start of any task, when returning after a break, or when unsure what to do next. For deriving a tech-stack doc from scratch, use map-codebase first.
 ---
 
 # Survey Context
 
 Read the project's current state and give a phase map + next-skill recommendation. This is the "where am I?" skill — run it at the start of every task.
+
+> **Use this vs map-codebase:** `survey-context` consumes existing specs and docs (fast; does not re-derive). `map-codebase` builds the tech-stack doc from scratch by scanning the codebase. Run `map-codebase` when `specs/tech-architecture/tech-stack.md` doesn't exist yet; run `survey-context` when it does.
 
 > **HARD GATE** — Read specs/ files before suggesting next steps. If state.yaml is stale or contradicts the codebase, request clarification rather than assuming intent.
 

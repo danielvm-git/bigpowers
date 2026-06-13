@@ -1,6 +1,8 @@
 
 # Scope Work
 
+> **Spine position:** Step 1 — scope-work → slice-tasks → plan-work.
+
 Turn the current conversation into a bounded PRD at `specs/product/SCOPE_LATEST.yaml`.
 
 ## Process

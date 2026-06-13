@@ -1,10 +1,12 @@
 ---
 name: scope-work
-description: "Define what is in and out of scope for the current effort and save as specs/product/SCOPE_LATEST.yaml. Use when user wants a PRD, scope definition, or before plan-release on a new initiative.model: sonnet"
+description: ""PLANNING SPINE STEP 1 of 3 — Scope the work: define what is in and out of scope and save as specs/product/SCOPE_LATEST.yaml. Use before slice-tasks or plan-release on any new initiative. Not a substitute for slice-tasks (step 2) or plan-work (step 3)."model: sonnet"
 ---
 
 
 # Scope Work
+
+> **Spine position:** Step 1 — scope-work → slice-tasks → plan-work.
 
 Turn the current conversation into a bounded PRD at `specs/product/SCOPE_LATEST.yaml`.
 

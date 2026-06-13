@@ -1,2 +1,2 @@
-description = "Advance discover-phase workflows and update specs/planning-status.yaml. Use for survey, scope, research, plan-release chain without touching build epics."
+description = "\"DISCOVER-PHASE ADVANCER — Drive the discover-phase checklist (specs/planning-status.yaml) through survey-context → scope-work → research-first → elaborate-spec → plan-release → slice-tasks. NOT a duplicate of plan-work or the planning spine; it orchestrates the pre-coding discover phase only.\""
 prompt = "@{commands/prompts/run-planning.md}"

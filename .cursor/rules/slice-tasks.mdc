@@ -1,10 +1,12 @@
 ---
-description: "Break a plan or PRD into vertical-slice stories in specs/epics/ (replaces legacy TASKS.md). Use after scope-work or plan-release, before plan-work.model: sonnet"
+description: ""PLANNING SPINE STEP 2 of 3 — Slice the work: break a scoped PRD into vertical-slice stories in specs/epics/. Use after scope-work (step 1), before plan-work (step 3). Not a substitute for scope-work or plan-work."model: sonnet"
 alwaysApply: false
 ---
 
 
 # Slice Tasks
+
+> **Spine position:** Step 2 — scope-work → slice-tasks → plan-work.
 
 Produce **epic capsule story tasks** in `specs/epics/eNN-slug/` — vertical slices, each independently deliverable and testable. Output: decoupled `eNNsYY-tasks.yaml` files with runnable verify commands. Legacy `specs/epics/ (see slice-tasks)` is deprecated; use capsule dirs + `execution-status.yaml`.
 

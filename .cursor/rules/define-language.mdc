@@ -8,6 +8,8 @@ alwaysApply: false
 
 Extract and formalize domain terminology from the current conversation into a consistent glossary, saved to `specs/UBIQUITOUS_LANGUAGE.md`.
 
+**Distinct from `model-domain` and `deepen-architecture`:** Use this skill to produce a canonical glossary of terms (words and definitions). Use `model-domain` to stress-test a plan through an interview that resolves domain model decisions. Use `deepen-architecture` to find module-level refactoring opportunities in the codebase.
+
 > **HARD GATE** — Ubiquitous language is NOT optional. Every term in the domain that could be misunderstood must be glossed. Ambiguity = rework.
 
 ## Process

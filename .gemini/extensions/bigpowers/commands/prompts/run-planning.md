@@ -1,7 +1,8 @@
 
 # Run Planning
-> **HARD GATE** — **HARD GATE** — Before running planning skills, confirm the epic capsule exists and the active story is clear. Planning without a target is noise.
+> **HARD GATE** — Before running planning skills, confirm the epic capsule exists and the active story is clear. Planning without a target is noise.
 
+> **Role:** DISCOVER-PHASE ADVANCER — orchestrates the discover-phase sequence; hands off to the scope-work → slice-tasks → plan-work spine for implementation planning.
 
 Updates `specs/planning-status.yaml` as discover-phase skills complete.
 

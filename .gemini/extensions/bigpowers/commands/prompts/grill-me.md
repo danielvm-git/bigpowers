@@ -1,6 +1,8 @@
 
 # Grill Me
 
+> **Use this vs grill-with-docs:** `grill-me` surfaces assumptions from the conversation and context alone — no documentation fetching. Use `grill-with-docs` (the doc-grounded variant) when the plan relies on a specific library or external API and every challenge must cite a real doc URL.
+
 Two modes. Default is **Design**. Switch to **Docs** by saying "grill me with docs" or when the plan relies on a specific library or external API.
 
 > **HARD GATE** — Do NOT accept a design until every hard decision has been stress-tested. "Seems right" is not a decision. Grilling must identify and resolve tensions before build begins.

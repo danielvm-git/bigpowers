@@ -1,6 +1,8 @@
 
 # Slice Tasks
 
+> **Spine position:** Step 2 — scope-work → slice-tasks → plan-work.
+
 Produce **epic capsule story tasks** in `specs/epics/eNN-slug/` — vertical slices, each independently deliverable and testable. Output: decoupled `eNNsYY-tasks.yaml` files with runnable verify commands. Legacy `specs/epics/ (see slice-tasks)` is deprecated; use capsule dirs + `execution-status.yaml`.
 
 ## Process

@@ -6,6 +6,8 @@ model: sonnet
 
 # Diagnose Root
 
+**Boundary**: Canonical, reusable 4-phase RCA engine. Invoked by `investigate-bug` (as step 2 of the end-to-end flow) and by `fix-bug` (when no bug file exists). Does not write the bug file — that is `investigate-bug`'s responsibility.
+
 Four phases — do not skip. Update the active `specs/bugs/BUG-*.md` file at each phase.
 
 ## Phases

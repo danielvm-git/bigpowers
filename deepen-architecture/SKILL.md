@@ -8,6 +8,8 @@ description: Find deepening opportunities in a codebase, informed by the domain 
 
 Surface architectural friction and propose **deepening opportunities** — refactors that turn shallow modules into deep ones. The aim is testability and AI-navigability.
 
+**Distinct from `define-language` and `model-domain`:** Use this skill to find module-level refactoring opportunities in the codebase. Use `define-language` to produce a canonical glossary of terms. Use `model-domain` to stress-test a plan through a domain-model interview.
+
 > **HARD GATE** — Deep modules must solve a forcing function, not just be "nice abstractions." If you cannot articulate why the abstraction exists, it is premature.
 
 ## Glossary

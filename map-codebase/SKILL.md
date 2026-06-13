@@ -1,12 +1,14 @@
 ---
 name: map-codebase
 model: sonnet
-description: "High-fidelity codebase surveying — analyzes stack, architecture, and gray areas (error handling, API shapes) and persists them into specs/tech-architecture/tech-stack.md. Goes beyond survey-context by identifying 'signals' for planning."
+description: "Derives the tech-stack doc from scratch by scanning the codebase — analyzes stack, architecture, and gray areas (error handling, API shapes) and persists findings into specs/tech-architecture/tech-stack.md. Run when the tech doc doesn't exist yet; use survey-context to consume it once it does."
 ---
 
 # Map Codebase
 
 Perform a deep architectural and structural analysis of the codebase. Unlike `survey-context` which identifies "where we are", `map-codebase` identifies "what we are dealing with" and "how things are done".
+
+> **Use this vs survey-context:** `map-codebase` BUILDS the tech-stack doc by scanning the codebase from scratch. `survey-context` READS existing specs/tech-architecture docs without re-deriving them. Run `map-codebase` when `specs/tech-architecture/tech-stack.md` doesn't exist yet; run `survey-context` when it does.
 
 > **HARD GATE** — Cold analysis only. Do NOT assume architectural patterns without reading the code. If the codebase structure surprises you, call out the delta.
 

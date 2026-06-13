@@ -8,6 +8,8 @@ description: "Write, organize, and sync high-integrity technical documents using
 
 Create high-signal technical documentation that serves as an expert collaborator for both humans and AI. This skill enforces the BMAD principles to prevent context rot and ensure architectural durability.
 
+**Distinct from `edit-document`:** Use this skill to create a document that does not yet exist. Use `edit-document` when a document already exists and needs restructuring, clarity, or prose improvements.
+
 > **HARD GATE** — Every document must have a clear "Reason for Existence." If a document doesn't provide actionable leverage for a caller or test, do not create it.
 
 ## The BMAD Principles

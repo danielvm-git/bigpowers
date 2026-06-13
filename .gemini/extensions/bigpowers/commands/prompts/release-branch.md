@@ -11,10 +11,12 @@ Finalize a completed feature branch: verify coverage gates, integrate onto `main
 
 ## Integrate mode
 
+Read `specs/state.yaml` key `workflow_mode` first (`team-pr` | `solo-git`). Fall back to sniffing `profiles/solo-git.md` only when the key is absent.
+
 | Mode | When | Ship path |
 |------|------|-----------|
-| **solo-local** | `profiles/solo-git.md` active | `bash scripts/land-branch.sh <branch> "<conventional message>"` |
-| **team-pr** | Default / remote CI required | `gh pr create` → `gh pr merge --squash` |
+| **solo-local** | `workflow_mode: solo-git` (or `profiles/solo-git.md` present as fallback) | `bash scripts/land-branch.sh <branch> "<conventional message>"` |
+| **team-pr** | `workflow_mode: team-pr` (default) | `gh pr create` → `gh pr merge --squash` |
 
 If unsure and working alone, prefer **solo-local**.
 

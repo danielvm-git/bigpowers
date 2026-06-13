@@ -1,12 +1,13 @@
 ---
 name: run-planning
 model: sonnet
-description: Advance discover-phase workflows and update specs/planning-status.yaml. Use for survey, scope, research, plan-release chain without touching build epics.
+description: "DISCOVER-PHASE ADVANCER — Drive the discover-phase checklist (specs/planning-status.yaml) through survey-context → scope-work → research-first → elaborate-spec → plan-release → slice-tasks. NOT a duplicate of plan-work or the planning spine; it orchestrates the pre-coding discover phase only."
 ---
 
 # Run Planning
-> **HARD GATE** — **HARD GATE** — Before running planning skills, confirm the epic capsule exists and the active story is clear. Planning without a target is noise.
+> **HARD GATE** — Before running planning skills, confirm the epic capsule exists and the active story is clear. Planning without a target is noise.
 
+> **Role:** DISCOVER-PHASE ADVANCER — orchestrates the discover-phase sequence; hands off to the scope-work → slice-tasks → plan-work spine for implementation planning.
 
 Updates `specs/planning-status.yaml` as discover-phase skills complete.
 

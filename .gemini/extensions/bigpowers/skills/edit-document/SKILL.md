@@ -6,6 +6,8 @@ description: "Edit and improve documents by restructuring sections, improving cl
 
 # Edit Document
 
+**Distinct from `write-document`:** Use this skill when the document already exists and needs restructuring, clarity, or prose improvements. Use `write-document` to create a document from scratch.
+
 > **HARD GATE** — Document edits must preserve intent and accuracy. Do NOT remove or contradict existing content without understanding why it was written. Check git history for context.
 
 ## Process

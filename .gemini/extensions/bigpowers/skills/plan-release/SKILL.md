@@ -1,6 +1,6 @@
 ---
 name: plan-release
-description: "Convert elaborated specs into a structured release plan with Gherkin acceptance criteria and WSJF-sorted epics. Produces specs/release-plan.yaml and epic capsule directories (specs/epics/eNN-slug/) with epic.yaml manifests, countable-story-format .md specs, and decoupled -tasks.yaml files. Use when a spec is clear and ready to plan, after elaborate-spec, or when the user wants a release plan broken into epics and stories."
+description: ""RELEASE-INDEX BUILDER — Sequence elaborated epics into specs/release-plan.yaml with WSJF ordering and BCP baselines. NOT a planning-spine substitute: it does not scope work (scope-work) or write story tasks (plan-work). Use after elaborate-spec when the user wants a versioned release index of epics.""
 ---
 
 

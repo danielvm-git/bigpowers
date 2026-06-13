@@ -6,6 +6,8 @@ alwaysApply: false
 
 # Model Domain
 
+**Distinct from `define-language` and `deepen-architecture`:** Use this skill to stress-test a plan through a grilling interview that resolves domain model decisions and captures invariants. Use `define-language` to produce a canonical glossary of terms. Use `deepen-architecture` to find module-level refactoring opportunities in code.
+
 Interview me relentlessly about every aspect of this plan until we reach a shared understanding. Walk down each branch of the design tree, resolving dependencies between decisions one-by-one. For each question, provide your recommended answer.
 
 > **HARD GATE** — Capture invariants (what MUST always be true) and state machines (what transitions are legal) for core entities. If these are fuzzy, design will fail.

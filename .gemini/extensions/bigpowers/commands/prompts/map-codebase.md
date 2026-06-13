@@ -3,6 +3,8 @@
 
 Perform a deep architectural and structural analysis of the codebase. Unlike `survey-context` which identifies "where we are", `map-codebase` identifies "what we are dealing with" and "how things are done".
 
+> **Use this vs survey-context:** `map-codebase` BUILDS the tech-stack doc by scanning the codebase from scratch. `survey-context` READS existing specs/tech-architecture docs without re-deriving them. Run `map-codebase` when `specs/tech-architecture/tech-stack.md` doesn't exist yet; run `survey-context` when it does.
+
 > **HARD GATE** — Cold analysis only. Do NOT assume architectural patterns without reading the code. If the codebase structure surprises you, call out the delta.
 
 ## Process

@@ -1,6 +1,8 @@
 
 # Grill With Docs
 
+> **Use this vs grill-me:** `grill-with-docs` is the doc-grounded variant of `grill-me`. Use it when the plan relies on external libraries or APIs and every challenge must be grounded in and cite a real documentation URL. Use `grill-me` for context-only assumption surfacing without fetching docs.
+
 > **HARD GATE** — Every challenge must cite a real documentation URL. No hallucinated APIs.
 
 ## Process

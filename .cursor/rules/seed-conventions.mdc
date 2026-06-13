@@ -53,6 +53,8 @@ echo "# Specs\n\nAll planning documents for this project." > specs/README.md
 
 **Note:** `specs/state.yaml.lock` is NOT pre-created — acquired/released dynamically.
 
+`specs/state.yaml` carries a top-level `workflow_mode` key (`team-pr` | `solo-git`, default `team-pr`). This is the **canonical integrate-mode signal** for all skills — set it once here and skills such as `release-branch` read it from this file instead of sniffing profile files.
+
 ## Verify
 
 - [ ] CLAUDE.md exists and is populated

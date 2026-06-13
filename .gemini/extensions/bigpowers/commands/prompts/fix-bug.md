@@ -1,13 +1,15 @@
 
 # Fix Bug
 
+**Boundary**: Orchestrator flow — chains `investigate-bug` (entry point + RCA via `diagnose-root`) → `develop-tdd` → `validate-fix`. Does not implement RCA or write bug files directly.
+
 Orchestrates **fix_bug** flow without mixing epic build state.
 
 > **HARD GATE** — Set `specs/state.yaml` `active_flow: fix_bug`.
 
 ## Process
 
-1. If no `specs/bugs/BUG-*.md`, run `investigate-bug` first (YAML frontmatter + fix plan in file).
+1. If no `specs/bugs/BUG-*.md`, run `investigate-bug` first — it handles history check, RCA (via `diagnose-root`), fix approach, and writes the bug file.
 2. `develop-tdd` against the bug file's verify steps.
 3. `validate-fix` — re-run failing test, full suite, lint.
 4. `bash scripts/sync-bugs-registry.sh` — refresh `specs/bugs/registry.yaml`.

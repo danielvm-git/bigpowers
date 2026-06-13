@@ -1,10 +1,12 @@
 ---
-description: "Write detailed implementation tasks into the active epic capsule directory (specs/epics/eNN-slug/). Produces decoupled story .md specs (countable-story-format) and runnable -tasks.yaml files. Every task must include a runnable verify command. Use when user needs step-by-step plan with evidence, or after plan-release."
+description: ""PLANNING SPINE STEP 3 of 3 — Plan the work: write detailed implementation tasks into the active epic capsule (specs/epics/eNN-slug/). Produces countable-story-format .md specs and runnable -tasks.yaml files. Use after slice-tasks (step 2). Not a substitute for scope-work (step 1) or slice-tasks (step 2).""
 alwaysApply: false
 ---
 
 
 # Plan Work
+
+> **Spine position:** Step 3 — scope-work → slice-tasks → plan-work.
 
 Produce a detailed, verifiable implementation plan in the **active epic capsule directory** (`specs/epics/eNN-slug/`). Output: a story spec `.md` file (countable-story-format) and a decoupled `eNNsYY-tasks.yaml` with runnable verify commands. "I think it works" is not a step.
 

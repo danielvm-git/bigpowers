@@ -117,6 +117,23 @@ else
   bash "$REPO_ROOT/scripts/check-skill-size.sh" 2>&1 | grep "^FAIL:" >&2 || true
 fi
 
+# ── Epic 5: Critical-path skills document a handoff target ─────────────────────
+echo "--- [Epic 5] critical-path handoff targets ---"
+CRITICAL_HANDOFF=(survey-context plan-work develop-tdd verify-work audit-code release-branch kickoff-branch commit-message)
+MISSING_HANDOFF=()
+for s in "${CRITICAL_HANDOFF[@]}"; do
+  if [[ -f "$s/SKILL.md" ]] && ! grep -qiE "handoff|next_skill|next:" "$s/SKILL.md"; then
+    MISSING_HANDOFF+=("$s")
+  fi
+done
+if [[ ${#MISSING_HANDOFF[@]} -eq 0 ]]; then
+  pass "all critical-path skills document a handoff target"
+else
+  for s in "${MISSING_HANDOFF[@]}"; do
+    fail "critical-path skill '$s' has no documented handoff/next_skill"
+  done
+fi
+
 # ── Summary ────────────────────────────────────────────────────────────────────
 echo "---"
 if [[ "$ERRORS" -eq 0 ]]; then
