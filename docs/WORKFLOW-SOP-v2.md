@@ -112,8 +112,8 @@ Step 8  release-branch    ← land to main; stamps story_end + writes cycle-time
 - **Output:**
   - `specs/state.yaml` (YAML cockpit, active_flow: build_epic)
   - `specs/release-plan.yaml` (BCP baseline per story, WSJF-ordered)
-  - `specs/requirements/SCOPE_LATEST.yaml`, `VISION_LATEST.yaml`
-  - `specs/plans/TECH_STACK_LATEST.md`
+  - `specs/product/SCOPE_LATEST.yaml`, `VISION_LATEST.yaml`
+  - `specs/tech-architecture/TECH_STACK_LATEST.md`
 - **Gate:** Confirm (human) → plan → build transition; requires release-plan.yaml to exist
 - **Semver at this point:** `0.0.0-β` (pre-delivery)
 
@@ -271,9 +271,9 @@ The following files are created or updated by the workflow. All live under `spec
 | `.cursor/rules/` | `seed-conventions` via sync | `sync-skills.sh` | Cursor agent skill artifacts |
 | `specs/state.yaml` | `orchestrate-project` | Every skill | Session state, active epic/story/step, metrics |
 | `specs/release-plan.yaml` | `orchestrate-project` Ph 3 | `change-request` | BCP baseline, WSJF-ordered stories |
-| `specs/requirements/SCOPE_LATEST.yaml` | `scope-work` | `change-request` | Project boundaries |
-| `specs/requirements/VISION_LATEST.yaml` | `elaborate-spec` | Developer | Product vision |
-| `specs/plans/TECH_STACK_LATEST.md` | `orchestrate-project` | Developer | Architecture decisions |
+| `specs/product/SCOPE_LATEST.yaml` | `scope-work` | `change-request` | Project boundaries |
+| `specs/product/VISION_LATEST.yaml` | `elaborate-spec` | Developer | Product vision |
+| `specs/tech-architecture/TECH_STACK_LATEST.md` | `orchestrate-project` | Developer | Architecture decisions |
 | `specs/epics/<eNN>-<name>.yaml` | `plan-work` | `plan-work` (per story) | BCP tasks + verify commands |
 | `specs/execution-status.yaml` | `release-branch` | `release-branch` | Story/epic done status |
 | `specs/metrics/cycle-times.yaml` | `release-branch` (first story) | `release-branch` (each story) | Per-story BCP/hr, cycle time |
@@ -366,8 +366,8 @@ The `1.0.0` tag is never automated — it is a deliberate human decision that al
 - [`CONVENTIONS.md`](../CONVENTIONS.md) — Git rules, code style, Conventional Commits format
 - [`PRINCIPLES.md`](PRINCIPLES.md) — Seven philosophical layers (Uncle Bob → BMAD synthesis)
 - [`SKILL-INDEX.md`](../SKILL-INDEX.md) — Canonical list of all 61 active skills by phase
-- [`specs/plans/PLAN-refactor-skills-workflow.md`](../specs/plans/PLAN-refactor-skills-workflow.md) — The v2.0.0 refactor plan (24 BCPs, 4 epics)
-- [`specs/plans/PLAN-factory-dashboard.md`](../specs/plans/PLAN-factory-dashboard.md) — Dashboard build plan (18 BCPs, 3 epics)
+- [`specs/tech-architecture/PLAN-refactor-skills-workflow.md`](../specs/tech-architecture/PLAN-refactor-skills-workflow.md) — The v2.0.0 refactor plan (24 BCPs, 4 epics)
+- [`specs/tech-architecture/PLAN-factory-dashboard.md`](../specs/tech-architecture/PLAN-factory-dashboard.md) — Dashboard build plan (18 BCPs, 3 epics)
 - [`specs/metrics/README.md`](../specs/metrics/README.md) — cycle-times.yaml schema reference
 - [`orchestrate-project/REFERENCE.md`](../orchestrate-project/REFERENCE.md) — Full phase specs + gate truth table
 - [`build-epic/SKILL.md`](../build-epic/SKILL.md) — 8-step story cycle reference

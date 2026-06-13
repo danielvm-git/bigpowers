@@ -31,10 +31,10 @@ stories:
         verify: "ls evolve-skill/SKILL.md specs/METHODOLOGY.md"
   - id: e09s06
     title: "Add HARD GATE enforcement callouts to 35 skills"
-    context: "Stocktake audit identified 35 skills missing HARD GATE blockquote callouts (format: `> **HARD GATE** — constraint`). These are critical decision gates that must be enforced during skill execution. Plan: specs/plans/PLAN-add-hard-gates.md"
+    context: "Stocktake audit identified 35 skills missing HARD GATE blockquote callouts (format: `> **HARD GATE** — constraint`). These are critical decision gates that must be enforced during skill execution. Plan: specs/tech-architecture/PLAN-add-hard-gates.md"
     tasks:
       - desc: "[BCP 1] Create HARD GATES reference document for each phase (Discovery, Elaborate, Plan, Build, Sustain, Utility)"
-        verify: "test -f specs/plans/HARD-GATES-REFERENCE.md && grep -c '^##' specs/plans/HARD-GATES-REFERENCE.md | grep -q '[1-9]'"
+        verify: "test -f specs/tech-architecture/HARD-GATES-REFERENCE.md && grep -c '^##' specs/tech-architecture/HARD-GATES-REFERENCE.md | grep -q '[1-9]'"
       - desc: "[BCP 2] Add HARD GATE callouts to Batch 1 (survey-context, map-codebase, research-first, elaborate-spec)"
         verify: "for skill in survey-context map-codebase research-first elaborate-spec; do grep -q '> \\*\\*HARD GATE\\*\\*' $skill/SKILL.md || echo MISSING; done | wc -l | grep -q '^0$'"
       - desc: "[BCP 3] Add HARD GATE callouts to Batch 2 (define-language, deepen-architecture, design-interface, grill-me, model-domain)"

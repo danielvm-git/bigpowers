@@ -72,7 +72,29 @@ else
   grep -rE "expect [0-9]+" docs/ 2>/dev/null | grep -v "expect $LIVE_COUNT" >&2
 fi
 
-# Epic 2 assertion added here after specs/ directory migration is complete.
+# ── Epic 2: Non-canonical specs/ subpaths ─────────────────────────────────────
+# Exclusions: specs/archive, specs/epics/archive, CHANGELOG.md (auto-gen),
+#   specs/verifications/reports/ (generated reports), PLAN-evolve-structure.md
+#   (migration plan that documents the before→after paths as historical record).
+echo "--- [Epic 2] canonical specs/ subpaths ---"
+LEGACY_SPECS=$(grep -rE "specs/(requirements|plans|audit)\b" \
+  --include="*.md" --include="*.sh" --include="*.yaml" --include="*.yml" --include="*.json" . \
+  2>/dev/null \
+  | grep -v "specs/archive\|specs/epics/archive\|\.git\|node_modules\|\.gemini\|\.cursor" \
+  | grep -v "CHANGELOG\.md\|specs/verifications/reports/\|PLAN-evolve-structure\.md" \
+  | wc -l | tr -d ' ') || true
+if [[ "$LEGACY_SPECS" -eq 0 ]]; then
+  pass "no legacy specs/ subpaths (requirements/, plans/, audit/)"
+else
+  fail "legacy specs/ subpaths found ($LEGACY_SPECS occurrences)"
+  grep -rE "specs/(requirements|plans|audit)\b" \
+    --include="*.md" --include="*.sh" --include="*.yaml" --include="*.yml" --include="*.json" . \
+    2>/dev/null \
+    | grep -v "specs/archive\|specs/epics/archive\|\.git\|node_modules\|\.gemini\|\.cursor" \
+    | grep -v "CHANGELOG\.md\|specs/verifications/reports/\|PLAN-evolve-structure\.md" \
+    | head -10 >&2
+fi
+
 # Epic 3 BCP slop guard added here after "Build Commit Points" purge is complete.
 # Epic 4 SKILL.md size cap assertion added here after check-skill-size.sh exists.
 

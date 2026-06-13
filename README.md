@@ -137,9 +137,9 @@ ONCE/PROJECT orchestrate-project
 | Level | Document | Responsibility |
 | :--- | :--- | :--- |
 | **Vision** | `docs/PRINCIPLES.md` | Philosophical foundations and evolution. |
-| **Context** | `specs/plans/TECH_STACK_LATEST.md` | Tech stack, architecture, and domain notes. |
-| **Scope** | `specs/requirements/SCOPE_LATEST.yaml` | In-scope / out-of-scope and success criteria. |
-| **Vision** | `specs/requirements/VISION_LATEST.yaml` | North star and initiative success criteria. |
+| **Context** | `specs/tech-architecture/TECH_STACK_LATEST.md` | Tech stack, architecture, and domain notes. |
+| **Scope** | `specs/product/SCOPE_LATEST.yaml` | In-scope / out-of-scope and success criteria. |
+| **Vision** | `specs/product/VISION_LATEST.yaml` | North star and initiative success criteria. |
 | **Decisions** | `specs/adr/` | Architectural Decision Records (irreversible choices). |
 | **Roadmap** | `specs/release-plan.yaml` + `specs/epics/` | WSJF-prioritized epics and stories with BCP baseline. |
 | **Current** | `specs/state.yaml` | Session flow, active epic, `handoff.next_skill`, timestamps. |

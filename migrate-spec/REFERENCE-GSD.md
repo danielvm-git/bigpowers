@@ -43,7 +43,7 @@ Transform:
 
 ---
 
-### `.planning/REQUIREMENTS.md` → `specs/requirements/SCOPE_LATEST.yaml`
+### `.planning/REQUIREMENTS.md` → `specs/product/SCOPE_LATEST.yaml`
 
 GSD REQUIREMENTS has: REQ-XX IDs, Validated/Active/Out-of-Scope categories, traceability.
 
@@ -55,7 +55,7 @@ Transform:
 
 ---
 
-### `.planning/phases/XX-name/XX-CONTEXT.md` → `specs/plans/TECH_STACK_LATEST.md` + `specs/adr/`
+### `.planning/phases/XX-name/XX-CONTEXT.md` → `specs/tech-architecture/TECH_STACK_LATEST.md` + `specs/adr/`
 
 GSD CONTEXT.md has 6 sections: domain, decisions, canonical_refs, code_context, specifics, deferred.
 
@@ -80,12 +80,12 @@ Transform:
 
 ---
 
-### `.planning/METHODOLOGY.md` → `specs/plans/METHODOLOGY_LATEST.md`
+### `.planning/METHODOLOGY.md` → `specs/tech-architecture/METHODOLOGY_LATEST.md`
 
 GSD METHODOLOGY.md is a standing reference for analytical lenses (Bayesian updating, STRIDE, cost-of-delay).
 
 Transform:
-- Copy each lens as a section in `specs/plans/METHODOLOGY_LATEST.md`
+- Copy each lens as a section in `specs/tech-architecture/METHODOLOGY_LATEST.md`
 - Note: "These lenses should inform `plan-work` and `audit-code` sessions."
 
 ---

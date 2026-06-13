@@ -22,12 +22,12 @@ The table below maps all active `bigpowers` skills that read or write specificat
 | BMAD Phase | Skill | Legacy Path | Evolved Path | Status | Notes / Required Action |
 | :--- | :--- | :--- | :--- | :---: | :--- |
 | **Discover** | `survey-context` | `specs/state.yaml`<br>`specs/epics/*.yaml` | `specs/state.yaml` (+ `.lock`)<br>`specs/epics/eXX-*/` | ⚠️ **Update Required** | Must acquire `state.yaml.lock` before scanning capsule directories. |
-| **Discover** | `map-codebase` | `specs/plans/TECH_STACK_LATEST.md` | `specs/tech-architecture/tech-stack.md` | ⚠️ **Update Required** | Simple rename of the target file path. |
-| **Elaborate** | `model-domain` | `specs/plans/TECH_STACK_LATEST.md`<br>`specs/adr/` | `specs/tech-architecture/tech-stack.md`<br>`specs/epics/eXX-*/adr/`<br>`specs/adr/` | ⚠️ **Update Required** | Write epic-specific ADRs directly to their capsule directories. |
+| **Discover** | `map-codebase` | `specs/tech-architecture/TECH_STACK_LATEST.md` | `specs/tech-architecture/tech-stack.md` | ⚠️ **Update Required** | Simple rename of the target file path. |
+| **Elaborate** | `model-domain` | `specs/tech-architecture/TECH_STACK_LATEST.md`<br>`specs/adr/` | `specs/tech-architecture/tech-stack.md`<br>`specs/epics/eXX-*/adr/`<br>`specs/adr/` | ⚠️ **Update Required** | Write epic-specific ADRs directly to their capsule directories. |
 | **Elaborate** | `define-language` | `specs/UBIQUITOUS_LANGUAGE.md` | `specs/product/GLOSSARY_LATEST.yaml` | ⚠️ **Update Required** | Changes format from Markdown to YAML to support full toolability. |
-| **Elaborate** | `deepen-architecture` | `specs/plans/TECH_STACK_LATEST.md` | `specs/tech-architecture/tech-stack.md` | ⚠️ **Update Required** | Update target references. |
+| **Elaborate** | `deepen-architecture` | `specs/tech-architecture/TECH_STACK_LATEST.md` | `specs/tech-architecture/tech-stack.md` | ⚠️ **Update Required** | Update target references. |
 | **Elaborate** | `design-interface` | `specs/INTERFACE-OPTIONS.md` | `specs/tech-architecture/design.md` | ⚠️ **Update Required** | Centralizes UI/UX specifications under `tech-architecture/`. |
-| **Plan** | `scope-work` | `specs/requirements/SCOPE_LATEST.yaml` | `specs/product/SCOPE_LATEST.yaml` | ⚠️ **Update Required** | Update parent folder path to `specs/product/`. |
+| **Plan** | `scope-work` | `specs/product/SCOPE_LATEST.yaml` | `specs/product/SCOPE_LATEST.yaml` | ⚠️ **Update Required** | Update parent folder path to `specs/product/`. |
 | **Plan** | `assess-impact` | `specs/IMPACT.md` | `specs/tech-architecture/IMPACT_LATEST.md` | ⚠️ **Update Required** | Relocates impact assessments to tech architecture. |
 | **Plan** | `change-request` | `specs/release-plan.yaml` | `specs/release-plan.yaml` | ✅ **Compatible** | Direct match. |
 | **Plan** | `slice-tasks` | `specs/epics/eNN-*.yaml` | `specs/epics/eXX-*/` | ⚠️ **Update Required** | **Crucial**: Must write capsule folder, `epic.yaml`, story markdown stubs, and tasks YAML stubs instead of a single YAML file. |
@@ -40,7 +40,7 @@ The table below maps all active `bigpowers` skills that read or write specificat
 | **Verify** | `verify-work` | `specs/epics/*.yaml` | `specs/verifications/eXXsYY-verify.yaml` | ⚠️ **Update Required** | **Crucial**: Reads stories from capsule folders, writes UAT evidence to centralized folder. |
 | **Verify** | `run-evals` | `specs/EVALS-*.md` | `specs/verifications/*-eval-report.md` | ⚠️ **Update Required** | Relocates capability and regression reports to verifications ledger. |
 | **Bug** | `investigate-bug` | `specs/bugs/BUG-*.md` | `specs/bugs/BUG-*.md` | ✅ **Compatible** | Match. Uses `registry.yaml` in both structures. |
-| **Sustain** | `stocktake-skills` | `specs/STOCKTAKE-*.md` | `specs/STOCKTAKE-*.md` (or `specs/audit/`) | ✅ **Compatible** | Can write directly to root `specs/` or a subfolder. |
+| **Sustain** | `stocktake-skills` | `specs/STOCKTAKE-*.md` | `specs/STOCKTAKE-*.md` (or `specs/verifications/`) | ✅ **Compatible** | Can write directly to root `specs/` or a subfolder. |
 | **Utility** | `session-state` | `specs/state.yaml` | `specs/state.yaml`<br>`specs/state.yaml.lock` | ⚠️ **Update Required** | Must acquire the lock file to prevent concurrency conflict during session updates. |
 | **Utility** | `run-planning` | `specs/planning-status.yaml` | `specs/planning-status.yaml` | ✅ **Compatible** | Direct match. |
 
@@ -62,7 +62,7 @@ To resolve the challenge of defining step-by-step implementation checklists with
 *   **Agentic Standard (Akita): Searchability & Context Minimization**
     *   *Evaluation*: Clear filenames describing contents (`e01s01-login.md` and `e01s01-tasks.yaml`) within the isolated capsule directory makes navigation highly predictable and minimizes unnecessary `read_file` calls.
 
-#### Evaluation against `specs/audit/features/` Features
+#### Evaluation against `specs/verifications/features/` Features
 *   **`pocock.feature`**: Directly satisfies "context window constraints should be proactively managed" by splitting execution checklists from long specifications, and aligns with "context efficiency".
 *   **`conventions.feature`**: Enforces "every change to be verified with a runnable command" by requiring each task in the YAML schema to have an explicit, executable `verify:` property.
 *   **`superpowers.feature`**: Supports "visualize implementation progress as a roadmap" since structured task files make progress indicators (like `% complete`) easily readable by dashboards.
@@ -103,7 +103,7 @@ To fully implement this evolved structure, we propose the following task checkli
 
 ### Phase 1: Update Planning & Spec Generation Skills
 - [ ] **`seed-conventions`**: Update template to create the new folder layout (`specs/product/`, `specs/tech-architecture/`, `specs/epics/`, `specs/verifications/`, `specs/bugs/`).
-- [ ] **`scope-work`**: Update path from `specs/requirements/SCOPE_LATEST.yaml` to `specs/product/SCOPE_LATEST.yaml`.
+- [ ] **`scope-work`**: Update path from `specs/product/SCOPE_LATEST.yaml` to `specs/product/SCOPE_LATEST.yaml`.
 - [ ] **`define-language`**: Update to output terms to `specs/product/GLOSSARY_LATEST.yaml` using the structured schema, and add compilation to `.md`.
 - [ ] **`map-codebase`**: Update output path to `specs/tech-architecture/tech-stack.md`.
 - [ ] **`model-domain` / `deepen-architecture`**: Update reading references from `TECH_STACK_LATEST.md` to `tech-stack.md`.

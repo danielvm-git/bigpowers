@@ -3,7 +3,7 @@ title: "Sustain Cleanup"
 wsjf: 1.0
 bcps: 10
 covers: []
-note: "Ad-hoc execution 2026-06-10 — see specs/plans/PLAN-sustain-cleanup.md"
+note: "Ad-hoc execution 2026-06-10 — see specs/tech-architecture/PLAN-sustain-cleanup.md"
 stories:
   - id: e11s01
     title: "Dashboard TUI UAT"

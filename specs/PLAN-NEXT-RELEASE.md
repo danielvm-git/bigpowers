@@ -18,7 +18,7 @@ Every item ships only if it passes both filters:
    (Markdown/Bash, zero external SDK), minimum-code mandate, verb-noun naming (ADR-0001),
    `specs/` as the single output location.
 2. **Feature-test gates** — it must *reinforce*, never dilute, the suites in
-   `specs/audit/features/` (`karpathy`, `superpowers`, `pocock`, `akita`, `cleancode`,
+   `specs/verifications/features/` (`karpathy`, `superpowers`, `pocock`, `akita`, `cleancode`,
    `conventions`).
 
 The ECC **Decline** list (§7) is load-bearing: it is precisely the set that would have

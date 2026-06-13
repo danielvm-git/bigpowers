@@ -1,0 +1,45 @@
+version: "1"
+core_value: "Maintain senior-grade quality (audit score) while scaling agentic autonomy."
+
+summary: |
+  Agent skills for solo developers (Claude Code, Cursor, Gemini CLI).
+  Prescriptive lifecycle, architectural depth, surgical changes, empirical verification.
+
+in_scope:
+  - id: fr-01
+    title: Skill lifecycle with SKILL.md sources
+  - id: fr-02
+    title: Gherkin audit harness via audit-compliance.sh
+  - id: fr-03
+    title: Orchestration meta-skills
+  - id: fr-04
+    title: Context isolation per skill spawn
+  - id: fr-05
+    title: Supply-chain security in plan-work and audit-code
+  - id: fr-06
+    title: Verify phase (verify-work, run-evals)
+  - id: fr-07
+    title: YAML specs cockpit (state, release-plan, epics, execution-status)
+  - id: fr-08
+    title: Wave-based execution where independent
+  - id: fr-09
+    title: Local-first specs in specs/
+
+out_of_scope:
+  - Domain-specific scaffold skills
+  - SaaS tracker integrations (Jira, Linear)
+  - Marketplace or plugin store model
+
+constraints:
+  - Max 300 lines per file
+  - Grep uniqueness under 5 hits per symbol
+  - Single canonical location per fact
+
+success_criteria:
+  - Compliance suite at or above 94%
+  - Skills synced via sync-skills.sh
+  - YAML layout validates via validate-specs-yaml.sh
+
+references:
+  plans: specs/tech-architecture/TECH_STACK_LATEST.md
+  adr: specs/adr/

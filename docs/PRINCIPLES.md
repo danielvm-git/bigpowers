@@ -99,7 +99,7 @@ When creating a new skill, it must meet these "Best-in-Class" requirements deriv
 3.  **Hard-Gated Workflows:** Processes must include explicit checkpoints or checklists to stop execution if quality criteria are not met.
 4.  **Information Hiding (Ousterhout):** The `SKILL.md` must be < 100 lines. Advanced details, examples, and logic must be delegated to `REFERENCE.md` or `scripts/`.
 5.  **Provenance-Ready:** If the skill modifies code, it must include a step to document *why* (link to ADR or spec).
-6.  **Empirically Verifiable:** Every new skill should have a corresponding `.feature` file in `specs/audit/features/` to verify its own implementation.
+6.  **Empirically Verifiable:** Every new skill should have a corresponding `.feature` file in `specs/verifications/features/` to verify its own implementation.
 
 ---
 

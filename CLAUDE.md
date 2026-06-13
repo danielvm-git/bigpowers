@@ -21,7 +21,7 @@ Stack: Markdown / Bash (documentation-based; skills integrate with Claude Code, 
 
 ## Architecture
 
-Collection of 61 verb-noun skills, each with a SKILL.md source file and supporting documentation. Runtime specs live in `specs/state.yaml`, `specs/release-plan.yaml`, and `specs/execution-status.yaml`; intent in `specs/requirements/`; epic shards in `specs/epics/`. The sync-skills.sh script auto-generates artifacts for Cursor (.cursor/rules) and Gemini CLI (.gemini/extensions/bigpowers/) from SKILL.md sources. All planning output goes to specs/ at the project root.
+Collection of 61 verb-noun skills, each with a SKILL.md source file and supporting documentation. Runtime specs live in `specs/state.yaml`, `specs/release-plan.yaml`, and `specs/execution-status.yaml`; intent in `specs/product/`; epic shards in `specs/epics/`. The sync-skills.sh script auto-generates artifacts for Cursor (.cursor/rules) and Gemini CLI (.gemini/extensions/bigpowers/) from SKILL.md sources. All planning output goes to specs/ at the project root.
 
 ## Conventions
 

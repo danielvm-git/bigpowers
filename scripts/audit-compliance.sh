@@ -157,7 +157,7 @@ process_step() {
 
   local sanitized_step
   sanitized_step=$(echo "$step" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9]/-/g' | sed 's/--*/-/g' | sed 's/^-//;s/-$//')
-  local step_script="specs/audit/steps/${sanitized_step}.sh"
+  local step_script="specs/verifications/steps/${sanitized_step}.sh"
 
   if [[ -f "$step_script" ]]; then
     echo "    [EXEC] Gathering evidence: $step_script"
@@ -182,8 +182,8 @@ run_audit_file() {
   echo "------------------------------------------------------------"
   echo "FEATURE: $FEATURE_FILE"
   
-  local REPORT_FILE="specs/audit/reports/audit-$(basename "$FEATURE_FILE" .feature)-$(date +%Y%m%d-%H%M%S).md"
-  mkdir -p specs/audit/reports
+  local REPORT_FILE="specs/verifications/reports/audit-$(basename "$FEATURE_FILE" .feature)-$(date +%Y%m%d-%H%M%S).md"
+  mkdir -p specs/verifications/reports
 
   echo "# Audit Report: $FEATURE_FILE" > "$REPORT_FILE"
   echo "Date: $(date)" >> "$REPORT_FILE"

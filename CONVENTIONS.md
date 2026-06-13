@@ -76,9 +76,9 @@ Every critical-path skill (survey-context, plan-work, kickoff-branch, develop-td
 
 | Question | File | Format |
 |----------|------|--------|
-| What should the product do? | `specs/requirements/SCOPE_LATEST.yaml` | YAML |
-| North star / initiative | `specs/requirements/VISION_LATEST.yaml` | YAML |
-| Glossary | `specs/requirements/GLOSSARY_LATEST.yaml` | YAML |
+| What should the product do? | `specs/product/SCOPE_LATEST.yaml` | YAML |
+| North star / initiative | `specs/product/VISION_LATEST.yaml` | YAML |
+| Glossary | `specs/product/GLOSSARY_LATEST.yaml` | YAML |
 | What ships in this release, in what order? | `specs/release-plan.yaml` | YAML |
 | How to implement an epic/story? | `specs/epics/eNN-*.yaml` or `specs/epics/eNN-*/stories/` | YAML + MD |
 | Where are we in the session? | `specs/state.yaml` | YAML |
@@ -87,7 +87,7 @@ Epic IDs: `e01`, `e30`. Story IDs: `e01s01`. One FR in SCOPE may span multiple e
 
 ### Frozen release (ex-baseline)
 
-When planning closes, copy to `specs/requirements/snapshots/release-<version>/` (`release-plan.yaml`, `SCOPE_LATEST.yaml`, `VISION_LATEST.yaml`). No separate `baselines/` folder.
+When planning closes, copy to `specs/product/snapshots/release-<version>/` (`release-plan.yaml`, `SCOPE_LATEST.yaml`, `VISION_LATEST.yaml`). No separate `baselines/` folder.
 
 ### Semantic-release — three places
 
@@ -99,11 +99,11 @@ When planning closes, copy to `specs/requirements/snapshots/release-<version>/` 
 
 | Document | Path |
 |----------|------|
-| Stack / architecture | `specs/plans/TECH_STACK_LATEST.md` |
-| Security / test / design plans | `specs/plans/*_PLAN_LATEST.md` |
-| Domain context + ADRs | `specs/plans/TECH_STACK_LATEST.md` or legacy `specs/CONTEXT.md` + `specs/adr/` |
+| Stack / architecture | `specs/tech-architecture/TECH_STACK_LATEST.md` |
+| Security / test / design plans | `specs/tech-architecture/*_PLAN_LATEST.md` |
+| Domain context + ADRs | `specs/tech-architecture/TECH_STACK_LATEST.md` or legacy `specs/CONTEXT.md` + `specs/adr/` |
 | Bug investigation | `specs/bugs/BUG-*.md` + `specs/bugs/registry.yaml` (generated) |
-| Refactor / impact | `specs/plans/REFACTOR_LATEST.md`, `specs/plans/IMPACT_LATEST.md` |
+| Refactor / impact | `specs/tech-architecture/REFACTOR_LATEST.md`, `specs/tech-architecture/IMPACT_LATEST.md` |
 | Legacy markdown | `specs/archive/` after `bash scripts/convert-legado.sh` |
 
 Validate YAML layout: `bash scripts/validate-specs-yaml.sh`. Patch runtime keys: `bash scripts/bp-yaml-set.sh specs/state.yaml git.branch feat/foo`.
@@ -114,7 +114,7 @@ Validate YAML layout: `bash scripts/validate-specs-yaml.sh`. Patch runtime keys:
 |-----|-----|
 | `specs/STATE.md` | `specs/state.yaml` |
 | `specs/RELEASE-PLAN.md` | `specs/release-plan.yaml` + `specs/epics/` |
-| `specs/SCOPE.md` | `specs/requirements/SCOPE_LATEST.yaml` |
+| `specs/SCOPE.md` | `specs/product/SCOPE_LATEST.yaml` |
 
 ## Code Style
 

@@ -71,4 +71,4 @@ epics:
     bcps: 10
     file: epics/e11-sustain-cleanup.yaml
     mode: flat
-    note: "Ad-hoc execution 2026-06-10 — see specs/plans/PLAN-sustain-cleanup.md"
+    note: "Ad-hoc execution 2026-06-10 — see specs/tech-architecture/PLAN-sustain-cleanup.md"

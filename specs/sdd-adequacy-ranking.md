@@ -2,7 +2,7 @@
 
 This document provides a systematic evaluation and ranking of the **22 mapped Software-Driven Development (SDD)** directory structures stored under [docs/file-structure/](file:///Users/danielvm/Developer/bigpowers/docs/file-structure). The goal is to determine the most adequate directory structure for building software using autonomous AI agents.
 
-This updated evaluation combines **five new criteria** (based on [docs/PRINCIPLES.md](file:///Users/danielvm/Developer/bigpowers/docs/PRINCIPLES.md) and [specs/audit/features/](file:///Users/danielvm/Developer/bigpowers/specs/audit/features)) positioned **on top of the five former structural criteria**, evaluating each layout on a scale of **1.0 to 5.0** across all **10 dimensions** (maximum score: **50.0**).
+This updated evaluation combines **five new criteria** (based on [docs/PRINCIPLES.md](file:///Users/danielvm/Developer/bigpowers/docs/PRINCIPLES.md) and [specs/verifications/features/](file:///Users/danielvm/Developer/bigpowers/specs/verifications/features)) positioned **on top of the five former structural criteria**, evaluating each layout on a scale of **1.0 to 5.0** across all **10 dimensions** (maximum score: **50.0**).
 
 ---
 
@@ -12,19 +12,19 @@ Each structure is graded across two main categories of criteria:
 
 ### Category A: Core Philosophical Principles (New Criteria)
 *   **C1: Clean Code SRP Compliance (Uncle Bob)**
-    *   *Source*: [`cleancode.feature`](file:///Users/danielvm/Developer/bigpowers/specs/audit/features/cleancode.feature).
+    *   *Source*: [`cleancode.feature`](file:///Users/danielvm/Developer/bigpowers/specs/verifications/features/cleancode.feature).
     *   *Metric*: Separates static business specifications (*what*) from dynamic task checklists and runnable verifications (*how*). Avoids monolithic specifications.
 *   **C2: Complexity Management & Token Economy (Ousterhout & Pocock)**
-    *   *Source*: [`pocock.feature`](file:///Users/danielvm/Developer/bigpowers/specs/audit/features/pocock.feature).
+    *   *Source*: [`pocock.feature`](file:///Users/danielvm/Developer/bigpowers/specs/verifications/features/pocock.feature).
     *   *Metric*: Encapsulates features into directories (Feature Capsules) and supports active context window pruning (e.g. archiving completed epics).
 *   **C3: Spec-Driven & Runnable Verifiability (Wasowski)**
-    *   *Source*: [`conventions.feature`](file:///Users/danielvm/Developer/bigpowers/specs/audit/features/conventions.feature).
+    *   *Source*: [`conventions.feature`](file:///Users/danielvm/Developer/bigpowers/specs/verifications/features/conventions.feature).
     *   *Metric*: Maps all specifications directly to Gherkin scenarios with explicit, machine-runnable verification scripts for every task.
 *   **C4: Agent-Centric Searchability & Navigation (Akita)**
-    *   *Source*: [`akita.feature`](file:///Users/danielvm/Developer/bigpowers/specs/audit/features/akita.feature).
+    *   *Source*: [`akita.feature`](file:///Users/danielvm/Developer/bigpowers/specs/verifications/features/akita.feature).
     *   *Metric*: Standardizes directory naming schemas to ensure global symbol `grep` searches return `< 5 results` and minimize `read_file` counts.
 *   **C5: Hard-Gated Session Governance & Integrity (Superpowers)**
-    *   *Source*: [`superpowers.feature`](file:///Users/danielvm/Developer/bigpowers/specs/audit/features/superpowers.feature).
+    *   *Source*: [`superpowers.feature`](file:///Users/danielvm/Developer/bigpowers/specs/verifications/features/superpowers.feature).
     *   *Metric*: Structural blocks preventing coding before design approval; roadmap progress metrics derived directly from the filesystem.
 
 ### Category B: Structural Mechanics (Former Criteria)

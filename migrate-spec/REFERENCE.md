@@ -22,7 +22,7 @@ project-root/
         └── log.jsonl
 ```
 
-### `spec.md` → `specs/requirements/SCOPE_LATEST.yaml` + `specs/plans/TECH_STACK_LATEST.md`
+### `spec.md` → `specs/product/SCOPE_LATEST.yaml` + `specs/tech-architecture/TECH_STACK_LATEST.md`
 
 spec-kit `spec.md` focuses on: who uses it, user journeys, success criteria, what's in/out of scope.
 
@@ -32,7 +32,7 @@ Transform:
 - Domain terms / glossary → `requirements/GLOSSARY_LATEST.yaml`
 - Problem statement / vision → `requirements/VISION_LATEST.yaml`
 
-### `plan.md` → `specs/plans/TECH_STACK_LATEST.md` + `specs/release-plan.yaml` + `specs/epics/`
+### `plan.md` → `specs/tech-architecture/TECH_STACK_LATEST.md` + `specs/release-plan.yaml` + `specs/epics/`
 
 spec-kit `plan.md` covers: technology stack, architectural patterns, implementation constraints.
 
@@ -79,14 +79,14 @@ project-root/
     └── story-{slug}.md
 ```
 
-### `product-brief.md` / `prfaq-{project}.md` → `specs/requirements/VISION_LATEST.yaml`
+### `product-brief.md` / `prfaq-{project}.md` → `specs/product/VISION_LATEST.yaml`
 
 Transform:
 - Vision + core value → `VISION_LATEST.yaml` north_star / success_criteria
 - Target users → notes in VISION or SCOPE
 - prfaq customer FAQ → can inform success criteria in SCOPE
 
-### `prd.md` → `specs/requirements/SCOPE_LATEST.yaml` + `GLOSSARY_LATEST.yaml`
+### `prd.md` → `specs/product/SCOPE_LATEST.yaml` + `GLOSSARY_LATEST.yaml`
 
 BMAD `prd.md` has: Glossary, FR-XX functional requirements, UJ-XX user journeys, NFRs, assumptions.
 
@@ -105,7 +105,7 @@ Transform:
 - Lightweight decisions → `specs/DECISION-LOG.md` (date | decision | rationale)
 - `addendum.md` change signals → note in `SCOPE_LATEST.yaml` metadata
 
-### `architecture.md` → `specs/plans/TECH_STACK_LATEST.md` + `specs/adr/`
+### `architecture.md` → `specs/tech-architecture/TECH_STACK_LATEST.md` + `specs/adr/`
 
 Transform:
 - ADR sections → individual `specs/adr/NNNN-{slug}.md` files
@@ -132,7 +132,7 @@ Optional enhancements to offer the user after migration. Present as checkboxes.
 
 ### From GSD
 
-- [ ] **`specs/plans/METHODOLOGY_LATEST.md`** — Standing analytical lenses. Agents read before planning.
+- [ ] **`specs/tech-architecture/METHODOLOGY_LATEST.md`** — Standing analytical lenses. Agents read before planning.
 - [ ] **`handoff` block in state.yaml** — Last skill, last step, required reading for next session.
 - [ ] **ID tracking in SCOPE_LATEST.yaml** — FR/UJ IDs for spec → plan → verification traceability.
 

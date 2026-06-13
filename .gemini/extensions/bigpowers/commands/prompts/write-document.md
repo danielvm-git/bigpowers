@@ -11,7 +11,7 @@ Create high-signal technical documentation that serves as an expert collaborator
 | :--- | :--- |
 | **B**old | Make strong assertions. Define clear boundaries and "Never" rules. No "it might" or "usually." |
 | **M**inimal | High-density, low-filler. **Circuit Breaker**: If the file exceeds 300 lines or the session exceeds 20 turns, you MUST run `terse-mode` and compact state before saving. |
-| **A**ctionable | Link every doc to a verifiable outcome. **Architectural Docs**: Verify via Gherkin features (`specs/audit/features/`) or grep-based structure checks (`grep -c "pattern" file`) that prove the design's *constraints* are present. |
+| **A**ctionable | Link every doc to a verifiable outcome. **Architectural Docs**: Verify via Gherkin features (`specs/verifications/features/`) or grep-based structure checks (`grep -c "pattern" file`) that prove the design's *constraints* are present. |
 | **D**urable | Design for the long-term. **Scalability**: Use "Nested Indexing"—root files link to module-level `GEMINI.md` indexes; do not list individual sub-files in the root. |
 
 ## Process
@@ -22,7 +22,7 @@ Choose the correct BMAD-BigPowers artifact:
 - **Decision Record (ADR)**: For "Why" decisions (saved to `specs/adr/`).
 - **Context Map**: For system-wide architectural mapping (`specs/tech-architecture/tech-stack.md`).
 - **Technical Guide**: For "How-to" with verification (saved to `<module>/REFERENCE.md`).
-- **Behavioral Feature**: Gherkin-style compliance specs (saved to `specs/audit/features/`).
+- **Behavioral Feature**: Gherkin-style compliance specs (saved to `specs/verifications/features/`).
 - **Project README**: Project-facing documentation (saved to `README.md` at project root).
 
 **Cross-Cutting Concerns**: If a doc affects multiple modules, place the authoritative source in the lowest common ancestor directory and use "Delegates" (one-line pointers) in sub-directories to maintain the Single Source of Truth without violating the Stepdown Rule.

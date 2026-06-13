@@ -4,7 +4,7 @@
   "description": "61 agent skills for spec-driven, test-first software development by solo developers",
   "main": "index.js",
   "scripts": {
-    "compliance": "bash scripts/audit-compliance.sh specs/audit/features && bash scripts/validate-doctrine.sh",
+    "compliance": "bash scripts/audit-compliance.sh specs/verifications/features && bash scripts/validate-doctrine.sh",
     "doctrine": "bash scripts/validate-doctrine.sh",
     "sync": "bash scripts/sync-skills.sh",
     "validate-specs": "bash scripts/validate-specs-yaml.sh",

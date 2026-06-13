@@ -13,7 +13,7 @@ specs_files=""
 if [[ "$has_specs" == "true" ]]; then
   specs_files=$( {
     ls specs/*.yaml 2>/dev/null || true
-    ls specs/requirements/*.yaml 2>/dev/null || true
+    ls specs/product/*.yaml 2>/dev/null || true
     ls specs/*.md 2>/dev/null || true
   } | xargs -n1 basename 2>/dev/null | sort -u | tr '\n' ',' | sed 's/,$//')
 fi
@@ -34,7 +34,7 @@ if [[ -f "specs/state.yaml" ]]; then
   esac
 elif [[ -f "specs/release-plan.yaml" ]]; then
   phase="Plan"
-elif [[ -f "specs/requirements/SCOPE_LATEST.yaml" ]] || [[ -f "specs/SCOPE.md" ]]; then
+elif [[ -f "specs/product/SCOPE_LATEST.yaml" ]] || [[ -f "specs/SCOPE.md" ]]; then
   phase="Design"
 elif [[ "$current_branch" != "main" && "$current_branch" != "master" ]]; then
   phase="Initiate"
