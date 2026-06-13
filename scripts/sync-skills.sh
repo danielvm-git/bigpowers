@@ -161,4 +161,7 @@ if [[ -f "$manifest" ]]; then
   fi
 fi
 
+# Regenerate derived reference tables from live SKILL.md frontmatter
+bash "$REPO_ROOT/scripts/generate-reference-tables.sh"
+
 exit 0

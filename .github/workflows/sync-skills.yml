@@ -22,6 +22,7 @@ jobs:
       - name: Sync skills and verify artifacts committed
         run: |
           bash scripts/sync-skills.sh
+          bash scripts/validate-doctrine.sh
           git diff --exit-code \
             .cursor/rules \
             .gemini/extensions/bigpowers/skills \

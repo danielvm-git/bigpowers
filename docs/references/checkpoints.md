@@ -93,7 +93,7 @@ evidence    options      & types         Remediate
 | RUNNING | Execute test/gather evidence | VERIFY_NEEDED | Test finishes with results |
 | VERIFY_NEEDED | Show results to user | AWAITING_USER | "slopcheck results: [SUS] for colors@2.0.0" |
 | AWAITING_USER | Wait for input | APPROVED / REJECTED | User types "continue" or "block" |
-| APPROVED | Record decision, emit evidence | Continue to next phase | Evidence logged in VERIFICATION.md |
+| APPROVED | Record decision, emit evidence | Continue to next phase | Evidence logged in specs/verifications/ |
 | REJECTED | Agent stops, routes to remediation | Call remediation skill or ask user | Revert, fix, retry |
 
 ---
@@ -168,7 +168,7 @@ User Input: ?
 **Example Flow with Both:**
 ```
 Discover phase:
-  ┌─ Transition gate: PROJECT.md exists? [HARD STOP if missing]
+  ┌─ Transition gate: specs/product/SCOPE_LATEST.yaml exists? [HARD STOP if missing]
   └─ Confirm gate: Problem clear? [Wait for user "yes"]
 
 Plan phase:
@@ -177,7 +177,7 @@ Plan phase:
   └─ human-verify checkpoint: slopcheck [SUS] packages? [Pause, let user decide]
 
 Build phase:
-  ├─ Transition gate: PLAN.md executable? [Hard stop if not]
+  ├─ Transition gate: specs/epics/eNN-*.yaml executable? [Hard stop if not]
   └─ integration checkpoint: All tests pass? [Report results, wait for approval]
 
 Release phase:

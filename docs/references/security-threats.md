@@ -107,15 +107,15 @@ During planning, before recommending packages:
 ## Verification: Slopcheck Verdicts
 
 ```bash
-# Step 1: Every package in PLAN.md has a verdict tag
-verify: grep -q "\[OK\]\|\[SUS\]\|\[SLOP\]" specs/PLAN.md && echo "✅ All packages tagged"
+# Step 1: Every package in specs/epics/eNN-*.yaml has a verdict tag
+verify: grep -q "\[OK\]\|\[SUS\]\|\[SLOP\]" specs/epics/eNN-*.yaml && echo "✅ All packages tagged"
 
 # Step 2: No [SLOP] packages remain
-verify: ! grep -q "\[SLOP\]" specs/PLAN.md && echo "✅ No dangerous packages"
+verify: ! grep -q "\[SLOP\]" specs/epics/eNN-*.yaml && echo "✅ No dangerous packages"
 
 # Step 3: All [SUS] packages were approved by user
-verify: grep -q "\[SUS\]" specs/PLAN.md && \
-        grep "human-verify\|approved by user" specs/PLAN.md | grep -q "[SUS]" && \
+verify: grep -q "\[SUS\]" specs/epics/eNN-*.yaml && \
+        grep "human-verify\|approved by user" specs/epics/eNN-*.yaml | grep -q "[SUS]" && \
         echo "✅ [SUS] packages approved"
 ```
 

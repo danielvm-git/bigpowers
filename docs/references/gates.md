@@ -43,16 +43,16 @@
 ## 4. Transition Gate
 
 **When:** Phase-boundary gate; ensures handoff artifact exists and is valid  
-**Pass Condition:** Required output file exists + has minimum structure  
-**Fail Condition:** Output file missing or incomplete  
-**Example:** Check that `specs/PLAN.md` exists before proceeding to Build phase
+**Pass Condition:** Required YAML artifact exists + has minimum structure  
+**Fail Condition:** Artifact missing or incomplete  
+**Example:** Check that an `specs/epics/eNN-*.yaml` shard exists before proceeding to Build phase
 
 **Usage in Orchestration:**
-- Discover → Elaborate: PROJECT.md + CONTEXT.md must exist
-- Elaborate → Plan: RESEARCH.md + decisions locked must exist
-- Plan → Build: PLAN.md with runnable verify commands must exist
-- Build → Verify: SUMMARY.md describing what was built must exist
-- Verify → Release: VERIFICATION.md with success criteria checklist must exist
+- Discover → Elaborate: `specs/state.yaml` (`active_epic_id`) + `specs/product/SCOPE_LATEST.yaml` must exist
+- Elaborate → Plan: `specs/product/SCOPE_LATEST.yaml` with locked decisions must exist
+- Plan → Build: `specs/epics/eNN-*.yaml` shard with `verify:` commands per task must exist
+- Build → Verify: `specs/state.yaml` `handoff` block describing what was built must exist
+- Verify → Release: `specs/verifications/` results + all `verify:` commands green must exist
 
 ---
 
@@ -62,7 +62,7 @@
 
 ```
 Condition fails → Agent STOPS, asks user to fix
-Example: "PLAN.md not found. Create it before proceeding."
+Example: "specs/epics/eNN-*.yaml shard not found. Create it with plan-work before proceeding."
 ```
 
 **Hard gates in Bigpowers 2.0:**

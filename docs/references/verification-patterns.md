@@ -181,8 +181,8 @@ verify: grep -r "DATABASE_URL" src/ > /dev/null && echo "✅ Config used"
 ### Pattern 1: Plan Structure Valid
 
 ```bash
-verify: grep -q "^### Step" specs/RELEASE-PLAN.md && \
-        grep -q "verify:" specs/RELEASE-PLAN.md && \
+verify: grep -q "^### Step" specs/release-plan.yaml && \
+        grep -q "verify:" specs/release-plan.yaml && \
         echo "✅ Plan structure valid"
 ```
 
@@ -195,7 +195,7 @@ verify: grep -q "^### Step" specs/RELEASE-PLAN.md && \
 ### Pattern 2: All Verify Commands Runnable
 
 ```bash
-verify: bash -n <(grep "verify:" specs/RELEASE-PLAN.md | sed 's/verify: //' | while read cmd; do echo "$cmd"; done) && echo "✅ All verify commands valid"
+verify: bash -n <(grep "verify:" specs/release-plan.yaml | sed 's/verify: //' | while read cmd; do echo "$cmd"; done) && echo "✅ All verify commands valid"
 ```
 
 **What it checks:**
@@ -207,8 +207,8 @@ verify: bash -n <(grep "verify:" specs/RELEASE-PLAN.md | sed 's/verify: //' | wh
 ### Pattern 3: Success Criteria Defined
 
 ```bash
-verify: grep -q "Success Criteria" specs/RELEASE-PLAN.md && \
-        grep -c "- \[ \]" specs/RELEASE-PLAN.md | awk '{if ($1 >= 3) print "✅ Success criteria defined"}' && \
+verify: grep -q "Success Criteria" specs/release-plan.yaml && \
+        grep -c "- \[ \]" specs/release-plan.yaml | awk '{if ($1 >= 3) print "✅ Success criteria defined"}' && \
         echo "✅ Success criteria complete"
 ```
 
@@ -263,7 +263,7 @@ verify: npx tsc --noEmit && echo "✅ No type errors"
 verify: npm test  # doesn't specify which tests
 
 # GOOD: Runnable from clean state
-verify: cd /Users/danielvm/Developer/skills && npm test -- src/UserService.test.ts
+verify: npm test -- src/UserService.test.ts
 ```
 
 ### ❌ Verify Command With No Exit Code
@@ -313,4 +313,4 @@ bash scripts/verify-code.sh
 
 - orchestration.md — Which phase uses which verification?
 - plan-work (SKILL.md) — How to write steps with verify: commands
-- verify: cd /Users/danielvm/Developer/skills && grep "verify:" specs/RELEASE-PLAN.md | wc -l
+- verify: grep "verify:" specs/release-plan.yaml | wc -l

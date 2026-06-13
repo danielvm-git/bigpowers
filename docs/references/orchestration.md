@@ -22,16 +22,16 @@ discover → elaborate → plan → build → verify → release
 - Existing codebase (survey via survey-context)
 
 **Outputs:**
-- `PROJECT.md` — Problem statement, success criteria, constraints
-- `CONTEXT.md` — Codebase findings, existing patterns, dependencies
+- `specs/product/SCOPE_LATEST.yaml` — Problem statement, success criteria, constraints
+- `specs/state.yaml` — Codebase findings, existing patterns, dependencies
 
 **Activities:**
 1. `survey-context` — Read codebase, identify affected modules, gather context
 2. `grill-me` — Ask clarifying questions until problem is fully understood
-3. Document in PROJECT.md and CONTEXT.md
+3. Document in specs/product/SCOPE_LATEST.yaml and specs/state.yaml
 
 **Gates/Checkpoints:**
-- Transition gate: PROJECT.md + CONTEXT.md must exist
+- Transition gate: specs/product/SCOPE_LATEST.yaml + specs/state.yaml (active_epic_id set) must exist
 - Confirm gate: "Is the problem statement clear?" → user approves
 
 **Red Flags:**
@@ -55,28 +55,28 @@ discover → elaborate → plan → build → verify → release
 **Goal:** Research solutions and lock design decisions before writing any code
 
 **Inputs:**
-- PROJECT.md, CONTEXT.md (from Discover)
+- specs/product/SCOPE_LATEST.yaml + specs/state.yaml (from Discover)
 - Technical specifications, design docs, prior art
 
 **Outputs:**
-- `RESEARCH.md` — Solution options, tradeoffs, decisions locked
-- `CONTEXT.md` — Updated with research findings
+- `specs/tech-architecture/` (ADRs + decisions) — Solution options, tradeoffs, decisions locked
+- `specs/state.yaml` — Updated with research findings
 
 **Activities:**
 1. `elaborate-spec` — Research solution options, evaluate tradeoffs
 2. `grill-me` — Surface assumptions ("What if X changes?")
 3. Lock decisions (architecture, APIs, major dependencies)
-4. Document in RESEARCH.md
+4. Document in specs/tech-architecture/ (ADR or decision log)
 
 **Gates/Checkpoints:**
-- Transition gate: RESEARCH.md must exist
+- Transition gate: specs/tech-architecture/ decisions locked must exist
 - Quality gate: Design review via grill-me (no decisions should surprise)
 - Confirm gate: "Are the design decisions locked?" → user approves
 
 **Red Flags:**
 - "We'll decide this during code" (go back, lock it now)
-- New constraints discovered (update PROJECT.md)
-- Solution changes discovered (update RESEARCH.md, re-confirm)
+- New constraints discovered (update specs/product/SCOPE_LATEST.yaml)
+- Solution changes discovered (update specs/tech-architecture/ decisions, re-confirm)
 
 **Estimated Duration:** 1-2 hours (most projects reuse patterns)
 
@@ -94,23 +94,23 @@ discover → elaborate → plan → build → verify → release
 **Goal:** Write a detailed, verifiable implementation plan before writing any code
 
 **Inputs:**
-- PROJECT.md, CONTEXT.md, RESEARCH.md (from Discover + Elaborate)
-- PLAN.md template (if exists from prior phases)
+- specs/product/SCOPE_LATEST.yaml, specs/state.yaml, specs/tech-architecture/ (from Discover + Elaborate)
+- prior specs/epics/ shard (if exists from prior phases)
 
 **Outputs:**
-- `PLAN.md` — Step-by-step implementation plan with verify: commands
+- `specs/epics/eNN-*.yaml` — Step-by-step implementation plan with verify: commands
 - Success criteria checklist
 
 **Activities:**
 1. `plan-work` — Break implementation into steps
 2. Every step has a runnable verify: command (not "I think it works")
-3. Define success criteria (checkbox checklist in PLAN.md)
+3. Define success criteria (checkbox checklist in specs/epics/eNN-*.yaml)
 4. Identify risks and mitigation strategies
 
 **Gates/Checkpoints:**
 - HARD_GATE: define-success (if ambiguous, run define-success first)
 - HARD_GATE: zoom-out mandate (if modifying existing modules, understand impact)
-- Transition gate: PLAN.md must exist with runnable verify: commands
+- Transition gate: specs/epics/eNN-*.yaml shard with verify: commands per task must exist
 - Quality gate: request-review on plan (≥94% quality)
 - human-verify checkpoint: slopcheck verdicts [SUS]/[SLOP] packages
 
@@ -135,34 +135,34 @@ discover → elaborate → plan → build → verify → release
 **Goal:** Implement the plan, step by step, with no deviations
 
 **Inputs:**
-- PLAN.md (from Plan phase)
+- specs/epics/eNN-*.yaml (from Plan phase)
 
 **Outputs:**
-- Code, docs, configs (following PLAN.md)
-- `SUMMARY.md` — What was built, changes made
+- Code, docs, configs (following specs/epics/eNN-*.yaml)
+- `specs/state.yaml` handoff block — What was built, changes made
 
 **Activities:**
-1. `develop-tdd` — Execute each step in PLAN.md sequentially
+1. `develop-tdd` — Execute each step in specs/epics/eNN-*.yaml sequentially
 2. Run verify: command after each step (fail fast if red)
-3. Document changes in SUMMARY.md
+3. Document changes in specs/state.yaml handoff
 
 **Gates/Checkpoints:**
-- Transition gate: PLAN.md must exist
+- Transition gate: specs/epics/eNN-*.yaml shard must exist
 - integration checkpoint: All verify: commands pass
 
 **Red Flags:**
-- Deviation from PLAN.md (stop, why? Go back to Plan if needed)
+- Deviation from specs/epics/eNN-*.yaml (stop, why? Go back to Plan if needed)
 - Verify: command fails (stop, don't advance without green)
 - Scope creep ("while we're here, let's fix X") (document for Phase 2 of next release)
 
 **Estimated Duration:** 80% of total project time (most effort here)
 
 **Definition of Done:**
-- ✅ All steps in PLAN.md executed
+- ✅ All tasks in specs/epics/eNN-*.yaml executed
 - ✅ All verify: commands PASS
-- ✅ No deviations from plan (or documented + approved by user)
+- ✅ No deviations from specs/epics/eNN-*.yaml (or documented + approved by user)
 - ✅ Boy Scout Rule applied (clean up as you go, but surgically)
-- ✅ SUMMARY.md describes what was built
+- ✅ specs/state.yaml handoff block describes what was built
 
 ---
 
@@ -171,18 +171,18 @@ discover → elaborate → plan → build → verify → release
 **Goal:** Validate that the implementation meets all success criteria
 
 **Inputs:**
-- PLAN.md, SUMMARY.md (from Build phase)
+- specs/epics/eNN-*.yaml + specs/state.yaml handoff (from Build phase)
 - Success criteria checklist
 
 **Outputs:**
-- `VERIFICATION.md` — Evidence that all success criteria are met
+- `specs/verifications/` — Evidence that all success criteria are met
 - Compliance audit report
 
 **Activities:**
 1. `validate-fix` — Run full test suite, check coverage, run all audits
 2. `audit-code` — Self-review checklist (CONVENTIONS.md, scope, types, tests)
 3. `request-review` — Independent second opinion (≥94% quality)
-4. Collect evidence in VERIFICATION.md
+4. Collect evidence in specs/verifications/
 
 **Gates/Checkpoints:**
 - Quality gate: audit-code must PASS (no `✗` items)
@@ -198,7 +198,7 @@ discover → elaborate → plan → build → verify → release
 **Estimated Duration:** 30 min - 2 hours (mostly automated)
 
 **Definition of Done:**
-- ✅ All success criteria verified (checkbox checklist in VERIFICATION.md)
+- ✅ All success criteria verified (specs/verifications/ results)
 - ✅ All tests PASS
 - ✅ Coverage ≥95%
 - ✅ Compliance audit ≥93%
@@ -212,19 +212,19 @@ discover → elaborate → plan → build → verify → release
 **Goal:** Ship to production with confidence and traceability
 
 **Inputs:**
-- VERIFICATION.md (all checks pass)
-- PLAN.md + SUMMARY.md (what was done)
+- specs/verifications/ (all checks pass)
+- specs/epics/eNN-*.yaml + specs/state.yaml handoff
 
 **Outputs:**
 - Release tag (v1.17.0, v2.0.0, etc.)
 - Release notes
-- `RELEASE-NOTE.md` — Summary for stakeholders
+- `CHANGELOG.md` — Summary for stakeholders
 
 **Activities:**
 1. Create git tag (semantic versioning: MAJOR.minor.patch)
 2. Write release notes (features, fixes, breaking changes)
 3. Push to production
-4. Archive PLAN.md → `specs/PLAN-vX.Y.Z.md` (historical record)
+4. Archive epic shard → `specs/archive/` (historical record)
 
 **Gates/Checkpoints:**
 - Safety checkpoint: "About to push to main. Type 'release' to confirm:"
@@ -232,7 +232,7 @@ discover → elaborate → plan → build → verify → release
 
 **Red Flags:**
 - Verification didn't pass (STOP, go back to Phase 5)
-- Breaking changes not documented (update RELEASE-NOTE.md)
+- Breaking changes not documented (update CHANGELOG.md)
 - No rollback plan (document in RELEASE-NOTE.md)
 
 **Estimated Duration:** 30 min
@@ -241,7 +241,7 @@ discover → elaborate → plan → build → verify → release
 - ✅ Tag created (git tag -a vX.Y.Z)
 - ✅ Release notes written (features, fixes, breaking changes)
 - ✅ Pushed to origin/main
-- ✅ Historical PLAN.md archived
+- ✅ Historical epic shard archived to specs/archive/
 
 ---
 
@@ -274,7 +274,7 @@ discover -[maybe]→ elaborate -[maybe]→ plan -[soft]→ build -[soft]→ veri
          confirm?  ✅        confirm?  ✅      soft     ✅     soft     ✅      confirm?  ✅
 
 Conditional skips:
-  - Skip discover if: PROJECT.md exists + codebase already surveyed
+  - Skip discover if: specs/product/SCOPE_LATEST.yaml exists + codebase already surveyed
   - Skip elaborate if: decisions already locked in prior release
   - Skip verify if: test coverage ≥95% + all tests PASS (skip audit)
 ```
@@ -304,23 +304,23 @@ discover [warn] → elaborate [warn] → plan [warn] → build [warn] → verify
 
 ## State Tracking During Orchestration
 
-The `orchestrate` skill maintains `specs/STATE.md` with:
+The `orchestrate-project` skill maintains `specs/state.yaml` with:
 - Current phase (Discover/Elaborate/Plan/Build/Verify/Release)
-- Artifacts present (PROJECT.md, CONTEXT.md, PLAN.md, etc.)
+- Artifacts present (SCOPE_LATEST.yaml, state.yaml, epics/ shards, etc.)
 - Decisions locked (so far)
 - Risks surfaced
 - Next action required
 
-Example STATE.md snapshot:
+Example specs/state.yaml snapshot:
 ```yaml
 Current Phase: Build
 Current Step: 3/8 (Implement database schema)
 Artifacts:
-  - PROJECT.md ✓ (Problem: Add multi-tenant support)
-  - CONTEXT.md ✓ (Existing: Postgres, SQLAlchemy ORM)
-  - RESEARCH.md ✓ (Decision: Separate schemas per tenant)
-  - PLAN.md ✓ (8 steps total)
-  - SUMMARY.md ✓ (2/8 steps complete)
+  - SCOPE_LATEST.yaml ✓ (Problem: Add multi-tenant support)
+  - state.yaml ✓ (survey: Postgres, SQLAlchemy ORM)
+  - adr/0001-tenant-schema.yaml ✓ (Decision: Separate schemas per tenant)
+  - epics/e01-multi-tenant.yaml ✓ (8 tasks total)
+  - state.yaml handoff ✓ (2/8 tasks complete)
 
 Decisions Locked:
   - Architecture: Separate schemas (not rows)
@@ -340,4 +340,4 @@ Next Action: Run step 3 verify: command, then confirm before step 4
 
 - gates.md — How gates enforce quality at phase boundaries
 - checkpoints.md — How checkpoints report progress
-- verify: cd /Users/danielvm/Developer/skills && grep -r "discover\|elaborate\|plan\|build\|verify\|release" specs/ | wc -l
+- verify: bash scripts/validate-doctrine.sh

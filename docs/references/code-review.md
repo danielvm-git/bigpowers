@@ -7,7 +7,7 @@
 ## Request-Review Checklist
 
 ### Functional Correctness
-- [ ] Does the code implement the spec (from PLAN.md)?
+- [ ] Does the code implement the spec (from specs/epics/eNN-*.yaml)?
 - [ ] Do all verify: commands pass?
 - [ ] Are there edge cases not handled?
 - [ ] Are there new risks introduced?

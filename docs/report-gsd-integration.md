@@ -39,7 +39,7 @@ This report presents the findings of a comprehensive feature-level comparison be
 | **CI/CD workflows** | 19 GitHub Actions | None |
 | **Hook system** | 11+ hooks (pre-commit, session, phase boundary) | 2 (guard-git, hook-commits) |
 | **Context management** | Window monitoring, budgeting, thinning, threads | terse-mode (manual) |
-| **Artifact system** | `.planning/` (PROJECT.md, REQUIREMENTS.md, ROADMAP.md, STATE.md, CONTEXT.md, config.json) | `specs/` (RELEASE-PLAN.md, STATE.md, IMPACT.md) |
+| **Artifact system** | `.planning/` (PROJECT.md, REQUIREMENTS.md, ROADMAP.md, specs/state.yaml, CONTEXT.md, config.json) | `specs/` (release-plan.yaml, state.yaml, IMPACT.md) |
 | **Execution model** | Wave-based parallel, node repair, cross-AI delegation | Sequential (execute-plan), parallel (dispatch-agents) |
 | **Security** | Secret scanning, package legitimacy, prompt injection detection, read-before-edit guard | guard-git (destructive op blocking) |
 | **SDK** | TypeScript SDK (200+ modules), CLI transport | None |
@@ -81,7 +81,7 @@ These can be implemented as new or modified skills with minimal architectural ch
 | 4.2 | Context window monitoring & budgeting | Context Eng | 8 | 3 | 2.67 | Add context utilization tracking to `orchestrate`; auto-trigger `terse-mode` when budget exceeded |
 | 5.3 | Node repair operator | Quality | 7 | 3 | 2.33 | Extend `execute-plan` to auto-diagnose and retry failed verify commands |
 | 2.3 | Quick Mode | Execution | 7 | 3 | 2.33 | Add a `--quick` flag to `orchestrate` that skips research and plan-check gates |
-| 5.4 | Verification debt tracking | Quality | 6 | 2 | 3.00 | Add a verification debt section to `specs/STATE.md` |
+| 5.4 | Verification debt tracking | Quality | 6 | 2 | 3.00 | Add a verification debt section to `specs/state.yaml` |
 | 4.4 | Learning store | Context Eng | 6 | 3 | 2.00 | Add `/gsd-extract-learnings` equivalent that saves patterns from completed phases to `specs/LEARNINGS.md` |
 | 2.9 | Progress auto-advance | Phase Mgmt | 6 | 3 | 2.00 | Extend `survey-context` with a `--next` flag that runs the recommended next skill |
 | 5.5 | Health validation | Quality | 5 | 2 | 2.50 | Add a health check command that validates `specs/` artifact consistency |
@@ -240,7 +240,7 @@ The remaining categories (Project Management, Brownfield, UI/UX, SDK/CLI, Instal
 1. Extend `orchestrate` with context window monitoring and auto-thinning
 2. Add `specs/CONTEXT.md` per phase for implementation decisions
 3. Extend `execute-plan` with node repair operator (auto-retry on verify failure)
-4. Add verification debt tracking to `specs/STATE.md`
+4. Add verification debt tracking to `specs/state.yaml`
 5. Add health validation command for `specs/` artifact consistency
 6. Add configurable granularity to `plan-release`
 

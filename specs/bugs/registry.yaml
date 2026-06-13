@@ -39,3 +39,11 @@ bugs:
     file: bugs/BUG-2026-06-11T183000.md
     approach: "Add bigpowers-dashboard to bin field in package.json pointing to dashboard/bin/dashboard.js"
     risk_level: "low"
+  - id: BUG-2026-06-13T090000
+    status: open
+    severity: medium
+    scope: docs
+    title: "Doctrine drift — docs teach stale artifact names, dead skill references, and an undefined quality gate"
+    file: bugs/BUG-2026-06-13T090000.md
+    approach: "Update gates.md + PRINCIPLES.md to YAML artifact names; fix dead skill names in model-profiles.md; single-source skill count; add SKILL.md size lint; define or soften 94% threshold"
+    risk_level: "medium"

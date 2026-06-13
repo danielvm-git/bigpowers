@@ -50,7 +50,7 @@ We recognized that the "Missing Link" between human intent and agent execution i
 *Source:* [Akita (Clean Code for AI Agents)](references/akita.md)
 
 This is the definitive "Update" to Uncle Bob. We optimize the foundation specifically for the "Agentic Turn":
-- **Searchability is King (Grep-ability):** Unique symbol naming to ensure a global `grep` returns < 5 results.
+- **Searchability is King (Grep-ability):** Unique *code symbol* naming (functions, classes, constants) to ensure a global `grep` returns < 5 results. Skill directory names are intentionally referenced across docs and indexes — the < 5 rule applies to code symbols only.
 - **Structured Observability:** Mandatory JSON logging and idempotent setup. If an agent can't observe it, it can't fix it.
 - **Token Economy:** Eliminating filler and redundant output to preserve the context window.
 - **Remediation Hints:** Error messages that explicitly tell the agent *how* to recover.
@@ -61,26 +61,26 @@ This is the definitive "Update" to Uncle Bob. We optimize the foundation specifi
 *Sources:* [BMAD](references/bmad.md), [GSD](references/gsd.md)
 
 `bigpowers` consolidates these decades of learning into a single, cohesive discipline:
-- **The BMAD Lifecycle:** A 5-phase arc (Discover → Elaborate → Plan → Build → Sustain).
+- **The 6-Phase Lifecycle:** A canonical arc (Discover → Elaborate → Plan → Build → Verify → Release). Note: *Sustain* is a session flow state, not a lifecycle phase.
 - **Hard Gates:** Explicit blocks that prevent execution until quality criteria are met.
-- **Session Governance:** Using `STATE.md` and `RELEASE-PLAN.md` to prevent context rot and drift.
+- **Session Governance:** Using `specs/state.yaml` and `specs/release-plan.yaml` to prevent context rot and drift.
 - **94% Quality Threshold:** A near-perfect compliance mandate against all the above heuristics.
 
 ---
 
 ## 7. Verification & Compliance: Turning Philosophy into Proof
 
-Principles without verification are merely suggestions. We use **Gherkin-based Audit Features** to empirically prove compliance. Every philosophical pillar is backed by a detailed `.feature` file in `specs/audit/features/`:
+Principles without verification are merely suggestions. We use **Gherkin-based Audit Features** to empirically prove compliance. Every philosophical pillar is backed by a detailed `.feature` file in `specs/verifications/features/`:
 
 | Philosophical Pillar | Verification Source (Feature File) |
 |---|---|
-| **Classical Craftsmanship** | [`cleancode.feature`](specs/audit/features/cleancode.feature) |
-| **Complexity Management** | [`pocock.feature`](specs/audit/features/pocock.feature) |
-| **Behavioral Integrity** | [`karpathy.feature`](specs/audit/features/karpathy.feature) |
+| **Classical Craftsmanship** | [`cleancode.feature`](specs/verifications/features/cleancode.feature) |
+| **Complexity Management** | [`pocock.feature`](specs/verifications/features/pocock.feature) |
+| **Behavioral Integrity** | [`karpathy.feature`](specs/verifications/features/karpathy.feature) |
 | **Spec-Driven Development** | [`wasowski.feature`](references/wasowski.md) (Implicit in SDD workflow) |
-| **Agentic Standard** | [`akita.feature`](specs/audit/features/akita.feature) |
-| **Project Conventions** | [`conventions.feature`](specs/audit/features/conventions.feature) |
-| **Original Baseline** | [`superpowers.feature`](specs/audit/features/superpowers.feature) |
+| **Agentic Standard** | [`akita.feature`](specs/verifications/features/akita.feature) |
+| **Project Conventions** | [`conventions.feature`](specs/verifications/features/conventions.feature) |
+| **Original Baseline** | [`superpowers.feature`](specs/verifications/features/superpowers.feature) |
 
 ### How to Verify
 To ensure these principles are being followed, we run the following mandate:

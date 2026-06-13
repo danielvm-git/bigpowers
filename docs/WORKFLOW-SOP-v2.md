@@ -1,6 +1,8 @@
-# Process Document: bigpowers v2.0.0 — Solo Developer SDLC
+# Process Document: bigpowers — Solo Developer SDLC
 
-**Owner:** Solo Developer | **Last Updated:** 2026-06-11 | **Version:** 2.0.0 | **Review Cadence:** Per major release
+**Owner:** Solo Developer | **Last Updated:** 2026-06-13 | **Version:** 2.1.2 | **Review Cadence:** Per major release
+
+> **Note:** Version-specific sections tagged `(v2.0.0 ...)` below describe features introduced in v2.0.0 that remain current unless otherwise noted.
 
 ---
 

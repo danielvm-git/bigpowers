@@ -23,7 +23,7 @@ time npm test -- UserService.test.ts
 ### I — Independent
 **Principle:** Tests don't depend on each other; no ordering required  
 **Why:** Failures are isolated; easy to debug  
-**Bigpowers Integration:** Each step in PLAN.md can run standalone
+**Bigpowers Integration:** Each step in specs/epics/eNN-*.yaml can run standalone
 
 **Check:**
 ```bash

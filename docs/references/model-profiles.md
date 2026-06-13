@@ -42,8 +42,8 @@
 |-------|-------|--------|-----------|
 | `develop-tdd` | **Sonnet** | 200K | Implementation; TDD-driven |
 | `execute-plan` | **Haiku** | 100K | Step-by-step execution of plan |
-| `refactor-code` | **Sonnet** | 200K | Code restructuring; careful |
-| `debug-error` | **Sonnet** | 200K | Problem-solving; needs analysis |
+| `plan-refactor` | **Sonnet** | 200K | Code restructuring; careful |
+| `diagnose-root` | **Sonnet** | 200K | Problem-solving; needs analysis |
 
 ### Verification Phase
 | Skill | Model | Budget | Rationale |
@@ -80,12 +80,12 @@
 | `grill-with-docs` | Opus | Doc-grounded grill |
 | `setup-environment` / `reset-baseline` | Haiku | Mechanical prep |
 
-Full list: every SKILL.md declares `model:` — verify with `grep -rl '^model:' */SKILL.md | wc -l` (expect 58).
+Full list: every SKILL.md declares `model:` — verify with `grep -rl '^model:' */SKILL.md | wc -l` (expect 61).
 
 ### Release Phase
 | Skill | Model | Budget | Rationale |
 |-------|-------|--------|-----------|
-| `orchestrate` | **Sonnet** | 200K | Coordination; needs judgment |
+| `orchestrate-project` | **Sonnet** | 200K | Coordination; needs judgment |
 | `release-branch` | **Haiku** | 100K | Tag, push, notes; mechanical |
 
 ---
@@ -223,7 +223,7 @@ Start: Task assigned
 - No need to re-brief on prior work (files are fresh input)
 - Cost: $3.75 per strategic skill × 2 skills = $7.50 typical
 
-**Total 5-phase project:** $14.21 (vs. $19.50 without routing = 27% savings)
+**Total typical 6-phase project:** $14.21 (vs. $19.50 without routing = 27% savings)
 
 ---
 
@@ -231,4 +231,75 @@ Start: Task assigned
 
 - orchestration.md — Which model for each phase?
 - verification-patterns.md — How models verify outputs
-- verify: cd /Users/danielvm/Developer/skills && grep -r "model:" . | wc -l
+- verify: `bash scripts/generate-reference-tables.sh` (regenerates this file from live frontmatter)
+
+
+## Full Skill Catalog (auto-generated)
+
+<!-- AUTO-GENERATED-CATALOG: begin — do not edit manually; run scripts/generate-reference-tables.sh -->
+| Skill | Model |
+|-------|-------|
+| `assess-impact` | **Assess-impactsonnet** |
+| `audit-code` | **Audit-codehaiku** |
+| `build-epic` | **Build-epicsonnet** |
+| `change-request` | **Change-requestsonnet** |
+| `commit-message` | **Commit-messagehaiku** |
+| `compose-workflow` | **Compose-workflowsonnet** |
+| `craft-skill` | **Craft-skillsonnet** |
+| `deepen-architecture` | **Deepen-architecturesonnet** |
+| `define-language` | **Define-languagesonnet** |
+| `define-success` | **Define-successsonnet** |
+| `delegate-task` | **Delegate-tasksonnet** |
+| `design-interface` | **Design-interfaceopus** |
+| `develop-tdd` | **Develop-tddsonnet** |
+| `diagnose-root` | **Diagnose-rootsonnet** |
+| `dispatch-agents` | **Dispatch-agentssonnet** |
+| `edit-document` | **Edit-documentsonnet** |
+| `elaborate-spec` | **Elaborate-specopus** |
+| `enforce-first` | **Enforce-firsthaiku** |
+| `evolve-skill` | **Evolve-skillopus** |
+| `execute-plan` | **Execute-planhaiku** |
+| `fix-bug` | **Fix-bugsonnet** |
+| `grill-me` | **Grill-mesonnet** |
+| `grill-with-docs` | **Grill-with-docsopus** |
+| `guard-git` | **Guard-githaiku** |
+| `hook-commits` | **Hook-commitshaiku** |
+| `inspect-quality` | **Inspect-qualitysonnet** |
+| `investigate-bug` | **Investigate-bugsonnet** |
+| `kickoff-branch` | **Kickoff-branchhaiku** |
+| `map-codebase` | **Map-codebasesonnet** |
+| `migrate-spec` | **Migrate-specsonnet** |
+| `model-domain` | **Model-domainsonnet** |
+| `orchestrate-project` | **Orchestrate-projectsonnet** |
+| `organize-workspace` | **Organize-workspacehaiku** |
+| `plan-refactor` | **Plan-refactorsonnet** |
+| `plan-release` | **Plan-releasesonnet** |
+| `plan-work` | **Plan-workopus** |
+| `release-branch` | **Release-branchhaiku** |
+| `request-review` | **Request-reviewopus** |
+| `research-first` | **Research-firstsonnet** |
+| `reset-baseline` | **Reset-baselinehaiku** |
+| `respond-review` | **Respond-reviewsonnet** |
+| `run-evals` | **Run-evalssonnet** |
+| `run-planning` | **Run-planningsonnet** |
+| `scope-work` | **Scope-worksonnet** |
+| `search-skills` | **Search-skillshaiku** |
+| `seed-conventions` | **Seed-conventionssonnet** |
+| `session-state` | **Session-statehaiku** |
+| `setup-environment` | **Setup-environmenthaiku** |
+| `simulate-agents` | **Simulate-agentssonnet** |
+| `slice-tasks` | **Slice-taskssonnet** |
+| `spike-prototype` | **Spike-prototypesonnet** |
+| `stocktake-skills` | **Stocktake-skillssonnet** |
+| `survey-context` | **Survey-contexthaiku** |
+| `terse-mode` | **Terse-modehaiku** |
+| `trace-requirement` | **Trace-requirementhaiku** |
+| `using-bigpowers` | **Using-bigpowerssonnet** |
+| `validate-fix` | **Validate-fixhaiku** |
+| `verify-work` | **Verify-workhaiku** |
+| `visual-dashboard` | **Visual-dashboardsonnet** |
+| `wire-observability` | **Wire-observabilitysonnet** |
+| `write-document` | **Write-documentsonnet** |
+
+Total: **61** skills — verify with `ls -d \*/SKILL.md | wc -l`
+<!-- AUTO-GENERATED-CATALOG: end -->
