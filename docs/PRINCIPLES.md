@@ -37,7 +37,7 @@ With the rise of LLMs, engineering shifted from *writing* code to *orchestrating
 ---
 
 ## 4. The Interface for Agents: Spec-Driven Development (2024)
-*Source:* [Jaroslaw Wasowski](references/wasowski.md)
+*Sources:* [Jaroslaw Wasowski](references/wasowski.md), [BCP — Business Complexity Points](references/bcp.md)
 
 We recognized that the "Missing Link" between human intent and agent execution is the **Specification**.
 - **SDD (Spec-Driven Development):** The specification is the primary driver of behavior.

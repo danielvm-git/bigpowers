@@ -95,7 +95,19 @@ else
     | head -10 >&2
 fi
 
-# Epic 3 BCP slop guard added here after "Build Commit Points" purge is complete.
+# ── Epic 3: BCP slop guard ────────────────────────────────────────────────────
+echo "--- [Epic 3] BCP terminology ---"
+BCP_SLOP=$(grep -ri "build commit point" . 2>/dev/null \
+  | grep -v "specs/archive\|\.git\|node_modules\|\.gemini\|\.cursor\|validate-doctrine\.sh" \
+  | wc -l | tr -d ' ') || true
+if [[ "$BCP_SLOP" -eq 0 ]]; then
+  pass "no 'Build Commit Point' slop — BCP = Business Complexity Points"
+else
+  fail "'Build Commit Point' found ($BCP_SLOP hits) — canonical term is 'Business Complexity Points'; see docs/references/bcp.md"
+  grep -ri "build commit point" . 2>/dev/null \
+    | grep -v "specs/archive\|\.git\|node_modules\|\.gemini\|\.cursor\|validate-doctrine\.sh" | head -5 >&2
+fi
+
 # Epic 4 SKILL.md size cap assertion added here after check-skill-size.sh exists.
 
 # ── Summary ────────────────────────────────────────────────────────────────────

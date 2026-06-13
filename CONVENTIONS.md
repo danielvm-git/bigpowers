@@ -59,7 +59,13 @@ Every skill that produces written output writes to `specs/` at the project root.
 
 ### BCP accounting mandate (v2.0.0)
 
-Every task written by `plan-work` MUST be labeled `[BCP N]` where N is the estimated Build Commit Points for that task. The story total is summed and written to `state.yaml` as `epic_cycle.story_bcps`. The BCP baseline for each story MUST appear in `specs/release-plan.yaml` before implementation begins. `release-branch` automatically appends a row to `specs/metrics/cycle-times.yaml` with the final BCP/hr after the story lands.
+**BCP = Business Complexity Points** — a pre-build story size, not a per-task annotation. Canonical method: [`docs/references/bcp.md`](docs/references/bcp.md) (sourced from `flow-ciandt/bcp-agent`).
+
+- **Sizing (plan-release):** Every story in `specs/release-plan.yaml` MUST have a `bcps:` field set via the 6-step BCP sizing method before implementation begins. No story enters the build queue without a BCP baseline.
+- **Session state:** `plan-work` confirms the BCP size and writes it to `specs/state.yaml` as `epic_cycle.story_bcps`.
+- **Velocity (release-branch):** After landing, `release-branch` appends a row to `specs/metrics/cycle-times.yaml` with `bcp_per_hour = story_bcps / cycle_minutes * 60`.
+
+BCP is a **story-level** size. Per-task `[BCP N]` annotations are not part of the canonical method.
 
 ### Timestamp mandate (v2.0.0)
 

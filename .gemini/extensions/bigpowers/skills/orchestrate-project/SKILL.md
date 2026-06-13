@@ -89,7 +89,7 @@ Detailed documentation for the `orchestrate-project` meta-skill.
 - **Goal**: Execute the plan story-by-story using the 8-step `build-epic` cycle with TDD and vertical slices.
 - **Deliverables**: Code; `execution-status.yaml` updated per story; `specs/metrics/cycle-times.yaml` row per story.
 - **Skills**: `build-epic` (conductor) → per-story: `survey-context`, `plan-work`, `kickoff-branch`, `develop-tdd`, `verify-work`, `audit-code`, `commit-message`, `release-branch`.
-- **BCP tracking**: `plan-work` labels every task `[BCP N]`; total written to `state.yaml` as `epic_cycle.story_bcps`. BCP baseline must exist in `release-plan.yaml` before starting.
+- **BCP tracking**: `plan-release` sizes each story in Business Complexity Points (BCP) before the build queue; `plan-work` confirms and writes the size to `state.yaml` as `epic_cycle.story_bcps`. See `docs/references/bcp.md` for the canonical sizing method.
 - **Timestamps**: `survey-context` stamps `metrics.story_start`; `release-branch` stamps `metrics.story_end` and writes BCP/hr to `specs/metrics/cycle-times.yaml`.
 - **next_skill**: Each critical-path skill writes `handoff.next_skill` to `state.yaml`. Agents resume by reading `state.yaml` — no guessing.
 - **Dashboard**: `npm run dashboard` (TUI) or `npm run dashboard:web` (browser, port 7742) shows live pipeline, epic queue, BCP metrics, and cycle-time ledger.
