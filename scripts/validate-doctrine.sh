@@ -40,23 +40,21 @@ else
   done
 fi
 
-# ── Epic 1: Legacy MD artifact names in docs/ (excluding historical file-structure/) ──
-# docs/file-structure/ is intentional historical comparison material (Epic 6 archives it).
+# ── Epic 1: Legacy MD artifact names in live docs/ (docs/archive/ exempt) ─────
+# docs/archive/ holds historical/exploratory material (Epic 6); legacy names there are expected.
 echo "--- [Epic 1] legacy MD artifact names in docs/ ---"
 LEGACY_HITS=$(grep -rE "PLAN\.md|STATE\.md|PROJECT\.md|CONTEXT\.md|SUMMARY\.md|VERIFICATION\.md|RESEARCH\.md|RELEASE-PLAN\.md" \
   docs/ 2>/dev/null \
-  | grep -v "docs/file-structure/" \
-  | grep -v "docs/report-gsd-integration.md" \
+  | grep -v "docs/archive/" \
   | grep -v "specs/archive" \
   | wc -l | tr -d ' ') || true
 if [[ "$LEGACY_HITS" -eq 0 ]]; then
-  pass "no legacy MD artifact names in docs/ (outside file-structure/)"
+  pass "no legacy MD artifact names in live docs/ (docs/archive/ exempt)"
 else
   fail "legacy MD artifact names found in docs/ ($LEGACY_HITS occurrences)"
   grep -rE "PLAN\.md|STATE\.md|PROJECT\.md|CONTEXT\.md|SUMMARY\.md|VERIFICATION\.md|RESEARCH\.md|RELEASE-PLAN\.md" \
     docs/ 2>/dev/null \
-    | grep -v "docs/file-structure/" \
-    | grep -v "docs/report-gsd-integration.md" \
+    | grep -v "docs/archive/" \
     | grep -v "specs/archive" | head -20 >&2
 fi
 
@@ -80,7 +78,7 @@ echo "--- [Epic 2] canonical specs/ subpaths ---"
 LEGACY_SPECS=$(grep -rE "specs/(requirements|plans|audit)\b" \
   --include="*.md" --include="*.sh" --include="*.yaml" --include="*.yml" --include="*.json" . \
   2>/dev/null \
-  | grep -v "specs/archive\|specs/epics/archive\|\.git\|node_modules\|\.gemini\|\.cursor" \
+  | grep -v "specs/archive\|specs/epics/archive\|docs/archive/\|\.git\|node_modules\|\.gemini\|\.cursor" \
   | grep -v "CHANGELOG\.md\|specs/verifications/reports/\|PLAN-evolve-structure\.md" \
   | wc -l | tr -d ' ') || true
 if [[ "$LEGACY_SPECS" -eq 0 ]]; then
@@ -90,7 +88,7 @@ else
   grep -rE "specs/(requirements|plans|audit)\b" \
     --include="*.md" --include="*.sh" --include="*.yaml" --include="*.yml" --include="*.json" . \
     2>/dev/null \
-    | grep -v "specs/archive\|specs/epics/archive\|\.git\|node_modules\|\.gemini\|\.cursor" \
+    | grep -v "specs/archive\|specs/epics/archive\|docs/archive/\|\.git\|node_modules\|\.gemini\|\.cursor" \
     | grep -v "CHANGELOG\.md\|specs/verifications/reports/\|PLAN-evolve-structure\.md" \
     | head -10 >&2
 fi

@@ -1,6 +1,6 @@
 # Uncle Bob Reference: Clean Code
 
-**Source:** `book_Robert_C_Martin_2008_Clean_Code_A_Handbook_of_Agile_Software_Craftsmanship.pdf`
+**Source:** `../archive/clean-code-exhibits/book_Robert_C_Martin_2008_Clean_Code_A_Handbook_of_Agile_Software_Craftsmanship.pdf`
 **Author:** Robert C. Martin (Uncle Bob)
 
 ## Core Concepts

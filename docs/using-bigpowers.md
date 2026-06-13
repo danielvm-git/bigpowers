@@ -101,7 +101,7 @@ For the legacy HTTP cockpit: `visual-dashboard` → `GET /api/status?projectDir=
 - **verify: every step.** Every epic task must have `verify: <runnable command>`. Evidence over claims.
 - **BCP accounting.** Every task in `plan-work` is labeled `[BCP N]`. The total is the story's scope unit. `release-branch` auto-logs BCP/hr to `specs/metrics/cycle-times.yaml`.
 - **next_skill signaling.** Every critical-path skill writes `handoff.next_skill` to `state.yaml`. Run `survey-context` after any interruption to resume exactly where you left off.
-- **61 skills.** See `SKILL-INDEX.md`; find skills with `search-skills`. Full SOP at `docs/WORKFLOW-SOP-v2.md`.
+- **61 skills.** See [`specs/SKILL-SEARCH-INDEX.md`](../specs/SKILL-SEARCH-INDEX.md) (auto-generated catalog — regenerate with `bash scripts/build-skill-index.sh`); find the right skill with `search-skills`. Full SOP at `docs/WORKFLOW-SOP-v2.md`.
 
 ## After this
 

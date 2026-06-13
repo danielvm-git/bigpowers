@@ -105,4 +105,26 @@ When creating a new skill, it must meet these "Best-in-Class" requirements deriv
 
 ---
 
+## 9. Reference Library
+
+The philosophy sources cited above (Uncle Bob, Ousterhout, Akita, Karpathy, Pocock, Superpowers, Wasowski, BMAD, GSD, BCP) are the *why*. The references below are the operational *how* — consult them when applying the discipline. Historical and exploratory material lives in [`docs/archive/`](archive/).
+
+**Core loop & gates:**
+- [`orchestration.md`](references/orchestration.md) — the 6-phase core loop (discover→elaborate→plan→build→verify→release)
+- [`gates.md`](references/gates.md) — confirm/quality/safety/transition gates and the computed 94% threshold
+- [`checkpoints.md`](references/checkpoints.md) — progress-reporting milestones
+- [`verification-patterns.md`](references/verification-patterns.md) — how outputs are verified
+
+**Routing & methods:**
+- [`model-profiles.md`](references/model-profiles.md) — per-skill model assignment (auto-generated) and token budgets
+- [`tdd.md`](references/tdd.md) — test-driven development reference
+- [`code-review.md`](references/code-review.md) — review checklist
+- [`security-threats.md`](references/security-threats.md) — slopcheck and supply-chain threat patterns
+- [`thinking-models.md`](references/thinking-models.md) — reasoning-mode selection
+- [`domain-probes.md`](references/domain-probes.md) — domain-discovery probes
+- [`git-integration.md`](references/git-integration.md) — git/PR integration patterns
+- [`spec-kit.md`](references/spec-kit.md) — external spec-kit method comparison
+
+---
+
 *“Classic foundations, modern orchestration, agentic integrity.”*
