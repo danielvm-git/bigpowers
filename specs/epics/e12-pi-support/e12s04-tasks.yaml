@@ -1,0 +1,29 @@
+story_id: e12s04
+title: "sync-skills.sh pi target"
+status: done
+bcps: 2
+tasks:
+  - id: 1
+    description: "Add pi variables (PI_SKILLS, PI_PROMPTS, PI_PACKAGE_JSON) to sync-skills.sh"
+    verify: "grep -q 'PI_SKILLS=' scripts/sync-skills.sh && echo OK"
+    status: done
+  - id: 2
+    description: "Add pi skill generation loop to sync-skills.sh"
+    verify: "grep -q '.pi/skills/' scripts/sync-skills.sh && echo OK"
+    status: done
+  - id: 3
+    description: "Add pi prompt template generation to sync-skills.sh"
+    verify: "grep -q '.pi/prompts' scripts/sync-skills.sh && echo OK"
+    status: done
+  - id: 4
+    description: "Add pi package.json generation to sync-skills.sh"
+    verify: "grep -q 'pi-package' scripts/sync-skills.sh && echo OK"
+    status: done
+  - id: 5
+    description: "Add pi output to sync-skills.sh summary"
+    verify: "bash scripts/sync-skills.sh 2>&1 | grep -q '.pi/' && echo OK"
+    status: done
+  - id: 6
+    description: "Verify idempotent — run twice, output identical"
+    verify: "bash scripts/sync-skills.sh > /tmp/sync1.txt && bash scripts/sync-skills.sh > /tmp/sync2.txt && diff /tmp/sync1.txt /tmp/sync2.txt && echo 'OK: idempotent'"
+    status: done

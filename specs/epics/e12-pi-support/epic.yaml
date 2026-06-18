@@ -1,0 +1,29 @@
+id: e12
+title: "Pi Support"
+status: in_progress
+bcps: 8
+stories:
+  - id: e12s01
+    title: "Pi skill generation — .pi/skills/<name>/SKILL.md"
+    status: done
+    bcps: 2
+  - id: e12s02
+    title: "Pi prompt templates — .pi/prompts/<name>.md"
+    status: done
+    bcps: 1
+  - id: e12s03
+    title: "Pi package config — package.json with pi manifest"
+    status: done
+    bcps: 1
+  - id: e12s04
+    title: "sync-skills.sh pi target"
+    status: done
+    bcps: 2
+  - id: e12s05
+    title: "Installation docs — document pi install process"
+    status: todo
+    bcps: 1
+  - id: e12s06
+    title: "Validation — test pi loads all skills correctly"
+    status: todo
+    bcps: 1

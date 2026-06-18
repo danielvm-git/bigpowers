@@ -1,0 +1,17 @@
+story_id: e12s05
+title: "Installation docs"
+status: done
+bcps: 1
+tasks:
+  - id: 1
+    description: "Add pi install section to README.md with npm and local install paths"
+    verify: "grep -qi 'pi install' README.md && echo OK"
+    status: done
+  - id: 2
+    description: "Document what users get: skills, prompts, manifest"
+    verify: "grep -q 'pi skills' README.md && grep -q 'pi prompt' README.md && echo OK"
+    status: done
+  - id: 3
+    description: "Add pi to Prerequisites section"
+    verify: "grep -q 'pi' README.md && echo OK"
+    status: done

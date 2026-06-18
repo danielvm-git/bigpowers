@@ -1,0 +1,17 @@
+story_id: e12s02
+title: "Pi prompt templates"
+status: done
+bcps: 1
+tasks:
+  - id: 1
+    description: "Add PI_PROMPTS output directory variable to sync-skills.sh"
+    verify: "grep -q 'PI_PROMPTS=' scripts/sync-skills.sh && echo OK"
+    status: done
+  - id: 2
+    description: "Add prompt template generation loop — for each skill, write .md to .pi/prompts/"
+    verify: "grep -q '.pi/prompts' scripts/sync-skills.sh && echo OK"
+    status: done
+  - id: 3
+    description: "Add pi prompt output to sync-skills.sh summary"
+    verify: "bash scripts/sync-skills.sh 2>&1 | grep -q '.pi/prompts/' && echo OK"
+    status: done

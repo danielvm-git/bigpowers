@@ -1,0 +1,21 @@
+story_id: e12s06
+title: "Validation"
+status: done
+bcps: 1
+tasks:
+  - id: 1
+    description: "Verify all 62 skills in .pi/skills/"
+    verify: "find .pi/skills -name 'SKILL.md' | wc -l | awk '{if($1>=62) print \"OK: \" $1; else print \"FAIL\"}'"
+    status: done
+  - id: 2
+    description: "Verify all 62 prompt templates in .pi/prompts/"
+    verify: "find .pi/prompts -name '*.md' | wc -l | awk '{if($1>=62) print \"OK: \" $1; else print \"FAIL\"}'"
+    status: done
+  - id: 3
+    description: "Verify pi package.json manifest has skills and prompts"
+    verify: "jq -e '.pi.skills and .pi.prompts' .pi/package.json && echo OK"
+    status: done
+  - id: 4
+    description: "Manual: confirm skills appear in pi system prompt (available_skills block)"
+    verify: "Check this session's <available_skills> block — all 62 skills listed"
+    status: done

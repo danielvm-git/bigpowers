@@ -1,0 +1,21 @@
+story_id: e12s01
+title: "Pi skill generation"
+status: done
+bcps: 2
+tasks:
+  - id: 1
+    description: "Add PI_SKILLS output directory variable to sync-skills.sh"
+    verify: "grep -q 'PI_SKILLS=' scripts/sync-skills.sh && echo OK"
+    status: done
+  - id: 2
+    description: "Add pi skill generation loop — for each skill dir, write SKILL.md to .pi/skills/<name>/"
+    verify: "grep -q '.pi/skills' scripts/sync-skills.sh && echo OK"
+    status: done
+  - id: 3
+    description: "Add pi output to sync-skills.sh summary"
+    verify: "bash scripts/sync-skills.sh 2>&1 | grep -q '.pi/skills/' && echo OK"
+    status: done
+  - id: 4
+    description: "Verify 62 skills generated with correct frontmatter"
+    verify: "find .pi/skills -name 'SKILL.md' | wc -l | awk '{if($1>=62) print \"OK: \" $1; else print \"FAIL: \" $1}'"
+    status: done

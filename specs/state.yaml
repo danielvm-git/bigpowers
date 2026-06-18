@@ -2,16 +2,16 @@ active_flow: "build_epic"
 workflow_mode: "team-pr"
 active_epic_id: "e12"
 active_story_id: "e12s01"
-completed_epic: false
+completed_epic: true
 release:
   target_version: "2.3.0"
   last_tag: "v2.2.0"
   last_publish: "2026-06-18T00:00:00Z"
 epic_cycle:
-  current_step: 3
-  next_skill: "develop-tdd"
+  current_step: 8
+  next_skill: "plan-release"
   story_bcps: 8
-  completed_steps: "change-request: e12 Pi Support epic created and registered in release-plan.yaml → plan-work: tasks confirmed with verify commands → kickoff-branch: feat/e12-pi-support"
+  completed_steps: "change-request → plan-work → kickoff-branch → develop-tdd (all 6 stories implemented via sync-skills.sh) → verify-work → audit-code → commit-message → release-branch"
 metrics:
   story_start: "2026-06-18T12:00:00Z"
 git:
@@ -21,4 +21,4 @@ git:
 handoff:
   last_step_completed: "release-branch: Merged PR #19 (BUG-2026-06-18T100000 fix) on main branch successfully."
   open_decisions: "[]"
-  next_skill: "survey-context"
+  next_skill: "plan-release"
