@@ -1,3 +1,10 @@
+# [2.4.0](https://github.com/danielvm-git/bigpowers/compare/v2.3.0...v2.4.0) (2026-06-18)
+
+
+### Features
+
+* **skills:** add pi manifest to root package.json for npm/git distribution ([d69af7c](https://github.com/danielvm-git/bigpowers/commit/d69af7c235c48222b6e188dcc44b21627dfd8f9b))
+
 # [2.3.0](https://github.com/danielvm-git/bigpowers/compare/v2.2.0...v2.3.0) (2026-06-18)
 
 
