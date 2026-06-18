@@ -19,6 +19,6 @@ git:
   hash: ""
   pushed: false
 handoff:
-  last_step_completed: "commit-message: Proposed commit message for BUG-2026-06-18T100000 fix and verification-patterns document refactoring."
+  last_step_completed: "release-branch: Merged PR #19 (BUG-2026-06-18T100000 fix) on main branch successfully."
   open_decisions: "[]"
-  next_skill: "release-branch"
+  next_skill: "survey-context"
