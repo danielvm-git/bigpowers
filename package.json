@@ -1,6 +1,6 @@
 {
   "name": "bigpowers",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "description": "61 agent skills for spec-driven, test-first software development by solo developers",
   "main": "index.js",
   "scripts": {
@@ -26,8 +26,12 @@
     "pi-package"
   ],
   "pi": {
-    "skills": ["./.pi/skills"],
-    "prompts": ["./.pi/prompts"]
+    "skills": [
+      "./.pi/skills"
+    ],
+    "prompts": [
+      "./.pi/prompts"
+    ]
   },
   "author": "Daniel",
   "license": "MIT",
