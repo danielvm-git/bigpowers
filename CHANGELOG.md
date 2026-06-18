@@ -1,3 +1,10 @@
+## [2.4.1](https://github.com/danielvm-git/bigpowers/compare/v2.4.0...v2.4.1) (2026-06-18)
+
+
+### Bug Fixes
+
+* **scripts:** sync-skills.sh — escape YAML quotes, preserve model key, add validation guard ([#19](https://github.com/danielvm-git/bigpowers/issues/19)) ([b77bf12](https://github.com/danielvm-git/bigpowers/commit/b77bf1269f4824703d69d2a0d890a0a13c2f3aeb))
+
 # [2.4.0](https://github.com/danielvm-git/bigpowers/compare/v2.3.0...v2.4.0) (2026-06-18)
 
 
