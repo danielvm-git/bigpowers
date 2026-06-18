@@ -1,3 +1,10 @@
+# [2.3.0](https://github.com/danielvm-git/bigpowers/compare/v2.2.0...v2.3.0) (2026-06-18)
+
+
+### Features
+
+* **skills:** add pi agent harness as target platform ([#18](https://github.com/danielvm-git/bigpowers/issues/18)) ([768d911](https://github.com/danielvm-git/bigpowers/commit/768d911ba5a980eb2dcb11ce85a4d0a1813d243b))
+
 # [2.2.0](https://github.com/danielvm-git/bigpowers/compare/v2.1.3...v2.2.0) (2026-06-13)
 
 
