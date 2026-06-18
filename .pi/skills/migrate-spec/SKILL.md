@@ -1,6 +1,7 @@
 ---
 name: migrate-spec
 description: "Detect GSD, spec-kit, or BMAD spec artifacts and transform them into bigpowers YAML layout (state.yaml, release-plan.yaml, epics/, requirements/, plans/, ADRs). Use when migrating foreign spec docs."
+model: sonnet
 ---
 
 

@@ -1,6 +1,7 @@
 ---
 name: plan-refactor
 description: "Create a detailed refactor plan with tiny commits via user interview, then save it as specs/REFACTOR.md. Use when user wants to plan a refactor, create a refactoring RFC, or break a refactor into safe incremental steps."
+model: sonnet
 ---
 
 

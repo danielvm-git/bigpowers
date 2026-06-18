@@ -19,6 +19,6 @@ git:
   hash: ""
   pushed: false
 handoff:
-  last_step_completed: "change-request: Mode A — e12 Pi Support added to release-plan.yaml with 6 stories (8 BCP, WSJF 5.3). Target: generate pi skills (.pi/skills/), prompt templates (.pi/prompts/), package config, wire into sync-skills.sh."
+  last_step_completed: "commit-message: Proposed commit message for BUG-2026-06-18T100000 fix and verification-patterns document refactoring."
   open_decisions: "[]"
-  next_skill: "plan-work"
+  next_skill: "release-branch"

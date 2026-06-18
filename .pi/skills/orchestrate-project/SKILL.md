@@ -1,6 +1,7 @@
 ---
 name: orchestrate-project
 description: "Meta-skill that enforces the 6-phase core loop (discover → elaborate → plan → build → verify → release) with hard gates. Use to coordinate multi-phase projects with guaranteed quality checkpoints. One-time command for the entire project lifecycle."
+model: sonnet
 ---
 
 
