@@ -1,3 +1,10 @@
+# [2.5.0](https://github.com/danielvm-git/bigpowers/compare/v2.4.1...v2.5.0) (2026-06-18)
+
+
+### Features
+
+* add align-grid skill and orchestration reference docs ([359c823](https://github.com/danielvm-git/bigpowers/commit/359c82381d0d124ef849ca15bd1d3ee91d218766))
+
 ## [2.4.1](https://github.com/danielvm-git/bigpowers/compare/v2.4.0...v2.4.1) (2026-06-18)
 
 
