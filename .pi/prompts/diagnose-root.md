@@ -1,0 +1,23 @@
+---
+description: Run 4-phase root cause analysis — reproduce, isolate, hypothesize, verify. Use when a bug is confirmed but root cause is unclear, after investigate-bug, or when user mentions root cause analysis.model: sonnet
+---
+
+
+# Diagnose Root
+
+**Boundary**: Canonical, reusable 4-phase RCA engine. Invoked by `investigate-bug` (as step 2 of the end-to-end flow) and by `fix-bug` (when no bug file exists). Does not write the bug file — that is `investigate-bug`'s responsibility.
+
+Four phases — do not skip. Update the active `specs/bugs/BUG-*.md` file at each phase.
+
+## Phases
+
+1. **Reproduce** — minimal steps; record environment; capture logs.
+2. **Isolate** — narrow to module/function; binary-search commits or config.
+3. **Hypothesize** — list ranked hypotheses with falsification test each.
+4. **Verify** — run falsification; confirm single root cause; link to fix plan.
+
+> **HARD GATE** — Do not propose a fix until phase 4 confirms one root cause with evidence.
+
+## Verify
+
+→ verify: `BUG_FILE=$(ls -t specs/bugs/BUG-*.md 2>/dev/null | head -1); test -n "$BUG_FILE" && grep -cE "Reproduce|Isolate|Hypothesize|Verify" "$BUG_FILE" | awk '{if($1>=4) print "OK"; else print "INCOMPLETE"}' || echo "MISSING"`

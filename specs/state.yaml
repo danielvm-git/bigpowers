@@ -1,26 +1,24 @@
-active_flow: "release"
+active_flow: "build_epic"
 workflow_mode: "team-pr"
-active_epic_id: "e11"
-active_story_id: "e11s05"
-completed_epic: true
+active_epic_id: "e12"
+active_story_id: "e12s01"
+completed_epic: false
 release:
-  target_version: "2.0.0"
-  last_tag: "v2.0.0"
-  last_publish: "2026-06-11T12:16:20Z"
+  target_version: "2.3.0"
+  last_tag: "v2.2.0"
+  last_publish: "2026-06-18T00:00:00Z"
 epic_cycle:
-  current_step: 7
-  next_skill: "survey-context"
-  completed_steps: "e11 sustain cleanup complete and released on main (commit 46f2ff3)"
+  current_step: 3
+  next_skill: "develop-tdd"
+  story_bcps: 8
+  completed_steps: "change-request: e12 Pi Support epic created and registered in release-plan.yaml → plan-work: tasks confirmed with verify commands → kickoff-branch: feat/e12-pi-support"
 metrics:
-  story_start: "2026-06-10T14:00:00Z"
-  story_end: "2026-06-11T12:16:20Z"
-  cycle_minutes: 1376
-  bcp_per_hour: 0.44
+  story_start: "2026-06-18T12:00:00Z"
 git:
   branch: "main"
-  hash: "5a954f1"
+  hash: ""
   pushed: false
 handoff:
-  last_step_completed: "release-branch: TUI bug fix complete. Replaced invalid {dim} blessed tags with {gray-fg} across all render modules (ce06c07). Added hardening test to smoke suite (6dda58f). All 5/5 tests pass. Ready for next epic."
+  last_step_completed: "change-request: Mode A — e12 Pi Support added to release-plan.yaml with 6 stories (8 BCP, WSJF 5.3). Target: generate pi skills (.pi/skills/), prompt templates (.pi/prompts/), package config, wire into sync-skills.sh."
   open_decisions: "[]"
-  next_skill: "survey-context"
+  next_skill: "plan-work"

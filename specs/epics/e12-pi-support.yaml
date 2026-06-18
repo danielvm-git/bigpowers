@@ -1,0 +1,143 @@
+id: e12
+title: "Pi Support"
+wsjf: 5.3
+bcps: 8
+covers:
+  - "Add pi coding agent harness as a target platform for bigpowers skill artifacts"
+  - "Generate pi skills (.pi/skills/), prompt templates (.pi/prompts/), and package config from SKILL.md sources"
+  - "Wire pi output into sync-skills.sh alongside existing Cursor and Gemini CLI targets"
+  - "Enable pi install npm:bigpowers or pi install git:github.com/user/bigpowers"
+stories:
+  - id: e12s01
+    title: "Pi skill generation — .pi/skills/<name>/SKILL.md"
+    tasks:
+      - desc: |
+          Generate pi-compatible skill directories from bigpowers SKILL.md sources.
+          Each bigpowers skill becomes a directory `.pi/skills/<skill-name>/` containing
+          a SKILL.md with the same YAML frontmatter + body that the skill source has.
+
+          Pi implements the Agent Skills standard. The existing bigpowers SKILL.md
+          format (YAML frontmatter with name/description, then markdown body) is
+          already compatible — only the output directory path changes.
+
+          **Acceptance Criteria:**
+          - For every bigpowers skill in the repo, a corresponding `.pi/skills/<name>/SKILL.md` exists
+          - Frontmatter fields (name, description) are preserved exactly
+          - Body content (markdown instructions) matches the source
+          - Skill count in `.pi/skills/` matches source skill count (61-62)
+        verify: |
+          find .pi/skills -name "SKILL.md" | wc -l | awk '{if($1>=61) print "OK: " $1 " skills"; else print "FAIL: only " $1 " skills"}'
+          grep -q "^name: survey-context" .pi/skills/survey-context/SKILL.md && grep -q "^# Survey Context" .pi/skills/survey-context/SKILL.md && echo "OK: valid Agent Skills format" || echo "FAIL: invalid format"
+
+  - id: e12s02
+    title: "Pi prompt templates — .pi/prompts/<name>.md"
+    tasks:
+      - desc: |
+          Generate pi prompt templates (slash commands) from bigpowers skills.
+          Each skill gets a `.pi/prompts/<skill-name>.md` file that, when invoked
+          via `/skill-name` in pi's editor, expands to the skill's instructions.
+
+          Prompt templates use the pattern: YAML frontmatter with description,
+          then the skill body as the expanded prompt content. This makes every
+          bigpowers skill available as a pi slash command.
+
+          **Acceptance Criteria:**
+          - For every bigpowers skill, a corresponding `.pi/prompts/<name>.md` exists
+          - Frontmatter has `description` matching the skill's description
+          - Template content is the full SKILL.md body (instructions)
+          - Typing `/skill-name` in pi's editor shows the skill in autocomplete
+        verify: |
+          find .pi/prompts -name "*.md" | wc -l | awk '{if($1>=61) print "OK: " $1 " prompt templates"; else print "FAIL: only " $1}'
+          grep -l "^---" .pi/prompts/survey-context.md && echo "OK: frontmatter present" || echo "FAIL: no frontmatter"
+
+  - id: e12s03
+    title: "Pi package config — package.json with pi manifest for npm distribution"
+    tasks:
+      - desc: |
+          Create a `package.json` with the `pi` key in the `.pi/` output directory
+          (or at repo root) so bigpowers can be installed as a pi package:
+
+          ```
+          pi install npm:bigpowers
+          pi install git:github.com/user/bigpowers
+          ```
+
+          The pi manifest declares skills and prompts directories so pi
+          auto-discovers them on install. Include `pi-package` keyword for
+          discoverability in the pi package gallery.
+
+          **Acceptance Criteria:**
+          - `.pi/package.json` (or repo package.json) has `pi.skills` and `pi.prompts` keys
+          - Package has `"keywords": ["pi-package"]`
+          - `pi install` (local path) successfully loads all skills
+        verify: |
+          jq -e '.pi.skills and .pi.prompts' .pi/package.json >/dev/null 2>&1 && echo "OK: pi manifest present" || echo "FAIL: missing pi manifest"
+          jq -e '.keywords | contains(["pi-package"])' .pi/package.json 2>/dev/null && echo "OK: pi-package keyword" || echo "FAIL: missing keyword"
+
+  - id: e12s04
+    title: "sync-skills.sh pi target — wire pi output into sync-skills.sh"
+    tasks:
+      - desc: |
+          Extend `scripts/sync-skills.sh` to generate pi artifacts alongside
+          existing Cursor (`.cursor/rules/`) and Gemini CLI (`.gemini/extensions/`)
+          targets.
+
+          The script should:
+          1. Create `.pi/skills/` directories and SKILL.md files
+          2. Create `.pi/prompts/` markdown template files
+          3. Create/update `.pi/package.json` with pi manifest
+          4. Report pi skill count in the summary output
+          5. Clean stale pi artifacts on each run (rm old, regenerate)
+
+          **Acceptance Criteria:**
+          - `bash scripts/sync-skills.sh` generates `.pi/skills/` and `.pi/prompts/`
+          - Summary output reports pi skill count
+          - Running twice produces idempotent output (no drift)
+          - Existing Cursor and Gemini targets are unaffected
+        verify: |
+          bash scripts/sync-skills.sh 2>&1 | grep -q "→ .pi/skills/" && echo "OK: pi output in summary" || echo "FAIL: missing pi summary"
+          grep -q '.pi/skills' scripts/sync-skills.sh && echo "OK: pi target in script" || echo "FAIL: pi target not in script"
+
+  - id: e12s05
+    title: "Installation docs — document pi install process"
+    tasks:
+      - desc: |
+          Document how pi users install and use bigpowers. Update README.md
+          or create a dedicated install guide for pi.
+
+          Cover:
+          - `pi install npm:bigpowers` (or git)
+          - Manual setup: clone repo, run sync-skills.sh
+          - How skills appear in pi (auto-discovered, available in system prompt)
+          - How prompt templates work (slash commands like `/survey-context`)
+
+          **Acceptance Criteria:**
+          - Installation instructions for pi are documented
+          - Instructions cover both npm/git install and manual clone
+          - A pi user can follow the docs and get all 61 skills working
+        verify: |
+          grep -qi "pi install" README.md && echo "OK: pi install mentioned in README" || echo "WARN: check docs"
+
+  - id: e12s06
+    title: "Validation — test pi loads all skills correctly"
+    tasks:
+      - desc: |
+          End-to-end validation that pi correctly discovers and loads bigpowers
+          skills after installation. Verify:
+          1. `pi --list-skills` shows all bigpowers skills (or check via SDK)
+          2. Skills are listed in the system prompt in the `<available_skills>` XML block
+          3. A `/skill:survey-context` invocation loads the full SKILL.md
+          4. Prompt templates appear in `/` autocomplete
+          5. No validation warnings from pi's skill validator
+
+          **Acceptance Criteria:**
+          - All 61+ bigpowers skills are discoverable by pi
+          - No pi validation warnings for any skill
+          - Skill invocations work via `/skill:name`
+          - Prompt template autocomplete shows all skills
+        verify: |
+          echo "Manual verification required — run pi with bigpowers installed and check:"
+          echo "  1. Skills appear in system prompt (<available_skills> XML block)"
+          echo "  2. /skill:survey-context loads the full skill"
+          echo "  3. /survey-context appears in autocomplete"
+          echo "  4. No warnings in pi output on startup"

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# sync-skills.sh — generate Cursor and Gemini CLI artifacts from SKILL.md source files
+# sync-skills.sh — generate Cursor, Gemini CLI, and pi artifacts from SKILL.md source files
 # Run this after adding or updating any skill. Symlinks carry changes through automatically.
 set -euo pipefail
 
@@ -9,12 +9,17 @@ GEMINI_EXT_DIR="$REPO_ROOT/.gemini/extensions/bigpowers"
 GEMINI_SKILLS="$GEMINI_EXT_DIR/skills"
 GEMINI_COMMANDS="$GEMINI_EXT_DIR/commands"
 GEMINI_MANIFEST="$GEMINI_EXT_DIR/gemini-extension.json"
+PI_SKILLS="$REPO_ROOT/.pi/skills"
+PI_PROMPTS="$REPO_ROOT/.pi/prompts"
+PI_PACKAGE_JSON="$REPO_ROOT/.pi/package.json"
 
-mkdir -p "$CURSOR_RULES" "$GEMINI_SKILLS" "$GEMINI_COMMANDS"
+mkdir -p "$CURSOR_RULES" "$GEMINI_SKILLS" "$GEMINI_COMMANDS" "$PI_SKILLS" "$PI_PROMPTS"
 
 # Clear old artifacts to ensure a clean sync
 rm -rf "${GEMINI_SKILLS:?}"/*
 rm -rf "${GEMINI_COMMANDS:?}"/*
+rm -rf "${PI_SKILLS:?}"/*
+rm -rf "${PI_PROMPTS:?}"/*
 
 # We'll collect metadata for the manifest if needed, 
 # though skills/commands are auto-discovered.
@@ -82,6 +87,28 @@ for skill_dir in "$REPO_ROOT"/*/; do
     echo "prompt = \"@{$prompt_file}\""
   } > "$GEMINI_COMMANDS/$name.toml"
 
+  # 4. Write pi skill: .pi/skills/<name>/SKILL.md
+  # Pi implements the Agent Skills standard — same YAML frontmatter + body format
+  mkdir -p "$PI_SKILLS/$name"
+  {
+    echo "---"
+    echo "name: $name"
+    echo "description: \"$description\""
+    echo "---"
+    echo ""
+    echo "$body"
+  } > "$PI_SKILLS/$name/SKILL.md"
+
+  # 5. Write pi prompt template: .pi/prompts/<name>.md
+  # Slash-command templates expandable via /<name> in pi's editor
+  {
+    echo "---"
+    echo "description: $description"
+    echo "---"
+    echo ""
+    echo "$body"
+  } > "$PI_PROMPTS/$name.md"
+
   skill_count=$((skill_count + 1))
 done
 
@@ -94,7 +121,22 @@ jq -n --arg name "bigpowers" \
       --arg desc "${skill_count} skills — ${pkg_desc}" \
       '{name: $name, version: $version, description: $desc}' > "$GEMINI_MANIFEST"
 
-# 4. Write OpenCode configuration: opencode.json (minimal project-level config)
+# 6. Write pi package config: .pi/package.json
+# Enables pi install (local path, npm, or git) with auto-discovered skills and prompts
+jq -n --arg version "$pkg_version" \
+      --arg desc "${skill_count} skills — ${pkg_desc}" \
+      '{
+        "name": "bigpowers",
+        "version": $version,
+        "description": $desc,
+        "keywords": ["pi-package"],
+        "pi": {
+          "skills": ["./skills"],
+          "prompts": ["./prompts"]
+        }
+      }' > "$PI_PACKAGE_JSON"
+
+# 7. Write OpenCode configuration: opencode.json (minimal project-level config)
 # Skills are loaded on-demand via opencode's native skill tool, not instructions.
 # Full opencode integration lives in the bigpowers-opencode repo.
 {
@@ -140,6 +182,9 @@ echo "  → .cursor/rules/ ($skill_count .mdc files)"
 echo "  → .gemini/extensions/bigpowers/skills/ (Agent Skills)"
 echo "  → .gemini/extensions/bigpowers/commands/ (Slash Commands)"
 echo "  → .gemini/extensions/bigpowers/gemini-extension.json"
+echo "  → .pi/skills/ ($skill_count skill dirs — pi Agent Skills)"
+echo "  → .pi/prompts/ ($skill_count prompt templates — pi slash commands)"
+echo "  → .pi/package.json (pi package manifest)"
 echo "  → opencode.json (CLAUDE.md + CONVENTIONS.md instructions)"
 [[ -n "$OPN_TARGET" ]] && echo "  → bigpowers-opencode: $opencode_count skills"
 

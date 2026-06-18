@@ -6,7 +6,7 @@
 
 **61 agent skills for high-integrity, spec-driven, test-first software development by solo developers.**
 
-`bigpowers` provides a prescriptive, vertical-slice methodology for building software with AI agents (Claude Code, Gemini CLI, Cursor). It bridges the gap between raw LLM capabilities and professional engineering standards.
+`bigpowers` provides a prescriptive, vertical-slice methodology for building software with AI agents (Claude Code, Gemini CLI, Cursor, pi). It bridges the gap between raw LLM capabilities and professional engineering standards.
 
 Published on npm: [bigpowers@2.0.0](https://www.npmjs.com/package/bigpowers)
 
@@ -48,6 +48,7 @@ npm run sync
   - [Claude Code](https://claude.ai/code)
   - [Gemini CLI](https://github.com/google/gemini-cli)
   - [Cursor](https://cursor.sh/)
+  - [pi](https://pi.dev/) — coding agent harness
 
 ---
 
@@ -95,6 +96,31 @@ bigpowers
 ```
 
 ---
+
+## 🔌 pi Support
+
+bigpowers generates pi Agent Skills and prompt templates alongside Cursor and Gemini artifacts via `sync-skills.sh`.
+
+### Install as a pi package
+
+```bash
+# Clone and sync to generate pi artifacts
+cd bigpowers
+bash scripts/sync-skills.sh
+
+# Install from local path as a pi package
+pi install .
+
+# Or install as a pi npm package (once published with pi-package keyword)
+pi install npm:bigpowers
+```
+
+**What you get:**
+- **62 pi skills** in `.pi/skills/` — loaded automatically into pi's system prompt as `<available_skills>`
+- **62 pi prompt templates** in `.pi/prompts/` — slash commands like `/survey-context`, `/plan-work`
+- **pi package manifest** in `.pi/package.json` — enables `pi install` with auto-discovery
+
+Skills are loaded on-demand via progressive disclosure: only descriptions are always in context; the full SKILL.md loads when the agent reads it. Prompt templates expand in pi's editor with autocomplete.
 
 ## 🏗 The v2.0.0 Lifecycle
 
