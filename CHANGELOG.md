@@ -1,3 +1,10 @@
+# [2.6.0](https://github.com/danielvm-git/bigpowers/compare/v2.5.0...v2.6.0) (2026-06-18)
+
+
+### Features
+
+* complete e12 Pi Support — all 6 stories verified ([a18fe71](https://github.com/danielvm-git/bigpowers/commit/a18fe7156330ecb417016fe8b84de7645b9b89cb))
+
 # [2.5.0](https://github.com/danielvm-git/bigpowers/compare/v2.4.1...v2.5.0) (2026-06-18)
 
 
