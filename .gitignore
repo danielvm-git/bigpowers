@@ -1,3 +1,4 @@
+.DS_Store
 .agents
 .agent
 .claude
@@ -5,6 +6,7 @@
 node_modules
 _bmad
 _bmad-output
+specs/verifications/reports/
 specs/audit/reports/
 .obsidian/
 specs/.obsidian/
