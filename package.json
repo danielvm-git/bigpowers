@@ -22,8 +22,13 @@
     "claude",
     "development",
     "spec-driven",
-    "test-first"
+    "test-first",
+    "pi-package"
   ],
+  "pi": {
+    "skills": ["./.pi/skills"],
+    "prompts": ["./.pi/prompts"]
+  },
   "author": "Daniel",
   "license": "MIT",
   "homepage": "https://github.com/danielvm-git/bigpowers#readme",
