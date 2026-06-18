@@ -80,7 +80,7 @@
 | `grill-with-docs` | Opus | Doc-grounded grill |
 | `setup-environment` / `reset-baseline` | Haiku | Mechanical prep |
 
-Full list: every SKILL.md declares `model:` — verify with `grep -rl '^model:' */SKILL.md | wc -l` (expect 61).
+Full list: every SKILL.md declares `model:` — verify with `grep -rl '^model:' */SKILL.md | wc -l` (expect 62).
 
 ### Release Phase
 | Skill | Model | Budget | Rationale |
@@ -239,67 +239,68 @@ Start: Task assigned
 <!-- AUTO-GENERATED-CATALOG: begin — do not edit manually; run scripts/generate-reference-tables.sh -->
 | Skill | Model |
 |-------|-------|
-| `assess-impact` | **Assess-impactsonnet** |
-| `audit-code` | **Audit-codehaiku** |
-| `build-epic` | **Build-epicsonnet** |
-| `change-request` | **Change-requestsonnet** |
-| `commit-message` | **Commit-messagehaiku** |
-| `compose-workflow` | **Compose-workflowsonnet** |
-| `craft-skill` | **Craft-skillsonnet** |
-| `deepen-architecture` | **Deepen-architecturesonnet** |
-| `define-language` | **Define-languagesonnet** |
-| `define-success` | **Define-successsonnet** |
-| `delegate-task` | **Delegate-tasksonnet** |
-| `design-interface` | **Design-interfaceopus** |
-| `develop-tdd` | **Develop-tddsonnet** |
-| `diagnose-root` | **Diagnose-rootsonnet** |
-| `dispatch-agents` | **Dispatch-agentssonnet** |
-| `edit-document` | **Edit-documentsonnet** |
-| `elaborate-spec` | **Elaborate-specopus** |
-| `enforce-first` | **Enforce-firsthaiku** |
-| `evolve-skill` | **Evolve-skillopus** |
-| `execute-plan` | **Execute-planhaiku** |
-| `fix-bug` | **Fix-bugsonnet** |
-| `grill-me` | **Grill-mesonnet** |
-| `grill-with-docs` | **Grill-with-docsopus** |
-| `guard-git` | **Guard-githaiku** |
-| `hook-commits` | **Hook-commitshaiku** |
-| `inspect-quality` | **Inspect-qualitysonnet** |
-| `investigate-bug` | **Investigate-bugsonnet** |
-| `kickoff-branch` | **Kickoff-branchhaiku** |
-| `map-codebase` | **Map-codebasesonnet** |
-| `migrate-spec` | **Migrate-specsonnet** |
-| `model-domain` | **Model-domainsonnet** |
-| `orchestrate-project` | **Orchestrate-projectsonnet** |
-| `organize-workspace` | **Organize-workspacehaiku** |
-| `plan-refactor` | **Plan-refactorsonnet** |
-| `plan-release` | **Plan-releasesonnet** |
-| `plan-work` | **Plan-workopus** |
-| `release-branch` | **Release-branchhaiku** |
-| `request-review` | **Request-reviewopus** |
-| `research-first` | **Research-firstsonnet** |
-| `reset-baseline` | **Reset-baselinehaiku** |
-| `respond-review` | **Respond-reviewsonnet** |
-| `run-evals` | **Run-evalssonnet** |
-| `run-planning` | **Run-planningsonnet** |
-| `scope-work` | **Scope-worksonnet** |
-| `search-skills` | **Search-skillshaiku** |
-| `seed-conventions` | **Seed-conventionssonnet** |
-| `session-state` | **Session-statehaiku** |
-| `setup-environment` | **Setup-environmenthaiku** |
-| `simulate-agents` | **Simulate-agentssonnet** |
-| `slice-tasks` | **Slice-taskssonnet** |
-| `spike-prototype` | **Spike-prototypesonnet** |
-| `stocktake-skills` | **Stocktake-skillssonnet** |
-| `survey-context` | **Survey-contexthaiku** |
-| `terse-mode` | **Terse-modehaiku** |
-| `trace-requirement` | **Trace-requirementhaiku** |
-| `using-bigpowers` | **Using-bigpowerssonnet** |
-| `validate-fix` | **Validate-fixhaiku** |
-| `verify-work` | **Verify-workhaiku** |
-| `visual-dashboard` | **Visual-dashboardsonnet** |
-| `wire-observability` | **Wire-observabilitysonnet** |
-| `write-document` | **Write-documentsonnet** |
+| `align-grid` | **Sonnet** |
+| `assess-impact` | **Sonnet** |
+| `audit-code` | **Haiku** |
+| `build-epic` | **Sonnet** |
+| `change-request` | **Sonnet** |
+| `commit-message` | **Haiku** |
+| `compose-workflow` | **Sonnet** |
+| `craft-skill` | **Sonnet** |
+| `deepen-architecture` | **Sonnet** |
+| `define-language` | **Sonnet** |
+| `define-success` | **Sonnet** |
+| `delegate-task` | **Sonnet** |
+| `design-interface` | **Opus** |
+| `develop-tdd` | **Sonnet** |
+| `diagnose-root` | **Sonnet** |
+| `dispatch-agents` | **Sonnet** |
+| `edit-document` | **Sonnet** |
+| `elaborate-spec` | **Opus** |
+| `enforce-first` | **Haiku** |
+| `evolve-skill` | **Opus** |
+| `execute-plan` | **Haiku** |
+| `fix-bug` | **Sonnet** |
+| `grill-me` | **Sonnet** |
+| `grill-with-docs` | **Opus** |
+| `guard-git` | **Haiku** |
+| `hook-commits` | **Haiku** |
+| `inspect-quality` | **Sonnet** |
+| `investigate-bug` | **Sonnet** |
+| `kickoff-branch` | **Haiku** |
+| `map-codebase` | **Sonnet** |
+| `migrate-spec` | **Sonnet** |
+| `model-domain` | **Sonnet** |
+| `orchestrate-project` | **Sonnet** |
+| `organize-workspace` | **Haiku** |
+| `plan-refactor` | **Sonnet** |
+| `plan-release` | **Sonnet** |
+| `plan-work` | **Opus** |
+| `release-branch` | **Haiku** |
+| `request-review` | **Opus** |
+| `research-first` | **Sonnet** |
+| `reset-baseline` | **Haiku** |
+| `respond-review` | **Sonnet** |
+| `run-evals` | **Sonnet** |
+| `run-planning` | **Sonnet** |
+| `scope-work` | **Sonnet** |
+| `search-skills` | **Haiku** |
+| `seed-conventions` | **Sonnet** |
+| `session-state` | **Haiku** |
+| `setup-environment` | **Haiku** |
+| `simulate-agents` | **Sonnet** |
+| `slice-tasks` | **Sonnet** |
+| `spike-prototype` | **Sonnet** |
+| `stocktake-skills` | **Sonnet** |
+| `survey-context` | **Haiku** |
+| `terse-mode` | **Haiku** |
+| `trace-requirement` | **Haiku** |
+| `using-bigpowers` | **Sonnet** |
+| `validate-fix` | **Haiku** |
+| `verify-work` | **Haiku** |
+| `visual-dashboard` | **Sonnet** |
+| `wire-observability` | **Sonnet** |
+| `write-document` | **Sonnet** |
 
-Total: **61** skills — verify with `ls -d \*/SKILL.md | wc -l`
+Total: **62** skills — verify with `ls -d \*/SKILL.md | wc -l`
 <!-- AUTO-GENERATED-CATALOG: end -->

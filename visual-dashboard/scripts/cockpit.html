@@ -4,27 +4,100 @@
   <meta charset="utf-8">
   <title>bigpowers cockpit</title>
   <style>
-    * { box-sizing: border-box; }
-    body { font-family: system-ui, sans-serif; margin: 0; display: grid; grid-template-rows: auto 1fr; height: 100vh; }
-    header { padding: 1rem 1.5rem; background: #1a1a2e; color: #eee; display: flex; gap: 2rem; flex-wrap: wrap; }
-    header span { opacity: 0.85; }
-    main { display: grid; grid-template-columns: 1fr 1fr; gap: 0; min-height: 0; }
-    section { padding: 1rem 1.5rem; overflow: auto; border-top: 1px solid #ddd; }
-    section h2 { margin-top: 0; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.05em; color: #555; }
-    .epic { padding: 0.5rem 0; border-bottom: 1px solid #eee; }
-    .epic strong { color: #1a1a2e; }
+    /* ===== GRID TOKENS ===== */
+    :root{
+      --cols:12;
+      --bl:8px;
+      --lh:24px;
+      --gutter:24px;
+      --margin:72px;
+      --pad:96px;
+      --maxw:1296px;
+      --paper:#ffffff;
+      --ink:#111315;
+      --ink-soft:#5b6066;
+      --accent:#e4002b;
+      --g-col:rgba(228,0,43,.075);
+      --g-edge:rgba(228,0,43,.40);
+      --g-base:rgba(0,150,140,.34);
+      --g-base-min:rgba(0,150,140,.12);
+    }
+    *{box-sizing:border-box;}
+    body{margin:0;background:var(--paper);color:var(--ink);
+      font-family:"Inter",system-ui,sans-serif;font-size:16px;line-height:var(--lh);
+      -webkit-font-smoothing:antialiased;}
+    
+    /* ---- scaffold ---- */
+    .spread{position:relative;width:100%;}
+    .wrap{position:relative;max-width:var(--maxw);margin:0 auto;padding:var(--lh) var(--margin);}
+    .grid{display:grid;grid-template-columns:repeat(var(--cols),1fr);
+      column-gap:var(--gutter);row-gap:var(--lh);}
+    .band{grid-column:1 / -1;display:grid;grid-template-columns:subgrid;
+      column-gap:var(--gutter);row-gap:var(--lh);align-items:start;}
+    @supports not (grid-template-columns:subgrid){
+      .band{grid-template-columns:repeat(var(--cols),1fr);}
+    }
+
+    /* ---- toggle & guides ---- */
+    .guides{position:absolute;inset:0;pointer-events:none;z-index:60;opacity:0;
+      transition:opacity .26s ease;}
+    body.grid-on .guides{opacity:1;}
+    .guides .cols{position:absolute;top:0;bottom:0;left:var(--margin);right:var(--margin);
+      display:grid;grid-template-columns:repeat(var(--cols),1fr);column-gap:var(--gutter);}
+    .guides .col{background:var(--g-col);
+      box-shadow:inset 1px 0 0 var(--g-edge),inset -1px 0 0 var(--g-edge);position:relative;}
+    .guides .col span{position:absolute;top:32px;left:0;right:0;text-align:center;
+      font-family:"Space Mono",monospace;font-size:10px;line-height:1;color:var(--accent);}
+    .guides .rows{position:absolute;left:var(--margin);right:var(--margin);top:0;bottom:0;
+      background-image:
+        repeating-linear-gradient(to bottom,var(--g-base) 0 1px,transparent 1px var(--lh)),
+        repeating-linear-gradient(to bottom,var(--g-base-min) 0 1px,transparent 1px var(--bl));}
+    .guides .mline{position:absolute;top:0;bottom:0;width:1px;background:var(--g-edge);}
+    .guides .mline.l{left:var(--margin);} .guides .mline.r{right:var(--margin);}
+
+    .toggle{position:fixed;top:18px;right:18px;z-index:200;display:flex;align-items:center;gap:10px;
+      background:var(--ink);color:#fff;border:none;cursor:pointer;font-family:"Space Mono",monospace;
+      font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:11px 14px;}
+    .toggle .dot{width:9px;height:9px;border-radius:50%;background:#555;}
+    body.grid-on .toggle{background:var(--accent);} body.grid-on .toggle .dot{background:#fff;}
+
+    /* ===== COCKPIT STYLES ===== */
+    header { padding: var(--lh) 0; background: var(--paper); color: var(--ink); display: flex; gap: var(--gutter); flex-wrap: wrap; border-bottom: 2px solid var(--ink); margin-bottom: var(--lh); }
+    header strong { color: var(--accent); }
+    header span { color: var(--ink-soft); }
+    
+    section { padding: var(--lh) 0; border-top: 1px solid #ddd; }
+    section h2 { margin: 0 0 var(--lh) 0; font-size: 16px; line-height: var(--lh); text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-soft); }
+    .epic { padding: 0 0 calc(var(--lh) - 1px) 0; margin-bottom: var(--lh); border-bottom: 1px solid #eee; }
+    .epic:last-child { margin-bottom: 0; border-bottom: none; }
+    .epic strong { color: var(--ink); }
     .done { color: #0a7; }
     .pending { color: #c80; }
-    #err { color: #c00; padding: 1rem; }
+    #err { color: #c00; padding: var(--lh) 0; grid-column: 1 / -1; }
   </style>
 </head>
 <body>
-  <header id="hdr">Loading…</header>
-  <main>
-    <section id="planning"><h2>Planning</h2><div id="planning-body"></div></section>
-    <section id="build"><h2>Epics &amp; status</h2><div id="build-body"></div></section>
-  </main>
-  <div id="err" hidden></div>
+  <div class="spread">
+    <div class="wrap">
+      <div class="grid">
+        <div class="band">
+          <header id="hdr" class="opt-align" style="grid-column: 1 / -1;">Loading…</header>
+        </div>
+        <div class="band">
+          <div id="err" hidden style="grid-column: 1 / -1;"></div>
+          <section id="planning" style="grid-column: 1 / 7;"><h2 class="opt-align">Planning</h2><div id="planning-body"></div></section>
+          <section id="build" style="grid-column: 7 / 13;"><h2 class="opt-align">Epics &amp; status</h2><div id="build-body"></div></section>
+        </div>
+    <!-- GRID GUIDES -->
+    <div class="guides" aria-hidden="true">
+      <div class="cols"></div><div class="rows"></div>
+      <div class="mline l"></div><div class="mline r"></div>
+    </div>
+    </div>
+  </div>
+
+  <button id="gridToggle" class="toggle"><span class="dot"></span> <span class="lbl">Show grid</span> <kbd>G</kbd></button>
+
   <script>
     const params = new URLSearchParams(location.search);
     const projectDir = params.get('projectDir') || '';
@@ -61,6 +134,40 @@
       document.getElementById('err').hidden = false;
       document.getElementById('err').textContent = e.message;
     });
+
+    /* ===== GRID SCRIPT ===== */
+    var btn=document.getElementById('gridToggle');
+    function setGrid(on){document.body.classList.toggle('grid-on',on);
+      if(btn){btn.setAttribute('aria-pressed',on?'true':'false');
+        var l=btn.querySelector('.lbl'); if(l) l.textContent=on?'Hide grid':'Show grid';}}
+    if(btn) btn.addEventListener('click',function(){setGrid(!document.body.classList.contains('grid-on'));});
+    document.addEventListener('keydown',function(e){
+      if((e.key==='g'||e.key==='G')&&!e.metaKey&&!e.ctrlKey&&!e.altKey){
+        setGrid(!document.body.classList.contains('grid-on'));}});
+
+    document.querySelectorAll('.guides .cols').forEach(function(h){
+      var n=getComputedStyle(document.documentElement).getPropertyValue('--cols').trim()||'12';
+      for(var i=1;i<=parseInt(n,10);i++){var c=document.createElement('div');c.className='col';
+        var s=document.createElement('span');s.textContent=i;c.appendChild(s);h.appendChild(c);}});
+
+    (function(){
+      var cvs=document.createElement('canvas'),ctx=cvs.getContext('2d');
+      var sel='.opt-align';
+      function align(){
+        document.querySelectorAll(sel).forEach(function(el){
+          el.style.marginLeft='0px';
+          var cs=getComputedStyle(el),ch=(el.textContent||'').trim().charAt(0); if(!ch) return;
+          if(cs.textTransform==='uppercase') ch=ch.toUpperCase();
+          ctx.font=cs.fontStyle+' '+cs.fontWeight+' '+cs.fontSize+' '+cs.fontFamily;
+          ctx.textAlign='left';
+          var abl=ctx.measureText(ch).actualBoundingBoxLeft;
+          if(isFinite(abl)) el.style.marginLeft=abl.toFixed(2)+'px';
+        });
+      }
+      if(document.fonts&&document.fonts.ready){document.fonts.ready.then(align);}
+      align();
+      var t;window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(align,120);});
+    })();
   </script>
 </body>
 </html>

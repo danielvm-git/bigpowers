@@ -19,13 +19,13 @@
 | **Initiate** | 4 | kickoff-branch, guard-git, hook-commits, seed-conventions |
 | **Build** | 8 | develop-tdd, enforce-first, delegate-task, dispatch-agents, execute-plan, build-epic, run-planning, fix-bug |
 | **Harden** | 1 | wire-observability |
-| **Verify** | 2 | verify-work, run-evals |
+| **Verify** | 3 | verify-work, run-evals, align-grid |
 | **Bug** | 3 | investigate-bug, diagnose-root, validate-fix |
 | **Review** | 4 | audit-code, request-review, respond-review, trace-requirement |
 | **Integrate** | 2 | commit-message, release-branch |
 | **Sustain** | 4 | inspect-quality, organize-workspace, stocktake-skills, evolve-skill |
 | **Utility** | 12 | terse-mode, craft-skill, edit-document, session-state, migrate-spec, visual-dashboard, write-document, setup-environment, reset-baseline, search-skills, compose-workflow, simulate-agents |
-| **TOTAL** | **61** | |
+| **TOTAL** | **62** | |
 
 ---
 
@@ -66,36 +66,37 @@
 | 31 | Harden | `wire-observability` | Structured logging + observability | src/, CLAUDE.md | ✅ Active |
 | 32 | Verify | `verify-work` | Multi-phase UAT; loop on gaps; absorbs cold-start-smoke, gaps-loop, verify-work-smoke | (dialogue) | ✅ Active |
 | 33 | Verify | `run-evals` | EDD capability + regression evals | EVALS-&lt;feature&gt;.md | ✅ Active |
-| 34 | Bug | `investigate-bug` | Investigate bug → diagnosis | bugs/BUG-*.md | ✅ Active |
-| 35 | Bug | `diagnose-root` | 4-phase root cause analysis | bugs/BUG-*.md | ✅ Active |
-| 36 | Bug | `validate-fix` | Prove fix works | (verify) | ✅ Active |
-| 37 | Review | `audit-code` | Self-review checklist; absorbs audit-code-quick | (checklist) | ✅ Active |
-| 38 | Review | `request-review` | Fresh reviewer agent | review-report | ✅ Active |
-| 39 | Review | `respond-review` | Act on reviewer feedback | src/ | ✅ Active |
-| 40 | Review | `trace-requirement` | Story ID → code/tests | TRACEABILITY.md | ✅ Active |
-| 41 | Integrate | `commit-message` | Conventional Commits + semver; absorbs commit-message-fix | (git message) | ✅ Active |
-| 42 | Integrate | `release-branch` | Merge/PR decision + cleanup; absorbs release-branch-hotfix | (git PR) | ✅ Active |
-| 43 | Sustain | `inspect-quality` | Structured QA session | BUG-LOG.md | ✅ Active |
-| 44 | Sustain | `organize-workspace` | Safe workspace cleanup | (filesystem) | ✅ Active |
-| 45 | Sustain | `stocktake-skills` | Batch audit of skill catalog | specs/ audit report | ✅ Active |
-| 46 | Sustain | `evolve-skill` | Benchmark-gated skill evolution | ADR, STATE.md | ✅ Active |
-| 47 | Utility | `terse-mode` | Ultra-terse output (fallback) | (prompt) | ✅ Active |
-| 48 | Utility | `craft-skill` | Build new bigpowers skill | skills/&lt;name&gt;/SKILL.md | ✅ Active |
-| 49 | Utility | `edit-document` | Edit documents in specs/ | specs/&lt;name&gt;.md | ✅ Active |
-| 50 | Utility | `session-state` | Track decisions in state.yaml; absorbs show-state, reset-state, compact-state, list-epics, check-gates | state.yaml | ✅ Active |
-| 51 | Utility | `migrate-spec` | Migrate foreign spec formats | specs/ | ✅ Active |
-| 52 | Utility | `visual-dashboard` | Browser dashboard (HTTP cockpit) | `npm run visual-dashboard` → GET /cockpit.html | ✅ Active |
-| 53 | Utility | `write-document` | BMAD technical documents | specs/&lt;name&gt;.md | ✅ Active |
-| 54 | Utility | `setup-environment` | Pre-install deps before work | (.env, packages) | ✅ Active |
-| 55 | Utility | `reset-baseline` | Restore clean known state | (clean tree) | ✅ Active |
-| 56 | Utility | `search-skills` | Natural language → right skill | SKILL-SEARCH-INDEX.md | ✅ Active |
-| 57 | Utility | `compose-workflow` | Chain skills into workflow recipe | WORKFLOW-&lt;name&gt;.md | ✅ Active |
-| 58 | Utility | `simulate-agents` | Mock User + Auditor simulation | SIMULATION-&lt;feature&gt;.md | ✅ Active |
-| 59 | Build | `build-epic` | Eight-step epic build cycle | state.yaml, epics/ | ✅ Active |
-| 60 | Build | `run-planning` | Discover-phase workflow tracker | planning-status.yaml | ✅ Active |
-| 61 | Bug | `fix-bug` | Bug fix orchestrator | bugs/BUG-*.md | ✅ Active |
+| 34 | Verify | `align-grid` | Müller-Brockmann modular grid layout alignment and verification harness | (code / config) | ✅ Active |
+| 35 | Bug | `investigate-bug` | Investigate bug → diagnosis | bugs/BUG-*.md | ✅ Active |
+| 36 | Bug | `diagnose-root` | 4-phase root cause analysis | bugs/BUG-*.md | ✅ Active |
+| 37 | Bug | `validate-fix` | Prove fix works | (verify) | ✅ Active |
+| 38 | Review | `audit-code` | Self-review checklist; absorbs audit-code-quick | (checklist) | ✅ Active |
+| 39 | Review | `request-review` | Fresh reviewer agent | review-report | ✅ Active |
+| 40 | Review | `respond-review` | Act on reviewer feedback | src/ | ✅ Active |
+| 41 | Review | `trace-requirement` | Story ID → code/tests | TRACEABILITY.md | ✅ Active |
+| 42 | Integrate | `commit-message` | Conventional Commits + semver; absorbs commit-message-fix | (git message) | ✅ Active |
+| 43 | Integrate | `release-branch` | Merge/PR decision + cleanup; absorbs release-branch-hotfix | (git PR) | ✅ Active |
+| 44 | Sustain | `inspect-quality` | Structured QA session | BUG-LOG.md | ✅ Active |
+| 45 | Sustain | `organize-workspace` | Safe workspace cleanup | (filesystem) | ✅ Active |
+| 46 | Sustain | `stocktake-skills` | Batch audit of skill catalog | specs/ audit report | ✅ Active |
+| 47 | Sustain | `evolve-skill` | Benchmark-gated skill evolution | ADR, STATE.md | ✅ Active |
+| 48 | Utility | `terse-mode` | Ultra-terse output (fallback) | (prompt) | ✅ Active |
+| 49 | Utility | `craft-skill` | Build new bigpowers skill | skills/&lt;name&gt;/SKILL.md | ✅ Active |
+| 50 | Utility | `edit-document` | Edit documents in specs/ | specs/&lt;name&gt;.md | ✅ Active |
+| 51 | Utility | `session-state` | Track decisions in state.yaml; absorbs show-state, reset-state, compact-state, list-epics, check-gates | state.yaml | ✅ Active |
+| 52 | Utility | `migrate-spec` | Migrate foreign spec formats | specs/ | ✅ Active |
+| 53 | Utility | `visual-dashboard` | Browser dashboard (HTTP cockpit) | `npm run visual-dashboard` → GET /cockpit.html | ✅ Active |
+| 54 | Utility | `write-document` | BMAD technical documents | specs/&lt;name&gt;.md | ✅ Active |
+| 55 | Utility | `setup-environment` | Pre-install deps before work | (.env, packages) | ✅ Active |
+| 56 | Utility | `reset-baseline` | Restore clean known state | (clean tree) | ✅ Active |
+| 57 | Utility | `search-skills` | Natural language → right skill | SKILL-SEARCH-INDEX.md | ✅ Active |
+| 58 | Utility | `compose-workflow` | Chain skills into workflow recipe | WORKFLOW-&lt;name&gt;.md | ✅ Active |
+| 59 | Utility | `simulate-agents` | Mock User + Auditor simulation | SIMULATION-&lt;feature&gt;.md | ✅ Active |
+| 60 | Build | `build-epic` | Eight-step epic build cycle | state.yaml, epics/ | ✅ Active |
+| 61 | Build | `run-planning` | Discover-phase workflow tracker | planning-status.yaml | ✅ Active |
+| 62 | Bug | `fix-bug` | Bug fix orchestrator | bugs/BUG-*.md | ✅ Active |
 
-**Total: 61 active skills.** 18 sub-op concepts (zoom-out, slopcheck, red-phase, green-phase, refactor-phase, cold-start-smoke, gaps-loop, plan-work-fast, commit-message-fix, release-branch-hotfix, audit-code-quick, verify-work-smoke, show-state, reset-state, compact-state, list-epics, check-gates) are documented as sub-sections within parent SKILL.md files; none were standalone SKILL.md directories, so the count remains 61.
+**Total: 62 active skills.** 18 sub-op concepts (zoom-out, slopcheck, red-phase, green-phase, refactor-phase, cold-start-smoke, gaps-loop, plan-work-fast, commit-message-fix, release-branch-hotfix, audit-code-quick, verify-work-smoke, show-state, reset-state, compact-state, list-epics, check-gates) are documented as sub-sections within parent SKILL.md files; none were standalone SKILL.md directories, so the count remains 62.
 
 ---
 
@@ -121,7 +122,7 @@ survey-context → research-first → elaborate-spec → map-codebase
                          ↓
         wire-observability (production-readiness gate, any phase)
                          ↓
-              ★ VERIFY ★  run-evals → verify-work  (prove it works)
+              ★ VERIFY ★  run-evals → verify-work → align-grid  (prove it works)
                          ↓
     fix-bug → investigate-bug → diagnose-root → validate-fix
                          ↓

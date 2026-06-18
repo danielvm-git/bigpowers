@@ -1,5 +1,5 @@
 ---
-description: "Find the right bigpowers skill from natural-language intent using a local lexical index over SKILL.md frontmatter. Use when unsure which skill to invoke, or at start of research-first.model: haiku"
+description: "Find the right bigpowers skill from natural-language intent using a local lexical index over SKILL.md frontmatter. Use when unsure which skill to invoke, or at start of research-first."
 alwaysApply: false
 ---
 

@@ -16,7 +16,7 @@ while IFS= read -r line; do
   model_raw="${line##*model: }"
   model="${model_raw// /}"
   ROWS+=("$skill_dir $model")
-done < <(grep -r "^model:" */SKILL.md | sed 's|/SKILL.md:model:||' | sort)
+done < <(grep -r "^model:" */SKILL.md | sort)
 
 TOTAL=${#ROWS[@]}
 

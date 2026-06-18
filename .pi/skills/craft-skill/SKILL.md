@@ -1,6 +1,7 @@
 ---
 name: craft-skill
 description: "Create new bigpowers skills with proper structure, progressive disclosure, and bundled resources. Use when user wants to create, write, or build a new skill for the bigpowers lifecycle."
+model: sonnet
 ---
 
 

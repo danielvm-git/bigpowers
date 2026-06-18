@@ -31,12 +31,16 @@ for skill_dir in "$REPO_ROOT"/*/; do
   skill_md="$skill_dir/SKILL.md"
   [[ -f "$skill_md" ]] || continue
 
-  # Extract name and description from YAML frontmatter
+  # Extract name, model, and description from YAML frontmatter
   name=$(awk '/^---/{f++} f==1 && /^name:/{print; exit}' "$skill_md" | sed 's/^name:[[:space:]]*//')
-  description=$(awk '/^---/{f++} f==1 && /^description:/{p=1} p && !/^---/{print} f==2{exit}' "$skill_md" \
-    | sed 's/^description:[[:space:]]*//' \
+  model=$(awk '/^---/{f++} f==1 && /^model:/{print; exit}' "$skill_md" | sed 's/^model:[[:space:]]*//')
+  # Capture description: from "description:" line to next YAML key or closing ---
+  description=$(awk '/^---/{f++; next} f==1 && /^description:/{p=1; sub(/^description:[[:space:]]*/,""); print; next} f==1 && p && /^[a-z]+:/{exit} f==1 && p{print}' "$skill_md" \
     | tr -d '\n' \
     | sed -E 's/[[:space:]]+/ /g')
+
+  # Escape double quotes and backslashes for safe double-quoted YAML output
+  description_escaped=$(echo "$description" | sed 's/\\/\\\\/g; s/"/\\"/g')
 
   [[ -z "$name" ]] && continue
 
@@ -55,7 +59,7 @@ for skill_dir in "$REPO_ROOT"/*/; do
   cursor_file="$CURSOR_RULES/$name.mdc"
   {
     echo "---"
-    echo "description: \"$description\""
+    echo "description: \"$description_escaped\""
     echo "alwaysApply: false"
     echo "---"
     echo ""
@@ -67,7 +71,7 @@ for skill_dir in "$REPO_ROOT"/*/; do
   {
     echo "---"
     echo "name: $name"
-    echo "description: \"$description\""
+    echo "description: \"$description_escaped\""
     echo "---"
     echo ""
     echo "$body"
@@ -79,11 +83,8 @@ for skill_dir in "$REPO_ROOT"/*/; do
   prompt_file="commands/prompts/$name.md"
   echo "$body" > "$GEMINI_EXT_DIR/$prompt_file"
   
-  # Escape double quotes and backslashes for TOML
-  description_toml=$(echo "$description" | sed 's/\\/\\\\/g; s/"/\\"/g')
-  
   {
-    echo "description = \"$description_toml\""
+    echo "description = \"$description_escaped\""
     echo "prompt = \"@{$prompt_file}\""
   } > "$GEMINI_COMMANDS/$name.toml"
 
@@ -93,7 +94,8 @@ for skill_dir in "$REPO_ROOT"/*/; do
   {
     echo "---"
     echo "name: $name"
-    echo "description: \"$description\""
+    echo "description: \"$description_escaped\""
+    [[ -n "$model" ]] && echo "model: $model"
     echo "---"
     echo ""
     echo "$body"
@@ -202,6 +204,16 @@ if [[ -f "$manifest" ]]; then
     : # skip version compare when either field is missing
   elif [[ "$ext_ver" != "$pkg_ver" ]]; then
     echo "sync-skills: FAIL — gemini-extension.json version ($ext_ver) != package.json ($pkg_ver)" >&2
+    exit 1
+  fi
+fi
+
+# Regression guard (BUG-2026-06-18T100000): validate generated YAML frontmatter
+validate_script="$REPO_ROOT/scripts/validate-skill-yaml.py"
+if [[ -f "$validate_script" ]] && command -v python3 &>/dev/null; then
+  if ! python3 "$validate_script" > /dev/null 2>&1; then
+    echo "sync-skills: FAIL — YAML frontmatter validation failed" >&2
+    python3 "$validate_script" >&2
     exit 1
   fi
 fi

@@ -47,3 +47,13 @@ bugs:
     file: bugs/BUG-2026-06-13T090000.md
     approach: "Update gates.md + PRINCIPLES.md to YAML artifact names; fix dead skill names in model-profiles.md; single-source skill count; add SKILL.md size lint; define or soften 94% threshold"
     risk_level: "medium"
+  - id: BUG-2026-06-18T100000
+    status: fixed
+    severity: medium
+    scope: scripts
+    title: "sync-skills.sh produces broken YAML — greedy awk + unescaped quotes"
+    file: bugs/BUG-2026-06-18T100000.md
+    files_changed: "scripts/sync-skills.sh, scripts/validate-skill-yaml.py"
+    approach: "Bound awk to stop at next YAML key; escape \" and \\ in description; propagate model: key; add validation guard"
+    risk_level: "medium"
+    commit_message: "fix(scripts): sync-skills.sh — escape YAML quotes, preserve model key, add validation guard"

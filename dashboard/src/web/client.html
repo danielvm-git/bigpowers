@@ -5,282 +5,221 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BigPowers Dashboard</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    /* ===== GRID TOKENS ===== */
+    :root{
+      --cols:12;
+      --bl:8px;
+      --lh:24px;
+      --gutter:24px;
+      --margin:72px;
+      --pad:48px;
+      --maxw:1296px;
+      --paper:#0d1117;
+      --ink:#c9d1d9;
+      --ink-soft:#8b949e;
+      --accent:#58a6ff;
+      --accent-hover:#79c0ff;
+      --g-col:rgba(88,166,255,.075);
+      --g-edge:rgba(88,166,255,.40);
+      --g-base:rgba(0,150,140,.34);
+      --g-base-min:rgba(0,150,140,.12);
     }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      background: #0d1117;
-      color: #c9d1d9;
+      background: var(--paper);
+      color: var(--ink);
       font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
       font-size: 12px;
-      line-height: 1.6;
-      padding: 16px;
+      line-height: var(--lh);
+      -webkit-font-smoothing: antialiased;
     }
 
-    .container {
-      max-width: 1400px;
-      margin: 0 auto;
+    /* ---- scaffold ---- */
+    .spread{position:relative;width:100%;}
+    .wrap{position:relative;max-width:var(--maxw);margin:0 auto;padding:var(--pad) var(--margin);}
+    .grid{display:grid;grid-template-columns:repeat(var(--cols),1fr);
+      column-gap:var(--gutter);row-gap:var(--lh);}
+    .band{grid-column:1 / -1;display:grid;grid-template-columns:subgrid;
+      column-gap:var(--gutter);row-gap:var(--lh);align-items:start;}
+    @supports not (grid-template-columns:subgrid){
+      .band{grid-template-columns:repeat(var(--cols),1fr);}
     }
 
+    /* ---- toggle & guides ---- */
+    .guides{position:absolute;inset:0;pointer-events:none;z-index:60;opacity:0;
+      transition:opacity .26s ease;}
+    body.grid-on .guides{opacity:1;}
+    .guides .cols{position:absolute;top:0;bottom:0;left:var(--margin);right:var(--margin);
+      display:grid;grid-template-columns:repeat(var(--cols),1fr);column-gap:var(--gutter);}
+    .guides .col{background:var(--g-col);
+      box-shadow:inset 1px 0 0 var(--g-edge),inset -1px 0 0 var(--g-edge);position:relative;}
+    .guides .col span{position:absolute;top:32px;left:0;right:0;text-align:center;
+      font-family:"Space Mono",monospace;font-size:10px;line-height:1;color:var(--accent);}
+    .guides .rows{position:absolute;left:var(--margin);right:var(--margin);top:0;bottom:0;
+      background-image:
+        repeating-linear-gradient(to bottom,var(--g-base) 0 1px,transparent 1px var(--lh)),
+        repeating-linear-gradient(to bottom,var(--g-base-min) 0 1px,transparent 1px var(--bl));}
+    .guides .mline{position:absolute;top:0;bottom:0;width:1px;background:var(--g-edge);}
+    .guides .mline.l{left:var(--margin);} .guides .mline.r{right:var(--margin);}
+
+    .toggle{position:fixed;top:18px;right:18px;z-index:200;display:flex;align-items:center;gap:10px;
+      background:var(--ink);color:var(--paper);border:none;cursor:pointer;font-family:"Space Mono",monospace;
+      font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:11px 14px;}
+    .toggle .dot{width:9px;height:9px;border-radius:50%;background:var(--ink-soft);}
+    body.grid-on .toggle{background:var(--accent);} body.grid-on .toggle .dot{background:var(--paper);}
+
+    /* ===== COMPONENT STYLES ===== */
     h1 {
       font-size: 20px;
-      margin-bottom: 24px;
-      color: #58a6ff;
+      line-height: calc(var(--lh) * 2);
+      margin-bottom: var(--lh);
+      color: var(--accent);
       border-bottom: 2px solid #30363d;
-      padding-bottom: 8px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-      gap: 16px;
-      margin-bottom: 16px;
+      padding-bottom: calc(var(--lh) - 2px);
+      grid-column: 1 / -1;
     }
 
     .panel {
       background: #161b22;
       border: 1px solid #30363d;
       border-radius: 6px;
-      padding: 16px;
+      padding: calc(var(--lh) - 1px) 23px; /* account for border */
     }
 
     .panel h2 {
       font-size: 14px;
-      margin-bottom: 12px;
-      color: #79c0ff;
+      line-height: var(--lh);
+      margin-bottom: var(--lh);
+      color: var(--accent-hover);
       border-bottom: 1px solid #30363d;
-      padding-bottom: 8px;
+      padding-bottom: calc(var(--lh) - 1px);
     }
 
+    /* Keep all internal paddings/margins as multiples of --bl or --lh */
     .metric-row {
       display: flex;
       justify-content: space-between;
-      padding: 6px 0;
+      padding: calc(var(--bl) - 1px) 0 var(--bl);
       border-bottom: 1px solid #21262d;
+      line-height: var(--lh);
     }
+    .metric-row:last-child { border-bottom: none; }
+    .metric-label { color: var(--ink-soft); }
+    .metric-value { color: var(--accent-hover); font-weight: bold; }
 
-    .metric-row:last-child {
-      border-bottom: none;
-    }
-
-    .metric-label {
-      color: #8b949e;
-    }
-
-    .metric-value {
-      color: #79c0ff;
-      font-weight: bold;
-    }
-
-    .step-container {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
+    .step-container { display: flex; gap: var(--bl); flex-wrap: wrap; }
     .step {
-      flex: 1;
-      min-width: 80px;
-      padding: 8px;
-      background: #21262d;
-      border: 1px solid #30363d;
-      border-radius: 4px;
-      text-align: center;
-      font-size: 10px;
-      color: #8b949e;
+      flex: 1; min-width: 80px;
+      padding: calc(var(--bl) - 1px) calc(var(--bl) - 1px);
+      background: #21262d; border: 1px solid #30363d; border-radius: 4px;
+      text-align: center; font-size: 10px; line-height: 16px; color: var(--ink-soft);
       transition: all 0.2s ease;
     }
-
     .step.active {
-      background: #238636;
-      border-color: #2ea043;
-      color: #aff5b4;
-      font-weight: bold;
+      background: #238636; border-color: #2ea043; color: #aff5b4; font-weight: bold;
     }
+    .step-label { display: block; word-break: break-word; }
 
-    .step-label {
-      display: block;
-      margin-bottom: 4px;
-      word-break: break-word;
-    }
-
-    .state-pairs {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .state-pair {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .state-key {
-      color: #8b949e;
-      font-size: 11px;
-    }
-
-    .state-value {
-      color: #79c0ff;
-      word-break: break-all;
-      margin-top: 2px;
-    }
+    .state-pairs { display: flex; flex-direction: column; gap: var(--bl); }
+    .state-pair { display: flex; flex-direction: column; line-height: 16px; }
+    .state-key { color: var(--ink-soft); font-size: 11px; }
+    .state-value { color: var(--accent-hover); word-break: break-all; margin-top: 0; }
 
     .ledger-row {
-      padding: 6px 0;
-      border-bottom: 1px solid #21262d;
-      display: flex;
-      justify-content: space-between;
+      padding: calc(var(--bl) - 1px) 0 var(--bl);
+      border-bottom: 1px solid #21262d; display: flex; justify-content: space-between;
+      line-height: 16px;
     }
-
-    .ledger-row:last-child {
-      border-bottom: none;
-    }
-
-    .ledger-id {
-      color: #8b949e;
-      min-width: 60px;
-    }
-
-    .ledger-value {
-      color: #79c0ff;
-      font-weight: bold;
-    }
-
-    .ledger-meta {
-      color: #6e7681;
-      font-size: 10px;
-      margin-top: 2px;
-    }
+    .ledger-row:last-child { border-bottom: none; }
+    .ledger-id { color: var(--ink-soft); min-width: 60px; }
+    .ledger-value { color: var(--accent-hover); font-weight: bold; }
+    .ledger-meta { color: #6e7681; font-size: 10px; margin-top: 0; }
 
     .epic-item {
-      padding: 8px;
-      background: #21262d;
-      border-left: 3px solid #30363d;
-      margin-bottom: 6px;
-      border-radius: 2px;
+      padding: calc(var(--bl) - 1px) calc(var(--bl) - 1px);
+      background: #21262d; border-left: 3px solid #30363d;
+      margin-bottom: var(--bl); border-radius: 2px;
+      line-height: 16px;
     }
+    .epic-title { color: var(--accent-hover); font-weight: bold; margin-bottom: 0; }
+    .epic-stories { margin-left: var(--bl); color: var(--ink-soft); font-size: 11px; }
 
-    .epic-title {
-      color: #79c0ff;
-      font-weight: bold;
-      margin-bottom: 4px;
-    }
-
-    .epic-stories {
-      margin-left: 8px;
-      color: #8b949e;
-      font-size: 11px;
-    }
-
-    .status-badge {
-      display: inline-block;
-      padding: 2px 6px;
-      background: #21262d;
-      border: 1px solid #30363d;
-      border-radius: 3px;
-      font-size: 10px;
-      color: #8b949e;
-      margin-right: 4px;
-      margin-bottom: 2px;
-    }
-
-    .status-active {
-      background: #238636;
-      border-color: #2ea043;
-      color: #aff5b4;
-    }
-
-    .status-complete {
-      background: #1a414b;
-      border-color: #238636;
-      color: #7ee787;
-    }
-
-    .empty {
-      color: #6e7681;
-      font-style: italic;
-    }
+    .empty { color: #6e7681; font-style: italic; }
 
     .connection-status {
-      position: fixed;
-      bottom: 16px;
-      right: 16px;
-      padding: 8px 12px;
-      background: #238636;
-      color: #aff5b4;
-      border-radius: 4px;
-      font-size: 11px;
-      border: 1px solid #2ea043;
+      position: fixed; bottom: 16px; right: 16px;
+      padding: 7px 11px; /* 16px tall total inner approx */
+      background: #238636; color: #aff5b4; border-radius: 4px;
+      font-size: 11px; border: 1px solid #2ea043; line-height: 16px;
     }
-
     .connection-status.disconnected {
-      background: #da3633;
-      border-color: #f85149;
-      color: #f5a8a8;
+      background: #da3633; border-color: #f85149; color: #f5a8a8;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>BigPowers Dashboard</h1>
+  <div class="spread">
+    <div class="wrap">
+      <div class="grid">
+        <div class="band">
+          <h1 class="opt-align">BigPowers Dashboard</h1>
+        </div>
 
-    <div class="grid">
-      <!-- Pipeline Panel -->
-      <div class="panel">
-        <h2>Pipeline</h2>
-        <div class="step-container" id="pipeline"></div>
-      </div>
+        <div class="band">
+          <!-- Pipeline Panel -->
+          <div class="panel" style="grid-column: 1 / -1;">
+            <h2>Pipeline</h2>
+            <div class="step-container" id="pipeline"></div>
+          </div>
+        </div>
 
-      <!-- Metrics Panel -->
-      <div class="panel">
-        <h2>Metrics</h2>
-        <div id="metrics"></div>
-      </div>
+        <div class="band">
+          <!-- Metrics Panel -->
+          <div class="panel" style="grid-column: 1 / 4;">
+            <h2>Metrics</h2>
+            <div id="metrics"></div>
+          </div>
 
-      <!-- State Panel -->
-      <div class="panel">
-        <h2>State</h2>
-        <div class="state-pairs" id="state"></div>
-      </div>
+          <!-- State Panel -->
+          <div class="panel" style="grid-column: 4 / 7;">
+            <h2>State</h2>
+            <div class="state-pairs" id="state"></div>
+          </div>
 
-      <!-- Epic Queue Panel -->
-      <div class="panel">
-        <h2>Epic Queue</h2>
-        <div id="epics"></div>
-      </div>
+          <!-- Epic Queue Panel -->
+          <div class="panel" style="grid-column: 7 / 10;">
+            <h2>Epic Queue</h2>
+            <div id="epics"></div>
+          </div>
 
-      <!-- Cycle-Time Ledger Panel -->
-      <div class="panel">
-        <h2>Cycle-Time Ledger</h2>
-        <div id="ledger"></div>
+          <!-- Cycle-Time Ledger Panel -->
+          <div class="panel" style="grid-column: 10 / 13;">
+            <h2>Cycle-Time Ledger</h2>
+            <div id="ledger"></div>
+          </div>
+        </div>
+      <!-- GRID GUIDES -->
+      <div class="guides" aria-hidden="true">
+        <div class="cols"></div><div class="rows"></div>
+        <div class="mline l"></div><div class="mline r"></div>
       </div>
     </div>
   </div>
 
+  <button id="gridToggle" class="toggle"><span class="dot"></span> <span class="lbl">Show grid</span> <kbd>G</kbd></button>
   <div class="connection-status" id="status">Live</div>
 
   <script>
     const PIPELINE_STEPS = [
-      'survey-context',
-      'plan-work',
-      'kickoff-branch',
-      'develop-tdd',
-      'verify-work',
-      'audit-code',
-      'commit-message',
-      'release-branch'
+      'survey-context', 'plan-work', 'kickoff-branch', 'develop-tdd',
+      'verify-work', 'audit-code', 'commit-message', 'release-branch'
     ];
-
     let eventSource = null;
     let pollInterval = null;
 
     function render(data) {
       if (!data) return;
-
       renderPipeline(data);
       renderMetrics(data);
       renderState(data);
@@ -292,7 +231,6 @@
       const container = document.getElementById('pipeline');
       const activeFlow = data.state?.activeFlow;
       const activeIndex = activeFlow ? PIPELINE_STEPS.indexOf(activeFlow) : -1;
-
       container.innerHTML = PIPELINE_STEPS.map((step, idx) => {
         const isActive = idx === activeIndex;
         const className = isActive ? 'step active' : 'step';
@@ -308,32 +246,17 @@
 
       let html = '';
       if (metrics) {
-        html += `<div class="metric-row">
-          <span class="metric-label">Total BCPs</span>
-          <span class="metric-value">${metrics.totalBcps}</span>
-        </div>`;
-        html += `<div class="metric-row">
-          <span class="metric-label">Avg BCP/Hour</span>
-          <span class="metric-value">${metrics.avgBcpPerHour.toFixed(2)}</span>
-        </div>`;
+        html += `<div class="metric-row"><span class="metric-label">Total BCPs</span><span class="metric-value">${metrics.totalBcps}</span></div>`;
+        html += `<div class="metric-row"><span class="metric-label">Avg BCP/Hour</span><span class="metric-value">${metrics.avgBcpPerHour.toFixed(2)}</span></div>`;
       }
       if (velocity) {
-        html += `<div class="metric-row">
-          <span class="metric-label">Current Velocity</span>
-          <span class="metric-value">${velocity.avgBcpPerHour.toFixed(2)} BCP/h</span>
-        </div>`;
+        html += `<div class="metric-row"><span class="metric-label">Current Velocity</span><span class="metric-value">${velocity.avgBcpPerHour.toFixed(2)} BCP/h</span></div>`;
       }
       if (data.state?.release?.version) {
-        html += `<div class="metric-row">
-          <span class="metric-label">Version</span>
-          <span class="metric-value">${data.state.release.version}</span>
-        </div>`;
+        html += `<div class="metric-row"><span class="metric-label">Version</span><span class="metric-value">${data.state.release.version}</span></div>`;
       }
       if (timestamp) {
-        html += `<div class="metric-row">
-          <span class="metric-label">Updated</span>
-          <span class="metric-value" style="font-size: 10px;">${new Date(timestamp).toLocaleTimeString()}</span>
-        </div>`;
+        html += `<div class="metric-row"><span class="metric-label">Updated</span><span class="metric-value" style="font-size: 10px;">${new Date(timestamp).toLocaleTimeString()}</span></div>`;
       }
       container.innerHTML = html || '<p class="empty">No metrics available</p>';
     }
@@ -341,41 +264,32 @@
     function renderState(data) {
       const container = document.getElementById('state');
       const state = data.state || {};
-
       const pairs = [
         { key: 'Active Flow', value: state.activeFlow },
         { key: 'Active Epic', value: state.activeEpic },
         { key: 'Active Story', value: state.activeStory },
         { key: 'Git Branch', value: state.gitBranch }
       ];
-
       container.innerHTML = pairs.map(pair => {
         const val = pair.value || '(none)';
-        return `
-          <div class="state-pair">
-            <span class="state-key">${pair.key}</span>
-            <span class="state-value">${val}</span>
-          </div>
-        `;
+        return `<div class="state-pair"><span class="state-key">${pair.key}</span><span class="state-value">${val}</span></div>`;
       }).join('');
     }
 
     function renderEpics(data) {
       const container = document.getElementById('epics');
       const epics = data.epics || [];
-
       if (epics.length === 0) {
         container.innerHTML = '<p class="empty">No epics available</p>';
         return;
       }
-
       container.innerHTML = epics.map(epic => {
         const stories = epic.stories || [];
         const storyCount = stories.length;
         return `
           <div class="epic-item">
             <div class="epic-title">${epic.id || 'Unknown'}</div>
-            <div style="color: #8b949e; font-size: 11px; margin-bottom: 4px;">${epic.title || 'Untitled'}</div>
+            <div style="color: var(--ink-soft); font-size: 11px; margin-bottom: 0;">${epic.title || 'Untitled'}</div>
             <div class="epic-stories">${storyCount} stories</div>
           </div>
         `;
@@ -385,12 +299,10 @@
     function renderLedger(data) {
       const container = document.getElementById('ledger');
       const cycleTimes = data.cycleTimes || [];
-
       if (cycleTimes.length === 0) {
         container.innerHTML = '<p class="empty">No cycle-time data available</p>';
         return;
       }
-
       const recentRows = cycleTimes.slice(-8);
       container.innerHTML = recentRows.map(row => {
         const end = row.end ? new Date(row.end).toLocaleDateString() : '(active)';
@@ -420,7 +332,6 @@
     function startEventSource() {
       eventSource = new EventSource('/events');
       setConnectionStatus(true);
-
       eventSource.onmessage = (event) => {
         try {
           const data = JSON.parse(event.data);
@@ -429,7 +340,6 @@
           console.error('Failed to parse SSE data:', err);
         }
       };
-
       eventSource.onerror = (err) => {
         console.warn('SSE connection lost, falling back to polling');
         eventSource.close();
@@ -440,7 +350,6 @@
 
     function startPolling() {
       if (pollInterval) return;
-
       pollInterval = setInterval(() => {
         fetch('/api/state')
           .then(res => res.json())
@@ -459,7 +368,6 @@
       }
     }
 
-    // Initial load
     window.addEventListener('load', () => {
       fetch('/api/state')
         .then(res => res.json())
@@ -472,6 +380,40 @@
           startPolling();
         });
     });
+
+    /* ===== GRID SCRIPT ===== */
+    var btn=document.getElementById('gridToggle');
+    function setGrid(on){document.body.classList.toggle('grid-on',on);
+      if(btn){btn.setAttribute('aria-pressed',on?'true':'false');
+        var l=btn.querySelector('.lbl'); if(l) l.textContent=on?'Hide grid':'Show grid';}}
+    if(btn) btn.addEventListener('click',function(){setGrid(!document.body.classList.contains('grid-on'));});
+    document.addEventListener('keydown',function(e){
+      if((e.key==='g'||e.key==='G')&&!e.metaKey&&!e.ctrlKey&&!e.altKey){
+        setGrid(!document.body.classList.contains('grid-on'));}});
+
+    document.querySelectorAll('.guides .cols').forEach(function(h){
+      var n=getComputedStyle(document.documentElement).getPropertyValue('--cols').trim()||'12';
+      for(var i=1;i<=parseInt(n,10);i++){var c=document.createElement('div');c.className='col';
+        var s=document.createElement('span');s.textContent=i;c.appendChild(s);h.appendChild(c);}});
+
+    (function(){
+      var cvs=document.createElement('canvas'),ctx=cvs.getContext('2d');
+      var sel='.opt-align';
+      function align(){
+        document.querySelectorAll(sel).forEach(function(el){
+          el.style.marginLeft='0px';
+          var cs=getComputedStyle(el),ch=(el.textContent||'').trim().charAt(0); if(!ch) return;
+          if(cs.textTransform==='uppercase') ch=ch.toUpperCase();
+          ctx.font=cs.fontStyle+' '+cs.fontWeight+' '+cs.fontSize+' '+cs.fontFamily;
+          ctx.textAlign='left';
+          var abl=ctx.measureText(ch).actualBoundingBoxLeft;
+          if(isFinite(abl)) el.style.marginLeft=abl.toFixed(2)+'px';
+        });
+      }
+      if(document.fonts&&document.fonts.ready){document.fonts.ready.then(align);}
+      align();
+      var t;window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(align,120);});
+    })();
   </script>
 </body>
 </html>

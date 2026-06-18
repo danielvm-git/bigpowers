@@ -1,6 +1,7 @@
 ---
 name: execute-plan
 description: "Batch-execute tasks from the active epic capsule sequentially, with a human checkpoint after each step. Use when user has an approved plan and wants step-by-step oversight."
+model: haiku
 ---
 
 

@@ -1,6 +1,6 @@
 ---
 name: elaborate-spec
-description: "Refine a rough idea into a clear, detailed specification through dialogue. Does not produce code. Use when user has a vague idea, wants to think through a feature before planning, or needs to turn "I want X" into a concrete spec."
+description: "Refine a rough idea into a clear, detailed specification through dialogue. Does not produce code. Use when user has a vague idea, wants to think through a feature before planning, or needs to turn \"I want X\" into a concrete spec."
 ---
 
 
