@@ -1,0 +1,135 @@
+---
+description: Reviews working-tree changes, then drafts a Conventional Commits title/body and states the semantic-release version bump a single such commit would imply. Also notes which defensive-code categories were touched. Use when the user wants to commit recent work, prepare a Conventional Commits message, or asks for semantic-release / semver-consistent messaging before git commit.
+---
+
+
+# Commit Message
+> **HARD GATE** — **HARD GATE** — Commits must follow Conventional Commits spec (type(scope): description). Do NOT use vague messages like 'fix' or 'updates.' The message must explain the 'why,' not the 'what.'
+
+
+## Modes
+
+- Default: standard Conventional Commits message
+- --fix-type: Forces type=fix. Use when commit type is unambiguous.
+
+## What "last chat" means
+
+- **Primary source of truth:** `git status`, `git diff` (unstaged), and `git diff --cached` (staged). Run these in the repo root (or the paths the user changed).
+- **Context:** use the current conversation to summarize *intent* and to spot **breaking** API/behavior changes that diff alone may not show.
+- If the user tracks a session baseline (e.g. branch, tag, or `git stash create` at start), you may `git diff <baseline>..HEAD` plus uncommitted diffs; otherwise use only the index and working tree.
+
+## Quick workflow
+
+1. **Inventory** — List changed paths; group by feature vs chore vs docs vs test-only.
+2. **Decide commit shape** — One atomic commit is ideal. If the diff mixes unrelated concerns, recommend **multiple commits** (each with its own type/scope) before suggesting one message.
+3. **Classify for semantic release** — `fix` → patch, `feat` → minor, **breaking** → major.
+4. **Write the message** — `type(optional-scope)!: description` (see [REFERENCE.md](REFERENCE.md#message-format)). Use `!` or a `BREAKING CHANGE:` footer when behavior contracts change.
+5. **Note defensive-code categories touched** — from CONVENTIONS.md: Rate limit | Retry with backoff | Circuit breaker | Timeout | Graceful degradation
+6. **Deliver** — Output:
+   - Proposed **full commit message** (title + optional body + footers).
+   - **Release bump** this commit would drive: `patch` | `minor` | `major` | `none`.
+   - Optional `git add …` and `git commit -m` instructions; do **not** run destructive git commands unless the user asked.
+
+## Checklist before finalizing
+
+- [ ] Type matches the **dominant** user-visible outcome (`feat` vs `fix` vs `perf`, etc.).
+- [ ] **Scope** is a short noun in parentheses if it helps (e.g. `fix(api): …`).
+- [ ] Breaking changes are explicit (`!` and/or `BREAKING CHANGE:` in the body/footer).
+- [ ] Description is imperative, lowercase start after the prefix, no trailing period in the title line.
+
+## When not to invent a bump
+
+If the repo uses a custom `@semantic-release/commit-analyzer` preset, note that your bump is **heuristic** and they should match `.releaserc` / `release.config.*`. See [REFERENCE.md](REFERENCE.md#custom-repositories).
+
+## Further reading
+
+- [REFERENCE.md](REFERENCE.md) — Message shape, footers, release mapping, squashing notes.
+
+## Handoff
+
+Gate: READY -> next: release-branch
+Writes: state.yaml handoff.next_skill = release-branch
+
+---
+
+# Conventional Commits + semantic-style release (reference)
+
+## Message format
+
+From [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/#specification):
+
+```text
+<type>[optional scope][optional !]: <description>
+
+[optional body]
+
+[optional footer(s)]
+```
+
+- **Scope:** parenthesized noun, e.g. `feat(parser): …`.
+- **Breaking:** `!` before `:` (e.g. `feat(api)!: …`) and/or footer `BREAKING CHANGE: description` (token must be uppercase per spec for that footer name).
+- **Description:** short summary; body explains *why* or migration steps.
+
+Common **types** (not exhaustive): `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`, `chore` — as in [Angular / commitlint conventions](https://github.com/conventional-changelog/commitlint).
+
+## Advanced Specification Patterns
+
+### Reverts
+If the commit reverts a previous commit, it should begin with `revert:`, followed by the header of the reverted commit. In the body, it should say: `This reverts commit <hash>.`.
+
+```text
+revert: feat(api): add user endpoint
+
+This reverts commit 676104e.
+```
+
+### Breaking Changes
+A breaking change can be signaled by:
+1.  A **`BREAKING CHANGE:`** footer (must be uppercase, at the start of the footer). This is the **most compatible** way to trigger a Major release in `semantic-release` (Angular preset).
+2.  A **`!`** after the type/scope: `feat(api)!: change user response shape`.
+
+**Pro-tip:** For maximum compatibility with all tooling (older and newer), use BOTH the `!` and the `BREAKING CHANGE:` footer.
+
+### Footers (Tokens & Values)
+Footers follow the same `Token: value` pattern as Git Trailers. Common tokens:
+- `Refs: #123`
+- `See-also: docs/ADR-001.md`
+- `Signed-off-by: Name <email>`
+
+**Multi-line footers:** If a footer value spans multiple lines, each subsequent line must be indented.
+
+### Squashing & History
+When using `gh pr merge --squash`, the PR title is usually used as the commit subject. 
+- **PR Title:** MUST follow `<type>(<scope>): <description>`
+- **PR Body:** Content will be moved to the commit body.
+
+## Release Type Mapping (Default Angular Preset)
+
+This table reflects the **out-of-the-box** behavior of `semantic-release` using the `@semantic-release/commit-analyzer` default (Angular) rules.
+
+| Commit pattern | Release | Notes |
+|----------------|---------|-------|
+| `fix:` | **Patch** | Bug fixes |
+| `feat:` | **Minor** | New features |
+| `perf:` | **Patch** | Performance improvements |
+| `any type` + `BREAKING CHANGE:` footer | **Major** | **Mandatory** for Major version bumps in default configs. |
+| `any type!:` (exclamation mark) | **Major** | Supported by modern CC parsers, but use footer for max safety. |
+| `docs:`, `chore:`, `test:`, `ci:`, `refactor:`, `style:` | **None** | Does not trigger a new release by default. |
+
+> **Warning:** While `refactor:` and `style:` improve code, they do NOT trigger a release in the default Angular preset. Use `fix:` if a refactor also fixes a bug, or `feat:` if it adds new behavior.
+
+## Custom Repositories
+
+- Read `release.config.js`, `.releaserc`, or `package.json` → `release` / `semantic-release` config.
+- The **@semantic-release/commit-analyzer** preset may map types differently; prefer **their** rules when they conflict with this reference.
+
+## Squash and PR titles
+
+- If the team squashes on merge, the **PR title** often becomes the single squashed commit subject — it should still follow `type(scope): description` for tooling.
+- `revert:` type and `Refs:` footers are valid patterns; revert handling varies by [tooling](https://www.conventionalcommits.org/en/v1.0.0/#specification).
+
+## Links
+
+- [Conventional Commits — specification](https://www.conventionalcommits.org/en/v1.0.0/#specification)
+- [semantic-release — README (commit format & flow)](https://github.com/semantic-release/semantic-release#commit-message-format)
+- Fork pointer: [semantic-release-baby](https://github.com/danielvm-git/semantic-release-baby) (automation and docs align with upstream semantic-release)

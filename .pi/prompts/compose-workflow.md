@@ -1,0 +1,40 @@
+---
+description: Chain multiple bigpowers skills into a custom workflow recipe saved in specs/. Use when a project repeats a non-standard skill sequence, or user wants a documented playbook beyond orchestrate-project modes.model: sonnet
+---
+
+
+# Compose Workflow
+> **HARD GATE** — **HARD GATE** — Workflows are orchestration, not automation. Do NOT create workflows for tasks that should be single skills. Workflow complexity must be justified.
+
+
+## Process
+
+1. Interview: goal, phases, which skills, gates between steps.
+2. Write `specs/WORKFLOW-<name>.md`:
+   - Trigger ("Use when...")
+   - Ordered steps: `skill → artefact → verify`
+   - HARD GATEs between phases
+3. Register in state.yaml Active Decisions.
+4. Optional: reference from `orchestrate-project` Ad-Hoc mode.
+
+## Verify
+
+→ verify: `test -f specs/WORKFLOW-*.md && grep -c "verify:" specs/WORKFLOW-*.md | awk '{if($1>0) print "OK"}'`
+
+See [REFERENCE.md](REFERENCE.md) for template.
+
+---
+
+# Workflow template
+
+```markdown
+# WORKFLOW: <name>
+
+**Trigger:** Use when ...
+
+| Step | Skill | Output | verify |
+|------|-------|--------|--------|
+| 1 | survey-context | state.yaml handoff | ... |
+| 2 | research-first | Prior Art in SCOPE_LATEST.yaml | ... |
+| 3 | plan-work | epics/eNN-*.yaml tasks | ... |
+```

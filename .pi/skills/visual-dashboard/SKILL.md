@@ -1,0 +1,52 @@
+---
+name: visual-dashboard
+description: "Start a browser-based dashboard that visualizes architecture, implementation plans, and project status. Persists artifacts in .bigpowers/dashboard/. Reads specs/state.yaml, release-plan.yaml, epics, and planning-status via HTTP API or opencode panel."
+---
+
+
+# Visual Dashboard
+> **HARD GATE** — **HARD GATE** — Dashboards are read-only. Do NOT use visualization to make decisions without consulting the source data. 'The chart looks better' is not a decision.
+
+
+Browser-based visual companion for bigpowers. Visualizes architecture, plans, and status.
+
+## HTTP cockpit (YAML SoT)
+
+Start the server:
+
+```bash
+bash visual-dashboard/scripts/start-server.sh
+```
+
+Endpoints:
+
+| Route | Purpose |
+|-------|---------|
+| `GET /api/status?projectDir=<abs>` | JSON: `state`, `release`, `epics[]`, `planning_status`, `active_epic` |
+| `GET /cockpit.html?projectDir=<abs>` | Read-only PM view (planning left, epics right) |
+| `GET /` | Agent-pushed HTML screens (legacy, unchanged) |
+
+Example:
+
+```bash
+curl -s "http://127.0.0.1:PORT/api/status?projectDir=$PWD" | jq .release.version
+```
+
+Implementation: `visual-dashboard/scripts/read-specs-status.cjs` + `server.cjs`.
+
+## Opencode Progress Panel
+
+Projects using bigpowers in opencode can read `specs/state.yaml`, `specs/release-plan.yaml`, and active `specs/epics/*.yaml` directly (no checkbox `### WS1` markdown).
+
+Required YAML keys:
+
+- **state.yaml** — `active_flow`, `active_epic_id`, `git`, `handoff`, `epic_cycle`
+- **release-plan.yaml** — `release.version`, `epics[]` with `id`, `title`, `wsjf`, `file`
+- **execution-status.yaml** — `development_status` map (story/epic → `done` | `pending`)
+- **planning-status.yaml** — discover workflows and `status: done|pending`
+
+## Agent screens (optional)
+
+Push HTML to the dashboard session dir for rich diagrams. See `start-server.sh` for `CONTENT_DIR`.
+
+→ verify: `test -f visual-dashboard/scripts/read-specs-status.cjs && test -f visual-dashboard/scripts/cockpit.html`

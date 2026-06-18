@@ -1,9 +1,9 @@
 release:
-  version: "2.0.0"
+  version: "2.3.0"
   codename: Evolved-Structure
-  status: released
+  status: planned
   semantic_release: true
-  bump_hint: patch
+  bump_hint: minor
 epics:
   - id: e01
     title: "Security"
@@ -72,3 +72,10 @@ epics:
     file: epics/e11-sustain-cleanup.yaml
     mode: flat
     note: "Ad-hoc execution 2026-06-10 — see specs/tech-architecture/PLAN-sustain-cleanup.md"
+  - id: e12
+    title: "Pi Support"
+    wsjf: 5.3
+    bcps: 8
+    file: epics/e12-pi-support.yaml
+    mode: flat
+    note: "Change request 2026-06-18 — pi agent harness skill generation and package config"
