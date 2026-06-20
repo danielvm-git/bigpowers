@@ -65,9 +65,9 @@ development_status:
   e15s01: "done"
   e15s02: "done"
   e15s03: "done"
-  e16: "backlog"
+  e16: in_progress
   e16s01: done
-  e16s02: "backlog"
+  e16s02: in_progress
   e17: "backlog"
   e17s01: "backlog"
   e18: "backlog"
