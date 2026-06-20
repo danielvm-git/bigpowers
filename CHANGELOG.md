@@ -1,3 +1,10 @@
+# [2.11.0](https://github.com/danielvm-git/bigpowers/compare/v2.10.0...v2.11.0) (2026-06-20)
+
+
+### Features
+
+* **skills:** add deploy pipeline — build, verify, deploy, wait, smoke ([35a8530](https://github.com/danielvm-git/bigpowers/commit/35a85309c7ded6faffbf7aad52838b1b9140087f))
+
 # [2.10.0](https://github.com/danielvm-git/bigpowers/compare/v2.9.0...v2.10.0) (2026-06-20)
 
 
