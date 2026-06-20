@@ -1,30 +1,30 @@
-active_flow: "idle"
+active_flow: "build_epic"
 workflow_mode: "yolo"
-active_epic_id: "e15"
-active_story_id: "e15s03"
-completed_epic: true
+active_epic_id: "e16"
+active_story_id: "e16s01"
+completed_epic: false
 release:
   target_version: "2.8.0"
   last_tag: "v2.7.0"
   last_publish: "2026-06-20T00:00:00Z"
 epic_cycle:
-  current_step: 8
+  current_step: 3
   next_skill: ""
-  story_bcps: 2
-  completed_steps: "1,2,3,4,5,6,7,8"
+  story_bcps: 3
+  completed_steps: "1,2"
 metrics:
-  story_start: "2026-06-20T21:40:00Z"
+  story_start: "2026-06-20T21:43:06Z"
   story_end: "2026-06-20T21:50:00Z"
   cycle_minutes: 10
   bcp_per_hour: 12.0
 git:
   branch: "main"
-  hash: "7196579"
+  hash: "94c878152b4a268879942b35abb0af2ee2af20cc"
   pushed: true
 handoff:
   last_step_completed: "build-epic: e15 complete — all 3 stories landed on main, archival complete"
   open_decisions: "[next: build-epic e16 (deployment-pipeline) or plan-release for next WSJF item]"
-  next_skill: "survey-context"
+  next_skill: "kickoff-branch"
   commit_ratio:
     feat: 0
     fix: 0
