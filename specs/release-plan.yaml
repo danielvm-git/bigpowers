@@ -1,75 +1,54 @@
 release:
   version: "2.8.0"
-  codename: Platform-Quality
-  status: planned
+  codename: "Platform-Quality"
+  status: in_progress
   semantic_release: true
   bump_hint: minor
 epics:
-  # ── BACKLOG — sorted by WSJF descending ──────────────────────────────────
-  - id: e13
-    title: "Catalog Integrity & Index Automation"
-    wsjf: 7.7
-    bcps: 3
-    file: epics/e13-catalog-integrity.yaml
-    mode: flat
-    note: "Change request 2026-06-20 — BigBase feedback: regenerate skills-lock.json (24 missing), auto-generate SKILL-INDEX"
-  - id: e14
-    title: "Release Hardening & Quality Metrics"
-    wsjf: 6.0
-    bcps: 3
-    file: epics/e14-release-hardening-quality.yaml
-    mode: flat
-    note: "Change request 2026-06-20 — big-bolao feedback: release-branch solo fix, fix-rate KPI, catalog audit"
+  # ── BACKLOG — sorted by WSJF descending (reassessed 2026-06-20 after e14 delivery) ──
   - id: e15
     title: "CI/CD Pipeline & Package Publishing"
-    wsjf: 5.2
+    wsjf: 5.8
     bcps: 5
-    file: epics/e15-ci-pipeline-publishing.yaml
-    mode: flat
-    note: "Change request 2026-06-20 — big-token-saver feedback: wire-ci, publish-package, CI verification, CI dry-run"
+    capsule_dir: epics/e15-ci-pipeline-publishing
+    note: "Reassessed: fix-rate KPI (38%) proved CI iteration is #1 friction source. CI → Deploy → Validate loop addresses the root cause."
   - id: e16
     title: "Deployment Pipeline"
-    wsjf: 5.2
+    wsjf: 5.6
     bcps: 5
-    file: epics/e16-deployment-pipeline.yaml
-    mode: flat
-    note: "Change request 2026-06-20 — big-bolao feedback: deploy + smoke-test skills"
+    capsule_dir: epics/e16-deployment-pipeline
+    note: "Reassessed: deploy→smoke loop closes the biggest failure mode identified in e14."
   - id: e17
     title: "Data Contract Validation"
     wsjf: 5.0
     bcps: 3
-    file: epics/e17-data-contract-validation.yaml
-    mode: flat
-    note: "Change request 2026-06-20 — big-bolao feedback: validate-contracts skill"
+    capsule_dir: epics/e17-data-contract-validation
+    note: "Unchanged from original assessment."
   - id: e18
     title: "Quality Gates & Impact Analysis"
-    wsjf: 4.2
+    wsjf: 4.8
     bcps: 5
-    file: epics/e18-quality-gates-impact.yaml
-    mode: flat
-    note: "Change request 2026-06-20 — BigBase feedback: audit-code hard gate, enforce-first, assess-impact, auto-timing"
+    capsule_dir: epics/e18-quality-gates-impact
+    note: "Reassessed: cross-module bugs (BigBase evidence) and 38% fix rate increase urgency of hard gates."
   - id: e19
     title: "Quick-Fix Fast-Path"
-    wsjf: 3.7
+    wsjf: 4.7
     bcps: 3
-    file: epics/e19-quick-fix-fast-path.yaml
-    mode: flat
-    note: "Change request 2026-06-20 — big-bolao feedback: fast-path for trivial data fixes"
+    capsule_dir: epics/e19-quick-fix-fast-path
+    note: "Reassessed: 38% fix rate means many fixes are quick-fix eligible. Fast-path saves significant cumulative time."
   - id: e20
     title: "Build-Epic Ergonomics & Flow Polish"
-    wsjf: 3.6
+    wsjf: 3.4
     bcps: 5
-    file: epics/e20-build-epic-ergonomics.yaml
-    mode: flat
-    note: "Change request 2026-06-20 — big-token-saver feedback: conversational intake, state churn, dirty-tree, verify validation, --config, --fast, --cli"
+    capsule_dir: epics/e20-build-epic-ergonomics
+    note: "Slight downshift as CI/Deploy/Validate are more urgent."
   - id: e21
     title: "MCP-Native Discovery & Tool Integration"
     wsjf: 2.9
     bcps: 8
-    file: epics/e21-mcp-discovery-tools.yaml
-    mode: flat
-    note: "Change request 2026-06-20 — BigBase feedback: MCP skill discovery, opensrc integration, CI-aware skills, compose-workflow recipes"
-  # ── DONE — e01-e12 ───────────────────────────────────────────────────────
+    capsule_dir: epics/e21-mcp-discovery-tools
+    note: "Strategic but high JS (8) defers to future release."
+  # ── DONE — e01-e14 ──────────────────────────────────────────────────────────
   - id: e01
     title: "Security"
     wsjf: 4.5
@@ -141,6 +120,19 @@ epics:
     title: "Pi Support"
     wsjf: 5.3
     bcps: 8
-    file: epics/e12-pi-support.yaml
-    mode: flat
+    capsule_dir: epics/e12-pi-support
     note: "Change request 2026-06-18 — pi agent harness skill generation and package config"
+  - id: e13
+    title: "Catalog Integrity & Index Automation"
+    wsjf: 7.7
+    bcps: 3
+    file: epics/e13-catalog-integrity.yaml
+    mode: flat
+    note: "Delivered: lockfile regeneration (62/62), SKILL-INDEX auto-gen, stale skill cleanup."
+  - id: e14
+    title: "Release Hardening & Quality Metrics"
+    wsjf: 6.0
+    bcps: 3
+    file: epics/e14-release-hardening-quality.yaml
+    mode: flat
+    note: "Delivered: release-branch solo fallback, fix-rate KPI, catalog audit (62/62)."

@@ -1,0 +1,24 @@
+id: e15
+title: "CI/CD Pipeline & Package Publishing"
+wsjf: 5.8
+total_bcps: 5
+status: backlog
+stories:
+  - id: e15s01
+    title: "craft-skill: wire-ci — CI pipeline setup with templates and local validation"
+    bcps: 2
+    status: backlog
+    spec: e15s01-wire-ci.md
+    tasks: e15s01-tasks.yaml
+  - id: e15s02
+    title: "craft-skill: publish-package — npm, crates.io, PyPI publishing"
+    bcps: 1
+    status: backlog
+    spec: e15s02-publish-package.md
+    tasks: e15s02-tasks.yaml
+  - id: e15s03
+    title: "CI verification step in release-branch + CI dry-run in develop-tdd"
+    bcps: 2
+    status: backlog
+    spec: e15s03-ci-verification.md
+    tasks: e15s03-tasks.yaml
