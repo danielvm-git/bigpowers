@@ -1,3 +1,10 @@
+# [2.9.0](https://github.com/danielvm-git/bigpowers/compare/v2.8.0...v2.9.0) (2026-06-20)
+
+
+### Features
+
+* **skills:** add publish-package skill for multi-registry publishing ([945a481](https://github.com/danielvm-git/bigpowers/commit/945a481cef07335c59277c82137e4a6bec78655a))
+
 # [2.8.0](https://github.com/danielvm-git/bigpowers/compare/v2.7.5...v2.8.0) (2026-06-20)
 
 
