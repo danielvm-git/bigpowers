@@ -275,3 +275,26 @@ stories:
     end: "2026-06-11T04:15:00Z"
     cycle_minutes: 30
     bcp_per_hour: 4.0
+
+  # e13 — Catalog Integrity & Index Automation (3 BCPs)
+  - id: e13s01
+    epic: e13
+    bcps: 1
+    start: "2026-06-20T15:45:00Z"
+    end: "2026-06-20T18:58:06Z"
+    cycle_minutes: 193
+    bcp_per_hour: 0.3
+  - id: e13s02
+    epic: e13
+    bcps: 1
+    start: "2026-06-20T15:45:00Z"
+    end: "2026-06-20T18:58:06Z"
+    cycle_minutes: 193
+    bcp_per_hour: 0.3
+  - id: e13s03
+    epic: e13
+    bcps: 1
+    start: "2026-06-20T15:45:00Z"
+    end: "2026-06-20T18:58:06Z"
+    cycle_minutes: 193
+    bcp_per_hour: 0.3

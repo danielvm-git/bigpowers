@@ -1,24 +1,27 @@
 active_flow: "build_epic"
 workflow_mode: "team-pr"
 active_epic_id: "e13"
-active_story_id: "e13s01"
-completed_epic: false
+active_story_id: "e13s03"
+completed_epic: true
 release:
   target_version: "2.3.0"
   last_tag: "v2.2.0"
   last_publish: "2026-06-18T00:00:00Z"
 epic_cycle:
-  current_step: 6
-  next_skill: "commit-message"
+  current_step: 8
+  next_skill: "plan-release"
   story_bcps: 3
-  completed_steps: "step1 survey-context → step2 plan-work (confirmed) → step3 kickoff-branch → step4 develop-tdd (e13s01 lockfile+sync-integration, e13s02 SKILL-INDEX auto-generation, e13s03 audit+enrichment) → step5 verify-work (all gates pass, evidence persisted) → step6 audit-code (all checks pass)"
+  completed_steps: "step1 survey-context → step2 plan-work → step3 kickoff-branch → step4 develop-tdd (3 stories) → step5 verify-work → step6 audit-code → step7 commit-message → step8 release-branch (PR #20 merged, cycle times recorded)"
 metrics:
   story_start: "2026-06-20T15:45:00Z"
+  story_end: "2026-06-20T18:58:06Z"
+  cycle_minutes: 193
+  bcp_per_hour: 0.9
 git:
-  branch: "feat/e13-catalog-integrity"
-  hash: ""
-  pushed: false
+  branch: "main"
+  hash: "2437dd0"
+  pushed: true
 handoff:
-  last_step_completed: "audit-code: all checklist items pass — ready for commit-message"
+  last_step_completed: "release-branch: e13 complete — PR #20 merged, cycle times recorded. Next: plan-release for v2.4.0."
   open_decisions: "[]"
   next_skill: "audit-code"
