@@ -19,12 +19,12 @@ metrics:
   bcp_per_hour: 120.0
 git:
   branch: "main"
-  hash: "f34cd765ffc267bc332b9cf2c6aca6431b004c50"
+  hash: "b34f22adf97f6aec502684f630d94b2c2d42eb82"
   pushed: true
 handoff:
-  last_step_completed: "e16s01 landed on main (35a8530); starting e16s02"
+  last_step_completed: "build-epic: e16 complete — both stories (deploy + smoke-test) landed on main, capsule archived"
   open_decisions: "[next: build-epic e16 (deployment-pipeline) or plan-release for next WSJF item]"
-  next_skill: "survey-context"
+  next_skill: ""
   commit_ratio:
     feat: 0
     fix: 0
