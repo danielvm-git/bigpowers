@@ -348,3 +348,13 @@ stories:
     end: "2026-06-20T21:50:00Z"
     cycle_minutes: 10
     bcp_per_hour: 12.0
+
+  # e16 — Deployment Pipeline (5 BCPs)
+  # e16s01 — deploy skill (3 BCPs)
+  - id: e16s01
+    epic: e16
+    bcps: 3
+    start: "2026-06-20T21:43:06Z"
+    end: "2026-06-20T21:47:57Z"
+    cycle_minutes: 4
+    bcp_per_hour: 45.0
