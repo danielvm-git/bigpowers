@@ -48,7 +48,7 @@ for skill_dir in "$REPO_ROOT"/*/; do
   # Strip frontmatter from SKILL.md (content between second --- and EOF)
   body=$(awk '/^---/{f++; next} f>=2{print}' "$skill_md")
 
-  for extra_md in $(find "$skill_dir" -maxdepth 1 -name "*.md" ! -name "SKILL.md" | sort); do
+  for extra_md in $(find "$skill_dir" -maxdepth 1 -name "*.md" ! -name "SKILL.md" | LC_ALL=C sort); do
     body="$body"$'\n\n'"---"$'\n\n'"$(cat "$extra_md")"
   done
 
