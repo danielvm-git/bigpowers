@@ -1,3 +1,10 @@
+# [2.12.0](https://github.com/danielvm-git/bigpowers/compare/v2.11.0...v2.12.0) (2026-06-20)
+
+
+### Features
+
+* **skills:** add smoke-test skill — post-deploy health-check validation ([f34cd76](https://github.com/danielvm-git/bigpowers/commit/f34cd765ffc267bc332b9cf2c6aca6431b004c50))
+
 # [2.11.0](https://github.com/danielvm-git/bigpowers/compare/v2.10.0...v2.11.0) (2026-06-20)
 
 
