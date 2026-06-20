@@ -8,8 +8,8 @@ release:
   last_tag: "v2.3.0"
   last_publish: "2026-06-20T00:00:00Z"
 epic_cycle:
-  current_step: 2
-  next_skill: "plan-work"
+  current_step: 7
+  next_skill: "commit-message"
   story_bcps: 1
   completed_steps: ""
 metrics:
