@@ -1,3 +1,10 @@
+## [2.7.3](https://github.com/danielvm-git/bigpowers/compare/v2.7.2...v2.7.3) (2026-06-20)
+
+
+### Bug Fixes
+
+* **catalog:** add catalog audit script and integrate into stocktake-skills ([96acaae](https://github.com/danielvm-git/bigpowers/commit/96acaae7add5e56efb41c241c2e3b613054d75fd))
+
 ## [2.7.2](https://github.com/danielvm-git/bigpowers/compare/v2.7.1...v2.7.2) (2026-06-20)
 
 
