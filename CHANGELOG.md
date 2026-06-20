@@ -1,3 +1,10 @@
+# [2.7.0](https://github.com/danielvm-git/bigpowers/compare/v2.6.0...v2.7.0) (2026-06-20)
+
+
+### Features
+
+* **catalog:** add lockfile regeneration and auto-generated SKILL-INDEX ([#20](https://github.com/danielvm-git/bigpowers/issues/20)) ([2437dd0](https://github.com/danielvm-git/bigpowers/commit/2437dd0cf32858809623e8cca7680224f8394020))
+
 # [2.6.0](https://github.com/danielvm-git/bigpowers/compare/v2.5.0...v2.6.0) (2026-06-18)
 
 
