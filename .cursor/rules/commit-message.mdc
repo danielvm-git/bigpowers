@@ -26,7 +26,8 @@ alwaysApply: false
 3. **Classify for semantic release** — `fix` → patch, `feat` → minor, **breaking** → major.
 4. **Write the message** — `type(optional-scope)!: description` (see [REFERENCE.md](REFERENCE.md#message-format)). Use `!` or a `BREAKING CHANGE:` footer when behavior contracts change.
 5. **Note defensive-code categories touched** — from CONVENTIONS.md: Rate limit | Retry with backoff | Circuit breaker | Timeout | Graceful degradation
-6. **Deliver** — Output:
+6. **Note fix-ratio contribution** — Each `fix:` commit counts toward `metrics.commit_ratio.fix` in `specs/state.yaml`. After `release-branch`, `session-state` recalculates the ratio automatically. A high fix rate (>30%) triggers a deploy + smoke-test suggestion.
+7. **Deliver** — Output:
    - Proposed **full commit message** (title + optional body + footers).
    - **Release bump** this commit would drive: `patch` | `minor` | `major` | `none`.
    - Optional `git add …` and `git commit -m` instructions; do **not** run destructive git commands unless the user asked.

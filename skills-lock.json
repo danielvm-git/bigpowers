@@ -28,7 +28,7 @@
     },
     "commit-message": {
       "description": "Reviews working-tree changes, then drafts a Conventional Commits title/body and states the semantic-release version bump a single such commit would imply. Also notes which defensive-code categories were touched. Use when the user wants to commit recent work, prepare a Conventional Commits message, or asks for semantic-release / semver-consistent messaging before git commit.",
-      "sha256": "c97c86ebffaefb74",
+      "sha256": "aeb104cdbd19b73e",
       "path": "commit-message/SKILL.md"
     },
     "compose-workflow": {
@@ -188,7 +188,7 @@
     },
     "release-branch": {
       "description": "Make the merge/PR/keep/discard decision for a feature branch, verify coverage gates, create the PR with gh, and clean up the worktree. Use when a feature is done and ready to ship, or when user says \"release\", \"merge\", or \"open a PR\".",
-      "sha256": "1668285610d04ff5",
+      "sha256": "70fc37ac4e22143d",
       "path": "release-branch/SKILL.md"
     },
     "request-review": {
@@ -238,7 +238,7 @@
     },
     "session-state": {
       "description": "Track implementation decisions and progress in specs/state.yaml to prevent context rot. Use at the start of a session to load context, and whenever a significant decision is made or a milestone is reached.",
-      "sha256": "68509078a871ee38",
+      "sha256": "5ac473ace06c72b1",
       "path": "session-state/SKILL.md"
     },
     "setup-environment": {
@@ -263,7 +263,7 @@
     },
     "stocktake-skills": {
       "description": "Sequential subagent batch audit of the bigpowers skill catalog — Quick Scan (changed only) or Full (all skills). Use during sustain phase, before a major release, or when catalog drift is suspected.",
-      "sha256": "a164a64360ef29ec",
+      "sha256": "84a4cba67602028f",
       "path": "stocktake-skills/SKILL.md"
     },
     "survey-context": {

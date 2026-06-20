@@ -70,28 +70,17 @@ Whenever a significant decision is made or a milestone is reached:
 
 ## State Write-Lock Protocol
 
-> **HARD GATE** — Before any write to `specs/state.yaml` or `specs/execution-status.yaml`, acquire `specs/state.yaml.lock`. Release it immediately after the write. A stale lock (>60s) may be force-released.
+> **HARD GATE** — Lock `specs/state.yaml.lock` before writes; stale (>60s) may be force-released.
 
-### Acquire
+1. Check lock exists. If fresh (<60s), wait 2s retry (max 15). Stale → remove.
+2. Write `agent_id: <name>\nacquired_at: <ISO-8601>` to lock.
+3. After write, `rm specs/state.yaml.lock`.
 
-1. Check if `specs/state.yaml.lock` exists.
-2. If it exists, read the agent ID and timestamp inside.
-3. If the lock is stale (>60s old), remove it and proceed.
-4. If the lock is fresh (<60s), wait 2s and retry (max 15 attempts = 30s).
-5. Write `agent_id: <name>\nacquired_at: <ISO-8601>` to `specs/state.yaml.lock`.
-
-### Release
-
-1. After the write to `state.yaml` or `execution-status.yaml` completes:
-2. `rm specs/state.yaml.lock`
-
-### Lock format (`specs/state.yaml.lock`)
-
+Lock format:
 ```yaml
 agent_id: session-state
 acquired_at: "2026-06-11T14:30:00Z"
 ```
-
 
 
 ## Operations
@@ -139,6 +128,16 @@ handoff:
   open_decisions: []
   next_skill: survey-context
 ```
+
+## Tracking commit ratio
+
+After `release-branch` lands, compute fix-to-feature ratio via:
+```bash
+FEAT_COUNT=$(git log main --oneline --grep="^feat" | wc -l | tr -d ' ')
+FIX_COUNT=$(git log main --oneline --grep="^fix" | wc -l | tr -d ' ')
+FIX_PCT=$((FIX_COUNT * 100 / (FEAT_COUNT + FIX_COUNT)))
+```
+Update `specs/state.yaml` `metrics.commit_ratio` with counts. If `fix_pct > 30%`, emit: `"High fix rate (N%) — deploy + smoke-test recommended"`.
 
 ## Anti-Patterns
 

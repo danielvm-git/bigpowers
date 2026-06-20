@@ -90,7 +90,7 @@ Max five elements per cluster. If more, split into clusters.
 
 ### 8. Domain model
 
-Entities touched, entities created, relationships changed. Reference `specs/CONTEXT.md` and `specs/UBIQUITOUS_LANGUAGE.md` where applicable.
+Entities touched, entities created, relationships changed. Reference `specs/tech-architecture/CONTEXT_LATEST.md` and `specs/product/GLOSSARY_LATEST.yaml` where applicable.
 
 ### 9. Integrations and boundaries
 
@@ -287,7 +287,7 @@ Scenario: Locked account (6c)
 
 ### 20. References
 - ADR-0014 (token strategy).
-- specs/CONTEXT.md (User aggregate).
+- specs/tech-architecture/CONTEXT_LATEST.md (User aggregate).
 ```
 
 This example scores 3 (Countable). To reach 4, resolve §19 and add NFR coverage for §16 i18n test plan.

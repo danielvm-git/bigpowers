@@ -129,6 +129,12 @@ git checkout main && git status && pwd
 
 Report: "Branch released. Integrate mode: <solo-local|team-pr>. cwd: $(pwd) on $(git branch --show-current)."
 
+## Solo-local fallback detail
+
+The fallback sequence (Path B above) handles the "remote has moved" case with `git pull --rebase`. Use when `scripts/land-branch.sh` is absent.
+
+**Acceptance:** When fallback runs, main is updated, feature branch is deleted locally, and output states `"used fallback merge (land-branch.sh not found)"`.
+
 ## Handoff
 
 Gate: READY -> next: survey-context
@@ -137,31 +143,6 @@ Writes: state.yaml handoff.next_skill = survey-context
 ---
 
 # Release Branch — Reference
-
-## Solo-local fallback detail
-
-The fallback sequence (Path B above) is designed for solo developers or CI environments where `scripts/land-branch.sh` has not been set up. It handles the "remote has moved" case with `git pull --rebase` to avoid non-fast-forward rejections.
-
-### Fallback steps in detail
-
-1. `git fetch origin main` — get latest remote state
-2. `git checkout main` — switch to default branch
-3. `git pull --rebase origin main` — handle "remote has moved" case
-4. `git merge --no-ff <feature-branch>` — squash-merge with explicit merge commit
-5. `git push origin main` — push the result
-6. `git branch -d <feature-branch>` — clean up local branch
-
-### Acceptance criteria for the fallback
-
-```gherkin
-Given scripts/land-branch.sh does NOT exist in the repo
-And a feature branch feat/quick-fix is ready to merge
-When release-branch runs in solo-local mode
-Then the fallback sequence executes
-And main is updated with the feature branch changes
-And the feature branch is deleted locally
-And the output states "used fallback merge (land-branch.sh not found)"
-```
 
 ## PR body template (team-pr mode)
 

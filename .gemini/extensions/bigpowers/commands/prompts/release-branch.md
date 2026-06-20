@@ -15,10 +15,12 @@ Read `specs/state.yaml` key `workflow_mode` first (`team-pr` | `solo-git`). Fall
 
 | Mode | When | Ship path |
 |------|------|-----------|
-| **solo-local** | `workflow_mode: solo-git` (or `profiles/solo-git.md` present as fallback) | `bash scripts/land-branch.sh <branch> "<conventional message>"` |
+| **solo-local** | `workflow_mode: solo-git` (or `profiles/solo-git.md` present as fallback) | Auto-detect: if `scripts/land-branch.sh` exists → use it; else → fallback (see Step 5) |
 | **team-pr** | `workflow_mode: team-pr` (default) | `gh pr create` → `gh pr merge --squash` |
 
 If unsure and working alone, prefer **solo-local**.
+
+> **Auto-detect note:** The solo-local path first checks if `scripts/land-branch.sh` exists and is executable. If present, the script handles the full squash-merge workflow. If absent, the built-in fallback sequence runs instead.
 
 ## Process
 
@@ -45,10 +47,41 @@ Options: **Release (solo-local)** / **Open PR** / **Keep branch** / **Discard**
 
 ### 5. Solo-local integrate
 
-Run `commit-message` to produce the squash commit subject, then:
+Run `commit-message` to produce the squash commit subject. Then auto-detect the integration path:
+
+**Path A — `scripts/land-branch.sh` exists (happy path):**
 ```bash
 bash scripts/land-branch.sh <task-slug> "feat(scope): description"
 ```
+
+**Path B — `scripts/land-branch.sh` missing (fallback):**
+```bash
+# Fallback: manual squash-merge when land-branch.sh is absent
+FEATURE_BRANCH=<task-slug>
+DEFAULT_BRANCH=$(git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@' || echo main)
+
+# Ensure we're on the feature branch
+if [ "$(git branch --show-current)" != "$FEATURE_BRANCH" ]; then
+  git checkout "$FEATURE_BRANCH"
+fi
+
+# Checkout default branch and update
+git checkout "$DEFAULT_BRANCH"
+git pull --rebase origin "$DEFAULT_BRANCH" 2>/dev/null || git pull origin "$DEFAULT_BRANCH"
+
+# Squash-merge the feature branch
+git merge --no-ff "$FEATURE_BRANCH" -m "<conventional-commit-message>"
+
+# Push
+git push origin "$DEFAULT_BRANCH"
+
+# Clean up local feature branch
+git branch -d "$FEATURE_BRANCH"
+```
+
+**Report which path was taken.** Print exactly:
+- `"used land-branch.sh"` if Path A
+- `"used fallback merge (land-branch.sh not found)"` if Path B
 
 ### 6. Create PR (team-pr only)
 
@@ -89,6 +122,12 @@ git checkout main && git status && pwd
 ```
 
 Report: "Branch released. Integrate mode: <solo-local|team-pr>. cwd: $(pwd) on $(git branch --show-current)."
+
+## Solo-local fallback detail
+
+The fallback sequence (Path B above) handles the "remote has moved" case with `git pull --rebase`. Use when `scripts/land-branch.sh` is absent.
+
+**Acceptance:** When fallback runs, main is updated, feature branch is deleted locally, and output states `"used fallback merge (land-branch.sh not found)"`.
 
 ## Handoff
 

@@ -71,28 +71,17 @@ Whenever a significant decision is made or a milestone is reached:
 
 ## State Write-Lock Protocol
 
-> **HARD GATE** — Before any write to `specs/state.yaml` or `specs/execution-status.yaml`, acquire `specs/state.yaml.lock`. Release it immediately after the write. A stale lock (>60s) may be force-released.
+> **HARD GATE** — Lock `specs/state.yaml.lock` before writes; stale (>60s) may be force-released.
 
-### Acquire
+1. Check lock exists. If fresh (<60s), wait 2s retry (max 15). Stale → remove.
+2. Write `agent_id: <name>\nacquired_at: <ISO-8601>` to lock.
+3. After write, `rm specs/state.yaml.lock`.
 
-1. Check if `specs/state.yaml.lock` exists.
-2. If it exists, read the agent ID and timestamp inside.
-3. If the lock is stale (>60s old), remove it and proceed.
-4. If the lock is fresh (<60s), wait 2s and retry (max 15 attempts = 30s).
-5. Write `agent_id: <name>\nacquired_at: <ISO-8601>` to `specs/state.yaml.lock`.
-
-### Release
-
-1. After the write to `state.yaml` or `execution-status.yaml` completes:
-2. `rm specs/state.yaml.lock`
-
-### Lock format (`specs/state.yaml.lock`)
-
+Lock format:
 ```yaml
 agent_id: session-state
 acquired_at: "2026-06-11T14:30:00Z"
 ```
-
 
 
 ## Operations
@@ -143,31 +132,13 @@ handoff:
 
 ## Tracking commit ratio
 
-After `release-branch` lands a story, run the following to update the fix-to-feature ratio:
-
+After `release-branch` lands, compute fix-to-feature ratio via:
 ```bash
-cd /path/to/repo
-FEAT_COUNT=$(git log main --oneline --grep="^feat" 2>/dev/null | wc -l | tr -d ' ')
-FIX_COUNT=$(git log main --oneline --grep="^fix" 2>/dev/null | wc -l | tr -d ' ')
-TOTAL=$((FEAT_COUNT + FIX_COUNT))
-FIX_PCT=$(echo "scale=1; $FIX_COUNT * 100 / $TOTAL" | bc 2>/dev/null || echo "0")
+FEAT_COUNT=$(git log main --oneline --grep="^feat" | wc -l | tr -d ' ')
+FIX_COUNT=$(git log main --oneline --grep="^fix" | wc -l | tr -d ' ')
+FIX_PCT=$((FIX_COUNT * 100 / (FEAT_COUNT + FIX_COUNT)))
 ```
-
-Then write to `specs/state.yaml`:
-```yaml
-metrics:
-  commit_ratio:
-    feat: <FEAT_COUNT>
-    fix: <FIX_COUNT>
-    total: <TOTAL>
-    fix_pct: <FIX_PCT>
-    last_updated: "<ISO-8601>"
-```
-
-> **High fix-rate warning:** If `fix_pct > 30%`, emit a warning:
-> `"High fix rate (N%) — consider deploy + smoke-test skills"`
-
-This closes the quality feedback loop: higher fix rates indicate missing pre-deploy verification.
+Update `specs/state.yaml` `metrics.commit_ratio` with counts. If `fix_pct > 30%`, emit: `"High fix rate (N%) — deploy + smoke-test recommended"`.
 
 ## Anti-Patterns
 

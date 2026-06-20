@@ -20,8 +20,8 @@ Audit SKILL.md catalog for drift, stale triggers, missing HARD GATEs, and INDEX 
 
 ## Process
 
-1. Run mode; for each skill check: exists, verb-noun, &lt;300 lines total, HARD GATE present, INDEX row matches.
-2. Run `bash scripts/audit-catalog.sh` to verify pi/skills ↔ source SKILL.md sync. Mismatch is a critical finding.
+1. Run `bash scripts/audit-catalog.sh` to verify pi/skills ↔ source SKILL.md sync. Mismatch is a critical finding.
+2. Run mode; for each skill check: exists, verb-noun, &lt;300 lines total, HARD GATE present, INDEX row matches.
 3. Write `specs/STOCKTAKE-<date>.md` with findings table (skill, issue, severity).
 4. Critical findings → `plan-work` story; cosmetic → `evolve-skill` candidate.
 
