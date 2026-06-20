@@ -1,3 +1,10 @@
+## [2.12.1](https://github.com/danielvm-git/bigpowers/compare/v2.12.0...v2.12.1) (2026-06-20)
+
+
+### Bug Fixes
+
+* **skills:** add run-smoke.sh referenced by deploy, smoke-test ([5108891](https://github.com/danielvm-git/bigpowers/commit/51088912084979df38d6bb529297b03a34a6bb66))
+
 # [2.12.0](https://github.com/danielvm-git/bigpowers/compare/v2.11.0...v2.12.0) (2026-06-20)
 
 
