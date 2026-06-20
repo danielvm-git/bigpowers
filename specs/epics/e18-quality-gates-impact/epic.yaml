@@ -1,0 +1,36 @@
+id: e18
+title: "Quality Gates & Impact Analysis"
+wsjf: 4.8
+total_bcps: 5
+status: backlog
+stories:
+  - id: e18s01
+    title: "audit-code as hard gate in build-epic step 6"
+    bcps: 2
+    status: backlog
+    spec: e18s01-audit-code-gate.md
+    tasks: e18s01-tasks.yaml
+  - id: e18s02
+    title: "Wire enforce-first (F.I.R.S.T) into build-epic gate chain"
+    bcps: 1
+    status: backlog
+    spec: e18s02-enforce-first.md
+    tasks: e18s02-tasks.yaml
+  - id: e18s03
+    title: "Wire assess-impact into build-epic step 2 (plan-work)"
+    bcps: 1
+    status: backlog
+    spec: e18s03-assess-impact.md
+    tasks: e18s03-tasks.yaml
+  - id: e18s04
+    title: "Universalize resume/checkpoint pattern to fix-bug and orchestrate-project"
+    bcps: 1
+    status: backlog
+    spec: e18s04-checkpoint-pattern.md
+    tasks: e18s04-tasks.yaml
+  - id: e18s05
+    title: "Add auto-timing to critical-path skills for stocktake effectiveness"
+    bcps: 1
+    status: backlog
+    spec: e18s05-auto-timing.md
+    tasks: e18s05-tasks.yaml

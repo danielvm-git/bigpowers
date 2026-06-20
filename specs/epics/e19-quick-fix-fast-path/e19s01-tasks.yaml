@@ -1,0 +1,25 @@
+story_id: e19s01
+title: "craft-skill: quick-fix"
+status: backlog
+bcps: 3
+tasks:
+  - id: 1
+    description: "Create quick-fix/SKILL.md with verb-noun naming and frontmatter"
+    verify: "test -f quick-fix/SKILL.md && grep -q 'name: quick-fix' quick-fix/SKILL.md && echo OK"
+    status: backlog
+  - id: 2
+    description: "Document entry criteria checklist (data-only, 1 file, ≤5 lines, single assertion verify)"
+    verify: "grep -qi 'entry.criteria\|data.only\|single.assertion' quick-fix/SKILL.md && echo OK"
+    status: backlog
+  - id: 3
+    description: "Document guardrails as hard aborts with fallback to investigate-bug"
+    verify: "grep -c 'guardrail\|abort\|investigate.bug' quick-fix/SKILL.md | awk '{if(\$1>=2) print \"OK\"; else print \"FAIL\"}'"
+    status: backlog
+  - id: 4
+    description: "Document fast-path workflow (2 skills: quick-fix → release-branch) with skipped skills justification"
+    verify: "grep -ci 'fast.path\|skipped\|release.branch\|2 skills' quick-fix/SKILL.md | awk '{if(\$1>=2) print \"OK\"; else print \"FAIL\"}'"
+    status: backlog
+  - id: 5
+    description: "Add quick-fix to SKILL-INDEX.md via sync-skills.sh"
+    verify: "grep -q 'quick-fix' SKILL-INDEX.md && echo OK"
+    status: backlog

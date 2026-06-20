@@ -1,0 +1,42 @@
+id: e20
+title: "Build-Epic Ergonomics & Flow Polish"
+wsjf: 3.4
+total_bcps: 5
+status: backlog
+stories:
+  - id: e20s01
+    title: "change-request conversational intake — parse natural-language requests"
+    bcps: 1
+    status: backlog
+    spec: e20s01-conversational-intake.md
+    tasks: e20s01-tasks.yaml
+  - id: e20s02
+    title: "Reduce state.yaml commit noise — squash or out-of-band tracking"
+    bcps: 1
+    status: backlog
+    spec: e20s02-state-churn.md
+    tasks: e20s02-tasks.yaml
+  - id: e20s03
+    title: "kickoff-branch pre-commit for spec artifacts — dirty-tree fix"
+    bcps: 1
+    status: backlog
+    spec: e20s03-dirty-tree.md
+    tasks: e20s03-tasks.yaml
+  - id: e20s04
+    title: "verify-work verify-command validation — detect mismatches before UAT"
+    bcps: 1
+    status: backlog
+    spec: e20s04-verify-validation.md
+    tasks: e20s04-tasks.yaml
+  - id: e20s05
+    title: "develop-tdd --config mode + build-epic --fast mode"
+    bcps: 1
+    status: backlog
+    spec: e20s05-config-fast-modes.md
+    tasks: e20s05-tasks.yaml
+  - id: e20s06
+    title: "verify-work --cli mode for CLI tools"
+    bcps: 1
+    status: backlog
+    spec: e20s06-cli-mode.md
+    tasks: e20s06-tasks.yaml

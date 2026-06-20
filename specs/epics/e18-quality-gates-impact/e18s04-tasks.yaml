@@ -1,0 +1,17 @@
+story_id: e18s04
+title: "universal checkpoint pattern"
+status: backlog
+bcps: 1
+tasks:
+  - id: 1
+    description: "Add 5-step counter to fix-bug/SKILL.md with checkpoint on each step"
+    verify: "grep -c 'current_step\|checkpoint\|resume' fix-bug/SKILL.md | awk '{if(\$1>=3) print \"OK\"; else print \"FAIL\"}'"
+    status: backlog
+  - id: 2
+    description: "Add 6-phase counter to orchestrate-project/SKILL.md with checkpoint on each phase"
+    verify: "grep -c 'current_phase\|checkpoint\|resume' orchestrate-project/SKILL.md | awk '{if(\$1>=3) print \"OK\"; else print \"FAIL\"}'"
+    status: backlog
+  - id: 3
+    description: "Document bug_cycle and project_cycle in session-state/SKILL.md universal checkpoint section"
+    verify: "grep -c 'bug_cycle\|project_cycle\|universal.checkpoint' session-state/SKILL.md | awk '{if(\$1>=2) print \"OK\"; else print \"FAIL\"}'"
+    status: backlog

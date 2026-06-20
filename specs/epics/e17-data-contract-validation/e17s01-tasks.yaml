@@ -1,0 +1,21 @@
+story_id: e17s01
+title: "craft-skill: validate-contracts"
+status: backlog
+bcps: 3
+tasks:
+  - id: 1
+    description: "Create validate-contracts/SKILL.md with verb-noun naming and frontmatter"
+    verify: "test -f validate-contracts/SKILL.md && grep -q 'name: validate-contracts' validate-contracts/SKILL.md && echo OK"
+    status: backlog
+  - id: 2
+    description: "Define specs/contracts/ directory pattern with JSON Schema and key-set comparison support"
+    verify: "grep -qi 'specs/contracts\|JSON Schema\|key.set' validate-contracts/SKILL.md && echo OK"
+    status: backlog
+  - id: 3
+    description: "Implement key-set comparison (front-end constants vs back-end data sources)"
+    verify: "grep -ci 'divergence\|missing key\|type mismatch\|diff' validate-contracts/SKILL.md | awk '{if(\$1>=2) print \"OK\"; else print \"FAIL\"}'"
+    status: backlog
+  - id: 4
+    description: "Add validate-contracts to SKILL-INDEX.md via sync-skills.sh"
+    verify: "grep -q 'validate-contracts' SKILL-INDEX.md && echo OK"
+    status: backlog

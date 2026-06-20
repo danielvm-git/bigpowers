@@ -1,0 +1,18 @@
+id: e16
+title: "Deployment Pipeline"
+wsjf: 5.6
+total_bcps: 5
+status: backlog
+stories:
+  - id: e16s01
+    title: "craft-skill: deploy — build → verify → deploy → wait → smoke"
+    bcps: 3
+    status: backlog
+    spec: e16s01-deploy.md
+    tasks: e16s01-tasks.yaml
+  - id: e16s02
+    title: "craft-skill: smoke-test — post-deploy health-check against live URL"
+    bcps: 2
+    status: backlog
+    spec: e16s02-smoke-test.md
+    tasks: e16s02-tasks.yaml

@@ -1,0 +1,9 @@
+story_id: e20s04
+title: "verify command validation"
+status: backlog
+bcps: 1
+tasks:
+  - id: 1
+    description: "Add pre-UAT verify validation step to verify-work/SKILL.md with pattern mismatch detection"
+    verify: "grep -c 'verify.*mismatch\|pattern.*validation\|pre.UAT' verify-work/SKILL.md | awk '{if(\$1>=1) print \"OK\"; else print \"FAIL\"}'"
+    status: backlog

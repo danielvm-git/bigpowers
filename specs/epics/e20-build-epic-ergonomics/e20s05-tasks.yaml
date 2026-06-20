@@ -1,0 +1,13 @@
+story_id: e20s05
+title: "operational modes --config and --fast"
+status: backlog
+bcps: 1
+tasks:
+  - id: 1
+    description: "Add --config mode to develop-tdd/SKILL.md (RED→GREEN→COMMIT cycle, no test file)"
+    verify: "grep -c '\-\-config\|config.mode' develop-tdd/SKILL.md | awk '{if(\$1>=2) print \"OK\"; else print \"FAIL\"}'"
+    status: backlog
+  - id: 2
+    description: "Add --fast mode to build-epic/SKILL.md (coalesce steps 1+2 and 6+7)"
+    verify: "grep -c '\-\-fast\|fast.mode\|coalesce' build-epic/SKILL.md | awk '{if(\$1>=2) print \"OK\"; else print \"FAIL\"}'"
+    status: backlog

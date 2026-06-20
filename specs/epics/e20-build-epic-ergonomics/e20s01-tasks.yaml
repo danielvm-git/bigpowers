@@ -1,0 +1,13 @@
+story_id: e20s01
+title: "conversational intake"
+status: backlog
+bcps: 1
+tasks:
+  - id: 1
+    description: "Add Conversational Mode section to change-request/SKILL.md with 5-step flow"
+    verify: "grep -c 'Conversational Mode\|conversational' change-request/SKILL.md | awk '{if(\$1>=2) print \"OK\"; else print \"FAIL\"}'"
+    status: backlog
+  - id: 2
+    description: "Document Capture→Locate→Draft→Score→Place flow with clarifying question limits"
+    verify: "grep -c 'Capture\|Locate\|Draft\|Score\|Place\|clarifying' change-request/SKILL.md | awk '{if(\$1>=3) print \"OK\"; else print \"FAIL\"}'"
+    status: backlog

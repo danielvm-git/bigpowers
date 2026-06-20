@@ -1,0 +1,12 @@
+id: e17
+title: "Data Contract Validation"
+wsjf: 5.0
+total_bcps: 3
+status: backlog
+stories:
+  - id: e17s01
+    title: "craft-skill: validate-contracts — compare data schemas across system boundaries"
+    bcps: 3
+    status: backlog
+    spec: e17s01-validate-contracts.md
+    tasks: e17s01-tasks.yaml

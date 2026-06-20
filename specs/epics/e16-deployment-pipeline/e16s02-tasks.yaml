@@ -1,0 +1,21 @@
+story_id: e16s02
+title: "craft-skill: smoke-test"
+status: backlog
+bcps: 2
+tasks:
+  - id: 1
+    description: "Create smoke-test/SKILL.md with verb-noun naming and frontmatter"
+    verify: "test -f smoke-test/SKILL.md && grep -q 'name: smoke-test' smoke-test/SKILL.md && echo OK"
+    status: backlog
+  - id: 2
+    description: "Define smoke-checks.yaml schema or inline checklist pattern with url, method, expected_status, content_signal"
+    verify: "grep -qi 'smoke.checks.yaml\|checklist\|expected_status\|content_signal' smoke-test/SKILL.md && echo OK"
+    status: backlog
+  - id: 3
+    description: "Implement pass/fail report with specific failure details"
+    verify: "grep -ci 'pass\|fail\|summary\|report' smoke-test/SKILL.md | awk '{if(\$1>=2) print \"OK\"; else print \"FAIL\"}'"
+    status: backlog
+  - id: 4
+    description: "Add smoke-test to SKILL-INDEX.md via sync-skills.sh"
+    verify: "grep -q 'smoke-test' SKILL-INDEX.md && echo OK"
+    status: backlog

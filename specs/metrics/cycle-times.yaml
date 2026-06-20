@@ -321,3 +321,12 @@ stories:
     end: "2026-06-20T19:40:00Z"
     cycle_minutes: 9
     bcp_per_hour: 6.7
+
+  # e15 — CI/CD Pipeline & Package Publishing (5 BCPs)
+  - id: e15s01
+    epic: e15
+    bcps: 2
+    start: "2026-06-20T21:09:09Z"
+    end: "2026-06-20T21:22:06Z"
+    cycle_minutes: 13
+    bcp_per_hour: 9.2

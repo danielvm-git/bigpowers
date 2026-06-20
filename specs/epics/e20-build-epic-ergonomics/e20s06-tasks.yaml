@@ -1,0 +1,13 @@
+story_id: e20s06
+title: "--cli mode for verify-work"
+status: backlog
+bcps: 1
+tasks:
+  - id: 1
+    description: "Add --cli mode section to verify-work/SKILL.md with 4-step CLI verification checklist"
+    verify: "grep -c '\-\-cli\|cli.mode' verify-work/SKILL.md | awk '{if(\$1>=2) print \"OK\"; else print \"FAIL\"}'"
+    status: backlog
+  - id: 2
+    description: "Add binary name auto-detection from Cargo.toml, package.json, or Makefile"
+    verify: "grep -c 'binary.name\|Cargo.toml.*version\|auto.detect' verify-work/SKILL.md | awk '{if(\$1>=1) print \"OK\"; else print \"FAIL\"}'"
+    status: backlog

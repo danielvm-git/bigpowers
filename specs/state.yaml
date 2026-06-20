@@ -1,4 +1,4 @@
-active_flow: "build_epic"
+active_flow: "idle"
 workflow_mode: "yolo"
 active_epic_id: "e15"
 active_story_id: "e15s01"
@@ -8,23 +8,23 @@ release:
   last_tag: "v2.7.0"
   last_publish: "2026-06-20T00:00:00Z"
 epic_cycle:
-  current_step: 7
-  next_skill: "commit-message"
+  current_step: 8
+  next_skill: ""
   story_bcps: 2
-  completed_steps: "1,2,3,4,5,6"
+  completed_steps: "1,2,3,4,5,6,7,8"
 metrics:
   story_start: "2026-06-20T21:09:09Z"
-  story_end: "2026-06-20T20:10:00Z"
-  cycle_minutes: 70
-  bcp_per_hour: 2.6
+  story_end: "2026-06-20T21:22:06Z"
+  cycle_minutes: 13
+  bcp_per_hour: 9.2
 git:
   branch: "main"
-  hash: "9997855"
-  pushed: false
+  hash: "7196579"
+  pushed: true
 handoff:
-  last_step_completed: "build-epic step 6: audit-code — all checks pass"
-  open_decisions: "[]"
-  next_skill: "commit-message"
+  last_step_completed: "build-epic step 8: release-branch — landed e15s01 wire-ci on main (7196579)"
+  open_decisions: "[next: build-epic e15s02 (publish-package) or build-epic e15s03 (CI verification)]"
+  next_skill: "survey-context"
   commit_ratio:
     feat: 0
     fix: 0

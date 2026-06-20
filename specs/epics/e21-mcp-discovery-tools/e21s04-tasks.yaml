@@ -1,0 +1,13 @@
+story_id: e21s04
+title: "agentic stack mapping"
+status: backlog
+bcps: 2
+tasks:
+  - id: 1
+    description: "Create specs/workflows/ directory with 8 recipe YAML files"
+    verify: "ls specs/workflows/*.yaml 2>/dev/null | wc -l | awk '{if(\$1>=8) print \"OK: \" \$1 \" recipes\"; else print \"FAIL: only \" \$1}'"
+    status: backlog
+  - id: 2
+    description: "Document standard recipe library in compose-workflow/SKILL.md with AGENTS.md mapping"
+    verify: "grep -c 'check-stack\|/ship\|/tdd\|standard recipe' compose-workflow/SKILL.md | awk '{if(\$1>=2) print \"OK\"; else print \"FAIL\"}'"
+    status: backlog

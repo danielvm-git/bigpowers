@@ -1,0 +1,12 @@
+id: e19
+title: "Quick-Fix Fast-Path"
+wsjf: 4.7
+total_bcps: 3
+status: backlog
+stories:
+  - id: e19s01
+    title: "craft-skill: quick-fix — fast-path for trivial data-only fixes"
+    bcps: 3
+    status: backlog
+    spec: e19s01-quick-fix.md
+    tasks: e19s01-tasks.yaml
