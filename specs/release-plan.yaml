@@ -1,5 +1,5 @@
 release:
-  version: "2.4.0"
+  version: "2.8.0"
   codename: Platform-Quality
   status: planned
   semantic_release: true

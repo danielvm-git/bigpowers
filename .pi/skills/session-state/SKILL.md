@@ -141,6 +141,34 @@ handoff:
   next_skill: survey-context
 ```
 
+## Tracking commit ratio
+
+After `release-branch` lands a story, run the following to update the fix-to-feature ratio:
+
+```bash
+cd /path/to/repo
+FEAT_COUNT=$(git log main --oneline --grep="^feat" 2>/dev/null | wc -l | tr -d ' ')
+FIX_COUNT=$(git log main --oneline --grep="^fix" 2>/dev/null | wc -l | tr -d ' ')
+TOTAL=$((FEAT_COUNT + FIX_COUNT))
+FIX_PCT=$(echo "scale=1; $FIX_COUNT * 100 / $TOTAL" | bc 2>/dev/null || echo "0")
+```
+
+Then write to `specs/state.yaml`:
+```yaml
+metrics:
+  commit_ratio:
+    feat: <FEAT_COUNT>
+    fix: <FIX_COUNT>
+    total: <TOTAL>
+    fix_pct: <FIX_PCT>
+    last_updated: "<ISO-8601>"
+```
+
+> **High fix-rate warning:** If `fix_pct > 30%`, emit a warning:
+> `"High fix rate (N%) — consider deploy + smoke-test skills"`
+
+This closes the quality feedback loop: higher fix rates indicate missing pre-deploy verification.
+
 ## Anti-Patterns
 
 - **Duplicate Plan**: Don't copy `release-plan.yaml` or epic shards into `state.yaml`.
