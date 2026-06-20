@@ -1,3 +1,10 @@
+## [2.7.1](https://github.com/danielvm-git/bigpowers/compare/v2.7.0...v2.7.1) (2026-06-20)
+
+
+### Bug Fixes
+
+* **release-branch:** add solo-local fallback for missing land-branch.sh ([764983c](https://github.com/danielvm-git/bigpowers/commit/764983c1ca069541b79837d0ae6cb1873d86a3e1))
+
 # [2.7.0](https://github.com/danielvm-git/bigpowers/compare/v2.6.0...v2.7.0) (2026-06-20)
 
 
