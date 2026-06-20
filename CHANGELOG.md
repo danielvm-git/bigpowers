@@ -1,3 +1,10 @@
+# [2.8.0](https://github.com/danielvm-git/bigpowers/compare/v2.7.5...v2.8.0) (2026-06-20)
+
+
+### Features
+
+* **skills:** add wire-ci CI pipeline skill ([7196579](https://github.com/danielvm-git/bigpowers/commit/71965799376ec894f48a957626455142beb5080b))
+
 ## [2.7.5](https://github.com/danielvm-git/bigpowers/compare/v2.7.4...v2.7.5) (2026-06-20)
 
 
