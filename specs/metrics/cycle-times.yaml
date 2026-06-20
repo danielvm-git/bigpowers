@@ -298,3 +298,26 @@ stories:
     end: "2026-06-20T18:58:06Z"
     cycle_minutes: 193
     bcp_per_hour: 0.3
+
+  # e14 — Release Hardening & Quality Metrics (3 BCPs)
+  - id: e14s01
+    epic: e14
+    bcps: 1
+    start: "2026-06-20T19:00:00Z"
+    end: "2026-06-20T19:17:00Z"
+    cycle_minutes: 17
+    bcp_per_hour: 3.5
+  - id: e14s02
+    epic: e14
+    bcps: 1
+    start: "2026-06-20T19:18:00Z"
+    end: "2026-06-20T19:30:00Z"
+    cycle_minutes: 12
+    bcp_per_hour: 5.0
+  - id: e14s03
+    epic: e14
+    bcps: 1
+    start: "2026-06-20T19:31:00Z"
+    end: "2026-06-20T19:40:00Z"
+    cycle_minutes: 9
+    bcp_per_hour: 6.7
