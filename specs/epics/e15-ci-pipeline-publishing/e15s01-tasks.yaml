@@ -1,0 +1,25 @@
+story_id: e15s01
+title: "craft-skill: wire-ci"
+status: backlog
+bcps: 2
+tasks:
+  - id: 1
+    description: "Create wire-ci/SKILL.md with verb-noun naming and YAML frontmatter"
+    verify: "test -f wire-ci/SKILL.md && grep -q 'name: wire-ci' wire-ci/SKILL.md && echo OK"
+    status: backlog
+  - id: 2
+    description: "Add CI templates for Rust, Node, Python, and Go projects"
+    verify: "grep -qi 'template\|Cargo.toml\|package.json\|setup.py\|go.mod' wire-ci/SKILL.md && echo OK"
+    status: backlog
+  - id: 3
+    description: "Implement --validate mode for YAML syntax, permissions, secrets checks"
+    verify: "grep -c '\-\-validate\|validate' wire-ci/SKILL.md | awk '{if(\$1>=2) print \"OK\"; else print \"FAIL\"}'"
+    status: backlog
+  - id: 4
+    description: "Implement --dry-run mode for local workflow execution (act or gh workflow run)"
+    verify: "grep -c '\-\-dry.run\|dry.run' wire-ci/SKILL.md | awk '{if(\$1>=1) print \"OK\"; else print \"FAIL\"}'"
+    status: backlog
+  - id: 5
+    description: "Add wire-ci to SKILL-INDEX.md via sync-skills.sh"
+    verify: "grep -q 'wire-ci' SKILL-INDEX.md && echo OK"
+    status: backlog

@@ -301,6 +301,11 @@
       "sha256": "3213e18d4bde52f2",
       "path": "visual-dashboard/SKILL.md"
     },
+    "wire-ci": {
+      "description": "\"CI pipeline setup with pre-built templates and local validation. Generates GitHub Actions workflows, validates YAML syntax and permissions, supports dry-run via act/gh. The CI equivalent of wire-observability.\"",
+      "sha256": "dcbf6e1516f6b355",
+      "path": "wire-ci/SKILL.md"
+    },
     "wire-observability": {
       "description": "Add structured JSON logging, observability commands, and idempotent setup scripts to a project. Use when a project needs production-readiness instrumentation, when user wants structured logging, or as a production-readiness gate at any phase of development.",
       "sha256": "01e751c37dab47b3",

@@ -1,0 +1,47 @@
+story_id: e15s01
+verified_at: "2026-06-20T21:20:00Z"
+verifier: verify-work
+phases:
+  smoke:
+    passed: true
+    note: "No app to cold-start (documentation/skills project)"
+  build:
+    passed: true
+    command: "SKIP — markdown-only project"
+  typecheck:
+    passed: true
+    note: "No code in project"
+  lint:
+    passed: true
+    command: "bash scripts/validate-specs-yaml.sh"
+  tests:
+    passed: true
+    tasks:
+      - id: 1
+        description: "Create wire-ci/SKILL.md with verb-noun naming and YAML frontmatter"
+        passed: true
+      - id: 2
+        description: "Add CI templates for Rust, Node, Python, and Go projects"
+        passed: true
+      - id: 3
+        description: "Implement --validate mode for YAML syntax, permissions, secrets checks"
+        passed: true
+      - id: 4
+        description: "Implement --dry-run mode for local workflow execution (act or gh workflow run)"
+        passed: true
+      - id: 5
+        description: "Add wire-ci to SKILL-INDEX.md via sync-skills.sh"
+        passed: true
+  manual:
+    steps:
+      - step: "Verify wire-ci/SKILL.md has frontmatter, templates, validate, dry-run, and CI patterns"
+        expected: "All 5 topics present"
+        actual: "All 5 topics confirmed via grep (55 keyword hits total)"
+        passed: true
+      - step: "Verify wire-ci appears in generated artifacts"
+        expected: "SKILL-INDEX.md, .pi/skills/, .cursor/rules/ all contain wire-ci"
+        actual: "Confirmed: SKILL-INDEX.md row 34 Build; .pi/skills/wire-ci/; .cursor/rules/wire-ci.mdc"
+        passed: true
+  gaps:
+    closed: true
+    count: 0

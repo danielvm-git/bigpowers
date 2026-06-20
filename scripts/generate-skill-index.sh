@@ -50,6 +50,7 @@ PHASE_MAP=(
   [craft-skill]="Build"
   [setup-environment]="Build"
   [wire-observability]="Build"
+  [wire-ci]="Build"
   [align-grid]="Build"
   [orchestrate-project]="Build"
   [guard-git]="Build"

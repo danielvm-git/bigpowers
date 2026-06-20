@@ -53,7 +53,6 @@ development_status:
   e12s04: "done"
   e12s05: "done"
   e12s06: "done"
-  # ── BACKLOG — in WSJF order e13-e21 ──────────────────────────────────────
   e13: done
   e13s01: done
   e13s02: done
@@ -62,8 +61,6 @@ development_status:
   e14s01: done
   e14s02: done
   e14s03: done
-  e14s02: backlog
-  e14s03: backlog
   e15: backlog
   e15s01: backlog
   e15s02: backlog
