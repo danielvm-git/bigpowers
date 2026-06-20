@@ -1,3 +1,10 @@
+## [2.7.4](https://github.com/danielvm-git/bigpowers/compare/v2.7.3...v2.7.4) (2026-06-20)
+
+
+### Bug Fixes
+
+* **skills:** apply e14 changes at source level, fix doctrine checks ([daad805](https://github.com/danielvm-git/bigpowers/commit/daad8054a15d55b433ea1d39b1bd2650ceb9a62a)), closes [hi#fix-rate](https://github.com/hi/issues/fix-rate)
+
 ## [2.7.3](https://github.com/danielvm-git/bigpowers/compare/v2.7.2...v2.7.3) (2026-06-20)
 
 
