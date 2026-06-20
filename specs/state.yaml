@@ -1,27 +1,33 @@
 active_flow: "build_epic"
-workflow_mode: "team-pr"
-active_epic_id: "e13"
-active_story_id: "e13s03"
-completed_epic: true
+workflow_mode: "yolo"
+active_epic_id: "e14"
+active_story_id: "e14s01"
+completed_epic: false
 release:
-  target_version: "2.3.0"
-  last_tag: "v2.2.0"
-  last_publish: "2026-06-18T00:00:00Z"
+  target_version: "2.4.0"
+  last_tag: "v2.3.0"
+  last_publish: "2026-06-20T00:00:00Z"
 epic_cycle:
-  current_step: 8
-  next_skill: "plan-release"
-  story_bcps: 3
-  completed_steps: "step1 survey-context → step2 plan-work → step3 kickoff-branch → step4 develop-tdd (3 stories) → step5 verify-work → step6 audit-code → step7 commit-message → step8 release-branch (PR #20 merged, cycle times recorded)"
+  current_step: 2
+  next_skill: "plan-work"
+  story_bcps: 1
+  completed_steps: ""
 metrics:
-  story_start: "2026-06-20T15:45:00Z"
-  story_end: "2026-06-20T18:58:06Z"
-  cycle_minutes: 193
-  bcp_per_hour: 0.9
+  story_start: "2026-06-20T19:00:00Z"
+  story_end: ""
+  cycle_minutes: 0
+  bcp_per_hour: 0
 git:
   branch: "main"
-  hash: "2437dd0"
-  pushed: true
+  hash: ""
+  pushed: false
 handoff:
-  last_step_completed: "release-branch: e13 complete — PR #20 merged, cycle times recorded. Next: plan-release for v2.4.0."
+  last_step_completed: ""
   open_decisions: "[]"
-  next_skill: "audit-code"
+  next_skill: ""
+  commit_ratio:
+    feat: 0
+    fix: 0
+    total: 0
+    fix_pct: 0.0
+    last_updated: ""
