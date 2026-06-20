@@ -68,7 +68,7 @@
     },
     "develop-tdd": {
       "description": "Test-driven development with red-green-refactor loop using vertical slices. Use for features (epic tasks) or bugs (specs/bugs/BUG-*.md).",
-      "sha256": "af45529ecb20d449",
+      "sha256": "4002d960b18436cd",
       "path": "develop-tdd/SKILL.md"
     },
     "diagnose-root": {
@@ -193,7 +193,7 @@
     },
     "release-branch": {
       "description": "Make the merge/PR/keep/discard decision for a feature branch, verify coverage gates, create the PR with gh, and clean up the worktree. Use when a feature is done and ready to ship, or when user says \"release\", \"merge\", or \"open a PR\".",
-      "sha256": "70fc37ac4e22143d",
+      "sha256": "6b2df2c92230d098",
       "path": "release-branch/SKILL.md"
     },
     "request-review": {
