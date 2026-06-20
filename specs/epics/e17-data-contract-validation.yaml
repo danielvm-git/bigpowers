@@ -1,0 +1,55 @@
+id: e17
+title: "Data Contract Validation"
+wsjf: 5.0
+bcps: 3
+covers:
+  - "Systematic validation that front-end and back-end data structures stay in sync"
+  - "Compare FLAGS keys against tournament country names from fixtures"
+  - "Validate API responses match expected schema before deploy"
+  - "Flag divergence early — 2 of 8 bugs in big-bolao were data sync issues"
+rationale: "BV=5 (prevents insidious data bugs), TC=5 (would delay milestones), RR=5 (moderate risk reduction), JS=3 (2-3 days)"
+stories:
+  - id: e17s01
+    title: "craft-skill: validate-contracts — compare data schemas across system boundaries"
+    bcps: 3
+    tasks:
+      - desc: |
+          Create a `validate-contracts` skill that catches data divergence between front-end,
+          back-end, and external API boundaries before deploy.
+
+          The skill must:
+          1. Define contract files in `specs/contracts/` (JSON Schema or YAML)
+          2. Compare front-end constants (e.g., FLAGS dictionary keys) against back-end
+             data sources (e.g., tournament country names from fixtures API)
+          3. Validate API response shapes against expected schemas
+          4. Flag missing keys, type mismatches, and extra fields
+          5. Integrate as a pre-deploy gate in `deploy` skill
+          6. Generate a diff report (added/removed/changed keys)
+
+          **Gherkin Acceptance Criteria:**
+          ```
+          Given a FLAGS dictionary in the front-end with 200+ country entries
+          And tournament fixtures from the API that reference country names
+          When validate-contracts runs
+          Then every country name in fixtures MUST have a corresponding FLAGS entry
+          And any missing entries are reported with the country name and expected key
+          And the exit code is non-zero if divergence exists
+
+          Given a BigBase API endpoint /api/jogos
+          And an expected schema in specs/contracts/jogos.schema.yaml
+          When validate-contracts runs
+          Then the live response MUST conform to the schema
+          And type mismatches are reported with field path and expected vs actual types
+          ```
+
+          **Acceptance Criteria:**
+          - Skill file: `validate-contracts/SKILL.md` with verb-noun naming
+          - Contract files live in `specs/contracts/` (documented pattern)
+          - Supports JSON Schema and simple key-set comparison
+          - verify: `bash scripts/validate-contracts.sh` returns non-zero on divergence
+          - Skill is listed in SKILL-INDEX.md
+        verify: |
+          test -f validate-contracts/SKILL.md && echo "OK: skill file exists" || echo "FAIL: no skill file"
+          grep -q "name: validate-contracts" validate-contracts/SKILL.md && echo "OK: frontmatter" || echo "FAIL: frontmatter"
+          grep -qi "schema\|contract\|divergence\|diff" validate-contracts/SKILL.md && echo "OK: contract semantics" || echo "FAIL: missing semantics"
+          grep -q "validate-contracts" SKILL-INDEX.md && echo "OK: in SKILL-INDEX" || echo "FAIL: not indexed"

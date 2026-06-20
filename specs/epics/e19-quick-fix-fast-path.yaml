@@ -1,0 +1,62 @@
+id: e19
+title: "Quick-Fix Fast-Path"
+wsjf: 3.7
+bcps: 3
+covers:
+  - "Fast-path for trivial data-only fixes that don't need full investigate-bug → TDD → release-branch cycle"
+  - "Collapses 6 skills into 2 for fixes that are: purely data, no logic change, verifiable with one assertion"
+  - "Example: Bosnia flag fix (one dictionary entry) should not require diagnose-root + TDD plan + bug file + kickoff-branch + release-branch"
+rationale: "BV=5 (notable velocity improvement), TC=3 (flexible), RR=3 (low risk — slow path still works), JS=3 (2-3 days)"
+stories:
+  - id: e19s01
+    title: "craft-skill: quick-fix — fast-path for trivial data-only fixes"
+    bcps: 3
+    tasks:
+      - desc: |
+          Create a `quick-fix` skill that provides a streamlined path for trivial fixes.
+
+          **Entry criteria (ALL must be true):**
+          1. Purely data change — add missing key, fix typo, update config value, correct a constant
+          2. No logic change, no refactor risk, no API surface change
+          3. Verifiable with a single assertion (one test, one curl, one grep)
+          4. Affects ≤ 1 file, ≤ 5 lines changed
+
+          **Fast-path workflow (2 skills instead of 6):**
+          1. `quick-fix` — apply the change, run the one-line verify, commit with `fix:` message
+          2. `release-branch` — merge and ship (existing skill, already in the pipeline)
+
+          **Skipped skills (with justification logged):**
+          - investigate-bug → skipped: root cause is self-evident (missing data)
+          - diagnose-root → skipped: no reproduction needed (static data)
+          - develop-tdd → skipped: one assertion suffices for data correctness
+          - kickoff-branch → skipped: changes fit in working tree, no isolation needed
+
+          **Gherkin Acceptance Criteria:**
+          ```
+          Given a bug where FLAGS dictionary is missing entry "Bosnia"
+          And no logic depends on the missing entry (it's purely a data gap)
+          When the agent invokes quick-fix
+          Then the missing entry is added to the dictionary
+          And a one-line verify confirms the key exists: grep -q "Bosnia" src/flags.js
+          And a fix: commit is created with the skipped-skills rationale in the body
+          And the change is ready for release-branch
+          ```
+
+          **Guardrails (MUST abort and suggest investigate-bug if):**
+          - Change touches > 1 file
+          - Change is > 5 lines
+          - Any function signature, condition, or loop is modified
+          - Verify command is more than one pipeline
+          - Any existing test breaks
+
+          **Acceptance Criteria:**
+          - Skill file: `quick-fix/SKILL.md` with verb-noun naming
+          - Documents entry criteria as a checklist the agent must evaluate
+          - Documents guardrails as hard aborts
+          - verify: skill self-test with a mock data fix (create temp file, fix it, verify it)
+          - Skill is listed in SKILL-INDEX.md
+        verify: |
+          test -f quick-fix/SKILL.md && echo "OK: skill file exists" || echo "FAIL: no skill file"
+          grep -q "name: quick-fix" quick-fix/SKILL.md && echo "OK: frontmatter" || echo "FAIL: frontmatter"
+          grep -qi "data.only\|trivial\|fast.path\|guardrail\|abort" quick-fix/SKILL.md && echo "OK: semantics" || echo "FAIL: missing semantics"
+          grep -q "quick-fix" SKILL-INDEX.md && echo "OK: in SKILL-INDEX" || echo "FAIL: not indexed"

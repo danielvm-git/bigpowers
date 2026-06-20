@@ -1,10 +1,75 @@
 release:
-  version: "2.3.0"
-  codename: Evolved-Structure
+  version: "2.4.0"
+  codename: Platform-Quality
   status: planned
   semantic_release: true
   bump_hint: minor
 epics:
+  # ── BACKLOG — sorted by WSJF descending ──────────────────────────────────
+  - id: e13
+    title: "Catalog Integrity & Index Automation"
+    wsjf: 7.7
+    bcps: 3
+    file: epics/e13-catalog-integrity.yaml
+    mode: flat
+    note: "Change request 2026-06-20 — BigBase feedback: regenerate skills-lock.json (24 missing), auto-generate SKILL-INDEX"
+  - id: e14
+    title: "Release Hardening & Quality Metrics"
+    wsjf: 6.0
+    bcps: 3
+    file: epics/e14-release-hardening-quality.yaml
+    mode: flat
+    note: "Change request 2026-06-20 — big-bolao feedback: release-branch solo fix, fix-rate KPI, catalog audit"
+  - id: e15
+    title: "CI/CD Pipeline & Package Publishing"
+    wsjf: 5.2
+    bcps: 5
+    file: epics/e15-ci-pipeline-publishing.yaml
+    mode: flat
+    note: "Change request 2026-06-20 — big-token-saver feedback: wire-ci, publish-package, CI verification, CI dry-run"
+  - id: e16
+    title: "Deployment Pipeline"
+    wsjf: 5.2
+    bcps: 5
+    file: epics/e16-deployment-pipeline.yaml
+    mode: flat
+    note: "Change request 2026-06-20 — big-bolao feedback: deploy + smoke-test skills"
+  - id: e17
+    title: "Data Contract Validation"
+    wsjf: 5.0
+    bcps: 3
+    file: epics/e17-data-contract-validation.yaml
+    mode: flat
+    note: "Change request 2026-06-20 — big-bolao feedback: validate-contracts skill"
+  - id: e18
+    title: "Quality Gates & Impact Analysis"
+    wsjf: 4.2
+    bcps: 5
+    file: epics/e18-quality-gates-impact.yaml
+    mode: flat
+    note: "Change request 2026-06-20 — BigBase feedback: audit-code hard gate, enforce-first, assess-impact, auto-timing"
+  - id: e19
+    title: "Quick-Fix Fast-Path"
+    wsjf: 3.7
+    bcps: 3
+    file: epics/e19-quick-fix-fast-path.yaml
+    mode: flat
+    note: "Change request 2026-06-20 — big-bolao feedback: fast-path for trivial data fixes"
+  - id: e20
+    title: "Build-Epic Ergonomics & Flow Polish"
+    wsjf: 3.6
+    bcps: 5
+    file: epics/e20-build-epic-ergonomics.yaml
+    mode: flat
+    note: "Change request 2026-06-20 — big-token-saver feedback: conversational intake, state churn, dirty-tree, verify validation, --config, --fast, --cli"
+  - id: e21
+    title: "MCP-Native Discovery & Tool Integration"
+    wsjf: 2.9
+    bcps: 8
+    file: epics/e21-mcp-discovery-tools.yaml
+    mode: flat
+    note: "Change request 2026-06-20 — BigBase feedback: MCP skill discovery, opensrc integration, CI-aware skills, compose-workflow recipes"
+  # ── DONE — e01-e12 ───────────────────────────────────────────────────────
   - id: e01
     title: "Security"
     wsjf: 4.5

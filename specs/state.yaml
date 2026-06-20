@@ -1,24 +1,24 @@
 active_flow: "build_epic"
 workflow_mode: "team-pr"
-active_epic_id: "e12"
-active_story_id: "e12s01"
-completed_epic: true
+active_epic_id: "e13"
+active_story_id: "e13s01"
+completed_epic: false
 release:
   target_version: "2.3.0"
   last_tag: "v2.2.0"
   last_publish: "2026-06-18T00:00:00Z"
 epic_cycle:
-  current_step: 8
-  next_skill: "plan-release"
-  story_bcps: 8
-  completed_steps: "change-request → plan-work → kickoff-branch → develop-tdd (all 6 stories implemented via sync-skills.sh) → verify-work → audit-code → commit-message → release-branch"
+  current_step: 1
+  next_skill: "survey-context"
+  story_bcps: 3
+  completed_steps: ""
 metrics:
-  story_start: "2026-06-18T12:00:00Z"
+  story_start: "2026-06-20T15:45:00Z"
 git:
   branch: "main"
   hash: ""
   pushed: false
 handoff:
-  last_step_completed: "release-branch: Merged PR #19 (BUG-2026-06-18T100000 fix) on main branch successfully."
+  last_step_completed: "state.yaml transition: e12 done → e13 active. build-epic step 1 (survey-context) next."
   open_decisions: "[]"
-  next_skill: "plan-release"
+  next_skill: "survey-context"

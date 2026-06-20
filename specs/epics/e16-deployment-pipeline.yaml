@@ -1,0 +1,64 @@
+id: e16
+title: "Deployment Pipeline"
+wsjf: 5.2
+bcps: 5
+covers:
+  - "Orchestrate build → verify artifact → deploy via platform tools → wait for status → smoke-test URL"
+  - "Post-deploy health-check catches integration regressions before users do"
+  - "Closes the biggest gap from big-bolao feedback — every fix/feature cycle ended with manual npm run build + commit dist/ + push + manual deploy"
+  - "Would have prevented bugs like SPA interception broke version and og:image was SVG from reaching production"
+rationale: "BV=10 (blocks launch reliability), TC=8 (burns time on every release), RR=8 (eliminates deploy failure modes), JS=5 (one week)"
+stories:
+  - id: e16s01
+    title: "craft-skill: deploy — build → verify → deploy → wait → smoke"
+    bcps: 3
+    tasks:
+      - desc: |
+          Create a `deploy` skill that orchestrates the full deployment pipeline.
+
+          The skill must:
+          1. Run the project's build command (detected from package.json or Makefile)
+          2. Verify the build artifact exists and is non-empty (dist/, build/, etc.)
+          3. Discover the platform deploy tool (MCP, CLI, or env var) and invoke it
+          4. Poll deploy status with timeout (default 5 min, configurable)
+          5. On success, run a lightweight smoke test on the deployed URL
+          6. On failure, surface the deploy log with actionable error hints
+
+          **Acceptance Criteria:**
+          - Skill file: `deploy/SKILL.md` with verb-noun naming
+          - References MCP deploy tools (BigBase, Vercel, etc.) but is platform-agnostic
+          - Has configurable timeout and retry with backoff
+          - verify: step includes `curl -sSf $DEPLOY_URL` as baseline smoke
+          - Skill is listed in SKILL-INDEX.md
+        verify: |
+          test -f deploy/SKILL.md && echo "OK: skill file exists" || echo "FAIL: no skill file"
+          grep -q "name: deploy" deploy/SKILL.md && echo "OK: frontmatter" || echo "FAIL: frontmatter"
+          grep -qi "build\|artifact\|deploy\|smoke" deploy/SKILL.md && echo "OK: covers pipeline stages" || echo "FAIL: missing stages"
+          grep -q "deploy" SKILL-INDEX.md && echo "OK: in SKILL-INDEX" || echo "FAIL: not indexed"
+
+  - id: e16s02
+    title: "craft-skill: smoke-test — post-deploy health-check against live URL"
+    bcps: 2
+    tasks:
+      - desc: |
+          Create a `smoke-test` skill that validates a deployed application is healthy.
+
+          The skill must:
+          1. Accept a base URL (from env, config, or user prompt)
+          2. Load critical pages/endpoints and assert HTTP 200
+          3. Check key content signals (e.g., "jogos count > 0", "flags resolve", "ranking loads")
+          4. Verify API endpoints return non-empty, well-formed responses
+          5. Report a pass/fail summary with specific failures
+          6. Be runnable standalone OR as the final step of `deploy`
+
+          **Acceptance Criteria:**
+          - Skill file: `smoke-test/SKILL.md` with verb-noun naming
+          - Define a `smoke-checks.yaml` or inline checklist pattern
+          - Each check has: url, method, expected_status, content_signal (regex or jq)
+          - verify: `bash scripts/run-smoke.sh` or equivalent one-liner
+          - Skill is listed in SKILL-INDEX.md
+        verify: |
+          test -f smoke-test/SKILL.md && echo "OK: skill file exists" || echo "FAIL: no skill file"
+          grep -q "name: smoke-test" smoke-test/SKILL.md && echo "OK: frontmatter" || echo "FAIL: frontmatter"
+          grep -qi "health\|check\|endpoint\|assert" smoke-test/SKILL.md && echo "OK: health-check semantics" || echo "FAIL: missing semantics"
+          grep -q "smoke-test" SKILL-INDEX.md && echo "OK: in SKILL-INDEX" || echo "FAIL: not indexed"
