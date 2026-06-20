@@ -109,6 +109,52 @@ gh pr merge --squash --delete-branch
 mv specs/epics/eNN-slug specs/epics/archive/
 ```
 
+### 7b. CI verification (solo-local and team-pr)
+
+> **HARD GATE** — Do NOT declare success until CI completes. A push that fails CI is a regression, not a release.
+
+After push (solo-local step 5 or team-pr step 7), verify the CI workflow completes successfully:
+
+```bash
+echo "==> Polling CI for main branch..."
+TIMEOUT=600   # 10 minutes
+INTERVAL=30   # poll every 30 seconds
+ELAPSED=0
+
+while [ $ELAPSED -lt $TIMEOUT ]; do
+  CI_JSON=$(gh run list --limit 1 --branch main --workflow CI --json status,conclusion,headSha,databaseId 2>/dev/null)
+  CI_STATUS=$(echo "$CI_JSON" | jq -r '.[0].status // "unknown"')
+  CI_CONCLUSION=$(echo "$CI_JSON" | jq -r '.[0].conclusion // ""')
+  CI_SHA=$(echo "$CI_JSON" | jq -r '.[0].headSha // ""')
+  CI_ID=$(echo "$CI_JSON" | jq -r '.[0].databaseId // ""')
+
+  if [ "$CI_STATUS" = "completed" ] && [ "$CI_CONCLUSION" = "success" ]; then
+    echo "OK: CI passed for $(git rev-parse --short HEAD)"
+    bp-yaml-set.sh specs/state.yaml release.ci_verified true 2>/dev/null || \
+      echo "  (bp-yaml-set not available — manually set release.ci_verified: true in state.yaml)"
+    break
+  fi
+
+  if [ "$CI_STATUS" = "completed" ] && [ "$CI_CONCLUSION" = "failure" ]; then
+    echo "FAIL: CI failed for $(git rev-parse --short HEAD)"
+    echo "  Run URL: https://github.com/$(gh repo view --json nameWithOwner -q .nameWithOwner)/actions/runs/$CI_ID"
+    echo "  Handoff to fix-bug with the failure URL above."
+    return 1
+  fi
+
+  sleep $INTERVAL
+  ELAPSED=$((ELAPSED + INTERVAL))
+  echo "  Waiting... (${ELAPSED}s / ${TIMEOUT}s)"
+done
+
+echo "FAIL: CI did not complete within ${TIMEOUT}s timeout"
+return 1
+```
+
+- [ ] CI workflow passes after push
+- [ ] `release.ci_verified: true` documented in state.yaml
+- On failure: `handoff.next_skill = fix-bug` with the CI failure URL
+
 ### 8. Clean up worktree
 
 ```bash

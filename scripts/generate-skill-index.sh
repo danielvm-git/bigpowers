@@ -56,6 +56,7 @@ PHASE_MAP=(
   [orchestrate-project]="Build"
   [guard-git]="Build"
   [hook-commits]="Build"
+  [deploy]="Build"
   # Verify
   [verify-work]="Verify"
   [validate-fix]="Verify"

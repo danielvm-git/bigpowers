@@ -8,23 +8,23 @@ release:
   last_tag: "v2.7.0"
   last_publish: "2026-06-20T00:00:00Z"
 epic_cycle:
-  current_step: 3
+  current_step: 8
   next_skill: ""
   story_bcps: 3
-  completed_steps: "1,2"
+  completed_steps: "1,2,3,4,5,6,7"
 metrics:
   story_start: "2026-06-20T21:43:06Z"
   story_end: "2026-06-20T21:50:00Z"
   cycle_minutes: 10
   bcp_per_hour: 12.0
 git:
-  branch: "main"
-  hash: "94c878152b4a268879942b35abb0af2ee2af20cc"
-  pushed: true
+  branch: "feat/e16s01-deploy-skill"
+  hash: "f8261b0998732f5e4e208fd255684586c1047d41"
+  pushed: false
 handoff:
   last_step_completed: "build-epic: e15 complete — all 3 stories landed on main, archival complete"
   open_decisions: "[next: build-epic e16 (deployment-pipeline) or plan-release for next WSJF item]"
-  next_skill: "kickoff-branch"
+  next_skill: "verify-work"
   commit_ratio:
     feat: 0
     fix: 0

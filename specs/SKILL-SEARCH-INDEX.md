@@ -16,6 +16,7 @@ Regenerate: `bash scripts/build-skill-index.sh`
 | define-language | sonnet | Extract a DDD-style ubiquitous language glossary from the current conversation, flagging ambiguities and proposing canonical terms. Saves to specs/UBIQUITOUS_LANGUAGE.md. Use when user wants to define |
 | define-success | sonnet | Convert an imperative task statement into explicit "step → verify: <cmd>" pairs before implementation begins. Use before plan-work when success criteria are unclear, when a task lacks verifiable che |
 | delegate-task | sonnet | Delegate one complex task to a single subagent, review its work in two stages before merging back. Sequential — one agent at a time, with oversight. Use when a task is complex and requires careful r |
+| deploy | sonnet | "Build → verify artifact → deploy → wait → smoke deployment pipeline. Platform-agnostic (MCP or CLI), with configurable timeout, retry with exponential backoff, and integrated health-check. Th |
 | design-interface | opus | Generate multiple radically different interface designs for a module using parallel sub-agents, then compare trade-offs. Based on "Design It Twice" from A Philosophy of Software Design. Use when user  |
 | develop-tdd | sonnet | Test-driven development with red-green-refactor loop using vertical slices. Use for features (epic tasks) or bugs (specs/bugs/BUG-*.md). |
 | diagnose-root | sonnet | Run 4-phase root cause analysis — reproduce, isolate, hypothesize, verify. Use when a bug is confirmed but root cause is unclear, after investigate-bug, or when user mentions root cause analysis. |

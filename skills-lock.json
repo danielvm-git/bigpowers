@@ -61,6 +61,11 @@
       "sha256": "9e3b8bd7274def42",
       "path": "delegate-task/SKILL.md"
     },
+    "deploy": {
+      "description": "\"Build → verify artifact → deploy → wait → smoke deployment pipeline. Platform-agnostic (MCP or CLI), with configurable timeout, retry with exponential backoff, and integrated health-check. The deploy half of CI/CD: run after build to push to production.\"",
+      "sha256": "260894aa4f869093",
+      "path": "deploy/SKILL.md"
+    },
     "design-interface": {
       "description": "Generate multiple radically different interface designs for a module using parallel sub-agents, then compare trade-offs. Based on \"Design It Twice\" from A Philosophy of Software Design. Use when user wants to design an API, explore interface options, compare module shapes, or mentions \"design it twice\".",
       "sha256": "c93e3fe065857cb8",
