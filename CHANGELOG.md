@@ -1,3 +1,10 @@
+## [2.7.5](https://github.com/danielvm-git/bigpowers/compare/v2.7.4...v2.7.5) (2026-06-20)
+
+
+### Bug Fixes
+
+* **ci:** force LC_ALL=C sort in sync-skills.sh for cross-platform determinism ([9997855](https://github.com/danielvm-git/bigpowers/commit/99978552bba91c371d836b7292bc1e6ae5ecadcb))
+
 ## [2.7.4](https://github.com/danielvm-git/bigpowers/compare/v2.7.3...v2.7.4) (2026-06-20)
 
 
