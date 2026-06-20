@@ -330,3 +330,21 @@ stories:
     end: "2026-06-20T21:22:06Z"
     cycle_minutes: 13
     bcp_per_hour: 9.2
+
+  # e15s02 — publish-package
+  - id: e15s02
+    epic: e15
+    bcps: 1
+    start: "2026-06-20T21:30:00Z"
+    end: "2026-06-20T21:37:00Z"
+    cycle_minutes: 7
+    bcp_per_hour: 8.6
+
+  # e15s03 — CI verification + dry-run
+  - id: e15s03
+    epic: e15
+    bcps: 2
+    start: "2026-06-20T21:40:00Z"
+    end: "2026-06-20T21:50:00Z"
+    cycle_minutes: 10
+    bcp_per_hour: 12.0
