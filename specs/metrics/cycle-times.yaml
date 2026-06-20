@@ -358,3 +358,12 @@ stories:
     end: "2026-06-20T21:47:57Z"
     cycle_minutes: 4
     bcp_per_hour: 45.0
+
+  # e16s02 — smoke-test skill (2 BCPs)
+  - id: e16s02
+    epic: e16
+    bcps: 2
+    start: "2026-06-20T21:48:17Z"
+    end: "2026-06-20T21:50:01Z"
+    cycle_minutes: 1
+    bcp_per_hour: 120.0
