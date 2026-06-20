@@ -1,7 +1,7 @@
 active_flow: "build_epic"
 workflow_mode: "yolo"
 active_epic_id: "e15"
-active_story_id: "e15s02"
+active_story_id: "e15s03"
 completed_epic: false
 release:
   target_version: "2.8.0"
@@ -10,10 +10,10 @@ release:
 epic_cycle:
   current_step: 3
   next_skill: "develop-tdd"
-  story_bcps: 1
+  story_bcps: 2
   completed_steps: "1,2"
 metrics:
-  story_start: "2026-06-20T21:30:00Z"
+  story_start: "2026-06-20T21:40:00Z"
   story_end: ""
   cycle_minutes: 0
   bcp_per_hour: 0

@@ -1,0 +1,39 @@
+story_id: e15s03
+verified_at: "2026-06-20T21:50:00Z"
+verifier: verify-work
+phases:
+  smoke:
+    passed: true
+  build:
+    passed: true
+    command: "SKIP — markdown-only project"
+  typecheck:
+    passed: true
+  lint:
+    passed: true
+    command: "bash scripts/validate-specs-yaml.sh"
+  tests:
+    passed: true
+    tasks:
+      - id: 1
+        description: "Add CI verification step (7b) to release-branch/SKILL.md"
+        passed: true
+      - id: 2
+        description: "Add CI dry-run sub-step (6a) to develop-tdd/SKILL.md"
+        passed: true
+      - id: 3
+        description: "Document CI failure handoff pattern"
+        passed: true
+  manual:
+    steps:
+      - step: "Verify CI verification polling in release-branch"
+        expected: "Has gh run list polling loop with 10min timeout"
+        actual: "Confirmed: polling logic with timeout, success/failure paths"
+        passed: true
+      - step: "Verify CI dry-run sub-step in develop-tdd"
+        expected: "Has actionlint/yamllint + pitfall checks for workflow changes"
+        actual: "Confirmed: YAML validation, permissions/secrets checks, act suggestion"
+        passed: true
+  gaps:
+    closed: true
+    count: 0
