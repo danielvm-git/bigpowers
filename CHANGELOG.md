@@ -1,3 +1,10 @@
+## [2.7.2](https://github.com/danielvm-git/bigpowers/compare/v2.7.1...v2.7.2) (2026-06-20)
+
+
+### Bug Fixes
+
+* **metrics:** add fix-rate KPI tracking to session-state ([72d76f0](https://github.com/danielvm-git/bigpowers/commit/72d76f05054c96bd995821f2f22ccd8d9d087149))
+
 ## [2.7.1](https://github.com/danielvm-git/bigpowers/compare/v2.7.0...v2.7.1) (2026-06-20)
 
 
