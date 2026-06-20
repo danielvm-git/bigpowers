@@ -1,0 +1,221 @@
+id: e18
+title: "Quality Gates & Impact Analysis"
+wsjf: 4.2
+bcps: 5
+covers:
+  - "Make audit-code a hard gate in build-epic step 6 (after verify-work, before commit-message)"
+  - "Wire enforce-first (F.I.R.S.T rubric) into the gate chain — not opt-in"
+  - "Wire assess-impact into build-epic step 2 (plan-work) to check if new work touches shared modules"
+  - "Add auto-timing to all critical-path skills so stocktake-skills can report effectiveness"
+  - "Universalize resume/checkpoint pattern (epic_cycle.step) to fix-bug and orchestrate-project"
+rationale: "BV=8 (hard gates prevent regression bugs), TC=5 (would delay milestones), RR=8 (reduces known failure modes — cross-module bugs, test quality gaps), JS=5 (1 week — multiple skill modifications)"
+stories:
+  - id: e18s01
+    title: "audit-code as hard gate in build-epic step 6"
+    bcps: 2
+    tasks:
+      - desc: |
+          Modify `build-epic/SKILL.md` to make `audit-code` a non-optional gate at step 6.
+
+          Current behavior: audit-code is mentioned but not enforced. In BigBase, it was used once
+          (in e38). The review cycle is aspirational.
+
+          **Required changes to build-epic/SKILL.md:**
+          1. Step 6 (after verify-work passes): invoke audit-code automatically
+          2. audit-code produces a pass/fail checklist (file: specs/verifications/AUDIT-<epic>-<story>.md)
+          3. If audit-code FAILS → loop back to develop-tdd with the audit findings
+          4. If audit-code PASSES → advance to step 7 (commit-message)
+          5. Record audit result in `specs/state.yaml` under `epic_cycle.audit_result`
+
+          **Required changes to audit-code/SKILL.md:**
+          - Add a `--gate` mode that exits non-zero on failure (for build-epic integration)
+          - Produce machine-parseable output (pass/fail + checklist items as JSON or YAML)
+
+          **Gherkin:**
+          ```
+          Given build-epic step 5 (verify-work) has passed
+          And the story has tests + implementation
+          When build-epic advances to step 6
+          Then audit-code runs automatically
+          And if audit-code fails, the build-epic step counter resets to step 4 (develop-tdd)
+          And the audit findings are written to specs/verifications/AUDIT-e18s01.md
+          And state.yaml records audit_result: pass or audit_result: fail
+          ```
+
+          **Acceptance Criteria:**
+          - `build-epic/SKILL.md` step 6 invokes audit-code unconditionally
+          - `audit-code/SKILL.md` supports `--gate` mode (non-zero exit on failure)
+          - verify: simulate a failing audit → build-epic loops back to step 4
+        verify: |
+          grep -c "audit-code" build-epic/SKILL.md | awk '{if($1>=3) print "OK: audit-code referenced"; else print "FAIL: only " $1 " refs"}'
+          grep -c "gate\|--gate\|non-zero" audit-code/SKILL.md | awk '{if($1>=2) print "OK: gate mode"; else print "FAIL: no gate mode"}'
+
+  - id: e18s02
+    title: "Wire enforce-first (F.I.R.S.T) into build-epic gate chain"
+    bcps: 1
+    tasks:
+      - desc: |
+          Integrate `enforce-first` (F.I.R.S.T rubric) into the build-epic quality gate chain.
+
+          Current state: enforce-first exists as a skill but has zero recorded usage. BigBase had
+          64 test commits but no mechanical enforcement that tests are FAST, INDEPENDENT, and
+          SELF-VALIDATING.
+
+          **Implementation:**
+          1. In `build-epic/SKILL.md`, add enforce-first as a sub-check within step 6 (audit-code gate):
+             - After audit-code passes code quality checks, run enforce-first on the test suite
+             - enforce-first checks: Fast (<100ms per test), Independent (no shared state),
+               Repeatable (no flaky tests), Self-Validating (assertions, not println),
+               Timely (written with/before code)
+          2. In `enforce-first/SKILL.md`, add a `--quick` mode that checks F+ I + S only
+             (speed, independence, self-validation — the three that break most often)
+          3. If enforce-first finds violations, append to the audit report
+
+          **Gherkin:**
+          ```
+          Given a test suite with 15 tests
+          And one test takes 2 seconds (violates Fast)
+          And two tests share a database fixture (violates Independent)
+          When enforce-first runs in --quick mode
+          Then it reports: "FAIL: 1 slow test (>100ms), 2 interdependent tests"
+          And the build-epic gate blocks progress until fixed
+          ```
+
+          **Acceptance Criteria:**
+          - `enforce-first/SKILL.md` has a `--quick` mode
+          - `build-epic/SKILL.md` step 6 invokes enforce-first after audit-code
+          - verify: `grep -c "enforce-first" build-epic/SKILL.md` returns ≥ 1
+        verify: |
+          grep -c "enforce-first" build-epic/SKILL.md | awk '{if($1>=1) print "OK: enforce-first in build-epic"; else print "FAIL: not integrated"}'
+          grep -c "quick\|--quick\|fast.mode" enforce-first/SKILL.md | awk '{if($1>=1) print "OK: quick mode"; else print "FAIL: no quick mode"}'
+
+  - id: e18s03
+    title: "Wire assess-impact into build-epic step 2 (plan-work)"
+    bcps: 1
+    tasks:
+      - desc: |
+          Integrate `assess-impact` into `build-epic` to catch cross-module blast radius before coding.
+
+          In BigBase, late-stage bugs like "redeployment stale content" and "ghost running status"
+          came from component interactions that impact analysis might have caught.
+
+          **Implementation:**
+          1. In `build-epic/SKILL.md`, add assess-impact as a pre-check in step 2 (plan-work):
+             - Before writing implementation tasks, run assess-impact on the story scope
+             - If the story touches shared modules (used by ≥ 3 other modules), flag it
+             - Produce `specs/IMPACT-<epic>-<story>.md` with dependents, affected tests, risk score
+          2. In `assess-impact/SKILL.md`, add a `--lightweight` mode:
+             - Only checks module fan-in/fan-out (skip full test coverage mapping)
+             - Runs in <10 seconds
+             - Reports: "SAFE (0 shared modules touched)" or "CAUTION: touches <N> shared modules"
+          3. The impact report gates plan-work: if risk score > 7, require a grill-me session
+
+          **Gherkin:**
+          ```
+          Given build-epic is at step 2 (plan-work)
+          And the story will modify dashboard/src/loaders/reader.js
+          When assess-impact --lightweight runs
+          Then it finds that reader.js is imported by 4 other modules
+          And reports: "CAUTION: touches reader.js (used by watcher.js, metrics.js, pipeline-map.js, gate-status.js)"
+          And the plan-work output includes a "Blast Radius" section
+          ```
+
+          **Acceptance Criteria:**
+          - `build-epic/SKILL.md` step 2 invokes assess-impact before writing tasks
+          - `assess-impact/SKILL.md` has `--lightweight` mode
+          - Impact report written to `specs/IMPACT-<epic>-<story>.md`
+          - verify: `grep -c "assess-impact" build-epic/SKILL.md` returns ≥ 1
+        verify: |
+          grep -c "assess-impact" build-epic/SKILL.md | awk '{if($1>=1) print "OK: assess-impact in build-epic"; else print "FAIL: not integrated"}'
+          grep -c "lightweight\|--lightweight\|quick.mode" assess-impact/SKILL.md | awk '{if($1>=1) print "OK: lightweight mode"; else print "FAIL: no lightweight mode"}'
+
+  - id: e18s04
+    title: "Universalize resume/checkpoint pattern to fix-bug and orchestrate-project"
+    bcps: 1
+    tasks:
+      - desc: |
+          Extend the `epic_cycle.step` checkpoint/resume pattern from build-epic to all multi-step flows.
+
+          build-epic's 8-step counter in `specs/state.yaml` (epic_cycle.current_step) is the backbone
+          that made 30-epic velocity possible. This same pattern should work for:
+          1. **fix-bug**: investigate → diagnose → TDD → validate → release (5 steps)
+          2. **orchestrate-project**: discover → elaborate → plan → build → verify → release (6 phases)
+
+          **Implementation:**
+          1. In `fix-bug/SKILL.md`:
+             - Add a step counter: `bug_cycle.current_step` (1-5)
+             - On resume, read step from state.yaml and continue
+             - Track `bug_cycle.bug_id` for the active bug
+          2. In `orchestrate-project/SKILL.md`:
+             - Add a phase counter: `project_cycle.current_phase` (1-6)
+             - Each phase gate writes to state.yaml before advancing
+          3. In `specs/state.yaml` schema:
+             - Add `bug_cycle` and `project_cycle` sections alongside `epic_cycle`
+          4. In `session-state/SKILL.md`:
+             - Document the universal checkpoint pattern
+             - Any flow with >3 steps gets a counter
+
+          **Gherkin:**
+          ```
+          Given a fix-bug session is at step 3 (develop-tdd)
+          And the session ends mid-step
+          When the agent resumes with survey-context
+          Then state.yaml shows bug_cycle.current_step: 3
+          And fix-bug continues from step 3, not from step 1
+          ```
+
+          **Acceptance Criteria:**
+          - `fix-bug/SKILL.md` has 5 numbered steps with checkpoint on each
+          - `orchestrate-project/SKILL.md` has 6 numbered phases with checkpoint
+          - `specs/state.yaml` schema documents `bug_cycle` and `project_cycle`
+          - verify: `grep -c "current_step\|checkpoint\|resume" fix-bug/SKILL.md` ≥ 3
+        verify: |
+          grep -c "current_step\|checkpoint\|resume" fix-bug/SKILL.md | awk '{if($1>=3) print "OK: checkpoint pattern in fix-bug"; else print "FAIL: only " $1 " refs"}'
+          grep -c "current_phase\|checkpoint\|resume" orchestrate-project/SKILL.md | awk '{if($1>=3) print "OK: checkpoint pattern in orchestrate-project"; else print "FAIL: only " $1 " refs"}'
+
+  - id: e18s05
+    title: "Add auto-timing to critical-path skills for stocktake effectiveness"
+    bcps: 1
+    tasks:
+      - desc: |
+          Add automatic timing instrumentation to every critical-path skill so `stocktake-skills`
+          can report which skills are effective and which are dead weight.
+
+          Current state: state.yaml has `metrics.bcps_per_hour` and `metrics.cycle_minutes` but
+          no skill populates it automatically. build-epic does it manually.
+
+          **Implementation:**
+          1. Add a lightweight timing wrapper pattern to `specs/state.yaml`:
+             ```yaml
+             metrics:
+               skill_timings:
+                 survey-context: { calls: 12, total_seconds: 180, avg_seconds: 15.0 }
+                 plan-work: { calls: 8, total_seconds: 640, avg_seconds: 80.0 }
+                 develop-tdd: { calls: 30, total_seconds: 5400, avg_seconds: 180.0 }
+                 audit-code: { calls: 1, total_seconds: 45, avg_seconds: 45.0 }
+             ```
+          2. Each skill writes start time at invocation and end time at completion
+             (or session-state does it via a shared helper)
+          3. `stocktake-skills/SKILL.md` reads `metrics.skill_timings` and reports:
+             - Top 5 most-used skills (by calls)
+             - Top 5 most time-consuming skills (by total_seconds)
+             - Skills with zero calls (dead weight candidates)
+             - Skills with avg_seconds > 300 (too slow — needs optimization)
+          4. `scripts/bp-timing.sh start <skill>` / `scripts/bp-timing.sh end <skill>` helper
+
+          **Gherkin:**
+          ```
+          Given survey-context has been invoked 12 times
+          And develop-tdd has been invoked 30 times
+          When stocktake-skills --full runs
+          Then it reports: "Most-used: develop-tdd (30 calls, 90 min total)"
+          And it flags: "Zero calls: assess-impact, run-evals, simulate-agents"
+          ```
+
+          **Acceptance Criteria:**
+          - `specs/state.yaml` has `metrics.skill_timings` section
+          - At least 5 skills write timing data (survey-context, plan-work, develop-tdd, verify-work, release-branch)
+          - `stocktake-skills/SKILL.md` has effectiveness report generation from timing data
+          - verify: `grep -c "skill_timings\|timing" stocktake-skills/SKILL.md` ≥ 1
+        verify: |
+          grep -c "skill_timings\|timing\|effectiveness" stocktake-skills/SKILL.md | awk '{if($1>=1) print "OK: timing in stocktake"; else print "FAIL: no timing awareness"}'

@@ -1,0 +1,197 @@
+id: e21
+title: "MCP-Native Discovery & Tool Integration"
+wsjf: 2.9
+bcps: 8
+covers:
+  - "Register bigpowers skills as MCP tools so any MCP-compatible agent can discover and invoke them"
+  - "Wire opensrc into research-first for learn-before-build (202 repos + 31 packages cached)"
+  - "CI-aware skills — read preflight commands from AGENTS.md instead of hardcoding"
+  - "compose-workflow → AGENTS.md agentic stack mapping (/check-stack, /ship, /tdd, /code-review, etc.)"
+  - "search-skills discoverability via MCP list_skills()"
+rationale: "BV=10 (makes skills usable by any MCP agent — core platform play), TC=5 (competitive differentiator not urgent), RR=8 (enables new capability: dynamic discovery), JS=8 (2 weeks — touches many skills + MCP registration)"
+stories:
+  - id: e21s01
+    title: "MCP-native skill discovery — register skills as MCP tools"
+    bcps: 3
+    tasks:
+      - desc: |
+          Register bigpowers skills as MCP (Model Context Protocol) tools so agents can call
+          `list_skills()` and get the live catalog with descriptions and parameters, rather than
+          reading a static `<available_skills>` block in the system prompt.
+
+          BigBase built an MCP server (epic e38) with `list_services`, `get_service_docs`,
+          `get_code_example`, `list_frameworks` — specifically so agents could discover capabilities
+          dynamically. Bigpowers should do the same.
+
+          **Implementation:**
+          1. Create a thin MCP server wrapper in `scripts/mcp-server.js` (or Python):
+             - Tool: `bigpowers_list_skills` → returns all 62 skills with name, description, phase
+             - Tool: `bigpowers_get_skill` → takes skill name, returns full SKILL.md content
+             - Tool: `bigpowers_search_skills` → takes query string, returns matching skills (semantic or keyword)
+             - Tool: `bigpowers_get_state` → returns current state.yaml (active flow, epic, step)
+             - Tool: `bigpowers_invoke_skill` → takes skill name + context, returns skill instructions for the agent to follow
+          2. Declare the MCP server in `.pi/mcp.json` or equivalent manifest
+          3. Document in README.md: "Add bigpowers as an MCP server: `pi mcp add bigpowers`"
+          4. Ensure the server auto-discovers skills from `.pi/skills/` directory
+
+          **Gherkin:**
+          ```
+          Given bigpowers is installed with 62 skills
+          When an agent calls MCP tool bigpowers_list_skills
+          Then it returns a JSON array with 62 entries
+          And each entry has name, description, and phase fields
+          And the agent can filter by phase: bigpowers_list_skills(phase="verify")
+
+          Given the agent wants to use survey-context
+          When it calls bigpowers_get_skill(name="survey-context")
+          Then it returns the full SKILL.md content with instructions
+
+          Given the agent types "I need to deploy"
+          When it calls bigpowers_search_skills(query="deploy")
+          Then it returns [deploy, release-branch, smoke-test] ranked by relevance
+          ```
+
+          **Acceptance Criteria:**
+          - `scripts/mcp-server.js` (or .py) implements 5 tools
+          - Server starts with a single command: `node scripts/mcp-server.js` or `python3 scripts/mcp-server.py`
+          - `bigpowers_list_skills` returns all 62 skills
+          - `bigpowers_get_skill` returns full SKILL.md for any valid skill name
+          - `bigpowers_search_skills` returns relevant results for a query
+          - README documents MCP server setup
+        verify: |
+          test -f scripts/mcp-server.js -o -f scripts/mcp-server.py && echo "OK: MCP server exists" || echo "FAIL: no MCP server"
+          node -e "require('./scripts/mcp-server.js')" 2>/dev/null && echo "OK: server loads" || python3 -c "import importlib; importlib.import_module('scripts.mcp-server')" 2>/dev/null && echo "OK: server loads" || echo "CHECK: manual load test"
+
+  - id: e21s02
+    title: "Wire opensrc into research-first for learn-before-build"
+    bcps: 2
+    tasks:
+      - desc: |
+          Integrate `opensrc` (202 repos + 31 npm/PyPI packages cached) into `research-first`
+          so agents do `npx opensrc fetch` before building integrations with external libraries.
+
+          Current state: research-first says "search registries, repo, existing skills, and web
+          for prior art" — but doesn't know about opensrc. BigBase has a massive cached library
+          of source code that could dramatically improve code quality for integrations.
+
+          **Implementation:**
+          1. In `research-first/SKILL.md`, add a step "Check opensrc cache":
+             - Run `npx opensrc search <library-name>` for each external dependency
+             - If results found, fetch the source: `npx opensrc fetch <package>`
+             - Read the cached source for API shapes, patterns, and gotchas
+             - Append findings to the Prior Art section of the spec
+          2. Add an `opensrc` integration section:
+             - How to set up opensrc (`npm install -g opensrc`)
+             - How to cache repos (`opensrc clone <repo-url>`)
+             - How to search (`opensrc search <query>`)
+          3. Create `scripts/bp-opensrc-check.sh`:
+             - Takes a package.json or requirements.txt
+             - For each dependency, checks opensrc cache
+             - Reports: "Cached: 12/15 dependencies" with links to source
+
+          **Gherkin:**
+          ```
+          Given a story requires integrating with @modelcontextprotocol/sdk
+          And opensrc has the MCP TypeScript SDK cached locally
+          When research-first runs
+          Then it calls npx opensrc search @modelcontextprotocol/sdk
+          And finds the cached source at ~/.opensrc/modelcontextprotocol-sdk/
+          And reads the src/ directory for API shapes
+          And appends "opensrc: found MCP SDK v1.x — exports Client, Server, Transport classes"
+          ```
+
+          **Acceptance Criteria:**
+          - `research-first/SKILL.md` has an opensrc integration section
+          - `scripts/bp-opensrc-check.sh` exists and works
+          - verify: `grep -c "opensrc" research-first/SKILL.md` ≥ 2
+        verify: |
+          grep -c "opensrc" research-first/SKILL.md | awk '{if($1>=2) print "OK: opensrc in research-first"; else print "FAIL: only " $1 " refs"}'
+          test -f scripts/bp-opensrc-check.sh && echo "OK: opensrc check script" || echo "WARN: no script yet"
+
+  - id: e21s03
+    title: "CI-aware skills — read preflight from AGENTS.md"
+    bcps: 1
+    tasks:
+      - desc: |
+          Make skills CI-aware by reading preflight/check commands from `AGENTS.md` instead of
+          hardcoding them. In BigBase, `npm run preflight` (Go vet + tests + UI build) is the
+          CI gate, but no bigpowers skill knows about it.
+
+          **Implementation:**
+          1. Create `scripts/bp-read-agents.sh`:
+             - Parses AGENTS.md (or CLAUDE.md, CURSOR.md, etc.)
+             - Extracts sections: "Preflight", "Test", "Build", "Lint", "Deploy"
+             - Outputs as env vars or JSON: BP_PREFLIGHT="npm run preflight", BP_TEST="go test ./..."
+          2. Modify `verify-work/SKILL.md`:
+             - Before running checks, call `bp-read-agents.sh`
+             - If AGENTS.md defines a preflight command, use it instead of manual commands
+             - Fall back to manual verification if no AGENTS.md found
+          3. Modify `deploy/SKILL.md` (from e13):
+             - Read build/deploy commands from AGENTS.md if available
+          4. Document the pattern: any skill that runs project commands checks AGENTS.md first
+
+          **Gherkin:**
+          ```
+          Given AGENTS.md contains:
+            ## Preflight
+            npm run preflight
+          When verify-work runs
+          Then it executes npm run preflight instead of its default checks
+          And the output includes "Using preflight from AGENTS.md: npm run preflight"
+          ```
+
+          **Acceptance Criteria:**
+          - `scripts/bp-read-agents.sh` extracts preflight commands from AGENTS.md
+          - `verify-work/SKILL.md` references bp-read-agents.sh
+          - verify: `grep -c "AGENTS.md\|bp-read-agents\|preflight" verify-work/SKILL.md` ≥ 1
+        verify: |
+          grep -c "AGENTS.md\|bp-read-agents\|preflight" verify-work/SKILL.md | awk '{if($1>=1) print "OK: CI-aware in verify-work"; else print "FAIL: not CI-aware"}'
+          test -f scripts/bp-read-agents.sh && echo "OK: parser script" || echo "WARN: no script yet"
+
+  - id: e21s04
+    title: "compose-workflow → AGENTS.md agentic stack mapping"
+    bcps: 2
+    tasks:
+      - desc: |
+          Map BigBase's agentic stack commands (defined in AGENTS.md) to bigpowers skill compositions
+          using `compose-workflow`.
+
+          BigBase uses fixed commands: `/check-stack`, `/ship`, `/tdd`, `/code-review`, `/security`,
+          `/plan`, `/build-fix`, `/e2e`. These are thin wrappers over bigpowers skills but they're
+          hardcoded in AGENTS.md rather than composed from skills. They should be compose-workflow
+          recipes so the skill set and the agentic stack don't diverge.
+
+          **Implementation:**
+          1. Create compose-workflow recipes in `specs/workflows/`:
+             - `check-stack.yaml`: survey-context → assess-impact → verify-work
+             - `ship.yaml`: audit-code → commit-message → release-branch
+             - `tdd.yaml`: develop-tdd (with F.I.R.S.T enforcement)
+             - `code-review.yaml`: audit-code → request-review → respond-review
+             - `security.yaml`: audit-code (security focus) → request-review
+             - `plan.yaml`: survey-context → research-first → plan-work
+             - `build-fix.yaml`: investigate-bug → diagnose-root → quick-fix → validate-fix
+             - `e2e.yaml`: smoke-test → verify-work
+          2. In `compose-workflow/SKILL.md`:
+             - Add a "Standard Recipes" section with these 8 workflows
+             - Document how AGENTS.md slash commands map to workflow recipes
+             - Each recipe has: name, skills[], description, verify command
+          3. In `AGENTS.md` template (as reference):
+             - Show the mapping: `/check-stack` = `compose-workflow check-stack`
+             - This keeps AGENTS.md thin and delegates to bigpowers
+
+          **Gherkin:**
+          ```
+          Given a user types /ship in their agent
+          And AGENTS.md maps /ship to compose-workflow ship
+          When compose-workflow ship runs
+          Then it chains audit-code → commit-message → release-branch
+          And each skill runs in sequence with gates between them
+          ```
+
+          **Acceptance Criteria:**
+          - 8 workflow recipe files in `specs/workflows/`
+          - `compose-workflow/SKILL.md` documents the standard recipe library
+          - Each recipe has a `verify:` command that proves it chains correctly
+          - verify: `ls specs/workflows/*.yaml | wc -l` returns ≥ 8
+        verify: |
+          ls specs/workflows/*.yaml 2>/dev/null | wc -l | awk '{if($1>=8) print "OK: " $1 " workflow recipes"; else print "FAIL: only " $1 " recipes"}'

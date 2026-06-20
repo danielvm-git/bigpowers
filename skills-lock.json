@@ -1,157 +1,315 @@
 {
   "version": 1,
   "skills": {
+    "align-grid": {
+      "description": "\"Build editorial/magazine/report webpages on a GENUINE Müller-Brockmann modular grid (International Typographic Style) — not a decorative one. Encodes the discipline (columns + modules + baseline, grotesque type, flush-left, restrained black/white/red palette) AND the hard-won front-end engineering to make the grid real, visible, and verified: one CSS-variable source of truth, an interactive grid-toggle overlay that lives in the SAME content box as the content, subgrid \\\"bands\\\" so every element snaps to a column line, an 8px baseline lock, and runtime OPTICAL ALIGNMENT that puts display type's ink (not its box) on the line. Ships with a scaffold generator and a Puppeteer verification harness that proves 0px adherence.\"",
+      "sha256": "fe975bdd77773c2c",
+      "path": "align-grid/SKILL.md"
+    },
+    "assess-impact": {
+      "description": "Analyze the blast radius of a proposed change before any code is written. Maps dependents, affected stories, and test coverage. Produces specs/IMPACT.md. Use before plan-work on any non-trivial change, when touching a shared module, or when the user asks \"what does this break?\".",
+      "sha256": "cad0c4534f31a207",
+      "path": "assess-impact/SKILL.md"
+    },
     "audit-code": {
-      "source": "danielvm-git/skills",
-      "sourceType": "github"
+      "description": "Self-review checklist for the coding agent to run before dispatching a reviewer. Checks CONVENTIONS.md compliance, Boy Scout Rule, test coverage, types, and SOLID. Produces a pass/fail checklist. Use before request-review, before committing, or when user asks for a code quality check.",
+      "sha256": "e9fa22fc69b1b3ab",
+      "path": "audit-code/SKILL.md"
+    },
+    "build-epic": {
+      "description": "Eight-step epic build cycle — reads state.yaml, execution-status.yaml, and one epic capsule; updates status via bp-yaml-set or direct edit. Resume mode runs one step per invocation. Use instead of ad-hoc execute-plan for release work.",
+      "sha256": "6f0639f6d8886e28",
+      "path": "build-epic/SKILL.md"
+    },
+    "change-request": {
+      "description": "Add a new requirement or reorder epics by WSJF against specs/release-plan.yaml and epic capsule directories. Modes Add and Reorder. Use when a new requirement arrives mid-release or the plan needs prioritization.",
+      "sha256": "431cfd2a21ac4515",
+      "path": "change-request/SKILL.md"
     },
     "commit-message": {
-      "source": "danielvm-git/skills",
-      "sourceType": "github"
+      "description": "Reviews working-tree changes, then drafts a Conventional Commits title/body and states the semantic-release version bump a single such commit would imply. Also notes which defensive-code categories were touched. Use when the user wants to commit recent work, prepare a Conventional Commits message, or asks for semantic-release / semver-consistent messaging before git commit.",
+      "sha256": "c97c86ebffaefb74",
+      "path": "commit-message/SKILL.md"
+    },
+    "compose-workflow": {
+      "description": "Chain multiple bigpowers skills into a custom workflow recipe saved in specs/. Use when a project repeats a non-standard skill sequence, or user wants a documented playbook beyond orchestrate-project modes.",
+      "sha256": "dc9abafd52cde7b3",
+      "path": "compose-workflow/SKILL.md"
     },
     "craft-skill": {
-      "source": "danielvm-git/skills",
-      "sourceType": "github"
+      "description": "Create new bigpowers skills with proper structure, progressive disclosure, and bundled resources. Use when user wants to create, write, or build a new skill for the bigpowers lifecycle.",
+      "sha256": "9ca6eb728e98bf54",
+      "path": "craft-skill/SKILL.md"
     },
     "deepen-architecture": {
-      "source": "danielvm-git/skills",
-      "sourceType": "github"
+      "description": "Find deepening opportunities in a codebase, informed by the domain language in specs/tech-architecture/tech-stack.md and the decisions in specs/adr/. Use when the user wants to improve architecture, find refactoring opportunities, consolidate tightly-coupled modules, or make a codebase more testable and AI-navigable.",
+      "sha256": "8424813a8c638a5b",
+      "path": "deepen-architecture/SKILL.md"
     },
     "define-language": {
-      "source": "danielvm-git/skills",
-      "sourceType": "github"
+      "description": "Extract a DDD-style ubiquitous language glossary from the current conversation, flagging ambiguities and proposing canonical terms. Saves to specs/UBIQUITOUS_LANGUAGE.md. Use when user wants to define domain terms, build a glossary, harden terminology, create a ubiquitous language, or mentions \"domain model\" or \"DDD\".",
+      "sha256": "d8386de827612d1a",
+      "path": "define-language/SKILL.md"
     },
     "define-success": {
-      "source": "danielvm-git/skills",
-      "sourceType": "github"
+      "description": "Convert an imperative task statement into explicit \"step → verify: <cmd>\" pairs before implementation begins. Use before plan-work when success criteria are unclear, when a task lacks verifiable checkpoints, or when user says \"how will we know this is done?\".",
+      "sha256": "8e03d23896f179fb",
+      "path": "define-success/SKILL.md"
     },
     "delegate-task": {
-      "source": "danielvm-git/skills",
-      "sourceType": "github"
+      "description": "Delegate one complex task to a single subagent, review its work in two stages before merging back. Sequential — one agent at a time, with oversight. Use when a task is complex and requires careful review before the result is accepted. Distinct from dispatch-agents (no parallelism here; reviewer sees full diff before proceeding).",
+      "sha256": "9e3b8bd7274def42",
+      "path": "delegate-task/SKILL.md"
     },
     "design-interface": {
-      "source": "danielvm-git/skills",
-      "sourceType": "github"
+      "description": "Generate multiple radically different interface designs for a module using parallel sub-agents, then compare trade-offs. Based on \"Design It Twice\" from A Philosophy of Software Design. Use when user wants to design an API, explore interface options, compare module shapes, or mentions \"design it twice\".",
+      "sha256": "c93e3fe065857cb8",
+      "path": "design-interface/SKILL.md"
     },
     "develop-tdd": {
-      "source": "danielvm-git/skills",
-      "sourceType": "github"
+      "description": "Test-driven development with red-green-refactor loop using vertical slices. Use for features (epic tasks) or bugs (specs/bugs/BUG-*.md).",
+      "sha256": "af45529ecb20d449",
+      "path": "develop-tdd/SKILL.md"
     },
     "diagnose-root": {
-      "source": "danielvm-git/skills",
-      "sourceType": "github"
+      "description": "Run 4-phase root cause analysis — reproduce, isolate, hypothesize, verify. Use when a bug is confirmed but root cause is unclear, after investigate-bug, or when user mentions root cause analysis.",
+      "sha256": "1d295cdf64c84189",
+      "path": "diagnose-root/SKILL.md"
     },
     "dispatch-agents": {
-      "source": "danielvm-git/skills",
-      "sourceType": "github"
+      "description": "Dispatch multiple subagents in parallel on independent tasks. No waiting between them — all run concurrently. Use when tasks are truly decoupled and speed matters. Distinct from delegate-task (concurrent here, no inter-task review gate).",
+      "sha256": "20b59cb63d770279",
+      "path": "dispatch-agents/SKILL.md"
     },
     "edit-document": {
-      "source": "danielvm-git/skills",
-      "sourceType": "github"
+      "description": "Edit and improve documents by restructuring sections, improving clarity, and tightening prose. Use when user wants to edit, revise, restructure, or improve any document — including specs/ files, articles, READMEs, or technical writing.",
+      "sha256": "99a1ed618396b1fb",
+      "path": "edit-document/SKILL.md"
     },
     "elaborate-spec": {
-      "source": "danielvm-git/skills",
-      "sourceType": "github"
+      "description": "Refine a rough idea into a clear, detailed specification through dialogue. Does not produce code. Use when user has a vague idea, wants to think through a feature before planning, or needs to turn \"I want X\" into a concrete spec.",
+      "sha256": "6d60cffd5139347e",
+      "path": "elaborate-spec/SKILL.md"
     },
     "enforce-first": {
-      "source": "danielvm-git/skills",
-      "sourceType": "github"
+      "description": "Apply the F.I.R.S.T test quality rubric (Fast, Independent, Repeatable, Self-Validating, Timely) to a test suite or individual tests. Use when develop-tdd is writing tests, when test quality needs to be checked, or when user mentions F.I.R.S.T or \"test quality\".",
+      "sha256": "ca11eb77909d92b4",
+      "path": "enforce-first/SKILL.md"
+    },
+    "evolve-skill": {
+      "description": "Benchmark-gated skill evolution — consume bigpowers-benchmark report, propose plan-work change, edit skill via craft-skill, re-run benchmark, record ADR. Use when a skill underperforms on benchmark or stocktake finds systemic gap.",
+      "sha256": "3582333ff9b15942",
+      "path": "evolve-skill/SKILL.md"
     },
     "execute-plan": {
-      "source": "danielvm-git/skills",
-      "sourceType": "github"
+      "description": "Batch-execute tasks from the active epic capsule sequentially, with a human checkpoint after each step. Use when user has an approved plan and wants step-by-step oversight.",
+      "sha256": "844f2a3069f75f30",
+      "path": "execute-plan/SKILL.md"
+    },
+    "fix-bug": {
+      "description": "Bug fix orchestrator — active_flow fix_bug; reads specs/bugs/BUG-*.md; chains investigate-bug, develop-tdd, validate-fix. Use when user reports a defect.",
+      "sha256": "466c0847b5312b6f",
+      "path": "fix-bug/SKILL.md"
     },
     "grill-me": {
-      "source": "danielvm-git/skills",
-      "sourceType": "github"
+      "description": "Interactive assumption-surfacing Q&A that stress-tests a plan through relentless questioning until every decision is resolved. Use when user wants to challenge a plan, validate decisions from conversation/context, or mentions \"grill me\". For doc-grounded variant, use grill-with-docs.",
+      "sha256": "8456e38dfee44939",
+      "path": "grill-me/SKILL.md"
     },
     "grill-with-docs": {
-      "source": "danielvm-git/skills",
-      "sourceType": "github"
+      "description": "Doc-grounded variant of grill-me — stress-tests plan assumptions by fetching and citing real library or API documentation. Every challenge must cite a real URL. Use when the plan depends on a specific library or external API.",
+      "sha256": "8ea5ebc5cc2d3434",
+      "path": "grill-with-docs/SKILL.md"
     },
     "guard-git": {
-      "source": "danielvm-git/skills",
-      "sourceType": "github"
+      "description": "Block dangerous git commands (push, force push, reset --hard, clean, branch -D, checkout/restore .) and enforce Conventional Commits & Branch Protection before an AI agent runs them. Installs hook scripts for Claude Code, Cursor, Cursor CLI, and Gemini CLI; documents Google Antigravity Terminal deny lists. Use when the user wants git safety hooks, to block git push or destructive git in agents, or to mirror the same policy across AI coding tools.",
+      "sha256": "714da72cbb85a255",
+      "path": "guard-git/SKILL.md"
     },
     "hook-commits": {
-      "source": "danielvm-git/skills",
-      "sourceType": "github"
+      "description": "Set up pre-commit hooks with lint-staged (Prettier), type checking, and tests in the current repo. Use when user wants to add pre-commit hooks, set up Husky, configure lint-staged, or add commit-time formatting/typechecking/testing.",
+      "sha256": "bb6fac42390670c5",
+      "path": "hook-commits/SKILL.md"
     },
     "inspect-quality": {
-      "source": "danielvm-git/skills",
-      "sourceType": "github"
+      "description": "Interactive QA session where user reports bugs or issues conversationally, and the agent logs them to specs/bugs/registry.yaml with a structured audit schema. Explores the codebase in the background for context and domain language. Use when user wants to report bugs, do QA, or mentions \"QA session\".",
+      "sha256": "e5f9923e72550572",
+      "path": "inspect-quality/SKILL.md"
     },
     "investigate-bug": {
-      "source": "danielvm-git/skills",
-      "sourceType": "github"
+      "description": "Investigate a bug or issue by exploring the codebase to find root cause, then write a TDD-based fix plan to specs/bugs/BUG-*.md. Use when user reports a bug, wants to investigate a problem, mentions \"triage\", or wants to plan a fix.",
+      "sha256": "698885ce631631c4",
+      "path": "investigate-bug/SKILL.md"
     },
     "kickoff-branch": {
-      "source": "danielvm-git/skills",
-      "sourceType": "github"
+      "description": "Create a git worktree and feature branch, then verify a clean test baseline before any code is written. Use when starting a new feature or task, when user wants to work in isolation from main, or mentions \"start a branch\" or \"new worktree\".",
+      "sha256": "77864a4086f91f60",
+      "path": "kickoff-branch/SKILL.md"
+    },
+    "map-codebase": {
+      "description": "\"Derives the tech-stack doc from scratch by scanning the codebase — analyzes stack, architecture, and gray areas (error handling, API shapes) and persists findings into specs/tech-architecture/tech-stack.md. Run when the tech doc doesn't exist yet; use survey-context to consume it once it does.\"",
+      "sha256": "0ff035d8f8baf4f8",
+      "path": "map-codebase/SKILL.md"
+    },
+    "migrate-spec": {
+      "description": "Detect GSD, spec-kit, or BMAD spec artifacts and transform them into bigpowers YAML layout (state.yaml, release-plan.yaml, epics/, requirements/, plans/, ADRs). Use when migrating foreign spec docs.",
+      "sha256": "912299321559a5e2",
+      "path": "migrate-spec/SKILL.md"
     },
     "model-domain": {
-      "source": "danielvm-git/skills",
-      "sourceType": "github"
+      "description": "Grilling session that challenges your plan against the existing domain model, sharpens terminology, and updates specs/tech-architecture/tech-stack.md and specs/adr/ inline as decisions crystallise. Use when user wants to stress-test a plan against their project's domain language and documented decisions.",
+      "sha256": "9cdd34fc9952d06b",
+      "path": "model-domain/SKILL.md"
+    },
+    "orchestrate-project": {
+      "description": "Meta-skill that enforces the 6-phase core loop (discover → elaborate → plan → build → verify → release) with hard gates. Use to coordinate multi-phase projects with guaranteed quality checkpoints. One-time command for the entire project lifecycle.",
+      "sha256": "aef26df7a83a4cd3",
+      "path": "orchestrate-project/SKILL.md"
     },
     "organize-workspace": {
-      "source": "danielvm-git/skills",
-      "sourceType": "github"
+      "description": "Scans the active workspace for disposable artifacts—logs, caches, stale build output, and stray draft markdown—and proposes consolidation of scattered assets. Produces a reviewable list, asks for explicit confirmation before any delete or move, and optionally revises .gitignore. Use when the user says \"clean my room\", \"organize workspace\", \"workspace cleanup\", \"remove temp files\", \"organize assets\", \"gitignore\", or wants a safe tidy pass.",
+      "sha256": "1595876ed98943d5",
+      "path": "organize-workspace/SKILL.md"
     },
     "plan-refactor": {
-      "source": "danielvm-git/skills",
-      "sourceType": "github"
+      "description": "Create a detailed refactor plan with tiny commits via user interview, then save it as specs/REFACTOR.md. Use when user wants to plan a refactor, create a refactoring RFC, or break a refactor into safe incremental steps.",
+      "sha256": "f146cb1327e32943",
+      "path": "plan-refactor/SKILL.md"
+    },
+    "plan-release": {
+      "description": "\"RELEASE-INDEX BUILDER — Sequence elaborated epics into specs/release-plan.yaml with WSJF ordering and BCP baselines. NOT a planning-spine substitute: it does not scope work (scope-work) or write story tasks (plan-work). Use after elaborate-spec when the user wants a versioned release index of epics.\"",
+      "sha256": "4eeb65607ca2f799",
+      "path": "plan-release/SKILL.md"
     },
     "plan-work": {
-      "source": "danielvm-git/skills",
-      "sourceType": "github"
+      "description": "\"PLANNING SPINE STEP 3 of 3 — Plan the work: write detailed implementation tasks into the active epic capsule (specs/epics/eNN-slug/). Produces countable-story-format .md specs and runnable -tasks.yaml files. Use after slice-tasks (step 2). Not a substitute for scope-work (step 1) or slice-tasks (step 2).\"",
+      "sha256": "12d45efb07a36e94",
+      "path": "plan-work/SKILL.md"
     },
     "release-branch": {
-      "source": "danielvm-git/skills",
-      "sourceType": "github"
+      "description": "Make the merge/PR/keep/discard decision for a feature branch, verify coverage gates, create the PR with gh, and clean up the worktree. Use when a feature is done and ready to ship, or when user says \"release\", \"merge\", or \"open a PR\".",
+      "sha256": "1668285610d04ff5",
+      "path": "release-branch/SKILL.md"
     },
     "request-review": {
-      "source": "danielvm-git/skills",
-      "sourceType": "github"
+      "description": "Dispatch a fresh reviewer agent with a clean context to critique the code after audit-code passes. The reviewer has no shared state with the coding agent and gives a genuine second opinion. Use after audit-code passes, before committing, or when user wants an independent code review.",
+      "sha256": "7ad5fa131cb9fe7f",
+      "path": "request-review/SKILL.md"
+    },
+    "research-first": {
+      "description": "Look-before-build — search registries, repo, existing skills, and web for prior art before implementing. Appends Prior Art to the spec. Use after survey-context and before elaborate-spec, when adding dependencies, or when the task may already be solved.",
+      "sha256": "2d11dadf63b9dbd3",
+      "path": "research-first/SKILL.md"
+    },
+    "reset-baseline": {
+      "description": "Restore the project to a known clean state between agent runs or experiments. Use between benchmark runs, after a failed spike, or when user wants a clean working tree.",
+      "sha256": "d0b3ee9d9c292334",
+      "path": "reset-baseline/SKILL.md"
     },
     "respond-review": {
-      "source": "danielvm-git/skills",
-      "sourceType": "github"
+      "description": "Act on a reviewer agent's feedback systematically — categorize findings, apply fixes, verify tests still pass. Use after request-review returns a report, or when user wants to work through code review findings.",
+      "sha256": "c16bbe4854a0d665",
+      "path": "respond-review/SKILL.md"
+    },
+    "run-evals": {
+      "description": "Eval-Driven Development — define capability and regression evals before building; code graders use verify commands, model graders use explicit rubrics; log pass@k. Use before develop-tdd on new features, or when measuring agent capability over runs.",
+      "sha256": "b3cd89a7e440c94f",
+      "path": "run-evals/SKILL.md"
+    },
+    "run-planning": {
+      "description": "\"DISCOVER-PHASE ADVANCER — Drive the discover-phase checklist (specs/planning-status.yaml) through survey-context → scope-work → research-first → elaborate-spec → plan-release → slice-tasks. NOT a duplicate of plan-work or the planning spine; it orchestrates the pre-coding discover phase only.\"",
+      "sha256": "eb6c9d3c0e26b7fc",
+      "path": "run-planning/SKILL.md"
     },
     "scope-work": {
-      "source": "danielvm-git/skills",
-      "sourceType": "github"
+      "description": "\"PLANNING SPINE STEP 1 of 3 — Scope the work: define what is in and out of scope and save as specs/product/SCOPE_LATEST.yaml. Use before slice-tasks or plan-release on any new initiative. Not a substitute for slice-tasks (step 2) or plan-work (step 3).\"",
+      "sha256": "3d333e2bfa5f9998",
+      "path": "scope-work/SKILL.md"
+    },
+    "search-skills": {
+      "description": "Find the right bigpowers skill from natural-language intent using a local lexical index over SKILL.md frontmatter. Use when unsure which skill to invoke, or at start of research-first.",
+      "sha256": "34df830694a6459c",
+      "path": "search-skills/SKILL.md"
     },
     "seed-conventions": {
-      "source": "danielvm-git/skills",
-      "sourceType": "github"
+      "description": "Generate CLAUDE.md and CONVENTIONS.md for a brand-new project through a brief interview, and create the specs/ directory with evolved bigpowers structure (product/, tech-architecture/, verifications/, epics/archive/). Entry point for greenfield projects. Use when starting a new project from scratch, when user asks to set up AI agent conventions, or when there is no CLAUDE.md yet.",
+      "sha256": "cd3a7fc52d1b0035",
+      "path": "seed-conventions/SKILL.md"
+    },
+    "session-state": {
+      "description": "Track implementation decisions and progress in specs/state.yaml to prevent context rot. Use at the start of a session to load context, and whenever a significant decision is made or a milestone is reached.",
+      "sha256": "68509078a871ee38",
+      "path": "session-state/SKILL.md"
+    },
+    "setup-environment": {
+      "description": "Pre-install dependencies and configure tools before development work begins. Use at session start on a fresh clone, before kickoff-branch, or when user says setup environment or install deps.",
+      "sha256": "3092662402943645",
+      "path": "setup-environment/SKILL.md"
+    },
+    "simulate-agents": {
+      "description": "Run Mock User and Auditor agents against a feature in fresh contexts before human review. Use after verify-work, before request-review, when user wants pre-review simulation.",
+      "sha256": "4ce3c2fa40ae43e9",
+      "path": "simulate-agents/SKILL.md"
     },
     "slice-tasks": {
-      "source": "danielvm-git/skills",
-      "sourceType": "github"
+      "description": "\"PLANNING SPINE STEP 2 of 3 — Slice the work: break a scoped PRD into vertical-slice stories in specs/epics/. Use after scope-work (step 1), before plan-work (step 3). Not a substitute for scope-work or plan-work.\"",
+      "sha256": "bda9db54dbe791b5",
+      "path": "slice-tasks/SKILL.md"
     },
     "spike-prototype": {
-      "source": "danielvm-git/skills",
-      "sourceType": "github"
+      "description": "Throw-away prototype for unknown problem spaces. Output is learning notes in specs/archive/spikes/SPIKE-<name>.md, not production code. Use when the domain or technology is unexplored, when estimates are impossible without experimentation, or when user says \"spike\", \"prototype\", or \"proof of concept\".",
+      "sha256": "568e52ae1e3a9213",
+      "path": "spike-prototype/SKILL.md"
+    },
+    "stocktake-skills": {
+      "description": "Sequential subagent batch audit of the bigpowers skill catalog — Quick Scan (changed only) or Full (all skills). Use during sustain phase, before a major release, or when catalog drift is suspected.",
+      "sha256": "a164a64360ef29ec",
+      "path": "stocktake-skills/SKILL.md"
     },
     "survey-context": {
-      "source": "danielvm-git/skills",
-      "sourceType": "github"
+      "description": "Per-task context bootstrap — reads existing specs/ and tech-architecture docs to map the current lifecycle phase and suggest the next skill. Use at the start of any task, when returning after a break, or when unsure what to do next. For deriving a tech-stack doc from scratch, use map-codebase first.",
+      "sha256": "891e840a2f292f23",
+      "path": "survey-context/SKILL.md"
     },
     "terse-mode": {
-      "source": "danielvm-git/skills",
-      "sourceType": "github"
+      "description": "Fallback ultra-compressed communication mode. Cuts token usage ~75% by dropping filler, articles, and pleasantries while keeping full technical accuracy. Use ONLY when context is critically long and compressing output is necessary to continue. Not a strategy — token discipline comes from code shape (small functions, unique names, headless tests), not terser prompts. Use when user says \"caveman mode\", \"terse mode\", \"less tokens\", \"be brief\", or invokes /terse-mode.",
+      "sha256": "d46f9b0fc252e468",
+      "path": "terse-mode/SKILL.md"
+    },
+    "trace-requirement": {
+      "description": "Link story IDs from specs/release-plan.yaml + epic capsule directories to the implementing code and tests. Produces specs/TRACEABILITY.md. Use when you want to verify coverage of a release plan, audit which stories are implemented, or find \"dark\" stories with no code.",
+      "sha256": "fbfe216d29b75058",
+      "path": "trace-requirement/SKILL.md"
     },
     "using-bigpowers": {
-      "source": "danielvm-git/skills",
-      "sourceType": "github"
+      "description": "One-time bootstrap that introduces the bigpowers skills system, the PMBOK lifecycle arc, and tells you which skill to call first for your situation. Use when starting with bigpowers for the first time, when user asks \"where do I start?\", or when the skills system needs to be explained.",
+      "sha256": "b150ea218b529f61",
+      "path": "using-bigpowers/SKILL.md"
     },
     "validate-fix": {
-      "source": "danielvm-git/skills",
-      "sourceType": "github"
+      "description": "Prove a fix works before declaring done — re-run the failing test, run the full suite, typecheck, lint, and harden against recurrence. Use after implementing a bug fix, when user says \"is this fixed?\", or before closing an investigation.",
+      "sha256": "80fc28e511a501dc",
+      "path": "validate-fix/SKILL.md"
+    },
+    "verify-work": {
+      "description": "Multi-phase UAT gate — cold-start smoke, build, typecheck, lint, tests, step-by-step manual verification, gaps-closure loop. Use after execute-plan or develop-tdd, before audit-code.",
+      "sha256": "aac80130ca0776ff",
+      "path": "verify-work/SKILL.md"
+    },
+    "visual-dashboard": {
+      "description": "Start a browser-based dashboard that visualizes architecture, implementation plans, and project status. Persists artifacts in .bigpowers/dashboard/. Reads specs/state.yaml, release-plan.yaml, epics, and planning-status via HTTP API or opencode panel.",
+      "sha256": "3213e18d4bde52f2",
+      "path": "visual-dashboard/SKILL.md"
     },
     "wire-observability": {
-      "source": "danielvm-git/skills",
-      "sourceType": "github"
+      "description": "Add structured JSON logging, observability commands, and idempotent setup scripts to a project. Use when a project needs production-readiness instrumentation, when user wants structured logging, or as a production-readiness gate at any phase of development.",
+      "sha256": "01e751c37dab47b3",
+      "path": "wire-observability/SKILL.md"
+    },
+    "write-document": {
+      "description": "Write, organize, and sync high-integrity technical documents using the BMAD methodology. Ensures every document is Bold, Minimal, Actionable, and Durable. Use when creating architectural docs, technical guides, or organizing the specs/ directory.",
+      "sha256": "299a58a4b779b330",
+      "path": "write-document/SKILL.md"
     }
   }
 }

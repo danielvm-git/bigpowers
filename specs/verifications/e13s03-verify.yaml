@@ -1,0 +1,51 @@
+story_id: e13s03
+title: "Complete or deprecate stale planned skills"
+verified_at: "2026-06-20T18:59:00Z"
+verifier: verify-work
+phases:
+  smoke:
+    passed: true
+  build:
+    passed: true
+    command: "for skill in scope-work slice-tasks run-planning search-skills; do wc -l < \$skill/SKILL.md; done"
+  typecheck:
+    passed: true
+  lint:
+    passed: true
+  tests:
+    passed: true
+    command: |
+      for skill in scope-work slice-tasks run-planning search-skills; do
+        lines=$(wc -l < "$skill/SKILL.md")
+        if [ "$lines" -ge 50 ]; then
+          echo "OK: $skill ($lines lines)"
+        else
+          echo "FAIL: $skill only $lines lines"
+        fi
+      done
+    coverage: "4 skills audited"
+  sync:
+    passed: true
+    command: "bash scripts/sync-skills.sh"
+    output: "62 skills synced — enriched skills included in artifacts"
+  manual:
+    steps:
+      - step: "Verify scope-work SKILL.md has substantive content"
+        expected: "≥50 lines with process, anti-patterns, verify"
+        actual: "54 lines — process, anti-patterns, pre-flight, verify"
+        passed: true
+      - step: "Verify slice-tasks SKILL.md has substantive content"
+        expected: "≥50 lines with process, anti-patterns, verify"
+        actual: "56 lines — process, anti-patterns, BCP guidance, verify"
+        passed: true
+      - step: "Verify run-planning SKILL.md has substantive content"
+        expected: "≥50 lines with workflow keys, process, verify"
+        actual: "80 lines — workflow schema, process, pre-flight, verify"
+        passed: true
+      - step: "Verify search-skills SKILL.md has substantive content"
+        expected: "≥50 lines with search process, rationale, verify"
+        actual: "70 lines — search process, ranking, rationale, verify"
+        passed: true
+  gaps:
+    closed: true
+    count: 0

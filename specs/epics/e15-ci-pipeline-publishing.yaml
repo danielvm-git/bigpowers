@@ -1,0 +1,160 @@
+id: e15
+title: "CI/CD Pipeline & Package Publishing"
+wsjf: 5.2
+bcps: 5
+covers:
+  - "wire-ci skill — CI pipeline setup + templates (like wire-observability for CI). fix(ci): was 15% of commits in big-token-saver"
+  - "publish-package skill — npm, crates.io, Homebrew publishing. release-branch handles git but not package registries"
+  - "preflight-push dry-run verification — test CI locally before push. Catches auth/config issues that caused 2 Release workflow failures"
+  - "release-branch CI verification step — check CI status after push before declaring success"
+  - "develop-tdd CI dry-run sub-step — validate workflow YAML syntax, check permissions, flag common pitfalls for CI changes"
+rationale: "BV=10 (CI failures block release, package publishing is core path), TC=8 (CI iterations waste time every cycle), RR=8 (reduces CI failure rate, catches auth/config before push), JS=5 (1 week — 3 new skills + modifications)"
+stories:
+  - id: e15s01
+    title: "craft-skill: wire-ci — CI pipeline setup with templates and local validation"
+    bcps: 2
+    tasks:
+      - desc: |
+          Create a `wire-ci` skill that provides CI pipeline setup with pre-built templates
+          and local validation — the CI equivalent of `wire-observability` for logging.
+
+          In big-token-saver, fix(ci): was 15% of commits (5/34). CI is hard to test locally,
+          so build-epic should expect iteration. This skill provides the scaffold.
+
+          The skill must:
+          1. Detect the project type (Rust, Node, Python, Go) and provide appropriate CI template
+          2. Generate GitHub Actions workflow(s) in `.github/workflows/`
+          3. Include: test, lint, typecheck, build steps (derived from AGENTS.md or package.json)
+          4. Add semantic-release integration (if project uses it)
+          5. Add `--validate` mode: check YAML syntax, verify permissions, scan for common pitfalls
+             (missing NPM_TOKEN, missing GITHUB_TOKEN permissions, prerelease version conflicts)
+          6. Add `--dry-run` mode: run `act` or `gh workflow run` locally to test the workflow
+          7. Document common CI failure patterns and their fixes
+
+          **Gherkin Acceptance Criteria:**
+          ```
+          Given a Rust project with Cargo.toml
+          And no CI workflow exists
+          When wire-ci runs
+          Then .github/workflows/ci.yaml is created with test, lint, build steps
+          And the workflow uses actions-rs/toolchain for Rust setup
+          And wire-ci --validate passes (YAML valid, permissions correct)
+
+          Given a Node project with package.json and semantic-release
+          When wire-ci runs
+          Then .github/workflows/ci.yaml includes npm test, npm run lint
+          And .github/workflows/release.yaml includes semantic-release with NPM_TOKEN
+          And wire-ci --validate warns if NPM_TOKEN secret is not configured
+          ```
+
+          **Acceptance Criteria:**
+          - Skill file: `wire-ci/SKILL.md` with verb-noun naming
+          - Templates for: Rust, Node, Python, Go (at minimum)
+          - `--validate` catches: YAML syntax errors, missing permissions, missing secrets
+          - `--dry-run` attempts local execution (act or gh workflow run)
+          - Skill is listed in SKILL-INDEX.md
+        verify: |
+          test -f wire-ci/SKILL.md && echo "OK: skill file exists" || echo "FAIL: no skill file"
+          grep -q "name: wire-ci" wire-ci/SKILL.md && echo "OK: frontmatter" || echo "FAIL: frontmatter"
+          grep -ci "template\|workflow\|validate\|dry.run" wire-ci/SKILL.md | awk '{if($1>=3) print "OK: semantics"; else print "FAIL: missing"}'
+          grep -q "wire-ci" SKILL-INDEX.md && echo "OK: in SKILL-INDEX" || echo "FAIL: not indexed"
+
+  - id: e15s02
+    title: "craft-skill: publish-package — npm, crates.io, Homebrew publishing"
+    bcps: 1
+    tasks:
+      - desc: |
+          Create a `publish-package` skill that handles package registry publishing —
+          npm, crates.io, PyPI, Homebrew. release-branch handles git but doesn't know
+          about package registries. In big-token-saver, npm publish required 2 iterations
+          to fix (missing NPM_TOKEN, prerelease version conflict).
+
+          The skill must:
+          1. Detect package type from manifest files (package.json, Cargo.toml, setup.py, Formula/*.rb)
+          2. Verify publish prerequisites: auth token exists, version is not already published,
+             build artifacts are fresh, CHANGELOG is updated
+          3. Run the registry-specific publish command:
+             - npm: `npm publish --access public`
+             - crates.io: `cargo publish`
+             - PyPI: `twine upload dist/*`
+             - Homebrew: `brew bump-formula-pr`
+          4. Verify publish success: check registry for the new version
+          5. On failure: surface the error with actionable hints (e.g., "NPM_TOKEN not set in secrets")
+          6. Support `--dry-run` for each registry type
+
+          **Gherkin Acceptance Criteria:**
+          ```
+          Given a Node project at version 0.4.0
+          And NPM_TOKEN is configured in .npmrc or env
+          When publish-package runs
+          Then it verifies version 0.4.0 is not already published
+          And runs npm publish --access public
+          And confirms the package appears at https://npmjs.com/package/<name>/v/0.4.0
+
+          Given NPM_TOKEN is missing
+          When publish-package runs
+          Then it reports: "FAIL: NPM_TOKEN not set. Set via: export NPM_TOKEN=<token> or .npmrc"
+          And exits non-zero
+          ```
+
+          **Acceptance Criteria:**
+          - Skill file: `publish-package/SKILL.md` with verb-noun naming
+          - Supports npm, crates.io, PyPI (at minimum)
+          - `--dry-run` for each registry
+          - Prerequisite checks before publish attempt
+          - Skill is listed in SKILL-INDEX.md
+        verify: |
+          test -f publish-package/SKILL.md && echo "OK: skill file exists" || echo "FAIL: no skill file"
+          grep -q "name: publish-package" publish-package/SKILL.md && echo "OK: frontmatter" || echo "FAIL: frontmatter"
+          grep -ci "npm\|crates.io\|pypi\|publish\|registry" publish-package/SKILL.md | awk '{if($1>=4) print "OK: semantics"; else print "FAIL: missing"}'
+          grep -q "publish-package" SKILL-INDEX.md && echo "OK: in SKILL-INDEX" || echo "FAIL: not indexed"
+
+  - id: e15s03
+    title: "Add CI verification step to release-branch + CI dry-run to develop-tdd"
+    bcps: 2
+    tasks:
+      - desc: |
+          Add CI awareness to two existing skills to close the "push and pray" gap.
+
+          **1. release-branch: add CI verification step (friction #7)**
+          In big-token-saver, after pushing to main, the Release workflow failed twice.
+          There's no step in release-branch to check CI status after push — the agent
+          declares success and moves on.
+
+          Add to `release-branch/SKILL.md`:
+          - Step 8b: "CI verification — after push, run:
+            `gh run list --limit 1 --branch main --workflow CI --json status,conclusion`
+            Must show `status: completed, conclusion: success`."
+          - If CI fails: handoff to fix-bug with the CI failure log
+          - If CI passes: advance to step 9 (cleanup)
+          - Timeout: 10 minutes (poll every 30s)
+          - Document in state.yaml: `release.ci_verified: true`
+
+          **2. develop-tdd: add CI dry-run sub-step for workflow changes (friction #9)**
+          When develop-tdd detects changes to `.github/workflows/`:
+          - Run `yamllint` or `actionlint` on changed workflow files
+          - Check for common pitfalls: missing `permissions:`, missing `secrets:`,
+            `npm publish` without `NPM_TOKEN`, hardcoded Node versions
+          - If `act` is available, suggest running `act push --dry-run`
+
+          **Gherkin:**
+          ```
+          Given release-branch has pushed feat/bts-map to main
+          When step 8b (CI verification) runs
+          Then gh run list shows the CI workflow for main
+          And if conclusion is success, advance to cleanup
+          And if conclusion is failure, handoff to fix-bug with the failure URL
+
+          Given develop-tdd is modifying .github/workflows/release.yaml
+          And the workflow has npm publish without NPM_TOKEN secret reference
+          When the CI dry-run sub-step runs
+          Then it flags: "WARNING: npm publish step found but no NPM_TOKEN in secrets"
+          ```
+
+          **Acceptance Criteria:**
+          - `release-branch/SKILL.md` has step 8b (CI verification)
+          - `develop-tdd/SKILL.md` has CI dry-run sub-step for workflow changes
+          - verify: `grep -c "gh run list\|CI verification" release-branch/SKILL.md` ≥ 2
+        verify: |
+          grep -c "gh run list\|CI verification\|workflow" release-branch/SKILL.md | awk '{if($1>=2) print "OK: CI verification in release-branch"; else print "FAIL: only " $1 " refs"}'
+          grep -c "workflow\|actionlint\|pitfall.*ci" develop-tdd/SKILL.md | awk '{if($1>=1) print "OK: CI aware in develop-tdd"; else print "FAIL: not CI aware"}'

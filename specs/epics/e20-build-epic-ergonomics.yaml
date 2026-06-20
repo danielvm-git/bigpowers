@@ -1,0 +1,296 @@
+id: e20
+title: "Build-Epic Ergonomics & Flow Polish"
+wsjf: 3.6
+bcps: 5
+covers:
+  - "change-request conversational intake — parse natural-language requests instead of requiring pre-formatted input"
+  - "build-epic state.yaml churn reduction — state: was 9% of commits (3/34); squash or out-of-band tracking"
+  - "kickoff-branch pre-commit for spec artifacts — avoid stash/pop cycles on dirty-tree gate"
+  - "verify-work verify-command validation — detect mismatches between verify: and actual output patterns"
+  - "develop-tdd --config mode for pure-config tasks (no test file to write, verify-driven change instead)"
+  - "build-epic --fast mode — coalesce read-only steps 1+2 and 6+7 for token efficiency"
+  - "verify-work --cli mode — support CLI tools (--help, --version, happy-path) instead of server-centric cold-start"
+rationale: "BV=8 (affects every build-epic cycle), TC=5 (QoL not blocking), RR=5 (moderate — less manual stashing, better verify accuracy), JS=5 (1 week — multiple skill modifications)"
+stories:
+  - id: e20s01
+    title: "change-request conversational intake — parse natural-language requests"
+    bcps: 1
+    tasks:
+      - desc: |
+          Add a conversational intake path to `change-request/SKILL.md` so users don't need
+          to paste pre-formatted change requests. In big-token-saver, the user pasted the full
+          SKILL.md + WSJF reference twice because they didn't know the format.
+
+          **New conversational flow:**
+          ```
+          User: "Add: I want npm/npx install support"
+          Agent (change-request): 
+            1. Capture: "You want npm/npx installation. What problem does this solve?"
+            2. Locate: "This affects e12 (Pi Support) — the pi install path. Confirm?"
+            3. Draft: "I'll add a story: 'npm publish + npx install'. AC: npx bigpowers works."
+            4. Score: "WSJF: BV=8 (core distribution), TC=5, RR=3, JS=3 → WSJF=5.3. Outranks 3 planned epics. Proceed?"
+            5. Place: "Adding to e12 or creating new epic eNN?"
+          ```
+
+          **Implementation in SKILL.md:**
+          - Add a "Conversational Mode" section before the two modes
+          - If the user's message doesn't match Mode A or B format:
+            1. Parse the natural-language request for: what, why, where
+            2. Ask clarifying questions (max 3) using the Capture→Locate→Draft→Score→Place flow
+            3. Present the draft for confirmation before writing files
+          - Keep existing Mode A/B for programmatic/experienced users
+
+          **Gherkin:**
+          ```
+          Given a user types "Add skill for npm publishing"
+          And the message doesn't match the structured Mode A/B format
+          When change-request enters conversational mode
+          Then it asks: "What problem does npm publishing solve for bigpowers users?"
+          And after 2-3 clarifying exchanges, it drafts a change request
+          And presents the draft for user confirmation before writing epic files
+          ```
+
+          **Acceptance Criteria:**
+          - `change-request/SKILL.md` has a "Conversational Mode" section
+          - The section describes the 5-step conversational flow (Capture→Place)
+          - verify: `grep -c "Conversational Mode\|conversational\|natural.language" change-request/SKILL.md` ≥ 2
+        verify: |
+          grep -c "Conversational Mode\|conversational\|natural.language\|clarifying" change-request/SKILL.md | awk '{if($1>=2) print "OK: conversational mode"; else print "FAIL: only " $1 " refs"}'
+
+  - id: e20s02
+    title: "Reduce state.yaml commit noise — squash state: commits or out-of-band tracking"
+    bcps: 1
+    tasks:
+      - desc: |
+          Reduce `state:` commit noise in git history. In big-token-saver, 9% of commits
+          (3/34) were `chore(state):` — each step of build-epic rewrites epic_cycle.step
+          and handoff fields.
+
+          **Proposed solutions (implement at least one):**
+
+          **Option A: --squash-state flag on release-branch**
+          - release-branch squashes all `chore(state):` commits in the feature branch
+            into a single commit before merging: `chore(state): eNN cycle (steps 1-8)`
+          - Preserves all state transitions in a commit message body
+          - Reduces N `chore(state):` commits to 1 per epic
+
+          **Option B: Non-committed state file**
+          - Move step tracking to `.bigpowers/cycle-state.json` (gitignored)
+          - Commit state.yaml only at story boundaries (build-epic step 8)
+          - Reduces real-time state writes but preserves checkpoint durability
+          - Add `session-state/SKILL.md` section: "State commit strategy"
+
+          **Implementation (recommend Option A as primary + Option B as configurable):**
+          1. Add `--squash-state` flag to `release-branch/SKILL.md`
+          2. Document the pattern in `build-epic/SKILL.md`: state commits are expected,
+             they will be squashed at merge time
+          3. Add `.bigpowers/cycle-state.json` as an optional non-committed mirror
+          4. Update `CONVENTIONS.md` state commit policy
+
+          **Gherkin:**
+          ```
+          Given an epic with 8 build-epic steps
+          And each step writes a chore(state): commit
+          When release-branch --squash-state merges the feature branch
+          Then 8 chore(state): commits become 1 squashed commit
+          And the commit body lists each step transition
+          ```
+
+          **Acceptance Criteria:**
+          - `release-branch/SKILL.md` documents `--squash-state` flag
+          - OR `build-epic/SKILL.md` documents `.bigpowers/cycle-state.json` pattern
+          - CONVENTIONS.md has state commit policy
+          - verify: at least one of the two patterns is implemented
+        verify: |
+          grep -c "squash.state\|cycle-state.json\|state.commit" release-branch/SKILL.md build-epic/SKILL.md | awk '{sum+=$1} END {if(sum>=2) print "OK: state churn solution (" sum " refs)"; else print "FAIL: only " sum " refs"}'
+
+  - id: e20s03
+    title: "kickoff-branch pre-commit for spec artifacts — fix dirty-tree conflicts"
+    bcps: 1
+    tasks:
+      - desc: |
+          Fix the dirty-tree conflict in `kickoff-branch` where spec artifacts modified
+          by build-epic itself (state.yaml, execution-status.yaml, epic YAMLs) cause the
+          "working tree must be clean" gate to fail.
+
+          In big-token-saver, this forced 2 stash/pop cycles in one session. The dirty
+          files were ALL spec artifacts — not unrelated work.
+
+          **Implementation:**
+          1. In `kickoff-branch/SKILL.md`, add a pre-kickoff step:
+             - Before checking for a clean working tree, check if the only dirty files
+               are spec artifacts: `specs/state.yaml`, `specs/epics/*.yaml`,
+               `specs/execution-status.yaml`
+             - If yes → offer to commit them automatically:
+               `git add specs/ && git commit -m "chore(state): checkpoint before eNN kickoff"`
+             - If there are other dirty files → enforce the clean-tree gate as before
+             - If no dirty files → proceed as before
+
+          **Gherkin:**
+          ```
+          Given working tree has uncommitted changes to specs/state.yaml
+          And specs/epics/e20-build-epic-ergonomics.yaml
+          And no other files are dirty
+          When kickoff-branch runs
+          Then it detects "spec-only" dirty state
+          And asks: "Commit spec artifacts before kickoff? [Y/n]"
+          And if confirmed, runs git add specs/ && git commit -m "chore(state): checkpoint before e21s01 kickoff"
+          And proceeds with the clean tree gate satisfied
+
+          Given working tree has uncommitted changes to src/main.rs
+          And specs/state.yaml
+          When kickoff-branch runs
+          Then it reports: "Dirty tree: src/main.rs (not a spec artifact). Stash or commit before proceeding."
+          ```
+
+          **Acceptance Criteria:**
+          - `kickoff-branch/SKILL.md` has spec-only dirty detection
+          - Auto-commit for spec-only dirty trees with user confirmation
+          - verify: `grep -c "spec.only\|spec.artifact\|auto.commit.*spec" kickoff-branch/SKILL.md` ≥ 2
+        verify: |
+          grep -c "spec.only\|spec.artifact\|auto.commit.*spec\|pre.kickoff" kickoff-branch/SKILL.md | awk '{if($1>=2) print "OK: spec artifact handling"; else print "FAIL: only " $1 " refs"}'
+
+  - id: e20s04
+    title: "verify-work verify-command validation — detect mismatches before UAT"
+    bcps: 1
+    tasks:
+      - desc: |
+          Add a "verify the verify" pre-check to `verify-work` that validates each task's
+          `verify:` command against known output patterns before UAT begins.
+
+          In big-token-saver, task 4's verify command was `grep -q 'crates/bts-map'` but
+          bts-map output uses paths relative to the scanned directory (not absolute). The
+          UAT step caught this but required manual adjustment.
+
+          **Implementation:**
+          1. In `verify-work/SKILL.md`, add a pre-UAT validation step:
+             - Parse each task's `verify:` from the epic YAML
+             - Run the verify command against the current state
+             - If the command fails, check if it's a pattern mismatch (not a real failure)
+             - Pattern mismatch detection:
+               a. If `verify:` contains `grep -q` or `grep -c`, run without `-q` to see output
+               b. Compare grep pattern against actual file content
+               c. If pattern is not found but a near-match exists (fuzzy), flag as potential mismatch
+             - Report: "3/4 verify commands passed. 1 potential mismatch: e21s04 verify expects
+               'crates/bts-map' but output contains 'src/bts-map'. Adjust?"
+
+          **Gherkin:**
+          ```
+          Given task e21s04 has verify: grep -q 'crates/bts-map' some-output.txt
+          And some-output.txt contains src/bts-map (not crates/bts-map)
+          When verify-work runs the pre-check
+          Then it flags: "Pattern 'crates/bts-map' not found. Nearest match: 'src/bts-map' at line 5"
+          And asks: "Update verify command to 'src/bts-map'? [Y/n]"
+          ```
+
+          **Acceptance Criteria:**
+          - `verify-work/SKILL.md` has pre-UAT verify validation step
+          - Pattern mismatch detection for grep, awk, jq commands
+          - verify: `grep -c "verify.*mismatch\|pattern.*validation\|pre.UAT" verify-work/SKILL.md` ≥ 1
+        verify: |
+          grep -c "verify.*mismatch\|pattern.*validation\|pre.UAT\|nearest.match" verify-work/SKILL.md | awk '{if($1>=1) print "OK: verify validation"; else print "FAIL: not implemented"}'
+
+  - id: e20s05
+    title: "develop-tdd --config mode + build-epic --fast mode"
+    bcps: 1
+    tasks:
+      - desc: |
+          Add two operational modes to reduce overhead for specific task types.
+
+          **1. develop-tdd --config mode (friction #5)**
+          For pure-config tasks like "update package.json" there's no test file to write.
+          The natural RED state is "verify command fails" and GREEN is "verify command passes."
+          That's verify-driven change, not TDD.
+
+          Add to `develop-tdd/SKILL.md`:
+          - `--config` mode detection: if the task description matches config patterns
+            (keywords: "update config", "add to package.json", "modify Cargo.toml", "add dependency")
+          - Cycle: RED (verify fails) → GREEN (config change passes verify) → COMMIT
+          - Skips test-writing phase entirely
+          - Still gated: verify must have a runnable command, commit message follows Conventional Commits
+          - Records in state.yaml: `develop-tdd.mode: config`
+
+          **2. build-epic --fast mode (friction #8)**
+          Steps 1 (survey-context), 6 (audit-code), and 7 (commit-message) are pure
+          read-and-report operations. Running them as separate invocations adds token overhead.
+
+          Add to `build-epic/SKILL.md`:
+          - `--fast` flag coalesces read-only steps:
+            - Step 1+2 together (survey-context + plan-work)
+            - Step 6+7 together (audit-code + commit-message)
+          - Steps 3 (kickoff-branch), 4 (develop-tdd), 5 (verify-work), 8 (release-branch)
+            still run sequentially (they modify state)
+          - `--fast` reduces invocations from 8 to 6
+          - Default mode remains sequential (8 steps) for traceability
+
+          **Gherkin:**
+          ```
+          Given a task to "add bts_find to package.json keywords"
+          And no test infrastructure exists for package.json
+          When develop-tdd --config runs
+          Then the cycle is: run verify → verify fails (RED) → add keyword → verify passes (GREEN) → commit
+          And no test file is created
+
+          Given build-epic e21 with --fast flag
+          When the agent invokes build-epic
+          Then steps 1+2 execute in one invocation
+          And steps 6+7 execute in one invocation
+          And steps 3, 4, 5, 8 execute individually
+          And total invocations = 6 (not 8)
+          ```
+
+          **Acceptance Criteria:**
+          - `develop-tdd/SKILL.md` documents `--config` mode
+          - `build-epic/SKILL.md` documents `--fast` mode
+          - verify: both modes are grep-able in their respective SKILL.md files
+        verify: |
+          grep -c "\-\-config\|config.mode" develop-tdd/SKILL.md | awk '{if($1>=2) print "OK: --config mode"; else print "FAIL: only " $1 " refs"}'
+          grep -c "\-\-fast\|fast.mode\|coalesce" build-epic/SKILL.md | awk '{if($1>=2) print "OK: --fast mode"; else print "FAIL: only " $1 " refs"}'
+
+  - id: e20s06
+    title: "verify-work --cli mode for CLI tools"
+    bcps: 1
+    tasks:
+      - desc: |
+          Add a `--cli` mode to `verify-work` for CLI tools (like bts) where the
+          "cold-start smoke" section (stop server, clear caches, boot from scratch)
+          is not applicable.
+
+          In big-token-saver (a CLI toolchain), the verify-work cold-start section
+          was N/A. A --cli mode would run:
+          - `tool --help` → verify non-zero output and exit 0
+          - `tool --version` → verify version string matches Cargo.toml/package.json
+          - One happy-path command → verify expected output
+          - No server lifecycle steps
+
+          **Implementation in verify-work/SKILL.md:**
+          - Add `--cli` flag section
+          - Detection: if project has no server/process (no server.js, no listen(), no main()
+            that blocks), default to --cli mode
+          - CLI verification checklist:
+            1. `--help` smoke: run `<binary> --help`, assert output contains usage text
+            2. `--version` check: run `<binary> --version`, assert version matches manifest
+            3. Happy-path: run the documented example command from README.md
+            4. Edge case: run with invalid args, assert non-zero exit and error message
+          - Auto-detect the binary name from Cargo.toml, package.json, or Makefile
+          - Keep existing server-centric mode for web/server projects
+
+          **Gherkin:**
+          ```
+          Given a Rust CLI project with binary name "bts"
+          And Cargo.toml has version = "0.4.0"
+          When verify-work --cli runs
+          Then step 1 runs: bts --help → assert output contains "Usage: bts"
+          And step 2 runs: bts --version → assert output contains "0.4.0"
+          And step 3 runs: bts map → assert output contains ranked file map
+          And step 4 runs: bts --invalid-flag → assert exit code != 0
+          And no "stop server" or "clear caches" steps are executed
+          ```
+
+          **Acceptance Criteria:**
+          - `verify-work/SKILL.md` has `--cli` mode section
+          - CLI verification checklist: --help, --version, happy-path, edge-case
+          - Auto-detection of binary name from project manifests
+          - verify: `grep -c "\-\-cli\|cli.mode\|help.*version.*happy" verify-work/SKILL.md` ≥ 2
+        verify: |
+          grep -c "\-\-cli\|cli.mode\|help.*version\|binary.name" verify-work/SKILL.md | awk '{if($1>=2) print "OK: --cli mode"; else print "FAIL: only " $1 " refs"}'

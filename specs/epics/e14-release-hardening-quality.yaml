@@ -1,0 +1,115 @@
+id: e14
+title: "Release Hardening & Quality Metrics"
+wsjf: 6.0
+bcps: 3
+covers:
+  - "Fix release-branch fragility in solo-local mode (land-branch.sh may not exist)"
+  - "Add fix-rate KPI tracking to session-state (closes feedback loop between deploy and next feature)"
+  - "Catalog completeness audit — verify all pi skills exist in public catalog, no orphans"
+rationale: "BV=8 (blocks solo users), TC=5 (important not urgent), RR=5 (moderate risk), JS=3 (2-3 days)"
+stories:
+  - id: e14s01
+    title: "Harden release-branch solo-local fallback"
+    bcps: 1
+    tasks:
+      - desc: |
+          Fix `release-branch` skill's solo-local mode to handle missing `scripts/land-branch.sh`.
+
+          Current behavior: references `scripts/land-branch.sh` which may not exist in the repo.
+          big-bolao had to merge manually with `git merge --no-ff`.
+
+          **Required changes to `release-branch/SKILL.md`:**
+          1. Auto-detect: check if `scripts/land-branch.sh` exists and is executable
+          2. If exists → use it (current happy path)
+          3. If missing → fallback sequence:
+             a. `git fetch origin main`
+             b. `git checkout main`
+             c. `git pull --rebase origin main` (handle "remote has moved" case)
+             d. `git merge --no-ff <feature-branch>`
+             e. `git push origin main`
+             f. `git branch -d <feature-branch>`
+          4. Report which path was taken in the skill output
+
+          **Gherkin Acceptance Criteria:**
+          ```
+          Given scripts/land-branch.sh does NOT exist in the repo
+          And a feature branch feat/quick-fix is ready to merge
+          When release-branch runs in solo-local mode
+          Then the fallback sequence executes
+          And main is updated with the feature branch changes
+          And the feature branch is deleted locally
+          And the output states "used fallback merge (land-branch.sh not found)"
+          ```
+
+          **Acceptance Criteria:**
+          - `release-branch/SKILL.md` documents both paths (script vs fallback)
+          - Fallback handles `git pull --rebase` for the "remote has moved" case
+          - verify: `grep -c "land-branch.sh\|fallback\|git merge --no-ff" release-branch/SKILL.md` returns ≥ 3
+        verify: |
+          grep -c "land-branch.sh\|fallback\|git merge --no-ff" release-branch/SKILL.md | awk '{if($1>=3) print "OK: fallback documented"; else print "FAIL: only " $1 " references"}'
+
+  - id: e14s02
+    title: "Add fix-rate KPI to session-state tracking"
+    bcps: 1
+    tasks:
+      - desc: |
+          Track the fix-to-feature ratio as a quality KPI in `specs/state.yaml`.
+
+          The 38% fix rate from big-bolao (48 fix commits out of 125 total) is a design smell —
+          most fixes were integration friction caught by users, not by tests. Adding deploy +
+          smoke-test skills closes the loop; tracking the ratio proves it.
+
+          **Required changes:**
+          1. Add `metrics.commit_ratio` to `specs/state.yaml` schema:
+             ```yaml
+             metrics:
+               commit_ratio:
+                 feat: 0
+                 fix: 0
+                 total: 0
+                 fix_pct: 0.0
+                 last_updated: ""
+             ```
+          2. `session-state/SKILL.md` — add a section "Tracking commit ratio"
+             - After `release-branch`, run `git log --oneline main | grep -c "fix:"` etc.
+             - Update `metrics.commit_ratio` in state.yaml
+             - If fix_pct > 30%, emit a warning suggesting deploy + smoke-test skills
+          3. `commit-message/SKILL.md` — note that each `fix:` commit feeds the ratio
+
+          **Gherkin Acceptance Criteria:**
+          ```
+          Given a project with 125 commits (48 fix, 28 feat)
+          When session-state updates metrics after release-branch
+          Then metrics.commit_ratio.fix_pct is 38.4
+          And if fix_pct > 30%, a warning is emitted: "High fix rate (38.4%) — consider deploy + smoke-test skills"
+          ```
+
+          **Acceptance Criteria:**
+          - `specs/state.yaml` has `metrics.commit_ratio` after first use
+          - `session-state/SKILL.md` documents the KPI section
+          - verify: `grep -c "commit_ratio\|fix_pct" session-state/SKILL.md` returns ≥ 2
+        verify: |
+          grep -c "commit_ratio\|fix_pct" session-state/SKILL.md | awk '{if($1>=2) print "OK: KPI in skill"; else print "FAIL: only " $1 " references"}'
+
+  - id: e14s03
+    title: "Catalog completeness audit — verify all pi skills exist in public catalog"
+    bcps: 1
+    tasks:
+      - desc: |
+          Verify that every skill bundled in `.pi/skills/` also exists as a source SKILL.md
+          in the public bigpowers catalog, and vice versa. No orphaned skills, no missing entries.
+
+          **Required checks:**
+          1. For each dir in `.pi/skills/`, verify a corresponding source SKILL.md exists at `<name>/SKILL.md`
+          2. For each `<name>/SKILL.md` in the repo, verify `.pi/skills/<name>/SKILL.md` exists
+          3. Flag any mismatch — pi skills not in catalog (orphans) or catalog skills not in pi (missing from bundle)
+          4. Update SKILL-INDEX.md total count if drift detected
+          5. Integrate as a check in `stocktake-skills` `--full` mode
+
+          **Acceptance Criteria:**
+          - `bash scripts/audit-catalog.sh` — one command to run the cross-check
+          - Output format: `OK: 61/61 skills synced` or `MISMATCH: 3 orphans, 1 missing`
+          - Non-zero exit code on mismatch
+          - verify: run audit-catalog.sh, expect 0 mismatches
+        verify: |
+          bash scripts/audit-catalog.sh 2>&1 | grep -q "OK:" && echo "OK: audit passes" || echo "FAIL or no audit script"
