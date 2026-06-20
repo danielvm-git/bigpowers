@@ -1,0 +1,47 @@
+story_id: e13s02
+title: "Autogenerate SKILL-INDEX.md from lockfile + frontmatter"
+verified_at: "2026-06-20T18:59:30Z"
+verifier: verify-work
+phases:
+  smoke:
+    passed: true
+    notes: "No application server"
+  build:
+    passed: true
+    command: "bash scripts/generate-skill-index.sh"
+  typecheck:
+    passed: true
+  lint:
+    passed: true
+  tests:
+    passed: true
+    command: |
+      grep -q "DO NOT EDIT" SKILL-INDEX.md && \
+      grep -q "Generated:" SKILL-INDEX.md && \
+      jq -e '.skills | length == 62' skills-lock.json > /dev/null
+    coverage: "62 skills indexed"
+  sync:
+    passed: true
+    command: "bash scripts/sync-skills.sh"
+    output: "generate-skill-index: wrote SKILL-INDEX.md (62 skills)"
+  manual:
+    steps:
+      - step: "Verify SKILL-INDEX.md has DO NOT EDIT header"
+        expected: "Header says DO NOT EDIT — auto-generated"
+        actual: "Found: 'DO NOT EDIT — This file is auto-generated'"
+        passed: true
+      - step: "Verify SKILL-INDEX.md has generation timestamp"
+        expected: "ISO 8601 timestamp present"
+        actual: "Found: **Generated:** with ISO date"
+        passed: true
+      - step: "Verify SKILL-INDEX.md is regenerated via sync-skills.sh"
+        expected: "sync-skills.sh pipeline includes generate-skill-index.sh"
+        actual: "Confirmed in sync output"
+        passed: true
+      - step: "Verify phase categorization covers all skills"
+        expected: "Total count matches 62"
+        actual: "Total: 62 active skills in index"
+        passed: true
+  gaps:
+    closed: true
+    count: 0

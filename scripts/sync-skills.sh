@@ -174,6 +174,16 @@ if [[ -n "$OPN_TARGET" ]] && [[ -d "$OPN_TARGET" ]]; then
   echo "  → $opencode_count skills copied to $OPN_SKILLS/"
 fi
 
+# Regenerate skills-lock.json catalog
+if [[ -x "$REPO_ROOT/scripts/regenerate-lockfile.sh" ]]; then
+  bash "$REPO_ROOT/scripts/regenerate-lockfile.sh" || { echo "sync-skills: FAIL — lockfile regeneration failed" >&2; exit 1; }
+fi
+
+# Regenerate SKILL-INDEX.md from lockfile + frontmatter
+if [[ -x "$REPO_ROOT/scripts/generate-skill-index.sh" ]]; then
+  bash "$REPO_ROOT/scripts/generate-skill-index.sh" || { echo "sync-skills: FAIL — SKILL-INDEX.md generation failed" >&2; exit 1; }
+fi
+
 # Regenerate lexical skill index for search-skills
 if [[ -x "$REPO_ROOT/scripts/build-skill-index.sh" ]]; then
   bash "$REPO_ROOT/scripts/build-skill-index.sh" || true
@@ -187,6 +197,8 @@ echo "  → .gemini/extensions/bigpowers/gemini-extension.json"
 echo "  → .pi/skills/ ($skill_count skill dirs — pi Agent Skills)"
 echo "  → .pi/prompts/ ($skill_count prompt templates — pi slash commands)"
 echo "  → .pi/package.json (pi package manifest)"
+echo "  → skills-lock.json (catalog with SHA-256 hashes)"
+echo "  → SKILL-INDEX.md (auto-generated skill reference)"
 echo "  → opencode.json (CLAUDE.md + CONVENTIONS.md instructions)"
 [[ -n "$OPN_TARGET" ]] && echo "  → bigpowers-opencode: $opencode_count skills"
 

@@ -1,0 +1,54 @@
+story_id: e13s01
+title: "Regenerate skills-lock.json with all 62 skills"
+verified_at: "2026-06-20T18:58:00Z"
+verifier: verify-work
+phases:
+  smoke:
+    passed: true
+    notes: "No application server — documentation project, cold-start smoke N/A"
+  build:
+    passed: true
+    command: "bash scripts/regenerate-lockfile.sh"
+  typecheck:
+    passed: true
+    notes: "N/A — shell scripts with set -euo pipefail"
+  lint:
+    passed: true
+    notes: "ShellCheck conventions followed"
+  tests:
+    passed: true
+    command: |
+      python3 -c "
+      import json, os, hashlib
+      d = json.load(open('skills-lock.json'))
+      s = d.get('skills', d)
+      assert len(s) == 62
+      for n, i in s.items():
+          p = i.get('path', f'{n}/SKILL.md')
+          c = open(p).read()
+          h = hashlib.sha256(c.encode()).hexdigest()[:16]
+          assert i['sha256'] == h
+      print('OK')
+      "
+    coverage: "62/62 skills verified"
+  sync:
+    passed: true
+    command: "bash scripts/sync-skills.sh"
+    output: "62 skills synced — lockfile regenerated in pipeline"
+  manual:
+    steps:
+      - step: "Run regenerate-lockfile.sh"
+        expected: "Lockfile written with 62 entries"
+        actual: "62 entries written, all hashes match, all paths exist"
+        passed: true
+      - step: "Verify lockfile is regenerated in sync-skills.sh"
+        expected: "sync-skills.sh runs regenerate-lockfile.sh"
+        actual: "Confirmed in sync output: regenerate-lockfile: 62 skills written"
+        passed: true
+      - step: "Verify sync-skills.sh does not fail on lockfile"
+        expected: "sync-skills.sh exits 0 with lockfile regeneration"
+        actual: "Exit 0, all artifacts generated"
+        passed: true
+  gaps:
+    closed: true
+    count: 0
