@@ -51,6 +51,7 @@ PHASE_MAP=(
   [setup-environment]="Build"
   [wire-observability]="Build"
   [wire-ci]="Build"
+  [publish-package]="Build"
   [align-grid]="Build"
   [orchestrate-project]="Build"
   [guard-git]="Build"

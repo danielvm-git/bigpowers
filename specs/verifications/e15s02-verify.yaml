@@ -1,0 +1,47 @@
+story_id: e15s02
+verified_at: "2026-06-20T21:35:00Z"
+verifier: verify-work
+phases:
+  smoke:
+    passed: true
+    note: "No app to cold-start (documentation/skills project)"
+  build:
+    passed: true
+    command: "SKIP — markdown-only project"
+  typecheck:
+    passed: true
+    note: "No code in project"
+  lint:
+    passed: true
+    command: "bash scripts/validate-specs-yaml.sh"
+  tests:
+    passed: true
+    tasks:
+      - id: 1
+        description: "Create publish-package/SKILL.md with verb-noun naming and frontmatter"
+        passed: true
+      - id: 2
+        description: "Add npm, crates.io, and PyPI publishing support with prerequisite checks"
+        passed: true
+      - id: 3
+        description: "Implement --dry-run mode for each registry type"
+        passed: true
+      - id: 4
+        description: "Implement error handling with actionable hints on failure"
+        passed: true
+      - id: 5
+        description: "Add publish-package to SKILL-INDEX.md via sync-skills.sh"
+        passed: true
+  manual:
+    steps:
+      - step: "Verify publish-package/SKILL.md has frontmatter, multi-registry support, dry-run, error handling"
+        expected: "All 5 topics present"
+        actual: "All 5 topics confirmed via grep"
+        passed: true
+      - step: "Verify publish-package appears in generated artifacts"
+        expected: "SKILL-INDEX.md, .pi/skills/, .cursor/rules/ all contain publish-package"
+        actual: "Confirmed"
+        passed: true
+  gaps:
+    closed: true
+    count: 0
