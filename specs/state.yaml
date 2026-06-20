@@ -1,4 +1,4 @@
-active_flow: "build_epic"
+active_flow: "idle"
 workflow_mode: "yolo"
 active_epic_id: "e16"
 active_story_id: "e16s02"
@@ -23,7 +23,7 @@ git:
   pushed: true
 handoff:
   last_step_completed: "build-epic: e16 complete — both stories (deploy + smoke-test) landed on main, capsule archived"
-  open_decisions: "[next: build-epic e16 (deployment-pipeline) or plan-release for next WSJF item]"
+  open_decisions: "[next: e17 (data-contract-validation) or plan-release for next WSJF item]"
   next_skill: ""
   commit_ratio:
     feat: 0
