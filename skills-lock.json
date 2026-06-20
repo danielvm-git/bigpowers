@@ -266,6 +266,11 @@
       "sha256": "bda9db54dbe791b5",
       "path": "slice-tasks/SKILL.md"
     },
+    "smoke-test": {
+      "description": "\"Post-deploy health-check against a live URL. Validates HTTP status, response content, and critical endpoints. Runnable standalone OR as the final step of the deploy skill.\"",
+      "sha256": "402c89c31ac4fd4c",
+      "path": "smoke-test/SKILL.md"
+    },
     "spike-prototype": {
       "description": "Throw-away prototype for unknown problem spaces. Output is learning notes in specs/archive/spikes/SPIKE-<name>.md, not production code. Use when the domain or technology is unexplored, when estimates are impossible without experimentation, or when user says \"spike\", \"prototype\", or \"proof of concept\".",
       "sha256": "568e52ae1e3a9213",

@@ -57,6 +57,7 @@ PHASE_MAP=(
   [guard-git]="Build"
   [hook-commits]="Build"
   [deploy]="Build"
+  [smoke-test]="Build"
   # Verify
   [verify-work]="Verify"
   [validate-fix]="Verify"
