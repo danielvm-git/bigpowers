@@ -1,8 +1,8 @@
 active_flow: "build_epic"
 workflow_mode: "yolo"
 active_epic_id: "e14"
-active_story_id: "e14s02"
-completed_epic: false
+active_story_id: "e14s03"
+completed_epic: true
 release:
   target_version: "2.8.0"
   last_tag: "v2.7.0"
@@ -13,18 +13,18 @@ epic_cycle:
   story_bcps: 1
   completed_steps: ""
 metrics:
-  story_start: "2026-06-20T19:15:00Z"
-  story_end: ""
-  cycle_minutes: 0
-  bcp_per_hour: 0
+  story_start: "2026-06-20T19:00:00Z"
+  story_end: "2026-06-20T19:40:00Z"
+  cycle_minutes: 40
+  bcp_per_hour: 4.5
 git:
   branch: "main"
   hash: ""
   pushed: false
 handoff:
-  last_step_completed: ""
+  last_step_completed: "e14 YOLO run — all 3 stories landed (e14s01 release-branch fallback, e14s02 fix-rate KPI, e14s03 catalog audit)"
   open_decisions: "[]"
-  next_skill: ""
+  next_skill: "plan-release"
   commit_ratio:
     feat: 0
     fix: 0
