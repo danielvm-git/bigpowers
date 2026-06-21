@@ -58,6 +58,7 @@ PHASE_MAP=(
   [hook-commits]="Build"
   [deploy]="Build"
   [smoke-test]="Build"
+  [validate-contracts]="Build"
   # Verify
   [verify-work]="Verify"
   [validate-fix]="Verify"

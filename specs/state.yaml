@@ -1,20 +1,20 @@
-active_flow: "idle"
+active_flow: "build_epic"
 workflow_mode: "yolo"
-active_epic_id: "e16"
-active_story_id: "e16s02"
-completed_epic: true
+active_epic_id: "e17"
+active_story_id: "e17s01"
+completed_epic: false
 release:
   target_version: "2.8.0"
   last_tag: "v2.7.0"
   last_publish: "2026-06-20T00:00:00Z"
   ci_verified: true
 epic_cycle:
-  current_step: 1
+  current_step: 4
   next_skill: ""
-  story_bcps: 2
-  completed_steps: ""
+  story_bcps: 3
+  completed_steps: "1,2,3"
 metrics:
-  story_start: "2026-06-20T21:48:17Z"
+  story_start: "2026-06-21T18:17:14Z"
   story_end: "2026-06-20T21:50:01Z"
   cycle_minutes: 1
   bcp_per_hour: 120.0
@@ -25,7 +25,7 @@ git:
 handoff:
   last_step_completed: "release-branch: fix/missing-run-smoke-script released (solo-local, Path A), CI verified, stale branches cleaned"
   open_decisions: "[next: e17 (data-contract-validation) or plan-release for next WSJF item]"
-  next_skill: "survey-context"
+  next_skill: "plan-work"
   commit_ratio:
     feat: 0
     fix: 0
