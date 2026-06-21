@@ -1,3 +1,10 @@
+# [2.19.0](https://github.com/danielvm-git/bigpowers/compare/v2.18.0...v2.19.0) (2026-06-21)
+
+
+### Features
+
+* **skill:** quick-fix — fast-path for trivial data-only fixes ([77090cb](https://github.com/danielvm-git/bigpowers/commit/77090cb8236c8fc1129773be4391abb67c9401a9))
+
 # [2.18.0](https://github.com/danielvm-git/bigpowers/compare/v2.17.0...v2.18.0) (2026-06-21)
 
 
