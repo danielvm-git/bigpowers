@@ -23,7 +23,30 @@ Audit SKILL.md catalog for drift, stale triggers, missing HARD GATEs, and INDEX 
 1. Run `bash scripts/audit-catalog.sh` to verify pi/skills ↔ source SKILL.md sync. Mismatch is a critical finding.
 2. Run mode; for each skill check: exists, verb-noun, &lt;300 lines total, HARD GATE present, INDEX row matches.
 3. Write `specs/STOCKTAKE-<date>.md` with findings table (skill, issue, severity).
-4. Critical findings → `plan-work` story; cosmetic → `evolve-skill` candidate.
+4. **Effectiveness report (--full mode only):** Read `specs/state.yaml` `metrics.skill_timings` and report:
+   - Top 5 most-used skills (by calls, total_seconds)
+   - Skills with zero calls (potential dead weight)
+   - Skills with high average time (candidates for `evolve-skill`)
+5. Critical findings → `plan-work` story; cosmetic → `evolve-skill` candidate.
+
+### Skill timing data (`metrics.skill_timings`)
+
+In `--full` mode, read `specs/state.yaml` `metrics.skill_timings` for per-skill usage stats:
+
+```yaml
+metrics:
+  skill_timings:
+    survey-context:
+      calls: 12
+      total_seconds: 180
+      avg_seconds: 15.0
+    develop-tdd:
+      calls: 30
+      total_seconds: 5400
+      avg_seconds: 180.0
+```
+
+Timing data is populated by `scripts/bp-timing.sh start|end <skill>` calls within critical-path skills.
 
 ## Verify
 

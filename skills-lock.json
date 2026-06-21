@@ -278,7 +278,7 @@
     },
     "stocktake-skills": {
       "description": "Sequential subagent batch audit of the bigpowers skill catalog — Quick Scan (changed only) or Full (all skills). Use during sustain phase, before a major release, or when catalog drift is suspected.",
-      "sha256": "84a4cba67602028f",
+      "sha256": "c58bf4f70ff02cd3",
       "path": "stocktake-skills/SKILL.md"
     },
     "survey-context": {
