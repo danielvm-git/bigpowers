@@ -1,0 +1,36 @@
+story_id: e18s02
+verified_at: "2026-06-21T21:30:00Z"
+verifier: verify-work
+phases:
+  smoke:
+    passed: true
+    note: "N/A — documentation-only"
+  build:
+    passed: true
+    command: "bash scripts/sync-skills.sh"
+  typecheck:
+    passed: true
+  lint:
+    passed: true
+    command: "bash scripts/validate-specs-yaml.sh"
+  tests:
+    passed: true
+    results:
+      - task: 1
+        description: "--quick mode in enforce-first"
+        passed: true
+      - task: 2
+        description: "enforce-first ref in build-epic step 6"
+        passed: true
+  manual:
+    steps:
+      - step: "Verify enforce-first has --quick mode"
+        expected: "Modes section with --quick covering F+I+S"
+        actual: "Modes section present with --quick listing F, I, S criteria"
+        passed: true
+      - step: "Verify build-epic step 6 includes enforce-first"
+        expected: "Step 6 sub-section mentions enforce-first --quick as sub-check"
+        actual: "Bullet 5 added: Enforce F.I.R.S.T with enforce-first --quick after audit-code"
+        passed: true
+  gaps:
+    closed: true

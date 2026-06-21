@@ -1,7 +1,7 @@
 ---
 story_id: e18s02
 title: "Wire enforce-first (F.I.R.S.T) into build-epic gate chain"
-status: backlog
+status: planned
 bcps: 1
 type: feat
 context: infra
@@ -9,38 +9,50 @@ context: infra
 
 # Story e18s02: enforce-first integration
 
-Integrate `enforce-first` (F.I.R.S.T rubric) into the build-epic quality gate chain.
-
-Current state: enforce-first exists as a skill but has zero recorded usage. BigBase had
-64 test commits but no mechanical enforcement that tests are FAST, INDEPENDENT, and
-SELF-VALIDATING.
+Integrate `enforce-first` (F.I.R.S.T rubric) into the build-epic step 6 gate chain as a sub-check after `audit-code`.
 
 ## Acceptance Criteria
 
-- [ ] `enforce-first/SKILL.md` has a `--quick` mode (checks Fast + Independent + Self-Validating)
+- [ ] `enforce-first/SKILL.md` has a `--quick` mode (Fast + Independent + Self-Validating)
 - [ ] `build-epic/SKILL.md` step 6 invokes enforce-first after audit-code
 - [ ] enforce-first violations appended to audit report
 
-## Gherkin Scenarios
+## Implementation Steps
 
-```gherkin
-Given a test suite with 15 tests
-And one test takes 2 seconds (violates Fast)
-And two tests share a database fixture (violates Independent)
-When enforce-first runs in --quick mode
-Then it reports: "FAIL: 1 slow test (>100ms), 2 interdependent tests"
-And the build-epic gate blocks progress until fixed
-```
+**type:** feat
+**context:** infra
+**Context:** enforce-first exists as a skill but is never called by build-epic. Add --quick mode and wire it into step 6 gate chain.
 
-## Verification
+### 1. Add --quick mode to enforce-first/SKILL.md
 
-```bash
-grep -c "enforce-first" build-epic/SKILL.md | awk '{if($1>=1) print "OK: enforce-first in build-epic"; else print "FAIL: not integrated"}'
-grep -c "quick\|--quick\|fast.mode" enforce-first/SKILL.md | awk '{if($1>=1) print "OK: quick mode"; else print "FAIL: no quick mode"}'
-```
+Add a `Modes` section at the top with `--quick` mode that checks only F+I+S:
+- F (Fast): no slow tests >100ms, full suite <30s
+- I (Independent): no shared mutable state between tests
+- S (Self-Validating): tests use assertions, not console.log
 
-## Implementation Notes
+→ verify: `grep -c 'quick\|--quick\|Fast.*Independent.*Self' enforce-first/SKILL.md | awk '{if($1>=1) print "OK"; else print "FAIL"}'`
 
-- enforce-first runs as sub-check within build-epic step 6 (after audit-code)
-- --quick mode checks F (Fast <100ms/test) + I (Independent, no shared state) + S (Self-Validating assertions)
-- Violations appended to audit report file
+### 2. Add enforce-first --quick to build-epic step 6
+
+In `build-epic/SKILL.md` step 6 sub-section, add enforce-first as sub-check after audit-code:
+- Runs `enforce-first --quick` after audit-code passes
+- Appends violations to the audit report at `specs/verifications/AUDIT-<epic>-<story>.md`
+- On failure: same loop-back to step 4 (develop-tdd)
+
+→ verify: `grep -c 'enforce-first' build-epic/SKILL.md | awk '{if($1>=2) print "OK: " $1 " refs"; else print "FAIL: " $1 " refs"}'`
+
+## Verification Script
+
+1. Run `grep -c '--quick\|quick mode' enforce-first/SKILL.md` — expect ≥1
+2. Run `grep -c 'enforce-first' build-epic/SKILL.md` — expect ≥2
+3. Run `grep 'enforce-first' build-epic/SKILL.md` — confirm it's in the step 6 sub-section
+
+## Out of scope
+
+- Full F.I.R.S.T mode (R and T checks) — deferred to future
+- Modifying develop-tdd to call enforce-first
+- Enforce-first awareness of specific test frameworks
+
+## Risks
+
+- The --quick mode relies on agent judgment for "fast" vs "slow" test detection — no timer hook

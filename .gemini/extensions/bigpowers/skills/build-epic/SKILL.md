@@ -23,7 +23,7 @@ Orchestrates the **build** flow for a single epic: survey → plan tasks → kic
 | 3 | `kickoff-branch` — feature branch + clean baseline |
 | 4 | `develop-tdd` — red-green per task |
 | 5 | `verify-work` — UAT + mechanical gates |
-| 6 | `audit-code` — self-review checklist |
+| 6 | `audit-code` — **non-optional gate** (pass/fail; fail → loop back to step 4) |
 | 7 | `commit-message` — Conventional Commits draft |
 | 8 | `release-branch` — PR or solo land |
 
@@ -35,6 +35,16 @@ Orchestrates the **build** flow for a single epic: survey → plan tasks → kic
 4. Run **only the current step** (resume mode) unless user asked for full auto-run.
 5. After step verify passes, increment `epic_cycle.step` in `state.yaml` (or `bash scripts/bp-yaml-set.sh` if available).
 6. On story complete, set `execution-status.yaml` story key to `done`; run `bash scripts/sync-status-from-epics.sh`.
+
+### Step 6 — audit-code gate (non-optional)
+
+After step 5 (verify-work) completes successfully, step 6 runs `audit-code` automatically in `--gate` mode:
+
+1. **Run audit:** Invoke `audit-code --gate` on the complete diff for this story.
+2. **Pass (exit 0):** All checklist sections pass → advance to step 7 (commit-message). Record `epic_cycle.audit_result: pass` in `state.yaml`.
+3. **Fail (exit 1):** One or more checklist sections fail → **reset `epic_cycle.current_step` to `4`** (develop-tdd) and add the failing section IDs to `completed_steps` as `"1,2,3,4,5,6(fail: ...)"`. Record `epic_cycle.audit_result: fail` in `state.yaml`. Do NOT advance past step 6 until audit passes.
+4. **Audit artifact:** Full audit report saved to `specs/verifications/AUDIT-<epic>-<story>.md` regardless of pass/fail, for reviewer traceability.
+5. **Enforce F.I.R.S.T:** After audit-code passes, run `enforce-first --quick` on new/modified tests. Append F.I.R.S.T violations (if any) to the audit report. Failing F.I.R.S.T criteria trigger the same loop-back to step 4.
 
 ## Handoff
 

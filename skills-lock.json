@@ -18,7 +18,7 @@
     },
     "build-epic": {
       "description": "Eight-step epic build cycle — reads state.yaml, execution-status.yaml, and one epic capsule; updates status via bp-yaml-set or direct edit. Resume mode runs one step per invocation. Use instead of ad-hoc execute-plan for release work.",
-      "sha256": "ac7c8fc9740c4beb",
+      "sha256": "d33ba1c86463d91f",
       "path": "build-epic/SKILL.md"
     },
     "change-request": {
@@ -98,7 +98,7 @@
     },
     "enforce-first": {
       "description": "Apply the F.I.R.S.T test quality rubric (Fast, Independent, Repeatable, Self-Validating, Timely) to a test suite or individual tests. Use when develop-tdd is writing tests, when test quality needs to be checked, or when user mentions F.I.R.S.T or \"test quality\".",
-      "sha256": "ca11eb77909d92b4",
+      "sha256": "cafd0bd664a74a2d",
       "path": "enforce-first/SKILL.md"
     },
     "evolve-skill": {

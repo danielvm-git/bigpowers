@@ -11,6 +11,11 @@ Apply the F.I.R.S.T rubric (Uncle Bob, Clean Code Chapter 9) to evaluate and imp
 
 This skill is typically invoked internally by `develop-tdd` during the test-writing phase. It can also be run standalone on an existing test suite.
 
+## Modes
+
+- Default: full F.I.R.S.T audit (all 5 criteria)
+- --quick: Check F (Fast), I (Independent), and S (Self-Validating) only. Used by build-epic step 6 as a mechanical gate after audit-code. Skips R (Repeatable) and T (Timely) which require contextual judgment.
+
 ## The F.I.R.S.T Rubric
 
 ### F — Fast
