@@ -69,24 +69,23 @@ Whenever a significant decision is made or a milestone is reached:
 
 → verify: `bash scripts/validate-specs-yaml.sh`
 
-## State Write-Lock Protocol
+## Universal checkpoint pattern
 
-> **HARD GATE** — Lock `specs/state.yaml.lock` before writes; stale (>60s) may be force-released.
+Every multi-step flow (>3 steps) in bigpowers uses a cycle counter in `state.yaml`:
 
-1. Check lock exists. If fresh (<60s), wait 2s retry (max 15). Stale → remove.
-2. Write `agent_id: <name>\nacquired_at: <ISO-8601>` to lock.
-3. After write, `rm specs/state.yaml.lock`.
+| Flow | Cycle key | Step field | Phases/Steps |
+|------|-----------|------------|-------------|
+| build-epic | `epic_cycle` | `current_step` | 8 (survey → release) |
+| fix-bug | `bug_cycle` | `current_step` | 5 (investigate → release) |
+| orchestrate-project | `project_cycle` | `current_phase` | 6 (discover → release) |
 
-Lock format:
-```yaml
-agent_id: session-state
-acquired_at: "2026-06-11T14:30:00Z"
-```
+**Checkpoint:** After each step/phase completes, increment the counter in `state.yaml` and update `handoff.next_skill`.
 
+**Resume:** On session start, read the current step/phase from the cycle key — continue from there, not from step 1.
 
-## Operations
+**Completed steps:** Track completed steps in `completed_steps` (comma-separated string) for audit trail.
 
-### show-state (absorbed)
+## Strategic compaction
 
 Print the current session state: `cat specs/state.yaml`, then display `active_flow` and `handoff.next_skill` for quick reference.
 

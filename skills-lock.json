@@ -113,7 +113,7 @@
     },
     "fix-bug": {
       "description": "Bug fix orchestrator — active_flow fix_bug; reads specs/bugs/BUG-*.md; chains investigate-bug, develop-tdd, validate-fix. Use when user reports a defect.",
-      "sha256": "466c0847b5312b6f",
+      "sha256": "aa6fe406ba87a648",
       "path": "fix-bug/SKILL.md"
     },
     "grill-me": {
@@ -168,7 +168,7 @@
     },
     "orchestrate-project": {
       "description": "Meta-skill that enforces the 6-phase core loop (discover → elaborate → plan → build → verify → release) with hard gates. Use to coordinate multi-phase projects with guaranteed quality checkpoints. One-time command for the entire project lifecycle.",
-      "sha256": "aef26df7a83a4cd3",
+      "sha256": "542276f88198ae72",
       "path": "orchestrate-project/SKILL.md"
     },
     "organize-workspace": {
@@ -248,7 +248,7 @@
     },
     "session-state": {
       "description": "Track implementation decisions and progress in specs/state.yaml to prevent context rot. Use at the start of a session to load context, and whenever a significant decision is made or a milestone is reached.",
-      "sha256": "5ac473ace06c72b1",
+      "sha256": "4efd54a453e3e2cd",
       "path": "session-state/SKILL.md"
     },
     "setup-environment": {

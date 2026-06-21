@@ -33,6 +33,14 @@ claude /orchestrate --mode fast-track
 5. **VERIFY** (1-3 hours): Validate success criteria. Deliverables: UAT evidence, `specs/EVALS-*.md` if used.
 6. **RELEASE** (30 min - 2 hours): Ship to production. Deliverables: Release tag (vX.Y.Z), `state.yaml` `release.last_tag`.
 
+### Checkpoint / resume
+
+Track progress via `specs/state.yaml` `project_cycle`:
+- `project_cycle.current_phase`: current phase (1–6)
+- `project_cycle.completed_phases`: completed phase numbers
+- `handoff.next_skill`: skill for the current phase
+- On resume, read `project_cycle.current_phase` and continue from there
+
 See [REFERENCE.md](REFERENCE.md) for detailed phase specifications and gate types.
 
 ## How Orchestrate Works
