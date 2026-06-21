@@ -8,7 +8,7 @@
     },
     "assess-impact": {
       "description": "Analyze the blast radius of a proposed change before any code is written. Maps dependents, affected stories, and test coverage. Produces specs/IMPACT.md. Use before plan-work on any non-trivial change, when touching a shared module, or when the user asks \"what does this break?\".",
-      "sha256": "cad0c4534f31a207",
+      "sha256": "740925970c6cf9ce",
       "path": "assess-impact/SKILL.md"
     },
     "audit-code": {
@@ -18,7 +18,7 @@
     },
     "build-epic": {
       "description": "Eight-step epic build cycle — reads state.yaml, execution-status.yaml, and one epic capsule; updates status via bp-yaml-set or direct edit. Resume mode runs one step per invocation. Use instead of ad-hoc execute-plan for release work.",
-      "sha256": "d33ba1c86463d91f",
+      "sha256": "3c1707cca32b24de",
       "path": "build-epic/SKILL.md"
     },
     "change-request": {

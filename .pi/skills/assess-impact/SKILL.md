@@ -11,6 +11,11 @@ model: sonnet
 
 Find the blast radius of the proposed change before a single line is written.
 
+## Modes
+
+- Default: full impact analysis (dependents + affected stories + test coverage mapping)
+- --lightweight: Fast fan-in/fan-out only (<10s). Maps callers and imports without test coverage mapping. Used by build-epic step 2 as a pre-plan gate. Risk score > 7 triggers a mandatory grill-me session before proceeding.
+
 ## Process
 
 ### 1. Identify the target
@@ -76,3 +81,12 @@ grep -rn "[symbol-name]" . --include="*.test.*" --include="*.spec.*"
 → verify: `grep "Risk:" specs/IMPACT.md`
 
 Suggest `plan-work` once risk is understood and any test gaps are noted.
+
+## Risk score gating
+
+In `--lightweight` mode (used by build-epic step 2), assign a numeric risk score (1–10):
+- Fan-in (how many callers): 0–4 points
+- Fan-out (how many dependencies the module itself uses): 0–3 points  
+- Recent churn (git log --oneline -5 count): 0–3 points
+
+**Risk score > 7**: Gate — require a `grill-me` session before proceeding to implementation. Document the grill-me result in the impact report at `specs/IMPACT-<epic>-<story>.md`.
