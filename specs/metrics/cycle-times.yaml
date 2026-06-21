@@ -1,386 +1,351 @@
-# NOTE: Timestamps estimated from git history and story sequencing.
-# Future stories will use automated stamping via release-branch SKILL.md.
-# Schema: id, bcps, start (ISO 8601), end (ISO 8601), cycle_minutes, bcp_per_hour
 stories:
-  # e01 — Security (4 BCPs)
-  - id: e01s01
-    epic: e01
-    bcps: 1
-    start: "2026-06-08T14:00:00Z"
-    end: "2026-06-08T14:45:00Z"
-    cycle_minutes: 45
-    bcp_per_hour: 1.3
-  - id: e01s02
-    epic: e01
-    bcps: 1
-    start: "2026-06-08T14:45:00Z"
-    end: "2026-06-08T15:30:00Z"
-    cycle_minutes: 45
-    bcp_per_hour: 1.3
-  - id: e01s03
-    epic: e01
-    bcps: 1
-    start: "2026-06-08T15:30:00Z"
-    end: "2026-06-08T16:15:00Z"
-    cycle_minutes: 45
-    bcp_per_hour: 1.3
-  - id: e01s04
-    epic: e01
-    bcps: 1
-    start: "2026-06-08T16:15:00Z"
-    end: "2026-06-08T17:00:00Z"
-    cycle_minutes: 45
-    bcp_per_hour: 1.3
-
-  # e02 — Verification & Evals (4 BCPs)
-  - id: e02s01
-    epic: e02
-    bcps: 1
-    start: "2026-06-08T17:00:00Z"
-    end: "2026-06-08T17:45:00Z"
-    cycle_minutes: 45
-    bcp_per_hour: 1.3
-  - id: e02s02
-    epic: e02
-    bcps: 1
-    start: "2026-06-08T17:45:00Z"
-    end: "2026-06-08T18:30:00Z"
-    cycle_minutes: 45
-    bcp_per_hour: 1.3
-  - id: e02s03
-    epic: e02
-    bcps: 1
-    start: "2026-06-08T18:30:00Z"
-    end: "2026-06-08T19:15:00Z"
-    cycle_minutes: 45
-    bcp_per_hour: 1.3
-  - id: e02s04
-    epic: e02
-    bcps: 1
-    start: "2026-06-08T19:15:00Z"
-    end: "2026-06-08T20:00:00Z"
-    cycle_minutes: 45
-    bcp_per_hour: 1.3
-
-  # e03 — Discovery & Planning (2 BCPs)
-  - id: e03s01
-    epic: e03
-    bcps: 1
-    start: "2026-06-08T20:00:00Z"
-    end: "2026-06-08T21:30:00Z"
-    cycle_minutes: 90
-    bcp_per_hour: 0.7
-  - id: e03s02
-    epic: e03
-    bcps: 1
-    start: "2026-06-08T21:30:00Z"
-    end: "2026-06-08T23:00:00Z"
-    cycle_minutes: 90
-    bcp_per_hour: 0.7
-
-  # e04 — Ergonomics (3 BCPs)
-  - id: e04s01
-    epic: e04
-    bcps: 1
-    start: "2026-06-09T09:00:00Z"
-    end: "2026-06-09T10:00:00Z"
-    cycle_minutes: 60
-    bcp_per_hour: 1.0
-  - id: e04s02
-    epic: e04
-    bcps: 1
-    start: "2026-06-09T10:00:00Z"
-    end: "2026-06-09T10:30:00Z"
-    cycle_minutes: 30
-    bcp_per_hour: 2.0
-  - id: e04s03
-    epic: e04
-    bcps: 1
-    start: "2026-06-09T10:30:00Z"
-    end: "2026-06-09T11:00:00Z"
-    cycle_minutes: 30
-    bcp_per_hour: 2.0
-
-  # e05 — Context Isolation + Routing (3 BCPs)
-  - id: e05s01
-    epic: e05
-    bcps: 1
-    start: "2026-06-09T11:00:00Z"
-    end: "2026-06-09T12:00:00Z"
-    cycle_minutes: 60
-    bcp_per_hour: 1.0
-  - id: e05s02
-    epic: e05
-    bcps: 1
-    start: "2026-06-09T12:00:00Z"
-    end: "2026-06-09T13:00:00Z"
-    cycle_minutes: 60
-    bcp_per_hour: 1.0
-  - id: e05s03
-    epic: e05
-    bcps: 1
-    start: "2026-06-09T13:00:00Z"
-    end: "2026-06-09T14:00:00Z"
-    cycle_minutes: 60
-    bcp_per_hour: 1.0
-
-  # e06 — Taxonomy & Provenance (3 BCPs)
-  - id: e06s01
-    epic: e06
-    bcps: 1
-    start: "2026-06-09T14:00:00Z"
-    end: "2026-06-09T15:00:00Z"
-    cycle_minutes: 60
-    bcp_per_hour: 1.0
-  - id: e06s02
-    epic: e06
-    bcps: 1
-    start: "2026-06-09T15:00:00Z"
-    end: "2026-06-09T16:00:00Z"
-    cycle_minutes: 60
-    bcp_per_hour: 1.0
-  - id: e06s03
-    epic: e06
-    bcps: 1
-    start: "2026-06-09T16:00:00Z"
-    end: "2026-06-09T17:00:00Z"
-    cycle_minutes: 60
-    bcp_per_hour: 1.0
-
-  # e07 — Architectural Complexity (3 BCPs)
-  - id: e07s01
-    epic: e07
-    bcps: 1
-    start: "2026-06-09T17:00:00Z"
-    end: "2026-06-09T18:00:00Z"
-    cycle_minutes: 60
-    bcp_per_hour: 1.0
-  - id: e07s02
-    epic: e07
-    bcps: 1
-    start: "2026-06-09T18:00:00Z"
-    end: "2026-06-09T19:00:00Z"
-    cycle_minutes: 60
-    bcp_per_hour: 1.0
-  - id: e07s03
-    epic: e07
-    bcps: 1
-    start: "2026-06-09T19:00:00Z"
-    end: "2026-06-09T20:00:00Z"
-    cycle_minutes: 60
-    bcp_per_hour: 1.0
-
-  # e08 — Wave Execution (1 BCP)
-  - id: e08s01
-    epic: e08
-    bcps: 1
-    start: "2026-06-09T20:00:00Z"
-    end: "2026-06-09T21:00:00Z"
-    cycle_minutes: 60
-    bcp_per_hour: 1.0
-
-  # e09 — Self-Evolution (11 BCPs)
-  - id: e09s01
-    epic: e09
-    bcps: 2
-    start: "2026-06-09T21:00:00Z"
-    end: "2026-06-09T22:00:00Z"
-    cycle_minutes: 60
-    bcp_per_hour: 2.0
-  - id: e09s02
-    epic: e09
-    bcps: 1
-    start: "2026-06-09T22:00:00Z"
-    end: "2026-06-09T22:30:00Z"
-    cycle_minutes: 30
-    bcp_per_hour: 2.0
-  - id: e09s03
-    epic: e09
-    bcps: 1
-    start: "2026-06-09T22:30:00Z"
-    end: "2026-06-09T23:00:00Z"
-    cycle_minutes: 30
-    bcp_per_hour: 2.0
-  - id: e09s04
-    epic: e09
-    bcps: 1
-    start: "2026-06-09T23:00:00Z"
-    end: "2026-06-09T23:45:00Z"
-    cycle_minutes: 45
-    bcp_per_hour: 1.3
-  - id: e09s05
-    epic: e09
-    bcps: 1
-    start: "2026-06-09T23:45:00Z"
-    end: "2026-06-10T00:15:00Z"
-    cycle_minutes: 30
-    bcp_per_hour: 2.0
-  - id: e09s06
-    epic: e09
-    bcps: 5
-    start: "2026-06-10T09:00:00Z"
-    end: "2026-06-10T12:00:00Z"
-    cycle_minutes: 180
-    bcp_per_hour: 1.7
-
-  # e10 — Stack Profiles (2 BCPs)
-  - id: e10s01
-    epic: e10
-    bcps: 1
-    start: "2026-06-10T12:00:00Z"
-    end: "2026-06-10T12:45:00Z"
-    cycle_minutes: 45
-    bcp_per_hour: 1.3
-  - id: e10s02
-    epic: e10
-    bcps: 1
-    start: "2026-06-10T12:45:00Z"
-    end: "2026-06-10T13:30:00Z"
-    cycle_minutes: 45
-    bcp_per_hour: 1.3
-
-  # e11 — Sustain Cleanup (10 BCPs)
-  - id: e11s01
-    epic: e11
-    bcps: 2
-    start: "2026-06-10T14:00:00Z"
-    end: "2026-06-10T15:00:00Z"
-    cycle_minutes: 60
-    bcp_per_hour: 2.0
-  - id: e11s02
-    epic: e11
-    bcps: 2
-    start: "2026-06-10T15:00:00Z"
-    end: "2026-06-10T16:00:00Z"
-    cycle_minutes: 60
-    bcp_per_hour: 2.0
-  - id: e11s03
-    epic: e11
-    bcps: 2
-    start: "2026-06-10T16:00:00Z"
-    end: "2026-06-10T16:50:00Z"
-    cycle_minutes: 50
-    bcp_per_hour: 2.4
-  - id: e11s04
-    epic: e11
-    bcps: 2
-    start: "2026-06-10T16:50:00Z"
-    end: "2026-06-10T17:40:00Z"
-    cycle_minutes: 50
-    bcp_per_hour: 2.4
-  - id: e11s05
-    epic: e11
-    bcps: 2
-    start: "2026-06-11T03:45:00Z"
-    end: "2026-06-11T04:15:00Z"
-    cycle_minutes: 30
-    bcp_per_hour: 4.0
-
-  # e13 — Catalog Integrity & Index Automation (3 BCPs)
-  - id: e13s01
-    epic: e13
-    bcps: 1
-    start: "2026-06-20T15:45:00Z"
-    end: "2026-06-20T18:58:06Z"
-    cycle_minutes: 193
-    bcp_per_hour: 0.3
-  - id: e13s02
-    epic: e13
-    bcps: 1
-    start: "2026-06-20T15:45:00Z"
-    end: "2026-06-20T18:58:06Z"
-    cycle_minutes: 193
-    bcp_per_hour: 0.3
-  - id: e13s03
-    epic: e13
-    bcps: 1
-    start: "2026-06-20T15:45:00Z"
-    end: "2026-06-20T18:58:06Z"
-    cycle_minutes: 193
-    bcp_per_hour: 0.3
-
-  # e14 — Release Hardening & Quality Metrics (3 BCPs)
-  - id: e14s01
-    epic: e14
-    bcps: 1
-    start: "2026-06-20T19:00:00Z"
-    end: "2026-06-20T19:17:00Z"
-    cycle_minutes: 17
-    bcp_per_hour: 3.5
-  - id: e14s02
-    epic: e14
-    bcps: 1
-    start: "2026-06-20T19:18:00Z"
-    end: "2026-06-20T19:30:00Z"
-    cycle_minutes: 12
-    bcp_per_hour: 5.0
-  - id: e14s03
-    epic: e14
-    bcps: 1
-    start: "2026-06-20T19:31:00Z"
-    end: "2026-06-20T19:40:00Z"
-    cycle_minutes: 9
-    bcp_per_hour: 6.7
-
-  # e15 — CI/CD Pipeline & Package Publishing (5 BCPs)
-  - id: e15s01
-    epic: e15
-    bcps: 2
-    start: "2026-06-20T21:09:09Z"
-    end: "2026-06-20T21:22:06Z"
-    cycle_minutes: 13
-    bcp_per_hour: 9.2
-
-  # e15s02 — publish-package
-  - id: e15s02
-    epic: e15
-    bcps: 1
-    start: "2026-06-20T21:30:00Z"
-    end: "2026-06-20T21:37:00Z"
-    cycle_minutes: 7
-    bcp_per_hour: 8.6
-
-  # e15s03 — CI verification + dry-run
-  - id: e15s03
-    epic: e15
-    bcps: 2
-    start: "2026-06-20T21:40:00Z"
-    end: "2026-06-20T21:50:00Z"
-    cycle_minutes: 10
-    bcp_per_hour: 12.0
-
-  # e16 — Deployment Pipeline (5 BCPs)
-  # e16s01 — deploy skill (3 BCPs)
-  - id: e16s01
-    epic: e16
-    bcps: 3
-    start: "2026-06-20T21:43:06Z"
-    end: "2026-06-20T21:47:57Z"
-    cycle_minutes: 4
-    bcp_per_hour: 45.0
-
-  # e16s02 — smoke-test skill (2 BCPs)
-  - id: e16s02
-    epic: e16
-    bcps: 2
-    start: "2026-06-20T21:48:17Z"
-    end: "2026-06-20T21:50:01Z"
-    cycle_minutes: 1
-    bcp_per_hour: 120.0
-
-  # e17 — Data Contract Validation (3 BCPs)
-  # e17s01 — validate-contracts skill (3 BCPs)
-  - id: e17s01
-    epic: e17
-    bcps: 3
-    start: "2026-06-21T18:17:14Z"
-    end: "2026-06-21T18:51:42Z"
-    cycle_minutes: 34
-    bcp_per_hour: 5.3
-  - id: e18s01
-    epic: e18
-    bcps: 2
-    start: "2026-06-21T20:22:52Z"
-    end: "2026-06-21T21:26:16Z"
-    cycle_minutes: 63
-    bcp_per_hour: 1.9
+- id: e01s01
+  epic: e01
+  bcps: 1
+  start: '2026-06-08T14:00:00Z'
+  end: '2026-06-08T14:45:00Z'
+  cycle_minutes: 45
+  bcp_per_hour: 1.3
+- id: e01s02
+  epic: e01
+  bcps: 1
+  start: '2026-06-08T14:45:00Z'
+  end: '2026-06-08T15:30:00Z'
+  cycle_minutes: 45
+  bcp_per_hour: 1.3
+- id: e01s03
+  epic: e01
+  bcps: 1
+  start: '2026-06-08T15:30:00Z'
+  end: '2026-06-08T16:15:00Z'
+  cycle_minutes: 45
+  bcp_per_hour: 1.3
+- id: e01s04
+  epic: e01
+  bcps: 1
+  start: '2026-06-08T16:15:00Z'
+  end: '2026-06-08T17:00:00Z'
+  cycle_minutes: 45
+  bcp_per_hour: 1.3
+- id: e02s01
+  epic: e02
+  bcps: 1
+  start: '2026-06-08T17:00:00Z'
+  end: '2026-06-08T17:45:00Z'
+  cycle_minutes: 45
+  bcp_per_hour: 1.3
+- id: e02s02
+  epic: e02
+  bcps: 1
+  start: '2026-06-08T17:45:00Z'
+  end: '2026-06-08T18:30:00Z'
+  cycle_minutes: 45
+  bcp_per_hour: 1.3
+- id: e02s03
+  epic: e02
+  bcps: 1
+  start: '2026-06-08T18:30:00Z'
+  end: '2026-06-08T19:15:00Z'
+  cycle_minutes: 45
+  bcp_per_hour: 1.3
+- id: e02s04
+  epic: e02
+  bcps: 1
+  start: '2026-06-08T19:15:00Z'
+  end: '2026-06-08T20:00:00Z'
+  cycle_minutes: 45
+  bcp_per_hour: 1.3
+- id: e03s01
+  epic: e03
+  bcps: 1
+  start: '2026-06-08T20:00:00Z'
+  end: '2026-06-08T21:30:00Z'
+  cycle_minutes: 90
+  bcp_per_hour: 0.7
+- id: e03s02
+  epic: e03
+  bcps: 1
+  start: '2026-06-08T21:30:00Z'
+  end: '2026-06-08T23:00:00Z'
+  cycle_minutes: 90
+  bcp_per_hour: 0.7
+- id: e04s01
+  epic: e04
+  bcps: 1
+  start: '2026-06-09T09:00:00Z'
+  end: '2026-06-09T10:00:00Z'
+  cycle_minutes: 60
+  bcp_per_hour: 1.0
+- id: e04s02
+  epic: e04
+  bcps: 1
+  start: '2026-06-09T10:00:00Z'
+  end: '2026-06-09T10:30:00Z'
+  cycle_minutes: 30
+  bcp_per_hour: 2.0
+- id: e04s03
+  epic: e04
+  bcps: 1
+  start: '2026-06-09T10:30:00Z'
+  end: '2026-06-09T11:00:00Z'
+  cycle_minutes: 30
+  bcp_per_hour: 2.0
+- id: e05s01
+  epic: e05
+  bcps: 1
+  start: '2026-06-09T11:00:00Z'
+  end: '2026-06-09T12:00:00Z'
+  cycle_minutes: 60
+  bcp_per_hour: 1.0
+- id: e05s02
+  epic: e05
+  bcps: 1
+  start: '2026-06-09T12:00:00Z'
+  end: '2026-06-09T13:00:00Z'
+  cycle_minutes: 60
+  bcp_per_hour: 1.0
+- id: e05s03
+  epic: e05
+  bcps: 1
+  start: '2026-06-09T13:00:00Z'
+  end: '2026-06-09T14:00:00Z'
+  cycle_minutes: 60
+  bcp_per_hour: 1.0
+- id: e06s01
+  epic: e06
+  bcps: 1
+  start: '2026-06-09T14:00:00Z'
+  end: '2026-06-09T15:00:00Z'
+  cycle_minutes: 60
+  bcp_per_hour: 1.0
+- id: e06s02
+  epic: e06
+  bcps: 1
+  start: '2026-06-09T15:00:00Z'
+  end: '2026-06-09T16:00:00Z'
+  cycle_minutes: 60
+  bcp_per_hour: 1.0
+- id: e06s03
+  epic: e06
+  bcps: 1
+  start: '2026-06-09T16:00:00Z'
+  end: '2026-06-09T17:00:00Z'
+  cycle_minutes: 60
+  bcp_per_hour: 1.0
+- id: e07s01
+  epic: e07
+  bcps: 1
+  start: '2026-06-09T17:00:00Z'
+  end: '2026-06-09T18:00:00Z'
+  cycle_minutes: 60
+  bcp_per_hour: 1.0
+- id: e07s02
+  epic: e07
+  bcps: 1
+  start: '2026-06-09T18:00:00Z'
+  end: '2026-06-09T19:00:00Z'
+  cycle_minutes: 60
+  bcp_per_hour: 1.0
+- id: e07s03
+  epic: e07
+  bcps: 1
+  start: '2026-06-09T19:00:00Z'
+  end: '2026-06-09T20:00:00Z'
+  cycle_minutes: 60
+  bcp_per_hour: 1.0
+- id: e08s01
+  epic: e08
+  bcps: 1
+  start: '2026-06-09T20:00:00Z'
+  end: '2026-06-09T21:00:00Z'
+  cycle_minutes: 60
+  bcp_per_hour: 1.0
+- id: e09s01
+  epic: e09
+  bcps: 2
+  start: '2026-06-09T21:00:00Z'
+  end: '2026-06-09T22:00:00Z'
+  cycle_minutes: 60
+  bcp_per_hour: 2.0
+- id: e09s02
+  epic: e09
+  bcps: 1
+  start: '2026-06-09T22:00:00Z'
+  end: '2026-06-09T22:30:00Z'
+  cycle_minutes: 30
+  bcp_per_hour: 2.0
+- id: e09s03
+  epic: e09
+  bcps: 1
+  start: '2026-06-09T22:30:00Z'
+  end: '2026-06-09T23:00:00Z'
+  cycle_minutes: 30
+  bcp_per_hour: 2.0
+- id: e09s04
+  epic: e09
+  bcps: 1
+  start: '2026-06-09T23:00:00Z'
+  end: '2026-06-09T23:45:00Z'
+  cycle_minutes: 45
+  bcp_per_hour: 1.3
+- id: e09s05
+  epic: e09
+  bcps: 1
+  start: '2026-06-09T23:45:00Z'
+  end: '2026-06-10T00:15:00Z'
+  cycle_minutes: 30
+  bcp_per_hour: 2.0
+- id: e09s06
+  epic: e09
+  bcps: 5
+  start: '2026-06-10T09:00:00Z'
+  end: '2026-06-10T12:00:00Z'
+  cycle_minutes: 180
+  bcp_per_hour: 1.7
+- id: e10s01
+  epic: e10
+  bcps: 1
+  start: '2026-06-10T12:00:00Z'
+  end: '2026-06-10T12:45:00Z'
+  cycle_minutes: 45
+  bcp_per_hour: 1.3
+- id: e10s02
+  epic: e10
+  bcps: 1
+  start: '2026-06-10T12:45:00Z'
+  end: '2026-06-10T13:30:00Z'
+  cycle_minutes: 45
+  bcp_per_hour: 1.3
+- id: e11s01
+  epic: e11
+  bcps: 2
+  start: '2026-06-10T14:00:00Z'
+  end: '2026-06-10T15:00:00Z'
+  cycle_minutes: 60
+  bcp_per_hour: 2.0
+- id: e11s02
+  epic: e11
+  bcps: 2
+  start: '2026-06-10T15:00:00Z'
+  end: '2026-06-10T16:00:00Z'
+  cycle_minutes: 60
+  bcp_per_hour: 2.0
+- id: e11s03
+  epic: e11
+  bcps: 2
+  start: '2026-06-10T16:00:00Z'
+  end: '2026-06-10T16:50:00Z'
+  cycle_minutes: 50
+  bcp_per_hour: 2.4
+- id: e11s04
+  epic: e11
+  bcps: 2
+  start: '2026-06-10T16:50:00Z'
+  end: '2026-06-10T17:40:00Z'
+  cycle_minutes: 50
+  bcp_per_hour: 2.4
+- id: e11s05
+  epic: e11
+  bcps: 2
+  start: '2026-06-11T03:45:00Z'
+  end: '2026-06-11T04:15:00Z'
+  cycle_minutes: 30
+  bcp_per_hour: 4.0
+- id: e13s01
+  epic: e13
+  bcps: 1
+  start: '2026-06-20T15:45:00Z'
+  end: '2026-06-20T18:58:06Z'
+  cycle_minutes: 193
+  bcp_per_hour: 0.3
+- id: e13s02
+  epic: e13
+  bcps: 1
+  start: '2026-06-20T15:45:00Z'
+  end: '2026-06-20T18:58:06Z'
+  cycle_minutes: 193
+  bcp_per_hour: 0.3
+- id: e13s03
+  epic: e13
+  bcps: 1
+  start: '2026-06-20T15:45:00Z'
+  end: '2026-06-20T18:58:06Z'
+  cycle_minutes: 193
+  bcp_per_hour: 0.3
+- id: e14s01
+  epic: e14
+  bcps: 1
+  start: '2026-06-20T19:00:00Z'
+  end: '2026-06-20T19:17:00Z'
+  cycle_minutes: 17
+  bcp_per_hour: 3.5
+- id: e14s02
+  epic: e14
+  bcps: 1
+  start: '2026-06-20T19:18:00Z'
+  end: '2026-06-20T19:30:00Z'
+  cycle_minutes: 12
+  bcp_per_hour: 5.0
+- id: e14s03
+  epic: e14
+  bcps: 1
+  start: '2026-06-20T19:31:00Z'
+  end: '2026-06-20T19:40:00Z'
+  cycle_minutes: 9
+  bcp_per_hour: 6.7
+- id: e15s01
+  epic: e15
+  bcps: 2
+  start: '2026-06-20T21:09:09Z'
+  end: '2026-06-20T21:22:06Z'
+  cycle_minutes: 13
+  bcp_per_hour: 9.2
+- id: e15s02
+  epic: e15
+  bcps: 1
+  start: '2026-06-20T21:30:00Z'
+  end: '2026-06-20T21:37:00Z'
+  cycle_minutes: 7
+  bcp_per_hour: 8.6
+- id: e15s03
+  epic: e15
+  bcps: 2
+  start: '2026-06-20T21:40:00Z'
+  end: '2026-06-20T21:50:00Z'
+  cycle_minutes: 10
+  bcp_per_hour: 12.0
+- id: e16s01
+  epic: e16
+  bcps: 3
+  start: '2026-06-20T21:43:06Z'
+  end: '2026-06-20T21:47:57Z'
+  cycle_minutes: 4
+  bcp_per_hour: 45.0
+- id: e16s02
+  epic: e16
+  bcps: 2
+  start: '2026-06-20T21:48:17Z'
+  end: '2026-06-20T21:50:01Z'
+  cycle_minutes: 1
+  bcp_per_hour: 120.0
+- id: e17s01
+  epic: e17
+  bcps: 3
+  start: '2026-06-21T18:17:14Z'
+  end: '2026-06-21T18:51:42Z'
+  cycle_minutes: 34
+  bcp_per_hour: 5.3
+- id: e18s01
+  epic: e18
+  bcps: 2
+  start: '2026-06-21T20:22:52Z'
+  end: '2026-06-21T21:26:16Z'
+  cycle_minutes: 63
+  bcp_per_hour: 1.9
+- id: e18s02
+  epic: e18
+  bcps: 1
+  start: '2026-06-21T21:29:12Z'
+  end: '2026-06-21T21:30:56Z'
+  cycle_minutes: 2
+  bcp_per_hour: 30.0

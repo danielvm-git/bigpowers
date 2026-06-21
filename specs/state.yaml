@@ -1,7 +1,7 @@
 active_flow: "build_epic"
 workflow_mode: "yolo"
 active_epic_id: "e18"
-active_story_id: "e18s02"
+active_story_id: "e18s03"
 completed_epic: false
 epic_cycle:
   current_step: 3
@@ -25,9 +25,9 @@ git:
   hash: "ea4e4216b228089cdb80d7ec1cab6d0f5173eb88"
   pushed: true
 handoff:
-  last_step_completed: "steps 1-2: survey-context + plan-work/kickoff for e18s02"
-  open_decisions: "[e18s02: enforce-first --quick mode + wire into build-epic step 6]"
-  next_skill: "develop-tdd"
+  last_step_completed: "release-branch: e18s02 enforce-first landed on main (abdea30)"
+  open_decisions: "[next: e18s03 wire assess-impact into build-epic step 2]"
+  next_skill: "survey-context"
   commit_ratio:
     feat: 0
     fix: 0
