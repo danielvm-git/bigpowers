@@ -3,9 +3,16 @@ title: "Data Contract Validation"
 wsjf: 5.0
 total_bcps: 3
 status: backlog
+covers:
+  - "Systematic validation that data structures across system boundaries stay in sync"
+  - "API response shape validation against expected JSON Schema"
+  - "Key-set comparison across layers (translation keys, config keys, enum values)"
+  - "Data shape assertions for migrations, exports, and generated files"
+  - "Flag divergence before deploy — prevents silent data corruption bugs"
+rationale: "BV=5 (prevents insidious data bugs in any multi-layered system), TC=5 (data bugs are hard to debug mid-cycle), RR=5 (moderate — data bugs are noisy but not destructive), JS=3 (2-3 days)"
 stories:
   - id: e17s01
-    title: "craft-skill: validate-contracts — compare data schemas across system boundaries"
+    title: "craft-skill: validate-contracts — assert data shape consistency across system boundaries"
     bcps: 3
     status: backlog
     spec: e17s01-validate-contracts.md
