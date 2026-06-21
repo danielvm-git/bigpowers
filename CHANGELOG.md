@@ -1,3 +1,10 @@
+# [2.14.0](https://github.com/danielvm-git/bigpowers/compare/v2.13.0...v2.14.0) (2026-06-21)
+
+
+### Features
+
+* **e18s01:** audit-code as non-optional gate in build-epic step 6 ([48f08de](https://github.com/danielvm-git/bigpowers/commit/48f08de62952827966ace0ac9149cea882fa0ca5))
+
 # [2.13.0](https://github.com/danielvm-git/bigpowers/compare/v2.12.1...v2.13.0) (2026-06-21)
 
 
