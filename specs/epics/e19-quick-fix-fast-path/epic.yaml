@@ -7,6 +7,6 @@ stories:
   - id: e19s01
     title: "craft-skill: quick-fix — fast-path for trivial data-only fixes"
     bcps: 3
-    status: backlog
+    status: done
     spec: e19s01-quick-fix.md
     tasks: e19s01-tasks.yaml

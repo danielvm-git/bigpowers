@@ -196,6 +196,11 @@
       "sha256": "25ead1dd4d174d54",
       "path": "publish-package/SKILL.md"
     },
+    "quick-fix": {
+      "description": "\"Streamlined fast-path for trivial data-only fixes — no TDD, no branching ceremony. Collapses 6 skills into 2 for changes that are purely data with no logic risk. Aborts with fallback to investigate-bug if guardrails trigger.\"",
+      "sha256": "6b83f22481ff4995",
+      "path": "quick-fix/SKILL.md"
+    },
     "release-branch": {
       "description": "Make the merge/PR/keep/discard decision for a feature branch, verify coverage gates, create the PR with gh, and clean up the worktree. Use when a feature is done and ready to ship, or when user says \"release\", \"merge\", or \"open a PR\".",
       "sha256": "6b2df2c92230d098",

@@ -48,6 +48,7 @@ PHASE_MAP=(
   [build-epic]="Build"
   [spike-prototype]="Build"
   [craft-skill]="Build"
+  [quick-fix]="Build"
   [setup-environment]="Build"
   [wire-observability]="Build"
   [wire-ci]="Build"
