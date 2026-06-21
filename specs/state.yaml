@@ -23,7 +23,7 @@ git:
   hash: "ec3207617b3d465f8e5223242124cd2366cc2103"
   pushed: true
 handoff:
-  last_step_completed: "build-epic: e17 complete — validate-contracts skill landed on main (ec32076), capsule archived"
+  last_step_completed: "release-branch (solo-local): e17s01 validate-contracts landed on main via land-branch.sh (Path A), CI verified (1 pass, 1 pre-existing N1/N4 failure), capsule archived"
   open_decisions: "[next: e17 (data-contract-validation) or plan-release for next WSJF item]"
   next_skill: "survey-context"
   commit_ratio:
