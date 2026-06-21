@@ -1,0 +1,21 @@
+story_id: e18s04
+title: "Universalize resume/checkpoint pattern to fix-bug and orchestrate-project"
+status: done
+bcps: 1
+tasks:
+  - id: 1
+    description: "Verify fix-bug/SKILL.md has 5-step counter with bug_cycle.current_step checkpoint/resume"
+    verify: "grep -c 'current_step\\|checkpoint\\|resume' fix-bug/SKILL.md | awk '{if($1>=3) print \"OK\"; else print \"FAIL\"}'"
+    status: done
+  - id: 2
+    description: "Verify orchestrate-project/SKILL.md has 6-phase counter with project_cycle.current_phase checkpoint/resume"
+    verify: "grep -c 'current_phase\\|checkpoint\\|resume' orchestrate-project/SKILL.md | awk '{if($1>=3) print \"OK\"; else print \"FAIL\"}'"
+    status: done
+  - id: 3
+    description: "Add bug_cycle and project_cycle schema sections to specs/state.yaml"
+    verify: "grep -q 'bug_cycle:' specs/state.yaml && grep -q 'project_cycle:' specs/state.yaml && echo 'OK' || echo 'FAIL'"
+    status: done
+  - id: 4
+    description: "Verify session-state/SKILL.md documents universal checkpoint pattern"
+    verify: "grep -q 'Universal checkpoint pattern' session-state/SKILL.md && echo 'OK' || echo 'FAIL'"
+    status: done

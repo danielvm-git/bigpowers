@@ -16,6 +16,8 @@ Orchestrate-project 6 phases: Phase 1 Discover - Phase 2 Elaborate - Phase 3 Pla
 
 ## Process
 
+> **Timing:** `bash scripts/bp-timing.sh start survey-context` at invocation; `bash scripts/bp-timing.sh end survey-context` before handoff.
+
 ### 1. Read CONVENTIONS.md
 
 If `CONVENTIONS.md` exists at the project root, read it first. It contains the rules all agents must follow in this project.

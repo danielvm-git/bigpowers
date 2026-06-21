@@ -20,6 +20,8 @@ Review answers "is the code good?"; Verify answers "does the built thing do what
 
 ## Process
 
+> **Timing:** `bash scripts/bp-timing.sh start verify-work` at invocation; `bash scripts/bp-timing.sh end verify-work` before handoff.
+
 0. **Branch check** — must not be `main`/`master`.
 
 1. Read active story tasks from `specs/epics/<capsule>/eNNsYY-tasks.yaml` and story spec from `specs/epics/<capsule>/eNNsYY-<slug>.md` (countable-story-format, Gherkin in §17).

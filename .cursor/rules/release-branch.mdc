@@ -29,6 +29,8 @@ If unsure and working alone, prefer **solo-local**.
 
 ## Process
 
+> **Timing:** `bash scripts/bp-timing.sh start release-branch` at invocation; `bash scripts/bp-timing.sh end release-branch` before handoff.
+
 ### 1. Final verification
 
 ```bash

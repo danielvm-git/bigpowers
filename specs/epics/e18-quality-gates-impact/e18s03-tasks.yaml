@@ -1,0 +1,17 @@
+story_id: e18s03
+title: "Wire assess-impact into build-epic step 2 (plan-work)"
+status: done
+bcps: 1
+tasks:
+  - id: 1
+    description: "Add --lightweight mode to assess-impact/SKILL.md (fan-in/fan-out only, <10s)"
+    verify: "grep -c 'lightweight\\|--lightweight\\|quick.mode' assess-impact/SKILL.md | awk '{if($1>=1) print \"OK\"; else print \"FAIL\"}'"
+    status: done
+  - id: 2
+    description: "Add assess-impact invocation to build-epic/SKILL.md step 2 before plan-work"
+    verify: "grep -c 'assess-impact' build-epic/SKILL.md | awk '{if($1>=1) print \"OK\"; else print \"FAIL\"}'"
+    status: done
+  - id: 3
+    description: "Document risk score > 7 gates grill-me session in assess-impact process"
+    verify: "grep -c 'grill.\\?me\\|risk.score\\|7' assess-impact/SKILL.md | awk '{if($1>=1) print \"OK\"; else print \"FAIL\"}'"
+    status: done

@@ -73,7 +73,7 @@
     },
     "develop-tdd": {
       "description": "Test-driven development with red-green-refactor loop using vertical slices. Use for features (epic tasks) or bugs (specs/bugs/BUG-*.md).",
-      "sha256": "4002d960b18436cd",
+      "sha256": "6ace47f7db4642d4",
       "path": "develop-tdd/SKILL.md"
     },
     "diagnose-root": {
@@ -188,7 +188,7 @@
     },
     "plan-work": {
       "description": "\"PLANNING SPINE STEP 3 of 3 — Plan the work: write detailed implementation tasks into the active epic capsule (specs/epics/eNN-slug/). Produces countable-story-format .md specs and runnable -tasks.yaml files. Use after slice-tasks (step 2). Not a substitute for scope-work (step 1) or slice-tasks (step 2).\"",
-      "sha256": "12d45efb07a36e94",
+      "sha256": "2e171101c1e24469",
       "path": "plan-work/SKILL.md"
     },
     "publish-package": {
@@ -203,7 +203,7 @@
     },
     "release-branch": {
       "description": "Make the merge/PR/keep/discard decision for a feature branch, verify coverage gates, create the PR with gh, and clean up the worktree. Use when a feature is done and ready to ship, or when user says \"release\", \"merge\", or \"open a PR\".",
-      "sha256": "6b2df2c92230d098",
+      "sha256": "140f4bec3690bd51",
       "path": "release-branch/SKILL.md"
     },
     "request-review": {
@@ -288,7 +288,7 @@
     },
     "survey-context": {
       "description": "Per-task context bootstrap — reads existing specs/ and tech-architecture docs to map the current lifecycle phase and suggest the next skill. Use at the start of any task, when returning after a break, or when unsure what to do next. For deriving a tech-stack doc from scratch, use map-codebase first.",
-      "sha256": "891e840a2f292f23",
+      "sha256": "7b68756f984ede71",
       "path": "survey-context/SKILL.md"
     },
     "terse-mode": {
@@ -318,7 +318,7 @@
     },
     "verify-work": {
       "description": "Multi-phase UAT gate — cold-start smoke, build, typecheck, lint, tests, step-by-step manual verification, gaps-closure loop. Use after execute-plan or develop-tdd, before audit-code.",
-      "sha256": "aac80130ca0776ff",
+      "sha256": "a05a1d7ab2a959aa",
       "path": "verify-work/SKILL.md"
     },
     "visual-dashboard": {

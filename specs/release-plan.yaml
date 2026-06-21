@@ -6,36 +6,6 @@ release:
   bump_hint: minor
 epics:
   # ── BACKLOG — sorted by WSJF descending (reassessed 2026-06-20 after e14 delivery) ──
-  - id: e15
-    title: "CI/CD Pipeline & Package Publishing"
-    wsjf: 5.8
-    bcps: 5
-    capsule_dir: epics/e15-ci-pipeline-publishing
-    note: "Reassessed: fix-rate KPI (38%) proved CI iteration is #1 friction source. CI → Deploy → Validate loop addresses the root cause."
-  - id: e16
-    title: "Deployment Pipeline"
-    wsjf: 5.6
-    bcps: 5
-    capsule_dir: epics/e16-deployment-pipeline
-    note: "Reassessed: deploy→smoke loop closes the biggest failure mode identified in e14."
-  - id: e17
-    title: "Data Contract Validation"
-    wsjf: 5.0
-    bcps: 3
-    capsule_dir: epics/e17-data-contract-validation
-    note: "Unchanged from original assessment."
-  - id: e18
-    title: "Quality Gates & Impact Analysis"
-    wsjf: 4.8
-    bcps: 5
-    capsule_dir: epics/e18-quality-gates-impact
-    note: "Reassessed: cross-module bugs (BigBase evidence) and 38% fix rate increase urgency of hard gates."
-  - id: e19
-    title: "Quick-Fix Fast-Path"
-    wsjf: 4.7
-    bcps: 3
-    capsule_dir: epics/e19-quick-fix-fast-path
-    note: "Reassessed: 38% fix rate means many fixes are quick-fix eligible. Fast-path saves significant cumulative time."
   - id: e20
     title: "Build-Epic Ergonomics & Flow Polish"
     wsjf: 3.4
@@ -48,7 +18,7 @@ epics:
     bcps: 8
     capsule_dir: epics/e21-mcp-discovery-tools
     note: "Strategic but high JS (8) defers to future release."
-  # ── DONE — e01-e14 ──────────────────────────────────────────────────────────
+  # ── DONE — e01-e19 ──────────────────────────────────────────────────────────
   - id: e01
     title: "Security"
     wsjf: 4.5
@@ -136,3 +106,38 @@ epics:
     file: epics/e14-release-hardening-quality.yaml
     mode: flat
     note: "Delivered: release-branch solo fallback, fix-rate KPI, catalog audit (62/62)."
+  - id: e15
+    title: "CI/CD Pipeline & Package Publishing"
+    wsjf: 5.8
+    bcps: 5
+    capsule_dir: epics/e15-ci-pipeline-publishing
+    mode: flat
+    note: "Delivered: wire-ci, publish-package, CI verification step in release-branch + develop-tdd."
+  - id: e16
+    title: "Deployment Pipeline"
+    wsjf: 5.6
+    bcps: 5
+    capsule_dir: epics/e16-deployment-pipeline
+    mode: flat
+    note: "Delivered: deploy + smoke-test skills and deployment pipeline."
+  - id: e17
+    title: "Data Contract Validation"
+    wsjf: 5.0
+    bcps: 3
+    capsule_dir: epics/e17-data-contract-validation
+    mode: flat
+    note: "Delivered: validate-contracts with JSON Schema, key-set comparison, data shape validation."
+  - id: e18
+    title: "Quality Gates & Impact Analysis"
+    wsjf: 4.8
+    bcps: 5
+    capsule_dir: epics/e18-quality-gates-impact
+    mode: capsule
+    note: "Delivered: audit-code gate, enforce-first F.I.R.S.T integration, assess-impact lightweight mode, universal checkpoint pattern, auto-timing instrumentation."
+  - id: e19
+    title: "Quick-Fix Fast-Path"
+    wsjf: 4.7
+    bcps: 3
+    capsule_dir: epics/e19-quick-fix-fast-path
+    mode: capsule
+    note: "Delivered: quick-fix skill with entry criteria, guardrails, fast-path workflow."

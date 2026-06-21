@@ -26,6 +26,8 @@ If you catch yourself thinking these, stop and reconsider — you are likely dev
 
 ## Workflow
 
+> **Timing:** `bash scripts/bp-timing.sh start develop-tdd` at invocation; `bash scripts/bp-timing.sh end develop-tdd` before handoff.
+
 ### 1. Planning
 
 - [ ] Read active `specs/epics/*/epic.yaml` story tasks or `specs/bugs/BUG-*.md` — understand verify steps

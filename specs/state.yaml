@@ -1,14 +1,20 @@
 active_flow: build_epic
 workflow_mode: yolo
-active_epic_id: e19
-active_story_id: e19s01
+active_epic_id: e18
+active_story_id: e18s05
 completed_epic: true
 epic_cycle:
   current_step: 8
   next_skill: survey-context
-  story_bcps: 3
+  story_bcps: 5
   completed_steps: 1,2,3,4,5,6,7,8
   audit_result: pass
+bug_cycle:
+  current_step: null
+  completed_steps: []
+project_cycle:
+  current_phase: null
+  completed_phases: []
 release:
   target_version: 2.8.0
   last_tag: v2.7.0
@@ -19,13 +25,34 @@ metrics:
   story_end: '2026-06-21T21:51:00Z'
   cycle_minutes: 5
   bcp_per_hour: 36.0
+  skill_timings:
+    survey-context:
+      calls: 0
+      total_seconds: 0
+      avg_seconds: 0.0
+    plan-work:
+      calls: 0
+      total_seconds: 0
+      avg_seconds: 0.0
+    develop-tdd:
+      calls: 0
+      total_seconds: 0
+      avg_seconds: 0.0
+    verify-work:
+      calls: 0
+      total_seconds: 0
+      avg_seconds: 0.0
+    release-branch:
+      calls: 0
+      total_seconds: 0
+      avg_seconds: 0.0
 git:
   branch: main
   hash: 7d816a68
   pushed: true
 handoff:
-  last_step_completed: e19 (Quick-Fix Fast-Path) complete — quick-fix skill created, all 5 tasks implemented, land-branch.sh fallback merge, 68 skills total
-  open_decisions: '[next: e15 — CI/CD Pipeline & Package Publishing (WSJF 5.8, 5 BCPs)]'
+  last_step_completed: e18 (Quality Gates & Impact Analysis) complete — all 5 stories implemented, executed in yolo mode
+  open_decisions: '[next: e20 — Build-Epic Ergonomics & Flow Polish (WSJF 3.4, 5 BCPs)]'
   next_skill: survey-context
   commit_ratio:
     feat: 1

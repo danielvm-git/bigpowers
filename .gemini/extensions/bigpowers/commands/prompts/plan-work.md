@@ -32,6 +32,8 @@ If this plan touches an existing module, run `assess-impact` first to understand
 
 ## Process
 
+> **Timing:** `bash scripts/bp-timing.sh start plan-work` at invocation; `bash scripts/bp-timing.sh end plan-work` before handoff.
+
 1. **Explore** — Use `Explore` subagent to understand affected modules, existing test patterns, similar prior art, and dependencies.
 
 2. **Draft steps** — Break implementation into the smallest possible steps where each step leaves the codebase working, has one observable outcome, and can be verified with a single command. Red-flag check: name any rationalization you caught before moving to step 3.

@@ -1,0 +1,13 @@
+story_id: e18s02
+title: "Wire enforce-first (F.I.R.S.T) into build-epic gate chain"
+status: done
+bcps: 1
+tasks:
+  - id: 1
+    description: "Add --quick mode to enforce-first/SKILL.md (F+I+S only)"
+    verify: "grep -c 'quick\\|--quick\\|fast.mode' enforce-first/SKILL.md | awk '{if($1>=1) print \"OK\"; else print \"FAIL\"}'"
+    status: done
+  - id: 2
+    description: "Reference enforce-first in build-epic/SKILL.md step 6"
+    verify: "grep -c 'enforce-first' build-epic/SKILL.md | awk '{if($1>=1) print \"OK\"; else print \"FAIL\"}'"
+    status: done

@@ -1,0 +1,37 @@
+story_id: e18s05
+title: "Add auto-timing to critical-path skills for stocktake effectiveness"
+status: done
+bcps: 1
+tasks:
+  - id: 1
+    description: "Add metrics.skill_timings section to specs/state.yaml"
+    verify: "grep -q 'skill_timings:' specs/state.yaml && echo 'OK' || echo 'FAIL'"
+    status: done
+  - id: 2
+    description: "Ensure scripts/bp-timing.sh exists with start/end commands"
+    verify: "test -f scripts/bp-timing.sh && grep -q 'start\\|end' scripts/bp-timing.sh && echo 'OK' || echo 'FAIL'"
+    status: done
+  - id: 3
+    description: "Instrument survey-context/SKILL.md with bp-timing.sh calls"
+    verify: "grep -q 'bp-timing' survey-context/SKILL.md && echo 'OK' || echo 'FAIL'"
+    status: done
+  - id: 4
+    description: "Instrument plan-work/SKILL.md with bp-timing.sh calls"
+    verify: "grep -q 'bp-timing' plan-work/SKILL.md && echo 'OK' || echo 'FAIL'"
+    status: done
+  - id: 5
+    description: "Instrument develop-tdd/SKILL.md with bp-timing.sh calls"
+    verify: "grep -q 'bp-timing' develop-tdd/SKILL.md && echo 'OK' || echo 'FAIL'"
+    status: done
+  - id: 6
+    description: "Instrument verify-work/SKILL.md with bp-timing.sh calls"
+    verify: "grep -q 'bp-timing' verify-work/SKILL.md && echo 'OK' || echo 'FAIL'"
+    status: done
+  - id: 7
+    description: "Instrument release-branch/SKILL.md with bp-timing.sh calls"
+    verify: "grep -q 'bp-timing' release-branch/SKILL.md && echo 'OK' || echo 'FAIL'"
+    status: done
+  - id: 8
+    description: "Verify stocktake-skills/SKILL.md documents effectiveness report from skill_timings"
+    verify: "grep -c 'skill_timings\\|timing\\|effectiveness' stocktake-skills/SKILL.md | awk '{if($1>=1) print \"OK\"; else print \"FAIL\"}'"
+    status: done
