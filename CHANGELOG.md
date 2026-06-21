@@ -1,3 +1,10 @@
+# [2.16.0](https://github.com/danielvm-git/bigpowers/compare/v2.15.0...v2.16.0) (2026-06-21)
+
+
+### Features
+
+* **e18s03:** assess-impact --lightweight in build-epic step 2 ([eff1b3a](https://github.com/danielvm-git/bigpowers/commit/eff1b3a3dfa7677db8c525d6424147c08a9b4809))
+
 # [2.15.0](https://github.com/danielvm-git/bigpowers/compare/v2.14.0...v2.15.0) (2026-06-21)
 
 
