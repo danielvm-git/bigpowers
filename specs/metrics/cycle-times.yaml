@@ -349,3 +349,10 @@ stories:
   end: '2026-06-21T21:30:56Z'
   cycle_minutes: 2
   bcp_per_hour: 30.0
+- id: e19s01
+  epic: e19
+  bcps: 3
+  start: '2026-06-21T21:46:00Z'
+  end: '2026-06-21T21:51:00Z'
+  cycle_minutes: 5
+  bcp_per_hour: 36.0
