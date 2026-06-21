@@ -1,3 +1,10 @@
+# [2.20.0](https://github.com/danielvm-git/bigpowers/compare/v2.19.0...v2.20.0) (2026-06-21)
+
+
+### Features
+
+* **e18:** quality gates & impact analysis — complete all 5 stories ([e8b06f9](https://github.com/danielvm-git/bigpowers/commit/e8b06f920cd4a71beabf7df96f6ab6e526c57c1f))
+
 # [2.19.0](https://github.com/danielvm-git/bigpowers/compare/v2.18.0...v2.19.0) (2026-06-21)
 
 
