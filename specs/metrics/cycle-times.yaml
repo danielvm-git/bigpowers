@@ -377,3 +377,10 @@ stories:
     end: "2026-06-21T18:51:42Z"
     cycle_minutes: 34
     bcp_per_hour: 5.3
+  - id: e18s01
+    epic: e18
+    bcps: 2
+    start: "2026-06-21T20:22:52Z"
+    end: "2026-06-21T21:26:16Z"
+    cycle_minutes: 63
+    bcp_per_hour: 1.9

@@ -1,14 +1,14 @@
 active_flow: "build_epic"
 workflow_mode: "yolo"
 active_epic_id: "e18"
-active_story_id: "e18s01"
+active_story_id: "e18s02"
 completed_epic: false
 epic_cycle:
-  current_step: 8
-  next_skill: "release-branch"
-  story_bcps: 2
-  completed_steps: "1,2,3,4,5,6,7"
-  audit_result: pass
+  current_step: 0
+  next_skill: ""
+  story_bcps: 0
+  completed_steps: ""
+  audit_result: ""
 release:
   target_version: "2.8.0"
   last_tag: "v2.7.0"
@@ -21,13 +21,13 @@ metrics:
   cycle_minutes: 63
   bcp_per_hour: 1.9
 git:
-  branch: "e18s01-audit-code-gate"
-  hash: "ec3207617b3d465f8e5223242124cd2366cc2103"
+  branch: "main"
+  hash: "48f08dee8e8ce1a86e6e12b3c50bb482b1d4f4ac"
   pushed: true
 handoff:
-  last_step_completed: "step 7 commit-message: draft feat(e18s01): audit-code --gate mode + build-epic step 6 non-optional gate with fail-loop (bump: minor)"
-  open_decisions: "[e18s01: ready for release-branch; solo-local Path A]"
-  next_skill: "release-branch"
+  last_step_completed: "release-branch (solo-local Path A): e18s01 audit-code gate landed on main (48f08de), CI pending"
+  open_decisions: "[next: e18s02 (wire enforce-first into build-epic gate chain)]"
+  next_skill: "survey-context"
   commit_ratio:
     feat: 0
     fix: 0
