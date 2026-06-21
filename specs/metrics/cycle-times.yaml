@@ -367,3 +367,13 @@ stories:
     end: "2026-06-20T21:50:01Z"
     cycle_minutes: 1
     bcp_per_hour: 120.0
+
+  # e17 — Data Contract Validation (3 BCPs)
+  # e17s01 — validate-contracts skill (3 BCPs)
+  - id: e17s01
+    epic: e17
+    bcps: 3
+    start: "2026-06-21T18:17:14Z"
+    end: "2026-06-21T18:51:42Z"
+    cycle_minutes: 34
+    bcp_per_hour: 5.3
