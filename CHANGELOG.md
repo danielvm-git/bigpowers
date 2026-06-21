@@ -1,3 +1,10 @@
+# [2.18.0](https://github.com/danielvm-git/bigpowers/compare/v2.17.0...v2.18.0) (2026-06-21)
+
+
+### Features
+
+* **e18s05:** auto-timing helper + stocktake effectiveness ([1542bb7](https://github.com/danielvm-git/bigpowers/commit/1542bb7652c7ba1edb893260c7e586f63e416259))
+
 # [2.17.0](https://github.com/danielvm-git/bigpowers/compare/v2.16.0...v2.17.0) (2026-06-21)
 
 
