@@ -7,6 +7,7 @@ release:
   target_version: "2.8.0"
   last_tag: "v2.7.0"
   last_publish: "2026-06-20T00:00:00Z"
+  ci_verified: true
 epic_cycle:
   current_step: 1
   next_skill: ""
@@ -19,10 +20,10 @@ metrics:
   bcp_per_hour: 120.0
 git:
   branch: "main"
-  hash: "51088912084979df38d6bb529297b03a34a6bb66"
+  hash: "45b781923799d350767881c2d8c02a85de83768f"
   pushed: true
 handoff:
-  last_step_completed: "release-branch (solo-local): fix/missing-run-smoke-script landed on main via land-branch.sh (Path A)"
+  last_step_completed: "release-branch: fix/missing-run-smoke-script released (solo-local, Path A), CI verified, stale branches cleaned"
   open_decisions: "[next: e17 (data-contract-validation) or plan-release for next WSJF item]"
   next_skill: "survey-context"
   commit_ratio:
