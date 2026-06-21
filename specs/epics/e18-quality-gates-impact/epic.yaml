@@ -2,12 +2,12 @@ id: e18
 title: "Quality Gates & Impact Analysis"
 wsjf: 4.8
 total_bcps: 5
-status: backlog
+status: in_progress
 stories:
   - id: e18s01
     title: "audit-code as hard gate in build-epic step 6"
     bcps: 2
-    status: backlog
+    status: planned
     spec: e18s01-audit-code-gate.md
     tasks: e18s01-tasks.yaml
   - id: e18s02

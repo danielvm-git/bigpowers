@@ -1,31 +1,33 @@
 active_flow: "build_epic"
 workflow_mode: "yolo"
-active_epic_id: "e17"
-active_story_id: "e17s01"
-completed_epic: true
+active_epic_id: "e18"
+active_story_id: "e18s01"
+completed_epic: false
+epic_cycle:
+  current_step: 8
+  next_skill: "release-branch"
+  story_bcps: 2
+  completed_steps: "1,2,3,4,5,6,7"
+  audit_result: pass
 release:
   target_version: "2.8.0"
   last_tag: "v2.7.0"
   last_publish: "2026-06-20T00:00:00Z"
   ci_verified: true
-epic_cycle:
-  current_step: 4
-  next_skill: ""
-  story_bcps: 3
-  completed_steps: "1,2,3"
+
 metrics:
-  story_start: "2026-06-21T18:17:14Z"
-  story_end: "2026-06-21T18:51:42Z"
-  cycle_minutes: 34
-  bcp_per_hour: 5.3
+  story_start: "2026-06-21T20:22:52Z"
+  story_end: "2026-06-21T21:26:16Z"
+  cycle_minutes: 63
+  bcp_per_hour: 1.9
 git:
-  branch: "main"
+  branch: "e18s01-audit-code-gate"
   hash: "ec3207617b3d465f8e5223242124cd2366cc2103"
   pushed: true
 handoff:
-  last_step_completed: "release-branch (solo-local): e17s01 validate-contracts landed on main via land-branch.sh (Path A), CI verified (1 pass, 1 pre-existing N1/N4 failure), capsule archived"
-  open_decisions: "[next: e17 (data-contract-validation) or plan-release for next WSJF item]"
-  next_skill: "survey-context"
+  last_step_completed: "step 7 commit-message: draft feat(e18s01): audit-code --gate mode + build-epic step 6 non-optional gate with fail-loop (bump: minor)"
+  open_decisions: "[e18s01: ready for release-branch; solo-local Path A]"
+  next_skill: "release-branch"
   commit_ratio:
     feat: 0
     fix: 0

@@ -1,0 +1,59 @@
+story_id: e18s01
+verified_at: "2026-06-21T20:35:00Z"
+verifier: verify-work
+phases:
+  smoke:
+    passed: true
+    note: "N/A — documentation-only change"
+  build:
+    passed: true
+    command: "bash scripts/sync-skills.sh"
+  typecheck:
+    passed: true
+    note: "N/A — markdown/yaml"
+  lint:
+    passed: true
+    command: "bash scripts/validate-specs-yaml.sh"
+  tests:
+    passed: true
+    results:
+      - task: 1
+        description: "--gate mode in audit-code"
+        verify: "grep -c gate/non-zero/exit1 ≥2"
+        passed: true
+      - task: 2
+        description: "audit-code refs in build-epic ≥4"
+        verify: "grep -c audit-code — got 4"
+        passed: true
+      - task: 3
+        description: "audit_result persistence"
+        verify: "grep -c audit_result ≥1"
+        passed: true
+      - task: 4
+        description: "AUDIT report output"
+        verify: "grep -c specs/verifications/AUDIT ≥1"
+        passed: true
+  manual:
+    steps:
+      - step: "Verify build-epic step 6 table shows non-optional gate"
+        expected: "Step 6 entry says non-optional gate with fail → loop back to step 4"
+        actual: "Table row reads: audit-code — non-optional gate (pass/fail; fail → loop back to step 4)"
+        passed: true
+      - step: "Verify audit-code SKILL.md has --gate mode"
+        expected: "--gate mode documented with non-zero exit and pass/fail summary"
+        actual: "Modes section has --gate entry; Output section has Gate mode output subsection with exit codes"
+        passed: true
+      - step: "Verify build-epic Process has Step 6 gate sub-section"
+        expected: "Sub-section documenting audit-code invocation, pass/fail, loop-back, audit artifact"
+        actual: "Step 6 — audit-code gate (non-optional) sub-section present with 4 numbered items"
+        passed: true
+      - step: "Verify loop-back to step 4 documented"
+        expected: "Failed audit resets current_step to 4"
+        actual: "Documented: reset epic_cycle.current_step to 4 (develop-tdd)"
+        passed: true
+      - step: "Verify audit_result key documented"
+        expected: "epic_cycle.audit_result: pass or fail"
+        actual: "Both pass and fail cases document audit_result in state.yaml"
+        passed: true
+  gaps:
+    closed: true

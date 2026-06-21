@@ -15,6 +15,7 @@ Run this self-review before asking anyone else to look at the code. The goal is 
 
 - Default: full checklist
 - --quick: Run only Supply Chain and Test Coverage. Use for changes under 50 LOC.
+- --gate: Non-interactive mode for automated CI gating (used by build-epic step 6). Exit with non-zero status code (`exit 1`) on ANY checklist failure; `exit 0` only if ALL items pass. Produces a compact pass/fail summary to stderr. On failure, list every ✗ item with reason.
 
 ## Checklist
 
@@ -103,6 +104,19 @@ Report the checklist with ✓ / ✗ per item. For each ✗, describe what needs 
 
 If all items pass: suggest running `request-review` for an independent second opinion.
 If any items fail: fix them before proceeding.
+
+### Gate mode output (`--gate`)
+
+In `--gate` mode, print one summary line per checklist section:
+
+```
+PASS Supply Chain & Security
+FAIL Provenance & Metadata (2 items)
+PASS Law of Demeter
+...
+```
+
+Aggregate exit code: `0` if all sections PASS, `1` (non-zero) if any section FAILs. Write the full audit report to `specs/verifications/AUDIT-<epic>-<story>.md` as a permanent record.
 
 ## Handoff
 

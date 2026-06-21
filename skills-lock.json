@@ -13,12 +13,12 @@
     },
     "audit-code": {
       "description": "Self-review checklist for the coding agent to run before dispatching a reviewer. Checks CONVENTIONS.md compliance, Boy Scout Rule, test coverage, types, and SOLID. Produces a pass/fail checklist. Use before request-review, before committing, or when user asks for a code quality check.",
-      "sha256": "e9fa22fc69b1b3ab",
+      "sha256": "8192ebe6f66a9f91",
       "path": "audit-code/SKILL.md"
     },
     "build-epic": {
       "description": "Eight-step epic build cycle — reads state.yaml, execution-status.yaml, and one epic capsule; updates status via bp-yaml-set or direct edit. Resume mode runs one step per invocation. Use instead of ad-hoc execute-plan for release work.",
-      "sha256": "6f0639f6d8886e28",
+      "sha256": "ac7c8fc9740c4beb",
       "path": "build-epic/SKILL.md"
     },
     "change-request": {

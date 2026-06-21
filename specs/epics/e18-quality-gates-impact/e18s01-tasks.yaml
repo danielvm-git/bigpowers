@@ -1,15 +1,15 @@
 story_id: e18s01
 title: "audit-code hard gate"
-status: backlog
+status: planned
 bcps: 2
 tasks:
   - id: 1
-    description: "Add audit-code invocation to build-epic step 6 with pass/fail gate logic"
-    verify: "grep -c 'audit-code' build-epic/SKILL.md | awk '{if(\$1>=3) print \"OK\"; else print \"FAIL\"}'"
+    description: "Add --gate mode to audit-code/SKILL.md with non-zero exit on failure"
+    verify: "grep -c 'gate\\|--gate\\|non-zero\\|exit 1' audit-code/SKILL.md | awk '{if(\$1>=2) print \"OK: \" \$1 \" matches for gate mode\"; else print \"FAIL: only \" \$1 \" matches\"}'"
     status: backlog
   - id: 2
-    description: "Add --gate mode to audit-code/SKILL.md with non-zero exit on failure"
-    verify: "grep -c 'gate\|--gate\|non-zero' audit-code/SKILL.md | awk '{if(\$1>=2) print \"OK\"; else print \"FAIL\"}'"
+    description: "Add audit-code invocation to build-epic step 6 with pass/fail gate logic and loop-back to step 4"
+    verify: "grep -c 'audit-code' build-epic/SKILL.md | awk '{if(\$1>=4) print \"OK: \" \$1 \" refs to audit-code\"; else print \"FAIL: only \" \$1 \" refs\"}'"
     status: backlog
   - id: 3
     description: "Add audit result persistence to state.yaml (epic_cycle.audit_result)"
@@ -17,5 +17,5 @@ tasks:
     status: backlog
   - id: 4
     description: "Add audit report output to specs/verifications/ directory"
-    verify: "grep -c 'specs/verifications\|AUDIT-' build-epic/SKILL.md | awk '{if(\$1>=1) print \"OK\"; else print \"FAIL\"}'"
+    verify: "grep -c 'specs/verifications\\|AUDIT-' build-epic/SKILL.md | awk '{if(\$1>=1) print \"OK\"; else print \"FAIL\"}'"
     status: backlog
