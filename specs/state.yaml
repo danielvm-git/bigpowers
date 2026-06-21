@@ -19,12 +19,12 @@ metrics:
   bcp_per_hour: 120.0
 git:
   branch: "main"
-  hash: "b34f22adf97f6aec502684f630d94b2c2d42eb82"
+  hash: "51088912084979df38d6bb529297b03a34a6bb66"
   pushed: true
 handoff:
-  last_step_completed: "build-epic: e16 complete — both stories (deploy + smoke-test) landed on main, capsule archived"
+  last_step_completed: "release-branch (solo-local): fix/missing-run-smoke-script landed on main via land-branch.sh (Path A)"
   open_decisions: "[next: e17 (data-contract-validation) or plan-release for next WSJF item]"
-  next_skill: ""
+  next_skill: "survey-context"
   commit_ratio:
     feat: 0
     fix: 0
