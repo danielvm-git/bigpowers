@@ -1,3 +1,10 @@
+# [2.13.0](https://github.com/danielvm-git/bigpowers/compare/v2.12.1...v2.13.0) (2026-06-21)
+
+
+### Features
+
+* **skills:** add validate-contracts — data contract validator ([ec32076](https://github.com/danielvm-git/bigpowers/commit/ec3207617b3d465f8e5223242124cd2366cc2103))
+
 ## [2.12.1](https://github.com/danielvm-git/bigpowers/compare/v2.12.0...v2.12.1) (2026-06-20)
 
 
