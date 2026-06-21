@@ -1,3 +1,10 @@
+# [2.17.0](https://github.com/danielvm-git/bigpowers/compare/v2.16.0...v2.17.0) (2026-06-21)
+
+
+### Features
+
+* **e18s04:** universal checkpoint pattern in fix-bug + orchestrate ([5a47aac](https://github.com/danielvm-git/bigpowers/commit/5a47aac8f0dd1a4463749ab36c64aeded86aa8a4))
+
 # [2.16.0](https://github.com/danielvm-git/bigpowers/compare/v2.15.0...v2.16.0) (2026-06-21)
 
 
