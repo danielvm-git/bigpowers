@@ -1,3 +1,10 @@
+# [2.22.0](https://github.com/danielvm-git/bigpowers/compare/v2.21.0...v2.22.0) (2026-06-22)
+
+
+### Features
+
+* **mcp-server:** add MCP server exposing 68 skills as MCP tools ([58c4592](https://github.com/danielvm-git/bigpowers/commit/58c45925d63c505c8eadf1443b6268f4d8791715))
+
 # [2.21.0](https://github.com/danielvm-git/bigpowers/compare/v2.20.0...v2.21.0) (2026-06-22)
 
 
