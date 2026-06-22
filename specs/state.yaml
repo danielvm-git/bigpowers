@@ -35,7 +35,7 @@ metrics:
   bcp_per_hour: 10.0
 git:
   branch: main
-  hash: 50c67c1
+  hash: 2df9a1a
   pushed: true
 handoff:
   last_step_completed: >
