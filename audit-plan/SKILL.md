@@ -1,0 +1,89 @@
+---
+name: audit-plan
+model: sonnet
+description: Evaluate an incoming project plan against bigpowers principles and conventions, surface gaps, and produce a READY/NOT READY verdict before engagement begins. Use when a new project arrives, when adapting a foreign plan, or before running seed-conventions on an unfamiliar codebase.
+---
+
+# Audit Plan
+
+> **HARD GATE** — Do NOT start build skills (kickoff-branch, develop-tdd) until audit-plan returns a READY verdict. A plan missing test commands, scope boundaries, or success criteria will produce drift and rework downstream.
+
+Assess an incoming project plan for alignment with bigpowers principles, identify what's missing, and produce a structured readiness report before any skill execution begins.
+
+## Three lenses
+
+### 1. Principles alignment
+- Are stories vertical slices (not horizontal layers)?
+- Is scope bounded — explicit in_scope + out_of_scope?
+- Are success criteria defined (how do we know we're done)?
+- Are HARD GATE candidates identifiable (critical decision points)?
+- Is there a domain language / ubiquitous terminology?
+
+### 2. Conventions completeness
+- Does `CLAUDE.md` or `AGENTS.md` exist?
+- Does `CONVENTIONS.md` exist?
+- Is the `specs/` directory layout in place?
+- Are commit conventions documented (Conventional Commits)?
+- Is the git workflow mode identified (`solo-git` | `team-pr`)?
+
+### 3. Bigpowers pre-flight (must all be answered before build)
+| Question | Why |
+|----------|-----|
+| What is the **test command**? | `develop-tdd` verify steps require it |
+| What is the **build command**? | `verify-work` mechanical gate |
+| What is the **lint command**? | `audit-code` lint gate |
+| What is the **typecheck command**? | `verify-work` typecheck gate |
+| What **CI platform** is in use? | `wire-ci` configuration |
+| **Solo or team**? | `release-branch` integration mode |
+| Primary **language + framework**? | model routing + conventions |
+| **Greenfield or existing** codebase? | determines whether to run `seed-conventions` or `migrate-spec` first |
+
+## Process
+
+1. **Ingest the plan** — accept a file path, pasted PRD text, or existing `specs/` artifacts. Read `CLAUDE.md` and `CONVENTIONS.md` if present.
+
+2. **Score each lens** — for every item above, mark:
+   - ✅ Present and adequate
+   - ⚠️ Present but incomplete — note what's missing
+   - ❌ Absent
+
+3. **Close gaps conversationally** — for each ❌ or ⚠️, ask one question at a time. Record each answer before moving to the next.
+
+4. **Write `specs/PLAN-AUDIT.md`**:
+
+```markdown
+# Plan Audit — <project>
+**Date:** YYYY-MM-DD · **Verdict:** READY | NOT READY
+
+## Principles Alignment
+| Check | Status | Note |
+| Vertical slices | ✅ | 4 stories, each shippable |
+| Scope bounded | ⚠️ | in_scope present; out_of_scope missing |
+
+## Conventions Completeness
+| Check | Status | Note |
+
+## Pre-flight Answers
+| Command | Value |
+| test | `npm test` |
+| build | `npm run build` |
+
+## Open Gaps
+- [ ] Add out_of_scope to scope definition (run scope-work)
+- [ ] Create CLAUDE.md (run seed-conventions)
+
+## Verdict
+READY — proceed with survey-context
+NOT READY — N gaps remain; close before proceeding
+```
+
+5. **Recommend next skill**:
+   - READY → `survey-context`
+   - Needs bootstrapping → `seed-conventions`
+   - Needs spec elaboration → `elaborate-spec`
+   - Has foreign spec format → `migrate-spec`
+   - Plan assumptions need challenging → `grill-me`
+
+## Verify
+
+→ verify: `test -f specs/PLAN-AUDIT.md && grep -q 'Verdict' specs/PLAN-AUDIT.md && echo OK || echo FAIL`

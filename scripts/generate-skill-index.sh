@@ -23,6 +23,7 @@ PHASE_MAP=(
   [using-bigpowers]="Discover"
   [map-codebase]="Discover"
   [elaborate-spec]="Discover"
+  [audit-plan]="Discover"
   # Elaborate / Design
   [model-domain]="Design"
   [define-language]="Design"
@@ -84,6 +85,7 @@ PHASE_MAP=(
   [reset-baseline]="Sustain"
   [stocktake-skills]="Sustain"
   [evolve-skill]="Sustain"
+  [run-benchmark]="Sustain"
   [terse-mode]="Sustain"
   [delegate-task]="Sustain"
   [dispatch-agents]="Sustain"

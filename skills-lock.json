@@ -16,6 +16,11 @@
       "sha256": "8192ebe6f66a9f91",
       "path": "audit-code/SKILL.md"
     },
+    "audit-plan": {
+      "description": "Evaluate an incoming project plan against bigpowers principles and conventions, surface gaps, and produce a READY/NOT READY verdict before engagement begins. Use when a new project arrives, when adapting a foreign plan, or before running seed-conventions on an unfamiliar codebase.",
+      "sha256": "3e88b606fc8e886c",
+      "path": "audit-plan/SKILL.md"
+    },
     "build-epic": {
       "description": "Eight-step epic build cycle — reads state.yaml, execution-status.yaml, and one epic capsule; updates status via bp-yaml-set or direct edit. Resume mode runs one step per invocation. Use instead of ad-hoc execute-plan for release work.",
       "sha256": "7a376ef092fde9cc",
