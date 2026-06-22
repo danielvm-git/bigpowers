@@ -1,13 +1,13 @@
 active_flow: build_epic
 workflow_mode: yolo
 active_epic_id: e20
-active_story_id: null
+active_story_id: e20s02
 completed_epic: false
 epic_cycle:
-  current_step: null
-  next_skill: survey-context
-  story_bcps: null
-  completed_steps: []
+  current_step: 2
+  next_skill: plan-work
+  story_bcps: 1
+  completed_steps: [1]
   audit_result: null
 bug_cycle:
   current_step: null
@@ -21,15 +21,15 @@ release:
   last_publish: '2026-06-21T22:15:00Z'
   ci_verified: true
 metrics:
-  story_start: '2026-06-21T22:51:41-03:00'
+  story_start: '2026-06-21T22:59:51-03:00'
   story_end: '2026-06-21T22:58:11-03:00'
   cycle_minutes: 7
   bcp_per_hour: 8.6
   skill_timings:
     survey-context:
-      calls: 1
-      total_seconds: 10.0
-      avg_seconds: 10.0
+      calls: 2
+      total_seconds: 16.0
+      avg_seconds: 8.0
     plan-work:
       calls: 1
       total_seconds: 16.0
@@ -63,7 +63,8 @@ git:
   hash: 285cecf
   pushed: true
 handoff:
-  last_step_completed: e20s01 (conversational intake) complete — change-request skill now has Conversational Mode documented.
+  last_step_completed: e20s01 (conversational intake) complete — change-request skill
+    now has Conversational Mode documented.
   open_decisions: '[next: e20s02 — Reduce state.yaml commit noise]'
   next_skill: survey-context
   commit_ratio:
