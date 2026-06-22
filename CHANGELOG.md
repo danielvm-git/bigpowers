@@ -1,3 +1,10 @@
+# [2.23.0](https://github.com/danielvm-git/bigpowers/compare/v2.22.0...v2.23.0) (2026-06-22)
+
+
+### Features
+
+* **research-first:** add opensrc cache check before building ([9921db6](https://github.com/danielvm-git/bigpowers/commit/9921db68c05b914da8e924a3fbba0d03e6e9dd35))
+
 # [2.22.0](https://github.com/danielvm-git/bigpowers/compare/v2.21.0...v2.22.0) (2026-06-22)
 
 
