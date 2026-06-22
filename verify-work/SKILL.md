@@ -25,9 +25,10 @@ Review answers "is the code good?"; Verify answers "does the built thing do what
 
 1. Read active story tasks from `specs/epics/<capsule>/eNNsYY-tasks.yaml` and story spec from `specs/epics/<capsule>/eNNsYY-<slug>.md` (countable-story-format, Gherkin in §17).
 2. **Cold-start smoke** (if app): stop server, clear caches, boot from scratch.
-3. Mechanical gates: build → typecheck → lint → tests (from `CLAUDE.md`).
-4. **Step-by-step UAT** — one user-observable action at a time.
-5. **Gaps loop** — failures → log → `plan-work` → re-verify.
+3. **AGENTS.md preflight** — before running default checks, call `bash scripts/bp-read-agents.sh` to detect project-specific commands. If `BP_PREFLIGHT` is set, run it instead of the default mechanical gates (or in addition to them if the project requires both). Output: `"Using preflight from AGENTS.md: <cmd>"`. Fall back to `CLAUDE.md` commands if AGENTS.md is absent.
+4. Mechanical gates: build → typecheck → lint → tests (from `CLAUDE.md` or AGENTS.md).
+5. **Step-by-step UAT** — one user-observable action at a time.
+6. **Gaps loop** — failures → log → `plan-work` → re-verify.
 
 ## Verify sub-operations
 
