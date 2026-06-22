@@ -1,3 +1,10 @@
+# [2.28.0](https://github.com/danielvm-git/bigpowers/compare/v2.27.0...v2.28.0) (2026-06-22)
+
+
+### Features
+
+* **audit-plan:** new skill — evaluate project plan for bigpowers readiness ([509deba](https://github.com/danielvm-git/bigpowers/commit/509deba5a45b3f688d087b11091fc854449c7e46))
+
 # [2.27.0](https://github.com/danielvm-git/bigpowers/compare/v2.26.0...v2.27.0) (2026-06-22)
 
 
