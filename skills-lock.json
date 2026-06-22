@@ -18,7 +18,7 @@
     },
     "build-epic": {
       "description": "Eight-step epic build cycle — reads state.yaml, execution-status.yaml, and one epic capsule; updates status via bp-yaml-set or direct edit. Resume mode runs one step per invocation. Use instead of ad-hoc execute-plan for release work.",
-      "sha256": "b7049084cd180053",
+      "sha256": "7a376ef092fde9cc",
       "path": "build-epic/SKILL.md"
     },
     "change-request": {
@@ -33,7 +33,7 @@
     },
     "compose-workflow": {
       "description": "Chain multiple bigpowers skills into a custom workflow recipe saved in specs/. Use when a project repeats a non-standard skill sequence, or user wants a documented playbook beyond orchestrate-project modes.",
-      "sha256": "4d498c0c6975cbce",
+      "sha256": "854e272ca7bd6e3a",
       "path": "compose-workflow/SKILL.md"
     },
     "craft-skill": {
@@ -73,7 +73,7 @@
     },
     "develop-tdd": {
       "description": "Test-driven development with red-green-refactor loop using vertical slices. Use for features (epic tasks) or bugs (specs/bugs/BUG-*.md).",
-      "sha256": "6ace47f7db4642d4",
+      "sha256": "e050f400da14eff3",
       "path": "develop-tdd/SKILL.md"
     },
     "diagnose-root": {
@@ -148,7 +148,7 @@
     },
     "kickoff-branch": {
       "description": "Create a git worktree and feature branch, then verify a clean test baseline before any code is written. Use when starting a new feature or task, when user wants to work in isolation from main, or mentions \"start a branch\" or \"new worktree\".",
-      "sha256": "77864a4086f91f60",
+      "sha256": "d3c74c05a8d790c0",
       "path": "kickoff-branch/SKILL.md"
     },
     "map-codebase": {
@@ -318,7 +318,7 @@
     },
     "verify-work": {
       "description": "Multi-phase UAT gate — cold-start smoke, build, typecheck, lint, tests, step-by-step manual verification, gaps-closure loop. Use after execute-plan or develop-tdd, before audit-code.",
-      "sha256": "d1aeab669a9c5621",
+      "sha256": "44f96eac8380c15b",
       "path": "verify-work/SKILL.md"
     },
     "visual-dashboard": {

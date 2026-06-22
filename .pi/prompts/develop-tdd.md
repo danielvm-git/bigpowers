@@ -148,6 +148,26 @@ Once all tests pass: locate the Verification Script in the active epic capsule, 
 [ ] verify: command passes
 ```
 
+## --config mode
+
+For pure-config tasks (update package.json, edit YAML, tweak manifest) where there is no test infrastructure to write against. The RED state is "verify command fails"; GREEN is "verify command passes."
+
+**When to use:** task has a runnable `verify:` command and the deliverable is a config file change with no new behavior to unit-test. Invoke as `develop-tdd --config`.
+
+**Cycle:**
+
+```
+RED:    Run verify command → it fails (expected)
+GREEN:  Apply config change → verify passes
+COMMIT: commit: chore(<scope>): <change>
+```
+
+**Rules:**
+- Skips test-writing phase entirely — do NOT write a test file for config tasks.
+- `verify:` command is **required** and must be runnable (no placeholder).
+- Commit message follows Conventional Commits (`chore:` or `feat:` as appropriate).
+- Still runs full `verify-work` after all tasks complete.
+
 ## Handoff
 
 Gate: READY -> next: verify-work

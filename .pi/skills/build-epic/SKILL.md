@@ -48,6 +48,28 @@ After step 5 (verify-work) completes successfully, step 6 runs `audit-code` auto
 4. **Audit artifact:** Full audit report saved to `specs/verifications/AUDIT-<epic>-<story>.md` regardless of pass/fail, for reviewer traceability.
 5. **Enforce F.I.R.S.T:** After audit-code passes, run `enforce-first --quick` on new/modified tests. Append F.I.R.S.T violations (if any) to the audit report. Failing F.I.R.S.T criteria trigger the same loop-back to step 4.
 
+## --fast mode
+
+Coalesces read-and-report steps to reduce token overhead. Activate with `build-epic --fast`.
+
+| Normal | --fast | Change |
+|--------|--------|--------|
+| Step 1 (survey-context) | 1+2 together | survey + plan in one invocation |
+| Step 2 (plan-work) | (absorbed into 1) | — |
+| Step 3 (kickoff-branch) | Step 2 | unchanged, sequential |
+| Step 4 (develop-tdd) | Step 3 | unchanged, sequential |
+| Step 5 (verify-work) | Step 4 | unchanged, sequential |
+| Step 6 (audit-code) | 5+6 together | audit + commit-message in one invocation |
+| Step 7 (commit-message) | (absorbed into 6) | — |
+| Step 8 (release-branch) | Step 7 | unchanged, sequential |
+
+**Total invocations:** 8 → 6 per story.
+
+**Rules:**
+- Steps 3/4/5/8 (kickoff, develop, verify, release) still run sequentially — they require user interaction or branch state.
+- `--fast` does NOT skip any checklist items; it only coalesces steps that are pure read-and-report.
+- Record `epic_cycle.fast_mode: true` in `state.yaml` when this flag is active.
+
 ## Handoff
 
 Write `handoff.next_skill` and `handoff.context` in `state.yaml` when pausing mid-epic.

@@ -16,6 +16,7 @@ Review answers "is the code good?"; Verify answers "does the built thing do what
 
 - Default: full UAT plus gaps loop
 - --smoke: Cold-start only plus one happy-path flow. Use for hotfixes.
+- --cli: CLI tool verification — replaces cold-start with binary smoke checklist. Use for CLI tools with no server process.
 
 ## Process
 
@@ -24,10 +25,17 @@ Review answers "is the code good?"; Verify answers "does the built thing do what
 0. **Branch check** — must not be `main`/`master`.
 
 1. Read active story tasks from `specs/epics/<capsule>/eNNsYY-tasks.yaml` and story spec from `specs/epics/<capsule>/eNNsYY-<slug>.md` (countable-story-format, Gherkin in §17).
+1a. **Pre-UAT verify validation** — for each task's `verify:` command, run it and detect pattern mismatches before UAT begins. If a grep/awk/jq command fails, check whether the pattern is wrong vs. a genuine failure:
+    ```bash
+    # For a failing grep -q 'PATTERN' FILE, check what is actually in FILE
+    grep 'PATTERN' FILE || grep -n '' FILE | head -20   # show nearest lines
+    ```
+    Report: `"Pattern 'X' not found. Nearest match: 'Y' at line N"` and ask `"Update verify command? [Y/n]"`. Fix before proceeding — a mismatched verify command produces false failures during UAT.
 2. **Cold-start smoke** (if app): stop server, clear caches, boot from scratch.
-3. Mechanical gates: build → typecheck → lint → tests (from `CLAUDE.md`).
-4. **Step-by-step UAT** — one user-observable action at a time.
-5. **Gaps loop** — failures → log → `plan-work` → re-verify.
+3. **AGENTS.md preflight** — before running default checks, call `bash scripts/bp-read-agents.sh` to detect project-specific commands. If `BP_PREFLIGHT` is set, run it instead of the default mechanical gates (or in addition to them if the project requires both). Output: `"Using preflight from AGENTS.md: <cmd>"`. Fall back to `CLAUDE.md` commands if AGENTS.md is absent.
+4. Mechanical gates: build → typecheck → lint → tests (from `CLAUDE.md` or AGENTS.md).
+5. **Step-by-step UAT** — one user-observable action at a time.
+6. **Gaps loop** — failures → log → `plan-work` → re-verify.
 
 ## Verify sub-operations
 
@@ -89,6 +97,29 @@ phases:
 ```
 
 > **HARD GATE** — Verification evidence MUST be persisted before marking the story done. No evidence = not verified.
+
+## --cli mode
+
+For CLI tools where cold-start smoke (stop server / clear caches) does not apply. Auto-detected when the project has no server process (no `listen()`, no `server.js`, no blocking `main()`); or explicitly activated with `--cli`.
+
+**Auto-detect binary name:**
+```bash
+# Cargo.toml
+BINARY=$(grep '^name' Cargo.toml | head -1 | awk -F'"' '{print $2}')
+# package.json
+BINARY=$(node -e "console.log(require('./package.json').bin && Object.keys(require('./package.json').bin)[0] || '')" 2>/dev/null)
+# Makefile
+BINARY=$(grep '^BIN\s*=' Makefile 2>/dev/null | awk '{print $3}')
+```
+
+**CLI verification checklist (replaces cold-start smoke):**
+
+1. `--help` smoke: `$BINARY --help` → assert output contains "Usage"
+2. `--version` check: `$BINARY --version` → assert version matches manifest (Cargo.toml / package.json)
+3. Happy-path: run documented example command from README.md → assert non-empty output
+4. Edge case: `$BINARY --invalid-flag` → assert exit code ≠ 0 and error message printed
+
+No "stop server" or "clear caches" steps are executed in `--cli` mode. Steps 3–6 of the default process (mechanical gates, UAT, gaps loop) still run unchanged.
 
 ## Verify
 

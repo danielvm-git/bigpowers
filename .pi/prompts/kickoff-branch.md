@@ -31,7 +31,32 @@ git status                             # working tree MUST be clean
 git log --oneline -5
 ```
 
-If working tree is dirty, ask the user to stash or commit first. If not on `$DEFAULT` after checkout, stop and fix before continuing.
+**Spec-only pre-kickoff** — before enforcing the clean-tree gate, check whether dirty files are spec artifacts:
+
+```bash
+DIRTY=$(git status --porcelain | awk '{print $2}')
+NON_SPEC=$(echo "$DIRTY" | grep -v '^specs/' || true)
+
+if [ -z "$DIRTY" ]; then
+  : # clean — proceed
+elif [ -z "$NON_SPEC" ]; then
+  # spec-only dirty tree — offer auto-commit
+  echo "Dirty spec artifacts: $(echo $DIRTY | tr '\n' ' ')"
+  read -p "Commit spec artifacts before kickoff? [Y/n]: " CONFIRM
+  CONFIRM=${CONFIRM:-Y}
+  if [[ "$CONFIRM" =~ ^[Yy] ]]; then
+    git add specs/
+    git commit -m "chore(state): checkpoint before kickoff"
+  fi
+else
+  echo "Dirty tree: $NON_SPEC (not a spec artifact). Stash or commit before proceeding."
+  exit 1
+fi
+```
+
+- **Spec artifacts** match `specs/` — state.yaml, epics YAMLs, execution-status.yaml, etc.
+- **Non-spec dirty files** (src/, scripts/, SKILL.md, …) still enforce the full clean-tree gate.
+- If not on `$DEFAULT` after checkout, stop and fix before continuing.
 
 ### 3. Pre-flight & Conflict Resolution
 

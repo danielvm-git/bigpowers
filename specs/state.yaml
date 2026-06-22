@@ -1,14 +1,22 @@
 active_flow: build_epic
 workflow_mode: yolo
-active_epic_id: e21
-active_story_id: null
+active_epic_id: e20
+active_story_id: e20s06
 completed_epic: true
 epic_cycle:
-  current_step: null
-  next_skill: survey-context
-  story_bcps: null
-  completed_steps: []
-  audit_result: null
+  current_step: 8
+  next_skill: null
+  story_bcps: 4
+  completed_steps:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  audit_result: pass
 bug_cycle:
   current_step: null
   completed_steps: []
@@ -31,13 +39,13 @@ git:
   pushed: true
 handoff:
   last_step_completed: >
-    e21 (MCP-Native Discovery & Tool Integration) COMPLETE — all 4 stories done.
-    e21s01: MCP server (scripts/mcp-server.js, 5 tools, 0 deps).
-    e21s02: opensrc integration in research-first + bp-opensrc-check.sh.
-    e21s03: AGENTS.md preflight extraction in verify-work + bp-read-agents.sh.
-    e21s04: 8 standard workflow recipes in specs/workflows/.
-  open_decisions: '[e21 complete — next epic per release-plan.yaml backlog]'
-  next_skill: survey-context
+    e20 (Build-Epic Ergonomics & Flow Polish) COMPLETE — all 6 stories done.
+    e20s03: spec-only dirty-tree detection + auto-commit in kickoff-branch.
+    e20s04: pre-UAT verify command validation (pattern mismatch detection) in verify-work.
+    e20s05: --config mode in develop-tdd + --fast mode in build-epic.
+    e20s06: --cli mode (binary smoke checklist) in verify-work.
+  open_decisions: '[e20 complete — release 2.8.0 backlog exhausted; plan next release]'
+  next_skill: null
   commit_ratio:
     feat: 4
     fix: 0
