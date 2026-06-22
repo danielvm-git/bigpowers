@@ -4,4 +4,4 @@ description: End-to-end gate — smoke test the live deployment then full UAT ve
 skills:
   - smoke-test
   - verify-work
-verify: "grep -q 'smoke-test' specs/workflows/e2e.yaml && echo OK"
+verify: "ls smoke-test/SKILL.md verify-work/SKILL.md >/dev/null 2>&1 && echo 'OK' || echo 'FAIL'"

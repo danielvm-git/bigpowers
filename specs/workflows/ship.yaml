@@ -5,4 +5,4 @@ skills:
   - audit-code
   - commit-message
   - release-branch
-verify: "grep -q 'audit-code' specs/workflows/ship.yaml && echo OK"
+verify: "ls audit-code/SKILL.md commit-message/SKILL.md release-branch/SKILL.md >/dev/null 2>&1 && echo 'OK' || echo 'FAIL'"

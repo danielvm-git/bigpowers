@@ -4,6 +4,4 @@ description: Security-focused audit then independent reviewer for OWASP top-10 a
 skills:
   - audit-code
   - request-review
-args:
-  audit-code: "--security-focus"
-verify: "grep -q 'audit-code' specs/workflows/security.yaml && echo OK"
+verify: "ls audit-code/SKILL.md request-review/SKILL.md >/dev/null 2>&1 && echo 'OK' || echo 'FAIL'"

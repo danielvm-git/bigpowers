@@ -7,8 +7,29 @@
 
 1. Read `specs/product/SCOPE_LATEST.yaml`, `specs/release-plan.yaml + epic shards`, and the current task statement.
 2. Search in order: this repo → bigpowers skills (`search-skills`) → package registries → web docs.
-3. For each candidate: note name, URL/path, fit (adopt | extend | compose | build).
-4. Append `## Prior Art` to `requirements/SCOPE_LATEST.yaml` notes or the active epic story.
+3. **Check opensrc cache** — if the task integrates an external library, run `bash scripts/bp-opensrc-check.sh` (or `npx opensrc search <pkg>`) to find locally-cached source. Read the `src/` directory for API shapes before writing any integration code.
+4. For each candidate: note name, URL/path, fit (adopt | extend | compose | build).
+5. Append `## Prior Art` to `requirements/SCOPE_LATEST.yaml` notes or the active epic story.
+
+## opensrc Integration
+
+`opensrc` is a local cache of 200+ open-source repos and npm/PyPI packages. Query it before building any external integration to avoid re-inventing documented API shapes.
+
+```bash
+# Check if a package is cached
+npx opensrc search <package-name>
+
+# Or use the bundled helper (checks all deps from package.json or requirements.txt)
+bash scripts/bp-opensrc-check.sh [package.json|requirements.txt]
+```
+
+If opensrc finds a match, read its `src/` or source directory and append findings to the **Prior Art** section:
+
+```
+opensrc: found <pkg> v<version> — exports <key classes/functions>
+```
+
+If opensrc is not installed or the package is not cached, fall through to web docs normally.
 
 ## Outcome matrix
 

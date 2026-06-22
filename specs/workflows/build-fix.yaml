@@ -1,9 +1,9 @@
 name: build-fix
 command: /build-fix
-description: Full bug-fix cycle — investigate, diagnose root cause, apply quick-fix, validate.
+description: Full bug-fix cycle — investigate, diagnose root cause, apply fix via TDD, validate.
 skills:
   - investigate-bug
   - diagnose-root
-  - quick-fix
+  - develop-tdd
   - validate-fix
-verify: "grep -q 'investigate-bug' specs/workflows/build-fix.yaml && echo OK"
+verify: "ls investigate-bug/SKILL.md diagnose-root/SKILL.md develop-tdd/SKILL.md validate-fix/SKILL.md >/dev/null 2>&1 && echo 'OK' || echo 'FAIL'"

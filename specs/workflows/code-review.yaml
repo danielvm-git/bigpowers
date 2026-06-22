@@ -5,4 +5,4 @@ skills:
   - audit-code
   - request-review
   - respond-review
-verify: "grep -q 'audit-code' specs/workflows/code-review.yaml && echo OK"
+verify: "ls audit-code/SKILL.md request-review/SKILL.md respond-review/SKILL.md >/dev/null 2>&1 && echo 'OK' || echo 'FAIL'"

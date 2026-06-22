@@ -4,4 +4,4 @@ description: Test-driven development loop with F.I.R.S.T enforcement after each 
 skills:
   - develop-tdd
   - enforce-first
-verify: "grep -q 'develop-tdd' specs/workflows/tdd.yaml && echo OK"
+verify: "ls develop-tdd/SKILL.md enforce-first/SKILL.md >/dev/null 2>&1 && echo 'OK' || echo 'FAIL'"

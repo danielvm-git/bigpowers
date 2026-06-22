@@ -5,4 +5,4 @@ skills:
   - survey-context
   - research-first
   - plan-work
-verify: "grep -q 'survey-context' specs/workflows/plan.yaml && echo OK"
+verify: "ls survey-context/SKILL.md research-first/SKILL.md plan-work/SKILL.md >/dev/null 2>&1 && echo 'OK' || echo 'FAIL'"

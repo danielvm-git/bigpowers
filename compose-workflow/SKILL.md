@@ -11,12 +11,14 @@ model: sonnet
 ## Process
 
 1. Interview: goal, phases, which skills, gates between steps.
-2. Write `specs/WORKFLOW-<name>.md`:
-   - Trigger ("Use when...")
-   - Ordered steps: `skill → artefact → verify`
-   - HARD GATEs between phases
+2. Write `specs/workflows/<name>.yaml`:
+   - `name`, `command`, `description`, `skills[]`, `verify`
+   - Optional: `args` for skill-specific arguments
 3. Register in state.yaml Active Decisions.
 4. Optional: reference from `orchestrate-project` Ad-Hoc mode.
+
+> **Prefer the YAML recipe format** over the legacy `specs/WORKFLOW-<name>.md` markdown format.
+> YAML recipes are command-mappable, machine-readable, and listed in the Standard Recipe Library.
 
 ## Standard Recipe Library
 
@@ -25,13 +27,13 @@ Reference them in AGENTS.md so `/command` directly invokes the matching recipe.
 
 | Command | Workflow | Skill chain |
 |---------|----------|-------------|
-| `/check-stack` | check-stack | survey-context → assess-impact → verify-work |
+| `/check-stack` | check-stack | survey-context → assess-impact → setup-environment |
 | `/ship` | ship | audit-code → commit-message → release-branch |
 | `/tdd` | tdd | develop-tdd → enforce-first |
 | `/code-review` | code-review | audit-code → request-review → respond-review |
-| `/security` | security | audit-code (security focus) → request-review |
+| `/security` | security | audit-code → request-review |
 | `/plan` | plan | survey-context → research-first → plan-work |
-| `/build-fix` | build-fix | investigate-bug → diagnose-root → quick-fix → validate-fix |
+| `/build-fix` | build-fix | investigate-bug → diagnose-root → develop-tdd → validate-fix |
 | `/e2e` | e2e | smoke-test → verify-work |
 
 Add to `AGENTS.md`:

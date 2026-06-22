@@ -4,5 +4,5 @@ description: Health-check the project state and assess impact before any change.
 skills:
   - survey-context
   - assess-impact
-  - verify-work
-verify: "grep -q 'survey-context' specs/workflows/check-stack.yaml && echo OK"
+  - setup-environment
+verify: "ls survey-context/SKILL.md assess-impact/SKILL.md setup-environment/SKILL.md >/dev/null 2>&1 && echo 'OK' || echo 'FAIL'"
