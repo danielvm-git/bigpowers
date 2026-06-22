@@ -1,0 +1,38 @@
+skill: verify-work
+version: "1"
+scenarios:
+  - id: s01
+    name: "pre-UAT verify validation catches pattern mismatch"
+    prompt: |
+      Run verify-work. One task has verify: grep -q 'crates/bts-map' output.txt
+      but output.txt contains 'src/bts-map' instead.
+    grader:
+      type: rubric
+      criteria:
+        - "The skill flags the mismatch before UAT begins"
+        - "The skill shows a nearest-match suggestion"
+        - "The skill asks whether to update the verify command"
+        - "The skill does not silently fail the task"
+    weight: 1.0
+
+  - id: s02
+    name: "--cli mode uses binary smoke checklist instead of cold-start"
+    prompt: |
+      Run verify-work --cli for a Rust CLI project with binary name bts.
+    grader:
+      type: rubric
+      criteria:
+        - "The skill runs bts --help and checks for usage text"
+        - "The skill runs bts --version and checks version matches Cargo.toml"
+        - "The skill does NOT attempt to stop a server or clear server caches"
+        - "The skill tests an invalid flag for non-zero exit"
+    weight: 1.0
+
+  - id: s03
+    name: "writes evidence YAML before marking done"
+    prompt: |
+      Run verify-work for story e22s01. All UAT steps pass.
+    grader:
+      type: code
+      command: "ls specs/verifications/e22s01-verify.yaml 2>/dev/null && echo PASS || echo SKIP"
+    weight: 0.5

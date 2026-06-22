@@ -1,0 +1,36 @@
+skill: survey-context
+version: "1"
+scenarios:
+  - id: s01
+    name: "detects active epic from state.yaml"
+    prompt: |
+      Run survey-context. specs/state.yaml exists with active_epic_id: e22 and
+      active_story_id: e22s01. The epic capsule exists at specs/epics/e22-skill-catalog-ci-gate/.
+    grader:
+      type: code
+      command: "grep -q 'active_epic_id' specs/state.yaml && echo PASS || echo FAIL"
+    weight: 1.0
+
+  - id: s02
+    name: "reads release-plan.yaml and reports next epic"
+    prompt: |
+      Run survey-context. specs/release-plan.yaml exists with 3 backlog epics.
+    grader:
+      type: rubric
+      criteria:
+        - "The skill mentions the active epic by ID"
+        - "The skill reads release-plan.yaml without error"
+        - "The output includes a recommended next skill"
+    weight: 1.0
+
+  - id: s03
+    name: "handles missing state.yaml gracefully"
+    prompt: |
+      Run survey-context when specs/state.yaml does not exist.
+    grader:
+      type: rubric
+      criteria:
+        - "The skill does not crash with an unhandled error"
+        - "The skill suggests creating state.yaml or running seed-conventions"
+        - "The output is actionable"
+    weight: 0.5

@@ -1,0 +1,41 @@
+skill: develop-tdd
+version: "1"
+scenarios:
+  - id: s01
+    name: "follows red-green-refactor order"
+    prompt: |
+      Run develop-tdd for a story that requires adding a new function. The story
+      has a tasks.yaml with one task: "add sum() function to utils.js".
+    grader:
+      type: rubric
+      criteria:
+        - "The skill writes a failing test BEFORE writing the implementation"
+        - "The skill commits the failing test separately from the implementation"
+        - "The skill does not write speculative features beyond what the test requires"
+    weight: 1.0
+
+  - id: s02
+    name: "--config mode skips test-writing for pure-config tasks"
+    prompt: |
+      Run develop-tdd --config for a task that updates package.json keywords.
+      No test infrastructure exists for package.json.
+    grader:
+      type: rubric
+      criteria:
+        - "The skill does NOT attempt to write a test file"
+        - "The skill runs the verify command as the RED state"
+        - "The skill applies the config change and verifies GREEN"
+        - "The commit uses chore: or feat: prefix"
+    weight: 1.0
+
+  - id: s03
+    name: "aborts if on main branch"
+    prompt: |
+      Run develop-tdd while on the main branch (git branch shows main).
+    grader:
+      type: rubric
+      criteria:
+        - "The skill detects the main branch"
+        - "The skill refuses to proceed and suggests kickoff-branch"
+        - "No code is written"
+    weight: 0.5

@@ -32,6 +32,21 @@ Each key maps to a skill invocation. Optional keys can be skipped; required keys
 
 2. **Find next step** — Find the first workflow key with `status: pending`. If the key is `optional`, check if the user wants to run it. If not, mark it `skipped`.
 
+2a. **Context capsule check** — Before invoking `elaborate-spec`, check whether a fresh `specs/planning-context.yaml` exists:
+   ```bash
+   test -f specs/planning-context.yaml && python3 -c "
+import yaml, datetime
+d = yaml.safe_load(open('specs/planning-context.yaml'))
+written = d.get('written_at','')
+if written:
+    age = (datetime.datetime.now(datetime.timezone.utc) - datetime.datetime.fromisoformat(written)).total_seconds() / 3600
+    print(f'Context age: {age:.1f}h')
+" 2>/dev/null || echo "No context or no written_at"
+   ```
+   - If context is **< 24h old**, ask: `"Planning context from Xh ago exists for '<feature_name>'. Re-run elaborate-spec? [y/N]"`. Skip elaborate-spec on N.
+   - If context is **≥ 24h old** or absent, run elaborate-spec normally.
+   - On planning cycle completion (all required keys done), clear the capsule: delete `specs/planning-context.yaml` and set `planning-status.yaml` `context_capsule: null`.
+
 3. **Invoke the matching skill** — Run the skill that matches the workflow key:
    - `survey-context` — where are we?
    - `scope-work` — what's in and out?
@@ -48,6 +63,10 @@ Each key maps to a skill invocation. Optional keys can be skipped; required keys
 
 In `specs/planning-status.yaml`:
 ```yaml
+context_capsule:             # written by elaborate-spec; cleared on cycle completion
+  written_at: "2026-06-22T03:00:00Z"
+  written_by: elaborate-spec
+  feature_name: "add dark mode"
 workflows:
   survey-context:
     required: true

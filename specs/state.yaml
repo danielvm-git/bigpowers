@@ -1,22 +1,17 @@
 active_flow: build_epic
 workflow_mode: yolo
-active_epic_id: e20
-active_story_id: e20s06
-completed_epic: true
+active_epic_id: e22
+active_story_id: e22s01
+completed_epic: false
 epic_cycle:
-  current_step: 8
-  next_skill: null
-  story_bcps: 4
+  current_step: 4
+  next_skill: develop-tdd
+  story_bcps: 1
   completed_steps:
   - 1
   - 2
   - 3
-  - 4
-  - 5
-  - 6
-  - 7
-  - 8
-  audit_result: pass
+  audit_result: null
 bug_cycle:
   current_step: null
   completed_steps: []

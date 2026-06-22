@@ -14,7 +14,8 @@ Audit SKILL.md catalog for drift, stale triggers, missing HARD GATEs, and INDEX 
 | Mode | Scope |
 |------|-------|
 | **Quick Scan** | Skills changed since last tag or in current diff |
-| **Full** | All 62 skills per SKILL-INDEX.md + catalog audit |
+| **Full** | All skills per SKILL-INDEX.md + catalog audit |
+| **--verify** | Run `bash scripts/run-skill-verify.sh` and append health results to the stocktake report |
 
 ## Process
 
@@ -26,6 +27,7 @@ Audit SKILL.md catalog for drift, stale triggers, missing HARD GATEs, and INDEX 
    - Skills with zero calls (potential dead weight)
    - Skills with high average time (candidates for `evolve-skill`)
 5. Critical findings → `plan-work` story; cosmetic → `evolve-skill` candidate.
+6. **--verify mode:** Run `bash scripts/run-skill-verify.sh` and append a `## Verify Health` section to the stocktake report: `"N/68 PASS, M FAIL, K SKIP"`. FAIL skills are critical findings and go straight to `plan-work`.
 
 ### Skill timing data (`metrics.skill_timings`)
 

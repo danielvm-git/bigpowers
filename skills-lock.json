@@ -93,7 +93,7 @@
     },
     "elaborate-spec": {
       "description": "Refine a rough idea into a clear, detailed specification through dialogue. Does not produce code. Use when user has a vague idea, wants to think through a feature before planning, or needs to turn \"I want X\" into a concrete spec.",
-      "sha256": "6d60cffd5139347e",
+      "sha256": "9edc17057449444d",
       "path": "elaborate-spec/SKILL.md"
     },
     "enforce-first": {
@@ -103,7 +103,7 @@
     },
     "evolve-skill": {
       "description": "Benchmark-gated skill evolution — consume bigpowers-benchmark report, propose plan-work change, edit skill via craft-skill, re-run benchmark, record ADR. Use when a skill underperforms on benchmark or stocktake finds systemic gap.",
-      "sha256": "3582333ff9b15942",
+      "sha256": "e2d127c4ae0b5af7",
       "path": "evolve-skill/SKILL.md"
     },
     "execute-plan": {
@@ -226,6 +226,11 @@
       "sha256": "c16bbe4854a0d665",
       "path": "respond-review/SKILL.md"
     },
+    "run-benchmark": {
+      "description": "Run skill quality benchmarks from specs/benchmarks/ definitions and write pass@k reports. Use before and after evolve-skill to prove quality changes are improvements, not regressions.",
+      "sha256": "e27f4e682e505b19",
+      "path": "run-benchmark/SKILL.md"
+    },
     "run-evals": {
       "description": "Eval-Driven Development — define capability and regression evals before building; code graders use verify commands, model graders use explicit rubrics; log pass@k. Use before develop-tdd on new features, or when measuring agent capability over runs.",
       "sha256": "b3cd89a7e440c94f",
@@ -233,12 +238,12 @@
     },
     "run-planning": {
       "description": "\"DISCOVER-PHASE ADVANCER — Drive the discover-phase checklist (specs/planning-status.yaml) through survey-context → scope-work → research-first → elaborate-spec → plan-release → slice-tasks. NOT a duplicate of plan-work or the planning spine; it orchestrates the pre-coding discover phase only.\"",
-      "sha256": "eb6c9d3c0e26b7fc",
+      "sha256": "a2e7c028e7f817de",
       "path": "run-planning/SKILL.md"
     },
     "scope-work": {
       "description": "\"PLANNING SPINE STEP 1 of 3 — Scope the work: define what is in and out of scope and save as specs/product/SCOPE_LATEST.yaml. Use before slice-tasks or plan-release on any new initiative. Not a substitute for slice-tasks (step 2) or plan-work (step 3).\"",
-      "sha256": "3d333e2bfa5f9998",
+      "sha256": "d3cb167d8a5296be",
       "path": "scope-work/SKILL.md"
     },
     "search-skills": {
@@ -268,7 +273,7 @@
     },
     "slice-tasks": {
       "description": "\"PLANNING SPINE STEP 2 of 3 — Slice the work: break a scoped PRD into vertical-slice stories in specs/epics/. Use after scope-work (step 1), before plan-work (step 3). Not a substitute for scope-work or plan-work.\"",
-      "sha256": "bda9db54dbe791b5",
+      "sha256": "7948164e218541ea",
       "path": "slice-tasks/SKILL.md"
     },
     "smoke-test": {
@@ -283,7 +288,7 @@
     },
     "stocktake-skills": {
       "description": "Sequential subagent batch audit of the bigpowers skill catalog — Quick Scan (changed only) or Full (all skills). Use during sustain phase, before a major release, or when catalog drift is suspected.",
-      "sha256": "c58bf4f70ff02cd3",
+      "sha256": "6e73b2d2cf0cfbe1",
       "path": "stocktake-skills/SKILL.md"
     },
     "survey-context": {

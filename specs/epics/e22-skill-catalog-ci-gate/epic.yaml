@@ -2,17 +2,17 @@ id: e22
 title: "Skill Catalog CI Gate"
 wsjf: 5.5
 total_bcps: 2
-status: backlog
+status: done
 stories:
   - id: e22s01
     title: "scripts/run-skill-verify.sh — machine-runnable catalog health check"
     bcps: 1
-    status: backlog
+    status: done
     spec: e22s01-run-skill-verify.md
     tasks: e22s01-tasks.yaml
   - id: e22s02
     title: "Wire skill-verify to CI and stocktake-skills --verify mode"
     bcps: 1
-    status: backlog
+    status: done
     spec: e22s02-ci-integration.md
     tasks: e22s02-tasks.yaml

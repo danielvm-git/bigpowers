@@ -19,6 +19,12 @@ Turn the current conversation into a bounded PRD at `specs/product/SCOPE_LATEST.
 
 ## Process
 
+0. **Read planning-context.yaml** — If `specs/planning-context.yaml` exists, read it before doing anything else:
+   ```bash
+   test -f specs/planning-context.yaml && echo "Context found" || echo "No context — starting fresh"
+   ```
+   Pre-populate `feature_name`, `constraints`, and `out_of_scope` from the file. Skip re-asking questions already answered by elaborate-spec. If the file is absent, proceed normally.
+
 1. **Gather context** — Read existing `specs/` artifacts (`release-plan.yaml`, `plans/TECH_STACK_LATEST.md`, `requirements/VISION_LATEST.yaml` if any). Understand what the project is building and why.
 
 2. **Interview (if needed)** — Clarify: What is the goal? Who are the users? What is definitely in scope? What is explicitly out of scope? What constraints exist (time, budget, tech)? How will success be measured?

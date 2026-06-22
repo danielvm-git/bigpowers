@@ -67,7 +67,26 @@ Summarize your understanding in 3–5 bullet points aligned with [countable-stor
 
 Ask: "Is this an accurate summary? Anything missing or wrong?"
 
-### 5. Suggest next skill
+### 5. Write specs/planning-context.yaml
+
+After the user confirms the summary in step 4, persist the key decisions:
+
+```yaml
+# specs/planning-context.yaml — written by elaborate-spec; consumed by scope-work and slice-tasks
+feature_name: "<from step 1>"
+problem_statement: "<one paragraph>"
+constraints:
+  - "<constraint 1>"
+out_of_scope:
+  - "<excluded item 1>"
+key_decisions:
+  - decision: "<what was decided>"
+    rationale: "<why>"
+```
+
+If `specs/planning-context.yaml` already exists, ask: `"Planning context from a prior session exists. Update it? [Y/n]"`. Overwrite on Y; leave unchanged on N.
+
+### 6. Suggest next skill
 
 Once the spec is clear, recommend the next step:
 - If domain model needs work → `model-domain`

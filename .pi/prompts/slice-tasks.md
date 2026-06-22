@@ -17,6 +17,12 @@ Produce **epic capsule story tasks** in `specs/epics/eNN-slug/` — vertical sli
 
 ## Process
 
+0. **Read planning-context.yaml** — If `specs/planning-context.yaml` exists, read it first:
+   ```bash
+   test -f specs/planning-context.yaml && echo "Context found" || echo "No context — starting fresh"
+   ```
+   Use `feature_name`, `constraints`, and `out_of_scope` to inform slice boundaries. `key_decisions` in the file may constrain how stories are cut (e.g., "no external deps" constrains slice 2). If absent, proceed normally.
+
 1. **Read context** — Read `specs/product/SCOPE_LATEST.yaml` and/or `specs/release-plan.yaml`. Understand what the epic delivers end-to-end.
 
 2. **Cut tracer-bullet slices** — Identify the thinnest possible vertical path through the stack that delivers user value. Start with this slice; it will catch integration issues first. For example:

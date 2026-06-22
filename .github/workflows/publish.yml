@@ -5,6 +5,16 @@ on:
     branches: [ main ]
 
 jobs:
+  skill-health:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run skill verify health check
+        run: bash scripts/run-skill-verify.sh
+
   release:
     runs-on: ubuntu-latest
     permissions:
