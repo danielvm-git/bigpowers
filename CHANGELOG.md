@@ -1,3 +1,10 @@
+# [2.24.0](https://github.com/danielvm-git/bigpowers/compare/v2.23.0...v2.24.0) (2026-06-22)
+
+
+### Features
+
+* **verify-work:** read preflight commands from AGENTS.md before running checks ([966963d](https://github.com/danielvm-git/bigpowers/commit/966963d41e5801a904693ce28037b25304333f25))
+
 # [2.23.0](https://github.com/danielvm-git/bigpowers/compare/v2.22.0...v2.23.0) (2026-06-22)
 
 
