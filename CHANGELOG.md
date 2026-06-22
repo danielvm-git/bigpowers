@@ -1,3 +1,10 @@
+# [2.21.0](https://github.com/danielvm-git/bigpowers/compare/v2.20.0...v2.21.0) (2026-06-22)
+
+
+### Features
+
+* **change-request:** add conversational intake path ([285cecf](https://github.com/danielvm-git/bigpowers/commit/285cecff204273f9333bb6aac6d3c378cb1209b0))
+
 # [2.20.0](https://github.com/danielvm-git/bigpowers/compare/v2.19.0...v2.20.0) (2026-06-21)
 
 
