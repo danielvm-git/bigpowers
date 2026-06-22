@@ -2,12 +2,12 @@ id: e21
 title: "MCP-Native Discovery & Tool Integration"
 wsjf: 2.9
 total_bcps: 8
-status: backlog
+status: in_progress
 stories:
   - id: e21s01
     title: "MCP-native skill discovery — register skills as MCP tools"
     bcps: 3
-    status: backlog
+    status: done
     spec: e21s01-mcp-server.md
     tasks: e21s01-tasks.yaml
   - id: e21s02

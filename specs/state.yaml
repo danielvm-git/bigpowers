@@ -1,21 +1,14 @@
 active_flow: build_epic
 workflow_mode: yolo
-active_epic_id: e20
-active_story_id: e20s02
+active_epic_id: e21
+active_story_id: e21s02
 completed_epic: false
 epic_cycle:
-  current_step: 8
-  next_skill: release-branch
-  story_bcps: 1
-  completed_steps:
-  - 1
-  - 2
-  - 3
-  - 4
-  - 5
-  - 6
-  - 7
-  audit_result: pass
+  current_step: 1
+  next_skill: survey-context
+  story_bcps: 2
+  completed_steps: []
+  audit_result: null
 bug_cycle:
   current_step: null
   completed_steps: []
@@ -25,13 +18,13 @@ project_cycle:
 release:
   target_version: 2.8.0
   last_tag: v2.8.0
-  last_publish: '2026-06-21T22:15:00Z'
+  last_publish: '2026-06-22T02:11:00Z'
   ci_verified: true
 metrics:
-  story_start: '2026-06-21T22:59:51-03:00'
-  story_end: '2026-06-21T22:58:11-03:00'
-  cycle_minutes: 7
-  bcp_per_hour: 8.6
+  story_start: '2026-06-22T02:00:00-03:00'
+  story_end: '2026-06-22T02:11:00-03:00'
+  cycle_minutes: 11
+  bcp_per_hour: 16.4
   skill_timings:
     survey-context:
       calls: 2
@@ -50,10 +43,9 @@ metrics:
       total_seconds: 27.0
       avg_seconds: 13.5
     release-branch:
-      calls: 1
-      total_seconds: 42.0
-      avg_seconds: 42.0
-      _start: '2026-06-22T02:09:41Z'
+      calls: 2
+      total_seconds: 165.0
+      avg_seconds: 82.5
     kickoff-branch:
       calls: 2
       total_seconds: 37.0
@@ -67,17 +59,23 @@ metrics:
       total_seconds: 3.0
       avg_seconds: 1.5
 git:
-  branch: feat/e20s02-state-churn
-  hash: 285cecf
+  branch: main
+  hash: 58c4592
   pushed: true
 handoff:
-  last_step_completed: e20s01 (conversational intake) complete — change-request skill
-    now has Conversational Mode documented.
-  open_decisions: '[next: e20s02 — Reduce state.yaml commit noise]'
+  last_step_completed: >
+    e21s01 (MCP server) done — scripts/mcp-server.js ships 5 MCP tools
+    (bigpowers_list_skills, bigpowers_get_skill, bigpowers_search_skills,
+    bigpowers_get_state, bigpowers_invoke_skill). Also landed e20s02 via hook
+    (squash-state flag in release-branch). Both on main at 58c4592.
+  open_decisions: '[next: e21s02 — Wire opensrc into research-first (2 BCPs)]'
   next_skill: survey-context
+  ci_note: >
+    Sync Skills on Push CI check is a long-standing pre-existing failure (SKILL.md
+    size cap violations in validate-doctrine). Release CI (semantic-release) passed.
   commit_ratio:
-    feat: 1
+    feat: 2
     fix: 0
-    total: 1
+    total: 2
     fix_pct: 0.0
-    last_updated: '2026-06-21T21:51:00Z'
+    last_updated: '2026-06-22T02:11:00Z'
