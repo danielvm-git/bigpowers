@@ -1,0 +1,7 @@
+name: tdd
+command: /tdd
+description: Test-driven development loop with F.I.R.S.T enforcement after each test cycle.
+skills:
+  - develop-tdd
+  - enforce-first
+verify: "grep -q 'develop-tdd' specs/workflows/tdd.yaml && echo OK"

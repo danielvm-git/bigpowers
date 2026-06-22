@@ -1,0 +1,8 @@
+name: plan
+command: /plan
+description: Context bootstrap, research prior art, then plan the active story tasks.
+skills:
+  - survey-context
+  - research-first
+  - plan-work
+verify: "grep -q 'survey-context' specs/workflows/plan.yaml && echo OK"

@@ -1,0 +1,8 @@
+name: ship
+command: /ship
+description: Audit, draft commit message, and release the current feature branch.
+skills:
+  - audit-code
+  - commit-message
+  - release-branch
+verify: "grep -q 'audit-code' specs/workflows/ship.yaml && echo OK"

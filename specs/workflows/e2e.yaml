@@ -1,0 +1,7 @@
+name: e2e
+command: /e2e
+description: End-to-end gate — smoke test the live deployment then full UAT verification.
+skills:
+  - smoke-test
+  - verify-work
+verify: "grep -q 'smoke-test' specs/workflows/e2e.yaml && echo OK"

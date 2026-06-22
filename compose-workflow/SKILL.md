@@ -18,8 +18,30 @@ model: sonnet
 3. Register in state.yaml Active Decisions.
 4. Optional: reference from `orchestrate-project` Ad-Hoc mode.
 
+## Standard Recipe Library
+
+Pre-built recipes in `specs/workflows/` map agentic stack commands to skill chains.
+Reference them in AGENTS.md so `/command` directly invokes the matching recipe.
+
+| Command | Workflow | Skill chain |
+|---------|----------|-------------|
+| `/check-stack` | check-stack | survey-context → assess-impact → verify-work |
+| `/ship` | ship | audit-code → commit-message → release-branch |
+| `/tdd` | tdd | develop-tdd → enforce-first |
+| `/code-review` | code-review | audit-code → request-review → respond-review |
+| `/security` | security | audit-code (security focus) → request-review |
+| `/plan` | plan | survey-context → research-first → plan-work |
+| `/build-fix` | build-fix | investigate-bug → diagnose-root → quick-fix → validate-fix |
+| `/e2e` | e2e | smoke-test → verify-work |
+
+Add to `AGENTS.md`:
+```
+/check-stack = compose-workflow check-stack
+/ship        = compose-workflow ship
+```
+
 ## Verify
 
-→ verify: `test -f specs/WORKFLOW-*.md && grep -c "verify:" specs/WORKFLOW-*.md | awk '{if($1>0) print "OK"}'`
+→ verify: `ls specs/workflows/*.yaml 2>/dev/null | wc -l | awk '{if($1>=8) print "OK: " $1 " recipes"; else print "FAIL"}'`
 
 See [REFERENCE.md](REFERENCE.md) for template.

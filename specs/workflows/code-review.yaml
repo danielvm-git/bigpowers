@@ -1,0 +1,8 @@
+name: code-review
+command: /code-review
+description: Self-audit then independent reviewer, then act on findings.
+skills:
+  - audit-code
+  - request-review
+  - respond-review
+verify: "grep -q 'audit-code' specs/workflows/code-review.yaml && echo OK"

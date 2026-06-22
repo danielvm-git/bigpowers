@@ -1,0 +1,9 @@
+name: security
+command: /security
+description: Security-focused audit then independent reviewer for OWASP top-10 and supply chain.
+skills:
+  - audit-code
+  - request-review
+args:
+  audit-code: "--security-focus"
+verify: "grep -q 'audit-code' specs/workflows/security.yaml && echo OK"
