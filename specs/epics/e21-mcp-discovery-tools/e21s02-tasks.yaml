@@ -1,13 +1,13 @@
 story_id: e21s02
 title: "opensrc integration"
-status: backlog
+status: done
 bcps: 2
 tasks:
   - id: 1
     description: "Add opensrc integration section to research-first/SKILL.md with search and fetch steps"
     verify: "grep -c 'opensrc' research-first/SKILL.md | awk '{if(\$1>=2) print \"OK\"; else print \"FAIL\"}'"
-    status: backlog
+    status: done
   - id: 2
     description: "Create scripts/bp-opensrc-check.sh — checks dependencies against opensrc cache"
     verify: "test -f scripts/bp-opensrc-check.sh && echo OK || echo FAIL"
-    status: backlog
+    status: done
