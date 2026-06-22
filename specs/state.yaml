@@ -1,21 +1,14 @@
 active_flow: build_epic
 workflow_mode: yolo
 active_epic_id: e20
-active_story_id: e20s01
+active_story_id: null
 completed_epic: false
 epic_cycle:
-  current_step: 8
-  next_skill: release-branch
-  story_bcps: 1
-  completed_steps:
-  - 1
-  - 2
-  - 3
-  - 4
-  - 5
-  - 6
-  - 7
-  audit_result: pass
+  current_step: null
+  next_skill: survey-context
+  story_bcps: null
+  completed_steps: []
+  audit_result: null
 bug_cycle:
   current_step: null
   completed_steps: []
@@ -29,9 +22,9 @@ release:
   ci_verified: true
 metrics:
   story_start: '2026-06-21T22:51:41-03:00'
-  story_end: '2026-06-21T22:15:00Z'
-  cycle_minutes: 29
-  bcp_per_hour: 10.3
+  story_end: '2026-06-21T22:58:11-03:00'
+  cycle_minutes: 7
+  bcp_per_hour: 8.6
   skill_timings:
     survey-context:
       calls: 1
@@ -50,10 +43,9 @@ metrics:
       total_seconds: 16.0
       avg_seconds: 16.0
     release-branch:
-      calls: 0
-      total_seconds: 0
-      avg_seconds: 0.0
-      _start: '2026-06-22T01:57:29Z'
+      calls: 1
+      total_seconds: 42.0
+      avg_seconds: 42.0
     kickoff-branch:
       calls: 1
       total_seconds: 20.0
@@ -67,13 +59,12 @@ metrics:
       total_seconds: 3.0
       avg_seconds: 3.0
 git:
-  branch: feat/e20s01-conversational-intake
-  hash: 7d816a68
+  branch: main
+  hash: 285cecf
   pushed: true
 handoff:
-  last_step_completed: e18 (Quality Gates & Impact Analysis) complete — all 5 stories
-    implemented in yolo mode, released with 49 files changed
-  open_decisions: '[next: e20 — Build-Epic Ergonomics & Flow Polish (WSJF 3.4, 5 BCPs)]'
+  last_step_completed: e20s01 (conversational intake) complete — change-request skill now has Conversational Mode documented.
+  open_decisions: '[next: e20s02 — Reduce state.yaml commit noise]'
   next_skill: survey-context
   commit_ratio:
     feat: 1
