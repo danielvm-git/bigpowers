@@ -1,16 +1,13 @@
 active_flow: build_epic
 workflow_mode: yolo
 active_epic_id: e21
-active_story_id: e21s02
-completed_epic: false
+active_story_id: null
+completed_epic: true
 epic_cycle:
-  current_step: 4
-  next_skill: develop-tdd
-  story_bcps: 2
-  completed_steps:
-  - 1
-  - 2
-  - 3
+  current_step: null
+  next_skill: survey-context
+  story_bcps: null
+  completed_steps: []
   audit_result: null
 bug_cycle:
   current_step: null
@@ -20,68 +17,30 @@ project_cycle:
   completed_phases: []
 release:
   target_version: 2.8.0
-  last_tag: v2.8.0
-  last_publish: '2026-06-22T02:11:00Z'
+  last_tag: v2.22.0
+  last_publish: '2026-06-22T02:30:00Z'
   ci_verified: true
 metrics:
   story_start: '2026-06-22T02:00:00-03:00'
-  story_end: '2026-06-22T02:11:00-03:00'
-  cycle_minutes: 11
-  bcp_per_hour: 16.4
-  skill_timings:
-    survey-context:
-      calls: 2
-      total_seconds: 16.0
-      avg_seconds: 8.0
-    plan-work:
-      calls: 3
-      total_seconds: 34.0
-      avg_seconds: 11.333333333333334
-    develop-tdd:
-      calls: 3
-      total_seconds: 241.0
-      avg_seconds: 80.33333333333333
-    verify-work:
-      calls: 2
-      total_seconds: 27.0
-      avg_seconds: 13.5
-    release-branch:
-      calls: 2
-      total_seconds: 165.0
-      avg_seconds: 82.5
-      _start: '2026-06-22T02:24:43Z'
-    kickoff-branch:
-      calls: 3
-      total_seconds: 66.0
-      avg_seconds: 22.0
-    audit-code:
-      calls: 2
-      total_seconds: 17.0
-      avg_seconds: 8.5
-    commit-message:
-      calls: 2
-      total_seconds: 3.0
-      avg_seconds: 1.5
+  story_end: '2026-06-22T02:30:00-03:00'
+  cycle_minutes: 30
+  bcp_per_hour: 16.0
 git:
-  branch: feat/e21s02-opensrc-integration
-  hash: 58c4592
+  branch: main
+  hash: 2d61aed
   pushed: true
 handoff:
-  last_step_completed: 'e21s01 (MCP server) done — scripts/mcp-server.js ships 5 MCP
-    tools (bigpowers_list_skills, bigpowers_get_skill, bigpowers_search_skills, bigpowers_get_state,
-    bigpowers_invoke_skill). Also landed e20s02 via hook (squash-state flag in release-branch).
-    Both on main at 58c4592.
-
-    '
-  open_decisions: '[next: e21s02 — Wire opensrc into research-first (2 BCPs)]'
+  last_step_completed: >
+    e21 (MCP-Native Discovery & Tool Integration) COMPLETE — all 4 stories done.
+    e21s01: MCP server (scripts/mcp-server.js, 5 tools, 0 deps).
+    e21s02: opensrc integration in research-first + bp-opensrc-check.sh.
+    e21s03: AGENTS.md preflight extraction in verify-work + bp-read-agents.sh.
+    e21s04: 8 standard workflow recipes in specs/workflows/.
+  open_decisions: '[e21 complete — next epic per release-plan.yaml backlog]'
   next_skill: survey-context
-  ci_note: 'Sync Skills on Push CI check is a long-standing pre-existing failure (SKILL.md
-    size cap violations in validate-doctrine). Release CI (semantic-release) passed.
-
-    '
   commit_ratio:
-    feat: 2
+    feat: 4
     fix: 0
-    total: 2
+    total: 4
     fix_pct: 0.0
-    last_updated: '2026-06-22T02:11:00Z'
+    last_updated: '2026-06-22T02:30:00Z'

@@ -2,7 +2,7 @@ id: e21
 title: "MCP-Native Discovery & Tool Integration"
 wsjf: 2.9
 total_bcps: 8
-status: in_progress
+status: done
 stories:
   - id: e21s01
     title: "MCP-native skill discovery — register skills as MCP tools"
@@ -13,18 +13,18 @@ stories:
   - id: e21s02
     title: "Wire opensrc into research-first for learn-before-build"
     bcps: 2
-    status: backlog
+    status: done
     spec: e21s02-opensrc.md
     tasks: e21s02-tasks.yaml
   - id: e21s03
     title: "CI-aware skills — read preflight commands from AGENTS.md"
     bcps: 1
-    status: backlog
+    status: done
     spec: e21s03-ci-aware.md
     tasks: e21s03-tasks.yaml
   - id: e21s04
     title: "compose-workflow → AGENTS.md agentic stack mapping"
     bcps: 2
-    status: backlog
+    status: done
     spec: e21s04-compose-workflow.md
     tasks: e21s04-tasks.yaml
