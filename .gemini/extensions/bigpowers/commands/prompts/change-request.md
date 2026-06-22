@@ -33,6 +33,18 @@ See [REFERENCE.md](REFERENCE.md) for the full WSJF scoring rubric.
 
 → verify: `grep -c 'wsjf' specs/release-plan.yaml specs/epics/*/epic.yaml`
 
+## Conversational Mode
+
+If the user's request is in natural language and does not match the structured format of Mode A or Mode B, enter Conversational Mode to extract the change parameters through interactive dialogue.
+
+### 5-Step Flow
+
+1. **Capture**: Parse the natural-language request for what, why, and where. Ask at most 3 clarifying questions before drafting.
+2. **Locate**: Identify which epic or capability in `specs/epics/` the request affects or replaces.
+3. **Draft**: Present a structured draft of the proposed story and tasks for user confirmation.
+4. **Score**: Estimate the WSJF score and explain the calculation so the user understands the priority.
+5. **Place**: Confirm the final epic placement with the user before writing files.
+
 ## After either mode
 
 Run `bash scripts/sync-status-from-epics.sh`. Suggest `plan-work` or `build-epic` for the top-ranked unstarted story.

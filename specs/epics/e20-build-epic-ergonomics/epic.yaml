@@ -2,12 +2,12 @@ id: e20
 title: "Build-Epic Ergonomics & Flow Polish"
 wsjf: 3.4
 total_bcps: 5
-status: backlog
+status: in_progress
 stories:
   - id: e20s01
     title: "change-request conversational intake — parse natural-language requests"
     bcps: 1
-    status: backlog
+    status: done
     spec: e20s01-conversational-intake.md
     tasks: e20s01-tasks.yaml
   - id: e20s02
