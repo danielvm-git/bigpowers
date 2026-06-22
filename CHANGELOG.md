@@ -1,3 +1,10 @@
+# [2.25.0](https://github.com/danielvm-git/bigpowers/compare/v2.24.0...v2.25.0) (2026-06-22)
+
+
+### Features
+
+* **compose-workflow:** add standard recipe library with 8 agentic stack workflows ([2d61aed](https://github.com/danielvm-git/bigpowers/commit/2d61aedb60a5ee881d568b23cb922d49ee896990))
+
 # [2.24.0](https://github.com/danielvm-git/bigpowers/compare/v2.23.0...v2.24.0) (2026-06-22)
 
 

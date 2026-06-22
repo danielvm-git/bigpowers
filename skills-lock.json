@@ -33,7 +33,7 @@
     },
     "compose-workflow": {
       "description": "Chain multiple bigpowers skills into a custom workflow recipe saved in specs/. Use when a project repeats a non-standard skill sequence, or user wants a documented playbook beyond orchestrate-project modes.",
-      "sha256": "dc9abafd52cde7b3",
+      "sha256": "4d498c0c6975cbce",
       "path": "compose-workflow/SKILL.md"
     },
     "craft-skill": {
