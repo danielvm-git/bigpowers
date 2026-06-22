@@ -1,11 +1,30 @@
 release:
-  version: "2.8.0"
-  codename: "Platform-Quality"
-  status: in_progress
+  version: "2.9.0"
+  codename: "Depth"
+  status: planning
   semantic_release: true
   bump_hint: minor
 epics:
-  # ── BACKLOG — sorted by WSJF descending (reassessed 2026-06-20 after e14 delivery) ──
+  # ── BACKLOG 2.9.0 — sorted by WSJF descending (planned 2026-06-22) ──
+  - id: e22
+    title: "Skill Catalog CI Gate"
+    wsjf: 5.5
+    bcps: 2
+    capsule_dir: epics/e22-skill-catalog-ci-gate
+    note: "machine-runnable health check across all SKILL.md verify commands + CI integration"
+  - id: e23
+    title: "Benchmark Infrastructure"
+    wsjf: 4.5
+    bcps: 3
+    capsule_dir: epics/e23-benchmark-infrastructure
+    note: "fills broken evolve-skill dependency; defines specs/benchmarks/ schema + run-benchmark skill"
+  - id: e24
+    title: "Planning Context Capsule"
+    wsjf: 4.0
+    bcps: 3
+    capsule_dir: epics/e24-planning-context-capsule
+    note: "planning-context.yaml persists elaborate-spec output across scope-work → slice-tasks → plan-work"
+  # ── DONE — 2.8.0 and earlier ──────────────────────────────────────────────
   - id: e20
     title: "Build-Epic Ergonomics & Flow Polish"
     wsjf: 3.4

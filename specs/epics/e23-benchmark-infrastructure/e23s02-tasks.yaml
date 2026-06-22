@@ -1,0 +1,13 @@
+story_id: e23s02
+title: "create run-benchmark skill"
+status: backlog
+bcps: 1
+tasks:
+  - id: 1
+    description: "Create run-benchmark/SKILL.md with model: haiku, process docs for code and rubric graders, report format"
+    verify: "test -f run-benchmark/SKILL.md && grep -q 'model: haiku' run-benchmark/SKILL.md && echo OK || echo FAIL"
+    status: backlog
+  - id: 2
+    description: "Run sync-skills.sh and verify run-benchmark appears in SKILL-INDEX.md"
+    verify: "grep -q 'run-benchmark' SKILL-INDEX.md && echo OK || echo FAIL"
+    status: backlog

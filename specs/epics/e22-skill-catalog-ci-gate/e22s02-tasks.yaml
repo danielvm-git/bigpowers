@@ -1,0 +1,13 @@
+story_id: e22s02
+title: "CI integration + stocktake-skills --verify mode"
+status: backlog
+bcps: 1
+tasks:
+  - id: 1
+    description: "Add skill-health job to .github/workflows/ci.yml running run-skill-verify.sh with continue-on-error: true"
+    verify: "grep -q 'run-skill-verify' .github/workflows/ci.yml && echo OK || echo FAIL"
+    status: backlog
+  - id: 2
+    description: "Add --verify mode section to stocktake-skills/SKILL.md that invokes run-skill-verify.sh"
+    verify: "grep -c '\\-\\-verify\\|verify.*mode' stocktake-skills/SKILL.md | awk '{if($1>=1) print \"OK\"; else print \"FAIL\"}'"
+    status: backlog

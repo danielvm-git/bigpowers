@@ -1,0 +1,13 @@
+story_id: e24s02
+title: "scope-work and slice-tasks consume planning-context.yaml"
+status: backlog
+bcps: 1
+tasks:
+  - id: 1
+    description: "Add planning-context.yaml read step to scope-work/SKILL.md Process section with graceful fallback"
+    verify: "grep -c 'planning-context\\|planning.context' scope-work/SKILL.md | awk '{if($1>=1) print \"OK\"; else print \"FAIL\"}'"
+    status: backlog
+  - id: 2
+    description: "Add planning-context.yaml read step to slice-tasks/SKILL.md Process section with graceful fallback"
+    verify: "grep -c 'planning-context\\|planning.context' slice-tasks/SKILL.md | awk '{if($1>=1) print \"OK\"; else print \"FAIL\"}'"
+    status: backlog

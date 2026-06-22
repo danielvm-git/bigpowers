@@ -1,0 +1,13 @@
+story_id: e22s01
+title: "run-skill-verify.sh catalog health check"
+status: backlog
+bcps: 1
+tasks:
+  - id: 1
+    description: "Write scripts/run-skill-verify.sh — extract and run each SKILL.md → verify: command"
+    verify: "bash scripts/run-skill-verify.sh 2>&1 | grep -qE '^PASS|^SKIP' && echo OK || echo FAIL"
+    status: backlog
+  - id: 2
+    description: "Add SKIP logic for skills with no → verify: line; exit 0 only if zero FAILs"
+    verify: "bash scripts/run-skill-verify.sh; echo \"exit: $?\""
+    status: backlog

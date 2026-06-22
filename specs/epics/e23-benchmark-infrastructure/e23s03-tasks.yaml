@@ -1,0 +1,13 @@
+story_id: e23s03
+title: "wire evolve-skill to run-benchmark"
+status: backlog
+bcps: 1
+tasks:
+  - id: 1
+    description: "Update evolve-skill/SKILL.md: replace vague benchmark reference with explicit run-benchmark steps + report path pattern"
+    verify: "grep -c 'run-benchmark\\|pass.at.k\\|BENCHMARK-' evolve-skill/SKILL.md | awk '{if($1>=2) print \"OK\"; else print \"FAIL\"}'"
+    status: backlog
+  - id: 2
+    description: "Add no-baseline guard: block with message if specs/benchmarks/reports/BENCHMARK-<skill>-*.yaml not found"
+    verify: "grep -q 'No baseline\\|baseline.*first\\|baseline.*found' evolve-skill/SKILL.md && echo OK || echo FAIL"
+    status: backlog

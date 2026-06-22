@@ -1,0 +1,13 @@
+story_id: e23s01
+title: "benchmark schema + seed definitions"
+status: backlog
+bcps: 1
+tasks:
+  - id: 1
+    description: "Write specs/benchmarks/SCHEMA.md documenting the benchmark YAML format (skill, scenarios, grader types)"
+    verify: "test -f specs/benchmarks/SCHEMA.md && grep -q 'grader' specs/benchmarks/SCHEMA.md && echo OK || echo FAIL"
+    status: backlog
+  - id: 2
+    description: "Write seed benchmark YAMLs for survey-context, develop-tdd, and verify-work with at least 2 scenarios each"
+    verify: "test -f specs/benchmarks/survey-context.yaml && test -f specs/benchmarks/develop-tdd.yaml && test -f specs/benchmarks/verify-work.yaml && echo OK || echo FAIL"
+    status: backlog

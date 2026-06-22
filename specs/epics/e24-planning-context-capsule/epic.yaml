@@ -1,0 +1,24 @@
+id: e24
+title: "Planning Context Capsule"
+wsjf: 4.0
+total_bcps: 3
+status: backlog
+stories:
+  - id: e24s01
+    title: "elaborate-spec writes specs/planning-context.yaml"
+    bcps: 1
+    status: backlog
+    spec: e24s01-elaborate-spec-output.md
+    tasks: e24s01-tasks.yaml
+  - id: e24s02
+    title: "scope-work and slice-tasks read planning-context.yaml"
+    bcps: 1
+    status: backlog
+    spec: e24s02-downstream-reads.md
+    tasks: e24s02-tasks.yaml
+  - id: e24s03
+    title: "run-planning tracks context lifecycle in planning-status.yaml"
+    bcps: 1
+    status: backlog
+    spec: e24s03-lifecycle-tracking.md
+    tasks: e24s03-tasks.yaml

@@ -1,0 +1,24 @@
+id: e23
+title: "Benchmark Infrastructure"
+wsjf: 4.5
+total_bcps: 3
+status: backlog
+stories:
+  - id: e23s01
+    title: "Define specs/benchmarks/ schema and 3 seed benchmark definitions"
+    bcps: 1
+    status: backlog
+    spec: e23s01-benchmark-schema.md
+    tasks: e23s01-tasks.yaml
+  - id: e23s02
+    title: "Create run-benchmark skill"
+    bcps: 1
+    status: backlog
+    spec: e23s02-run-benchmark-skill.md
+    tasks: e23s02-tasks.yaml
+  - id: e23s03
+    title: "Wire evolve-skill to use run-benchmark output"
+    bcps: 1
+    status: backlog
+    spec: e23s03-evolve-skill-wiring.md
+    tasks: e23s03-tasks.yaml

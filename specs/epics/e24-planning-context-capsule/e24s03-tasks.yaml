@@ -1,0 +1,13 @@
+story_id: e24s03
+title: "run-planning context lifecycle tracking"
+status: backlog
+bcps: 1
+tasks:
+  - id: 1
+    description: "Add context_capsule key to planning-status.yaml schema and document in run-planning/SKILL.md"
+    verify: "grep -c 'context_capsule\\|written_at\\|planning-context' run-planning/SKILL.md | awk '{if($1>=2) print \"OK\"; else print \"FAIL\"}'"
+    status: backlog
+  - id: 2
+    description: "Add age-check skip logic for elaborate-spec (< 24h) and context clear on cycle completion"
+    verify: "grep -q 'Re-run.*elaborate\\|skip.*elaborate\\|clear.*context\\|24h\\|24 h' run-planning/SKILL.md && echo OK || echo FAIL"
+    status: backlog
