@@ -109,8 +109,8 @@ active_epic_id: e02
 active_story_id: e02s01       # required when epic mode: folder
 active_bug_id: null           # BUG-2026-06-01T143022 when fix_bug
 release:
-  target_version: "3.0.0"
-  last_tag: null
+  target_version: null         # NOT tracked manually — semantic-release decides at merge
+  last_tag: v2.28.0            # mirror of `gh release view`, reference only
   last_publish: null
 epic_cycle:
   current_step: develop-tdd

@@ -1,11 +1,14 @@
 release:
-  version: "2.9.0"
+  # NOTE: version is set by semantic-release at merge time from Conventional Commits.
+  # Do NOT track it manually here — this field mirrors the real tag for reference only.
+  # Real source of truth: `gh release view` / git tags. Last synced: v2.28.0 (2026-06-22).
+  version: "2.29.0"   # next expected minor — mirror, not the authority
   codename: "Depth"
-  status: planning
+  status: released
   semantic_release: true
   bump_hint: minor
 epics:
-  # ── BACKLOG 2.9.0 — sorted by WSJF descending (planned 2026-06-22) ──
+  # ── DONE — 2.29.0 "Depth" shipped as v2.28.0 (2026-06-22) ──
   - id: e22
     title: "Skill Catalog CI Gate"
     wsjf: 5.5

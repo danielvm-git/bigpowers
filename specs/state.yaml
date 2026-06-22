@@ -16,9 +16,11 @@ project_cycle:
   current_phase: null
   completed_phases: []
 release:
-  target_version: "2.9.0"
-  last_tag: v2.27.0
-  last_publish: '2026-06-22T04:15:00Z'
+  # target_version is no longer tracked manually — semantic-release decides the
+  # real number at merge. last_tag mirrors `gh release view` for reference only.
+  target_version: null
+  last_tag: v2.28.0
+  last_publish: '2026-06-22T13:26:08Z'
   ci_verified: true
 metrics:
   story_start: '2026-06-22T03:30:00Z'

@@ -96,11 +96,16 @@ Epic IDs: `e01`, `e30`. Story IDs: `e01s01`. One FR in SCOPE may span multiple e
 
 When planning closes, copy to `specs/product/snapshots/release-<version>/` (`release-plan.yaml`, `SCOPE_LATEST.yaml`, `VISION_LATEST.yaml`). No separate `baselines/` folder.
 
-### Semantic-release — three places
+### Semantic-release — the real version is never hand-tracked
 
-1. **Planning intent** — `specs/release-plan.yaml` → `release.version`, `release.bump_hint` (minor/patch/major expectation).
-2. **Published version** — repo root: `package.json`, git tag `vX.Y.Z`, `CHANGELOG.md` (CI semantic-release; not hand-edited in specs).
-3. **Dashboard optional** — `specs/state.yaml` → `release.last_tag`, `release.last_publish` (from tags/CI).
+> **The authority is `gh release view` / git tags.** semantic-release decides the version
+> at merge from Conventional Commits. Never hand-maintain a `target_version` to "predict" it —
+> that field drifts from reality every release. The specs only *mirror* the real tag for reference.
+
+1. **Planning intent (codename only)** — `specs/release-plan.yaml` → `release.version`, `release.bump_hint`.
+   Treat `version` as a non-authoritative label; if you write a number, mark it "mirror, not the authority".
+2. **Published version (authority)** — repo root `package.json`, git tag `vX.Y.Z`, `CHANGELOG.md` (CI semantic-release; not hand-edited in specs). Read with `gh release view`.
+3. **Dashboard mirror** — `specs/state.yaml` → `release.last_tag`, `release.last_publish` (copied from `gh release view`; `target_version` is `null` — not tracked manually).
 
 ### Guardrails and other artifacts
 

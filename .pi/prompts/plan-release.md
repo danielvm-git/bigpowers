@@ -57,9 +57,13 @@ Every task must have a `verify:` command. No verify command = not a task.
 
 ### 4. Save specs/release-plan.yaml
 
+> **Do NOT hand-track the real version.** semantic-release decides it at merge. `version` here is a
+> non-authoritative mirror/label only — read the real number with `gh release view`. Set `bump_hint`
+> (the expectation), not a number you intend to enforce.
+
 ```yaml
 release:
-  version: "3.0.0"
+  version: "2.29.0"         # mirror of next expected tag, NOT authoritative — gh release view wins
   codename: "Feature Name"
   status: planning          # planning | in_progress | released
   semantic_release: true

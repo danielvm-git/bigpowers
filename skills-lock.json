@@ -188,7 +188,7 @@
     },
     "plan-release": {
       "description": "\"RELEASE-INDEX BUILDER — Sequence elaborated epics into specs/release-plan.yaml with WSJF ordering and BCP baselines. NOT a planning-spine substitute: it does not scope work (scope-work) or write story tasks (plan-work). Use after elaborate-spec when the user wants a versioned release index of epics.\"",
-      "sha256": "4eeb65607ca2f799",
+      "sha256": "352d54fe911757ad",
       "path": "plan-release/SKILL.md"
     },
     "plan-work": {
@@ -263,7 +263,7 @@
     },
     "session-state": {
       "description": "Track implementation decisions and progress in specs/state.yaml to prevent context rot. Use at the start of a session to load context, and whenever a significant decision is made or a milestone is reached.",
-      "sha256": "4efd54a453e3e2cd",
+      "sha256": "0141daaed69b05dc",
       "path": "session-state/SKILL.md"
     },
     "setup-environment": {
