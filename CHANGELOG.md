@@ -1,3 +1,15 @@
+# [2.26.0](https://github.com/danielvm-git/bigpowers/compare/v2.25.0...v2.26.0) (2026-06-22)
+
+
+### Bug Fixes
+
+* **compose-workflow:** respond to code review — fix recipes and docs ([17ac105](https://github.com/danielvm-git/bigpowers/commit/17ac105371c25fd111821b3711648eb4009db314))
+
+
+### Features
+
+* **e20:** Build-Epic Ergonomics & Flow Polish — all stories done ([80b4b9a](https://github.com/danielvm-git/bigpowers/commit/80b4b9acd049ae2521c29e1d66fc0be5b509cac9))
+
 # [2.25.0](https://github.com/danielvm-git/bigpowers/compare/v2.24.0...v2.25.0) (2026-06-22)
 
 
