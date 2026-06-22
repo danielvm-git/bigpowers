@@ -46,6 +46,7 @@ metrics:
       calls: 2
       total_seconds: 165.0
       avg_seconds: 82.5
+      _start: '2026-06-22T02:24:43Z'
     kickoff-branch:
       calls: 2
       total_seconds: 37.0
@@ -63,16 +64,18 @@ git:
   hash: 58c4592
   pushed: true
 handoff:
-  last_step_completed: >
-    e21s01 (MCP server) done — scripts/mcp-server.js ships 5 MCP tools
-    (bigpowers_list_skills, bigpowers_get_skill, bigpowers_search_skills,
-    bigpowers_get_state, bigpowers_invoke_skill). Also landed e20s02 via hook
-    (squash-state flag in release-branch). Both on main at 58c4592.
+  last_step_completed: 'e21s01 (MCP server) done — scripts/mcp-server.js ships 5 MCP
+    tools (bigpowers_list_skills, bigpowers_get_skill, bigpowers_search_skills, bigpowers_get_state,
+    bigpowers_invoke_skill). Also landed e20s02 via hook (squash-state flag in release-branch).
+    Both on main at 58c4592.
+
+    '
   open_decisions: '[next: e21s02 — Wire opensrc into research-first (2 BCPs)]'
   next_skill: survey-context
-  ci_note: >
-    Sync Skills on Push CI check is a long-standing pre-existing failure (SKILL.md
+  ci_note: 'Sync Skills on Push CI check is a long-standing pre-existing failure (SKILL.md
     size cap violations in validate-doctrine). Release CI (semantic-release) passed.
+
+    '
   commit_ratio:
     feat: 2
     fix: 0
