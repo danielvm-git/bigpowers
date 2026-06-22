@@ -1,16 +1,13 @@
 active_flow: build_epic
 workflow_mode: yolo
-active_epic_id: e22
-active_story_id: e22s01
+active_epic_id: null
+active_story_id: null
 completed_epic: false
 epic_cycle:
-  current_step: 4
-  next_skill: develop-tdd
-  story_bcps: 1
-  completed_steps:
-  - 1
-  - 2
-  - 3
+  current_step: null
+  next_skill: null
+  story_bcps: null
+  completed_steps: []
   audit_result: null
 bug_cycle:
   current_step: null
@@ -19,32 +16,36 @@ project_cycle:
   current_phase: null
   completed_phases: []
 release:
-  target_version: 2.8.0
-  last_tag: v2.26.0
-  last_publish: '2026-06-22T03:23:33Z'
+  target_version: "2.9.0"
+  last_tag: v2.27.0
+  last_publish: '2026-06-22T04:15:00Z'
   ci_verified: true
 metrics:
-  story_start: '2026-06-22T03:00:00Z'
-  story_end: '2026-06-22T03:23:33Z'
-  cycle_minutes: 24
-  bcp_per_hour: 10.0
+  story_start: '2026-06-22T03:30:00Z'
+  story_end: '2026-06-22T04:15:00Z'
+  cycle_minutes: 45
+  bcp_per_hour: 8.0
 git:
   branch: main
   hash: 2df9a1a
   pushed: true
 handoff:
   last_step_completed: >
-    e20 (Build-Epic Ergonomics & Flow Polish) COMPLETE — all 6 stories shipped in v2.26.0.
-    e20s03: spec-only dirty-tree detection + auto-commit in kickoff-branch.
-    e20s04: pre-UAT verify command validation (pattern mismatch detection) in verify-work.
-    e20s05: --config mode in develop-tdd + --fast mode in build-epic.
-    e20s06: --cli mode (binary smoke checklist) in verify-work.
-    Release workflow CI passed on 50c67c1. Epic capsule archived.
-  open_decisions: '[release 2.8.0 backlog exhausted (e20+e21 done) — plan next release epics]'
-  next_skill: plan-release
+    RELEASE 2.9.0 "Depth" COMPLETE — v2.27.0 shipped.
+
+    e22 Skill Catalog CI Gate (2 BCPs): run-skill-verify.sh + CI job + stocktake-skills --verify mode.
+    e23 Benchmark Infrastructure (3 BCPs): specs/benchmarks/ schema + 3 seed definitions + run-benchmark skill + evolve-skill wiring.
+    e24 Planning Context Capsule (3 BCPs): elaborate-spec output + scope-work/slice-tasks consumption + run-planning lifecycle.
+
+    BONUS: audit-plan skill — 3-lens plan evaluation (principles/conventions/pre-flight) with READY/NOT READY verdict.
+
+    All 8 stories shipped. All epic capsules archived. CI verified.
+  open_decisions: '[2.9.0 Depth release complete — backlog clear; next planning phase ready]'
+  next_skill: survey-context
   commit_ratio:
-    feat: 1
-    fix: 0
-    total: 2
-    fix_pct: 0.0
-    last_updated: '2026-06-22T03:23:33Z'
+    feat: 6
+    fix: 1
+    chore: 8
+    total: 15
+    fix_pct: 6.7
+    last_updated: '2026-06-22T04:15:00Z'
