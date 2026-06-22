@@ -1,0 +1,24 @@
+story_id: e20s02
+verified_at: "2026-06-22T02:03:00Z"
+verifier: verify-work
+phases:
+  smoke:
+    passed: true
+  build:
+    passed: true
+    command: "bash scripts/sync-skills.sh"
+  typecheck:
+    passed: true
+  lint:
+    passed: true
+  tests:
+    passed: true
+    coverage: "N/A"
+  manual:
+    steps:
+      - step: "Verify --squash-state flag and state commit policy documentation"
+        expected: "Grep output should be 'OK: state churn solution (2 refs)'"
+        actual: "OK: state churn solution (2 refs)"
+        passed: true
+  gaps:
+    closed: true

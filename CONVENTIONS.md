@@ -24,6 +24,7 @@ All changes to this repository MUST follow the [Conventional Commits 1.0.0](http
 - Use `gh run view` / `gh run watch` for CI status
 - Verify auth with `gh auth status` before operations
 - **Git Attribution:** NEVER include `Co-authored-by`, `Co-Authored-By`, or any other footer that attributes code to an AI agent (e.g., Claude, Gemini). All commits must appear as if they were authored solely by the human user.
+- **State Commit Policy:** To minimize git history noise, intermediate `chore(state):` commits (e.g., tracking build-epic step transitions) should either be squashed locally using the `--squash-state` flag on `release-branch` before merging, or kept out-of-band using local cycle-state files.
 - Never call GitHub REST API directly (curl, fetch, etc.)
 - Never create GitHub issues from automated workflows — produce local .md files in specs/ instead
 

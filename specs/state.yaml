@@ -4,11 +4,18 @@ active_epic_id: e20
 active_story_id: e20s02
 completed_epic: false
 epic_cycle:
-  current_step: 2
-  next_skill: plan-work
+  current_step: 8
+  next_skill: release-branch
   story_bcps: 1
-  completed_steps: [1]
-  audit_result: null
+  completed_steps:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  audit_result: pass
 bug_cycle:
   current_step: null
   completed_steps: []
@@ -31,35 +38,36 @@ metrics:
       total_seconds: 16.0
       avg_seconds: 8.0
     plan-work:
-      calls: 1
-      total_seconds: 16.0
-      avg_seconds: 16.0
+      calls: 2
+      total_seconds: 24.0
+      avg_seconds: 12.0
     develop-tdd:
-      calls: 1
-      total_seconds: 138.0
-      avg_seconds: 138.0
+      calls: 2
+      total_seconds: 223.0
+      avg_seconds: 111.5
     verify-work:
-      calls: 1
-      total_seconds: 16.0
-      avg_seconds: 16.0
+      calls: 2
+      total_seconds: 27.0
+      avg_seconds: 13.5
     release-branch:
       calls: 1
       total_seconds: 42.0
       avg_seconds: 42.0
+      _start: '2026-06-22T02:09:41Z'
     kickoff-branch:
-      calls: 1
-      total_seconds: 20.0
-      avg_seconds: 20.0
+      calls: 2
+      total_seconds: 37.0
+      avg_seconds: 18.5
     audit-code:
-      calls: 1
-      total_seconds: 8.0
-      avg_seconds: 8.0
+      calls: 2
+      total_seconds: 17.0
+      avg_seconds: 8.5
     commit-message:
-      calls: 1
+      calls: 2
       total_seconds: 3.0
-      avg_seconds: 3.0
+      avg_seconds: 1.5
 git:
-  branch: main
+  branch: feat/e20s02-state-churn
   hash: 285cecf
   pushed: true
 handoff:

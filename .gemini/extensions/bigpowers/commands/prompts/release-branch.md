@@ -8,6 +8,7 @@ Finalize a completed feature branch: verify coverage gates, integrate onto `main
 ## Additional modes
 
 - `--hotfix`: Emergency fix. Cherry-pick to main plus immediate tag. Skip PR in solo profile.
+- `--squash-state`: Squashes all intermediate `chore(state):` commits on the feature branch into a single clean commit before merging. Use this to reduce noise in the main git repository history.
 
 ## Integrate mode
 

@@ -18,7 +18,7 @@
     },
     "build-epic": {
       "description": "Eight-step epic build cycle — reads state.yaml, execution-status.yaml, and one epic capsule; updates status via bp-yaml-set or direct edit. Resume mode runs one step per invocation. Use instead of ad-hoc execute-plan for release work.",
-      "sha256": "3c1707cca32b24de",
+      "sha256": "b7049084cd180053",
       "path": "build-epic/SKILL.md"
     },
     "change-request": {
@@ -203,7 +203,7 @@
     },
     "release-branch": {
       "description": "Make the merge/PR/keep/discard decision for a feature branch, verify coverage gates, create the PR with gh, and clean up the worktree. Use when a feature is done and ready to ship, or when user says \"release\", \"merge\", or \"open a PR\".",
-      "sha256": "140f4bec3690bd51",
+      "sha256": "5d1e07e58d1aff44",
       "path": "release-branch/SKILL.md"
     },
     "request-review": {

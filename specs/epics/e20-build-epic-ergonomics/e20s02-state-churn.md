@@ -32,7 +32,7 @@ and handoff fields.
 ## Verification
 
 ```bash
-grep -c "squash.state\|cycle-state.json\|state.commit" release-branch/SKILL.md build-epic/SKILL.md | awk '{sum+=$1} END {if(sum>=2) print "OK: state churn solution (" sum " refs)"; else print "FAIL: only " sum " refs"}'
+grep -c "squash.state\|cycle-state.json\|state.commit" release-branch/SKILL.md build-epic/SKILL.md | awk -F: '{sum+=$2} END {if(sum>=2) print "OK: state churn solution (" sum " refs)"; else print "FAIL: only " sum " refs"}'
 ```
 
 ## Gherkin Scenarios

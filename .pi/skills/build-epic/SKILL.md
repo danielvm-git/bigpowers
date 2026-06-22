@@ -26,7 +26,7 @@ Orchestrates the **build** flow for a single epic: survey → plan tasks → kic
 | 5 | `verify-work` — UAT + mechanical gates |
 | 6 | `audit-code` — **non-optional gate** (pass/fail; fail → loop back to step 4) |
 | 7 | `commit-message` — Conventional Commits draft |
-| 8 | `release-branch` — PR or solo land |
+| 8 | `release-branch` — PR or solo land (supports `--squash-state`) |
 
 ## Process
 

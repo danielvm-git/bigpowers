@@ -122,6 +122,47 @@ pi install npm:bigpowers
 
 Skills are loaded on-demand via progressive disclosure: only descriptions are always in context; the full SKILL.md loads when the agent reads it. Prompt templates expand in pi's editor with autocomplete.
 
+## 🔧 MCP Server (Model Context Protocol)
+
+bigpowers ships an MCP server that exposes all skills as callable MCP tools. Agents can discover and invoke skills dynamically instead of relying on a static system prompt.
+
+### Start the server
+
+```bash
+node scripts/mcp-server.js
+```
+
+### Add to Claude Code
+
+```bash
+claude mcp add bigpowers node /path/to/bigpowers/scripts/mcp-server.js
+```
+
+Or add manually to `.claude/settings.json`:
+
+```json
+{
+  "mcpServers": {
+    "bigpowers": {
+      "command": "node",
+      "args": ["/path/to/bigpowers/scripts/mcp-server.js"]
+    }
+  }
+}
+```
+
+### Available MCP tools
+
+| Tool | Description |
+|------|-------------|
+| `bigpowers_list_skills` | List all 68 skills with name, description, phase. Optional `phase` filter. |
+| `bigpowers_get_skill` | Get full SKILL.md content for any skill by name. |
+| `bigpowers_search_skills` | Keyword/semantic search — returns ranked matches for a query. |
+| `bigpowers_get_state` | Get current `specs/state.yaml` (active flow, epic, step). |
+| `bigpowers_invoke_skill` | Get skill instructions with optional context for agent invocation. |
+
+---
+
 ## 🏗 The v2.0.0 Lifecycle
 
 Every project follows the **orchestrate-project 6-phase model** (full SOP: [`docs/WORKFLOW-SOP-v2.md`](docs/WORKFLOW-SOP-v2.md)):

@@ -13,7 +13,7 @@ stories:
   - id: e20s02
     title: "Reduce state.yaml commit noise — squash or out-of-band tracking"
     bcps: 1
-    status: backlog
+    status: done
     spec: e20s02-state-churn.md
     tasks: e20s02-tasks.yaml
   - id: e20s03
