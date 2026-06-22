@@ -7,6 +7,8 @@ description: "\"Streamlined fast-path for trivial data-only fixes — no TDD, no
 
 # Quick Fix
 
+> **HARD GATE** — ALL entry criteria must pass before invoking quick-fix. If any guardrail triggers during execution, abort immediately and fall back to `investigate-bug`. Do NOT use quick-fix for logic changes, multi-file edits, or diffs > 5 lines.
+
 Fast-track for trivial data-only fixes that do not require the full bug-fix chain.
 
 When a bug fix is purely data — an add-missing-key, a typo correction, a config value update — the standard 6-skill chain (investigate-bug → diagnose-root → develop-tdd → kickoff-branch → verify-work → release-branch) is wasteful overhead. Quick-fix collapses it to 2 skills: **quick-fix** then **release-branch**.
