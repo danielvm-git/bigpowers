@@ -1,3 +1,16 @@
+# [2.27.0](https://github.com/danielvm-git/bigpowers/compare/v2.26.0...v2.27.0) (2026-06-22)
+
+
+### Bug Fixes
+
+* **quick-fix:** add HARD GATE callout — completes 35/35 skills ([9782b85](https://github.com/danielvm-git/bigpowers/commit/9782b85de96fabc77c14fe8f7be3fd30b98e9cfb))
+
+
+### Features
+
+* **2.9.0:** implement e22/e23/e24 — Depth release ([c33d66c](https://github.com/danielvm-git/bigpowers/commit/c33d66c6a386a6c273ab1f4c2a71981309e1cda6))
+* **plan-release:** scope 2.9.0 Depth — e22/e23/e24 ([5a64698](https://github.com/danielvm-git/bigpowers/commit/5a646981c520f4874c4f2807d53af40e17b093fb))
+
 # [2.26.0](https://github.com/danielvm-git/bigpowers/compare/v2.25.0...v2.26.0) (2026-06-22)
 
 
