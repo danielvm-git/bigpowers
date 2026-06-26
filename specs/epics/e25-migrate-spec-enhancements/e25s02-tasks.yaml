@@ -1,0 +1,34 @@
+id: e25s02
+title: "Emit FR-XX / UJ-XX REQUIREMENTS_TRACE.yaml on migration"
+bcps: 2
+status: todo
+tasks:
+  - id: 1
+    description: "Create REQUIREMENTS_TRACE.yaml template"
+    what: |
+      Add migrate-spec/templates/REQUIREMENTS_TRACE.yaml template showing the structure
+      for tracing FR-XX and UJ-XX IDs from source to epic/story mapping.
+    verify: |
+      test -f migrate-spec/templates/REQUIREMENTS_TRACE.yaml && echo "OK: template exists" || echo "FAIL"
+  - id: 2
+    description: "Update migrate-spec/SKILL.md Step 3 to emit trace file"
+    what: |
+      Document in Step 3 that when FR-XX or UJ-XX IDs are detected, migrate-spec emits
+      specs/product/REQUIREMENTS_TRACE.yaml. Include user prompts for existing trace files
+      (overwrite/merge/skip). Show example output.
+    verify: |
+      grep -c "REQUIREMENTS_TRACE" migrate-spec/SKILL.md | awk '{if($1>=1) print "OK"; else print "FAIL"}'
+  - id: 3
+    description: "Update REFERENCE.md with trace file format and examples"
+    what: |
+      Add section to REFERENCE.md documenting REQUIREMENTS_TRACE.yaml output format with
+      example entries for FR-XX and UJ-XX IDs. Include behavior when no IDs found.
+    verify: |
+      grep -c "REQUIREMENTS_TRACE" migrate-spec/REFERENCE.md | awk '{if($1>=1) print "OK"; else print "FAIL"}'
+  - id: 4
+    description: "Mark FR-XX/UJ-XX traceability learning as adopted"
+    what: |
+      In REFERENCE.md learnings table, mark "FR-XX + UJ-XX in SCOPE_LATEST.yaml" as adopted
+      with note "(REQUIREMENTS_TRACE.yaml emitted on migration)".
+    verify: |
+      grep "FR-XX + UJ-XX" migrate-spec/REFERENCE.md | grep -q "\[x\]" && echo "OK" || echo "FAIL"

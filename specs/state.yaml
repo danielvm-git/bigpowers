@@ -4,8 +4,8 @@ active_epic_id: "e25"
 active_story_id: "e25s02"
 completed_epic: false
 epic_cycle:
-  current_step: 1
-  next_skill: "release-branch"
+  current_step: 4
+  next_skill: "kickoff-branch"
   story_bcps: 2
   completed_steps: "[]"
   audit_result: "pass"
@@ -21,16 +21,16 @@ release:
   last_publish: "2026-06-22T13:26:08Z"
   ci_verified: true
 metrics:
-  story_start: "2026-06-26T00:00:00Z"
+  story_start: "2026-06-26T01:00:00Z"
   story_end: "null"
   cycle_minutes: "null"
   bcp_per_hour: "null"
 git:
-  branch: "e25s01"
+  branch: "e25s02"
   hash: "8deb60a"
   pushed: true
 handoff:
   last_step_completed: ">"
-  Active story: "e25s01 \\\\\\\\\\\\\\\\\\"Promote ID tracking from YAML comments to first-class fields\\\\\\\\\\\\\\\\\\" (2 BCPs)."
+  Active story: "e25s01 \\\\\\\\\\\\\\\\\\\\\\\\\\"Promote ID tracking from YAML comments to first-class fields\\\\\\\\\\\\\\\\\\\\\\\\\\" (2 BCPs)."
   open_decisions: "None — all decisions resolved in story specs"
   next_skill: "plan-work"
