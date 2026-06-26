@@ -1,14 +1,14 @@
 active_flow: "build_epic"
 workflow_mode: "yolo"
 active_epic_id: "e25"
-active_story_id: "e25s01"
+active_story_id: "e25s02"
 completed_epic: false
 epic_cycle:
-  current_step: 3
-  next_skill: "kickoff-branch"
+  current_step: 1
+  next_skill: "release-branch"
   story_bcps: 2
   completed_steps: "[]"
-  audit_result: "null"
+  audit_result: "pass"
 bug_cycle:
   current_step: "null"
   completed_steps: "[]"
@@ -26,11 +26,11 @@ metrics:
   cycle_minutes: "null"
   bcp_per_hour: "null"
 git:
-  branch: "main"
+  branch: "e25s01"
   hash: "8deb60a"
   pushed: true
 handoff:
   last_step_completed: ">"
-  Active story: "e25s01 \\\"Promote ID tracking from YAML comments to first-class fields\\\" (2 BCPs)."
+  Active story: "e25s01 \\\\\\\\\\\\\\\\\\"Promote ID tracking from YAML comments to first-class fields\\\\\\\\\\\\\\\\\\" (2 BCPs)."
   open_decisions: "None — all decisions resolved in story specs"
   next_skill: "plan-work"
