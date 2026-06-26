@@ -1,3 +1,10 @@
+# [2.34.0](https://github.com/danielvm-git/bigpowers/compare/v2.33.0...v2.34.0) (2026-06-26)
+
+
+### Features
+
+* **migrate-spec:** add methodology doc template scaffold ([beba70c](https://github.com/danielvm-git/bigpowers/commit/beba70cbc6a4728aff8b121668440af7ca8abf45))
+
 # [2.33.0](https://github.com/danielvm-git/bigpowers/compare/v2.32.0...v2.33.0) (2026-06-26)
 
 
