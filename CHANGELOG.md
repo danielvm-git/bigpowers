@@ -1,3 +1,10 @@
+# [2.29.0](https://github.com/danielvm-git/bigpowers/compare/v2.28.0...v2.29.0) (2026-06-26)
+
+
+### Features
+
+* **migrate-spec:** promote ID tracking from comments to first-class YAML fields ([f1c8d73](https://github.com/danielvm-git/bigpowers/commit/f1c8d73a5140175fc0067a191f119eea70395075)), closes [#22](https://github.com/danielvm-git/bigpowers/issues/22)
+
 # [2.28.0](https://github.com/danielvm-git/bigpowers/compare/v2.27.0...v2.28.0) (2026-06-22)
 
 
