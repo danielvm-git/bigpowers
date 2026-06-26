@@ -236,6 +236,33 @@ If **no**, skip the two-pass gate. Proceed directly to plan-work.
 
 → verify: `grep -q 'two_pass_spec:' specs/state.yaml && echo "two-pass gate initialized" || echo "two-pass gate not activated"`
 
+### Step 8 — Post-migration: Optional methodology doc template
+
+After Steps 1–7, offer the user an optional analytical framework scaffold (GSD learning):
+
+Prompt: "Create a methodology doc? [yes / no]"
+
+If **yes**, present a checklist of analytical lenses:
+
+```
+Which lenses to include in specs/tech-architecture/METHODOLOGY_LATEST.md?
+
+[x] Cost of Delay (CD3)           — Priority & trade-off assessment
+[ ] STRIDE                        — Security threat modeling
+[ ] F.I.R.S.T                     — Test quality principles
+[ ] Bayesian Updating            — Probabilistic decision-making
+[ ] OWASP Top 10                 — Web security framework
+```
+
+Copy the template from `migrate-spec/templates/METHODOLOGY_LATEST.md` to `specs/tech-architecture/METHODOLOGY_LATEST.md`.
+- Active lenses remain uncommented
+- Unselected lenses are left commented out
+- Populate `{{project_name}}` with the migrated project's name
+
+If **no**, skip. Add note to handoff: "Methodology doc: skipped — can be added later via `cp migrate-spec/templates/METHODOLOGY_LATEST.md specs/tech-architecture/`"
+
+→ verify: `test -f specs/tech-architecture/METHODOLOGY_LATEST.md && echo "methodology doc created" || echo "methodology doc skipped"`
+
 
 ## Artifact Mapping Summary
 
@@ -537,7 +564,7 @@ Optional enhancements to offer the user after migration. Present as checkboxes.
 
 ### From GSD
 
-- [ ] **`specs/tech-architecture/METHODOLOGY_LATEST.md`** — Standing analytical lenses. Agents read before planning.
+- [x] **`specs/tech-architecture/METHODOLOGY_LATEST.md`** — Standing analytical lenses. Agents read before planning. (adopted: optional Step 8 template scaffold)
 - [x] **`handoff` block in state.yaml** — Last skill, last step, required reading for next session. (adopted: mandatory in Step 4 output)
 - [x] **ID tracking in SCOPE_LATEST.yaml** — FR/UJ IDs for spec → plan → verification traceability. (adopted in Step 3 transform)
 
