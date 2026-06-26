@@ -207,6 +207,36 @@ If skip is chosen, add to handoff: "Adversarial review: skipped — review manua
 
 → verify: `test -f specs/archive/MIGRATION-AUDIT.md && echo "audit completed" || echo "audit skipped or not performed"`
 
+### Step 7 — Post-migration: Optional two-pass spec writing gate
+
+After Steps 1–6, offer the user an optional two-pass spec writing workflow (spec-kit learning):
+
+Prompt: "Use two-pass spec writing (user journeys first, then technical)? [yes / no]"
+
+If **yes**, initialize the gate in `specs/state.yaml`:
+
+```yaml
+two_pass_spec:
+  journey_pass: pending
+  technical_pass: pending
+  approved_at: null
+```
+
+The journey pass must be marked "complete" by the user (after stakeholder approval of user-journey specs) before the technical pass begins:
+
+```yaml
+two_pass_spec:
+  journey_pass: complete
+  approved_at: "2026-06-26T12:00:00Z"
+  technical_pass: pending
+```
+
+Inform the user: "Journey pass is pending. Run `elaborate-spec` for user journeys, get stakeholder approval, then update `two_pass_spec.journey_pass: complete` in state.yaml before proceeding to technical specs."
+
+If **no**, skip the two-pass gate. Proceed directly to plan-work.
+
+→ verify: `grep -q 'two_pass_spec:' specs/state.yaml && echo "two-pass gate initialized" || echo "two-pass gate not activated"`
+
 ---
 
 ## Artifact Mapping Summary

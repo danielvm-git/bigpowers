@@ -138,7 +138,7 @@ Optional enhancements to offer the user after migration. Present as checkboxes.
 
 ### From spec-kit
 
-- [ ] **Two-pass spec writing** — User-journey pass first, then technical-decisions pass.
+- [x] **Two-pass spec writing** — User-journey pass first, then technical-decisions pass. (adopted: optional post-migration gate)
 - [ ] **Explicit inter-phase gate** — "Approve to proceed?" at end of `elaborate-spec`.
 - [ ] **Epic task isolation** — Each task completable in isolation; `depends-on` explicit in epic YAML.
 
@@ -326,4 +326,9 @@ handoff:
     - specs/tech-architecture/TECH_STACK_LATEST.md
     - specs/release-plan.yaml
   next_skill: survey-context
+
+two_pass_spec:  # Optional: only if user activates two-pass spec writing gate
+  journey_pass: pending
+  technical_pass: pending
+  approved_at: null
 ```
