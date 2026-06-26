@@ -1,7 +1,7 @@
 active_flow: build_epic
 workflow_mode: yolo
 active_epic_id: e25
-active_story_id: e25s05
+active_story_id: e25s06
 completed_epic: false
 epic_cycle:
   current_step: 1
