@@ -72,6 +72,28 @@ Apply the mapping from [REFERENCE.md](./REFERENCE.md) and [REFERENCE-GSD.md](./R
 2. Ask: "Create this? [yes / edit / skip]"
 3. On yes: write to `specs/`.
 
+#### ID Tracking (REQ-XX, FR-XX, UJ-XX)
+
+When source artifacts contain IDs (REQ-XX, FR-XX, UJ-XX), emit them as **first-class YAML fields** in `in_scope` entries, not YAML comments:
+
+```yaml
+# CORRECT — first-class id: field
+in_scope:
+  - id: REQ-001
+    description: "User can register with email/password"
+    source: "REQUIREMENTS.md"
+
+# DEPRECATED — comment-only
+in_scope:
+  - "User can register with email/password"  # REQ-001
+```
+
+**When source has no IDs:** Prompt the user: "No IDs found. Assign auto-generated IDs? [yes / no]". If yes, emit `REQ-{NNN}` with `# auto-generated` annotation.
+
+**When source has MIXED IDs:** Items with IDs get `id:` fields; items without IDs receive auto-generated `REQ-NNN` entries. Document which were auto-generated in a comment block at the top of `in_scope`.
+
+See [REFERENCE.md — in_scope format with ID tracking](./REFERENCE.md#in_scope-format-with-id-tracking) for examples.
+
 > **HARD GATE** — Never overwrite an existing `specs/` file without explicit user confirmation. Merge into it if it exists; don't clobber.
 >
 > → verify: `git diff --name-only HEAD -- specs/ 2>/dev/null | head -20`
@@ -127,7 +149,7 @@ Full mapping tables: [REFERENCE-GSD.md](./REFERENCE-GSD.md) (GSD) · [REFERENCE.
 
 ## Rules
 
-- **Preserve source IDs** — REQ-XX, FR-XX, UJ-XX become inline comments in bigpowers targets. Never silently renumber.
+- **Preserve source IDs** — REQ-XX, FR-XX, UJ-XX are emitted as first-class `id:` fields in bigpowers YAML targets (e.g., `in_scope` entries). Never silently renumber. See Step 3 ID Tracking subsection for details.
 - **Never merge contradictory docs** — if source has both `CONTEXT.md` and `architecture.md`, create sections in bigpowers `CONTEXT.md`; don't collapse them.
 - **ADRs are opt-in** — only create an ADR when: hard to reverse, surprising without context, result of a real trade-off. Lightweight decisions go to `specs/DECISION-LOG.md`.
 - **state.yaml is always regenerated** — never migrate source STATE verbatim; bigpowers state.yaml needs its own format.
@@ -185,9 +207,9 @@ Transform:
 GSD REQUIREMENTS has: REQ-XX IDs, Validated/Active/Out-of-Scope categories, traceability.
 
 Transform:
-- Copy REQ-XX IDs as-is (preserve for cross-referencing)
-- Validated requirements → `in_scope` entries
-- Out-of-Scope → `out_of_scope` entries
+- Preserve REQ-XX IDs as **first-class `id:` fields** in `in_scope` entries (see [REFERENCE.md — ID tracking format](./REFERENCE.md#in_scope-format-with-id-tracking))
+- Validated requirements → `in_scope` entries with `id:`, `description:`, `source:` fields
+- Out-of-Scope → `out_of_scope` entries (preserve IDs if present)
 - Active (in-progress) → `in_scope` with status note
 
 ---
@@ -405,7 +427,7 @@ Optional enhancements to offer the user after migration. Present as checkboxes.
 
 - [ ] **`specs/tech-architecture/METHODOLOGY_LATEST.md`** — Standing analytical lenses. Agents read before planning.
 - [ ] **`handoff` block in state.yaml** — Last skill, last step, required reading for next session.
-- [ ] **ID tracking in SCOPE_LATEST.yaml** — FR/UJ IDs for spec → plan → verification traceability.
+- [x] **ID tracking in SCOPE_LATEST.yaml** — FR/UJ IDs for spec → plan → verification traceability. (adopted in Step 3 transform)
 
 ### From spec-kit
 
@@ -454,6 +476,27 @@ For lightweight decisions that don't warrant a full ADR:
 |------|----------|-----------|--------------|
 | 2026-05-19 | Use Postgres | Existing ops expertise | SQLite (limited), DynamoDB (no local dev) |
 ```
+
+### in_scope format with ID tracking
+
+Source IDs (REQ-XX, FR-XX, UJ-XX) are emitted as first-class YAML fields:
+
+```yaml
+in_scope:
+  - id: REQ-001
+    description: "User can register with email and password"
+    source: "REQUIREMENTS.md"
+  - id: FR-015
+    description: "Auth service must support OAuth2 token flow"
+    source: "prd.md"
+  - id: REQ-AUTO-002  # auto-generated when source had no ID
+    description: "Dashboard displays user profile"
+    # auto-generated: true  (optional comment for tracking)
+```
+
+**When source has no IDs:** If the user opts in, auto-generated IDs follow the `REQ-{NNN}` format with an optional `# auto-generated` comment.
+
+**When source has mixed IDs:** Entries with source IDs get `id:` fields; entries without IDs receive auto-generated IDs. A comment block at the top of `in_scope` documents which IDs were auto-generated.
 
 ### `specs/state.yaml` template format
 

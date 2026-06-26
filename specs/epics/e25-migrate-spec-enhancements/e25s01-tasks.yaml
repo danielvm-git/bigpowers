@@ -19,7 +19,7 @@ tasks:
       Show YAML structure: id:, description:, source:. Include note: when no IDs found,
       prompt user for auto-generated IDs (REQ-NNN format with # auto-generated comment).
     verify: |
-      grep -c "in_scope.*id:" migrate-spec/REFERENCE.md | awk '{if($1>=1) print "OK"; else print "FAIL"}'
+      grep -A3 "^in_scope:" migrate-spec/REFERENCE.md | grep -q "id:" && echo "OK" || echo "FAIL"
   - id: 3
     description: "Mark ID tracking as adopted in learnings table"
     what: |

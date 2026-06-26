@@ -1,0 +1,38 @@
+story_id: e25s01
+title: "Promote ID tracking from YAML comments to first-class fields"
+verified_at: "2026-06-26T00:30:00Z"
+verifier: verify-work
+status: passed
+phases:
+  task_1:
+    title: "Update migrate-spec/SKILL.md Step 3 to document structured ID tracking"
+    passed: true
+    evidence: "ID field example added to Step 3 transform subsection with before/after YAML"
+  task_2:
+    title: "Update REFERENCE.md output format to show in_scope with id: fields"
+    passed: true
+    evidence: "New section '### in_scope format with ID tracking' added to Output Formats with examples"
+  task_3:
+    title: "Mark ID tracking as adopted in learnings table"
+    passed: true
+    evidence: "ID tracking checkbox changed from '- [ ]' to '- [x]' with annotation '(adopted in Step 3 transform)'"
+  task_4:
+    title: "Update REFERENCE-GSD.md ID handling section"
+    passed: true
+    evidence: "GSD REQUIREMENTS transformation updated to reference first-class id: fields with link to REFERENCE.md"
+  task_5:
+    title: "Verify all changes are consistent across three files"
+    passed: true
+    evidence: "ID tracking referenced in SKILL.md, REFERENCE.md, and REFERENCE-GSD.md; cross-references added"
+summary:
+  all_tasks_passed: true
+  total_commits: 5
+  commit_hashes:
+    - "3e601df"  # docs(migrate-spec): document structured ID tracking in Step 3 transform
+    - "5e582d0"  # docs(migrate-spec): add in_scope format with ID tracking to output formats
+    - "41765b1"  # docs(migrate-spec): mark ID tracking learning as adopted
+    - "9fad378"  # docs(migrate-spec): update GSD ID tracking to reflect first-class fields
+    - "3618861"  # fix(verify): update task 2 verify pattern for multiline YAML
+  verification_passed: true
+  gaps_found: 0
+  ready_for_audit: true

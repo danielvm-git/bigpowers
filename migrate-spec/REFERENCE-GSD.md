@@ -48,9 +48,9 @@ Transform:
 GSD REQUIREMENTS has: REQ-XX IDs, Validated/Active/Out-of-Scope categories, traceability.
 
 Transform:
-- Copy REQ-XX IDs as-is (preserve for cross-referencing)
-- Validated requirements → `in_scope` entries
-- Out-of-Scope → `out_of_scope` entries
+- Preserve REQ-XX IDs as **first-class `id:` fields** in `in_scope` entries (see [REFERENCE.md — ID tracking format](./REFERENCE.md#in_scope-format-with-id-tracking))
+- Validated requirements → `in_scope` entries with `id:`, `description:`, `source:` fields
+- Out-of-Scope → `out_of_scope` entries (preserve IDs if present)
 - Active (in-progress) → `in_scope` with status note
 
 ---
