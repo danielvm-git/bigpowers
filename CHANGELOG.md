@@ -1,3 +1,10 @@
+# [2.33.0](https://github.com/danielvm-git/bigpowers/compare/v2.32.0...v2.33.0) (2026-06-26)
+
+
+### Features
+
+* **migrate-spec:** add two-pass spec writing gate ([6d33173](https://github.com/danielvm-git/bigpowers/commit/6d331735554df2d29adab6fdf5ef72844821f5bd))
+
 # [2.32.0](https://github.com/danielvm-git/bigpowers/compare/v2.31.0...v2.32.0) (2026-06-26)
 
 
