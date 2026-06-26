@@ -89,6 +89,31 @@ in_scope:
 
 See [REFERENCE.md — in_scope format with ID tracking](./REFERENCE.md#in_scope-format-with-id-tracking) for examples.
 
+#### Traceability Output (FR-XX, UJ-XX)
+
+When source has FR-XX or UJ-XX IDs, emit `specs/product/REQUIREMENTS_TRACE.yaml` for end-to-end requirement traceability:
+
+```yaml
+trace:
+  - id: FR-001
+    type: functional_requirement
+    description: "User can register with email/password"
+    epic: e02-auth-ui
+    story: e02s01
+    verify: "grep -q 'FR-001' specs/product/SCOPE_LATEST.yaml && echo OK"
+  - id: UJ-001
+    type: user_journey
+    description: "New user completes registration flow"
+    epic: e02-auth-ui
+    story: e02s01
+```
+
+**Existing trace file:** If `REQUIREMENTS_TRACE.yaml` already exists, prompt: "REQUIREMENTS_TRACE.yaml exists. [overwrite / merge / skip]"
+
+**No FR-XX/UJ-XX found:** Skip trace file; add note to state.yaml handoff: "No FR-XX/UJ-XX IDs found — traceability file skipped".
+
+See [REFERENCE.md — REQUIREMENTS_TRACE.yaml format](./REFERENCE.md#requirements_traceyaml-format) for the complete schema.
+
 > **HARD GATE** — Never overwrite an existing `specs/` file without explicit user confirmation. Merge into it if it exists; don't clobber.
 >
 > → verify: `git diff --name-only HEAD -- specs/ 2>/dev/null | head -20`
@@ -432,7 +457,7 @@ Optional enhancements to offer the user after migration. Present as checkboxes.
 
 ### From BMAD
 
-- [ ] **FR-XX + UJ-XX in SCOPE_LATEST.yaml** — Rigorous traceability.
+- [x] **FR-XX + UJ-XX in SCOPE_LATEST.yaml** — Rigorous traceability. (adopted: REQUIREMENTS_TRACE.yaml emitted on migration)
 - [ ] **`specs/DECISION-LOG.md`** — Lightweight decisions below ADR threshold.
 - [ ] **Adversarial review pass** — Critique epic shard before `develop-tdd`.
 
@@ -492,6 +517,41 @@ in_scope:
 **When source has no IDs:** If the user opts in, auto-generated IDs follow the `REQ-{NNN}` format with an optional `# auto-generated` comment.
 
 **When source has mixed IDs:** Entries with source IDs get `id:` fields; entries without IDs receive auto-generated IDs. A comment block at the top of `in_scope` documents which IDs were auto-generated.
+
+### REQUIREMENTS_TRACE.yaml format
+
+Emitted when source has FR-XX (functional requirement) or UJ-XX (user journey) IDs. Maps source requirements to bigpowers epic/story structure and verification commands:
+
+```yaml
+trace:
+  # Functional Requirements
+  - id: FR-001
+    type: functional_requirement
+    description: "User can register with email/password"
+    source_artifact: "prd.md"
+    epic: "e02-auth-ui"
+    story: "e02s01"
+    verify: "grep -q 'FR-001' specs/product/SCOPE_LATEST.yaml && echo OK"
+
+  # User Journeys
+  - id: UJ-001
+    type: user_journey
+    description: "New user completes registration flow"
+    source_artifact: "epic-auth-ui.md"
+    epic: "e02-auth-ui"
+    story: "e02s01"
+    verify: "grep -q 'UJ-001' specs/epics/e02-auth-ui/epic.yaml && echo OK"
+
+metadata:
+  source_framework: "BMAD"
+  migrated_at: "2026-06-26T12:00:00Z"
+  total_requirements: 2
+  coverage: "All FR-XX and UJ-XX IDs from source mapped"
+```
+
+**When source has no FR-XX/UJ-XX:** Skip REQUIREMENTS_TRACE.yaml. Add note to `state.yaml` handoff: "No FR-XX/UJ-XX IDs found — traceability file skipped".
+
+**Existing trace file:** If REQUIREMENTS_TRACE.yaml exists, prompt user: "Overwrite? [yes / merge / skip]". Merge appends new entries; skip leaves existing file intact.
 
 ### `specs/state.yaml` template format
 

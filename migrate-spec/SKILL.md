@@ -96,6 +96,31 @@ in_scope:
 
 See [REFERENCE.md — in_scope format with ID tracking](./REFERENCE.md#in_scope-format-with-id-tracking) for examples.
 
+#### Traceability Output (FR-XX, UJ-XX)
+
+When source has FR-XX or UJ-XX IDs, emit `specs/product/REQUIREMENTS_TRACE.yaml` for end-to-end requirement traceability:
+
+```yaml
+trace:
+  - id: FR-001
+    type: functional_requirement
+    description: "User can register with email/password"
+    epic: e02-auth-ui
+    story: e02s01
+    verify: "grep -q 'FR-001' specs/product/SCOPE_LATEST.yaml && echo OK"
+  - id: UJ-001
+    type: user_journey
+    description: "New user completes registration flow"
+    epic: e02-auth-ui
+    story: e02s01
+```
+
+**Existing trace file:** If `REQUIREMENTS_TRACE.yaml` already exists, prompt: "REQUIREMENTS_TRACE.yaml exists. [overwrite / merge / skip]"
+
+**No FR-XX/UJ-XX found:** Skip trace file; add note to state.yaml handoff: "No FR-XX/UJ-XX IDs found — traceability file skipped".
+
+See [REFERENCE.md — REQUIREMENTS_TRACE.yaml format](./REFERENCE.md#requirements_traceyaml-format) for the complete schema.
+
 > **HARD GATE** — Never overwrite an existing `specs/` file without explicit user confirmation. Merge into it if it exists; don't clobber.
 >
 > → verify: `git diff --name-only HEAD -- specs/ 2>/dev/null | head -20`
