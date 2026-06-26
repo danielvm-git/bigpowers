@@ -1,0 +1,14 @@
+id: e25s03
+title: "Promote handoff block from optional to mandatory Step 4 output"
+bcps: 1
+status: todo
+tasks:
+  - id: 1
+    description: "Update SKILL.md Step 4 to mandate handoff block"
+    verify: "grep -c 'last_step_completed' migrate-spec/SKILL.md | awk '{if($1>=1) print \"OK\"; else print \"FAIL\"}'"
+  - id: 2
+    description: "Update REFERENCE.md with handoff block structure and fields"
+    verify: "grep -c 'handoff:' migrate-spec/REFERENCE.md | awk '{if($1>=1) print \"OK\"; else print \"FAIL\"}'"
+  - id: 3
+    description: "Mark handoff learning as adopted"
+    verify: "grep 'handoff' migrate-spec/REFERENCE.md | grep -q '\\[x\\]' && echo 'OK' || echo 'FAIL'"
