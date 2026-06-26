@@ -1,3 +1,10 @@
+# [2.31.0](https://github.com/danielvm-git/bigpowers/compare/v2.30.0...v2.31.0) (2026-06-26)
+
+
+### Features
+
+* **migrate-spec:** make handoff block mandatory in Step 4 output ([1f05663](https://github.com/danielvm-git/bigpowers/commit/1f0566320356d8de4d3c2775ddebc3b17cf27fe6))
+
 # [2.30.0](https://github.com/danielvm-git/bigpowers/compare/v2.29.0...v2.30.0) (2026-06-26)
 
 
