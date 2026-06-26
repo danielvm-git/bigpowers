@@ -1,3 +1,10 @@
+# [2.32.0](https://github.com/danielvm-git/bigpowers/compare/v2.31.0...v2.32.0) (2026-06-26)
+
+
+### Features
+
+* **migrate-spec:** add optional Step 6 adversarial review pass ([64ae774](https://github.com/danielvm-git/bigpowers/commit/64ae774070068727f7dbb91e9cbb8e722bd0feb0))
+
 # [2.31.0](https://github.com/danielvm-git/bigpowers/compare/v2.30.0...v2.31.0) (2026-06-26)
 
 
