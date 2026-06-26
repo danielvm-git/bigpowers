@@ -1,0 +1,14 @@
+id: e25s05
+title: "Add two-pass spec writing gate (spec-kit learning)"
+bcps: 2
+status: todo
+tasks:
+  - id: 1
+    description: "Add post-migration two-pass gate option to SKILL.md"
+    verify: "grep -c 'two.pass\\|two_pass' migrate-spec/SKILL.md | awk '{if($1>=1) print \"OK\"; else print \"FAIL\"}'"
+  - id: 2
+    description: "Document two_pass_spec state.yaml block in REFERENCE.md"
+    verify: "grep -c 'two_pass_spec' migrate-spec/REFERENCE.md | awk '{if($1>=1) print \"OK\"; else print \"FAIL\"}'"
+  - id: 3
+    description: "Mark two-pass learning as adopted"
+    verify: "grep 'Two-pass spec' migrate-spec/REFERENCE.md | grep -q '\\[x\\]' && echo 'OK' || echo 'FAIL'"

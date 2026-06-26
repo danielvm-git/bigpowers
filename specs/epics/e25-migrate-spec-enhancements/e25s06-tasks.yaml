@@ -1,0 +1,14 @@
+id: e25s06
+title: "Add methodology doc template (GSD learning)"
+bcps: 1
+status: todo
+tasks:
+  - id: 1
+    description: "Create METHODOLOGY_LATEST.md template with analytical lenses"
+    verify: "test -f migrate-spec/templates/METHODOLOGY_LATEST.md && echo 'OK' || echo 'FAIL'"
+  - id: 2
+    description: "Add Step 6 to SKILL.md for methodology scaffolding"
+    verify: "grep -c 'Methodology\\|methodology' migrate-spec/SKILL.md | awk '{if($1>=1) print \"OK\"; else print \"FAIL\"}'"
+  - id: 3
+    description: "Mark methodology learning as adopted"
+    verify: "grep 'METHODOLOGY_LATEST.md' migrate-spec/REFERENCE.md | grep -q '\\[x\\]' && echo 'OK' || echo 'FAIL'"

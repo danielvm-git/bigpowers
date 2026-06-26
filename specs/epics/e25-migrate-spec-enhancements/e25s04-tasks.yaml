@@ -1,0 +1,14 @@
+id: e25s04
+title: "Add adversarial review pass after migration (BMAD learning)"
+bcps: 2
+status: todo
+tasks:
+  - id: 1
+    description: "Add optional Step 7 in SKILL.md for adversarial review"
+    verify: "grep -c 'adversarial\\|Step 7' migrate-spec/SKILL.md | awk '{if($1>=1) print \"OK\"; else print \"FAIL\"}'"
+  - id: 2
+    description: "Document review checks in REFERENCE.md"
+    verify: "grep -c 'MIGRATION-AUDIT\\|TODO\\|FIXME' migrate-spec/REFERENCE.md | awk '{if($1>=1) print \"OK\"; else print \"FAIL\"}'"
+  - id: 3
+    description: "Mark adversarial review learning as adopted"
+    verify: "grep 'Adversarial review' migrate-spec/REFERENCE.md | grep -q '\\[x\\]' && echo 'OK' || echo 'FAIL'"
