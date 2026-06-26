@@ -134,7 +134,7 @@ Optional enhancements to offer the user after migration. Present as checkboxes.
 
 - [ ] **`specs/tech-architecture/METHODOLOGY_LATEST.md`** — Standing analytical lenses. Agents read before planning.
 - [ ] **`handoff` block in state.yaml** — Last skill, last step, required reading for next session.
-- [ ] **ID tracking in SCOPE_LATEST.yaml** — FR/UJ IDs for spec → plan → verification traceability.
+- [x] **ID tracking in SCOPE_LATEST.yaml** — FR/UJ IDs for spec → plan → verification traceability. (adopted in Step 3 transform)
 
 ### From spec-kit
 
@@ -183,6 +183,27 @@ For lightweight decisions that don't warrant a full ADR:
 |------|----------|-----------|--------------|
 | 2026-05-19 | Use Postgres | Existing ops expertise | SQLite (limited), DynamoDB (no local dev) |
 ```
+
+### in_scope format with ID tracking
+
+Source IDs (REQ-XX, FR-XX, UJ-XX) are emitted as first-class YAML fields:
+
+```yaml
+in_scope:
+  - id: REQ-001
+    description: "User can register with email and password"
+    source: "REQUIREMENTS.md"
+  - id: FR-015
+    description: "Auth service must support OAuth2 token flow"
+    source: "prd.md"
+  - id: REQ-AUTO-002  # auto-generated when source had no ID
+    description: "Dashboard displays user profile"
+    # auto-generated: true  (optional comment for tracking)
+```
+
+**When source has no IDs:** If the user opts in, auto-generated IDs follow the `REQ-{NNN}` format with an optional `# auto-generated` comment.
+
+**When source has mixed IDs:** Entries with source IDs get `id:` fields; entries without IDs receive auto-generated IDs. A comment block at the top of `in_scope` documents which IDs were auto-generated.
 
 ### `specs/state.yaml` template format
 
