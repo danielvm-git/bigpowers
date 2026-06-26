@@ -32,21 +32,25 @@ bugs:
     commit_message: "fix(dashboard/tui): replace invalid {dim} tags with {gray-fg} (ce06c07)"
     hardening: "Test 5 in smoke.test.js asserts no literal {dim} or {|} in render output"
   - id: BUG-2026-06-11T183000
-    status: open
+    status: fixed
     severity: medium
     scope: dashboard/cli
     title: "dashboard CLI not exposed as bin entry — only works inside bigpowers repo"
     file: bugs/BUG-2026-06-11T183000.md
     approach: "Add bigpowers-dashboard to bin field in package.json pointing to dashboard/bin/dashboard.js"
     risk_level: "low"
+    files_changed: "package.json"
+    commit_message: "fix(dashboard): expose bigpowers-dashboard as global CLI bin entry"
   - id: BUG-2026-06-13T090000
-    status: open
+    status: fixed
     severity: medium
     scope: docs
     title: "Doctrine drift — docs teach stale artifact names, dead skill references, and an undefined quality gate"
     file: bugs/BUG-2026-06-13T090000.md
     approach: "Update gates.md + PRINCIPLES.md to YAML artifact names; fix dead skill names in model-profiles.md; single-source skill count; add SKILL.md size lint; define or soften 94% threshold"
     risk_level: "medium"
+    files_changed: "docs/references/gates.md, docs/PRINCIPLES.md, docs/references/model-profiles.md, scripts/check-skill-size.sh, scripts/audit-compliance.sh"
+    commit_message: "fix(docs): update doctrine to match YAML artifact layout, fix skill names, add size lint, instrument 94% gate"
   - id: BUG-2026-06-18T100000
     status: fixed
     severity: medium
@@ -57,3 +61,14 @@ bugs:
     approach: "Bound awk to stop at next YAML key; escape \" and \\ in description; propagate model: key; add validation guard"
     risk_level: "medium"
     commit_message: "fix(scripts): sync-skills.sh — escape YAML quotes, preserve model key, add validation guard"
+  - id: BUG-2026-06-24T045323
+    status: fixed
+    severity: high
+    scope: scripts
+    title: "npm install bigpowers fails during postinstall — docs/ excluded from tarball"
+    file: bugs/BUG-2026-06-24T045323.md
+    files_changed: "scripts/sync-skills.sh, scripts/generate-reference-tables.sh"
+    approach: "Gate generate-reference-tables.sh behind .git check in sync-skills.sh; add mkdir -p self-heal in generate-reference-tables.sh"
+    risk_level: "high"
+    hardening: "Sync-skills now skips generate-reference-tables when .git is absent; generate-reference-tables self-heals mkdir -p"
+    commit_message: "fix(scripts): gate reference table rebuild during consumer npm install, self-heal missing docs/"

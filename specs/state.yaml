@@ -1,17 +1,21 @@
-active_flow: build_epic
-workflow_mode: yolo
-active_epic_id: e25
-active_story_id: e25s06
-completed_epic: true
+active_flow: fix_bug
+workflow_mode: "-"
+active_epic_id: "-"
+active_story_id: "-"
+completed_epic: false
 epic_cycle:
-  current_step: 1
-  next_skill: plan-work
-  story_bcps: 2
+  current_step: null
+  next_skill: "-"
+  story_bcps: 0
   completed_steps: []
   audit_result: null
 bug_cycle:
-  current_step: null
-  completed_steps: []
+  current_step: 5
+  completed_steps:
+    - 1
+    - 2
+    - 3
+    - 4
 project_cycle:
   current_phase: null
   completed_phases: []
@@ -31,31 +35,12 @@ git:
   pushed: true
 handoff:
   last_step_completed: >
-    Epic e25 "Migrate-Spec Methodology Enhancements" — 4/6 stories delivered.
-
-    COMPLETED:
-    ✓ e25s01 — Promote ID tracking from comments to first-class YAML fields (2 BCPs)
-      Shipped: feat(migrate-spec) — ID fields in in_scope entries, auto-generated IDs, backward compatible.
-
-    ✓ e25s02 — Emit REQUIREMENTS_TRACE.yaml for FR-XX/UJ-XX traceability (2 BCPs)
-      Shipped: feat(migrate-spec) — REQUIREMENTS_TRACE.yaml template, Step 3 integration, full reference docs.
-
-    ✓ e25s03 — Promote handoff block from optional to mandatory Step 4 output (1 BCP)
-      Shipped: feat(migrate-spec) — Handoff block mandatory, YAML template, learnings adopted.
-
-    ✓ e25s04 — Add adversarial review pass after migration (2 BCPs)
-      Shipped: feat(migrate-spec) — Step 6 optional adversarial audit, MIGRATION-AUDIT.md format, learnings adopted.
-
-    READY FOR NEXT SESSION:
-    - e25s05: Two-pass spec gate (2 BCPs) — task plan ready
-    - e25s06: Methodology doc template (1 BCP) — task plan ready
-
-    Remaining 2 stories follow same pattern: update SKILL.md Step X and REFERENCE.md, mark learning as adopted.
-    No code changes needed — documentation-only enhancements to migrate-spec skill.
-  open_decisions: 'None — all remaining story specs define scope and acceptance criteria'
+    fix_bug flow: BUG-2026-06-11T183000 — dashboard CLI bin entry.
+    Steps 1-4 complete: investigate-bug → diagnose-root → develop-tdd → validate-fix.
+    Fix applied: added "bigpowers-dashboard" to package.json bin field.
+    All proofs pass: bigpowers-dashboard --help works globally, npm run dashboard no regression.
+    Compliance: 86 PASS / 97% SCORE (GATE PASS).
+  open_decisions: 'None — fix is complete. Ready for release-branch.'
   required_reading:
-    - specs/epics/e25-migrate-spec-enhancements/epic.yaml (overview)
-    - specs/execution-status.yaml (tracking)
-    - migrate-spec/SKILL.md (current state after e25s01-03)
-    - migrate-spec/REFERENCE.md (output formats)
-  next_skill: build-epic
+    - specs/bugs/BUG-2026-06-11T183000.md
+  next_skill: release-branch

@@ -44,7 +44,8 @@
     "url": "https://github.com/danielvm-git/bigpowers.git"
   },
   "bin": {
-    "bigpowers": "./bin/bigpowers.js"
+    "bigpowers": "./bin/bigpowers.js",
+    "bigpowers-dashboard": "./dashboard/bin/dashboard.js"
   },
   "engines": {
     "node": ">=14.0.0"
