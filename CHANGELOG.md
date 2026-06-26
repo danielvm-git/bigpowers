@@ -1,3 +1,10 @@
+# [2.30.0](https://github.com/danielvm-git/bigpowers/compare/v2.29.0...v2.30.0) (2026-06-26)
+
+
+### Features
+
+* **migrate-spec:** emit REQUIREMENTS_TRACE.yaml for FR-XX/UJ-XX IDs ([955a1fd](https://github.com/danielvm-git/bigpowers/commit/955a1fd37b898ec70a86895d8772f0ec6fb8a0fa))
+
 # [2.29.0](https://github.com/danielvm-git/bigpowers/compare/v2.28.0...v2.29.0) (2026-06-26)
 
 
