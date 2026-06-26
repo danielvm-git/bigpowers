@@ -1,12 +1,12 @@
 active_flow: build_epic
 workflow_mode: yolo
 active_epic_id: e25
-active_story_id: e25s03
+active_story_id: e25s04
 completed_epic: false
 epic_cycle:
   current_step: 1
   next_skill: plan-work
-  story_bcps: 1
+  story_bcps: 2
   completed_steps: []
   audit_result: null
 bug_cycle:
@@ -22,16 +22,16 @@ release:
   ci_verified: true
 metrics:
   story_start: '2026-06-26T02:00:00Z'
-  story_end: null
-  cycle_minutes: null
-  bcp_per_hour: null
+  story_end: '2026-06-26T15:30:00Z'
+  cycle_minutes: 810
+  bcp_per_hour: 0.074
 git:
   branch: main
-  hash: 387d1ca
+  hash: 1f05663
   pushed: true
 handoff:
   last_step_completed: >
-    Epic e25 "Migrate-Spec Methodology Enhancements" — 2/6 stories delivered.
+    Epic e25 "Migrate-Spec Methodology Enhancements" — 3/6 stories delivered.
 
     COMPLETED:
     ✓ e25s01 — Promote ID tracking from comments to first-class YAML fields (2 BCPs)
@@ -40,18 +40,20 @@ handoff:
     ✓ e25s02 — Emit REQUIREMENTS_TRACE.yaml for FR-XX/UJ-XX traceability (2 BCPs)
       Shipped: feat(migrate-spec) — REQUIREMENTS_TRACE.yaml template, Step 3 integration, full reference docs.
 
+    ✓ e25s03 — Promote handoff block from optional to mandatory Step 4 output (1 BCP)
+      Shipped: feat(migrate-spec) — Handoff block mandatory, YAML template, learnings adopted.
+
     READY FOR NEXT SESSION:
-    - e25s03: Handoff block mandatory (1 BCP) — task plan ready in specs/epics/e25-migrate-spec-enhancements/e25s03-tasks.yaml
     - e25s04: Adversarial review pass (2 BCPs) — task plan ready
     - e25s05: Two-pass spec gate (2 BCPs) — task plan ready
     - e25s06: Methodology doc template (1 BCP) — task plan ready
 
-    All remaining 4 stories follow same pattern: update SKILL.md Step X and REFERENCE.md, mark learning as adopted.
+    All remaining 3 stories follow same pattern: update SKILL.md Step X and REFERENCE.md, mark learning as adopted.
     No code changes needed — documentation-only enhancements to migrate-spec skill.
-  open_decisions: 'None — all story specs define scope and acceptance criteria'
+  open_decisions: 'None — all remaining story specs define scope and acceptance criteria'
   required_reading:
     - specs/epics/e25-migrate-spec-enhancements/epic.yaml (overview)
     - specs/execution-status.yaml (tracking)
-    - migrate-spec/SKILL.md (current state after e25s01-02)
+    - migrate-spec/SKILL.md (current state after e25s01-03)
     - migrate-spec/REFERENCE.md (output formats)
-  next_skill: plan-work
+  next_skill: build-epic
