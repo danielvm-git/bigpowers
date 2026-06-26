@@ -1,3 +1,10 @@
+## [2.34.1](https://github.com/danielvm-git/bigpowers/compare/v2.34.0...v2.34.1) (2026-06-26)
+
+
+### Bug Fixes
+
+* **dashboard:** expose bigpowers-dashboard as global CLI bin entry ([7018583](https://github.com/danielvm-git/bigpowers/commit/7018583848807b80e9dd16e1e6ddf4e4bbe3c635))
+
 # [2.34.0](https://github.com/danielvm-git/bigpowers/compare/v2.33.0...v2.34.0) (2026-06-26)
 
 
