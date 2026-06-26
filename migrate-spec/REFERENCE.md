@@ -146,7 +146,7 @@ Optional enhancements to offer the user after migration. Present as checkboxes.
 
 - [x] **FR-XX + UJ-XX in SCOPE_LATEST.yaml** — Rigorous traceability. (adopted: REQUIREMENTS_TRACE.yaml emitted on migration)
 - [ ] **`specs/DECISION-LOG.md`** — Lightweight decisions below ADR threshold.
-- [ ] **Adversarial review pass** — Critique epic shard before `develop-tdd`.
+- [x] **Adversarial review pass** — Critique epic shard before `develop-tdd`. (adopted: optional Step 6 in migration)
 
 ---
 
@@ -182,6 +182,45 @@ For lightweight decisions that don't warrant a full ADR:
 | Date | Decision | Rationale | Alternatives |
 |------|----------|-----------|--------------|
 | 2026-05-19 | Use Postgres | Existing ops expertise | SQLite (limited), DynamoDB (no local dev) |
+```
+
+### MIGRATION-AUDIT.md format
+
+Post-migration adversarial review report. Written to `specs/archive/MIGRATION-AUDIT.md` when Step 6 runs:
+
+```markdown
+# Migration Audit — <project-name>
+
+**Source Framework:** <GSD|spec-kit|BMAD>  
+**Date:** <ISO 8601>  
+**Status:** <Pass|Findings|Critical>
+
+## Summary
+
+- TODO markers: N
+- FIXME markers: N
+- MISSING markers: N
+- Epics without verify: N
+
+## High Priority Findings
+
+- **Artifact:** specs/epics/e02-auth-ui/epic.yaml
+  **Issue:** Story e02s01 has no verify: commands in tasks
+  **Recommendation:** Add runnable verify command before develop-tdd
+
+- **Artifact:** specs/state.yaml
+  **Issue:** open_decisions list empty without comment explanation
+  **Recommendation:** Add # comment if all decisions were resolved during migration
+
+## Information
+
+- Artifact specs/epics/e01-auth/epic.yaml contains TODO: "Define Neon Auth client URL injection" (normal for fresh migration)
+
+## Next Steps
+
+1. Address high-priority findings before plan-work
+2. Run bash scripts/audit-compliance.sh to enforce code quality gates
+3. Begin develop-tdd on highest-WSJF epic
 ```
 
 ### in_scope format with ID tracking

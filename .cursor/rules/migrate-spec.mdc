@@ -168,6 +168,43 @@ Use the learnings table from [REFERENCE.md](./REFERENCE.md#learnings-to-adopt). 
 
 → verify: `grep -c "\- \[ \]" specs/state.yaml 2>/dev/null && echo "pending items recorded" || echo "no pending items in state.yaml"`
 
+### Step 6 — Adversarial review (optional)
+
+Before the user runs `plan-work`, offer an optional lightweight audit of the migrated artifacts. This catches common migration errors early — incomplete specs, missing verification commands, unresolved decisions.
+
+Prompt: "Run adversarial review of migrated artifacts? [yes / skip]"
+
+If yes, perform these checks:
+
+1. **Scan for incomplete markers** — Find TODO, FIXME, MISSING in specs/
+2. **Verify every epic has `verify:` commands** — Parse all `eNN-*/epic.yaml` files
+3. **Check state.yaml handoff** — Ensure `open_decisions` is documented (even if empty)
+
+Collect findings and write to `specs/archive/MIGRATION-AUDIT.md`:
+
+```markdown
+# Migration Audit — <project-name> from <framework>
+
+**Date:** <ISO 8601 timestamp>
+**Status:** Pass / Fail with findings
+
+## Findings
+
+### High Priority
+- Artifact: specs/epics/e02-auth-ui/epic.yaml
+  Finding: No verify: commands in story tasks
+  Recommendation: Add `verify:` to each task before develop-tdd
+
+### Information
+- Count of TODO markers: 3 (normal for fresh migration)
+```
+
+If findings exist, the handoff block should note: "Adversarial review: N findings — see `specs/archive/MIGRATION-AUDIT.md`"
+
+If skip is chosen, add to handoff: "Adversarial review: skipped — review manually before plan-work"
+
+→ verify: `test -f specs/archive/MIGRATION-AUDIT.md && echo "audit completed" || echo "audit skipped or not performed"`
+
 
 ## Artifact Mapping Summary
 
@@ -483,7 +520,7 @@ Optional enhancements to offer the user after migration. Present as checkboxes.
 
 - [x] **FR-XX + UJ-XX in SCOPE_LATEST.yaml** — Rigorous traceability. (adopted: REQUIREMENTS_TRACE.yaml emitted on migration)
 - [ ] **`specs/DECISION-LOG.md`** — Lightweight decisions below ADR threshold.
-- [ ] **Adversarial review pass** — Critique epic shard before `develop-tdd`.
+- [x] **Adversarial review pass** — Critique epic shard before `develop-tdd`. (adopted: optional Step 6 in migration)
 
 ---
 
@@ -519,6 +556,45 @@ For lightweight decisions that don't warrant a full ADR:
 | Date | Decision | Rationale | Alternatives |
 |------|----------|-----------|--------------|
 | 2026-05-19 | Use Postgres | Existing ops expertise | SQLite (limited), DynamoDB (no local dev) |
+```
+
+### MIGRATION-AUDIT.md format
+
+Post-migration adversarial review report. Written to `specs/archive/MIGRATION-AUDIT.md` when Step 6 runs:
+
+```markdown
+# Migration Audit — <project-name>
+
+**Source Framework:** <GSD|spec-kit|BMAD>  
+**Date:** <ISO 8601>  
+**Status:** <Pass|Findings|Critical>
+
+## Summary
+
+- TODO markers: N
+- FIXME markers: N
+- MISSING markers: N
+- Epics without verify: N
+
+## High Priority Findings
+
+- **Artifact:** specs/epics/e02-auth-ui/epic.yaml
+  **Issue:** Story e02s01 has no verify: commands in tasks
+  **Recommendation:** Add runnable verify command before develop-tdd
+
+- **Artifact:** specs/state.yaml
+  **Issue:** open_decisions list empty without comment explanation
+  **Recommendation:** Add # comment if all decisions were resolved during migration
+
+## Information
+
+- Artifact specs/epics/e01-auth/epic.yaml contains TODO: "Define Neon Auth client URL injection" (normal for fresh migration)
+
+## Next Steps
+
+1. Address high-priority findings before plan-work
+2. Run bash scripts/audit-compliance.sh to enforce code quality gates
+3. Begin develop-tdd on highest-WSJF epic
 ```
 
 ### in_scope format with ID tracking

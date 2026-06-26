@@ -163,7 +163,7 @@
     },
     "migrate-spec": {
       "description": "Detect GSD, spec-kit, or BMAD spec artifacts and transform them into bigpowers YAML layout (state.yaml, release-plan.yaml, epics/, requirements/, plans/, ADRs). Use when migrating foreign spec docs.",
-      "sha256": "897baa6f0f37ea68",
+      "sha256": "353a127597cead4d",
       "path": "migrate-spec/SKILL.md"
     },
     "model-domain": {
