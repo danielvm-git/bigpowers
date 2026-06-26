@@ -1,0 +1,44 @@
+id: e25s01
+title: "Promote ID tracking from YAML comments to first-class fields"
+bcps: 2
+status: todo
+tasks:
+  - id: 1
+    description: "Update migrate-spec/SKILL.md Step 3 to document structured ID tracking"
+    what: |
+      Modify the "Step 3 — Transform" section to show that when source artifacts
+      contain IDs (REQ-XX, FR-XX, UJ-XX), migrate-spec now emits them as structured
+      YAML fields (id:, description:) instead of YAML comments. Add example
+      showing both the old format (comments) and new format (structured fields).
+    verify: |
+      grep -A5 "in_scope:" migrate-spec/SKILL.md | grep -q "id:" && echo "OK: ID field in example" || echo "FAIL"
+  - id: 2
+    description: "Update REFERENCE.md output format to show in_scope with id: fields"
+    what: |
+      Add a new section "### in_scope format with ID tracking" under "## Output Formats".
+      Show YAML structure: id:, description:, source:. Include note: when no IDs found,
+      prompt user for auto-generated IDs (REQ-NNN format with # auto-generated comment).
+    verify: |
+      grep -c "in_scope.*id:" migrate-spec/REFERENCE.md | awk '{if($1>=1) print "OK"; else print "FAIL"}'
+  - id: 3
+    description: "Mark ID tracking as adopted in learnings table"
+    what: |
+      In REFERENCE.md learnings table, change "- [ ] **ID tracking...**" checkbox to "- [x]"
+      and add note: "(adopted in Step 3 transform)".
+    verify: |
+      grep "ID tracking" migrate-spec/REFERENCE.md | grep -q "\[x\]" && echo "OK: marked adopted" || echo "FAIL"
+  - id: 4
+    description: "Update REFERENCE-GSD.md ID handling section if needed"
+    what: |
+      Check REFERENCE-GSD.md for any ID handling rules that assume YAML comments.
+      If found, update to reflect first-class id: fields. If no ID section exists,
+      add a brief note pointing to REFERENCE.md for the canonical format.
+    verify: |
+      grep -c "ID\|id:" migrate-spec/REFERENCE-GSD.md | awk '{if($1>=1) print "OK"; else print "FAIL"}'
+  - id: 5
+    description: "Verify all changes are consistent across three files"
+    what: |
+      Run a final consistency check: grep for "ID tracking" across all three files
+      and confirm they reference each other correctly. No orphaned examples.
+    verify: |
+      (grep -l "ID tracking" migrate-spec/SKILL.md migrate-spec/REFERENCE.md 2>/dev/null | wc -l) | awk '{if($1>=2) print "OK: referenced in both"; else print "FAIL"}'

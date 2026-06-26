@@ -1,0 +1,40 @@
+id: e25
+title: "Migrate-Spec Methodology Enhancements"
+wsjf: 3.0
+total_bcps: 10
+status: todo
+description: >
+  Six additive enhancements to migrate-spec from real-world GSD/spec-kit/BMAD
+  migration learnings. Each promotes an optional learning checkbox to a concrete
+  output artifact or gate.
+stories:
+  - id: e25s01
+    title: "Promote ID tracking from YAML comments to first-class fields"
+    bcps: 2
+    status: todo
+    spec: e25s01-id-tracking.md
+  - id: e25s02
+    title: "Emit FR-XX / UJ-XX REQUIREMENTS_TRACE.yaml on migration"
+    bcps: 2
+    status: todo
+    spec: e25s02-trace-output.md
+  - id: e25s03
+    title: "Promote handoff block from optional to mandatory Step 4 output"
+    bcps: 1
+    status: todo
+    spec: e25s03-handoff-block.md
+  - id: e25s04
+    title: "Add adversarial review pass after migration (BMAD learning)"
+    bcps: 2
+    status: todo
+    spec: e25s04-adversarial-review.md
+  - id: e25s05
+    title: "Add two-pass spec writing gate (spec-kit learning)"
+    bcps: 2
+    status: todo
+    spec: e25s05-two-pass-gate.md
+  - id: e25s06
+    title: "Add methodology doc template (GSD learning)"
+    bcps: 1
+    status: todo
+    spec: e25s06-methodology-template.md

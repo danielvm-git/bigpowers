@@ -1,53 +1,36 @@
-active_flow: build_epic
-workflow_mode: yolo
-active_epic_id: null
-active_story_id: null
+active_flow: "build_epic"
+workflow_mode: "yolo"
+active_epic_id: "e25"
+active_story_id: "e25s01"
 completed_epic: false
 epic_cycle:
-  current_step: null
-  next_skill: null
-  story_bcps: null
-  completed_steps: []
-  audit_result: null
+  current_step: 3
+  next_skill: "kickoff-branch"
+  story_bcps: 2
+  completed_steps: "[]"
+  audit_result: "null"
 bug_cycle:
-  current_step: null
-  completed_steps: []
+  current_step: "null"
+  completed_steps: "[]"
 project_cycle:
-  current_phase: null
-  completed_phases: []
+  current_phase: "null"
+  completed_phases: "[]"
 release:
-  # target_version is no longer tracked manually — semantic-release decides the
-  # real number at merge. last_tag mirrors `gh release view` for reference only.
-  target_version: null
-  last_tag: v2.28.0
-  last_publish: '2026-06-22T13:26:08Z'
+  target_version: "null"
+  last_tag: "v2.28.0"
+  last_publish: "2026-06-22T13:26:08Z"
   ci_verified: true
 metrics:
-  story_start: '2026-06-22T03:30:00Z'
-  story_end: '2026-06-22T04:15:00Z'
-  cycle_minutes: 45
-  bcp_per_hour: 8.0
+  story_start: "2026-06-26T00:00:00Z"
+  story_end: "null"
+  cycle_minutes: "null"
+  bcp_per_hour: "null"
 git:
-  branch: main
-  hash: 2df9a1a
+  branch: "main"
+  hash: "8deb60a"
   pushed: true
 handoff:
-  last_step_completed: >
-    RELEASE 2.9.0 "Depth" COMPLETE — v2.27.0 shipped.
-
-    e22 Skill Catalog CI Gate (2 BCPs): run-skill-verify.sh + CI job + stocktake-skills --verify mode.
-    e23 Benchmark Infrastructure (3 BCPs): specs/benchmarks/ schema + 3 seed definitions + run-benchmark skill + evolve-skill wiring.
-    e24 Planning Context Capsule (3 BCPs): elaborate-spec output + scope-work/slice-tasks consumption + run-planning lifecycle.
-
-    BONUS: audit-plan skill — 3-lens plan evaluation (principles/conventions/pre-flight) with READY/NOT READY verdict.
-
-    All 8 stories shipped. All epic capsules archived. CI verified.
-  open_decisions: '[2.9.0 Depth release complete — backlog clear; next planning phase ready]'
-  next_skill: survey-context
-  commit_ratio:
-    feat: 6
-    fix: 1
-    chore: 8
-    total: 15
-    fix_pct: 6.7
-    last_updated: '2026-06-22T04:15:00Z'
+  last_step_completed: ">"
+  Active story: "e25s01 \\\"Promote ID tracking from YAML comments to first-class fields\\\" (2 BCPs)."
+  open_decisions: "None — all decisions resolved in story specs"
+  next_skill: "plan-work"

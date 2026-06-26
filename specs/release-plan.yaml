@@ -3,12 +3,20 @@ release:
   # Do NOT track it manually here — this field mirrors the real tag for reference only.
   # Real source of truth: `gh release view` / git tags. Last synced: v2.28.0 (2026-06-22).
   version: "2.29.0"   # next expected minor — mirror, not the authority
-  codename: "Depth"
-  status: released
+  codename: "Methodology"
+  status: planning
   semantic_release: true
   bump_hint: minor
 epics:
-  # ── DONE — 2.29.0 "Depth" shipped as v2.28.0 (2026-06-22) ──
+  # ── ACTIVE — next release (codename "Methodology") ─────────────────
+  - id: e25
+    title: "Migrate-Spec Methodology Enhancements"
+    wsjf: 3.0
+    bcps: 10
+    capsule_dir: epics/e25-migrate-spec-enhancements
+    note: "Six additive enhancements from GSD/spec-kit/BMAD migration learnings: ID tracking, trace output, mandatory handoff, adversarial review, two-pass gate, methodology template"
+
+  # ── DONE — shipped as v2.28.0 (2026-06-22) ──
   - id: e22
     title: "Skill Catalog CI Gate"
     wsjf: 5.5

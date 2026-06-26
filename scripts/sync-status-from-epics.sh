@@ -37,6 +37,9 @@ for folder in sorted(epics_dir.glob("e*/")):
         em = re.search(r"^id:\s*(e\d+)", text, re.M)
         if em:
             keys.setdefault(em.group(1), "backlog")
+        # Parse inline story IDs from capsule epic.yaml (same pattern as flat files)
+        for sm in re.finditer(r"^\s+- id:\s*(e\d+s\d+)", text, re.M):
+            keys.setdefault(sm.group(1), "backlog")
     for story in (folder / "stories").glob("e*s*.md"):
         m = re.match(r"(e\d+s\d+)", story.name)
         if m:
