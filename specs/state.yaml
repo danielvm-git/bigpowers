@@ -1,36 +1,57 @@
-active_flow: "build_epic"
-workflow_mode: "yolo"
-active_epic_id: "e25"
-active_story_id: "e25s02"
+active_flow: build_epic
+workflow_mode: yolo
+active_epic_id: e25
+active_story_id: e25s03
 completed_epic: false
 epic_cycle:
-  current_step: 4
-  next_skill: "kickoff-branch"
-  story_bcps: 2
-  completed_steps: "[]"
-  audit_result: "pass"
+  current_step: 1
+  next_skill: plan-work
+  story_bcps: 1
+  completed_steps: []
+  audit_result: null
 bug_cycle:
-  current_step: "null"
-  completed_steps: "[]"
+  current_step: null
+  completed_steps: []
 project_cycle:
-  current_phase: "null"
-  completed_phases: "[]"
+  current_phase: null
+  completed_phases: []
 release:
-  target_version: "null"
-  last_tag: "v2.28.0"
-  last_publish: "2026-06-22T13:26:08Z"
+  target_version: null
+  last_tag: v2.28.0
+  last_publish: '2026-06-22T13:26:08Z'
   ci_verified: true
 metrics:
-  story_start: "2026-06-26T01:00:00Z"
-  story_end: "null"
-  cycle_minutes: "null"
-  bcp_per_hour: "null"
+  story_start: '2026-06-26T02:00:00Z'
+  story_end: null
+  cycle_minutes: null
+  bcp_per_hour: null
 git:
-  branch: "e25s02"
-  hash: "8deb60a"
+  branch: main
+  hash: 387d1ca
   pushed: true
 handoff:
-  last_step_completed: ">"
-  Active story: "e25s01 \\\\\\\\\\\\\\\\\\\\\\\\\\"Promote ID tracking from YAML comments to first-class fields\\\\\\\\\\\\\\\\\\\\\\\\\\" (2 BCPs)."
-  open_decisions: "None — all decisions resolved in story specs"
-  next_skill: "plan-work"
+  last_step_completed: >
+    Epic e25 "Migrate-Spec Methodology Enhancements" — 2/6 stories delivered.
+
+    COMPLETED:
+    ✓ e25s01 — Promote ID tracking from comments to first-class YAML fields (2 BCPs)
+      Shipped: feat(migrate-spec) — ID fields in in_scope entries, auto-generated IDs, backward compatible.
+
+    ✓ e25s02 — Emit REQUIREMENTS_TRACE.yaml for FR-XX/UJ-XX traceability (2 BCPs)
+      Shipped: feat(migrate-spec) — REQUIREMENTS_TRACE.yaml template, Step 3 integration, full reference docs.
+
+    READY FOR NEXT SESSION:
+    - e25s03: Handoff block mandatory (1 BCP) — task plan ready in specs/epics/e25-migrate-spec-enhancements/e25s03-tasks.yaml
+    - e25s04: Adversarial review pass (2 BCPs) — task plan ready
+    - e25s05: Two-pass spec gate (2 BCPs) — task plan ready
+    - e25s06: Methodology doc template (1 BCP) — task plan ready
+
+    All remaining 4 stories follow same pattern: update SKILL.md Step X and REFERENCE.md, mark learning as adopted.
+    No code changes needed — documentation-only enhancements to migrate-spec skill.
+  open_decisions: 'None — all story specs define scope and acceptance criteria'
+  required_reading:
+    - specs/epics/e25-migrate-spec-enhancements/epic.yaml (overview)
+    - specs/execution-status.yaml (tracking)
+    - migrate-spec/SKILL.md (current state after e25s01-02)
+    - migrate-spec/REFERENCE.md (output formats)
+  next_skill: plan-work
