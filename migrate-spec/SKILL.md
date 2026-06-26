@@ -129,19 +129,38 @@ See [REFERENCE.md — REQUIREMENTS_TRACE.yaml format](./REFERENCE.md#requirement
 
 ### Step 4 — Generate state.yaml
 
-Always regenerate `specs/state.yaml` from scratch in bigpowers format (see REFERENCE.md for template):
+Always regenerate `specs/state.yaml` from scratch in bigpowers YAML format (see REFERENCE.md for template). The **handoff block is mandatory** and must include all four fields:
 
-```markdown
-# Session State: <project name>
-## Current Milestone
-Migrated from <framework> on <date>. Next: review generated specs and run plan-work.
-## Pending Releases
-- [ ] Review migrated specs
-- [ ] Run elaborate-spec to validate scope
-- [ ] Run plan-work to produce first release plan
+```yaml
+active_flow: null
+active_epic_id: null
+active_story_id: null
+
+# ... other state fields ...
+
+handoff:
+  last_step_completed: "Migrated from <framework> on <date>"
+  open_decisions:
+    - "decision text here"
+  required_reading:
+    - specs/product/VISION_LATEST.yaml
+    - specs/product/SCOPE_LATEST.yaml
+    - specs/tech-architecture/TECH_STACK_LATEST.md
+    - specs/release-plan.yaml
+  next_skill: survey-context
 ```
 
-→ verify: `[ -f specs/state.yaml ] && echo "ok" || echo "MISSING: specs/state.yaml not created"`
+If no open decisions were found during migration, the `open_decisions` list may be empty with an explanatory comment:
+
+```yaml
+handoff:
+  last_step_completed: "..."
+  open_decisions: []  # None — all decisions resolved during migration
+  required_reading: [...]
+  next_skill: survey-context
+```
+
+→ verify: `grep -q 'handoff:' specs/state.yaml && grep -q 'last_step_completed' specs/state.yaml && echo "ok" || echo "MISSING or INCOMPLETE: handoff block"`
 
 ### Step 5 — Surface learnings (optional)
 

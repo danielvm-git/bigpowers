@@ -1,0 +1,47 @@
+story_id: e25s03
+title: "Promote handoff block from optional to mandatory Step 4 output"
+verified_at: "2026-06-26T15:30:00Z"
+verifier: verify-work
+
+phases:
+  mechanical:
+    passed: true
+    checks:
+      - name: "sync-skills.sh"
+        status: "passed"
+        command: "bash scripts/sync-skills.sh"
+
+  manual:
+    passed: true
+    steps:
+      - step: 1
+        description: "SKILL.md Step 4 shows handoff block as mandatory"
+        expected: "Step 4 contains 'handoff block is mandatory' and YAML format example"
+        actual: "✓ 'Mandatory' text present, YAML code block included with all fields"
+        passed: true
+
+      - step: 2
+        description: "REFERENCE.md has complete state.yaml template with handoff"
+        expected: "Template includes last_step_completed, open_decisions, required_reading, next_skill"
+        actual: "✓ All 4 fields present in YAML template format"
+        passed: true
+
+      - step: 3
+        description: "Learnings table marks handoff as adopted"
+        expected: "Checkbox changed from [ ] to [x] with '(adopted: ...)' notation"
+        actual: "✓ Marked as [x] adopted with clarification text"
+        passed: true
+
+      - step: 4
+        description: "All task verification commands pass"
+        expected: "grep commands find handoff references in both files"
+        actual: "✓ All 3 task verification commands execute successfully"
+        passed: true
+
+  gaps:
+    closed: true
+    count: 0
+
+summary:
+  status: "READY FOR AUDIT"
+  all_checks_passed: true
