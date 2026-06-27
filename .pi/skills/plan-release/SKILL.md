@@ -49,6 +49,8 @@ From the conversation context, define:
 
 WSJF-sort epics: score = (Business Value + Time Criticality + Risk Reduction) / Job Size. Highest score first.
 
+> **Security risk boost:** If an epic's `specs/security/epics/<id>/THREAT_MODEL.md` identifies HIGH or CRITICAL risk, add +2 to the WSJF numerator (BV + TC + RR + 2) to reflect the urgency of addressing security concerns before they ship. Document the boost in the epic's note field in release-plan.yaml.
+
 ### 2. Write acceptance criteria (Gherkin)
 
 For each story, write at least one happy-path and one edge-case scenario (countable format §17 if maturity ≥ 3).

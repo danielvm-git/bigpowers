@@ -38,7 +38,7 @@ If this plan touches an existing module, run `assess-impact` first to understand
 
 2. **Draft steps** — Break implementation into the smallest possible steps where each step leaves the codebase working, has one observable outcome, and can be verified with a single command. Red-flag check: name any rationalization you caught before moving to step 3.
 
-3. **Write capsule story spec + tasks** — Output two files inside the active epic capsule. See [REFERENCE.md](REFERENCE.md) for file formats and the plan-template.
+3. **Write capsule story spec + tasks** — Output two files inside the active epic capsule. See [REFERENCE.md](REFERENCE.md) for file formats and the plan-template. Each task optionally includes a `security:` field (`none` / `low` / `medium` / `high`) sourced from the epic's `specs/security/epics/<id>/THREAT_MODEL.md`. Tasks with `security: medium` or `security: high` MUST include "no new security findings in affected paths" in their verify steps.
 
 4. **Verify step format** — Every step MUST follow: `N. <What to do> → verify: <runnable command>`. See [REFERENCE.md](REFERENCE.md) for good/bad examples.
 
