@@ -1,0 +1,47 @@
+id: e26
+title: "Security-Review Lifecycle Integration"
+wsjf: 4.2
+total_bcps: 21
+status: planned
+description: >
+  Weave security gates into the existing bigpowers lifecycle — threat model
+  during epics, security-aware stories during planning, diff-scan during
+  verify, and a blocking gate at release. Ships a security-review skill with
+  reference files (vuln categories, confidence rubric, false-positive
+  exclusions) plus targeted edits to 9 existing skills.
+stories:
+  - id: e26s01
+    title: "Core security-review skill + reference files"
+    bcps: 5
+    status: todo
+    spec: e26s01-core-skill.md
+  - id: e26s02
+    title: "build-epic integration — threat model step"
+    bcps: 3
+    status: todo
+    spec: e26s02-build-epic-integration.md
+  - id: e26s03
+    title: "plan-work / plan-release integration"
+    bcps: 3
+    status: todo
+    spec: e26s03-plan-work-release.md
+  - id: e26s04
+    title: "audit-code / request-review integration"
+    bcps: 3
+    status: todo
+    spec: e26s04-audit-request-review.md
+  - id: e26s05
+    title: "verify-work integration — Phase 5 security scan"
+    bcps: 4
+    status: todo
+    spec: e26s05-verify-work-integration.md
+  - id: e26s06
+    title: "release-branch hard gate"
+    bcps: 2
+    status: todo
+    spec: e26s06-release-branch-gate.md
+  - id: e26s07
+    title: "fix-bug / validate-fix integration"
+    bcps: 1
+    status: todo
+    spec: e26s07-fix-bug-integration.md

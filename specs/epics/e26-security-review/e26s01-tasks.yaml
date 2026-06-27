@@ -1,0 +1,35 @@
+id: e26s01
+title: "Core security-review skill + reference files"
+bcps: 5
+status: done
+tasks:
+  - id: 1
+    description: "Create SKILL.md with 5-phase scan methodology and HARD GATEs"
+    security: none
+    status: done
+    verify: |
+      test -f security-review/SKILL.md && wc -l < security-review/SKILL.md | awk '{if($1<=100) print "OK"}'
+  - id: 2
+    description: "Create REFERENCE-vuln-categories.md with detection guidance"
+    security: none
+    status: done
+    verify: |
+      test -f security-review/REFERENCE-vuln-categories.md && echo "OK"
+  - id: 3
+    description: "Create REFERENCE-false-positives.md with exclusion rules"
+    security: none
+    status: done
+    verify: |
+      test -f security-review/REFERENCE-false-positives.md && echo "OK"
+  - id: 4
+    description: "Create REFERENCE-confidence-rubric.md with scoring methodology"
+    security: none
+    status: done
+    verify: |
+      test -f security-review/REFERENCE-confidence-rubric.md && echo "OK"
+  - id: 5
+    description: "Run sync-skills.sh to propagate to Cursor/Gemini"
+    security: none
+    status: done
+    verify: |
+      bash scripts/sync-skills.sh 2>&1 | grep -q "skills synced" && echo "OK"

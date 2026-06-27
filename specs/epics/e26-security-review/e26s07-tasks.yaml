@@ -1,0 +1,23 @@
+id: e26s07
+title: "fix-bug / validate-fix integration"
+bcps: 1
+status: todo
+tasks:
+  - id: 1
+    description: "Add security-impact assessment to investigate-bug RCA"
+    what: |
+      Edit investigate-bug/SKILL.md to add a security-impact field to RCA
+      output: NONE/LOW/MEDIUM/HIGH/CRITICAL. If HIGH/CRITICAL, auto-assign
+      bug severity HIGH. If MEDIUM+, document exploit path.
+    security: high
+    verify: |
+      grep -c "security-impact\|Security impact" .pi/skills/investigate-bug/SKILL.md | awk '{if($1>=1) print "OK"; else print "FAIL"}'
+  - id: 2
+    description: "Add recurrence hardening check to validate-fix"
+    what: |
+      Edit validate-fix/SKILL.md to add a recurrence hardening section for
+      security bugs: regression test added? false-positive exclusion added?
+      threat model updated? Only applies when security-impact ≥ MEDIUM.
+    security: high
+    verify: |
+      grep -c "recurrence hardening\|security.*regression" .pi/skills/validate-fix/SKILL.md | awk '{if($1>=1) print "OK"; else print "FAIL"}'

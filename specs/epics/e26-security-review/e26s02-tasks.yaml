@@ -1,0 +1,24 @@
+id: e26s02
+title: "build-epic integration — threat model step"
+bcps: 3
+status: todo
+tasks:
+  - id: 1
+    description: "Add Step 0 to build-epic 8-step cycle"
+    what: |
+      Edit build-epic/SKILL.md to insert Step 0 before the existing 8 steps:
+      "Step 0: Threat-model epic scope — run security-review against epic
+      scope; output specs/security/epics/<epic-id>/THREAT_MODEL.md"
+      Re-index existing Step 1→8 to Step 1→9.
+    security: low
+    verify: |
+      grep -c "Step 0" .pi/skills/build-epic/SKILL.md | awk '{if($1>=1) print "OK"; else print "FAIL"}'
+  - id: 2
+    description: "Document THREAT_MODEL.md output format in build-epic"
+    what: |
+      In build-epic/SKILL.md, document the THREAT_MODEL.md schema:
+      surface area, vulnerability categories, risk level (LOW/MED/HIGH/CRITICAL),
+      mitigation guidance. Add verify command for Step 0 output.
+    security: low
+    verify: |
+      grep -c "THREAT_MODEL" .pi/skills/build-epic/SKILL.md | awk '{if($1>=2) print "OK"; else print "FAIL"}'

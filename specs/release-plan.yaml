@@ -8,8 +8,16 @@ release:
   semantic_release: true
   bump_hint: minor
 epics:
-  # ── ACTIVE — next release ──────────────────────────────────────────
-  # (no active epics — next scope needs defining)
+  # ── ACTIVE — next release (v2.30.0) ──────────────────────────────────
+  - id: e26
+    title: "Security-Review Lifecycle Integration"
+    wsjf: 4.2
+    bcps: 21
+    capsule_dir: epics/e26-security-review
+    note: >
+      Weave security gates into build-epic, plan-work, plan-release, audit-code,
+      request-review, fix-bug, validate-fix, verify-work, and release-branch.
+      Ships core security-review skill with reference files + 9 targeted skill edits.
 
 
   # ── DONE — shipped as v2.29.0 (Methodology) ──────────────────────────

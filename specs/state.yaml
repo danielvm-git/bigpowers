@@ -1,20 +1,17 @@
-active_flow: fix_bug
+active_flow: build_epic
 workflow_mode: "-"
-active_epic_id: "-"
-active_story_id: "-"
+active_epic_id: e26
+active_story_id: e26s02
 completed_epic: false
 epic_cycle:
-  current_step: null
-  next_skill: "-"
+  current_step: 1
+  next_skill: survey-context
   story_bcps: 0
   completed_steps: []
   audit_result: null
 bug_cycle:
-  current_step: 4
-  completed_steps:
-    - 1
-    - 2
-    - 3
+  current_step: null
+  completed_steps: []
 project_cycle:
   current_phase: null
   completed_phases: []
@@ -34,12 +31,12 @@ git:
   pushed: true
 handoff:
   last_step_completed: >
-    fix_bug flow: BUG-2026-06-11T183000 — dashboard CLI bin entry.
-    ALL 5 STEPS COMPLETE.
-    Fix: added "bigpowers-dashboard" to package.json bin field.
-    Landed: 7018583 on main, pushed to origin.
-    CI: passed for land commit.
-  open_decisions: 'None — fix landed.'
+    build-epic: e26s01 COMPLETE — security-review skill created, all verify
+    gates passed, audit passed. Committed to main. Continuing to e26s02
+    (build-epic integration — threat model step).
+  open_decisions: 'None — proceeding to kickoff-branch for e26s02.'
   required_reading:
     - specs/state.yaml
-  next_skill: survey-context
+    - specs/epics/e26-security-review/epic.yaml
+    - specs/epics/e26-security-review/e26s02-build-epic-integration.md
+  next_skill: kickoff-branch

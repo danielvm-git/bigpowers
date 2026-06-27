@@ -1,0 +1,24 @@
+id: e26s04
+title: "audit-code / request-review integration"
+bcps: 3
+status: todo
+tasks:
+  - id: 1
+    description: "Add security checklist item to audit-code pass/fail"
+    what: |
+      Edit audit-code/SKILL.md to add a security checklist entry:
+      "[ ] Security: diff scanned — no unaddressed HIGH findings
+      (or deviations documented in specs/security/EXCEPTIONS.md)"
+      Include conditional logic: if REVIEW.md exists, check it; if not, warn.
+    security: low
+    verify: |
+      grep -c "Security:" .pi/skills/audit-code/SKILL.md | awk '{if($1>=1) print "OK"; else print "FAIL"}'
+  - id: 2
+    description: "Inject threat model into request-review reviewer prompt"
+    what: |
+      Edit request-review/SKILL.md to add a security focus area section that:
+      reads THREAT_MODEL.md from the epic, injects relevant vuln categories,
+      includes false-positive exclusion rules, tags security-sensitive reviews.
+    security: low
+    verify: |
+      grep -c "THREAT_MODEL\|security.sensitive\|false.positive" .pi/skills/request-review/SKILL.md | awk '{if($1>=1) print "OK"; else print "FAIL"}'

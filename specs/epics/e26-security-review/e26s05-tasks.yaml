@@ -1,0 +1,34 @@
+id: e26s05
+title: "verify-work integration — Phase 5 security scan"
+bcps: 4
+status: todo
+tasks:
+  - id: 1
+    description: "Add Phase 5 security scan to verify-work multi-phase sequence"
+    what: |
+      Edit verify-work/SKILL.md to insert Phase 5 between existing Phase 4
+      (full test suite) and Phase 6 (manual verification). Phase 5 runs
+      security-review against the git diff, writes findings to
+      specs/security/REVIEW.md, blocks on HIGH findings ≥ 8 confidence.
+      Re-index subsequent phases.
+    security: medium
+    verify: |
+      grep -c "Phase 5" .pi/skills/verify-work/SKILL.md | awk '{if($1>=1) print "OK"; else print "FAIL"}'
+  - id: 2
+    description: "Document blocking behavior and EXCEPTIONS.md mechanism"
+    what: |
+      In verify-work/SKILL.md, document: HIGH findings ≥ 8 confidence block
+      the gate; MEDIUM/LOW are advisory; EXCEPTIONS.md allows documented
+      deviations. Add verify command for Phase 5 gate.
+    security: medium
+    verify: |
+      grep -c "SECURITY BLOCK\|EXCEPTIONS" .pi/skills/verify-work/SKILL.md | awk '{if($1>=2) print "OK"; else print "FAIL"}'
+  - id: 3
+    description: "Wire Phase 5 findings into gap-closure loop"
+    what: |
+      In verify-work/SKILL.md, update the gap-closure loop (Phase 7) to
+      include unaddressed HIGH findings from Phase 5 alongside other quality
+      gaps. All must be resolved before verify-work passes.
+    security: medium
+    verify: |
+      grep -c "gap.closure\|gap closure" .pi/skills/verify-work/SKILL.md | awk '{if($1>=1) print "OK"; else print "FAIL"}'
