@@ -1,3 +1,10 @@
+# [2.40.0](https://github.com/danielvm-git/bigpowers/compare/v2.39.0...v2.40.0) (2026-06-27)
+
+
+### Features
+
+* **release-branch:** add security gate before diff review ([c861f40](https://github.com/danielvm-git/bigpowers/commit/c861f404b417d68fbc500df7b98e532c0a6d3d81))
+
 # [2.39.0](https://github.com/danielvm-git/bigpowers/compare/v2.38.0...v2.39.0) (2026-06-27)
 
 
