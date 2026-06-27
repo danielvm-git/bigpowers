@@ -148,7 +148,7 @@
     },
     "investigate-bug": {
       "description": "Investigate a bug or issue by exploring the codebase to find root cause, then write a TDD-based fix plan to specs/bugs/BUG-*.md. Use when user reports a bug, wants to investigate a problem, mentions \"triage\", or wants to plan a fix.",
-      "sha256": "698885ce631631c4",
+      "sha256": "46e956e627f24b46",
       "path": "investigate-bug/SKILL.md"
     },
     "kickoff-branch": {
@@ -328,7 +328,7 @@
     },
     "validate-fix": {
       "description": "Prove a fix works before declaring done — re-run the failing test, run the full suite, typecheck, lint, and harden against recurrence. Use after implementing a bug fix, when user says \"is this fixed?\", or before closing an investigation.",
-      "sha256": "80fc28e511a501dc",
+      "sha256": "f559f4b8dcf03c4a",
       "path": "validate-fix/SKILL.md"
     },
     "verify-work": {

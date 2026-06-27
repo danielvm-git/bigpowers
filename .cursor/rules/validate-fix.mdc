@@ -61,6 +61,11 @@ For every bug fixed, add at least one prevention layer:
 - [ ] At least one hardening mechanism added
 - [ ] Hardening mechanism is tested
 
+> **Security recurrence hardening** — If the bug's security-impact assessment (from investigate-bug) was MEDIUM or higher, additionally check:
+> - [ ] Security regression test added (covers the exploit path)
+> - [ ] False-positive exclusion rule added (if applicable)
+> - [ ] Threat model updated (if impact was HIGH+)
+
 ### 6. Update the bug file and registry.yaml
 
 Find the most recent `specs/bugs/BUG-*.md` file and append the resolution:

@@ -25,6 +25,8 @@ Get a brief description of the issue from the user. If they haven't provided one
 
 Do NOT ask follow-up questions yet. Start investigating immediately.
 
+> **Security-impact assessment** — After capturing the problem, assess and document: `Security impact: NONE / LOW / MEDIUM / HIGH / CRITICAL`. If HIGH or CRITICAL, assign bug severity HIGH and document the exploit path in findings. If MEDIUM+, include exploit path in the bug file. Document "no security exploit path identified" for NONE/LOW.
+
 ### 2. Explore and diagnose (4-phase RCA)
 
 Run the 4-phase root-cause analysis via the `diagnose-root` skill (Reproduce → Isolate → Hypothesize → Verify). That skill is the canonical RCA engine — do not re-implement the phases here.
