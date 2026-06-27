@@ -46,6 +46,13 @@ git log main...HEAD --oneline | grep -vE "^[a-f0-9]+ (feat|fix|docs|style|refact
 
 - [ ] Overall coverage ≥ 80%; business logic coverage ≥ 95%
 
+### 2a. Security gate
+
+- [ ] `specs/security/REVIEW.md` exists and is fresh (matches current branch diff)
+- [ ] No unresolved HIGH findings with confidence ≥ 8 (or all documented in `specs/security/EXCEPTIONS.md` with sign-off rationale)
+
+If REVIEW.md is missing or stale → run `security-review` inline. Findings block the merge unless documented in EXCEPTIONS.md.
+
 ### 3. Diff review
 
 - [ ] All commits intentional, no secrets, CONVENTIONS.md compliance
