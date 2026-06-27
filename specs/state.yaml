@@ -1,7 +1,7 @@
 active_flow: build_epic
 workflow_mode: "-"
 active_epic_id: e26
-active_story_id: e26s04
+active_story_id: e26s05
 completed_epic: false
 epic_cycle:
   current_step: 1
@@ -31,12 +31,12 @@ git:
   pushed: true
 handoff:
   last_step_completed: >
-    build-epic: e26s03 COMPLETE — security field in plan-work, +2 risk boost
-    in plan-release. Landed to main. Continuing to e26s04
-    (audit-code / request-review integration).
-  open_decisions: 'None — proceeding to kickoff-branch for e26s04.'
+    build-epic: e26s04 COMPLETE — security checklist in audit-code, threat
+    model focus in request-review. Landed to main. Continuing to e26s05
+    (verify-work integration — Phase 5 security scan).
+  open_decisions: 'None — proceeding to kickoff-branch for e26s05.'
   required_reading:
     - specs/state.yaml
     - specs/epics/e26-security-review/epic.yaml
-    - specs/epics/e26-security-review/e26s04-audit-request-review.md
+    - specs/epics/e26-security-review/e26s05-verify-work-integration.md
   next_skill: kickoff-branch
