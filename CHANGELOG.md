@@ -1,3 +1,10 @@
+# [2.38.0](https://github.com/danielvm-git/bigpowers/compare/v2.37.0...v2.38.0) (2026-06-27)
+
+
+### Features
+
+* **audit-code request-review:** add security gate and focus ([092bc61](https://github.com/danielvm-git/bigpowers/commit/092bc6139764f34babb35d0705eb2b628aa4abf7))
+
 # [2.37.0](https://github.com/danielvm-git/bigpowers/compare/v2.36.0...v2.37.0) (2026-06-27)
 
 
