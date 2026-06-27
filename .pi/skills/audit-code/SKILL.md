@@ -27,6 +27,7 @@ Run this self-review before asking anyone else to look at the code. The goal is 
 - [ ] No `[SLOP]` packages without documented human approval
 - [ ] No secrets in diff (`sk-`, `ghp_`, `AKIA`, `.env` values) — see `guard-git` patterns
 - [ ] OWASP Top 10 spot-check: injection, broken auth, sensitive data exposure, misconfiguration (see `docs/references/security-threats.md`)
+- [ ] Security: diff scanned — no unaddressed HIGH findings (or deviations documented in `specs/security/EXCEPTIONS.md`)
 
 ### Provenance & Metadata
 

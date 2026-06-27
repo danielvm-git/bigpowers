@@ -13,7 +13,7 @@
     },
     "audit-code": {
       "description": "Self-review checklist for the coding agent to run before dispatching a reviewer. Checks CONVENTIONS.md compliance, Boy Scout Rule, test coverage, types, and SOLID. Produces a pass/fail checklist. Use before request-review, before committing, or when user asks for a code quality check.",
-      "sha256": "8192ebe6f66a9f91",
+      "sha256": "2e67f9125e0bec7c",
       "path": "audit-code/SKILL.md"
     },
     "audit-plan": {
@@ -213,7 +213,7 @@
     },
     "request-review": {
       "description": "Dispatch a fresh reviewer agent with a clean context to critique the code after audit-code passes. The reviewer has no shared state with the coding agent and gives a genuine second opinion. Use after audit-code passes, before committing, or when user wants an independent code review.",
-      "sha256": "7ad5fa131cb9fe7f",
+      "sha256": "b2498ecdf55104b6",
       "path": "request-review/SKILL.md"
     },
     "research-first": {

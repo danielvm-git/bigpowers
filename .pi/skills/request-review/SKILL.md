@@ -27,6 +27,7 @@ Write a self-contained brief for the reviewer agent. Include:
 - What CONVENTIONS.md requires
 - What the verify command is
 - What you're most uncertain about (where you want fresh eyes)
+- **Security focus** — If the epic has a `specs/security/epics/<id>/THREAT_MODEL.md`, include the relevant vulnerability categories as reviewer focal points. Also include the false-positive exclusion rules so the reviewer avoids known-safe patterns. Tag the review as `security-sensitive: true` if THREAT_MODEL risk is HIGH+.
 
 ### 2. Dispatch the reviewer agent
 
