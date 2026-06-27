@@ -1,3 +1,10 @@
+# [2.39.0](https://github.com/danielvm-git/bigpowers/compare/v2.38.0...v2.39.0) (2026-06-27)
+
+
+### Features
+
+* **verify-work:** add Phase 5 security scan gate ([a0a8b1e](https://github.com/danielvm-git/bigpowers/commit/a0a8b1e4362a727bc642c70e037c478ba45b25c1))
+
 # [2.38.0](https://github.com/danielvm-git/bigpowers/compare/v2.37.0...v2.38.0) (2026-06-27)
 
 
