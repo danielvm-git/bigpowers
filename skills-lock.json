@@ -23,7 +23,7 @@
     },
     "build-epic": {
       "description": "Eight-step epic build cycle — reads state.yaml, execution-status.yaml, and one epic capsule; updates status via bp-yaml-set or direct edit. Resume mode runs one step per invocation. Use instead of ad-hoc execute-plan for release work.",
-      "sha256": "7a376ef092fde9cc",
+      "sha256": "565d8396889dd9c9",
       "path": "build-epic/SKILL.md"
     },
     "change-request": {

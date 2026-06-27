@@ -15,10 +15,11 @@ Orchestrates the **build** flow for a single epic: survey → plan tasks → kic
 >
 > **HARD GATE** — Not on `main`/`master` before step 3 (kickoff-branch).
 
-## Eight steps (`epic_cycle` in state.yaml)
+## Nine steps (`epic_cycle` in state.yaml)
 
 | Step | Skill / action |
 |------|----------------|
+| 0 | `security-review` — threat-model epic scope → `specs/security/epics/<id>/THREAT_MODEL.md` |
 | 1 | `survey-context` — confirm epic + story |
 | 2 | `plan-work` — flesh out story `tasks[]` in `specs/epics/eNN-slug/epic.yaml` |
 | 3 | `kickoff-branch` — feature branch + clean baseline |
@@ -26,17 +27,18 @@ Orchestrates the **build** flow for a single epic: survey → plan tasks → kic
 | 5 | `verify-work` — UAT + mechanical gates |
 | 6 | `audit-code` — **non-optional gate** (pass/fail; fail → loop back to step 4) |
 | 7 | `commit-message` — Conventional Commits draft |
-| 8 | `release-branch` — PR or solo land (supports `--squash-state`) |
+| 8 | `release-branch` — PR or solo land (supports `--squash-state`) | |
 
 ## Process
 
 1. Read `specs/state.yaml`, `specs/execution-status.yaml`, `specs/release-plan.yaml`, active `specs/epics/eNN-slug/epic.yaml`.
-2. **Assess Impact (Step 2):** Before writing tasks, run `assess-impact --lightweight` on the proposed change. If the risk score exceeds 7, gate — require a `grill-me` session. Write the impact report to `specs/IMPACT-<epic>-<story>.md`. For net-new code with no existing dependents, skip.
-3. **BCP Tracking (Step 2):** After `plan-work` completes, read the `bcps:` count (Business Complexity Points story size) from the epic capsule and carry it into `state.yaml` as `epic_cycle.story_bcps = N`.
-3. If `epic_cycle.step` missing, set to `1`.
-4. Run **only the current step** (resume mode) unless user asked for full auto-run.
-5. After step verify passes, increment `epic_cycle.step` in `state.yaml` (or `bash scripts/bp-yaml-set.sh` if available).
-6. On story complete, set `execution-status.yaml` story key to `done`; run `bash scripts/sync-status-from-epics.sh`.
+2. **Step 0 — Threat Model:** Run `security-review` against the epic's scope (read from the epic capsule). Output `specs/security/epics/<epic-id>/THREAT_MODEL.md` with surface area, vulnerability categories, risk level, and mitigation guidance.
+3. **Assess Impact (Step 2):** Before writing tasks, run `assess-impact --lightweight` on the proposed change. If the risk score exceeds 7, gate — require a `grill-me` session. Write the impact report to `specs/IMPACT-<epic>-<story>.md`. For net-new code with no existing dependents, skip.
+4. **BCP Tracking (Step 2):** After `plan-work` completes, read the `bcps:` count (Business Complexity Points story size) from the epic capsule and carry it into `state.yaml` as `epic_cycle.story_bcps = N`.
+5. If `epic_cycle.step` missing, set to `1`.
+6. Run **only the current step** (resume mode) unless user asked for full auto-run.
+7. After step verify passes, increment `epic_cycle.step` in `state.yaml` (or `bash scripts/bp-yaml-set.sh` if available).
+8. On story complete, set `execution-status.yaml` story key to `done`; run `bash scripts/sync-status-from-epics.sh`.
 
 ### Step 6 — audit-code gate (non-optional)
 
