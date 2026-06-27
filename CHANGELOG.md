@@ -1,3 +1,10 @@
+# [2.35.0](https://github.com/danielvm-git/bigpowers/compare/v2.34.2...v2.35.0) (2026-06-27)
+
+
+### Features
+
+* **security-review:** add security-review skill with lifecycle integration ([932171a](https://github.com/danielvm-git/bigpowers/commit/932171a6526c4f9465c0d3768877dd2ad7775917))
+
 ## [2.34.2](https://github.com/danielvm-git/bigpowers/compare/v2.34.1...v2.34.2) (2026-06-27)
 
 
