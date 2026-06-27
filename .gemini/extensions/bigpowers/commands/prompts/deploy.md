@@ -82,6 +82,53 @@ exit 1
 
 After invoking the deploy command, poll for completion:
 
+See [REFERENCE.md](REFERENCE.md)
+
+Use exponential backoff for retries on transient failures:
+
+See [REFERENCE.md](REFERENCE.md)
+
+### 6. Baseline smoke test
+
+See [REFERENCE.md](REFERENCE.md)
+
+For comprehensive health-checking, chain to the `smoke-test` skill:
+
+```bash
+# After deploy success
+bash scripts/run-smoke.sh "$DEPLOY_URL"
+```
+
+---
+
+# Deploy — Reference
+
+## Configuration
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `ARTIFACT_DIR` | `dist` | Build output directory |
+| `DEPLOY_URL` | *(required)* | Live URL for smoke test |
+| `DEPLOY_TIMEOUT` | `300` | Max wait for deploy completion (seconds) |
+| `DEPLOY_POLL_INTERVAL` | `30` | Polling interval (seconds) |
+| `RETRY_MAX` | `3` | Max deploy retry attempts |
+| `BUILD_COMMAND` | *(auto-detect)* | Override build command |
+
+
+---
+
+## Verification
+
+→ verify: `test -f deploy/SKILL.md && grep -q 'name: deploy' deploy/SKILL.md && echo OK`
+→ verify: `grep -qi 'build\|artifact\|deploy\|smoke' deploy/SKILL.md && echo OK`
+→ verify: `grep -ci 'package.json\|Cargo.toml\|Makefile\|manifest' deploy/SKILL.md | awk '{if($1>=1) print "OK"; else print "FAIL"}'`
+→ verify: `grep -ci 'timeout\|poll\|status\|retry\|backoff' deploy/SKILL.md | awk '{if($1>=2) print "OK"; else print "FAIL"}'`
+→ verify: `grep -q 'curl.*DEPLOY_URL\|smoke\|health' deploy/SKILL.md && echo OK`
+
+---
+
+## Reference block 1
+
 ```bash
 DEPLOY_TIMEOUT="${DEPLOY_TIMEOUT:-300}"   # seconds (default 5 minutes)
 DEPLOY_POLL_INTERVAL="${DEPLOY_POLL_INTERVAL:-30}"  # seconds
@@ -104,7 +151,9 @@ while true; do
 done
 ```
 
-Use exponential backoff for retries on transient failures:
+---
+
+## Reference block 2
 
 ```bash
 RETRY_MAX="${RETRY_MAX:-3}"
@@ -121,7 +170,9 @@ for attempt in $(seq 1 "$RETRY_MAX"); do
 done
 ```
 
-### 6. Baseline smoke test
+---
+
+## Reference block 3
 
 ```bash
 DEPLOY_URL="${DEPLOY_URL:?DEPLOY_URL must be set}"
@@ -132,29 +183,3 @@ else
   exit 1
 fi
 ```
-
-For comprehensive health-checking, chain to the `smoke-test` skill:
-
-```bash
-# After deploy success
-bash scripts/run-smoke.sh "$DEPLOY_URL"
-```
-
-## Configuration
-
-| Variable | Default | Description |
-|----------|---------|-------------|
-| `ARTIFACT_DIR` | `dist` | Build output directory |
-| `DEPLOY_URL` | *(required)* | Live URL for smoke test |
-| `DEPLOY_TIMEOUT` | `300` | Max wait for deploy completion (seconds) |
-| `DEPLOY_POLL_INTERVAL` | `30` | Polling interval (seconds) |
-| `RETRY_MAX` | `3` | Max deploy retry attempts |
-| `BUILD_COMMAND` | *(auto-detect)* | Override build command |
-
-## Verification
-
-→ verify: `test -f deploy/SKILL.md && grep -q 'name: deploy' deploy/SKILL.md && echo OK`
-→ verify: `grep -qi 'build\|artifact\|deploy\|smoke' deploy/SKILL.md && echo OK`
-→ verify: `grep -ci 'package.json\|Cargo.toml\|Makefile\|manifest' deploy/SKILL.md | awk '{if($1>=1) print "OK"; else print "FAIL"}'`
-→ verify: `grep -ci 'timeout\|poll\|status\|retry\|backoff' deploy/SKILL.md | awk '{if($1>=2) print "OK"; else print "FAIL"}'`
-→ verify: `grep -q 'curl.*DEPLOY_URL\|smoke\|health' deploy/SKILL.md && echo OK`

@@ -32,6 +32,112 @@ If no manifest is found, prompt the user to specify the type or pass `--type <np
 Before attempting any publish, run all applicable checks:
 
 **npm (`package.json`):**
+See [REFERENCE.md](REFERENCE.md)
+
+**crates.io (`Cargo.toml`):**
+See [REFERENCE.md](REFERENCE.md)
+
+**PyPI (`setup.py` / `pyproject.toml`):**
+See [REFERENCE.md](REFERENCE.md)
+
+### 3. Run publish
+
+After all prerequisite checks pass, run the registry-specific command:
+
+See [REFERENCE.md](REFERENCE.md)
+
+### 4. Verify publish success
+
+After publish, confirm the version appears on the registry:
+
+See [REFERENCE.md](REFERENCE.md)
+
+### 5. Error handling
+
+On failure, surface actionable hints:
+
+See [REFERENCE.md](REFERENCE.md)
+
+### 6. Dry-run mode (`--dry-run`)
+
+Run `--dry-run` to verify all prerequisites without actually publishing:
+
+See [REFERENCE.md](REFERENCE.md)
+
+### 7. Dry-run mode per registry
+
+See [REFERENCE.md](REFERENCE.md)
+
+## Verify
+
+→ verify: `test -f publish-package/SKILL.md && echo "OK: skill file exists" || echo "FAIL: no skill file"`
+→ verify: `grep -q "name: publish-package" publish-package/SKILL.md && echo "OK: frontmatter" || echo "FAIL: frontmatter"`
+→ verify: `grep -ci "npm\|crates.io\|pypi\|publish\|registry" publish-package/SKILL.md | awk '{if($1>=4) print "OK: semantics"; else print "FAIL: missing"}'`
+→ verify: `grep -q "publish-package" SKILL-INDEX.md && echo "OK: in SKILL-INDEX" || echo "FAIL: not indexed"`
+
+---
+
+# Publish Package — Reference
+
+## Options
+
+| Flag | Description |
+|------|-------------|
+| `--dry-run` | Verify prerequisites and show publish command without executing |
+| `--registry <type>` | Force registry type (skip auto-detection) |
+| `--otp <code>` | One-time password for npm 2FA |
+| `--no-verify` | Skip prerequisite checks (use with caution) |
+
+
+---
+
+## Examples
+
+### Publish an npm package
+
+```bash
+# Verify first
+publish-package --dry-run
+
+# Publish
+publish-package
+
+# Output:
+#   [npm] Publishing my-package v0.4.0...
+#   OK: npm publish confirmed (my-package@0.4.0 on registry)
+```
+
+### Publish a Rust crate
+
+```bash
+export CARGO_REGISTRY_TOKEN=<token>
+publish-package --dry-run
+publish-package
+```
+
+### Missing token scenario
+
+```bash
+$ publish-package
+FAIL: NPM_TOKEN not set. Set via: export NPM_TOKEN=<token> or add to .npmrc
+```
+
+
+---
+
+## Integration with release-branch
+
+When wired into `release-branch`, add a step after git push:
+
+```
+6a. Run publish-package to publish to package registries
+    → verify: publish-package --dry-run && publish-package
+```
+
+---
+
+## Reference block 1
+
 ```bash
 # Check auth token exists
 if [ -z "${NPM_TOKEN:-}" ]; then
@@ -69,7 +175,10 @@ if [ -f CHANGELOG.md ]; then
 fi
 ```
 
-**crates.io (`Cargo.toml`):**
+---
+
+## Reference block 2
+
 ```bash
 # Check auth token exists
 if [ -z "${CARGO_REGISTRY_TOKEN:-}" ]; then
@@ -88,7 +197,10 @@ if cargo search "$CRATE_NAME" 2>/dev/null | grep -q "^${CRATE_NAME}.*\"$CURRENT_
 fi
 ```
 
-**PyPI (`setup.py` / `pyproject.toml`):**
+---
+
+## Reference block 3
+
 ```bash
 # Check auth token exists
 if [ -z "${TWINE_PASSWORD:-}" ] && [ -z "${POETRY_PYPI_TOKEN_PYPI:-}" ]; then
@@ -104,9 +216,9 @@ if [ ! -d dist ] || [ -z "$(ls dist/*.whl 2>/dev/null)" ]; then
 fi
 ```
 
-### 3. Run publish
+---
 
-After all prerequisite checks pass, run the registry-specific command:
+## Reference block 4
 
 ```bash
 # npm
@@ -122,9 +234,9 @@ python -m twine upload dist/*  # or: poetry publish
 brew bump-formula-pr --url=<tarball-url> <formula-name>
 ```
 
-### 4. Verify publish success
+---
 
-After publish, confirm the version appears on the registry:
+## Reference block 5
 
 ```bash
 # npm
@@ -137,9 +249,9 @@ cargo search "$CRATE_NAME" 2>/dev/null | grep -q "^${CRATE_NAME}.*\"$CURRENT_VER
 pip index versions "$PACKAGE_NAME" 2>/dev/null | grep -q "$CURRENT_VER" && echo "OK: PyPI publish confirmed"
 ```
 
-### 5. Error handling
+---
 
-On failure, surface actionable hints:
+## Reference block 6
 
 ```bash
 # Generic failure handler
@@ -172,9 +284,9 @@ if [ $? -ne 0 ]; then
 fi
 ```
 
-### 6. Dry-run mode (`--dry-run`)
+---
 
-Run `--dry-run` to verify all prerequisites without actually publishing:
+## Reference block 7
 
 ```bash
 # Example output
@@ -190,7 +302,9 @@ $ publish-package --dry-run
 [DRY-RUN] Exiting without publishing.
 ```
 
-### 7. Dry-run mode per registry
+---
+
+## Reference block 8
 
 ```bash
 # npm dry-run
@@ -202,59 +316,3 @@ cargo package --list 2>/dev/null
 # PyPI dry-run
 python -m twine upload --repository testpypi dist/*  # test.pypi.org
 ```
-
-## Options
-
-| Flag | Description |
-|------|-------------|
-| `--dry-run` | Verify prerequisites and show publish command without executing |
-| `--registry <type>` | Force registry type (skip auto-detection) |
-| `--otp <code>` | One-time password for npm 2FA |
-| `--no-verify` | Skip prerequisite checks (use with caution) |
-
-## Examples
-
-### Publish an npm package
-
-```bash
-# Verify first
-publish-package --dry-run
-
-# Publish
-publish-package
-
-# Output:
-#   [npm] Publishing my-package v0.4.0...
-#   OK: npm publish confirmed (my-package@0.4.0 on registry)
-```
-
-### Publish a Rust crate
-
-```bash
-export CARGO_REGISTRY_TOKEN=<token>
-publish-package --dry-run
-publish-package
-```
-
-### Missing token scenario
-
-```bash
-$ publish-package
-FAIL: NPM_TOKEN not set. Set via: export NPM_TOKEN=<token> or add to .npmrc
-```
-
-## Integration with release-branch
-
-When wired into `release-branch`, add a step after git push:
-
-```
-6a. Run publish-package to publish to package registries
-    → verify: publish-package --dry-run && publish-package
-```
-
-## Verify
-
-→ verify: `test -f publish-package/SKILL.md && echo "OK: skill file exists" || echo "FAIL: no skill file"`
-→ verify: `grep -q "name: publish-package" publish-package/SKILL.md && echo "OK: frontmatter" || echo "FAIL: frontmatter"`
-→ verify: `grep -ci "npm\|crates.io\|pypi\|publish\|registry" publish-package/SKILL.md | awk '{if($1>=4) print "OK: semantics"; else print "FAIL: missing"}'`
-→ verify: `grep -q "publish-package" SKILL-INDEX.md && echo "OK: in SKILL-INDEX" || echo "FAIL: not indexed"`

@@ -21,6 +21,94 @@ Can be run standalone for quick health checks or chained as the final step of th
 
 Smoke checks are defined in `smoke-checks.yaml` at the project root:
 
+See [REFERENCE.md](REFERENCE.md)
+
+Checks can also be specified inline via environment variables or CLI arguments for ad-hoc use.
+
+### Check Schema
+
+| Field | Required | Default | Description |
+|-------|----------|---------|-------------|
+| `name` | Yes | — | Human-readable check name (used in report) |
+| `path` | Yes | `/` | URL path relative to base_url |
+| `method` | No | `GET` | HTTP method |
+| `expected_status` | No | `200` | Expected HTTP status code |
+| `content_signal` | No | — | Regex or string to find in response body |
+| `max_response_time_ms` | No | — | Fail if response slower than this threshold (ms) |
+
+## Process
+
+### 1. Load smoke checks
+
+See [REFERENCE.md](REFERENCE.md)
+
+### 2. Run each check
+
+For each check in the configuration, perform an HTTP request:
+
+See [REFERENCE.md](REFERENCE.md)
+
+### 3. Assert results
+
+See [REFERENCE.md](REFERENCE.md)
+
+### 4. Generate report
+
+See [REFERENCE.md](REFERENCE.md)
+
+## Integration with deploy skill
+
+The `deploy` skill references `smoke-test` as its final verification step:
+
+```bash
+# In deploy workflow — after successful deploy
+DEPLOY_URL="$DEPLOY_URL" bash scripts/run-smoke.sh
+```
+
+---
+
+# Smoke Test — Reference
+
+## Runner script
+
+A ready-to-use runner is provided for standalone operation:
+
+```bash
+bash scripts/run-smoke.sh [url] [smoke-checks-file]
+```
+
+The runner:
+1. Uses `$DEPLOY_URL`, `$SMOKE_CHECKS_FILE`, or CLI arguments
+2. Runs all defined checks
+3. Prints a pass/fail summary
+4. Exits 0 on all pass, non-zero on any failure
+
+
+---
+
+## Configuration reference
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `SMOKE_CHECKS_FILE` | `smoke-checks.yaml` | Path to smoke checks YAML |
+| `DEPLOY_URL` / `BASE_URL` | *(required)* | Base URL for all checks |
+| `SMOKE_TIMEOUT` | `30` | Per-check timeout (seconds) |
+| `SMOKE_RETRIES` | `0` | Number of retries on failure |
+
+
+---
+
+## Verification
+
+→ verify: `test -f smoke-test/SKILL.md && grep -q 'name: smoke-test' smoke-test/SKILL.md && echo OK`
+→ verify: `grep -qi 'smoke.checks.yaml\|checklist\|expected_status\|content_signal' smoke-test/SKILL.md && echo OK`
+→ verify: `grep -ci 'pass\|fail\|summary\|report' smoke-test/SKILL.md | awk '{if($1>=2) print "OK"; else print "FAIL"}'`
+→ verify: `grep -q 'smoke-test' SKILL-INDEX.md && echo OK`
+
+---
+
+## Reference block 1
+
 ```yaml
 # smoke-checks.yaml — auto-loaded if present at project root
 base_url: "https://example.com"
@@ -51,22 +139,9 @@ checks:
     content_signal: "not found|404"
 ```
 
-Checks can also be specified inline via environment variables or CLI arguments for ad-hoc use.
+---
 
-### Check Schema
-
-| Field | Required | Default | Description |
-|-------|----------|---------|-------------|
-| `name` | Yes | — | Human-readable check name (used in report) |
-| `path` | Yes | `/` | URL path relative to base_url |
-| `method` | No | `GET` | HTTP method |
-| `expected_status` | No | `200` | Expected HTTP status code |
-| `content_signal` | No | — | Regex or string to find in response body |
-| `max_response_time_ms` | No | — | Fail if response slower than this threshold (ms) |
-
-## Process
-
-### 1. Load smoke checks
+## Reference block 2
 
 ```bash
 SMOKE_CHECKS_FILE="${SMOKE_CHECKS_FILE:-smoke-checks.yaml}"
@@ -82,9 +157,9 @@ else
 fi
 ```
 
-### 2. Run each check
+---
 
-For each check in the configuration, perform an HTTP request:
+## Reference block 3
 
 ```bash
 url="${BASE_URL}${path}"
@@ -97,7 +172,9 @@ status=$response
 body=$(cat /tmp/smoke_body.txt)
 ```
 
-### 3. Assert results
+---
+
+## Reference block 4
 
 ```bash
 checks_passed=0
@@ -132,7 +209,9 @@ if [ -n "$max_response_time_ms" ] && [ "$response_time" -gt "$max_response_time_
 fi
 ```
 
-### 4. Generate report
+---
+
+## Reference block 5
 
 ```bash
 total=$((checks_passed + checks_failed))
@@ -150,42 +229,3 @@ else
   exit 0
 fi
 ```
-
-## Runner script
-
-A ready-to-use runner is provided for standalone operation:
-
-```bash
-bash scripts/run-smoke.sh [url] [smoke-checks-file]
-```
-
-The runner:
-1. Uses `$DEPLOY_URL`, `$SMOKE_CHECKS_FILE`, or CLI arguments
-2. Runs all defined checks
-3. Prints a pass/fail summary
-4. Exits 0 on all pass, non-zero on any failure
-
-## Integration with deploy skill
-
-The `deploy` skill references `smoke-test` as its final verification step:
-
-```bash
-# In deploy workflow — after successful deploy
-DEPLOY_URL="$DEPLOY_URL" bash scripts/run-smoke.sh
-```
-
-## Configuration reference
-
-| Variable | Default | Description |
-|----------|---------|-------------|
-| `SMOKE_CHECKS_FILE` | `smoke-checks.yaml` | Path to smoke checks YAML |
-| `DEPLOY_URL` / `BASE_URL` | *(required)* | Base URL for all checks |
-| `SMOKE_TIMEOUT` | `30` | Per-check timeout (seconds) |
-| `SMOKE_RETRIES` | `0` | Number of retries on failure |
-
-## Verification
-
-→ verify: `test -f smoke-test/SKILL.md && grep -q 'name: smoke-test' smoke-test/SKILL.md && echo OK`
-→ verify: `grep -qi 'smoke.checks.yaml\|checklist\|expected_status\|content_signal' smoke-test/SKILL.md && echo OK`
-→ verify: `grep -ci 'pass\|fail\|summary\|report' smoke-test/SKILL.md | awk '{if($1>=2) print "OK"; else print "FAIL"}'`
-→ verify: `grep -q 'smoke-test' SKILL-INDEX.md && echo OK`

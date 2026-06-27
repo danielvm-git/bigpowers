@@ -41,6 +41,131 @@ If no manifest is found, prompt the user to specify the type or pass `--type <ru
 Create `.github/workflows/ci.yaml` with standard steps derived from the project type and its manifest:
 
 **Rust template (`Cargo.toml`):**
+See [REFERENCE.md](REFERENCE.md)
+
+**Node template (`package.json`):**
+See [REFERENCE.md](REFERENCE.md)
+
+**Python template (`setup.py` / `pyproject.toml`):**
+See [REFERENCE.md](REFERENCE.md)
+
+**Go template (`go.mod`):**
+See [REFERENCE.md](REFERENCE.md)
+
+**C/C++ template (`CMakeLists.txt`):**
+See [REFERENCE.md](REFERENCE.md)
+
+### 3. Generate release workflow (if semantic-release detected)
+
+If the project has semantic-release configured (in `package.json`, `.releaserc`, or `release.config.js`), also generate `.github/workflows/release.yaml`:
+
+See [REFERENCE.md](REFERENCE.md)
+
+> **NPM_TOKEN is required** for publishing to npm. Without it, semantic-release will fail at the publish step. See `--validate` to check this.
+
+### 4. Validate workflows (`--validate`)
+
+Run `wire-ci --validate` to check all generated workflow files:
+
+See [REFERENCE.md](REFERENCE.md)
+
+**Exit codes:**
+- `0` — all checks pass (no errors)
+- `1` — YAML syntax errors found
+- `2` — validation warnings only (missing permissions, secrets, etc.)
+
+### 5. Dry-run workflows (`--dry-run`)
+
+Attempt to run the generated workflows locally to catch errors before push:
+
+See [REFERENCE.md](REFERENCE.md)
+
+> **act** runs workflows in a local Docker environment — the most accurate pre-push validation.
+> **gh workflow run** sends the workflow to GitHub but doesn't execute locally — useful for checking YAML parsing but not for testing the actual steps.
+
+### 6. Document common CI failure patterns
+
+Add the following to the project's documentation or CLAUDE.md after setup:
+
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| `npm publish` fails | `NPM_TOKEN` not set as repo secret | Add `NPM_TOKEN` to GitHub repo secrets |
+| `semantic-release` fails on push | Missing `permissions: contents: write` | Add `permissions: contents: write` to release job |
+| `cargo publish` auth fail | `CARGO_REGISTRY_TOKEN` not set | Add token to `~/.cargo/config.toml` or env |
+| `go vet` fails | Go version mismatch | Match `go.mod` `go` directive with setup-go version |
+| `cargo clippy` errors | New lints in Rust nightly | `cargo clippy --fix` or allow specific lints |
+| `act` not found | Docker not running or act not installed | `brew install act` / `docker ps` to verify Docker |
+| Hardcoded Node version stale | `.nvmrc` exists but workflow uses hardcoded version | Use `node-version-file: .nvmrc` instead |
+
+## Verify
+
+→ verify: `test -f wire-ci/SKILL.md && echo "OK: skill file exists" || echo "FAIL: no skill file"`
+→ verify: `grep -q "name: wire-ci" wire-ci/SKILL.md && echo "OK: frontmatter" || echo "FAIL: frontmatter"`
+→ verify: `grep -ci "template\|workflow\|validate\|dry.run" wire-ci/SKILL.md | awk '{if($1>=3) print "OK: semantics"; else print "FAIL: missing"}'`
+→ verify: `grep -q "wire-ci" SKILL-INDEX.md && echo "OK: in SKILL-INDEX" || echo "FAIL: not indexed"`
+
+---
+
+# Wire Ci — Reference
+
+## Examples
+
+### Create CI for a Rust project
+
+```bash
+# Detect from Cargo.toml, generate workflows
+wire-ci
+
+# Validate generated workflows
+wire-ci --validate
+
+# Run locally with act
+wire-ci --dry-run
+```
+
+### Create CI for a Node project with semantic-release
+
+```bash
+wire-ci
+wire-ci --validate
+# Expect warning: "npm publish step found but no NPM_TOKEN in secrets"
+# Fix: add NPM_TOKEN to repo secrets
+```
+
+### Validate existing workflows (no generation)
+
+```bash
+wire-ci --validate --check-only
+```
+
+
+---
+
+## Options
+
+| Flag | Description |
+|------|-------------|
+| `--validate` | Check YAML syntax, permissions, secrets, common pitfalls |
+| `--dry-run` | Run workflows locally via `act` or dispatch via `gh` |
+| `--check-only` | Only validate, do not generate new files |
+| `--type <type>` | Force project type (skip auto-detection) |
+| `--force` | Overwrite existing workflow files |
+| `--no-release` | Skip release workflow generation even if semantic-release detected |
+
+
+---
+
+## Integration with build-epic
+
+When `wire-ci` is used as part of `build-epic`:
+
+1. **During develop-tdd**: If the task modifies `.github/workflows/`, run `wire-ci --validate` as a CI dry-run sub-step
+2. **During release-branch**: After push, run `gh run list --limit 1 --branch main --json status,conclusion` to verify CI passes
+
+---
+
+## Reference block 1
+
 ```yaml
 name: CI
 on: [push, pull_request]
@@ -59,7 +184,10 @@ jobs:
       - run: cargo build --release
 ```
 
-**Node template (`package.json`):**
+---
+
+## Reference block 2
+
 ```yaml
 name: CI
 on: [push, pull_request]
@@ -79,7 +207,10 @@ jobs:
       - run: npm run build 2>/dev/null || true
 ```
 
-**Python template (`setup.py` / `pyproject.toml`):**
+---
+
+## Reference block 3
+
 ```yaml
 name: CI
 on: [push, pull_request]
@@ -99,7 +230,10 @@ jobs:
       - run: pytest
 ```
 
-**Go template (`go.mod`):**
+---
+
+## Reference block 4
+
 ```yaml
 name: CI
 on: [push, pull_request]
@@ -117,7 +251,10 @@ jobs:
       - run: go build ./...
 ```
 
-**C/C++ template (`CMakeLists.txt`):**
+---
+
+## Reference block 5
+
 ```yaml
 name: CI
 on: [push, pull_request]
@@ -131,9 +268,9 @@ jobs:
       - run: ctest --test-dir build
 ```
 
-### 3. Generate release workflow (if semantic-release detected)
+---
 
-If the project has semantic-release configured (in `package.json`, `.releaserc`, or `release.config.js`), also generate `.github/workflows/release.yaml`:
+## Reference block 6
 
 ```yaml
 name: Release
@@ -164,11 +301,9 @@ jobs:
           NPM_TOKEN: \${{ secrets.NPM_TOKEN }}
 ```
 
-> **NPM_TOKEN is required** for publishing to npm. Without it, semantic-release will fail at the publish step. See `--validate` to check this.
+---
 
-### 4. Validate workflows (`--validate`)
-
-Run `wire-ci --validate` to check all generated workflow files:
+## Reference block 7
 
 ```bash
 # Validate YAML syntax
@@ -210,14 +345,9 @@ for f in .github/workflows/*.yaml; do
 done
 ```
 
-**Exit codes:**
-- `0` — all checks pass (no errors)
-- `1` — YAML syntax errors found
-- `2` — validation warnings only (missing permissions, secrets, etc.)
+---
 
-### 5. Dry-run workflows (`--dry-run`)
-
-Attempt to run the generated workflows locally to catch errors before push:
+## Reference block 8
 
 ```bash
 # Option A: Use act (recommended)
@@ -233,75 +363,3 @@ else
   echo "      Install gh CLI for remote dry-run"
 fi
 ```
-
-> **act** runs workflows in a local Docker environment — the most accurate pre-push validation.
-> **gh workflow run** sends the workflow to GitHub but doesn't execute locally — useful for checking YAML parsing but not for testing the actual steps.
-
-### 6. Document common CI failure patterns
-
-Add the following to the project's documentation or CLAUDE.md after setup:
-
-| Failure | Cause | Fix |
-|---------|-------|-----|
-| `npm publish` fails | `NPM_TOKEN` not set as repo secret | Add `NPM_TOKEN` to GitHub repo secrets |
-| `semantic-release` fails on push | Missing `permissions: contents: write` | Add `permissions: contents: write` to release job |
-| `cargo publish` auth fail | `CARGO_REGISTRY_TOKEN` not set | Add token to `~/.cargo/config.toml` or env |
-| `go vet` fails | Go version mismatch | Match `go.mod` `go` directive with setup-go version |
-| `cargo clippy` errors | New lints in Rust nightly | `cargo clippy --fix` or allow specific lints |
-| `act` not found | Docker not running or act not installed | `brew install act` / `docker ps` to verify Docker |
-| Hardcoded Node version stale | `.nvmrc` exists but workflow uses hardcoded version | Use `node-version-file: .nvmrc` instead |
-
-## Examples
-
-### Create CI for a Rust project
-
-```bash
-# Detect from Cargo.toml, generate workflows
-wire-ci
-
-# Validate generated workflows
-wire-ci --validate
-
-# Run locally with act
-wire-ci --dry-run
-```
-
-### Create CI for a Node project with semantic-release
-
-```bash
-wire-ci
-wire-ci --validate
-# Expect warning: "npm publish step found but no NPM_TOKEN in secrets"
-# Fix: add NPM_TOKEN to repo secrets
-```
-
-### Validate existing workflows (no generation)
-
-```bash
-wire-ci --validate --check-only
-```
-
-## Options
-
-| Flag | Description |
-|------|-------------|
-| `--validate` | Check YAML syntax, permissions, secrets, common pitfalls |
-| `--dry-run` | Run workflows locally via `act` or dispatch via `gh` |
-| `--check-only` | Only validate, do not generate new files |
-| `--type <type>` | Force project type (skip auto-detection) |
-| `--force` | Overwrite existing workflow files |
-| `--no-release` | Skip release workflow generation even if semantic-release detected |
-
-## Integration with build-epic
-
-When `wire-ci` is used as part of `build-epic`:
-
-1. **During develop-tdd**: If the task modifies `.github/workflows/`, run `wire-ci --validate` as a CI dry-run sub-step
-2. **During release-branch**: After push, run `gh run list --limit 1 --branch main --json status,conclusion` to verify CI passes
-
-## Verify
-
-→ verify: `test -f wire-ci/SKILL.md && echo "OK: skill file exists" || echo "FAIL: no skill file"`
-→ verify: `grep -q "name: wire-ci" wire-ci/SKILL.md && echo "OK: frontmatter" || echo "FAIL: frontmatter"`
-→ verify: `grep -ci "template\|workflow\|validate\|dry.run" wire-ci/SKILL.md | awk '{if($1>=3) print "OK: semantics"; else print "FAIL: missing"}'`
-→ verify: `grep -q "wire-ci" SKILL-INDEX.md && echo "OK: in SKILL-INDEX" || echo "FAIL: not indexed"`

@@ -72,3 +72,13 @@ bugs:
     risk_level: "high"
     hardening: "Sync-skills now skips generate-reference-tables when .git is absent; generate-reference-tables self-heals mkdir -p"
     commit_message: "fix(scripts): gate reference table rebuild during consumer npm install, self-heal missing docs/"
+  - id: BUG-2026-06-27T000000
+    status: fixed
+    severity: high
+    scope: ci
+    title: "8 SKILL.md files exceed line cap — CI blocked on check-skill-size.sh"
+    file: bugs/BUG-2026-06-27T000000.md
+    files_changed: "deploy/SKILL.md, deploy/REFERENCE.md, develop-tdd/SKILL.md, migrate-spec/SKILL.md, migrate-spec/REFERENCE.md, publish-package/SKILL.md, publish-package/REFERENCE.md, release-branch/SKILL.md, release-branch/REFERENCE.md, smoke-test/SKILL.md, smoke-test/REFERENCE.md, validate-contracts/SKILL.md, validate-contracts/REFERENCE.md, wire-ci/SKILL.md, wire-ci/REFERENCE.md"
+    approach: "Trim each over-length SKILL.md by moving procedural detail into REFERENCE.md"
+    risk_level: "low"
+    commit_message: "fix(ci): trim 8 over-length SKILL.md files to pass check-skill-size lint"

@@ -68,7 +68,7 @@
     },
     "deploy": {
       "description": "\"Build → verify artifact → deploy → wait → smoke deployment pipeline. Platform-agnostic (MCP or CLI), with configurable timeout, retry with exponential backoff, and integrated health-check. The deploy half of CI/CD: run after build to push to production.\"",
-      "sha256": "260894aa4f869093",
+      "sha256": "304967c4f7d0ea13",
       "path": "deploy/SKILL.md"
     },
     "design-interface": {
@@ -78,7 +78,7 @@
     },
     "develop-tdd": {
       "description": "Test-driven development with red-green-refactor loop using vertical slices. Use for features (epic tasks) or bugs (specs/bugs/BUG-*.md).",
-      "sha256": "e050f400da14eff3",
+      "sha256": "8a232210dc2c11d3",
       "path": "develop-tdd/SKILL.md"
     },
     "diagnose-root": {
@@ -163,7 +163,7 @@
     },
     "migrate-spec": {
       "description": "Detect GSD, spec-kit, or BMAD spec artifacts and transform them into bigpowers YAML layout (state.yaml, release-plan.yaml, epics/, requirements/, plans/, ADRs). Use when migrating foreign spec docs.",
-      "sha256": "7636756cd3421b20",
+      "sha256": "84077c1eaa2ec40d",
       "path": "migrate-spec/SKILL.md"
     },
     "model-domain": {
@@ -198,7 +198,7 @@
     },
     "publish-package": {
       "description": "\"Package registry publishing for npm, crates.io, PyPI, and Homebrew. Verifies prerequisites, runs the publish command, confirms success, and surfaces actionable error hints on failure.\"",
-      "sha256": "25ead1dd4d174d54",
+      "sha256": "39f5ba9b115cca6b",
       "path": "publish-package/SKILL.md"
     },
     "quick-fix": {
@@ -208,7 +208,7 @@
     },
     "release-branch": {
       "description": "Make the merge/PR/keep/discard decision for a feature branch, verify coverage gates, create the PR with gh, and clean up the worktree. Use when a feature is done and ready to ship, or when user says \"release\", \"merge\", or \"open a PR\".",
-      "sha256": "5d1e07e58d1aff44",
+      "sha256": "fd5e968246ce07bd",
       "path": "release-branch/SKILL.md"
     },
     "request-review": {
@@ -283,7 +283,7 @@
     },
     "smoke-test": {
       "description": "\"Post-deploy health-check against a live URL. Validates HTTP status, response content, and critical endpoints. Runnable standalone OR as the final step of the deploy skill.\"",
-      "sha256": "402c89c31ac4fd4c",
+      "sha256": "85d2de9e87e141f7",
       "path": "smoke-test/SKILL.md"
     },
     "spike-prototype": {
@@ -318,7 +318,7 @@
     },
     "validate-contracts": {
       "description": "\"Assert data shape consistency across system boundaries — live API responses against JSON Schema, key-set comparison across layers, data shape validation for migrations and exports. Catches silent data corruption before deploy.\"",
-      "sha256": "17653c7ac211c5d8",
+      "sha256": "59cf618f642fa10c",
       "path": "validate-contracts/SKILL.md"
     },
     "validate-fix": {
@@ -338,7 +338,7 @@
     },
     "wire-ci": {
       "description": "\"CI pipeline setup with pre-built templates and local validation. Generates GitHub Actions workflows, validates YAML syntax and permissions, supports dry-run via act/gh. The CI equivalent of wire-observability.\"",
-      "sha256": "dcbf6e1516f6b355",
+      "sha256": "cc3fd8faf2686be1",
       "path": "wire-ci/SKILL.md"
     },
     "wire-observability": {

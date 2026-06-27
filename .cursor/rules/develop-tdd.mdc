@@ -70,69 +70,14 @@ After all tests pass: extract duplication, deepen modules, apply SOLID principle
 
 After every behavior cycle, run the verify command from the active epic task. Show evidence before declaring the step done.
 
-### 6a. CI dry-run sub-step (when modifying workflows)
-
-If this cycle modified files in `.github/workflows/`, run a CI dry-run before pushing:
-
-```bash
-# 1. Check for workflow file changes
-CHANGED_WORKFLOWS=$(git diff --name-only HEAD | grep '\.github/workflows/' || true)
-if [ -n "$CHANGED_WORKFLOWS" ]; then
-  echo "==> CI dry-run: workflow files changed"
-  echo "    $CHANGED_WORKFLOWS"
-
-  # 2. Validate YAML syntax
-  if command -v yamllint &>/dev/null; then
-    for f in $CHANGED_WORKFLOWS; do
-      yamllint "$f" && echo "  OK: $f passes YAML lint" || echo "  WARN: $f has YAML issues"
-    done
-  else
-    # Fallback: Python YAML parse
-    for f in $CHANGED_WORKFLOWS; do
-      python3 -c "import yaml; yaml.safe_load(open('$f'))" 2>/dev/null && \
-        echo "  OK: $f YAML syntax valid" || \
-        echo "  FAIL: $f has YAML syntax errors"
-    done
-  fi
-
-  # 3. Run actionlint if available
-  if command -v actionlint &>/dev/null; then
-    for f in $CHANGED_WORKFLOWS; do
-      actionlint "$f" && echo "  OK: $f passes actionlint" || echo "  WARN: $f has actionlint issues"
-    done
-  fi
-
-  # 4. Check common pitfalls
-  for f in $CHANGED_WORKFLOWS; do
-    # Missing permissions block
-    if ! grep -q 'permissions:' "$f"; then
-      echo "  WARNING: $f missing permissions block — add one for security"
-    fi
-    # npm publish without NPM_TOKEN
-    if grep -q 'npm publish\|npx semantic-release' "$f" && ! grep -q 'NPM_TOKEN' "$f"; then
-      echo "  WARNING: $f has npm publish/semantic-release but no NPM_TOKEN in secrets"
-    fi
-    # Hardcoded Node versions
-    if grep -q 'node-version: [0-9]' "$f"; then
-      echo "  NOTE: $f has hardcoded Node version — consider node-version-file: .nvmrc"
-    fi
-  done
-
-  # 5. Suggest local dry-run
-  if command -v act &>/dev/null; then
-    echo "  SUGGESTION: Run 'act push --dry-run' to test workflows locally"
-  fi
-fi
-```
-
-Checklist:
-- [ ] YAML syntax validated for all changed workflow files
-- [ ] No missing permissions, secrets, or hardcoded versions flagged
-- [ ] Local dry-run suggested if `act` is available
-
 ### 7. Manual Verification Handover
 
 Once all tests pass: locate the Verification Script in the active epic capsule, present it to the user step-by-step, and wait for confirmation of behavioral correctness.
+
+
+### 6a. CI dry-run sub-step
+
+If this cycle modified files in `.github/workflows/`, run the CI dry-run procedure documented in [REFERENCE.md](REFERENCE.md#ci-dry-run).
 
 ## Checklist Per Cycle
 
@@ -148,26 +93,6 @@ Once all tests pass: locate the Verification Script in the active epic capsule, 
 [ ] Progress committed (Conventional Commits)
 [ ] verify: command passes
 ```
-
-## --config mode
-
-For pure-config tasks (update package.json, edit YAML, tweak manifest) where there is no test infrastructure to write against. The RED state is "verify command fails"; GREEN is "verify command passes."
-
-**When to use:** task has a runnable `verify:` command and the deliverable is a config file change with no new behavior to unit-test. Invoke as `develop-tdd --config`.
-
-**Cycle:**
-
-```
-RED:    Run verify command → it fails (expected)
-GREEN:  Apply config change → verify passes
-COMMIT: commit: chore(<scope>): <change>
-```
-
-**Rules:**
-- Skips test-writing phase entirely — do NOT write a test file for config tasks.
-- `verify:` command is **required** and must be runnable (no placeholder).
-- Commit message follows Conventional Commits (`chore:` or `feat:` as appropriate).
-- Still runs full `verify-work` after all tasks complete.
 
 ## Handoff
 

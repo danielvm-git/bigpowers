@@ -1,4 +1,4 @@
-active_flow: "-"
+active_flow: fix_bug
 workflow_mode: "-"
 active_epic_id: "-"
 active_story_id: "-"
@@ -10,8 +10,11 @@ epic_cycle:
   completed_steps: []
   audit_result: null
 bug_cycle:
-  current_step: null
-  completed_steps: []
+  current_step: 4
+  completed_steps:
+    - 1
+    - 2
+    - 3
 project_cycle:
   current_phase: null
   completed_phases: []
