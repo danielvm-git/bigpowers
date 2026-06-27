@@ -1,8 +1,8 @@
-active_flow: build_epic
+active_flow: -
 workflow_mode: "-"
-active_epic_id: e26
-active_story_id: e26s07
-completed_epic: false
+active_epic_id: "-"
+active_story_id: "-"
+completed_epic: true
 epic_cycle:
   current_step: 1
   next_skill: survey-context
@@ -31,12 +31,14 @@ git:
   pushed: true
 handoff:
   last_step_completed: >
-    build-epic: e26s04 COMPLETE — security checklist in audit-code, threat
-    model focus in request-review. Landed to main. Continuing to e26s05
-    (verify-work integration — Phase 5 security scan).
-  open_decisions: 'None — proceeding to kickoff-branch for e26s05.'
+    EPIC e26 COMPLETE — All 7 stories landed to main.
+    Security-review skill created with 3 reference files.
+    Security gates integrated into: build-epic (Step 0), plan-work
+    (security field), plan-release (+2 risk boost), audit-code
+    (checklist), request-review (threat model focus), verify-work
+    (Phase 5 scan), release-branch (hard gate), investigate-bug
+    (security-impact RCA), validate-fix (recurrence hardening).
+  open_decisions: 'None — epic complete.'
   required_reading:
     - specs/state.yaml
-    - specs/epics/e26-security-review/epic.yaml
-    - specs/epics/e26-security-review/e26s05-verify-work-integration.md
-  next_skill: kickoff-branch
+  next_skill: survey-context
