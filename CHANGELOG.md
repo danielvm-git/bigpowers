@@ -1,3 +1,10 @@
+# [2.37.0](https://github.com/danielvm-git/bigpowers/compare/v2.36.0...v2.37.0) (2026-06-27)
+
+
+### Features
+
+* **plan-work plan-release:** add security field and risk boost ([cf8c516](https://github.com/danielvm-git/bigpowers/commit/cf8c51647629b167a14800ac7db34dc5d44f5922))
+
 # [2.36.0](https://github.com/danielvm-git/bigpowers/compare/v2.35.0...v2.36.0) (2026-06-27)
 
 
