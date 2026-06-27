@@ -1,3 +1,10 @@
+# [2.41.0](https://github.com/danielvm-git/bigpowers/compare/v2.40.0...v2.41.0) (2026-06-27)
+
+
+### Features
+
+* **investigate-bug validate-fix:** add security impact and hardening ([b67ca83](https://github.com/danielvm-git/bigpowers/commit/b67ca8343a39a51dab6305897e0ba81cc7d5623c))
+
 # [2.40.0](https://github.com/danielvm-git/bigpowers/compare/v2.39.0...v2.40.0) (2026-06-27)
 
 
