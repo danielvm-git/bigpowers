@@ -1,3 +1,10 @@
+# [2.36.0](https://github.com/danielvm-git/bigpowers/compare/v2.35.0...v2.36.0) (2026-06-27)
+
+
+### Features
+
+* **build-epic:** add Step 0 threat model to epic cycle ([9977f3e](https://github.com/danielvm-git/bigpowers/commit/9977f3e491b9cdefef644e145fa2331fe0ce1154))
+
 # [2.35.0](https://github.com/danielvm-git/bigpowers/compare/v2.34.2...v2.35.0) (2026-06-27)
 
 
