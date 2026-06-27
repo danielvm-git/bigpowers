@@ -1,3 +1,10 @@
+## [2.34.2](https://github.com/danielvm-git/bigpowers/compare/v2.34.1...v2.34.2) (2026-06-27)
+
+
+### Bug Fixes
+
+* **ci:** trim 8 over-length SKILL.md files to pass check-skill-size lint ([c89125f](https://github.com/danielvm-git/bigpowers/commit/c89125ff921874b4aa19ca1df2e7ae47ece177d1))
+
 ## [2.34.1](https://github.com/danielvm-git/bigpowers/compare/v2.34.0...v2.34.1) (2026-06-26)
 
 
