@@ -1,4 +1,4 @@
-active_flow: fix_bug
+active_flow: "-"
 workflow_mode: "-"
 active_epic_id: "-"
 active_story_id: "-"
@@ -10,12 +10,8 @@ epic_cycle:
   completed_steps: []
   audit_result: null
 bug_cycle:
-  current_step: 5
-  completed_steps:
-    - 1
-    - 2
-    - 3
-    - 4
+  current_step: null
+  completed_steps: []
 project_cycle:
   current_phase: null
   completed_phases: []
@@ -36,11 +32,11 @@ git:
 handoff:
   last_step_completed: >
     fix_bug flow: BUG-2026-06-11T183000 — dashboard CLI bin entry.
-    Steps 1-4 complete: investigate-bug → diagnose-root → develop-tdd → validate-fix.
-    Fix applied: added "bigpowers-dashboard" to package.json bin field.
-    All proofs pass: bigpowers-dashboard --help works globally, npm run dashboard no regression.
-    Compliance: 86 PASS / 97% SCORE (GATE PASS).
-  open_decisions: 'None — fix is complete. Ready for release-branch.'
+    ALL 5 STEPS COMPLETE.
+    Fix: added "bigpowers-dashboard" to package.json bin field.
+    Landed: 7018583 on main, pushed to origin.
+    CI: passed for land commit.
+  open_decisions: 'None — fix landed.'
   required_reading:
-    - specs/bugs/BUG-2026-06-11T183000.md
-  next_skill: release-branch
+    - specs/state.yaml
+  next_skill: survey-context

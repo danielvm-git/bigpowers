@@ -6,6 +6,7 @@ set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 TARGET="$REPO_ROOT/docs/references/model-profiles.md"
+mkdir -p "$(dirname "$TARGET")"
 
 cd "$REPO_ROOT"
 

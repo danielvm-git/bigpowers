@@ -4,11 +4,15 @@ release:
   # Real source of truth: `gh release view` / git tags. Last synced: v2.28.0 (2026-06-22).
   version: "2.29.0"   # next expected minor — mirror, not the authority
   codename: "Methodology"
-  status: planning
+  status: released
   semantic_release: true
   bump_hint: minor
 epics:
-  # ── ACTIVE — next release (codename "Methodology") ─────────────────
+  # ── ACTIVE — next release ──────────────────────────────────────────
+  # (no active epics — next scope needs defining)
+
+
+  # ── DONE — shipped as v2.29.0 (Methodology) ──────────────────────────
   - id: e25
     title: "Migrate-Spec Methodology Enhancements"
     wsjf: 3.0

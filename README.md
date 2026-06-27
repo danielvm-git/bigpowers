@@ -2,9 +2,9 @@
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 ![npm version](https://img.shields.io/npm/v/bigpowers.svg)
-![Skills](https://img.shields.io/badge/skills-61-brightgreen.svg)
+![Skills](https://img.shields.io/badge/skills-70-brightgreen.svg)
 
-**61 agent skills for high-integrity, spec-driven, test-first software development by solo developers.**
+**70 agent skills for high-integrity, spec-driven, test-first software development by solo developers.**
 
 `bigpowers` provides a prescriptive, vertical-slice methodology for building software with AI agents (Claude Code, Gemini CLI, Cursor, pi). It bridges the gap between raw LLM capabilities and professional engineering standards.
 
@@ -155,7 +155,7 @@ Or add manually to `.claude/settings.json`:
 
 | Tool | Description |
 |------|-------------|
-| `bigpowers_list_skills` | List all 68 skills with name, description, phase. Optional `phase` filter. |
+| `bigpowers_list_skills` | List all 70 skills with name, description, phase. Optional `phase` filter. |
 | `bigpowers_get_skill` | Get full SKILL.md content for any skill by name. |
 | `bigpowers_search_skills` | Keyword/semantic search — returns ranked matches for a query. |
 | `bigpowers_get_state` | Get current `specs/state.yaml` (active flow, epic, step). |
@@ -224,7 +224,7 @@ ONCE/PROJECT orchestrate-project
 - `dashboard/`: Live monitoring tool — TUI (`npm run dashboard`) and web (`npm run dashboard:web`, port 7742).
 - `docs/`: Guides including `WORKFLOW-SOP-v2.md` (full SDLC SOP) and `using-bigpowers.md`.
 - `docs/references/`: Theoretical foundations (Uncle Bob, Ousterhout, Karpathy, etc.).
-- `[skill-name]/`: Source files for each of the 61 skills.
+- `[skill-name]/`: Source files for each of the 70 skills.
 
 ---
 

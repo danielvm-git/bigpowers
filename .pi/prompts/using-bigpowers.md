@@ -7,7 +7,7 @@ description: One-time bootstrap that introduces the bigpowers skills system, the
 > **HARD GATE** — **HARD GATE** — This skill is the entry point. Do NOT skip it when onboarding new users or starting a new session. It establishes the bigpowers methodology, lifecycle phases, and conventions.
 
 
-Welcome to **bigpowers** — a lifecycle of **61** agent skills for production-ready, TDD-driven software by solo developers.
+Welcome to **bigpowers** — a lifecycle of **70** agent skills for production-ready, TDD-driven software by solo developers.
 
 ## Install
 
@@ -98,7 +98,7 @@ Start the HTTP dashboard with `visual-dashboard` → `GET /api/status?projectDir
 - **Integrate:** team default is `gh pr` (team-pr); solo profile uses `land-branch.sh`. Never create GitHub issues from skills — use local Markdown files instead.
 - **One skill, one thing.** If you're unsure which skill to call, call `survey-context` — it reads your current state and recommends the next step.
 - **verify: every step.** Every epic task must have `verify: <runnable command>`. Evidence over claims.
-- **61 skills.** See `SKILL-INDEX.md`; find skills with `search-skills`.
+- **70 skills.** See `SKILL-INDEX.md`; find skills with `search-skills`.
 
 ## After this
 

@@ -231,6 +231,9 @@ if [[ -f "$validate_script" ]] && command -v python3 &>/dev/null; then
 fi
 
 # Regenerate derived reference tables from live SKILL.md frontmatter
-bash "$REPO_ROOT/scripts/generate-reference-tables.sh"
+# Only in dev context (with .git) — not during consumer npm install where docs/ is excluded
+if [[ -d "$REPO_ROOT/.git" ]]; then
+  bash "$REPO_ROOT/scripts/generate-reference-tables.sh"
+fi
 
 exit 0
