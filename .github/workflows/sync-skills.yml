@@ -27,8 +27,8 @@ jobs:
             .cursor/rules \
             .gemini/extensions/bigpowers/skills \
             .gemini/extensions/bigpowers/commands \
-            specs/SKILL-SEARCH-INDEX.md || {
+            specs/SKILL-SEARCH-INDEX_LATEST.md || {
             echo "::error::Generated artifacts out of date. Run: bash scripts/sync-skills.sh && git add -A && git commit"
-            git diff --stat .cursor/rules .gemini/extensions/bigpowers/skills .gemini/extensions/bigpowers/commands specs/SKILL-SEARCH-INDEX.md
+            git diff --stat .cursor/rules .gemini/extensions/bigpowers/skills .gemini/extensions/bigpowers/commands specs/SKILL-SEARCH-INDEX_LATEST.md
             exit 1
           }
