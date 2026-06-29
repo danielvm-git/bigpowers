@@ -1,3 +1,10 @@
+# [2.42.0](https://github.com/danielvm-git/bigpowers/compare/v2.41.0...v2.42.0) (2026-06-29)
+
+
+### Features
+
+* **skills:** rename generated specs-root outputs to _LATEST.md suffix ([#28](https://github.com/danielvm-git/bigpowers/issues/28)) ([9982d23](https://github.com/danielvm-git/bigpowers/commit/9982d238b9b5f30f948d3ac7f4e6b44cf56f6730))
+
 # [2.41.0](https://github.com/danielvm-git/bigpowers/compare/v2.40.0...v2.41.0) (2026-06-27)
 
 
