@@ -2,11 +2,11 @@ active_flow: build_epic
 active_epic: e27
 active_story: e27s01
 epic_cycle:
-  step: 0
+  step: 8
   fast_mode: false
   story_bcps: 7
-  audit_result: pending
-  completed_steps: []
+  audit_result: pass
+  completed_steps: [0, 1, 2, 3, 4, 5, 6, 7, 8]
 metrics:
   skill_timings:
     survey-context:
