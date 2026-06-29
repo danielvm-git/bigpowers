@@ -25,7 +25,7 @@ Do NOT over-interview. If the description is clear enough to log, move on.
 
 Kick off an Agent (subagent_type=Explore) to understand the relevant area. The goal is NOT to find a fix — it's to:
 
-- Learn the domain language used in that area (check `specs/UBIQUITOUS_LANGUAGE.md` if present)
+- Learn the domain language used in that area (check `specs/UBIQUITOUS_LANGUAGE_LATEST.md` if present)
 - Understand what the feature is supposed to do
 - Identify the user-facing behavior boundary
 
@@ -96,7 +96,7 @@ For each bug, also append a detail section:
 
 - **bug_id** uses full timestamp: `BUG-YYYY-MM-DDTHHMMSS` — matches the individual bug file name in `specs/bugs/`
 - **No file paths or line numbers** — these go stale
-- **Use the project's domain language** (check `specs/UBIQUITOUS_LANGUAGE.md` if it exists)
+- **Use the project's domain language** (check `specs/UBIQUITOUS_LANGUAGE_LATEST.md` if it exists)
 - **Describe behaviors, not code** — "the sync service fails to apply the patch" not "applyPatch() throws"
 - **Reproduction steps are mandatory** — if you can't determine them, ask the user
 

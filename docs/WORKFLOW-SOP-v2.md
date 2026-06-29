@@ -128,7 +128,7 @@ release-branch    → survey-context (next story) | semantic-release (all done)
 - [`docs/PRINCIPLES.md`](PRINCIPLES.md) — Seven philosophical layers (Uncle Bob → BMAD synthesis)
 - [`docs/references/workflow-steps.md`](references/workflow-steps.md) — Per-step operational detail (Phases 0–8)
 - [`docs/references/workflow-artifacts.md`](references/workflow-artifacts.md) — Artifact inventory, metrics, dashboard, semver
-- [`specs/SKILL-SEARCH-INDEX.md`](../specs/SKILL-SEARCH-INDEX.md) — Auto-generated skill catalog
+- [`specs/SKILL-SEARCH-INDEX_LATEST.md`](../specs/SKILL-SEARCH-INDEX_LATEST.md) — Auto-generated skill catalog
 - [`orchestrate-project/REFERENCE.md`](../orchestrate-project/REFERENCE.md) — Full phase specs + gate truth table
 - [`build-epic/SKILL.md`](../build-epic/SKILL.md) — 8-step story cycle reference
 - [`specs/metrics/README.md`](../specs/metrics/README.md) — cycle-times.yaml schema reference

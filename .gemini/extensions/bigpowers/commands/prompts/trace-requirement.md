@@ -39,7 +39,7 @@ For each story ID:
 For each tagged file with no matching story ID in release-plan.yaml:
 - **Orphan**: code exists but story was removed or never planned — flag for cleanup
 
-### 4. Write specs/TRACEABILITY.md
+### 4. Write specs/TRACEABILITY_LATEST.md
 
 ```
 ## Story Coverage
@@ -59,6 +59,6 @@ For each tagged file with no matching story ID in release-plan.yaml:
 Stories: [X] covered / [Y] dark / [Z] total
 ```
 
-→ verify: `grep -c "Covered\|Dark" specs/TRACEABILITY.md`
+→ verify: `grep -c "Covered\|Dark" specs/TRACEABILITY_LATEST.md`
 
 Suggest `plan-work` for each dark story found.

@@ -1,11 +1,11 @@
 ---
-description: Extract a DDD-style ubiquitous language glossary from the current conversation, flagging ambiguities and proposing canonical terms. Saves to specs/UBIQUITOUS_LANGUAGE.md. Use when user wants to define domain terms, build a glossary, harden terminology, create a ubiquitous language, or mentions "domain model" or "DDD".
+description: Extract a DDD-style ubiquitous language glossary from the current conversation, flagging ambiguities and proposing canonical terms. Saves to specs/UBIQUITOUS_LANGUAGE_LATEST.md. Use when user wants to define domain terms, build a glossary, harden terminology, create a ubiquitous language, or mentions "domain model" or "DDD".
 ---
 
 
 # Define Language
 
-Extract and formalize domain terminology from the current conversation into a consistent glossary, saved to `specs/UBIQUITOUS_LANGUAGE.md`.
+Extract and formalize domain terminology from the current conversation into a consistent glossary, saved to `specs/UBIQUITOUS_LANGUAGE_LATEST.md`.
 
 **Distinct from `model-domain` and `deepen-architecture`:** Use this skill to produce a canonical glossary of terms (words and definitions). Use `model-domain` to stress-test a plan through an interview that resolves domain model decisions. Use `deepen-architecture` to find module-level refactoring opportunities in the codebase.
 
@@ -19,12 +19,12 @@ Extract and formalize domain terminology from the current conversation into a co
    - Different words used for the same concept (synonyms)
    - Vague or overloaded terms
 3. **Propose a canonical glossary** with opinionated term choices
-4. **Write to `specs/UBIQUITOUS_LANGUAGE.md`** in the working directory using the format below
+4. **Write to `specs/UBIQUITOUS_LANGUAGE_LATEST.md`** in the working directory using the format below
 5. **Output a summary** inline in the conversation
 
 ## Output Format
 
-Write a `specs/UBIQUITOUS_LANGUAGE.md` file with this structure:
+Write a `specs/UBIQUITOUS_LANGUAGE_LATEST.md` file with this structure:
 
 ```md
 # Ubiquitous Language
@@ -72,7 +72,7 @@ Write a `specs/UBIQUITOUS_LANGUAGE.md` file with this structure:
 
 When invoked again in the same conversation:
 
-1. Read the existing `specs/UBIQUITOUS_LANGUAGE.md`
+1. Read the existing `specs/UBIQUITOUS_LANGUAGE_LATEST.md`
 2. Incorporate any new terms from subsequent discussion
 3. Update definitions if understanding has evolved
 4. Re-flag any new ambiguities

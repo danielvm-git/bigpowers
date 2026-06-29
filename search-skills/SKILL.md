@@ -10,7 +10,7 @@ model: haiku
 >
 > **HARD GATE** — Do NOT use external embedding APIs or AI-based semantic search. This is a lexical-only index (ADR: zero external dependency).
 
-Lexical search only — no embedding service (ADR: zero external dependency). The index is a flat markdown file (`specs/SKILL-SEARCH-INDEX.md`) built from every SKILL.md's YAML frontmatter — name, description, and key phrases. No vector DB, no API calls, no network dependency.
+Lexical search only — no embedding service (ADR: zero external dependency). The index is a flat markdown file (`specs/SKILL-SEARCH-INDEX_LATEST.md`) built from every SKILL.md's YAML frontmatter — name, description, and key phrases. No vector DB, no API calls, no network dependency.
 
 ## When to use
 
@@ -21,16 +21,16 @@ Lexical search only — no embedding service (ADR: zero external dependency). Th
 
 ## Pre-flight
 
-- [ ] Does `specs/SKILL-SEARCH-INDEX.md` exist? If not, run `bash scripts/build-skill-index.sh`.
+- [ ] Does `specs/SKILL-SEARCH-INDEX_LATEST.md` exist? If not, run `bash scripts/build-skill-index.sh`.
 - [ ] Is the index fresh? Check its timestamp — if > 24 hours old or after any SKILL.md change, regenerate.
 
 ## Process
 
-1. **Refresh index if stale** — Run `bash scripts/build-skill-index.sh` if `specs/SKILL-SEARCH-INDEX.md` doesn't exist or was modified before the last SKILL.md change.
+1. **Refresh index if stale** — Run `bash scripts/build-skill-index.sh` if `specs/SKILL-SEARCH-INDEX_LATEST.md` doesn't exist or was modified before the last SKILL.md change.
 
 2. **Search the index** — Use ripgrep on the lexical index:
    ```
-   rg -i "<keywords>" specs/SKILL-SEARCH-INDEX.md
+   rg -i "<keywords>" specs/SKILL-SEARCH-INDEX_LATEST.md
    ```
    The index contains each skill's name, description, phase, and key use-case phrases, so natural language queries work well even without embeddings.
 
@@ -48,7 +48,7 @@ Lexical search only — no embedding service (ADR: zero external dependency). Th
 
 ## Index Format
 
-`specs/SKILL-SEARCH-INDEX.md` contains one section per skill:
+`specs/SKILL-SEARCH-INDEX_LATEST.md` contains one section per skill:
 ```markdown
 ## <skill-name>
 - **Description:** <from frontmatter>
@@ -67,4 +67,4 @@ Lexical search only — no embedding service (ADR: zero external dependency). Th
 
 ## Verify
 
-→ verify: `test -f specs/SKILL-SEARCH-INDEX.md && echo OK || (bash scripts/build-skill-index.sh && test -f specs/SKILL-SEARCH-INDEX.md && echo OK)`
+→ verify: `test -f specs/SKILL-SEARCH-INDEX_LATEST.md && echo OK || (bash scripts/build-skill-index.sh && test -f specs/SKILL-SEARCH-INDEX_LATEST.md && echo OK)`

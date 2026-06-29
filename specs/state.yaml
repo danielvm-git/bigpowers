@@ -1,44 +1,16 @@
-active_flow: -
-workflow_mode: "-"
-active_epic_id: "-"
-active_story_id: "-"
-completed_epic: true
+active_flow: build_epic
+active_epic: e27
+active_story: e27s01
 epic_cycle:
-  current_step: 1
-  next_skill: survey-context
-  story_bcps: 0
+  step: 0
+  fast_mode: false
+  story_bcps: 7
+  audit_result: pending
   completed_steps: []
-  audit_result: null
-bug_cycle:
-  current_step: null
-  completed_steps: []
-project_cycle:
-  current_phase: null
-  completed_phases: []
-release:
-  target_version: null
-  last_tag: v2.28.0
-  last_publish: '2026-06-22T13:26:08Z'
-  ci_verified: true
 metrics:
-  story_start: '2026-06-27T13:10:00Z'
-  story_end: '2026-06-27T14:05:00Z'
-  cycle_minutes: 55
-  bcp_per_hour: 22.9
-git:
-  branch: main
-  hash: c034be8
-  pushed: true
-handoff:
-  last_step_completed: >
-    EPIC e26 COMPLETE — All 7 stories landed to main.
-    Security-review skill created with 3 reference files.
-    Security gates integrated into: build-epic (Step 0), plan-work
-    (security field), plan-release (+2 risk boost), audit-code
-    (checklist), request-review (threat model focus), verify-work
-    (Phase 5 scan), release-branch (hard gate), investigate-bug
-    (security-impact RCA), validate-fix (recurrence hardening).
-  open_decisions: 'None — epic complete.'
-  required_reading:
-    - specs/state.yaml
-  next_skill: survey-context
+  skill_timings:
+    survey-context:
+      calls: 0
+      total_seconds: 0
+      avg_seconds: 0
+      _start: '2026-06-28T23:57:13Z'

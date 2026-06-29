@@ -8,6 +8,17 @@ release:
   semantic_release: true
   bump_hint: minor
 epics:
+  # ── BACKLOG — queued ─────────────────────────────────────────────────
+  - id: e27
+    title: "Specs Output Naming Convention — _LATEST.md suffix"
+    wsjf: 2.0
+    bcps: 7
+    capsule_dir: epics/e27-specs-naming-convention
+    note: >
+      Rename all fixed-name generated outputs in specs/ root to use _LATEST.md
+      suffix (7 skills + build-skill-index.sh). Does not touch date-stamped or
+      feature-stamped files.
+
   # ── ACTIVE — next release (v2.30.0) ──────────────────────────────────
   - id: e26
     title: "Security-Review Lifecycle Integration"

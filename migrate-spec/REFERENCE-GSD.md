@@ -61,7 +61,7 @@ GSD CONTEXT.md has 6 sections: domain, decisions, canonical_refs, code_context, 
 
 Transform:
 - `domain` → `plans/TECH_STACK_LATEST.md` Domain section
-- `decisions` → scan each: if hard-to-reverse + surprising → `specs/adr/NNNN-{slug}.md`; if lightweight → `specs/DECISION-LOG.md`
+- `decisions` → scan each: if hard-to-reverse + surprising → `specs/adr/NNNN-{slug}.md`; if lightweight → `specs/DECISION-LOG_LATEST.md`
 - `canonical_refs` → Reference links in TECH_STACK
 - `code_context` → Architecture section
 - `deferred` → `SCOPE_LATEST.yaml` `out_of_scope` (with "(deferred from GSD)" note)

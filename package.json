@@ -9,7 +9,7 @@
     "sync": "bash scripts/sync-skills.sh",
     "validate-specs": "bash scripts/validate-specs-yaml.sh",
     "enrich-epics": "bash scripts/enrich-epics-from-archive.sh",
-    "version": "bash scripts/sync-skills.sh && git add .gemini/extensions/bigpowers/gemini-extension.json specs/SKILL-SEARCH-INDEX.md",
+    "version": "bash scripts/sync-skills.sh && git add .gemini/extensions/bigpowers/gemini-extension.json specs/SKILL-SEARCH-INDEX_LATEST.md",
     "install": "bash scripts/install.sh",
     "postinstall": "bash scripts/sync-skills.sh && bash scripts/install.sh",
     "release": "semantic-release",

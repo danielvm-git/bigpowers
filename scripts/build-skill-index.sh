@@ -3,7 +3,7 @@
 set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-OUT="$REPO_ROOT/specs/SKILL-SEARCH-INDEX.md"
+OUT="$REPO_ROOT/specs/SKILL-SEARCH-INDEX_LATEST.md"
 mkdir -p "$(dirname "$OUT")"
 
 {

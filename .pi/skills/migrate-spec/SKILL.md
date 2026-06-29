@@ -167,7 +167,7 @@ GSD CONTEXT.md has 6 sections: domain, decisions, canonical_refs, code_context, 
 
 Transform:
 - `domain` → `plans/TECH_STACK_LATEST.md` Domain section
-- `decisions` → scan each: if hard-to-reverse + surprising → `specs/adr/NNNN-{slug}.md`; if lightweight → `specs/DECISION-LOG.md`
+- `decisions` → scan each: if hard-to-reverse + surprising → `specs/adr/NNNN-{slug}.md`; if lightweight → `specs/DECISION-LOG_LATEST.md`
 - `canonical_refs` → Reference links in TECH_STACK
 - `code_context` → Architecture section
 - `deferred` → `SCOPE_LATEST.yaml` `out_of_scope` (with "(deferred from GSD)" note)
@@ -340,11 +340,11 @@ Transform:
 - `[ASSUMPTION: ...]` inline tags → collected in scope YAML
 - Out-of-scope features → `out_of_scope`
 
-### `addendum.md` + `decision-log.md` → `specs/adr/` + `specs/DECISION-LOG.md`
+### `addendum.md` + `decision-log.md` → `specs/adr/` + `specs/DECISION-LOG_LATEST.md`
 
 Transform:
 - Hard, irreversible, surprising decisions → individual `specs/adr/NNNN-{slug}.md`
-- Lightweight decisions → `specs/DECISION-LOG.md` (date | decision | rationale)
+- Lightweight decisions → `specs/DECISION-LOG_LATEST.md` (date | decision | rationale)
 - `addendum.md` change signals → note in `SCOPE_LATEST.yaml` metadata
 
 ### `architecture.md` → `specs/tech-architecture/TECH_STACK_LATEST.md` + `specs/adr/`
@@ -387,7 +387,7 @@ Optional enhancements to offer the user after migration. Present as checkboxes.
 ### From BMAD
 
 - [x] **FR-XX + UJ-XX in SCOPE_LATEST.yaml** — Rigorous traceability. (adopted: REQUIREMENTS_TRACE.yaml emitted on migration)
-- [ ] **`specs/DECISION-LOG.md`** — Lightweight decisions below ADR threshold.
+- [ ] **`specs/DECISION-LOG_LATEST.md`** — Lightweight decisions below ADR threshold.
 - [x] **Adversarial review pass** — Critique epic shard before `develop-tdd`. (adopted: optional Step 6 in migration)
 
 ---
@@ -784,7 +784,7 @@ Full mapping tables: [REFERENCE-GSD.md](./REFERENCE-GSD.md) (GSD) · [REFERENCE.
 
 - **Preserve source IDs** — REQ-XX, FR-XX, UJ-XX are emitted as first-class `id:` fields in bigpowers YAML targets (e.g., `in_scope` entries). Never silently renumber. See Step 3 ID Tracking subsection for details.
 - **Never merge contradictory docs** — if source has both `CONTEXT.md` and `architecture.md`, create sections in bigpowers `CONTEXT.md`; don't collapse them.
-- **ADRs are opt-in** — only create an ADR when: hard to reverse, surprising without context, result of a real trade-off. Lightweight decisions go to `specs/DECISION-LOG.md`.
+- **ADRs are opt-in** — only create an ADR when: hard to reverse, surprising without context, result of a real trade-off. Lightweight decisions go to `specs/DECISION-LOG_LATEST.md`.
 - **state.yaml is always regenerated** — never migrate source STATE verbatim; bigpowers state.yaml needs its own format.
 - **specs/ is the only output location** — no files are created outside `specs/` and `CLAUDE.md`.
 
