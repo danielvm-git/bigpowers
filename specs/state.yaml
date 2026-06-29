@@ -28,7 +28,6 @@ metrics:
       avg_seconds: 0
       _start: '2026-06-28T23:57:13Z'
     release-branch:
-      calls: 1
-      total_seconds: 53
-      avg_seconds: 53
-      _start: '2026-06-29T16:27:04Z'
+      calls: 2
+      total_seconds: 472.0
+      avg_seconds: 236.0
