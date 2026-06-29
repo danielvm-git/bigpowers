@@ -116,6 +116,11 @@
       "sha256": "844f2a3069f75f30",
       "path": "execute-plan/SKILL.md"
     },
+    "extract-design": {
+      "description": "\"Extract a Google DESIGN.md file from an HTML prototype (claude.ai/design or any styled page) using Puppeteer, producing machine-readable tokens and AI-generated prose. Use when the user has an HTML prototype and wants a DESIGN.md to anchor their project's visual identity, or when seed-conventions has just scaffolded a new project.\"",
+      "sha256": "70fc3bc315b10b80",
+      "path": "extract-design/SKILL.md"
+    },
     "fix-bug": {
       "description": "Bug fix orchestrator — active_flow fix_bug; reads specs/bugs/BUG-*.md; chains investigate-bug, develop-tdd, validate-fix. Use when user reports a defect.",
       "sha256": "aa6fe406ba87a648",

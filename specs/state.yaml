@@ -6,7 +6,20 @@ epic_cycle:
   fast_mode: false
   story_bcps: 7
   audit_result: pass
-  completed_steps: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+  completed_steps:
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+release:
+  ci_verified: true
+handoff:
+  next_skill: survey-context
 metrics:
   skill_timings:
     survey-context:
@@ -14,3 +27,8 @@ metrics:
       total_seconds: 0
       avg_seconds: 0
       _start: '2026-06-28T23:57:13Z'
+    release-branch:
+      calls: 1
+      total_seconds: 53
+      avg_seconds: 53
+      _start: '2026-06-29T16:27:04Z'
