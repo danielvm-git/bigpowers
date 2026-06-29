@@ -27,7 +27,6 @@ Regenerate: `bash scripts/build-skill-index.sh`
 | enforce-first | haiku | Apply the F.I.R.S.T test quality rubric (Fast, Independent, Repeatable, Self-Validating, Timely) to a test suite or individual tests. Use when develop-tdd is writing tests, when test quality needs to  |
 | evolve-skill | opus | Benchmark-gated skill evolution — consume bigpowers-benchmark report, propose plan-work change, edit skill via craft-skill, re-run benchmark, record ADR. Use when a skill underperforms on benchmark  |
 | execute-plan | haiku | Batch-execute tasks from the active epic capsule sequentially, with a human checkpoint after each step. Use when user has an approved plan and wants step-by-step oversight. |
-| extract-design | sonnet | "Extract a Google DESIGN.md file from an HTML prototype (claude.ai/design or any styled page) using Puppeteer, producing machine-readable tokens and AI-generated prose. Use when the user has an HTML p |
 | fix-bug | sonnet | Bug fix orchestrator — active_flow fix_bug; reads specs/bugs/BUG-*.md; chains investigate-bug, develop-tdd, validate-fix. Use when user reports a defect. |
 | grill-me | sonnet | Interactive assumption-surfacing Q&A that stress-tests a plan through relentless questioning until every decision is resolved. Use when user wants to challenge a plan, validate decisions from conversa |
 | grill-with-docs | opus | Doc-grounded variant of grill-me — stress-tests plan assumptions by fetching and citing real library or API documentation. Every challenge must cite a real URL. Use when the plan depends on a specif |
