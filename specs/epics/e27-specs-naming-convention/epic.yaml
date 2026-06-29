@@ -1,0 +1,18 @@
+id: e27
+title: "Specs Output Naming Convention — _LATEST.md suffix"
+wsjf: 2.0
+total_bcps: 7
+status: not-started
+description: >
+  Rename all fixed-name generated single files in specs/ root to use the
+  _LATEST.md suffix (e.g. PLAN-AUDIT.md → PLAN-AUDIT_LATEST.md), consistent
+  with the pattern already established in specs/product/ and
+  specs/tech-architecture/. Affects 7 skill SKILL.md files and 1 script.
+  Does NOT rename date-stamped or feature-stamped files (STOCKTAKE-<date>.md,
+  SIMULATION-<feature>.md, IMPACT-<epic>-<story>.md, EVALS-<feature>.md).
+stories:
+  - id: e27s01
+    title: "Rename generated specs-root files to _LATEST.md in all source skills"
+    bcps: 7
+    status: not-started
+    spec: e27s01-tasks.yaml

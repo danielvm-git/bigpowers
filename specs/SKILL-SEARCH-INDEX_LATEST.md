@@ -5,7 +5,7 @@ Regenerate: `bash scripts/build-skill-index.sh`
 | name | model | description |
 |------|-------|-------------|
 | align-grid | sonnet | "Build editorial/magazine/report webpages on a GENUINE Müller-Brockmann modular grid (International Typographic Style) — not a decorative one. Encodes the discipline (columns + modules + baseline,  |
-| assess-impact | sonnet | Analyze the blast radius of a proposed change before any code is written. Maps dependents, affected stories, and test coverage. Produces specs/IMPACT.md. Use before plan-work on any non-trivial change |
+| assess-impact | sonnet | Analyze the blast radius of a proposed change before any code is written. Maps dependents, affected stories, and test coverage. Produces specs/IMPACT_LATEST.md. Use before plan-work on any non-trivial |
 | audit-code | haiku | Self-review checklist for the coding agent to run before dispatching a reviewer. Checks CONVENTIONS.md compliance, Boy Scout Rule, test coverage, types, and SOLID. Produces a pass/fail checklist. Use  |
 | audit-plan | sonnet | Evaluate an incoming project plan against bigpowers principles and conventions, surface gaps, and produce a READY/NOT READY verdict before engagement begins. Use when a new project arrives, when adapt |
 | build-epic | sonnet | Eight-step epic build cycle — reads state.yaml, execution-status.yaml, and one epic capsule; updates status via bp-yaml-set or direct edit. Resume mode runs one step per invocation. Use instead of a |
@@ -14,7 +14,7 @@ Regenerate: `bash scripts/build-skill-index.sh`
 | compose-workflow | sonnet | Chain multiple bigpowers skills into a custom workflow recipe saved in specs/. Use when a project repeats a non-standard skill sequence, or user wants a documented playbook beyond orchestrate-project  |
 | craft-skill | sonnet | Create new bigpowers skills with proper structure, progressive disclosure, and bundled resources. Use when user wants to create, write, or build a new skill for the bigpowers lifecycle. |
 | deepen-architecture | sonnet | Find deepening opportunities in a codebase, informed by the domain language in specs/tech-architecture/tech-stack.md and the decisions in specs/adr/. Use when the user wants to improve architecture, f |
-| define-language | sonnet | Extract a DDD-style ubiquitous language glossary from the current conversation, flagging ambiguities and proposing canonical terms. Saves to specs/UBIQUITOUS_LANGUAGE.md. Use when user wants to define |
+| define-language | sonnet | Extract a DDD-style ubiquitous language glossary from the current conversation, flagging ambiguities and proposing canonical terms. Saves to specs/UBIQUITOUS_LANGUAGE_LATEST.md. Use when user wants to |
 | define-success | sonnet | Convert an imperative task statement into explicit "step → verify: <cmd>" pairs before implementation begins. Use before plan-work when success criteria are unclear, when a task lacks verifiable che |
 | delegate-task | sonnet | Delegate one complex task to a single subagent, review its work in two stages before merging back. Sequential — one agent at a time, with oversight. Use when a task is complex and requires careful r |
 | deploy | sonnet | "Build → verify artifact → deploy → wait → smoke deployment pipeline. Platform-agnostic (MCP or CLI), with configurable timeout, retry with exponential backoff, and integrated health-check. Th |
@@ -27,6 +27,7 @@ Regenerate: `bash scripts/build-skill-index.sh`
 | enforce-first | haiku | Apply the F.I.R.S.T test quality rubric (Fast, Independent, Repeatable, Self-Validating, Timely) to a test suite or individual tests. Use when develop-tdd is writing tests, when test quality needs to  |
 | evolve-skill | opus | Benchmark-gated skill evolution — consume bigpowers-benchmark report, propose plan-work change, edit skill via craft-skill, re-run benchmark, record ADR. Use when a skill underperforms on benchmark  |
 | execute-plan | haiku | Batch-execute tasks from the active epic capsule sequentially, with a human checkpoint after each step. Use when user has an approved plan and wants step-by-step oversight. |
+| extract-design | sonnet | "Extract a Google DESIGN.md file from an HTML prototype (claude.ai/design or any styled page) using Puppeteer, producing machine-readable tokens and AI-generated prose. Use when the user has an HTML p |
 | fix-bug | sonnet | Bug fix orchestrator — active_flow fix_bug; reads specs/bugs/BUG-*.md; chains investigate-bug, develop-tdd, validate-fix. Use when user reports a defect. |
 | grill-me | sonnet | Interactive assumption-surfacing Q&A that stress-tests a plan through relentless questioning until every decision is resolved. Use when user wants to challenge a plan, validate decisions from conversa |
 | grill-with-docs | opus | Doc-grounded variant of grill-me — stress-tests plan assumptions by fetching and citing real library or API documentation. Every challenge must cite a real URL. Use when the plan depends on a specif |
@@ -40,7 +41,7 @@ Regenerate: `bash scripts/build-skill-index.sh`
 | model-domain | sonnet | Grilling session that challenges your plan against the existing domain model, sharpens terminology, and updates specs/tech-architecture/tech-stack.md and specs/adr/ inline as decisions crystallise. Us |
 | orchestrate-project | sonnet | Meta-skill that enforces the 6-phase core loop (discover → elaborate → plan → build → verify → release) with hard gates. Use to coordinate multi-phase projects with guaranteed quality checkp |
 | organize-workspace | haiku | Scans the active workspace for disposable artifacts—logs, caches, stale build output, and stray draft markdown—and proposes consolidation of scattered assets. Produces a reviewable list, asks for  |
-| plan-refactor | sonnet | Create a detailed refactor plan with tiny commits via user interview, then save it as specs/REFACTOR.md. Use when user wants to plan a refactor, create a refactoring RFC, or break a refactor into safe |
+| plan-refactor | sonnet | Create a detailed refactor plan with tiny commits via user interview, then save it as specs/REFACTOR_LATEST.md. Use when user wants to plan a refactor, create a refactoring RFC, or break a refactor in |
 | plan-release | sonnet | "RELEASE-INDEX BUILDER — Sequence elaborated epics into specs/release-plan.yaml with WSJF ordering and BCP baselines. NOT a planning-spine substitute: it does not scope work (scope-work) or write st |
 | plan-work | opus | "PLANNING SPINE STEP 3 of 3 — Plan the work: write detailed implementation tasks into the active epic capsule (specs/epics/eNN-slug/). Produces countable-story-format .md specs and runnable -tasks.y |
 | publish-package | sonnet | "Package registry publishing for npm, crates.io, PyPI, and Homebrew. Verifies prerequisites, runs the publish command, confirms success, and surfaces actionable error hints on failure." |
@@ -66,7 +67,7 @@ Regenerate: `bash scripts/build-skill-index.sh`
 | stocktake-skills | sonnet | Sequential subagent batch audit of the bigpowers skill catalog — Quick Scan (changed only) or Full (all skills). Use during sustain phase, before a major release, or when catalog drift is suspected. |
 | survey-context | haiku | Per-task context bootstrap — reads existing specs/ and tech-architecture docs to map the current lifecycle phase and suggest the next skill. Use at the start of any task, when returning after a brea |
 | terse-mode | haiku | Fallback ultra-compressed communication mode. Cuts token usage ~75% by dropping filler, articles, and pleasantries while keeping full technical accuracy. Use ONLY when context is critically long and c |
-| trace-requirement | haiku | Link story IDs from specs/release-plan.yaml + epic capsule directories to the implementing code and tests. Produces specs/TRACEABILITY.md. Use when you want to verify coverage of a release plan, audit |
+| trace-requirement | haiku | Link story IDs from specs/release-plan.yaml + epic capsule directories to the implementing code and tests. Produces specs/TRACEABILITY_LATEST.md. Use when you want to verify coverage of a release plan |
 | using-bigpowers | sonnet | One-time bootstrap that introduces the bigpowers skills system, the PMBOK lifecycle arc, and tells you which skill to call first for your situation. Use when starting with bigpowers for the first time |
 | validate-contracts | sonnet | "Assert data shape consistency across system boundaries — live API responses against JSON Schema, key-set comparison across layers, data shape validation for migrations and exports. Catches silent d |
 | validate-fix | haiku | Prove a fix works before declaring done — re-run the failing test, run the full suite, typecheck, lint, and harden against recurrence. Use after implementing a bug fix, when user says "is this fixed |

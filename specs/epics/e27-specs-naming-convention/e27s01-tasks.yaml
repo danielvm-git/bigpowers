@@ -1,0 +1,93 @@
+id: e27s01
+title: "Rename generated specs-root files to _LATEST.md in all source skills"
+status: not-started
+description: >
+  Update the write path and verify command in each source SKILL.md file so
+  that all fixed-name generated outputs in specs/ use the _LATEST.md suffix.
+  Run sync-skills.sh after all edits to regenerate harness artifacts. Rename
+  any existing files that already exist at the old path.
+
+tasks:
+  - id: t01
+    title: "audit-plan: PLAN-AUDIT.md → PLAN-AUDIT_LATEST.md"
+    description: >
+      In audit-plan/SKILL.md: change write step "Write `specs/PLAN-AUDIT.md`"
+      → "Write `specs/PLAN-AUDIT_LATEST.md`" and update the verify command on
+      the final line to reference the new path.
+    verify: >
+      grep "PLAN-AUDIT_LATEST" audit-plan/SKILL.md | grep -q "verify" && echo OK || echo FAIL
+
+  - id: t02
+    title: "assess-impact: IMPACT.md → IMPACT_LATEST.md"
+    description: >
+      In assess-impact/SKILL.md: change "Write specs/IMPACT.md" → "Write
+      specs/IMPACT_LATEST.md" and update the verify command
+      `grep "Risk:" specs/IMPACT.md` → `grep "Risk:" specs/IMPACT_LATEST.md`.
+    verify: >
+      grep -q "IMPACT_LATEST" assess-impact/SKILL.md && echo OK || echo FAIL
+
+  - id: t03
+    title: "plan-refactor: REFACTOR.md → REFACTOR_LATEST.md"
+    description: >
+      In plan-refactor/SKILL.md: change all references to `specs/REFACTOR.md`
+      (description field, step 8 write instruction, verify command) to
+      `specs/REFACTOR_LATEST.md`.
+    verify: >
+      grep -q "REFACTOR_LATEST" plan-refactor/SKILL.md && echo OK || echo FAIL
+
+  - id: t04
+    title: "trace-requirement: TRACEABILITY.md → TRACEABILITY_LATEST.md"
+    description: >
+      In trace-requirement/SKILL.md: change step "Write specs/TRACEABILITY.md"
+      and verify command to reference `specs/TRACEABILITY_LATEST.md`.
+    verify: >
+      grep -q "TRACEABILITY_LATEST" trace-requirement/SKILL.md && echo OK || echo FAIL
+
+  - id: t05
+    title: "migrate-spec: DECISION-LOG.md → DECISION-LOG_LATEST.md"
+    description: >
+      In migrate-spec/SKILL.md: change the reference
+      `specs/DECISION-LOG.md` → `specs/DECISION-LOG_LATEST.md`.
+    verify: >
+      grep -q "DECISION-LOG_LATEST" migrate-spec/SKILL.md && echo OK || echo FAIL
+
+  - id: t06
+    title: "define-language: UBIQUITOUS_LANGUAGE.md → UBIQUITOUS_LANGUAGE_LATEST.md"
+    description: >
+      In define-language/SKILL.md: change all references to
+      `specs/UBIQUITOUS_LANGUAGE.md` (description field, step 4 write
+      instruction, format section header) to `specs/UBIQUITOUS_LANGUAGE_LATEST.md`.
+    verify: >
+      grep -q "UBIQUITOUS_LANGUAGE_LATEST" define-language/SKILL.md && echo OK || echo FAIL
+
+  - id: t07
+    title: "search-skills + build-skill-index.sh: SKILL-SEARCH-INDEX.md → SKILL-SEARCH-INDEX_LATEST.md"
+    description: >
+      Two changes:
+      1. scripts/build-skill-index.sh line 6: OUT variable → specs/SKILL-SEARCH-INDEX_LATEST.md
+      2. search-skills/SKILL.md: update verify command to reference SKILL-SEARCH-INDEX_LATEST.md
+    verify: >
+      grep -q "SKILL-SEARCH-INDEX_LATEST" scripts/build-skill-index.sh && grep -q "SKILL-SEARCH-INDEX_LATEST" search-skills/SKILL.md && echo OK || echo FAIL
+
+  - id: t08
+    title: "Rename existing files at old paths"
+    description: >
+      For any of the 7 old-path files that exist on disk, rename them:
+        git mv specs/PLAN-AUDIT.md specs/PLAN-AUDIT_LATEST.md (if exists)
+        git mv specs/IMPACT.md specs/IMPACT_LATEST.md (if exists)
+        git mv specs/REFACTOR.md specs/REFACTOR_LATEST.md (if exists)
+        git mv specs/TRACEABILITY.md specs/TRACEABILITY_LATEST.md (if exists)
+        git mv specs/DECISION-LOG.md specs/DECISION-LOG_LATEST.md (if exists)
+        git mv specs/UBIQUITOUS_LANGUAGE.md specs/UBIQUITOUS_LANGUAGE_LATEST.md (if exists)
+        git mv specs/SKILL-SEARCH-INDEX.md specs/SKILL-SEARCH-INDEX_LATEST.md (if exists)
+    verify: >
+      ! ls specs/PLAN-AUDIT.md specs/IMPACT.md specs/REFACTOR.md specs/TRACEABILITY.md specs/DECISION-LOG.md specs/UBIQUITOUS_LANGUAGE.md specs/SKILL-SEARCH-INDEX.md 2>/dev/null | grep -q . && echo OK || echo "old paths still exist"
+
+  - id: t09
+    title: "Run sync-skills.sh to regenerate all harness artifacts"
+    description: >
+      After all SKILL.md edits are done, run `bash scripts/sync-skills.sh` to
+      propagate the path changes to .cursor/rules/, .gemini/, .pi/, and
+      skills-lock.json. Confirm no errors.
+    verify: >
+      bash scripts/sync-skills.sh 2>&1 | tail -3

@@ -49,7 +49,7 @@ grep -rn "[symbol-name]" . --include="*.test.*" --include="*.spec.*"
 | Medium | 3–10 callers, partial test coverage |
 | High  | > 10 callers, or shared API/interface, or no tests |
 
-### 6. Write specs/IMPACT.md
+### 6. Write specs/IMPACT_LATEST.md
 
 ```
 ## Target
@@ -72,7 +72,7 @@ grep -rn "[symbol-name]" . --include="*.test.*" --include="*.spec.*"
 [Proceed / Add tests first / Discuss design]
 ```
 
-→ verify: `grep "Risk:" specs/IMPACT.md`
+→ verify: `grep "Risk:" specs/IMPACT_LATEST.md`
 
 Suggest `plan-work` once risk is understood and any test gaps are noted.
 

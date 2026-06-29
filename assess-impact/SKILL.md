@@ -1,7 +1,7 @@
 ---
 name: assess-impact
 model: sonnet
-description: Analyze the blast radius of a proposed change before any code is written. Maps dependents, affected stories, and test coverage. Produces specs/IMPACT.md. Use before plan-work on any non-trivial change, when touching a shared module, or when the user asks "what does this break?".
+description: Analyze the blast radius of a proposed change before any code is written. Maps dependents, affected stories, and test coverage. Produces specs/IMPACT_LATEST.md. Use before plan-work on any non-trivial change, when touching a shared module, or when the user asks "what does this break?".
 ---
 
 # Assess Impact
@@ -54,7 +54,7 @@ grep -rn "[symbol-name]" . --include="*.test.*" --include="*.spec.*"
 | Medium | 3–10 callers, partial test coverage |
 | High  | > 10 callers, or shared API/interface, or no tests |
 
-### 6. Write specs/IMPACT.md
+### 6. Write specs/IMPACT_LATEST.md
 
 ```
 ## Target
@@ -77,7 +77,7 @@ grep -rn "[symbol-name]" . --include="*.test.*" --include="*.spec.*"
 [Proceed / Add tests first / Discuss design]
 ```
 
-→ verify: `grep "Risk:" specs/IMPACT.md`
+→ verify: `grep "Risk:" specs/IMPACT_LATEST.md`
 
 Suggest `plan-work` once risk is understood and any test gaps are noted.
 

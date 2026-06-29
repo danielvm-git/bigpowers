@@ -7,8 +7,8 @@
       "path": "align-grid/SKILL.md"
     },
     "assess-impact": {
-      "description": "Analyze the blast radius of a proposed change before any code is written. Maps dependents, affected stories, and test coverage. Produces specs/IMPACT.md. Use before plan-work on any non-trivial change, when touching a shared module, or when the user asks \"what does this break?\".",
-      "sha256": "740925970c6cf9ce",
+      "description": "Analyze the blast radius of a proposed change before any code is written. Maps dependents, affected stories, and test coverage. Produces specs/IMPACT_LATEST.md. Use before plan-work on any non-trivial change, when touching a shared module, or when the user asks \"what does this break?\".",
+      "sha256": "29183a878aa2cb0d",
       "path": "assess-impact/SKILL.md"
     },
     "audit-code": {
@@ -18,7 +18,7 @@
     },
     "audit-plan": {
       "description": "Evaluate an incoming project plan against bigpowers principles and conventions, surface gaps, and produce a READY/NOT READY verdict before engagement begins. Use when a new project arrives, when adapting a foreign plan, or before running seed-conventions on an unfamiliar codebase.",
-      "sha256": "3e88b606fc8e886c",
+      "sha256": "571ab4f5ae9c7c13",
       "path": "audit-plan/SKILL.md"
     },
     "build-epic": {
@@ -52,8 +52,8 @@
       "path": "deepen-architecture/SKILL.md"
     },
     "define-language": {
-      "description": "Extract a DDD-style ubiquitous language glossary from the current conversation, flagging ambiguities and proposing canonical terms. Saves to specs/UBIQUITOUS_LANGUAGE.md. Use when user wants to define domain terms, build a glossary, harden terminology, create a ubiquitous language, or mentions \"domain model\" or \"DDD\".",
-      "sha256": "d8386de827612d1a",
+      "description": "Extract a DDD-style ubiquitous language glossary from the current conversation, flagging ambiguities and proposing canonical terms. Saves to specs/UBIQUITOUS_LANGUAGE_LATEST.md. Use when user wants to define domain terms, build a glossary, harden terminology, create a ubiquitous language, or mentions \"domain model\" or \"DDD\".",
+      "sha256": "bffe0227335e5a41",
       "path": "define-language/SKILL.md"
     },
     "define-success": {
@@ -116,6 +116,11 @@
       "sha256": "844f2a3069f75f30",
       "path": "execute-plan/SKILL.md"
     },
+    "extract-design": {
+      "description": "\"Extract a Google DESIGN.md file from an HTML prototype (claude.ai/design or any styled page) using Puppeteer, producing machine-readable tokens and AI-generated prose. Use when the user has an HTML prototype and wants a DESIGN.md to anchor their project's visual identity, or when seed-conventions has just scaffolded a new project.\"",
+      "sha256": "70fc3bc315b10b80",
+      "path": "extract-design/SKILL.md"
+    },
     "fix-bug": {
       "description": "Bug fix orchestrator — active_flow fix_bug; reads specs/bugs/BUG-*.md; chains investigate-bug, develop-tdd, validate-fix. Use when user reports a defect.",
       "sha256": "aa6fe406ba87a648",
@@ -143,7 +148,7 @@
     },
     "inspect-quality": {
       "description": "Interactive QA session where user reports bugs or issues conversationally, and the agent logs them to specs/bugs/registry.yaml with a structured audit schema. Explores the codebase in the background for context and domain language. Use when user wants to report bugs, do QA, or mentions \"QA session\".",
-      "sha256": "e5f9923e72550572",
+      "sha256": "de13d11018beab6a",
       "path": "inspect-quality/SKILL.md"
     },
     "investigate-bug": {
@@ -182,8 +187,8 @@
       "path": "organize-workspace/SKILL.md"
     },
     "plan-refactor": {
-      "description": "Create a detailed refactor plan with tiny commits via user interview, then save it as specs/REFACTOR.md. Use when user wants to plan a refactor, create a refactoring RFC, or break a refactor into safe incremental steps.",
-      "sha256": "f146cb1327e32943",
+      "description": "Create a detailed refactor plan with tiny commits via user interview, then save it as specs/REFACTOR_LATEST.md. Use when user wants to plan a refactor, create a refactoring RFC, or break a refactor into safe incremental steps.",
+      "sha256": "2785dc22454f0104",
       "path": "plan-refactor/SKILL.md"
     },
     "plan-release": {
@@ -253,7 +258,7 @@
     },
     "search-skills": {
       "description": "Find the right bigpowers skill from natural-language intent using a local lexical index over SKILL.md frontmatter. Use when unsure which skill to invoke, or at start of research-first.",
-      "sha256": "34df830694a6459c",
+      "sha256": "5e5135b53c15f532",
       "path": "search-skills/SKILL.md"
     },
     "security-review": {
@@ -312,8 +317,8 @@
       "path": "terse-mode/SKILL.md"
     },
     "trace-requirement": {
-      "description": "Link story IDs from specs/release-plan.yaml + epic capsule directories to the implementing code and tests. Produces specs/TRACEABILITY.md. Use when you want to verify coverage of a release plan, audit which stories are implemented, or find \"dark\" stories with no code.",
-      "sha256": "fbfe216d29b75058",
+      "description": "Link story IDs from specs/release-plan.yaml + epic capsule directories to the implementing code and tests. Produces specs/TRACEABILITY_LATEST.md. Use when you want to verify coverage of a release plan, audit which stories are implemented, or find \"dark\" stories with no code.",
+      "sha256": "4955b4bc05bb41bc",
       "path": "trace-requirement/SKILL.md"
     },
     "using-bigpowers": {

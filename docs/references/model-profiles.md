@@ -80,7 +80,7 @@
 | `grill-with-docs` | Opus | Doc-grounded grill |
 | `setup-environment` / `reset-baseline` | Haiku | Mechanical prep |
 
-Full list: every SKILL.md declares `model:` — verify with `grep -rl '^model:' */SKILL.md | wc -l` (expect 70).
+Full list: every SKILL.md declares `model:` — verify with `grep -rl '^model:' */SKILL.md | wc -l` (expect 71).
 
 ### Release Phase
 | Skill | Model | Budget | Rationale |
@@ -262,6 +262,7 @@ Start: Task assigned
 | `enforce-first` | **Haiku** |
 | `evolve-skill` | **Opus** |
 | `execute-plan` | **Haiku** |
+| `extract-design` | **Sonnet** |
 | `fix-bug` | **Sonnet** |
 | `grill-me` | **Sonnet** |
 | `grill-with-docs` | **Opus** |
@@ -310,5 +311,5 @@ Start: Task assigned
 | `wire-observability` | **Sonnet** |
 | `write-document` | **Sonnet** |
 
-Total: **70** skills — verify with `ls -d \*/SKILL.md | wc -l`
+Total: **71** skills — verify with `ls -d \*/SKILL.md | wc -l`
 <!-- AUTO-GENERATED-CATALOG: end -->

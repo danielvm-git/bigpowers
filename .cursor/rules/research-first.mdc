@@ -69,7 +69,7 @@ cat package.json | jq '.dependencies,.devDependencies' 2>/dev/null
 ## Registry checklist
 
 - [ ] npm / PyPI / crates.io (if applicable)
-- [ ] Existing bigpowers skill (`bash scripts/build-skill-index.sh && rg "<intent>" specs/SKILL-SEARCH-INDEX.md`)
+- [ ] Existing bigpowers skill (`bash scripts/build-skill-index.sh && rg "<intent>" specs/SKILL-SEARCH-INDEX_LATEST.md`)
 - [ ] Project `docs/` and `specs/adr/`
 - [ ] Official library documentation (quote one API detail)
 

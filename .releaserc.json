@@ -13,7 +13,7 @@
           "package.json",
           "skills-lock.json",
           ".gemini/extensions/bigpowers/gemini-extension.json",
-          "specs/SKILL-SEARCH-INDEX.md"
+          "specs/SKILL-SEARCH-INDEX_LATEST.md"
         ],
         "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
       }
