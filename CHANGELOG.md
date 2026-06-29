@@ -1,3 +1,10 @@
+## [2.42.1](https://github.com/danielvm-git/bigpowers/compare/v2.42.0...v2.42.1) (2026-06-29)
+
+
+### Bug Fixes
+
+* **ci:** update sync-skills workflow to check for SKILL-SEARCH-INDEX_LATEST.md ([37db229](https://github.com/danielvm-git/bigpowers/commit/37db22985cecb83d6ad08ddef3487e730fce8713))
+
 # [2.42.0](https://github.com/danielvm-git/bigpowers/compare/v2.41.0...v2.42.0) (2026-06-29)
 
 
