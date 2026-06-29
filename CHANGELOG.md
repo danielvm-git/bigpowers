@@ -1,3 +1,10 @@
+# [2.43.0](https://github.com/danielvm-git/bigpowers/compare/v2.42.1...v2.43.0) (2026-06-29)
+
+
+### Features
+
+* **skills:** add extract-design skill ([bda7ceb](https://github.com/danielvm-git/bigpowers/commit/bda7ceb113cba610d438dbb95af150b424e674b4))
+
 ## [2.42.1](https://github.com/danielvm-git/bigpowers/compare/v2.42.0...v2.42.1) (2026-06-29)
 
 
