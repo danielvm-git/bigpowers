@@ -1,3 +1,10 @@
+## [2.43.5](https://github.com/danielvm-git/bigpowers/compare/v2.43.4...v2.43.5) (2026-07-02)
+
+
+### Bug Fixes
+
+* **ci:** trim quick-fix SKILL.md to 115 lines (cap 120) ([10d4105](https://github.com/danielvm-git/bigpowers/commit/10d41052db02367938223f15c983217a5f45de8a))
+
 ## [2.43.4](https://github.com/danielvm-git/bigpowers/compare/v2.43.3...v2.43.4) (2026-07-02)
 
 
