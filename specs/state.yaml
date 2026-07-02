@@ -1,29 +1,27 @@
-active_flow: release
+active_flow: build
 epic_cycle:
-  epic_id: e29
-  epic_slug: skills-directory
-  capsule_dir: specs/epics/e29-skills-directory
-  current_story: e29s03
-  total_bcps: 7
-  story_bcps: 1
-  current_step: 8
-  completed_steps: ["0"]
-  audit_result: pass
-  fast_mode: true
+  epic_id: e30
+  epic_slug: arch-quick-fixes
+  capsule_dir: specs/epics/e30-arch-quick-fixes
+  current_story: e30s04
+  total_bcps: 10
+  story_bcps: 2
+  current_step: 0
+  completed_steps: []
+  audit_result: null
+  fast_mode: false
 handoff:
-  next_skill: release-branch
-  last_step_completed: e29s03 committed — root 23 entries, all doctrine files updated for skills/
-bug_id: BUG-2026-07-02T103911
+  next_skill: build-epic
+  last_step_completed: e30 intake committed to main (21e85ec)
+bug_id: null
 bug_cycle:
-  current_step: 5
+  current_step: 0
   completed_steps: null
 release:
   ci_verified: true
-  released_at: '2026-07-02T16:40:52Z'
-  commit: 8f01bf8
-handoff:
-  next_skill: kickoff-branch
-  last_step_completed: e28 plan-work — 5 stories planned (13 BCPs total)
+  released_at: '2026-07-02T22:59:00Z'
+  commit: 21e85ec
+  tag: none (semantic-release will tag on push)
 planning:
   release: v2.45.0
   codename: "Deepening"
@@ -60,9 +58,9 @@ metrics:
       avg_seconds: 0
       _start: '2026-06-28T23:57:13Z'
     release-branch:
-      calls: 2
-      total_seconds: 472.0
-      avg_seconds: 236.0
+      calls: 3
+      total_seconds: 835.0
+      avg_seconds: 278.3
     plan-work:
       calls: 1
       total_seconds: 101.0
