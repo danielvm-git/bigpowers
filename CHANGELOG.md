@@ -1,3 +1,10 @@
+## [2.43.3](https://github.com/danielvm-git/bigpowers/compare/v2.43.2...v2.43.3) (2026-07-02)
+
+
+### Bug Fixes
+
+* **ci:** strip backticks and anchor grep in skill-verify to fix 32 false FAILs ([63ab33a](https://github.com/danielvm-git/bigpowers/commit/63ab33a0ac418207fa02b470b7311c12690bf2c4))
+
 ## [2.43.2](https://github.com/danielvm-git/bigpowers/compare/v2.43.1...v2.43.2) (2026-07-02)
 
 
