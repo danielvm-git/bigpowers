@@ -108,8 +108,6 @@ development_status:
   e25s04: "done"
   e25s05: "done"
   e25s06: "done"
-  e27: "done"
-  e27s01: "done"
   e26: "active"
   e26s01: "done"
   e26s02: "done"
@@ -118,3 +116,15 @@ development_status:
   e26s05: "done"
   e26s06: "done"
   e26s07: "done"
+  e27: "done"
+  e27s01: "done"
+  e28: backlog
+  e28s01: backlog
+  e28s02: backlog
+  e28s03: backlog
+  e28s04: backlog
+  e28s05: backlog
+  e29: backlog
+  e29s01: backlog
+  e29s02: backlog
+  e29s03: backlog

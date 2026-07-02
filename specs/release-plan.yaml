@@ -9,6 +9,30 @@ release:
   bump_hint: minor
 epics:
   # ── BACKLOG — queued ─────────────────────────────────────────────────
+  - id: e29
+    title: "Repository Layout — Skill Sources Under skills/"
+    wsjf: 3.3
+    bcps: 7
+    capsule_dir: epics/e29-skills-directory
+    note: >
+      Move all skill dirs from repo root into skills/ so the GitHub landing
+      page shows the README (~96 root entries → ~20). Location-agnostic
+      script discovery first, then atomic move + regeneration (npm
+      postinstall coupling forbids a split release). WSJF (BV 5 + TC 3 +
+      RR-OE 2) / JS 3 = 3.3 — outranks e28, which must build its site
+      generator against the new skills/ layout, not */SKILL.md.
+  - id: e28
+    title: "Docs Website — Fourth Generated Artifact Target"
+    wsjf: 2.8
+    bcps: 13
+    capsule_dir: epics/e28-docs-website
+    note: >
+      Astro Starlight site in website/ (same repo), pages generated at build
+      time from README.md, */SKILL.md, docs/, and specs/adr; deployed to
+      GitHub Pages via Actions. Zero hand-maintained site content — the site
+      is a fourth generated artifact target alongside .cursor/.gemini/.pi.
+      WSJF (BV 7 + TC 3 + RR-OE 4) / JS 5 = 2.8 — outranks e27 (2.0), does
+      not disrupt active e26.
   - id: e27
     title: "Specs Output Naming Convention — _LATEST.md suffix"
     wsjf: 2.0

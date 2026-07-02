@@ -1,0 +1,25 @@
+story_id: e28s05
+title: "Doctrine wiring — site content is generated, never edited"
+status: todo
+bcps: 1
+tasks:
+  - id: 1
+    description: "Update CLAUDE.md Never section: forbid direct website/src/content edits"
+    verify: "grep -qi 'website' CLAUDE.md"
+    status: todo
+  - id: 2
+    description: "Update CONVENTIONS.md: document generated artifact targets"
+    verify: "grep -qi 'website' CONVENTIONS.md"
+    status: todo
+  - id: 3
+    description: "Add docs site link to README.md near the top"
+    verify: "grep -q 'danielvm-git.github.io/bigpowers' README.md"
+    status: todo
+  - id: 4
+    description: "Add website/src/content/ to .gitignore"
+    verify: "grep -q 'website/src/content' .gitignore"
+    status: todo
+  - id: 5
+    description: "Run sync-skills.sh and verify no artifact drift"
+    verify: "bash scripts/sync-skills.sh && git diff --exit-code"
+    status: todo

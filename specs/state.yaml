@@ -1,19 +1,21 @@
-active_flow: none
+active_flow: plan_work
+epic_cycle:
+  epic_id: e28
+  epic_slug: docs-website
+  capsule_dir: specs/epics/e28-docs-website
+  current_story: e28s01
+  total_bcps: 13
 bug_id: BUG-2026-07-02T103911
 bug_cycle:
   current_step: 5
-  completed_steps:
-  - 1
-  - 2
-  - 3
-  - 4
-  - 5
+  completed_steps: null
 release:
   ci_verified: true
-  released_at: "2026-07-02T16:40:52Z"
+  released_at: '2026-07-02T16:40:52Z'
   commit: 8f01bf8
 handoff:
-  next_skill: session-state
+  next_skill: kickoff-branch
+  last_step_completed: e28 plan-work — 5 stories planned (13 BCPs total)
 metrics:
   skill_timings:
     survey-context:
@@ -25,3 +27,7 @@ metrics:
       calls: 2
       total_seconds: 472.0
       avg_seconds: 236.0
+    plan-work:
+      calls: 1
+      total_seconds: 101.0
+      avg_seconds: 101.0

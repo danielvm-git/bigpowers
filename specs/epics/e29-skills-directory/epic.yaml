@@ -1,0 +1,62 @@
+id: e29
+title: "Repository Layout — Skill Sources Under skills/"
+wsjf: 3.3   # (BV 5 + TC 2 + RR-OE 3) / JS 3 — see release-plan note
+total_bcps: 7
+status: todo
+description: >
+  Move all skill source directories (verb-noun/SKILL.md) from the repo root
+  into skills/ so the GitHub landing page shows the README instead of ~72
+  alphabetical folders. Root shrinks from ~96 entries to ~20. No skill is
+  renamed; generated artifact targets (.cursor/, .gemini/, .pi/) and
+  tool-read root files (CLAUDE.md, GEMINI.md, opencode.json, index.js) do
+  not move. Hard constraint: npm postinstall runs sync-skills.sh +
+  install.sh, so the move and every script update must land in the same
+  release — an out-of-sync published version would install zero skills.
+  Interaction: e28 (docs website) assumes */SKILL.md globs — e29 lands
+  first (higher WSJF) and updates the e28 capsule verify commands to the
+  skills/ layout.
+intake: scope-work fr-10, 2026-07-02
+stories:
+  - id: e29s01
+    title: "Location-agnostic skill discovery in all consumer scripts"
+    bcps: 3
+    status: todo
+    ac: >
+      GIVEN skills still at the repo root
+      WHEN any consumer script (sync-skills, install, check-skill-size,
+      audit-catalog, run-skill-verify, add-model-frontmatter,
+      regenerate-lockfile, generate-skill-index) runs
+      THEN each resolves skill sources through a single shared rule —
+      skills/ when it exists, repo root otherwise
+      AND sync-skills.sh output is byte-identical to before the change
+      AND the skill count reported equals the skills-lock.json entry count.
+    verify: "bash scripts/sync-skills.sh && git diff --quiet .cursor .gemini .pi && echo OK"
+  - id: e29s02
+    title: "Relocate skill sources to skills/ and re-point CI"
+    bcps: 3
+    status: todo
+    ac: >
+      GIVEN location-agnostic scripts (e29s01 shipped)
+      WHEN all skill directories are git-mv'd into skills/ and
+      .github/workflows/sync-skills.yml path triggers, the e28 capsule
+      verify globs, SKILL-INDEX.md, and skills-lock.json are regenerated
+      or updated
+      THEN find skills -maxdepth 2 -name SKILL.md matches the
+      skills-lock.json entry count
+      AND no SKILL.md remains at repo root depth 1
+      AND bash scripts/sync-skills.sh reports 0 FAIL and no artifact drift
+      AND git log --follow shows history preserved for moved skills.
+    verify: "test $(find skills -maxdepth 2 -name SKILL.md | wc -l) -eq $(python3 -c \"import json;print(len(json.load(open('skills-lock.json'))['skills']))\") && ! ls ./*/SKILL.md 2>/dev/null && echo OK"
+  - id: e29s03
+    title: "Root cleanup and doctrine update"
+    bcps: 1
+    status: todo
+    ac: >
+      GIVEN the skills/ layout is live
+      WHEN COMMIT-MESSAGE.md and RELEASE.md move into docs/ and CLAUDE.md,
+      CONVENTIONS.md, CONTRIBUTING.md, and README.md describe the skills/
+      layout
+      THEN the repo root has at most 25 visible entries
+      AND scripts/install.sh reinstall from the new layout symlinks the
+      same skill set as before the epic.
+    verify: "test $(ls -1 | wc -l) -le 25 && grep -q 'skills/' CLAUDE.md && echo OK"

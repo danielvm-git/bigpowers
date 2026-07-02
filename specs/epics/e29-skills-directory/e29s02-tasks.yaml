@@ -1,0 +1,25 @@
+story_id: e29s02
+title: "Relocate skill sources to skills/ and re-point CI"
+status: todo
+bcps: 3
+tasks:
+  - id: 1
+    description: "git mv every root skill directory (dirs containing SKILL.md) into skills/ — no renames, history preserved"
+    verify: "! ls ./*/SKILL.md 2>/dev/null && test $(find skills -maxdepth 2 -name SKILL.md | wc -l) -eq $(python3 -c \"import json;print(len(json.load(open('skills-lock.json'))['skills']))\") && echo OK"
+    status: todo
+  - id: 2
+    description: "Update .github/workflows/sync-skills.yml path triggers and any SKILL.md path references from */SKILL.md to skills/*/SKILL.md"
+    verify: "grep -q 'skills/\\*\\*' .github/workflows/sync-skills.yml || grep -q 'skills/' .github/workflows/sync-skills.yml && echo OK"
+    status: todo
+  - id: 3
+    description: "Update e28 capsule verify commands that glob ../*/SKILL.md to the skills/ layout (e28 not yet started, capsule is still intent)"
+    verify: "! grep -q '\\.\\./\\*/SKILL.md' specs/epics/e28-docs-website/epic.yaml && echo OK"
+    status: todo
+  - id: 4
+    description: "Regenerate all derived artifacts from the new layout: sync-skills.sh (cursor/gemini/pi), SKILL-INDEX.md, skills-lock.json — zero FAIL, zero drift on second run"
+    verify: "bash scripts/sync-skills.sh && bash scripts/sync-skills.sh && git diff --quiet .cursor .gemini .pi SKILL-INDEX.md skills-lock.json && echo OK"
+    status: todo
+  - id: 5
+    description: "Reinstall global symlinks from the new layout and confirm the installed skill set is unchanged"
+    verify: "bash scripts/install.sh >/dev/null && test $(ls ~/.claude/skills | wc -l) -ge $(python3 -c \"import json;print(len(json.load(open('skills-lock.json'))['skills']))\") && echo OK"
+    status: todo

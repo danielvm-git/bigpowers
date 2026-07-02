@@ -1,0 +1,17 @@
+story_id: e29s03
+title: "Root cleanup and doctrine update"
+status: todo
+bcps: 1
+tasks:
+  - id: 1
+    description: "git mv COMMIT-MESSAGE.md and RELEASE.md into docs/; fix any inbound references"
+    verify: "test -f docs/COMMIT-MESSAGE.md && test -f docs/RELEASE.md && ! test -f COMMIT-MESSAGE.md && ! test -f RELEASE.md && echo OK"
+    status: todo
+  - id: 2
+    description: "Update CLAUDE.md, CONVENTIONS.md, CONTRIBUTING.md, README.md architecture/layout notes to describe skills/ as the skill-source location (README structure stays canonical per memory — additive edit only)"
+    verify: "grep -q 'skills/' CLAUDE.md && grep -q 'skills/' CONVENTIONS.md && echo OK"
+    status: todo
+  - id: 3
+    description: "Confirm root entry count target met (README above the fold on GitHub)"
+    verify: "test $(ls -1 | wc -l) -le 25 && echo OK"
+    status: todo

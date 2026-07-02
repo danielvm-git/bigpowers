@@ -24,21 +24,30 @@ in_scope:
     title: Wave-based execution where independent
   - id: fr-09
     title: Local-first specs in specs/
+  - id: fr-10
+    title: Discoverable repository layout — skill sources grouped under skills/, README visible on GitHub landing page
+    epic: e29
 
 out_of_scope:
   - Domain-specific scaffold skills
   - SaaS tracker integrations (Jira, Linear)
   - Marketplace or plugin store model
+  - Renaming any skill during the layout move (deferred — naming is governed by ADR-0001, orthogonal to location)
+  - Relocating generated artifact targets .cursor/, .gemini/, .pi/ (consumer tools read these paths)
+  - Relocating tool-read root files CLAUDE.md, GEMINI.md, opencode.json, index.js (breaks Claude Code, Gemini CLI, opencode, npm)
 
 constraints:
   - Max 300 lines per file
   - Grep uniqueness under 5 hits per symbol
   - Single canonical location per fact
+  - npm postinstall runs sync-skills.sh + install.sh — skill relocation and script updates must ship atomically in one release (fr-10)
 
 success_criteria:
   - Compliance suite at or above 94%
   - Skills synced via sync-skills.sh
   - YAML layout validates via validate-specs-yaml.sh
+  - Repo root has ~20 entries so README renders above the fold on GitHub (fr-10)
+  - Skill count and all consumer artifacts unchanged after the skills/ move (fr-10)
 
 references:
   plans: specs/tech-architecture/TECH_STACK_LATEST.md

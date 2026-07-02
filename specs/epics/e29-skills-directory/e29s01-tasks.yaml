@@ -1,0 +1,21 @@
+story_id: e29s01
+title: "Location-agnostic skill discovery in all consumer scripts"
+status: todo
+bcps: 3
+tasks:
+  - id: 1
+    description: "Add shared SKILLS_ROOT resolution (skills/ if it exists, else repo root) to scripts/sync-skills.sh and scripts/install.sh; replace the $REPO_ROOT/*/ globs"
+    verify: "grep -l 'SKILLS_ROOT' scripts/sync-skills.sh scripts/install.sh | wc -l | awk '{if($1==2) print \"OK\"; else print \"FAIL\"}'"
+    status: todo
+  - id: 2
+    description: "Apply the same SKILLS_ROOT resolution to check-skill-size.sh, audit-catalog.sh, run-skill-verify.sh, add-model-frontmatter.sh, regenerate-lockfile.sh (replace bare */SKILL.md globs)"
+    verify: "grep -L 'SKILLS_ROOT' scripts/check-skill-size.sh scripts/audit-catalog.sh scripts/run-skill-verify.sh scripts/add-model-frontmatter.sh scripts/regenerate-lockfile.sh | wc -l | awk '{if($1==0) print \"OK\"; else print \"FAIL\"}'"
+    status: todo
+  - id: 3
+    description: "Update generate-skill-index.sh: SKILLS_ROOT resolution plus the embedded 'find . -maxdepth 2' verify text it writes into SKILL-INDEX.md (depth changes under skills/)"
+    verify: "grep -q 'SKILLS_ROOT' scripts/generate-skill-index.sh && ! grep -q 'maxdepth 2 -name \"SKILL.md\"' scripts/generate-skill-index.sh && echo OK"
+    status: todo
+  - id: 4
+    description: "Prove no behavior change with skills still at root: full sync + index regeneration produces zero artifact drift and skill count equals lockfile entry count"
+    verify: "bash scripts/sync-skills.sh && git diff --quiet .cursor .gemini .pi SKILL-INDEX.md && echo OK"
+    status: todo

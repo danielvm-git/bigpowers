@@ -1,0 +1,29 @@
+story_id: e28s01
+title: "Scaffold Astro Starlight site in website/ with local dev"
+status: todo
+bcps: 3
+tasks:
+  - id: 1
+    description: "Scaffold Astro Starlight project in website/"
+    verify: "test -f website/astro.config.mjs && test -f website/package.json"
+    status: todo
+  - id: 2
+    description: "Configure astro.config.mjs with bigpowers title and GitHub link"
+    verify: "grep -q 'title: .bigpowers.' website/astro.config.mjs"
+    status: todo
+  - id: 3
+    description: "Strip Starlight starter content, keep minimal index.mdx placeholder"
+    verify: "test ! -f website/src/content/docs/guides/example.md && test -f website/src/content/docs/index.mdx"
+    status: todo
+  - id: 4
+    description: "Add site:dev, site:build, site:preview scripts to root package.json"
+    verify: "grep -q 'site:dev' package.json && grep -q 'site:build' package.json"
+    status: todo
+  - id: 5
+    description: "Add website/ to .npmignore"
+    verify: "grep -q '^website' .npmignore"
+    status: todo
+  - id: 6
+    description: "Verify dev server starts and build succeeds with zero errors"
+    verify: "cd website && npm run build"
+    status: todo
