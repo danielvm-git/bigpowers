@@ -412,3 +412,11 @@ stories:
   end: '2026-06-27T14:05:00Z'
   cycle_minutes: 7
   bcp_per_hour: 8.6
+
+- id: e30
+  title: Architecture Quick Fixes
+  bcps: 8
+  start: "2026-07-02T19:00:00Z"
+  end: "2026-07-02T23:00:00Z"
+  cycle_minutes: 240
+  bcp_per_hour: 2.0

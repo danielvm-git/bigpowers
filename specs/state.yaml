@@ -27,8 +27,8 @@ bug_cycle:
   completed_steps: null
 release:
   ci_verified: true
-  released_at: "2026-07-02T22:59:00Z"
-  commit: 93ddfc7
+  released_at: "2026-07-02T23:00:00Z"
+  commit: 8823212
   tag: none (semantic-release will tag on push)
 planning:
   release: v2.45.0
