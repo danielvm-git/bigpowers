@@ -24,7 +24,7 @@ pass() {
 echo "--- [Epic 1] dead skill names in docs/references/model-profiles.md ---"
 DEAD=()
 while IFS= read -r name; do
-  if [[ ! -d "$name" ]]; then
+  if [[ ! -d "$name" && ! -d "skills/$name" ]]; then
     DEAD+=("$name")
   fi
 done < <(grep -oE '`[a-z][a-z-]+`' docs/references/model-profiles.md \
@@ -60,7 +60,11 @@ fi
 
 # ── Epic 1: Skill count consistency ───────────────────────────────────────────
 echo "--- [Epic 1] skill count consistency ---"
-LIVE_COUNT=$(ls -d */SKILL.md 2>/dev/null | wc -l | tr -d ' ')
+LIVE_COUNT=$(ls -d skills/*/SKILL.md 2>/dev/null | wc -l | tr -d ' ')
+# Fallback: count root-level skill dirs if skills/ doesn't exist (pre-e29 layout)
+if [[ "$LIVE_COUNT" -eq 0 ]]; then
+  LIVE_COUNT=$(ls -d */SKILL.md 2>/dev/null | wc -l | tr -d ' ')
+fi
 STALE_COUNT_HITS=$(grep -rE "expect [0-9]+" docs/ 2>/dev/null \
   | grep -v "expect $LIVE_COUNT" | wc -l | tr -d ' ') || true
 if [[ "$STALE_COUNT_HITS" -eq 0 ]]; then
@@ -120,7 +124,8 @@ echo "--- [Epic 5] critical-path handoff targets ---"
 CRITICAL_HANDOFF=(survey-context plan-work develop-tdd verify-work audit-code release-branch kickoff-branch commit-message)
 MISSING_HANDOFF=()
 for s in "${CRITICAL_HANDOFF[@]}"; do
-  if [[ -f "$s/SKILL.md" ]] && ! grep -qiE "handoff|next_skill|next:" "$s/SKILL.md"; then
+  if [[ ! -f "$s/SKILL.md" && ! -f "skills/$s/SKILL.md" ]]; then continue; fi
+  if ! grep -qiE "handoff|next_skill|next:" "${s}/SKILL.md" "skills/${s}/SKILL.md" 2>/dev/null; then
     MISSING_HANDOFF+=("$s")
   fi
 done
