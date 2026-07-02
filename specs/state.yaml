@@ -1,25 +1,14 @@
-active_flow: build_epic
-active_epic: e27
-active_story: e27s01
-epic_cycle:
-  step: 8
-  fast_mode: false
-  story_bcps: 7
-  audit_result: pass
+active_flow: fix_bug
+bug_id: BUG-2026-07-02T103911
+bug_cycle:
+  current_step: 3
   completed_steps:
-  - 0
   - 1
   - 2
-  - 3
-  - 4
-  - 5
-  - 6
-  - 7
-  - 8
 release:
   ci_verified: true
 handoff:
-  next_skill: survey-context
+  next_skill: develop-tdd
 metrics:
   skill_timings:
     survey-context:

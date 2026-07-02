@@ -1,5 +1,12 @@
 # AUTO-GENERATED — sync-bugs-registry.sh
 bugs:
+  - id: BUG-2026-07-02T103911
+    status: open
+    severity: high
+    scope: scripts
+    title: "npm install fails on macOS — bash 3.2 lacks declare -A"
+    file: bugs/BUG-2026-07-02T103911.md
+    risk_level: "high"
   - id: BUG-2026-06-02T164500
     status: fixed
     severity: high
