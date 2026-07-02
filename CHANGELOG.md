@@ -1,3 +1,10 @@
+## [2.43.1](https://github.com/danielvm-git/bigpowers/compare/v2.43.0...v2.43.1) (2026-07-02)
+
+
+### Bug Fixes
+
+* **scripts:** replace declare -A with case for bash 3.2 compatibility ([92dacb6](https://github.com/danielvm-git/bigpowers/commit/92dacb6151a207f659edd2d4f48efc084936fc40))
+
 # [2.43.0](https://github.com/danielvm-git/bigpowers/compare/v2.42.1...v2.43.0) (2026-06-29)
 
 
