@@ -2,7 +2,6 @@
 # Plan Release
 
 > **HARD GATE** — Do NOT run this skill unless `elaborate-spec` has produced a clear spec or the user has already defined the feature in detail. If the problem is still fuzzy, run `elaborate-spec` first.
-
 > **HARD GATE** — `specs/product/SCOPE_LATEST.yaml` (or legacy `specs/product/SCOPE_LATEST.yaml`) must exist. If missing, run `scope-work` first.
 
 Synthesize the conversation context into `specs/release-plan.yaml` (index) and shard detail under `specs/epics/`. No new interview — only clarify if something is genuinely ambiguous.
@@ -31,7 +30,7 @@ specs/epics/e01-auth-system/
 └── e01s02-tasks.yaml      # Decoupled task checklist
 ```
 
-**Rationale:** Capsule dirs achieve change isolation (C9), enable archive pruning (C2/C6), and enforce SRP by decoupling spec `.md` from execution `-tasks.yaml` (C1). See `sdd-adequacy-ranking.md` for the full 10-criteria scoring.
+**Rationale:** Capsule dirs achieve change isolation (C9), enable archive pruning (C2/C6), and enforce SRP by decoupling spec `.md` from execution `-tasks.yaml` (C1).
 
 ## Process
 
@@ -135,7 +134,6 @@ tasks:
 ```bash
 bash scripts/sync-status-from-epics.sh
 ```
-
 ### 9. Snapshot on planning close (optional)
 
 Copy to `specs/product/snapshots/release-<version>/` when the user approves the plan.
