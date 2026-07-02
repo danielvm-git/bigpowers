@@ -1,3 +1,10 @@
+## [2.44.1](https://github.com/danielvm-git/bigpowers/compare/v2.44.0...v2.44.1) (2026-07-02)
+
+
+### Bug Fixes
+
+* **ci:** make validate-doctrine.sh location-agnostic for skills/ layout ([04683db](https://github.com/danielvm-git/bigpowers/commit/04683dba078f779be9f20d671e831a9797794cf5))
+
 # [2.44.0](https://github.com/danielvm-git/bigpowers/compare/v2.43.5...v2.44.0) (2026-07-02)
 
 
