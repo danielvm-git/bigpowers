@@ -1,12 +1,16 @@
 # AUTO-GENERATED — sync-bugs-registry.sh
 bugs:
   - id: BUG-2026-07-02T103911
-    status: open
+    status: fixed
     severity: high
     scope: scripts
     title: "npm install fails on macOS — bash 3.2 lacks declare -A"
     file: bugs/BUG-2026-07-02T103911.md
+    files_changed: "scripts/generate-skill-index.sh, scripts/regenerate-lockfile.sh, scripts/add-model-frontmatter.sh, scripts/sync-skills.sh"
+    approach: "Replace declare -A with case functions; add shasum fallback for macOS; add regression guard in sync-skills.sh"
     risk_level: "high"
+    commit_message: "fix(scripts): replace declare -A with case for bash 3.2 macOS compatibility"
+    hardening: "Regression guard in sync-skills.sh fails build if declare -A reintroduced into install-chain scripts"
   - id: BUG-2026-06-02T164500
     status: fixed
     severity: high

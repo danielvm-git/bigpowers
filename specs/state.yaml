@@ -1,14 +1,16 @@
 active_flow: fix_bug
 bug_id: BUG-2026-07-02T103911
 bug_cycle:
-  current_step: 3
+  current_step: 5
   completed_steps:
   - 1
   - 2
+  - 3
+  - 4
 release:
   ci_verified: true
 handoff:
-  next_skill: develop-tdd
+  next_skill: release-branch
 metrics:
   skill_timings:
     survey-context:

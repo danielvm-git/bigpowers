@@ -20,7 +20,12 @@ for skill_dir in "$REPO_ROOT"/*/; do
     | tr -d '\n' | sed -E 's/[[:space:]]+/ /g')
 
   # Compute SHA-256 of full SKILL.md content (first 16 hex chars for compact uniqueness)
-  sha256=$(sha256sum "$skill_md" | cut -c1-16)
+  # Falls back to shasum for macOS where sha256sum is not installed by default
+  if command -v sha256sum &>/dev/null; then
+    sha256=$(sha256sum "$skill_md" | cut -c1-16)
+  else
+    sha256=$(shasum -a 256 "$skill_md" | cut -c1-16)
+  fi
 
   # Relative path from repo root
   relpath="${skill_dir#$REPO_ROOT/}SKILL.md"

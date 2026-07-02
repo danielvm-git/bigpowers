@@ -230,6 +230,13 @@ if [[ -f "$validate_script" ]] && command -v python3 &>/dev/null; then
   fi
 fi
 
+# Regression guard (BUG-2026-07-02T103911): no bash 4+ features in install-chain scripts
+# macOS ships bash 3.2 which lacks declare -A (associative arrays)
+if grep -rn '^declare -A\|^[[:space:]]*declare -A' scripts/sync-skills.sh scripts/generate-skill-index.sh scripts/regenerate-lockfile.sh scripts/build-skill-index.sh 2>/dev/null; then
+  echo "sync-skills: FAIL — bash 4+ features detected in install-chain scripts (not macOS-compatible)" >&2
+  exit 1
+fi
+
 # Regenerate derived reference tables from live SKILL.md frontmatter
 # Only in dev context (with .git) — not during consumer npm install where docs/ is excluded
 if [[ -d "$REPO_ROOT/.git" ]]; then

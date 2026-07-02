@@ -14,85 +14,25 @@ if [[ ! -f "$LOCKFILE" ]]; then
 fi
 
 # Phase categorization — maps each skill to a lifecycle phase
-declare -A PHASE_MAP
-PHASE_MAP=(
-  # Discover
-  [survey-context]="Discover"
-  [research-first]="Discover"
-  [search-skills]="Discover"
-  [using-bigpowers]="Discover"
-  [map-codebase]="Discover"
-  [elaborate-spec]="Discover"
-  [audit-plan]="Discover"
-  # Elaborate / Design
-  [model-domain]="Design"
-  [define-language]="Design"
-  [grill-me]="Design"
-  [grill-with-docs]="Design"
-  [deepen-architecture]="Design"
-  [design-interface]="Design"
-  [define-success]="Design"
-  # Plan
-  [scope-work]="Plan"
-  [slice-tasks]="Plan"
-  [plan-work]="Plan"
-  [plan-release]="Plan"
-  [plan-refactor]="Plan"
-  [assess-impact]="Plan"
-  [change-request]="Plan"
-  [run-planning]="Plan"
-  [seed-conventions]="Plan"
-  # Build
-  [develop-tdd]="Build"
-  [kickoff-branch]="Build"
-  [execute-plan]="Build"
-  [build-epic]="Build"
-  [spike-prototype]="Build"
-  [craft-skill]="Build"
-  [quick-fix]="Build"
-  [setup-environment]="Build"
-  [wire-observability]="Build"
-  [wire-ci]="Build"
-  [publish-package]="Build"
-  [align-grid]="Build"
-  [orchestrate-project]="Build"
-  [guard-git]="Build"
-  [hook-commits]="Build"
-  [deploy]="Build"
-  [smoke-test]="Build"
-  [validate-contracts]="Build"
-  # Verify
-  [verify-work]="Verify"
-  [validate-fix]="Verify"
-  [audit-code]="Verify"
-  [enforce-first]="Verify"
-  [run-evals]="Verify"
-  [investigate-bug]="Verify"
-  [diagnose-root]="Verify"
-  [fix-bug]="Verify"
-  [inspect-quality]="Verify"
-  [request-review]="Verify"
-  [respond-review]="Verify"
-  [trace-requirement]="Verify"
-  # Release
-  [release-branch]="Release"
-  [commit-message]="Release"
-  # Sustain
-  [session-state]="Sustain"
-  [edit-document]="Sustain"
-  [write-document]="Sustain"
-  [organize-workspace]="Sustain"
-  [reset-baseline]="Sustain"
-  [stocktake-skills]="Sustain"
-  [evolve-skill]="Sustain"
-  [run-benchmark]="Sustain"
-  [terse-mode]="Sustain"
-  [delegate-task]="Sustain"
-  [dispatch-agents]="Sustain"
-  [simulate-agents]="Sustain"
-  [compose-workflow]="Sustain"
-  [migrate-spec]="Sustain"
-)
+# Uses a case statement for bash 3.2 compatibility (macOS default bash lacks declare -A)
+get_phase() {
+  case "$1" in
+    # Discover
+    survey-context|research-first|search-skills|using-bigpowers|map-codebase|elaborate-spec|audit-plan) echo "Discover" ;;
+    # Design
+    model-domain|define-language|grill-me|grill-with-docs|deepen-architecture|design-interface|define-success) echo "Design" ;;
+    # Plan
+    scope-work|slice-tasks|plan-work|plan-release|plan-refactor|assess-impact|change-request|run-planning|seed-conventions) echo "Plan" ;;
+    # Build
+    develop-tdd|kickoff-branch|execute-plan|build-epic|spike-prototype|craft-skill|quick-fix|setup-environment|wire-observability|wire-ci|publish-package|align-grid|orchestrate-project|guard-git|hook-commits|deploy|smoke-test|validate-contracts) echo "Build" ;;
+    # Verify
+    verify-work|validate-fix|audit-code|enforce-first|run-evals|investigate-bug|diagnose-root|fix-bug|inspect-quality|request-review|respond-review|trace-requirement) echo "Verify" ;;
+    # Release
+    release-branch|commit-message) echo "Release" ;;
+    # Sustain
+    session-state|edit-document|write-document|organize-workspace|reset-baseline|stocktake-skills|evolve-skill|run-benchmark|terse-mode|delegate-task|dispatch-agents|simulate-agents|compose-workflow|migrate-spec) echo "Sustain" ;;
+  esac
+}
 
 # Phase order for display
 PHASE_ORDER=("Discover" "Design" "Plan" "Build" "Verify" "Release" "Sustain")
@@ -123,7 +63,7 @@ DESC_COL_WIDTH=56
   for phase in "${PHASE_ORDER[@]}"; do
     phase_skills=()
     for name in $(jq -r '.skills | keys[]' "$LOCKFILE" | sort); do
-      [[ "${PHASE_MAP[$name]:-}" == "$phase" ]] && phase_skills+=("$name")
+      [[ "$(get_phase "$name")" == "$phase" ]] && phase_skills+=("$name")
     done
     count=${#phase_skills[@]}
     total=$((total + count))
@@ -144,7 +84,7 @@ DESC_COL_WIDTH=56
   row=0
   for phase in "${PHASE_ORDER[@]}"; do
     for name in $(jq -r '.skills | keys[]' "$LOCKFILE" | sort); do
-      [[ "${PHASE_MAP[$name]:-}" != "$phase" ]] && continue
+      [[ "$(get_phase "$name")" != "$phase" ]] && continue
       row=$((row + 1))
       desc=$(jq -r --arg n "$name" '.skills[$n].description // ""' "$LOCKFILE" | head -c 80)
       echo "| $row | $phase | \`$name\` | $desc | ✅ Active |"

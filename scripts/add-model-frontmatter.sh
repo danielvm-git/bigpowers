@@ -3,72 +3,20 @@
 set -euo pipefail
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
-declare -A MODELS=(
-  [using-bigpowers]=sonnet
-  [orchestrate-project]=sonnet
-  [survey-context]=haiku
-  [research-first]=sonnet
-  [elaborate-spec]=opus
-  [map-codebase]=sonnet
-  [model-domain]=sonnet
-  [define-language]=sonnet
-  [grill-me]=sonnet
-  [grill-with-docs]=opus
-  [deepen-architecture]=sonnet
-  [design-interface]=opus
-  [assess-impact]=sonnet
-  [change-request]=sonnet
-  [scope-work]=sonnet
-  [slice-tasks]=sonnet
-  [define-success]=sonnet
-  [plan-work]=opus
-  [plan-refactor]=sonnet
-  [plan-release]=sonnet
-  [spike-prototype]=sonnet
-  [kickoff-branch]=haiku
-  [guard-git]=haiku
-  [hook-commits]=haiku
-  [seed-conventions]=sonnet
-  [develop-tdd]=sonnet
-  [enforce-first]=haiku
-  [delegate-task]=sonnet
-  [dispatch-agents]=sonnet
-  [execute-plan]=haiku
-  [wire-observability]=sonnet
-  [verify-work]=haiku
-  [run-evals]=sonnet
-  [investigate-bug]=sonnet
-  [diagnose-root]=sonnet
-  [validate-fix]=haiku
-  [audit-code]=haiku
-  [request-review]=opus
-  [respond-review]=sonnet
-  [trace-requirement]=haiku
-  [commit-message]=haiku
-  [release-branch]=haiku
-  [inspect-quality]=sonnet
-  [organize-workspace]=haiku
-  [stocktake-skills]=sonnet
-  [evolve-skill]=opus
-  [terse-mode]=haiku
-  [craft-skill]=sonnet
-  [edit-document]=sonnet
-  [session-state]=haiku
-  [migrate-spec]=sonnet
-  [visual-dashboard]=sonnet
-  [write-document]=sonnet
-  [setup-environment]=haiku
-  [reset-baseline]=haiku
-  [search-skills]=haiku
-  [compose-workflow]=sonnet
-  [simulate-agents]=sonnet
-)
+# Bash 3.2-compatible model mapping (no declare -A)
+get_model() {
+  case "$1" in
+    survey-context|verify-work|validate-fix|audit-code|enforce-first|trace-requirement|commit-message|release-branch|kickoff-branch|guard-git|hook-commits|execute-plan|organize-workspace|terse-mode|session-state|search-skills|setup-environment|reset-baseline) echo "haiku" ;;
+    elaborate-spec|grill-with-docs|design-interface|plan-work|request-review|evolve-skill) echo "opus" ;;
+    *) echo "sonnet" ;;
+  esac
+}
 
 for skill_dir in "$REPO_ROOT"/*/; do
   skill_md="$skill_dir/SKILL.md"
   [[ -f "$skill_md" ]] || continue
   name=$(basename "$skill_dir")
-  model="${MODELS[$name]:-sonnet}"
+  model=$(get_model "$name")
   if grep -q '^model:' "$skill_md" 2>/dev/null; then
     continue
   fi
