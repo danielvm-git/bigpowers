@@ -1,7 +1,9 @@
 # bigpowers
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+
 ![npm version](https://img.shields.io/badge/npm-v2.43.2-blue.svg)
+
 ![Skills](https://img.shields.io/badge/skills-72-brightgreen.svg)
 
 > 72 agent skills synthesizing 17 years of software engineering discipline into a prescriptive methodology for solo developers.
@@ -35,7 +37,9 @@ bigpowers
 npm update -g bigpowers
 bigpowers
 ```
+
 For deep usage, integrate the generated skills directly into your favorite AI tool (Claude Code, Gemini CLI, Cursor). Use the provided MCP Server to expose skills dynamically:
+
 ```bash
 node scripts/mcp-server.js
 ```
@@ -48,36 +52,152 @@ node scripts/mcp-server.js
 - **Model Context Protocol (MCP)**: Dynamic tool discovery and invocation via the included MCP server.
 - **Built-in Quality Gates**: Strict verification standards (e.g., F.I.R.S.T tests, BCP accounting) enforced before any code is merged.
 
+🏗 The v2.0.0 Lifecycle
+
+Every project follows the orchestrate-project 6-phase model (full SOP: docs/[WORKFLOW-SOP-v2.md](http://WORKFLOW-SOP-v2.md)):
+
+ONE TIME    seed-conventions  ([CLAUDE.md](http://CLAUDE.md), .claude/, .gemini/, agents/, skill sync)
+
+              ↓
+
+ONCE/PROJECT orchestrate-project
+
+              │
+
+              ├─ Ph1 DISCOVER   survey-context, research-first, elaborate-spec
+
+              ├─ Ph2 ELABORATE  model-domain, grill-me, define-language, deepen-architecture
+
+              ├─ Ph3 PLAN       scope-work, slice-tasks, plan-work → release-plan.yaml (BCP baseline)
+
+              ├─ Ph4 BUILD      build-epic × N stories
+
+              │
+
+              │  Per story — 8-step build-epic cycle:
+
+              │   1. survey-context   ← stamps story_start in state.yaml
+
+              │   2. plan-work        ← [BCP N] tasks + verify: commands
+
+              │   3. kickoff-branch   ← worktree + feature branch
+
+              │   4. develop-tdd      ← RED → GREEN → REFACTOR
+
+              │   5. verify-work      ← UAT gate
+
+              │   6. audit-code       ← quality gate ≥ 94%
+
+              │   7. commit-message   ← Conventional Commits + semver
+
+              │   8. release-branch   ← land to main; writes story_end + cycle-times.yaml
+
+              │
+
+              ├─ Ph5 VERIFY     run-evals, verify-work (project-level)
+
+              └─ Ph6 RELEASE    semantic-release → v1.0.0 MVP tag
+
+Semver: projects start at 0.0.0-β; each feat: story → minor bump; developer declares MVP → 1.0.0.
+
+BCP accounting: every task labeled [BCP N]; story total in state.yaml; BCP/hr logged to specs/metrics/cycle-times.yaml.
+
+next_skill signaling: each critical-path skill writes [handoff.next](http://handoff.next)_skill to state.yaml. Call survey-context after any interruption to resume exactly where you left off.
+
 ## 🧠 Philosophical Stack — How These Ideas Concatenate
 
 `bigpowers` is not a flat list of influences. It is a **chronological layer cake** — each wave of thinking builds on and resolves tensions from the previous one. No layer replaces the last; each addresses a problem the prior one created.
 
 ![Philosophy Diagram](docs/images/philosophy_diagram.jpg)
 
-| Era | Source | Contribution | Tension Resolved |
-|:---|:---|:---|:---|
-| **2008** | [Uncle Bob](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882) (Clean Code) | SRP, Boy Scout Rule, F.I.R.S.T. tests, intention-revealing names | — (foundation) |
-| **2018** | [Ousterhout](https://www.amazon.com/Philosophy-Software-Design-John-Ousterhout/dp/1732102201) (*A Philosophy of Software Design*) | Deep modules, information hiding, define errors out of existence | Small functions alone create shallow modules with bloated interfaces |
-| **2023–24** | [Karpathy](https://github.com/multica-ai/andrej-karpathy-skills), [Superpowers](https://github.com/obra/superpowers), [Pocock](https://github.com/mattpocock/skills) | Think-first planning, verb-noun skill architecture, zoom-out strategy | Raw LLMs have no discipline — they need orchestration, not raw prompting |
-| **2024** | [Wasowski](https://medium.com/@wasowski.jarek/sdd-writing-specifications-for-ai-bdd-as-the-missing-link-spec-driven-development-ad1b540b7f75) (SDD), [BCP](https://github.com/flow-ciandt/bcp-agent) | Specs as the human-agent interface; business complexity as a pre-build sizing unit | Agents drift without a verifiable spec — BDD Gherkin closes the loop |
-| **2026** | [Akita](https://akitaonrails.com/2026/04/20/clean-code-para-agentes-de-ia/) (*Clean Code for AI Agents*) | Grep-ability, structured JSON logging, token economy, remediation hints in errors | Uncle Bob's rules were written for humans — agents need different code hygiene |
-| **Synthesis** | BMAD + GSD (self-authored) | 6-phase lifecycle, hard gates, 94% quality threshold, `specs/state.yaml` cockpit | All the above are principles; bigpowers turns them into an executable discipline |
+
+| Era           | Source                                                                                                                                                                                               | Contribution                                                                       | Tension Resolved                                                                 |
+| :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------- |
+| **2008**      | [Uncle Bob](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882) (Clean Code)                                                                                            | SRP, Boy Scout Rule, F.I.R.S.T. tests, intention-revealing names                   | — (foundation)                                                                   |
+| **2018**      | [Ousterhout](https://www.amazon.com/Philosophy-Software-Design-John-Ousterhout/dp/1732102201) (*A Philosophy of Software Design*)                                                                    | Deep modules, information hiding, define errors out of existence                   | Small functions alone create shallow modules with bloated interfaces             |
+| **2023–24**   | [Karpathy](https://github.com/multica-ai/andrej-karpathy-skills), [Superpowers](https://github.com/obra/superpowers), [Pocock](https://github.com/mattpocock/skills)                                 | Think-first planning, verb-noun skill architecture, zoom-out strategy              | Raw LLMs have no discipline — they need orchestration, not raw prompting         |
+| **2024**      | [Wasowski](https://medium.com/@wasowski.jarek/sdd-writing-specifications-for-ai-bdd-as-the-missing-link-spec-driven-development-ad1b540b7f75) (SDD), [BCP](https://github.com/flow-ciandt/bcp-agent) | Specs as the human-agent interface; business complexity as a pre-build sizing unit | Agents drift without a verifiable spec — BDD Gherkin closes the loop             |
+| **2026**      | [Akita](https://akitaonrails.com/2026/04/20/clean-code-para-agentes-de-ia/) (*Clean Code for AI Agents*)                                                                                             | Grep-ability, structured JSON logging, token economy, remediation hints in errors  | Uncle Bob's rules were written for humans — agents need different code hygiene   |
+| **Synthesis** | BMAD + GSD (self-authored)                                                                                                                                                                           | 6-phase lifecycle, hard gates, 94% quality threshold, `specs/state.yaml` cockpit   | All the above are principles; bigpowers turns them into an executable discipline |
+
 
 ### How to see the concatenation in action
 
 Each philosophical pillar has a corresponding Gherkin `.feature` file in [`specs/verifications/features/`](specs/verifications/features/) that empirically proves compliance:
 
-| Pillar | Verification |
-|:---|:---|
-| Classical Craftsmanship | `cleancode.feature` |
-| Complexity Management | `pocock.feature` |
-| Behavioral Integrity | `karpathy.feature` |
-| Spec-Driven Development | Implicit in SDD workflow |
-| Agentic Standard | `akita.feature` |
-| Project Conventions | `conventions.feature` |
-| Original Baseline | `superpowers.feature` |
 
-Run `npm run compliance` to audit all features. Score < 94% = hard stop.
+| Pillar                  | Verification             |
+| :----------------------- | :------------------------ |
+| Classical Craftsmanship | `cleancode.feature`      |
+| Complexity Management   | `pocock.feature`         |
+| Behavioral Integrity    | `karpathy.feature`       |
+| Spec-Driven Development | Implicit in SDD workflow |
+| Agentic Standard        | `akita.feature`          |
+| Project Conventions     | `conventions.feature`    |
+| Original Baseline       | `superpowers.feature`    |
+
+
+Run `npm run compliance` to audit all features. Score &lt; 94% = hard stop.
+
+
+
+🔧 MCP Server (Model Context Protocol)
+
+bigpowers ships an MCP server that exposes all skills as callable MCP tools. Agents can discover and invoke skills dynamically instead of relying on a static system prompt.
+
+Start the server
+
+node scripts/mcp-server.js
+
+Add to Claude Code
+
+claude mcp add bigpowers node /path/to/bigpowers/scripts/mcp-server.js
+
+Or add manually to .claude/settings.json:
+
+{
+
+  "mcpServers": {
+
+    "bigpowers": {
+
+      "command": "node",
+
+      "args": ["/path/to/bigpowers/scripts/mcp-server.js"]
+
+    }
+
+  }
+
+}
+
+Available MCP tools
+
+Tool	Description
+
+bigpowers_list_skills	List all 70 skills with name, description, phase. Optional phase filter.
+
+bigpowers_get_skill	Get full [SKILL.md](http://SKILL.md) content for any skill by name.
+
+bigpowers_search_skills	Keyword/semantic search — returns ranked matches for a query.
+
+bigpowers_get_state	Get current specs/state.yaml (active flow, epic, step).
+
+bigpowers_invoke_skill	Get skill instructions with optional context for agent invocation.
+
+Tool	Description
+
+bigpowers_list_skills	List all 72 skills with name, description, phase. Optional phase filter.
+
+bigpowers_get_skill	Get full [SKILL.md](http://SKILL.md) content for any skill by name.
+
+bigpowers_search_skills	Keyword/semantic search — returns ranked matches for a query.
+
+bigpowers_get_state	Get current specs/state.yaml (active flow, epic, step).
+
+bigpowers_invoke_skill	Get skill instructions with optional context for agent invocation.
+
+
 
 ## Development
 
@@ -115,8 +235,8 @@ See [CHANGELOG.md](CHANGELOG.md) or [Releases](https://github.com/danielvm-git/b
 
 ## Links
 
-- **Repository**: https://github.com/danielvm-git/bigpowers
-- **Issue Tracker**: https://github.com/danielvm-git/bigpowers/issues
+- **Repository**: [https://github.com/danielvm-git/bigpowers](https://github.com/danielvm-git/bigpowers)
+- **Issue Tracker**: [https://github.com/danielvm-git/bigpowers/issues](https://github.com/danielvm-git/bigpowers/issues)
 
 ## Acknowledgements
 
