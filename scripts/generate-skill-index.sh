@@ -27,13 +27,13 @@ get_phase() {
     # Plan
     scope-work|slice-tasks|plan-work|plan-release|plan-refactor|assess-impact|change-request|run-planning|seed-conventions) echo "Plan" ;;
     # Build
-    develop-tdd|kickoff-branch|execute-plan|build-epic|spike-prototype|craft-skill|quick-fix|setup-environment|wire-observability|wire-ci|publish-package|align-grid|orchestrate-project|guard-git|hook-commits|deploy|smoke-test|validate-contracts) echo "Build" ;;
+    develop-tdd|kickoff-branch|execute-plan|build-epic|spike-prototype|craft-skill|quick-fix|setup-environment|wire-observability|wire-ci|publish-package|align-grid|orchestrate-project|guard-git|hook-commits|deploy|smoke-test|validate-contracts|extract-design) echo "Build" ;;
     # Verify
-    verify-work|validate-fix|audit-code|enforce-first|run-evals|investigate-bug|diagnose-root|fix-bug|inspect-quality|request-review|respond-review|trace-requirement) echo "Verify" ;;
+    verify-work|validate-fix|audit-code|enforce-first|run-evals|investigate-bug|diagnose-root|fix-bug|inspect-quality|request-review|respond-review|trace-requirement|security-review) echo "Verify" ;;
     # Release
     release-branch|commit-message) echo "Release" ;;
     # Sustain
-    session-state|edit-document|write-document|organize-workspace|reset-baseline|stocktake-skills|evolve-skill|run-benchmark|terse-mode|delegate-task|dispatch-agents|simulate-agents|compose-workflow|migrate-spec) echo "Sustain" ;;
+    session-state|edit-document|write-document|organize-workspace|reset-baseline|stocktake-skills|evolve-skill|run-benchmark|terse-mode|delegate-task|dispatch-agents|simulate-agents|compose-workflow|migrate-spec|visual-dashboard) echo "Sustain" ;;
   esac
 }
 

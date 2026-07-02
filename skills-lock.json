@@ -178,7 +178,7 @@
     },
     "orchestrate-project": {
       "description": "Meta-skill that enforces the 6-phase core loop (discover → elaborate → plan → build → verify → release) with hard gates. Use to coordinate multi-phase projects with guaranteed quality checkpoints. One-time command for the entire project lifecycle.",
-      "sha256": "1b5002196dd4800b",
+      "sha256": "7bea8d8610e05ea7",
       "path": "skills/orchestrate-project/SKILL.md"
     },
     "organize-workspace": {
@@ -268,7 +268,7 @@
     },
     "seed-conventions": {
       "description": "Generate CLAUDE.md and CONVENTIONS.md for a brand-new project through a brief interview, and create the specs/ directory with evolved bigpowers structure (product/, tech-architecture/, verifications/, epics/archive/). Entry point for greenfield projects. Use when starting a new project from scratch, when user asks to set up AI agent conventions, or when there is no CLAUDE.md yet.",
-      "sha256": "9b78d7d47df46888",
+      "sha256": "f67bb750533d826c",
       "path": "skills/seed-conventions/SKILL.md"
     },
     "session-state": {

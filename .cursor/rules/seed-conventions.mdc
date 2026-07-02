@@ -44,8 +44,8 @@ mkdir -p specs/product specs/product/snapshots specs/epics/archive
 mkdir -p specs/tech-architecture specs/adr specs/verifications specs/bugs
 touch specs/product/SCOPE_LATEST.yaml specs/product/VISION_LATEST.yaml specs/product/GLOSSARY_LATEST.yaml
 touch specs/release-plan.yaml specs/execution-status.yaml specs/planning-status.yaml specs/state.yaml
-touch specs/tech-architecture/tech-stack.md specs/tech-architecture/security.md
-touch specs/tech-architecture/test.md specs/tech-architecture/design.md
+touch specs/tech-architecture/tech-stack.md specs/tech-architecture/SECURITY_PLAN_LATEST.md
+touch specs/tech-architecture/TEST_PLAN_LATEST.md specs/tech-architecture/DESIGN_PLAN_LATEST.md
 touch specs/tech-architecture/REFACTOR_LATEST.md specs/tech-architecture/IMPACT_LATEST.md
 touch specs/bugs/registry.yaml
 echo "# Specs\n\nAll planning documents for this project." > specs/README.md

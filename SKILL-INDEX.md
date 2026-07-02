@@ -14,11 +14,11 @@
 | Discover | 7 | `audit-plan, elaborate-spec, map-codebase, research-first, search-skills, survey-context, using-bigpowers` |
 | Design | 7 | `deepen-architecture, define-language, define-success, design-interface, grill-me, grill-with-docs, model-domain` |
 | Plan | 9 | `assess-impact, change-request, plan-refactor, plan-release, plan-work, run-planning, scope-work, seed-conventions, slice-tasks` |
-| Build | 18 | `align-grid, build-epic, craft-skill, deploy, develop-tdd, execute-plan, guard-git, hook-commits, kickoff-branch, orchestrate-project, publish-package, quick-fix, setup-environment, smoke-test, spike-prototype, validate-contracts, wire-ci, wire-observability` |
-| Verify | 12 | `audit-code, diagnose-root, enforce-first, fix-bug, inspect-quality, investigate-bug, request-review, respond-review, run-evals, trace-requirement, validate-fix, verify-work` |
+| Build | 19 | `align-grid, build-epic, craft-skill, deploy, develop-tdd, execute-plan, extract-design, guard-git, hook-commits, kickoff-branch, orchestrate-project, publish-package, quick-fix, setup-environment, smoke-test, spike-prototype, validate-contracts, wire-ci, wire-observability` |
+| Verify | 13 | `audit-code, diagnose-root, enforce-first, fix-bug, inspect-quality, investigate-bug, request-review, respond-review, run-evals, security-review, trace-requirement, validate-fix, verify-work` |
 | Release | 2 | `commit-message, release-branch` |
-| Sustain | 14 | `compose-workflow, delegate-task, dispatch-agents, edit-document, evolve-skill, migrate-spec, organize-workspace, reset-baseline, run-benchmark, session-state, simulate-agents, stocktake-skills, terse-mode, write-document` |
-| **TOTAL** | **69** | |
+| Sustain | 15 | `compose-workflow, delegate-task, dispatch-agents, edit-document, evolve-skill, migrate-spec, organize-workspace, reset-baseline, run-benchmark, session-state, simulate-agents, stocktake-skills, terse-mode, visual-dashboard, write-document` |
+| **TOTAL** | **72** | |
 
 ---
 
@@ -55,48 +55,51 @@
 | 27 | Build | `deploy` | "Build → verify artifact → deploy → wait → smoke deployment pipeline. Pl | ✅ Active |
 | 28 | Build | `develop-tdd` | Test-driven development with red-green-refactor loop using vertical slices. Use  | ✅ Active |
 | 29 | Build | `execute-plan` | Batch-execute tasks from the active epic capsule sequentially, with a human chec | ✅ Active |
-| 30 | Build | `guard-git` | Block dangerous git commands (push, force push, reset --hard, clean, branch -D,  | ✅ Active |
-| 31 | Build | `hook-commits` | Set up pre-commit hooks with lint-staged (Prettier), type checking, and tests in | ✅ Active |
-| 32 | Build | `kickoff-branch` | Create a git worktree and feature branch, then verify a clean test baseline befo | ✅ Active |
-| 33 | Build | `orchestrate-project` | Meta-skill that enforces the 6-phase core loop (discover → elaborate → plan  | ✅ Active |
-| 34 | Build | `publish-package` | "Package registry publishing for npm, crates.io, PyPI, and Homebrew. Verifies pr | ✅ Active |
-| 35 | Build | `quick-fix` | "Streamlined fast-path for trivial data-only fixes — no TDD, no branching cere | ✅ Active |
-| 36 | Build | `setup-environment` | Pre-install dependencies and configure tools before development work begins. Use | ✅ Active |
-| 37 | Build | `smoke-test` | "Post-deploy health-check against a live URL. Validates HTTP status, response co | ✅ Active |
-| 38 | Build | `spike-prototype` | Throw-away prototype for unknown problem spaces. Output is learning notes in spe | ✅ Active |
-| 39 | Build | `validate-contracts` | "Assert data shape consistency across system boundaries — live API responses a | ✅ Active |
-| 40 | Build | `wire-ci` | "CI pipeline setup with pre-built templates and local validation. Generates GitH | ✅ Active |
-| 41 | Build | `wire-observability` | Add structured JSON logging, observability commands, and idempotent setup script | ✅ Active |
-| 42 | Verify | `audit-code` | Self-review checklist for the coding agent to run before dispatching a reviewer. | ✅ Active |
-| 43 | Verify | `diagnose-root` | Run 4-phase root cause analysis — reproduce, isolate, hypothesize, verify. Use | ✅ Active |
-| 44 | Verify | `enforce-first` | Apply the F.I.R.S.T test quality rubric (Fast, Independent, Repeatable, Self-Val | ✅ Active |
-| 45 | Verify | `fix-bug` | Bug fix orchestrator — active_flow fix_bug; reads specs/bugs/BUG-*.md; chains  | ✅ Active |
-| 46 | Verify | `inspect-quality` | Interactive QA session where user reports bugs or issues conversationally, and t | ✅ Active |
-| 47 | Verify | `investigate-bug` | Investigate a bug or issue by exploring the codebase to find root cause, then wr | ✅ Active |
-| 48 | Verify | `request-review` | Dispatch a fresh reviewer agent with a clean context to critique the code after  | ✅ Active |
-| 49 | Verify | `respond-review` | Act on a reviewer agent's feedback systematically — categorize findings, apply | ✅ Active |
-| 50 | Verify | `run-evals` | Eval-Driven Development — define capability and regression evals before buildi | ✅ Active |
-| 51 | Verify | `trace-requirement` | Link story IDs from specs/release-plan.yaml + epic capsule directories to the im | ✅ Active |
-| 52 | Verify | `validate-fix` | Prove a fix works before declaring done — re-run the failing test, run the ful | ✅ Active |
-| 53 | Verify | `verify-work` | Multi-phase UAT gate — cold-start smoke, build, typecheck, lint, tests, step-b | ✅ Active |
-| 54 | Release | `commit-message` | Reviews working-tree changes, then drafts a Conventional Commits title/body and  | ✅ Active |
-| 55 | Release | `release-branch` | Make the merge/PR/keep/discard decision for a feature branch, verify coverage ga | ✅ Active |
-| 56 | Sustain | `compose-workflow` | Chain multiple bigpowers skills into a custom workflow recipe saved in specs/. U | ✅ Active |
-| 57 | Sustain | `delegate-task` | Delegate one complex task to a single subagent, review its work in two stages be | ✅ Active |
-| 58 | Sustain | `dispatch-agents` | Dispatch multiple subagents in parallel on independent tasks. No waiting between | ✅ Active |
-| 59 | Sustain | `edit-document` | Edit and improve documents by restructuring sections, improving clarity, and tig | ✅ Active |
-| 60 | Sustain | `evolve-skill` | Benchmark-gated skill evolution — consume bigpowers-benchmark report, propose  | ✅ Active |
-| 61 | Sustain | `migrate-spec` | Detect GSD, spec-kit, or BMAD spec artifacts and transform them into bigpowers Y | ✅ Active |
-| 62 | Sustain | `organize-workspace` | Scans the active workspace for disposable artifacts—logs, caches, stale build  | ✅ Active |
-| 63 | Sustain | `reset-baseline` | Restore the project to a known clean state between agent runs or experiments. Us | ✅ Active |
-| 64 | Sustain | `run-benchmark` | Run skill quality benchmarks from specs/benchmarks/ definitions and write pass@k | ✅ Active |
-| 65 | Sustain | `session-state` | Track implementation decisions and progress in specs/state.yaml to prevent conte | ✅ Active |
-| 66 | Sustain | `simulate-agents` | Run Mock User and Auditor agents against a feature in fresh contexts before huma | ✅ Active |
-| 67 | Sustain | `stocktake-skills` | Sequential subagent batch audit of the bigpowers skill catalog — Quick Scan (c | ✅ Active |
-| 68 | Sustain | `terse-mode` | Fallback ultra-compressed communication mode. Cuts token usage ~75% by dropping  | ✅ Active |
-| 69 | Sustain | `write-document` | Write, organize, and sync high-integrity technical documents using the BMAD meth | ✅ Active |
+| 30 | Build | `extract-design` | "Extract a Google DESIGN.md file from an HTML prototype (claude.ai/design or any | ✅ Active |
+| 31 | Build | `guard-git` | Block dangerous git commands (push, force push, reset --hard, clean, branch -D,  | ✅ Active |
+| 32 | Build | `hook-commits` | Set up pre-commit hooks with lint-staged (Prettier), type checking, and tests in | ✅ Active |
+| 33 | Build | `kickoff-branch` | Create a git worktree and feature branch, then verify a clean test baseline befo | ✅ Active |
+| 34 | Build | `orchestrate-project` | Meta-skill that enforces the 6-phase core loop (discover → elaborate → plan  | ✅ Active |
+| 35 | Build | `publish-package` | "Package registry publishing for npm, crates.io, PyPI, and Homebrew. Verifies pr | ✅ Active |
+| 36 | Build | `quick-fix` | "Streamlined fast-path for trivial data-only fixes — no TDD, no branching cere | ✅ Active |
+| 37 | Build | `setup-environment` | Pre-install dependencies and configure tools before development work begins. Use | ✅ Active |
+| 38 | Build | `smoke-test` | "Post-deploy health-check against a live URL. Validates HTTP status, response co | ✅ Active |
+| 39 | Build | `spike-prototype` | Throw-away prototype for unknown problem spaces. Output is learning notes in spe | ✅ Active |
+| 40 | Build | `validate-contracts` | "Assert data shape consistency across system boundaries — live API responses a | ✅ Active |
+| 41 | Build | `wire-ci` | "CI pipeline setup with pre-built templates and local validation. Generates GitH | ✅ Active |
+| 42 | Build | `wire-observability` | Add structured JSON logging, observability commands, and idempotent setup script | ✅ Active |
+| 43 | Verify | `audit-code` | Self-review checklist for the coding agent to run before dispatching a reviewer. | ✅ Active |
+| 44 | Verify | `diagnose-root` | Run 4-phase root cause analysis — reproduce, isolate, hypothesize, verify. Use | ✅ Active |
+| 45 | Verify | `enforce-first` | Apply the F.I.R.S.T test quality rubric (Fast, Independent, Repeatable, Self-Val | ✅ Active |
+| 46 | Verify | `fix-bug` | Bug fix orchestrator — active_flow fix_bug; reads specs/bugs/BUG-*.md; chains  | ✅ Active |
+| 47 | Verify | `inspect-quality` | Interactive QA session where user reports bugs or issues conversationally, and t | ✅ Active |
+| 48 | Verify | `investigate-bug` | Investigate a bug or issue by exploring the codebase to find root cause, then wr | ✅ Active |
+| 49 | Verify | `request-review` | Dispatch a fresh reviewer agent with a clean context to critique the code after  | ✅ Active |
+| 50 | Verify | `respond-review` | Act on a reviewer agent's feedback systematically — categorize findings, apply | ✅ Active |
+| 51 | Verify | `run-evals` | Eval-Driven Development — define capability and regression evals before buildi | ✅ Active |
+| 52 | Verify | `security-review` | > AI-powered security analysis of code changes — traces data flow, detects inj | ✅ Active |
+| 53 | Verify | `trace-requirement` | Link story IDs from specs/release-plan.yaml + epic capsule directories to the im | ✅ Active |
+| 54 | Verify | `validate-fix` | Prove a fix works before declaring done — re-run the failing test, run the ful | ✅ Active |
+| 55 | Verify | `verify-work` | Multi-phase UAT gate — cold-start smoke, build, typecheck, lint, tests, step-b | ✅ Active |
+| 56 | Release | `commit-message` | Reviews working-tree changes, then drafts a Conventional Commits title/body and  | ✅ Active |
+| 57 | Release | `release-branch` | Make the merge/PR/keep/discard decision for a feature branch, verify coverage ga | ✅ Active |
+| 58 | Sustain | `compose-workflow` | Chain multiple bigpowers skills into a custom workflow recipe saved in specs/. U | ✅ Active |
+| 59 | Sustain | `delegate-task` | Delegate one complex task to a single subagent, review its work in two stages be | ✅ Active |
+| 60 | Sustain | `dispatch-agents` | Dispatch multiple subagents in parallel on independent tasks. No waiting between | ✅ Active |
+| 61 | Sustain | `edit-document` | Edit and improve documents by restructuring sections, improving clarity, and tig | ✅ Active |
+| 62 | Sustain | `evolve-skill` | Benchmark-gated skill evolution — consume bigpowers-benchmark report, propose  | ✅ Active |
+| 63 | Sustain | `migrate-spec` | Detect GSD, spec-kit, or BMAD spec artifacts and transform them into bigpowers Y | ✅ Active |
+| 64 | Sustain | `organize-workspace` | Scans the active workspace for disposable artifacts—logs, caches, stale build  | ✅ Active |
+| 65 | Sustain | `reset-baseline` | Restore the project to a known clean state between agent runs or experiments. Us | ✅ Active |
+| 66 | Sustain | `run-benchmark` | Run skill quality benchmarks from specs/benchmarks/ definitions and write pass@k | ✅ Active |
+| 67 | Sustain | `session-state` | Track implementation decisions and progress in specs/state.yaml to prevent conte | ✅ Active |
+| 68 | Sustain | `simulate-agents` | Run Mock User and Auditor agents against a feature in fresh contexts before huma | ✅ Active |
+| 69 | Sustain | `stocktake-skills` | Sequential subagent batch audit of the bigpowers skill catalog — Quick Scan (c | ✅ Active |
+| 70 | Sustain | `terse-mode` | Fallback ultra-compressed communication mode. Cuts token usage ~75% by dropping  | ✅ Active |
+| 71 | Sustain | `visual-dashboard` | Start a browser-based dashboard that visualizes architecture, implementation pla | ✅ Active |
+| 72 | Sustain | `write-document` | Write, organize, and sync high-integrity technical documents using the BMAD meth | ✅ Active |
 
-**Total: 69 active skills.**
+**Total: 72 active skills.**
 
 ---
 

@@ -9,6 +9,79 @@ release:
   bump_hint: minor
 epics:
   # ── BACKLOG — queued ─────────────────────────────────────────────────
+  # v2.45.0 "Deepening" track — from specs/RELEASE-PLAN-v2.45.0-DEEPENING.md
+  # (sources: DEEPEN-ARCHITECTURE-REVIEW.md, MISSING-REFERENCES-AND-DELIVERY-PLAN.md,
+  #  QUALITY-GUARANTEE-STRATEGY.md). Build order: e30 → e31 → e32 → e34 → e35 → e33 → e36.
+  - id: e30
+    title: "Architecture Quick Fixes"
+    wsjf: 6.5
+    bcps: 10
+    capsule_dir: epics/e30-arch-quick-fixes
+    note: >
+      Fix 4 concrete bugs from the deepen-architecture review: get_phase()
+      missing 3 skills (extract-design, security-review, visual-dashboard),
+      4 broken specs/tech-architecture/ references, stale karpathy.feature.bak,
+      50+ tautological verify commands. Plus add plan-checker as mandatory
+      gate in build-epic. WSJF (BV 5 + TC 5 + RR-OE 3) / JS 2 = 6.5.
+  - id: e31
+    title: "Quality Guarantee Infrastructure — Golden Story Suite"
+    wsjf: 5.5
+    bcps: 22
+    capsule_dir: epics/e31-quality-guarantee
+    note: >
+      Three-gate quality system per specs/QUALITY-GUARANTEE-STRATEGY.md:
+      5 golden end-to-end stories with code graders, compliance gate wired
+      in, token/latency budget vs baseline. Makes every later epic provably
+      non-regressive. WSJF (BV 8 + TC 5 + RR-OE 9) / JS 4 = 5.5.
+  - id: e32
+    title: "Missing Historical References"
+    wsjf: 3.0
+    bcps: 20
+    capsule_dir: epics/e32-historical-refs
+    note: >
+      9 reference docs: Beck (Tidy First?), Fowler (refactoring catalog),
+      Feathers (seams, characterization tests), Metz (POODR), Hickey
+      (Simple Made Easy), Hunt & Thomas (Pragmatic Programmer), Evans (DDD),
+      Forsgren/Humble/Kim (Accelerate/DORA), Larson (Staff Engineer).
+      Plus PRINCIPLES.md credit update and SKILL.md cross-references.
+  - id: e34
+    title: "Context Engineering Layer"
+    wsjf: 2.75
+    bcps: 10
+    capsule_dir: epics/e34-context-engineering
+    note: >
+      Name the four LangChain strategies (write/select/compress/isolate)
+      bigpowers already implements; add effort: heavy|light frontmatter;
+      update CLAUDE.md Token Management + session-state. GSD parity.
+  - id: e35
+    title: "DORA Metrics Extension"
+    wsjf: 2.67
+    bcps: 7
+    capsule_dir: epics/e35-dora-metrics
+    note: >
+      Extend cycle-times.yaml from BCP/hr to all four DORA keys — add
+      change_failure_rate and restore_time_minutes; release-branch computes
+      them; CONVENTIONS.md BCP section references DORA.
+  - id: e33
+    title: "Sync Pipeline Refactor — parse→IR→render"
+    wsjf: 2.0
+    bcps: 13
+    capsule_dir: epics/e33-sync-pipeline
+    note: >
+      Extract scripts/lib/skill-common.sh (repo-root/skills-root resolution,
+      parse_frontmatter, iterate_skills) shared by 13 scripts; refactor
+      sync-skills.sh to render-target functions so adding an IDE target is
+      a function, not a loop-body edit. Fixes the 3-variant awk duplication.
+  - id: e36
+    title: "Documentation Deduplication — Provenance Pointers"
+    wsjf: 1.4
+    bcps: 10
+    capsule_dir: epics/e36-doc-dedup
+    note: >
+      Convert restating reference docs (uncle-bob, akita, ousterhout,
+      karpathy, wasowski) to thin provenance pointers; canonical rules live
+      only in CONVENTIONS.md; spec-kit.md covers full SDD landscape (Kiro,
+      Tessl, BMAD, GSD).
   - id: e29
     title: "Repository Layout — Skill Sources Under skills/"
     wsjf: 3.3
@@ -42,6 +115,74 @@ epics:
       Rename all fixed-name generated outputs in specs/ root to use _LATEST.md
       suffix (7 skills + build-skill-index.sh). Does not touch date-stamped or
       feature-stamped files.
+
+  # ── PLANNED — v2.45.0 "Deepening" release ───────────────────────────
+  # Source: specs/RELEASE-PLAN-v2.45.0-DEEPENING.md (full plan)
+  #         specs/DEEPEN-ARCHITECTURE-REVIEW.md (review)
+  #         specs/QUALITY-GUARANTEE-STRATEGY.md (golden suite)
+  - id: e30
+    title: "Architecture Quick Fixes"
+    wsjf: 6.5
+    bcps: 10
+    capsule_dir: epics/e30-arch-quick-fixes
+    note: >
+      4 concrete bugs from deepen-architecture review + plan-checker gate:
+      get_phase() missing 3 skills, broken tech-architecture refs, stale .bak,
+      50+ tautological verify commands, mandatory assess-impact in build-epic.
+  - id: e31
+    title: "Quality Guarantee Infrastructure"
+    wsjf: 5.5
+    bcps: 22
+    capsule_dir: epics/e31-quality-guarantee
+    note: >
+      3-gate quality system: 5 golden end-to-end stories + compliance gate +
+      token budget. Shipped before other deepening epics so all changes are
+      verified safe. Source: specs/QUALITY-GUARANTEE-STRATEGY.md.
+  - id: e32
+    title: "Missing Historical References"
+    wsjf: 3.0
+    bcps: 20
+    capsule_dir: epics/e32-historical-refs
+    note: >
+      9 reference docs: Beck (XP/Tidy First), Fowler (refactoring catalog),
+      Feathers (seams/characterization), Metz (POODR/SOLID), Hickey (simple
+      vs easy), Hunt & Thomas (Pragmatic Programmer), Evans (DDD), Forsgren
+      (Accelerate/DORA), Larson (Staff Engineer).
+  - id: e34
+    title: "Context Engineering Layer"
+    wsjf: 2.75
+    bcps: 10
+    capsule_dir: epics/e34-context-engineering
+    note: >
+      Name the 4 context-engineering strategies bigpowers already implements
+      (write/select/compress/isolate), add effort: heavy|light frontmatter.
+      Borrows GSD Core's central insight.
+  - id: e35
+    title: "DORA Metrics Extension"
+    wsjf: 2.67
+    bcps: 7
+    capsule_dir: epics/e35-dora-metrics
+    note: >
+      Extend cycle-times.yaml from BCP/hr only to all four DORA keys:
+      deployment frequency, lead time, change failure rate, restore time.
+  - id: e33
+    title: "Sync Pipeline Refactor"
+    wsjf: 2.0
+    bcps: 13
+    capsule_dir: epics/e33-sync-pipeline
+    note: >
+      Refactor sync-skills.sh from copy-paste-variant to parse→IR→render.
+      Extract scripts/lib/skill-common.sh shared library. Render-target
+      functions: adding IDE target = adding a function, not editing loop.
+  - id: e36
+    title: "Documentation Deduplication"
+    wsjf: 1.4
+    bcps: 10
+    capsule_dir: epics/e36-doc-dedup
+    note: >
+      Convert reference docs from restating principles to provenance pointers.
+      CONVENTIONS.md becomes single source of truth. F.I.R.S.T rubric lives
+      in one place, not six.
 
   # ── ACTIVE — next release (v2.30.0) ──────────────────────────────────
   - id: e26

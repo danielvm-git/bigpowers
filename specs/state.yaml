@@ -24,6 +24,34 @@ release:
 handoff:
   next_skill: kickoff-branch
   last_step_completed: e28 plan-work — 5 stories planned (13 BCPs total)
+planning:
+  release: v2.45.0
+  codename: "Deepening"
+  source_docs:
+    - specs/DEEPEN-ARCHITECTURE-REVIEW.md
+    - specs/MISSING-REFERENCES-AND-DELIVERY-PLAN.md
+    - specs/QUALITY-GUARANTEE-STRATEGY.md
+  epics_planned:
+    - e30: "Architecture Quick Fixes" (10 BCP)
+    - e31: "Quality Guarantee Infrastructure" (22 BCP)
+    - e32: "Missing Historical References" (20 BCP)
+    - e33: "Sync Pipeline Refactor" (13 BCP)
+    - e34: "Context Engineering Layer" (10 BCP)
+    - e35: "DORA Metrics Extension" (7 BCP)
+    - e36: "Documentation Deduplication" (10 BCP)
+  github_issues_created:
+    - 37 (e30)
+    - 36 (e31)
+    - 32 (e32)
+    - 33 (e33)
+    - 34 (e34)
+    - 35 (e35)
+    - 31 (e36)
+    - 40 (Bug: phase table missing 3 skills)
+    - 41 (Bug: broken tech-architecture refs)
+    - 38 (Bug: stale .bak file)
+    - 39 (Bug: tautological verify commands)
+    - 42 (Bug: skill-verify false FAILs)
 metrics:
   skill_timings:
     survey-context:

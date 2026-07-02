@@ -1,0 +1,41 @@
+id: e31
+title: "Quality Guarantee Infrastructure"
+wsjf: 5.5
+bcps: 22
+status: proposed
+release: v2.45.0
+codename: "Deepening"
+source: specs/QUALITY-GUARANTEE-STRATEGY.md
+stories:
+  - id: e31s01
+    bcp: 3
+    title: "Create minimal-api fixture repo for golden stories"
+    verify: test -d specs/benchmarks/fixtures/minimal-api && test -f specs/benchmarks/fixtures/minimal-api/package.json && echo OK
+  - id: e31s02
+    bcp: 3
+    title: "Create 5 golden story YAMLs (g-01 through g-05) in specs/benchmarks/golden/"
+    verify: ls specs/benchmarks/golden/g-0*.yaml | wc -l | awk '{if($1==5) print "OK"; else print "FAIL: "$1}'
+  - id: e31s03
+    bcp: 5
+    title: "Create scripts/run-golden-suite.sh — iterates golden stories, runs grader, writes report, compares baseline"
+    verify: bash scripts/run-golden-suite.sh --dry-run && echo OK
+  - id: e31s04
+    bcp: 2
+    title: "Wire npm run compliance as first step of run-golden-suite.sh (Gate 2 integration)"
+    verify: grep -q 'compliance|audit-compliance' scripts/run-golden-suite.sh && echo OK
+  - id: e31s05
+    bcp: 3
+    title: "Add token estimation to run-golden-suite.sh"
+    verify: grep -q 'token|estimated_tokens' scripts/run-golden-suite.sh && echo OK
+  - id: e31s06
+    bcp: 2
+    title: "Pin baseline golden suite report as specs/benchmarks/reports/BASELINE-GOLDEN.yaml"
+    verify: test -f specs/benchmarks/reports/BASELINE-GOLDEN.yaml && grep -q 'pass_rate' specs/benchmarks/reports/BASELINE-GOLDEN.yaml && echo OK
+  - id: e31s07
+    bcp: 2
+    title: "Add 'Run golden suite' to CLAUDE.md and CONVENTIONS.md as mandatory pre-merge step"
+    verify: grep -q 'golden.*suite|run-golden-suite' CLAUDE.md CONVENTIONS.md && echo OK
+  - id: e31s08
+    bcp: 2
+    title: "Extend evolve-skill SKILL.md to call run-golden-suite.sh instead of per-skill run-benchmark"
+    verify: grep -q 'run-golden-suite' skills/evolve-skill/SKILL.md && echo OK

@@ -46,7 +46,7 @@ See [REFERENCE.md](REFERENCE.md) for detailed phase specifications and gate type
 
 1. **Maintains state.yaml** — Tracks current phase, `active_epic`, `active_flow`, decisions, risks.
 2. **Spawns appropriate skills** — Routes by `model:` frontmatter. Decisions pass only via `specs/state.yaml` `handoff` between spawns.
-3. **Methodology lenses** — If `specs/tech-architecture/test.md` or ADRs exist, apply at phase gates.
+3. **Methodology lenses** — If `specs/tech-architecture/TEST_PLAN_LATEST.md` or ADRs exist, apply at phase gates.
 4. **Enforces gates** — Hard stops if success criteria not met.
 5. **The Gatekeeper** — Between stories in BUILD: read `specs/execution-status.yaml`; previous story must be `done` before starting the next; use `build-epic` for the 8-step epic cycle.
 6. **Pauses for confirmation** — After each phase, asks "Ready to proceed?".

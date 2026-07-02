@@ -1,0 +1,21 @@
+id: e35
+title: "DORA Metrics Extension"
+wsjf: 2.67
+bcps: 7
+status: proposed
+release: v2.45.0
+codename: "Deepening"
+source: specs/MISSING-REFERENCES-AND-DELIVERY-PLAN.md §4 Epic 5
+stories:
+  - id: e35s01
+    bcp: 2
+    title: "Extend cycle-times.yaml schema to include change_failure_rate and restore_time_minutes"
+    verify: grep -q 'change_failure_rate|restore_time' specs/metrics/cycle-times.yaml 2>/dev/null || grep -q 'change_failure_rate|restore_time' docs/references/accelerate.md && echo OK
+  - id: e35s02
+    bcp: 3
+    title: "Update release-branch to compute change_failure_rate and restore_time_minutes"
+    verify: grep -q 'change_failure_rate|restore_time' skills/release-branch/SKILL.md && echo OK
+  - id: e35s03
+    bcp: 2
+    title: "Update CONVENTIONS.md BCP accounting to reference DORA four keys"
+    verify: grep -q 'DORA|deployment.frequency|change.failure' CONVENTIONS.md && echo OK
