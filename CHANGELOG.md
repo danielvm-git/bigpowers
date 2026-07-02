@@ -1,3 +1,10 @@
+## [2.43.2](https://github.com/danielvm-git/bigpowers/compare/v2.43.1...v2.43.2) (2026-07-02)
+
+
+### Bug Fixes
+
+* **ci:** resolve doctrine drift — stale count and line cap ([4930391](https://github.com/danielvm-git/bigpowers/commit/49303917543a56feb6dd47e92641f90bea289cb4))
+
 ## [2.43.1](https://github.com/danielvm-git/bigpowers/compare/v2.43.0...v2.43.1) (2026-07-02)
 
 

@@ -193,7 +193,7 @@
     },
     "plan-release": {
       "description": "\"RELEASE-INDEX BUILDER — Sequence elaborated epics into specs/release-plan.yaml with WSJF ordering and BCP baselines. NOT a planning-spine substitute: it does not scope work (scope-work) or write story tasks (plan-work). Use after elaborate-spec when the user wants a versioned release index of epics.\"",
-      "sha256": "d664fde0d07e88ba",
+      "sha256": "6a47658098abc342",
       "path": "plan-release/SKILL.md"
     },
     "plan-work": {
@@ -263,7 +263,7 @@
     },
     "security-review": {
       "description": "> AI-powered security analysis of code changes — traces data flow, detects injection, auth bypass, secrets exposure, and unsafe deserialization across files. Use when reviewing pending changes, before release-branch, during verify-work Phase 5, during build-epic Step 0 threat modeling, or when the user says \"security review\" or \"scan for vulns\".",
-      "sha256": "24aeeed072282d0c",
+      "sha256": "8fe9fa518af2aaa6",
       "path": "security-review/SKILL.md"
     },
     "seed-conventions": {
