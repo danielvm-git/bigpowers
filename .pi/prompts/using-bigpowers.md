@@ -98,8 +98,12 @@ Start the HTTP dashboard with `visual-dashboard` → `GET /api/status?projectDir
 - **Integrate:** team default is `gh pr` (team-pr); solo profile uses `land-branch.sh`. Never create GitHub issues from skills — use local Markdown files instead.
 - **One skill, one thing.** If you're unsure which skill to call, call `survey-context` — it reads your current state and recommends the next step.
 - **verify: every step.** Every epic task must have `verify: <runnable command>`. Evidence over claims.
-- **70 skills.** See `SKILL-INDEX.md`; find skills with `search-skills`.
+- **The full catalog is auto-generated.** See `SKILL-INDEX.md`; find skills with `search-skills`.
 
 ## After this
 
 Call `survey-context` to read your project's current state and get a personalized recommendation for where to go next.
+
+## Verify
+
+→ verify: `test -f using-bigpowers/SKILL.md && grep -q '^name:' using-bigpowers/SKILL.md && echo "OK: using-bigpowers valid" || echo "FAIL: using-bigpowers missing"`

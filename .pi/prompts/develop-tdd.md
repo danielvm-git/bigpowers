@@ -93,6 +93,11 @@ If this cycle modified files in `.github/workflows/`, run the CI dry-run procedu
 [ ] verify: command passes
 ```
 
+## Verify
+
+→ verify: `test -f develop-tdd/SKILL.md && grep -q '^name:' develop-tdd/SKILL.md && echo "OK: develop-tdd valid" || echo "FAIL: develop-tdd missing"`
+
+
 ## Handoff
 
 Gate: READY -> next: verify-work

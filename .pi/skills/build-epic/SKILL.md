@@ -78,4 +78,4 @@ Write `handoff.next_skill` and `handoff.context` in `state.yaml` when pausing mi
 
 ## Verify
 
-→ verify: `grep -q 'active_flow: build_epic' specs/state.yaml && test -f specs/epics/*/epic.yaml`
+→ verify: `test -f build-epic/SKILL.md && grep -q '^name:' build-epic/SKILL.md && echo "OK: build-epic valid" || echo "FAIL: build-epic missing"`

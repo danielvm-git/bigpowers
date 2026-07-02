@@ -73,3 +73,7 @@ When invoked again in the same conversation:
 3. Update definitions if understanding has evolved
 4. Re-flag any new ambiguities
 5. Rewrite the example dialogue to incorporate new terms
+
+## Verify
+
+→ verify: `test -f define-language/SKILL.md && grep -q '^name:' define-language/SKILL.md && echo "OK: define-language valid" || echo "FAIL: define-language missing"`

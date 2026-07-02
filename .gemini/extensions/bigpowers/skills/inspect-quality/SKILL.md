@@ -104,3 +104,7 @@ For each bug, also append a detail section:
 ### 5. Continue the session
 
 After logging, ask: "Next issue, or are we done?" Keep going until the user says done. Each issue is independent — don't batch them.
+
+## Verify
+
+→ verify: `test -f inspect-quality/SKILL.md && grep -q '^name:' inspect-quality/SKILL.md && echo "OK: inspect-quality valid" || echo "FAIL: inspect-quality missing"`

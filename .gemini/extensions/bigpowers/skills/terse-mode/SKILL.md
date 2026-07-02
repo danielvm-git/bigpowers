@@ -36,3 +36,7 @@ Example — destructive op:
 > ```
 >
 > Terse resume. Verify backup exist first.
+
+## Verify
+
+→ verify: `test -f terse-mode/SKILL.md && grep -q '^name:' terse-mode/SKILL.md && echo "OK: terse-mode valid" || echo "FAIL: terse-mode missing"`

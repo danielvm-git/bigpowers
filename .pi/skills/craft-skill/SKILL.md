@@ -60,6 +60,10 @@ After drafting, verify:
 - [ ] specs/ output documented if applicable
 - [ ] `sync-skills.sh` run to propagate to Cursor/Gemini
 
+## Verify
+
+→ verify: `test -f craft-skill/SKILL.md && grep -q '^name:' craft-skill/SKILL.md && echo "OK: craft-skill valid" || echo "FAIL: craft-skill missing"`
+
 ---
 
 # Craft Skill — Reference

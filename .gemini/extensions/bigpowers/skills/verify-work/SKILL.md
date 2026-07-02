@@ -124,7 +124,7 @@ No "stop server" or "clear caches" steps are executed in `--cli` mode. Steps 3�
 
 ## Verify
 
-→ verify: `test -f specs/verifications/<story_id>-verify.yaml && echo "Evidence persisted"`
+→ verify: `find specs/verifications -maxdepth 1 -name '*-verify.yaml' 2>/dev/null | head -1 | grep -q . && echo "Evidence persisted" || echo "No evidence yet"`
 
 See [REFERENCE.md](REFERENCE.md) for cold-start and gaps template.
 

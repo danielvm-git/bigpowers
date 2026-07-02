@@ -4,7 +4,15 @@ on:
   push:
     branches: [ main, develop ]
     paths:
-      - '*/SKILL.md'
+      # */*.md covers SKILL.md AND supporting .md files — both are concatenated into artifacts
+      - '*/*.md'
+      - 'scripts/sync-skills.sh'
+      - 'scripts/build-skill-index.sh'
+      - '.github/workflows/sync-skills.yml'
+  pull_request:
+    branches: [ main, develop ]
+    paths:
+      - '*/*.md'
       - 'scripts/sync-skills.sh'
       - 'scripts/build-skill-index.sh'
       - '.github/workflows/sync-skills.yml'
@@ -25,10 +33,13 @@ jobs:
           bash scripts/validate-doctrine.sh
           git diff --exit-code \
             .cursor/rules \
-            .gemini/extensions/bigpowers/skills \
-            .gemini/extensions/bigpowers/commands \
+            .gemini/extensions/bigpowers \
+            .pi \
+            SKILL-INDEX.md \
+            skills-lock.json \
+            README.md \
             specs/SKILL-SEARCH-INDEX_LATEST.md || {
             echo "::error::Generated artifacts out of date. Run: bash scripts/sync-skills.sh && git add -A && git commit"
-            git diff --stat .cursor/rules .gemini/extensions/bigpowers/skills .gemini/extensions/bigpowers/commands specs/SKILL-SEARCH-INDEX_LATEST.md
+            git diff --stat .cursor/rules .gemini/extensions/bigpowers .pi SKILL-INDEX.md skills-lock.json README.md specs/SKILL-SEARCH-INDEX_LATEST.md
             exit 1
           }

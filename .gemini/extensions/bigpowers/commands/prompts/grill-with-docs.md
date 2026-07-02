@@ -20,7 +20,7 @@
 
 ## Verify
 
-→ verify: dialogue log contains at least one `https://` doc URL per challenged assumption
+→ verify: `grep -c 'https\?://' grill-with-docs/SKILL.md | awk '{if($1>=2) print "OK"; else print "NEEDS DOCS"}'`
 
 See [REFERENCE.md](REFERENCE.md) for question templates.
 

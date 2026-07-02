@@ -76,3 +76,7 @@ Check:
 ```
 
 Report the decision and rationale to the user.
+
+## Verify
+
+→ verify: `test -f delegate-task/SKILL.md && grep -q '^name:' delegate-task/SKILL.md && echo "OK: delegate-task valid" || echo "FAIL: delegate-task missing"`

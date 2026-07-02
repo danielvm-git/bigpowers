@@ -48,3 +48,7 @@ Suggest: `verify-work` → `run-evals` → `audit-code` → `simulate-agents` �
 ## Rules
 
 - **Loop until behavioral correctness is verified**: if a verify command passes but the observed behavior is still wrong, return to step 1 and run the execution cycle again.
+
+## Verify
+
+→ verify: `test -f execute-plan/SKILL.md && grep -q '^name:' execute-plan/SKILL.md && echo "OK: execute-plan valid" || echo "FAIL: execute-plan missing"`

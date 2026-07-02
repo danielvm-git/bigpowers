@@ -88,3 +88,7 @@ After writing the findings, delete or discard the spike code. It is not meant to
 ### 6. Feed back into plan-work
 
 The spike findings are the input to `plan-work`. Call `plan-work` next, informed by `specs/archive/spikes/SPIKE-<name>.md`.
+
+## Verify
+
+→ verify: `test -f spike-prototype/SKILL.md && grep -q '^name:' spike-prototype/SKILL.md && echo "OK: spike-prototype valid" || echo "FAIL: spike-prototype missing"`

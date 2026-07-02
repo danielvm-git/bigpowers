@@ -19,4 +19,4 @@ model: haiku
 
 ## Verify
 
-→ verify: `git status --short | wc -l | awk '{if($1==0) print "OK"; else print "DIRTY:" $1}'
+→ verify: `git status --short | wc -l | awk '{if($1==0) print "OK"; else print "DIRTY:" $1}'`

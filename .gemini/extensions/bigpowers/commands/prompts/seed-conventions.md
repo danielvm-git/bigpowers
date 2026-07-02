@@ -52,6 +52,9 @@ echo "# Specs\n\nAll planning documents for this project." > specs/README.md
 
 ## Verify
 
+→ verify: `test -f seed-conventions/SKILL.md && grep -q '^name:' seed-conventions/SKILL.md && echo "OK: seed-conventions valid" || echo "FAIL: seed-conventions missing"`
+
+
 - [ ] CLAUDE.md exists and is populated
 - [ ] CONVENTIONS.md exists and includes specs/ output convention
 - [ ] specs/product/ exists with SCOPE_LATEST.yaml, VISION_LATEST.yaml, GLOSSARY_LATEST.yaml

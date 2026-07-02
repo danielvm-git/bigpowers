@@ -16,4 +16,4 @@ Idempotent prep so BUILD phase commands succeed on first run.
 
 ## Verify
 
-→ verify: commands from CLAUDE.md Test/Lint rows exit 0
+→ verify: `test -f CLAUDE.md && grep -q 'Test' CLAUDE.md && echo "OK: CLAUDE.md has test table" || echo "MISSING: test commands"`

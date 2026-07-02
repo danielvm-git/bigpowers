@@ -50,6 +50,11 @@ If this plan touches an existing module, run `assess-impact` first to understand
 
 After writing capsule tasks, suggest `kickoff-branch` (if not already on a feature branch) then `build-epic`, `execute-plan`, or `develop-tdd`.
 
+## Verify
+
+→ verify: `test -f plan-work/SKILL.md && grep -q '^name:' plan-work/SKILL.md && echo "OK: plan-work valid" || echo "FAIL: plan-work missing"`
+
+
 ## Handoff
 
 Gate: READY -> next: kickoff-branch

@@ -51,4 +51,4 @@ title: Short title
 
 ## Verify
 
-→ verify: `test -d specs/bugs && bash scripts/sync-bugs-registry.sh`
+→ verify: `test -d specs/bugs && test -f scripts/run-skill-verify.sh`

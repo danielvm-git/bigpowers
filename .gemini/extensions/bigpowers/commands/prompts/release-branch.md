@@ -123,6 +123,10 @@ git checkout main && git status && pwd
 
 Report: "Branch released. Integrate mode: <solo-local|team-pr>. cwd: $(pwd) on $(git branch --show-current)."
 
+## Verify
+
+→ verify: `test -f release-branch/SKILL.md && grep -q '^name:' release-branch/SKILL.md && echo "OK: release-branch valid" || echo "FAIL: release-branch missing"`
+
 ---
 
 # Release Branch — Reference

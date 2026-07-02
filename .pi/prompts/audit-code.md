@@ -119,6 +119,11 @@ PASS Law of Demeter
 
 Aggregate exit code: `0` if all sections PASS, `1` (non-zero) if any section FAILs. Write the full audit report to `specs/verifications/AUDIT-<epic>-<story>.md` as a permanent record.
 
+## Verify
+
+→ verify: `test -f audit-code/SKILL.md && grep -q '^name:' audit-code/SKILL.md && echo "OK: audit-code valid" || echo "FAIL: audit-code missing"`
+
+
 ## Handoff
 
 Gate: READY -> next: commit-message

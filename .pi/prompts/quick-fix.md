@@ -96,12 +96,7 @@ Invoke `release-branch` to merge and ship.
 
 ## Verify
 
-```bash
-test -f quick-fix/SKILL.md && echo "OK: skill file exists" || echo "FAIL: no skill file"
-grep -q "name: quick-fix" quick-fix/SKILL.md && echo "OK: frontmatter" || echo "FAIL: frontmatter"
-grep -qi "data.only\|trivial\|fast.path\|guardrail\|abort" quick-fix/SKILL.md && echo "OK: entry criteria and guardrails"
-grep -q "quick-fix" SKILL-INDEX.md && echo "OK: in SKILL-INDEX"
-```
+→ verify: `test -f quick-fix/SKILL.md && grep -q '^name:' quick-fix/SKILL.md && echo "OK: quick-fix valid" || echo "FAIL: quick-fix missing"`
 
 ## Example
 

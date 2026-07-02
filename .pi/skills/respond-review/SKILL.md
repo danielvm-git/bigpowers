@@ -70,3 +70,7 @@ All tests pass.
 ```
 
 Suggest next skill: `commit-message`.
+
+## Verify
+
+→ verify: `test -f respond-review/SKILL.md && grep -q '^name:' respond-review/SKILL.md && echo "OK: respond-review valid" || echo "FAIL: respond-review missing"`

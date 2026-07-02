@@ -18,4 +18,4 @@ description: "Restore the project to a known clean state between agent runs or e
 
 ## Verify
 
-→ verify: `git status --short | wc -l | awk '{if($1==0) print "OK"; else print "DIRTY:" $1}'
+→ verify: `git status --short | wc -l | awk '{if($1==0) print "OK"; else print "DIRTY:" $1}'`

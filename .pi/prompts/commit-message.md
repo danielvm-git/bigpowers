@@ -46,6 +46,11 @@ If the repo uses a custom `@semantic-release/commit-analyzer` preset, note that 
 
 - [REFERENCE.md](REFERENCE.md) — Message shape, footers, release mapping, squashing notes.
 
+## Verify
+
+→ verify: `test -f commit-message/SKILL.md && grep -q '^name:' commit-message/SKILL.md && echo "OK: commit-message valid" || echo "FAIL: commit-message missing"`
+
+
 ## Handoff
 
 Gate: READY -> next: release-branch

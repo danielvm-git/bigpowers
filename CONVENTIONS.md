@@ -212,5 +212,6 @@ name must return < 5 results across the repo.
 | `terse-mode` | adjective-noun | `enable-terse` implies a toggle; `terse-mode` names a mode state |
 | `visual-dashboard` | adjective-noun | `view-dashboard` implies read-only; `show-dashboard` collides with `show` verbs |
 | `deploy` | single verb | Well-known DevOps single-word concept; renames like `deploy-app` or `deploy-service` are redundant since deploy always targets an application |
+| `grill-with-docs` | three-word verb-prep-noun | Variant of `grill-me`; the `-with-docs` suffix is the distinguishing feature — collapsing it would hide the doc-grounded contract |
 
 Any new exception requires an entry in this table before the skill is published.

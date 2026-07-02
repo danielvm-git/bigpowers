@@ -4,7 +4,7 @@ Read CONVENTIONS.md before any GitHub or git operation.
 
 ## Project
 
-bigpowers — 61 agent skills for spec-driven, test-first software development by solo developers.
+bigpowers — agent skills for spec-driven, test-first software development by solo developers (skill count and catalog are auto-generated in `SKILL-INDEX.md`; never hardcode the count in docs).
 Stack: Markdown / Bash (documentation-based; skills integrate with Claude Code, Cursor, Gemini CLI)
 
 ## Commands

@@ -98,3 +98,7 @@ A clean run looks like: `col=0px overlay=0px baseline≤4px ink=0px` → `GRID V
 
 ## CREED
 A grid you can't toggle on and measure is a mood board, not a system. Build it from one source of truth, prove it at 0px, and align the **ink**.
+
+## Verify
+
+→ verify: `test -f align-grid/SKILL.md && grep -q '^name:' align-grid/SKILL.md && echo "OK: align-grid valid" || echo "FAIL: align-grid missing"`

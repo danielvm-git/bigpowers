@@ -189,6 +189,28 @@ if [[ -x "$REPO_ROOT/scripts/build-skill-index.sh" ]]; then
   bash "$REPO_ROOT/scripts/build-skill-index.sh" || true
 fi
 
+# Prune orphan cursor rules — .mdc files whose skill directory no longer exists.
+# Allowlist: hand-maintained rules that intentionally have no SKILL.md source.
+CURSOR_KEEP="context7.mdc"
+for mdc in "$CURSOR_RULES"/*.mdc; do
+  [[ -e "$mdc" ]] || continue
+  mdc_base=$(basename "$mdc")
+  case " $CURSOR_KEEP " in *" $mdc_base "*) continue ;; esac
+  if [[ ! -f "$REPO_ROOT/${mdc_base%.mdc}/SKILL.md" ]]; then
+    rm "$mdc"
+    echo "  → pruned orphan cursor rule: $mdc_base"
+  fi
+done
+
+# Stamp the README skill-count badge from the live count — never hardcode it by hand.
+# Portable (BSD/GNU): write to temp file instead of sed -i.
+readme="$REPO_ROOT/README.md"
+if [[ -f "$readme" ]] && grep -q 'badge/skills-' "$readme"; then
+  readme_tmp=$(mktemp)
+  sed -E "s|(badge/skills-)[0-9]+(-brightgreen)|\1${skill_count}\2|" "$readme" > "$readme_tmp"
+  mv "$readme_tmp" "$readme"
+fi
+
 echo "sync-skills: $skill_count skills synced"
 echo "  → .cursor/rules/ ($skill_count .mdc files)"
 echo "  → .gemini/extensions/bigpowers/skills/ (Agent Skills)"

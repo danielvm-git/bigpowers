@@ -323,7 +323,7 @@
     },
     "using-bigpowers": {
       "description": "One-time bootstrap that introduces the bigpowers skills system, the PMBOK lifecycle arc, and tells you which skill to call first for your situation. Use when starting with bigpowers for the first time, when user asks \"where do I start?\", or when the skills system needs to be explained.",
-      "sha256": "172d9f3f4c0b3b96",
+      "sha256": "532965a50772a04f",
       "path": "using-bigpowers/SKILL.md"
     },
     "validate-contracts": {
