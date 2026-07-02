@@ -1,5 +1,6 @@
 ---
 name: security-review
+model: sonnet
 description: >
   AI-powered security analysis of code changes — traces data flow, detects
   injection, auth bypass, secrets exposure, and unsafe deserialization across
