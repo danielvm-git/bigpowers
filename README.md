@@ -48,26 +48,36 @@ node scripts/mcp-server.js
 - **Model Context Protocol (MCP)**: Dynamic tool discovery and invocation via the included MCP server.
 - **Built-in Quality Gates**: Strict verification standards (e.g., F.I.R.S.T tests, BCP accounting) enforced before any code is merged.
 
-## The Philosophy: Concatenating References
+## 🧠 Philosophical Stack — How These Ideas Concatenate
 
-`bigpowers` is built upon a concatenated philosophy. Each era of software engineering introduced principles that solved previous problems but created new tensions. `bigpowers` stacks these references, resolving their inherent tensions, and synthesizes them into an executable discipline for AI agents.
+`bigpowers` is not a flat list of influences. It is a **chronological layer cake** — each wave of thinking builds on and resolves tensions from the previous one. No layer replaces the last; each addresses a problem the prior one created.
 
-```mermaid
-flowchart TD
-    A[2008: Uncle Bob<br>Clean Code, SRP, F.I.R.S.T] -->|Tension: Small functions create shallow modules| B(2018: Ousterhout<br>Deep Modules, Information Hiding)
-    B -->|Tension: Raw LLMs lack discipline| C(2023: Karpathy / Pocock<br>Think-first planning, Verb-Noun Skills)
-    C -->|Tension: Agents drift without verifiable specs| D(2024: Wasowski<br>Spec-Driven Development, BDD)
-    D -->|Tension: Human rules don't fit AI limits| E(2026: Akita<br>Clean Code for AI, Grep-ability, JSON logs)
-    E -->|Synthesis| F{bigpowers<br>6-Phase Lifecycle, BMAD, YAML Cockpit}
-    
-    style F fill:#1A8917,stroke:#fff,stroke-width:2px,color:#fff
-```
+![Philosophy Diagram](docs/images/philosophy_diagram.jpg)
 
-1. **Uncle Bob (2008)**: Established the baseline for code hygiene (Clean Code, SRP).
-2. **Ousterhout (2018)**: Solved the fragmentation of Clean Code by advocating for Deep Modules.
-3. **Karpathy / Pocock (2023-2024)**: Introduced strict verb-noun skill architecture for orchestrating AI.
-4. **Wasowski (2024)**: Solved agent drift by introducing Spec-Driven Development (SDD) as the human-agent contract.
-5. **Akita (2026)**: Adapted classical clean code for the token economy (Grep-ability, remediation hints).
+| Era | Source | Contribution | Tension Resolved |
+|:---|:---|:---|:---|
+| **2008** | [Uncle Bob](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882) (Clean Code) | SRP, Boy Scout Rule, F.I.R.S.T. tests, intention-revealing names | — (foundation) |
+| **2018** | [Ousterhout](https://www.amazon.com/Philosophy-Software-Design-John-Ousterhout/dp/1732102201) (*A Philosophy of Software Design*) | Deep modules, information hiding, define errors out of existence | Small functions alone create shallow modules with bloated interfaces |
+| **2023–24** | [Karpathy](https://github.com/multica-ai/andrej-karpathy-skills), [Superpowers](https://github.com/obra/superpowers), [Pocock](https://github.com/mattpocock/skills) | Think-first planning, verb-noun skill architecture, zoom-out strategy | Raw LLMs have no discipline — they need orchestration, not raw prompting |
+| **2024** | [Wasowski](https://medium.com/@wasowski.jarek/sdd-writing-specifications-for-ai-bdd-as-the-missing-link-spec-driven-development-ad1b540b7f75) (SDD), [BCP](https://github.com/flow-ciandt/bcp-agent) | Specs as the human-agent interface; business complexity as a pre-build sizing unit | Agents drift without a verifiable spec — BDD Gherkin closes the loop |
+| **2026** | [Akita](https://akitaonrails.com/2026/04/20/clean-code-para-agentes-de-ia/) (*Clean Code for AI Agents*) | Grep-ability, structured JSON logging, token economy, remediation hints in errors | Uncle Bob's rules were written for humans — agents need different code hygiene |
+| **Synthesis** | BMAD + GSD (self-authored) | 6-phase lifecycle, hard gates, 94% quality threshold, `specs/state.yaml` cockpit | All the above are principles; bigpowers turns them into an executable discipline |
+
+### How to see the concatenation in action
+
+Each philosophical pillar has a corresponding Gherkin `.feature` file in [`specs/verifications/features/`](specs/verifications/features/) that empirically proves compliance:
+
+| Pillar | Verification |
+|:---|:---|
+| Classical Craftsmanship | `cleancode.feature` |
+| Complexity Management | `pocock.feature` |
+| Behavioral Integrity | `karpathy.feature` |
+| Spec-Driven Development | Implicit in SDD workflow |
+| Agentic Standard | `akita.feature` |
+| Project Conventions | `conventions.feature` |
+| Original Baseline | `superpowers.feature` |
+
+Run `npm run compliance` to audit all features. Score < 94% = hard stop.
 
 ## Development
 
