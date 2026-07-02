@@ -1,3 +1,10 @@
+## [2.45.1](https://github.com/danielvm-git/bigpowers/compare/v2.45.0...v2.45.1) (2026-07-02)
+
+
+### Bug Fixes
+
+* **skills:** remove 43 tautological verify commands, add behavior checks to critical-path skills ([8823212](https://github.com/danielvm-git/bigpowers/commit/88232125b8ee25b74dfa765a2d839d3d95e80d9e)), closes [#37](https://github.com/danielvm-git/bigpowers/issues/37) [#39](https://github.com/danielvm-git/bigpowers/issues/39) [#40](https://github.com/danielvm-git/bigpowers/issues/40) [#41](https://github.com/danielvm-git/bigpowers/issues/41) [#42](https://github.com/danielvm-git/bigpowers/issues/42)
+
 # [2.45.0](https://github.com/danielvm-git/bigpowers/compare/v2.44.1...v2.45.0) (2026-07-02)
 
 
