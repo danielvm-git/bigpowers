@@ -1,4 +1,4 @@
-active_flow: fix_bug
+active_flow: none
 bug_id: BUG-2026-07-02T103911
 bug_cycle:
   current_step: 5
@@ -7,10 +7,13 @@ bug_cycle:
   - 2
   - 3
   - 4
+  - 5
 release:
   ci_verified: true
+  released_at: "2026-07-02T16:40:52Z"
+  commit: 8f01bf8
 handoff:
-  next_skill: release-branch
+  next_skill: session-state
 metrics:
   skill_timings:
     survey-context:
