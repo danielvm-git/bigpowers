@@ -71,10 +71,6 @@ node extract-design/tests/test-extraction.js
 
 See [REFERENCE.md](REFERENCE.md) for extraction algorithms and heuristics.
 
-## Verify
-
-→ verify: `test -f extract-design/SKILL.md && grep -q '^name:' extract-design/SKILL.md && echo "OK: extract-design valid" || echo "FAIL: extract-design missing"`
-
 ---
 
 # Extract Design — Reference

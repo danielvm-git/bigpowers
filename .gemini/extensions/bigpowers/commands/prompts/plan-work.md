@@ -48,7 +48,6 @@ After writing capsule tasks, suggest `kickoff-branch` (if not already on a featu
 
 ## Verify
 
-→ verify: `test -f plan-work/SKILL.md && grep -q '^name:' plan-work/SKILL.md && echo "OK: plan-work valid" || echo "FAIL: plan-work missing"`
 
 
 ## Handoff

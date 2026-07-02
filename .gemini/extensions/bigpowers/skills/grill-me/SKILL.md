@@ -29,10 +29,6 @@ Short form:
 4. Report confirmed ✓, corrected ✗ (with the real behavior), and uncertain → `spike-prototype`.
 5. Update the plan for each confirmed discrepancy.
 
-## Verify
-
-→ verify: `test -f grill-me/SKILL.md && grep -q '^name:' grill-me/SKILL.md && echo "OK: grill-me valid" || echo "FAIL: grill-me missing"`
-
 ---
 
 # Docs Mode — Full Process

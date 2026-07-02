@@ -79,5 +79,3 @@ Any further notes about the refactor.
 After writing `specs/REFACTOR_LATEST.md`, suggest running `kickoff-branch` next to create a refactor branch.
 
 ## Verify
-
-→ verify: `test -f plan-refactor/SKILL.md && grep -q '^name:' plan-refactor/SKILL.md && echo "OK: plan-refactor valid" || echo "FAIL: plan-refactor missing"`

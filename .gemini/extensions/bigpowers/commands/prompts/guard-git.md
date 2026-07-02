@@ -38,10 +38,6 @@ To add or remove patterns or protected branches, edit `pre-tool-use.sh`.
 
 Full JSON examples, merge rules, Antigravity deny-list entries, and test commands: [REFERENCE.md](REFERENCE.md).
 
-## Verify
-
-→ verify: `test -f guard-git/SKILL.md && grep -q '^name:' guard-git/SKILL.md && echo "OK: guard-git valid" || echo "FAIL: guard-git missing"`
-
 ---
 
 # Git guardrails — reference

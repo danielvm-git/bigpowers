@@ -76,7 +76,3 @@ For each failing criterion:
 4. Re-run the suite to confirm it still passes
 
 Report: "F.I.R.S.T audit complete. X criteria passed, Y fixed."
-
-## Verify
-
-→ verify: `test -f enforce-first/SKILL.md && grep -q '^name:' enforce-first/SKILL.md && echo "OK: enforce-first valid" || echo "FAIL: enforce-first missing"`

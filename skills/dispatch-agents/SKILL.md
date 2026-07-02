@@ -83,6 +83,3 @@ Merge accepted results. If any agent's result conflicts with another, resolve ma
 
 Report a summary: which tasks succeeded, which need revision, and overall verify status.
 
-## Verify
-
-→ verify: `test -f dispatch-agents/SKILL.md && grep -q '^name:' dispatch-agents/SKILL.md && echo "OK: dispatch-agents valid" || echo "FAIL: dispatch-agents missing"`

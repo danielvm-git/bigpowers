@@ -70,7 +70,3 @@ When the reviewer returns:
 Pass the reviewer's report to `respond-review` to categorize findings and apply fixes.
 
 Report to user: "Review complete. [N] findings: [X] must-fix, [Y] should-fix, [Z] consider. Running respond-review."
-
-## Verify
-
-→ verify: `test -f request-review/SKILL.md && grep -q '^name:' request-review/SKILL.md && echo "OK: request-review valid" || echo "FAIL: request-review missing"`

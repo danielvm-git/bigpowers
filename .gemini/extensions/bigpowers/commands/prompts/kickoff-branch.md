@@ -114,9 +114,6 @@ Ready to develop.
 
 Suggest next skill: `develop-tdd` to start the TDD loop, or `execute-plan` if `specs/release-plan.yaml + epic capsule directories` already exists.
 
-## Verify
-
-→ verify: `test -f kickoff-branch/SKILL.md && grep -q '^name:' kickoff-branch/SKILL.md && echo "OK: kickoff-branch valid" || echo "FAIL: kickoff-branch missing"`
 
 
 ## Handoff

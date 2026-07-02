@@ -96,9 +96,6 @@ Skipped skills (justified for data-only change):
 
 Invoke `release-branch` to merge and ship.
 
-## Verify
-
-→ verify: `test -f quick-fix/SKILL.md && grep -q '^name:' quick-fix/SKILL.md && echo "OK: quick-fix valid" || echo "FAIL: quick-fix missing"`
 
 ## Example
 

@@ -101,7 +101,3 @@ Mechanical verification (tests passing) is only half the fix. You must prove **b
 - **The verify command from specs/bugs/BUG-*.md or the active epic task `verify` field must pass**
 
 Suggest next skill: `audit-code` → `commit-message`.
-
-## Verify
-
-→ verify: `test -f validate-fix/SKILL.md && grep -q '^name:' validate-fix/SKILL.md && echo "OK: validate-fix valid" || echo "FAIL: validate-fix missing"`

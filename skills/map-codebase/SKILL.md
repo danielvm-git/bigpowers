@@ -70,6 +70,3 @@ Compile all findings into `specs/tech-architecture/tech-stack.md`. This file ser
 - When `survey-context` reveals a lack of domain knowledge.
 - To refresh `specs/tech-architecture/tech-stack.md` after significant changes.
 
-## Verify
-
-→ verify: `test -f map-codebase/SKILL.md && grep -q '^name:' map-codebase/SKILL.md && echo "OK: map-codebase valid" || echo "FAIL: map-codebase missing"`

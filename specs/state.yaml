@@ -1,26 +1,34 @@
-active_flow: build
+active_flow: release
 epic_cycle:
   epic_id: e30
   epic_slug: arch-quick-fixes
   capsule_dir: specs/epics/e30-arch-quick-fixes
   current_story: e30s04
-  total_bcps: 10
-  story_bcps: 2
-  current_step: 0
-  completed_steps: []
-  audit_result: null
-  fast_mode: false
+  total_bcps: 8
+  story_bcps: 3
+  current_step: 8
+  completed_steps:
+    - "1"
+    - "2"
+    - "3"
+    - "4"
+    - "5"
+    - "6"
+    - "7"
+    - "8"
+  audit_result: pass
+  fast_mode: true
 handoff:
-  next_skill: build-epic
-  last_step_completed: e30 intake committed to main (21e85ec)
+  next_skill: release-branch
+  last_step_completed: "e30 complete — 4 stories done: get_phase() fix, tech-architecture refs, stale .bak, 43 tautological verify commands replaced/removed"
 bug_id: null
 bug_cycle:
   current_step: 0
   completed_steps: null
 release:
   ci_verified: true
-  released_at: '2026-07-02T22:59:00Z'
-  commit: 21e85ec
+  released_at: "2026-07-02T22:59:00Z"
+  commit: 93ddfc7
   tag: none (semantic-release will tag on push)
 planning:
   release: v2.45.0
@@ -30,7 +38,7 @@ planning:
     - specs/MISSING-REFERENCES-AND-DELIVERY-PLAN.md
     - specs/QUALITY-GUARANTEE-STRATEGY.md
   epics_planned:
-    - e30: "Architecture Quick Fixes" (10 BCP)
+    - e30: "Architecture Quick Fixes" (8 BCP — DONE)
     - e31: "Quality Guarantee Infrastructure" (22 BCP)
     - e32: "Missing Historical References" (20 BCP)
     - e33: "Sync Pipeline Refactor" (13 BCP)
@@ -38,29 +46,35 @@ planning:
     - e35: "DORA Metrics Extension" (7 BCP)
     - e36: "Documentation Deduplication" (10 BCP)
   github_issues_created:
-    - 37 (e30)
-    - 36 (e31)
-    - 32 (e32)
-    - 33 (e33)
-    - 34 (e34)
-    - 35 (e35)
-    - 31 (e36)
-    - 40 (Bug: phase table missing 3 skills)
-    - 41 (Bug: broken tech-architecture refs)
-    - 38 (Bug: stale .bak file)
-    - 39 (Bug: tautological verify commands)
-    - 42 (Bug: skill-verify false FAILs)
+    - "37 (e30)"
+    - "36 (e31)"
+    - "32 (e32)"
+    - "33 (e33)"
+    - "34 (e34)"
+    - "35 (e35)"
+    - "31 (e36)"
+    - "40 (Bug: phase table missing 3 skills)"
+    - "41 (Bug: broken tech-architecture refs)"
+    - "38 (Bug: stale .bak file)"
+    - "39 (Bug: tautological verify commands)"
+    - "42 (Bug: skill-verify false FAILs)"
+  gaps_fixed:
+    - SCOPE_LATEST.yaml — added fr-11 through fr-17 for e30-e36
+    - release-plan.yaml — removed duplicate e30-e36 from BACKLOG section
+    - execution-status.yaml — e30s02 marked done (verified fixed), e30: done
+    - e30 epic.yaml — removed e30s05 (already implemented in build-epic Step 2), reduced BCP 10→8
+    - CLAUDE.md — added Typecheck: N/A and CI platform rows
 metrics:
   skill_timings:
     survey-context:
       calls: 0
       total_seconds: 0
       avg_seconds: 0
-      _start: '2026-06-28T23:57:13Z'
+      _start: "2026-06-28T23:57:13Z"
     release-branch:
-      calls: 3
-      total_seconds: 835.0
-      avg_seconds: 278.3
+      calls: 2
+      total_seconds: 472.0
+      avg_seconds: 236.0
     plan-work:
       calls: 1
       total_seconds: 101.0

@@ -113,7 +113,3 @@ A numbered list of RED-GREEN cycles:
 </diagnosis-template>
 
 After writing the bug file, print a one-line summary of the root cause and suggest running `kickoff-branch` next to create a fix branch.
-
-## Verify
-
-→ verify: `test -f investigate-bug/SKILL.md && grep -q '^name:' investigate-bug/SKILL.md && echo "OK: investigate-bug valid" || echo "FAIL: investigate-bug missing"`

@@ -105,7 +105,3 @@ Start the HTTP dashboard with `visual-dashboard` → `GET /api/status?projectDir
 ## After this
 
 Call `survey-context` to read your project's current state and get a personalized recommendation for where to go next.
-
-## Verify
-
-→ verify: `test -f using-bigpowers/SKILL.md && grep -q '^name:' using-bigpowers/SKILL.md && echo "OK: using-bigpowers valid" || echo "FAIL: using-bigpowers missing"`

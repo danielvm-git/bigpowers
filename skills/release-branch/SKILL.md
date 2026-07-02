@@ -130,4 +130,4 @@ Report: "Branch released. Integrate mode: <solo-local|team-pr>. cwd: $(pwd) on $
 
 ## Verify
 
-→ verify: `test -f release-branch/SKILL.md && grep -q '^name:' release-branch/SKILL.md && echo "OK: release-branch valid" || echo "FAIL: release-branch missing"`
+→ verify: `command -v gh >/dev/null 2>&1 && test -f specs/state.yaml && test -d skills/verify-work && echo "OK: release-branch dependencies available" || echo "FAIL"`

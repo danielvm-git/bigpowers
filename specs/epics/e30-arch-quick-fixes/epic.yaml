@@ -1,22 +1,30 @@
 id: e30
 title: "Architecture Quick Fixes"
 wsjf: 6.5
-bcps: 10
-status: backlog
+bcps: 8
+status: done
 source: specs/DEEPEN-ARCHITECTURE-REVIEW.md
+note: >
+  e30s02 (broken tech-architecture refs) was verified already fixed in working tree
+  (commit 21e85ec). e30s05 (plan-checker gate) was already implemented — build-epic
+  Step 2 already runs assess-impact with risk-score gating. Both removed from story
+  list. BCP reduced from 10 to 8. All 4 remaining stories completed.
 stories:
   - id: e30s01
     title: "Add 3 missing skills to get_phase() in generate-skill-index.sh"
     bcps: 2
+    status: done
   - id: e30s02
     title: "Fix 4 broken specs/tech-architecture/ references"
     bcps: 2
+    status: done
+    note: Already fixed in working tree (commit 21e85ec)
   - id: e30s03
     title: "Delete stale karpathy.feature.bak"
     bcps: 1
+    status: done
   - id: e30s04
     title: "Replace tautological verify commands with behavior-relevant checks"
     bcps: 3
-  - id: e30s05
-    title: "Add plan-checker as mandatory gate in build-epic"
-    bcps: 2
+    status: done
+    note: 43 skills fixed (40 removed entire Verify section, 3 replaced with behavior checks)

@@ -55,9 +55,6 @@ echo "# Specs\n\nAll planning documents for this project." > specs/README.md
 
 `specs/state.yaml` carries a top-level `workflow_mode` key (`team-pr` | `solo-git`, default `team-pr`). This is the **canonical integrate-mode signal** for all skills — set it once here and skills such as `release-branch` read it from this file instead of sniffing profile files.
 
-## Verify
-
-→ verify: `test -f seed-conventions/SKILL.md && grep -q '^name:' seed-conventions/SKILL.md && echo "OK: seed-conventions valid" || echo "FAIL: seed-conventions missing"`
 
 
 - [ ] CLAUDE.md exists and is populated

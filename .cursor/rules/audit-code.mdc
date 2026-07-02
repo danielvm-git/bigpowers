@@ -122,7 +122,7 @@ Aggregate exit code: `0` if all sections PASS, `1` (non-zero) if any section FAI
 
 ## Verify
 
-→ verify: `test -f audit-code/SKILL.md && grep -q '^name:' audit-code/SKILL.md && echo "OK: audit-code valid" || echo "FAIL: audit-code missing"`
+→ verify: `test -f CONVENTIONS.md && test -d skills/enforce-first && test -d skills/request-review && echo "OK: audit-code dependencies present" || echo "FAIL"`
 
 
 ## Handoff

@@ -91,10 +91,6 @@ Side effects happen inline as decisions crystallize:
 - **User rejects the candidate with a load-bearing reason?** Offer an ADR, framed as: _"Want me to record this as an ADR so future architecture reviews don't re-suggest it?"_ Only offer when the reason would actually be needed by a future explorer. See [ADR-FORMAT.md](../model-domain/ADR-FORMAT.md).
 - **Want to explore alternative interfaces for the deepened module?** See [INTERFACE-DESIGN.md](INTERFACE-DESIGN.md).
 
-## Verify
-
-→ verify: `test -f deepen-architecture/SKILL.md && grep -q '^name:' deepen-architecture/SKILL.md && echo "OK: deepen-architecture valid" || echo "FAIL: deepen-architecture missing"`
-
 ---
 
 # Deepening

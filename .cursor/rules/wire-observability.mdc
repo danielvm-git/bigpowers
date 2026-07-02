@@ -91,7 +91,3 @@ Place setup scripts in `scripts/setup.sh` (or language-appropriate equivalent). 
 - [ ] Run `scripts/setup.sh` twice — second run should produce no errors
 - [ ] Health check command returns success
 - [ ] No sensitive data in log output
-
-## Verify
-
-→ verify: `test -f wire-observability/SKILL.md && grep -q '^name:' wire-observability/SKILL.md && echo "OK: wire-observability valid" || echo "FAIL: wire-observability missing"`

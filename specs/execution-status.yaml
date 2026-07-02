@@ -12,6 +12,7 @@ development_status:
   e03: "done"
   e03s01: "done"
   e03s02: "done"
+  e03s03: "done"
   e04: "done"
   e04s01: "done"
   e04s02: "done"
@@ -128,12 +129,11 @@ development_status:
   e29s01: done
   e29s02: done
   e29s03: done
-  e30: active
+  e30: done
   e30s01: done
-  e30s02: backlog
+  e30s02: done
   e30s03: done
-  e30s04: backlog
-  e30s05: backlog
+  e30s04: done
   e31: backlog
   e31s01: backlog
   e31s02: backlog

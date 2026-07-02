@@ -20,7 +20,3 @@ Confirm the sections with the user.
 2. For each section:
 
 2a. Rewrite the section to improve clarity, coherence, and flow. Use maximum 240 characters per paragraph.
-
-## Verify
-
-→ verify: `test -f edit-document/SKILL.md && grep -q '^name:' edit-document/SKILL.md && echo "OK: edit-document valid" || echo "FAIL: edit-document missing"`

@@ -17,6 +17,8 @@ Stack: Markdown / Bash (documentation-based; skills integrate with Claude Code, 
 | Build   | `bash scripts/install.sh` (from source) |
 | Lint    | `bash scripts/sync-skills.sh` (validates SKILL.md syntax) |
 | Validate specs YAML | `bash scripts/validate-specs-yaml.sh` |
+| Typecheck | N/A (Markdown / Bash project) |
+| CI platform | GitHub Actions (`.github/workflows/publish.yml`, `sync-skills.yml`) |
 | Compliance | `npm run compliance` |
 
 ## Architecture

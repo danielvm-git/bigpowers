@@ -66,4 +66,3 @@ Once confirmed, these pairs become the skeleton for `plan-work`'s steps. Pass th
 
 ## Verify
 
-→ verify: `test -f define-success/SKILL.md && grep -q '^name:' define-success/SKILL.md && echo "OK: define-success valid" || echo "FAIL: define-success missing"`

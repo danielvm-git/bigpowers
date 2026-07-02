@@ -28,6 +28,33 @@ in_scope:
     title: Discoverable repository layout — skill sources grouped under skills/, README visible on GitHub landing page
     epic: e29
 
+  # ── v2.45.0 "Deepening" track — internal-tooling debt ─────────────────
+  # These epics improve the skill system's architecture and quality infrastructure.
+  # They are not user-facing features; scope is internal-tooling debt reduction.
+  # Source docs: DEEPEN-ARCHITECTURE-REVIEW.md, MISSING-REFERENCES-AND-DELIVERY-PLAN.md,
+  # QUALITY-GUARANTEE-STRATEGY.md. Build order in specs/release-plan.yaml.
+  - id: fr-11
+    title: Quality guarantee infrastructure — golden story suite, compliance gate, token budget (e31)
+    epic: e31
+  - id: fr-12
+    title: Architecture quick fixes — fix concrete bugs from architecture review (e30)
+    epic: e30
+  - id: fr-13
+    title: Historical reference docs — 9 missing provenance pointers (e32)
+    epic: e32
+  - id: fr-14
+    title: Sync pipeline refactor — parse→IR→render (e33)
+    epic: e33
+  - id: fr-15
+    title: Context engineering layer — named strategies + effort frontmatter (e34)
+    epic: e34
+  - id: fr-16
+    title: DORA metrics extension — beyond BCP/hr to four DORA keys (e35)
+    epic: e35
+  - id: fr-17
+    title: Documentation deduplication — provenance pointers, not restatements (e36)
+    epic: e36
+
 out_of_scope:
   - Domain-specific scaffold skills
   - SaaS tracker integrations (Jira, Linear)
@@ -48,6 +75,8 @@ success_criteria:
   - YAML layout validates via validate-specs-yaml.sh
   - Repo root has ~20 entries so README renders above the fold on GitHub (fr-10)
   - Skill count and all consumer artifacts unchanged after the skills/ move (fr-10)
+  - Golden story suite baseline established (fr-11, e31)
+  - Tautological verify commands eliminated from all skills (fr-12, e30)
 
 references:
   plans: specs/tech-architecture/TECH_STACK_LATEST.md

@@ -96,6 +96,3 @@ From "A Philosophy of Software Design":
 - Don't implement — this is purely about interface shape
 - Don't evaluate based on implementation effort
 
-## Verify
-
-→ verify: `test -f design-interface/SKILL.md && grep -q '^name:' design-interface/SKILL.md && echo "OK: design-interface valid" || echo "FAIL: design-interface missing"`

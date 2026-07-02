@@ -103,6 +103,3 @@ Mechanical verification (tests passing) is only half the fix. You must prove **b
 
 Suggest next skill: `audit-code` → `commit-message`.
 
-## Verify
-
-→ verify: `test -f validate-fix/SKILL.md && grep -q '^name:' validate-fix/SKILL.md && echo "OK: validate-fix valid" || echo "FAIL: validate-fix missing"`

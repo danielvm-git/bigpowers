@@ -100,6 +100,3 @@ Once the spec is clear, recommend the next step:
 - If architecture decisions are needed → `deepen-architecture` or `grill-me`
 - If the plan depends on a specific library or API → `grill-me` in docs mode
 
-## Verify
-
-→ verify: `test -f elaborate-spec/SKILL.md && grep -q '^name:' elaborate-spec/SKILL.md && echo "OK: elaborate-spec valid" || echo "FAIL: elaborate-spec missing"`

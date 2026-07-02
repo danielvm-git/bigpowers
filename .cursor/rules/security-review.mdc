@@ -53,7 +53,6 @@ Each finding: **`File:Line` — Severity — Category**
 
 ## Verify
 
-→ verify: `test -f security-review/SKILL.md && grep -q '^name:' security-review/SKILL.md && echo "OK: security-review valid" || echo "FAIL: security-review missing"`
 
 
 ```bash
