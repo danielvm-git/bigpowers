@@ -1,3 +1,10 @@
+# [2.44.0](https://github.com/danielvm-git/bigpowers/compare/v2.43.5...v2.44.0) (2026-07-02)
+
+
+### Features
+
+* **repo:** move 72 skill sources to skills/ directory ([89ab1d9](https://github.com/danielvm-git/bigpowers/commit/89ab1d9d588bcac74b7186b7bd8170c3c4df8242))
+
 ## [2.43.5](https://github.com/danielvm-git/bigpowers/compare/v2.43.4...v2.43.5) (2026-07-02)
 
 
