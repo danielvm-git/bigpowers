@@ -1,3 +1,10 @@
+# [2.45.0](https://github.com/danielvm-git/bigpowers/compare/v2.44.1...v2.45.0) (2026-07-02)
+
+
+### Features
+
+* **specs:** intake e30-e36 deep track and fix arch bugs ([21e85ec](https://github.com/danielvm-git/bigpowers/commit/21e85ecfe69cf9fbb8422e477594dd7c1f2f5d81))
+
 ## [2.44.1](https://github.com/danielvm-git/bigpowers/compare/v2.44.0...v2.44.1) (2026-07-02)
 
 
