@@ -1,7 +1,7 @@
 {
   "name": "bigpowers",
   "version": "2.43.2",
-  "description": "70 agent skills for spec-driven, test-first software development by solo developers",
+  "description": "72 agent skills synthesizing 17 years of software engineering discipline into a prescriptive methodology for solo developers",
   "main": "index.js",
   "scripts": {
     "compliance": "bash scripts/audit-compliance.sh specs/verifications/features && bash scripts/validate-doctrine.sh",

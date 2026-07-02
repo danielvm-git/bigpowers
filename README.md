@@ -2,13 +2,13 @@
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 ![npm version](https://img.shields.io/npm/v/bigpowers.svg)
-![Skills](https://img.shields.io/badge/skills-70-brightgreen.svg)
+![Skills](https://img.shields.io/badge/skills-72-brightgreen.svg)
 
-**70 agent skills for high-integrity, spec-driven, test-first software development by solo developers.**
+**72 agent skills synthesizing 17 years of software engineering discipline — from Clean Code to AI-native architecture — into a single, prescriptive methodology for solo developers.**
 
-`bigpowers` provides a prescriptive, vertical-slice methodology for building software with AI agents (Claude Code, Gemini CLI, Cursor, pi). It bridges the gap between raw LLM capabilities and professional engineering standards.
+`bigpowers` is not a random collection of best practices. It is a chronological layer cake of ideas: each wave of thinking (Uncle Bob → Ousterhout → Karpathy → Wasowski → Akita) builds on and resolves tensions from the last, culminating in a 6-phase lifecycle with hard gates, a 94% quality threshold, and a YAML cockpit (`specs/state.yaml`) that keeps both human and agent aligned across sessions.
 
-Published on npm: [bigpowers@2.0.0](https://www.npmjs.com/package/bigpowers)
+Published on npm: [bigpowers@2.43.2](https://www.npmjs.com/package/bigpowers)
 
 ---
 
@@ -155,7 +155,7 @@ Or add manually to `.claude/settings.json`:
 
 | Tool | Description |
 |------|-------------|
-| `bigpowers_list_skills` | List all 70 skills with name, description, phase. Optional `phase` filter. |
+| `bigpowers_list_skills` | List all 72 skills with name, description, phase. Optional `phase` filter. |
 | `bigpowers_get_skill` | Get full SKILL.md content for any skill by name. |
 | `bigpowers_search_skills` | Keyword/semantic search — returns ranked matches for a query. |
 | `bigpowers_get_state` | Get current `specs/state.yaml` (active flow, epic, step). |
@@ -224,18 +224,38 @@ ONCE/PROJECT orchestrate-project
 - `dashboard/`: Live monitoring tool — TUI (`npm run dashboard`) and web (`npm run dashboard:web`, port 7742).
 - `docs/`: Guides including `WORKFLOW-SOP-v2.md` (full SDLC SOP) and `using-bigpowers.md`.
 - `docs/references/`: Theoretical foundations (Uncle Bob, Ousterhout, Karpathy, etc.).
-- `[skill-name]/`: Source files for each of the 70 skills.
+- `[skill-name]/`: Source files for each of the 72 skills.
 
 ---
 
-## 🤝 References & Credits
+## 🧠 Philosophical Stack — How These Ideas Concatenate
 
-`bigpowers` stands on the shoulders of giants. It integrates patterns from:
-- **Akita**: Architectural patterns.
-- **BMAD**: Bold, Minimal, Actionable, Durable documentation.
-- **Clean Code**: Robert C. Martin (Uncle Bob).
-- **A Philosophy of Software Design**: John Ousterhout.
-- **GSD (Get Stuff Done)**: Pragmatic workflow frameworks.
+`bigpowers` is not a flat list of influences. It is a **chronological layer cake** — each wave of thinking builds on and resolves tensions from the previous one. No layer replaces the last; each addresses a problem the prior one created.
+
+| Era | Source | Contribution | Tension Resolved |
+|:---|:---|:---|:---|
+| **2008** | [Uncle Bob](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882) (Clean Code) | SRP, Boy Scout Rule, F.I.R.S.T. tests, intention-revealing names | — (foundation) |
+| **2018** | [Ousterhout](https://www.amazon.com/Philosophy-Software-Design-John-Ousterhout/dp/1732102201) (*A Philosophy of Software Design*) | Deep modules, information hiding, define errors out of existence | Small functions alone create shallow modules with bloated interfaces |
+| **2023–24** | [Karpathy](https://github.com/multica-ai/andrej-karpathy-skills), [Superpowers](https://github.com/obra/superpowers), [Pocock](https://github.com/mattpocock/skills) | Think-first planning, verb-noun skill architecture, zoom-out strategy | Raw LLMs have no discipline — they need orchestration, not raw prompting |
+| **2024** | [Wasowski](https://medium.com/@wasowski.jarek/sdd-writing-specifications-for-ai-bdd-as-the-missing-link-spec-driven-development-ad1b540b7f75) (SDD), [BCP](https://github.com/flow-ciandt/bcp-agent) | Specs as the human-agent interface; business complexity as a pre-build sizing unit | Agents drift without a verifiable spec — BDD Gherkin closes the loop |
+| **2026** | [Akita](https://akitaonrails.com/2026/04/20/clean-code-para-agentes-de-ia/) (*Clean Code for AI Agents*) | Grep-ability, structured JSON logging, token economy, remediation hints in errors | Uncle Bob's rules were written for humans — agents need different code hygiene |
+| **Synthesis** | BMAD + GSD (self-authored) | 6-phase lifecycle, hard gates, 94% quality threshold, `specs/state.yaml` cockpit | All the above are principles; bigpowers turns them into an executable discipline |
+
+### How to see the concatenation in action
+
+Each philosophical pillar has a corresponding Gherkin `.feature` file in [`specs/verifications/features/`](specs/verifications/features/) that empirically proves compliance:
+
+| Pillar | Verification |
+|:---|:---|
+| Classical Craftsmanship | `cleancode.feature` |
+| Complexity Management | `pocock.feature` |
+| Behavioral Integrity | `karpathy.feature` |
+| Spec-Driven Development | Implicit in SDD workflow |
+| Agentic Standard | `akita.feature` |
+| Project Conventions | `conventions.feature` |
+| Original Baseline | `superpowers.feature` |
+
+Run `npm run compliance` to audit all features. Score < 94% = hard stop.
 
 ---
 
