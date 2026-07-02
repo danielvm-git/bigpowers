@@ -103,3 +103,7 @@ For comprehensive health-checking, chain to the `smoke-test` skill:
 # After deploy success
 bash scripts/run-smoke.sh "$DEPLOY_URL"
 ```
+
+## Verify
+
+→ verify: `test -f deploy/SKILL.md && grep -q '^name:' deploy/SKILL.md && echo "OK: deploy valid" || echo "FAIL: deploy missing"`

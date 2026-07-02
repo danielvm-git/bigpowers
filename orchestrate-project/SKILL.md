@@ -66,3 +66,7 @@ All phases complete with artifacts:
 ```bash
 verify: test -f specs/state.yaml && test -f specs/release-plan.yaml && test -f specs/product/SCOPE_LATEST.yaml && ls specs/epics/*.yaml 1>/dev/null && echo "✅ All phases complete"
 ```
+
+## Verify
+
+→ verify: `test -f orchestrate-project/SKILL.md && grep -q '^name:' orchestrate-project/SKILL.md && echo "OK: orchestrate-project valid" || echo "FAIL: orchestrate-project missing"`

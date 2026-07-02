@@ -109,3 +109,7 @@ FAILED: 1 contract has divergence
 bash scripts/validate-contracts.sh <contract-file>
 # → All pass → ready to deploy
 ```
+
+## Verify
+
+→ verify: `test -f validate-contracts/SKILL.md && grep -q '^name:' validate-contracts/SKILL.md && echo "OK: validate-contracts valid" || echo "FAIL: validate-contracts missing"`

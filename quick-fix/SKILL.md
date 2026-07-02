@@ -97,6 +97,9 @@ Invoke `release-branch` to merge and ship.
 
 ## Verify
 
+→ verify: `test -f quick-fix/SKILL.md && grep -q '^name:' quick-fix/SKILL.md && echo "OK: quick-fix valid" || echo "FAIL: quick-fix missing"`
+
+
 ```bash
 test -f quick-fix/SKILL.md && echo "OK: skill file exists" || echo "FAIL: no skill file"
 grep -q "name: quick-fix" quick-fix/SKILL.md && echo "OK: frontmatter" || echo "FAIL: frontmatter"

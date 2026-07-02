@@ -64,3 +64,7 @@ The `deploy` skill references `smoke-test` as its final verification step:
 # In deploy workflow — after successful deploy
 DEPLOY_URL="$DEPLOY_URL" bash scripts/run-smoke.sh
 ```
+
+## Verify
+
+→ verify: `test -f smoke-test/SKILL.md && grep -q '^name:' smoke-test/SKILL.md && echo "OK: smoke-test valid" || echo "FAIL: smoke-test missing"`

@@ -96,3 +96,7 @@ When the plan touches shared state, async, or multi-threaded code:
 - [ ] For each: who reads, who writes, synchronization mechanism (lock, actor, immutable copy).
 - [ ] Flag **race risks** (check-then-act, non-atomic read-modify-write) with severity.
 - [ ] Record findings in `specs/tech-architecture/tech-stack.md` under `## Concurrency` or in an ADR if architectural.
+
+## Verify
+
+→ verify: `test -f model-domain/SKILL.md && grep -q '^name:' model-domain/SKILL.md && echo "OK: model-domain valid" || echo "FAIL: model-domain missing"`
