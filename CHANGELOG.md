@@ -1,3 +1,10 @@
+## [2.43.4](https://github.com/danielvm-git/bigpowers/compare/v2.43.3...v2.43.4) (2026-07-02)
+
+
+### Bug Fixes
+
+* **ci:** add verify commands to 43 skills — 0 FAIL, 0 SKIP ([178e363](https://github.com/danielvm-git/bigpowers/commit/178e3631f40be249fe51838818003dd37efe2ded))
+
 ## [2.43.3](https://github.com/danielvm-git/bigpowers/compare/v2.43.2...v2.43.3) (2026-07-02)
 
 
