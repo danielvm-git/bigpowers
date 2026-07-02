@@ -4,15 +4,15 @@ on:
   push:
     branches: [ main, develop ]
     paths:
-      # */*.md covers SKILL.md AND supporting .md files — both are concatenated into artifacts
-      - '*/*.md'
+      # skills/*/*.md covers SKILL.md AND supporting .md files — both are concatenated into artifacts
+      - 'skills/*/*.md'
       - 'scripts/sync-skills.sh'
       - 'scripts/build-skill-index.sh'
       - '.github/workflows/sync-skills.yml'
   pull_request:
     branches: [ main, develop ]
     paths:
-      - '*/*.md'
+      - 'skills/*/*.md'
       - 'scripts/sync-skills.sh'
       - 'scripts/build-skill-index.sh'
       - '.github/workflows/sync-skills.yml'

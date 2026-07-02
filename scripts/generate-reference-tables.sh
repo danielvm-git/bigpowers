@@ -7,6 +7,9 @@ set -euo pipefail
 REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 TARGET="$REPO_ROOT/docs/references/model-profiles.md"
 mkdir -p "$(dirname "$TARGET")"
+# SKILLS_ROOT: use skills/ when it exists, fall back to repo root
+SKILLS_ROOT="$REPO_ROOT"
+[[ -d "$REPO_ROOT/skills" ]] && SKILLS_ROOT="$REPO_ROOT/skills"
 
 cd "$REPO_ROOT"
 
@@ -17,7 +20,7 @@ while IFS= read -r line; do
   model_raw="${line##*model: }"
   model="${model_raw// /}"
   ROWS+=("$skill_dir $model")
-done < <(grep -r "^model:" */SKILL.md | sort)
+done < <(grep -r "^model:" "$SKILLS_ROOT"/*/SKILL.md | sort)
 
 TOTAL=${#ROWS[@]}
 
@@ -35,7 +38,7 @@ for row in "${ROWS[@]}"; do
 done
 BLOCK+="
 
-Total: **$TOTAL** skills — verify with \`ls -d \*/SKILL.md | wc -l\`
+Total: **$TOTAL** skills — verify with \`find . skills -maxdepth 2 -name SKILL.md 2>/dev/null | grep -v '.git\|.cursor\|.gemini\|.pi' | sort -u | wc -l\`
 <!-- AUTO-GENERATED-CATALOG: end -->"
 
 # --- 3. Splice block into target file ---

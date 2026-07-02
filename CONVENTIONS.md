@@ -202,7 +202,7 @@ The agent implements defensive code only for categories explicitly listed here.
 
 ## Skill Naming — Conventions and Exceptions
 
-All skill directories use a two-word `verb-noun` kebab-case pair (ADR-0001). Grep for any skill
+All skill directories under `skills/` use a two-word `verb-noun` kebab-case pair (ADR-0001). Grep for any skill
 name must return < 5 results across the repo.
 
 **Documented exceptions** (adjective-noun retained for clarity; renaming would reduce usability):

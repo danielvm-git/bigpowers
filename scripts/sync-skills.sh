@@ -4,6 +4,10 @@
 set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+# SKILLS_ROOT: use skills/ subdirectory when it exists, fall back to repo root
+# This allows e29s02 to git-mv skill dirs into skills/ without changing this script.
+SKILLS_ROOT="$REPO_ROOT"
+[[ -d "$REPO_ROOT/skills" ]] && SKILLS_ROOT="$REPO_ROOT/skills"
 CURSOR_RULES="$REPO_ROOT/.cursor/rules"
 GEMINI_EXT_DIR="$REPO_ROOT/.gemini/extensions/bigpowers"
 GEMINI_SKILLS="$GEMINI_EXT_DIR/skills"
@@ -27,7 +31,7 @@ rm -rf "${PI_PROMPTS:?}"/*
 
 skill_count=0
 
-for skill_dir in "$REPO_ROOT"/*/; do
+for skill_dir in "$SKILLS_ROOT"/*/; do
   skill_md="$skill_dir/SKILL.md"
   [[ -f "$skill_md" ]] || continue
 
@@ -163,7 +167,7 @@ if [[ -n "$OPN_TARGET" ]] && [[ -d "$OPN_TARGET" ]]; then
   OPN_SKILLS="$OPN_TARGET/skills"
   mkdir -p "$OPN_SKILLS"
   opencode_count=0
-  for skill_dir in "$REPO_ROOT"/*/; do
+  for skill_dir in "$SKILLS_ROOT"/*/; do
     skill_md="$skill_dir/SKILL.md"
     [[ -f "$skill_md" ]] || continue
     skill_name=$(basename "$skill_dir")
@@ -196,7 +200,7 @@ for mdc in "$CURSOR_RULES"/*.mdc; do
   [[ -e "$mdc" ]] || continue
   mdc_base=$(basename "$mdc")
   case " $CURSOR_KEEP " in *" $mdc_base "*) continue ;; esac
-  if [[ ! -f "$REPO_ROOT/${mdc_base%.mdc}/SKILL.md" ]]; then
+  if [[ ! -f "$SKILLS_ROOT/${mdc_base%.mdc}/SKILL.md" ]]; then
     rm "$mdc"
     echo "  → pruned orphan cursor rule: $mdc_base"
   fi

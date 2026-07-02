@@ -6,11 +6,14 @@ set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 LOCKFILE="$REPO_ROOT/skills-lock.json"
+# SKILLS_ROOT: use skills/ when it exists, fall back to repo root
+SKILLS_ROOT="$REPO_ROOT"
+[[ -d "$REPO_ROOT/skills" ]] && SKILLS_ROOT="$REPO_ROOT/skills"
 
 # Build JSON using jq from individual skill records
 # We pipe each skill as a JSON object, then jq -s merges them into an object keyed by name
 records=()
-for skill_dir in "$REPO_ROOT"/*/; do
+for skill_dir in "$SKILLS_ROOT"/*/; do
   skill_md="$skill_dir/SKILL.md"
   [[ -f "$skill_md" ]] || continue
 

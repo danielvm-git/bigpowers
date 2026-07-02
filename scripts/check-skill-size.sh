@@ -6,6 +6,9 @@ set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$REPO_ROOT"
+# SKILLS_ROOT: use skills/ when it exists, fall back to repo root
+SKILLS_ROOT="$REPO_ROOT"
+[[ -d "$REPO_ROOT/skills" ]] && SKILLS_ROOT="$REPO_ROOT/skills"
 
 ERRORS=0
 
@@ -44,8 +47,8 @@ CRITICAL_PATH=(
 )
 
 # Check all */SKILL.md files
-for skill_file in */SKILL.md; do
-  skill_name="${skill_file%/SKILL.md}"
+for skill_file in "$SKILLS_ROOT"/*/SKILL.md; do
+  skill_name="$(basename "$(dirname "$skill_file")")"
   line_count=$(wc -l < "$skill_file")
 
   # Determine cap based on critical-path membership

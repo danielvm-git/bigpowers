@@ -18,7 +18,7 @@ the interactive docs experience.
 
 1. Update `CLAUDE.md` **Never** section: add an entry forbidding direct edits
    to `website/src/content/docs/*` — agents must edit the source files
-   (README.md, */SKILL.md, docs/, specs/adr/) and run the prebuild.
+   (README.md, skills/*/SKILL.md, docs/, specs/adr/) and run the prebuild.
    Document the website as the fourth generated artifact target alongside
    `.cursor/`, `.gemini/`, `.pi/`.
    → verify: `grep -qi 'website' CLAUDE.md`

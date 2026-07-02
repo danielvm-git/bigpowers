@@ -12,7 +12,7 @@ Astro-compatible .md/.mdx files organized into Starlight content collections.
 
 Sources → pages mapping:
 - `README.md` → Getting Started landing page
-- `*/SKILL.md` (72 files) → one page per skill, grouped by lifecycle phase
+- `skills/*/SKILL.md` (72 files) → one page per skill, grouped by lifecycle phase
 - `docs/*.md` → Guides section (excluding images/ and archive/)
 - `specs/adr/*.md` → Architecture Decisions section
 - `SKILL-INDEX.md` → Skill Index reference page (auto-generated, already exists)
@@ -31,13 +31,13 @@ Sources → pages mapping:
    `description`).
    → verify: `node website/scripts/prebuild.mjs && grep -q 'title:' website/src/content/docs/index.mdx`
 
-3. Implement skills page generator: iterate `../*/SKILL.md`, parse frontmatter
+3. Implement skills page generator: iterate `../skills/*/SKILL.md`, parse frontmatter
    (`name`, `description`, `phase` from docs/references/model-profiles.md or
    inferred from skill directory), strip the YAML frontmatter block, write each
    skill body to `website/src/content/docs/skills/<name>.mdx` with Starlight
-   frontmatter. The skill count must equal `ls -d ../*/SKILL.md | wc -l` — no
+   frontmatter. The skill count must equal `ls -d ../skills/*/SKILL.md | wc -l` — no
    hardcoding.
-   → verify: `test $(ls website/src/content/docs/skills/*.mdx | wc -l) -eq $(ls -d */SKILL.md | wc -l)`
+   → verify: `test $(ls website/src/content/docs/skills/*.mdx | wc -l) -eq $(ls -d skills/*/SKILL.md | wc -l)`
 
 4. Implement Starlight sidebar auto-generation: produce a
    `website/src/content/docs/skills/index.mdx` page that groups skills by
@@ -63,7 +63,7 @@ Sources → pages mapping:
    → verify: `grep -q 'prebuild' package.json && npm run site:build 2>&1 | grep -v 'error'`
 
 8. Run full build and verify skill count assertion passes.
-   → verify: `cd website && npm run prebuild && test $(ls src/content/docs/skills | wc -l) -eq $(ls -d ../*/SKILL.md | wc -l)`
+   → verify: `cd website && npm run prebuild && test $(ls src/content/docs/skills | wc -l) -eq $(ls -d ../skills/*/SKILL.md | wc -l)`
 
 ## Verification Script
 

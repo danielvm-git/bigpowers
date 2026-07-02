@@ -18,6 +18,9 @@ fi
 
 REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$REPO_ROOT"
+# SKILLS_ROOT: use skills/ when it exists, fall back to repo root
+SKILLS_ROOT="$REPO_ROOT"
+[[ -d "$REPO_ROOT/skills" ]] && SKILLS_ROOT="$REPO_ROOT/skills"
 
 PASS=0; FAIL=0; SKIP=0
 TARGET="${1:-}"
@@ -70,7 +73,7 @@ if [ -n "$TARGET" ]; then
     exit 1
   fi
 else
-  for skill_md in */SKILL.md; do
+  for skill_md in "$SKILLS_ROOT"/*/SKILL.md; do
     run_skill "$skill_md"
   done
 fi

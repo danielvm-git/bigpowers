@@ -6,7 +6,7 @@ status: planned
 planned_at: "2026-07-02T15:40:00Z"
 description: >
   Public, Google-discoverable docs site generated entirely from existing
-  sources (README.md, */SKILL.md, docs/, specs/adr) — no second repo, no
+  sources (README.md, skills/*/SKILL.md, docs/, specs/adr) — no second repo, no
   hand-maintained site content. Astro Starlight lives in website/ in this
   repo and deploys to GitHub Pages via Actions on push to main. The site is
   a fourth generated artifact target alongside .cursor/, .gemini/, .pi/:
@@ -32,12 +32,12 @@ stories:
       GIVEN the existing repo sources
       WHEN the site prebuild runs
       THEN README.md becomes the landing/getting-started pages
-      AND every */SKILL.md becomes one skill page, grouped by lifecycle
+      AND every skills/*/SKILL.md becomes one skill page, grouped by lifecycle
       phase from frontmatter (count must equal the live skill count — no
       hardcoding)
       AND docs/ guides and specs/adr/ decisions get their own sections
       AND no content file under website/ is hand-written.
-    verify: "cd website && npm run prebuild && test $(ls src/content/docs/skills | wc -l) -eq $(ls -d ../*/SKILL.md | wc -l)"
+    verify: "cd website && npm run prebuild && test $(ls src/content/docs/skills | wc -l) -eq $(ls -d ../skills/*/SKILL.md | wc -l)"
   - id: e28s03
     title: "SEO + AI discoverability layer"
     bcps: 2

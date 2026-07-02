@@ -36,7 +36,7 @@ GitHub Actions automatically:
 
 Manual tagging (`git tag v1.0.0`) is not required.
 
-See `RELEASE.md` and `.github/SEMANTIC-RELEASE.md` for commit format and troubleshooting.
+See `docs/RELEASE.md` and `.github/SEMANTIC-RELEASE.md` for commit format and troubleshooting.
 
 ## 3. Sync Skills Workflow
 

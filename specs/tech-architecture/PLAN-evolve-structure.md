@@ -395,7 +395,7 @@ Phase 5: Scripts & Validation (depends on Phase 4)
 
 Phase 6: Documentation & Index
   ├── SKILL-INDEX.md update
-  ├── RELEASE.md update (2.0.0 notes)
+  ├── docs/RELEASE.md update (2.0.0 notes)
   └── README.md update
 ```
 

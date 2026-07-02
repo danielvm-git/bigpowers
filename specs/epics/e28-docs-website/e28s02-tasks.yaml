@@ -13,7 +13,7 @@ tasks:
     status: todo
   - id: 3
     description: "SKILL.md → skills/*.mdx page generator (count must match live skills)"
-    verify: "test $(ls website/src/content/docs/skills/*.mdx 2>/dev/null | wc -l) -eq $(ls -d */SKILL.md | wc -l)"
+    verify: "test $(ls website/src/content/docs/skills/*.mdx 2>/dev/null | wc -l) -eq $(ls -d skills/*/SKILL.md | wc -l)"
     status: todo
   - id: 4
     description: "Skills index page grouping by lifecycle phase"
@@ -33,5 +33,5 @@ tasks:
     status: todo
   - id: 8
     description: "Full build with skill count assertion"
-    verify: "cd website && npm run prebuild && test $(ls src/content/docs/skills | wc -l) -eq $(ls -d ../*/SKILL.md | wc -l)"
+    verify: "cd website && npm run prebuild && test $(ls src/content/docs/skills | wc -l) -eq $(ls -d ../skills/*/SKILL.md | wc -l)"
     status: todo

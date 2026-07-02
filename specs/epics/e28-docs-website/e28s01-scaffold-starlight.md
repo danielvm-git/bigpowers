@@ -9,7 +9,7 @@
 Create a new Astro Starlight documentation site in `website/` within the bigpowers
 monorepo. The site is a generated artifact target — no content is hand-written in
 website/src/content/. All pages are produced by the prebuild script (e28s02) from
-existing repo sources: README.md, */SKILL.md, docs/, specs/adr/.
+existing repo sources: README.md, skills/*/SKILL.md, docs/, specs/adr/.
 
 Starlight is chosen because it's the official Astro docs framework, supports MDX
 out of the box, and has built-in SEO, search, and sidebar navigation.

@@ -169,13 +169,13 @@ Run `npm run compliance` to audit all features. Score < 94% = hard stop.
 
 ## 📁 Project Structure
 
+- `skills/[skill-name]/`: Source files for each of the 72 skills.
 - `scripts/`: Installation, syncing, and compliance tools.
 - `specs/`: YAML cockpit — `state.yaml`, `release-plan.yaml`, `epics/`, `execution-status.yaml`, `requirements/`.
 - `specs/metrics/`: Cycle-time ledger (`cycle-times.yaml`) — per-story BCPs, timestamps, BCP/hr (v2.0.0).
 - `dashboard/`: Live monitoring tool — TUI (`npm run dashboard`) and web (`npm run dashboard:web`, port 7742).
 - `docs/`: Guides including `WORKFLOW-SOP-v2.md` (full SDLC SOP) and `using-bigpowers.md`.
 - `docs/references/`: Theoretical foundations (Uncle Bob, Ousterhout, Karpathy, etc.).
-- `[skill-name]/`: Source files for each skill — one `SKILL.md` per directory is the single source of truth.
 
 ---
 

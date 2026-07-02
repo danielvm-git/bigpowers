@@ -99,7 +99,7 @@ Phase 6: Final Verification
   ├── sync-skills.sh regeneration
   ├── stocktake-skills (100% HARD GATE compliance + 100% path correctness)
   ├── validate-specs-yaml.sh (all schemas)
-  └── Documentation: SKILL-INDEX.md, RELEASE.md, README.md
+  └── Documentation: SKILL-INDEX.md, docs/RELEASE.md, README.md
 ```
 
 ---

@@ -8,7 +8,7 @@
 
 Deploy the Starlight site to GitHub Pages via the official `actions/deploy-pages`
 action. The workflow triggers on pushes to `main` that touch content paths
-(`*/SKILL.md`, `docs/`, `specs/adr/`, `website/`, `README.md`). It must not
+(`skills/*/SKILL.md`, `docs/`, `specs/adr/`, `website/`, `README.md`). It must not
 interfere with the existing `publish.yml` sync-skills drift gate or the
 semantic-release publishing pipeline.
 
@@ -24,7 +24,7 @@ GitHub Pages source: "GitHub Actions" (not branch-based — no `gh-pages` branch
 2. Create `.github/workflows/docs-site.yml`:
    - Name: "Deploy Docs Site to GitHub Pages"
    - Trigger: `push` to `main` with `paths` filter matching content sources:
-     `'*/SKILL.md'`, `'docs/**'`, `'specs/adr/**'`, `'website/**'`, `'README.md'`,
+     `'skills/*/SKILL.md'`, `'docs/**'`, `'specs/adr/**'`, `'website/**'`, `'README.md'`,
      `'.github/workflows/docs-site.yml'`
    - Permissions: `contents: read`, `pages: write`, `id-token: write`
    - Concurrency: `group: pages`, `cancel-in-progress: false`

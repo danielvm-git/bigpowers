@@ -85,7 +85,7 @@ npm run sync
 
 ```
 bigpowers/
-├── [skill-name]/       # Each skill has its own directory with SKILL.md
+├── skills/[skill-name]/  # Each skill has its own directory with SKILL.md
 ├── scripts/            # Install, sync, validation, and compliance scripts
 ├── specs/              # YAML cockpit — state.yaml, release-plan.yaml, epics/
 ├── docs/               # Guides and references

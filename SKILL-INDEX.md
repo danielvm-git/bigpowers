@@ -159,5 +159,5 @@ All skills follow `verb-noun` kebab-case (ADR-0001). Documented exceptions:
 1. Run `bash scripts/sync-skills.sh` to regenerate this file and all artifacts.
 2. Or run `bash scripts/generate-skill-index.sh` to only regenerate this index.
 
-→ verify: `find . -maxdepth 2 -name "SKILL.md" | grep -v ".git\|.cursor\|.gemini" | wc -l`
+→ verify: `find . skills -maxdepth 2 -name "SKILL.md" 2>/dev/null | grep -v ".git\|.cursor\|.gemini\|.pi" | sort -u | wc -l`
 

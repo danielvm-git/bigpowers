@@ -7,21 +7,24 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 cd "$REPO_ROOT"
+# SKILLS_ROOT: use skills/ when it exists, fall back to repo root
+SKILLS_ROOT="$REPO_ROOT"
+[[ -d "$REPO_ROOT/skills" ]] && SKILLS_ROOT="$REPO_ROOT/skills"
 
 ORPHANS=()
 MISSING=()
 
-# Check: every .pi/skills/<name>/ dir must have a matching <name>/SKILL.md source
+# Check: every .pi/skills/<name>/ dir must have a matching source SKILL.md
 for d in .pi/skills/*/; do
   name=$(basename "$d")
-  if [ ! -f "$name/SKILL.md" ]; then
+  if [ ! -f "$SKILLS_ROOT/$name/SKILL.md" ]; then
     ORPHANS+=("$name")
   fi
 done
 
-# Check: every root-level SKILL.md dir must have a matching .pi/skills/<name>/SKILL.md
-for f in ./*/SKILL.md; do
-  name=$(echo "$f" | cut -d/ -f2)
+# Check: every SKILLS_ROOT SKILL.md dir must have a matching .pi/skills/<name>/SKILL.md
+for f in "$SKILLS_ROOT"/*/SKILL.md; do
+  name=$(basename "$(dirname "$f")")
   # Skip non-skill directories
   case "$name" in
     docs|node_modules|scripts|specs|dashboard|test) continue ;;
@@ -33,8 +36,8 @@ done
 
 PI_COUNT=$(ls -d .pi/skills/*/ 2>/dev/null | wc -l | tr -d ' ')
 SRC_COUNT=0
-for f in ./*/SKILL.md; do
-  name=$(echo "$f" | cut -d/ -f2)
+for f in "$SKILLS_ROOT"/*/SKILL.md; do
+  name=$(basename "$(dirname "$f")")
   case "$name" in
     docs|node_modules|scripts|specs|dashboard|test) continue ;;
   esac

@@ -2,6 +2,9 @@
 # add-model-frontmatter.sh — one-time helper; idempotent model: injection
 set -euo pipefail
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+# SKILLS_ROOT: use skills/ when it exists, fall back to repo root
+SKILLS_ROOT="$REPO_ROOT"
+[[ -d "$REPO_ROOT/skills" ]] && SKILLS_ROOT="$REPO_ROOT/skills"
 
 # Bash 3.2-compatible model mapping (no declare -A)
 get_model() {
@@ -12,7 +15,7 @@ get_model() {
   esac
 }
 
-for skill_dir in "$REPO_ROOT"/*/; do
+for skill_dir in "$SKILLS_ROOT"/*/; do
   skill_md="$skill_dir/SKILL.md"
   [[ -f "$skill_md" ]] || continue
   name=$(basename "$skill_dir")

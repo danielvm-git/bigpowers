@@ -1,10 +1,18 @@
-active_flow: plan_work
+active_flow: release
 epic_cycle:
-  epic_id: e28
-  epic_slug: docs-website
-  capsule_dir: specs/epics/e28-docs-website
-  current_story: e28s01
-  total_bcps: 13
+  epic_id: e29
+  epic_slug: skills-directory
+  capsule_dir: specs/epics/e29-skills-directory
+  current_story: e29s03
+  total_bcps: 7
+  story_bcps: 1
+  current_step: 8
+  completed_steps: ["0"]
+  audit_result: pass
+  fast_mode: true
+handoff:
+  next_skill: release-branch
+  last_step_completed: e29s03 committed — root 23 entries, all doctrine files updated for skills/
 bug_id: BUG-2026-07-02T103911
 bug_cycle:
   current_step: 5

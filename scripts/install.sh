@@ -14,6 +14,9 @@
 set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+# SKILLS_ROOT: use skills/ subdirectory when it exists, fall back to repo root
+SKILLS_ROOT="$REPO_ROOT"
+[[ -d "$REPO_ROOT/skills" ]] && SKILLS_ROOT="$REPO_ROOT/skills"
 
 DRY_RUN=false
 UNINSTALL=false
@@ -66,7 +69,7 @@ install_claude() {
   echo ""
   echo "Claude Code → $CLAUDE_SKILLS_DIR/"
   local count=0
-  for skill_dir in "$REPO_ROOT"/*/; do
+  for skill_dir in "$SKILLS_ROOT"/*/; do
     [[ -f "$skill_dir/SKILL.md" ]] || continue
     local name; name="$(basename "$skill_dir")"
     link "$skill_dir" "$CLAUDE_SKILLS_DIR/$name"
