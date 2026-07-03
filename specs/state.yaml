@@ -1,22 +1,17 @@
 active_flow: null
-bug_id: BUG-2026-07-03-negative-path-self-test
+bug_id: null
 bug_cycle:
-  completed_steps:
-  - '1'
-  - '2'
-  - '3'
-  - '4'
-  - '5'
+  completed_steps: []
 handoff:
   next_skill: survey-context
   context: >
-    Both P0 bugs FIXED and LANDED:
-    - P0 #1 (waiver-scoring, 985b67d): waiver subsystem in audit-compliance.sh
-    - P0 #2 (negative-path-self-test, 43a05b7): G-07 self-test, 5 step scripts
-      proven to detect violations on negative-path fixture, wired into golden suite
-    CI passed for both. Remaining bugs: P2 capsule-release-labels, P2 glossary-sparse,
-    P3 trace-stories-613-line.
-    Next: survey-context → build-epic on e43 (v2.7x train) or fix remaining bugs.
+    ALL 5 PLAN-AUDIT red-team bugs FIXED and LANDED on main:
+    - P0 #1 waiver-scoring (985b67d): waiver subsystem in audit-compliance.sh
+    - P0 #2 negative-path-self-test (43a05b7): G-07 self-test wired into golden suite
+    - P2 capsule-release-labels (15b18f4): 8 capsule labels synced to release trains
+    - P2 glossary-sparse (8a22358): 19 core domain terms populated
+    - P3 trace-stories-613-line (607c0fd): documented exception in CONVENTIONS.md
+    All CI passed. 0 open bugs. Next: survey-context → build-epic on e43 (v2.7x train, WSJF 4.00).
 release:
   ci_verified: true
   released_at: '2026-07-03T17:50:00Z'
