@@ -1,3 +1,10 @@
+# [2.58.0](https://github.com/danielvm-git/bigpowers/compare/v2.57.0...v2.58.0) (2026-07-03)
+
+
+### Features
+
+* **compliance:** add G-07 negative-path self-test for step scripts ([43a05b7](https://github.com/danielvm-git/bigpowers/commit/43a05b756cb0313cb52aba3d40ac77c1bce0bc56))
+
 # [2.57.0](https://github.com/danielvm-git/bigpowers/compare/v2.56.1...v2.57.0) (2026-07-03)
 
 
