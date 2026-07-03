@@ -31,6 +31,7 @@ done
 GATES=(
   "compliance:npm run compliance:false"
   "g04-selftest:bash scripts/golden-g04-selftest.sh:true"
+  "g07-negative-path:bash scripts/golden-g07-negative-path.sh:false"
 )
 
 GREEN='\033[0;32m'

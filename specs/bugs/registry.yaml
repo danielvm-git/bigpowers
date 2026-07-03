@@ -12,12 +12,15 @@ bugs:
     commit_message: "feat(compliance): add waiver subsystem to audit-compliance.sh"
     hardening: "Expired waivers auto-detect and re-enter FAIL denominator; review_date field forces re-evaluation every 90 days"
   - id: BUG-2026-07-03-negative-path-self-test
-    status: open
+    status: fixed
     severity: high
     scope: verifications
     title: "~90 step scripts have zero proof they can fail — no negative-path self-test (GAP-1 bug class)"
     file: bugs/BUG-2026-07-03-negative-path-self-test.md
     risk_level: high
+    files_changed: "specs/verifications/fixtures/negative-path/, scripts/golden-g07-negative-path.sh, scripts/run-golden-suite.sh"
+    approach: "Created negative-path fixture with 5 deliberate violations; G-07 self-test runs 5 step scripts against fixture and asserts non-zero exit; wired into golden suite as hard gate"
+    commit_message: "feat(compliance): add G-07 negative-path self-test for step scripts"
   - id: BUG-2026-07-03-trace-stories-613-line
     status: open
     severity: low

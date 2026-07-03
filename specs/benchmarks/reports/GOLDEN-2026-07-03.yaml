@@ -1,20 +1,24 @@
-timestamp: "2026-07-03T19:29:25Z"
-git_commit: "660e1e1d4e8d93ae7f0a8ebd97aa3e09d0c41eda"
+timestamp: "2026-07-03T19:41:06Z"
+git_commit: "f62f6660846f2fcf0cd6e72c343e0a8a33389ac5"
 suite: "golden-deterministic"
 mode: "daily"
 gates:
   - name: compliance
     exit_code: 0
-    duration_seconds: 6.77
+    duration_seconds: 7.78
     status: pass
   - name: g04-selftest
     exit_code: 1
     duration_seconds: .03
     status: fail
+  - name: g07-negative-path
+    exit_code: 0
+    duration_seconds: .05
+    status: pass
 summary:
-  total: 2
-  passed: 1
+  total: 3
+  passed: 2
   failed: 1
   skipped: 0
-  pass_rate: .50
+  pass_rate: .66
   overall: "fail"

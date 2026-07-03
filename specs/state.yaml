@@ -1,15 +1,21 @@
 active_flow: fix_bug
 bug_id: BUG-2026-07-03-negative-path-self-test
 bug_cycle:
-  current_step: 1
-  completed_steps: []
+  current_step: 5
+  completed_steps:
+  - '1'
+  - '2'
+  - '3'
+  - '4'
 handoff:
-  next_skill: investigate-bug
+  next_skill: release-branch
   context: >
-    Fixing P0 #2 — ~90 step scripts have zero proof they can detect violations
-    (GAP-1 bug class). Bug file at
-    specs/bugs/BUG-2026-07-03-negative-path-self-test.md with RCA + TDD plan.
-    Starting investigate-bug formal entry.
+    Step 4 (validate-fix) COMPLETE:
+    - G-07: 5/5 step scripts detect violations on negative-path fixture
+    - Compliance: ALL checks pass
+    - Golden suite: G-07 PASS, G-04 pre-existing FAIL (74 vs 73 artifacts)
+    - Bug file + registry updated
+    Proceeding to release-branch (land the fix).
 release:
   ci_verified: true
   released_at: '2026-07-03T17:50:00Z'

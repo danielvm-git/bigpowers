@@ -48,4 +48,15 @@
 
 ## Resolution
 
-**Open** — registered 2026-07-03 from PLAN-AUDIT red-team gap list (P0 #2).
+**Fixed** — 2026-07-03 by fix-bug orchestrator (fix-negative-path-self-test branch).
+
+**Changes:**
+- Created `specs/verifications/fixtures/negative-path/` with 5 deliberate violations across 4 feature categories (akita, cleancode, conventions, superpowers)
+- Created `scripts/golden-g07-negative-path.sh` — standalone self-test that runs 5 step scripts against the fixture and asserts they exit non-zero
+- Added G-07 to golden suite (`scripts/run-golden-suite.sh`) as a hard gate
+- G-07 runs in CI via the golden suite workflow
+
+**Verified:**
+- 5/5 step scripts correctly detect violations on negative-path fixture
+- Compliance (audit + doctrine): all checks pass
+- Golden suite: G-07 PASS
