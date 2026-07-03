@@ -1,3 +1,15 @@
+# [2.48.0](https://github.com/danielvm-git/bigpowers/compare/v2.47.0...v2.48.0) (2026-07-03)
+
+
+### Bug Fixes
+
+* **e31:** rename pass/fail to g04_pass/g04_fail to avoid symbol collision ([34d0ce8](https://github.com/danielvm-git/bigpowers/commit/34d0ce89c4a26915786bd9b45379e7f2c289cc06))
+
+
+### Features
+
+* **e31:** wire npm run compliance as pre-release CI gate ([#44](https://github.com/danielvm-git/bigpowers/issues/44)) ([cd40e33](https://github.com/danielvm-git/bigpowers/commit/cd40e3305a568f429c9221dd9cc360ee7139626d))
+
 # [2.47.0](https://github.com/danielvm-git/bigpowers/compare/v2.46.0...v2.47.0) (2026-07-03)
 
 
