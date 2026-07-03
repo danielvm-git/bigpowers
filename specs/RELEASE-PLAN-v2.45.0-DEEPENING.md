@@ -7,6 +7,26 @@
 
 ---
 
+## ⚠️ Amendment 2026-07-02 — e31 split (supersedes the e31 section below)
+
+Per `specs/PLAN-AUDIT_LATEST.md`: the original 22-BCP e31 bundled deterministic
+gates with agent-driven golden stories whose execution mechanism (headless
+`claude -p` vs mock), per-run cost, and flake rate were undecided. It is split:
+
+| Epic | Title | BCP | WSJF | Status |
+|------|-------|-----|------|--------|
+| e31 | Quality Guarantee — Deterministic Gates | 11 | 9.5 | next up — G-04 self-test, compliance→CI, size budget, baseline, docs, evolve-skill |
+| e37 | Golden Story Suite — Agent-Driven | 13 | 1.8 | spike-gated — e37s01 (headless-harness spike, go/no-go ADR) is a HARD GATE before fixture/YAML/harness work |
+
+Canonical story lists: `specs/epics/e31-quality-guarantee/epic.yaml` and
+`specs/epics/e37-golden-stories/epic.yaml`. Build order becomes
+e31 → e32 → e34 → e35 → e33 → e36 → e37 (e37s01 spike may run in parallel
+any time; e37s02–s04 only on a documented "go"). Golden-story flake policy:
+pass@k 2-of-3; cadence per-epic, not per-story. The e31 section below is
+kept for provenance and is no longer authoritative.
+
+---
+
 ## Release Context
 
 Current state: v2.44.1, 72 skills, e26 (security-review) and e29 (skills-directory) in progress, e28 (docs website) in backlog.

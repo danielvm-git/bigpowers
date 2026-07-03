@@ -44,27 +44,24 @@ epics:
       feature-stamped files.
 
   # ── PLANNED — v2.45.0 "Deepening" release ───────────────────────────
-  # Source: specs/RELEASE-PLAN-v2.45.0-DEEPENING.md (full plan)
+  # Source: specs/RELEASE-PLAN-v2.45.0-DEEPENING.md (full plan; e31 split
+  #         amended 2026-07-02 per specs/PLAN-AUDIT_LATEST.md)
   #         specs/DEEPEN-ARCHITECTURE-REVIEW.md (review)
   #         specs/QUALITY-GUARANTEE-STRATEGY.md (golden suite)
-  - id: e30
-    title: "Architecture Quick Fixes"
-    wsjf: 6.5
-    bcps: 10
-    capsule_dir: epics/e30-arch-quick-fixes
-    note: >
-      4 concrete bugs from deepen-architecture review + plan-checker gate:
-      get_phase() missing 3 skills, broken tech-architecture refs, stale .bak,
-      50+ tautological verify commands, mandatory assess-impact in build-epic.
+  # Build order: e31 → e32 → e34 → e35 → e33 → e36 → e37 (e37 spike-gated;
+  # e37s01 spike may run in parallel any time, s02-s04 only on "go").
   - id: e31
-    title: "Quality Guarantee Infrastructure"
-    wsjf: 5.5
-    bcps: 22
+    title: "Quality Guarantee — Deterministic Gates"
+    wsjf: 9.5
+    bcps: 11
     capsule_dir: epics/e31-quality-guarantee
     note: >
-      3-gate quality system: 5 golden end-to-end stories + compliance gate +
-      token budget. Shipped before other deepening epics so all changes are
-      verified safe. Source: specs/QUALITY-GUARANTEE-STRATEGY.md.
+      Deterministic half of the original 22-BCP quality epic (split per
+      PLAN-AUDIT 2026-07-02): G-04 sync-pipeline self-test, compliance wired
+      into CI, static SKILL.md size budget, pinned baseline, pre-merge
+      mandate, evolve-skill integration. Free, seconds-fast, covers the
+      actual regression surface of e32-e36. WSJF (BV 6 + TC 5 + RR-OE 8) /
+      JS 2 = 9.5. Agent-driven golden stories moved to e37.
   - id: e32
     title: "Missing Historical References"
     wsjf: 3.0
@@ -110,6 +107,19 @@ epics:
       Convert reference docs from restating principles to provenance pointers.
       CONVENTIONS.md becomes single source of truth. F.I.R.S.T rubric lives
       in one place, not six.
+  - id: e37
+    title: "Golden Story Suite — Agent-Driven"
+    wsjf: 1.8
+    bcps: 13
+    capsule_dir: epics/e37-golden-stories
+    note: >
+      Agent-execution half of the original e31 (split per PLAN-AUDIT
+      2026-07-02). HARD GATE: e37s01 spike (headless claude -p harness —
+      cost, wall-clock, flake over 3 runs) decides go/no-go before any
+      fixture or golden-YAML work. Per-epic cadence, pass@k 2-of-3 flake
+      policy. WSJF (BV 5 + TC 1 + RR-OE 3) / JS 5 = 1.8. Sequenced last
+      despite outranking e36 — its value is gated on the spike, not on
+      urgency.
 
   # ── ACTIVE — next release (v2.30.0) ──────────────────────────────────
   - id: e26
@@ -122,6 +132,14 @@ epics:
       request-review, fix-bug, validate-fix, verify-work, and release-branch.
       Ships core security-review skill with reference files + 9 targeted skill edits.
 
+
+  # ── DONE — shipped as v2.45.1 (Deepening, 2026-07-02) ────────────────
+  - id: e30
+    title: "Architecture Quick Fixes"
+    wsjf: 6.5
+    bcps: 10
+    capsule_dir: epics/archive/e30-arch-quick-fixes
+    note: "Delivered: get_phase() 3 missing skills, broken tech-architecture refs, stale .bak, 43 tautological verify commands replaced. plan-checker gate story closed as already-satisfied (assess-impact gate pre-existing in build-epic)."
 
   # ── DONE — shipped as v2.29.0 (Methodology) ──────────────────────────
   - id: e25

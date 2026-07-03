@@ -38,13 +38,14 @@ planning:
     - specs/MISSING-REFERENCES-AND-DELIVERY-PLAN.md
     - specs/QUALITY-GUARANTEE-STRATEGY.md
   epics_planned:
-    - e30: "Architecture Quick Fixes" (8 BCP — DONE)
-    - e31: "Quality Guarantee Infrastructure" (22 BCP)
-    - e32: "Missing Historical References" (20 BCP)
-    - e33: "Sync Pipeline Refactor" (13 BCP)
-    - e34: "Context Engineering Layer" (10 BCP)
-    - e35: "DORA Metrics Extension" (7 BCP)
-    - e36: "Documentation Deduplication" (10 BCP)
+    - "e30: Architecture Quick Fixes (8 BCP — DONE)"
+    - "e31: Quality Guarantee — Deterministic Gates (11 BCP — split 2026-07-02 per PLAN-AUDIT)"
+    - "e32: Missing Historical References (20 BCP)"
+    - "e33: Sync Pipeline Refactor (13 BCP)"
+    - "e34: Context Engineering Layer (10 BCP)"
+    - "e35: DORA Metrics Extension (7 BCP)"
+    - "e36: Documentation Deduplication (10 BCP)"
+    - "e37: Golden Story Suite — Agent-Driven (13 BCP — spike-gated, from e31 split)"
   github_issues_created:
     - "37 (e30)"
     - "36 (e31)"

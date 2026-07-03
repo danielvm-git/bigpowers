@@ -1,0 +1,39 @@
+id: e37
+title: "Golden Story Suite — Agent-Driven"
+wsjf: 1.8   # (BV 5 + TC 1 + RR-OE 3) / JS 5 — deliberately deferred; spike decides
+bcps: 13
+status: proposed
+release: v2.45.0
+codename: "Deepening"
+source: specs/QUALITY-GUARANTEE-STRATEGY.md
+hard_gate: >
+  e37s01 is a go/no-go HARD GATE. Golden chains G-01/G-02/G-03/G-05 require
+  an LLM agent to execute 3-6-skill chains — a bash script cannot run a
+  SKILL.md. Mechanism (headless claude -p / Agent SDK), per-run cost,
+  wall-clock, and flake rate are unproven. Do NOT build e37s02-e37s04 until
+  the spike records a documented "go" with measured numbers. On "no-go",
+  close this epic with an ADR and rely on e31's deterministic gates.
+note: >
+  Agent-execution half of the original 22-BCP e31, split per
+  specs/PLAN-AUDIT_LATEST.md (2026-07-02). Cadence is per-EPIC, not
+  per-story — per-story cadence is reserved for e31's free deterministic
+  gates. Flake policy: pass@k 2-of-3 per golden story (schema already
+  supports pass@k). e37s01 may run any time in parallel with e32-e36;
+  s02-s04 build only on a "go".
+stories:
+  - id: e37s01
+    bcp: 3
+    title: "Spike: headless golden-chain harness (claude -p / Agent SDK) — run one chain 3x; record cost, wall-clock, flake; write go/no-go ADR + SPIKE notes"
+    verify: test -f specs/archive/spikes/SPIKE-golden-harness.md && grep -qiE 'verdict.*(go|no-go)' specs/archive/spikes/SPIKE-golden-harness.md && echo OK
+  - id: e37s02
+    bcp: 3
+    title: "Create specs/benchmarks/fixtures/minimal-api/ fixture repo (createUser + failing-ready test harness)"
+    verify: cd specs/benchmarks/fixtures/minimal-api && npm test && echo OK
+  - id: e37s03
+    bcp: 3
+    title: "Author 4 golden story YAMLs (g-01, g-02, g-03, g-05) with code graders and pass@k 2-of-3 flake policy"
+    verify: test $(ls specs/benchmarks/golden/g-*.yaml | wc -l) -eq 4 && grep -q 'pass_at_k' specs/benchmarks/golden/g-01*.yaml && echo OK
+  - id: e37s04
+    bcp: 4
+    title: "Add --agent mode to run-golden-suite.sh: headless chain execution per golden story, per-epic cadence, report merged with deterministic gates"
+    verify: bash scripts/run-golden-suite.sh --agent --dry-run && echo OK

@@ -1,58 +1,89 @@
-# Plan Audit — bigpowers v2.45.0 "Deepening" track (e30–e36)
+# Plan Audit — e31 "Quality Guarantee Infrastructure" strategy (re-run)
 
-**Date:** 2026-07-02 · **Verdict:** NOT READY (with a scoped exception — see Verdict)
+**Date:** 2026-07-02 · **Verdict:** NOT READY (as specced) — direction is right, Gate 1 feasibility is unproven and hides an undecided design problem
 
-**Plan audited:** `specs/RELEASE-PLAN-v2.45.0-DEEPENING.md`, `specs/release-plan.yaml` (epics e30–e36), `specs/state.yaml` (active epic_cycle: e30, current_story e30s04), `specs/execution-status.yaml`, `specs/epics/e30-arch-quick-fixes/epic.yaml`, `specs/product/SCOPE_LATEST.yaml`.
+**Plan audited:** `specs/epics/e31-quality-guarantee/epic.yaml` (8 stories, 22 BCP), `specs/QUALITY-GUARANTEE-STRATEGY.md` (source doc), `specs/RELEASE-PLAN-v2.45.0-DEEPENING.md` §e31, cross-checked against `specs/benchmarks/SCHEMA.md`, `skills/run-benchmark/SKILL.md`, and `.github/workflows/*.yml`.
+
+**Question asked:** Is the e31 strategy the best and most feasible way to guarantee each improvement is an improvement?
+
+**Short answer:** The three-gate *concept* is sound and sequencing quality gates before the content epics (e32–e36) is the right call. But e31 as specced bundles a cheap, deterministic, immediately-buildable half with an expensive, undesigned, agent-execution half — and prices the hard half at 5 BCP as if it were a shell script. Split it.
 
 ---
 
-## Principles Alignment
+## Strategy Assessment (the core question)
+
+### What is genuinely strong
+
+| Aspect | Assessment |
+|---|---|
+| Three-gate structure (behavior / compliance / cost) | ✅ Sound. Mirrors standard regression + budget gating; each gate answers a distinct question. |
+| Code graders over rubric graders | ✅ Correct diagnosis. Deterministic exit-0/1 graders are the only thing that can run in CI for free. |
+| Sequencing e31 second, before e32–e36 | ✅ Right in principle — build the net before walking the wire. |
+| G-04 (sync-pipeline self-test) | ✅ Fully deterministic, no agent needed, directly protects e33 (the sync refactor). Cheapest, highest-certainty story in the epic. |
+| Baseline-pinning + delta reporting | ✅ Good pattern, reuses the existing `specs/benchmarks/reports/` convention. |
+
+### Feasibility gaps (why NOT READY)
+
+**Gap A — The execution mechanism for golden stories is undefined, and it's the whole problem.**
+Golden stories G-01, G-02, G-03, G-05 require an *LLM agent* to execute 3–6-skill chains (e.g. survey-context → plan-work → kickoff-branch → develop-tdd → verify-work → audit-code). A bash script cannot run a SKILL.md. The strategy doc waves at this once — "Runs the skill chain (**or a mock agent that follows the chain**)" — and never resolves it. The options are materially different products:
+- **Headless agent** (`claude -p` / Agent SDK): real signal, but ~10–30 min and real API dollars *per story per run* — not the "12.3s" the doc's sample report shows. That sample output is only achievable for grader-only re-runs.
+- **Mock agent**: circular — a scripted actor following the chain tests the graders, not the skills. Zero regression signal.
+- **Manual runs**: not a gate.
+This decision is a textbook **HARD GATE candidate** and it is not surfaced anywhere in the epic. e31s03 ("create run-golden-suite.sh", BCP 5) silently contains it.
+
+**Gap B — Non-determinism is unaddressed.** Even with headless execution, agent runs flake. A single-run PASS/FAIL golden suite will produce false regressions and erode trust in the gate. The existing `specs/benchmarks/SCHEMA.md` already defines **pass@k** for exactly this reason — e31's golden stories ignore it.
+
+**Gap C — The "after each story" cadence is unaffordable if Gate 1 is agent-driven.** The Deepening track has 38 stories. 4 agent-chain stories × 38 runs ≈ many hours and real API cost, solo. A gate that expensive gets skipped, and a skipped gate is worse than a cheaper one that always runs.
+
+**Gap D — Gate 3's heuristic is a static file-size check wearing a token costume.** `sum(SKILL.md sizes) + state.yaml size + tool_calls × 500`: the first two terms are computable with `wc -c` (fine — a decent *skill-bloat* detector), but `tool_calls` is unknowable without an actual agent run. As specced, Gate 3 either quietly degrades to a static size budget (useful! but name it that) or silently depends on Gap A being solved.
+
+**Gap E — A premise of the strategy doc is factually wrong.** §Gap 4 claims "`npm run compliance` runs in CI and enforces 94%." It does not — `.github/workflows/publish.yml` runs only `run-skill-verify.sh` + semantic-release; `sync-skills.yml` regenerates artifacts. Compliance is manual today. This matters because **wiring compliance into CI is the single cheapest, highest-value quality gate available** and it isn't even a story in e31.
+
+**Gap F — e31's own verify commands are the tautology anti-pattern e30s04 exists to remove.** e31s04/s05/s07/s08 all verify by grepping for a keyword (`grep -q 'compliance…'`, `grep -q 'token…'`) — satisfiable by a comment. e31s03's `--dry-run` check is the only behavioral verify in the epic.
+
+**Gap G — Match the gate to the actual threat.** What do the *following* epics threaten? e32/e34/e35/e36 are markdown/docs work; e33 refactors the sync scripts. Their regression surface is: sync pipeline breaks, compliance score drops, skill files bloat — **all covered by the deterministic gates** (G-04 self-test + compliance-in-CI + size budget). The agent-driven golden stories guard against behavioral chain regressions, which matter most when skill *content/logic* changes — real value, but the least urgent protection for this specific release, and by far the most expensive and uncertain part of the epic (e31s01 + e31s02 + most of e31s03 ≈ 11+ of 22 BCP).
+
+## Principles Alignment (e31-specific)
 
 | Check | Status | Note |
 |---|---|---|
-| Vertical slices | ⚠️ | e30 stories are mechanical bug fixes (fine, low-risk). e32 is 10 near-identical "create one reference doc" stories — acceptable for internal-tooling debt but not user-value slices. No blocker, just noting the shape. |
-| Scope bounded | ❌ | `specs/product/SCOPE_LATEST.yaml` `in_scope` only covers `fr-01`–`fr-10`, all tied to e29 (skills/ directory move). It has **zero entries** for e30–e36 — 7 epics, 92 BCP, currently the active release track. `scope-work` (planning-spine step 1) was never re-run for this track before epics were sliced and planned. |
-| Success criteria | ⚠️ | Present at story level (every story has a `verify:` command — good). Absent at release level: no compliance-score threshold, no golden-suite pass-rate target, nothing in SCOPE tying the Deepening track to a measurable "done." `RELEASE-PLAN-v2.45.0-DEEPENING.md`'s "What This Release Delivers" section is a narrative list, not pass/fail criteria. |
-| HARD GATE candidates | ⚠️ | e30s05 ("Add plan-checker as mandatory gate in build-epic") references a skill, `plan-checker`, that **does not exist** in the 72-skill catalog — the real gate skill is `audit-plan` (this skill) or `assess-impact`. Worse: I ran e30s05's own verify command against the *current, unmodified* `build-epic/SKILL.md` and it **already passes** (`assess-impact` + "gate"/"mandatory" text is already present at Step 2). That means the story is either already satisfied — in which case it should be marked done, not backlog — or its verify command doesn't actually test the intended change (making the gate unconditional, not risk-score-gated). Confirm intent before building it. |
-| Domain language | ✅ | BCP/WSJF/epic/story vocabulary is well established and used consistently across `CONVENTIONS.md`, `state.yaml`, `release-plan.yaml`. |
-
-## Conventions Completeness
-
-| Check | Status | Note |
-|---|---|---|
-| `CLAUDE.md` exists | ✅ | Present, detailed, includes Session Start sequence and Agent Rules. |
-| `CONVENTIONS.md` exists | ✅ | Comprehensive — commits, git workflow, specs/ layout, code style, BCP/DORA accounting. |
-| `specs/` layout in place | ✅ | Matches the documented YAML-cockpit layout. |
-| Commit conventions documented | ✅ | Conventional Commits 1.0.0 + semantic-release, explicit table of type→bump. |
-| Git workflow mode identified | ✅ | `solo-git` — `specs/WORKFLOW-solo-git.md` present, `land-branch.sh` flow documented in `CONVENTIONS.md`. |
-| Release-plan data integrity | ⚠️ | `specs/release-plan.yaml` lists e30–e36 **twice** — once under "BACKLOG — queued" (~L15-118, mixed with e27–e29) and again under "PLANNED — v2.45.0 Deepening release" (~L123-186). WSJF/BCP values match between the two blocks today, but this is a live drift risk: `SCOPE_LATEST.yaml`'s own stated constraint is "Single canonical location per fact," and this file already violates it. |
-| Execution-status accuracy | ⚠️ | `execution-status.yaml` marks `e30s02: backlog`, but the 4 broken `specs/tech-architecture/` references it targets are **already fixed** in the working tree (grep confirms zero matches) — almost certainly landed as part of commit `21e85ec` ("fix arch bugs") without the story being marked done. The status file is not the sole source of truth it's documented to be. |
+| Vertical slices | ⚠️ | s01 (fixture) and s02 (5 YAMLs) deliver nothing runnable until s03 exists — horizontal setup layers. G-04 alone would be a true vertical slice (runnable gate, day one). |
+| Scope bounded | ❌ | Carried over from previous audit: `SCOPE_LATEST.yaml` still has no entry for the Deepening track. Unchanged since last run. |
+| Success criteria | ⚠️ | "Golden suite passes" is well-defined *only if* the execution mechanism is; today it isn't. No flake policy, no pass@k threshold for golden stories. |
+| HARD GATE candidates | ❌ | The Gate-1 execution-mechanism decision (headless vs mock vs manual) is unidentified and unpriced — buried in e31s03. |
+| Domain language | ✅ | Golden story / gate / baseline / pass@k vocabulary is consistent with existing benchmark infra. |
 
 ## Pre-flight Answers
 
-| Command | Value | Source |
-|---|---|---|
-| test | N/A (documentation project) | `CLAUDE.md` Commands table |
-| build | `bash scripts/install.sh` | `CLAUDE.md` |
-| lint | `bash scripts/sync-skills.sh` (validates SKILL.md syntax) | `CLAUDE.md` |
-| typecheck | N/A — not stated explicitly, inferred from Markdown/Bash stack | ⚠️ table has no typecheck row; should say N/A explicitly rather than omit it |
-| CI platform | GitHub Actions (`.github/workflows/publish.yml`, `sync-skills.yml`) | confirmed by directory listing, not documented in `CLAUDE.md`'s table |
-| Solo or team | Solo (`solo-git` mode) | `CONVENTIONS.md`, `specs/WORKFLOW-solo-git.md` |
-| Language + framework | Markdown / Bash | `CLAUDE.md` |
-| Greenfield or existing | Existing — 72 skills shipped, v2.44.1 released, deep in delivery | `git log`, `specs/release-plan.yaml` |
+Unchanged from the previous audit (see git history of this file): test N/A, build `install.sh`, lint `sync-skills.sh`, CI GitHub Actions, solo-git, Markdown/Bash, existing codebase. One correction surfaced this run: **compliance is not currently a CI gate** — treat "CI platform" answers about quality gating accordingly.
+
+## Recommended Restructure
+
+Split e31 into two epics; the split preserves ~80% of the protection at ~40% of the cost, and defers the uncertain half behind an explicit design decision:
+
+**e31-lite — Deterministic Quality Gates (~10 BCP, buildable today, no design risk):**
+1. G-04 sync-pipeline self-test script (from e31s02's G-04 only — no fixture repo needed, it self-tests this repo).
+2. Wire `npm run compliance` into **CI** (`publish.yml`) *and* as step 1 of the suite runner — fixes the false premise and closes the biggest real gap today.
+3. Static size/bloat budget: per-skill and total SKILL.md byte budget vs pinned baseline (honest rename of Gate 3's feasible half).
+4. Pin baseline report; CLAUDE.md/CONVENTIONS.md pre-merge mandate; evolve-skill integration.
+5. Write **behavioral** verify commands for all of the above (run the script, assert the exit code — not `grep` for a keyword).
+
+**e31-golden — Agent-Driven Golden Stories (defer; spike first):**
+- Precondition: run `spike-prototype` on the execution harness — can a golden story chain run headless (`claude -p` / Agent SDK) with acceptable cost, wall-clock, and flake rate? Decide pass@k policy (e.g. 2-of-3) from the spike data.
+- Only after the spike answers yes: build the minimal-api fixture, the 4 agent-chain golden YAMLs (G-01/02/03/05), and the agent-execution mode of run-golden-suite.sh.
+- Cadence: per-**epic**, not per-story (Gap C) — per-story cadence is reserved for the free deterministic gates.
 
 ## Open Gaps
 
-- [ ] **Back-fill `specs/product/SCOPE_LATEST.yaml`** with `in_scope` entries for e30–e36 (or an explicit note that this track is internal-tooling debt exempt from FR tracking) before starting **e31** — run `scope-work`. Not blocking the remaining e30 stories (mechanical, low-risk, already well-specified).
-- [ ] **Deduplicate `specs/release-plan.yaml`** — collapse the two e30–e36 blocks into one canonical listing under "PLANNED — v2.45.0 Deepening release"; delete the stale copy under "BACKLOG — queued."
-- [ ] **Reconcile `execution-status.yaml`** — mark `e30s02: done` (verified fixed in working tree) so the flat-status file matches reality before `build-epic` resumes.
-- [ ] **Clarify e30s05** — confirm whether `plan-checker` was meant to be `assess-impact`/`audit-plan` (both already wired into `build-epic` Step 2), and rewrite the verify command so it actually discriminates "gate added" from "gate already present" — otherwise the story will close as a no-op.
-- [ ] Add an explicit `typecheck: N/A` row to `CLAUDE.md`'s Commands table and note the CI platform (GitHub Actions) there too — low priority, doesn't block build.
+- [ ] **HARD GATE:** decide the golden-story execution mechanism before any golden-story BCP is spent — `spike-prototype` (headless harness) is the cheapest way to decide with data.
+- [ ] Split e31 per above — re-run `plan-work` on the e31 capsule (currently a bare epic.yaml with no story specs or task files).
+- [ ] Add a story to wire `npm run compliance` into `publish.yml` — currently missing entirely.
+- [ ] Rewrite e31s04/s05/s07/s08 verify commands as behavioral checks (the e30s04 standard).
+- [ ] Define flake policy / pass@k for golden stories (schema already supports it).
+- [ ] Carried over, still open: `scope-work` back-fill for the Deepening track; `release-plan.yaml` e30–e36 duplication; `execution-status.yaml` e30s02 reconciliation.
 
 ## Verdict
 
-**NOT READY** for the full e30–e36 track as currently specced — the missing scope entry for 92 BCP of planned work is the one gap that should not be waved through, since it's exactly the kind of thing that causes drift 3 epics downstream when nobody remembers why e32/e34/e35/e36 were prioritized against product scope.
+**NOT READY** — e31 as specced is *not* the most feasible form of a sound strategy. The three-gate idea and the "gates before content" ordering survive scrutiny; the epic's construction doesn't: half of its BCP funds an agent-execution capability whose mechanism, cost, and flake behavior are undecided, while the cheapest highest-value gate (compliance in CI) is absent. Ship the deterministic half now (it fully covers the actual regression surface of e32–e36), and gate the golden-story half behind a spike.
 
-**Scoped exception:** the two remaining e30 stories (e30s04, e30s05) are mechanical, already have clear verify commands, and don't depend on the scope back-fill. `build-epic` may continue on e30s04 as `state.yaml` already directs — but **stop before e31** until `scope-work` closes the scope gap, and clean up the two hygiene items (release-plan dedup, execution-status reconciliation) first since they're near-zero-cost fixes.
-
-Recommended next skill: **`scope-work`** (close the ❌), then re-run `audit-plan` to confirm READY before `build-epic` advances into e31.
+Recommended next skill: **`spike-prototype`** (golden-story headless-execution harness) in parallel with **`plan-work`** to split the e31 capsule; then re-run `audit-plan` on the restructured epic.
