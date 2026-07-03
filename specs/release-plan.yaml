@@ -220,6 +220,20 @@ epics:
       agent-maintained language-agnostic code understanding + validate-okf.sh
       CI conformance gate. Source: Karpathy LLM Wiki, OKF v0.1, Google
       Knowledge Catalog, IMPACT-e38-okf-adoption.md, session 2026-07-02/03.
+  - id: e43
+    title: "MCP Semantic Context Server"
+    wsjf: 4.00
+    bcps: 13
+    capsule_dir: epics/e43-mcp-context-server
+    note: >
+      Build bigpowers-mcp — a project-specific TypeScript MCP server that
+      parses all 72 SKILL.md files via remark/unified into an entity-relation
+      knowledge graph. Seven tools: index_skills, read_skill, build_skill_graph,
+      search_skills, get_dependencies, get_git_context, validate_skill. Fills
+      the Layer 3 (Technical Context) gap without needing ctxo or Markdown
+      language plugins. Agents query the graph instead of reading individual
+      files. Source: MCP servers research (7 reference servers analyzed),
+      tree-sitter/remark survey (2026-07-03).
   - id: e40
     title: "Metrics Integrity — Honest, Additive, Benchmarkable"
     wsjf: 3.2

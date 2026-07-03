@@ -52,6 +52,7 @@ planning:
   - 'e37: Golden Story Suite — Agent-Driven (13 BCP — spike PASSED 2026-07-03 via gh-aw + DeepSeek; G-01 golden story live)'
   - 'e38: Spec-to-Code Traceability Gate (13 BCP — TEA-inspired, market survey 2026-07-02)'
   - 'e39: Semantic Context Bridge (20 BCP — OKF + skill graph + agent locks + drift detection; depends on e33; see specs/IMPACT-e38-okf-adoption.md)'
+  - 'e43: MCP Semantic Context Server (13 BCP — TypeScript MCP server, remark-based SKILL.md parsing, entity-relation knowledge graph; 2026-07-03 MCP/tree-sitter research)'
   - 'e40: Metrics Integrity (18 BCP — git-/telemetry-derived additive effort + lead time, OKF story bundles, provenance gate; supersedes e35; CR 2026-07-03)'
   - 'e41: Public Receipts (10 BCP — live evidence page on e28 docs site; depends on e28 + e40; CR 2026-07-03)'
   - 'e42: Showcase Repo (10 BCP — worked example in separate public repo, v2.8x train; CR 2026-07-03)'
@@ -70,6 +71,7 @@ planning:
   - '42 (Bug: skill-verify false FAILs)'
   - '43 (e38: Spec-to-Code Traceability Gate)'
   - '44 (e39: Semantic Context Bridge)'
+  - '45 (e40: MCP Semantic Context Server)'
   gaps_fixed:
   - SCOPE_LATEST.yaml — added fr-11 through fr-17 for e30-e36
   - release-plan.yaml — removed duplicate e30-e36 from BACKLOG section; removed e37 HARD GATE language (spike passed)

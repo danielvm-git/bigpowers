@@ -1,0 +1,140 @@
+id: e43
+title: "MCP Semantic Context Server"
+wsjf: 4.00
+bcps: 13
+status: proposed
+release: v2.45.0
+codename: "Deepening"
+source: |
+  Research 2026-07-03: opensrc survey of MCP server patterns
+  (modelcontextprotocol/servers — 7 reference servers) + tree-sitter
+  grammars (Markdown, Bash) + remark/unified markdown parser.
+  Key finding: remark/unified beats tree-sitter-markdown for SKILL.md
+  parsing (simpler API, structured frontmatter, production-grade accuracy).
+  Memory server's entity-relation model maps perfectly to skill reference graph.
+  This epic builds bigpowers-mcp — a project-specific MCP server that gives
+  agents semantic understanding of the bigpowers codebase without ctxo or
+  language-specific static analyzers. Fills the Layer 3 (Technical Context)
+  gap identified in the 5-layer agentic coding stack assessment.
+  See: specs/IMPACT-e38-okf-adoption.md, session 2026-07-02/03.
+
+stories:
+  - id: e40s01
+    bcp: 3
+    title: "Spike: build bigpowers-mcp with index_skills + read_skill, validate against 72 SKILL.md files"
+    verify: test -d bigpowers-mcp/ && test -f bigpowers-mcp/package.json && npx @modelcontextprotocol/inspector node bigpowers-mcp/build/index.js >/dev/null 2>&1 && echo OK
+    description: |
+      Create bigpowers-mcp/ directory at project root. TypeScript MCP server
+      using @modelcontextprotocol/sdk (Everything server modular pattern).
+      Two initial tools:
+      - index_skills: discovers all skills/*/SKILL.md files, returns structured tree
+      - read_skill: parses a SKILL.md via remark-parse + remark-frontmatter.
+        Returns: frontmatter (YAML→JSON), heading hierarchy, code blocks with
+        language tags, prose sections, inline links.
+      Validate: run against all 72 SKILL.md files, confirm frontmatter extraction
+      is correct, no parse failures. Use MCP Inspector (npx @modelcontextprotocol/inspector)
+      to test tools interactively.
+      Tech stack: TypeScript, @modelcontextprotocol/sdk, unified/remark-parse,
+      remark-frontmatter, js-yaml, zod.
+
+  - id: e40s02
+    bcp: 3
+    title: "Add build_skill_graph tool — entity-relation model from parsed SKILL.md data"
+    verify: grep -q 'build_skill_graph\|create_entities\|create_relations' bigpowers-mcp/src/tools/index.ts && echo OK
+    description: |
+      Add build_skill_graph tool (Memory server pattern):
+      - Entities: one per skill (name=directory name, entityType="Skill",
+        observations=[model, effort, description, handoff target])
+      - Relations: handoff_to (skill A → skill B), depends_on (prose: "run X after Y"),
+        gates (prose: "HARD GATE: must complete X first"),
+        references (prose: "see skills/X/SKILL.md"),
+        enforces (skill → convention: "per CONVENTIONS.md §X")
+      - Extract prose dependencies via regex on paragraph text:
+        /run\s+(\S+)\s+after\s+(\S+)/g
+        /HARD GATE:\s+(.+)/i
+        /see\s+skills\/(\S+)\/SKILL.md/g
+      - Persist graph as JSONL file (bigpowers-mcp/graph.jsonl) for fast startup
+      - Expose read_graph, search_nodes, open_nodes query methods
+      Built on top of index_skills + read_skill (e40s01). Each skill's
+      frontmatter + prose is parsed once, then the graph is built incrementally.
+
+  - id: e40s03
+    bcp: 2
+    title: "Add search_skills + get_dependencies tools"
+    verify: grep -q 'search_skills\|get_dependencies' bigpowers-mcp/src/tools/index.ts && echo OK
+    description: |
+      - search_skills: search by name, description, model, tags, effort.
+        Case-insensitive substring + exact match. Returns ranked results.
+      - get_dependencies: for a given skill, return:
+        * depends_on (forward: what this skill needs)
+        * depended_by (reverse: what needs this skill — blast radius)
+        * handoff_chain (forward: survey-context → plan-work → ...)
+        * conventions (which CONVENTIONS.md rules it enforces)
+      These two tools are the main query surface for agents. Together they
+      answer: "what skills would break if I change develop-tdd?" without
+      reading any SKILL.md files.
+
+  - id: e40s04
+    bcp: 1
+    title: "Add get_git_context tool — change awareness for drift detection"
+    verify: grep -q 'get_git_context' bigpowers-mcp/src/tools/index.ts && echo OK
+    description: |
+      Add get_git_context tool (Git server pattern):
+      - git_status: which skills/specs have uncommitted changes?
+      - git_log: recent commits touching skills/ or specs/
+      - git_diff_unstaged: what's changing right now?
+      Returns structured JSON: changed files grouped by skill/spec directory.
+      Enables drift detection: if a spec file changed but implementing code
+      hasn't, flag as suspect. Powers e39s03 (check-spec-drift.sh).
+
+  - id: e40s05
+    bcp: 2
+    title: "Add validate_skill tool — convention compliance check"
+    verify: grep -q 'validate_skill' bigpowers-mcp/src/tools/index.ts && echo OK
+    description: |
+      Add validate_skill tool that checks a SKILL.md against bigpowers conventions:
+      - Verb-noun naming (two words, kebab-case)
+      - Required frontmatter fields (name, model, description)
+      - Has verify command
+      - Size cap (critical-path: 150 lines, utility: 120 lines)
+      - No broken links to other skills or conventions
+      - Handoff chain completeness (critical-path skills must have handoff.next_skill)
+      Returns: pass/fail per check with remediation hints.
+      Complements check-skill-size.sh and validate-doctrine.sh with real-time,
+      agent-queryable validation.
+
+  - id: e40s06
+    bcp: 1
+    title: "Register bigpowers-mcp in MCP client configs (Claude Code, Cursor, OpenCode)"
+    verify: grep -q 'bigpowers-mcp' .mcp.json 2>/dev/null || grep -q 'bigpowers-mcp' ~/.claude/mcp.json 2>/dev/null && echo OK
+    description: |
+      Add bigpowers-mcp to project .mcp.json (and/or global mcp.json):
+      ```json
+      {
+        "mcpServers": {
+          "bigpowers-mcp": {
+            "command": "node",
+            "args": ["bigpowers-mcp/build/index.js"],
+            "cwd": "${workspaceFolder}"
+          }
+        }
+      }
+      ```
+      Agents (Claude Code, Cursor, OpenCode) discover the server on session
+      start and can query skills, dependencies, and git context without
+      reading individual files. This is the "progressive disclosure" layer
+      that e39s06 would otherwise build as a static OKF bundle.
+
+  - id: e40s07
+    bcp: 1
+    title: "Write docs/references/bigpowers-mcp.md — architecture and operator guide"
+    verify: test -f docs/references/bigpowers-mcp.md && grep -q 'MCP\|remark\|entity-relation\|knowledge graph' docs/references/bigpowers-mcp.md && echo OK
+    description: |
+      Reference doc explaining:
+      - Architecture: remark pipeline → entity-relation graph → MCP tools
+      - Tool catalog: what each tool does, when to use it, example queries
+      - Development: how to add new tools, regenerate graph, test with Inspector
+      - Integration: how agents discover and use the server
+      - Performance: startup time, graph size, caching strategy
+      Include provenance: MCP servers reference implementations,
+      remark/unified, tree-sitter-bash, Memory server entity-relation model.
