@@ -1,3 +1,10 @@
+# [2.50.0](https://github.com/danielvm-git/bigpowers/compare/v2.49.0...v2.50.0) (2026-07-03)
+
+
+### Features
+
+* **e31:** size budget, pre-merge mandate, evolve-skill integration ([#46](https://github.com/danielvm-git/bigpowers/issues/46)) ([fa1dd52](https://github.com/danielvm-git/bigpowers/commit/fa1dd52276d0b6476b892f6fd6eed77eac7c5d41))
+
 # [2.49.0](https://github.com/danielvm-git/bigpowers/compare/v2.48.0...v2.49.0) (2026-07-03)
 
 
