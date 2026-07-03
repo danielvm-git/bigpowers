@@ -17,3 +17,8 @@ specs/.obsidian/
 .env.production.local
 # Ctxo local cache (never committed)
 .ctxo/.cache/
+# Local dev config (machine-specific)
+.bts.toml
+.envrc
+.rtk/
+.ctxo/index/
