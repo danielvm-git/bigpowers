@@ -1,3 +1,5 @@
+# story: e30s02
+# story: e30s03
 # story: e38s08
 
 # Conventions

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# story: e13s03
 # sync-skills.sh — generate Cursor, Gemini CLI, and pi artifacts from SKILL.md source files
 # Run this after adding or updating any skill. Symlinks carry changes through automatically.
 set -euo pipefail
