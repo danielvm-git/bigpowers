@@ -1,3 +1,10 @@
+## [2.58.6](https://github.com/danielvm-git/bigpowers/compare/v2.58.5...v2.58.6) (2026-07-03)
+
+
+### Bug Fixes
+
+* remove npm lifecycle scripts — use bigpowers setup instead ([3db23ae](https://github.com/danielvm-git/bigpowers/commit/3db23ae31ae4f981b6524239928deb3a6af14461))
+
 ## [2.58.5](https://github.com/danielvm-git/bigpowers/compare/v2.58.4...v2.58.5) (2026-07-03)
 
 
