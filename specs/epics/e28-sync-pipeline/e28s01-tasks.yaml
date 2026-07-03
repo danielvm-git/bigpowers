@@ -1,0 +1,27 @@
+story_id: e28s01
+title: >-
+  Create scripts/lib/skill-common.sh with shared functions (resolve_repo_root,
+  parse_frontmatter, iterate_skills)
+status: todo
+bcps: 3
+tasks:
+  - id: 1
+    description: >-
+      Create scripts/lib/skill-common.sh with resolve_repo_root (REPO_ROOT +
+      SKILLS_ROOT resolution) and a double-source guard, safe under set -euo pipefail
+    verify: "bash -c 'set -euo pipefail; source scripts/lib/skill-common.sh; source scripts/lib/skill-common.sh; resolve_repo_root >/dev/null' && echo OK"
+  - id: 2
+    description: >-
+      Implement parse_frontmatter extracting name, model, and multiline
+      description from SKILL.md YAML frontmatter (port awk logic from sync-skills.sh)
+    verify: "bash -c 'source scripts/lib/skill-common.sh && parse_frontmatter skills/audit-code/SKILL.md' && echo OK"
+  - id: 3
+    description: >-
+      Implement iterate_skills enumerating skill dirs under SKILLS_ROOT that
+      contain a SKILL.md, in stable sorted order
+    verify: "bash -c 'source scripts/lib/skill-common.sh && test \"$(iterate_skills | wc -l)\" -gt 0' && echo OK"
+  - id: 4
+    description: >-
+      Add non-zero-return error handling for missing files and missing
+      frontmatter in parse_frontmatter
+    verify: "bash -c 'source scripts/lib/skill-common.sh; if parse_frontmatter /nonexistent 2>/dev/null; then exit 1; fi' && echo OK"

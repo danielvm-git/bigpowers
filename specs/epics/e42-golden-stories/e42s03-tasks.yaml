@@ -1,0 +1,33 @@
+story_id: e42s03
+title: "Author 4 golden story YAMLs (g-01, g-02, g-03, g-05) with code graders and pass@k 2-of-3 flake policy"
+status: todo
+bcps: 3
+tasks:
+  - id: 1
+    description: >-
+      Create specs/benchmarks/golden/ and author g-01.yaml (build chain
+      against minimal-api fixture, code grader for G-01 artifacts,
+      pass_at_k k=3 threshold=2)
+    verify: "test -f specs/benchmarks/golden/g-01.yaml && grep -q 'pass_at_k' specs/benchmarks/golden/g-01.yaml && grep -q 'minimal-api' specs/benchmarks/golden/g-01.yaml && echo OK"
+  - id: 2
+    description: >-
+      Author g-02.yaml (bug chain: investigate-bug through release-branch;
+      code grader asserts BUG-*.md with 4 RCA phases; pass_at_k 2-of-3)
+    verify: "test -f specs/benchmarks/golden/g-02.yaml && grep -q 'pass_at_k' specs/benchmarks/golden/g-02.yaml && echo OK"
+  - id: 3
+    description: >-
+      Author g-03.yaml (planning spine: scope-work through plan-release;
+      code grader asserts release-plan.yaml epics carry BCP values;
+      pass_at_k 2-of-3)
+    verify: "test -f specs/benchmarks/golden/g-03.yaml && grep -q 'pass_at_k' specs/benchmarks/golden/g-03.yaml && echo OK"
+  - id: 4
+    description: >-
+      Author g-05.yaml (discovery chain: search-skills, survey-context,
+      using-bigpowers; code grader asserts correct next_skill identified;
+      pass_at_k 2-of-3)
+    verify: "test -f specs/benchmarks/golden/g-05.yaml && grep -q 'pass_at_k' specs/benchmarks/golden/g-05.yaml && echo OK"
+  - id: 5
+    description: >-
+      Gate the set: exactly 4 g-*.yaml files, all parseable, every grader
+      is type code with a non-empty command
+    verify: "test $(ls specs/benchmarks/golden/g-*.yaml | wc -l) -eq 4 && python3 -c \"import yaml,glob; docs=[yaml.safe_load(open(f)) for f in sorted(glob.glob('specs/benchmarks/golden/g-*.yaml'))]; assert all(d['grader']['type']=='code' and d['grader']['command'] for d in docs); assert all(d['pass_at_k']['k']==3 and d['pass_at_k']['threshold']==2 for d in docs)\" && echo OK"

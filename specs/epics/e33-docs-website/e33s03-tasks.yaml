@@ -1,0 +1,29 @@
+story_id: e33s03
+title: "SEO + AI discoverability layer"
+status: todo
+bcps: 2
+tasks:
+  - id: 1
+    description: "Install and configure @astrojs/sitemap with canonical site URL"
+    verify: "grep -q '@astrojs/sitemap' website/astro.config.mjs"
+    status: todo
+  - id: 2
+    description: "Configure Starlight head injection for meta/OG descriptions"
+    verify: "grep -q 'head:' website/astro.config.mjs"
+    status: todo
+  - id: 3
+    description: "Generate llms.txt from skill catalog in prebuild"
+    verify: "cd website && npm run build && test -f dist/llms.txt"
+    status: todo
+  - id: 4
+    description: "Verify robots.txt is generated and permissive"
+    verify: "cd website && npm run build && test -f dist/robots.txt"
+    status: todo
+  - id: 5
+    description: "Add favicon to website/public/"
+    verify: "test -f website/public/favicon.svg || test -f website/public/favicon.ico"
+    status: todo
+  - id: 6
+    description: "Full build: sitemap + OG tags + llms.txt present"
+    verify: "test -f website/dist/sitemap-index.xml && test -f website/dist/llms.txt && grep -q 'og:title' website/dist/index.html"
+    status: todo

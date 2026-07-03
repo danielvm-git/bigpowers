@@ -1,0 +1,11 @@
+story_id: e35s04
+title: "Create docs/references/pragmatic-programmer.md (DRY, broken windows, tracer bullets)"
+status: todo
+bcps: 2
+tasks:
+  - id: 1
+    description: "Create docs/references/pragmatic-programmer.md covering DRY, broken windows, tracer bullets"
+    verify: "test -f docs/references/pragmatic-programmer.md && grep -q 'broken window|tracer bullet' docs/references/pragmatic-programmer.md && echo OK"
+  - id: 2
+    description: "Add provenance header: author (Hunt & Thomas), publication year, key concepts"
+    verify: "grep -q 'Hunt.*Thomas' docs/references/pragmatic-programmer.md && echo OK"

@@ -1,0 +1,11 @@
+story_id: e35s09
+title: "Update PRINCIPLES.md to credit Beck, Fowler, Feathers, Hunt & Thomas"
+status: todo
+bcps: 2
+tasks:
+  - id: 1
+    description: "Add attribution section to docs/PRINCIPLES.md crediting Beck, Fowler, Feathers, Hunt & Thomas"
+    verify: "grep -q 'Beck|Fowler|Feathers|Hunt' docs/PRINCIPLES.md && echo OK"
+  - id: 2
+    description: "Cross-reference the new docs/references/ files from PRINCIPLES.md"
+    verify: "grep -q 'docs/references/' docs/PRINCIPLES.md && echo OK"

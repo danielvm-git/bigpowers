@@ -27,11 +27,11 @@ works per file).
    drift-gate steps that reference root skill paths.
    → verify: `python3 -c "import yaml; yaml.safe_load(open('.github/workflows/sync-skills.yml'))" && grep -q 'skills/' .github/workflows/sync-skills.yml && echo OK`
 
-3. Update the e28 capsule (`specs/epics/e28-docs-website/epic.yaml` and any
+3. Update the e28 capsule (`specs/epics/e33-docs-website/epic.yaml` and any
    e28 story specs) — replace `*/SKILL.md` glob references with
    `skills/*/SKILL.md` so the docs-site generator is specified against the
    new layout. e28 is still `todo`; this edits intent, not history.
-   → verify: `! grep -rn '\.\./\*/SKILL.md\|[^/]\*/SKILL.md' specs/epics/e28-docs-website/ && echo OK`
+   → verify: `! grep -rn '\.\./\*/SKILL.md\|[^/]\*/SKILL.md' specs/epics/e33-docs-website/ && echo OK`
 
 4. Regenerate everything from the new layout and prove idempotence: run
    `sync-skills.sh` twice, regenerate SKILL-INDEX.md and skills-lock.json;

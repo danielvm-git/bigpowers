@@ -71,3 +71,4 @@ Story: "User can filter the dashboard by date range"
 - `plan-work` — where BCP is confirmed before build starts
 - `specs/metrics/cycle-times.yaml` — velocity ledger
 - [flow-ciandt/bcp-agent](https://github.com/flow-ciandt/bcp-agent) — canonical source
+- [BCP Plus — Extended 13-dimension methodology](bcp-plus.md) — NFR dimensions, AI-assisted counting, enterprise adoption roadmap

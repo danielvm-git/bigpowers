@@ -1011,9 +1011,9 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/epics/e32-historical-refs/e32s10-cross-reference-skills.md",
+      "file": "specs/epics/e35-historical-refs/e32s10-cross-reference-skills.md",
       "severity": "MEDIUM",
-      "description": "File 'specs/epics/e32-historical-refs/e32s10-cross-reference-skills.md' is tagged with multiple stories: e09s01, e13s01, e21s01, e30s01, e32s10, e33s04, e39s01",
+      "description": "File 'specs/epics/e35-historical-refs/e32s10-cross-reference-skills.md' is tagged with multiple stories: e09s01, e13s01, e21s01, e30s01, e32s10, e33s04, e39s01",
       "remediation": "Review whether this file genuinely implements multiple stories."
     },
     {
@@ -1396,9 +1396,9 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/epics/e42-showcase-repo/e42s02-build-feature-epic.md",
+      "file": "specs/epics/e43-showcase-repo/e42s02-build-feature-epic.md",
       "severity": "MEDIUM",
-      "description": "File 'specs/epics/e42-showcase-repo/e42s02-build-feature-epic.md' is tagged with multiple stories: e18s01, e18s02, e18s03, e39s08, e42s02",
+      "description": "File 'specs/epics/e43-showcase-repo/e42s02-build-feature-epic.md' is tagged with multiple stories: e18s01, e18s02, e18s03, e39s08, e42s02",
       "remediation": "Review whether this file genuinely implements multiple stories."
     },
     {
@@ -1508,9 +1508,9 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/epics/e42-showcase-repo/e42s03-fix-real-bug.md",
+      "file": "specs/epics/e43-showcase-repo/e42s03-fix-real-bug.md",
       "severity": "MEDIUM",
-      "description": "File 'specs/epics/e42-showcase-repo/e42s03-fix-real-bug.md' is tagged with multiple stories: e18s04, e42s03",
+      "description": "File 'specs/epics/e43-showcase-repo/e42s03-fix-real-bug.md' is tagged with multiple stories: e18s04, e42s03",
       "remediation": "Review whether this file genuinely implements multiple stories."
     },
     {
@@ -2033,9 +2033,9 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/epics/e28-docs-website/e28s04-gh-pages-deploy.md",
+      "file": "specs/epics/e33-docs-website/e28s04-gh-pages-deploy.md",
       "severity": "MEDIUM",
-      "description": "File 'specs/epics/e28-docs-website/e28s04-gh-pages-deploy.md' is tagged with multiple stories: e28s04, e41s02",
+      "description": "File 'specs/epics/e33-docs-website/e28s04-gh-pages-deploy.md' is tagged with multiple stories: e28s04, e41s02",
       "remediation": "Review whether this file genuinely implements multiple stories."
     },
     {
@@ -2285,9 +2285,9 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/epics/e33-sync-pipeline/e33s03-render-target-functions.md",
+      "file": "specs/epics/e28-sync-pipeline/e33s03-render-target-functions.md",
       "severity": "MEDIUM",
-      "description": "File 'specs/epics/e33-sync-pipeline/e33s03-render-target-functions.md' is tagged with multiple stories: e33s03, e42s02",
+      "description": "File 'specs/epics/e28-sync-pipeline/e33s03-render-target-functions.md' is tagged with multiple stories: e33s03, e42s02",
       "remediation": "Review whether this file genuinely implements multiple stories."
     },
     {
@@ -2831,9 +2831,9 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/epics/e33-sync-pipeline/e33s01-skill-common-library.md",
+      "file": "specs/epics/e28-sync-pipeline/e33s01-skill-common-library.md",
       "severity": "MEDIUM",
-      "description": "File 'specs/epics/e33-sync-pipeline/e33s01-skill-common-library.md' is tagged with multiple stories: e33s04, e39s01",
+      "description": "File 'specs/epics/e28-sync-pipeline/e33s01-skill-common-library.md' is tagged with multiple stories: e33s04, e39s01",
       "remediation": "Review whether this file genuinely implements multiple stories."
     },
     {
@@ -4273,16 +4273,16 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/epics/e37-golden-stories/e37s02-minimal-api-fixture.md",
+      "file": "specs/epics/e42-golden-stories/e37s02-minimal-api-fixture.md",
       "severity": "MEDIUM",
-      "description": "File 'specs/epics/e37-golden-stories/e37s02-minimal-api-fixture.md' is tagged with multiple stories: e37s02, e42s03, e42s04",
+      "description": "File 'specs/epics/e42-golden-stories/e37s02-minimal-api-fixture.md' is tagged with multiple stories: e37s02, e42s03, e42s04",
       "remediation": "Review whether this file genuinely implements multiple stories."
     },
     {
       "check": "double-tag",
-      "file": "specs/epics/e37-golden-stories/e37s03-golden-story-yamls.md",
+      "file": "specs/epics/e42-golden-stories/e37s03-golden-story-yamls.md",
       "severity": "MEDIUM",
-      "description": "File 'specs/epics/e37-golden-stories/e37s03-golden-story-yamls.md' is tagged with multiple stories: e37s03, e37s04, e42s04, e44s06",
+      "description": "File 'specs/epics/e42-golden-stories/e37s03-golden-story-yamls.md' is tagged with multiple stories: e37s03, e37s04, e42s04, e44s06",
       "remediation": "Review whether this file genuinely implements multiple stories."
     },
     {

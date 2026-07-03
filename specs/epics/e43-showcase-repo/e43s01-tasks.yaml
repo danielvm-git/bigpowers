@@ -1,0 +1,23 @@
+story_id: e43s01
+title: "Scaffold the showcase app in a separate public repo via seed-conventions"
+status: todo
+bcps: 3
+tasks:
+  - id: 1
+    description: >-
+      Choose the showcase app (utility with genuine logic, not a todo list)
+      and create the public repo danielvm-git/bigpowers-showcase with gh
+    verify: >-
+      gh repo view danielvm-git/bigpowers-showcase --json name -q .name
+      | grep -q showcase && echo OK
+    status: todo
+  - id: 2
+    description: >-
+      Run seed-conventions + scope-work + plan-release in the showcase repo;
+      commit the full specs/ cockpit (state.yaml, release-plan.yaml, product/)
+      from day one
+    verify: >-
+      gh api repos/danielvm-git/bigpowers-showcase/contents/specs
+      --jq 'length' 2>/dev/null | awk '{if($1>0) print "OK"}'
+      || echo 'PENDING: showcase repo not yet populated'
+    status: todo

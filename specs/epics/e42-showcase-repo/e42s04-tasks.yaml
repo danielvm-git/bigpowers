@@ -1,8 +1,0 @@
-story_id: e42s04
-title: "Link the showcase from README + docs site; register as e37 golden-story fixture candidate"
-status: todo
-bcps: 2
-tasks:
-  - id: 1
-    description: "Add showcase link to README and website; add fixture note to specs/epics/e37-golden-stories/epic.yaml"
-    verify: "grep -qi 'showcase' README.md && grep -qi 'showcase' specs/epics/e37-golden-stories/epic.yaml && echo OK"

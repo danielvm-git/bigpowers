@@ -1,0 +1,37 @@
+id: e28
+title: "Sync Pipeline Refactor — Parse→IR→Render"
+wsjf: 2.0
+bcps: 13
+status: proposed
+release: v2.6x "Traceability Gate"
+codename: "Deepening"
+source: specs/DEEPEN-ARCHITECTURE-REVIEW.md §5.1
+stories:
+  - id: e28s01
+    bcp: 3
+    title: "Create scripts/lib/skill-common.sh with shared functions (resolve_repo_root, parse_frontmatter, iterate_skills)"
+    spec: e28s01-skill-common-library.md
+    tasks: e28s01-tasks.yaml
+    status: todo
+    verify: "source scripts/lib/skill-common.sh && parse_frontmatter skills/audit-code/SKILL.md && echo OK"
+  - id: e28s02
+    bcp: 2
+    title: "Refactor 13 scripts to source skill-common.sh instead of duplicating boilerplate"
+    spec: e28s02-refactor-script-boilerplate.md
+    tasks: e28s02-tasks.yaml
+    status: todo
+    verify: "grep -c 'REPO_ROOT=.*dirname.*BASH_SOURCE' scripts/*.sh | grep -v ':0$' | wc -l | awk '{if($1<=1) print \"OK\"; else print \"REMAINING: \"$1}'"
+  - id: e28s03
+    bcp: 5
+    title: "Refactor sync-skills.sh to use render-target functions (one per target)"
+    spec: e28s03-render-target-functions.md
+    tasks: e28s03-tasks.yaml
+    status: todo
+    verify: "bash scripts/sync-skills.sh && test -f .cursor/rules/audit-code.mdc && test -f .gemini/extensions/bigpowers/skills/audit-code/SKILL.md && test -f .pi/skills/audit-code/SKILL.md && echo OK"
+  - id: e28s04
+    bcp: 3
+    title: "Refactor regenerate-lockfile.sh, generate-skill-index.sh, build-skill-index.sh to source skill-common.sh"
+    spec: e28s04-index-scripts-common.md
+    tasks: e28s04-tasks.yaml
+    status: todo
+    verify: "bash scripts/sync-skills.sh && jq '.skills | length' skills-lock.json | awk '{if($1==72) print \"OK\"; else print \"FAIL: \"$1}'"

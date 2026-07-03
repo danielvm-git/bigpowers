@@ -19,7 +19,7 @@ gates with agent-driven golden stories whose execution mechanism (headless
 | e37 | Golden Story Suite — Agent-Driven | 13 | 1.8 | spike-gated — e37s01 (headless-harness spike, go/no-go ADR) is a HARD GATE before fixture/YAML/harness work |
 
 Canonical story lists: `specs/epics/e31-quality-guarantee/epic.yaml` and
-`specs/epics/e37-golden-stories/epic.yaml`. Build order becomes
+`specs/epics/e42-golden-stories/epic.yaml`. Build order becomes
 e31 → e32 → e34 → e35 → e33 → e36 → e37 (e37s01 spike may run in parallel
 any time; e37s02–s04 only on a documented "go"). Golden-story flake policy:
 pass@k 2-of-3; cadence per-epic, not per-story. The e31 section below is
@@ -46,8 +46,8 @@ Three specs documents drive this release:
 |----|-------|------|-----|--------|---------|
 | e30 | Architecture Quick Fixes | 6.5 | 10 | proposed | epics/e30-arch-quick-fixes |
 | e31 | Quality Guarantee Infrastructure | 5.5 | 22 | proposed | epics/e31-quality-guarantee |
-| e32 | Missing Historical References | 3.0 | 20 | proposed | epics/e32-historical-refs |
-| e33 | Sync Pipeline Refactor | 2.0 | 13 | proposed | epics/e33-sync-pipeline |
+| e32 | Missing Historical References | 3.0 | 20 | proposed | epics/e35-historical-refs |
+| e33 | Sync Pipeline Refactor | 2.0 | 13 | proposed | epics/e28-sync-pipeline |
 | e34 | Context Engineering Layer | 2.75 | 10 | proposed | epics/e34-context-engineering |
 | e35 | DORA Metrics Extension | 2.67 | 7 | proposed | epics/e35-dora-metrics |
 | e36 | Documentation Deduplication | 1.4 | 10 | proposed | epics/e36-doc-dedup |

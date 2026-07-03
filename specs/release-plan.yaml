@@ -8,56 +8,50 @@ release:
   semantic_release: true
   bump_hint: minor
 release_trains:
-  # Proposed public-launch sequencing for the current backlog (e32-e40),
-  # grouped by value + dependency rather than raw WSJF order. Resolves the
-  # e32-vs-e34 "what's next" decision open in specs/state.yaml handoff.
-  # Written 2026-07-03 in response to: "plan a meaningful flow of launches
-  # for the public." Epic-level detail unchanged below — this only sequences.
+  # Proposed public-launch sequencing for the backlog, ordered by the
+  # project owner's priority: docs foundation → content quality → pipeline
+  # dependencies → headline features → polish. Epic-level detail unchanged
+  # below — this only sequences.
+  #
+  # Reordered 2026-07-03: e35 removed (superseded), replaced by BCP Plus (new e37).
   - train: "v2.5x — Trust & Signal"
     epics: [e40, e34]
     total_bcps: 28
+    status: done
     rationale: >
-      e40 is urgent, not optional: release-branch is writing corrupted
-      cycle-time rows on every story that lands today, so every day of
-      delay adds more rows for e40s07 to quarantine later. e34 is a cheap,
-      dependency-free doc/frontmatter win that keeps cadence alongside it.
-      Neither is public-facing — this train is pure internal debt-paydown.
-  - train: "v2.6x — Traceability Gate"
-    epics: [e38, e33]
-    total_bcps: 26
+      e40 replaced hand-arithmetic cycle times with git-derived effort.
+      e34 named the four context-engineering strategies. Both landed.
+  - train: "v2.6x — Docs & Pipeline Foundation"
+    epics: [e33, e35, e28]
+    total_bcps: 46
     rationale: >
-      e38 is the single highest-WSJF item in the backlog (3.50) with no
-      blockers. e33 is pulled forward out of its own WSJF rank (2.0)
-      because its render-target refactor is an explicit architectural
-      prerequisite for e39's OKF Phase 2 (render_okf_bundle()) — landing
-      it here avoids e39 stalling mid-epic on a missing dependency.
-  - train: "v2.7x/v3.0 — Semantic Bridge (headline release)"
-    epics: [e43, e39, e44, e28, e41, e42, e37]
-    total_bcps: 87
+      e33 (Docs Website) is the audience-facing site — build it first so
+      everything that follows has a public home. e35 (Historical References)
+      ships content quality with no dependencies. e28 (Sync Pipeline
+      Refactor) is the architectural prerequisite for e39's OKF rendering
+      and e37's BCP Plus counter integration — land it early to unblock
+      the headline train.
+  - train: "v2.7x/v3.0 — Headline Release"
+    epics: [e37, e36, e42, e39, e41, e43, e32, e44]
+    total_bcps: 111
     rationale: >
-      e43 (highest WSJF at 4.00, previously unslotted) leads this train —
-      its MCP server is the foundation e39s01 now emits into, avoiding a
-      build-then-deprecate cycle. e39+e44 depend on e43's entity-relation
-      graph and e40's OKF pipeline (landed in v2.5x). e28 (Docs Website)
-      is the audience-facing site that turns e39's internal graph into a
-      public artifact. e41 renders receipts evidence as a live page.
-      e42 (pulled from v2.8x) ships site + receipts + worked example
-      together — the only epic that answers "why adopt this?". e37 caps
-      the train with golden story maturation. Candidate for a v3.0 launch
-      note — first release in this backlog where a stranger can open a
-      browser, see evidence, and follow a worked example.
-  - train: "v2.8x — Docs Polish"
-    epics: [e32, e36, e45, e46]
-    total_bcps: 48
+      The main event. e37 (BCP Plus 13-dimension counting) lands first —
+      depends on e28 (pipeline) and e40 (metrics), both ready. e36 (Doc
+      Dedup) is a cheap content win. e42 (Golden Stories) matures the
+      agent-driven CI gate. e39 (Semantic Bridge) + e32 (MCP Server) +
+      e44 (Migrate Version) form the OKF knowledge-graph stack. e41
+      (Public Receipts) renders live quality evidence on the e33 site.
+      e43 (Showcase Repo) ships the worked example — the only epic that
+      answers "why should a stranger adopt this?". Candidate for a v3.0
+      launch note: first release where a stranger can open a browser, see
+      evidence, and follow a worked example.
+  - train: "v2.8x — Polish"
+    epics: [e45, e46]
+    total_bcps: 18
     rationale: >
-      Both are content-quality and non-blocking — safe to land whenever
-      cadence allows. Sequenced last deliberately: land AFTER the v2.7x
-      docs site goes live so the newly-public site doesn't launch showing
-      stale or duplicated reference docs. e42 (Showcase Repo, added
-      2026-07-03) joins this train so its spec trail demonstrates the
-      post-e40 methodology, not the deprecated hand-arithmetic pipeline.
-      e46 (Risk-Based Verification) slots here: depends on e42's verify
-      commands as the test surface being scaled.
+      e45 (OKF Completion — wikis, verification reports, viz graph)
+      and e46 (Risk-Based Verification) depend on the v2.7x stack
+      (e39+e32+e44 for e45, e43 for e46). Lightweight capstone train.
   drift_note: >
     e26 (Security-Review Lifecycle) is still marked "ACTIVE — next release
     (v2.30.0)" in the epics list below, but execution-status.yaml shows all
@@ -82,9 +76,9 @@ epics:
       page shows the README (~96 root entries → ~20). Location-agnostic
       script discovery first, then atomic move + regeneration (npm
       postinstall coupling forbids a split release). WSJF (BV 5 + TC 3 +
-      RR-OE 2) / JS 3 = 3.3 — outranks e28, which must build its site
+      RR-OE 2) / JS 3 = 3.3 — outranks e33, which must build its site
       generator against the new skills/ layout, not */SKILL.md.
-  - id: e28
+  - id: e33
     title: "Docs Website — Fourth Generated Artifact Target"
     wsjf: 2.8
     bcps: 13
@@ -115,11 +109,11 @@ epics:
   #         specs/DEEPEN-ARCHITECTURE-REVIEW.md (review)
   #         specs/QUALITY-GUARANTEE-STRATEGY.md (golden suite)
   # Build order (superseded by release_trains above, 2026-07-03):
-  #   v2.5x: e40 → e34   |   v2.6x: e38 → e33   |
-  #   v2.7x/v3.0: e39 → e28 → e37s02-s04   |   v2.8x: e32 → e36
-  # (e37 spike PASSED 2026-07-03 via gh-aw + DeepSeek; G-01 golden story live.
-  #  e37s02-s04 no longer spike-gated — can proceed after e31 builds the gates.
-  #  e28 pulled forward from its old pre-deepening backlog slot into v2.7x.)
+  #   v2.5x: e40 → e34   |   v2.6x: e38 → e28   |
+  #   v2.7x/v3.0: e39 → e33 → e42s02-s04   |   v2.8x: e35 → e36
+  # (e42 spike PASSED 2026-07-03 via gh-aw + DeepSeek; G-01 golden story live.
+  #  e42s02-s04 no longer spike-gated — can proceed after e31 builds the gates.
+  #  e33 pulled forward from its old pre-deepening backlog slot into v2.7x.)
   # ── DONE — shipped as v2.50.0 (Deepening, 2026-07-03) ────────────────
   - id: e31
     title: "Quality Guarantee — Deterministic Gates"
@@ -129,13 +123,13 @@ epics:
     note: >
       Delivered: G-04 sync-pipeline self-test, compliance CI gate, golden suite
       runner (--baseline, --check-size), pre-merge mandate, evolve-skill regression
-      gate. 7 stories across 4 PRs (#43-#46). Replaced by e37 golden stories as
+      gate. 7 stories across 4 PRs (#43-#46). Replaced by e42 golden stories as
       consumer of these gates.
-  - id: e32
+  - id: e35
     title: "Missing Historical References"
     wsjf: 3.0
     bcps: 20
-    capsule_dir: epics/e32-historical-refs
+    capsule_dir: epics/e37-historical-refs
     note: >
       9 reference docs: Beck (XP/Tidy First), Fowler (refactoring catalog),
       Feathers (seams/characterization), Metz (POODR/SOLID), Hickey (simple
@@ -150,21 +144,7 @@ epics:
       Name the 4 context-engineering strategies bigpowers already implements
       (write/select/compress/isolate), add effort: heavy|light frontmatter.
       Borrows GSD Core's central insight.
-  - id: e35
-    title: "DORA Metrics Extension"
-    wsjf: 2.67
-    bcps: 7
-    status: superseded
-    superseded_by: e40
-    capsule_dir: epics/e35-dora-metrics
-    note: >
-      SUPERSEDED by e40 (2026-07-03) — e35's premise (extend the hand-written
-      cycle-times.yaml) rested on the unreliable metric e40 replaces. Kept
-      here for history; excluded from all release trains. Not part of the
-      build queue. Original scope: extend cycle-times.yaml from BCP/hr only
-      to all four DORA keys: deployment frequency, lead time, change failure
-      rate, restore time — absorbed into e40's design.
-  - id: e33
+  - id: e28
     title: "Sync Pipeline Refactor"
     wsjf: 2.0
     bcps: 13
@@ -187,17 +167,17 @@ epics:
       OKF alignment: the thin-provenance pattern (concept body = pointer to
       authority doc) is exactly e36's goal applied to OKF concept documents.
       See specs/IMPACT-e38-okf-adoption.md.
-  - id: e37
+  - id: e42
     title: "Golden Story Suite — Agent-Driven"
     wsjf: 1.8
     bcps: 13
-    capsule_dir: epics/e37-golden-stories
+    capsule_dir: epics/e43-golden-stories
     note: >
       Agent-execution half of the original e31 (split per PLAN-AUDIT
       2026-07-02). SPIKE PASSED 2026-07-02: DeepSeek v4 via gh-aw Claude
       engine confirmed viable (ANTHROPIC_BASE_URL → api.deepseek.com/anthropic).
-      G-01 golden story live at .github/workflows/e37-golden-deepseek.lock.yml.
-      e37s01 done; s02-s04 proceed. Depends on e31 (deterministic gates).
+      G-01 golden story live at .github/workflows/e42-golden-deepseek.lock.yml.
+      e42s01 done; s02-s04 proceed. Depends on e31 (deterministic gates).
       Per-epic cadence, pass@k 2-of-3 flake policy.
   - id: e38
     title: "Spec-to-Code Traceability Gate"
@@ -226,11 +206,11 @@ epics:
       agent-maintained language-agnostic code understanding + validate-okf.sh
       CI conformance gate. Source: Karpathy LLM Wiki, OKF v0.1, Google
       Knowledge Catalog, IMPACT-e38-okf-adoption.md, session 2026-07-02/03.
-  - id: e43
+  - id: e32
     title: "MCP Semantic Context Server"
     wsjf: 4.00
     bcps: 13
-    capsule_dir: epics/e43-mcp-context-server
+    capsule_dir: epics/e35-mcp-context-server
     supersedes: scripts/mcp-server.js (e21 prototype)
     note: >
       Build bigpowers-mcp — a project-specific TypeScript MCP server that
@@ -240,7 +220,7 @@ epics:
       the Layer 3 (Technical Context) gap without needing ctxo or Markdown
       language plugins. Agents query the graph instead of reading individual
       files. Absorbs and replaces scripts/mcp-server.js (e21 prototype);
-      e39s01 is re-scoped to emit its graph via e43's server. Source: MCP
+      e39s01 is re-scoped to emit its graph via e32's server. Source: MCP
       servers research (7 reference servers analyzed), tree-sitter/remark
       survey (2026-07-03).
   - id: e44
@@ -264,7 +244,7 @@ epics:
     wsjf: 3.2
     bcps: 18
     capsule_dir: epics/e40-metrics-integrity
-    supersedes: e35
+    supersedes: (e35 — removed 2026-07-03, absorbed into e40 design)
     note: >
       Fixes a self-replicating defect: cycle-times.yaml is agent-self-reported
       wall-clock, hand-computed and ungated (outliers to 120 BCP/hr, templated
@@ -279,8 +259,7 @@ epics:
       bundle (specs/templates/story-metrics.okf.md) with aggregation tags; keeps
       the DORA four keys (market standard) but computes them from git/deploy
       events; validate-okf + provenance gate (gate on the pipeline, not the
-      value). Absorbs & corrects e35 (whose "extend cycle-times.yaml" premise
-      rested on the unreliable metric). Source: specs/RESEARCH-cycle-time-
+      value). Absorbs the original DORA metrics scope. Source: specs/RESEARCH-cycle-time-
       metrics.md, specs/CHANGE-REQUEST-e40-metrics-integrity.md, 2× red-team
       passes, session 2026-07-03.
   - id: e41
@@ -290,19 +269,19 @@ epics:
     capsule_dir: epics/e41-public-receipts
     note: >
       Change request 2026-07-03. Renders bigpowers' own quality evidence —
-      compliance score (e31), golden-story pass@k (e37), honest git-derived
+      compliance score (e31), golden-story pass@k (e42), honest git-derived
       metrics (e40), traceability matrix (e38) — as a public /receipts page
-      on the e28 docs site. The differentiation play: competitors CLAIM
+      on the e33 docs site. The differentiation play: competitors CLAIM
       discipline, this page PROVES it. WSJF (BV 8 + TC 4 + RR-OE 3) / JS 4
-      = 3.75 — highest in the backlog, but hard dependencies on e28 + e40
+      = 3.75 — highest in the backlog, but hard dependencies on e33 + e40
       pin it to the v2.7x/v3.0 train. Every section degrades to an explicit
       "not yet measured" state when its upstream epic hasn't landed —
       partial data is fine, fabricated data never (e40 honesty rule).
-  - id: e42
+  - id: e43
     title: "Showcase Repo — Worked Example Built With bigpowers"
     wsjf: 2.5
     bcps: 10
-    capsule_dir: epics/e42-showcase-repo
+    capsule_dir: epics/e32-showcase-repo
     note: >
       Change request 2026-07-03. Small real app in a separate public repo
       built end-to-end with bigpowers, full specs/ cockpit committed —
@@ -312,7 +291,7 @@ epics:
       v2.7x (was v2.8x) — it's the only epic that answers "why should a
       stranger adopt this?" — landing right after e41 means the launch
       train ships site + receipts + worked example together. Doubles as
-      e37 golden-story fixture material.
+      e42 golden-story fixture material.
   - id: e45
     title: "OKF Completion — Wikis, Verification Reports, Viz Graph"
     wsjf: 3.0
@@ -324,9 +303,9 @@ epics:
       rendered OKF-concept pages; verification-reports-as-OKF (type:
       Verification with score/gate frontmatter); bug-registry as OKF
       concept documents; viz.html graph companion for visual-dashboard
-      (renders the entity-relation graph from e43's build_skill_graph output
+      (renders the entity-relation graph from e32's build_skill_graph output
       as a browsable interactive force-layout). ~8 BCP, slotted in v2.8x
-      after e39+e43+e44 land the OKF foundations. WSJF (BV 5 + TC 3 +
+      after e39+e32+e44 land the OKF foundations. WSJF (BV 5 + TC 3 +
       RR-OE 4) / JS 4 = 3.0.
 
   - id: e46
@@ -341,6 +320,25 @@ epics:
       assigned to e45. Source: PLAN-AUDIT red-team gap list, BMAD TEA repo
       cached at ~/.opensrc/repos/github.com/bmad-code-org/bmad-method-test-
       architecture-enterprise/main.
+
+  - id: e37
+    title: "BCP Plus Counting — Evolve from 3D to 13D Story Sizing"
+    wsjf: 2.1
+    bcps: 18
+    capsule_dir: epics/e42-bcp-plus-counting
+    depends_on: [e40, e28]
+    note: >
+      Integrates the 13-dimension BCP Plus methodology (CI&T, May 2026) into
+      bigpowers' story-sizing pipeline. Adds functional dimensions (Roles/
+      Permissions, Variabilities, Domain Entities, Notifications, Audits,
+      Background Processes) and NFR dimensions (Quality Attributes, Security
+      & Compliance, UX & Accessibility). The big-counter project already
+      implements the Router + Sizer architecture; this epic wires it into
+      plan-work, plan-release, develop-tdd, and build-epic. NFR Gate
+      (standard-expectation → 0 points) feeds into security-review and
+      wire-observability. Depends on e40 (Metrics Integrity — honest effort
+      pairs with honest complexity sizing) and e28 (Sync Pipeline Refactor
+      — render_okf_bundle() target). CR 2026-07-03.
 
   # ── DONE — shipped as v2.30.0 ───────────────────────────────────────
   - id: e26

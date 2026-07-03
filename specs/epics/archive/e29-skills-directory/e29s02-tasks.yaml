@@ -13,7 +13,7 @@ tasks:
     status: todo
   - id: 3
     description: "Update e28 capsule verify commands that glob ../*/SKILL.md to the skills/ layout (e28 not yet started, capsule is still intent)"
-    verify: "! grep -q '\\.\\./\\*/SKILL.md' specs/epics/e28-docs-website/epic.yaml && echo OK"
+    verify: "! grep -q '\\.\\./\\*/SKILL.md' specs/epics/e33-docs-website/epic.yaml && echo OK"
     status: todo
   - id: 4
     description: "Regenerate all derived artifacts from the new layout: sync-skills.sh (cursor/gemini/pi), SKILL-INDEX.md, skills-lock.json — zero FAIL, zero drift on second run"

@@ -1,6 +1,6 @@
 # bigpowers — Release History
 
-> 98 releases in 41 days. 19 epics delivered. 3 generations of software engineering thought, synthesized into executable agent discipline.
+> 101 releases in 41 days. 33 epics delivered, 13 queued. 3 generations of software engineering thought, synthesized into executable agent discipline.
 
 ---
 
@@ -9,12 +9,13 @@
 | Metric | Value |
 |:---|---:|
 | First release | v1.0.0 — 2026-05-23 |
-| Current version | v2.56.1 — 2026-07-03 |
-| Total releases | 98 |
-| Release cadence | 2.4/day (fully automated via semantic-release) |
-| Epics delivered | 19 (~151 BCP, ~135 stories) |
+| Current version | v2.58.1 — 2026-07-03 |
+| Total releases | 101 |
+| Release cadence | 2.5/day (fully automated via semantic-release) |
+| Epics delivered | 33 |
 | Active epics | 1 (e37 Golden Story Suite) |
-| Backlog epics | 10 (~96 BCP queued across 4 release trains) |
+| Backlog epics | 12 |
+| Backlog gaps | 28, 32, 33, 35, 36, 37, 39, 41, 42, 43, 44, 45, 46 |
 
 ---
 
@@ -64,7 +65,7 @@ Production-grade infrastructure. The methodology was correct; now the pipeline h
 
 ## 🔬 Phase IV: Deepening — The System Builds Itself Better
 
-**July 2–3** · v2.45.0 → v2.56.1
+**July 2–3** · v2.45.0 → v2.58.1
 
 The quality infrastructure phase. This is where bigpowers proved it could measure and improve itself.
 
@@ -96,24 +97,49 @@ The quality infrastructure phase. This is where bigpowers proved it could measur
 - **Blind-spot detector**: Heuristic analysis catches stories with no code match.
 - **CI/CD integration**: Matrix runs on every push. 9 stories shipped in a single day — the fastest-moving epic in project history.
 
+### Compliance Hardening — v2.57.0 → v2.58.0
+
+- **Waiver subsystem**: Deterministic scoring with explicit waiver exclusion. Every gate is auditable.
+- **G-07 negative-path self-test**: Step scripts tested against deliberate failures. The golden suite now covers both "it works" and "it correctly fails."
+
 ---
 
 ## 🗺 Forward Plan
 
-| Train | Epics | BCP | When | Focus |
+The 13 gaps in the epic sequence are the roadmap. Every number below represents a queued epic, ordered by the project owner's priority.
+
+| Gap | Epic | BCP | Train | Focus |
+|:---:|:-----|:---:|:------|:------|
+| **28** | Docs Website | 13 | v2.6x | Astro Starlight site, generated from repo sources |
+| **32** | Historical References | 20 | v2.6x | 9 reference docs (Beck, Fowler, Evans, DORA…) |
+| **33** | Sync Pipeline Refactor | 13 | v2.6x | Parse→IR→Render architecture, OKF target |
+| **35** | BCP Plus Counting | 18 | v2.7x | 13-dimension complexity sizing, AI-assisted |
+| **36** | Doc Deduplication | 10 | v2.7x | Provenance pointers, single source of truth |
+| **37** | Golden Stories | 13 | v2.7x | 🔄 **Active** — agent-driven CI gate |
+| **39** | Semantic Context Bridge | 20 | v2.7x | Knowledge graph, agent locks, drift detection |
+| **41** | Public Receipts | 10 | v2.7x | Live quality evidence page |
+| **42** | Showcase Repo | 10 | v2.7x | Worked example — answers "why adopt this?" |
+| **43** | MCP Semantic Server | 13 | v2.7x | TypeScript entity-relation graph |
+| **44** | Spec Version Migration | 14 | v2.7x | Auto-upgrade stale specs |
+| **45** | OKF Completion | 8 | v2.8x | Wikis, verification reports, viz graph |
+| **46** | Risk-Based Verification | 10 | v2.8x | TEA-inspired test depth (P0–P3) |
+
+### Train Summary
+
+| Train | Epics | BCP | Status |
 |:---|---:|---:|:---|
-| **v2.5x** Trust & Signal | e40, e34 | 28 | Current | Internal debt. Honest metrics, clean context vocabulary. |
-| **v2.6x** Traceability Gate | e38, e33 | 26 | Next | Deterministic coverage in CI. Pipeline refactored for OKF rendering. |
-| **v2.7x/v3.0** Semantic Bridge | e43, e39, e44, e28, e41, e42, e37 | 87 | After | **Headline release.** Docs website, public receipts page, MCP server, worked example repo. First release where a stranger can open a browser and understand why this exists. |
-| **v2.8x** Docs Polish | e32, e36, e45, e46 | 48 | Later | Content quality. Reference docs, deduplication, OKF completion. |
+| **v2.5x** Trust & Signal | e40, e34 | 28 | ✅ Done |
+| **v2.6x** Docs & Pipeline | e28, e32, e33 | 46 | Next |
+| **v2.7x/v3.0** Headline | e35, e36, e37, e39, e41, e42, e43, e44 | 111 | After |
+| **v2.8x** Polish | e45, e46 | 18 | Later |
 
 ---
 
 ## 🔍 What This Proves
 
-- **98 releases in 41 days** with zero manual version bumps. Semantic-release from Conventional Commits.
-- **19 epics delivered** through the same 8-step build cycle the methodology prescribes for users. bigpowers is its own first customer.
-- **Quality is machine-enforced, not human-asserted.** Compliance scores, golden suites, sync-pipeline self-tests, traceability matrices — all deterministic. No "trust me."
+- **101 releases in 41 days** with zero manual version bumps. Semantic-release from Conventional Commits.
+- **33 epics delivered** through the same 8-step build cycle the methodology prescribes for users. bigpowers is its own first customer.
+- **Quality is machine-enforced, not human-asserted.** Compliance scores, golden suites, sync-pipeline self-tests, traceability matrices, negative-path tests — all deterministic. No "trust me."
 - **Metrics are git-derived, not self-reported.** Every cycle time, effort number, and lead time traces to a commit. No hand arithmetic.
 - **The stack is a chronological layer cake.** Clean Code (2008) → Deep Modules (2018) → Agent Orchestration (2023) → Spec-Driven Development (2024) → AI-Native Code Hygiene (2026). Each wave resolves tensions from the last. Nothing is random.
 
@@ -123,4 +149,4 @@ The quality infrastructure phase. This is where bigpowers proved it could measur
 
 ---
 
-*verify: `git tag --sort=-creatordate | wc -l` should match the total releases count above (98 as of 2026-07-03).*
+*verify: `git tag --sort=-creatordate | wc -l` should match the total releases count above (101 as of 2026-07-03).*

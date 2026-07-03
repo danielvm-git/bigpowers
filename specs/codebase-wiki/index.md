@@ -1,7 +1,7 @@
 ---
 type: Index
-generated_at: 2026-07-03T19:19:42.807358+00:00
-total_concepts: 148
+generated_at: 2026-07-03T19:58:03.916374+00:00
+total_concepts: 152
 ---
 
 # Codebase Wiki — Story Traceability
@@ -11,7 +11,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | Story | Title | Confidence | Links |
 |-------|-------|------------|-------|
 | [e01s01](./e01s01.md) | slopcheck tags in `plan-work` ([OK]/[SUS]/[SLOP]) | high | 6 |
-| [e01s02](./e01s02.md) | Supply-chain + OWASP in `audit-code` | medium | 90 |
+| [e01s02](./e01s02.md) | Supply-chain + OWASP in `audit-code` | medium | 102 |
 | [e01s03](./e01s03.md) | Secret patterns documented in `guard-git` | medium | 4 |
 | [e01s04](./e01s04.md) | `docs/references/security-threats.md` reconciled | none | 0 |
 | [e02s01](./e02s01.md) | `verify-work`, `run-evals` skills | high | 23 |
@@ -28,8 +28,8 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e05s03](./e05s03.md) | `orchestrate-project` reads model + spawn list | medium | 3 |
 | [e06s01](./e06s01.md) | `type:` / `context:` in plan-work template | medium | 5 |
 | [e06s02](./e06s02.md) | ADR/SHA refs on steps | none | 0 |
-| [e06s03](./e06s03.md) | `audit-code` metadata checks | medium | 90 |
-| [e07s01](./e07s01.md) | Demeter in CONVENTIONS.md + audit-code | medium | 90 |
+| [e06s03](./e06s03.md) | `audit-code` metadata checks | medium | 102 |
+| [e07s01](./e07s01.md) | Demeter in CONVENTIONS.md + audit-code | medium | 102 |
 | [e07s02](./e07s02.md) | Module Depth score in deepen-architecture | medium | 5 |
 | [e07s03](./e07s03.md) | Concurrency audit in model-domain | medium | 3 |
 | [e08s01](./e08s01.md) | Wave Execution | medium | 1 |
@@ -53,12 +53,12 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e12s05](./e12s05.md) | Installation docs — document pi install process | medium | 2 |
 | [e12s06](./e12s06.md) | Validation — test pi loads all skills correctly | medium | 8 |
 | [e13s01](./e13s01.md) | Regenerate skills-lock.json with all 62 skills | medium | 34 |
-| [e13s02](./e13s02.md) | Autogenerate SKILL-INDEX.md from lockfile + frontmatter | high | 1 |
+| [e13s02](./e13s02.md) | Autogenerate SKILL-INDEX.md from lockfile + frontmatter | none | 0 |
 | [e13s03](./e13s03.md) | Complete or deprecate stale planned skills | high | 1 |
 | [e14s01](./e14s01.md) | Harden release-branch solo-local fallback | medium | 7 |
 | [e14s02](./e14s02.md) | Add fix-rate KPI to session-state tracking | medium | 9 |
 | [e14s03](./e14s03.md) | Catalog completeness audit — verify all pi skills exist in p | medium | 13 |
-| [e18s01](./e18s01.md) | audit-code as hard gate in build-epic step 6 | medium | 104 |
+| [e18s01](./e18s01.md) | audit-code as hard gate in build-epic step 6 | medium | 116 |
 | [e18s02](./e18s02.md) | Wire enforce-first (F.I.R.S.T) into build-epic gate chain | medium | 20 |
 | [e18s03](./e18s03.md) | Wire assess-impact into build-epic step 2 (plan-work) | medium | 20 |
 | [e18s04](./e18s04.md) | Universalize resume/checkpoint pattern to fix-bug and orches | medium | 11 |
@@ -103,20 +103,20 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e33s01](./e33s01.md) | Create scripts/lib/skill-common.sh with shared functions (re | medium | 2 |
 | [e33s02](./e33s02.md) | Refactor 13 scripts to source skill-common.sh instead of dup | medium | 7 |
 | [e33s03](./e33s03.md) | Refactor sync-skills.sh to use render-target functions (one  | medium | 7 |
-| [e33s04](./e33s04.md) | Refactor regenerate-lockfile.sh, generate-skill-index.sh, bu | medium | 329 |
+| [e33s04](./e33s04.md) | Refactor regenerate-lockfile.sh, generate-skill-index.sh, bu | medium | 330 |
 | [e35s01](./e35s01.md) | Extend cycle-times.yaml schema to include change_failure_rat | medium | 6 |
 | [e35s02](./e35s02.md) | Update release-branch to compute change_failure_rate and res | medium | 9 |
 | [e35s03](./e35s03.md) | Update CONVENTIONS.md BCP accounting to reference DORA four  | medium | 1 |
 | [e36s01](./e36s01.md) | Slim docs/references/uncle-bob.md to provenance pointer | low | 2 |
 | [e36s02](./e36s02.md) | Slim docs/references/akita.md, ousterhout.md, karpathy.md, w | low | 1 |
-| [e36s03](./e36s03.md) | Remove F.I.R.S.T rubric restatement from enforce-first and a | medium | 118 |
+| [e36s03](./e36s03.md) | Remove F.I.R.S.T rubric restatement from enforce-first and a | medium | 130 |
 | [e36s04](./e36s04.md) | Update docs/references/spec-kit.md to cover full SDD tool la | medium | 3 |
 | [e36s05](./e36s05.md) | Refresh docs/references/bmad.md from BMAD v6/TEA — currently | none | 0 |
 | [e37s01](./e37s01.md) | Spike: headless golden-chain harness — gh-aw + DeepSeek v4 p | medium | 5 |
 | [e37s02](./e37s02.md) | Create specs/benchmarks/fixtures/minimal-api/ fixture repo ( | medium | 4 |
 | [e37s03](./e37s03.md) | Author 4 golden story YAMLs (g-01, g-02, g-03, g-05) with co | medium | 17 |
-| [e37s04](./e37s04.md) | Add --agent mode to run-golden-suite.sh: headless chain exec | medium | 190 |
-| [e39s01](./e39s01.md) | Emit the skill graph artifact via e43's MCP server (build_sk | medium | 413 |
+| [e37s04](./e37s04.md) | Add --agent mode to run-golden-suite.sh: headless chain exec | medium | 203 |
+| [e39s01](./e39s01.md) | Emit the skill graph artifact via e43's MCP server (build_sk | medium | 414 |
 | [e39s02](./e39s02.md) | Create specs/agent-locks.yaml — multi-agent coordination pro | low | 1 |
 | [e39s03](./e39s03.md) | Create scripts/check-spec-drift.sh — requirement change → su | medium | 5 |
 | [e39s04](./e39s04.md) | OKF Phase 2 — sync-skills.sh generates specs/skills-wiki/ fr | medium | 6 |
@@ -132,7 +132,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e41s04](./e41s04.md) | Honesty guardrails codified — validate-okf checks receipts.j | medium | 5 |
 | [e41s05](./e41s05.md) | README + launch note point to the live receipts page | medium | 4 |
 | [e42s01](./e42s01.md) | Scaffold the showcase app in a separate public repo via seed | medium | 11 |
-| [e42s02](./e42s02.md) | Build one feature epic end-to-end via the 8-step build-epic  | medium | 571 |
+| [e42s02](./e42s02.md) | Build one feature epic end-to-end via the 8-step build-epic  | medium | 572 |
 | [e42s03](./e42s03.md) | Fix one real bug via the investigate-bug → develop-tdd → val | medium | 52 |
 | [e42s04](./e42s04.md) | Link the showcase from README + docs site; register as e37 g | medium | 7 |
 | [e42s05](./e42s05.md) | Add offline-tolerant fallbacks for e42 verify commands that  | medium | 1 |
@@ -148,7 +148,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e44s03](./e44s03.md) | Create scripts/migrate-version.sh — one-shot ordered migrati | high | 15 |
 | [e44s04](./e44s04.md) | Verification gates + migration report generation + CLAUDE.md | high | 8 |
 | [e44s05](./e44s05.md) | Integrate check_spec_version_gap into survey-context; wire h | high | 9 |
-| [e44s06](./e44s06.md) | Golden test fixtures (v1.x, v2.0.0, v2.20) + roundtrip valid | high | 21 |
+| [e44s06](./e44s06.md) | Golden test fixtures (v1.x, v2.0.0, v2.20) + roundtrip valid | high | 22 |
 | [e45s01](./e45s01.md) | Generate epics-wiki and adr-wiki as OKF concept bundles from | medium | 11 |
 | [e45s02](./e45s02.md) | Emit verification reports as OKF bundles from run-golden-sui | medium | 8 |
 | [e45s03](./e45s03.md) | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | medium | 33 |
@@ -158,3 +158,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e46s01](./e46s01.md) | Write docs/references/tea.md — credit TEA and document its m | medium | 12 |
 | [e46s02](./e46s02.md) | Add risk: P0|P1|P2|P3 field to plan-work that scales verify- | medium | 63 |
 | [e46s03](./e46s03.md) | NFR evidence gate — performance/reliability/operability with | none | 0 |
+| [e35s01](./e35s01.md) | BCP Plus counter integration — install and smoke-test big-co | medium | 25 |
+| [e35s02](./e35s02.md) | BCP Plus template — 13-dimension breakdown in story specs | medium | 1 |
+| [e35s03](./e35s03.md) | NFR Gate integration — security-review and wire-observabilit | medium | 13 |
+| [e35s04](./e35s04.md) | Build-epic integration — BCP Plus in story sizing workflow | medium | 8 |

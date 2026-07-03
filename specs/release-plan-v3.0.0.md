@@ -105,7 +105,7 @@
 ## Epic 33: Sync Pipeline Refactor
 
 > WSJF: 2.5 (BV 5 + TC 3 + RR-OE 2) / JS 4 = 2.5
-> BCP: 13 · Stories: 4 · Capsule: specs/epics/e33-sync-pipeline
+> BCP: 13 · Stories: 4 · Capsule: specs/epics/e28-sync-pipeline
 > Prerequisite: e30 (golden suite G-04 verifies sync pipeline), e31 (fixes must be in first)
 > Note: This is the highest structural-impact change. The sync pipeline G-04 golden story is the regression gate.
 

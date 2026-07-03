@@ -1,0 +1,37 @@
+story_id: e33s02
+title: "Source-mapping prebuild — pages generated from repo sources"
+status: todo
+bcps: 5
+tasks:
+  - id: 1
+    description: "Create website/scripts/prebuild.mjs entry point"
+    verify: "test -f website/scripts/prebuild.mjs && node -c website/scripts/prebuild.mjs"
+    status: todo
+  - id: 2
+    description: "README.md → landing page generator (index.mdx with frontmatter)"
+    verify: "node website/scripts/prebuild.mjs && grep -q 'title:' website/src/content/docs/index.mdx"
+    status: todo
+  - id: 3
+    description: "SKILL.md → skills/*.mdx page generator (count must match live skills)"
+    verify: "test $(ls website/src/content/docs/skills/*.mdx 2>/dev/null | wc -l) -eq $(ls -d skills/*/SKILL.md | wc -l)"
+    status: todo
+  - id: 4
+    description: "Skills index page grouping by lifecycle phase"
+    verify: "grep -q 'Discover' website/src/content/docs/skills/index.mdx && grep -q 'Build' website/src/content/docs/skills/index.mdx"
+    status: todo
+  - id: 5
+    description: "docs/ → guides/ generator"
+    verify: "test -f website/src/content/docs/guides/PRINCIPLES.md"
+    status: todo
+  - id: 6
+    description: "specs/adr/ → decisions/ generator"
+    verify: "test -f website/src/content/docs/decisions/0001-verb-noun-naming.md"
+    status: todo
+  - id: 7
+    description: "Wire prebuild into npm run site:build pipeline"
+    verify: "grep -q 'prebuild' package.json"
+    status: todo
+  - id: 8
+    description: "Full build with skill count assertion"
+    verify: "cd website && npm run prebuild && test $(ls src/content/docs/skills | wc -l) -eq $(ls -d ../skills/*/SKILL.md | wc -l)"
+    status: todo

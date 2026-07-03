@@ -113,4 +113,4 @@ Scenario: Receipts not yet live (6a)
 - README.md (target file).
 - docs/RELEASE.md (launch note target).
 - specs/epics/e41-public-receipts/epic.yaml (parent epic).
-- specs/epics/e28-docs-website/epic.yaml (docs site — hosts receipts page).
+- specs/epics/e33-docs-website/epic.yaml (docs site — hosts receipts page).

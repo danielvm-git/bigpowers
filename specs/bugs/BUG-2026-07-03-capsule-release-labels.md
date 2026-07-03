@@ -7,7 +7,7 @@
 **Expected behavior:** Every epic capsule's `release:` field matches the release train it's slotted into in `specs/release-plan.yaml`.
 
 **How to reproduce:**
-1. `grep 'release:' specs/epics/e43-mcp-context-server/epic.yaml` → `v2.45.0`
+1. `grep 'release:' specs/epics/e32-mcp-context-server/epic.yaml` → `v2.45.0`
 2. `grep 'release:' specs/epics/e44-migrate-version/epic.yaml` → `v2.45.0`
 3. `grep 'release:' specs/epics/e39-knowledge-graph/epic.yaml` → likely `v2.45.0`
 4. Release train says v2.7x/v3.0 for all three
@@ -21,8 +21,8 @@ The `release:` field in epic capsules was set when these epics were planned unde
 ## TDD Fix Plan
 
 ### 1. Update e43 capsule
-**GREEN:** Change `release: v2.45.0` to `release: v2.7x/v3.0` in `specs/epics/e43-mcp-context-server/epic.yaml`, add provenance comment.
-**verify:** `grep -q 'v2.7x/v3.0' specs/epics/e43-mcp-context-server/epic.yaml && echo OK`
+**GREEN:** Change `release: v2.45.0` to `release: v2.7x/v3.0` in `specs/epics/e32-mcp-context-server/epic.yaml`, add provenance comment.
+**verify:** `grep -q 'v2.7x/v3.0' specs/epics/e32-mcp-context-server/epic.yaml && echo OK`
 
 ### 2. Update e44 capsule
 **GREEN:** Change `release: v2.45.0` to `release: v2.7x/v3.0` in `specs/epics/e44-migrate-version/epic.yaml`, add provenance comment.

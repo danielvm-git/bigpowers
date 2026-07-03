@@ -1,0 +1,11 @@
+story_id: e43s03
+title: "Fix one real bug via the investigate-bug → develop-tdd → validate-fix trail"
+status: todo
+bcps: 2
+tasks:
+  - id: 1
+    description: "Find or introduce a genuine defect in the showcase app"
+    verify: "gh search code --repo danielvm-git/bigpowers-showcase 'BUG-' --json path --jq 'length' 2>/dev/null | awk '{if($1>0) print \"OK\"}' || echo 'PENDING'"
+  - id: 2
+    description: "Run investigate-bug → develop-tdd → validate-fix; commit BUG-*.md + regression test + fix"
+    verify: "gh api repos/danielvm-git/bigpowers-showcase/commits --jq '.[0].commit.message' 2>/dev/null | grep -q 'fix' && echo OK || echo 'PENDING'"

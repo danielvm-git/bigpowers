@@ -1,0 +1,22 @@
+story_id: e42s02
+title: "Create specs/benchmarks/fixtures/minimal-api/ fixture repo (createUser + failing-ready test harness)"
+status: todo
+bcps: 3
+tasks:
+  - id: 1
+    description: >-
+      Scaffold specs/benchmarks/fixtures/minimal-api/ with package.json
+      (name, test script using node --test, zero dependencies)
+    verify: "test -f specs/benchmarks/fixtures/minimal-api/package.json && node -e \"const p=require('./specs/benchmarks/fixtures/minimal-api/package.json'); process.exit(p.scripts && p.scripts.test ? 0 : 1)\" && echo OK"
+  - id: 2
+    description: "Implement src/createUser.js: exported createUser function returning a user object from input fields"
+    verify: "node -e \"const {createUser}=require('./specs/benchmarks/fixtures/minimal-api/src/createUser.js'); const u=createUser({name:'a',email:'a@b.c'}); process.exit(u && u.name==='a' ? 0 : 1)\" && echo OK"
+  - id: 3
+    description: "Add test/createUser.test.js covering the createUser happy path; pristine fixture is green"
+    verify: "cd specs/benchmarks/fixtures/minimal-api && npm test && echo OK"
+  - id: 4
+    description: >-
+      Prove failing-ready: temporarily add a red test file, assert npm test
+      exits non-zero, then remove it (harness discovers new test files
+      without wiring changes)
+    verify: "cd specs/benchmarks/fixtures/minimal-api && printf 'const t=require(\"node:test\");const a=require(\"node:assert\");t.test(\"red\",()=>a.fail(\"red\"));' > test/tmp-red.test.js && ! npm test >/dev/null 2>&1; rc=$?; rm -f test/tmp-red.test.js; test $rc -eq 0 && npm test >/dev/null 2>&1 && echo OK"

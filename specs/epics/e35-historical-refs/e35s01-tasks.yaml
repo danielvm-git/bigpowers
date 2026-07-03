@@ -1,0 +1,23 @@
+story_id: e35s01
+title: "Create docs/references/kent-beck.md (XP, TDD origins, Tidy First?)"
+status: todo
+bcps: 2
+tasks:
+  - id: 1
+    description: >-
+      Create docs/references/kent-beck.md with Purpose and Credit sections
+      following the docs/references/bcp.md pattern
+    verify: "test -f docs/references/kent-beck.md && grep -q 'Credit' docs/references/kent-beck.md && echo OK"
+  - id: 2
+    description: >-
+      Document core concepts: XP origins, TDD red-green-refactor, and
+      Tidy First? structural-vs-behavioral changes
+    verify: "grep -q 'Tidy First' docs/references/kent-beck.md && grep -qiE 'red.green|extreme programming' docs/references/kent-beck.md && echo OK"
+  - id: 3
+    description: >-
+      Add a 'How bigpowers uses' mapping to skills (develop-tdd,
+      plan-refactor) and a See Also section
+    verify: "grep -qiE 'develop-tdd|plan-refactor' docs/references/kent-beck.md && grep -qi 'see also' docs/references/kent-beck.md && echo OK"
+  - id: 4
+    description: "Run the story verify from epic.yaml"
+    verify: "test -f docs/references/kent-beck.md && grep -q 'Tidy First' docs/references/kent-beck.md && echo OK"

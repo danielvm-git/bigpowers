@@ -1,0 +1,22 @@
+story_id: e28s02
+title: >-
+  Refactor 13 scripts to source skill-common.sh instead of duplicating
+  boilerplate
+status: todo
+bcps: 2
+tasks:
+  - id: 1
+    description: >-
+      Enumerate scripts duplicating the REPO_ROOT boilerplate and record the
+      baseline count before refactoring
+    verify: "grep -lE 'REPO_ROOT=.*dirname.*BASH_SOURCE' scripts/*.sh | wc -l | awk '{if($1>=1) print \"OK baseline \" $1; else exit 1}'"
+  - id: 2
+    description: >-
+      Replace the inline REPO_ROOT/SKILLS_ROOT derivation with a source of
+      scripts/lib/skill-common.sh in each duplicating script
+    verify: "grep -c 'REPO_ROOT=.*dirname.*BASH_SOURCE' scripts/*.sh | grep -v ':0$' | wc -l | awk '{if($1<=1) print \"OK\"; else {print \"REMAINING: \"$1; exit 1}}'"
+  - id: 3
+    description: >-
+      Syntax-check every refactored script and confirm the sync pipeline plus
+      golden self-test still pass unchanged
+    verify: "for f in scripts/*.sh; do bash -n \"$f\" || exit 1; done && bash scripts/sync-skills.sh && bash scripts/golden-g04-selftest.sh && echo OK"

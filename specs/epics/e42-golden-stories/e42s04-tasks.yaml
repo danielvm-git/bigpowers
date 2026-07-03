@@ -1,0 +1,20 @@
+story_id: e42s04
+title: "Add --agent mode to run-golden-suite.sh: headless chain execution per golden story, per-epic cadence, report merged with deterministic gates"
+status: todo
+bcps: 4
+tasks:
+  - id: 1
+    description: "Add --agent flag parsing to run-golden-suite.sh: exit early if gh-aw not installed"
+    verify: "bash scripts/run-golden-suite.sh --agent --dry-run 2>&1; test $? -le 2 && echo OK"
+  - id: 2
+    description: "Implement deterministic gates → agent stories sequencing; deterministic failure stops execution"
+    verify: "bash -n scripts/run-golden-suite.sh && grep -q '--agent' scripts/run-golden-suite.sh && echo OK"
+  - id: 3
+    description: "Add per-story gh-aw invocation loop over specs/benchmarks/golden/g-*.yaml with pass@k collection"
+    verify: "grep -q 'pass_at_k|pass@k' scripts/run-golden-suite.sh && echo OK"
+  - id: 4
+    description: "Add --dry-run mode: validate YAMLs and workflow refs without API calls"
+    verify: "bash scripts/run-golden-suite.sh --agent --dry-run && echo OK"
+  - id: 5
+    description: "Emit combined report: deterministic status + per-story pass@k + flake analysis + verdict"
+    verify: "grep -q 'combined|verdict|flake' scripts/run-golden-suite.sh && echo OK"

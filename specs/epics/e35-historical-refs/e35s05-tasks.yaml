@@ -1,0 +1,11 @@
+story_id: e35s05
+title: "Create docs/references/rich-hickey.md (simple vs easy, complecting)"
+status: todo
+bcps: 2
+tasks:
+  - id: 1
+    description: "Create docs/references/rich-hickey.md covering simple vs easy, complecting concepts"
+    verify: "test -f docs/references/rich-hickey.md && grep -q 'simple.*easy|complect' docs/references/rich-hickey.md && echo OK"
+  - id: 2
+    description: "Add provenance header: author (Hickey), key talks (Simple Made Easy), core definitions"
+    verify: "grep -q 'Hickey|Simple Made Easy' docs/references/rich-hickey.md && echo OK"

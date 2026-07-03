@@ -1,0 +1,113 @@
+id: e43
+title: "Showcase Repo — Worked Example Built With bigpowers"
+wsjf: 2.5
+bcps: 11
+status: proposed
+release: v2.7x/v3.0  # pulled from v2.8x to ship site + receipts + worked example together
+codename: "Docs Polish"
+  # BCP 10→11 (2026-07-03): e43s05 offline fallback added per PLAN-AUDIT red-team
+source: |
+  Change request 2026-07-03 (session: public-launch sequencing).
+  The methodology's real product is the specs/ trail — but a prospect can
+  only see one by adopting first. A small REAL app (not a todo list) in a
+  separate public repo, with its full spec cockpit committed — including a
+  bug fixed via investigate-bug and at least one NOT-READY audit verdict —
+  lets people read a worked example before installing anything. Doubles as
+  fixture material for e37 golden stories.
+depends_on: []
+note: >
+  WSJF 2.5 — below e38/e39/e40/e41, above e33/e36/e37. Slotted in the
+  v2.8x "Docs Polish" train: it complements the by-then-live docs site
+  (v2.7x) and its spec trail should demonstrate the CURRENT methodology,
+  including e40 honest metrics — building it earlier would showcase the
+  deprecated hand-arithmetic pipeline. Verify commands below check only
+  artifacts in THIS repo (links, fixture registration); the showcase repo
+  itself is verified by its own gates, per local-first specs (ADR-0002).
+stories:
+  - id: e43s01
+    bcp: 3
+    status: todo
+    title: "Scaffold the showcase app in a separate public repo via seed-conventions"
+    spec: e43s01-scaffold-showcase-repo.md
+    tasks: e43s01-tasks.yaml
+    ac: |
+      GIVEN a new public GitHub repo for a small real app (utility with
+        genuine logic — e.g. a CLI or API client — explicitly not a todo list)
+      WHEN seed-conventions and the discover/plan phases run
+      THEN the repo contains CLAUDE.md, CONVENTIONS.md, and a full specs/
+        cockpit (state.yaml, release-plan.yaml, product/) committed from day one.
+    tasks_list:
+      - id: 1
+        description: "Choose the app, create the repo with gh, run seed-conventions + scope-work + plan-release in it"
+        verify: "gh repo view danielvm-git/bigpowers-showcase --json name -q .name | grep -q showcase && echo OK"
+  - id: e43s02
+    bcp: 3
+    status: todo
+    title: "Build one feature epic end-to-end via the 8-step build-epic cycle"
+    spec: e43s02-build-feature-epic.md
+    tasks: e43s02-tasks.yaml
+    ac: |
+      GIVEN the scaffolded showcase repo
+      WHEN one feature epic is built via the full 8-step cycle
+      THEN the repo's history shows the complete trail: story spec, tasks
+        with verify commands, TDD commits, verify-work UAT record,
+        audit-code score, Conventional Commit landing
+      AND cycle-time metrics are recorded via record-cycle-time.sh (e40
+        pipeline — never hand-arithmetic).
+    tasks_list:
+      - id: 1
+        description: "Run build-epic on the showcase repo's first feature epic; confirm the full spec trail is committed"
+        verify: "gh api repos/danielvm-git/bigpowers-showcase/contents/specs --jq 'length' 2>/dev/null | awk '{if($1>0) print \"OK\"}' || echo 'PENDING: showcase repo not yet populated'"
+  - id: e43s03
+    bcp: 2
+    status: todo
+    title: "Fix one real bug via the investigate-bug → develop-tdd → validate-fix trail"
+    spec: e43s03-fix-real-bug.md
+    tasks: e43s03-tasks.yaml
+    ac: |
+      GIVEN a genuine defect in the showcase app
+      WHEN the fix-bug flow runs
+      THEN specs/bugs/BUG-*.md documents investigation, root cause, and the
+        regression test — demonstrating the bug half of the methodology.
+    tasks_list:
+      - id: 1
+        description: "Introduce-or-find, investigate, and fix one bug in the showcase repo with full trail"
+        verify: "gh search code --repo danielvm-git/bigpowers-showcase 'BUG-' --json path --jq 'length' 2>/dev/null | awk '{if($1>0) print \"OK\"}' || echo 'PENDING'"
+  - id: e43s04
+    bcp: 2
+    status: todo
+    title: "Link the showcase from README + docs site; register as e37 golden-story fixture candidate"
+    spec: e43s04-link-showcase.md
+    tasks: e43s04-tasks.yaml
+    ac: |
+      GIVEN the completed showcase repo
+      WHEN a prospect reads the bigpowers README or docs site
+      THEN a "see it working" link points to the showcase with one-line
+        framing, and the e37 epic notes the showcase as fixture material.
+
+      GIVEN the README edit
+      WHEN it lands
+      THEN the canonical README structure is preserved
+        (memory: readme-must-stay-complete).
+    tasks_list:
+      - id: 1
+        description: "Add showcase link to README and website; add fixture note to specs/epics/e42-golden-stories/epic.yaml"
+        verify: "grep -qi 'showcase' README.md && grep -qi 'showcase' specs/epics/e42-golden-stories/epic.yaml && echo OK"
+
+  - id: e43s05
+    bcp: 1
+    status: todo
+    title: "Add offline-tolerant fallbacks for e43 verify commands that depend on gh api/gh search"
+    verify: "grep -q 'PENDING\|offline' specs/epics/e43-showcase-repo/epic.yaml && echo OK"
+    description: |
+      Several e43 verify commands depend on `gh api` and `gh search` which
+      require network + GitHub auth. Per ADR-0002 local-first principle,
+      add offline-tolerant fallbacks:
+      - e43s01: if `gh repo view` fails, check for a local clone path
+        or emit "PENDING: offline, verify manually"
+      - e43s02/e43s03: if `gh api`/`gh search` fail, fall back to
+        checking local checkout of the showcase repo
+      - e43s04: README/docs site checks are local — already offline-safe
+      Mark remaining network-dependent verify commands as remote-verify
+      exceptions explicitly in the capsule. Per PLAN-AUDIT red-team gap
+      list (P2 #10).

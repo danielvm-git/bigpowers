@@ -1,0 +1,28 @@
+story_id: e28s03
+title: >-
+  Refactor sync-skills.sh to use render-target functions (one per target)
+status: todo
+bcps: 5
+tasks:
+  - id: 1
+    description: >-
+      Snapshot current artifacts as a parity baseline (run sync, record
+      checksums of .cursor/rules, .gemini, .pi outputs to a scratch file)
+    verify: "bash scripts/sync-skills.sh && find .cursor/rules .gemini/extensions/bigpowers .pi -type f | wc -l | awk '{if($1>0) print \"OK \" $1; else exit 1}'"
+  - id: 2
+    description: >-
+      Wire sync-skills.sh to source scripts/lib/skill-common.sh and build the
+      per-skill IR (name, model, description, assembled body) via
+      parse_frontmatter and iterate_skills
+    verify: "grep -q 'source .*scripts/lib/skill-common.sh' scripts/sync-skills.sh && bash -n scripts/sync-skills.sh && echo OK"
+  - id: 3
+    description: >-
+      Extract each per-skill target write block into its own render function
+      (cursor .mdc, gemini skill, gemini command, pi skill, pi prompt) and
+      dispatch them from the loop via a target registry
+    verify: "test \"$(grep -cE '^render_[a-z_]+\\(\\)' scripts/sync-skills.sh)\" -ge 5 && echo OK"
+  - id: 4
+    description: >-
+      Run full sync and confirm output parity — all target artifacts present
+      and golden self-test green
+    verify: "bash scripts/sync-skills.sh && test -f .cursor/rules/audit-code.mdc && test -f .gemini/extensions/bigpowers/skills/audit-code/SKILL.md && test -f .pi/skills/audit-code/SKILL.md && bash scripts/golden-g04-selftest.sh && echo OK"
