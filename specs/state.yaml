@@ -1,27 +1,22 @@
 active_flow: build_epic
 epic_cycle:
-  epic_id: e34
-  epic_slug: context-engineering
-  capsule_dir: specs/epics/e34-context-engineering
-  current_story: e34s03
-  total_bcps: 10
-  story_bcps: 2
-  current_step: 8
+  epic_id: e38
+  epic_slug: traceability-gate
+  capsule_dir: specs/epics/e38-traceability-gate
+  current_story: e38s01
+  total_bcps: 13
+  story_bcps: 3
+  story_start: '2026-07-03T06:00:00Z'
+  current_step: 2
   completed_steps:
   - '0'
   - '1'
   - '2'
-  - '3'
-  - '4'
-  - '5'
-  - '6'
-  - '7'
-  - '8'
-  audit_result: pass
+  audit_result: none
   fast_mode: true
 handoff:
-  next_skill: survey-context
-  context: 'e34 RELEASED. CI verified passing. v2.5x train (e40+e34) complete — 28 BCP delivered. Next: v2.6x train — e38 Traceability Gate (13 BCP, WSJF 3.50) or e33 Sync Pipeline (13 BCP).'
+  next_skill: kickoff-branch
+  context: 'v2.6x train — e38 Traceability Gate. e38s01 (3 BCP, 5 tasks) planned. Assess-impact skipped (net-new code). Next: kickoff-branch.'
 bug_id: null
 bug_cycle:
   current_step: 0
