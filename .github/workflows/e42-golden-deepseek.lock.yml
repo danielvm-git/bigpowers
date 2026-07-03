@@ -139,8 +139,8 @@ jobs:
         continue-on-error: true
         uses: actions/cache/restore@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
         with:
-          key: agentic-workflow-usage-e37goldendeepseek-${{ github.run_id }}
-          restore-keys: agentic-workflow-usage-e37goldendeepseek-
+          key: agentic-workflow-usage-e42goldendeepseek-${{ github.run_id }}
+          restore-keys: agentic-workflow-usage-e42goldendeepseek-
           path: /tmp/gh-aw/agentic-workflow-usage-cache.jsonl
       - name: Restore daily AIC usage cache (artifact fallback)
         id: restore-daily-aic-cache-fallback
@@ -391,7 +391,7 @@ jobs:
       GH_AW_ASSETS_MAX_SIZE_KB: 0
       GH_AW_MCP_LOG_DIR: /tmp/gh-aw/mcp-logs/safeoutputs
       GH_AW_RUNTIME_FEATURES: ${{ vars.GH_AW_RUNTIME_FEATURES }}
-      GH_AW_WORKFLOW_ID_SANITIZED: e37goldendeepseek
+      GH_AW_WORKFLOW_ID_SANITIZED: e42goldendeepseek
     outputs:
       agentic_engine_timeout: ${{ steps.detect-agent-errors.outputs.agentic_engine_timeout || 'false' }}
       ai_credits_rate_limit_error: ${{ steps.parse-mcp-gateway.outputs.ai_credits_rate_limit_error || 'false' }}
@@ -1226,8 +1226,8 @@ jobs:
         continue-on-error: true
         uses: actions/cache/restore@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
         with:
-          key: agentic-workflow-usage-e37goldendeepseek-${{ github.run_id }}
-          restore-keys: agentic-workflow-usage-e37goldendeepseek-
+          key: agentic-workflow-usage-e42goldendeepseek-${{ github.run_id }}
+          restore-keys: agentic-workflow-usage-e42goldendeepseek-
           path: /tmp/gh-aw/agentic-workflow-usage-cache.jsonl
       - name: Write daily AIC usage cache entry
         id: write-daily-aic-cache
@@ -1247,7 +1247,7 @@ jobs:
         continue-on-error: true
         uses: actions/cache/save@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
         with:
-          key: agentic-workflow-usage-e37goldendeepseek-${{ github.run_id }}
+          key: agentic-workflow-usage-e42goldendeepseek-${{ github.run_id }}
           path: /tmp/gh-aw/agentic-workflow-usage-cache.jsonl
       - name: Upload daily AIC usage cache artifact
         id: upload-daily-aic-cache

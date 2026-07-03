@@ -187,11 +187,23 @@ for line in result.stdout.splitlines():
 # -----------------------------------------------------------------------
 # 4. Oracle tiers
 # -----------------------------------------------------------------------
+EXCLUDE_DIRS = {".git", "node_modules", ".cursor", ".gemini", ".pi"}
+EXCLUDE_PREFIXES = ("specs/archive/", "specs/codebase-wiki/")
+
+def _is_excluded(rel_path: str) -> bool:
+    """True if path is in an excluded dir or under an excluded prefix."""
+    parts = rel_path.split(os.sep)
+    if any(d in EXCLUDE_DIRS for d in parts):
+        return True
+    return any(rel_path.startswith(p) for p in EXCLUDE_PREFIXES)
+
 all_files = []
 for root_dir, dirs, files in os.walk(str(ROOT)):
-    dirs[:] = [d for d in dirs if d not in (".git", "node_modules", ".cursor")]
+    dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
     for f in files:
-        all_files.append(str(Path(root_dir, f).relative_to(ROOT)))
+        rel = str(Path(root_dir, f).relative_to(ROOT))
+        if not _is_excluded(rel):
+            all_files.append(rel)
 
 def slugify(text: str) -> str:
     text = re.sub(r"[^a-zA-Z0-9\s-]", "", text.lower())

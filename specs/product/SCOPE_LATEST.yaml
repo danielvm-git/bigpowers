@@ -87,6 +87,9 @@ in_scope:
   - id: fr-26
     title: Risk-based verification — risk-scaled verify-work depth (P0–P3), NFR evidence gate (performance/reliability/operability), and tea.md reference doc crediting TEA (e46)
     epic: e46
+  - id: fr-27
+    title: BCP Plus counting — evolve from 3D to 13D story sizing via big-counter integration, NFR gate, and 13-dimension templates (e37)
+    epic: e37
 
 out_of_scope:
   - Domain-specific scaffold skills
