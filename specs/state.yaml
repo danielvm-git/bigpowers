@@ -17,7 +17,7 @@ release:
   released_at: '2026-07-03T17:50:00Z'
   commit: d0ca097
   tag: v2.56.1 (semantic-release)
-bigpowers_version: "2.56.1"  # mirror, not the authority — real version from gh release view
+bigpowers_version: "2.58.1"  # mirror, not the authority — real version from gh release view
   node20_migration:
     completed: true
     commit: 5b6f1dd

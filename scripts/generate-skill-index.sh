@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# story: e13s02
 # generate-skill-index.sh — Auto-generate SKILL-INDEX.md from skills-lock.json + SKILL.md frontmatter
 # This file is called by sync-skills.sh. Output is SKILL-INDEX.md at repo root.
 # DO NOT edit SKILL-INDEX.md manually — it is auto-generated.
