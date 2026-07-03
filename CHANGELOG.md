@@ -1,3 +1,15 @@
+# [2.56.0](https://github.com/danielvm-git/bigpowers/compare/v2.55.0...v2.56.0) (2026-07-03)
+
+
+### Bug Fixes
+
+* trim release-branch SKILL.md to 146 lines (cap 150) ([6c91813](https://github.com/danielvm-git/bigpowers/commit/6c91813012ce64b3e0fa90f3c11afa5b67559d9c))
+
+
+### Features
+
+* **e38:** spec-to-code traceability gate — matrix, blind-spots, CI/CD integration ([ffeb843](https://github.com/danielvm-git/bigpowers/commit/ffeb8435a91ad2d278a490670bf2f1561df60135))
+
 # [2.55.0](https://github.com/danielvm-git/bigpowers/compare/v2.54.0...v2.55.0) (2026-07-03)
 
 
