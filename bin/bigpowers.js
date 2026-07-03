@@ -31,21 +31,22 @@ function run(cmd, cwd = ROOT) {
 const cmd = process.argv[2];
 
 if (cmd === 'setup' || cmd === 'install') {
-  // Explicit setup — always run
-  console.log('🚀 bigpowers — setting up...\n');
+  const pkg = require(path.join(ROOT, 'package.json'));
+  console.log(`🚀 bigpowers v${pkg.version} — setting up...\n`);
   run('bash scripts/sync-skills.sh');
   run('bash scripts/install.sh');
-  console.log('\n✅ bigpowers setup complete!');
+  console.log(`\n✅ bigpowers v${pkg.version} setup complete!`);
   console.log('   Skills installed in ~/.claude/skills/');
   console.log('   Run again anytime to update: bigpowers setup\n');
   process.exit(0);
 }
 
 if (cmd === 'update') {
-  console.log('🔄 Updating bigpowers...\n');
+  const pkg = require(path.join(ROOT, 'package.json'));
+  console.log(`🔄 Updating bigpowers v${pkg.version}...\n`);
   run('bash scripts/sync-skills.sh');
   run('bash scripts/install.sh');
-  console.log('\n✅ bigpowers updated!\n');
+  console.log(`\n✅ bigpowers v${pkg.version} updated!\n`);
   process.exit(0);
 }
 
@@ -81,7 +82,7 @@ if (isInstalled()) {
   console.log(`bigpowers v${pkg.version} — already installed.`);
   console.log('Commands: bigpowers {setup|update|status|help}');
 } else {
-  console.log('🚀 bigpowers — skills not yet installed.');
+  console.log(`🚀 bigpowers v${pkg.version} — skills not yet installed.`);
   console.log('   Run: bigpowers setup');
   process.exit(1);
 }
