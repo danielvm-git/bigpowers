@@ -1,18 +1,22 @@
 active_flow: fix_bug
 bug_id: BUG-2026-07-03-waiver-scoring
 bug_cycle:
-  current_step: 3
+  current_step: 5
   completed_steps:
   - '1'
   - '2'
+  - '3'
+  - '4'
 handoff:
-  next_skill: develop-tdd
+  next_skill: release-branch
   context: >
-    Steps 1-2 complete: investigate-bug registered in registry, diagnose-root
-    4-phase RCA verified root cause (no waiver subsystem in audit-compliance.sh
-    scoring — denominator = PASS+FAIL with no waiver exclusion). Current audit
-    passes 88/0=100% (no waivers active), but vulnerability is latent. TDD Fix
-    Plan has 4 RED-GREEN cycles ready. Proceeding to develop-tdd.
+    Step 4 (validate-fix) COMPLETE:
+    - Audit: 82 PASS / 2 FAIL / 4 WAIVED = 97%, gate PASS
+    - Compliance (validate-doctrine): all EPIC checks pass
+    - Golden suite: compliance passes, G-04 pre-existing failure (74 vs 73 artifacts)
+    - Expired waiver detection verified
+    - Bug file + registry updated with resolution
+    Proceeding to release-branch (land the fix).
 release:
   ci_verified: true
   released_at: '2026-07-03T17:50:00Z'

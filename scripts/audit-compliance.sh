@@ -67,6 +67,43 @@ fi
 # --- Global Stats ---
 TOTAL_GLOBAL_PASS=0
 TOTAL_GLOBAL_FAIL=0
+TOTAL_GLOBAL_WAIVED=0
+TOTAL_GLOBAL_EXPIRED=0
+
+# --- Waiver Subsystem ---
+# Loads waivers.yaml and provides is_waived() for bash 3.2+ compatibility.
+# Waived steps are excluded from the denominator; expired waivers re-enter as FAILs.
+WAIVER_FILE="specs/verifications/waivers.yaml"
+
+is_waived() {
+  local step_sanitized="$1"
+  local waiver_file="${WAIVER_FILE:-specs/verifications/waivers.yaml}"
+
+  if [[ ! -f "$waiver_file" ]]; then
+    return 1  # No waiver file → not waived
+  fi
+
+  # Check if step has any waiver entry
+  if ! grep -q "step_sanitized: $step_sanitized" "$waiver_file" 2>/dev/null; then
+    return 1  # Not found → not waived
+  fi
+
+  # Extract review_date for this step (parses the YAML block)
+  local review_date
+  review_date=$(awk -v slug="$step_sanitized" '
+    $0 ~ "step_sanitized: " slug { found=1; next }
+    found && /review_date:/ { gsub(/[^0-9-]/, "", $0); print; exit }
+  ' "$waiver_file")
+
+  # Check expiry: if review_date < today, waiver is expired
+  local today
+  today=$(date +%Y-%m-%d)
+  if [[ -n "$review_date" && "$review_date" < "$today" ]]; then
+    return 2  # Expired waiver → counts as FAIL
+  fi
+
+  return 0  # Valid waiver → excluded from denominator
+}
 
 # --- Judging Logic ---
 
@@ -150,7 +187,7 @@ process_step() {
   local scenario_name="$3"
   local report_file="$4"
   echo "    [STEP] $step"
-  
+
   if [[ "$DRY_RUN" == "true" ]]; then
     return 0
   fi
@@ -167,12 +204,44 @@ process_step() {
 
     if [[ "$JUDGE" == "gemini" ]]; then
       judge_with_gemini "$step" "$feature_name" "$scenario_name" "$evidence" "$report_file"
+      # Gemini path: rely on judge return code (no waiver check for LLM path)
     else
-      judge_binary "$step" "$exit_code" "$evidence" "$report_file"
+      # Binary path: check waivers before counting as FAIL
+      if [[ $exit_code -eq 0 ]]; then
+        echo "      Result: PASS"
+        echo "- [x] $step (PASS)" >> "$report_file"
+        return 0
+      fi
+
+      # Step failed — check if it has a valid waiver
+      is_waived "$sanitized_step"
+      local waiver_code=$?
+
+      if [[ $waiver_code -eq 0 ]]; then
+        # Valid waiver — exclude from denominator
+        echo "      Result: WAIVED (documented exception)"
+        echo "- [~] $step (WAIVED)" >> "$report_file"
+        ((TOTAL_GLOBAL_WAIVED++))
+        return 3  # Special code: waived (not PASS, not FAIL)
+      elif [[ $waiver_code -eq 2 ]]; then
+        # Expired waiver — re-enter denominator as FAIL
+        echo "      Result: FAIL (EXPIRED WAIVER)"
+        echo "- [ ] $step (FAIL) - EXPIRED WAIVER: review_date has passed" >> "$report_file"
+        ((TOTAL_GLOBAL_EXPIRED++))
+        ((TOTAL_GLOBAL_FAIL++))
+        return 1
+      else
+        # No waiver — genuine FAIL
+        echo "      Result: FAIL"
+        echo "- [ ] $step (FAIL) - $evidence" >> "$report_file"
+        ((TOTAL_GLOBAL_FAIL++))
+        return 1
+      fi
     fi
   else
     echo "      Result: FAIL (Missing evidence: $step_script)"
     echo "- [ ] $step (FAIL) - No verification script found at $step_script" >> "$report_file"
+    ((TOTAL_GLOBAL_FAIL++))
     return 1
   fi
 }
@@ -214,12 +283,17 @@ run_audit_file() {
       echo "### Scenario: $CURRENT_SCENARIO" >> "$REPORT_FILE"
     elif [[ "$line" =~ ^(Given|When|Then|And|But)\  ]]; then
       if [[ "$IN_SCENARIO" == "true" ]]; then
-        if process_step "$line" "$CURRENT_FEATURE" "$CURRENT_SCENARIO" "$REPORT_FILE"; then
+        local step_result
+        process_step "$line" "$CURRENT_FEATURE" "$CURRENT_SCENARIO" "$REPORT_FILE"
+        step_result=$?
+        if [[ $step_result -eq 3 ]]; then
+          # Waived — excluded from both pass and fail counts
+          :
+        elif [[ $step_result -eq 0 ]]; then
           ((TOTAL_PASS++))
           ((TOTAL_GLOBAL_PASS++))
         else
           ((TOTAL_FAIL++))
-          ((TOTAL_GLOBAL_FAIL++))
         fi
       fi
     fi
@@ -247,15 +321,23 @@ done
 
 echo "============================================================"
 echo "Global Audit Summary:"
-echo "  TOTAL PASS: $TOTAL_GLOBAL_PASS"
-echo "  TOTAL FAIL: $TOTAL_GLOBAL_FAIL"
 TOTAL_GLOBAL_ALL=$((TOTAL_GLOBAL_PASS + TOTAL_GLOBAL_FAIL))
+echo "  TOTAL PASS:   $TOTAL_GLOBAL_PASS"
+echo "  TOTAL FAIL:   $TOTAL_GLOBAL_FAIL"
+echo "  TOTAL WAIVED: $TOTAL_GLOBAL_WAIVED  (excluded from denominator)"
+if [[ $TOTAL_GLOBAL_EXPIRED -gt 0 ]]; then
+  echo "  EXPIRED WAIVERS: $TOTAL_GLOBAL_EXPIRED (counted as FAIL)"
+fi
 if [[ $TOTAL_GLOBAL_ALL -gt 0 ]]; then
   SCORE=$(awk "BEGIN { printf \"%d\", $TOTAL_GLOBAL_PASS * 100 / $TOTAL_GLOBAL_ALL }")
 else
   SCORE=0
 fi
-echo "  SCORE: ${SCORE}% (threshold 94%)"
+if [[ $TOTAL_GLOBAL_WAIVED -gt 0 ]]; then
+  echo "  SCORE: ${SCORE}% (of ${TOTAL_GLOBAL_ALL} unwaived checks, threshold 94%)"
+else
+  echo "  SCORE: ${SCORE}% (threshold 94%)"
+fi
 if [[ $SCORE -ge 94 ]]; then
   echo "  GATE: PASS"
   exit 0

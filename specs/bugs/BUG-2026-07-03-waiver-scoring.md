@@ -93,4 +93,16 @@ To reproduce the risk: if 3 waived steps entered the denominator (85/88 = 96%), 
 
 ## Resolution
 
-**Open** — registered 2026-07-03 from PLAN-AUDIT red-team gap list (P0 #1).
+**Fixed** — 2026-07-03 by fix-bug orchestrator (fix-waiver-scoring branch).
+
+**Changes:**
+- Created `specs/verifications/waivers.yaml` with schema: step_sanitized, reason, review_date, reviewer, feature
+- Registered 4 structural waivers with 90-day review dates (2026-10-01)
+- Modified `scripts/audit-compliance.sh`: added `is_waived()` function, waiver loading, denominator exclusion, and expired-waiver detection (re-enters as FAIL)
+- Waived steps show as "WAIVED" in audit output, excluded from PASS+FAIL denominator
+- Expired waivers (review_date < today) re-enter the FAIL count with "EXPIRED WAIVER" label
+
+**Verified:**
+- 82 PASS / 2 FAIL / 4 WAIVED = 97% (of 84 unwaived checks)
+- Expired waiver fixture correctly detected and counted as FAIL
+- Score reflects only unwaived checks

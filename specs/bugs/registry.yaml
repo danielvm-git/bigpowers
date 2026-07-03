@@ -1,12 +1,16 @@
 # AUTO-GENERATED — sync-bugs-registry.sh
 bugs:
   - id: BUG-2026-07-03-waiver-scoring
-    status: open
+    status: fixed
     severity: medium
     scope: scripts
     title: "Waiver-list scoring hides regressions — intentional FAILs inside denominator allow 2 hidden failures"
     file: bugs/BUG-2026-07-03-waiver-scoring.md
     risk_level: medium
+    files_changed: "scripts/audit-compliance.sh, specs/verifications/waivers.yaml"
+    approach: "Added waiver subsystem to audit-compliance.sh: is_waived() function, waiver file loading, denominator exclusion, expired-waiver FAIL re-entry. Created specs/verifications/waivers.yaml with 4 structural waivers (90-day review)."
+    commit_message: "feat(compliance): add waiver subsystem to audit-compliance.sh"
+    hardening: "Expired waivers auto-detect and re-enter FAIL denominator; review_date field forces re-evaluation every 90 days"
   - id: BUG-2026-07-03-negative-path-self-test
     status: open
     severity: high

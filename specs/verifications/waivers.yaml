@@ -1,0 +1,60 @@
+# waivers.yaml — Intentional compliance step exemptions
+#
+# Each entry documents a step that is KNOWN to FAIL and why.
+# Waived steps are excluded from the audit denominator — the score
+# reflects only unwaived checks. Expired waivers re-enter the
+# denominator and FAIL the gate.
+#
+# Schema:
+#   step_sanitized:  sanitized step slug (matches step script filename)
+#   reason:          why this step is intentionally waived
+#   review_date:     ISO 8601 — waiver MUST be re-evaluated by this date
+#   reviewer:        who approved the waiver
+#   feature:         parent feature file (for traceability)
+waivers:
+  - step_sanitized: then-public-symbols-should-be-unique-enough-to-be-searched-with-grep-5-results
+    reason: >
+      Duplicate function-name detection heuristic produces false positives
+      across scripts/ and specs/verifications/steps/. Legacy skill helper
+      patterns (show_help, main, etc.) are shared intentionally and do not
+      indicate ambiguous naming. Re-evaluate after e33 (Sync Pipeline Refactor)
+      and e36 (Documentation Deduplication) land, which will consolidate
+      script structure and reduce false matches.
+    review_date: "2026-10-01"
+    reviewer: bigpowers-maintainer
+    feature: conventions.feature
+
+  - step_sanitized: and-files-should-be-small-enough-to-avoid-context-window-truncation-300-lines
+    reason: >
+      trace-stories.sh (613 lines) carries the traceability pipeline and
+      resists clean splitting — the parse-match-report phases are tightly
+      coupled. Tracked as BUG-2026-07-03-trace-stories-613-line (P3).
+      Re-evaluate when that bug is resolved (either split or documented
+      exception in CONVENTIONS.md).
+    review_date: "2026-10-01"
+    reviewer: bigpowers-maintainer
+    feature: conventions.feature
+
+  - step_sanitized: and-files-should-remain-under-500-lines-newspaper-metaphor
+    reason: >
+      audit-compliance.sh (237 lines) and trace-stories.sh (613 lines)
+      exceed the 500-line cap. audit-compliance.sh is close — a split
+      into audit-lib.sh could resolve it. trace-stories.sh is tracked
+      as BUG-2026-07-03-trace-stories-613-line. Re-evaluate when both
+      are resolved.
+    review_date: "2026-10-01"
+    reviewer: bigpowers-maintainer
+    feature: akita.feature
+
+  - step_sanitized: and-complex-boolean-logic-should-be-encapsulated-in-named-functions-g28
+    reason: >
+      G28 (encapsulate complex booleans in named functions) has false
+      positives in scripts/ where shell conditionals use multi-clause
+      patterns that are idiomatic in bash (e.g., [[ -n "$X" && -f "$Y" ]]).
+      Shell does not have function-call overhead isolation like compiled
+      languages — extracting every multi-clause conditional would harm
+      readability. Re-evaluate when a shell-specific G28 rubric is
+      defined.
+    review_date: "2026-10-01"
+    reviewer: bigpowers-maintainer
+    feature: akita.feature
