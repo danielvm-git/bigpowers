@@ -1,3 +1,10 @@
+## [2.45.2](https://github.com/danielvm-git/bigpowers/compare/v2.45.1...v2.45.2) (2026-07-03)
+
+
+### Bug Fixes
+
+* **sync:** sync stale .pi/package.json version to 2.45.1 ([4901405](https://github.com/danielvm-git/bigpowers/commit/49014051a42a63c9499d8aedc379ae7348fbb235))
+
 ## [2.45.1](https://github.com/danielvm-git/bigpowers/compare/v2.45.0...v2.45.1) (2026-07-02)
 
 
