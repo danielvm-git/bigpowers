@@ -1,0 +1,7 @@
+# bts project configuration.
+# Overrides global config at ~/.config/bts/config.toml
+# Run:  bts config show    to see the effective merged config
+#       bts config set <key> <value>  to change a project value
+[bts]
+model        = "claude-opus-4-8"
+token_budget = 8192

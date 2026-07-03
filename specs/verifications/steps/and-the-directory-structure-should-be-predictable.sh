@@ -6,7 +6,7 @@ if [[ ! -f "CLAUDE.md" ]]; then
   exit 1
 fi
 
-MISSING=$(find . -maxdepth 2 -name "SKILL.md" -exec dirname {} \; | while read dir; do
+MISSING=$(find skills/ -maxdepth 2 -name "SKILL.md" -exec dirname {} \; | while read dir; do
   [[ ! -f "$dir/SKILL.md" ]] && echo "$dir"
 done)
 

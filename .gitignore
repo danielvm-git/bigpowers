@@ -15,3 +15,5 @@ specs/.obsidian/
 .env.development.local
 .env.test.local
 .env.production.local
+# Ctxo local cache (never committed)
+.ctxo/.cache/

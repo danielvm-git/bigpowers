@@ -18,7 +18,7 @@ fi
 
 # Phase categorization — maps each skill to a lifecycle phase
 # Uses a case statement for bash 3.2 compatibility (macOS default bash lacks declare -A)
-get_phase() {
+phase_of() {
   case "$1" in
     # Discover
     survey-context|research-first|search-skills|using-bigpowers|map-codebase|elaborate-spec|audit-plan) echo "Discover" ;;
@@ -68,7 +68,7 @@ DESC_COL_WIDTH=56
   for phase in "${PHASE_ORDER[@]}"; do
     phase_skills=()
     for name in $(jq -r '.skills | keys[]' "$LOCKFILE" | sort); do
-      [[ "$(get_phase "$name")" == "$phase" ]] && phase_skills+=("$name")
+      [[ "$(phase_of "$name")" == "$phase" ]] && phase_skills+=("$name")
     done
     count=${#phase_skills[@]}
     total=$((total + count))
@@ -89,7 +89,7 @@ DESC_COL_WIDTH=56
   row=0
   for phase in "${PHASE_ORDER[@]}"; do
     for name in $(jq -r '.skills | keys[]' "$LOCKFILE" | sort); do
-      [[ "$(get_phase "$name")" != "$phase" ]] && continue
+      [[ "$(phase_of "$name")" != "$phase" ]] && continue
       row=$((row + 1))
       desc=$(jq -r --arg n "$name" '.skills[$n].description // ""' "$LOCKFILE" | head -c 80)
       echo "| $row | $phase | \`$name\` | $desc | ✅ Active |"

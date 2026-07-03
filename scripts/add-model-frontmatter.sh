@@ -7,7 +7,7 @@ SKILLS_ROOT="$REPO_ROOT"
 [[ -d "$REPO_ROOT/skills" ]] && SKILLS_ROOT="$REPO_ROOT/skills"
 
 # Bash 3.2-compatible model mapping (no declare -A)
-get_model() {
+model_for() {
   case "$1" in
     survey-context|verify-work|validate-fix|audit-code|enforce-first|trace-requirement|commit-message|release-branch|kickoff-branch|guard-git|hook-commits|execute-plan|organize-workspace|terse-mode|session-state|search-skills|setup-environment|reset-baseline) echo "haiku" ;;
     elaborate-spec|grill-with-docs|design-interface|plan-work|request-review|evolve-skill) echo "opus" ;;
@@ -19,7 +19,7 @@ for skill_dir in "$SKILLS_ROOT"/*/; do
   skill_md="$skill_dir/SKILL.md"
   [[ -f "$skill_md" ]] || continue
   name=$(basename "$skill_dir")
-  model=$(get_model "$name")
+  model=$(model_for "$name")
   if grep -q '^model:' "$skill_md" 2>/dev/null; then
     continue
   fi

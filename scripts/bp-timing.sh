@@ -8,12 +8,12 @@ set -euo pipefail
 STATE_YAML="specs/state.yaml"
 TIMINGS_KEY="metrics.skill_timings"
 
-usage() {
+print_usage() {
   echo "Usage: $0 start|end <skill-name>" >&2
   exit 1
 }
 
-[ $# -ne 2 ] && usage
+[ $# -ne 2 ] && print_usage
 
 ACTION="$1"
 SKILL="$2"
@@ -69,6 +69,6 @@ with open('$STATE_YAML', 'w') as f:
     ;;
 
   *)
-    usage
+    print_usage
     ;;
 esac
