@@ -29,6 +29,7 @@ stories:
     tasks: e31s01-tasks.yaml
   - id: e31s02
     bcp: 2
+    status: done
     title: "Wire npm run compliance into CI (.github/workflows/publish.yml) as a gate before semantic-release"
     verify: grep -qE '^\s*run:.*npm run compliance' .github/workflows/publish.yml && echo OK
     spec: e31s02-compliance-ci.md

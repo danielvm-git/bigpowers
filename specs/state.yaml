@@ -3,9 +3,9 @@ epic_cycle:
   epic_id: e31
   epic_slug: quality-guarantee
   capsule_dir: specs/epics/e31-quality-guarantee
-  current_story: e31s02
+  current_story: e31s03
   total_bcps: 11
-  story_bcps: 2
+  story_bcps: 3
   current_step: 0
   completed_steps:
     - "0"
@@ -22,10 +22,9 @@ epic_cycle:
 handoff:
   next_skill: build-epic
   context: >
-    e31s01 DONE — scripts/golden-g04-selftest.sh created and merged.
-    Found real discrepancy: context7.mdc in cursor/rules (73 vs 72).
-    Next: e31s02 — wire npm run compliance into publish.yml CI gate.
-    publish.yml already touched by Node20→Node24 migration — merge clean.
+    e31s02 DONE — compliance gate wired (PR #44). Next: e31s03
+    (run-golden-suite.sh, 3 BCP). Largest e31 story: compliance →
+    G-04 selftest → size budget, timestamped reports, --baseline.
 bug_id: null
 bug_cycle:
   current_step: 0
