@@ -1,3 +1,10 @@
+# [2.52.0](https://github.com/danielvm-git/bigpowers/compare/v2.51.0...v2.52.0) (2026-07-03)
+
+
+### Features
+
+* **e38:** deterministic spec-to-code coverage matrix builder ([5bc397c](https://github.com/danielvm-git/bigpowers/commit/5bc397c0eb31742fbb82136ffb935417ba07dc51))
+
 # [2.51.0](https://github.com/danielvm-git/bigpowers/compare/v2.50.0...v2.51.0) (2026-07-03)
 
 
