@@ -420,3 +420,14 @@ stories:
   end: "2026-07-02T23:00:00Z"
   cycle_minutes: 240
   bcp_per_hour: 2.0
+- epic: e31
+  title: "Quality Guarantee — Deterministic Gates"
+  total_bcps: 11
+  stories: 7
+  start: "2026-07-02T23:00:00Z"
+  end: "2026-07-03T04:10:00Z"
+  prs:
+    - "#43 (e31s01: G-04 selftest, 2 BCP)"
+    - "#44 (e31s02: compliance CI, 2 BCP)"
+    - "#45 (e31s03: golden suite, 3 BCP)"
+    - "#46 (e31s04-s07: size budget + mandates, 4 BCP)"

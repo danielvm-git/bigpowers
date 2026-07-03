@@ -54,18 +54,17 @@ epics:
   # Build order: e31 → e32 → e34 → e35 → e33 → e36 → e37 → e38 → e39
   # (e37 spike PASSED 2026-07-03 via gh-aw + DeepSeek; G-01 golden story live.
   #  e37s02-s04 no longer spike-gated — can proceed after e31 builds the gates).
+  # ── DONE — shipped as v2.50.0 (Deepening, 2026-07-03) ────────────────
   - id: e31
     title: "Quality Guarantee — Deterministic Gates"
     wsjf: 9.5
     bcps: 11
-    capsule_dir: epics/e31-quality-guarantee
+    capsule_dir: epics/archive/e31-quality-guarantee
     note: >
-      ACTIVE. Deterministic half of the original 22-BCP quality epic (split per
-      PLAN-AUDIT 2026-07-02): G-04 sync-pipeline self-test, compliance wired
-      into CI, static SKILL.md size budget, pinned baseline, pre-merge
-      mandate, evolve-skill integration. Free, seconds-fast, covers the
-      actual regression surface of e32-e36. 7 stories planned (11 BCP).
-      WSJF (BV 6 + TC 5 + RR-OE 8) / JS 2 = 9.5.
+      Delivered: G-04 sync-pipeline self-test, compliance CI gate, golden suite
+      runner (--baseline, --check-size), pre-merge mandate, evolve-skill regression
+      gate. 7 stories across 4 PRs (#43-#46). Replaced by e37 golden stories as
+      consumer of these gates.
   - id: e32
     title: "Missing Historical References"
     wsjf: 3.0

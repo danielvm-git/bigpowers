@@ -1,0 +1,11 @@
+story_id: e31s05
+title: "Pin baseline for golden suite"
+status: todo
+bcps: 1
+tasks:
+  - id: 1
+    description: "Add --baseline handler: run all gates, write BASELINE-GOLDEN.yaml only if all pass"
+    verify: "bash scripts/run-golden-suite.sh --baseline && grep -q 'pass_rate' specs/benchmarks/reports/BASELINE-GOLDEN.yaml && echo OK"
+  - id: 2
+    description: "Include git commit SHA in baseline file"
+    verify: "grep -q 'git_commit' specs/benchmarks/reports/BASELINE-GOLDEN.yaml && echo OK"

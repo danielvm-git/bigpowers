@@ -1,0 +1,14 @@
+story_id: e31s04
+title: "Add static size budget enforcement to golden suite"
+status: todo
+bcps: 1
+tasks:
+  - id: 1
+    description: "Add --check-size flag to run-golden-suite.sh"
+    verify: "bash scripts/run-golden-suite.sh --check-size 2>&1 | grep -qE 'WARN|FAIL|baseline first' && echo OK"
+  - id: 2
+    description: "Implement per-skill byte count comparison vs BASELINE-GOLDEN.yaml"
+    verify: "bash scripts/run-golden-suite.sh --check-size 2>&1 | grep -q 'SKILL.md' && echo OK"
+  - id: 3
+    description: "Enforce +20% warn / +50% fail thresholds"
+    verify: "bash scripts/run-golden-suite.sh --check-size; test $? -le 1 && echo OK"

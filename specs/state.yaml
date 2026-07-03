@@ -1,4 +1,4 @@
-active_flow: release
+active_flow: planning
 epic_cycle:
   epic_id: e31
   epic_slug: quality-guarantee
@@ -20,19 +20,19 @@ epic_cycle:
   audit_result: pass
   fast_mode: true
 handoff:
-  next_skill: release-branch
-  context: 'e31 COMPLETE — all 7 stories done (11/11 BCP). Gates: G-04 selftest, compliance
-    CI, golden suite, size budget, baseline pinned, pre-merge mandate, evolve-skill
-    regression gate. Next: e32 (Missing Historical References, 20 BCP).'
+  next_skill: survey-context
+  context: 'e31 COMPLETE and archived. Next: e32 (Missing Historical References, 20
+    BCP) or e34 (Context Engineering Layer, 10 BCP) — user decision. e37 golden stories
+    are consumers of e31 gates; G-01 runs weekly via gh-aw + DeepSeek.'
 bug_id: null
 bug_cycle:
   current_step: 0
   completed_steps: null
 release:
   ci_verified: true
-  released_at: '2026-07-02T23:00:00Z'
+  released_at: '2026-07-03T04:10:07Z'
   commit: 8823212
-  tag: none (semantic-release will tag on push)
+  tag: v2.50.0 (semantic-release)
   node20_migration:
     completed: true
     commit: 5b6f1dd
@@ -104,3 +104,14 @@ metrics:
       calls: 1
       total_seconds: 101.0
       avg_seconds: 101.0
+  story_start: '2026-07-02T23:00:00Z'
+  story_end: '2026-07-03T04:10:07Z'
+  epic_e31:
+    total_bcps: 11
+    stories: 7
+    prs:
+    - '#43'
+    - '#44'
+    - '#45'
+    - '#46'
+    completed_at: '2026-07-03T04:10:07Z'
