@@ -1,3 +1,10 @@
+## [2.45.5](https://github.com/danielvm-git/bigpowers/compare/v2.45.4...v2.45.5) (2026-07-03)
+
+
+### Bug Fixes
+
+* **compliance:** repair stale skill paths in 33 verification scripts after skills/ migration ([f78fe9d](https://github.com/danielvm-git/bigpowers/commit/f78fe9d955251c80b348a193900b3b61594aebf7))
+
 ## [2.45.4](https://github.com/danielvm-git/bigpowers/compare/v2.45.3...v2.45.4) (2026-07-03)
 
 
