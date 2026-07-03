@@ -1,3 +1,10 @@
+## [2.45.4](https://github.com/danielvm-git/bigpowers/compare/v2.45.3...v2.45.4) (2026-07-03)
+
+
+### Bug Fixes
+
+* **sync:** sync generated .pi/package.json version to 2.45.3 and opencode.json ([e2587c9](https://github.com/danielvm-git/bigpowers/commit/e2587c9f4922adefcfa17c6f789e307289fdba08))
+
 ## [2.45.3](https://github.com/danielvm-git/bigpowers/compare/v2.45.2...v2.45.3) (2026-07-03)
 
 
