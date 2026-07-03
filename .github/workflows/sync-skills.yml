@@ -47,3 +47,12 @@ jobs:
             git diff --stat .cursor/rules .gemini/extensions/bigpowers .pi SKILL-INDEX.md skills-lock.json README.md specs/SKILL-SEARCH-INDEX_LATEST.md
             exit 1
           }
+
+      - name: Validate OKF bundles (non-blocking)
+        continue-on-error: true
+        run: |
+          if [ -f scripts/validate-okf.sh ]; then
+            bash scripts/validate-okf.sh --dir specs/metrics || echo "::warning::OKF bundle validation found issues (non-blocking)"
+          else
+            echo "::notice::validate-okf.sh not found — skipping"
+          fi

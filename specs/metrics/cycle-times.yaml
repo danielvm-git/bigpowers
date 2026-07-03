@@ -6,6 +6,8 @@ stories:
   end: '2026-06-08T14:45:00Z'
   cycle_minutes: 45
   bcp_per_hour: 1.3
+  source: backfilled
+  backfill_note: Fabricated by agent-self-reported hand-arithmetic (e40 remediation 2026-07-03)
 - id: e01s02
   epic: e01
   bcps: 1
@@ -13,6 +15,8 @@ stories:
   end: '2026-06-08T15:30:00Z'
   cycle_minutes: 45
   bcp_per_hour: 1.3
+  source: backfilled
+  backfill_note: Fabricated by agent-self-reported hand-arithmetic (e40 remediation 2026-07-03)
 - id: e01s03
   epic: e01
   bcps: 1
@@ -20,6 +24,8 @@ stories:
   end: '2026-06-08T16:15:00Z'
   cycle_minutes: 45
   bcp_per_hour: 1.3
+  source: backfilled
+  backfill_note: Fabricated by agent-self-reported hand-arithmetic (e40 remediation 2026-07-03)
 - id: e01s04
   epic: e01
   bcps: 1
@@ -27,6 +33,8 @@ stories:
   end: '2026-06-08T17:00:00Z'
   cycle_minutes: 45
   bcp_per_hour: 1.3
+  source: backfilled
+  backfill_note: Fabricated by agent-self-reported hand-arithmetic (e40 remediation 2026-07-03)
 - id: e02s01
   epic: e02
   bcps: 1
@@ -34,6 +42,8 @@ stories:
   end: '2026-06-08T17:45:00Z'
   cycle_minutes: 45
   bcp_per_hour: 1.3
+  source: backfilled
+  backfill_note: Fabricated by agent-self-reported hand-arithmetic (e40 remediation 2026-07-03)
 - id: e02s02
   epic: e02
   bcps: 1
@@ -41,6 +51,8 @@ stories:
   end: '2026-06-08T18:30:00Z'
   cycle_minutes: 45
   bcp_per_hour: 1.3
+  source: backfilled
+  backfill_note: Fabricated by agent-self-reported hand-arithmetic (e40 remediation 2026-07-03)
 - id: e02s03
   epic: e02
   bcps: 1
@@ -48,6 +60,8 @@ stories:
   end: '2026-06-08T19:15:00Z'
   cycle_minutes: 45
   bcp_per_hour: 1.3
+  source: backfilled
+  backfill_note: Fabricated by agent-self-reported hand-arithmetic (e40 remediation 2026-07-03)
 - id: e02s04
   epic: e02
   bcps: 1
@@ -55,6 +69,8 @@ stories:
   end: '2026-06-08T20:00:00Z'
   cycle_minutes: 45
   bcp_per_hour: 1.3
+  source: backfilled
+  backfill_note: Fabricated by agent-self-reported hand-arithmetic (e40 remediation 2026-07-03)
 - id: e03s01
   epic: e03
   bcps: 1
@@ -258,6 +274,8 @@ stories:
   end: '2026-06-20T18:58:06Z'
   cycle_minutes: 193
   bcp_per_hour: 0.3
+  source: backfilled
+  backfill_note: Fabricated by agent-self-reported hand-arithmetic (e40 remediation 2026-07-03)
 - id: e13s02
   epic: e13
   bcps: 1
@@ -265,6 +283,8 @@ stories:
   end: '2026-06-20T18:58:06Z'
   cycle_minutes: 193
   bcp_per_hour: 0.3
+  source: backfilled
+  backfill_note: Fabricated by agent-self-reported hand-arithmetic (e40 remediation 2026-07-03)
 - id: e13s03
   epic: e13
   bcps: 1
@@ -272,6 +292,8 @@ stories:
   end: '2026-06-20T18:58:06Z'
   cycle_minutes: 193
   bcp_per_hour: 0.3
+  source: backfilled
+  backfill_note: Fabricated by agent-self-reported hand-arithmetic (e40 remediation 2026-07-03)
 - id: e14s01
   epic: e14
   bcps: 1
@@ -328,6 +350,8 @@ stories:
   end: '2026-06-20T21:50:01Z'
   cycle_minutes: 1
   bcp_per_hour: 120.0
+  source: backfilled
+  backfill_note: Fabricated by agent-self-reported hand-arithmetic (e40 remediation 2026-07-03)
 - id: e17s01
   epic: e17
   bcps: 3
@@ -412,22 +436,21 @@ stories:
   end: '2026-06-27T14:05:00Z'
   cycle_minutes: 7
   bcp_per_hour: 8.6
-
 - id: e30
   title: Architecture Quick Fixes
   bcps: 8
-  start: "2026-07-02T19:00:00Z"
-  end: "2026-07-02T23:00:00Z"
+  start: '2026-07-02T19:00:00Z'
+  end: '2026-07-02T23:00:00Z'
   cycle_minutes: 240
   bcp_per_hour: 2.0
 - epic: e31
-  title: "Quality Guarantee — Deterministic Gates"
+  title: Quality Guarantee — Deterministic Gates
   total_bcps: 11
   stories: 7
-  start: "2026-07-02T23:00:00Z"
-  end: "2026-07-03T04:10:00Z"
+  start: '2026-07-02T23:00:00Z'
+  end: '2026-07-03T04:10:00Z'
   prs:
-    - "#43 (e31s01: G-04 selftest, 2 BCP)"
-    - "#44 (e31s02: compliance CI, 2 BCP)"
-    - "#45 (e31s03: golden suite, 3 BCP)"
-    - "#46 (e31s04-s07: size budget + mandates, 4 BCP)"
+  - '#43 (e31s01: G-04 selftest, 2 BCP)'
+  - '#44 (e31s02: compliance CI, 2 BCP)'
+  - '#45 (e31s03: golden suite, 3 BCP)'
+  - '#46 (e31s04-s07: size budget + mandates, 4 BCP)'

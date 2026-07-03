@@ -118,7 +118,17 @@ git branch -d <branch-name>
 
 ### 8a. Cycle-time recording
 
-After landing, record delivery metrics. See [REFERENCE.md](REFERENCE.md) for fields and example row.
+After landing, record delivery metrics with the git-derived, additive script:
+
+```bash
+bash scripts/record-cycle-time.sh append \
+  --story <story_id> --bcps <bcps> \
+  --range "$(git merge-base main HEAD)..HEAD" \
+  --file specs/metrics/cycle-times.yaml
+```
+
+This replaces the previous hand-arithmetic approach (story_end minus story_start).
+See [REFERENCE.md](REFERENCE.md) for the git-hours model and field definitions.
 
 ### 9. Return to main
 

@@ -1,0 +1,53 @@
+# Benchmark Axes — Delivery, Reliability, Cost, Routing, Quality
+#
+# Wired from specs/templates/story-metrics.okf.md benchmark-axes table.
+# Each axis maps to OKF bundle fields with aggregation semantics.
+# Cross-run comparison across these axes enables data-informed trade-offs.
+#
+# Source: e40 Metrics Integrity, 2026-07-03.
+# Aggregation legend: Σ additive (sum→total) · ⌀ median/p95 · % rate (ratio) · • static
+
+axes:
+  delivery_health:
+    label: "Delivery Health"
+    primary_metric: dora.lead_time_for_changes_min
+    aggregation: median
+    description: "Time from first commit to merge. Lower is faster."
+
+  delivery_reliability:
+    label: "Delivery Reliability"
+    primary_metric: dora.change_failure
+    aggregation: rate
+    secondary_metrics:
+      - dora.time_to_restore_min  # median
+    description: "How often changes cause failures. Lower is better."
+
+  generation_cost:
+    label: "Generation Cost"
+    primary_metric: agent.cost_usd
+    aggregation: sum
+    secondary_metrics:
+      - agent.tokens.total  # sum
+    description: "Total agent cost and token consumption per story. Σ over stories = project total."
+
+  routing_efficiency:
+    label: "Routing Efficiency"
+    primary_metric: agent.cache_hit_rate_pct
+    aggregation: ratio
+    secondary_metrics:
+      - agent.tier  # light|standard|heavy mix
+      - agent.model_downgraded  # ratio
+    description: "How efficiently the model routing uses cache and tier selection."
+
+  quality:
+    label: "Quality"
+    primary_metric: quality.audit_score_pct
+    aggregation: median
+    secondary_metrics:
+      - quality.rework_count  # sum
+      - quality.coverage_pct  # median
+    description: "Code quality and test coverage across stories."
+
+# Cross-run comparison: run-benchmark (e23) collects data from OKF bundles
+# and compares across runs using these axes. Example:
+#   "Switched from standard to light tier → cost -40%, delivery +15%"

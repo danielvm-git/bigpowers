@@ -50,6 +50,35 @@ STORY_KEY="Story"
 
 die() { echo "record-cycle-time: $*" >&2; exit 1; }
 
+usage() {
+  cat <<'EOF'
+Usage: scripts/record-cycle-time.sh <command> [flags]
+
+Commands:
+  report      Compute per-story effort partition + additivity self-check.
+              Flags: --range <git-range>  --story-key <trailer-key>
+  append      Recompute partition and append one row for a story.
+              Flags: --story <id> --bcps <n> [--range <git-range>]
+                     [--merged-at <epoch>] [--file <path>] [--story-key <trailer-key>]
+  self-test   Run report, then exit 0 on additivity PASS; exit 1 on FAIL.
+              Flags: --range <git-range>  --story-key <trailer-key>
+  help        Show this message.
+
+Global flags:
+  --help      Show this message (works with any subcommand).
+
+Description:
+  Computes git-derived, additive effort from commit history.
+  Two metrics, separated: effort_hours (ADDITIVE, Σ = total) and
+  lead_time_minutes (calendar latency, median-aggregate, NEVER sum).
+
+  Uses the git-hours model: commits sorted by author-date across the
+  whole range; gaps < 120 min counted as effort; gaps >= 120 min
+  start a new session with a 120-min pad.
+EOF
+  exit 0
+}
+
 command -v git >/dev/null 2>&1 || die "git not found"
 ROOT="$(git rev-parse --show-toplevel 2>/dev/null)" || die "not inside a git repo"
 
@@ -141,6 +170,7 @@ cmd_report() {
 
 cmd_append() {
   local range="HEAD" key="$STORY_KEY" story="" bcps="" merged_at="" file="$ROOT/specs/metrics/cycle-times.yaml"
+  local telemetry=""  # path to harness telemetry JSON (GSD-2/gsd-pi format, optional)
   while [ $# -gt 0 ]; do
     case "$1" in
       --story) story="$2"; shift 2 ;;
@@ -149,6 +179,7 @@ cmd_append() {
       --merged-at) merged_at="$2"; shift 2 ;;
       --file) file="$2"; shift 2 ;;
       --story-key) key="$2"; shift 2 ;;
+      --telemetry) telemetry="$2"; shift 2 ;;
       *) die "unknown flag: $1" ;;
     esac
   done
@@ -176,25 +207,134 @@ cmd_append() {
               | awk 'NR==1{print}')"
   range_hi="$(git -C "$ROOT" rev-parse --short HEAD)"
 
+  local generated_at
+  generated_at="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+
+  # ---- telemetry ingestion (GSD-2/gsd-pi style; e40s04) ----
+  # If --telemetry <json-file> is provided, read the harness data and populate
+  # agent.* fields. Otherwise, agent.* stays null (git effort is the fallback).
+  local agent_cost agent_tokens_in agent_tokens_out agent_tokens_cache_read
+  local agent_tokens_cache_write agent_tokens_total agent_cache_hit
+  local agent_compression agent_tool_calls agent_api_requests
+  local agent_duration_ms agent_model agent_tier agent_downgraded agent_skills
+  agent_cost="null"; agent_tokens_total="null"; agent_cache_hit="null"
+  agent_compression="null"; agent_tool_calls="null"; agent_api_requests="null"
+  agent_duration_ms="null"; agent_model="null"; agent_tier="null"
+  agent_downgraded="null"; agent_skills="[]"
+
+  if [ -n "$telemetry" ] && [ -f "$telemetry" ]; then
+    # GSD-2/gsd-pi snapshotUnitMetrics JSON format:
+    #   { cost_usd, tokens: {input, output, cache_read, cache_write, total},
+    #     cache_hit_rate_pct, compression_savings_pct, tool_calls, api_requests,
+    #     agent_duration_ms, model, tier, model_downgraded, skills[] }
+    if command -v jq >/dev/null 2>&1; then
+      agent_cost="$(jq -r '.cost_usd // "null"' "$telemetry")"
+      agent_tokens_total="$(jq -r '.tokens.total // "null"' "$telemetry")"
+      agent_cache_hit="$(jq -r '.cache_hit_rate_pct // "null"' "$telemetry")"
+      agent_compression="$(jq -r '.compression_savings_pct // "null"' "$telemetry")"
+      agent_tool_calls="$(jq -r '.tool_calls // "null"' "$telemetry")"
+      agent_api_requests="$(jq -r '.api_requests // "null"' "$telemetry")"
+      agent_duration_ms="$(jq -r '.agent_duration_ms // "null"' "$telemetry")"
+      agent_model="$(jq -r '.model // "null"' "$telemetry")"
+      agent_tier="$(jq -r '.tier // "null"' "$telemetry")"
+      agent_downgraded="$(jq -r '.model_downgraded // "null"' "$telemetry")"
+      agent_skills="$(jq -c '.skills // []' "$telemetry")"
+      agent_tokens_in="$(jq -r '.tokens.input // "null"' "$telemetry")"
+      agent_tokens_out="$(jq -r '.tokens.output // "null"' "$telemetry")"
+      agent_tokens_cache_read="$(jq -r '.tokens.cache_read // "null"' "$telemetry")"
+      agent_tokens_cache_write="$(jq -r '.tokens.cache_write // "null"' "$telemetry")"
+    else
+      echo "record-cycle-time: jq not found — telemetry file ignored (git effort fallback)" >&2
+    fi
+  fi
+
+  # Emit OKF bundle (YAML frontmatter + markdown body) per story.
+  # This is the canonical format — see specs/templates/story-metrics.okf.md.
+  # Fields not yet populated (quality.*, flow.*) carry null placeholders.
   {
-    printf -- '- id: %s\n' "$story"
-    printf -- '  bcps: %s\n' "$bcps"
-    printf -- '  effort_hours: %s        # ADDITIVE, idle-stripped (120-min threshold)\n' "$eff"
-    printf -- '  lead_time_minutes: %s   # calendar latency, first-commit → merge; median-aggregate, never sum\n' "$lead_min"
-    printf -- '  commit_count: %s\n' "$count"
-    printf -- '  first_commit: "%s"\n' "$first_iso"
-    printf -- '  commit_range: "%s..%s"\n' "${range_lo:-$range_hi}" "$range_hi"
-    printf -- '  source: measured\n'
-    printf -- '  idle_threshold_min: 120\n'
+    printf -- '---\n'
+    printf -- 'okf_kind: story-metrics\n'
+    printf -- 'okf_version: "0.1"\n'
+    printf -- 'id: %s\n' "$story"
+    printf -- 'epic: %s\n' "${story%%s*}"          # e40s03 → e40
+    printf -- 'bcps: %s\n' "$bcps"
+    printf -- 'commit_range: "%s..%s"\n' "${range_lo:-$range_hi}" "$range_hi"
+    printf -- 'source: measured\n'
+    printf -- 'generated_at: %s\n' "$generated_at"
+    printf -- 'generator: scripts/record-cycle-time.sh\n'
+    printf -- '\n'
+    printf -- '# DORA — the four keys (market standard). ⌀ median aggregate.\n'
+    printf -- 'dora:\n'
+    printf -- '  lead_time_for_changes_min: %s   # ⌀ first commit → merge\n' "$lead_min"
+    printf -- '  deployment_frequency: null           # %% populated by e40s05\n'
+    printf -- '  change_failure: null                   # %% populated by e40s05\n'
+    printf -- '  time_to_restore_min: null              # ⌀ populated by e40s05\n'
+    printf -- '\n'
+    printf -- '# Agent code-generation telemetry (GSD-2 style). Σ additive.\n'
+    printf -- 'agent:\n'
+    printf -- '  cost_usd: %s                         # Σ harness telemetry (null = git effort fallback)\n' "$agent_cost"
+    printf -- '  tokens:\n'
+    printf -- '    input: %s\n' "$agent_tokens_in"
+    printf -- '    output: %s\n' "$agent_tokens_out"
+    printf -- '    cache_read: %s\n' "$agent_tokens_cache_read"
+    printf -- '    cache_write: %s\n' "$agent_tokens_cache_write"
+    printf -- '    total: %s\n' "$agent_tokens_total"
+    printf -- '  cache_hit_rate_pct: %s               # %%\n' "$agent_cache_hit"
+    printf -- '  compression_savings_pct: %s          # %%\n' "$agent_compression"
+    printf -- '  tool_calls: %s                       # Σ\n' "$agent_tool_calls"
+    printf -- '  api_requests: %s                     # Σ\n' "$agent_api_requests"
+    printf -- '  agent_duration_ms: %s                # Σ (excludes human UAT wait)\n' "$agent_duration_ms"
+    printf -- '  model: %s                            # •\n' "$agent_model"
+    printf -- '  tier: %s                             # • light|standard|heavy\n' "$agent_tier"
+    printf -- '  model_downgraded: %s                 # •\n' "$agent_downgraded"
+    printf -- '  skills: %s                           # Σ\n' "$agent_skills"
+    printf -- '\n'
+    printf -- '# Effort (git-derived, idle-stripped, ADDITIVE).\n'
+    printf -- 'effort:\n'
+    printf -- '  effort_hours: %s              # Σ idle-stripped (git-hours, 120-min threshold)\n' "$eff"
+    printf -- '  idle_threshold_min: 120              # • recorded for interpretability\n'
+    printf -- '\n'
+    printf -- '# Quality gate. ⌀ median / • static.\n'
+    printf -- 'quality:\n'
+    printf -- '  audit_score_pct: null                 # ⌀ populated by audit-code\n'
+    printf -- '  coverage_pct: null                    # ⌀ populated by test suite\n'
+    printf -- '  tests_passed: null                    # • populated by test suite\n'
+    printf -- '  verify_status: null                   # pass|waived\n'
+    printf -- '  rework_count: null                    # Σ reopens → feeds change_failure\n'
+    printf -- '\n'
+    printf -- '# Flow (worktree telemetry).\n'
+    printf -- 'flow:\n'
+    printf -- '  merge_duration_ms: null               # ⌀ p50/p95 across stories\n'
+    printf -- '  merge_conflicts: null                 # Σ\n'
+    printf -- '  worktree_orphaned: null               # •\n'
+    printf -- '---\n'
+    printf -- '\n'
+    printf -- '# Story metrics — %s\n' "$story"
+    printf -- '\n'
+    printf -- 'Effort derived from git commit history via the git-hours model\n'
+    printf -- '(src: kimmobrunfeldt/git-hours, 120-min idle threshold, 120-min\n'
+    printf -- 'first-commit pad). Lead time is calendar latency (first commit → merge).\n'
+    printf -- '\n'
+    printf -- 'Aggregation tags: Σ additive (sum → total) · ⌀ median/p95 (never sum)\n'
+    printf -- '· %% rate (ratio over window) · • static (identity).\n'
   } >> "$file"
 
-  echo "record-cycle-time: appended row for $story to $file (effort_hours=$eff, lead_time_minutes=$lead_min, commits=$count)"
+  echo "record-cycle-time: OKF bundle written for $story → $file (effort=$eff h, lead=$lead_min min, commits=$count)"
 }
 
-[ $# -ge 1 ] || die "usage: record-cycle-time.sh {report|append} [flags]"
+[ $# -ge 1 ] || { usage; }
+
+# Trap --help before subcommand dispatch
+for a in "$@"; do
+  if [ "$a" = "--help" ] || [ "$a" = "-h" ]; then usage; fi
+done
+
 sub="$1"; shift
 case "$sub" in
   report) cmd_report "$@" ;;
   append) cmd_append "$@" ;;
-  *) die "unknown subcommand '$sub' (expected report|append)" ;;
+  self-test) cmd_report "$@" ;;
+  help) usage ;;
+  --help) usage ;;
+  *) die "unknown subcommand '$sub' (run 'record-cycle-time.sh help' for usage)" ;;
 esac

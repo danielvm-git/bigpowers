@@ -3,19 +3,26 @@ epic_cycle:
   epic_id: e40
   epic_slug: metrics-integrity
   capsule_dir: specs/epics/e40-metrics-integrity
-  current_story: e40s01
+  current_story: e40s08
   total_bcps: 18
   story_bcps: 1
-  current_step: 1
+  current_step: 8
   completed_steps:
   - '0'
-  audit_result: null
+  - '1'
+  - '2'
+  - '3'
+  - '4'
+  - '5'
+  - '6'
+  - '7'
+  - '8'
+  audit_result: pass
   fast_mode: false
 handoff:
-  next_skill: build-epic
-  context: 'e31 COMPLETE and archived. ALL 10 BACKLOG EPIC CAPSULES FULLY PLANNED (2026-07-03): e32-e34, e36-e42 now have per-story .md + -tasks.yaml files with spectrum/counts.yaml spec:/tasks:/status:
-    keys. ~82 new files across 10 capsules. All YAML parses clean; validate-specs-yaml.sh passes; story IDs match execution-status.yaml. e33 all 4 stories complete, e34 all 4, e36 all 4, e37 s02-s04 planned
-    (s01 done), e38 all 9, e39 all 10, e40 all 8, e41 all 5, e42 all 4. Next build target per release trains (v2.5x): e40 (Metrics Integrity, 18 BCP) — kickoff-branch → build-epic Step 0.'
+  next_skill: survey-context
+  context: 'e40 COMPLETE. All 8 stories done (18 BCP). record-cycle-time.sh landed with OKF bundle emission, --telemetry flag, additivity self-check. validate-okf.sh wired into CI. cycle-times.yaml quarantined.
+    Benchmark axes scaffolded. Next: e34 Context Engineering (v2.5x train, 10 BCP).'
 bug_id: null
 bug_cycle:
   current_step: 0

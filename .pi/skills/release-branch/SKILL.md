@@ -119,7 +119,17 @@ git branch -d <branch-name>
 
 ### 8a. Cycle-time recording
 
-After landing, record delivery metrics. See [REFERENCE.md](REFERENCE.md) for fields and example row.
+After landing, record delivery metrics with the git-derived, additive script:
+
+```bash
+bash scripts/record-cycle-time.sh append \
+  --story <story_id> --bcps <bcps> \
+  --range "$(git merge-base main HEAD)..HEAD" \
+  --file specs/metrics/cycle-times.yaml
+```
+
+This replaces the previous hand-arithmetic approach (story_end minus story_start).
+See [REFERENCE.md](REFERENCE.md) for the git-hours model and field definitions.
 
 ### 9. Return to main
 
@@ -177,21 +187,43 @@ If `git worktree remove` fails due to uncommitted changes, ask: "There are uncom
 
 ## Cycle-time recording
 
-After landing the branch, record delivery metrics for this story:
+After landing the branch, record delivery metrics using the git-derived,
+additive script (replaces hand-arithmetic):
 
-1. Write `metrics.story_end` (ISO 8601) to `specs/state.yaml`
-2. Compute `cycle_minutes`: `story_end` minus `story_start` in minutes
-3. Compute `bcp_per_hour`: `epic_cycle.story_bcps / (cycle_minutes / 60)`
-4. Append a row to `specs/metrics/cycle-times.yaml`:
-
-```yaml
-- id: e01s01
-  bcps: 3
-  start: "2026-06-10T09:45:00Z"
-  end: "2026-06-10T11:15:00Z"
-  cycle_minutes: 90
-  bcp_per_hour: 2.0
+```bash
+bash scripts/record-cycle-time.sh append \
+  --story <story_id> --bcps <bcps> \
+  --range "$(git merge-base main HEAD)..HEAD" \
+  --file specs/metrics/cycle-times.yaml
 ```
+
+This appends a row to the cycle-times ledger with two separated metrics:
+
+- **effort_hours** — ADDITIVE. Idle-stripped estimated effort from git commit
+  history (git-hours model: 120-min session threshold, 120-min first-commit pad).
+  Sums exactly to whole-repo effort. NO hand-arithmetic, NO wall-clock includes.
+- **lead_time_minutes** — calendar latency from first commit to merge.
+  Median-aggregated across stories; NEVER summed.
+
+The script also runs an additivity self-check: Σ(story effort) == whole-repo effort
+within rounding tolerance.
+
+### Why not story_start minus story_end?
+
+The previous hand-arithmetic approach (survey-context writes `story_start`,
+release-branch writes `story_end`, agent hand-computes `cycle_minutes`) was
+retired because:
+
+1. It was **agent-self-reported** — trivially fabricated or mis-subtracted.
+2. Wall-clock included **overnight/weekend/UAT gaps** — calendar latency,
+   not coding effort.
+3. The `bcp_per_hour` metric was **computationally meaningless** (velocity
+   derived from a latency measurement).
+
+The new approach derives effort from commit history (objective, reproducible)
+and lead time from first commit → merge (honest calendar latency). See
+`docs/references/bcp.md` for BCP sizing context and
+`scripts/record-cycle-time.sh` for the full algorithm.
 
 ---
 

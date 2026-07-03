@@ -109,7 +109,7 @@ Report blockers first, before recommendations.
 
 ### 8. Record story start timestamp
 
-At story start, write `metrics.story_start` with the current ISO 8601 timestamp to `specs/state.yaml` for cycle-time tracking.
+At story start, write `metrics.story_start` with the current ISO 8601 timestamp to `specs/state.yaml` as an **informational progress marker only** — not a measurement input. Cycle-time metrics are now derived from git commit history via `scripts/record-cycle-time.sh` (see `skills/release-branch/REFERENCE.md` §Cycle-time recording).
 
 ## Utility outputs
 

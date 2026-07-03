@@ -213,7 +213,7 @@
     },
     "release-branch": {
       "description": "Make the merge/PR/keep/discard decision for a feature branch, verify coverage gates, create the PR with gh, and clean up the worktree. Use when a feature is done and ready to ship, or when user says \"release\", \"merge\", or \"open a PR\".",
-      "sha256": "d9df587d82f602fe",
+      "sha256": "4ed9fc67980a1133",
       "path": "skills/release-branch/SKILL.md"
     },
     "request-review": {
@@ -308,7 +308,7 @@
     },
     "survey-context": {
       "description": "Per-task context bootstrap — reads existing specs/ and tech-architecture docs to map the current lifecycle phase and suggest the next skill. Use at the start of any task, when returning after a break, or when unsure what to do next. For deriving a tech-stack doc from scratch, use map-codebase first.",
-      "sha256": "7b68756f984ede71",
+      "sha256": "1efe6bc7dc3d725f",
       "path": "skills/survey-context/SKILL.md"
     },
     "terse-mode": {
