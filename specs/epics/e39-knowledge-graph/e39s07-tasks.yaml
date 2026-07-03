@@ -1,0 +1,17 @@
+story_id: e39s07
+title: "Create maintain-wiki skill — agent-maintained OKF ingest, lint, and query"
+status: todo
+bcps: 3
+tasks:
+  - id: 1
+    description: "Create skills/maintain-wiki/ directory with SKILL.md"
+    verify: "test -f skills/maintain-wiki/SKILL.md && echo OK"
+  - id: 2
+    description: "Implement INGEST operation: read source → write/update OKF concepts"
+    verify: "grep -q 'ingest|INGEST' skills/maintain-wiki/SKILL.md && echo OK"
+  - id: 3
+    description: "Implement QUERY operation: search index.md → drill into concepts → synthesize answer"
+    verify: "grep -q 'query|QUERY' skills/maintain-wiki/SKILL.md && echo OK"
+  - id: 4
+    description: "Implement LINT operation: contradiction, stale claims, orphans, missing cross-references"
+    verify: "grep -q 'lint|LINT' skills/maintain-wiki/SKILL.md && echo OK"

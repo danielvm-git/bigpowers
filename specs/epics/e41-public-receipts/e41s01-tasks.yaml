@@ -1,0 +1,24 @@
+story_id: e41s01
+title: "Create scripts/build-receipts.sh — aggregate all quality evidence into specs/receipts.json"
+status: todo
+bcps: 3
+tasks:
+  - id: 1
+    description: >-
+      Write build-receipts.sh: read compliance score from
+      audit-compliance.sh output, golden results from
+      specs/benchmarks/reports/, metrics from specs/metrics/ OKF bundles,
+      matrix from specs/traceability-matrix.json
+    verify: >-
+      bash scripts/build-receipts.sh && python3 -c "import json;
+      d=json.load(open('specs/receipts.json')); assert all(k in d for k in
+      ('compliance','golden_suite','metrics','traceability'))" && echo OK
+    status: todo
+  - id: 2
+    description: >-
+      Absent-artifact path: each missing source emits source: absent,
+      script exits 0
+    verify: >-
+      python3 -c "import json; d=json.load(open('specs/receipts.json'));
+      assert all('source' in v for v in d.values())" && echo OK
+    status: todo

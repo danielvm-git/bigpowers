@@ -1,0 +1,14 @@
+story_id: e36s03
+title: "Remove F.I.R.S.T rubric restatement from enforce-first and audit-code SKILL.md; replace with CONVENTIONS.md pointer"
+status: todo
+bcps: 2
+tasks:
+  - id: 1
+    description: "Identify F.I.R.S.T restatements in enforce-first/SKILL.md and audit-code/SKILL.md"
+    verify: "grep -n 'Fast.*Independent.*Repeatable' skills/enforce-first/SKILL.md skills/audit-code/SKILL.md && echo 'restatements found' || echo 'none found'"
+  - id: 2
+    description: "Replace restatements with 'per CONVENTIONS.md §F.I.R.S.T' pointer in both files"
+    verify: "grep -c 'Fast.*Independent.*Repeatable' skills/enforce-first/SKILL.md skills/audit-code/SKILL.md | awk -F: '{sum+=$2} END{if(sum<=1) print \"OK\"; else print \"FAIL: \"sum}'"
+  - id: 3
+    description: "Run sync-skills.sh to regenerate artifacts"
+    verify: "bash scripts/sync-skills.sh && echo OK"

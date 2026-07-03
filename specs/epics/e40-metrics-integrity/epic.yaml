@@ -1,0 +1,113 @@
+id: e40
+title: "Metrics Integrity — Honest, Additive, Benchmarkable"
+wsjf: 3.2
+bcps: 18
+status: proposed
+release: v2.45.0
+codename: "Deepening"
+supersedes: e35
+source: |
+  Session 2026-07-03 — cycle-time metric investigation. Findings:
+  - specs/metrics/cycle-times.yaml is unreliable: agent-self-reported wall-clock,
+    hand-computed, ungated. Outliers (bcp_per_hour up to 120), templated blocks
+    (11× identical 45-min/1.3 rows), three e13 stories sharing start+end.
+  - Root cause is a SELF-REPLICATING methodology defect: survey-context stamps
+    story_start, release-branch stamps story_end + hand-arithmetic. Because
+    bigpowers was built with bigpowers, every downstream project inherits it.
+  - Wall-clock ≠ effort (includes overnight/weekend/UAT wait). One number cannot
+    mean both "how long it took" and "how hard I worked".
+  Research + red-team (2× adversarial passes) established the fix, captured in:
+  - specs/RESEARCH-cycle-time-metrics.md — primary-source survey
+  - specs/templates/story-metrics.okf.md — per-story OKF metrics bundle.
+  - scripts/record-cycle-time.sh — git-derived, additive effort + lead time
+  Design decisions locked:
+  - Two SEPARATED per-story fields: effort (idle-stripped, ADDITIVE, Σ=total)
+    and lead_time (calendar latency, median-aggregated, NEVER summed).
+  - Additive effort requires a GLOBAL commit partition (not per-story git-hours
+    summed — that leaks both directions; proven by simulation).
+  - Telemetry-first: where the harness exposes usage (pi, Claude Code) capture
+    tokens/cost/duration (naturally additive); git-effort is the portable
+    fallback (Cursor/Gemini).
+  - Gate on PROVENANCE (script ran, commit_range resolves), never on a value.
+stories:
+  - id: e40s01
+    bcp: 1
+    title: "Land record-cycle-time.sh — git-derived additive effort + lead_time (report/append + additivity self-check)"
+    spec: e40s01-land-record-cycle-time.md
+    tasks: e40s01-tasks.yaml
+    status: todo
+    description: |
+      Script drafted & verified this session (interleaving + overnight cases both
+      sum exactly to whole-repo total). Story = integrate, add usage/help guard,
+      and a --self-test that asserts Σ(story effort) == whole-repo effort.
+  - id: e40s02
+    bcp: 3
+    title: "Wire record-cycle-time.sh append into release-branch; deprecate story_start/story_end hand-arithmetic in survey-context + release-branch"
+    spec: e40s02-wire-release-branch.md
+    tasks: e40s02-tasks.yaml
+    status: todo
+    description: |
+      release-branch calls the script at merge (deriving effort/lead_time from
+      git), removing the agent from the measurement loop. Update REFERENCE.md
+      cycle-time section; mark survey-context story_start as informational only.
+  - id: e40s03
+    bcp: 3
+    title: "Adopt OKF story-metrics bundle format (specs/templates/story-metrics.okf.md); emit one bundle per merged story"
+    spec: e40s03-okf-story-metrics.md
+    tasks: e40s03-tasks.yaml
+    status: todo
+    description: |
+      record-cycle-time.sh emits an OKF bundle (YAML frontmatter + body) per
+      story instead of a flat ledger row, keyed by aggregation tag
+      (Σ additive / ⌀ median / % rate / • static). Template already drafted.
+  - id: e40s04
+    bcp: 3
+    title: "Agent code-gen telemetry capture where harness exposes usage (pi, Claude Code): cost, tokens, cache_hit, tier, tool_calls"
+    spec: e40s04-agent-telemetry.md
+    tasks: e40s04-tasks.yaml
+    status: todo
+    description: |
+      GSD-2/gsd-pi model (metrics.ts snapshotUnitMetrics). Naturally additive →
+      Σ = project total, no idle heuristic. Human UAT wait falls between
+      dispatches, so it is never counted. Fall back to git effort where no
+      session usage is available.
+  - id: e40s05
+    bcp: 3
+    title: "DORA four keys per story, computed from git/deploy events (lead time, deploy frequency, change failure, restore time) — median/rate aggregation only"
+    spec: e40s05-dora-four-keys.md
+    tasks: e40s05-tasks.yaml
+    status: todo
+    description: |
+      Absorbs e35. Per story captures the raw event; the DORA metric is the
+      cross-story aggregate (lead time / restore = median; deploy freq / change
+      failure = rate). Never a per-story headline. Retire bcp_per_hour.
+  - id: e40s06
+    bcp: 2
+    title: "validate-okf.sh + provenance gate (e31-style): bundle valid iff generator ran and commit_range resolves; wire into compliance CI"
+    spec: e40s06-validate-okf.md
+    tasks: e40s06-tasks.yaml
+    status: todo
+    description: |
+      Conformance: required keys, source enum (measured|estimated|backfilled),
+      correct additive-vs-median tag per field, bounds sanity (no cycle_minutes<=0,
+      no bcp_per_hour). Gate on provenance/freshness, NEVER on a specific value.
+  - id: e40s07
+    bcp: 2
+    title: "Quarantine fabricated cycle-times.yaml rows (tag source: backfilled) and exclude from aggregates"
+    spec: e40s07-quarantine-fabricated.md
+    tasks: e40s07-tasks.yaml
+    status: todo
+    description: |
+      Tag the templated/impossible rows (e01/e02 45-min blocks, e13 identical
+      timestamps, 120 BCP/hr) as backfilled so they never pollute the benchmark
+      baseline. Do not delete — mark provenance honestly.
+  - id: e40s08
+    bcp: 1
+    title: "Benchmark axes scaffold in specs/benchmarks using OKF bundles (delivery, reliability, cost, routing, quality)"
+    spec: e40s08-benchmark-axes.md
+    tasks: e40s08-tasks.yaml
+    status: todo
+    description: |
+      Wire the OKF benchmark-axes table (from story-metrics.okf.md) into the
+      existing specs/benchmarks/ schema (e23 run-benchmark) so cross-run
+      efficiency/delivery comparison becomes possible.

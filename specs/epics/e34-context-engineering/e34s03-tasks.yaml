@@ -1,0 +1,11 @@
+story_id: e34s03
+title: "Update CLAUDE.md Token Management to use context-engineering vocabulary"
+status: todo
+bcps: 2
+tasks:
+  - id: 1
+    description: "Update CLAUDE.md Token Management section to reference write/select/compress/isolate framework"
+    verify: "grep -q 'write.*select.*compress.*isolate|effort:' CLAUDE.md && echo OK"
+  - id: 2
+    description: "Add effort: light|heavy mapping table to CLAUDE.md context-engineering section"
+    verify: "grep -q 'effort:' CLAUDE.md && echo OK"

@@ -1,0 +1,82 @@
+id: e39
+title: "Semantic Context Bridge"
+wsjf: 3.60
+bcps: 20
+status: proposed
+release: v2.45.0
+codename: "Deepening"
+depends_on:
+  - e33
+soft_depends_on:
+  - e40
+source: |
+  Session 2026-07-02/03 — Stack-layer gap analysis of bigpowers vs.
+  "The Agentic Coding Stack: 5 Layers and the Missing Link" by Murat Aslan.
+  Research: OKF v0.1 spec + 3 Google sample bundles + Knowledge Catalog product.
+  Impact: specs/IMPACT-e38-okf-adoption.md.
+  Closes remaining gaps after e38 (traceability gate):
+  - Layer 3 (Technical Context): skill reference graph, semantic understanding
+  - Layer 5 (Product Surface): agent coordination lockfile, spec drift detection
+  - OKF Phases 2-4: skills-wiki, conventions-wiki, agent-guide, maintain-wiki skill
+  - Four remaining missing-link questions: impact analysis, multi-agent awareness
+stories:
+  - id: e39s01
+    bcp: 3
+    title: "Create scripts/build-skill-graph.sh — parse handoff chains and dependencies from 72 SKILL.md files"
+    spec: e39s01-build-skill-graph.md
+    tasks: e39s01-tasks.yaml
+    status: todo
+  - id: e39s02
+    bcp: 2
+    title: "Create specs/agent-locks.yaml — multi-agent coordination protocol"
+    spec: e39s02-agent-locks.md
+    tasks: e39s02-tasks.yaml
+    status: todo
+  - id: e39s03
+    bcp: 2
+    title: "Create scripts/check-spec-drift.sh — requirement change → suspect trace links"
+    spec: e39s03-check-spec-drift.md
+    tasks: e39s03-tasks.yaml
+    status: todo
+  - id: e39s04
+    bcp: 3
+    title: "OKF Phase 2 — sync-skills.sh generates specs/skills-wiki/ from 72 SKILL.md files"
+    spec: e39s04-okf-skills-wiki.md
+    tasks: e39s04-tasks.yaml
+    status: todo
+  - id: e39s05
+    bcp: 2
+    title: "OKF Phase 3a — decompose CONVENTIONS.md into specs/conventions-wiki/"
+    spec: e39s05-okf-conventions-wiki.md
+    tasks: e39s05-tasks.yaml
+    status: todo
+  - id: e39s06
+    bcp: 1
+    title: "OKF Phase 3b — decompose CLAUDE.md into specs/agent-guide/ for progressive disclosure"
+    spec: e39s06-okf-agent-guide.md
+    tasks: e39s06-tasks.yaml
+    status: todo
+  - id: e39s07
+    bcp: 3
+    title: "Create maintain-wiki skill — agent-maintained OKF ingest, lint, and query"
+    spec: e39s07-maintain-wiki-skill.md
+    tasks: e39s07-tasks.yaml
+    status: todo
+  - id: e39s08
+    bcp: 2
+    title: "Integrate maintain-wiki into build-epic Step 8 and verify-work Phase 3"
+    spec: e39s08-integrate-maintain-wiki.md
+    tasks: e39s08-tasks.yaml
+    status: todo
+  - id: e39s09
+    bcp: 1
+    title: "Write docs/references/semantic-context-bridge.md — architecture and operator guide"
+    spec: e39s09-semantic-context-bridge-guide.md
+    tasks: e39s09-tasks.yaml
+    status: todo
+  - id: e39s10
+    bcp: 1
+    title: "Extend scripts/validate-okf.sh (created by e40s06) with OKF v0.1 frontmatter conformance checks"
+    spec: e39s10-extend-validate-okf.md
+    tasks: e39s10-tasks.yaml
+    status: todo

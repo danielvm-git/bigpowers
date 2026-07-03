@@ -1,0 +1,11 @@
+story_id: e40s08
+title: "Benchmark axes scaffold in specs/benchmarks using OKF bundles (delivery, reliability, cost, routing, quality)"
+status: todo
+bcps: 1
+tasks:
+  - id: 1
+    description: "Wire OKF benchmark-axes table from story-metrics.okf.md into specs/benchmarks/ schema"
+    verify: "test -d specs/benchmarks && grep -rq 'generation cost|lead_time|cost_usd' specs/benchmarks 2>/dev/null && echo OK"
+  - id: 2
+    description: "Enable cross-run efficiency/delivery comparison for run-benchmark (e23)"
+    verify: "grep -q 'cross-run|efficiency|delivery' specs/benchmarks/ 2>/dev/null && echo OK || echo 'PENDING: benchmark axes not yet scaffolded'"

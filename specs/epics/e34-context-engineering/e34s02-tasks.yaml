@@ -1,0 +1,25 @@
+story_id: e34s02
+title: "Add optional effort: heavy|light frontmatter to all 72 skills"
+status: todo
+bcps: 3
+tasks:
+  - id: 1
+    description: >-
+      Define the heavy/light classification rule and annotate a first batch of
+      10+ skills with an effort key in SKILL.md frontmatter
+    verify: "test $(grep -rl 'effort:' skills/*/SKILL.md | wc -l) -ge 10 && echo OK"
+  - id: 2
+    description: >-
+      Annotate the remaining skills so every skills/*/SKILL.md carries an
+      effort key
+    verify: "test $(grep -rl 'effort:' skills/*/SKILL.md | wc -l) -eq $(ls -d skills/*/ | wc -l) && echo OK"
+  - id: 3
+    description: >-
+      Assert only the closed value set is used - every effort value is heavy
+      or light
+    verify: "! grep -rhE '^effort:' skills/*/SKILL.md | grep -vqE '^effort: (heavy|light)$' && echo OK"
+  - id: 4
+    description: >-
+      Run sync-skills.sh to regenerate .cursor/.gemini/.pi artifacts and
+      confirm the pipeline still passes
+    verify: "bash scripts/sync-skills.sh && echo OK"

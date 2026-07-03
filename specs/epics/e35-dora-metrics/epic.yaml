@@ -2,9 +2,14 @@ id: e35
 title: "DORA Metrics Extension"
 wsjf: 2.67
 bcps: 7
-status: proposed
+status: superseded-by-e40
 release: v2.45.0
 codename: "Deepening"
+superseded_by: e40
+superseded_note: >
+  Session 2026-07-03 found the cycle-times.yaml this epic proposed to extend is
+  unreliable (agent-self-reported wall-clock, ungated). e40 keeps the DORA four
+  keys but computes them from git/deploy events and adds the efficiency axis.
 source: specs/MISSING-REFERENCES-AND-DELIVERY-PLAN.md §4 Epic 5
 stories:
   - id: e35s01

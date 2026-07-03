@@ -1,0 +1,11 @@
+story_id: e39s09
+title: "Write docs/references/semantic-context-bridge.md — architecture and operator guide"
+status: todo
+bcps: 1
+tasks:
+  - id: 1
+    description: "Create docs/references/semantic-context-bridge.md covering skill graph, agent locks, spec drift, OKF wikis, maintain-wiki"
+    verify: "test -f docs/references/semantic-context-bridge.md && grep -q 'skill graph|agent locks|spec drift|OKF|maintain-wiki' docs/references/semantic-context-bridge.md && echo OK"
+  - id: 2
+    description: "Include CI/CD integration points and provenance (Karpathy, OKF v0.1, TEA, article)"
+    verify: "grep -q 'Karpathy|OKF|TEA' docs/references/semantic-context-bridge.md && echo OK"

@@ -1,0 +1,14 @@
+story_id: e40s01
+title: "Land record-cycle-time.sh — git-derived additive effort + lead_time (report/append + additivity self-check)"
+status: todo
+bcps: 1
+tasks:
+  - id: 1
+    description: "Add usage/help guard to record-cycle-time.sh (report and append subcommands)"
+    verify: "bash scripts/record-cycle-time.sh report >/dev/null 2>&1 || bash scripts/record-cycle-time.sh 2>&1 | grep -q 'report|append' && echo OK"
+  - id: 2
+    description: "Add --self-test asserting Σ(story effort) == whole-repo effort"
+    verify: "bash scripts/record-cycle-time.sh --self-test 2>&1; test $? -eq 0 && echo OK || echo 'PENDING'"
+  - id: 3
+    description: "Verify interleaving + overnight cases sum exactly to whole-repo total"
+    verify: "bash scripts/record-cycle-time.sh --self-test 2>&1 | grep -q 'additivity.*PASS' && echo OK || echo 'PENDING'"

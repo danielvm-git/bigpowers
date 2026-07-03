@@ -1,8 +1,0 @@
-story_id: e31s07
-title: "Wire golden suite into evolve-skill regression checks"
-status: todo
-bcps: 1
-tasks:
-  - id: 1
-    description: "Add run-golden-suite.sh reference to evolve-skill/SKILL.md as pre-benchmark regression gate"
-    verify: "grep -q 'run-golden-suite' skills/evolve-skill/SKILL.md && echo OK"

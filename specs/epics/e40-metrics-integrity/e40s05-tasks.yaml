@@ -1,0 +1,14 @@
+story_id: e40s05
+title: "DORA four keys per story, computed from git/deploy events (lead time, deploy frequency, change failure, restore time) — median/rate aggregation only"
+status: todo
+bcps: 3
+tasks:
+  - id: 1
+    description: "Add DORA four keys fields to story-metrics OKF bundle template"
+    verify: "grep -q 'lead_time_for_changes|change_failure|time_to_restore|deployment_frequency' specs/templates/story-metrics.okf.md && echo OK"
+  - id: 2
+    description: "Compute per-story raw DORA events from git/deploy data (never per-story headlines)"
+    verify: "grep -q 'median|aggregate|per-story.*raw' specs/templates/story-metrics.okf.md && echo OK"
+  - id: 3
+    description: "Retire bcp_per_hour from cycle-times.yaml and release-branch"
+    verify: "! grep -q 'bcp_per_hour' skills/release-branch/SKILL.md && echo OK || echo 'PENDING: still referenced'"

@@ -55,6 +55,26 @@ in_scope:
     title: Documentation deduplication — provenance pointers, not restatements (e36)
     epic: e36
 
+  # ── Post-Deepening track — trust, evidence, and public launch ─────────
+  # Added 2026-07-03 per PLAN-AUDIT (gap: epics existed only as capsules +
+  # release-plan rows, no scope anchor). Sequencing in release-plan.yaml
+  # release_trains. e35 (fr-16) is superseded by e40 — kept for history.
+  - id: fr-18
+    title: Spec-to-code traceability gate — matrix builder, blind-spot detector, quality gate (e38)
+    epic: e38
+  - id: fr-19
+    title: Semantic context bridge — skill graph, agent locks, spec drift, OKF wikis (e39)
+    epic: e39
+  - id: fr-20
+    title: Metrics integrity — git-/telemetry-derived additive effort + lead time, provenance gate; supersedes fr-16 (e40)
+    epic: e40
+  - id: fr-21
+    title: Public receipts — live evidence page rendering compliance/golden/metrics/traceability on the docs site (e41)
+    epic: e41
+  - id: fr-22
+    title: Showcase repo — worked example built end-to-end with bigpowers in a separate public repo (e42)
+    epic: e42
+
 out_of_scope:
   - Domain-specific scaffold skills
   - SaaS tracker integrations (Jira, Linear)

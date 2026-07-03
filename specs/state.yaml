@@ -1,29 +1,21 @@
-active_flow: planning
+active_flow: build_epic
 epic_cycle:
-  epic_id: e31
-  epic_slug: quality-guarantee
-  capsule_dir: specs/epics/e31-quality-guarantee
-  current_story: e31s07
-  total_bcps: 11
+  epic_id: e40
+  epic_slug: metrics-integrity
+  capsule_dir: specs/epics/e40-metrics-integrity
+  current_story: e40s01
+  total_bcps: 18
   story_bcps: 1
-  current_step: 8
+  current_step: 1
   completed_steps:
   - '0'
-  - '1'
-  - '2'
-  - '3'
-  - '4'
-  - '5'
-  - '6'
-  - '7'
-  - '8'
-  audit_result: pass
-  fast_mode: true
+  audit_result: null
+  fast_mode: false
 handoff:
-  next_skill: survey-context
-  context: 'e31 COMPLETE and archived. Next: e32 (Missing Historical References, 20
-    BCP) or e34 (Context Engineering Layer, 10 BCP) — user decision. e37 golden stories
-    are consumers of e31 gates; G-01 runs weekly via gh-aw + DeepSeek.'
+  next_skill: build-epic
+  context: 'e31 COMPLETE and archived. ALL 10 BACKLOG EPIC CAPSULES FULLY PLANNED (2026-07-03): e32-e34, e36-e42 now have per-story .md + -tasks.yaml files with spectrum/counts.yaml spec:/tasks:/status:
+    keys. ~82 new files across 10 capsules. All YAML parses clean; validate-specs-yaml.sh passes; story IDs match execution-status.yaml. e33 all 4 stories complete, e34 all 4, e36 all 4, e37 s02-s04 planned
+    (s01 done), e38 all 9, e39 all 10, e40 all 8, e41 all 5, e42 all 4. Next build target per release trains (v2.5x): e40 (Metrics Integrity, 18 BCP) — kickoff-branch → build-epic Step 0.'
 bug_id: null
 bug_cycle:
   current_step: 0
@@ -44,23 +36,22 @@ planning:
   - specs/DEEPEN-ARCHITECTURE-REVIEW.md
   - specs/MISSING-REFERENCES-AND-DELIVERY-PLAN.md
   - specs/QUALITY-GUARANTEE-STRATEGY.md
-  - 'Market survey (2026-07-02): speckit-utils, V-Model trace, BMAD TEA bmad-testarch-trace,
-    Ctxo'
-  - specs/IMPACT-e38-okf-adoption.md — OKF adoption risk assessment + phased rollout
-    plan (2026-07-03)
+  - 'Market survey (2026-07-02): speckit-utils, V-Model trace, BMAD TEA bmad-testarch-trace, Ctxo'
+  - specs/IMPACT-e38-okf-adoption.md — OKF adoption risk assessment + phased rollout plan (2026-07-03)
   epics_planned:
   - 'e30: Architecture Quick Fixes (8 BCP — DONE)'
   - 'e31: Quality Guarantee — Deterministic Gates (11 BCP — split 2026-07-02 per PLAN-AUDIT)'
   - 'e32: Missing Historical References (20 BCP)'
   - 'e33: Sync Pipeline Refactor (13 BCP)'
   - 'e34: Context Engineering Layer (10 BCP)'
-  - 'e35: DORA Metrics Extension (7 BCP)'
+  - 'e35: DORA Metrics Extension (7 BCP — SUPERSEDED by e40, 2026-07-03; excluded from release trains)'
   - 'e36: Documentation Deduplication (10 BCP)'
-  - 'e37: Golden Story Suite — Agent-Driven (13 BCP — spike PASSED 2026-07-03 via
-    gh-aw + DeepSeek; G-01 golden story live)'
+  - 'e37: Golden Story Suite — Agent-Driven (13 BCP — spike PASSED 2026-07-03 via gh-aw + DeepSeek; G-01 golden story live)'
   - 'e38: Spec-to-Code Traceability Gate (13 BCP — TEA-inspired, market survey 2026-07-02)'
-  - 'e39: Semantic Context Bridge (20 BCP — OKF + skill graph + agent locks + drift
-    detection; see specs/IMPACT-e38-okf-adoption.md)'
+  - 'e39: Semantic Context Bridge (20 BCP — OKF + skill graph + agent locks + drift detection; depends on e33; see specs/IMPACT-e38-okf-adoption.md)'
+  - 'e40: Metrics Integrity (18 BCP — git-/telemetry-derived additive effort + lead time, OKF story bundles, provenance gate; supersedes e35; CR 2026-07-03)'
+  - 'e41: Public Receipts (10 BCP — live evidence page on e28 docs site; depends on e28 + e40; CR 2026-07-03)'
+  - 'e42: Showcase Repo (10 BCP — worked example in separate public repo, v2.8x train; CR 2026-07-03)'
   github_issues_created:
   - 37 (e30)
   - 36 (e31)
@@ -78,17 +69,13 @@ planning:
   - '44 (e39: Semantic Context Bridge)'
   gaps_fixed:
   - SCOPE_LATEST.yaml — added fr-11 through fr-17 for e30-e36
-  - release-plan.yaml — removed duplicate e30-e36 from BACKLOG section; removed e37
-    HARD GATE language (spike passed)
+  - release-plan.yaml — removed duplicate e30-e36 from BACKLOG section; removed e37 HARD GATE language (spike passed)
   - execution-status.yaml — e30s02 marked done (verified fixed), e30: done
-  - e30 epic.yaml — removed e30s05 (already implemented in build-epic Step 2), reduced
-    BCP 10→8
-  - e37 epic.yaml — removed HARD GATE, marked e37s01 done, reduced BCP 13→10 (spike
-    complete)
+  - e30 epic.yaml — removed e30s05 (already implemented in build-epic Step 2), reduced BCP 10→8
+  - e37 epic.yaml — removed HARD GATE, marked e37s01 done, reduced BCP 13→10 (spike complete)
   - CLAUDE.md — added Typecheck: N/A and CI platform rows
   - CI workflows — actions/checkout v4→v6 (Node20→Node24), concurrency, timeout-minutes
-  - gh-aw prototype — e37 golden story G-01 compiles clean with DeepSeek v4 via Anthropic
-    protocol
+  - gh-aw prototype — e37 golden story G-01 compiles clean with DeepSeek v4 via Anthropic protocol
 metrics:
   skill_timings:
     survey-context:

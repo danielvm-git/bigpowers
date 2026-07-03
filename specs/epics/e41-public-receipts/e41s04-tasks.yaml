@@ -1,0 +1,11 @@
+story_id: e41s04
+title: "Honesty guardrails codified — validate-okf checks receipts.json source tags"
+status: todo
+bcps: 1
+tasks:
+  - id: 1
+    description: "Extend validate-okf.sh (e40s06) to cover receipts.json conformance"
+    verify: "grep -q 'receipts' scripts/validate-okf.sh && echo OK"
+  - id: 2
+    description: "Add source-tag validation: every section has source enum, absent sections have no value"
+    verify: "grep -q 'source.*absent|absent.*value' scripts/validate-okf.sh && echo OK"

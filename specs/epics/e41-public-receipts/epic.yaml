@@ -1,0 +1,126 @@
+id: e41
+title: "Public Receipts — Live Evidence Page"
+wsjf: 3.75
+bcps: 10
+status: proposed
+release: v2.7x
+codename: "Semantic Bridge"
+source: |
+  Change request 2026-07-03 (session: public-launch sequencing).
+  Insight: bigpowers' only genuine differentiator vs Superpowers/GSD/BMAD/
+  spec-kit is that it PROVES its discipline instead of claiming it. The
+  evidence machinery already exists or is funded: compliance score (e31,
+  live), golden-story pass@k (e37), honest git-derived metrics (e40),
+  traceability matrix (e38). This epic renders that evidence as a public
+  page on the e28 docs site — converting ~86% of the backlog from
+  "user can't see it" to "user can verify it".
+depends_on:
+  - e28
+  - e40
+soft_depends_on:
+  - e38
+  - e37
+note: >
+  WSJF 3.75 outranks everything in the backlog including e39 (3.60), but
+  hard dependencies on e28 + e40 pin it to the v2.7x/v3.0 train — it lands
+  WITH the site, not before it. Graceful degradation is a design rule, not
+  an accident: every evidence section renders an explicit "not yet
+  measured" state when its upstream epic hasn't landed, so the page can
+  ship with partial data without ever fabricating a number.
+stories:
+  - id: e41s01
+    bcp: 3
+    status: todo
+    title: "Create scripts/build-receipts.sh — aggregate all quality evidence into specs/receipts.json"
+    spec: e41s01-build-receipts.md
+    tasks: e41s01-tasks.yaml
+    ac: |
+      GIVEN a repo checkout with compliance, golden-suite, metrics, and
+        traceability artifacts in their canonical locations
+      WHEN bash scripts/build-receipts.sh runs
+      THEN it emits specs/receipts.json with one section per evidence source
+        (compliance, golden_suite, metrics, traceability), each carrying
+        value, generated_at, source enum (measured|estimated|backfilled|absent),
+        and the command that produced it
+      AND exits 0.
+
+      GIVEN an evidence source whose artifact is missing (e.g. no
+        traceability-matrix.json yet)
+      WHEN the script runs
+      THEN that section is emitted with source: absent and no value field
+      AND the script still exits 0 — missing evidence is a state, not an error.
+    tasks_list:
+      - id: 1
+        description: "Write build-receipts.sh: read compliance score from audit-compliance.sh output, golden results from specs/benchmarks/reports/, metrics from specs/metrics/ OKF bundles, matrix from specs/traceability-matrix.json"
+        verify: "bash scripts/build-receipts.sh && python3 -c \"import json; d=json.load(open('specs/receipts.json')); assert all(k in d for k in ('compliance','golden_suite','metrics','traceability'))\" && echo OK"
+      - id: 2
+        description: "Absent-artifact path: each missing source emits source: absent, script exits 0"
+        verify: "python3 -c \"import json; d=json.load(open('specs/receipts.json')); assert all('source' in v for v in d.values())\" && echo OK"
+  - id: e41s02
+    bcp: 3
+    status: todo
+    title: "Render /receipts page on the e28 docs site from receipts.json"
+    spec: e41s02-receipts-page.md
+    tasks: e41s02-tasks.yaml
+    ac: |
+      GIVEN a production build of the website with a receipts.json present
+      WHEN website/dist is inspected
+      THEN receipts/index.html exists and shows one section per evidence
+        source with its value, freshness timestamp, and provenance command
+      AND sections whose source is absent render an explicit
+        "not yet measured" state — never a fabricated or placeholder number.
+    tasks_list:
+      - id: 1
+        description: "Add receipts page to website/ (Astro), data-driven from specs/receipts.json at build time"
+        verify: "test -f website/dist/receipts/index.html && grep -qi 'compliance' website/dist/receipts/index.html && echo OK"
+      - id: 2
+        description: "Absent sections render 'not yet measured'; backfilled metrics visually quarantined per e40s07"
+        verify: "grep -qi 'not yet measured' website/src/pages/receipts.astro && echo OK"
+  - id: e41s03
+    bcp: 2
+    status: todo
+    title: "CI wiring — regenerate receipts on every main push; provenance gate, e40-style"
+    spec: e41s03-ci-wiring.md
+    tasks: e41s03-tasks.yaml
+    ac: |
+      GIVEN a push to main
+      WHEN the docs-site workflow runs
+      THEN build-receipts.sh executes before the site build so the published
+        page always reflects the current commit
+      AND the gate checks that the generator RAN and receipts.json parses —
+        it never gates on any metric's value (e40 provenance rule).
+    tasks_list:
+      - id: 1
+        description: "Add build-receipts step to the docs-site workflow ahead of the Astro build"
+        verify: "grep -q 'build-receipts' .github/workflows/docs-site.yml && python3 -c \"import yaml; yaml.safe_load(open('.github/workflows/docs-site.yml'))\" && echo OK"
+  - id: e41s04
+    bcp: 1
+    status: todo
+    title: "Honesty guardrails codified — validate-okf checks receipts.json source tags"
+    spec: e41s04-honesty-guardrails.md
+    tasks: e41s04-tasks.yaml
+    ac: |
+      GIVEN a receipts.json where any section lacks a source tag or carries
+        a value while tagged absent
+      WHEN bash scripts/validate-okf.sh runs against it
+      THEN validation FAILS with a remediation hint naming the offending section.
+    tasks_list:
+      - id: 1
+        description: "Extend validate-okf.sh (e40s06) to cover receipts.json conformance"
+        verify: "grep -q 'receipts' scripts/validate-okf.sh && echo OK"
+  - id: e41s05
+    bcp: 1
+    status: todo
+    title: "README + launch note point to the live receipts page"
+    spec: e41s05-readme-launch-note.md
+    tasks: e41s05-tasks.yaml
+    ac: |
+      GIVEN the README
+      WHEN a prospective user reads the top sections
+      THEN a link to the live /receipts page exists with one-line framing
+        ("this methodology publishes its own evidence")
+      AND the canonical README structure is preserved (memory: readme-must-stay-complete).
+    tasks_list:
+      - id: 1
+        description: "Add receipts link + framing line to README; draft launch-note paragraph in docs/RELEASE.md"
+        verify: "grep -qi 'receipts' README.md && echo OK"

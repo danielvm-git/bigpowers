@@ -10,16 +10,28 @@ stories:
   - id: e33s01
     bcp: 3
     title: "Create scripts/lib/skill-common.sh with shared functions (resolve_repo_root, parse_frontmatter, iterate_skills)"
-    verify: source scripts/lib/skill-common.sh && parse_frontmatter skills/audit-code/SKILL.md && echo OK
+    spec: e33s01-skill-common-library.md
+    tasks: e33s01-tasks.yaml
+    status: todo
+    verify: "source scripts/lib/skill-common.sh && parse_frontmatter skills/audit-code/SKILL.md && echo OK"
   - id: e33s02
     bcp: 2
     title: "Refactor 13 scripts to source skill-common.sh instead of duplicating boilerplate"
-    verify: grep -c 'REPO_ROOT=.*dirname.*BASH_SOURCE' scripts/*.sh | grep -v ':0$' | wc -l | awk '{if($1<=1) print "OK"; else print "REMAINING: "$1}'
+    spec: e33s02-refactor-script-boilerplate.md
+    tasks: e33s02-tasks.yaml
+    status: todo
+    verify: "grep -c 'REPO_ROOT=.*dirname.*BASH_SOURCE' scripts/*.sh | grep -v ':0$' | wc -l | awk '{if($1<=1) print \"OK\"; else print \"REMAINING: \"$1}'"
   - id: e33s03
     bcp: 5
     title: "Refactor sync-skills.sh to use render-target functions (one per target)"
-    verify: bash scripts/sync-skills.sh && test -f .cursor/rules/audit-code.mdc && test -f .gemini/extensions/bigpowers/skills/audit-code/SKILL.md && test -f .pi/skills/audit-code/SKILL.md && echo OK
+    spec: e33s03-render-target-functions.md
+    tasks: e33s03-tasks.yaml
+    status: todo
+    verify: "bash scripts/sync-skills.sh && test -f .cursor/rules/audit-code.mdc && test -f .gemini/extensions/bigpowers/skills/audit-code/SKILL.md && test -f .pi/skills/audit-code/SKILL.md && echo OK"
   - id: e33s04
     bcp: 3
     title: "Refactor regenerate-lockfile.sh, generate-skill-index.sh, build-skill-index.sh to source skill-common.sh"
-    verify: bash scripts/sync-skills.sh && jq '.skills | length' skills-lock.json | awk '{if($1==72) print "OK"; else print "FAIL: "$1}'
+    spec: e33s04-index-scripts-common.md
+    tasks: e33s04-tasks.yaml
+    status: todo
+    verify: "bash scripts/sync-skills.sh && jq '.skills | length' skills-lock.json | awk '{if($1==72) print \"OK\"; else print \"FAIL: \"$1}'"

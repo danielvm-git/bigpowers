@@ -1,0 +1,22 @@
+story_id: e39s01
+title: "Create scripts/build-skill-graph.sh — parse handoff chains and dependencies from 72 SKILL.md files"
+status: todo
+bcps: 3
+tasks:
+  - id: 1
+    description: "Create scripts/build-skill-graph.sh skeleton with --help and SKILL.md frontmatter iteration"
+    verify: "test -f scripts/build-skill-graph.sh && bash -n scripts/build-skill-graph.sh && bash scripts/build-skill-graph.sh --help >/dev/null 2>&1 && echo OK"
+  - id: 2
+    description: "Extract handoff, convention, model, and dependency-keyword references from frontmatter and prose"
+    verify: "grep -qE 'handoff|depends on|HARD GATE' scripts/build-skill-graph.sh && echo OK"
+  - id: 3
+    description: "Emit specs/skill-graph.json with nodes and typed edges (depends_on/referenced_by/handoff_to)"
+    verify: >-
+      bash scripts/build-skill-graph.sh && test -f specs/skill-graph.json &&
+      python3 -c "import json; g=json.load(open('specs/skill-graph.json')); assert g['nodes'] and g['edges']; print('OK')"
+  - id: 4
+    description: "Emit specs/skills-wiki/ OKF concepts with cross-references between skills"
+    verify: "bash scripts/build-skill-graph.sh && ls specs/skills-wiki/skills/*.md >/dev/null 2>&1 && echo OK"
+  - id: 5
+    description: "Handle error paths: unparseable frontmatter exits 1, dangling references warn"
+    verify: "grep -qE 'exit 1|dangling' scripts/build-skill-graph.sh && echo OK"

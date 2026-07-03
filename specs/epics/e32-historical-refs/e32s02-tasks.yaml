@@ -1,0 +1,25 @@
+story_id: e32s02
+title: "Create docs/references/fowler.md (refactoring catalog, code smells)"
+status: todo
+bcps: 2
+tasks:
+  - id: 1
+    description: >-
+      Create docs/references/fowler.md with Purpose and Credit sections
+      following the docs/references/bcp.md pattern
+    verify: "test -f docs/references/fowler.md && grep -q 'Credit' docs/references/fowler.md && echo OK"
+  - id: 2
+    description: >-
+      Document core concepts: the refactoring catalog (Extract Method et al.)
+      and the code-smell taxonomy
+    verify: "grep -q 'Extract Method' docs/references/fowler.md && grep -qi 'code smell' docs/references/fowler.md && echo OK"
+  - id: 3
+    description: >-
+      Add a 'How bigpowers uses' mapping to skills (plan-refactor,
+      deepen-architecture) and a See Also section
+    verify: "grep -qiE 'plan-refactor|deepen-architecture' docs/references/fowler.md && grep -qi 'see also' docs/references/fowler.md && echo OK"
+  - id: 4
+    description: >-
+      Run the story verify intent from epic.yaml (grep -E form; the epic
+      verify's plain-grep alternation is flagged in spec section 19)
+    verify: "test -f docs/references/fowler.md && grep -qE 'Extract Method|code smell' docs/references/fowler.md && echo OK"

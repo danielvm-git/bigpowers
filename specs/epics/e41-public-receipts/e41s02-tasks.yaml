@@ -1,0 +1,27 @@
+story_id: e41s02
+title: "Render /receipts page on the e28 docs site from receipts.json"
+status: todo
+bcps: 3
+tasks:
+  - id: 1
+    description: >-
+      Add receipts page to website/ (Astro), data-driven from
+      specs/receipts.json at build time
+    verify: >-
+      test -f website/dist/receipts/index.html && grep -qi 'compliance'
+      website/dist/receipts/index.html && echo OK
+    status: todo
+  - id: 2
+    description: >-
+      Absent sections render 'not yet measured' — explicit state, never a
+      fabricated or placeholder number
+    verify: >-
+      grep -qi 'not yet measured' website/src/pages/receipts.astro && echo OK
+    status: todo
+  - id: 3
+    description: >-
+      Backfilled metrics visually quarantined per e40s07 (split from task 2:
+      separate verifiable outcome)
+    verify: >-
+      grep -qi 'backfilled' website/src/pages/receipts.astro && echo OK
+    status: todo

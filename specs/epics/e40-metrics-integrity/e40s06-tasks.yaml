@@ -1,0 +1,17 @@
+story_id: e40s06
+title: "validate-okf.sh + provenance gate (e31-style): bundle valid iff generator ran and commit_range resolves; wire into compliance CI"
+status: todo
+bcps: 2
+tasks:
+  - id: 1
+    description: "Create scripts/validate-okf.sh with --help and required key checks"
+    verify: "test -f scripts/validate-okf.sh && bash scripts/validate-okf.sh --help >/dev/null 2>&1 && echo OK"
+  - id: 2
+    description: "Implement provenance gate: assert generator ran and commit_range resolves"
+    verify: "grep -q 'generator|commit_range|provenance' scripts/validate-okf.sh && echo OK"
+  - id: 3
+    description: "Add source enum validation: measured|estimated|backfilled; bounds sanity checks"
+    verify: "grep -q 'source.*enum|bounds' scripts/validate-okf.sh && echo OK"
+  - id: 4
+    description: "Wire into compliance CI (npm run compliance or GitHub Actions)"
+    verify: "grep -q 'validate-okf' .github/workflows/sync-skills.yml 2>/dev/null && echo OK || echo 'PENDING: CI not yet wired'"

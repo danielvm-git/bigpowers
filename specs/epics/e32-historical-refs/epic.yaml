@@ -10,40 +10,70 @@ stories:
   - id: e32s01
     bcp: 2
     title: "Create docs/references/kent-beck.md (XP, TDD origins, Tidy First?)"
-    verify: test -f docs/references/kent-beck.md && grep -q 'Tidy First' docs/references/kent-beck.md && echo OK
+    spec: e32s01-kent-beck-reference.md
+    tasks: e32s01-tasks.yaml
+    status: todo
+    verify: "test -f docs/references/kent-beck.md && grep -q 'Tidy First' docs/references/kent-beck.md && echo OK"
   - id: e32s02
     bcp: 2
     title: "Create docs/references/fowler.md (refactoring catalog, code smells)"
-    verify: test -f docs/references/fowler.md && grep -q 'Extract Method|code smell' docs/references/fowler.md && echo OK
+    spec: e32s02-fowler-reference.md
+    tasks: e32s02-tasks.yaml
+    status: todo
+    verify: "test -f docs/references/fowler.md && grep -q 'Extract Method|code smell' docs/references/fowler.md && echo OK"
   - id: e32s03
     bcp: 2
     title: "Create docs/references/feathers.md (seams, characterization tests)"
-    verify: test -f docs/references/feathers.md && grep -q 'characterization|seam' docs/references/feathers.md && echo OK
+    spec: e32s03-feathers-reference.md
+    tasks: e32s03-tasks.yaml
+    status: todo
+    verify: "test -f docs/references/feathers.md && grep -q 'characterization|seam' docs/references/feathers.md && echo OK"
   - id: e32s04
     bcp: 2
     title: "Create docs/references/pragmatic-programmer.md (DRY, broken windows, tracer bullets)"
-    verify: test -f docs/references/pragmatic-programmer.md && grep -q 'broken window|tracer bullet' docs/references/pragmatic-programmer.md && echo OK
+    spec: e32s04-pragmatic-programmer-reference.md
+    tasks: e32s04-tasks.yaml
+    status: todo
+    verify: "test -f docs/references/pragmatic-programmer.md && grep -q 'broken window|tracer bullet' docs/references/pragmatic-programmer.md && echo OK"
   - id: e32s05
     bcp: 2
     title: "Create docs/references/rich-hickey.md (simple vs easy, complecting)"
-    verify: test -f docs/references/rich-hickey.md && grep -q 'simple.*easy|complect' docs/references/rich-hickey.md && echo OK
+    spec: e32s05-rich-hickey-reference.md
+    tasks: e32s05-tasks.yaml
+    status: todo
+    verify: "test -f docs/references/rich-hickey.md && grep -q 'simple.*easy|complect' docs/references/rich-hickey.md && echo OK"
   - id: e32s06
     bcp: 2
     title: "Create docs/references/sandi-metz.md (SOLID in practice, message-level testing)"
-    verify: test -f docs/references/sandi-metz.md && grep -q 'SOLID|message' docs/references/sandi-metz.md && echo OK
+    spec: e32s06-sandi-metz-reference.md
+    tasks: e32s06-tasks.yaml
+    status: todo
+    verify: "test -f docs/references/sandi-metz.md && grep -q 'SOLID|message' docs/references/sandi-metz.md && echo OK"
   - id: e32s07
     bcp: 2
     title: "Create docs/references/ddd.md (bounded contexts, context mapping)"
-    verify: test -f docs/references/ddd.md && grep -q 'bounded context|context map' docs/references/ddd.md && echo OK
+    spec: e32s07-ddd-reference.md
+    tasks: e32s07-tasks.yaml
+    status: todo
+    verify: "test -f docs/references/ddd.md && grep -q 'bounded context|context map' docs/references/ddd.md && echo OK"
   - id: e32s08
     bcp: 2
     title: "Create docs/references/accelerate.md (DORA four keys)"
-    verify: test -f docs/references/accelerate.md && grep -q 'DORA|four key' docs/references/accelerate.md && echo OK
+    spec: e32s08-accelerate-reference.md
+    tasks: e32s08-tasks.yaml
+    status: todo
+    verify: "test -f docs/references/accelerate.md && grep -q 'DORA|four key' docs/references/accelerate.md && echo OK"
   - id: e32s09
     bcp: 2
     title: "Update PRINCIPLES.md to credit Beck, Fowler, Feathers, Hunt & Thomas"
-    verify: grep -q 'Beck|Fowler|Feathers|Hunt' docs/PRINCIPLES.md && echo OK
+    spec: e32s09-principles-credits.md
+    tasks: e32s09-tasks.yaml
+    status: todo
+    verify: "grep -q 'Beck|Fowler|Feathers|Hunt' docs/PRINCIPLES.md && echo OK"
   - id: e32s10
     bcp: 2
     title: "Cross-reference new docs from SKILL.md bodies"
-    verify: grep -q 'fowler' skills/plan-refactor/SKILL.md && grep -q 'feathers|characterization' skills/investigate-bug/SKILL.md && echo OK
+    spec: e32s10-cross-reference-skills.md
+    tasks: e32s10-tasks.yaml
+    status: todo
+    verify: "grep -q 'fowler' skills/plan-refactor/SKILL.md && grep -q 'feathers|characterization' skills/investigate-bug/SKILL.md && echo OK"

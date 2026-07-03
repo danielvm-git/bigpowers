@@ -7,6 +7,63 @@ release:
   status: released
   semantic_release: true
   bump_hint: minor
+release_trains:
+  # Proposed public-launch sequencing for the current backlog (e32-e40),
+  # grouped by value + dependency rather than raw WSJF order. Resolves the
+  # e32-vs-e34 "what's next" decision open in specs/state.yaml handoff.
+  # Written 2026-07-03 in response to: "plan a meaningful flow of launches
+  # for the public." Epic-level detail unchanged below — this only sequences.
+  - train: "v2.5x — Trust & Signal"
+    epics: [e40, e34]
+    total_bcps: 28
+    rationale: >
+      e40 is urgent, not optional: release-branch is writing corrupted
+      cycle-time rows on every story that lands today, so every day of
+      delay adds more rows for e40s07 to quarantine later. e34 is a cheap,
+      dependency-free doc/frontmatter win that keeps cadence alongside it.
+      Neither is public-facing — this train is pure internal debt-paydown.
+  - train: "v2.6x — Traceability Gate"
+    epics: [e38, e33]
+    total_bcps: 26
+    rationale: >
+      e38 is the single highest-WSJF item in the backlog (3.50) with no
+      blockers. e33 is pulled forward out of its own WSJF rank (2.0)
+      because its render-target refactor is an explicit architectural
+      prerequisite for e39's OKF Phase 2 (render_okf_bundle()) — landing
+      it here avoids e39 stalling mid-epic on a missing dependency.
+  - train: "v2.7x/v3.0 — Semantic Bridge (headline release)"
+    epics: [e39, e28, e41, e37]
+    total_bcps: 50
+    rationale: >
+      e39 builds the skill graph + OKF wikis but has no audience without
+      somewhere to render them. e28 (Docs Website) is the ONLY epic in the
+      entire backlog that SCOPE_LATEST.yaml itself classifies as
+      user-facing rather than internal-tooling debt — pulling it out of
+      its stale "pre-deepening" slot and pairing it with e39 turns two
+      internal exercises into one public artifact: a live site publishing
+      the generated skills-wiki/conventions-wiki. e37s02-s04 (golden suite
+      maturation) closes the train as the "does the whole pipeline still
+      work" capstone. Candidate for a v3.0 launch note — first release in
+      this backlog with a deliverable an external user can open in a browser.
+      e41 (Public Receipts, added 2026-07-03) is the launch centerpiece:
+      renders compliance/golden/metrics/traceability evidence as a public
+      page — highest WSJF in the backlog (3.75) but hard-depends on e28+e40,
+      pinning it here.
+  - train: "v2.8x — Docs Polish"
+    epics: [e32, e36, e42]
+    total_bcps: 40
+    rationale: >
+      Both are content-quality and non-blocking — safe to land whenever
+      cadence allows. Sequenced last deliberately: land AFTER the v2.7x
+      docs site goes live so the newly-public site doesn't launch showing
+      stale or duplicated reference docs. e42 (Showcase Repo, added
+      2026-07-03) joins this train so its spec trail demonstrates the
+      post-e40 methodology, not the deprecated hand-arithmetic pipeline.
+  drift_note: >
+    e26 (Security-Review Lifecycle) is still marked "ACTIVE — next release
+    (v2.30.0)" in the epics list below, but execution-status.yaml shows all
+    7 of its stories done. That's stale status, not a forward-planning item
+    — needs `bash scripts/sync-status-from-epics.sh`, not a release train.
 epics:
   # ── BACKLOG — queued (pre-deepening) ─────────────────────────────────
   - id: e29
@@ -51,9 +108,12 @@ epics:
   #         amended 2026-07-02 per specs/PLAN-AUDIT_LATEST.md)
   #         specs/DEEPEN-ARCHITECTURE-REVIEW.md (review)
   #         specs/QUALITY-GUARANTEE-STRATEGY.md (golden suite)
-  # Build order: e31 → e32 → e34 → e35 → e33 → e36 → e37 → e38 → e39
+  # Build order (superseded by release_trains above, 2026-07-03):
+  #   v2.5x: e40 → e34   |   v2.6x: e38 → e33   |
+  #   v2.7x/v3.0: e39 → e28 → e37s02-s04   |   v2.8x: e32 → e36
   # (e37 spike PASSED 2026-07-03 via gh-aw + DeepSeek; G-01 golden story live.
-  #  e37s02-s04 no longer spike-gated — can proceed after e31 builds the gates).
+  #  e37s02-s04 no longer spike-gated — can proceed after e31 builds the gates.
+  #  e28 pulled forward from its old pre-deepening backlog slot into v2.7x.)
   # ── DONE — shipped as v2.50.0 (Deepening, 2026-07-03) ────────────────
   - id: e31
     title: "Quality Guarantee — Deterministic Gates"
@@ -88,10 +148,16 @@ epics:
     title: "DORA Metrics Extension"
     wsjf: 2.67
     bcps: 7
+    status: superseded
+    superseded_by: e40
     capsule_dir: epics/e35-dora-metrics
     note: >
-      Extend cycle-times.yaml from BCP/hr only to all four DORA keys:
-      deployment frequency, lead time, change failure rate, restore time.
+      SUPERSEDED by e40 (2026-07-03) — e35's premise (extend the hand-written
+      cycle-times.yaml) rested on the unreliable metric e40 replaces. Kept
+      here for history; excluded from all release trains. Not part of the
+      build queue. Original scope: extend cycle-times.yaml from BCP/hr only
+      to all four DORA keys: deployment frequency, lead time, change failure
+      rate, restore time — absorbed into e40's design.
   - id: e33
     title: "Sync Pipeline Refactor"
     wsjf: 2.0
@@ -154,6 +220,58 @@ epics:
       agent-maintained language-agnostic code understanding + validate-okf.sh
       CI conformance gate. Source: Karpathy LLM Wiki, OKF v0.1, Google
       Knowledge Catalog, IMPACT-e38-okf-adoption.md, session 2026-07-02/03.
+  - id: e40
+    title: "Metrics Integrity — Honest, Additive, Benchmarkable"
+    wsjf: 3.2
+    bcps: 18
+    capsule_dir: epics/e40-metrics-integrity
+    supersedes: e35
+    note: >
+      Fixes a self-replicating defect: cycle-times.yaml is agent-self-reported
+      wall-clock, hand-computed and ungated (outliers to 120 BCP/hr, templated
+      rows, impossible identical timestamps); because bigpowers built itself,
+      every downstream project inherits it. Replaces hand-arithmetic with a
+      git-derived script (scripts/record-cycle-time.sh, drafted+verified this
+      session) emitting two SEPARATED per-story fields — effort (idle-stripped,
+      ADDITIVE via a global commit partition, Σ=project total) and lead_time
+      (calendar latency, median-aggregated, never summed). Telemetry-first where
+      the harness exposes usage (pi/Claude Code: tokens/cost/tier, naturally
+      additive); git-effort as the portable fallback. Per-story OKF metrics
+      bundle (specs/templates/story-metrics.okf.md) with aggregation tags; keeps
+      the DORA four keys (market standard) but computes them from git/deploy
+      events; validate-okf + provenance gate (gate on the pipeline, not the
+      value). Absorbs & corrects e35 (whose "extend cycle-times.yaml" premise
+      rested on the unreliable metric). Source: specs/RESEARCH-cycle-time-
+      metrics.md, specs/CHANGE-REQUEST-e40-metrics-integrity.md, 2× red-team
+      passes, session 2026-07-03.
+  - id: e41
+    title: "Public Receipts — Live Evidence Page"
+    wsjf: 3.75
+    bcps: 10
+    capsule_dir: epics/e41-public-receipts
+    note: >
+      Change request 2026-07-03. Renders bigpowers' own quality evidence —
+      compliance score (e31), golden-story pass@k (e37), honest git-derived
+      metrics (e40), traceability matrix (e38) — as a public /receipts page
+      on the e28 docs site. The differentiation play: competitors CLAIM
+      discipline, this page PROVES it. WSJF (BV 8 + TC 4 + RR-OE 3) / JS 4
+      = 3.75 — highest in the backlog, but hard dependencies on e28 + e40
+      pin it to the v2.7x/v3.0 train. Every section degrades to an explicit
+      "not yet measured" state when its upstream epic hasn't landed —
+      partial data is fine, fabricated data never (e40 honesty rule).
+  - id: e42
+    title: "Showcase Repo — Worked Example Built With bigpowers"
+    wsjf: 2.5
+    bcps: 10
+    capsule_dir: epics/e42-showcase-repo
+    note: >
+      Change request 2026-07-03. Small real app in a separate public repo
+      built end-to-end with bigpowers, full specs/ cockpit committed —
+      including one feature via the 8-step cycle and one bug via the
+      investigate-bug trail. Lets prospects read a worked example before
+      installing. WSJF (BV 6 + TC 2 + RR-OE 2) / JS 4 = 2.5. Slotted in
+      v2.8x so its trail demonstrates the post-e40 methodology. Doubles as
+      e37 golden-story fixture material.
 
   # ── ACTIVE — next release (v2.30.0) ──────────────────────────────────
   - id: e26

@@ -1,0 +1,27 @@
+story_id: e33s04
+title: >-
+  Refactor regenerate-lockfile.sh, generate-skill-index.sh,
+  build-skill-index.sh to source skill-common.sh
+status: todo
+bcps: 3
+tasks:
+  - id: 1
+    description: >-
+      Refactor regenerate-lockfile.sh to use iterate_skills and
+      parse_frontmatter from skill-common.sh, preserving skills-lock.json schema
+    verify: "grep -q 'source .*scripts/lib/skill-common.sh' scripts/regenerate-lockfile.sh && bash scripts/regenerate-lockfile.sh && jq -e '.skills | length > 0' skills-lock.json >/dev/null && echo OK"
+  - id: 2
+    description: >-
+      Refactor generate-skill-index.sh onto the shared parser, preserving
+      SKILL-INDEX.md format
+    verify: "grep -q 'source .*scripts/lib/skill-common.sh' scripts/generate-skill-index.sh && bash scripts/generate-skill-index.sh && test -s SKILL-INDEX.md && echo OK"
+  - id: 3
+    description: >-
+      Refactor build-skill-index.sh onto the shared parser, preserving the
+      lexical index output and its best-effort tolerance in sync-skills.sh
+    verify: "grep -q 'source .*scripts/lib/skill-common.sh' scripts/build-skill-index.sh && bash scripts/build-skill-index.sh && echo OK"
+  - id: 4
+    description: >-
+      Run full sync and assert lockfile count matches the catalog and the
+      golden self-test passes
+    verify: "bash scripts/sync-skills.sh && jq '.skills | length' skills-lock.json | awk '{if($1==72) print \"OK\"; else {print \"FAIL: \"$1; exit 1}}' && bash scripts/golden-g04-selftest.sh"

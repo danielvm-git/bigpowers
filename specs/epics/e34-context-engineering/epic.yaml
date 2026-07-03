@@ -10,16 +10,28 @@ stories:
   - id: e34s01
     bcp: 2
     title: "Create docs/references/context-engineering.md (write/select/compress/isolate framework)"
-    verify: test -f docs/references/context-engineering.md && grep -q 'write.*select.*compress.*isolate' docs/references/context-engineering.md && echo OK
+    spec: e34s01-context-engineering-reference.md
+    tasks: e34s01-tasks.yaml
+    status: todo
+    verify: "test -f docs/references/context-engineering.md && grep -q 'write.*select.*compress.*isolate' docs/references/context-engineering.md && echo OK"
   - id: e34s02
     bcp: 3
     title: "Add optional effort: heavy|light frontmatter to all 72 skills"
-    verify: grep -rl 'effort:' skills/*/SKILL.md | wc -l | awk '{if($1>=10) print "OK"; else print "FAIL: "$1}'
+    spec: e34s02-effort-frontmatter.md
+    tasks: e34s02-tasks.yaml
+    status: todo
+    verify: "grep -rl 'effort:' skills/*/SKILL.md | wc -l | awk '{if($1>=10) print \"OK\"; else print \"FAIL: \"$1}'"
   - id: e34s03
     bcp: 2
     title: "Update CLAUDE.md Token Management to use context-engineering vocabulary"
-    verify: grep -q 'write.*select.*compress.*isolate|effort:' CLAUDE.md && echo OK
+    spec: e34s03-claude-md-vocabulary.md
+    tasks: e34s03-tasks.yaml
+    status: todo
+    verify: "grep -q 'write.*select.*compress.*isolate|effort:' CLAUDE.md && echo OK"
   - id: e34s04
     bcp: 3
     title: "Update session-state SKILL.md to name the four context-engineering strategies"
-    verify: grep -q 'write|select|compress|isolate' skills/session-state/SKILL.md && echo OK
+    spec: e34s04-session-state-strategies.md
+    tasks: e34s04-tasks.yaml
+    status: todo
+    verify: "grep -q 'write|select|compress|isolate' skills/session-state/SKILL.md && echo OK"

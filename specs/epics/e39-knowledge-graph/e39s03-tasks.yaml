@@ -1,0 +1,19 @@
+story_id: e39s03
+title: "Create scripts/check-spec-drift.sh — requirement change → suspect trace links"
+status: todo
+bcps: 2
+tasks:
+  - id: 1
+    description: "Create scripts/check-spec-drift.sh skeleton with --help and trace-link loading"
+    verify: "test -f scripts/check-spec-drift.sh && bash -n scripts/check-spec-drift.sh && bash scripts/check-spec-drift.sh --help >/dev/null 2>&1 && echo OK"
+  - id: 2
+    description: "Compare requirement mtime vs implementing-file mtime and mark suspect links"
+    verify: "grep -qE 'mtime|%ct|suspect' scripts/check-spec-drift.sh && echo OK"
+  - id: 3
+    description: "Write suspect and broken links to specs/drift-report.json"
+    verify: >-
+      bash scripts/check-spec-drift.sh; test -f specs/drift-report.json &&
+      python3 -c "import json; json.load(open('specs/drift-report.json')); print('OK')"
+  - id: 4
+    description: "Wire gate-trace to downgrade PASS to CONCERNS when suspect links exist, with warning marker in trace matrix"
+    verify: "grep -rq 'drift-report' scripts/ && echo OK"

@@ -1,0 +1,14 @@
+story_id: e40s04
+title: "Agent code-gen telemetry capture where harness exposes usage (pi, Claude Code): cost, tokens, cache_hit, tier, tool_calls"
+status: todo
+bcps: 3
+tasks:
+  - id: 1
+    description: "Add telemetry capture fields to story-metrics.okf.md template: cost_usd, tokens, cache_hit, tier, tool_calls"
+    verify: "grep -rq 'cost_usd|tokens.total|cache_hit_rate|agent_duration_ms' specs/templates/story-metrics.okf.md scripts/ 2>/dev/null && echo OK"
+  - id: 2
+    description: "Implement GSD-2/gsd-pi pattern: naturally additive telemetry (Σ = project total)"
+    verify: "grep -q 'additive' specs/templates/story-metrics.okf.md && echo OK"
+  - id: 3
+    description: "Fall back to git effort where no session usage is available (Cursor/Gemini)"
+    verify: "grep -q 'fallback|git effort' scripts/record-cycle-time.sh 2>/dev/null && echo OK || echo 'PENDING'"

@@ -1,0 +1,11 @@
+story_id: e38s03
+title: "Add trace-stories.sh --strict to CI gate (sync-skills.yml)"
+status: todo
+bcps: 1
+tasks:
+  - id: 1
+    description: "Add trace-stories.sh --strict --json step to .github/workflows/sync-skills.yml"
+    verify: "grep -q 'trace-stories.sh' .github/workflows/sync-skills.yml && python3 -c \"import yaml; yaml.safe_load(open('.github/workflows/sync-skills.yml'))\" && echo OK"
+  - id: 2
+    description: "Add traceability-matrix.json upload as build artifact"
+    verify: "grep -q 'traceability-matrix' .github/workflows/sync-skills.yml && echo OK"

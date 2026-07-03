@@ -1,0 +1,14 @@
+story_id: e40s02
+title: "Wire record-cycle-time.sh append into release-branch; deprecate story_start/story_end hand-arithmetic in survey-context + release-branch"
+status: todo
+bcps: 3
+tasks:
+  - id: 1
+    description: "Add record-cycle-time.sh append invocation to release-branch SKILL.md at merge"
+    verify: "grep -q 'record-cycle-time' skills/release-branch/SKILL.md && echo OK"
+  - id: 2
+    description: "Update release-branch REFERENCE.md cycle-time section: replace hand-arithmetic with git-derived script"
+    verify: "! grep -q 'story_end. minus .story_start' skills/release-branch/REFERENCE.md && echo OK"
+  - id: 3
+    description: "Mark survey-context story_start as informational only (not measurement)"
+    verify: "grep -q 'story_start|informational' skills/survey-context/SKILL.md && echo OK"

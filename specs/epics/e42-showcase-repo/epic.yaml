@@ -1,0 +1,94 @@
+id: e42
+title: "Showcase Repo — Worked Example Built With bigpowers"
+wsjf: 2.5
+bcps: 10
+status: proposed
+release: v2.8x
+codename: "Docs Polish"
+source: |
+  Change request 2026-07-03 (session: public-launch sequencing).
+  The methodology's real product is the specs/ trail — but a prospect can
+  only see one by adopting first. A small REAL app (not a todo list) in a
+  separate public repo, with its full spec cockpit committed — including a
+  bug fixed via investigate-bug and at least one NOT-READY audit verdict —
+  lets people read a worked example before installing anything. Doubles as
+  fixture material for e37 golden stories.
+depends_on: []
+note: >
+  WSJF 2.5 — below e38/e39/e40/e41, above e33/e36/e37. Slotted in the
+  v2.8x "Docs Polish" train: it complements the by-then-live docs site
+  (v2.7x) and its spec trail should demonstrate the CURRENT methodology,
+  including e40 honest metrics — building it earlier would showcase the
+  deprecated hand-arithmetic pipeline. Verify commands below check only
+  artifacts in THIS repo (links, fixture registration); the showcase repo
+  itself is verified by its own gates, per local-first specs (ADR-0002).
+stories:
+  - id: e42s01
+    bcp: 3
+    status: todo
+    title: "Scaffold the showcase app in a separate public repo via seed-conventions"
+    spec: e42s01-scaffold-showcase-repo.md
+    tasks: e42s01-tasks.yaml
+    ac: |
+      GIVEN a new public GitHub repo for a small real app (utility with
+        genuine logic — e.g. a CLI or API client — explicitly not a todo list)
+      WHEN seed-conventions and the discover/plan phases run
+      THEN the repo contains CLAUDE.md, CONVENTIONS.md, and a full specs/
+        cockpit (state.yaml, release-plan.yaml, product/) committed from day one.
+    tasks_list:
+      - id: 1
+        description: "Choose the app, create the repo with gh, run seed-conventions + scope-work + plan-release in it"
+        verify: "gh repo view danielvm-git/bigpowers-showcase --json name -q .name | grep -q showcase && echo OK"
+  - id: e42s02
+    bcp: 3
+    status: todo
+    title: "Build one feature epic end-to-end via the 8-step build-epic cycle"
+    spec: e42s02-build-feature-epic.md
+    tasks: e42s02-tasks.yaml
+    ac: |
+      GIVEN the scaffolded showcase repo
+      WHEN one feature epic is built via the full 8-step cycle
+      THEN the repo's history shows the complete trail: story spec, tasks
+        with verify commands, TDD commits, verify-work UAT record,
+        audit-code score, Conventional Commit landing
+      AND cycle-time metrics are recorded via record-cycle-time.sh (e40
+        pipeline — never hand-arithmetic).
+    tasks_list:
+      - id: 1
+        description: "Run build-epic on the showcase repo's first feature epic; confirm the full spec trail is committed"
+        verify: "gh api repos/danielvm-git/bigpowers-showcase/contents/specs --jq 'length' 2>/dev/null | awk '{if($1>0) print \"OK\"}' || echo 'PENDING: showcase repo not yet populated'"
+  - id: e42s03
+    bcp: 2
+    status: todo
+    title: "Fix one real bug via the investigate-bug → develop-tdd → validate-fix trail"
+    spec: e42s03-fix-real-bug.md
+    tasks: e42s03-tasks.yaml
+    ac: |
+      GIVEN a genuine defect in the showcase app
+      WHEN the fix-bug flow runs
+      THEN specs/bugs/BUG-*.md documents investigation, root cause, and the
+        regression test — demonstrating the bug half of the methodology.
+    tasks_list:
+      - id: 1
+        description: "Introduce-or-find, investigate, and fix one bug in the showcase repo with full trail"
+        verify: "gh search code --repo danielvm-git/bigpowers-showcase 'BUG-' --json path --jq 'length' 2>/dev/null | awk '{if($1>0) print \"OK\"}' || echo 'PENDING'"
+  - id: e42s04
+    bcp: 2
+    status: todo
+    title: "Link the showcase from README + docs site; register as e37 golden-story fixture candidate"
+    spec: e42s04-link-showcase.md
+    tasks: e42s04-tasks.yaml
+    ac: |
+      GIVEN the completed showcase repo
+      WHEN a prospect reads the bigpowers README or docs site
+      THEN a "see it working" link points to the showcase with one-line
+        framing, and the e37 epic notes the showcase as fixture material.
+
+      GIVEN the README edit
+      WHEN it lands
+      THEN the canonical README structure is preserved
+        (memory: readme-must-stay-complete).
+    tasks_list:
+      - id: 1
+        description: "Add showcase link to README and website; add fixture note to specs/epics/e37-golden-stories/epic.yaml"
+        verify: "grep -qi 'showcase' README.md && grep -qi 'showcase' specs/epics/e37-golden-stories/epic.yaml && echo OK"

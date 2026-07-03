@@ -1,0 +1,11 @@
+story_id: e39s10
+title: "Extend scripts/validate-okf.sh (created by e40s06) with OKF v0.1 frontmatter conformance checks"
+status: todo
+bcps: 1
+tasks:
+  - id: 1
+    description: "Add generic OKF v0.1 conformance layer: parseable frontmatter, non-empty type, reserved filenames"
+    verify: "test -f scripts/validate-okf.sh && grep -q 'type' scripts/validate-okf.sh && bash scripts/validate-okf.sh --help >/dev/null 2>&1 && echo OK"
+  - id: 2
+    description: "Wire into sync-skills.yml as a CI step (non-blocking initially, blocking after e39s04)"
+    verify: "grep -q 'validate-okf' .github/workflows/sync-skills.yml && echo OK"

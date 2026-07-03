@@ -1,0 +1,14 @@
+story_id: e38s04
+title: "Create scripts/check-blind-spots.sh — heuristic quality detector"
+status: todo
+bcps: 2
+tasks:
+  - id: 1
+    description: "Create scripts/check-blind-spots.sh with --help and TEA-inspired checks"
+    verify: "test -f scripts/check-blind-spots.sh && bash scripts/check-blind-spots.sh --help >/dev/null 2>&1 && echo OK"
+  - id: 2
+    description: "Implement verify-gap, test-gap, epic-orphan, stale-tag, double-tag, bootstrap-testless detectors"
+    verify: "grep -c 'verify-gap|test-gap|epic-orphan|stale-tag|double-tag|bootstrap-testless' scripts/check-blind-spots.sh | awk '{if($1>=6) print \"OK\"; else print \"FAIL: \"$1}'"
+  - id: 3
+    description: "Emit specs/blind-spots.json with severity (HIGH/MEDIUM/LOW) and remediation hints"
+    verify: "bash scripts/check-blind-spots.sh 2>&1; python3 -c \"import json; json.load(open('specs/blind-spots.json'))\" 2>/dev/null && echo OK || echo 'PENDING: no blind spots detected'"

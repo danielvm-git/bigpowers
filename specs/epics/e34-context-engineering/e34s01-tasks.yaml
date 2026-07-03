@@ -1,0 +1,14 @@
+story_id: e34s01
+title: "Create docs/references/context-engineering.md (write/select/compress/isolate framework)"
+status: todo
+bcps: 2
+tasks:
+  - id: 1
+    description: "Create docs/references/context-engineering.md with the four strategy sections in write/select/compress/isolate order"
+    verify: "test -f docs/references/context-engineering.md && grep -q 'write.*select.*compress.*isolate' docs/references/context-engineering.md && echo OK"
+  - id: 2
+    description: "Map each strategy to at least one existing bigpowers skill or mechanism (write, select, compress, isolate sections each cite an implementer)"
+    verify: "grep -qi 'session-state' docs/references/context-engineering.md && grep -qi 'survey-context' docs/references/context-engineering.md && grep -qi 'terse-mode' docs/references/context-engineering.md && grep -qiE 'dispatch-agents|delegate-task' docs/references/context-engineering.md && echo OK"
+  - id: 3
+    description: "Credit the GSD Core origin of the framework in the document references"
+    verify: "grep -qi 'gsd' docs/references/context-engineering.md && echo OK"

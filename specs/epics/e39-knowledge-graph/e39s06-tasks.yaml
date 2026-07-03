@@ -1,0 +1,14 @@
+story_id: e39s06
+title: "OKF Phase 3b — decompose CLAUDE.md into specs/agent-guide/ for progressive disclosure"
+status: todo
+bcps: 1
+tasks:
+  - id: 1
+    description: "Create scripts/generate-agent-guide.sh: parse CLAUDE.md sections → OKF concepts"
+    verify: "test -f scripts/generate-agent-guide.sh && bash scripts/generate-agent-guide.sh --help >/dev/null 2>&1 && echo OK"
+  - id: 2
+    description: "Generate specs/agent-guide/ with type: Guide, thin pointers to CLAUDE.md sections"
+    verify: "test -f specs/agent-guide/index.md && grep -c 'type: Guide' specs/agent-guide/*.md | awk -F: '{if($2>=6) print \"OK\"; else print \"FAIL: \"$2}' && echo OK"
+  - id: 3
+    description: "Verify CLAUDE.md stays as canonical — OKF is derived"
+    verify: "wc -l CLAUDE.md | awk '{if($1>100) print \"OK: canonical preserved\"; else print \"FAIL: canonical lost\"}'"

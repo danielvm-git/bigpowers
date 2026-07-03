@@ -1,0 +1,11 @@
+story_id: e32s06
+title: "Create docs/references/sandi-metz.md (SOLID in practice, message-level testing)"
+status: todo
+bcps: 2
+tasks:
+  - id: 1
+    description: "Create docs/references/sandi-metz.md covering SOLID in practice and message-level testing"
+    verify: "test -f docs/references/sandi-metz.md && grep -q 'SOLID|message' docs/references/sandi-metz.md && echo OK"
+  - id: 2
+    description: "Add provenance header: author (Metz), key works (POODR, 99 Bottles), core concepts"
+    verify: "grep -q 'Metz|POODR' docs/references/sandi-metz.md && echo OK"

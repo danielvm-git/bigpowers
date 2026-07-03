@@ -1,0 +1,23 @@
+story_id: e36s01
+title: "Slim docs/references/uncle-bob.md to provenance pointer"
+status: todo
+bcps: 3
+tasks:
+  - id: 1
+    description: >-
+      Map each principle bullet in docs/references/uncle-bob.md to its
+      CONVENTIONS.md section (Boy Scout Rule, SRP, naming, F.I.R.S.T, small
+      functions); confirm no principle lacks an authority
+    verify: >-
+      grep -q 'F.I.R.S.T' CONVENTIONS.md && grep -q 'Boy Scout Rule' CONVENTIONS.md && echo OK
+  - id: 2
+    description: >-
+      Rewrite uncle-bob.md as a thin provenance pointer: title, Source,
+      Author, and one pointer line per informed CONVENTIONS.md section;
+      remove all restated principle text
+    verify: >-
+      grep -q 'CONVENTIONS.md' docs/references/uncle-bob.md && ! grep -q 'Fast, Independent, Repeatable' docs/references/uncle-bob.md && echo OK
+  - id: 3
+    description: "Confirm the story-level size budget: file under 20 lines"
+    verify: >-
+      wc -l docs/references/uncle-bob.md | awk '{exit ($1<20)?0:1}' && echo OK

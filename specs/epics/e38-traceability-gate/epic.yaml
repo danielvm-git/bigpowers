@@ -5,6 +5,7 @@ bcps: 13
 status: proposed
 release: v2.45.0
 codename: "Deepening"
+depends_on: []
 source: |
   Market survey of 5 tools (2026-07-02):
   - spec-kit: inline [Story] labels in task checkboxes
@@ -19,12 +20,13 @@ source: |
   bigpowers is closest to building this bridge with trace-requirement + execution-status.
   TEA's synthetic-oracle confidence downgrade and heuristic blind-spot detection are the
   key innovations to port.
-
 stories:
   - id: e38s01
     bcp: 3
     title: "Create scripts/trace-stories.sh — deterministic coverage matrix builder"
-    verify: test -f scripts/trace-stories.sh && bash scripts/trace-stories.sh --help >/dev/null 2>&1 && echo OK
+    spec: e38s01-trace-matrix-builder.md
+    tasks: e38s01-tasks.yaml
+    status: todo
     description: |
       Parse specs/release-plan.yaml + specs/execution-status.yaml → grep for story: tags in
       codebase → cross-reference → produce coverage matrix.
@@ -33,28 +35,31 @@ stories:
       Oracle resolution: story tags (high confidence) → file-name heuristics (medium) →
       epic capsule task refs (low). Flag dark stories, orphan tags, stale tags.
       --strict flag for CI: non-zero exit if P0 stories have 0% code coverage.
-
   - id: e38s02
     bcp: 1
     title: "Integrate trace-stories.sh into build-epic Step 8 (verify phase)"
-    verify: grep -q 'trace-stories.sh' skills/build-epic/SKILL.md && echo OK
+    spec: e38s02-build-epic-integration.md
+    tasks: e38s02-tasks.yaml
+    status: todo
     description: |
       Add trace-stories.sh invocation to build-epic SKILL.md Step 8 so every epic
       completion automatically generates the trace matrix. Run before verify-work.
-
   - id: e38s03
     bcp: 1
     title: "Add trace-stories.sh --strict to CI gate (sync-skills.yml)"
-    verify: grep -q 'trace-stories.sh' .github/workflows/sync-skills.yml && echo OK
+    spec: e38s03-ci-gate.md
+    tasks: e38s03-tasks.yaml
+    status: todo
     description: |
       Add a CI step that runs scripts/trace-stories.sh --strict --json on push.
       Fails CI if P0 stories have no code tags. Uploads traceability-matrix.json as
       a build artifact.
-
   - id: e38s04
     bcp: 2
     title: "Create scripts/check-blind-spots.sh — heuristic quality detector"
-    verify: test -f scripts/check-blind-spots.sh && bash scripts/check-blind-spots.sh --help >/dev/null 2>&1 && echo OK
+    spec: e38s04-blind-spots-detector.md
+    tasks: e38s04-tasks.yaml
+    status: todo
     description: |
       Structural quality checks beyond percentage coverage (TEA-inspired):
       - verify-gap: story done but no verify command executed
@@ -65,19 +70,21 @@ stories:
       - bootstrap-testless: new story without test tag
       Emits specs/blind-spots.json with severity (HIGH/MEDIUM/LOW) and
       remediation hints.
-
   - id: e38s05
     bcp: 1
     title: "Integrate check-blind-spots.sh into verify-work Phase 3"
-    verify: grep -q 'check-blind-spots.sh' skills/verify-work/SKILL.md && echo OK
+    spec: e38s05-verify-work-integration.md
+    tasks: e38s05-tasks.yaml
+    status: todo
     description: |
       Run blind-spot checks during verification. Surface findings in verify-work report.
       HIGH severity findings block the verify-work PASS gate.
-
   - id: e38s06
     bcp: 2
     title: "Create gate-trace skill — deterministic quality gate before release"
-    verify: test -f skills/gate-trace/SKILL.md && echo OK
+    spec: e38s06-gate-trace-skill.md
+    tasks: e38s06-tasks.yaml
+    status: todo
     description: |
       New skill directory: skills/gate-trace/SKILL.md.
       Reads specs/traceability-matrix.json + specs/blind-spots.json.
@@ -91,29 +98,32 @@ stories:
       - > 50% trace links from heuristics (not explicit tags) → one level downgrade
       - > 80% from heuristics → two levels (PASS→FAIL, CONCERNS→FAIL)
       Output: gate decision + rationale to stdout + specs/execution-status.yaml.
-
   - id: e38s07
     bcp: 1
     title: "Wire gate-trace into release-branch pre-PR gate"
-    verify: grep -q 'gate-trace' skills/release-branch/SKILL.md && echo OK
+    spec: e38s07-release-branch-gate.md
+    tasks: e38s07-tasks.yaml
+    status: todo
     description: |
       Add gate-trace invocation to release-branch SKILL.md before PR creation.
       FAIL blocks merge. CONCERNS requires explicit human override in state.yaml.
-
   - id: e38s08
     bcp: 1
     title: "Update CLAUDE.md and CONVENTIONS.md with traceability mandate"
-    verify: grep -q 'traceability' CLAUDE.md && grep -q 'traceability' CONVENTIONS.md && echo OK
+    spec: e38s08-traceability-mandate.md
+    tasks: e38s08-tasks.yaml
+    status: todo
     description: |
       Add traceability mandate to CONVENTIONS.md under Agent Workflow Mandates:
       "Traceability Mandate: Every story MUST have at least one // story: eNNsNN tag
       in its implementing code or test file. trace-stories.sh --strict runs in CI."
       Add trace-stories.sh to CLAUDE.md Commands table.
-
   - id: e38s09
     bcp: 1
     title: "Write docs/references/traceability-gate.md — architecture & operator guide"
-    verify: test -f docs/references/traceability-gate.md && grep -q 'TEA\|oracle confidence\|blind-spot' docs/references/traceability-gate.md && echo OK
+    spec: e38s09-traceability-guide.md
+    tasks: e38s09-tasks.yaml
+    status: todo
     description: |
       Reference doc explaining the three-tier architecture (matrix → blind-spots → gate),
       the oracle resolution tiers, heuristic blind-spot catalog, gate decision rules,

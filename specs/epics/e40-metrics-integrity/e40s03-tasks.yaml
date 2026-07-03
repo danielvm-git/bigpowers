@@ -1,0 +1,14 @@
+story_id: e40s03
+title: "Adopt OKF story-metrics bundle format (specs/templates/story-metrics.okf.md); emit one bundle per merged story"
+status: todo
+bcps: 3
+tasks:
+  - id: 1
+    description: "Update record-cycle-time.sh to emit OKF bundle with YAML frontmatter + body per story"
+    verify: "grep -q 'okf_kind' scripts/record-cycle-time.sh && echo OK"
+  - id: 2
+    description: "Emit aggregation tags: Σ additive / ⌀ median / % rate / • static per field"
+    verify: "grep -q 'additive|median|rate|static' specs/templates/story-metrics.okf.md && echo OK"
+  - id: 3
+    description: "Verify template at specs/templates/story-metrics.okf.md exists and matches format"
+    verify: "test -f specs/templates/story-metrics.okf.md && grep -q 'okf_kind' specs/templates/story-metrics.okf.md && echo OK"

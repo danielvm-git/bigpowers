@@ -1,0 +1,11 @@
+story_id: e42s02
+title: "Build one feature epic end-to-end via the 8-step build-epic cycle"
+status: todo
+bcps: 3
+tasks:
+  - id: 1
+    description: "Run build-epic on the showcase repo's first feature epic; confirm the full spec trail is committed"
+    verify: "gh api repos/danielvm-git/bigpowers-showcase/contents/specs --jq 'length' 2>/dev/null | awk '{if($1>0) print \"OK\"}' || echo 'PENDING: showcase repo not yet populated'"
+  - id: 2
+    description: "Verify cycle-time metrics recorded via record-cycle-time.sh (e40 pipeline)"
+    verify: "gh api repos/danielvm-git/bigpowers-showcase/contents/specs/metrics --jq 'length' 2>/dev/null && echo OK || echo 'PENDING'"

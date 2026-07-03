@@ -1,0 +1,14 @@
+story_id: e39s05
+title: "OKF Phase 3a — decompose CONVENTIONS.md into specs/conventions-wiki/"
+status: todo
+bcps: 2
+tasks:
+  - id: 1
+    description: "Create scripts/decompose-conventions.sh: parse CONVENTIONS.md headings → OKF concepts"
+    verify: "test -f scripts/decompose-conventions.sh && bash scripts/decompose-conventions.sh --help >/dev/null 2>&1 && echo OK"
+  - id: 2
+    description: "Generate specs/conventions-wiki/ with type: Convention, cross-references to enforcing skills"
+    verify: "test -f specs/conventions-wiki/index.md && grep -c 'type: Convention' specs/conventions-wiki/*.md | awk -F: '{if($2>=10) print \"OK\"; else print \"FAIL: \"$2}' && echo OK"
+  - id: 3
+    description: "Verify CONVENTIONS.md stays as canonical source — OKF is derived, not replacement"
+    verify: "wc -l CONVENTIONS.md | awk '{if($1>50) print \"OK: canonical preserved\"; else print \"FAIL: canonical lost\"}'"

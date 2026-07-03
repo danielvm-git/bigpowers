@@ -1,0 +1,17 @@
+story_id: e39s04
+title: "OKF Phase 2 — sync-skills.sh generates specs/skills-wiki/ from 72 SKILL.md files"
+status: todo
+bcps: 3
+tasks:
+  - id: 1
+    description: "Add --okf flag to sync-skills.sh: parse SKILL.md frontmatter → OKF concepts per skill"
+    verify: "bash scripts/sync-skills.sh --okf --help 2>&1 | grep -q okf && echo OK"
+  - id: 2
+    description: "Run build-skill-graph.sh to add cross-references to OKF skill concepts"
+    verify: "test -f specs/skills-wiki/index.md && grep -c 'type: Skill' specs/skills-wiki/skills/*.md | awk -F: '{if($2>=70) print \"OK\"; else print \"FAIL: \"$2}' && echo OK"
+  - id: 3
+    description: "Generate specs/skills-wiki/index.md with progressive disclosure"
+    verify: "grep -q 'type: Index' specs/skills-wiki/index.md && echo OK"
+  - id: 4
+    description: "Validate OKF conformance via validate-okf.sh"
+    verify: "bash scripts/validate-okf.sh specs/skills-wiki/ 2>&1 && echo OK || echo 'PENDING: validate-okf.sh not yet created (e40s06)'"

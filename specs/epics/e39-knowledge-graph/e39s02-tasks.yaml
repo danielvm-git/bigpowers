@@ -1,0 +1,19 @@
+story_id: e39s02
+title: "Create specs/agent-locks.yaml — multi-agent coordination protocol"
+status: todo
+bcps: 2
+tasks:
+  - id: 1
+    description: "Create specs/agent-locks.yaml with documented schema (story_id, locked_by, locked_at, files_touched) and empty locks list"
+    verify: >-
+      test -f specs/agent-locks.yaml &&
+      python3 -c "import yaml; d=yaml.safe_load(open('specs/agent-locks.yaml')); assert 'locks' in d; print('OK')"
+  - id: 2
+    description: "Document acquire protocol in kickoff-branch SKILL.md: fail if story already locked"
+    verify: "grep -q 'agent-locks' skills/kickoff-branch/SKILL.md && echo OK"
+  - id: 3
+    description: "Document release protocol in release-branch SKILL.md: remove lock entry on completion"
+    verify: "grep -q 'agent-locks' skills/release-branch/SKILL.md && echo OK"
+  - id: 4
+    description: "Add stale-lock (>24h) validation step to CI"
+    verify: "grep -rq 'agent-locks' .github/workflows/ && echo OK"

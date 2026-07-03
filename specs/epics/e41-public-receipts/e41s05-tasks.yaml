@@ -1,0 +1,8 @@
+story_id: e41s05
+title: "README + launch note point to the live receipts page"
+status: todo
+bcps: 1
+tasks:
+  - id: 1
+    description: "Add receipts link + framing line to README; draft launch-note paragraph in docs/RELEASE.md"
+    verify: "grep -qi 'receipts' README.md && echo OK"

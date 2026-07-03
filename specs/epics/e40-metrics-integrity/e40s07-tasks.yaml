@@ -1,0 +1,14 @@
+story_id: e40s07
+title: "Quarantine fabricated cycle-times.yaml rows (tag source: backfilled) and exclude from aggregates"
+status: todo
+bcps: 2
+tasks:
+  - id: 1
+    description: "Tag templated/impossible rows in cycle-times.yaml as source: backfilled"
+    verify: "grep -q 'source: backfilled' specs/metrics/cycle-times.yaml && echo OK"
+  - id: 2
+    description: "Exclude backfilled rows from aggregates in record-cycle-time.sh and benchmarks"
+    verify: "grep -q 'backfilled|exclude' scripts/record-cycle-time.sh && echo OK"
+  - id: 3
+    description: "Do not delete rows — mark provenance honestly"
+    verify: "wc -l specs/metrics/cycle-times.yaml | awk '{if($1>20) print \"OK: rows preserved\"; else print \"FAIL: rows deleted\"}'"

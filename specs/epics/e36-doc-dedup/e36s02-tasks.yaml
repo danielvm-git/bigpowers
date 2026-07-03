@@ -1,0 +1,31 @@
+story_id: e36s02
+title: >-
+  Slim docs/references/akita.md, ousterhout.md, karpathy.md, wasowski.md
+  to provenance pointers
+status: todo
+bcps: 3
+tasks:
+  - id: 1
+    description: >-
+      Map every concept bullet in the four docs to its codified home
+      (CONVENTIONS.md section or skill SKILL.md); list orphans for the PR
+    verify: >-
+      test -f docs/references/akita.md && test -f docs/references/ousterhout.md && test -f docs/references/karpathy.md && test -f docs/references/wasowski.md && echo OK
+  - id: 2
+    description: >-
+      Rewrite akita.md and ousterhout.md as thin provenance pointers using
+      the e36s01 format (title, Source, Author, pointer lines)
+    verify: >-
+      grep -l 'CONVENTIONS.md' docs/references/akita.md docs/references/ousterhout.md | wc -l | awk '{exit ($1==2)?0:1}' && echo OK
+  - id: 3
+    description: >-
+      Rewrite karpathy.md and wasowski.md as thin provenance pointers using
+      the same format
+    verify: >-
+      grep -l 'CONVENTIONS.md' docs/references/karpathy.md docs/references/wasowski.md | wc -l | awk '{exit ($1==2)?0:1}' && echo OK
+  - id: 4
+    description: >-
+      Run the story verify loop over all four files to confirm none exceeds
+      30 lines and Source/Author provenance lines survive
+    verify: >-
+      for f in akita ousterhout karpathy wasowski; do wc -l docs/references/$f.md | awk '{if($1>30) exit 1}' && grep -q 'Source' docs/references/$f.md || exit 1; done && echo OK
