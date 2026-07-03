@@ -3,25 +3,16 @@ epic_cycle:
   epic_id: e38
   epic_slug: traceability-gate
   capsule_dir: specs/epics/e38-traceability-gate
-  current_story: e38s01
+  current_story: e38s02
   total_bcps: 13
-  story_bcps: 3
-  story_start: '2026-07-03T06:00:00Z'
-  current_step: 7
-  completed_steps:
-  - '0'
-  - '1'
-  - '2'
-  - '3'
-  - '4'
-  - '5'
-  - '6'
-  - '7'
-  audit_result: pass
+  story_bcps: 1
+  current_step: 0
+  completed_steps: []
+  audit_result: none
   fast_mode: true
 handoff:
-  next_skill: release-branch
-  context: 'v2.6x train — e38 Traceability Gate. e38s01 audit PASS. Commit draft: feat(e38): trace-stories.sh — deterministic matrix builder. Next: release-branch.'
+  next_skill: survey-context
+  context: 'v2.6x train — e38 Traceability Gate. e38s01 RELEASED (3 BCP, commit 5bc397c). Next: e38s02 (build-epic integration, 1 BCP).'
 bug_id: null
 bug_cycle:
   current_step: 0
