@@ -1,22 +1,15 @@
 active_flow: fix_bug
-bug_id: BUG-2026-07-03-waiver-scoring
+bug_id: BUG-2026-07-03-negative-path-self-test
 bug_cycle:
-  current_step: 5
-  completed_steps:
-  - '1'
-  - '2'
-  - '3'
-  - '4'
+  current_step: 1
+  completed_steps: []
 handoff:
-  next_skill: release-branch
+  next_skill: investigate-bug
   context: >
-    Step 4 (validate-fix) COMPLETE:
-    - Audit: 82 PASS / 2 FAIL / 4 WAIVED = 97%, gate PASS
-    - Compliance (validate-doctrine): all EPIC checks pass
-    - Golden suite: compliance passes, G-04 pre-existing failure (74 vs 73 artifacts)
-    - Expired waiver detection verified
-    - Bug file + registry updated with resolution
-    Proceeding to release-branch (land the fix).
+    Fixing P0 #2 — ~90 step scripts have zero proof they can detect violations
+    (GAP-1 bug class). Bug file at
+    specs/bugs/BUG-2026-07-03-negative-path-self-test.md with RCA + TDD plan.
+    Starting investigate-bug formal entry.
 release:
   ci_verified: true
   released_at: '2026-07-03T17:50:00Z'
