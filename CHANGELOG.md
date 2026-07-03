@@ -1,3 +1,10 @@
+# [2.47.0](https://github.com/danielvm-git/bigpowers/compare/v2.46.0...v2.47.0) (2026-07-03)
+
+
+### Features
+
+* **e31:** G-04 sync-pipeline self-test script ([#43](https://github.com/danielvm-git/bigpowers/issues/43)) ([9bde7ab](https://github.com/danielvm-git/bigpowers/commit/9bde7abb3c21ada6ba3e789caee710f24d65f516))
+
 # [2.46.0](https://github.com/danielvm-git/bigpowers/compare/v2.45.6...v2.46.0) (2026-07-03)
 
 
