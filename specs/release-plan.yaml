@@ -48,7 +48,7 @@ epics:
   #         amended 2026-07-02 per specs/PLAN-AUDIT_LATEST.md)
   #         specs/DEEPEN-ARCHITECTURE-REVIEW.md (review)
   #         specs/QUALITY-GUARANTEE-STRATEGY.md (golden suite)
-  # Build order: e31 → e32 → e34 → e35 → e33 → e36 → e37 → e38 (e37 spike-gated;
+  # Build order: e31 → e32 → e34 → e35 → e33 → e36 → e37 → e38 → e39 (e37 spike-gated;
   # e37s01 spike may run in parallel any time, s02-s04 only on "go").
   - id: e31
     title: "Quality Guarantee — Deterministic Gates"
@@ -114,12 +114,11 @@ epics:
     capsule_dir: epics/e37-golden-stories
     note: >
       Agent-execution half of the original e31 (split per PLAN-AUDIT
-      2026-07-02). HARD GATE: e37s01 spike (headless claude -p harness —
-      cost, wall-clock, flake over 3 runs) decides go/no-go before any
-      fixture or golden-YAML work. Per-epic cadence, pass@k 2-of-3 flake
-      policy. WSJF (BV 5 + TC 1 + RR-OE 3) / JS 5 = 1.8. Sequenced last
-      despite outranking e36 — its value is gated on the spike, not on
-      urgency.
+      2026-07-02). SPIKE PASSED 2026-07-02: DeepSeek v4 via gh-aw Claude
+      engine confirmed viable (ANTHROPIC_BASE_URL → api.deepseek.com/anthropic).
+      G-01 golden story live at .github/workflows/e37-golden-deepseek.lock.yml.
+      e37s01 done; s02-s04 proceed. Depends on e31 (deterministic gates).
+      Per-epic cadence, pass@k 2-of-3 flake policy.
   - id: e38
     title: "Spec-to-Code Traceability Gate"
     wsjf: 3.50
@@ -132,6 +131,20 @@ epics:
       confidence downgrade (tagged→high, heuristic→medium, inferred→low).
       Machine-readable JSON for CI/CD. Source: market survey of speckit-utils,
       V-Model trace, BMAD TEA bmad-testarch-trace (2026-07-02).
+  - id: e39
+    title: "Semantic Context Bridge"
+    wsjf: 3.60
+    bcps: 19
+    capsule_dir: epics/e39-knowledge-graph
+    note: >
+      Closes remaining Layer 3 (Technical Context) and Layer 5 (Product Surface)
+      gaps after e38 traceability gate. Three pillars: skill reference graph
+      (parse 72 SKILL.md → directed dependency graph), agent coordination
+      lockfile (prevent multi-agent collision), spec drift detection (suspect
+      links when requirements change). OKF Phases 2-4: skills-wiki, conventions-
+      wiki, agent-guide from sync-skills.sh + new maintain-wiki skill for
+      agent-maintained language-agnostic code understanding. Source: Karpathy
+      LLM Wiki, OKF v0.1, Google Knowledge Catalog, session 2026-07-02/03.
 
   # ── ACTIVE — next release (v2.30.0) ──────────────────────────────────
   - id: e26

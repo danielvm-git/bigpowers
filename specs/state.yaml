@@ -1,26 +1,24 @@
-active_flow: release
+active_flow: build-epic
 epic_cycle:
-  epic_id: e30
-  epic_slug: arch-quick-fixes
-  capsule_dir: specs/epics/e30-arch-quick-fixes
-  current_story: e30s04
-  total_bcps: 8
-  story_bcps: 3
-  current_step: 8
-  completed_steps:
-    - "1"
-    - "2"
-    - "3"
-    - "4"
-    - "5"
-    - "6"
-    - "7"
-    - "8"
-  audit_result: pass
-  fast_mode: true
+  epic_id: e31
+  epic_slug: quality-guarantee
+  capsule_dir: specs/epics/e31-quality-guarantee
+  current_story: e31s01
+  total_bcps: 11
+  story_bcps: 2
+  current_step: 0
+  completed_steps: []
+  audit_result: null
+  fast_mode: false
 handoff:
-  next_skill: release-branch
-  last_step_completed: "e30 complete — 4 stories done: get_phase() fix, tech-architecture refs, stale .bak, 43 tautological verify commands replaced/removed"
+  next_skill: plan-work
+  context: >
+    e37 spike PASSED (2026-07-02): DeepSeek v4 + gh-aw prototype confirmed.
+    G-01 golden story live in .github/workflows/e37-golden-deepseek.lock.yml.
+    e31 builds the deterministic gates that e37 consumes. Build order:
+    e31s01 (golden-g04-selftest.sh) first, then e31s02 (wire compliance into
+    CI on publish.yml — already touched by Node20→Node24 migration).
+  last_step_completed: "e30 shipped; e37s01 spike done; e37 spike gate removed"
 bug_id: null
 bug_cycle:
   current_step: 0
@@ -30,6 +28,10 @@ release:
   released_at: "2026-07-02T23:00:00Z"
   commit: 8823212
   tag: none (semantic-release will tag on push)
+  node20_migration:
+    completed: true
+    commit: 5b6f1dd
+    changes: "actions/checkout v4→v6, concurrency, timeout-minutes"
 planning:
   release: v2.45.0
   codename: "Deepening"
@@ -46,8 +48,9 @@ planning:
     - "e34: Context Engineering Layer (10 BCP)"
     - "e35: DORA Metrics Extension (7 BCP)"
     - "e36: Documentation Deduplication (10 BCP)"
-    - "e37: Golden Story Suite — Agent-Driven (13 BCP — spike-gated, from e31 split)"
+    - "e37: Golden Story Suite — Agent-Driven (13 BCP — spike PASSED 2026-07-02; e37s01 done, depends on e31)"
     - "e38: Spec-to-Code Traceability Gate (13 BCP — TEA-inspired, market survey 2026-07-02)"
+    - "e39: Semantic Context Bridge (19 BCP — OKF + skill graph + agent locks + drift detection)"
   github_issues_created:
     - "37 (e30)"
     - "36 (e31)"
@@ -62,12 +65,16 @@ planning:
     - "39 (Bug: tautological verify commands)"
     - "42 (Bug: skill-verify false FAILs)"
     - "43 (e38: Spec-to-Code Traceability Gate)"
+    - "44 (e39: Semantic Context Bridge)"
   gaps_fixed:
     - SCOPE_LATEST.yaml — added fr-11 through fr-17 for e30-e36
-    - release-plan.yaml — removed duplicate e30-e36 from BACKLOG section
+    - release-plan.yaml — removed duplicate e30-e36 from BACKLOG section; removed e37 HARD GATE language (spike passed)
     - execution-status.yaml — e30s02 marked done (verified fixed), e30: done
     - e30 epic.yaml — removed e30s05 (already implemented in build-epic Step 2), reduced BCP 10→8
+    - e37 epic.yaml — removed HARD GATE, marked e37s01 done, reduced BCP 13→10 (spike complete)
     - CLAUDE.md — added Typecheck: N/A and CI platform rows
+    - CI workflows — actions/checkout v4→v6 (Node20→Node24), concurrency, timeout-minutes
+    - gh-aw prototype — e37 golden story G-01 compiles clean with DeepSeek v4 via Anthropic protocol
 metrics:
   skill_timings:
     survey-context:
