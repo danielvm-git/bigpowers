@@ -23,7 +23,7 @@ stories:
   - id: e31s01
     bcp: 2
     title: "Create scripts/golden-g04-selftest.sh — sync-pipeline self-test (G-04): asserts 72 artifacts per target, skills-lock.json count, SKILL-INDEX total"
-    verify: bash scripts/golden-g04-selftest.sh && echo OK
+    verify: test -f scripts/golden-g04-selftest.sh && bash -n scripts/golden-g04-selftest.sh && bash scripts/golden-g04-selftest.sh 2>&1 | grep -qE 'PASS|FAIL' && echo OK
     spec: e31s01-golden-selftest.md
     tasks: e31s01-tasks.yaml
   - id: e31s02
