@@ -20,6 +20,17 @@ Stack: Markdown / Bash (documentation-based; skills integrate with Claude Code, 
 | Typecheck | N/A (Markdown / Bash project) |
 | CI platform | GitHub Actions (`.github/workflows/publish.yml`, `sync-skills.yml`) |
 | Compliance | `npm run compliance` |
+| Golden Suite | `bash scripts/run-golden-suite.sh` |
+
+### Pre-Merge Checklist
+
+Before opening a PR or landing a branch, run:
+
+```bash
+npm run compliance && bash scripts/run-golden-suite.sh
+```
+
+If any gate fails, fix before merging. Run `--baseline` after any intentional increase in skill count or structure.
 
 ## Architecture
 
