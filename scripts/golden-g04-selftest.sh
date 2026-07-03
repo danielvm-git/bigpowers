@@ -19,8 +19,8 @@ NC='\033[0m' # No Color
 PASS=0
 FAIL=0
 
-pass()  { echo -e "${GREEN}PASS${NC} $*"; PASS=$((PASS + 1)); }
-fail()  { echo -e "${RED}FAIL${NC} $*"; FAIL=$((FAIL + 1)); }
+g04_pass()  { echo -e "${GREEN}PASS${NC} $*"; PASS=$((PASS + 1)); }
+g04_fail()  { echo -e "${RED}FAIL${NC} $*"; FAIL=$((FAIL + 1)); }
 
 # ── Task 1: Target directory existence ────────────────────────────────
 
@@ -32,9 +32,9 @@ TARGETS=(
 
 for dir in "${TARGETS[@]}"; do
   if [[ -d "$dir" ]]; then
-    pass "directory exists: $dir"
+    g04_pass "directory exists: $dir"
   else
-    fail "directory not found: $dir"
+    g04_fail "directory not found: $dir"
   fi
 done
 
@@ -51,7 +51,7 @@ check_count() {
   local pattern="${3:-*.md}"
 
   if [[ ! -d "$dir" ]]; then
-    fail "$label: directory not found (skipping count)"
+    g04_fail "$label: directory not found (skipping count)"
     return
   fi
 
@@ -65,9 +65,9 @@ check_count() {
   fi
 
   if [[ "$count" -eq "$EXPECTED" ]]; then
-    pass "$label: $count artifacts (expected $EXPECTED)"
+    g04_pass "$label: $count artifacts (expected $EXPECTED)"
   else
-    fail "$label: expected $EXPECTED artifacts, got $count"
+    g04_fail "$label: expected $EXPECTED artifacts, got $count"
   fi
 }
 
@@ -81,7 +81,7 @@ LOCKFILE="skills-lock.json"
 INDEXFILE="SKILL-INDEX.md"
 
 if [[ ! -f "$LOCKFILE" ]]; then
-  fail "lockfile not found: $LOCKFILE"
+  g04_fail "lockfile not found: $LOCKFILE"
 else
   # Parse lockfile: count top-level keys (skill names)
   if command -v jq &>/dev/null; then
@@ -99,20 +99,20 @@ else
 fi
 
 if [[ ! -f "$INDEXFILE" ]]; then
-  fail "index not found: $INDEXFILE"
+  g04_fail "index not found: $INDEXFILE"
 else
   # Count skill entries from SKILL-INDEX.md header (e.g., "**Skills:** 72")
   index_count=$(grep '\*\*Skills:\*\*' "$INDEXFILE" 2>/dev/null | sed 's/.*\*\*Skills:\*\*[[:space:]]*//' | grep -oE '[0-9]+') || {
-    fail "index parse error: $INDEXFILE"
+    g04_fail "index parse error: $INDEXFILE"
     index_count=""
   }
 fi
 
 if [[ -n "${lock_count:-}" && -n "${index_count:-}" ]]; then
   if [[ "$lock_count" -eq "$index_count" ]]; then
-    pass "lockfile ($lock_count) matches SKILL-INDEX ($index_count)"
+    g04_pass "lockfile ($lock_count) matches SKILL-INDEX ($index_count)"
   else
-    fail "lockfile ($lock_count) != SKILL-INDEX ($index_count)"
+    g04_fail "lockfile ($lock_count) != SKILL-INDEX ($index_count)"
   fi
 fi
 
