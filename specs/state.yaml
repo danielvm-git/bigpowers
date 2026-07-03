@@ -99,7 +99,7 @@ metrics:
       total_seconds: 101.0
       avg_seconds: 101.0
   story_start: '2026-07-02T23:00:00Z'
-  story_end: '2026-07-03T04:10:07Z'
+  story_end: '2026-07-03T12:30:00Z'
   epic_e31:
     total_bcps: 11
     stories: 7
