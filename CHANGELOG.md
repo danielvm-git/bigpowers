@@ -1,3 +1,10 @@
+## [2.45.6](https://github.com/danielvm-git/bigpowers/compare/v2.45.5...v2.45.6) (2026-07-03)
+
+
+### Bug Fixes
+
+* **skills:** repair stale verify paths in 6 SKILL.md files after skills/ migration ([189ef29](https://github.com/danielvm-git/bigpowers/commit/189ef29da3dbca29f046a2a33bd44ff56c233835))
+
 ## [2.45.5](https://github.com/danielvm-git/bigpowers/compare/v2.45.4...v2.45.5) (2026-07-03)
 
 
