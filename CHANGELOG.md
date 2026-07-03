@@ -1,3 +1,19 @@
+# [2.51.0](https://github.com/danielvm-git/bigpowers/compare/v2.50.0...v2.51.0) (2026-07-03)
+
+
+### Bug Fixes
+
+* **compliance:** exit 0 when score meets threshold regardless of known failures ([ab165a6](https://github.com/danielvm-git/bigpowers/commit/ab165a6ee4e0c7caf0c6e6e237fe8fa07e94c306))
+* **e34:** regenerate artifacts and trim plan-release SKILL.md to 150 lines ([6112dcb](https://github.com/danielvm-git/bigpowers/commit/6112dcbade1e0ac8189af94f382ca005edd85663))
+* **release-branch:** poll CI before declaring success ([484c394](https://github.com/danielvm-git/bigpowers/commit/484c3949c48482f8e5ed6dc11890ef48c2f1929a))
+* **release-branch:** trim SKILL.md to 149 lines under 150-line cap ([1cd3cea](https://github.com/danielvm-git/bigpowers/commit/1cd3ceac6991d806730f7a22bece5cddf9a024ee))
+
+
+### Features
+
+* **e34:** context engineering layer — reference doc, effort frontmatter, vocabulary ([8ae8faa](https://github.com/danielvm-git/bigpowers/commit/8ae8faabe4d484dbc8cefb994858593362e92ede))
+* **e40:** metrics integrity — git-derived effort, OKF provenance gate ([c590397](https://github.com/danielvm-git/bigpowers/commit/c5903973e06d81a4c67252556558c015469e4beb))
+
 # [2.50.0](https://github.com/danielvm-git/bigpowers/compare/v2.49.0...v2.50.0) (2026-07-03)
 
 
