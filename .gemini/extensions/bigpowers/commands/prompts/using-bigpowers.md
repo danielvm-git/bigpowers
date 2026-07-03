@@ -8,8 +8,9 @@ Welcome to **bigpowers** — a lifecycle of **70** agent skills for production-r
 ## Install
 
 ```bash
-npx bigpowers                  # one-shot setup
-npm install -g bigpowers       # global install, then run: bigpowers
+npx bigpowers setup           # one-shot setup
+npm install -g bigpowers       # global install
+bigpowers setup                # sync skills + link to your tools
 ```
 
 From source (contributors): `git clone` → `npm install` or `bash scripts/install.sh`.

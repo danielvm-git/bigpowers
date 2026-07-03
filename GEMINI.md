@@ -13,7 +13,7 @@ Stack: Markdown / Bash (documentation-based; skills integrate with Claude Code, 
 
 | Action  | Command |
 |---------|---------|
-| Install | `npx bigpowers` or `npm install -g bigpowers` |
+| Install | `npm install -g bigpowers && bigpowers setup` |
 | Run     | `bash scripts/sync-skills.sh` |
 | Test    | N/A (documentation project) |
 | Build   | `bash scripts/install.sh` (from source) |

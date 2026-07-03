@@ -1,8 +1,8 @@
-active_flow: "null"
-bug_id: "null"
+active_flow: fix_bug
+bug_id: BUG-2026-07-03-install-docs-stale
 bug_cycle:
-  current_step: 0
-  completed_steps: "[]"
+  current_step: 1
+  completed_steps: []
 handoff:
   next_skill: "survey-context"
   context: ">"

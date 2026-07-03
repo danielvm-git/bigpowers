@@ -9,7 +9,7 @@ Be respectful, constructive, and patient. We're building tools for developers �
 ## Before You Start
 
 1. **Read the docs.** Start with [`README.md`](README.md), [`CLAUDE.md`](CLAUDE.md), and [`CONVENTIONS.md`](CONVENTIONS.md). These define the project's architecture, conventions, and engineering standards.
-2. **Run bigpowers.** Install with `npx bigpowers` and walk through the experience as a user before contributing as a developer.
+2. **Run bigpowers.** Install with `npm install -g bigpowers && bigpowers setup` and walk through the experience as a user before contributing as a developer.
 3. **Understand the lifecycle.** bigpowers follows a 6-phase methodology: Discover → Elaborate → Plan → Build → Verify → Release. Read [`docs/WORKFLOW-SOP-v2.md`](docs/WORKFLOW-SOP-v2.md) for the full SOP.
 
 ## How to Contribute
@@ -66,8 +66,10 @@ Documentation is a first-class contribution. You don't need to write code to hel
 git clone https://github.com/danielvm-git/bigpowers.git
 cd bigpowers
 
-# Install dependencies + run postinstall sync
+# Install dependencies
 npm install
+# Sync skills and set up symlinks
+bash scripts/install.sh
 
 # Or manually:
 bash scripts/install.sh

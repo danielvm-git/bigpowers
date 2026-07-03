@@ -242,6 +242,6 @@ else
   if [[ -d "$REPO_ROOT/.git" ]]; then
     echo "  git pull && ./scripts/sync-skills.sh"
   else
-    echo "  npm update -g bigpowers && bigpowers"
+    echo "  npm update -g bigpowers && bigpowers update"
   fi
 fi

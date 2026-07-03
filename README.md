@@ -36,12 +36,12 @@ After installing, ask your agent to run the `using-bigpowers` skill — it is th
 ### npm (recommended)
 
 ```bash
-# One-shot setup — downloads, syncs artifacts, and links skills to your tools
-npx bigpowers
-
-# Or install globally and run the setup command anytime
+# Global install (no lifecycle scripts — npm v10+ safe)
 npm install -g bigpowers
-bigpowers
+bigpowers setup     # runs sync + install, links skills to your tools
+
+# Or one-shot with npx
+npx bigpowers setup
 ```
 
 Both commands sync skill artifacts and link them to Claude Code, Gemini CLI, and Cursor (see [Prerequisites](#-prerequisites)).
@@ -50,10 +50,8 @@ Both commands sync skill artifacts and link them to Claude Code, Gemini CLI, and
 
 ```bash
 git clone https://github.com/danielvm-git/bigpowers.git && cd bigpowers
-npm install          # runs postinstall: sync + link
-# or manually:
+npm install
 bash scripts/install.sh
-npm run sync
 ```
 
 ---
@@ -253,7 +251,7 @@ Or add manually to `.claude/settings.json`:
 
 ```bash
 npm update -g bigpowers
-bigpowers    # re-sync and refresh symlinks
+bigpowers update   # re-sync and refresh symlinks
 ```
 
 **git clone:**
@@ -261,6 +259,7 @@ bigpowers    # re-sync and refresh symlinks
 ```bash
 git pull
 npm run sync
+bash scripts/install.sh
 ```
 
 *Install uses symlinks — re-running setup refreshes links without duplicating files.*
@@ -283,9 +282,9 @@ bash scripts/install.sh --uninstall
 ### Reinstall
 
 ```bash
-npx bigpowers
+npx bigpowers setup
 # or, if installed globally:
-bigpowers
+bigpowers setup
 ```
 
 ---

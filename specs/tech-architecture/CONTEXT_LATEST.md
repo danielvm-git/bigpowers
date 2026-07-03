@@ -23,7 +23,7 @@ The project is a discipline, not a plugin store. It provides the *how*, not the 
 - **Distribution**: npm package ([bigpowers](https://www.npmjs.com/package/bigpowers)), Claude Code (`.claude/`), Cursor (`.cursor/rules/`), Gemini CLI (`.gemini/extensions/`)
 - **Sync**: `scripts/sync-skills.sh` auto-generates harness artifacts from `SKILL.md` sources
 - **Compliance**: `npm run compliance` runs the Gherkin audit harness (`scripts/audit-compliance.sh`)
-- **Install**: `npx bigpowers` or `npm install -g bigpowers` (links hooks; from source: `bash scripts/install.sh`)
+- **Install**: `npm install -g bigpowers && bigpowers setup` (links hooks; from source: `bash scripts/install.sh`)
 
 ---
 
