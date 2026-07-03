@@ -324,7 +324,9 @@ npm run validate-specs
 
 ### Changelog
 
-See [CHANGELOG.md](CHANGELOG.md) or [Releases](https://github.com/danielvm-git/bigpowers/releases).
+See [CHANGELOG.md](CHANGELOG.md) for the auto-generated commit history, or [Releases](https://github.com/danielvm-git/bigpowers/releases) for GitHub release notes.
+
+For an executive narrative of the project's history — 98 releases across 41 days, 4 phases, 19 epics delivered — read [RELEASE-HISTORY.md](docs/RELEASE-HISTORY.md).
 
 ### Links
 
