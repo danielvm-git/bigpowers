@@ -3,19 +3,16 @@ epic_cycle:
   epic_id: e38
   epic_slug: traceability-gate
   capsule_dir: specs/epics/e38-traceability-gate
-  current_story: e38s02
+  current_story: e38s03
   total_bcps: 13
   story_bcps: 1
-  current_step: 7
+  current_step: 2
   completed_steps:
   - '0'
   - '1'
   - '2'
-  - '3'
-  - '4'
-  - '5'
-  - '6'
-  - '7'
+  story_start: '2026-07-03T06:30:00Z'
+  audit_result: none
   story_start: '2026-07-03T06:20:00Z'
   audit_result: pass
   fast_mode: true
