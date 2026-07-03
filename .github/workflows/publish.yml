@@ -41,6 +41,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Compliance gate
+        run: npm run compliance
+
       - name: Release
         run: npm run release
         env:
