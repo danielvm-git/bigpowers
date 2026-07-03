@@ -1,28 +1,18 @@
 active_flow: build_epic
 epic_cycle:
-  epic_id: e40
-  epic_slug: metrics-integrity
-  capsule_dir: specs/epics/e40-metrics-integrity
-  current_story: e40s08
-  total_bcps: 18
-  story_bcps: 1
-  current_step: 8
-  completed_steps:
-  - '0'
-  - '1'
-  - '2'
-  - '3'
-  - '4'
-  - '5'
-  - '6'
-  - '7'
-  - '8'
-  audit_result: pass
-  fast_mode: false
+  epic_id: e34
+  epic_slug: context-engineering
+  capsule_dir: specs/epics/e34-context-engineering
+  current_story: e34s01
+  total_bcps: 10
+  story_bcps: 2
+  current_step: 0
+  completed_steps: []
+  audit_result: null
+  fast_mode: true
 handoff:
   next_skill: survey-context
-  context: 'e40 COMPLETE. All 8 stories done (18 BCP). record-cycle-time.sh landed with OKF bundle emission, --telemetry flag, additivity self-check. validate-okf.sh wired into CI. cycle-times.yaml quarantined.
-    Benchmark axes scaffolded. Next: e34 Context Engineering (v2.5x train, 10 BCP).'
+  context: 'e34 Context Engineering kickoff. 4 stories, 10 BCP. Doc-only epic: reference doc + frontmatter edits + CLAUDE.md + session-state. Low risk.'
 bug_id: null
 bug_cycle:
   current_step: 0
