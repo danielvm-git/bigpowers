@@ -3,23 +3,29 @@ epic_cycle:
   epic_id: e31
   epic_slug: quality-guarantee
   capsule_dir: specs/epics/e31-quality-guarantee
-  current_story: e31s01
+  current_story: e31s02
   total_bcps: 11
   story_bcps: 2
-  current_step: 6
+  current_step: 0
   completed_steps:
     - "0"
     - "1"
     - "2"
-  audit_result: null
+    - "3"
+    - "4"
+    - "5"
+    - "6"
+    - "7"
+    - "8"
+  audit_result: pass
   fast_mode: true
 handoff:
-  next_skill: kickoff-branch
+  next_skill: build-epic
   context: >
-    e31s01 — G-04 sync-pipeline self-test. Step 0 (security-review): LOW risk,
-    no blocking findings. Steps 1-2 (survey + plan): story spec and tasks
-    already defined in e31s01-golden-selftest.md + e31s01-tasks.yaml (4 tasks).
-    Ready for kickoff-branch → develop-tdd.
+    e31s01 DONE — scripts/golden-g04-selftest.sh created and merged.
+    Found real discrepancy: context7.mdc in cursor/rules (73 vs 72).
+    Next: e31s02 — wire npm run compliance into publish.yml CI gate.
+    publish.yml already touched by Node20→Node24 migration — merge clean.
 bug_id: null
 bug_cycle:
   current_step: 0
