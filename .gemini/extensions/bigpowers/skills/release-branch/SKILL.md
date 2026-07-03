@@ -12,21 +12,19 @@ Finalize a completed feature branch: verify coverage gates, integrate onto `main
 
 ## Additional modes
 
-- `--hotfix`: Emergency fix. Cherry-pick to main plus immediate tag. Skip PR in solo profile.
-- `--squash-state`: Squashes all intermediate `chore(state):` commits on the feature branch into a single clean commit before merging. Use this to reduce noise in the main git repository history.
+- `--hotfix`: Cherry-pick to main + tag. Skip PR in solo.
+- `--squash-state`: Squash `chore(state):` commits before merge.
 
 ## Integrate mode
 
-Read `specs/state.yaml` key `workflow_mode` first (`team-pr` | `solo-git`). Fall back to sniffing `profiles/solo-git.md` only when the key is absent.
+Read `specs/state.yaml` key `workflow_mode` (`team-pr` | `solo-git`). Fall back to `profiles/solo-git.md`.
 
 | Mode | When | Ship path |
 |------|------|-----------|
-| **solo-local** | `workflow_mode: solo-git` (or `profiles/solo-git.md` present as fallback) | Auto-detect: if `scripts/land-branch.sh` exists → use it; else → fallback (see Step 5) |
+| **solo-local** | `workflow_mode: solo-git` | Auto: `scripts/land-branch.sh` if present, else fallback (Step 5) |
 | **team-pr** | `workflow_mode: team-pr` (default) | `gh pr create` → `gh pr merge --squash` |
 
-If unsure and working alone, prefer **solo-local**.
-
-> **Auto-detect note:** The solo-local path first checks if `scripts/land-branch.sh` exists and is executable. If present, the script handles the full squash-merge workflow. If absent, the built-in fallback sequence runs instead.
+If unsure, prefer **solo-local**.
 
 ## Process
 
@@ -54,13 +52,7 @@ If REVIEW.md is missing or stale → run `security-review` inline. Findings bloc
 
 ### 2b. Traceability gate
 
-Run the `gate-trace` skill to verify traceability before merge:
-
-- [ ] `gate-trace` PASS verdict (or WAIVED if no matrix available)
-- [ ] On FAIL: **block merge** — fix traceability gaps first
-- [ ] On CONCERNS: require explicit human override in `specs/state.yaml` (`handoff.context` must include `traceability_override: CONCERNS accepted, reason: <explanation>`)
-
-If `gate-trace` returns FAIL, return to the active epic to add story tags.
+Run `gate-trace` before merge. FAIL blocks merge; CONCERNS requires explicit override in `specs/state.yaml` (`traceability_override: CONCERNS accepted, reason: <explanation>`). WAIVED if no matrix available.
 
 ### 3. Diff review
 
@@ -72,19 +64,13 @@ Options: **Release (solo-local)** / **Open PR** / **Keep branch** / **Discard**
 
 ### 5. Solo-local integrate
 
-Run `commit-message` to produce the squash commit subject. Then auto-detect the integration path:
+Run `commit-message` for the squash subject, then land:
 
-**Path A — `scripts/land-branch.sh` exists (happy path):**
 ```bash
+# Path A (preferred):
 bash scripts/land-branch.sh <task-slug> "feat(scope): description"
+# Path B (fallback if land-branch.sh missing): see REFERENCE.md
 ```
-
-**Path B — `scripts/land-branch.sh` missing (fallback):**
-See [REFERENCE.md](REFERENCE.md)
-
-**Report which path was taken.** Print exactly:
-- `"used land-branch.sh"` if Path A
-- `"used fallback merge (land-branch.sh not found)"` if Path B
 
 ### 6. Create PR (team-pr only)
 
