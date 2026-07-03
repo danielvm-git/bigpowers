@@ -1,3 +1,220 @@
 version: "1"
-terms: []
-note: "Populate via define-language skill; was UBIQUITOUS_LANGUAGE.md"
+terms:
+  - term: BCP
+    full: Business Complexity Points
+    definition: >
+      A pre-build story size metric assigned via a 6-step sizing method
+      (flow-ciandt/bcp-agent). BCP measures relative implementation
+      complexity, not time. Used in release planning (WSJF = BV+TC+RR-OE
+      over JS where JS is BCP proxy) and velocity tracking (BCP/hr).
+      Canonical method documented in docs/references/bcp.md.
+    source: flow-ciandt/bcp-agent (BMAD ecosystem)
+    related_terms: [WSJF, story, velocity, sizing]
+
+  - term: WSJF
+    full: Weighted Shortest Job First
+    definition: >
+      Prioritization formula from SAFe: (Business Value + Time Criticality +
+      Risk Reduction/Opportunity Enablement) / Job Size. In bigpowers, Job
+      Size is proxied by BCP. Epics in specs/release-plan.yaml carry WSJF
+      scores; higher scores ship first. Release trains group epics by value
+      and dependency, not raw WSJF rank.
+    source: SAFe (Scaled Agile Framework)
+    related_terms: [BCP, release train, epic, prioritization]
+
+  - term: OKF
+    full: Open Knowledge Format
+    definition: >
+      A structured markdown format for inter-agent knowledge transfer.
+      OKF bundles are concept documents with typed frontmatter (type,
+      authority, status, depth) and provenance metadata. The bigpowers
+      implementation (e39 Semantic Context Bridge) renders OKF bundles
+      from SKILL.md sources via sync-skills.sh and validates them with
+      validate-okf.sh. Authority doc: docs/references/okf.md.
+    source: OKF v0.1 (bigpowers e39)
+    related_terms: [sync pipeline, skill, knowledge graph, MCP]
+
+  - term: golden story
+    definition: >
+      An end-to-end agent-executed story that doubles as a CI gate.
+      Each golden story (G-01 through G-NN) is a deterministic workflow
+      run against a known fixture with a pass@k flake policy (currently
+      2-of-3). Defined in specs/benchmarks/ and exercised by the golden
+      suite runner (scripts/run-golden-suite.sh). G-01 runs via DeepSeek
+      v4 through the Anthropic protocol.
+    source: bigpowers e31/e37 (Golden Story Suite)
+    related_terms: [benchmark, golden suite, pass@k, CI gate]
+
+  - term: HARD GATE
+    definition: >
+      A non-negotiable checkpoint in a skill or workflow. HARD GATEs block
+      all progress until the condition is met — the agent MUST NOT proceed
+      past the gate. Contrasts with soft gates (warnings) and informational
+      checkpoints. Every HARD GATE in a SKILL.md must be signaled with a
+      bold callout block ("> **HARD GATE** —").
+    source: bigpowers methodology (superpowers compliance)
+    related_terms: [soft gate, skill, compliance, superpowers]
+
+  - term: soft gate
+    definition: >
+      A conditional checkpoint that warns but does not block. Soft gates
+      allow the agent to proceed with documented rationale (override
+      recorded in specs/state.yaml). Contrasts with HARD GATEs which
+      block unconditionally.
+    source: bigpowers methodology
+    related_terms: [HARD GATE, compliance, override]
+
+  - term: handoff
+    definition: >
+      The mechanism by which one skill signals the next skill to invoke,
+      carried in specs/state.yaml under handoff.next_skill and
+      handoff.context. Every critical-path skill writes a handoff as
+      its last action. Agents read state.yaml and follow handoff.next_skill
+      rather than guessing what comes next. The next_skill signaling
+      mandate (v2.0.0) ensures deterministic workflow progression.
+    source: bigpowers v2.0.0 (handoff mandate)
+    related_terms: [state.yaml, critical-path, workflow, session state]
+
+  - term: capsule
+    full: epic capsule
+    definition: >
+      A directory under specs/epics/eNN-slug/ containing all artifacts
+      for a single epic: epic.yaml (metadata), story files (eNNsNN.md),
+      task files (eNNsNN-tasks.yaml), and related resources. Capsules
+      are the unit of epic storage; completed capsules are archived to
+      specs/epics/archive/. The capsule structure replaced flat YAML
+      epics in v4.0.0.
+    source: bigpowers v4.0.0 (capsule directory convention)
+    related_terms: [epic, story, archive, release train]
+
+  - term: train
+    full: release train
+    definition: >
+      A sequenced group of epics in specs/release-plan.yaml under
+      release_trains, organized by value delivery and dependency rather
+      than raw WSJF order. Each train has a codename, total BCP,
+      rationale, and a list of epic IDs. Trains supersede linear epic
+      ordering — pull-forward and deferral decisions are documented
+      in the train rationale.
+    source: bigpowers v2.5x (release train sequencing)
+    related_terms: [WSJF, epic, capsule, release plan, BCP]
+
+  - term: BCP sizing scale
+    definition: >
+      The 6-step method for assigning BCP to a story: (1) read the story
+      spec, (2) identify complexity drivers, (3) estimate relative to a
+      known baseline, (4) assign a Fibonacci-scale value, (5) document
+      rationale, (6) peer-review or self-calibrate. The scale is
+      anchored on a reference story of known complexity. Documented in
+      docs/references/bcp.md.
+    source: flow-ciandt/bcp-agent
+    related_terms: [BCP, story, velocity, sizing]
+
+  - term: deepening
+    definition: >
+      A design philosophy from "A Philosophy of Software Design"
+      (Ousterhout): modules should have small interfaces and deep
+      implementations. A deep module hides complexity behind a simple
+      API. The opposite is a shallow module (large interface, thin
+      implementation). bigpowers applies deepening to both code
+      (deepen-architecture skill) and skills (design-interface skill's
+      "Design It Twice" pattern). The v2.45.0 release codename
+      "Deepening" reflects this philosophy.
+    source: John Ousterhout, "A Philosophy of Software Design"
+    related_terms: [deep module, architecture, refactor, design]
+
+  - term: traceability gate
+    definition: >
+      A deterministic CI gate (e38) that links story IDs to implementing
+      code and tests. Three tiers: matrix builder (trace-stories.sh),
+      blind-spot heuristic detector, and quality gate decision (PASS/
+      CONCERNS/FAIL/WAIVED). TEA-inspired oracle confidence downgrade:
+      tagged→high, heuristic→medium, inferred→low. Machine-readable
+      output at specs/traceability-matrix.json.
+    source: bigpowers e38 (Spec-to-Code Traceability Gate), BMAD TEA
+    related_terms: [story tag, blind spot, oracle confidence, CI gate]
+
+  - term: story tag
+    definition: >
+      A code-level provenance marker of the form `story: eNNsNN` placed
+      in implementing files and tests. Every story MUST have at least one
+      story tag. trace-stories.sh --strict scans for untagged stories
+      and fails the CI traceability gate. Story tags are woven into git
+      history, cycle-times.yaml, and the traceability matrix — they are
+      immutable identifiers.
+    source: bigpowers methodology (traceability mandate)
+    related_terms: [traceability gate, story, epic, CI gate]
+
+  - term: compliance
+    definition: >
+      The automated quality assurance pipeline: audit-compliance.sh
+      (Gherkin step scripts), validate-doctrine.sh (documentation
+      integrity), and the golden suite (deterministic self-tests).
+      Runs as `npm run compliance` and in CI. Score threshold: 94%.
+      Waiver subsystem (P0 #1, 2026-07-03) excludes documented
+      intentional failures from the denominator.
+    source: bigpowers methodology (compliance gate)
+    related_terms: [audit, golden suite, waiver, step script, CI gate]
+
+  - term: pass@k
+    definition: >
+      A benchmark metric measuring the probability that at least one
+      of k agent runs produces a correct result. In bigpowers,
+      golden stories use pass@k with a 2-of-3 flake policy — a story
+      passes if 2 of 3 independent agent runs succeed. Runs are
+      deterministic and use pinned model versions (e.g., G-01 uses
+      DeepSeek v4 via Anthropic protocol).
+    source: bigpowers e37 (Golden Story Suite), ML benchmark literature
+    related_terms: [golden story, benchmark, golden suite, CI gate]
+
+  - term: sync pipeline
+    definition: >
+      The scripts/sync-skills.sh pipeline that reads all SKILL.md source
+      files and renders them into IDE-specific artifacts: .cursor/rules/
+      (.mdc), .gemini/extensions/bigpowers/ (Gemini CLI), .pi/skills/
+      (pi agent). Each render target is a function; adding a new IDE
+      target means adding a function, not editing a loop. OKF bundles
+      are the fourth render target (e39+e33).
+    source: bigpowers e33 (Sync Pipeline Refactor)
+    related_terms: [OKF, skill, artifact, render target, IDE]
+
+  - term: blind spot
+    definition: >
+      A heuristic-identified gap in spec-to-code coverage: a story that
+      exists in the release plan but has no detectable implementation
+      in the codebase. Blind spots are surfaced by scripts/check-blind-spots.sh
+      and carry lower oracle confidence (heuristic→medium) than tagged
+      stories (tagged→high). The traceability gate downgrades confidence
+      for blind-spot matches.
+    source: bigpowers e38 (Traceability Gate), BMAD TEA
+    related_terms: [traceability gate, oracle confidence, story tag, heuristic]
+
+  - term: oracle confidence
+    definition: >
+      A 3-tier confidence grading for traceability matches:
+      tagged → high (story tag found in code),
+      heuristic → medium (blind-spot heuristic matched),
+      inferred → low (no direct evidence, dependency-chain guess).
+      The e38 traceability gate downgrades its verdict when oracle
+      confidence is medium or low, flagging stories for manual review.
+      TEA-inspired (BMAD Test Architecture Enterprise).
+    source: bigpowers e38, BMAD TEA
+    related_terms: [traceability gate, blind spot, story tag, heuristic]
+
+  - term: cycle time
+    definition: >
+      The delivery metric for a story. Two separated fields in
+      specs/metrics/cycle-times.yaml: effort_hours (git-derived,
+      additive, idle-stripped via git-hours model) and lead_time_minutes
+      (calendar latency from first commit to merge, median-aggregated,
+      never summed). Replaced the deprecated hand-arithmetic approach
+      (story_start minus story_end) in bigpowers v2.0.0 / e40.
+    source: bigpowers e40 (Metrics Integrity)
+    related_terms: [BCP, velocity, metrics, release]
+
+note: >
+  Populated 2026-07-03 as part of BUG-2026-07-03-glossary-sparse (P2 #9).
+  19 core domain terms covering BCP, WSJF, OKF, golden story, HARD GATE,
+  handoff, capsule, train, traceability gate, compliance, and more.
+  Linked to authority sources (docs/references/, release-plan.yaml,
+  CONVENTIONS.md). Maintain via define-language skill for additions.
