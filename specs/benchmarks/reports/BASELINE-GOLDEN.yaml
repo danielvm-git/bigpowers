@@ -1,0 +1,94 @@
+timestamp: "2026-07-03T03:57:19Z"
+git_commit: "34d0ce89c4a26915786bd9b45379e7f2c289cc06"
+suite: "golden-deterministic"
+mode: "baseline"
+gates:
+- name: compliance
+  exit_code: 0
+  duration_seconds: 16.74
+  status: pass   - name: g04-selftest
+  exit_code: 1
+  duration_seconds: .03
+  status: fail
+summary:
+  total: 2
+  passed: 1
+  failed: 1
+  skipped: 0
+  pass_rate: .50
+  overall: "fail"
+
+# Skill byte counts (baseline for e31s04 size budget)
+skill_sizes:
+  align-grid: 12066
+  assess-impact: 3090
+  audit-code: 5894
+  audit-plan: 3580
+  build-epic: 5171
+  change-request: 2574
+  commit-message: 3512
+  compose-workflow: 2130
+  craft-skill: 2755
+  deepen-architecture: 6069
+  define-language: 3965
+  define-success: 2748
+  delegate-task: 3244
+  deploy: 4090
+  design-interface: 3650
+  develop-tdd: 4543
+  diagnose-root: 1257
+  dispatch-agents: 3192
+  edit-document: 1214
+  elaborate-spec: 3994
+  enforce-first: 3425
+  evolve-skill: 1729
+  execute-plan: 2204
+  extract-design: 4084
+  fix-bug: 2283
+  grill-me: 1960
+  grill-with-docs: 1425
+  guard-git: 2828
+  hook-commits: 2478
+  inspect-quality: 4466
+  investigate-bug: 4974
+  kickoff-branch: 4500
+  map-codebase: 3415
+  migrate-spec: 5435
+  model-domain: 4746
+  orchestrate-project: 3678
+  organize-workspace: 3911
+  plan-refactor: 3034
+  plan-release: 5856
+  plan-work: 4044
+  publish-package: 2857
+  quick-fix: 4370
+  release-branch: 5055
+  request-review: 3533
+  research-first: 2391
+  reset-baseline: 780
+  respond-review: 2151
+  run-benchmark: 2607
+  run-evals: 1259
+  run-planning: 4661
+  scope-work: 3874
+  search-skills: 3288
+  security-review: 2979
+  seed-conventions: 3915
+  session-state: 5975
+  setup-environment: 1106
+  simulate-agents: 1243
+  slice-tasks: 4312
+  smoke-test: 2151
+  spike-prototype: 3305
+  stocktake-skills: 2349
+  survey-context: 5467
+  terse-mode: 2132
+  trace-requirement: 2477
+  using-bigpowers: 4732
+  validate-contracts: 3483
+  validate-fix: 3769
+  verify-work: 6044
+  visual-dashboard: 2042
+  wire-ci: 5066
+  wire-observability: 3231
+  write-document: 5119
