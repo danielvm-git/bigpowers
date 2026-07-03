@@ -1,7 +1,7 @@
 ---
 type: Index
-generated_at: 2026-07-03T20:30:13.754697+00:00
-total_concepts: 110
+generated_at: 2026-07-03T20:42:32.857393+00:00
+total_concepts: 149
 ---
 
 # Codebase Wiki — Story Traceability
@@ -11,7 +11,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | Story | Title | Confidence | Links |
 |-------|-------|------------|-------|
 | [e01s01](./e01s01.md) | slopcheck tags in `plan-work` ([OK]/[SUS]/[SLOP]) | high | 6 |
-| [e01s02](./e01s02.md) | Supply-chain + OWASP in `audit-code` | medium | 108 |
+| [e01s02](./e01s02.md) | Supply-chain + OWASP in `audit-code` | medium | 120 |
 | [e01s03](./e01s03.md) | Secret patterns documented in `guard-git` | medium | 4 |
 | [e01s04](./e01s04.md) | `docs/references/security-threats.md` reconciled | none | 0 |
 | [e02s01](./e02s01.md) | `verify-work`, `run-evals` skills | high | 23 |
@@ -28,8 +28,8 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e05s03](./e05s03.md) | `orchestrate-project` reads model + spawn list | medium | 3 |
 | [e06s01](./e06s01.md) | `type:` / `context:` in plan-work template | medium | 5 |
 | [e06s02](./e06s02.md) | ADR/SHA refs on steps | none | 0 |
-| [e06s03](./e06s03.md) | `audit-code` metadata checks | medium | 108 |
-| [e07s01](./e07s01.md) | Demeter in CONVENTIONS.md + audit-code | medium | 108 |
+| [e06s03](./e06s03.md) | `audit-code` metadata checks | medium | 120 |
+| [e07s01](./e07s01.md) | Demeter in CONVENTIONS.md + audit-code | medium | 120 |
 | [e07s02](./e07s02.md) | Module Depth score in deepen-architecture | medium | 5 |
 | [e07s03](./e07s03.md) | Concurrency audit in model-domain | medium | 3 |
 | [e08s01](./e08s01.md) | Wave Execution | medium | 1 |
@@ -58,7 +58,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e14s01](./e14s01.md) | Harden release-branch solo-local fallback | medium | 7 |
 | [e14s02](./e14s02.md) | Add fix-rate KPI to session-state tracking | medium | 9 |
 | [e14s03](./e14s03.md) | Catalog completeness audit — verify all pi skills exist in p | medium | 13 |
-| [e18s01](./e18s01.md) | audit-code as hard gate in build-epic step 6 | medium | 122 |
+| [e18s01](./e18s01.md) | audit-code as hard gate in build-epic step 6 | medium | 134 |
 | [e18s02](./e18s02.md) | Wire enforce-first (F.I.R.S.T) into build-epic gate chain | medium | 20 |
 | [e18s03](./e18s03.md) | Wire assess-impact into build-epic step 2 (plan-work) | medium | 20 |
 | [e18s04](./e18s04.md) | Universalize resume/checkpoint pattern to fix-bug and orches | medium | 11 |
@@ -74,6 +74,10 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e25s04](./e25s04.md) | Add adversarial review pass after migration (BMAD learning) | medium | 2 |
 | [e25s05](./e25s05.md) | Add two-pass spec writing gate (spec-kit learning) | medium | 45 |
 | [e25s06](./e25s06.md) | Add methodology doc template (GSD learning) | medium | 2 |
+| [e28s01](./e28s01.md) | Create scripts/lib/skill-common.sh with shared functions (re | medium | 2 |
+| [e28s02](./e28s02.md) | Refactor 13 scripts to source skill-common.sh instead of dup | medium | 7 |
+| [e28s03](./e28s03.md) | Refactor sync-skills.sh to use render-target functions (one  | medium | 7 |
+| [e28s04](./e28s04.md) | Refactor regenerate-lockfile.sh, generate-skill-index.sh, bu | medium | 330 |
 | [e30s01](./e30s01.md) | Add 3 missing skills to get_phase() in generate-skill-index. | high | 36 |
 | [e30s02](./e30s02.md) | Fix 4 broken specs/tech-architecture/ references | high | 1 |
 | [e30s03](./e30s03.md) | Delete stale karpathy.feature.bak | high | 1 |
@@ -85,11 +89,37 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e31s05](./e31s05.md) | Pin baseline via run-golden-suite.sh --baseline -> specs/ben | medium | 7 |
 | [e31s06](./e31s06.md) | Mandate run-golden-suite.sh as pre-merge step in CLAUDE.md a | medium | 37 |
 | [e31s07](./e31s07.md) | Point evolve-skill SKILL.md at run-golden-suite.sh for regre | medium | 10 |
+| [e32s01](./e32s01.md) | Spike: build bigpowers-mcp with index_skills + read_skill, v | medium | 20 |
+| [e32s02](./e32s02.md) | Add build_skill_graph tool — entity-relation model from pars | medium | 7 |
+| [e32s03](./e32s03.md) | Add search_skills + get_dependencies tools | none | 0 |
+| [e32s04](./e32s04.md) | Add get_git_context tool — change awareness for drift detect | medium | 4 |
+| [e32s05](./e32s05.md) | Add validate_skill tool — convention compliance check | none | 0 |
+| [e32s06](./e32s06.md) | Register bigpowers-mcp in MCP client configs (Claude Code, C | medium | 64 |
+| [e32s07](./e32s07.md) | Write docs/references/bigpowers-mcp.md — architecture and op | medium | 2 |
+| [e33s01](./e33s01.md) | Scaffold Astro Starlight site in website/ with local dev | medium | 4 |
+| [e33s02](./e33s02.md) | Source-mapping prebuild — pages generated from repo sources | medium | 24 |
+| [e33s03](./e33s03.md) | SEO + AI discoverability layer | medium | 2 |
+| [e33s04](./e33s04.md) | GitHub Pages deploy workflow | medium | 2 |
+| [e33s05](./e33s05.md) | Doctrine wiring — site content is generated, never edited | medium | 2 |
+| [e35s01](./e35s01.md) | Create docs/references/kent-beck.md (XP, TDD origins, Tidy F | low | 1 |
+| [e35s02](./e35s02.md) | Create docs/references/fowler.md (refactoring catalog, code  | low | 1 |
+| [e35s03](./e35s03.md) | Create docs/references/feathers.md (seams, characterization  | low | 1 |
+| [e35s04](./e35s04.md) | Create docs/references/pragmatic-programmer.md (DRY, broken  | low | 1 |
+| [e35s05](./e35s05.md) | Create docs/references/rich-hickey.md (simple vs easy, compl | low | 1 |
+| [e35s06](./e35s06.md) | Create docs/references/sandi-metz.md (SOLID in practice, mes | medium | 3 |
+| [e35s07](./e35s07.md) | Create docs/references/ddd.md (bounded contexts, context map | low | 1 |
+| [e35s08](./e35s08.md) | Create docs/references/accelerate.md (DORA four keys) | medium | 2 |
+| [e35s09](./e35s09.md) | Update PRINCIPLES.md to credit Beck, Fowler, Feathers, Hunt  | low | 1 |
+| [e35s10](./e35s10.md) | Cross-reference new docs from SKILL.md bodies | medium | 2 |
 | [e36s01](./e36s01.md) | Slim docs/references/uncle-bob.md to provenance pointer | low | 2 |
 | [e36s02](./e36s02.md) | Slim docs/references/akita.md, ousterhout.md, karpathy.md, w | low | 1 |
-| [e36s03](./e36s03.md) | Remove F.I.R.S.T rubric restatement from enforce-first and a | medium | 136 |
+| [e36s03](./e36s03.md) | Remove F.I.R.S.T rubric restatement from enforce-first and a | medium | 148 |
 | [e36s04](./e36s04.md) | Update docs/references/spec-kit.md to cover full SDD tool la | medium | 3 |
 | [e36s05](./e36s05.md) | Refresh docs/references/bmad.md from BMAD v6/TEA — currently | none | 0 |
+| [e37s01](./e37s01.md) | BCP Plus counter integration — install and smoke-test big-co | medium | 25 |
+| [e37s02](./e37s02.md) | BCP Plus template — 13-dimension breakdown in story specs | medium | 1 |
+| [e37s03](./e37s03.md) | NFR Gate integration — security-review and wire-observabilit | medium | 13 |
+| [e37s04](./e37s04.md) | Build-epic integration — BCP Plus in story sizing workflow | medium | 8 |
 | [e39s01](./e39s01.md) | Emit the skill graph artifact via e43's MCP server (build_sk | medium | 414 |
 | [e39s02](./e39s02.md) | Create specs/agent-locks.yaml — multi-agent coordination pro | low | 1 |
 | [e39s03](./e39s03.md) | Create scripts/check-spec-drift.sh — requirement change → su | medium | 5 |
@@ -105,6 +135,15 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e41s03](./e41s03.md) | CI wiring — regenerate receipts on every main push; provenan | low | 1 |
 | [e41s04](./e41s04.md) | Honesty guardrails codified — validate-okf checks receipts.j | medium | 5 |
 | [e41s05](./e41s05.md) | README + launch note point to the live receipts page | medium | 4 |
+| [e42s01](./e42s01.md) | Spike: headless golden-chain harness — gh-aw + DeepSeek v4 p | medium | 5 |
+| [e42s02](./e42s02.md) | Create specs/benchmarks/fixtures/minimal-api/ fixture repo ( | medium | 4 |
+| [e42s03](./e42s03.md) | Author 4 golden story YAMLs (g-01, g-02, g-03, g-05) with co | medium | 17 |
+| [e42s04](./e42s04.md) | Add --agent mode to run-golden-suite.sh: headless chain exec | medium | 219 |
+| [e43s01](./e43s01.md) | Scaffold the showcase app in a separate public repo via seed | medium | 11 |
+| [e43s02](./e43s02.md) | Build one feature epic end-to-end via the 8-step build-epic  | medium | 571 |
+| [e43s03](./e43s03.md) | Fix one real bug via the investigate-bug → develop-tdd → val | medium | 52 |
+| [e43s04](./e43s04.md) | Link the showcase from README + docs site; register as e37 g | medium | 6 |
+| [e43s05](./e43s05.md) | Add offline-tolerant fallbacks for e43 verify commands that  | medium | 1 |
 | [e44s01](./e44s01.md) | Define OKF schema for spec-migration and migration-registry; | high | 64 |
 | [e44s02](./e44s02.md) | Create scripts/check-spec-version-gap.sh — fingerprint + sta | high | 71 |
 | [e44s03](./e44s03.md) | Create scripts/migrate-version.sh — one-shot ordered migrati | high | 15 |

@@ -15,12 +15,6 @@ source: |
   applied to OKF wiki indexes for conditional agent loading. BCP 8→10.
 release: v2.8x
 codename: "Docs Polish"
-source: |
-  Closes remaining OKF surface area named in specs/IMPACT-e38-okf-adoption.md
-  but not yet owned by any epic. OKF v0.1 already has story-metrics (e40),
-  spec-migration (e44), and migration-registry (e44) bundles in production.
-  This epic completes the taxonomy with the four remaining OKF types plus
-  a visual graph companion.
 
 stories:
   - id: e45s01

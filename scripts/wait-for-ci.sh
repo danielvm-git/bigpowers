@@ -18,7 +18,7 @@ BRANCH=$(git branch --show-current 2>/dev/null || echo "main")
 COMMIT=""
 OUTPUT_JSON=false
 
-usage() {
+usage_ci() {
   sed -n '2,12p' "$0" | sed 's/^# //'
 }
 
@@ -29,8 +29,8 @@ while [[ $# -gt 0 ]]; do
     --branch) BRANCH="$2"; shift 2 ;;
     --commit) COMMIT="$2"; shift 2 ;;
     --json) OUTPUT_JSON=true; shift ;;
-    --help) usage; exit 0 ;;
-    *) echo "Unknown flag: $1"; usage; exit 2 ;;
+    --help) usage_ci; exit 0 ;;
+    *) echo "Unknown flag: $1"; usage_ci; exit 2 ;;
   esac
 done
 

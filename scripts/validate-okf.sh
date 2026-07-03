@@ -1,31 +1,8 @@
 #!/usr/bin/env bash
 # story: e38s09
-#
-# validate-okf.sh — provenance gate for OKF bundles (e40/e31/e44 style).
-#
-# Kind-aware: validates story-metrics, spec-migration, and migration-registry
-# bundles against their respective schemas. Fail-closed: unknown flags exit 2,
-# missing directories exit 1. Multi-dir default scans specs/metrics/ AND
-# specs/migrations/.
-#
-# A story-metrics bundle is valid iff:
-#   1. The generator ran (generator field matches scripts/record-cycle-time.sh).
-#   2. commit_range resolves to real commits in the repo.
-#   3. Source enum is valid (measured|estimated|backfilled).
-#   4. Required keys are present with non-null values.
-#
-# A spec-migration bundle is valid iff:
-#   1. id, title, since_version, order, actions_needed are present.
-#   2. fingerprint.any has at least one file/exists check.
-#
-# A migration-registry bundle is valid iff:
-#   1. migrations list has at least one entry with id + file + status.
-#
-# This script gates on PROVENANCE, NEVER on a specific metric value.
-#
-# Usage:
-#   scripts/validate-okf.sh [--dir <path>] [--bundle <file>] [--help]
-#
+# validate-okf.sh — kind-aware, fail-closed provenance gate for OKF bundles.
+# Validates story-metrics, spec-migration, and migration-registry bundles.
+# Multi-dir default: specs/metrics/ + specs/migrations/.
 set -euo pipefail
 
 ROOT="$(git rev-parse --show-toplevel 2>/dev/null)" || { echo "validate-okf: not inside a git repo"; exit 1; }
@@ -33,7 +10,7 @@ EXIT_CODE=0
 
 RED='\033[0;31m'; GREEN='\033[0;32m'; YELLOW='\033[0;33m'; NC='\033[0m'
 
-usage() {
+usage_okf() {
   cat <<'EOF'
 Usage: scripts/validate-okf.sh [flags]
 
@@ -54,6 +31,14 @@ Description:
 EOF
   exit 0
 }
+
+# ---- Helpers ------------------------------------------------------------
+
+# True if value is empty, null JSON literal, or Python None string.
+val_nullish() { [ -z "$1" ] || [ "$1" = "null" ] || [ "$1" = "None" ]; }
+
+# True if value is nullish OR the JSON empty array literal.
+val_nullish_or_empty() { val_nullish "$1" || [ "$1" = "[]" ]; }
 
 # ---- YAML frontmatter parser (datetime-safe) ---------------------------
 parse_frontmatter() {
@@ -89,11 +74,10 @@ validate_story_metrics() {
   local file="$1" fm="$2" name="$3"
   local errs=0
 
-  # Required keys
   for key in id epic bcps commit_range source generated_at generator; do
     local val
     val="$(echo "$fm" | python3 -c "import json,sys; d=json.load(sys.stdin); print(d.get('$key',''))" 2>/dev/null)"
-    if [ -z "$val" ] || [ "$val" = "null" ] || [ "$val" = "None" ]; then
+    if val_nullish "$val"; then
       printf "${RED}FAIL${NC} %s: missing required key '%s'\n" "$name" "$key"
       errs=$((errs + 1))
     fi
@@ -150,11 +134,10 @@ validate_spec_migration() {
   local file="$1" fm="$2" name="$3"
   local errs=0
 
-  # Required keys
   for key in id title since_version order actions_needed; do
     local val
     val="$(echo "$fm" | python3 -c "import json,sys; d=json.load(sys.stdin); print(d.get('$key',''))" 2>/dev/null)"
-    if [ -z "$val" ] || [ "$val" = "null" ] || [ "$val" = "None" ] || [ "$val" = "[]" ]; then
+    if val_nullish_or_empty "$val"; then
       printf "${RED}FAIL${NC} %s: missing required key '%s'\n" "$name" "$key"
       errs=$((errs + 1))
     fi
@@ -262,7 +245,6 @@ scan_dir() {
 # ---- main ----------------------------------------------------------------
 DIRS=()
 BUNDLE=""
-DEFAULT_DIRS=("$ROOT/specs/metrics" "$ROOT/specs/migrations")
 
 if [ $# -eq 0 ]; then
   DIRS=("$ROOT/specs/metrics" "$ROOT/specs/migrations")
@@ -272,10 +254,10 @@ while [ $# -gt 0 ]; do
   case "$1" in
     --dir)     DIRS+=("$2"); shift 2 ;;
     --bundle)  BUNDLE="$2"; shift 2 ;;
-    --help|-h) usage ;;
+    --help|-h) usage_okf ;;
     *)
       echo "validate-okf: unknown flag: $1" >&2
-      echo "Run 'scripts/validate-okf.sh --help' for usage." >&2
+      echo "Run 'scripts/validate-okf.sh --help' for help." >&2
       exit 2
       ;;
   esac

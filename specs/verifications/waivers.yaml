@@ -59,26 +59,4 @@ waivers:
     reviewer: bigpowers-maintainer
     feature: akita.feature
 
-  - step_sanitized: and-names-should-describe-side-effects-n7
-    reason: >
-      False positive — audit-compliance.sh contains is_waived() (pure
-      query function, no writes) alongside write-side-effect functions
-      in the same file (report generation, temp file creation). The N7
-      heuristic matches files that contain BOTH pure-named functions AND
-      write operations anywhere in the file, not per-function. is_waived()
-      itself is a side-effect-free predicate. Re-evaluate after e33
-      (Sync Pipeline Refactor) if audit-compliance.sh is split.
-    review_date: "2026-10-01"
-    reviewer: bigpowers-maintainer
-    feature: cleancode.feature
 
-  - step_sanitized: and-dead-code-and-unused-functions-should-be-removed-g9-f4
-    reason: >
-      False positive — judge_binary() in audit-compliance.sh is called
-      via dynamic dispatch (variable function name), which the grep-based
-      dead-code detector cannot resolve. The function is part of the
-      binary-judge fallback path and is reachable. Re-evaluate when a
-      call-graph-based dead-code detector replaces the grep heuristic.
-    review_date: "2026-10-01"
-    reviewer: bigpowers-maintainer
-    feature: cleancode.feature

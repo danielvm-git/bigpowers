@@ -11,7 +11,11 @@ handoff:
     - P2 capsule-release-labels (15b18f4): 8 capsule labels synced to release trains
     - P2 glossary-sparse (8a22358): 19 core domain terms populated
     - P3 trace-stories-613-line (607c0fd): documented exception in CONVENTIONS.md
-    All CI passed. 0 open bugs. Next: survey-context → build-epic on e43 (v2.7x train, WSJF 4.00).
+    PLAN-AUDIT full-project re-audit 2026-07-03: 7 capsule_dir mismatches fixed,
+    train re-sorted by WSJF, SCOPE stale mappings corrected. e42 set to ready.
+    All CI passed. 0 open bugs. Next: survey-context → build-epic on e28
+    (Sync Pipeline Refactor, v2.6x train, WSJF 2.0 — architectural dependency
+    unblocking e39 OKF rendering, e32 MCP server, e41 public receipts).
 release:
   ci_verified: true
   released_at: '2026-07-03T17:50:00Z'

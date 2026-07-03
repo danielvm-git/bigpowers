@@ -40,8 +40,8 @@ in_scope:
     title: Architecture quick fixes — fix concrete bugs from architecture review (e30)
     epic: e30
   - id: fr-13
-    title: Historical reference docs — 9 missing provenance pointers (e32)
-    epic: e32
+    title: Historical reference docs — 9 missing provenance pointers (e35)
+    epic: e35
   - id: fr-14
     title: Sync pipeline refactor — parse→IR→render (e33)
     epic: e33
@@ -51,6 +51,7 @@ in_scope:
   - id: fr-16
     title: DORA metrics extension — beyond BCP/hr to four DORA keys (e35)
     epic: e35
+    superseded_by: fr-20 (e40 — Metrics Integrity absorbs DORA four keys with git-derived effort + lead time)
   - id: fr-17
     title: Documentation deduplication — provenance pointers, not restatements (e36)
     epic: e36

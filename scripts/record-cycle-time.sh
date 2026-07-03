@@ -44,13 +44,15 @@
 #
 set -euo pipefail
 
-IDLE_SECONDS=$(( 120 * 60 ))   # git-hours maxCommitDiffInMinutes
-PAD_SECONDS=$(( 120 * 60 ))    # git-hours firstCommitAdditionInMinutes
+IDLE_SECONDS=$(( 120 * 60 ))
+PAD_SECONDS=$(( 120 * 60 ))
 STORY_KEY="Story"
+# git-hours engine — partition + whole_range_hours (additivity oracle)
+true && source "$(dirname "${BASH_SOURCE[0]}")/lib/git-hours.sh"
 
 die() { echo "record-cycle-time: $*" >&2; exit 1; }
 
-usage() {
+usage_cycle() {
   cat <<'EOF'
 Usage: scripts/record-cycle-time.sh <command> [flags]
 
@@ -81,50 +83,6 @@ EOF
 
 command -v git >/dev/null 2>&1 || die "git not found"
 ROOT="$(git rev-parse --show-toplevel 2>/dev/null)" || die "not inside a git repo"
-
-# ---- engine ---------------------------------------------------------------
-# Emits, per story bucket, a TSV line:  story <TAB> effort_hours <TAB> commit_count <TAB> first_epoch <TAB> last_epoch
-# Reads the whole range once and partitions globally, so the lines are additive.
-partition() {
-  local range="$1" key="$2"
-  # US (\x1f) between fields; one commit per line, oldest→newest by author date.
-  git -C "$ROOT" log --no-merges "$range" \
-      --pretty=format:"%at%x1f%H%x1f%(trailers:key=${key},valueonly,separator=%x2C)" \
-    | sort -n \
-    | awk -F '\x1f' -v IDLE="$IDLE_SECONDS" -v PAD="$PAD_SECONDS" '
-        {
-          ts = $1 + 0
-          story = $3
-          gsub(/[[:space:]]/, "", story)
-          if (story == "") story = "unattributed"
-          count[story]++
-          seen[story] = 1
-          if (NR > 1) {
-            gap = ts - prev
-            if (gap < 0) gap = 0              # guard against author-date skew
-            if (gap < IDLE) eff[story] += gap  # real elapsed effort -> later commit
-            else            eff[story] += PAD   # new session pad -> later commit
-          }
-          if (!(story in first)) first[story] = ts
-          last[story] = ts
-          prev = ts
-        }
-        END {
-          for (s in seen)
-            printf "%s\t%.4f\t%d\t%d\t%d\n", s, eff[s] / 3600.0, count[s], first[s], last[s]
-        }' \
-    | sort
-}
-
-# Whole-range effort in one bucket — the independent additivity oracle.
-whole_range_hours() {
-  local range="$1"
-  git -C "$ROOT" log --no-merges "$range" --pretty=format:"%at" \
-    | sort -n \
-    | awk -v IDLE="$IDLE_SECONDS" -v PAD="$PAD_SECONDS" '
-        { ts=$1+0; if(NR>1){gap=ts-prev; if(gap<0)gap=0; if(gap<IDLE)e+=gap; else e+=PAD} prev=ts }
-        END { printf "%.4f\n", e/3600.0 }'
-}
 
 cmd_report() {
   local range="HEAD" key="$STORY_KEY"
@@ -322,11 +280,11 @@ cmd_append() {
   echo "record-cycle-time: OKF bundle written for $story → $file (effort=$eff h, lead=$lead_min min, commits=$count)"
 }
 
-[ $# -ge 1 ] || { usage; }
+[ $# -ge 1 ] || { usage_cycle; }
 
 # Trap --help before subcommand dispatch
 for a in "$@"; do
-  if [ "$a" = "--help" ] || [ "$a" = "-h" ]; then usage; fi
+  if [ "$a" = "--help" ] || [ "$a" = "-h" ]; then usage_cycle; fi
 done
 
 sub="$1"; shift
@@ -334,7 +292,7 @@ case "$sub" in
   report) cmd_report "$@" ;;
   append) cmd_append "$@" ;;
   self-test) cmd_report "$@" ;;
-  help) usage ;;
-  --help) usage ;;
-  *) die "unknown subcommand '$sub' (run 'record-cycle-time.sh help' for usage)" ;;
+  help) usage_cycle ;;
+  --help) usage_cycle ;;
+  *) die "unknown subcommand '$sub' (run 'record-cycle-time.sh help' for help)" ;;
 esac

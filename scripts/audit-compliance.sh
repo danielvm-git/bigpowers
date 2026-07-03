@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 # audit-compliance.sh — Agentic Gherkin Compliance Harness (LLM-Judge Upgrade)
-
-# --- Help Message ---
 show_help() {
   cat <<EOF
 Usage: bash scripts/audit-compliance.sh [feature-file|directory] [options]
@@ -71,39 +69,9 @@ TOTAL_GLOBAL_WAIVED=0
 TOTAL_GLOBAL_EXPIRED=0
 
 # --- Waiver Subsystem ---
-# Loads waivers.yaml and provides is_waived() for bash 3.2+ compatibility.
-# Waived steps are excluded from the denominator; expired waivers re-enter as FAILs.
+# Sourced from scripts/lib/waiver-utils.sh — provides has_waiver().
 WAIVER_FILE="specs/verifications/waivers.yaml"
-
-is_waived() {
-  local step_sanitized="$1"
-  local waiver_file="${WAIVER_FILE:-specs/verifications/waivers.yaml}"
-
-  if [[ ! -f "$waiver_file" ]]; then
-    return 1  # No waiver file → not waived
-  fi
-
-  # Check if step has any waiver entry
-  if ! grep -q "step_sanitized: $step_sanitized" "$waiver_file" 2>/dev/null; then
-    return 1  # Not found → not waived
-  fi
-
-  # Extract review_date for this step (parses the YAML block)
-  local review_date
-  review_date=$(awk -v slug="$step_sanitized" '
-    $0 ~ "step_sanitized: " slug { found=1; next }
-    found && /review_date:/ { gsub(/[^0-9-]/, "", $0); print; exit }
-  ' "$waiver_file")
-
-  # Check expiry: if review_date < today, waiver is expired
-  local today
-  today=$(date +%Y-%m-%d)
-  if [[ -n "$review_date" && "$review_date" < "$today" ]]; then
-    return 2  # Expired waiver → counts as FAIL
-  fi
-
-  return 0  # Valid waiver → excluded from denominator
-}
+true && source "$(dirname "${BASH_SOURCE[0]}")/lib/waiver-utils.sh"
 
 # --- Judging Logic ---
 
@@ -162,22 +130,7 @@ RATIONALE: [One sentence explanation]"
   fi
 }
 
-judge_binary() {
-  local step="$1"
-  local exit_code="$2"
-  local evidence="$3"
-  local report_file="$4"
 
-  if [[ $exit_code -eq 0 ]]; then
-    echo "      Result: PASS"
-    echo "- [x] $step (PASS)" >> "$report_file"
-    return 0
-  else
-    echo "      Result: FAIL"
-    echo "- [ ] $step (FAIL) - $evidence" >> "$report_file"
-    return 1
-  fi
-}
 
 # --- Core Execution ---
 
@@ -214,7 +167,7 @@ process_step() {
       fi
 
       # Step failed — check if it has a valid waiver
-      is_waived "$sanitized_step"
+      has_waiver "$sanitized_step"
       local waiver_code=$?
 
       if [[ $waiver_code -eq 0 ]]; then

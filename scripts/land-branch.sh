@@ -7,7 +7,7 @@ set -euo pipefail
 
 CONVENTIONAL_REGEX='^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\(.+\))?!?: .+'
 
-usage() {
+usage_land() {
   echo "Usage: $0 <feature-branch> \"<conventional commit message>\" [--skip-verify]" >&2
   echo "  Run from primary repo root after release-branch gates (solo-local mode)." >&2
   exit 1
@@ -31,7 +31,7 @@ done
 FEATURE_BRANCH="${ARGS[0]:-}"
 COMMIT_MSG="${ARGS[1]:-}"
 
-[ -n "$FEATURE_BRANCH" ] && [ -n "$COMMIT_MSG" ] || usage
+[ -n "$FEATURE_BRANCH" ] && [ -n "$COMMIT_MSG" ] || usage_land
 
 if [[ ! "$COMMIT_MSG" =~ $CONVENTIONAL_REGEX ]]; then
   deny "Commit message must follow Conventional Commits: <type>(<scope>): <subject>"

@@ -32,19 +32,22 @@ release_trains:
       and e37's BCP Plus counter integration — land it early to unblock
       the headline train.
   - train: "v2.7x/v3.0 — Headline Release"
-    epics: [e37, e36, e42, e39, e41, e43, e32, e44]
+    epics: [e32, e39, e44, e41, e43, e37, e42, e36]
     total_bcps: 111
     rationale: >
-      The main event. e37 (BCP Plus 13-dimension counting) lands first —
-      depends on e28 (pipeline) and e40 (metrics), both ready. e36 (Doc
-      Dedup) is a cheap content win. e42 (Golden Stories) matures the
-      agent-driven CI gate. e39 (Semantic Bridge) + e32 (MCP Server) +
-      e44 (Migrate Version) form the OKF knowledge-graph stack. e41
-      (Public Receipts) renders live quality evidence on the e33 site.
-      e43 (Showcase Repo) ships the worked example — the only epic that
-      answers "why should a stranger adopt this?". Candidate for a v3.0
-      launch note: first release where a stranger can open a browser, see
-      evidence, and follow a worked example.
+      Re-sorted 2026-07-03 by descending WSJF with dependency constraints.
+      e32 (MCP Server, WSJF 4.00) leads — highest-value pending work,
+      unblocks e39's skill graph via build_skill_graph tool. e39 (Semantic
+      Bridge, WSJF 3.60) → e44 (Migrate Version, WSJF 3.75) form the OKF
+      knowledge-graph stack. e41 (Public Receipts, WSJF 3.75) renders live
+      quality evidence on the e33 docs site — blocked on e28 (leading the
+      v2.6x train). e43 (Showcase Repo, WSJF 2.5) ships the worked
+      example — the only epic that answers "why should a stranger adopt
+      this?". e37 (BCP Plus) matures story sizing. e42 (Golden Stories)
+      matures the agent-driven CI gate. e36 (Doc Dedup) closes with a
+      cheap content win. Candidate for a v3.0 launch note: first release
+      where a stranger can open a browser, see evidence, and follow a
+      worked example.
   - train: "v2.8x — Polish"
     epics: [e45, e46]
     total_bcps: 18
@@ -82,7 +85,7 @@ epics:
     title: "Docs Website — Fourth Generated Artifact Target"
     wsjf: 2.8
     bcps: 13
-    capsule_dir: epics/e28-docs-website
+    capsule_dir: epics/e33-docs-website
     note: >
       Astro Starlight site in website/ (same repo), pages generated at build
       time from README.md, */SKILL.md, docs/, and specs/adr; deployed to
@@ -129,7 +132,7 @@ epics:
     title: "Missing Historical References"
     wsjf: 3.0
     bcps: 20
-    capsule_dir: epics/e37-historical-refs
+    capsule_dir: epics/e35-historical-refs
     note: >
       9 reference docs: Beck (XP/Tidy First), Fowler (refactoring catalog),
       Feathers (seams/characterization), Metz (POODR/SOLID), Hickey (simple
@@ -148,7 +151,7 @@ epics:
     title: "Sync Pipeline Refactor"
     wsjf: 2.0
     bcps: 13
-    capsule_dir: epics/e33-sync-pipeline
+    capsule_dir: epics/e28-sync-pipeline
     note: >
       Refactor sync-skills.sh from copy-paste-variant to parse→IR→render.
       Extract scripts/lib/skill-common.sh shared library. Render-target
@@ -171,7 +174,7 @@ epics:
     title: "Golden Story Suite — Agent-Driven"
     wsjf: 1.8
     bcps: 13
-    capsule_dir: epics/e43-golden-stories
+    capsule_dir: epics/e42-golden-stories
     note: >
       Agent-execution half of the original e31 (split per PLAN-AUDIT
       2026-07-02). SPIKE PASSED 2026-07-02: DeepSeek v4 via gh-aw Claude
@@ -210,7 +213,7 @@ epics:
     title: "MCP Semantic Context Server"
     wsjf: 4.00
     bcps: 13
-    capsule_dir: epics/e35-mcp-context-server
+    capsule_dir: epics/e32-mcp-context-server
     supersedes: scripts/mcp-server.js (e21 prototype)
     note: >
       Build bigpowers-mcp — a project-specific TypeScript MCP server that
@@ -281,7 +284,7 @@ epics:
     title: "Showcase Repo — Worked Example Built With bigpowers"
     wsjf: 2.5
     bcps: 10
-    capsule_dir: epics/e32-showcase-repo
+    capsule_dir: epics/e43-showcase-repo
     note: >
       Change request 2026-07-03. Small real app in a separate public repo
       built end-to-end with bigpowers, full specs/ cockpit committed —
@@ -325,7 +328,7 @@ epics:
     title: "BCP Plus Counting — Evolve from 3D to 13D Story Sizing"
     wsjf: 2.1
     bcps: 18
-    capsule_dir: epics/e42-bcp-plus-counting
+    capsule_dir: epics/e37-bcp-plus-counting
     depends_on: [e40, e28]
     note: >
       Integrates the 13-dimension BCP Plus methodology (CI&T, May 2026) into
