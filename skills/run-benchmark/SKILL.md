@@ -1,6 +1,7 @@
 ---
 name: run-benchmark
 model: haiku
+effort: standard
 description: Run skill quality benchmarks from specs/benchmarks/ definitions and write pass@k reports. Use before and after evolve-skill to prove quality changes are improvements, not regressions.
 ---
 

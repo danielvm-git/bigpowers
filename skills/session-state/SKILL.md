@@ -1,6 +1,7 @@
 ---
 name: session-state
 model: haiku
+effort: standard
 description: Track implementation decisions and progress in specs/state.yaml to prevent context rot. Use at the start of a session to load context, and whenever a significant decision is made or a milestone is reached.
 ---
 
@@ -9,6 +10,8 @@ description: Track implementation decisions and progress in specs/state.yaml to 
 
 
 Track the current state of implementation, including decisions made, pending tasks, and open questions, to ensure continuity across session boundaries and prevent "context rot."
+
+Session-state implements the **isolate** strategy from the context-engineering framework (docs/references/context-engineering.md): each agent gets exactly the context it needs — no more — by recording decisions so the next agent can cold-start without replaying history. The four strategies (write, select, compress, isolate) work together: session-state handles isolation, terse-mode handles compression, survey-context handles selection, and CONVENTIONS.md ensures token-efficient writing.
 
 ## Goal
 

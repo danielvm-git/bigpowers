@@ -2,6 +2,7 @@
 name: smoke-test
 description: "Post-deploy health-check against a live URL. Validates HTTP status, response content, and critical endpoints. Runnable standalone OR as the final step of the deploy skill."
 model: sonnet
+effort: standard
 ---
 
 # Smoke Test

@@ -2,6 +2,7 @@
 name: simulate-agents
 description: Run Mock User and Auditor agents against a feature in fresh contexts before human review. Use after verify-work, before request-review, when user wants pre-review simulation.
 model: sonnet
+effort: standard
 ---
 
 # Simulate Agents

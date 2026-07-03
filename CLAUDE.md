@@ -52,6 +52,15 @@ Collection of verb-noun skills under `skills/`, each with a SKILL.md source file
 
 ## Token Management
 
+Context engineering (write/select/compress/isolate — see `docs/references/context-engineering.md`):
+
+- **Write (token-efficient content):** Short functions (4-20 lines), unique symbol names, headless tests. Don't restate code in comments.
+- **Select (include only what's relevant):** Use `bts_map` for ranked file lists, `survey-context` for phase bootstrap. Don't read files you don't need.
+- **Compress (reduce without losing structure):** Use `bts_compress` or pipe through `sqz compress`. Use `rtk` for build/test/git output (60-99% savings). Prefer `terse-mode` when context is heavy.
+- **Isolate (partition work):** Use `kickoff-branch` for isolated worktrees, `dispatch-agents` for parallel tasks with disjoint scopes, `session-state` for cold-start handoff.
+
+**Effort classification:** Skills carry an `effort:` frontmatter field (`light` | `standard` | `heavy`). Prefer `light` skills for bootstrap/status checks; reserve `heavy` for epic builds and multi-phase planning.
+
 - **Auto-Terse**: When a session exceeds 20 turns or the context window feels "heavy" (latency increasing), you MUST switch to `terse-mode` to save tokens.
 - **Context Compaction**: Every 10 turns, summarize the current session state and implementation decisions into a short, high-density note.
 - **Minimal Output**: Prefer text-only output for simple status; use `web_fetch` or `run_shell_command` only for evidence.
