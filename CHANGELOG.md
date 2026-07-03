@@ -1,3 +1,10 @@
+## [2.45.3](https://github.com/danielvm-git/bigpowers/compare/v2.45.2...v2.45.3) (2026-07-03)
+
+
+### Bug Fixes
+
+* **sync:** sync generated CLAUDE.md and opencode.json artifacts ([f018e27](https://github.com/danielvm-git/bigpowers/commit/f018e27cf71d61190bf58c1ef884e100e15a8aee))
+
 ## [2.45.2](https://github.com/danielvm-git/bigpowers/compare/v2.45.1...v2.45.2) (2026-07-03)
 
 
