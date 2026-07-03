@@ -1,0 +1,14 @@
+story_id: e38s06
+title: "Create gate-trace skill — deterministic quality gate before release"
+status: todo
+bcps: 2
+tasks:
+  - id: 1
+    description: "Create skills/gate-trace/ directory with SKILL.md"
+    verify: "test -f skills/gate-trace/SKILL.md && echo OK"
+  - id: 2
+    description: "Implement gate decision logic: PASS/CONCERNS/FAIL/WAIVED with oracle downgrade"
+    verify: "grep -q 'PASS|CONCERNS|FAIL|WAIVED' skills/gate-trace/SKILL.md && grep -q 'oracle|downgrade' skills/gate-trace/SKILL.md && echo OK"
+  - id: 3
+    description: "Add output to specs/execution-status.yaml gate-trace field"
+    verify: "grep -q 'gate-trace' skills/gate-trace/SKILL.md && echo OK"

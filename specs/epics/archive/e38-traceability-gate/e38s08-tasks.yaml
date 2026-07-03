@@ -1,0 +1,11 @@
+story_id: e38s08
+title: "Update CLAUDE.md and CONVENTIONS.md with traceability mandate"
+status: todo
+bcps: 1
+tasks:
+  - id: 1
+    description: "Add traceability mandate to CONVENTIONS.md under Agent Workflow Mandates"
+    verify: "grep -q 'traceability' CONVENTIONS.md && echo OK"
+  - id: 2
+    description: "Add trace-stories.sh to CLAUDE.md Commands table"
+    verify: "grep -q 'traceability' CLAUDE.md && echo OK"

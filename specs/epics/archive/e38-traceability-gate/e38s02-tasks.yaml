@@ -1,0 +1,11 @@
+story_id: e38s02
+title: "Integrate trace-stories.sh into build-epic Step 8 (verify phase)"
+status: todo
+bcps: 1
+tasks:
+  - id: 1
+    description: "Add trace-stories.sh invocation to skills/build-epic/SKILL.md Step 8, before the verify-work handoff, with a visible 'trace skipped' fallback"
+    verify: "grep -q 'trace-stories.sh' skills/build-epic/SKILL.md && echo OK"
+  - id: 2
+    description: "Run sync-skills.sh and confirm generated artifacts pick up the new step"
+    verify: "bash scripts/sync-skills.sh >/dev/null 2>&1 && grep -rq 'trace-stories.sh' .cursor/rules/ && echo OK"

@@ -1,0 +1,20 @@
+story_id: e38s01
+title: "Create scripts/trace-stories.sh — deterministic coverage matrix builder"
+status: todo
+bcps: 3
+tasks:
+  - id: 1
+    description: "Create scripts/trace-stories.sh skeleton with --help, --strict, --json flags and input-file existence checks"
+    verify: "test -f scripts/trace-stories.sh && bash -n scripts/trace-stories.sh && bash scripts/trace-stories.sh --help >/dev/null 2>&1 && echo OK"
+  - id: 2
+    description: "Parse release-plan.yaml + execution-status.yaml into a story inventory and grep the tree for story tags"
+    verify: "bash scripts/trace-stories.sh >/dev/null 2>&1 && test -f specs/traceability-matrix.json && python3 -c 'import json; json.load(open(\"specs/traceability-matrix.json\"))' && echo OK"
+  - id: 3
+    description: "Implement the three oracle tiers (tag=high, file-name heuristic=medium, capsule task ref=low) and record confidence per link"
+    verify: "python3 -c \"import json; m=json.load(open('specs/traceability-matrix.json')); assert any(l.get('confidence') in ('high','medium','low') for s in m['stories'] for l in s.get('links',[])); print('OK')\""
+  - id: 4
+    description: "Classify and emit dark stories, orphan tags, stale tags; write specs/TRACEABILITY_LATEST.md and the OKF bundle in specs/codebase-wiki/"
+    verify: "grep -q 'dark' specs/traceability-matrix.json && test -f specs/TRACEABILITY_LATEST.md && test -f specs/codebase-wiki/index.md && echo OK"
+  - id: 5
+    description: "Implement --strict exit policy (non-zero when a P0 story has 0% code coverage) and confirm normal mode still exits 0"
+    verify: "bash scripts/trace-stories.sh >/dev/null 2>&1 && echo OK"
