@@ -14,6 +14,8 @@ on:
       - 'scripts/sync-skills.sh'
       - 'scripts/build-skill-index.sh'
       - 'scripts/trace-stories.sh'
+      - 'package.json'
+      - 'specs/state.yaml'
       - 'specs/traceability-matrix.json'
       - '.github/workflows/sync-skills.yml'
   pull_request:
@@ -23,6 +25,8 @@ on:
       - 'scripts/sync-skills.sh'
       - 'scripts/build-skill-index.sh'
       - 'scripts/trace-stories.sh'
+      - 'package.json'
+      - 'specs/state.yaml'
       - 'specs/traceability-matrix.json'
       - '.github/workflows/sync-skills.yml'
   workflow_dispatch:
