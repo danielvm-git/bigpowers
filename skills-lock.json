@@ -193,7 +193,7 @@
     },
     "plan-release": {
       "description": "\"RELEASE-INDEX BUILDER — Sequence elaborated epics into specs/release-plan.yaml with WSJF ordering and BCP baselines. NOT a planning-spine substitute: it does not scope work (scope-work) or write story tasks (plan-work). Use after elaborate-spec when the user wants a versioned release index of epics.\"",
-      "sha256": "8cc3515833d22a5b",
+      "sha256": "62dc272a091c8d7f",
       "path": "skills/plan-release/SKILL.md"
     },
     "plan-work": {
