@@ -12,6 +12,8 @@ on:
       - 'skills/*/*.md'
       - 'scripts/sync-skills.sh'
       - 'scripts/build-skill-index.sh'
+      - 'scripts/trace-stories.sh'
+      - 'specs/traceability-matrix.json'
       - '.github/workflows/sync-skills.yml'
   pull_request:
     branches: [ main, develop ]
@@ -19,6 +21,8 @@ on:
       - 'skills/*/*.md'
       - 'scripts/sync-skills.sh'
       - 'scripts/build-skill-index.sh'
+      - 'scripts/trace-stories.sh'
+      - 'specs/traceability-matrix.json'
       - '.github/workflows/sync-skills.yml'
   workflow_dispatch:
 
@@ -47,6 +51,21 @@ jobs:
             git diff --stat .cursor/rules .gemini/extensions/bigpowers .pi SKILL-INDEX.md skills-lock.json README.md specs/SKILL-SEARCH-INDEX_LATEST.md
             exit 1
           }
+
+      - name: Traceability gate (--strict)
+        run: |
+          if [ -f scripts/trace-stories.sh ]; then
+            bash scripts/trace-stories.sh --strict --json
+          else
+            echo "::warning::trace-stories.sh not found — skipping traceability gate"
+          fi
+
+      - name: Upload traceability matrix
+        uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: traceability-matrix
+          path: specs/traceability-matrix.json
 
       - name: Validate OKF bundles (non-blocking)
         continue-on-error: true
