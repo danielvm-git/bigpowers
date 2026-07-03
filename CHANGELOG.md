@@ -1,3 +1,10 @@
+## [2.58.3](https://github.com/danielvm-git/bigpowers/compare/v2.58.2...v2.58.3) (2026-07-03)
+
+
+### Bug Fixes
+
+* **compliance:** eliminate all waivers — 100% score, 0 FAIL, 0 WAIVED ([d75f592](https://github.com/danielvm-git/bigpowers/commit/d75f592ea40cb294bdb5e1f21b41dedb9ae8734c))
+
 ## [2.58.2](https://github.com/danielvm-git/bigpowers/compare/v2.58.1...v2.58.2) (2026-07-03)
 
 
