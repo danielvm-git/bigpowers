@@ -1,3 +1,10 @@
+## [2.58.2](https://github.com/danielvm-git/bigpowers/compare/v2.58.1...v2.58.2) (2026-07-03)
+
+
+### Bug Fixes
+
+* **gates:** restore lost gap-closure fixes — e13s02 tag, validate-okf.sh, waivers, version ([3ddc000](https://github.com/danielvm-git/bigpowers/commit/3ddc0003288f65a5a7c3f681588d6281a6f83a05))
+
 ## [2.58.1](https://github.com/danielvm-git/bigpowers/compare/v2.58.0...v2.58.1) (2026-07-03)
 
 
