@@ -93,3 +93,12 @@ bugs:
     approach: "Trim each over-length SKILL.md by moving procedural detail into REFERENCE.md"
     risk_level: "low"
     commit_message: "fix(ci): trim 8 over-length SKILL.md files to pass check-skill-size lint"
+  - id: BUG-2026-07-03T020000
+    status: fixed
+    severity: medium
+    scope: skills
+    title: "release-branch does not poll CI completion — declares success without waiting for workflows"
+    file: bugs/BUG-2026-07-03T020000.md
+    files_changed: "scripts/wait-for-ci.sh, skills/release-branch/SKILL.md, skills/release-branch/REFERENCE.md"
+    approach: "Extract CI polling to scripts/wait-for-ci.sh with auto-discovery, git fallback, wire into release-branch Step 7b"
+    risk_level: "medium"

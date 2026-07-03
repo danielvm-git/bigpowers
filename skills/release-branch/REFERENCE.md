@@ -80,6 +80,21 @@ and lead time from first commit → merge (honest calendar latency). See
 
 ---
 
+## CI verification
+
+The CI polling logic has been extracted to `scripts/wait-for-ci.sh`.
+See the script's `--help` for usage. Step 7b of the main SKILL.md invokes it directly:
+
+```bash
+bash scripts/wait-for-ci.sh --timeout 600 --interval 30
+```
+
+The script handles: auto-discovery of all workflows for the current
+branch/commit, polling until completion, success/failure/timeout exit codes,
+and git-only fallback when `gh` CLI is unavailable.
+
+---
+
 ## Solo-local fallback detail
 
 The fallback sequence (Path B above) handles the "remote has moved" case with `git pull --rebase`. Use when `scripts/land-branch.sh` is absent.
@@ -117,44 +132,4 @@ git push origin "$DEFAULT_BRANCH"
 
 # Clean up local feature branch
 git branch -d "$FEATURE_BRANCH"
-```
-
----
-
-## Reference block 2
-
-```bash
-echo "==> Polling CI for main branch..."
-TIMEOUT=600   # 10 minutes
-INTERVAL=30   # poll every 30 seconds
-ELAPSED=0
-
-while [ $ELAPSED -lt $TIMEOUT ]; do
-  CI_JSON=$(gh run list --limit 1 --branch main --workflow CI --json status,conclusion,headSha,databaseId 2>/dev/null)
-  CI_STATUS=$(echo "$CI_JSON" | jq -r '.[0].status // "unknown"')
-  CI_CONCLUSION=$(echo "$CI_JSON" | jq -r '.[0].conclusion // ""')
-  CI_SHA=$(echo "$CI_JSON" | jq -r '.[0].headSha // ""')
-  CI_ID=$(echo "$CI_JSON" | jq -r '.[0].databaseId // ""')
-
-  if [ "$CI_STATUS" = "completed" ] && [ "$CI_CONCLUSION" = "success" ]; then
-    echo "OK: CI passed for $(git rev-parse --short HEAD)"
-    bp-yaml-set.sh specs/state.yaml release.ci_verified true 2>/dev/null || \
-      echo "  (bp-yaml-set not available — manually set release.ci_verified: true in state.yaml)"
-    break
-  fi
-
-  if [ "$CI_STATUS" = "completed" ] && [ "$CI_CONCLUSION" = "failure" ]; then
-    echo "FAIL: CI failed for $(git rev-parse --short HEAD)"
-    echo "  Run URL: https://github.com/$(gh repo view --json nameWithOwner -q .nameWithOwner)/actions/runs/$CI_ID"
-    echo "  Handoff to fix-bug with the failure URL above."
-    return 1
-  fi
-
-  sleep $INTERVAL
-  ELAPSED=$((ELAPSED + INTERVAL))
-  echo "  Waiting... (${ELAPSED}s / ${TIMEOUT}s)"
-done
-
-echo "FAIL: CI did not complete within ${TIMEOUT}s timeout"
-return 1
 ```

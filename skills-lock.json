@@ -213,7 +213,7 @@
     },
     "release-branch": {
       "description": "Make the merge/PR/keep/discard decision for a feature branch, verify coverage gates, create the PR with gh, and clean up the worktree. Use when a feature is done and ready to ship, or when user says \"release\", \"merge\", or \"open a PR\".",
-      "sha256": "be0e6565f02ab013",
+      "sha256": "4713c2588d14c662",
       "path": "skills/release-branch/SKILL.md"
     },
     "request-review": {

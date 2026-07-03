@@ -101,11 +101,19 @@ mv specs/epics/eNN-slug specs/epics/archive/
 
 > **HARD GATE** — Do NOT declare success until CI completes. A push that fails CI is a regression, not a release.
 
-After push (solo-local step 5 or team-pr step 7), verify the CI workflow completes successfully:
+After push (solo-local step 5 or team-pr step 7), run the CI polling script:
 
-See [REFERENCE.md](REFERENCE.md)
+```bash
+bash scripts/wait-for-ci.sh --timeout 600 --interval 30
+```
 
-- [ ] CI workflow passes after push
+The script auto-discovers all workflow runs for the pushed commit, polls until all complete, and exits:
+- **0** — all workflows green. Set `release.ci_verified: true` in state.yaml.
+- **1** — at least one workflow failed. Prints failure URLs. Set `handoff.next_skill = fix-bug`.
+- **2** — timeout. CI did not complete. Retry or investigate.
+- **0 with warning** — `gh` CLI not available, git-only fallback confirmed push landed but CI status unverified.
+
+- [ ] CI workflow passes after push (wait-for-ci.sh exit 0)
 - [ ] `release.ci_verified: true` documented in state.yaml
 - On failure: `handoff.next_skill = fix-bug` with the CI failure URL
 
