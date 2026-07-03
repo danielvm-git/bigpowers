@@ -15,12 +15,14 @@ REPORT_DIR="specs/benchmarks/reports"
 BASELINE_FILE="$REPORT_DIR/BASELINE-GOLDEN.yaml"
 DRY_RUN=false
 BASELINE_MODE=false
+CHECK_SIZE=false
 
 for arg in "$@"; do
   case "$arg" in
     --dry-run) DRY_RUN=true ;;
     --baseline) BASELINE_MODE=true ;;
-    *) echo "Unknown flag: $arg"; echo "Usage: run-golden-suite.sh [--dry-run] [--baseline]"; exit 2 ;;
+    --check-size) CHECK_SIZE=true ;;
+    *) echo "Unknown flag: $arg"; echo "Usage: run-golden-suite.sh [--dry-run] [--baseline] [--check-size]"; exit 2 ;;
   esac
 done
 
@@ -178,6 +180,62 @@ if $BASELINE_MODE; then
     echo "  $skill_name: $skill_bytes" >> "$REPORT_FILE"
   done
   echo "Baseline pinned: $REPORT_FILE"
+fi
+
+# ── Size budget check (e31s04) ───────────────────────────────────────
+
+if $CHECK_SIZE; then
+  WARN_THRESHOLD=20
+  FAIL_THRESHOLD=50
+
+  if [[ ! -f "$BASELINE_FILE" ]]; then
+    echo "No baseline found. Run --baseline first."
+    exit 1
+  fi
+
+  echo ""
+  echo "Size Budget Check (+${WARN_THRESHOLD}% warn, +${FAIL_THRESHOLD}% fail):"
+  SIZE_WARNINGS=0
+  SIZE_FAILURES=0
+  NEW_SKILLS=0
+
+  for skill_md in skills/*/SKILL.md; do
+    skill_name=$(basename "$(dirname "$skill_md")")
+    current_bytes=$(wc -c < "$skill_md" | tr -d ' ')
+
+    # Get baseline size (best-effort grep from YAML)
+    baseline_bytes=$(grep "^  $skill_name:" "$BASELINE_FILE" 2>/dev/null | awk '{print $2}')
+
+    if [[ -z "$baseline_bytes" ]]; then
+      echo "  ${YELLOW}NEW${NC}  $skill_name: ${current_bytes}b (not in baseline)"
+      (( NEW_SKILLS += 1 )) || true
+      continue
+    fi
+
+    if [[ "$baseline_bytes" -eq 0 ]]; then
+      baseline_bytes=1  # avoid division by zero
+    fi
+
+    pct=$(( (current_bytes - baseline_bytes) * 100 / baseline_bytes ))
+
+    if [[ "$pct" -ge "$FAIL_THRESHOLD" ]]; then
+      echo "  ${RED}FAIL${NC} $skill_name: ${current_bytes}b (+${pct}%)"
+      (( SIZE_FAILURES += 1 )) || true
+    elif [[ "$pct" -ge "$WARN_THRESHOLD" ]]; then
+      echo "  ${YELLOW}WARN${NC} $skill_name: ${current_bytes}b (+${pct}%)"
+      (( SIZE_WARNINGS += 1 )) || true
+    else
+      echo "  ${GREEN}OK${NC}   $skill_name: ${current_bytes}b"
+    fi
+  done
+
+  echo ""
+  echo "Size summary: $SIZE_WARNINGS warnings, $SIZE_FAILURES failures, $NEW_SKILLS new"
+
+  if [[ "$SIZE_FAILURES" -gt 0 ]]; then
+    exit 1
+  fi
+  exit 0
 fi
 
 if [[ "$OVERALL" == "fail" ]]; then

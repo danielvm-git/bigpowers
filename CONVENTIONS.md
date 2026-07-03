@@ -28,6 +28,17 @@ All changes to this repository MUST follow the [Conventional Commits 1.0.0](http
 - Never call GitHub REST API directly (curl, fetch, etc.)
 - Never create GitHub issues from automated workflows — produce local .md files in specs/ instead
 
+### Pre-Merge Golden Gate
+
+Before merging any branch, run the deterministic golden suite:
+
+```bash
+bash scripts/run-golden-suite.sh
+```
+
+This runs compliance → G-04 self-test. If any gate fails, the merge is blocked.
+Pin a fresh baseline with `--baseline` after major structure changes.
+
 ## Agent Workflow Mandates
 
 **AGENTS MUST NEVER BYPASS THE BIGPOWERS WORKFLOW.**
