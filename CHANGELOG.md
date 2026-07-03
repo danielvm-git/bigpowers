@@ -1,3 +1,10 @@
+# [2.53.0](https://github.com/danielvm-git/bigpowers/compare/v2.52.0...v2.53.0) (2026-07-03)
+
+
+### Features
+
+* **e38:** integrate trace-stories.sh into build-epic ([146efa5](https://github.com/danielvm-git/bigpowers/commit/146efa510085cac017f21bfbc6294e87d99a93f5))
+
 # [2.52.0](https://github.com/danielvm-git/bigpowers/compare/v2.51.0...v2.52.0) (2026-07-03)
 
 
