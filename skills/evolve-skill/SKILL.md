@@ -26,6 +26,6 @@ model: opus
 
 ## Verify
 
-→ verify: `grep -c 'run-benchmark\|pass_at_k\|BASELINE-' evolve-skill/SKILL.md | awk '{if($1>=2) print "OK"; else print "FAIL"}'`
+→ verify: `grep -c 'run-benchmark\|pass_at_k\|BASELINE-' skills/evolve-skill/SKILL.md | awk '{if($1>=2) print "OK"; else print "FAIL"}'`
 
 See [REFERENCE.md](REFERENCE.md) for ADR template.

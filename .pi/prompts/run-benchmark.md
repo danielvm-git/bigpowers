@@ -66,4 +66,4 @@ scenarios:
 
 ## Verify
 
-→ verify: `test -f run-benchmark/SKILL.md && grep -q 'pass_at_k\|pass.at.k' run-benchmark/SKILL.md && echo OK || echo FAIL`
+→ verify: `test -f skills/run-benchmark/SKILL.md && grep -q 'pass_at_k\|pass.at.k' skills/run-benchmark/SKILL.md && echo OK || echo FAIL`

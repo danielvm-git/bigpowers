@@ -50,4 +50,4 @@ Required YAML keys:
 
 Push HTML to the dashboard session dir for rich diagrams. See `start-server.sh` for `CONTENT_DIR`.
 
-→ verify: `test -f visual-dashboard/scripts/read-specs-status.cjs && test -f visual-dashboard/scripts/cockpit.html`
+→ verify: `test -f skills/visual-dashboard/scripts/read-specs-status.cjs && test -f skills/visual-dashboard/scripts/cockpit.html`

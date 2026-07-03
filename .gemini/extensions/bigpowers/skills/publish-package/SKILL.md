@@ -71,9 +71,9 @@ See [REFERENCE.md](REFERENCE.md)
 
 ## Verify
 
-→ verify: `test -f publish-package/SKILL.md && echo "OK: skill file exists" || echo "FAIL: no skill file"`
-→ verify: `grep -q "name: publish-package" publish-package/SKILL.md && echo "OK: frontmatter" || echo "FAIL: frontmatter"`
-→ verify: `grep -ci "npm\|crates.io\|pypi\|publish\|registry" publish-package/SKILL.md | awk '{if($1>=4) print "OK: semantics"; else print "FAIL: missing"}'`
+→ verify: `test -f skills/publish-package/SKILL.md && echo "OK: skill file exists" || echo "FAIL: no skill file"`
+→ verify: `grep -q "name: publish-package" skills/publish-package/SKILL.md && echo "OK: frontmatter" || echo "FAIL: frontmatter"`
+→ verify: `grep -ci "npm\|crates.io\|pypi\|publish\|registry" skills/publish-package/SKILL.md | awk '{if($1>=4) print "OK: semantics"; else print "FAIL: missing"}'`
 → verify: `grep -q "publish-package" SKILL-INDEX.md && echo "OK: in SKILL-INDEX" || echo "FAIL: not indexed"`
 
 ---

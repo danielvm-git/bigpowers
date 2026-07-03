@@ -37,6 +37,7 @@ planning:
     - specs/DEEPEN-ARCHITECTURE-REVIEW.md
     - specs/MISSING-REFERENCES-AND-DELIVERY-PLAN.md
     - specs/QUALITY-GUARANTEE-STRATEGY.md
+    - "Market survey (2026-07-02): speckit-utils, V-Model trace, BMAD TEA bmad-testarch-trace, Ctxo"
   epics_planned:
     - "e30: Architecture Quick Fixes (8 BCP — DONE)"
     - "e31: Quality Guarantee — Deterministic Gates (11 BCP — split 2026-07-02 per PLAN-AUDIT)"
@@ -46,6 +47,7 @@ planning:
     - "e35: DORA Metrics Extension (7 BCP)"
     - "e36: Documentation Deduplication (10 BCP)"
     - "e37: Golden Story Suite — Agent-Driven (13 BCP — spike-gated, from e31 split)"
+    - "e38: Spec-to-Code Traceability Gate (13 BCP — TEA-inspired, market survey 2026-07-02)"
   github_issues_created:
     - "37 (e30)"
     - "36 (e31)"
@@ -59,6 +61,7 @@ planning:
     - "38 (Bug: stale .bak file)"
     - "39 (Bug: tautological verify commands)"
     - "42 (Bug: skill-verify false FAILs)"
+    - "43 (e38: Spec-to-Code Traceability Gate)"
   gaps_fixed:
     - SCOPE_LATEST.yaml — added fr-11 through fr-17 for e30-e36
     - release-plan.yaml — removed duplicate e30-e36 from BACKLOG section

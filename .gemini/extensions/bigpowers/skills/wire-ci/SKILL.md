@@ -100,9 +100,9 @@ Add the following to the project's documentation or CLAUDE.md after setup:
 
 ## Verify
 
-→ verify: `test -f wire-ci/SKILL.md && echo "OK: skill file exists" || echo "FAIL: no skill file"`
-→ verify: `grep -q "name: wire-ci" wire-ci/SKILL.md && echo "OK: frontmatter" || echo "FAIL: frontmatter"`
-→ verify: `grep -ci "template\|workflow\|validate\|dry.run" wire-ci/SKILL.md | awk '{if($1>=3) print "OK: semantics"; else print "FAIL: missing"}'`
+→ verify: `test -f skills/wire-ci/SKILL.md && echo "OK: skill file exists" || echo "FAIL: no skill file"`
+→ verify: `grep -q "name: wire-ci" skills/wire-ci/SKILL.md && echo "OK: frontmatter" || echo "FAIL: frontmatter"`
+→ verify: `grep -ci "template\|workflow\|validate\|dry.run" skills/wire-ci/SKILL.md | awk '{if($1>=3) print "OK: semantics"; else print "FAIL: missing"}'`
 → verify: `grep -q "wire-ci" SKILL-INDEX.md && echo "OK: in SKILL-INDEX" || echo "FAIL: not indexed"`
 
 ---

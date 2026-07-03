@@ -48,7 +48,7 @@ epics:
   #         amended 2026-07-02 per specs/PLAN-AUDIT_LATEST.md)
   #         specs/DEEPEN-ARCHITECTURE-REVIEW.md (review)
   #         specs/QUALITY-GUARANTEE-STRATEGY.md (golden suite)
-  # Build order: e31 → e32 → e34 → e35 → e33 → e36 → e37 (e37 spike-gated;
+  # Build order: e31 → e32 → e34 → e35 → e33 → e36 → e37 → e38 (e37 spike-gated;
   # e37s01 spike may run in parallel any time, s02-s04 only on "go").
   - id: e31
     title: "Quality Guarantee — Deterministic Gates"
@@ -120,6 +120,18 @@ epics:
       policy. WSJF (BV 5 + TC 1 + RR-OE 3) / JS 5 = 1.8. Sequenced last
       despite outranking e36 — its value is gated on the spike, not on
       urgency.
+  - id: e38
+    title: "Spec-to-Code Traceability Gate"
+    wsjf: 3.50
+    bcps: 13
+    capsule_dir: epics/e38-traceability-gate
+    note: >
+      The "missing link" — deterministic spec-to-code traceability spanning
+      three tiers: matrix builder (scripts/trace-stories.sh), blind-spot
+      heuristic detector, and quality gate decision. TEA-inspired oracle
+      confidence downgrade (tagged→high, heuristic→medium, inferred→low).
+      Machine-readable JSON for CI/CD. Source: market survey of speckit-utils,
+      V-Model trace, BMAD TEA bmad-testarch-trace (2026-07-02).
 
   # ── ACTIVE — next release (v2.30.0) ──────────────────────────────────
   - id: e26

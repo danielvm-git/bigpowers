@@ -108,7 +108,7 @@
     },
     "evolve-skill": {
       "description": "Benchmark-gated skill evolution — consume bigpowers-benchmark report, propose plan-work change, edit skill via craft-skill, re-run benchmark, record ADR. Use when a skill underperforms on benchmark or stocktake finds systemic gap.",
-      "sha256": "e2d127c4ae0b5af7",
+      "sha256": "d507a80d9ca3d328",
       "path": "skills/evolve-skill/SKILL.md"
     },
     "execute-plan": {
@@ -133,7 +133,7 @@
     },
     "grill-with-docs": {
       "description": "Doc-grounded variant of grill-me — stress-tests plan assumptions by fetching and citing real library or API documentation. Every challenge must cite a real URL. Use when the plan depends on a specific library or external API.",
-      "sha256": "66e9e2725d3d95e9",
+      "sha256": "cb5dfa959ab73121",
       "path": "skills/grill-with-docs/SKILL.md"
     },
     "guard-git": {
@@ -203,7 +203,7 @@
     },
     "publish-package": {
       "description": "\"Package registry publishing for npm, crates.io, PyPI, and Homebrew. Verifies prerequisites, runs the publish command, confirms success, and surfaces actionable error hints on failure.\"",
-      "sha256": "39f5ba9b115cca6b",
+      "sha256": "e55d719c51f72844",
       "path": "skills/publish-package/SKILL.md"
     },
     "quick-fix": {
@@ -238,7 +238,7 @@
     },
     "run-benchmark": {
       "description": "Run skill quality benchmarks from specs/benchmarks/ definitions and write pass@k reports. Use before and after evolve-skill to prove quality changes are improvements, not regressions.",
-      "sha256": "e27f4e682e505b19",
+      "sha256": "5956b612e09de4ad",
       "path": "skills/run-benchmark/SKILL.md"
     },
     "run-evals": {
@@ -343,12 +343,12 @@
     },
     "visual-dashboard": {
       "description": "Start a browser-based dashboard that visualizes architecture, implementation plans, and project status. Persists artifacts in .bigpowers/dashboard/. Reads specs/state.yaml, release-plan.yaml, epics, and planning-status via HTTP API or opencode panel.",
-      "sha256": "3213e18d4bde52f2",
+      "sha256": "24bb5eae717d0e73",
       "path": "skills/visual-dashboard/SKILL.md"
     },
     "wire-ci": {
       "description": "\"CI pipeline setup with pre-built templates and local validation. Generates GitHub Actions workflows, validates YAML syntax and permissions, supports dry-run via act/gh. The CI equivalent of wire-observability.\"",
-      "sha256": "cc3fd8faf2686be1",
+      "sha256": "c27d9bfcf66d2cf6",
       "path": "skills/wire-ci/SKILL.md"
     },
     "wire-observability": {
