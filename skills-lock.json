@@ -108,7 +108,7 @@
     },
     "evolve-skill": {
       "description": "Benchmark-gated skill evolution — consume bigpowers-benchmark report, propose plan-work change, edit skill via craft-skill, re-run benchmark, record ADR. Use when a skill underperforms on benchmark or stocktake finds systemic gap.",
-      "sha256": "d507a80d9ca3d328",
+      "sha256": "fc60347db8884afd",
       "path": "skills/evolve-skill/SKILL.md"
     },
     "execute-plan": {

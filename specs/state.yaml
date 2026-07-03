@@ -1,94 +1,101 @@
-active_flow: build-epic
+active_flow: release
 epic_cycle:
   epic_id: e31
   epic_slug: quality-guarantee
   capsule_dir: specs/epics/e31-quality-guarantee
-  current_story: e31s03
+  current_story: e31s07
   total_bcps: 11
-  story_bcps: 3
-  current_step: 0
+  story_bcps: 1
+  current_step: 8
   completed_steps:
-    - "0"
-    - "1"
-    - "2"
-    - "3"
-    - "4"
-    - "5"
-    - "6"
-    - "7"
-    - "8"
+  - '0'
+  - '1'
+  - '2'
+  - '3'
+  - '4'
+  - '5'
+  - '6'
+  - '7'
+  - '8'
   audit_result: pass
   fast_mode: true
 handoff:
-  next_skill: build-epic
-  context: >
-    e31s02 DONE — compliance gate wired (PR #44). Next: e31s03
-    (run-golden-suite.sh, 3 BCP). Largest e31 story: compliance →
-    G-04 selftest → size budget, timestamped reports, --baseline.
+  next_skill: release-branch
+  context: 'e31 COMPLETE — all 7 stories done (11/11 BCP). Gates: G-04 selftest, compliance
+    CI, golden suite, size budget, baseline pinned, pre-merge mandate, evolve-skill
+    regression gate. Next: e32 (Missing Historical References, 20 BCP).'
 bug_id: null
 bug_cycle:
   current_step: 0
   completed_steps: null
 release:
   ci_verified: true
-  released_at: "2026-07-02T23:00:00Z"
+  released_at: '2026-07-02T23:00:00Z'
   commit: 8823212
   tag: none (semantic-release will tag on push)
   node20_migration:
     completed: true
     commit: 5b6f1dd
-    changes: "actions/checkout v4→v6, concurrency, timeout-minutes"
+    changes: actions/checkout v4→v6, concurrency, timeout-minutes
 planning:
   release: v2.45.0
-  codename: "Deepening"
+  codename: Deepening
   source_docs:
-    - specs/DEEPEN-ARCHITECTURE-REVIEW.md
-    - specs/MISSING-REFERENCES-AND-DELIVERY-PLAN.md
-    - specs/QUALITY-GUARANTEE-STRATEGY.md
-    - "Market survey (2026-07-02): speckit-utils, V-Model trace, BMAD TEA bmad-testarch-trace, Ctxo"
-    - "specs/IMPACT-e38-okf-adoption.md — OKF adoption risk assessment + phased rollout plan (2026-07-03)"
+  - specs/DEEPEN-ARCHITECTURE-REVIEW.md
+  - specs/MISSING-REFERENCES-AND-DELIVERY-PLAN.md
+  - specs/QUALITY-GUARANTEE-STRATEGY.md
+  - 'Market survey (2026-07-02): speckit-utils, V-Model trace, BMAD TEA bmad-testarch-trace,
+    Ctxo'
+  - specs/IMPACT-e38-okf-adoption.md — OKF adoption risk assessment + phased rollout
+    plan (2026-07-03)
   epics_planned:
-    - "e30: Architecture Quick Fixes (8 BCP — DONE)"
-    - "e31: Quality Guarantee — Deterministic Gates (11 BCP — split 2026-07-02 per PLAN-AUDIT)"
-    - "e32: Missing Historical References (20 BCP)"
-    - "e33: Sync Pipeline Refactor (13 BCP)"
-    - "e34: Context Engineering Layer (10 BCP)"
-    - "e35: DORA Metrics Extension (7 BCP)"
-    - "e36: Documentation Deduplication (10 BCP)"
-    - "e37: Golden Story Suite — Agent-Driven (13 BCP — spike PASSED 2026-07-03 via gh-aw + DeepSeek; G-01 golden story live)"
-    - "e38: Spec-to-Code Traceability Gate (13 BCP — TEA-inspired, market survey 2026-07-02)"
-    - "e39: Semantic Context Bridge (20 BCP — OKF + skill graph + agent locks + drift detection; see specs/IMPACT-e38-okf-adoption.md)"
+  - 'e30: Architecture Quick Fixes (8 BCP — DONE)'
+  - 'e31: Quality Guarantee — Deterministic Gates (11 BCP — split 2026-07-02 per PLAN-AUDIT)'
+  - 'e32: Missing Historical References (20 BCP)'
+  - 'e33: Sync Pipeline Refactor (13 BCP)'
+  - 'e34: Context Engineering Layer (10 BCP)'
+  - 'e35: DORA Metrics Extension (7 BCP)'
+  - 'e36: Documentation Deduplication (10 BCP)'
+  - 'e37: Golden Story Suite — Agent-Driven (13 BCP — spike PASSED 2026-07-03 via
+    gh-aw + DeepSeek; G-01 golden story live)'
+  - 'e38: Spec-to-Code Traceability Gate (13 BCP — TEA-inspired, market survey 2026-07-02)'
+  - 'e39: Semantic Context Bridge (20 BCP — OKF + skill graph + agent locks + drift
+    detection; see specs/IMPACT-e38-okf-adoption.md)'
   github_issues_created:
-    - "37 (e30)"
-    - "36 (e31)"
-    - "32 (e32)"
-    - "33 (e33)"
-    - "34 (e34)"
-    - "35 (e35)"
-    - "31 (e36)"
-    - "40 (Bug: phase table missing 3 skills)"
-    - "41 (Bug: broken tech-architecture refs)"
-    - "38 (Bug: stale .bak file)"
-    - "39 (Bug: tautological verify commands)"
-    - "42 (Bug: skill-verify false FAILs)"
-    - "43 (e38: Spec-to-Code Traceability Gate)"
-    - "44 (e39: Semantic Context Bridge)"
+  - 37 (e30)
+  - 36 (e31)
+  - 32 (e32)
+  - 33 (e33)
+  - 34 (e34)
+  - 35 (e35)
+  - 31 (e36)
+  - '40 (Bug: phase table missing 3 skills)'
+  - '41 (Bug: broken tech-architecture refs)'
+  - '38 (Bug: stale .bak file)'
+  - '39 (Bug: tautological verify commands)'
+  - '42 (Bug: skill-verify false FAILs)'
+  - '43 (e38: Spec-to-Code Traceability Gate)'
+  - '44 (e39: Semantic Context Bridge)'
   gaps_fixed:
-    - SCOPE_LATEST.yaml — added fr-11 through fr-17 for e30-e36
-    - release-plan.yaml — removed duplicate e30-e36 from BACKLOG section; removed e37 HARD GATE language (spike passed)
-    - execution-status.yaml — e30s02 marked done (verified fixed), e30: done
-    - e30 epic.yaml — removed e30s05 (already implemented in build-epic Step 2), reduced BCP 10→8
-    - e37 epic.yaml — removed HARD GATE, marked e37s01 done, reduced BCP 13→10 (spike complete)
-    - CLAUDE.md — added Typecheck: N/A and CI platform rows
-    - CI workflows — actions/checkout v4→v6 (Node20→Node24), concurrency, timeout-minutes
-    - gh-aw prototype — e37 golden story G-01 compiles clean with DeepSeek v4 via Anthropic protocol
+  - SCOPE_LATEST.yaml — added fr-11 through fr-17 for e30-e36
+  - release-plan.yaml — removed duplicate e30-e36 from BACKLOG section; removed e37
+    HARD GATE language (spike passed)
+  - execution-status.yaml — e30s02 marked done (verified fixed), e30: done
+  - e30 epic.yaml — removed e30s05 (already implemented in build-epic Step 2), reduced
+    BCP 10→8
+  - e37 epic.yaml — removed HARD GATE, marked e37s01 done, reduced BCP 13→10 (spike
+    complete)
+  - CLAUDE.md — added Typecheck: N/A and CI platform rows
+  - CI workflows — actions/checkout v4→v6 (Node20→Node24), concurrency, timeout-minutes
+  - gh-aw prototype — e37 golden story G-01 compiles clean with DeepSeek v4 via Anthropic
+    protocol
 metrics:
   skill_timings:
     survey-context:
       calls: 0
       total_seconds: 0
       avg_seconds: 0
-      _start: "2026-06-28T23:57:13Z"
+      _start: '2026-06-28T23:57:13Z'
     release-branch:
       calls: 2
       total_seconds: 472.0
