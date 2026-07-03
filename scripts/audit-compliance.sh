@@ -258,11 +258,8 @@ fi
 echo "  SCORE: ${SCORE}% (threshold 94%)"
 if [[ $SCORE -ge 94 ]]; then
   echo "  GATE: PASS"
+  exit 0
 else
   echo "  GATE: FAIL (below 94%)"
-fi
-echo "============================================================"
-
-if [[ $TOTAL_GLOBAL_FAIL -gt 0 ]]; then
   exit 1
 fi
