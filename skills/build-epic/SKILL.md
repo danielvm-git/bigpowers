@@ -39,6 +39,7 @@ Orchestrates the **build** flow for a single epic: survey → plan tasks → kic
 6. Run **only the current step** (resume mode) unless user asked for full auto-run.
 7. After step verify passes, increment `epic_cycle.step` in `state.yaml` (or `bash scripts/bp-yaml-set.sh` if available).
 8. On story complete, set `execution-status.yaml` story key to `done`; run `bash scripts/sync-status-from-epics.sh`.
+9. **Traceability refresh:** Before step 8 (release-branch), run `bash scripts/trace-stories.sh` to regenerate `specs/traceability-matrix.json`, `specs/TRACEABILITY_LATEST.md`, and the `specs/codebase-wiki/` OKF bundle. Surface dark/orphan/stale findings for the just-built epic in your verify summary. If `scripts/trace-stories.sh` is missing or fails, note "trace skipped" and continue — trace failure must be visible, not silent (blocking is gate-trace's job, e38s06).
 
 ### Step 6 — audit-code gate (non-optional)
 
