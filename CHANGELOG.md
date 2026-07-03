@@ -1,3 +1,10 @@
+## [2.58.7](https://github.com/danielvm-git/bigpowers/compare/v2.58.6...v2.58.7) (2026-07-03)
+
+
+### Bug Fixes
+
+* show version in bigpowers CLI output ([4b3f820](https://github.com/danielvm-git/bigpowers/commit/4b3f82047e4e6b49b7179fb73836f7fc2817a8b0))
+
 ## [2.58.6](https://github.com/danielvm-git/bigpowers/compare/v2.58.5...v2.58.6) (2026-07-03)
 
 
