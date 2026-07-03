@@ -1,3 +1,10 @@
+# [2.57.0](https://github.com/danielvm-git/bigpowers/compare/v2.56.1...v2.57.0) (2026-07-03)
+
+
+### Features
+
+* **compliance:** add waiver subsystem to audit-compliance.sh ([985b67d](https://github.com/danielvm-git/bigpowers/commit/985b67dcaf8df61108d372a0572ffced99f5af29))
+
 ## [2.56.1](https://github.com/danielvm-git/bigpowers/compare/v2.56.0...v2.56.1) (2026-07-03)
 
 
