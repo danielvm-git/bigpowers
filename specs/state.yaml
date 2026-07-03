@@ -40,6 +40,7 @@ planning:
     - specs/MISSING-REFERENCES-AND-DELIVERY-PLAN.md
     - specs/QUALITY-GUARANTEE-STRATEGY.md
     - "Market survey (2026-07-02): speckit-utils, V-Model trace, BMAD TEA bmad-testarch-trace, Ctxo"
+    - "specs/IMPACT-e38-okf-adoption.md — OKF adoption risk assessment + phased rollout plan (2026-07-03)"
   epics_planned:
     - "e30: Architecture Quick Fixes (8 BCP — DONE)"
     - "e31: Quality Guarantee — Deterministic Gates (11 BCP — split 2026-07-02 per PLAN-AUDIT)"
@@ -48,9 +49,9 @@ planning:
     - "e34: Context Engineering Layer (10 BCP)"
     - "e35: DORA Metrics Extension (7 BCP)"
     - "e36: Documentation Deduplication (10 BCP)"
-    - "e37: Golden Story Suite — Agent-Driven (13 BCP — spike PASSED 2026-07-02; e37s01 done, depends on e31)"
+    - "e37: Golden Story Suite — Agent-Driven (13 BCP — spike PASSED 2026-07-03 via gh-aw + DeepSeek; G-01 golden story live)"
     - "e38: Spec-to-Code Traceability Gate (13 BCP — TEA-inspired, market survey 2026-07-02)"
-    - "e39: Semantic Context Bridge (19 BCP — OKF + skill graph + agent locks + drift detection)"
+    - "e39: Semantic Context Bridge (20 BCP — OKF + skill graph + agent locks + drift detection; see specs/IMPACT-e38-okf-adoption.md)"
   github_issues_created:
     - "37 (e30)"
     - "36 (e31)"

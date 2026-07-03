@@ -1,0 +1,20 @@
+story_id: e31s03
+title: "Create deterministic golden suite runner"
+status: todo
+bcps: 3
+tasks:
+  - id: 1
+    description: "Create scripts/run-golden-suite.sh skeleton with --dry-run and gate array"
+    verify: "test -f scripts/run-golden-suite.sh && bash -n scripts/run-golden-suite.sh && bash scripts/run-golden-suite.sh --dry-run && echo OK"
+  - id: 2
+    description: "Wire compliance and G-04 self-test as first two gates"
+    verify: "bash scripts/run-golden-suite.sh 2>&1 | grep -qE 'compliance|golden-g04' && echo OK"
+  - id: 3
+    description: "Write timestamped YAML report to specs/benchmarks/reports/GOLDEN-YYYY-MM-DD.yaml"
+    verify: "bash scripts/run-golden-suite.sh && test -f specs/benchmarks/reports/GOLDEN-$(date +%Y-%m-%d).yaml && echo OK"
+  - id: 4
+    description: "Implement --baseline flag to pin results to BASELINE-GOLDEN.yaml"
+    verify: "bash scripts/run-golden-suite.sh --baseline && grep -q 'pass_rate' specs/benchmarks/reports/BASELINE-GOLDEN.yaml && echo OK"
+  - id: 5
+    description: "Handle missing gate scripts gracefully"
+    verify: "bash scripts/run-golden-suite.sh 2>&1 | grep -q 'not found' || echo 'error handling wired'"

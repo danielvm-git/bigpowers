@@ -2,7 +2,7 @@ id: e31
 title: "Quality Guarantee — Deterministic Gates"
 wsjf: 9.5   # (BV 6 + TC 5 + RR-OE 8) / JS 2 — job size halved by the split
 bcps: 11
-status: proposed
+status: active
 release: v2.45.0
 codename: "Deepening"
 source: specs/QUALITY-GUARANTEE-STRATEGY.md
@@ -10,35 +10,55 @@ note: >
   Deterministic half of the original 22-BCP e31, split per
   specs/PLAN-AUDIT_LATEST.md (2026-07-02): no agent execution required,
   every gate runs free in seconds. Fully covers the regression surface of
-  e32-e36 (sync pipeline, compliance score, skill bloat). The agent-driven
-  golden stories (G-01/02/03/05, fixture repo, headless harness) moved to
-  e37 behind a spike HARD GATE.
+  e32-e36 (sync pipeline, compliance score, skill bloat).
+  
+  e37 spike PASSED 2026-07-02: DeepSeek v4 + gh-aw confirmed. Golden
+  stories (G-01 through G-05) are consumers of the gates built here.
+  Build order: e31 → e37 consumes gates → CI reports pass/fail.
+  
+  s01-s03 are the critical path (G-04 script, compliance CI gate,
+  golden suite runner). s04-s07 are wiring and policy — low risk,
+  fast to execute.
 stories:
   - id: e31s01
     bcp: 2
     title: "Create scripts/golden-g04-selftest.sh — sync-pipeline self-test (G-04): asserts 72 artifacts per target, skills-lock.json count, SKILL-INDEX total"
     verify: bash scripts/golden-g04-selftest.sh && echo OK
+    spec: e31s01-golden-selftest.md
+    tasks: e31s01-tasks.yaml
   - id: e31s02
     bcp: 2
     title: "Wire npm run compliance into CI (.github/workflows/publish.yml) as a gate before semantic-release"
     verify: grep -qE '^\s*run:.*npm run compliance' .github/workflows/publish.yml && echo OK
+    spec: e31s02-compliance-ci.md
+    tasks: e31s02-tasks.yaml
   - id: e31s03
     bcp: 3
     title: "Create scripts/run-golden-suite.sh (deterministic mode): compliance -> G-04 self-test -> size budget; writes specs/benchmarks/reports/GOLDEN-<date>.yaml; --baseline pins"
     verify: bash scripts/run-golden-suite.sh --dry-run && echo OK
+    spec: e31s03-golden-suite.md
+    tasks: e31s03-tasks.yaml
   - id: e31s04
     bcp: 1
     title: "Add static size budget to run-golden-suite.sh — per-skill and total SKILL.md bytes vs baseline (+20% warn, +50% fail)"
     verify: bash scripts/run-golden-suite.sh --check-size && echo OK
+    spec: e31s04-size-budget.md
+    tasks: e31s04-tasks.yaml
   - id: e31s05
     bcp: 1
     title: "Pin baseline via run-golden-suite.sh --baseline -> specs/benchmarks/reports/BASELINE-GOLDEN.yaml"
     verify: bash scripts/run-golden-suite.sh --baseline && grep -q 'pass_rate' specs/benchmarks/reports/BASELINE-GOLDEN.yaml && echo OK
+    spec: e31s05-pin-baseline.md
+    tasks: e31s05-tasks.yaml
   - id: e31s06
     bcp: 1
     title: "Mandate run-golden-suite.sh as pre-merge step in CLAUDE.md and CONVENTIONS.md"
     verify: grep -q 'run-golden-suite' CLAUDE.md && grep -q 'run-golden-suite' CONVENTIONS.md && echo OK
+    spec: e31s06-premerge-mandate.md
+    tasks: e31s06-tasks.yaml
   - id: e31s07
     bcp: 1
     title: "Point evolve-skill SKILL.md at run-golden-suite.sh for regression checks (keeps per-skill run-benchmark for capability evals)"
     verify: grep -q 'run-golden-suite' skills/evolve-skill/SKILL.md && echo OK
+    spec: e31s07-evolve-skill.md
+    tasks: e31s07-tasks.yaml

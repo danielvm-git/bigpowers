@@ -33,6 +33,9 @@ epics:
       is a fourth generated artifact target alongside .cursor/.gemini/.pi.
       WSJF (BV 7 + TC 3 + RR-OE 4) / JS 5 = 2.8 — outranks e27 (2.0), does
       not disrupt active e26.
+      OKF alignment: OKF bundles are Astro/MkDocs-ready markdown + frontmatter.
+      The docs website could render specs/skills-wiki/ and specs/codebase-wiki/
+      as browsable pages. See specs/IMPACT-e38-okf-adoption.md.
   - id: e27
     title: "Specs Output Naming Convention — _LATEST.md suffix"
     wsjf: 2.0
@@ -48,20 +51,21 @@ epics:
   #         amended 2026-07-02 per specs/PLAN-AUDIT_LATEST.md)
   #         specs/DEEPEN-ARCHITECTURE-REVIEW.md (review)
   #         specs/QUALITY-GUARANTEE-STRATEGY.md (golden suite)
-  # Build order: e31 → e32 → e34 → e35 → e33 → e36 → e37 → e38 → e39 (e37 spike-gated;
-  # e37s01 spike may run in parallel any time, s02-s04 only on "go").
+  # Build order: e31 → e32 → e34 → e35 → e33 → e36 → e37 → e38 → e39
+  # (e37 spike PASSED 2026-07-03 via gh-aw + DeepSeek; G-01 golden story live.
+  #  e37s02-s04 no longer spike-gated — can proceed after e31 builds the gates).
   - id: e31
     title: "Quality Guarantee — Deterministic Gates"
     wsjf: 9.5
     bcps: 11
     capsule_dir: epics/e31-quality-guarantee
     note: >
-      Deterministic half of the original 22-BCP quality epic (split per
+      ACTIVE. Deterministic half of the original 22-BCP quality epic (split per
       PLAN-AUDIT 2026-07-02): G-04 sync-pipeline self-test, compliance wired
       into CI, static SKILL.md size budget, pinned baseline, pre-merge
       mandate, evolve-skill integration. Free, seconds-fast, covers the
-      actual regression surface of e32-e36. WSJF (BV 6 + TC 5 + RR-OE 8) /
-      JS 2 = 9.5. Agent-driven golden stories moved to e37.
+      actual regression surface of e32-e36. 7 stories planned (11 BCP).
+      WSJF (BV 6 + TC 5 + RR-OE 8) / JS 2 = 9.5.
   - id: e32
     title: "Missing Historical References"
     wsjf: 3.0
@@ -98,6 +102,8 @@ epics:
       Refactor sync-skills.sh from copy-paste-variant to parse→IR→render.
       Extract scripts/lib/skill-common.sh shared library. Render-target
       functions: adding IDE target = adding a function, not editing loop.
+      OKF alignment: new render_okf_bundle() target maps perfectly to this
+      architecture. See specs/IMPACT-e38-okf-adoption.md §Phase 2.
   - id: e36
     title: "Documentation Deduplication"
     wsjf: 1.4
@@ -107,6 +113,9 @@ epics:
       Convert reference docs from restating principles to provenance pointers.
       CONVENTIONS.md becomes single source of truth. F.I.R.S.T rubric lives
       in one place, not six.
+      OKF alignment: the thin-provenance pattern (concept body = pointer to
+      authority doc) is exactly e36's goal applied to OKF concept documents.
+      See specs/IMPACT-e38-okf-adoption.md.
   - id: e37
     title: "Golden Story Suite — Agent-Driven"
     wsjf: 1.8
@@ -134,7 +143,7 @@ epics:
   - id: e39
     title: "Semantic Context Bridge"
     wsjf: 3.60
-    bcps: 19
+    bcps: 20
     capsule_dir: epics/e39-knowledge-graph
     note: >
       Closes remaining Layer 3 (Technical Context) and Layer 5 (Product Surface)
@@ -143,8 +152,9 @@ epics:
       lockfile (prevent multi-agent collision), spec drift detection (suspect
       links when requirements change). OKF Phases 2-4: skills-wiki, conventions-
       wiki, agent-guide from sync-skills.sh + new maintain-wiki skill for
-      agent-maintained language-agnostic code understanding. Source: Karpathy
-      LLM Wiki, OKF v0.1, Google Knowledge Catalog, session 2026-07-02/03.
+      agent-maintained language-agnostic code understanding + validate-okf.sh
+      CI conformance gate. Source: Karpathy LLM Wiki, OKF v0.1, Google
+      Knowledge Catalog, IMPACT-e38-okf-adoption.md, session 2026-07-02/03.
 
   # ── ACTIVE — next release (v2.30.0) ──────────────────────────────────
   - id: e26
