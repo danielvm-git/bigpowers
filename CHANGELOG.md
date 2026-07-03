@@ -1,3 +1,10 @@
+## [2.58.1](https://github.com/danielvm-git/bigpowers/compare/v2.58.0...v2.58.1) (2026-07-03)
+
+
+### Bug Fixes
+
+* **specs:** sync epic capsule release labels to release trains ([15b18f4](https://github.com/danielvm-git/bigpowers/commit/15b18f4a45f43cade81e19250458e404eea1b24f))
+
 # [2.58.0](https://github.com/danielvm-git/bigpowers/compare/v2.57.0...v2.58.0) (2026-07-03)
 
 
