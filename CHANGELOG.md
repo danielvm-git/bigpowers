@@ -1,3 +1,10 @@
+# [2.49.0](https://github.com/danielvm-git/bigpowers/compare/v2.48.0...v2.49.0) (2026-07-03)
+
+
+### Features
+
+* **e31:** golden suite runner — deterministic gate orchestrator ([#45](https://github.com/danielvm-git/bigpowers/issues/45)) ([e59ad3d](https://github.com/danielvm-git/bigpowers/commit/e59ad3d2d467c82bb9bf7517b8f07b897d7deb4b))
+
 # [2.48.0](https://github.com/danielvm-git/bigpowers/compare/v2.47.0...v2.48.0) (2026-07-03)
 
 
