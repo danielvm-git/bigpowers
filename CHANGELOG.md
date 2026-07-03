@@ -1,3 +1,10 @@
+## [2.56.1](https://github.com/danielvm-git/bigpowers/compare/v2.56.0...v2.56.1) (2026-07-03)
+
+
+### Bug Fixes
+
+* add story tags for P0 stories blocking CI traceability gate ([d0ca097](https://github.com/danielvm-git/bigpowers/commit/d0ca0970857841fd90e4e54b812b4023b02f6f18))
+
 # [2.56.0](https://github.com/danielvm-git/bigpowers/compare/v2.55.0...v2.56.0) (2026-07-03)
 
 
