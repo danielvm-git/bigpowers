@@ -1,3 +1,10 @@
+# [2.46.0](https://github.com/danielvm-git/bigpowers/compare/v2.45.6...v2.46.0) (2026-07-03)
+
+
+### Features
+
+* **e37:** prototype golden-story CI gate via gh-aw + DeepSeek v4 ([9e6bd29](https://github.com/danielvm-git/bigpowers/commit/9e6bd299876105d4d0f155bbf637129446b04b89)), closes [#aw](https://github.com/danielvm-git/bigpowers/issues/aw) [#aw](https://github.com/danielvm-git/bigpowers/issues/aw) [#aw](https://github.com/danielvm-git/bigpowers/issues/aw)
+
 ## [2.45.6](https://github.com/danielvm-git/bigpowers/compare/v2.45.5...v2.45.6) (2026-07-03)
 
 
