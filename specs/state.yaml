@@ -30,9 +30,9 @@ bug_cycle:
   completed_steps: null
 release:
   ci_verified: true
-  released_at: '2026-07-03T04:10:07Z'
-  commit: 8823212
-  tag: v2.50.0 (semantic-release)
+  released_at: '2026-07-03T17:50:00Z'
+  commit: d0ca097
+  tag: v2.56.0 (semantic-release)
   node20_migration:
     completed: true
     commit: 5b6f1dd
