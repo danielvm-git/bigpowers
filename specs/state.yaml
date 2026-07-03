@@ -17,9 +17,9 @@ handoff:
   All CI passed. 0 open bugs. Next: "survey-context → build-epic on e28"
 release:
   ci_verified: true
-  released_at: "2026-07-03T17:50:00Z"
-  commit: "d0ca097"
-  tag: "v2.56.1 (semantic-release)"
+  released_at: "2026-07-03T21:04:06Z"
+  commit: "ed6f1c0"
+  tag: "v2.58.4 (semantic-release)"
 bigpowers_version: "2.58.4"
 node20_migration:
   completed: true
