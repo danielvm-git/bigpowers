@@ -22,26 +22,35 @@ bugs:
     approach: "Created negative-path fixture with 5 deliberate violations; G-07 self-test runs 5 step scripts against fixture and asserts non-zero exit; wired into golden suite as hard gate"
     commit_message: "feat(compliance): add G-07 negative-path self-test for step scripts"
   - id: BUG-2026-07-03-trace-stories-613-line
-    status: open
+    status: fixed
     severity: low
     scope: scripts
     title: "trace-stories.sh 613-line waiver contradicts CONVENTIONS' context-window cap"
     file: bugs/BUG-2026-07-03-trace-stories-613-line.md
     risk_level: low
+    files_changed: "CONVENTIONS.md"
+    approach: "Documented file-size exception in CONVENTIONS.md with rationale (parse-match-report coupling) and 2026-10-01 review date"
+    commit_message: "docs(conventions): add file-size exceptions table for trace-stories.sh"
   - id: BUG-2026-07-03-capsule-release-labels
-    status: open
+    status: fixed
     severity: low
     scope: specs
     title: "e39/e43/e44 epic capsules carry release: v2.45.0, drifted from v2.7x train"
     file: bugs/BUG-2026-07-03-capsule-release-labels.md
     risk_level: low
+    files_changed: "specs/epics/e32,e33,e35,e36,e37,e39,e43,e44/epic.yaml"
+    approach: "Synced 8 epic capsule release labels to current release trains (v2.6x, v2.7x/v3.0, v2.8x); e35 marked superseded by e40"
+    commit_message: "fix(specs): sync epic capsule release labels to release trains"
   - id: BUG-2026-07-03-glossary-sparse
-    status: open
+    status: fixed
     severity: low
     scope: docs
     title: "GLOSSARY_LATEST.yaml sparse — BCP, WSJF, OKF, golden-story missing entries"
     file: bugs/BUG-2026-07-03-glossary-sparse.md
     risk_level: low
+    files_changed: "specs/product/GLOSSARY_LATEST.yaml"
+    approach: "Populated 19 core domain terms with definitions, source references, and related terms"
+    commit_message: "docs(glossary): populate GLOSSARY_LATEST.yaml with 19 core domain terms"
   - id: BUG-2026-07-02T103911
     status: fixed
     severity: high
