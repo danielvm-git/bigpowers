@@ -1,0 +1,85 @@
+id: e46
+title: "Risk-Based Verification — TEA-Informed Test Depth"
+wsjf: 3.4
+bcps: 10
+status: proposed
+release: v2.8x
+codename: "Docs Polish"
+source: |
+  PLAN-AUDIT red-team gap list (2026-07-03). Three TEA mechanisms identified
+  during the e38 traceability-gate audit that are directly relevant and not
+  yet in bigpowers: risk-based test depth, NFR evidence gate, and knowledge
+  tiering. TEA (BMAD Test Architecture Enterprise) is cached locally at
+  ~/.opensrc/repos/github.com/bmad-code-org/bmad-method-test-architecture-
+  enterprise/main. This epic implements the two behavioral mechanisms
+  (risk scaling + NFR gate) and documents the source. The knowledge tiering
+  mechanism (tier field in OKF) is assigned to e45 where it fits naturally.
+
+depends_on:
+  - e42  # verify commands are the test surface being scaled
+note: >
+  Today bigpowers sizes stories (BCP) and prioritizes epics (WSJF) but
+  applies uniform test rigor to every story — a 1-BCP doc tweak and a
+  5-BCP engine rewrite get the same F.I.R.S.T./verify treatment. TEA's
+  risk-based test depth (P0–P3) scales verification rigor to risk class.
+  The NFR evidence gate (performance/reliability/operability) is a
+  first-class go/no-go workflow in TEA that bigpowers lacks — security
+  is gated (security-review) but non-functional evidence is not.
+stories:
+  - id: e46s01
+    bcp: 3
+    status: todo
+    title: "Write docs/references/tea.md — credit TEA and document its mechanisms"
+    verify: "test -f docs/references/tea.md && grep -q 'TEA\|BMAD\|risk-based\|NFR\|knowledge tiering' docs/references/tea.md && echo OK"
+    description: |
+      Write a reference doc crediting TEA (BMAD Test Architecture Enterprise)
+      alongside the existing bmad.md. Cover:
+      - What TEA is (one persona Murat, nine workflows)
+      - Risk-based test depth (P0–P3 scaling)
+      - Tiered knowledge fragments (tea-index.csv: core/extended/specialized)
+      - NFR evidence audit (performance, reliability, operability go/no-go)
+      - What bigpowers is adopting from TEA (e46 e46s02-s03)
+      - What bigpowers is NOT adopting (per-workflow checklist.md, resume
+        frontmatter — state.yaml already covers it better)
+      - Provenance: link to BMAD TEA repo, credit culture precedent
+        (e36-style: credit early, credit visibly)
+
+  - id: e46s02
+    bcp: 3
+    status: todo
+    title: "Add risk: P0|P1|P2|P3 field to plan-work that scales verify-work depth"
+    verify: "grep -q 'risk:' skills/plan-work/SKILL.md && grep -q 'P0\|P1\|P2\|P3' skills/plan-work/SKILL.md && echo OK"
+    description: |
+      Add a `risk:` field to plan-work's story template (P0 = critical path,
+      data loss, security; P1 = core feature logic; P2 = utility/display;
+      P3 = doc-only/cosmetic). plan-work guides the agent to assign risk
+      based on BCP + story type heuristics. verify-work reads the risk
+      field and scales its UAT depth:
+      - P0: full verify-work multi-phase + security-review + NFR gate
+      - P1: standard verify-work (build, test, lint, step-by-step)
+      - P2: smoke + typecheck + lint
+      - P3: typecheck + lint only
+      Source pattern: TEA test-design workflow (P0–P3 risk classes).
+      Update plan-work REFERENCE.md with risk assignment heuristics.
+      Update verify-work SKILL.md with risk-scaled depth table.
+
+  - id: e46s03
+    bcp: 4
+    status: todo
+    title: "NFR evidence gate — performance/reliability/operability with go/no-go output"
+    verify: "grep -q 'NFR\|non-functional\|performance.*gate\|reliability.*evidence' skills/verify-work/SKILL.md && echo OK"
+    description: |
+      Add an NFR evidence phase to verify-work (or a standalone
+      nfr-gate skill, depending on grill-me design outcome). The gate
+      produces go/no-go output on three dimensions:
+      - Performance: response time, throughput, resource usage (baseline
+        vs current, threshold-based)
+      - Reliability: error rate, recovery time, data integrity (from
+        test runs + production telemetry if available)
+      - Operability: logging coverage, health-check endpoints, runbook
+        existence, config documentation
+      Evidence is captured as OKF verification-report bundles (e45s02
+      pattern). The NFR gate is applied only to P0 stories (risk-scaled
+      from e46s02). Source: TEA's bmad-testarch-nfr workflow.
+      Note: exact shape TBD via grill-me — whether this is a verify-work
+      sub-phase, a standalone skill, or a mode flag on security-review.

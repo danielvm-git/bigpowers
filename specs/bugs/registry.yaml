@@ -1,5 +1,40 @@
 # AUTO-GENERATED — sync-bugs-registry.sh
 bugs:
+  - id: BUG-2026-07-03-waiver-scoring
+    status: open
+    severity: medium
+    scope: scripts
+    title: "Waiver-list scoring hides regressions — intentional FAILs inside denominator allow 2 hidden failures"
+    file: bugs/BUG-2026-07-03-waiver-scoring.md
+    risk_level: medium
+  - id: BUG-2026-07-03-negative-path-self-test
+    status: open
+    severity: high
+    scope: verifications
+    title: "~90 step scripts have zero proof they can fail — no negative-path self-test (GAP-1 bug class)"
+    file: bugs/BUG-2026-07-03-negative-path-self-test.md
+    risk_level: high
+  - id: BUG-2026-07-03-trace-stories-613-line
+    status: open
+    severity: low
+    scope: scripts
+    title: "trace-stories.sh 613-line waiver contradicts CONVENTIONS' context-window cap"
+    file: bugs/BUG-2026-07-03-trace-stories-613-line.md
+    risk_level: low
+  - id: BUG-2026-07-03-capsule-release-labels
+    status: open
+    severity: low
+    scope: specs
+    title: "e39/e43/e44 epic capsules carry release: v2.45.0, drifted from v2.7x train"
+    file: bugs/BUG-2026-07-03-capsule-release-labels.md
+    risk_level: low
+  - id: BUG-2026-07-03-glossary-sparse
+    status: open
+    severity: low
+    scope: docs
+    title: "GLOSSARY_LATEST.yaml sparse — BCP, WSJF, OKF, golden-story missing entries"
+    file: bugs/BUG-2026-07-03-glossary-sparse.md
+    risk_level: low
   - id: BUG-2026-07-02T103911
     status: fixed
     severity: high

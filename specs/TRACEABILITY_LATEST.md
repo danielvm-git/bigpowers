@@ -1,24 +1,24 @@
 # Traceability Matrix
 
-**Generated:** 2026-07-03 17:47:57 UTC
-**Total stories:** 140
-**Tagged stories:** 12
-**Dark stories:** 8
-**Orphan tags:** 1
-**Stale tags:** 12
+**Generated:** 2026-07-03 19:19:42 UTC
+**Total stories:** 148
+**Tagged stories:** 13
+**Dark stories:** 4
+**Orphan tags:** 11
+**Stale tags:** 7
 
 ## Oracle Stats
 
-- **High** (explicit tag): 23
-- **Medium** (file heuristic): 2481
-- **Low** (task reference): 102
+- **High** (explicit tag): 65
+- **Medium** (file heuristic): 3199
+- **Low** (task reference): 82
 
 ## Story Coverage
 
 | Story | Title | Epic | BCP | WSJF | Status | Links |
 |-------|-------|------|-----|------|--------|-------|
 | e01s01 | slopcheck tags in `plan-work` ([OK]/[SUS]/[SLOP]) | e01 | 0 | 4.5 | done | 6 |
-| e01s02 | Supply-chain + OWASP in `audit-code` | e01 | 0 | 4.5 | done | 74 |
+| e01s02 | Supply-chain + OWASP in `audit-code` | e01 | 0 | 4.5 | done | 90 |
 | e01s03 | Secret patterns documented in `guard-git` | e01 | 0 | 4.5 | done | 4 |
 | e01s04 | `docs/references/security-threats.md` reconciled | e01 | 0 | 4.5 | done | 0 |
 | e02s01 | `verify-work`, `run-evals` skills | e02 | 0 | 4.3 | done | 23 |
@@ -35,8 +35,8 @@
 | e05s03 | `orchestrate-project` reads model + spawn list | e05 | 0 | 3.3 | done | 3 |
 | e06s01 | `type:` / `context:` in plan-work template | e06 | 0 | 3.0 | done | 5 |
 | e06s02 | ADR/SHA refs on steps | e06 | 0 | 3.0 | done | 0 |
-| e06s03 | `audit-code` metadata checks | e06 | 0 | 3.0 | done | 74 |
-| e07s01 | Demeter in CONVENTIONS.md + audit-code | e07 | 0 | 2.8 | done | 74 |
+| e06s03 | `audit-code` metadata checks | e06 | 0 | 3.0 | done | 90 |
+| e07s01 | Demeter in CONVENTIONS.md + audit-code | e07 | 0 | 2.8 | done | 90 |
 | e07s02 | Module Depth score in deepen-architecture | e07 | 0 | 2.8 | done | 5 |
 | e07s03 | Concurrency audit in model-domain | e07 | 0 | 2.8 | done | 3 |
 | e08s01 | Wave Execution | e08 | 0 | 2.5 | done | 1 |
@@ -60,12 +60,12 @@
 | e12s05 | Installation docs — document pi install process | e12 | 0 | 5.3 | done | 2 |
 | e12s06 | Validation — test pi loads all skills correctly | e12 | 0 | 5.3 | done | 8 |
 | e13s01 | Regenerate skills-lock.json with all 62 skills | e13 | 0 | 7.7 | done | 34 |
-| e13s02 | Autogenerate SKILL-INDEX.md from lockfile + frontmatter | e13 | 0 | 7.7 | done | 0 |
-| e13s03 | Complete or deprecate stale planned skills | e13 | 0 | 7.7 | done | 0 |
+| e13s02 | Autogenerate SKILL-INDEX.md from lockfile + frontmatter | e13 | 0 | 7.7 | done | 1 |
+| e13s03 | Complete or deprecate stale planned skills | e13 | 0 | 7.7 | done | 1 |
 | e14s01 | Harden release-branch solo-local fallback | e14 | 0 | 6.0 | done | 7 |
 | e14s02 | Add fix-rate KPI to session-state tracking | e14 | 0 | 6.0 | done | 9 |
 | e14s03 | Catalog completeness audit — verify all pi skills exist in p | e14 | 0 | 6.0 | done | 13 |
-| e18s01 | audit-code as hard gate in build-epic step 6 | e18 | 0 | 4.8 | done | 88 |
+| e18s01 | audit-code as hard gate in build-epic step 6 | e18 | 0 | 4.8 | done | 104 |
 | e18s02 | Wire enforce-first (F.I.R.S.T) into build-epic gate chain | e18 | 0 | 4.8 | done | 20 |
 | e18s03 | Wire assess-impact into build-epic step 2 (plan-work) | e18 | 0 | 4.8 | done | 20 |
 | e18s04 | Universalize resume/checkpoint pattern to fix-bug and orches | e18 | 0 | 4.8 | done | 11 |
@@ -87,10 +87,10 @@
 | e28s04 | GitHub Pages deploy workflow | e28 | 0 | 2.8 | backlog | 2 |
 | e28s05 | Doctrine wiring — site content is generated, never edited | e28 | 0 | 2.8 | backlog | 2 |
 | e30s01 | Add 3 missing skills to get_phase() in generate-skill-index. | e30 | 0 | 6.5 | done | 36 |
-| e30s02 | Fix 4 broken specs/tech-architecture/ references | e30 | 0 | 6.5 | done | 0 |
-| e30s03 | Delete stale karpathy.feature.bak | e30 | 0 | 6.5 | done | 0 |
+| e30s02 | Fix 4 broken specs/tech-architecture/ references | e30 | 0 | 6.5 | done | 1 |
+| e30s03 | Delete stale karpathy.feature.bak | e30 | 0 | 6.5 | done | 1 |
 | e30s04 | Replace tautological verify commands with behavior-relevant  | e30 | 0 | 6.5 | done | 1 |
-| e31s01 | Create scripts/golden-g04-selftest.sh — sync-pipeline self-t | e31 | 2 | 9.5 | done | 6 |
+| e31s01 | Create scripts/golden-g04-selftest.sh — sync-pipeline self-t | e31 | 2 | 9.5 | done | 7 |
 | e31s02 | Wire npm run compliance into CI (.github/workflows/publish.y | e31 | 2 | 9.5 | done | 1 |
 | e31s03 | Create scripts/run-golden-suite.sh (deterministic mode): com | e31 | 3 | 9.5 | done | 5 |
 | e31s04 | Add static size budget to run-golden-suite.sh — per-skill an | e31 | 1 | 9.5 | done | 21 |
@@ -111,52 +111,60 @@
 | e33s02 | Refactor 13 scripts to source skill-common.sh instead of dup | e33 | 2 | 2.0 | backlog | 7 |
 | e33s03 | Refactor sync-skills.sh to use render-target functions (one  | e33 | 5 | 2.0 | backlog | 7 |
 | e33s04 | Refactor regenerate-lockfile.sh, generate-skill-index.sh, bu | e33 | 3 | 2.0 | backlog | 329 |
-| e35s01 | Extend cycle-times.yaml schema to include change_failure_rat | e35 | 2 | 2.67 | backlog | 5 |
+| e35s01 | Extend cycle-times.yaml schema to include change_failure_rat | e35 | 2 | 2.67 | backlog | 6 |
 | e35s02 | Update release-branch to compute change_failure_rate and res | e35 | 3 | 2.67 | backlog | 9 |
 | e35s03 | Update CONVENTIONS.md BCP accounting to reference DORA four  | e35 | 2 | 2.67 | backlog | 1 |
 | e36s01 | Slim docs/references/uncle-bob.md to provenance pointer | e36 | 3 | 1.4 | backlog | 2 |
 | e36s02 | Slim docs/references/akita.md, ousterhout.md, karpathy.md, w | e36 | 3 | 1.4 | backlog | 1 |
-| e36s03 | Remove F.I.R.S.T rubric restatement from enforce-first and a | e36 | 2 | 1.4 | backlog | 102 |
+| e36s03 | Remove F.I.R.S.T rubric restatement from enforce-first and a | e36 | 2 | 1.4 | backlog | 118 |
 | e36s04 | Update docs/references/spec-kit.md to cover full SDD tool la | e36 | 2 | 1.4 | backlog | 3 |
+| e36s05 | Refresh docs/references/bmad.md from BMAD v6/TEA — currently | e36 | 2 | 1.4 | backlog | 0 |
 | e37s01 | Spike: headless golden-chain harness — gh-aw + DeepSeek v4 p | e37 | 3 | 1.8 | backlog | 5 |
 | e37s02 | Create specs/benchmarks/fixtures/minimal-api/ fixture repo ( | e37 | 3 | 1.8 | backlog | 4 |
 | e37s03 | Author 4 golden story YAMLs (g-01, g-02, g-03, g-05) with co | e37 | 3 | 1.8 | backlog | 17 |
-| e37s04 | Add --agent mode to run-golden-suite.sh: headless chain exec | e37 | 4 | 1.8 | backlog | 173 |
-| e38s01 | Create scripts/trace-stories.sh — deterministic coverage mat | e38 | 3 | 3.5 | done | 3 |
-| e38s02 | Integrate trace-stories.sh into build-epic Step 8 (verify ph | e38 | 1 | 3.5 | done | 10 |
-| e38s03 | Add trace-stories.sh --strict to CI gate (sync-skills.yml) | e38 | 1 | 3.5 | done | 8 |
-| e38s04 | Create scripts/check-blind-spots.sh — heuristic quality dete | e38 | 2 | 3.5 | done | 3 |
-| e38s05 | Integrate check-blind-spots.sh into verify-work Phase 3 | e38 | 1 | 3.5 | done | 10 |
-| e38s06 | Create gate-trace skill — deterministic quality gate before  | e38 | 2 | 3.5 | done | 40 |
-| e38s07 | Wire gate-trace into release-branch pre-PR gate | e38 | 1 | 3.5 | done | 41 |
-| e38s08 | Update CLAUDE.md and CONVENTIONS.md with traceability mandat | e38 | 1 | 3.5 | done | 21 |
-| e38s09 | Write docs/references/traceability-gate.md — architecture &  | e38 | 1 | 3.5 | done | 3 |
-| e39s01 | Create scripts/build-skill-graph.sh — parse handoff chains a | e39 | 3 | 3.6 | backlog | 13 |
+| e37s04 | Add --agent mode to run-golden-suite.sh: headless chain exec | e37 | 4 | 1.8 | backlog | 190 |
+| e39s01 | Emit the skill graph artifact via e43's MCP server (build_sk | e39 | 3 | 3.6 | backlog | 413 |
 | e39s02 | Create specs/agent-locks.yaml — multi-agent coordination pro | e39 | 2 | 3.6 | backlog | 1 |
 | e39s03 | Create scripts/check-spec-drift.sh — requirement change → su | e39 | 2 | 3.6 | backlog | 5 |
-| e39s04 | OKF Phase 2 — sync-skills.sh generates specs/skills-wiki/ fr | e39 | 3 | 3.6 | backlog | 5 |
+| e39s04 | OKF Phase 2 — sync-skills.sh generates specs/skills-wiki/ fr | e39 | 3 | 3.6 | backlog | 6 |
 | e39s05 | OKF Phase 3a — decompose CONVENTIONS.md into specs/conventio | e39 | 2 | 3.6 | backlog | 3 |
 | e39s06 | OKF Phase 3b — decompose CLAUDE.md into specs/agent-guide/ f | e39 | 1 | 3.6 | backlog | 2 |
 | e39s07 | Create maintain-wiki skill — agent-maintained OKF ingest, li | e39 | 3 | 3.6 | backlog | 15 |
-| e39s08 | Integrate maintain-wiki into build-epic Step 8 and verify-wo | e39 | 2 | 3.6 | backlog | 21 |
+| e39s08 | Integrate maintain-wiki into build-epic Step 8 and verify-wo | e39 | 2 | 3.6 | backlog | 22 |
 | e39s09 | Write docs/references/semantic-context-bridge.md — architect | e39 | 1 | 3.6 | backlog | 8 |
 | e39s10 | Extend scripts/validate-okf.sh (created by e40s06) with OKF  | e39 | 1 | 3.6 | backlog | 3 |
-| e40s01 | Spike: build bigpowers-mcp with index_skills + read_skill, v | e43 | 3 | 4.0 | done | 1 |
-| e40s02 | Add build_skill_graph tool — entity-relation model from pars | e43 | 3 | 4.0 | done | 8 |
-| e40s03 | Add search_skills + get_dependencies tools | e43 | 2 | 4.0 | done | 1 |
-| e40s04 | Add get_git_context tool — change awareness for drift detect | e43 | 1 | 4.0 | done | 5 |
-| e40s05 | Add validate_skill tool — convention compliance check | e43 | 2 | 4.0 | done | 1 |
-| e40s06 | Register bigpowers-mcp in MCP client configs (Claude Code, C | e43 | 1 | 4.0 | done | 68 |
-| e40s07 | Write docs/references/bigpowers-mcp.md — architecture and op | e43 | 1 | 4.0 | done | 4 |
 | e41s01 | Create scripts/build-receipts.sh — aggregate all quality evi | e41 | 3 | 3.75 | backlog | 2 |
 | e41s02 | Render /receipts page on the e28 docs site from receipts.jso | e41 | 3 | 3.75 | backlog | 3 |
 | e41s03 | CI wiring — regenerate receipts on every main push; provenan | e41 | 2 | 3.75 | backlog | 1 |
 | e41s04 | Honesty guardrails codified — validate-okf checks receipts.j | e41 | 1 | 3.75 | backlog | 5 |
 | e41s05 | README + launch note point to the live receipts page | e41 | 1 | 3.75 | backlog | 4 |
 | e42s01 | Scaffold the showcase app in a separate public repo via seed | e42 | 3 | 2.5 | backlog | 11 |
-| e42s02 | Build one feature epic end-to-end via the 8-step build-epic  | e42 | 3 | 2.5 | backlog | 568 |
-| e42s03 | Fix one real bug via the investigate-bug → develop-tdd → val | e42 | 2 | 2.5 | backlog | 46 |
-| e42s04 | Link the showcase from README + docs site; register as e37 g | e42 | 2 | 2.5 | backlog | 6 |
+| e42s02 | Build one feature epic end-to-end via the 8-step build-epic  | e42 | 3 | 2.5 | backlog | 571 |
+| e42s03 | Fix one real bug via the investigate-bug → develop-tdd → val | e42 | 2 | 2.5 | backlog | 52 |
+| e42s04 | Link the showcase from README + docs site; register as e37 g | e42 | 2 | 2.5 | backlog | 7 |
+| e42s05 | Add offline-tolerant fallbacks for e42 verify commands that  | e42 | 1 | 2.5 | backlog | 1 |
+| e43s01 | Spike: build bigpowers-mcp with index_skills + read_skill, v | e43 | 3 | 4.0 | backlog | 20 |
+| e43s02 | Add build_skill_graph tool — entity-relation model from pars | e43 | 3 | 4.0 | backlog | 7 |
+| e43s03 | Add search_skills + get_dependencies tools | e43 | 2 | 4.0 | backlog | 0 |
+| e43s04 | Add get_git_context tool — change awareness for drift detect | e43 | 1 | 4.0 | backlog | 4 |
+| e43s05 | Add validate_skill tool — convention compliance check | e43 | 2 | 4.0 | backlog | 0 |
+| e43s06 | Register bigpowers-mcp in MCP client configs (Claude Code, C | e43 | 1 | 4.0 | backlog | 64 |
+| e43s07 | Write docs/references/bigpowers-mcp.md — architecture and op | e43 | 1 | 4.0 | backlog | 2 |
+| e44s01 | Define OKF schema for spec-migration and migration-registry; | e44 | 3 | 3.75 | backlog | 64 |
+| e44s02 | Create scripts/check-spec-version-gap.sh — fingerprint + sta | e44 | 2 | 3.75 | backlog | 71 |
+| e44s03 | Create scripts/migrate-version.sh — one-shot ordered migrati | e44 | 4 | 3.75 | backlog | 15 |
+| e44s04 | Verification gates + migration report generation + CLAUDE.md | e44 | 2 | 3.75 | backlog | 8 |
+| e44s05 | Integrate check_spec_version_gap into survey-context; wire h | e44 | 1 | 3.75 | backlog | 9 |
+| e44s06 | Golden test fixtures (v1.x, v2.0.0, v2.20) + roundtrip valid | e44 | 2 | 3.75 | backlog | 21 |
+| e45s01 | Generate epics-wiki and adr-wiki as OKF concept bundles from | e45 | 2 | 3.0 | backlog | 11 |
+| e45s02 | Emit verification reports as OKF bundles from run-golden-sui | e45 | 2 | 3.0 | backlog | 8 |
+| e45s03 | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | e45 | 1 | 3.0 | backlog | 33 |
+| e45s04 | Create viz.html — interactive force-layout graph companion f | e45 | 2 | 3.0 | backlog | 17 |
+| e45s05 | Wire OKF validation into CI (sync-skills.yml) and document i | e45 | 1 | 3.0 | backlog | 17 |
+| e45s06 | Add tier: field (core/extended/specialized) to OKF wiki inde | e45 | 2 | 3.0 | backlog | 5 |
+| e46s01 | Write docs/references/tea.md — credit TEA and document its m | e46 | 3 | 3.4 | backlog | 12 |
+| e46s02 | Add risk: P0|P1|P2|P3 field to plan-work that scales verify- | e46 | 3 | 3.4 | backlog | 63 |
+| e46s03 | NFR evidence gate — performance/reliability/operability with | e46 | 4 | 3.4 | backlog | 0 |
 
 ## Dark Stories (no code links)
 
@@ -164,20 +172,9 @@
 - **e06s02**: ADR/SHA refs on steps (status: done)
 - **e09s02**: `specs/METHODOLOGY.md` (status: done)
 - **e10s01**: profiles/swift.md, typescript-vue.md, node-service.md (status: done)
-- **e13s02**: Autogenerate SKILL-INDEX.md from lockfile + frontmatter (status: done)
-- **e13s03**: Complete or deprecate stale planned skills (status: done)
-- **e30s02**: Fix 4 broken specs/tech-architecture/ references (status: done)
-- **e30s03**: Delete stale karpathy.feature.bak (status: done)
 
 ## Orphan Tags (tag in code, no matching story)
 
-- `e99s01`
-
-## Stale Tags (story done, tag still in code)
-
-- `e01s01`
-- `e02s01`
-- `e30s01`
 - `e38s01`
 - `e38s02`
 - `e38s03`
@@ -187,3 +184,15 @@
 - `e38s07`
 - `e38s08`
 - `e38s09`
+- `e40s06`
+- `e99s01`
+
+## Stale Tags (story done, tag still in code)
+
+- `e01s01`
+- `e02s01`
+- `e13s02`
+- `e13s03`
+- `e30s01`
+- `e30s02`
+- `e30s03`

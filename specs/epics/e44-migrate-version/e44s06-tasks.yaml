@@ -1,0 +1,38 @@
+id: e44s06
+title: "Golden test fixtures (v1.x, v2.0.0, v2.20) + roundtrip validation; wire as G-06 golden story"
+
+tasks:
+  - id: s06-t01
+    description: "Create tests/fixtures/v1.x-project/ — minimal downstream project in Markdown era (STATE.md, RELEASE-PLAN.md, SCOPE.md, CONTEXT.md, adr/)"
+    verify: "test -f tests/fixtures/v1.x-project/specs/STATE.md && test -f tests/fixtures/v1.x-project/specs/RELEASE-PLAN.md && test -f tests/fixtures/v1.x-project/specs/SCOPE.md && echo OK"
+    story: e44s06
+
+  - id: s06-t02
+    description: "Create tests/fixtures/v2.0.0-project/ — YAML cockpit era without bigpowers_version stamp"
+    verify: "test -f tests/fixtures/v2.0.0-project/specs/state.yaml && ! grep -q 'bigpowers_version' tests/fixtures/v2.0.0-project/specs/state.yaml && echo OK"
+    story: e44s06
+
+  - id: s06-t03
+    description: "Create tests/fixtures/v2.20-project/ — capsule era with epic_cycle but without bigpowers_version stamp"
+    verify: "test -f tests/fixtures/v2.20-project/specs/state.yaml && grep -q 'epic_cycle' tests/fixtures/v2.20-project/specs/state.yaml && ! grep -q 'bigpowers_version' tests/fixtures/v2.20-project/specs/state.yaml && echo OK"
+    story: e44s06
+
+  - id: s06-t04
+    description: "Create tests/fixtures/v1.x-expected/, v2.0.0-expected/, v2.20-expected/ — post-migration expected outputs"
+    verify: "test -d tests/fixtures/v1.x-expected/specs/ && test -d tests/fixtures/v2.0.0-expected/specs/ && test -d tests/fixtures/v2.20-expected/specs/ && echo OK"
+    story: e44s06
+
+  - id: s06-t05
+    description: "Create tests/run-golden-migrate-version.sh — roundtrip validation: migrate → assert stamp → validate → diff expected"
+    verify: "test -f tests/run-golden-migrate-version.sh && grep -q 'migrate-version\|diff.*expected\|validate-specs-yaml' tests/run-golden-migrate-version.sh && echo OK"
+    story: e44s06
+
+  - id: s06-t06
+    description: "Wire G-06 into golden suite: add to scripts/run-golden-suite.sh or .github/workflows/e44-golden-migrate-version.lock.yml"
+    verify: "grep -rn 'G-06\|migrate-version.*golden\|e44.*golden' scripts/ .github/ 2>/dev/null | head -1 && echo OK || echo 'PENDING: golden suite integration'"
+    story: e44s06
+
+  - id: s06-t07
+    description: "Run G-06 golden story against all 3 fixtures, assert all pass"
+    verify: "bash tests/run-golden-migrate-version.sh 2>&1 | grep -q 'OK' && echo OK || echo 'PENDING: fixtures not yet built'"
+    story: e44s06

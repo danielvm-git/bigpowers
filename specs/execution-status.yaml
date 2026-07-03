@@ -109,7 +109,7 @@ development_status:
   e25s04: "done"
   e25s05: "done"
   e25s06: "done"
-  e26: "active"
+  e26: "done"
   e26s01: "done"
   e26s02: "done"
   e26s03: "done"
@@ -163,7 +163,7 @@ development_status:
   e34s02: "done"
   e34s03: "done"
   e34s04: "done"
-  e35: "backlog"
+  e35: "superseded"
   e35s01: "backlog"
   e35s02: "backlog"
   e35s03: "backlog"
@@ -172,7 +172,7 @@ development_status:
   e36s02: "backlog"
   e36s03: "backlog"
   e36s04: "backlog"
-  e37: "backlog"
+  e37: "active"
   e37s01: "backlog"
   e37s02: "backlog"
   e37s03: "backlog"
@@ -198,14 +198,6 @@ development_status:
   e39s08: "backlog"
   e39s09: "backlog"
   e39s10: "backlog"
-  e43: "backlog"
-  e43s01: "backlog"
-  e43s02: "backlog"
-  e43s03: "backlog"
-  e43s04: "backlog"
-  e43s05: "backlog"
-  e43s06: "backlog"
-  e43s07: "backlog"
   e40: "done"
   e40s01: "done"
   e40s02: "done"
@@ -226,3 +218,29 @@ development_status:
   e42s02: "backlog"
   e42s03: "backlog"
   e42s04: "backlog"
+  e43: "backlog"
+  e43s01: "backlog"
+  e43s02: "backlog"
+  e43s03: "backlog"
+  e43s04: "backlog"
+  e43s05: "backlog"
+  e43s06: "backlog"
+  e43s07: "backlog"
+  e44: "backlog"
+  e44s01: "backlog"
+  e44s02: "backlog"
+  e44s03: "backlog"
+  e44s04: "backlog"
+  e44s05: "backlog"
+  e44s06: "backlog"
+  e45: backlog
+  e45s01: backlog
+  e45s02: backlog
+  e45s03: backlog
+  e45s04: backlog
+  e45s05: backlog
+  e45s06: backlog
+  e46: backlog
+  e46s01: backlog
+  e46s02: backlog
+  e46s03: backlog

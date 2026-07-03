@@ -1,38 +1,24 @@
-active_flow: build_epic
-epic_cycle:
-  epic_id: e38
-  epic_slug: traceability-gate
-  capsule_dir: specs/epics/e38-traceability-gate
-  current_story: e38s09
-  total_bcps: 13
-  story_bcps: 1
-  current_step: 8
+active_flow: fix_bug
+bug_id: BUG-2026-07-03-waiver-scoring
+bug_cycle:
+  current_step: 3
   completed_steps:
   - '1'
   - '2'
-  - '3'
-  - '4'
-  - '5'
-  - '6'
-  - '7'
-  - '8'
-  story_start: '2026-07-03T13:20:00Z'
-  story_end: '2026-07-03T13:45:00Z'
-  audit_result: pass
-  fast_mode: true
-  yolo_mode: true
 handoff:
-  next_skill: plan-release
-  context: 'v2.6x train — e38 Traceability Gate COMPLETE (YOLO mode). All 9 stories done: trace-stories.sh, check-blind-spots.sh, gate-trace skill, CI gate, verify-work + release-branch integration, traceability mandate in CONVENTIONS.md/CLAUDE.md, operator guide in docs/references/traceability-gate.md. Next: plan next release or run sync-skills.sh.'
-bug_id: null
-bug_cycle:
-  current_step: 0
-  completed_steps: null
+  next_skill: develop-tdd
+  context: >
+    Steps 1-2 complete: investigate-bug registered in registry, diagnose-root
+    4-phase RCA verified root cause (no waiver subsystem in audit-compliance.sh
+    scoring — denominator = PASS+FAIL with no waiver exclusion). Current audit
+    passes 88/0=100% (no waivers active), but vulnerability is latent. TDD Fix
+    Plan has 4 RED-GREEN cycles ready. Proceeding to develop-tdd.
 release:
   ci_verified: true
   released_at: '2026-07-03T17:50:00Z'
   commit: d0ca097
-  tag: v2.56.0 (semantic-release)
+  tag: v2.56.1 (semantic-release)
+bigpowers_version: "2.56.1"  # mirror, not the authority — real version from gh release view
   node20_migration:
     completed: true
     commit: 5b6f1dd
@@ -58,6 +44,7 @@ planning:
   - 'e38: Spec-to-Code Traceability Gate (13 BCP — TEA-inspired, market survey 2026-07-02)'
   - 'e39: Semantic Context Bridge (20 BCP — OKF + skill graph + agent locks + drift detection; depends on e33; see specs/IMPACT-e38-okf-adoption.md)'
   - 'e43: MCP Semantic Context Server (13 BCP — TypeScript MCP server, remark-based SKILL.md parsing, entity-relation knowledge graph; 2026-07-03 MCP/tree-sitter research)'
+  - 'e44: Spec Version Migration — migrate-version Skill (14 BCP — OKF spec-migration bundles, fingerprint+stamp detection, triple safety net; depends on e39+e40; grill-me design session 2026-07-03)'
   - 'e40: Metrics Integrity (18 BCP — git-/telemetry-derived additive effort + lead time, OKF story bundles, provenance gate; supersedes e35; CR 2026-07-03)'
   - 'e41: Public Receipts (10 BCP — live evidence page on e28 docs site; depends on e28 + e40; CR 2026-07-03)'
   - 'e42: Showcase Repo (10 BCP — worked example in separate public repo, v2.8x train; CR 2026-07-03)'

@@ -1,0 +1,63 @@
+id: e44s03
+title: "Create scripts/migrate-version.sh — one-shot ordered migration engine with triple safety net"
+
+tasks:
+  - id: s03-t01
+    description: "Create scripts/migrate-version.sh with --help, --dry-run, --force flags"
+    verify: "test -f scripts/migrate-version.sh && bash scripts/migrate-version.sh --help >/dev/null 2>&1 && echo OK"
+    story: e44s03
+
+  - id: s03-t02
+    description: "Implement safety layer 1: backup specs/ → specs/.pre-upgrade-backup/ before any file access"
+    verify: "grep -q 'pre-upgrade-backup\|cp -r.*specs' scripts/migrate-version.sh && echo OK"
+    story: e44s03
+
+  - id: s03-t03
+    description: "Implement safety layer 2: dry-run mode — load migrations, compose plan, show full diff with ⚠ uncertainty markers"
+    verify: "grep -q 'dry.run\|dry_run\|GUESS\|diff' scripts/migrate-version.sh && echo OK"
+    story: e44s03
+
+  - id: s03-t04
+    description: "Implement migration loader: parse registry.okf.md, filter applicable migrations by version gap, topological sort by depends_on"
+    verify: "grep -q 'registry\|topological\|depends_on\|sort' scripts/migrate-version.sh && echo OK"
+    story: e44s03
+
+  - id: s03-t05
+    description: "Implement action: convert_md_to_yaml — heuristic STATE.md → state.yaml with regex heuristic_map and ⚠ GUESS markers"
+    verify: "grep -q 'convert_md_to_yaml\|heuristic_map\|GUESS' scripts/migrate-version.sh && echo OK"
+    story: e44s03
+
+  - id: s03-t06
+    description: "Implement actions: rename_file, move_file, delete_file — all idempotent with if_source_exists/target checks"
+    verify: "grep -q 'rename_file\|move_file\|delete_file\|idempotent\|if.*exists' scripts/migrate-version.sh && echo OK"
+    story: e44s03
+
+  - id: s03-t07
+    description: "Implement actions: set_yaml_key, rename_yaml_key, delete_yaml_key — idempotent YAML operations via bp-yaml-set.sh"
+    verify: "grep -q 'set_yaml_key\|rename_yaml_key\|delete_yaml_key\|bp-yaml-set' scripts/migrate-version.sh && echo OK"
+    story: e44s03
+
+  - id: s03-t08
+    description: "Implement action: create_file_from_template — cp template with {{var}} substitution, skip if target exists"
+    verify: "grep -q 'create_file_from_template\|template\|substitut' scripts/migrate-version.sh && echo OK"
+    story: e44s03
+
+  - id: s03-t09
+    description: "Implement apply phase: execute transforms in dependency order, track succeeded/failed/skipped status per migration"
+    verify: "grep -q 'apply\|succeeded\|failed\|skipped\|partial' scripts/migrate-version.sh && echo OK"
+    story: e44s03
+
+  - id: s03-t10
+    description: "Implement stamp: write bigpowers_version to state.yaml after successful apply"
+    verify: "grep -q 'bigpowers_version\|bp-yaml-set.*bigpowers' scripts/migrate-version.sh && echo OK"
+    story: e44s03
+
+  - id: s03-t11
+    description: "Implement safety layer 3: auto-commit with Conventional Commits message"
+    verify: "grep -q 'git add.*specs\|git commit\|migrate-version.*v.*→' scripts/migrate-version.sh && echo OK"
+    story: e44s03
+
+  - id: s03-t12
+    description: "Block on active work: refuse to run if non-main branch, uncommitted specs/ changes, or active_flow not null"
+    verify: "grep -q 'active_flow\|git branch\|git status\|refuse\|block' scripts/migrate-version.sh && echo OK"
+    story: e44s03

@@ -1,0 +1,101 @@
+id: e44
+title: "Spec Version Migration — migrate-version Skill"
+wsjf: 3.75
+bcps: 14
+status: proposed
+release: v2.45.0
+codename: "Deepening"
+depends_on:
+  - e39        # OKF v0.1 format for migration bundles
+  - e40        # validate-okf.sh (e40s06) for verify gate
+release_train: "v2.7x/v3.0 — Semantic Bridge"
+source: |
+  Grill-me design session 2026-07-03 (Claude/DeepSeek v4). 27 questions.
+  Problem: downstream projects created at different bigpowers versions
+  accumulate stale spec formats. Markdown-era STATE.md doesn't match
+  YAML cockpit v2.0.0+, fixed-name spec files (SCOPE.md) don't match
+  the product/ subdirectory convention, missing YAML keys (handoff.next_skill,
+  metrics.story_start) break CI validation. Each downstream project needs
+  different migrations depending on when it was created.
+
+  Design decisions (grill Q1-Q27):
+  - Q1:  Version-aware, full downstream spec migration
+  - Q2:  Fingerprint bootstrap → stamp bigpowers_version in state.yaml
+  - Q3:  Comprehensive migration registry (all known structural changes)
+  - Q4:  Full content transformation including user-authored files
+  - Q5:  Triple safety: backup + dry-run diff + auto-commit
+  - Q6:  migrate-version skill (verb-noun), no CLI wrapper
+  - Q7:  survey-context detects gap, user confirms before execution
+  - Q8-9:  Strict OKF-only: okf_kind: spec-migration bundles, no scripts
+  - Q10: Migrations shipped in bigpowers npm package (specs/migrations/)
+  - Q11: Rich domain-specific actions (convert_md_to_yaml, rename_file, etc.)
+  - Q12: One-shot gap resolution with internal dependency ordering
+  - Q13: OKF registry index for discovery + BIGPOWERS_MIGRATIONS_PATH env override
+  - Q14: Heuristic MD→YAML extraction with ⚠ GUESS uncertainty flags
+  - Q15: Minimal initial action set, add lazily as registry grows
+  - Q16: Only structural/breaking changes → named migrations; key additions = schema check
+  - Q17: Shared check_spec_version_gap() function (used by both survey-context + migrate-version)
+  - Q18: Block on active work (mid-epic, uncommitted specs/)
+  - Q19: Generate best-effort skeleton + migration report for partial migrations
+  - Q20: Per-migration verify blocks + global validate-specs-yaml.sh final gate
+  - Q21: Notify (don't modify) if CLAUDE.md/CONVENTIONS.md are stale
+  - Q22: Stamp-based skip + fingerprint re-check + idempotent actions
+  - Q23: Terminal summary + timestamped specs/migration-report-<iso>.md
+  - Q24: Golden test fixtures (v1.x, v2.0.0, v2.20) + roundtrip validation
+  - Q25: Notify user to re-run sync-skills.sh after migration
+  - Q26: Stamp in state.yaml as top-level bigpowers_version key
+  - Q27: e44 in v2.7x train alongside e39+e40 (OKF dependencies land same train)
+
+  The skill closes a self-inflicted gap: bigpowers has been evolving its spec
+  formats for 54+ releases with no migration path for downstream projects.
+  Projects frozen at v2.0.0 cannot benefit from YAML cockpit, BCP accounting,
+  timestamps, handoff signaling, or traceability gates — tools that bigpowers
+  itself relies on.
+
+  OKF alignment: migration bundles are OKF-native (okf_kind: spec-migration),
+  validate-okf.sh lints them, and the registry is itself an OKF bundle
+  (okf_kind: migration-registry). This makes migrate-version the first
+  production consumer of the OKF pipeline (e39+e40).
+
+stories:
+  - id: e44s01
+    bcp: 3
+    title: "Define OKF schema for spec-migration and migration-registry; create initial registry with m1-m2"
+    spec: e44s01-registry-and-schema.md
+    tasks: e44s01-tasks.yaml
+    status: todo
+
+  - id: e44s02
+    bcp: 2
+    title: "Create scripts/check-spec-version-gap.sh — fingerprint + stamp-based version detection"
+    spec: e44s02-detection-engine.md
+    tasks: e44s02-tasks.yaml
+    status: todo
+
+  - id: e44s03
+    bcp: 4
+    title: "Create scripts/migrate-version.sh — one-shot ordered migration engine with triple safety net"
+    spec: e44s03-migration-engine.md
+    tasks: e44s03-tasks.yaml
+    status: todo
+
+  - id: e44s04
+    bcp: 2
+    title: "Verification gates + migration report generation + CLAUDE.md/CONVENTIONS.md staleness check"
+    spec: e44s04-verify-and-report.md
+    tasks: e44s04-tasks.yaml
+    status: todo
+
+  - id: e44s05
+    bcp: 1
+    title: "Integrate check_spec_version_gap into survey-context; wire handoff signal"
+    spec: e44s05-survey-context-integration.md
+    tasks: e44s05-tasks.yaml
+    status: todo
+
+  - id: e44s06
+    bcp: 2
+    title: "Golden test fixtures (v1.x, v2.0.0, v2.20) + roundtrip validation; wire as G-06 golden story"
+    spec: e44s06-golden-fixtures.md
+    tasks: e44s06-tasks.yaml
+    status: todo

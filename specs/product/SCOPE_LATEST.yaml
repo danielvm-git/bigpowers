@@ -74,6 +74,18 @@ in_scope:
   - id: fr-22
     title: Showcase repo — worked example built end-to-end with bigpowers in a separate public repo (e42)
     epic: e42
+  - id: fr-23
+    title: MCP semantic context server — TypeScript MCP server with index/read/search/graph tools for agent skill discovery (e43)
+    epic: e43
+  - id: fr-24
+    title: Spec version migration — migrate-version skill auto-detects spec format gaps and applies OKF migration bundles to upgrade downstream projects (e44)
+    epic: e44
+  - id: fr-25
+    title: OKF completion — epics-wiki, adr-wiki, verification reports as OKF bundles, bug-registry OKF-ification, viz.html graph companion, and tier field for conditional loading (e45)
+    epic: e45
+  - id: fr-26
+    title: Risk-based verification — risk-scaled verify-work depth (P0–P3), NFR evidence gate (performance/reliability/operability), and tea.md reference doc crediting TEA (e46)
+    epic: e46
 
 out_of_scope:
   - Domain-specific scaffold skills

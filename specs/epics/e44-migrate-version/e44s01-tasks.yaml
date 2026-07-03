@@ -1,0 +1,38 @@
+id: e44s01
+title: "Define OKF schema for spec-migration and migration-registry; create initial registry with m1-m2"
+
+tasks:
+  - id: s01-t01
+    description: "Define okf_kind: spec-migration schema — all fields, validation rules, action config schemas"
+    verify: "grep -q 'okf_kind.*spec-migration' specs/templates/migration.okf.md && echo OK"
+    story: e44s01
+
+  - id: s01-t02
+    description: "Define okf_kind: migration-registry schema"
+    verify: "grep -q 'okf_kind.*migration-registry' specs/migrations/registry.okf.md && echo OK"
+    story: e44s01
+
+  - id: s01-t03
+    description: "Create specs/templates/migration.okf.md — canonical template with all fields documented"
+    verify: "test -f specs/templates/migration.okf.md && grep -q 'fingerprint' specs/templates/migration.okf.md && grep -q 'transforms' specs/templates/migration.okf.md && grep -q 'verify:' specs/templates/migration.okf.md && echo OK"
+    story: e44s01
+
+  - id: s01-t04
+    description: "Create specs/migrations/ directory and initial registry.okf.md with m1 + m2 entries"
+    verify: "test -f specs/migrations/registry.okf.md && grep -q 'm1-yaml-cockpit' specs/migrations/registry.okf.md && grep -q 'm2-legacy-paths' specs/migrations/registry.okf.md && echo OK"
+    story: e44s01
+
+  - id: s01-t05
+    description: "Write specs/migrations/m1-yaml-cockpit.okf.md — full migration bundle with heuristic_map and transforms"
+    verify: "test -f specs/migrations/m1-yaml-cockpit.okf.md && grep -q 'convert_md_to_yaml' specs/migrations/m1-yaml-cockpit.okf.md && grep -q 'heuristic_map' specs/migrations/m1-yaml-cockpit.okf.md && echo OK"
+    story: e44s01
+
+  - id: s01-t06
+    description: "Write specs/migrations/m2-legacy-paths.okf.md — full migration bundle for legacy path moves"
+    verify: "test -f specs/migrations/m2-legacy-paths.okf.md && grep -q 'move_file' specs/migrations/m2-legacy-paths.okf.md && grep -q 'set_yaml_key' specs/migrations/m2-legacy-paths.okf.md && echo OK"
+    story: e44s01
+
+  - id: s01-t07
+    description: "Validate both migration bundles pass validate-okf.sh (e40s06 dependency)"
+    verify: "bash scripts/validate-okf.sh specs/migrations/ 2>&1 && echo OK || echo 'PENDING: validate-okf.sh not yet available (e40s06)'"
+    story: e44s01

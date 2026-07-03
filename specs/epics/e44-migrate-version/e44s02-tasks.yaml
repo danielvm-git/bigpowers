@@ -1,0 +1,33 @@
+id: e44s02
+title: "Create scripts/check-spec-version-gap.sh — fingerprint + stamp-based version detection"
+
+tasks:
+  - id: s02-t01
+    description: "Create scripts/check-spec-version-gap.sh with --help and exit code contract (0=no gap, 1=gap, 2=no-specs, 3=blocked, 4=error)"
+    verify: "test -f scripts/check-spec-version-gap.sh && bash scripts/check-spec-version-gap.sh --help >/dev/null 2>&1 && echo OK"
+    story: e44s02
+
+  - id: s02-t02
+    description: "Implement stamp-based detection: read bigpowers_version from state.yaml, compare with installed version"
+    verify: "grep -q 'bigpowers_version' scripts/check-spec-version-gap.sh && echo OK"
+    story: e44s02
+
+  - id: s02-t03
+    description: "Implement fingerprint-based bootstrap: scan STATE.md, state.yaml keys, epic capsules, product/ path"
+    verify: "grep -q 'STATE.md\|fingerprint\|detection_method' scripts/check-spec-version-gap.sh && echo OK"
+    story: e44s02
+
+  - id: s02-t04
+    description: "Emit gap JSON to stderr on exit code 1: detected_version, installed_version, applicable_migrations, confidence"
+    verify: "grep -q 'detected_version\|installed_version\|applicable_migrations\|confidence' scripts/check-spec-version-gap.sh && echo OK"
+    story: e44s02
+
+  - id: s02-t05
+    description: "Implement active-work block detection: non-main branch, uncommitted changes in specs/, active_flow not null"
+    verify: "grep -q 'active_work\|git branch\|git status\|active_flow' scripts/check-spec-version-gap.sh && echo OK"
+    story: e44s02
+
+  - id: s02-t06
+    description: "Self-test: run check-spec-version-gap.sh against bigpowers' own specs/ (should be no-gap or gap-free)"
+    verify: "bash scripts/check-spec-version-gap.sh 2>/dev/null; [ $? -eq 0 ] || [ $? -eq 2 ] && echo OK || echo 'NEEDS BIGPOWERS_VERSION STAMP'"
+    story: e44s02

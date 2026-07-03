@@ -5,6 +5,14 @@ bcps: 13
 status: proposed
 release: v2.45.0
 codename: "Deepening"
+supersedes: scripts/mcp-server.js (e21 prototype)
+note: >
+  Absorbs and replaces scripts/mcp-server.js (shipped by e21 as an MCP
+  discovery prototype). e43 builds a production-grade TypeScript MCP server
+  (bigpowers-mcp/) with remark-based parsing, entity-relation knowledge
+  graph, and 7 tools. e39s01 (build-skill-graph.sh) is re-scoped to emit its
+  graph artifact via e43's server rather than as a standalone script. This
+  follows the same supersession pattern as e35 → e40.
 source: |
   Research 2026-07-03: opensrc survey of MCP server patterns
   (modelcontextprotocol/servers — 7 reference servers) + tree-sitter
@@ -19,9 +27,9 @@ source: |
   See: specs/IMPACT-e38-okf-adoption.md, session 2026-07-02/03.
 
 stories:
-  - id: e40s01
+  - id: e43s01
     bcp: 3
-    title: "Spike: build bigpowers-mcp with index_skills + read_skill, validate against 72 SKILL.md files"
+    title: "Spike: build bigpowers-mcp with index_skills + read_skill, validate against all SKILL.md files"
     verify: test -d bigpowers-mcp/ && test -f bigpowers-mcp/package.json && npx @modelcontextprotocol/inspector node bigpowers-mcp/build/index.js >/dev/null 2>&1 && echo OK
     description: |
       Create bigpowers-mcp/ directory at project root. TypeScript MCP server
@@ -37,7 +45,7 @@ stories:
       Tech stack: TypeScript, @modelcontextprotocol/sdk, unified/remark-parse,
       remark-frontmatter, js-yaml, zod.
 
-  - id: e40s02
+  - id: e43s02
     bcp: 3
     title: "Add build_skill_graph tool — entity-relation model from parsed SKILL.md data"
     verify: grep -q 'build_skill_graph\|create_entities\|create_relations' bigpowers-mcp/src/tools/index.ts && echo OK
@@ -58,7 +66,7 @@ stories:
       Built on top of index_skills + read_skill (e40s01). Each skill's
       frontmatter + prose is parsed once, then the graph is built incrementally.
 
-  - id: e40s03
+  - id: e43s03
     bcp: 2
     title: "Add search_skills + get_dependencies tools"
     verify: grep -q 'search_skills\|get_dependencies' bigpowers-mcp/src/tools/index.ts && echo OK
@@ -74,7 +82,7 @@ stories:
       answer: "what skills would break if I change develop-tdd?" without
       reading any SKILL.md files.
 
-  - id: e40s04
+  - id: e43s04
     bcp: 1
     title: "Add get_git_context tool — change awareness for drift detection"
     verify: grep -q 'get_git_context' bigpowers-mcp/src/tools/index.ts && echo OK
@@ -87,7 +95,7 @@ stories:
       Enables drift detection: if a spec file changed but implementing code
       hasn't, flag as suspect. Powers e39s03 (check-spec-drift.sh).
 
-  - id: e40s05
+  - id: e43s05
     bcp: 2
     title: "Add validate_skill tool — convention compliance check"
     verify: grep -q 'validate_skill' bigpowers-mcp/src/tools/index.ts && echo OK
@@ -103,7 +111,7 @@ stories:
       Complements check-skill-size.sh and validate-doctrine.sh with real-time,
       agent-queryable validation.
 
-  - id: e40s06
+  - id: e43s06
     bcp: 1
     title: "Register bigpowers-mcp in MCP client configs (Claude Code, Cursor, OpenCode)"
     verify: grep -q 'bigpowers-mcp' .mcp.json 2>/dev/null || grep -q 'bigpowers-mcp' ~/.claude/mcp.json 2>/dev/null && echo OK
@@ -125,7 +133,7 @@ stories:
       reading individual files. This is the "progressive disclosure" layer
       that e39s06 would otherwise build as a static OKF bundle.
 
-  - id: e40s07
+  - id: e43s07
     bcp: 1
     title: "Write docs/references/bigpowers-mcp.md — architecture and operator guide"
     verify: test -f docs/references/bigpowers-mcp.md && grep -q 'MCP\|remark\|entity-relation\|knowledge graph' docs/references/bigpowers-mcp.md && echo OK

@@ -22,7 +22,7 @@ source: |
 stories:
   - id: e39s01
     bcp: 3
-    title: "Create scripts/build-skill-graph.sh — parse handoff chains and dependencies from 72 SKILL.md files"
+    title: "Emit the skill graph artifact via e43's MCP server (build_skill_graph tool), replacing the original standalone scripts/build-skill-graph.sh plan"
     spec: e39s01-build-skill-graph.md
     tasks: e39s01-tasks.yaml
     status: todo
@@ -40,7 +40,7 @@ stories:
     status: todo
   - id: e39s04
     bcp: 3
-    title: "OKF Phase 2 — sync-skills.sh generates specs/skills-wiki/ from 72 SKILL.md files"
+    title: "OKF Phase 2 — sync-skills.sh generates specs/skills-wiki/ from all SKILL.md files"
     spec: e39s04-okf-skills-wiki.md
     tasks: e39s04-tasks.yaml
     status: todo

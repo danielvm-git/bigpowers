@@ -1,10 +1,11 @@
 id: e42
 title: "Showcase Repo — Worked Example Built With bigpowers"
 wsjf: 2.5
-bcps: 10
+bcps: 11
 status: proposed
-release: v2.8x
+release: v2.7x/v3.0  # pulled from v2.8x to ship site + receipts + worked example together
 codename: "Docs Polish"
+  # BCP 10→11 (2026-07-03): e42s05 offline fallback added per PLAN-AUDIT red-team
 source: |
   Change request 2026-07-03 (session: public-launch sequencing).
   The methodology's real product is the specs/ trail — but a prospect can
@@ -92,3 +93,21 @@ stories:
       - id: 1
         description: "Add showcase link to README and website; add fixture note to specs/epics/e37-golden-stories/epic.yaml"
         verify: "grep -qi 'showcase' README.md && grep -qi 'showcase' specs/epics/e37-golden-stories/epic.yaml && echo OK"
+
+  - id: e42s05
+    bcp: 1
+    status: todo
+    title: "Add offline-tolerant fallbacks for e42 verify commands that depend on gh api/gh search"
+    verify: "grep -q 'PENDING\|offline' specs/epics/e42-showcase-repo/epic.yaml && echo OK"
+    description: |
+      Several e42 verify commands depend on `gh api` and `gh search` which
+      require network + GitHub auth. Per ADR-0002 local-first principle,
+      add offline-tolerant fallbacks:
+      - e42s01: if `gh repo view` fails, check for a local clone path
+        or emit "PENDING: offline, verify manually"
+      - e42s02/e42s03: if `gh api`/`gh search` fail, fall back to
+        checking local checkout of the showcase repo
+      - e42s04: README/docs site checks are local — already offline-safe
+      Mark remaining network-dependent verify commands as remote-verify
+      exceptions explicitly in the capsule. Per PLAN-AUDIT red-team gap
+      list (P2 #10).
