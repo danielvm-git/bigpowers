@@ -1,8 +1,8 @@
 active_flow: "null"
 bug_id: "null"
 bug_cycle:
-  current_step: 4
-  completed_steps: "[1, 2, 3]"
+  current_step: 0
+  completed_steps: "[]"
 handoff:
   next_skill: "survey-context"
   context: ">"

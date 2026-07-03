@@ -32,7 +32,7 @@ if [[ -f "$SPECS/release-plan.yaml" ]]; then
       echo "release-plan: missing epic file $path"
       err=1
     fi
-  done < <(grep -E '^\s+file:' "$SPECS/release-plan.yaml" | sed 's/.*file:[[:space:]]*//')
+  done < <(grep -E '^\s+file:' "$SPECS/release-plan.yaml" | sed 's/.*file:[[:space:]]*//; s/^"//; s/"$//')
 fi
 
 if [[ "$err" -ne 0 ]]; then

@@ -1,11 +1,11 @@
-timestamp: "2026-07-03T20:42:42Z"
-git_commit: "3ddc0003288f65a5a7c3f681588d6281a6f83a05"
+timestamp: "2026-07-03T21:16:55Z"
+git_commit: "12a0d68f47441d7e9491d54f851df25b86239926"
 suite: "golden-deterministic"
 mode: "daily"
 gates:
   - name: compliance
     exit_code: 0
-    duration_seconds: 14.17
+    duration_seconds: 16.19
     status: pass
   - name: g04-selftest
     exit_code: 0
