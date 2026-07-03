@@ -1,3 +1,10 @@
+## [2.58.5](https://github.com/danielvm-git/bigpowers/compare/v2.58.4...v2.58.5) (2026-07-03)
+
+
+### Bug Fixes
+
+* **ci:** strip YAML quotes in validate-specs-yaml.sh file-path extraction ([e56c2ca](https://github.com/danielvm-git/bigpowers/commit/e56c2ca60f3e655e7f3ab9fa222fefa8866e63f1))
+
 ## [2.58.4](https://github.com/danielvm-git/bigpowers/compare/v2.58.3...v2.58.4) (2026-07-03)
 
 
