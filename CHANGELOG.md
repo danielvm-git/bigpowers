@@ -1,3 +1,10 @@
+## [2.58.4](https://github.com/danielvm-git/bigpowers/compare/v2.58.3...v2.58.4) (2026-07-03)
+
+
+### Bug Fixes
+
+* auto-sync version mirrors via semantic-release prepare hook ([52b2c61](https://github.com/danielvm-git/bigpowers/commit/52b2c61cf3371df61b8be29e21682f72d751dd87))
+
 ## [2.58.3](https://github.com/danielvm-git/bigpowers/compare/v2.58.2...v2.58.3) (2026-07-03)
 
 

@@ -1,5 +1,5 @@
-active_flow: null
-bug_id: null
+active_flow: "null"
+bug_id: "null"
 bug_cycle:
   current_step: 4
   completed_steps: "[1, 2, 3]"
@@ -20,7 +20,7 @@ release:
   released_at: "2026-07-03T17:50:00Z"
   commit: "d0ca097"
   tag: "v2.56.1 (semantic-release)"
-bigpowers_version: "2.58.3"
+bigpowers_version: "2.58.4"
 node20_migration:
   completed: true
   commit: "5b6f1dd"
