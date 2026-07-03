@@ -6,19 +6,20 @@ epic_cycle:
   current_story: e31s01
   total_bcps: 11
   story_bcps: 2
-  current_step: 0
-  completed_steps: []
+  current_step: 6
+  completed_steps:
+    - "0"
+    - "1"
+    - "2"
   audit_result: null
-  fast_mode: false
+  fast_mode: true
 handoff:
-  next_skill: plan-work
+  next_skill: kickoff-branch
   context: >
-    e37 spike PASSED (2026-07-02): DeepSeek v4 + gh-aw prototype confirmed.
-    G-01 golden story live in .github/workflows/e37-golden-deepseek.lock.yml.
-    e31 builds the deterministic gates that e37 consumes. Build order:
-    e31s01 (golden-g04-selftest.sh) first, then e31s02 (wire compliance into
-    CI on publish.yml — already touched by Node20→Node24 migration).
-  last_step_completed: "e30 shipped; e37s01 spike done; e37 spike gate removed"
+    e31s01 — G-04 sync-pipeline self-test. Step 0 (security-review): LOW risk,
+    no blocking findings. Steps 1-2 (survey + plan): story spec and tasks
+    already defined in e31s01-golden-selftest.md + e31s01-tasks.yaml (4 tasks).
+    Ready for kickoff-branch → develop-tdd.
 bug_id: null
 bug_cycle:
   current_step: 0
