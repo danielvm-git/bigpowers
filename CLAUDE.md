@@ -1,3 +1,5 @@
+# story: e38s08
+
 # bigpowers — Claude Code
 
 Read CONVENTIONS.md before any GitHub or git operation.
@@ -21,6 +23,7 @@ Stack: Markdown / Bash (documentation-based; skills integrate with Claude Code, 
 | CI platform | GitHub Actions (`.github/workflows/publish.yml`, `sync-skills.yml`) |
 | Compliance | `npm run compliance` |
 | Golden Suite | `bash scripts/run-golden-suite.sh` |
+| Traceability | `bash scripts/trace-stories.sh --strict` | grep for story tags (traceability check) |
 
 ### Pre-Merge Checklist
 

@@ -1,3 +1,5 @@
+# story: e38s08
+
 # Conventions
 
 ## Conventional Commits & Semantic Versioning
@@ -51,6 +53,7 @@ You are operating within the `bigpowers` spec-driven development methodology.
   - Use `investigate-bug` for bug reports before writing a fix.
 - **Verification Mandate:** Every story implementation MUST end with a step-by-step manual verification script provided to the user. You must wait for the user to confirm behavioral correctness (UAT) before declaring the story done or moving to the next.
 - **Verification:** You MUST verify every change with tests. Code generation without a corresponding plan in `specs/` is strictly forbidden.
+- **Traceability Mandate:** Every story MUST have at least one `story: eNNsNN` tag in its implementing code or test file. `trace-stories.sh --strict` runs in CI to enforce this. Untagged stories fail the CI traceability gate.
 - **Stream Continuity:** When writing large files or long documents, you MUST output continuously in chunks of ~200 lines. Do not pause between sections. Continue immediately until complete. If you need time to process, emit a placeholder comment or heading rather than going silent to prevent stream idle timeouts.
 
 ## specs/ — All Planning Output Goes Here

@@ -23,7 +23,7 @@
     },
     "build-epic": {
       "description": "Eight-step epic build cycle — reads state.yaml, execution-status.yaml, and one epic capsule; updates status via bp-yaml-set or direct edit. Resume mode runs one step per invocation. Use instead of ad-hoc execute-plan for release work.",
-      "sha256": "3d2337356c24ee55",
+      "sha256": "5abf6858c529996c",
       "path": "skills/build-epic/SKILL.md"
     },
     "change-request": {
@@ -126,6 +126,11 @@
       "sha256": "ce4781244b970a14",
       "path": "skills/fix-bug/SKILL.md"
     },
+    "gate-trace": {
+      "description": "\"Deterministic traceability quality gate — reads coverage matrix + blind-spot data, applies decision rules with oracle confidence downgrade, emits PASS/CONCERNS/FAIL/WAIVED verdict. Use before release-branch to gate merges on traceability.\"# story: e38s06",
+      "sha256": "15ca25acd70b90dd",
+      "path": "skills/gate-trace/SKILL.md"
+    },
     "grill-me": {
       "description": "Interactive assumption-surfacing Q&A that stress-tests a plan through relentless questioning until every decision is resolved. Use when user wants to challenge a plan, validate decisions from conversation/context, or mentions \"grill me\". For doc-grounded variant, use grill-with-docs.",
       "sha256": "8ef90da0f127f2fd",
@@ -213,7 +218,7 @@
     },
     "release-branch": {
       "description": "Make the merge/PR/keep/discard decision for a feature branch, verify coverage gates, create the PR with gh, and clean up the worktree. Use when a feature is done and ready to ship, or when user says \"release\", \"merge\", or \"open a PR\".",
-      "sha256": "170166b534697f55",
+      "sha256": "12cf687498b221d1",
       "path": "skills/release-branch/SKILL.md"
     },
     "request-review": {
@@ -338,7 +343,7 @@
     },
     "verify-work": {
       "description": "Multi-phase UAT gate — cold-start smoke, build, typecheck, lint, tests, step-by-step manual verification, gaps-closure loop. Use after execute-plan or develop-tdd, before audit-code.",
-      "sha256": "9176edfb256f07bc",
+      "sha256": "b2828b807467e5c7",
       "path": "skills/verify-work/SKILL.md"
     },
     "visual-dashboard": {

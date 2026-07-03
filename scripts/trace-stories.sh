@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# story: e38s01
 # trace-stories.sh — deterministic spec-to-code coverage matrix builder
 # Parses specs/release-plan.yaml + specs/execution-status.yaml, greps the
 # codebase for story: eNNsNN tags, cross-references, and emits a coverage matrix.

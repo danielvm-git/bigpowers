@@ -51,6 +51,16 @@ git log main...HEAD --oneline | grep -vE "^[a-f0-9]+ (feat|fix|docs|style|refact
 
 If REVIEW.md is missing or stale → run `security-review` inline. Findings block the merge unless documented in EXCEPTIONS.md.
 
+### 2b. Traceability gate
+
+Run the `gate-trace` skill to verify traceability before merge:
+
+- [ ] `gate-trace` PASS verdict (or WAIVED if no matrix available)
+- [ ] On FAIL: **block merge** — fix traceability gaps first
+- [ ] On CONCERNS: require explicit human override in `specs/state.yaml` (`handoff.context` must include `traceability_override: CONCERNS accepted, reason: <explanation>`)
+
+If `gate-trace` returns FAIL, return to the active epic to add story tags.
+
 ### 3. Diff review
 
 - [ ] All commits intentional, no secrets, CONVENTIONS.md compliance
