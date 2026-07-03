@@ -3,7 +3,7 @@ title: "Golden Story Suite — Agent-Driven"
 wsjf: 1.8
 bcps: 10
 status: active
-release: v2.45.0
+release: v2.7x/v3.0 "Semantic Bridge"
 codename: "Deepening"
 source: specs/QUALITY-GUARANTEE-STRATEGY.md
 spike_result: go

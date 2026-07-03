@@ -3,7 +3,7 @@ title: "Sync Pipeline Refactor — Parse→IR→Render"
 wsjf: 2.0
 bcps: 13
 status: proposed
-release: v2.45.0
+release: v2.6x "Traceability Gate"
 codename: "Deepening"
 source: specs/DEEPEN-ARCHITECTURE-REVIEW.md §5.1
 stories:

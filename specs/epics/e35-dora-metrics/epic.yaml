@@ -3,7 +3,7 @@ title: "DORA Metrics Extension"
 wsjf: 2.67
 bcps: 7
 status: superseded-by-e40
-release: v2.45.0
+release: v2.45.0 (superseded by e40)
 codename: "Deepening"
 superseded_by: e40
 superseded_note: >

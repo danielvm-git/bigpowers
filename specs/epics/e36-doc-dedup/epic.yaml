@@ -3,7 +3,7 @@ title: "Documentation Deduplication"
 wsjf: 1.4
 bcps: 12
 status: proposed
-release: v2.45.0
+release: v2.8x "Docs Polish"
 codename: "Deepening"
 source: specs/DEEPEN-ARCHITECTURE-REVIEW.md §5.5
   # BCP 10→12 (2026-07-03): e36s05 bmad.md refresh added per PLAN-AUDIT red-team (P2 #7)

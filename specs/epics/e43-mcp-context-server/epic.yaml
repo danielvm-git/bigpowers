@@ -3,7 +3,7 @@ title: "MCP Semantic Context Server"
 wsjf: 4.00
 bcps: 13
 status: proposed
-release: v2.45.0
+release: v2.7x/v3.0 "Semantic Bridge" (leads)
 codename: "Deepening"
 supersedes: scripts/mcp-server.js (e21 prototype)
 note: >

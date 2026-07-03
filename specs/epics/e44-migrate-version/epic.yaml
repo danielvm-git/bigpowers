@@ -3,7 +3,7 @@ title: "Spec Version Migration — migrate-version Skill"
 wsjf: 3.75
 bcps: 14
 status: proposed
-release: v2.45.0
+release: v2.7x/v3.0 "Semantic Bridge"
 codename: "Deepening"
 depends_on:
   - e39        # OKF v0.1 format for migration bundles
