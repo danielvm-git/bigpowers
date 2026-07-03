@@ -1,3 +1,10 @@
+# [2.55.0](https://github.com/danielvm-git/bigpowers/compare/v2.54.0...v2.55.0) (2026-07-03)
+
+
+### Features
+
+* **planning:** add e43 MCP Semantic Context Server (7 stories, 13 BCP) ([cf61d5c](https://github.com/danielvm-git/bigpowers/commit/cf61d5c23e20133fb07a9ee04f9a98dbdf9e12b8))
+
 # [2.54.0](https://github.com/danielvm-git/bigpowers/compare/v2.53.0...v2.54.0) (2026-07-03)
 
 
