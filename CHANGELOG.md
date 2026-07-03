@@ -1,3 +1,10 @@
+# [2.54.0](https://github.com/danielvm-git/bigpowers/compare/v2.53.0...v2.54.0) (2026-07-03)
+
+
+### Features
+
+* **e38:** add trace-stories.sh to CI sync-skills workflow ([19ca1e0](https://github.com/danielvm-git/bigpowers/commit/19ca1e03f035b9838ea994f200c1fbee69f3be72))
+
 # [2.53.0](https://github.com/danielvm-git/bigpowers/compare/v2.52.0...v2.53.0) (2026-07-03)
 
 
