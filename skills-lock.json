@@ -128,7 +128,7 @@
     },
     "gate-trace": {
       "description": "\"Deterministic traceability quality gate — reads coverage matrix + blind-spot data, applies decision rules with oracle confidence downgrade, emits PASS/CONCERNS/FAIL/WAIVED verdict. Use before release-branch to gate merges on traceability.\"# story: e38s06",
-      "sha256": "15ca25acd70b90dd",
+      "sha256": "636810f46c6d0b93",
       "path": "skills/gate-trace/SKILL.md"
     },
     "grill-me": {
@@ -208,7 +208,7 @@
     },
     "publish-package": {
       "description": "\"Package registry publishing for npm, crates.io, PyPI, and Homebrew. Verifies prerequisites, runs the publish command, confirms success, and surfaces actionable error hints on failure.\"",
-      "sha256": "80bafe8c1274b49a",
+      "sha256": "3c1b82a417a7f170",
       "path": "skills/publish-package/SKILL.md"
     },
     "quick-fix": {
@@ -243,7 +243,7 @@
     },
     "run-benchmark": {
       "description": "Run skill quality benchmarks from specs/benchmarks/ definitions and write pass@k reports. Use before and after evolve-skill to prove quality changes are improvements, not regressions.",
-      "sha256": "9a3b988a2694d07e",
+      "sha256": "27fbc4e5346ecf21",
       "path": "skills/run-benchmark/SKILL.md"
     },
     "run-evals": {
@@ -348,12 +348,12 @@
     },
     "visual-dashboard": {
       "description": "Start a browser-based dashboard that visualizes architecture, implementation plans, and project status. Persists artifacts in .bigpowers/dashboard/. Reads specs/state.yaml, release-plan.yaml, epics, and planning-status via HTTP API or opencode panel.",
-      "sha256": "a1ca3502a91b9d2d",
+      "sha256": "8d0f5a9dffc9700a",
       "path": "skills/visual-dashboard/SKILL.md"
     },
     "wire-ci": {
       "description": "\"CI pipeline setup with pre-built templates and local validation. Generates GitHub Actions workflows, validates YAML syntax and permissions, supports dry-run via act/gh. The CI equivalent of wire-observability.\"",
-      "sha256": "1296ac1181853f95",
+      "sha256": "732ab59251710ea1",
       "path": "skills/wire-ci/SKILL.md"
     },
     "wire-observability": {
