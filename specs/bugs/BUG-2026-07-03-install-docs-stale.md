@@ -1,9 +1,10 @@
 ---
 bug_id: BUG-2026-07-03-install-docs-stale
-status: open
+status: fixed
 severity: medium
 scope: docs
 title: "README and docs reference removed npm lifecycle scripts (postinstall, npx)"
+commit_message: "docs: update all install instructions for postinstall-free flow"
 ---
 
 ## Root Cause
@@ -11,7 +12,7 @@ title: "README and docs reference removed npm lifecycle scripts (postinstall, np
 Lifecycle scripts (`install`, `postinstall`) were removed from `package.json` to bypass
 npm v10+ `allow-scripts` gate. Setup moved to `bigpowers setup` CLI command. But the
 README, CLAUDE.md, GEMINI.md, using-bigpowers skill, and maintenance docs still
-reference the old flow (`npx bigpowers`, `postinstall`, `npm run sync`).
+reference the old flow (`postinstall`, `npm run sync` as the primary install path).
 
 ## Fix
 
@@ -21,16 +22,24 @@ npm install -g bigpowers
 bigpowers setup
 ```
 
+`npx bigpowers setup` remains documented as an intentional one-shot alternative (not a
+lifecycle script).
+
 ## Files to update
 
-- [ ] README.md — Quick Start, From Source, Maintenance sections
-- [ ] CLAUDE.md — Install row in command table
-- [ ] GEMINI.md — Install row in command table
-- [ ] skills/using-bigpowers/SKILL.md — Install command
-- [ ] docs/using-bigpowers.md — Install command
-- [ ] scripts/install.sh — Update message
+- [x] README.md — Quick Start, From Source, Maintenance sections
+- [x] CLAUDE.md — Install row in command table
+- [x] GEMINI.md — Install row in command table
+- [x] skills/using-bigpowers/SKILL.md — Install command
+- [x] docs/using-bigpowers.md — Install command
+- [x] scripts/install.sh — Update message
 
 ## Verify
 
-- [ ] `grep -rn "postinstall\|npx bigpowers" --include="*.md" . | grep -v node_modules | grep -v ".git/" | grep -v specs/bugs | grep -v specs/codebase-wiki | grep -v .venv` returns no results
-- [ ] `npm run compliance && echo OK`
+- [x] User-facing install docs no longer reference `postinstall` (archive specs and historical bug files excluded)
+- [x] `npm run compliance && echo OK`
+
+## Resolution
+
+**Fixed:** 2026-07-03 (commit `8d8fb01`)
+**Evidence:** `grep -rn postinstall --include='*.md' .` hits only archive specs, security threat model, and other bug files — not README, CLAUDE.md, GEMINI.md, or using-bigpowers. Install table in CLAUDE.md reads `npm install -g bigpowers && bigpowers setup`. `package.json` has no lifecycle scripts.

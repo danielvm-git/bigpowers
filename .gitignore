@@ -22,3 +22,9 @@ specs/.obsidian/
 .envrc
 .rtk/
 .ctxo/index/
+
+# Python virtualenvs and bytecode
+.venv/
+venv/
+__pycache__/
+*.pyc

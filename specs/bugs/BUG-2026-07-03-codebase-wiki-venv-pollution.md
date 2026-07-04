@@ -1,10 +1,11 @@
 ---
 bug_id: BUG-2026-07-03-codebase-wiki-venv-pollution
-status: open
+status: fixed
 severity: medium
 scope: specs
 title: "OKF codebase-wiki concepts polluted with .venv/site-packages false-positive links from buggy trace run"
 risk_level: medium
+commit_message: "fix(trace): exclude .venv, site-packages, __pycache__ from trace-stories walker"
 ---
 
 ## Summary

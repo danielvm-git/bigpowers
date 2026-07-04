@@ -67,7 +67,7 @@ sys.exit(0 if ($py_check) else 1)
   fi
 }
 
-need_key "$SPECS/state.yaml" "isinstance(d.get('active_flow'), str)" 'missing active_flow'
+need_key "$SPECS/state.yaml" "'active_flow' in d and (d.get('active_flow') is None or isinstance(d.get('active_flow'), str))" 'missing or invalid active_flow'
 need_key "$SPECS/release-plan.yaml" "isinstance(d.get('release'), dict)" 'missing release block'
 need_key "$SPECS/release-plan.yaml" "isinstance(d.get('release'), dict) and 'version' in d['release']" 'missing release.version'
 need_key "$SPECS/release-plan.yaml" "isinstance(d.get('epics'), list) and len(d['epics']) > 0" 'missing epics list'

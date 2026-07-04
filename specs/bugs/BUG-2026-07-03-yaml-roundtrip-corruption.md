@@ -5,7 +5,8 @@ severity: critical
 scope: release-pipeline
 title: "Release prepare-hook corrupts YAML cockpit via lossy round-trip — 40 spec files flattened and committed"
 risk_level: critical
-fix_branch: fix-validate-specs-yaml-real-parser
+fix_commits: db09bbf
+commit_message: "fix(release-pipeline): stop YAML round-trip corruption, recover specs"
 ---
 
 ## Summary

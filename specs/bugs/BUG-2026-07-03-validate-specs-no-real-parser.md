@@ -5,8 +5,8 @@ severity: high
 scope: scripts
 title: "validate-specs-yaml.sh does no real YAML parsing — grep-only checks let 40 corrupt files pass every gate"
 risk_level: high
-fix_commits: ["f82b20d", "0d5a642", "1ebb717"]
-fix_branch: fix-validate-specs-yaml-real-parser
+fix_commits: db09bbf
+commit_message: "fix(release-pipeline): stop YAML round-trip corruption, recover specs"
 ---
 
 ## Summary
