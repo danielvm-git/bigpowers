@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-04T01:21:02.731434+00:00",
+  "generated_at": "2026-07-04T11:23:00.261011+00:00",
   "matrix_version": "1.0",
   "stories": [
     {
@@ -1395,7 +1395,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260704-081618.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-162136.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260703-234209.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -1431,6 +1443,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260704-000102.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-165703.md",
           "line": 0,
           "confidence": "medium",
@@ -1461,6 +1479,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260703-235439.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-172406.md",
           "line": 0,
           "confidence": "medium",
@@ -1474,6 +1498,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-163954.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260703-222132.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -1545,6 +1575,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260703-233740.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-125910.md",
           "line": 0,
           "confidence": "medium",
@@ -1576,6 +1612,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-005128.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260703-235526.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -1618,6 +1660,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260702-080042.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260703-234357.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -1773,6 +1821,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260703-233707.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-163256.md",
           "line": 0,
           "confidence": "medium",
@@ -1839,6 +1893,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260703-234324.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260704-081735.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-005423.md",
           "line": 0,
           "confidence": "medium",
@@ -1870,6 +1936,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260702-200030.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260704-004248.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -1941,6 +2013,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260704-080343.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-005655.md",
           "line": 0,
           "confidence": "medium",
@@ -1995,6 +2073,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260704-000357.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260703-222115.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260702-223313.md",
           "line": 0,
           "confidence": "medium",
@@ -2008,6 +2098,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-221847.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260704-004226.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -2097,6 +2193,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260704-000548.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-163238.md",
           "line": 0,
           "confidence": "medium",
@@ -2151,7 +2253,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 153
+      "link_count": 170
     },
     {
       "id": "e36s04",
@@ -4052,7 +4154,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-superpowers-20260703-234403.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-superpowers-20260703-175352.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-superpowers-20260703-235538.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4220,6 +4334,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-superpowers-20260704-081742.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-superpowers-20260703-180028.md",
           "line": 0,
           "confidence": "medium",
@@ -4316,6 +4436,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-superpowers-20260704-080350.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-superpowers-20260702-225924.md",
           "line": 0,
           "confidence": "medium",
@@ -4346,6 +4472,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-superpowers-20260704-000410.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-superpowers-20260703-234216.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-superpowers-20260703-005525.md",
           "line": 0,
           "confidence": "medium",
@@ -4358,6 +4496,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-superpowers-20260703-233714.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-superpowers-20260703-163142.md",
           "line": 0,
           "confidence": "medium",
@@ -4365,6 +4509,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-superpowers-20260626-204801.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-superpowers-20260703-222138.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4406,6 +4556,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-superpowers-20260704-000602.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-superpowers-20260703-005455.md",
           "line": 0,
           "confidence": "medium",
@@ -4419,6 +4575,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-superpowers-20260703-005139.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-superpowers-20260703-235454.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4455,6 +4617,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-superpowers-20260702-223645.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-superpowers-20260703-234330.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4568,6 +4736,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-superpowers-20260704-081625.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-superpowers-20260702-080030.md",
           "line": 0,
           "confidence": "medium",
@@ -4587,6 +4761,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-superpowers-20260703-220947.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-superpowers-20260703-233747.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4616,6 +4796,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-superpowers-20260703-222121.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-superpowers-20260702-223307.md",
           "line": 0,
           "confidence": "medium",
@@ -4635,6 +4821,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-superpowers-20260703-153146.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-superpowers-20260704-000114.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4730,7 +4922,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-superpowers-20260704-004256.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-superpowers-20260703-173354.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-superpowers-20260704-004233.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4808,6 +5012,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/benchmarks/reports/GOLDEN-2026-07-04.yaml",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/tech-architecture/PLAN-add-hard-gates.md",
           "line": 0,
           "confidence": "medium",
@@ -4857,6 +5067,12 @@
         },
         {
           "file": "scripts/golden-g10-trace-anti-vacuity.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/golden-g11-gitignore-venv.sh",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4922,7 +5138,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 154
+      "link_count": 173
     },
     {
       "id": "e43s01",
@@ -6194,6 +6410,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/benchmarks/reports/GOLDEN-2026-07-04.yaml",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/epics/archive/e31-quality-guarantee/e31s03-golden-suite.md",
           "line": 0,
           "confidence": "medium",
@@ -6213,6 +6435,12 @@
         },
         {
           "file": "scripts/golden-g10-trace-anti-vacuity.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/golden-g11-gitignore-venv.sh",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -6260,7 +6488,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 22
+      "link_count": 24
     },
     {
       "id": "e45s01",
@@ -7035,7 +7263,7 @@
     "stale_count": 0,
     "oracle_stats": {
       "high": 49,
-      "medium": 916,
+      "medium": 954,
       "low": 47
     }
   }

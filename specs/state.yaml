@@ -1,9 +1,13 @@
 active_flow: null
 bug_id: null
 handoff:
-  next_skill: survey-context
-  context: BUG-2026-07-03-golden-lock-stale-e37-ids fixed and landed (646afc4). Lock file recompiled via
-    gh aw compile — 19 stale e37 identifiers replaced with e42.
+  next_skill: release-branch
+  context: 'fix_bug cleared all 3 remaining open bugs: capsule-release-labels
+    (added missing provenance comments), glossary-sparse (already populated,
+    just needed status sync), trace-stories-613-line (waivers.yaml updated to
+    reference CONVENTIONS.md File-Size Exceptions table). Registry now 24/24
+    fixed, zero open. compliance 88/88 100% GATE PASS, golden suite 8/8. Not
+    yet committed/landed — awaiting release-branch.'
 bug_cycle:
   current_step: null
   completed_steps: []

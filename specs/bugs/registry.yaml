@@ -77,7 +77,7 @@ bugs:
     title: "npm install fails on macOS — bash 3.2 lacks declare -A"
     file: bugs/BUG-2026-07-02T103911.md
   - id: BUG-2026-07-03-capsule-release-labels
-    status: open
+    status: fixed
     severity: medium
     scope: specs
     title: "Backlog capsule release labels drifted from their release trains"
@@ -91,7 +91,7 @@ bugs:
     risk_level: "medium"
     commit_message: "fix(trace): exclude .venv, site-packages, __pycache__ from trace-stories walker"
   - id: BUG-2026-07-03-glossary-sparse
-    status: open
+    status: fixed
     severity: medium
     scope: specs
     title: "GLOSSARY_LATEST.yaml remains sparse — key domain terms missing"
@@ -124,7 +124,7 @@ bugs:
     file: bugs/BUG-2026-07-03-trace-engine-vacuous-gate.md
     risk_level: "high"
   - id: BUG-2026-07-03-trace-stories-613-line
-    status: open
+    status: fixed
     severity: low
     scope: refactor
     title: "trace-stories.sh 613-line waiver contradicts CONVENTIONS context-window justification"

@@ -28,20 +28,21 @@ waivers:
     reason: >
       trace-stories.sh (613 lines) carries the traceability pipeline and
       resists clean splitting — the parse-match-report phases are tightly
-      coupled. Tracked as BUG-2026-07-03-trace-stories-613-line (P3).
-      Re-evaluate when that bug is resolved (either split or documented
-      exception in CONVENTIONS.md).
+      coupled. Resolved via BUG-2026-07-03-trace-stories-613-line (P3) as a
+      documented exception — see CONVENTIONS.md's "File-Size Exceptions"
+      table for the rationale and review date. This waiver mirrors that
+      entry; re-evaluate both together.
     review_date: "2026-10-01"
     reviewer: bigpowers-maintainer
     feature: conventions.feature
 
   - step_sanitized: and-files-should-remain-under-500-lines-newspaper-metaphor
     reason: >
-      audit-compliance.sh (237 lines) and trace-stories.sh (613 lines)
-      exceed the 500-line cap. audit-compliance.sh is close — a split
-      into audit-lib.sh could resolve it. trace-stories.sh is tracked
-      as BUG-2026-07-03-trace-stories-613-line. Re-evaluate when both
-      are resolved.
+      audit-compliance.sh (~280 lines) and trace-stories.sh (613 lines)
+      exceed the 500-line cap. Both are documented exceptions in
+      CONVENTIONS.md's "File-Size Exceptions" table (BUG-2026-07-03-
+      trace-stories-613-line, P3). Re-evaluate alongside that table's
+      review date.
     review_date: "2026-10-01"
     reviewer: bigpowers-maintainer
     feature: akita.feature

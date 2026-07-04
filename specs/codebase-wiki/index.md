@@ -1,6 +1,6 @@
 ---
 type: Index
-generated_at: 2026-07-04T01:21:02.732862+00:00
+generated_at: 2026-07-04T11:23:00.265908+00:00
 total_concepts: 78
 ---
 
@@ -38,7 +38,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e35s10](./e35s10.md) | Cross-reference new docs from SKILL.md bodies | medium | 2 |
 | [e36s01](./e36s01.md) | Slim docs/references/uncle-bob.md to provenance pointer | low | 2 |
 | [e36s02](./e36s02.md) | Slim docs/references/akita.md, ousterhout.md, karpathy.md, w | low | 1 |
-| [e36s03](./e36s03.md) | Remove F.I.R.S.T rubric restatement from enforce-first and a | medium | 153 |
+| [e36s03](./e36s03.md) | Remove F.I.R.S.T rubric restatement from enforce-first and a | medium | 170 |
 | [e36s04](./e36s04.md) | Update docs/references/spec-kit.md to cover full SDD tool la | medium | 3 |
 | [e36s05](./e36s05.md) | Refresh docs/references/bmad.md from BMAD v6/TEA — currently | none | 0 |
 | [e37s01](./e37s01.md) | BCP Plus counter integration — install and smoke-test big-co | medium | 14 |
@@ -63,7 +63,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e42s01](./e42s01.md) | Spike: headless golden-chain harness — gh-aw + DeepSeek v4 p | medium | 2 |
 | [e42s02](./e42s02.md) | Create specs/benchmarks/fixtures/minimal-api/ fixture repo ( | medium | 3 |
 | [e42s03](./e42s03.md) | Author 4 golden story YAMLs (g-01, g-02, g-03, g-05) with co | medium | 17 |
-| [e42s04](./e42s04.md) | Add --agent mode to run-golden-suite.sh: headless chain exec | medium | 154 |
+| [e42s04](./e42s04.md) | Add --agent mode to run-golden-suite.sh: headless chain exec | medium | 173 |
 | [e43s01](./e43s01.md) | Scaffold the showcase app in a separate public repo via seed | medium | 8 |
 | [e43s02](./e43s02.md) | Build one feature epic end-to-end via the 8-step build-epic  | medium | 60 |
 | [e43s03](./e43s03.md) | Fix one real bug via the investigate-bug → develop-tdd → val | medium | 37 |
@@ -74,7 +74,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e44s03](./e44s03.md) | Create scripts/migrate-version.sh — one-shot ordered migrati | high | 13 |
 | [e44s04](./e44s04.md) | Verification gates + migration report generation + CLAUDE.md | high | 8 |
 | [e44s05](./e44s05.md) | Integrate check_spec_version_gap into survey-context; wire h | high | 6 |
-| [e44s06](./e44s06.md) | Golden test fixtures (v1.x, v2.0.0, v2.20) + roundtrip valid | high | 22 |
+| [e44s06](./e44s06.md) | Golden test fixtures (v1.x, v2.0.0, v2.20) + roundtrip valid | high | 24 |
 | [e45s01](./e45s01.md) | Generate epics-wiki and adr-wiki as OKF concept bundles from | medium | 10 |
 | [e45s02](./e45s02.md) | Emit verification reports as OKF bundles from run-golden-sui | medium | 7 |
 | [e45s03](./e45s03.md) | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | medium | 28 |

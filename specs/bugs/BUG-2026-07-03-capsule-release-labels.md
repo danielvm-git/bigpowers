@@ -1,6 +1,6 @@
 ---
 bug_id: BUG-2026-07-03-capsule-release-labels
-status: open
+status: fixed
 severity: medium
 scope: specs
 title: "Backlog capsule release labels drifted from their release trains"
@@ -54,4 +54,12 @@ The `release:` field in epic capsules was set when these epics were planned unde
 
 ## Resolution
 
-**Open** — registered 2026-07-03 from PLAN-AUDIT red-team gap list (P2 #8).
+**Fixed** — 2026-07-04. e32, e39, e43, e44 capsules already carried `v2.7x/v3.0`
+(the drift had been corrected in an earlier session as part of the broader
+release-train resequencing — only the bug file/registry weren't updated to
+reflect it). Verified zero `release: v2.45.0` hits across `specs/epics/*/epic.yaml`.
+Added missing provenance comments to e39 and e44 (e43 already had one) noting
+the 2026-07-04 correction date, satisfying the outstanding acceptance criterion.
+
+**Verify:** `grep -rn "release: v2.45.0" specs/epics/*/epic.yaml` → zero hits;
+`validate-specs-yaml.sh` → OK.

@@ -3,7 +3,7 @@ title: "Semantic Context Bridge"
 wsjf: 3.60
 bcps: 20
 status: proposed
-release: v2.7x/v3.0 "Semantic Bridge"
+release: v2.7x/v3.0 "Semantic Bridge"  # corrected 2026-07-04 from stale v2.45.0 (BUG-2026-07-03-capsule-release-labels)
 codename: "Deepening"
 depends_on:
   - e33

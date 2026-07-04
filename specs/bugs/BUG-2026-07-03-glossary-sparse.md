@@ -1,6 +1,6 @@
 ---
 bug_id: BUG-2026-07-03-glossary-sparse
-status: open
+status: fixed
 severity: medium
 scope: specs
 title: "GLOSSARY_LATEST.yaml remains sparse — key domain terms missing"
@@ -50,4 +50,15 @@ The GLOSSARY was created as an artifact but never systematically populated. Term
 
 ## Resolution
 
-**Open** — registered 2026-07-03 from PLAN-AUDIT red-team gap list (P2 #9).
+**Fixed** — 2026-07-04. `specs/product/GLOSSARY_LATEST.yaml` was already populated
+in an earlier session (its own trailing `note:` field confirms it was done as
+part of this bug) with 19 entries — well past the ≥10 threshold — covering BCP,
+WSJF, OKF, golden story, HARD GATE, soft gate, handoff, capsule, train, and more,
+each with term/definition/source/related_terms. `CONVENTIONS.md` line 104
+references `GLOSSARY_LATEST.yaml` as the authoritative glossary location. Only
+gap was the bug file/registry status not being updated to reflect the work
+already done — closed here.
+
+**Verify:** `grep -c 'term:' specs/product/GLOSSARY_LATEST.yaml` → 19 (≥10);
+all of BCP/WSJF/OKF/golden story/HARD GATE present; `grep -q 'GLOSSARY_LATEST'
+CONVENTIONS.md` → match.

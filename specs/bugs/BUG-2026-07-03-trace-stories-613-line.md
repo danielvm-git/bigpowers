@@ -1,6 +1,6 @@
 ---
 bug_id: BUG-2026-07-03-trace-stories-613-line
-status: open
+status: fixed
 severity: low
 scope: refactor
 title: "trace-stories.sh 613-line waiver contradicts CONVENTIONS context-window justification"
@@ -55,4 +55,16 @@ Two options:
 
 ## Resolution
 
-**Open** — registered 2026-07-03 from PLAN-AUDIT red-team gap list (P3 #12).
+**Fixed** — 2026-07-04, via **Option B** (documented exception). CONVENTIONS.md
+already carried a "File-Size Exceptions" table (added in an earlier session)
+covering both `scripts/trace-stories.sh` (613 lines) and `scripts/audit-compliance.sh`
+(~280 lines), each with rationale and a 2026-10-01 review date, explicitly citing
+this bug ID. The remaining gap was `specs/verifications/waivers.yaml`: its two
+trace-stories waiver entries still described the exception as future work
+("re-evaluate when resolved... exception in CONVENTIONS.md") rather than
+pointing at the table that now exists. Updated both entries to reference
+CONVENTIONS.md's File-Size Exceptions table directly, closing the
+waiver↔convention contradiction the bug identified.
+
+**Verify:** `bash scripts/trace-stories.sh --strict` → exit 0; `npm run compliance`
+→ 88/88, 100%, GATE PASS; `bash scripts/run-golden-suite.sh` → 8/8 passed.
