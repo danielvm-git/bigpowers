@@ -43,5 +43,12 @@ noise and makes `coverage_status: covered` verdicts meaningless.
 
 ## Verify Steps
 
-- [ ] `grep -rl 'site-packages\|\.venv' specs/codebase-wiki/ | wc -l` returns 0 after regen
-- [ ] `python3 -c "import json; d=json.load(open('specs/traceability-matrix.json')); assert not any('.venv' in l['file'] for s in d['stories'] for l in s['links'])" && echo OK`
+- [x] `grep -rl 'site-packages\|\.venv' specs/codebase-wiki/ | wc -l` returns 0 after regen
+- [x] `python3 -c "import json; d=json.load(open('specs/traceability-matrix.json')); assert not any('.venv' in l['file'] for s in d['stories'] for l in s['links'])" && echo OK`
+
+## Resolution
+
+**Fixed:** 2026-07-03
+**Root cause confirmed:** `EXCLUDE_DIRS` in trace-stories.py did not include `.venv`, `__pycache__`, etc. The walker indexed vendored Python packages (botocore, etc.) in `.venv/lib/python3.12/site-packages/`, producing false-positive `file_heuristic` links that polluted the codebase-wiki.
+**Fix applied:** Added `.venv`, `venv`, `.tox`, `__pycache__`, `site-packages`, `.mypy_cache`, `.pytest_cache`, `.ruff_cache` to `EXCLUDE_DIRS`. Cleaned polluted files from `specs/codebase-wiki/` and regenerated clean.
+**Evidence:** `grep -rl .venv specs/codebase-wiki/` returns 0; matrix JSON has 0 venv links; validate-doctrine ALL checks passed; golden suite 7/7 passed; npm run compliance 100% GATE PASS.

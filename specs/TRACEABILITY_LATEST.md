@@ -1,6 +1,6 @@
 # Traceability Matrix
 
-**Generated:** 2026-07-04 01:07:40 UTC
+**Generated:** 2026-07-04 01:21:02 UTC
 **Total stories:** 78
 **Tagged stories:** 6
 **Dark stories:** 0
@@ -10,7 +10,7 @@
 ## Oracle Stats
 
 - **High** (explicit tag): 49
-- **Medium** (file heuristic): 659
+- **Medium** (file heuristic): 916
 - **Low** (task reference): 47
 
 ## Story Coverage
@@ -45,7 +45,7 @@
 | e35s10 | Cross-reference new docs from SKILL.md bodies | e35 | 2 | 3.0 | backlog | 2 |
 | e36s01 | Slim docs/references/uncle-bob.md to provenance pointer | e36 | 3 | 1.4 | backlog | 2 |
 | e36s02 | Slim docs/references/akita.md, ousterhout.md, karpathy.md, w | e36 | 3 | 1.4 | backlog | 1 |
-| e36s03 | Remove F.I.R.S.T rubric restatement from enforce-first and a | e36 | 2 | 1.4 | backlog | 24 |
+| e36s03 | Remove F.I.R.S.T rubric restatement from enforce-first and a | e36 | 2 | 1.4 | backlog | 153 |
 | e36s04 | Update docs/references/spec-kit.md to cover full SDD tool la | e36 | 2 | 1.4 | backlog | 3 |
 | e36s05 | Refresh docs/references/bmad.md from BMAD v6/TEA — currently | e36 | 2 | 1.4 | backlog | 0 |
 | e37s01 | BCP Plus counter integration — install and smoke-test big-co | e37 | 0 | 2.1 | backlog | 14 |
@@ -70,14 +70,14 @@
 | e42s01 | Spike: headless golden-chain harness — gh-aw + DeepSeek v4 p | e42 | 3 | 1.8 | done | 2 |
 | e42s02 | Create specs/benchmarks/fixtures/minimal-api/ fixture repo ( | e42 | 3 | 1.8 | backlog | 3 |
 | e42s03 | Author 4 golden story YAMLs (g-01, g-02, g-03, g-05) with co | e42 | 3 | 1.8 | backlog | 17 |
-| e42s04 | Add --agent mode to run-golden-suite.sh: headless chain exec | e42 | 4 | 1.8 | backlog | 27 |
+| e42s04 | Add --agent mode to run-golden-suite.sh: headless chain exec | e42 | 4 | 1.8 | backlog | 154 |
 | e43s01 | Scaffold the showcase app in a separate public repo via seed | e43 | 3 | 2.5 | backlog | 8 |
 | e43s02 | Build one feature epic end-to-end via the 8-step build-epic  | e43 | 3 | 2.5 | backlog | 60 |
 | e43s03 | Fix one real bug via the investigate-bug → develop-tdd → val | e43 | 2 | 2.5 | backlog | 37 |
 | e43s04 | Link the showcase from README + docs site; register as e37 g | e43 | 2 | 2.5 | backlog | 5 |
 | e43s05 | Add offline-tolerant fallbacks for e43 verify commands that  | e43 | 1 | 2.5 | backlog | 1 |
 | e44s01 | Define OKF schema for spec-migration and migration-registry; | e44 | 3 | 3.75 | backlog | 31 |
-| e44s02 | Create scripts/check-spec-version-gap.sh — fingerprint + sta | e44 | 2 | 3.75 | backlog | 9 |
+| e44s02 | Create scripts/check-spec-version-gap.sh — fingerprint + sta | e44 | 2 | 3.75 | backlog | 10 |
 | e44s03 | Create scripts/migrate-version.sh — one-shot ordered migrati | e44 | 4 | 3.75 | backlog | 13 |
 | e44s04 | Verification gates + migration report generation + CLAUDE.md | e44 | 2 | 3.75 | backlog | 8 |
 | e44s05 | Integrate check_spec_version_gap into survey-context; wire h | e44 | 1 | 3.75 | backlog | 6 |

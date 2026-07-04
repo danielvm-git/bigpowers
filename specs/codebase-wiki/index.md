@@ -1,6 +1,6 @@
 ---
 type: Index
-generated_at: 2026-07-04T01:07:40.915006+00:00
+generated_at: 2026-07-04T01:21:02.732862+00:00
 total_concepts: 78
 ---
 
@@ -38,7 +38,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e35s10](./e35s10.md) | Cross-reference new docs from SKILL.md bodies | medium | 2 |
 | [e36s01](./e36s01.md) | Slim docs/references/uncle-bob.md to provenance pointer | low | 2 |
 | [e36s02](./e36s02.md) | Slim docs/references/akita.md, ousterhout.md, karpathy.md, w | low | 1 |
-| [e36s03](./e36s03.md) | Remove F.I.R.S.T rubric restatement from enforce-first and a | medium | 24 |
+| [e36s03](./e36s03.md) | Remove F.I.R.S.T rubric restatement from enforce-first and a | medium | 153 |
 | [e36s04](./e36s04.md) | Update docs/references/spec-kit.md to cover full SDD tool la | medium | 3 |
 | [e36s05](./e36s05.md) | Refresh docs/references/bmad.md from BMAD v6/TEA — currently | none | 0 |
 | [e37s01](./e37s01.md) | BCP Plus counter integration — install and smoke-test big-co | medium | 14 |
@@ -63,14 +63,14 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e42s01](./e42s01.md) | Spike: headless golden-chain harness — gh-aw + DeepSeek v4 p | medium | 2 |
 | [e42s02](./e42s02.md) | Create specs/benchmarks/fixtures/minimal-api/ fixture repo ( | medium | 3 |
 | [e42s03](./e42s03.md) | Author 4 golden story YAMLs (g-01, g-02, g-03, g-05) with co | medium | 17 |
-| [e42s04](./e42s04.md) | Add --agent mode to run-golden-suite.sh: headless chain exec | medium | 27 |
+| [e42s04](./e42s04.md) | Add --agent mode to run-golden-suite.sh: headless chain exec | medium | 154 |
 | [e43s01](./e43s01.md) | Scaffold the showcase app in a separate public repo via seed | medium | 8 |
 | [e43s02](./e43s02.md) | Build one feature epic end-to-end via the 8-step build-epic  | medium | 60 |
 | [e43s03](./e43s03.md) | Fix one real bug via the investigate-bug → develop-tdd → val | medium | 37 |
 | [e43s04](./e43s04.md) | Link the showcase from README + docs site; register as e37 g | medium | 5 |
 | [e43s05](./e43s05.md) | Add offline-tolerant fallbacks for e43 verify commands that  | medium | 1 |
 | [e44s01](./e44s01.md) | Define OKF schema for spec-migration and migration-registry; | high | 31 |
-| [e44s02](./e44s02.md) | Create scripts/check-spec-version-gap.sh — fingerprint + sta | high | 9 |
+| [e44s02](./e44s02.md) | Create scripts/check-spec-version-gap.sh — fingerprint + sta | high | 10 |
 | [e44s03](./e44s03.md) | Create scripts/migrate-version.sh — one-shot ordered migrati | high | 13 |
 | [e44s04](./e44s04.md) | Verification gates + migration report generation + CLAUDE.md | high | 8 |
 | [e44s05](./e44s05.md) | Integrate check_spec_version_gap into survey-context; wire h | high | 6 |

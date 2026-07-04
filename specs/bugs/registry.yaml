@@ -50,14 +50,16 @@ bugs:
   risk_level: low
   scope: ci
   severity: high
-  status: open
+  status: fixed
   title: 8 SKILL.md files exceed line cap — CI blocked on check-skill-size.sh
-- file: bugs/BUG-2026-07-03-codebase-wiki-venv-pollution.md
+  commit_message: 'fix(trace): exclude .venv, site-packages, __pycache__ from trace-stories walker'
+  file: bugs/BUG-2026-07-03-codebase-wiki-venv-pollution.md
+  files_changed: scripts/lib/trace-stories.py
   id: BUG-2026-07-03-codebase-wiki-venv-pollution
   risk_level: medium
   scope: specs
   severity: medium
-  status: open
+  status: fixed
   title: OKF codebase-wiki concepts polluted with .venv/site-packages false-positive
     links from buggy trace run
 - file: bugs/BUG-2026-07-03-golden-lock-stale-e37-ids.md

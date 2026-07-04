@@ -59,6 +59,6 @@ flagged. There is no assertion that the matrix is non-trivially populated.
 
 ## Verify Steps
 
-- [ ] `bash scripts/trace-stories.sh --json && python3 -c "import json; d=json.load(open('specs/traceability-matrix.json')); assert len(d['stories'])>=50, len(d['stories'])" && echo OK`
-- [ ] `bash scripts/golden-g10-trace-anti-vacuity.sh` passes (exit 0)
-- [ ] `bash scripts/trace-stories.sh --strict` on an empty fixture exits 2
+- [x] `bash scripts/trace-stories.sh --json && python3 -c "import json; d=json.load(open('specs/traceability-matrix.json')); assert len(d['stories'])>=50, len(d['stories'])" && echo OK`
+- [x] `bash scripts/golden-g10-trace-anti-vacuity.sh` passes (exit 0)
+- [x] `bash scripts/trace-stories.sh --strict` on an empty fixture exits 2

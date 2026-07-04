@@ -2,18 +2,10 @@ active_flow: null
 bug_id: null
 handoff:
   next_skill: survey-context
-  context: 'BUG-2026-07-03-trace-engine-vacuous-gate fixed and landed on main (67f7c71). PyYAML replaced
-    parse_simple_yaml() in trace-stories.py. Floor assertion (50) ensures --strict fails closed. G-10
-    golden test wired into golden suite (7/7). CI should no longer pass vacuously on the traceability
-    gate. Next: survey-context → build-epic on whatever epic is next (e28?).'
+  context: 'BUG-2026-07-03-codebase-wiki-venv-pollution fixed and landed on main. Added .venv, __pycache__, etc. to EXCLUDE_DIRS in trace-stories.py. Cleaned and regenerated codebase-wiki. 0 polluted files remaining.'
 bug_cycle:
   current_step: null
-  completed_steps:
-  - 1
-  - 2
-  - 3
-  - 4
-  - 5
+  completed_steps: [1, 2, 3, 4, 5]
 previous_handoff:
   next_skill: survey-context
   context: 'BUG-2026-07-03-trace-engine-vacuous-gate fixed and landed. This was the third and final fail-open
