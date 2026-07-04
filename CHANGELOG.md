@@ -1,3 +1,10 @@
+## [2.59.9](https://github.com/danielvm-git/bigpowers/compare/v2.59.8...v2.59.9) (2026-07-04)
+
+
+### Bug Fixes
+
+* **ci:** file-size gates scan Python; drop phantom .sh exception ([73879a6](https://github.com/danielvm-git/bigpowers/commit/73879a67bb0e6bbc4eb3e1bc643ccc7eeb57f430))
+
 ## [2.59.8](https://github.com/danielvm-git/bigpowers/compare/v2.59.7...v2.59.8) (2026-07-04)
 
 

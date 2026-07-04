@@ -1,18 +1,17 @@
 active_flow: null
-bigpowers_version: 2.59.8
+bigpowers_version: 2.59.9
 bug_cycle:
   completed_steps: []
   current_step: null
 bug_id: null
 handoff:
-  context: 'map-codebase findings closed: BUG-2026-07-04-filesize-gate-python-blindspot
-    fixed (file-size gates now scan .py; CONVENTIONS/waivers de-phantomed off the
-    refactored 613→69 line trace-stories.sh; real over-cap files trace-matrix.py/523
-    + trace-stories.py/301 documented). Removed dead playwright.config.ts, fixed
-    package.json skill count 72→73. Registered BUG-2026-07-04-python-interpreter-fragility
-    (open, deferred — needs setup-environment design). Compliance 86/86 100% GATE
-    PASS (2 waived), golden 8/8, trace --strict exit 0. NOTE: cleared a stale
-    active_flow:fix_bug block left from Issue #39/PR#47 (already landed as 2.59.8).'
+  context: 'map-codebase findings closed: BUG-2026-07-04-filesize-gate-python-blindspot fixed (file-size
+    gates now scan .py; CONVENTIONS/waivers de-phantomed off the refactored 613→69 line trace-stories.sh;
+    real over-cap files trace-matrix.py/523 + trace-stories.py/301 documented). Removed dead playwright.config.ts,
+    fixed package.json skill count 72→73. Registered BUG-2026-07-04-python-interpreter-fragility (open,
+    deferred — needs setup-environment design). Compliance 86/86 100% GATE PASS (2 waived), golden 8/8,
+    trace --strict exit 0. NOTE: cleared a stale active_flow:fix_bug block left from Issue #39/PR#47 (already
+    landed as 2.59.8).'
   next_skill: survey-context
 metrics:
   epic_e31:
