@@ -1,3 +1,10 @@
+## [2.61.3](https://github.com/danielvm-git/bigpowers/compare/v2.61.2...v2.61.3) (2026-07-04)
+
+
+### Bug Fixes
+
+* **ci:** full checkout for sync-skills trace gate ([ee4a44c](https://github.com/danielvm-git/bigpowers/commit/ee4a44c3dd19738991545c6ac8e456d9e6fb1334))
+
 ## [2.61.2](https://github.com/danielvm-git/bigpowers/compare/v2.61.1...v2.61.2) (2026-07-04)
 
 
