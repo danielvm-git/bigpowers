@@ -1,7 +1,7 @@
 # Traceability Matrix
 
-**Generated:** 2026-07-04 00:48:54 UTC
-**Total stories:** 74
+**Generated:** 2026-07-04 01:04:00 UTC
+**Total stories:** 78
 **Tagged stories:** 6
 **Dark stories:** 0
 **Orphan tags:** 19
@@ -10,7 +10,7 @@
 ## Oracle Stats
 
 - **High** (explicit tag): 49
-- **Medium** (file heuristic): 1968
+- **Medium** (file heuristic): 1982
 - **Low** (task reference): 47
 
 ## Story Coverage
@@ -72,7 +72,7 @@
 | e42s03 | Author 4 golden story YAMLs (g-01, g-02, g-03, g-05) with co | e42 | 3 | 1.8 | backlog | 17 |
 | e42s04 | Add --agent mode to run-golden-suite.sh: headless chain exec | e42 | 4 | 1.8 | backlog | 233 |
 | e43s01 | Scaffold the showcase app in a separate public repo via seed | e43 | 3 | 2.5 | backlog | 8 |
-| e43s02 | Build one feature epic end-to-end via the 8-step build-epic  | e43 | 3 | 2.5 | backlog | 567 |
+| e43s02 | Build one feature epic end-to-end via the 8-step build-epic  | e43 | 3 | 2.5 | backlog | 568 |
 | e43s03 | Fix one real bug via the investigate-bug → develop-tdd → val | e43 | 2 | 2.5 | backlog | 45 |
 | e43s04 | Link the showcase from README + docs site; register as e37 g | e43 | 2 | 2.5 | backlog | 5 |
 | e43s05 | Add offline-tolerant fallbacks for e43 verify commands that  | e43 | 1 | 2.5 | backlog | 1 |
@@ -91,6 +91,10 @@
 | e46s01 | Write docs/references/tea.md — credit TEA and document its m | e46 | 3 | 3.4 | backlog | 9 |
 | e46s02 | Add risk: P0|P1|P2|P3 field to plan-work that scales verify- | e46 | 3 | 3.4 | backlog | 44 |
 | e46s03 | NFR evidence gate — performance/reliability/operability with | e46 | 4 | 3.4 | backlog | 0 |
+| e47s01 | install.sh — global pi coverage (install_pi/uninstall_pi) +  | e47 | 3 | 4.3 | backlog | 0 |
+| e47s02 | seed-conventions — optional per-project local wiring for Cur | e47 | 3 | 4.3 | backlog | 6 |
+| e47s03 | docs — skill-catalog vs instruction-only distinction in agen | e47 | 1 | 4.3 | backlog | 7 |
+| e47s04 | verify-install.sh — manual verification harness for install  | e47 | 2 | 4.3 | backlog | 0 |
 
 ## Orphan Tags (tag in code, no matching story)
 

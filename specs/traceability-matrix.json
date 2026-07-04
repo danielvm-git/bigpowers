@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-04T00:48:54.422827+00:00",
+  "generated_at": "2026-07-04T01:04:00.528784+00:00",
   "matrix_version": "1.0",
   "stories": [
     {
@@ -7635,6 +7635,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/epics/e47-cross-tool-distribution/epic.yaml",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/epics/e46-risk-based-verification/epic.yaml",
           "line": 0,
           "confidence": "medium",
@@ -10737,7 +10743,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 567
+      "link_count": 568
     },
     {
       "id": "e43s03",
@@ -13269,10 +13275,134 @@
       "status": "backlog",
       "links": [],
       "link_count": 0
+    },
+    {
+      "id": "e47s01",
+      "title": "install.sh \u2014 global pi coverage (install_pi/uninstall_pi) + remove broken OpenCode step",
+      "epic_id": "e47",
+      "epic_title": "Cross-Tool Skill Distribution \u2014 global install + per-project seed",
+      "bcp": 3,
+      "wsjf": 4.3,
+      "status": "backlog",
+      "links": [],
+      "link_count": 0
+    },
+    {
+      "id": "e47s02",
+      "title": "seed-conventions \u2014 optional per-project local wiring for Cursor + OpenCode",
+      "epic_id": "e47",
+      "epic_title": "Cross-Tool Skill Distribution \u2014 global install + per-project seed",
+      "bcp": 3,
+      "wsjf": 4.3,
+      "status": "backlog",
+      "links": [
+        {
+          "file": "docs/archive/file-structure/projected-structure-superpowers.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".venv/lib/python3.12/site-packages/openai/types/fine_tuning/reinforcement_hyperparameters.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".venv/lib/python3.12/site-packages/openai/types/fine_tuning/reinforcement_hyperparameters_param.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".venv/lib/python3.12/site-packages/openai/types/fine_tuning/__pycache__/reinforcement_hyperparameters_param.cpython-312.pyc",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".venv/lib/python3.12/site-packages/openai/types/fine_tuning/__pycache__/reinforcement_hyperparameters.cpython-312.pyc",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/install-cursor-skills-local.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        }
+      ],
+      "link_count": 6
+    },
+    {
+      "id": "e47s03",
+      "title": "docs \u2014 skill-catalog vs instruction-only distinction in agent-config reference",
+      "epic_id": "e47",
+      "epic_title": "Cross-Tool Skill Distribution \u2014 global install + per-project seed",
+      "bcp": 1,
+      "wsjf": 4.3,
+      "status": "backlog",
+      "links": [
+        {
+          "file": "specs/epics/e35-historical-refs/e35s10-cross-reference-skills.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "docs/references/agent-config-files-and-okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".venv/lib/python3.12/site-packages/hermes_cli/skills_config.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".venv/lib/python3.12/site-packages/openai/types/responses/skill_reference_param.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".venv/lib/python3.12/site-packages/openai/types/responses/skill_reference.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".venv/lib/python3.12/site-packages/openai/types/responses/__pycache__/skill_reference_param.cpython-312.pyc",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".venv/lib/python3.12/site-packages/openai/types/responses/__pycache__/skill_reference.cpython-312.pyc",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        }
+      ],
+      "link_count": 7
+    },
+    {
+      "id": "e47s04",
+      "title": "verify-install.sh \u2014 manual verification harness for install + seed wiring",
+      "epic_id": "e47",
+      "epic_title": "Cross-Tool Skill Distribution \u2014 global install + per-project seed",
+      "bcp": 2,
+      "wsjf": 4.3,
+      "status": "backlog",
+      "links": [],
+      "link_count": 0
     }
   ],
   "summary": {
-    "total_stories": 74,
+    "total_stories": 78,
     "tagged_stories": 6,
     "dark_stories": [],
     "dark_count": 0,
@@ -13302,7 +13432,7 @@
     "stale_count": 0,
     "oracle_stats": {
       "high": 49,
-      "medium": 1968,
+      "medium": 1982,
       "low": 47
     }
   }

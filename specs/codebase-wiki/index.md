@@ -1,7 +1,7 @@
 ---
 type: Index
-generated_at: 2026-07-04T00:48:54.425951+00:00
-total_concepts: 74
+generated_at: 2026-07-04T01:04:00.530878+00:00
+total_concepts: 78
 ---
 
 # Codebase Wiki — Story Traceability
@@ -65,7 +65,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e42s03](./e42s03.md) | Author 4 golden story YAMLs (g-01, g-02, g-03, g-05) with co | medium | 17 |
 | [e42s04](./e42s04.md) | Add --agent mode to run-golden-suite.sh: headless chain exec | medium | 233 |
 | [e43s01](./e43s01.md) | Scaffold the showcase app in a separate public repo via seed | medium | 8 |
-| [e43s02](./e43s02.md) | Build one feature epic end-to-end via the 8-step build-epic  | medium | 567 |
+| [e43s02](./e43s02.md) | Build one feature epic end-to-end via the 8-step build-epic  | medium | 568 |
 | [e43s03](./e43s03.md) | Fix one real bug via the investigate-bug → develop-tdd → val | medium | 45 |
 | [e43s04](./e43s04.md) | Link the showcase from README + docs site; register as e37 g | medium | 5 |
 | [e43s05](./e43s05.md) | Add offline-tolerant fallbacks for e43 verify commands that  | medium | 1 |
@@ -84,3 +84,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e46s01](./e46s01.md) | Write docs/references/tea.md — credit TEA and document its m | medium | 9 |
 | [e46s02](./e46s02.md) | Add risk: P0|P1|P2|P3 field to plan-work that scales verify- | medium | 44 |
 | [e46s03](./e46s03.md) | NFR evidence gate — performance/reliability/operability with | none | 0 |
+| [e47s01](./e47s01.md) | install.sh — global pi coverage (install_pi/uninstall_pi) +  | none | 0 |
+| [e47s02](./e47s02.md) | seed-conventions — optional per-project local wiring for Cur | medium | 6 |
+| [e47s03](./e47s03.md) | docs — skill-catalog vs instruction-only distinction in agen | medium | 7 |
+| [e47s04](./e47s04.md) | verify-install.sh — manual verification harness for install  | none | 0 |

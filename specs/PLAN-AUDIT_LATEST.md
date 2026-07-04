@@ -1,157 +1,77 @@
-# Plan Audit — Full Project (Done + Upcoming Epics)
+# Plan Audit — Full Missing Roadmap (14 Proposed/Upcoming Epics)
 
-**Date:** 2026-07-03 · **Verdict:** ⚠️ NOT READY — 3 CRITICAL, 4 HIGH gaps; closing now
+**Date:** 2026-07-03 · **Verdict:** ⚠️ NOT READY as top-to-bottom WSJF order — dependency chain breaks it; READY once resequenced
 
-**Scope audited:** Every epic in `specs/release-plan.yaml` — done (e01–e31, e34, e38, e40) and upcoming (e28, e32, e33, e35, e36, e37, e39, e41, e42, e43, e44, e45, e46). Cross-referenced `execution-status.yaml`, `state.yaml`, SCOPE, capsule dirs on disk, and epic dependencies.
-
----
-
-## 🔴 Critical Gaps
-
-### GAP-C1 — 7 epic ID ↔ capsule_dir mismatches in release-plan.yaml
-
-The `capsule_dir` field does not match the actual directories on disk. The disk is correct; the YAML is stale.
-
-| Epic ID | YAML capsule_dir | Actual disk dir |
-|---------|------------------|-----------------|
-| e33 | `epics/e28-docs-website` | `epics/e33-docs-website` |
-| e35 | `epics/e37-historical-refs` | `epics/e35-historical-refs` |
-| e28 | `epics/e33-sync-pipeline` | `epics/e28-sync-pipeline` |
-| e42 | `epics/e43-golden-stories` | `epics/e42-golden-stories` |
-| e32 | `epics/e35-mcp-context-server` | `epics/e32-mcp-context-server` |
-| e43 | `epics/e32-showcase-repo` | `epics/e43-showcase-repo` |
-| e37 | `epics/e42-bcp-plus-counting` | `epics/e37-bcp-plus-counting` |
-
-**Impact:** Any automation reading `capsule_dir` will look in the wrong directory. The "DO NOT RENUMBER EPIC IDs" block on line 65 is the project's own warning — violated by these stale references.
-
-**Fix:** Update the 7 `capsule_dir` values to match disk.
-
-### GAP-C2 — state.yaml handoff pointed to wrong epic
-
-`state.yaml` handoff said `build-epic on e43 (v2.7x train, WSJF 4.00)` — but e43 is Showcase Repo (WSJF 2.5). The intent was the leading epic. **Decision: e28 (Sync Pipeline Refactor) leads.** Rationale: e28 is the architectural dependency for e39's OKF rendering, e32's MCP server SKILL.md parsing, and e41's public receipts page. Landing it first unblocks 3 downstream epics. The handoff now reads e28.
-
-### GAP-C3 — e41 blocked on v2.6x epic not started
-
-e41 (Public Receipts) declares `depends_on: [e28, e40]`. e40 is done, but e28 is backlog in the v2.6x train. The v2.6x train must complete before v2.7x can ship anything with an e28 dependency. **Mitigated by leading with e28** — once e28 lands, e41 is unblocked.
+**Scope audited:** All 14 not-yet-done epics in `specs/release-plan.yaml`: e47, e32, e41, e44, e39, e46, e35, e45, e33, e43, e37, e28, e42, e36. Cross-referenced each `epic.yaml`'s `depends_on`/`soft_depends_on` against `execution-status.yaml`, `state.yaml`, and `specs/product/SCOPE_LATEST.yaml`.
 
 ---
 
-## 🟠 High Severity
+## Critical Finding — the WSJF list is not dependency-safe
 
-### GAP-H1 — SCOPE epic mappings stale (fr-13, fr-16)
+`release-plan.yaml` lists these 14 epics sorted by WSJF alone. Reading it top-down and building in that order will stall, because three epics have **hard dependencies on lower-WSJF, unbuilt epics**:
 
-`SCOPE_LATEST.yaml` maps:
-- `fr-13` → e32 ("Historical reference docs") — but **e32 is now MCP Context Server**
-- `fr-16` → e35 ("DORA metrics extension") — but **e35 is now Missing Historical References**, and DORA was **superseded by fr-20 (e40)**
+| Epic | WSJF | Hard depends_on | Dependency status |
+|---|---|---|---|
+| e41 | 3.75 | `e28` (2.0), `e40` ✅ | **e28 is `backlog`, 0/4 stories** — e41 cannot start |
+| e44 | 3.75 | `e39` (3.6), `e40` ✅ | **e39 itself is blocked** (see below) — e44 cannot start |
+| e39 | 3.60 | `e33` (2.8) | **e33 is `planned`, not built** — e39 cannot start |
+| e37 | 2.10 | `e40` ✅, `e33` (2.8) | same blocker as e39 |
+| e46 | 3.40 | `e42` (1.8, in-flight) | e42 is `ready`/1 of 4 stories done — e46 must wait for e42 to finish |
 
-**Fix:** fr-13 → `epic: e35`; fr-16 → mark `superseded_by: fr-20 (e40)`.
+This means **e33** (WSJF 2.8, the 9th-ranked epic) is a single point of gate for two higher-WSJF epics (e39 at 3.6, e37 at 2.1), and transitively for a third (e44 at 3.75, since e44 depends on e39). A reader following the raw WSJF list would hit e41 (rank 3) and e44 (rank 4) and find both blocked before reaching their prerequisites.
 
-### GAP-H2 — Train ordering not WSJF-sorted
+**Dependency-respecting build order** (WSJF-sorted within each unlocked tier):
 
-v2.7x/v3.0 train lists: `[e37, e36, e42, e39, e41, e43, e32, e44]`. Actual WSJF:
+1. **Finish e42** (in-flight, `ready`, 1/4 done) — unlocks e46 later, no reason to leave it half-built
+2. **e47** (4.3) — no deps
+3. **e32** (4.0) — no deps
+4. **e33** (2.8) — low own-WSJF, but promoted ahead of its rank because it single-handedly unlocks e39 (3.6) and e37 (2.1)
+5. **e39** (3.6) — unlocked by e33
+6. **e44** (3.75) — unlocked by e39 (highest WSJF in the whole roadmap once buildable — should not sit at rank 4 waiting)
+7. **e28** (2.0) — unlocks e41
+8. **e41** (3.75) — unlocked by e28
+9. **e46** (3.4) — unlocked once e42 fully done
+10. **e35** (3.0), **e45** (3.0), **e43** (2.5), **e37** (2.1), **e36** (1.4) — remaining, WSJF order, no blockers
 
-| Epic | WSJF | Title |
-|------|------|-------|
-| e32 | 4.00 | MCP Server |
-| e44 | 3.75 | Migrate Version |
-| e41 | 3.75 | Public Receipts |
-| e39 | 3.60 | Semantic Bridge |
-| e43 | 2.50 | Showcase Repo |
-| e37 | 2.10 | BCP Plus |
-| e42 | 1.80 | Golden Stories |
-| e36 | 1.40 | Doc Dedup |
-
-Resorting by WSJF with dependency constraints (e32→e39→e44 form a chain; e41 blocked on e28): `[e32, e39, e44, e41, e43, e37, e42, e36]`.
-
-### GAP-H3 — v2.6x train completely unbuilt (46 BCP blocking)
-
-e33 (13 BCP), e35 (20 BCP), e28 (13 BCP) are all backlog. They gate e39, e41, and e37. **Mitigated by leading with e28** — the most heavily depended-on epic in the train.
-
-### GAP-H4 — e42 status: active but only spike done
-
-`execution-status.yaml` marks `e42: "active"` but only e42s01 is done; s02–s04 are backlog. Spike passed — epic should be `"ready"` (spike gate cleared, queue s02).
-
-**Fix:** Set e42 to `"ready"` in execution-status.
+**Fix:** Either add a `build_order:` field to `release-plan.yaml` reflecting the above, or add explicit `blocked_until:` annotations on e39/e41/e44/e46/e37 so `build-epic` doesn't get picked up out of dependency order by WSJF rank alone.
 
 ---
 
-## 🟡 Medium Severity
-
-### GAP-M1 — Duplicate `source:` block in e45 epic.yaml
-
-`specs/epics/e45-okf-completion/epic.yaml` has `source:` twice (lines 3 and 17) with near-identical content. De-duplicate.
-
-### GAP-M2 — e35 20 BCP for reference docs is high
-
-Missing Historical References is content-only documentation work at 20 BCP — nearly 2× the MCP server (13 BCP). Worth examining whether all 9 references need full treatment or can be slimmed (e36 Doc Dedup already covers provenance-pointer pattern).
-
----
-
-## 🟢 Low Severity
-
-### GAP-L1 — e42 capsule release label
-
-e42 epic.yaml now shows `release: v2.7x/v3.0` — if this was fixed since previous audit, close.
-
-### GAP-L2 — state.yaml active_flow is null
-
-With e28 targeted as next, `active_flow: build_epic` + `epic_id: e28` should be set.
-
-### GAP-L3 — e26 drift_note not acted on
-
-Cosmetic — `sync-status-from-epics.sh` not run for e26's stale status note.
-
----
-
-## Principles Alignment
+## Principles Alignment (sampled across all 14)
 
 | Check | Status | Note |
 |---|---|---|
-| Vertical slices | ✅ | Stories are single-deliverable with verify:/ac: throughout |
-| Scope bounded | ⚠️ | fr-13/fr-16 stale; otherwise complete (fr-01–fr-26) |
-| Success criteria | ✅ | Mechanical verify commands everywhere sampled |
-| HARD GATE candidates | ✅ | 72/73 skills carry HARD GATE blocks |
-| Domain language | ✅ | OKF.md anchors terminology; GLOSSARY adequate |
+| Vertical slices | ✅ | All 14 use `mode: capsule` with per-story `verify:` |
+| Scope bounded | ✅ | `depends_on`/`soft_depends_on` explicit where applicable; e47 has explicit out-of-scope list |
+| Success criteria | ✅ | Verify commands present throughout sampled epics |
+| HARD GATE candidates | ⚠️ | e47s01 (removes `install_opencode()`) has no HARD GATE annotation — carried over from the e47-only audit, still open |
+| Domain language | ✅ | Consistent (WSJF/BCP, capsule, skill-catalog vs instruction-only) |
 
 ## Conventions Completeness
 
 | Check | Status | Note |
 |---|---|---|
-| CLAUDE.md / CONVENTIONS.md | ✅ | Current, naming-exception table complete |
-| specs/ layout | ✅ | Validates clean; ADR-0001–0006 present |
-| Conventional Commits | ✅ | semantic-release wired |
-| Git workflow | ✅ | solo-git via land-branch.sh |
+| CLAUDE.md / CONVENTIONS.md | ✅ | Present, current |
+| specs/ layout / capsule_dir | ✅ | All 14 `capsule_dir` values match disk (`ls specs/epics/` confirms) — previous audit's GAP-C1 (7 mismatches) is still fixed, no regressions |
+| SCOPE mappings | ✅ | fr-13 → e35, fr-16 → superseded by fr-20/e40 — previous audit's GAP-H1 fix holds |
+| e45 duplicate `source:` block | ✅ | Confirmed single `source:` block now (previous audit's GAP-M1 fix holds) |
+| Commit conventions / git workflow | ✅ | Conventional Commits, semantic-release, solo-git |
 
 ## Pre-flight Answers
 
-| Question | Value |
-|---|---|
-| Test | Gate suite: `npm run compliance && run-golden-suite.sh` |
-| Build | `bash scripts/install.sh` |
-| Lint | `bash scripts/sync-skills.sh` |
-| Typecheck | N/A currently (e32 introduces TypeScript) |
-| CI | GitHub Actions (publish.yml, sync-skills.yml, e42-golden-deepseek.lock.yml) |
-| Solo/team | Solo |
-| Language | Markdown / Bash (+ TS for e32, Astro for e33) |
-| Greenfield/existing | Existing, 30+ shipped epics |
+Unchanged from prior audits — inherited project-wide: Test `npm run compliance && bash scripts/run-golden-suite.sh`; Build `bash scripts/install.sh`; Lint `bash scripts/sync-skills.sh`; Typecheck N/A (Markdown/Bash, +TS scoped to e32 only); CI GitHub Actions; Solo; Existing 30+-epic codebase.
 
 ---
 
-## Gap Closure (2026-07-03, this session)
+## Open Gaps
 
-- [x] **C1:** 7 capsule_dir values corrected in release-plan.yaml
-- [x] **C2:** state.yaml handoff set to `e28` (Sync Pipeline Refactor)
-- [x] **H1:** SCOPE fr-13 → e35, fr-16 → superseded
-- [x] **H2:** v2.7x train re-sorted by WSJF with dependency constraints
-- [x] **H4:** e42 status set to `ready` in execution-status
-- [x] **M1:** e45 duplicate `source:` block deduplicated
-- [ ] **C3:** e41 depends_on e28 — unblocked once e28 lands (leading epic)
-- [ ] **M2:** e35 BCP re-examination deferred to e35 build
-
----
+- [ ] **SEQ-1 (real blocker, unchanged):** `state.yaml active_flow` is `fix_bug` on `BUG-2026-07-03-trace-engine-vacuous-gate`, step 1/N, not yet landed. No `build-epic` should start on any of these 14 until it does.
+- [ ] **DEP-1 (this audit's main finding):** Raw WSJF order in `release-plan.yaml` is not buildable top-down — see Critical Finding above. Needs `build_order:` or `blocked_until:` annotations before `build-epic` is run against this list mechanically.
+- [ ] **STATUS-1 (minor):** `e42.status` is `"active"` in both `release-plan.yaml` and its own `epic.yaml`, but `"ready"` in `execution-status.yaml`. No documented status vocabulary maps these two fields to each other (checked `CONVENTIONS.md` and `specs/templates/` — neither defines the enum). Not necessarily wrong, but worth a one-line convention note so future audits don't have to re-derive the mapping.
+- [ ] **GATE-1 (carried over, minor):** e47s01's `install_opencode()` removal still has no HARD GATE annotation. Verified low-risk (no paired `uninstall_opencode()`, writes a plain file not a symlink) — cheap to add for the record.
 
 ## Verdict
 
-**READY — critical gaps closed.** e28 (Sync Pipeline Refactor, 13 BCP) leads as the architectural dependency unblocking e39, e32, and e41.
+**NOT READY as a mechanical top-to-bottom WSJF queue** — three epics (e41, e44, e39, e37) have hard dependencies on lower-ranked, unbuilt epics, chiefly gated through **e33**. **READY once resequenced**: the dependency-respecting order above is internally consistent and every individual epic capsule is well-formed (bounded scope, verify commands, no stale capsule_dir/SCOPE references).
 
-**Next skill:** `survey-context` → `build-epic` on **e28** (v2.6x train, WSJF 2.0, unblocks 3 downstream epics).
+**Next skill:** `fix-bug` (resume `BUG-2026-07-03-trace-engine-vacuous-gate` first) → `survey-context` → `build-epic` in this order: **e42 (finish) → e47 → e32 → e33 → e39 → e44 → e28 → e41 → e46 → e35/e45/e43/e37/e36**.
