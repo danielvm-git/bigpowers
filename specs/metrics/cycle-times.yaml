@@ -454,3 +454,12 @@ stories:
   - '#44 (e31s02: compliance CI, 2 BCP)'
   - '#45 (e31s03: golden suite, 3 BCP)'
   - '#46 (e31s04-s07: size budget + mandates, 4 BCP)'
+- id: BUG-2026-07-04-stale-bak-features
+  type: bug
+  bcps: 0
+  effort_hours: 0.2
+  lead_time_minutes: 13
+  source: git-hours (1 commit, 1 session)
+  commit: 6c83112
+  started: '2026-07-04T08:20:00Z'
+  merged: '2026-07-04T08:33:00Z'

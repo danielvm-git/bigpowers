@@ -1,17 +1,14 @@
-active_flow: fix_bug
-bug_id: BUG-2026-07-04-stale-bak-features
+active_flow: null
+bug_id: null
 handoff:
-  next_skill: release-branch
-  context: 'GitHub issue #38 — stale .bak file in specs/verifications/features/. File already deleted
-    on main (commit 21e85ec). BUG file created, registry updated, verify passes. Ready for release-branch
-    (specs-only changes).'
+  next_skill: survey-context
+  context: 'Issue #38 complete. release-branch gates: compliance 88/88,
+    commits conventional, security review clean (specs-only, no code),
+    traceability WAIVED (no gate-trace script), CI 2/2 passed at 6c83112,
+    cycle time recorded. Landed on main.'
 bug_cycle:
-  current_step: 5
-  completed_steps:
-  - 1
-  - 2
-  - 3
-  - 4
+  current_step: null
+  completed_steps: []
 previous_handoff:
   next_skill: survey-context
   context: 'BUG-2026-07-03-trace-engine-vacuous-gate fixed and landed. This was the third and final fail-open
@@ -20,9 +17,8 @@ previous_handoff:
     → fixed (PyYAML + floor assertion + G-10)'
 release:
   ci_verified: true
-  released_at: '2026-07-04T02:45:00Z'
-  commit: a0f2ff0
-  tag: v2.59.3 (semantic-release)
+  released_at: '2026-07-04T08:35:00Z'
+  commit: 6c83112
 bigpowers_version: 2.59.7
 node20_migration:
   completed: true
