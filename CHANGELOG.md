@@ -1,3 +1,10 @@
+## [2.58.8](https://github.com/danielvm-git/bigpowers/compare/v2.58.7...v2.58.8) (2026-07-04)
+
+
+### Bug Fixes
+
+* **release-pipeline:** stop YAML round-trip corruption, recover specs ([db09bbf](https://github.com/danielvm-git/bigpowers/commit/db09bbf34ed10092bd874cb7ce46af9de3fce563))
+
 ## [2.58.7](https://github.com/danielvm-git/bigpowers/compare/v2.58.6...v2.58.7) (2026-07-03)
 
 

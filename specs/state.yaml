@@ -30,7 +30,7 @@ release:
   released_at: '2026-07-03T21:04:06Z'
   commit: ed6f1c0
   tag: v2.58.4 (semantic-release)
-bigpowers_version: 2.58.7
+bigpowers_version: 2.58.8
 node20_migration:
   completed: true
   commit: 5b6f1dd
