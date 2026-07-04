@@ -1,3 +1,10 @@
+# [2.60.0](https://github.com/danielvm-git/bigpowers/compare/v2.59.9...v2.60.0) (2026-07-04)
+
+
+### Features
+
+* **e46:** add plan-tests skill, NFR gate, and SC scenario IDs ([6c19b8e](https://github.com/danielvm-git/bigpowers/commit/6c19b8eb2d21e4b862a5a00e1df570a2277728b8))
+
 ## [2.59.9](https://github.com/danielvm-git/bigpowers/compare/v2.59.8...v2.59.9) (2026-07-04)
 
 
