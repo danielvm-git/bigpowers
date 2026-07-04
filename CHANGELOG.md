@@ -1,3 +1,10 @@
+## [2.59.3](https://github.com/danielvm-git/bigpowers/compare/v2.59.2...v2.59.3) (2026-07-04)
+
+
+### Bug Fixes
+
+* **repo:** gitignore Python virtualenvs and add G-11 golden gate ([a0f2ff0](https://github.com/danielvm-git/bigpowers/commit/a0f2ff076978ad06bc4bfeecedfaa4ea3d460478))
+
 ## [2.59.2](https://github.com/danielvm-git/bigpowers/compare/v2.59.1...v2.59.2) (2026-07-04)
 
 
