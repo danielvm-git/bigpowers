@@ -1,10 +1,12 @@
 ---
 bug_id: BUG-2026-07-03-validate-specs-no-real-parser
-status: open
+status: fixed
 severity: high
 scope: scripts
 title: "validate-specs-yaml.sh does no real YAML parsing — grep-only checks let 40 corrupt files pass every gate"
 risk_level: high
+fix_commits: ["f82b20d", "0d5a642", "1ebb717"]
+fix_branch: fix-validate-specs-yaml-real-parser
 ---
 
 ## Summary
@@ -45,6 +47,30 @@ is meant to catch.
 
 ## Verify Steps
 
-- [ ] `printf 'a:\n b: [\n' > /tmp/bad.yaml; bash scripts/validate-specs-yaml.sh` FAILs when a corrupt file is present (fixture)
-- [ ] `bash scripts/validate-specs-yaml.sh && echo OK` passes only when all specs `yaml.safe_load` cleanly
-- [ ] CI job runs the parse gate on push
+- [x] `printf 'a:\n b: [\n' > /tmp/bad.yaml; bash scripts/validate-specs-yaml.sh` FAILs when a corrupt file is present (fixture)
+- [x] `bash scripts/validate-specs-yaml.sh && echo OK` passes only when all specs `yaml.safe_load` cleanly
+- [ ] CI job runs the parse gate on push — **not done**; this repo's golden suite
+      (G-04/G-07/G-08) runs locally via the Pre-Merge Checklist, not in GitHub
+      Actions, for any gate. Wiring the whole golden suite into CI is a separate,
+      broader change than this specific script fix and is left as a follow-up.
+
+## Resolution (2026-07-03)
+
+`scripts/validate-specs-yaml.sh` now does a real `yaml.safe_load` parse pass over
+every `specs/**/*.yaml` before running required-key checks, and the required-key
+checks now run against the parsed objects instead of `grep`. A new golden check,
+`scripts/golden-g08-anti-vacuity.sh`, feeds it a fixture
+(`specs/verifications/fixtures/corrupt-yaml/`) mirroring the real corruption
+pattern and asserts it fails — registered in `run-golden-suite.sh` alongside
+G-04/G-07 so this can't silently regress.
+
+Running the fixed validator against the real `specs/` tree now correctly FAILs
+— it surfaced **35 structurally corrupt files**, matching the blast radius
+described in [[BUG-2026-07-03-yaml-roundtrip-corruption]]. That is the intended
+outcome of this fix (fail loud instead of fail open) and is expected to keep
+failing until the corruption bug itself is fixed next.
+
+`npm run compliance` and G-04/G-07 are unaffected (confirmed via
+`bash scripts/run-golden-suite.sh` — 4/4 passed including the new G-08); this
+validator isn't part of that chain today, it's called from
+`enrich-epics-from-archive.sh` and `convert-legado.sh`.

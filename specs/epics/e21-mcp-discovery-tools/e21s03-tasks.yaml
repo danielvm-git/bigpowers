@@ -9,5 +9,5 @@ tasks:
     status: backlog
   - id: 2
     description: "Add AGENTS.md preflight extraction to verify-work/SKILL.md before default checks"
-    verify: "grep -c 'AGENTS.md\|bp-read-agents\|preflight' verify-work/SKILL.md | awk '{if(\$1>=1) print \"OK\"; else print \"FAIL\"}'"
+    verify: 'grep -c ''AGENTS.md\|bp-read-agents\|preflight'' verify-work/SKILL.md | awk ''{if(\$1>=1) print "OK"; else print "FAIL"}'''
     status: backlog

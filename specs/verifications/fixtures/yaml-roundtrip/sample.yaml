@@ -1,0 +1,15 @@
+release:
+  version: "2.58.7"
+  codename: "Deepening"
+epics:
+  - id: "e19"
+    title: "Quick-Fix Fast-Path"
+    wsjf: 4.7
+    note: >
+      Delivered: quick-fix skill with entry criteria, guardrails,
+      fast-path workflow. Source: "market survey of speckit-utils"
+  - id: "e40"
+    title: "Metrics Integrity"
+    wsjf: 3.2
+    depends_on: [e39, e28]
+bigpowers_version: "2.58.7"

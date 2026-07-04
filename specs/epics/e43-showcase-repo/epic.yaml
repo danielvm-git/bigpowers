@@ -98,7 +98,7 @@ stories:
     bcp: 1
     status: todo
     title: "Add offline-tolerant fallbacks for e43 verify commands that depend on gh api/gh search"
-    verify: "grep -q 'PENDING\|offline' specs/epics/e43-showcase-repo/epic.yaml && echo OK"
+    verify: 'grep -q ''PENDING\|offline'' specs/epics/e43-showcase-repo/epic.yaml && echo OK'
     description: |
       Several e43 verify commands depend on `gh api` and `gh search` which
       require network + GitHub auth. Per ADR-0002 local-first principle,

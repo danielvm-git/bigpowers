@@ -41,7 +41,7 @@ stories:
     bcp: 2
     status: todo
     title: "Refresh docs/references/bmad.md from BMAD v6/TEA — currently covers only Document Lifecycle"
-    verify: "grep -q 'TEA\|v6\|test-architecture\|risk-based' docs/references/bmad.md && echo OK"
+    verify: 'grep -q ''TEA\|v6\|test-architecture\|risk-based'' docs/references/bmad.md && echo OK'
     description: |
       docs/references/bmad.md covers only "Document Lifecycle" and predates
       BMAD v6 and the TEA (Test Architecture Enterprise) module. The full

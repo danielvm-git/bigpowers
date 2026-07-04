@@ -32,6 +32,9 @@ GATES=(
   "compliance:npm run compliance:false"
   "g04-selftest:bash scripts/golden-g04-selftest.sh:true"
   "g07-negative-path:bash scripts/golden-g07-negative-path.sh:false"
+  "g08-anti-vacuity:bash scripts/golden-g08-anti-vacuity.sh:false"
+  "g09-yaml-roundtrip:bash scripts/golden-g09-yaml-roundtrip.sh:false"
+  "specs-parse:bash scripts/validate-specs-yaml.sh:false"
 )
 
 GREEN='\033[0;32m'

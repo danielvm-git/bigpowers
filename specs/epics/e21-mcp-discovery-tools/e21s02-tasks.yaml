@@ -5,7 +5,7 @@ bcps: 2
 tasks:
   - id: 1
     description: "Add opensrc integration section to research-first/SKILL.md with search and fetch steps"
-    verify: "grep -c 'opensrc' research-first/SKILL.md | awk '{if(\$1>=2) print \"OK\"; else print \"FAIL\"}'"
+    verify: 'grep -c ''opensrc'' research-first/SKILL.md | awk ''{if(\$1>=2) print "OK"; else print "FAIL"}'''
     status: done
   - id: 2
     description: "Create scripts/bp-opensrc-check.sh — checks dependencies against opensrc cache"

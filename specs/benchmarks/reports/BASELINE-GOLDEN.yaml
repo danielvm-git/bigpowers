@@ -6,7 +6,8 @@ gates:
 - name: compliance
   exit_code: 0
   duration_seconds: 16.74
-  status: pass   - name: g04-selftest
+  status: pass
+- name: g04-selftest
   exit_code: 1
   duration_seconds: .03
   status: fail

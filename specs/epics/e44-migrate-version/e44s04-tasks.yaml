@@ -4,7 +4,7 @@ title: "Verification gates + migration report generation + CLAUDE.md/CONVENTIONS
 tasks:
   - id: s04-t01
     description: "Implement per-migration verify block execution: run verify: commands for each applied migration, track pass/fail"
-    verify: "grep -q 'verify.*block\|run_verify\|verify.*pass\|verify.*fail' scripts/migrate-version.sh && echo OK"
+    verify: 'grep -q ''verify.*block\|run_verify\|verify.*pass\|verify.*fail'' scripts/migrate-version.sh && echo OK'
     story: e44s04
 
   - id: s04-t02
@@ -19,7 +19,7 @@ tasks:
 
   - id: s04-t04
     description: "Implement CLAUDE.md staleness check: compare downstream copy against bigpowers template, report line delta"
-    verify: "grep -q 'CLAUDE.md\|staleness\|behind' scripts/migrate-version.sh && echo OK"
+    verify: 'grep -q ''CLAUDE.md\|staleness\|behind'' scripts/migrate-version.sh && echo OK'
     story: e44s04
 
   - id: s04-t05
@@ -29,10 +29,10 @@ tasks:
 
   - id: s04-t06
     description: "Generate specs/migration-report-<ISO8601>.md with all 9 sections (gap summary, migrations, manual steps, uncertainties, skipped, verification, staleness, next steps, rollback)"
-    verify: "grep -q 'migration-report\|report.*template\|rollback' scripts/migrate-version.sh && echo OK"
+    verify: 'grep -q ''migration-report\|report.*template\|rollback'' scripts/migrate-version.sh && echo OK'
     story: e44s04
 
   - id: s04-t07
     description: "Print terminal summary: version transition, applied/skipped counts, ⚠ count, staleness notice, report path, sync-skills reminder"
-    verify: "grep -q 'Migration complete\|applied\|uncertain\|behind\|sync-skills' scripts/migrate-version.sh && echo OK"
+    verify: 'grep -q ''Migration complete\|applied\|uncertain\|behind\|sync-skills'' scripts/migrate-version.sh && echo OK'
     story: e44s04

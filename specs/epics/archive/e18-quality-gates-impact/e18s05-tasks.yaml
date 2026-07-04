@@ -5,13 +5,13 @@ bcps: 1
 tasks:
   - id: 1
     description: "Create scripts/bp-timing.sh start|end <skill> helper script"
-    verify: "test -f scripts/bp-timing.sh && grep -q 'start\|end' scripts/bp-timing.sh && echo OK"
+    verify: 'test -f scripts/bp-timing.sh && grep -q ''start\|end'' scripts/bp-timing.sh && echo OK'
     status: backlog
   - id: 2
     description: "Add metrics.skill_timings section to state.yaml schema documentation"
-    verify: "grep -c 'skill_timings\|timing' stocktake-skills/SKILL.md | awk '{if(\$1>=1) print \"OK\"; else print \"FAIL\"}'"
+    verify: 'grep -c ''skill_timings\|timing'' stocktake-skills/SKILL.md | awk ''{if(\$1>=1) print "OK"; else print "FAIL"}'''
     status: backlog
   - id: 3
     description: "Add effectiveness report generation to stocktake-skills --full mode"
-    verify: "grep -c 'effectiveness\|most.used\|zero.calls' stocktake-skills/SKILL.md | awk '{if(\$1>=1) print \"OK\"; else print \"FAIL\"}'"
+    verify: 'grep -c ''effectiveness\|most.used\|zero.calls'' stocktake-skills/SKILL.md | awk ''{if(\$1>=1) print "OK"; else print "FAIL"}'''
     status: backlog

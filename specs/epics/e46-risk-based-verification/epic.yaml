@@ -30,7 +30,7 @@ stories:
     bcp: 3
     status: todo
     title: "Write docs/references/tea.md — credit TEA and document its mechanisms"
-    verify: "test -f docs/references/tea.md && grep -q 'TEA\|BMAD\|risk-based\|NFR\|knowledge tiering' docs/references/tea.md && echo OK"
+    verify: 'test -f docs/references/tea.md && grep -q ''TEA\|BMAD\|risk-based\|NFR\|knowledge tiering'' docs/references/tea.md && echo OK'
     description: |
       Write a reference doc crediting TEA (BMAD Test Architecture Enterprise)
       alongside the existing bmad.md. Cover:
@@ -48,7 +48,7 @@ stories:
     bcp: 3
     status: todo
     title: "Add risk: P0|P1|P2|P3 field to plan-work that scales verify-work depth"
-    verify: "grep -q 'risk:' skills/plan-work/SKILL.md && grep -q 'P0\|P1\|P2\|P3' skills/plan-work/SKILL.md && echo OK"
+    verify: 'grep -q ''risk:'' skills/plan-work/SKILL.md && grep -q ''P0\|P1\|P2\|P3'' skills/plan-work/SKILL.md && echo OK'
     description: |
       Add a `risk:` field to plan-work's story template (P0 = critical path,
       data loss, security; P1 = core feature logic; P2 = utility/display;
@@ -67,7 +67,7 @@ stories:
     bcp: 4
     status: todo
     title: "NFR evidence gate — performance/reliability/operability with go/no-go output"
-    verify: "grep -q 'NFR\|non-functional\|performance.*gate\|reliability.*evidence' skills/verify-work/SKILL.md && echo OK"
+    verify: 'grep -q ''NFR\|non-functional\|performance.*gate\|reliability.*evidence'' skills/verify-work/SKILL.md && echo OK'
     description: |
       Add an NFR evidence phase to verify-work (or a standalone
       nfr-gate skill, depending on grill-me design outcome). The gate

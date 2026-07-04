@@ -9,21 +9,21 @@ tasks:
     status: done
   - id: 2
     description: "Implement bigpowers_list_skills — returns all 62 skills with name, description, phase"
-    verify: "grep -q 'list_skills\|bigpowers_list_skills' scripts/mcp-server.js 2>/dev/null || grep -q 'list_skills\|bigpowers_list_skills' scripts/mcp-server.py 2>/dev/null && echo OK"
+    verify: 'grep -q ''list_skills\|bigpowers_list_skills'' scripts/mcp-server.js 2>/dev/null || grep -q ''list_skills\|bigpowers_list_skills'' scripts/mcp-server.py 2>/dev/null && echo OK'
     status: done
   - id: 3
     description: "Implement bigpowers_get_skill — returns full SKILL.md for any valid skill"
-    verify: "grep -q 'get_skill\|bigpowers_get_skill' scripts/mcp-server.js 2>/dev/null || grep -q 'get_skill\|bigpowers_get_skill' scripts/mcp-server.py 2>/dev/null && echo OK"
+    verify: 'grep -q ''get_skill\|bigpowers_get_skill'' scripts/mcp-server.js 2>/dev/null || grep -q ''get_skill\|bigpowers_get_skill'' scripts/mcp-server.py 2>/dev/null && echo OK'
     status: done
   - id: 4
     description: "Implement bigpowers_search_skills — keyword/semantic search across skill catalog"
-    verify: "grep -q 'search_skills\|bigpowers_search_skills' scripts/mcp-server.js 2>/dev/null || grep -q 'search_skills\|bigpowers_search_skills' scripts/mcp-server.py 2>/dev/null && echo OK"
+    verify: 'grep -q ''search_skills\|bigpowers_search_skills'' scripts/mcp-server.js 2>/dev/null || grep -q ''search_skills\|bigpowers_search_skills'' scripts/mcp-server.py 2>/dev/null && echo OK'
     status: done
   - id: 5
     description: "Implement bigpowers_get_state and bigpowers_invoke_skill"
-    verify: "grep -q 'get_state\|bigpowers_get_state' scripts/mcp-server.js 2>/dev/null || grep -q 'get_state\|bigpowers_get_state' scripts/mcp-server.py 2>/dev/null && echo OK"
+    verify: 'grep -q ''get_state\|bigpowers_get_state'' scripts/mcp-server.js 2>/dev/null || grep -q ''get_state\|bigpowers_get_state'' scripts/mcp-server.py 2>/dev/null && echo OK'
     status: done
   - id: 6
     description: "Document MCP server setup in README.md"
-    verify: "grep -q 'MCP\|mcp.server\|bigpowers as an MCP' README.md && echo OK"
+    verify: 'grep -q ''MCP\|mcp.server\|bigpowers as an MCP'' README.md && echo OK'
     status: done

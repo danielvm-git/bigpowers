@@ -7,7 +7,7 @@ phases:
     passed: true
   build:
     passed: true
-    command: "for skill in scope-work slice-tasks run-planning search-skills; do wc -l < \$skill/SKILL.md; done"
+    command: 'for skill in scope-work slice-tasks run-planning search-skills; do wc -l < \$skill/SKILL.md; done'
   typecheck:
     passed: true
   lint:

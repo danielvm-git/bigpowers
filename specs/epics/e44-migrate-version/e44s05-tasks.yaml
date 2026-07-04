@@ -4,17 +4,17 @@ title: "Integrate check_spec_version_gap into survey-context; wire handoff signa
 tasks:
   - id: s05-t01
     description: "Edit skills/survey-context/SKILL.md: add step to run check_spec_version_gap.sh after lifecycle phase mapping"
-    verify: "grep -q 'check.spec.version.gap\|check_spec_version_gap' skills/survey-context/SKILL.md && echo OK"
+    verify: 'grep -q ''check.spec.version.gap\|check_spec_version_gap'' skills/survey-context/SKILL.md && echo OK'
     story: e44s05
 
   - id: s05-t02
     description: "Edit skills/survey-context/SKILL.md: surface gap as recommendation with handoff.next_skill: migrate-version when gap detected"
-    verify: "grep -q 'migrate-version\|handoff.*migrate' skills/survey-context/SKILL.md && echo OK"
+    verify: 'grep -q ''migrate-version\|handoff.*migrate'' skills/survey-context/SKILL.md && echo OK'
     story: e44s05
 
   - id: s05-t03
     description: "Edit skills/survey-context/SKILL.md: surface active-work block when exit code 3 (blocked by mid-epic work)"
-    verify: "grep -q 'active.work\|blocked.*migrate\|exit.*3' skills/survey-context/SKILL.md && echo OK"
+    verify: 'grep -q ''active.work\|blocked.*migrate\|exit.*3'' skills/survey-context/SKILL.md && echo OK'
     story: e44s05
 
   - id: s05-t04

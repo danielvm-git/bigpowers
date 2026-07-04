@@ -1,0 +1,13 @@
+release:
+  version: "2.58.7"
+  codename: "Deepening"
+  status: "released"
+epics:
+  - id: "e19"
+  title: "Quick-Fix Fast-Path"
+  wsjf: 4.7
+  bcps: 3
+  note: "Delivered: quick-fix skill with entry criteria, guardrails, fast-path workflow."
+  rationale: ">"
+  cheap content win. Candidate for a v3.0 launch note: "first release"
+  depends_on: "[e40, e28]"

@@ -1,49 +1,136 @@
 release:
-  version: "2.58.7"
-  codename: "Deepening"
-  status: "released"
+  version: 2.58.7
+  codename: Deepening
+  status: released
   semantic_release: true
-  bump_hint: "minor"
-release_trains:
-  - train: "v2.8x — Polish"
-  epics: "[e45, e46]"
-  total_bcps: 18
-  status: "done"
-  rationale: ">"
-  cheap content win. Candidate for a v3.0 launch note: "first release"
-  drift_note: ">"
+  bump_hint: minor
+done_epics_summary:
+  count: 33
+  source: specs/execution-status.yaml (development_status) — authoritative for completed epics; not re-listed
+    here
+  ids:
+  - e01
+  - e02
+  - e03
+  - e04
+  - e05
+  - e06
+  - e07
+  - e08
+  - e09
+  - e10
+  - e11
+  - e12
+  - e13
+  - e14
+  - e15
+  - e16
+  - e17
+  - e18
+  - e19
+  - e20
+  - e21
+  - e22
+  - e23
+  - e24
+  - e25
+  - e26
+  - e27
+  - e29
+  - e30
+  - e31
+  - e34
+  - e38
+  - e40
 epics:
-  - id: "e19"
-  title: "Quick-Fix Fast-Path"
-  wsjf: 4.7
-  bcps: 3
-  capsule_dir: "epics/e19-quick-fix-fast-path"
-  note: "Delivered: quick-fix skill with entry criteria, guardrails, fast-path workflow."
-  OKF alignment: "the thin-provenance pattern (concept body = pointer to"
-  Delivered: "G-04 sync-pipeline self-test, compliance CI gate, golden suite"
-  9 reference docs: "Beck (XP/Tidy First), Fowler (refactoring catalog),"
-  (write/select/compress/isolate), add effort: "heavy|light frontmatter."
-  functions: "adding IDE target = adding a function, not editing loop."
-  2026-07-02). SPIKE PASSED 2026-07-02: "DeepSeek v4 via gh-aw Claude"
-  three tiers: "matrix builder (scripts/trace-stories.sh), blind-spot"
-  Machine-readable JSON for CI/CD. Source: "market survey of speckit-utils,"
-  gaps after e38 traceability gate. Three pillars: "skill reference graph"
-  links when requirements change). OKF Phases 2-4: "skills-wiki, conventions-"
-  CI conformance gate. Source: "Karpathy LLM Wiki, OKF v0.1, Google"
-  supersedes: "(e35 — removed 2026-07-03, absorbed into e40 design)"
-  knowledge graph. Seven tools: "index_skills, read_skill, build_skill_graph,"
-  e39s01 is re-scoped to emit its graph via e32's server. Source: "MCP"
-  Closes a self-inflicted gap: "downstream projects created at different"
-  Depends on e39 (OKF v0.1) + e40 (validate-okf.sh). Source: "grill-me"
-  Fixes a self-replicating defect: "cycle-times.yaml is agent-self-reported"
-  the harness exposes usage (pi/Claude Code: "tokens/cost/tier, naturally"
-  value). Absorbs the original DORA metrics scope. Source: "specs/RESEARCH-cycle-time-"
-  on the e33 docs site. The differentiation play: "competitors CLAIM"
-  but not yet owned by any epic. Produces: "epics-wiki + adr-wiki as"
-  rendered OKF-concept pages; verification-reports-as-OKF (type:
-
-  Three TEA mechanisms surfaced in the e38 audit: "risk-based test depth"
-  assigned to e45. Source: "PLAN-AUDIT red-team gap list, BMAD TEA repo"
-  depends_on: "[e40, e28]"
-  file: "epics/e14-release-hardening-quality.yaml"
-  mode: "capsule"
+- id: e32
+  title: MCP Semantic Context Server
+  wsjf: 4.0
+  bcps: 13
+  capsule_dir: epics/e32-mcp-context-server
+  mode: capsule
+  status: proposed
+- id: e41
+  title: Public Receipts — Live Evidence Page
+  wsjf: 3.75
+  bcps: 10
+  capsule_dir: epics/e41-public-receipts
+  mode: capsule
+  status: proposed
+- id: e44
+  title: Spec Version Migration — migrate-version Skill
+  wsjf: 3.75
+  bcps: 14
+  capsule_dir: epics/e44-migrate-version
+  mode: capsule
+  status: proposed
+- id: e39
+  title: Semantic Context Bridge
+  wsjf: 3.6
+  bcps: 20
+  capsule_dir: epics/e39-knowledge-graph
+  mode: capsule
+  status: proposed
+- id: e46
+  title: Risk-Based Verification — TEA-Informed Test Depth
+  wsjf: 3.4
+  bcps: 10
+  capsule_dir: epics/e46-risk-based-verification
+  mode: capsule
+  status: proposed
+- id: e35
+  title: Missing Historical References
+  wsjf: 3.0
+  bcps: 20
+  capsule_dir: epics/e35-historical-refs
+  mode: capsule
+  status: proposed
+- id: e45
+  title: OKF Completion — Wikis, Verification Reports, Viz Graph
+  wsjf: 3.0
+  bcps: 10
+  capsule_dir: epics/e45-okf-completion
+  mode: capsule
+  status: proposed
+- id: e33
+  title: Docs Website — Fourth Generated Artifact Target
+  wsjf: 2.8
+  bcps: 13
+  capsule_dir: epics/e33-docs-website
+  mode: capsule
+  status: planned
+- id: e43
+  title: Showcase Repo — Worked Example Built With bigpowers
+  wsjf: 2.5
+  bcps: 11
+  capsule_dir: epics/e43-showcase-repo
+  mode: capsule
+  status: proposed
+- id: e37
+  title: BCP Plus Counting — Evolve from 3D to 13D story sizing
+  wsjf: 2.1
+  bcps: 18
+  capsule_dir: epics/e37-bcp-plus-counting
+  mode: capsule
+  status: backlog
+- id: e28
+  title: Sync Pipeline Refactor — Parse→IR→Render
+  wsjf: 2.0
+  bcps: 13
+  capsule_dir: epics/e28-sync-pipeline
+  mode: capsule
+  status: proposed
+- id: e42
+  title: Golden Story Suite — Agent-Driven
+  wsjf: 1.8
+  bcps: 10
+  capsule_dir: epics/e42-golden-stories
+  mode: capsule
+  status: active
+- id: e36
+  title: Documentation Deduplication
+  wsjf: 1.4
+  bcps: 12
+  capsule_dir: epics/e36-doc-dedup
+  mode: capsule
+  status: proposed

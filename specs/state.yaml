@@ -1,73 +1,47 @@
 active_flow: fix_bug
-bug_id: BUG-2026-07-03-validate-specs-no-real-parser
+bug_id: BUG-2026-07-03-yaml-roundtrip-corruption
 bug_cycle:
-  current_step: 3
-  completed_steps: [1, 2]
+  current_step: 5
+  completed_steps:
+  - 1
+  - 2
+  - 3
+  - 4
 handoff:
-  next_skill: "survey-context"
-  context: ">"
-  ALL 5 PLAN-AUDIT red-team bugs FIXED and LANDED on main:
+  next_skill: survey-context
+  context: 'ALL 5 PLAN-AUDIT red-team bugs FIXED and LANDED on main:
 
-  - P0 #1 waiver-scoring (985b67d): "waiver subsystem in audit-compliance.sh"
-  - P0 #2 negative-path-self-test (43a05b7): "G-07 self-test wired into golden suite"
-  - P2 capsule-release-labels (15b18f4): "8 capsule labels synced to release trains"
-  - P2 glossary-sparse (8a22358): "19 core domain terms populated"
-  - P3 trace-stories-613-line (607c0fd): "documented exception in CONVENTIONS.md"
-  PLAN-AUDIT full-project re-audit 2026-07-03: "7 capsule_dir mismatches fixed,"
-  All CI passed. 0 open bugs. Next: "survey-context → build-epic on e28"
+    - P0 #1 waiver-scoring (985b67d): waiver subsystem in audit-compliance.sh
+
+    - P0 #2 negative-path-self-test (43a05b7): G-07 self-test wired into golden suite
+
+    - P2 capsule-release-labels (15b18f4): 8 capsule labels synced to release trains
+
+    - P2 glossary-sparse (8a22358): 19 core domain terms populated
+
+    - P3 trace-stories-613-line (607c0fd): documented exception in CONVENTIONS.md
+
+    PLAN-AUDIT full-project re-audit 2026-07-03: 7 capsule_dir mismatches fixed. All CI passed. 0 open
+    bugs at that point. Next was: survey-context -> build-epic on e28.
+
+    (Superseded by this session''s bug-fix work on BUG-2026-07-03-validate-specs-no-real-parser and BUG-2026-07-03-yaml-roundtrip-corruption.)'
 release:
   ci_verified: true
-  released_at: "2026-07-03T21:04:06Z"
-  commit: "ed6f1c0"
-  tag: "v2.58.4 (semantic-release)"
-bigpowers_version: "2.58.7"
+  released_at: '2026-07-03T21:04:06Z'
+  commit: ed6f1c0
+  tag: v2.58.4 (semantic-release)
+bigpowers_version: 2.58.7
 node20_migration:
   completed: true
-  commit: "5b6f1dd"
-  changes: "actions/checkout v4→v6, concurrency, timeout-minutes"
-planning:
-  release: "v2.45.0"
-  codename: "Deepening"
-  source_docs:
-
-  - 'Market survey (2026-07-02): "speckit-utils, V-Model trace, BMAD TEA bmad-testarch-trace, Ctxo'"
-  epics_planned:
-
-  - 'e30: "Architecture Quick Fixes (8 BCP — DONE)'"
-  - 'e31: "Quality Guarantee — Deterministic Gates (11 BCP — split 2026-07-02 per PLAN-AUDIT)'"
-  - 'e32: "Missing Historical References (20 BCP)'"
-  - 'e33: "Sync Pipeline Refactor (13 BCP)'"
-  - 'e34: "Context Engineering Layer (10 BCP)'"
-  - 'e36: "Documentation Deduplication (10 BCP)'"
-  - 'e37: "Golden Story Suite — Agent-Driven (13 BCP — spike PASSED 2026-07-03 via gh-aw + DeepSeek; G-01 golden story live)'"
-  - 'e38: "Spec-to-Code Traceability Gate (13 BCP — TEA-inspired, market survey 2026-07-02)'"
-  - 'e39: "Semantic Context Bridge (20 BCP — OKF + skill graph + agent locks + drift detection; depends on e33; see specs/IMPACT-e38-okf-adoption.md)'"
-  - 'e43: "MCP Semantic Context Server (13 BCP — TypeScript MCP server, remark-based SKILL.md parsing, entity-relation knowledge graph; 2026-07-03 MCP/tree-sitter research)'"
-  - 'e44: "Spec Version Migration — migrate-version Skill (14 BCP — OKF spec-migration bundles, fingerprint+stamp detection, triple safety net; depends on e39+e40; grill-me design session 2026-07-03)'"
-  - 'e40: "Metrics Integrity (18 BCP — git-/telemetry-derived additive effort + lead time, OKF story bundles, provenance gate; absorbs DORA four keys; CR 2026-07-03)'"
-  - 'e41: "Public Receipts (10 BCP — live evidence page on e28 docs site; depends on e28 + e40; CR 2026-07-03)'"
-  - 'e42: "Showcase Repo (10 BCP — worked example in separate public repo, v2.8x train; CR 2026-07-03)'"
-  github_issues_created:
-
-  - '40 (Bug: "phase table missing 3 skills)'"
-  - '41 (Bug: "broken tech-architecture refs)'"
-  - '38 (Bug: "stale .bak file)'"
-  - '39 (Bug: "tautological verify commands)'"
-  - '42 (Bug: "skill-verify false FAILs)'"
-  - '43 (e38: "Spec-to-Code Traceability Gate)'"
-  - '44 (e39: "Semantic Context Bridge)'"
-  - '45 (e40: "MCP Semantic Context Server)'"
-  gaps_fixed:
-
-  - execution-status.yaml — e30s02 marked done (verified fixed), e30: "done"
-  - CLAUDE.md — added Typecheck: "N/A and CI platform rows"
+  commit: 5b6f1dd
+  changes: actions/checkout v4→v6, concurrency, timeout-minutes
 metrics:
   skill_timings:
     survey-context:
       calls: 0
       total_seconds: 0
       avg_seconds: 0
-      _start: "2026-06-28T23:57:13Z"
+      _start: '2026-06-28T23:57:13Z'
     release-branch:
       calls: 2
       total_seconds: 472.0
@@ -76,11 +50,10 @@ metrics:
       calls: 1
       total_seconds: 101.0
       avg_seconds: 101.0
-  story_start: "2026-07-02T23:00:00Z"
-  story_end: "2026-07-03T12:30:00Z"
+  story_start: '2026-07-02T23:00:00Z'
+  story_end: '2026-07-03T12:30:00Z'
   epic_e31:
     total_bcps: 11
     stories: 7
-    prs:
-
-    completed_at: "2026-07-03T04:10:07Z"
+    prs: []
+    completed_at: '2026-07-03T04:10:07Z'

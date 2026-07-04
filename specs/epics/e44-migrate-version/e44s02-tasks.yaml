@@ -14,17 +14,17 @@ tasks:
 
   - id: s02-t03
     description: "Implement fingerprint-based bootstrap: scan STATE.md, state.yaml keys, epic capsules, product/ path"
-    verify: "grep -q 'STATE.md\|fingerprint\|detection_method' scripts/check-spec-version-gap.sh && echo OK"
+    verify: 'grep -q ''STATE.md\|fingerprint\|detection_method'' scripts/check-spec-version-gap.sh && echo OK'
     story: e44s02
 
   - id: s02-t04
     description: "Emit gap JSON to stderr on exit code 1: detected_version, installed_version, applicable_migrations, confidence"
-    verify: "grep -q 'detected_version\|installed_version\|applicable_migrations\|confidence' scripts/check-spec-version-gap.sh && echo OK"
+    verify: 'grep -q ''detected_version\|installed_version\|applicable_migrations\|confidence'' scripts/check-spec-version-gap.sh && echo OK'
     story: e44s02
 
   - id: s02-t05
     description: "Implement active-work block detection: non-main branch, uncommitted changes in specs/, active_flow not null"
-    verify: "grep -q 'active_work\|git branch\|git status\|active_flow' scripts/check-spec-version-gap.sh && echo OK"
+    verify: 'grep -q ''active_work\|git branch\|git status\|active_flow'' scripts/check-spec-version-gap.sh && echo OK'
     story: e44s02
 
   - id: s02-t06
