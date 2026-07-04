@@ -1,3 +1,10 @@
+## [2.59.1](https://github.com/danielvm-git/bigpowers/compare/v2.59.0...v2.59.1) (2026-07-04)
+
+
+### Bug Fixes
+
+* **trace:** replace hand-rolled YAML parser, add floor assertion, G-10 ([67f7c71](https://github.com/danielvm-git/bigpowers/commit/67f7c71a74deefac2fea461f161c9656b751b387))
+
 # [2.59.0](https://github.com/danielvm-git/bigpowers/compare/v2.58.9...v2.59.0) (2026-07-04)
 
 

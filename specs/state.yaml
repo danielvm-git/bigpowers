@@ -2,27 +2,30 @@ active_flow: null
 bug_id: null
 handoff:
   next_skill: survey-context
-  context: 'BUG-2026-07-03-trace-engine-vacuous-gate fixed and landed on main (67f7c71).
-    PyYAML replaced parse_simple_yaml() in trace-stories.py. Floor assertion (50)
-    ensures --strict fails closed. G-10 golden test wired into golden suite (7/7).
-    CI should no longer pass vacuously on the traceability gate.
-    Next: survey-context → build-epic on whatever epic is next (e28?).'
+  context: 'BUG-2026-07-03-trace-engine-vacuous-gate fixed and landed on main (67f7c71). PyYAML replaced
+    parse_simple_yaml() in trace-stories.py. Floor assertion (50) ensures --strict fails closed. G-10
+    golden test wired into golden suite (7/7). CI should no longer pass vacuously on the traceability
+    gate. Next: survey-context → build-epic on whatever epic is next (e28?).'
 bug_cycle:
   current_step: null
-  completed_steps: [1, 2, 3, 4, 5]
+  completed_steps:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
 previous_handoff:
   next_skill: survey-context
-  context: 'BUG-2026-07-03-trace-engine-vacuous-gate fixed and landed.
-    This was the third and final fail-open bug in the bug class cluster:
-    - BUG-2026-07-03-validate-specs-no-real-parser → fixed (real YAML parser)
-    - BUG-2026-07-03-yaml-roundtrip-corruption → fixed (PyYAML round-trip)
-    - BUG-2026-07-03-trace-engine-vacuous-gate → fixed (PyYAML + floor assertion + G-10)'
+  context: 'BUG-2026-07-03-trace-engine-vacuous-gate fixed and landed. This was the third and final fail-open
+    bug in the bug class cluster: - BUG-2026-07-03-validate-specs-no-real-parser → fixed (real YAML parser)
+    - BUG-2026-07-03-yaml-roundtrip-corruption → fixed (PyYAML round-trip) - BUG-2026-07-03-trace-engine-vacuous-gate
+    → fixed (PyYAML + floor assertion + G-10)'
 release:
   ci_verified: true
   released_at: '2026-07-03T21:04:06Z'
   commit: ed6f1c0
   tag: v2.58.4 (semantic-release)
-bigpowers_version: 2.59.0
+bigpowers_version: 2.59.1
 node20_migration:
   completed: true
   commit: 5b6f1dd
