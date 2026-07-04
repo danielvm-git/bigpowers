@@ -1,6 +1,4 @@
-// story: e32s02
-// story: e32s03
-import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { getRepoRoot, getGraphPath } from "../config.js";
 import { discoverSkills, readSkillFile } from "../lib/skill-parser.js";
 import { phaseForSkill } from "../lib/phase-map.js";
@@ -37,6 +35,7 @@ function toolError(message: string) {
 }
 
 export function registerTools(server: McpServer, ctx: ServerContext): void {
+  // story: e32s01
   server.registerTool(
     "index_skills",
     {
@@ -67,6 +66,7 @@ export function registerTools(server: McpServer, ctx: ServerContext): void {
     },
   );
 
+  // story: e32s02
   server.registerTool(
     "build_skill_graph",
     {
@@ -130,6 +130,7 @@ export function registerTools(server: McpServer, ctx: ServerContext): void {
     },
   );
 
+  // story: e32s03
   server.registerTool(
     "search_skills",
     {
@@ -170,6 +171,7 @@ export function registerTools(server: McpServer, ctx: ServerContext): void {
     },
   );
 
+  // story: e32s03
   server.registerTool(
     "get_dependencies",
     {
@@ -188,6 +190,7 @@ export function registerTools(server: McpServer, ctx: ServerContext): void {
     },
   );
 
+  // story: e32s04
   server.registerTool(
     "get_git_context",
     {
@@ -208,6 +211,7 @@ export function registerTools(server: McpServer, ctx: ServerContext): void {
     },
   );
 
+  // story: e32s05
   server.registerTool(
     "validate_skill",
     {

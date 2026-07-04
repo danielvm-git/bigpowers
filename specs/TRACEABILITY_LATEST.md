@@ -1,15 +1,15 @@
 # Traceability Matrix
 
-**Generated:** 2026-07-04 18:07:31 UTC
+**Generated:** 2026-07-04 18:13:18 UTC
 **Total stories:** 79
-**Tagged stories:** 11
+**Tagged stories:** 12
 **Dark stories:** 1
 **Orphan tags:** 19
-**Stale tags:** 5
+**Stale tags:** 6
 
 ## Oracle Stats
 
-- **High** (explicit tag): 57
+- **High** (explicit tag): 67
 - **Medium** (file heuristic): 1040
 - **Low** (task reference): 48
 
@@ -21,11 +21,11 @@
 | e28s02 | Refactor 13 scripts to source skill-common.sh instead of dup | e28 | 2 | 2.0 | backlog | 2 |
 | e28s03 | Refactor sync-skills.sh to use render-target functions (one  | e28 | 5 | 2.0 | backlog | 5 |
 | e28s04 | Refactor regenerate-lockfile.sh, generate-skill-index.sh, bu | e28 | 3 | 2.0 | backlog | 119 |
-| e32s01 | Spike: build bigpowers-mcp with index_skills + read_skill, v | e32 | 3 | 4.0 | done | 4 |
-| e32s02 | Add build_skill_graph tool — entity-relation model from pars | e32 | 3 | 4.0 | done | 2 |
-| e32s03 | Add search_skills + get_dependencies tools | e32 | 2 | 4.0 | done | 1 |
-| e32s04 | Add get_git_context tool — change awareness for drift detect | e32 | 1 | 4.0 | done | 3 |
-| e32s05 | Add validate_skill tool — convention compliance check | e32 | 2 | 4.0 | done | 2 |
+| e32s01 | Spike: build bigpowers-mcp with index_skills + read_skill, v | e32 | 3 | 4.0 | done | 6 |
+| e32s02 | Add build_skill_graph tool — entity-relation model from pars | e32 | 3 | 4.0 | done | 3 |
+| e32s03 | Add search_skills + get_dependencies tools | e32 | 2 | 4.0 | done | 4 |
+| e32s04 | Add get_git_context tool — change awareness for drift detect | e32 | 1 | 4.0 | done | 5 |
+| e32s05 | Add validate_skill tool — convention compliance check | e32 | 2 | 4.0 | done | 4 |
 | e32s06 | Register bigpowers-mcp in MCP client configs (Claude Code, C | e32 | 1 | 4.0 | done | 7 |
 | e32s07 | Write docs/references/bigpowers-mcp.md — architecture and op | e32 | 1 | 4.0 | done | 2 |
 | e33s01 | Scaffold Astro Starlight site in website/ with local dev | e33 | 0 | 2.8 | backlog | 2 |
@@ -125,6 +125,7 @@
 
 ## Stale Tags (story done, tag still in code)
 
+- `e32s01`
 - `e32s02`
 - `e32s03`
 - `e32s04`

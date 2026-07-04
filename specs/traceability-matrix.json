@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-04T18:07:31.529752+00:00",
+  "generated_at": "2026-07-04T18:13:18.101018+00:00",
   "matrix_version": "1.0",
   "stories": [
     {
@@ -828,6 +828,18 @@
       "status": "done",
       "links": [
         {
+          "file": "bigpowers-mcp/build/tools/index.js",
+          "line": 26,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "bigpowers-mcp/src/tools/index.ts",
+          "line": 38,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "specs/verifications/steps/and-files-should-be-small-enough-to-avoid-context-window-truncation-300-lines.sh",
           "line": 0,
           "confidence": "medium",
@@ -852,7 +864,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 4
+      "link_count": 6
     },
     {
       "id": "e32s02",
@@ -864,8 +876,14 @@
       "status": "done",
       "links": [
         {
+          "file": "bigpowers-mcp/build/tools/index.js",
+          "line": 48,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "bigpowers-mcp/src/tools/index.ts",
-          "line": 1,
+          "line": 69,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -876,7 +894,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 2
+      "link_count": 3
     },
     {
       "id": "e32s03",
@@ -888,13 +906,31 @@
       "status": "done",
       "links": [
         {
+          "file": "bigpowers-mcp/build/tools/index.js",
+          "line": 94,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "bigpowers-mcp/build/tools/index.js",
+          "line": 131,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "bigpowers-mcp/src/tools/index.ts",
-          "line": 2,
+          "line": 133,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "bigpowers-mcp/src/tools/index.ts",
+          "line": 174,
           "confidence": "high",
           "method": "explicit_tag"
         }
       ],
-      "link_count": 1
+      "link_count": 4
     },
     {
       "id": "e32s04",
@@ -912,8 +948,20 @@
           "method": "explicit_tag"
         },
         {
+          "file": "bigpowers-mcp/build/tools/index.js",
+          "line": 146,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "bigpowers-mcp/build/lib/git-context.js",
           "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "bigpowers-mcp/src/tools/index.ts",
+          "line": 193,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -924,7 +972,7 @@
           "method": "explicit_tag"
         }
       ],
-      "link_count": 3
+      "link_count": 5
     },
     {
       "id": "e32s05",
@@ -936,8 +984,20 @@
       "status": "done",
       "links": [
         {
+          "file": "bigpowers-mcp/build/tools/index.js",
+          "line": 163,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "bigpowers-mcp/build/lib/validate-skill.js",
           "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "bigpowers-mcp/src/tools/index.ts",
+          "line": 214,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -948,7 +1008,7 @@
           "method": "explicit_tag"
         }
       ],
-      "link_count": 2
+      "link_count": 4
     },
     {
       "id": "e32s06",
@@ -7819,7 +7879,7 @@
   ],
   "summary": {
     "total_stories": 79,
-    "tagged_stories": 11,
+    "tagged_stories": 12,
     "dark_stories": [
       "e46s03"
     ],
@@ -7847,15 +7907,16 @@
     ],
     "orphan_count": 19,
     "stale_tags": [
+      "e32s01",
       "e32s02",
       "e32s03",
       "e32s04",
       "e32s05",
       "e46s01"
     ],
-    "stale_count": 5,
+    "stale_count": 6,
     "oracle_stats": {
-      "high": 57,
+      "high": 67,
       "medium": 1040,
       "low": 48
     }

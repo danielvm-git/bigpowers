@@ -23,6 +23,7 @@ function toolError(message) {
     };
 }
 export function registerTools(server, ctx) {
+    // story: e32s01
     server.registerTool("index_skills", {
         description: "Discover all skills/*/SKILL.md files with name, path, and lifecycle phase",
         inputSchema: z.object({}).optional(),
@@ -44,6 +45,7 @@ export function registerTools(server, ctx) {
             return toolError(err instanceof Error ? err.message : String(err));
         }
     });
+    // story: e32s02
     server.registerTool("build_skill_graph", {
         description: "Build entity-relation graph from parsed SKILL.md data and persist to graph.jsonl",
         inputSchema: z.object({
@@ -89,6 +91,7 @@ export function registerTools(server, ctx) {
             ctx.graph = loadGraph(ctx.graphPath);
         return jsonResult({ entities: openNodes(ctx.graph, names) });
     });
+    // story: e32s03
     server.registerTool("search_skills", {
         description: "Search skills by name, description, model, or effort (case-insensitive substring)",
         inputSchema: z.object({
@@ -125,6 +128,7 @@ export function registerTools(server, ctx) {
             .sort((a, b) => b.score - a.score);
         return jsonResult({ count: results.length, results });
     });
+    // story: e32s03
     server.registerTool("get_dependencies", {
         description: "Forward/reverse deps, handoff chain, and conventions for a skill",
         inputSchema: z.object({ name: z.string() }),
@@ -139,6 +143,7 @@ export function registerTools(server, ctx) {
             conventions: getConventions(ctx.graph, name),
         });
     });
+    // story: e32s04
     server.registerTool("get_git_context", {
         description: "Git change awareness scoped to skills/ and specs/ — status, log, or diff",
         inputSchema: z.object({
@@ -155,6 +160,7 @@ export function registerTools(server, ctx) {
             return toolError(err instanceof Error ? err.message : String(err));
         }
     });
+    // story: e32s05
     server.registerTool("validate_skill", {
         description: "Check a SKILL.md against bigpowers conventions",
         inputSchema: z.object({ name: z.string() }),

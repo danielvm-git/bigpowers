@@ -1,6 +1,6 @@
 ---
 type: Index
-generated_at: 2026-07-04T18:07:31.531483+00:00
+generated_at: 2026-07-04T18:13:18.102663+00:00
 total_concepts: 79
 ---
 
@@ -14,11 +14,11 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e28s02](./e28s02.md) | Refactor 13 scripts to source skill-common.sh instead of dup | medium | 2 |
 | [e28s03](./e28s03.md) | Refactor sync-skills.sh to use render-target functions (one  | medium | 5 |
 | [e28s04](./e28s04.md) | Refactor regenerate-lockfile.sh, generate-skill-index.sh, bu | medium | 119 |
-| [e32s01](./e32s01.md) | Spike: build bigpowers-mcp with index_skills + read_skill, v | medium | 4 |
-| [e32s02](./e32s02.md) | Add build_skill_graph tool — entity-relation model from pars | high | 2 |
-| [e32s03](./e32s03.md) | Add search_skills + get_dependencies tools | high | 1 |
-| [e32s04](./e32s04.md) | Add get_git_context tool — change awareness for drift detect | high | 3 |
-| [e32s05](./e32s05.md) | Add validate_skill tool — convention compliance check | high | 2 |
+| [e32s01](./e32s01.md) | Spike: build bigpowers-mcp with index_skills + read_skill, v | high | 6 |
+| [e32s02](./e32s02.md) | Add build_skill_graph tool — entity-relation model from pars | high | 3 |
+| [e32s03](./e32s03.md) | Add search_skills + get_dependencies tools | high | 4 |
+| [e32s04](./e32s04.md) | Add get_git_context tool — change awareness for drift detect | high | 5 |
+| [e32s05](./e32s05.md) | Add validate_skill tool — convention compliance check | high | 4 |
 | [e32s06](./e32s06.md) | Register bigpowers-mcp in MCP client configs (Claude Code, C | medium | 7 |
 | [e32s07](./e32s07.md) | Write docs/references/bigpowers-mcp.md — architecture and op | medium | 2 |
 | [e33s01](./e33s01.md) | Scaffold Astro Starlight site in website/ with local dev | medium | 2 |
