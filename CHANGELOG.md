@@ -1,3 +1,10 @@
+# [2.59.0](https://github.com/danielvm-git/bigpowers/compare/v2.58.9...v2.59.0) (2026-07-04)
+
+
+### Features
+
+* **planning:** add e47 Cross-Tool Skill Distribution to roadmap ([d26d314](https://github.com/danielvm-git/bigpowers/commit/d26d3144a6a623920561a5e1968f9b862133d71c)), closes [#1](https://github.com/danielvm-git/bigpowers/issues/1)
+
 ## [2.58.9](https://github.com/danielvm-git/bigpowers/compare/v2.58.8...v2.58.9) (2026-07-04)
 
 
