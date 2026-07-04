@@ -1,3 +1,10 @@
+## [2.59.8](https://github.com/danielvm-git/bigpowers/compare/v2.59.7...v2.59.8) (2026-07-04)
+
+
+### Bug Fixes
+
+* **skills:** remove tautological verify commands from 5 skills ([#47](https://github.com/danielvm-git/bigpowers/issues/47)) ([2dff929](https://github.com/danielvm-git/bigpowers/commit/2dff92956f0ececa8ad53ed9609d162b3502bc38)), closes [#39](https://github.com/danielvm-git/bigpowers/issues/39)
+
 ## [2.59.7](https://github.com/danielvm-git/bigpowers/compare/v2.59.6...v2.59.7) (2026-07-04)
 
 

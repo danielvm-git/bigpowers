@@ -1,5 +1,5 @@
 active_flow: fix_bug
-bigpowers_version: 2.59.7
+bigpowers_version: 2.59.8
 bug_cycle:
   completed_steps:
   - 1
@@ -9,8 +9,8 @@ bug_cycle:
   current_step: 5
 bug_id: null
 handoff:
-  context: 'Issue #39 fixed: removed 7 tautological verify commands from 5 non-critical
-    skills. Compliance 88/88. Golden suite 7/8 (G-11 pre-existing). Ready for release-branch.'
+  context: 'Issue #39 fixed: removed 7 tautological verify commands from 5 non-critical skills. Compliance
+    88/88. Golden suite 7/8 (G-11 pre-existing). Ready for release-branch.'
   next_skill: release-branch
 metrics:
   epic_e31:
@@ -39,11 +39,10 @@ node20_migration:
   commit: 5b6f1dd
   completed: true
 previous_handoff:
-  context: 'BUG-2026-07-03-trace-engine-vacuous-gate fixed and landed. This was the
-    third and final fail-open bug in the bug class cluster: - BUG-2026-07-03-validate-specs-no-real-parser
-    → fixed (real YAML parser) - BUG-2026-07-03-yaml-roundtrip-corruption → fixed
-    (PyYAML round-trip) - BUG-2026-07-03-trace-engine-vacuous-gate → fixed (PyYAML
-    + floor assertion + G-10)'
+  context: 'BUG-2026-07-03-trace-engine-vacuous-gate fixed and landed. This was the third and final fail-open
+    bug in the bug class cluster: - BUG-2026-07-03-validate-specs-no-real-parser → fixed (real YAML parser)
+    - BUG-2026-07-03-yaml-roundtrip-corruption → fixed (PyYAML round-trip) - BUG-2026-07-03-trace-engine-vacuous-gate
+    → fixed (PyYAML + floor assertion + G-10)'
   next_skill: survey-context
 release:
   ci_verified: true
