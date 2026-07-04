@@ -1,3 +1,10 @@
+## [2.61.4](https://github.com/danielvm-git/bigpowers/compare/v2.61.3...v2.61.4) (2026-07-04)
+
+
+### Bug Fixes
+
+* **ci:** full-repo checkout for sync-skills on every main push ([c27b1a5](https://github.com/danielvm-git/bigpowers/commit/c27b1a573818609c33ac53cb4d2f7c44fe5e3ea1))
+
 ## [2.61.3](https://github.com/danielvm-git/bigpowers/compare/v2.61.2...v2.61.3) (2026-07-04)
 
 
