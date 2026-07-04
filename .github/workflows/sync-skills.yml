@@ -14,9 +14,15 @@ on:
       - 'scripts/sync-skills.sh'
       - 'scripts/build-skill-index.sh'
       - 'scripts/trace-stories.sh'
+      - 'scripts/lib/trace-stories.py'
       - 'package.json'
       - 'specs/state.yaml'
+      - 'specs/release-plan.yaml'
+      - 'specs/execution-status.yaml'
       - 'specs/traceability-matrix.json'
+      - 'specs/epics/**'
+      - 'specs/tech-architecture/**'
+      - 'bigpowers-mcp/**'
       - '.github/workflows/sync-skills.yml'
   pull_request:
     branches: [ main, develop ]
@@ -25,9 +31,15 @@ on:
       - 'scripts/sync-skills.sh'
       - 'scripts/build-skill-index.sh'
       - 'scripts/trace-stories.sh'
+      - 'scripts/lib/trace-stories.py'
       - 'package.json'
       - 'specs/state.yaml'
+      - 'specs/release-plan.yaml'
+      - 'specs/execution-status.yaml'
       - 'specs/traceability-matrix.json'
+      - 'specs/epics/**'
+      - 'specs/tech-architecture/**'
+      - 'bigpowers-mcp/**'
       - '.github/workflows/sync-skills.yml'
   workflow_dispatch:
 
@@ -39,6 +51,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v6
+        with:
+          # Path-filtered workflows default to sparse checkout; trace gate needs full tree.
+          sparse-checkout: .
 
       - name: Sync skills and verify artifacts committed
         run: |

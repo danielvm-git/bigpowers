@@ -1,3 +1,5 @@
+# story: e32s03
+# story: e32s05
 # story: e32s04
 
 # Test Design: e32 — MCP Semantic Context Server
