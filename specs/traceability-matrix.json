@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-04T11:23:00.261011+00:00",
+  "generated_at": "2026-07-04T12:10:39.704048+00:00",
   "matrix_version": "1.0",
   "stories": [
     {
@@ -1521,6 +1521,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260704-082500.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260626-205844.md",
           "line": 0,
           "confidence": "medium",
@@ -1576,6 +1582,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-233740.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260704-090946.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -1654,6 +1666,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-130715.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260704-083430.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -1797,6 +1815,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260704-083149.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-220941.md",
           "line": 0,
           "confidence": "medium",
@@ -1804,6 +1828,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260702-080057.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260704-082609.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -1959,6 +1989,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260704-091017.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260704-082326.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260627-133613.md",
           "line": 0,
           "confidence": "medium",
@@ -1972,6 +2014,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-005358.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260704-085740.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -2019,6 +2067,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260704-082306.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-005655.md",
           "line": 0,
           "confidence": "medium",
@@ -2032,6 +2086,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-181546.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260704-083236.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -2086,6 +2146,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260702-223313.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260704-083101.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -2253,7 +2319,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 170
+      "link_count": 181
     },
     {
       "id": "e36s04",
@@ -4142,6 +4208,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-superpowers-20260704-083245.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-superpowers-20260703-174249.md",
           "line": 0,
           "confidence": "medium",
@@ -4232,7 +4304,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-superpowers-20260704-083157.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-superpowers-20260702-133538.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-superpowers-20260704-082617.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4251,6 +4335,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-superpowers-20260703-221854.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-superpowers-20260704-085748.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4323,6 +4413,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-superpowers-20260703-160743.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-superpowers-20260704-082335.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4628,6 +4724,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-superpowers-20260704-091026.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-superpowers-20260703-174012.md",
           "line": 0,
           "confidence": "medium",
@@ -4653,6 +4755,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-superpowers-20260703-173039.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-superpowers-20260704-090954.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4689,6 +4797,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-superpowers-20260703-005349.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-superpowers-20260704-082313.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4754,7 +4868,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-superpowers-20260704-083437.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-superpowers-20260703-125853.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-superpowers-20260704-082508.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4827,6 +4953,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-superpowers-20260704-000114.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-superpowers-20260704-083111.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5138,7 +5270,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 173
+      "link_count": 184
     },
     {
       "id": "e43s01",
@@ -5594,6 +5726,24 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-07-04-python-interpreter-fragility.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-04-filesize-gate-python-blindspot.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-04-stale-bak-features.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-06-27T000000.md",
           "line": 0,
           "confidence": "medium",
@@ -5613,6 +5763,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-02T103911.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-04-tautological-verify.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5804,7 +5960,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 37
+      "link_count": 41
     },
     {
       "id": "e43s04",
@@ -6632,6 +6788,24 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-07-04-python-interpreter-fragility.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-04-filesize-gate-python-blindspot.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-04-stale-bak-features.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-06-27T000000.md",
           "line": 0,
           "confidence": "medium",
@@ -6651,6 +6825,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-02T103911.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-04-tautological-verify.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -6794,7 +6974,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 28
+      "link_count": 32
     },
     {
       "id": "e45s04",
@@ -7263,7 +7443,7 @@
     "stale_count": 0,
     "oracle_stats": {
       "high": 49,
-      "medium": 954,
+      "medium": 984,
       "low": 47
     }
   }

@@ -26,23 +26,26 @@ waivers:
 
   - step_sanitized: and-files-should-be-small-enough-to-avoid-context-window-truncation-300-lines
     reason: >
-      trace-stories.sh (613 lines) carries the traceability pipeline and
-      resists clean splitting — the parse-match-report phases are tightly
-      coupled. Resolved via BUG-2026-07-03-trace-stories-613-line (P3) as a
-      documented exception — see CONVENTIONS.md's "File-Size Exceptions"
-      table for the rationale and review date. This waiver mirrors that
-      entry; re-evaluate both together.
+      The 300-line step now scans Python too (as of 2026-07-04). Over-cap
+      files: scripts/lib/trace-matrix.py (523) and scripts/lib/trace-stories.py
+      (301) — the traceability engine, tightly-coupled phases. Both are
+      documented in CONVENTIONS.md's "File-Size Exceptions" table with a
+      split-candidate note (BUG-2026-07-04-filesize-gate-python-blindspot).
+      NOTE: trace-stories.sh (formerly 613 lines) was refactored to 69 lines
+      and is no longer over the cap — this waiver no longer covers it.
+      Re-evaluate alongside the CONVENTIONS.md table.
     review_date: "2026-10-01"
     reviewer: bigpowers-maintainer
     feature: conventions.feature
 
   - step_sanitized: and-files-should-remain-under-500-lines-newspaper-metaphor
     reason: >
-      audit-compliance.sh (~280 lines) and trace-stories.sh (613 lines)
-      exceed the 500-line cap. Both are documented exceptions in
-      CONVENTIONS.md's "File-Size Exceptions" table (BUG-2026-07-03-
-      trace-stories-613-line, P3). Re-evaluate alongside that table's
-      review date.
+      The 500-line step now scans Python too (as of 2026-07-04). Sole over-cap
+      file: scripts/lib/trace-matrix.py (523) — documented in CONVENTIONS.md's
+      "File-Size Exceptions" table (BUG-2026-07-04-filesize-gate-python-blindspot),
+      split candidate for a future plan-refactor. NOTE: trace-stories.sh
+      (formerly 613) is now 69 lines and audit-compliance.sh (300) is under
+      the 500 cap — neither is covered by this waiver anymore.
     review_date: "2026-10-01"
     reviewer: bigpowers-maintainer
     feature: akita.feature

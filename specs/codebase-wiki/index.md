@@ -1,6 +1,6 @@
 ---
 type: Index
-generated_at: 2026-07-04T11:23:00.265908+00:00
+generated_at: 2026-07-04T12:10:39.709284+00:00
 total_concepts: 78
 ---
 
@@ -38,7 +38,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e35s10](./e35s10.md) | Cross-reference new docs from SKILL.md bodies | medium | 2 |
 | [e36s01](./e36s01.md) | Slim docs/references/uncle-bob.md to provenance pointer | low | 2 |
 | [e36s02](./e36s02.md) | Slim docs/references/akita.md, ousterhout.md, karpathy.md, w | low | 1 |
-| [e36s03](./e36s03.md) | Remove F.I.R.S.T rubric restatement from enforce-first and a | medium | 170 |
+| [e36s03](./e36s03.md) | Remove F.I.R.S.T rubric restatement from enforce-first and a | medium | 181 |
 | [e36s04](./e36s04.md) | Update docs/references/spec-kit.md to cover full SDD tool la | medium | 3 |
 | [e36s05](./e36s05.md) | Refresh docs/references/bmad.md from BMAD v6/TEA — currently | none | 0 |
 | [e37s01](./e37s01.md) | BCP Plus counter integration — install and smoke-test big-co | medium | 14 |
@@ -63,10 +63,10 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e42s01](./e42s01.md) | Spike: headless golden-chain harness — gh-aw + DeepSeek v4 p | medium | 2 |
 | [e42s02](./e42s02.md) | Create specs/benchmarks/fixtures/minimal-api/ fixture repo ( | medium | 3 |
 | [e42s03](./e42s03.md) | Author 4 golden story YAMLs (g-01, g-02, g-03, g-05) with co | medium | 17 |
-| [e42s04](./e42s04.md) | Add --agent mode to run-golden-suite.sh: headless chain exec | medium | 173 |
+| [e42s04](./e42s04.md) | Add --agent mode to run-golden-suite.sh: headless chain exec | medium | 184 |
 | [e43s01](./e43s01.md) | Scaffold the showcase app in a separate public repo via seed | medium | 8 |
 | [e43s02](./e43s02.md) | Build one feature epic end-to-end via the 8-step build-epic  | medium | 60 |
-| [e43s03](./e43s03.md) | Fix one real bug via the investigate-bug → develop-tdd → val | medium | 37 |
+| [e43s03](./e43s03.md) | Fix one real bug via the investigate-bug → develop-tdd → val | medium | 41 |
 | [e43s04](./e43s04.md) | Link the showcase from README + docs site; register as e37 g | medium | 5 |
 | [e43s05](./e43s05.md) | Add offline-tolerant fallbacks for e43 verify commands that  | medium | 1 |
 | [e44s01](./e44s01.md) | Define OKF schema for spec-migration and migration-registry; | high | 31 |
@@ -77,7 +77,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e44s06](./e44s06.md) | Golden test fixtures (v1.x, v2.0.0, v2.20) + roundtrip valid | high | 24 |
 | [e45s01](./e45s01.md) | Generate epics-wiki and adr-wiki as OKF concept bundles from | medium | 10 |
 | [e45s02](./e45s02.md) | Emit verification reports as OKF bundles from run-golden-sui | medium | 7 |
-| [e45s03](./e45s03.md) | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | medium | 28 |
+| [e45s03](./e45s03.md) | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | medium | 32 |
 | [e45s04](./e45s04.md) | Create viz.html — interactive force-layout graph companion f | medium | 3 |
 | [e45s05](./e45s05.md) | Wire OKF validation into CI (sync-skills.yml) and document i | medium | 18 |
 | [e45s06](./e45s06.md) | Add tier: field (core/extended/specialized) to OKF wiki inde | medium | 6 |
