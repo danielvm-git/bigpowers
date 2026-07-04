@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-04T18:13:18.101018+00:00",
+  "generated_at": "2026-07-04T18:18:38.119938+00:00",
   "matrix_version": "1.0",
   "stories": [
     {
@@ -906,6 +906,12 @@
       "status": "done",
       "links": [
         {
+          "file": "specs/tech-architecture/e32-TEST_PLAN_LATEST.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "bigpowers-mcp/build/tools/index.js",
           "line": 94,
           "confidence": "high",
@@ -930,7 +936,7 @@
           "method": "explicit_tag"
         }
       ],
-      "link_count": 4
+      "link_count": 5
     },
     {
       "id": "e32s04",
@@ -943,7 +949,7 @@
       "links": [
         {
           "file": "specs/tech-architecture/e32-TEST_PLAN_LATEST.md",
-          "line": 1,
+          "line": 3,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -984,6 +990,12 @@
       "status": "done",
       "links": [
         {
+          "file": "specs/tech-architecture/e32-TEST_PLAN_LATEST.md",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "bigpowers-mcp/build/tools/index.js",
           "line": 163,
           "confidence": "high",
@@ -1008,7 +1020,7 @@
           "method": "explicit_tag"
         }
       ],
-      "link_count": 4
+      "link_count": 5
     },
     {
       "id": "e32s06",
@@ -7916,7 +7928,7 @@
     ],
     "stale_count": 6,
     "oracle_stats": {
-      "high": 67,
+      "high": 69,
       "medium": 1040,
       "low": 48
     }

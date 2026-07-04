@@ -1,6 +1,6 @@
 # Traceability Matrix
 
-**Generated:** 2026-07-04 18:13:18 UTC
+**Generated:** 2026-07-04 18:18:38 UTC
 **Total stories:** 79
 **Tagged stories:** 12
 **Dark stories:** 1
@@ -9,7 +9,7 @@
 
 ## Oracle Stats
 
-- **High** (explicit tag): 67
+- **High** (explicit tag): 69
 - **Medium** (file heuristic): 1040
 - **Low** (task reference): 48
 
@@ -23,9 +23,9 @@
 | e28s04 | Refactor regenerate-lockfile.sh, generate-skill-index.sh, bu | e28 | 3 | 2.0 | backlog | 119 |
 | e32s01 | Spike: build bigpowers-mcp with index_skills + read_skill, v | e32 | 3 | 4.0 | done | 6 |
 | e32s02 | Add build_skill_graph tool — entity-relation model from pars | e32 | 3 | 4.0 | done | 3 |
-| e32s03 | Add search_skills + get_dependencies tools | e32 | 2 | 4.0 | done | 4 |
+| e32s03 | Add search_skills + get_dependencies tools | e32 | 2 | 4.0 | done | 5 |
 | e32s04 | Add get_git_context tool — change awareness for drift detect | e32 | 1 | 4.0 | done | 5 |
-| e32s05 | Add validate_skill tool — convention compliance check | e32 | 2 | 4.0 | done | 4 |
+| e32s05 | Add validate_skill tool — convention compliance check | e32 | 2 | 4.0 | done | 5 |
 | e32s06 | Register bigpowers-mcp in MCP client configs (Claude Code, C | e32 | 1 | 4.0 | done | 7 |
 | e32s07 | Write docs/references/bigpowers-mcp.md — architecture and op | e32 | 1 | 4.0 | done | 2 |
 | e33s01 | Scaffold Astro Starlight site in website/ with local dev | e33 | 0 | 2.8 | backlog | 2 |

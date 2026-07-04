@@ -63,6 +63,7 @@ previous_handoff:
     '
   next_skill: kickoff-branch
 release:
-  ci_verified: true
-  commit: 6c83112
-  released_at: '2026-07-04T08:35:00Z'
+  ci_verified: false
+  commit: f0f95b7
+  released_at: '2026-07-04T18:04:00Z'
+  note: "e32 landed on main; sync-skills CI fix pending ee4a44c+"
