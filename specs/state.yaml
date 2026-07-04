@@ -1,20 +1,21 @@
 active_flow: null
 active_epic: null
 active_story: null
-bigpowers_version: 2.60.0
+bigpowers_version: 2.61.0
 bug_cycle:
   completed_steps: []
   current_step: null
 bug_id: null
 handoff:
-  context: >
-    e32 complete (2026-07-04 yolo build): bigpowers-mcp TypeScript MCP server with 10 tools,
-    vitest catalog suite, .mcp.json registration, docs/references/bigpowers-mcp.md.
-    Next active epic per build_order: e33 (docs website) or e39 (semantic bridge, blocked on e32s02 — now unblocked).
+  context: 'e32 complete (2026-07-04 yolo build): bigpowers-mcp TypeScript MCP server with 10 tools, vitest
+    catalog suite, .mcp.json registration, docs/references/bigpowers-mcp.md. Next active epic per build_order:
+    e33 (docs website) or e39 (semantic bridge, blocked on e32s02 — now unblocked).
+
+    '
   next_skill: survey-context
 active_decisions:
   e32_build_order_waiver:
-    date: "2026-07-04"
+    date: '2026-07-04'
     scope: e32s01
     rationale: MCP spike independent of e42 golden fixture and e47 global install
 epic_cycle:
@@ -23,7 +24,7 @@ epic_cycle:
   story_bcps: null
   story_risk: null
   yolo_mode: true
-  completed_at: "2026-07-04"
+  completed_at: '2026-07-04'
 metrics:
   epic_e32:
     completed_at: '2026-07-04T17:58:00Z'
@@ -56,9 +57,10 @@ node20_migration:
   commit: 5b6f1dd
   completed: true
 previous_handoff:
-  context: >
-    e32 pre-flight complete (2026-07-04): TEST_PLAN, IMPACT, THREAT_MODEL, e32s01 spec+tasks.
+  context: 'e32 pre-flight complete (2026-07-04): TEST_PLAN, IMPACT, THREAT_MODEL, e32s01 spec+tasks.
     Build-order waiver for s01 spike. e39s01 blocked on e32s02.
+
+    '
   next_skill: kickoff-branch
 release:
   ci_verified: true

@@ -1,3 +1,10 @@
+# [2.61.0](https://github.com/danielvm-git/bigpowers/compare/v2.60.0...v2.61.0) (2026-07-04)
+
+
+### Features
+
+* **e32:** add bigpowers-mcp semantic context server ([f0f95b7](https://github.com/danielvm-git/bigpowers/commit/f0f95b7a790d7b4a5e056fb88fa6a771717ce29f))
+
 # [2.60.0](https://github.com/danielvm-git/bigpowers/compare/v2.59.9...v2.60.0) (2026-07-04)
 
 
