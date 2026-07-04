@@ -1,67 +1,5 @@
 # AUTO-GENERATED — sync-bugs-registry.sh
 bugs:
-  - id: BUG-2026-07-03-waiver-scoring
-    status: fixed
-    severity: medium
-    scope: scripts
-    title: "Waiver-list scoring hides regressions — intentional FAILs inside denominator allow 2 hidden failures"
-    file: bugs/BUG-2026-07-03-waiver-scoring.md
-    risk_level: medium
-    files_changed: "scripts/audit-compliance.sh, specs/verifications/waivers.yaml"
-    approach: "Added waiver subsystem to audit-compliance.sh: is_waived() function, waiver file loading, denominator exclusion, expired-waiver FAIL re-entry. Created specs/verifications/waivers.yaml with 4 structural waivers (90-day review)."
-    commit_message: "feat(compliance): add waiver subsystem to audit-compliance.sh"
-    hardening: "Expired waivers auto-detect and re-enter FAIL denominator; review_date field forces re-evaluation every 90 days"
-  - id: BUG-2026-07-03-negative-path-self-test
-    status: fixed
-    severity: high
-    scope: verifications
-    title: "~90 step scripts have zero proof they can fail — no negative-path self-test (GAP-1 bug class)"
-    file: bugs/BUG-2026-07-03-negative-path-self-test.md
-    risk_level: high
-    files_changed: "specs/verifications/fixtures/negative-path/, scripts/golden-g07-negative-path.sh, scripts/run-golden-suite.sh"
-    approach: "Created negative-path fixture with 5 deliberate violations; G-07 self-test runs 5 step scripts against fixture and asserts non-zero exit; wired into golden suite as hard gate"
-    commit_message: "feat(compliance): add G-07 negative-path self-test for step scripts"
-  - id: BUG-2026-07-03-trace-stories-613-line
-    status: fixed
-    severity: low
-    scope: scripts
-    title: "trace-stories.sh 613-line waiver contradicts CONVENTIONS' context-window cap"
-    file: bugs/BUG-2026-07-03-trace-stories-613-line.md
-    risk_level: low
-    files_changed: "CONVENTIONS.md"
-    approach: "Documented file-size exception in CONVENTIONS.md with rationale (parse-match-report coupling) and 2026-10-01 review date"
-    commit_message: "docs(conventions): add file-size exceptions table for trace-stories.sh"
-  - id: BUG-2026-07-03-capsule-release-labels
-    status: fixed
-    severity: low
-    scope: specs
-    title: "e39/e43/e44 epic capsules carry release: v2.45.0, drifted from v2.7x train"
-    file: bugs/BUG-2026-07-03-capsule-release-labels.md
-    risk_level: low
-    files_changed: "specs/epics/e32,e33,e35,e36,e37,e39,e43,e44/epic.yaml"
-    approach: "Synced 8 epic capsule release labels to current release trains (v2.6x, v2.7x/v3.0, v2.8x); e35 marked superseded by e40"
-    commit_message: "fix(specs): sync epic capsule release labels to release trains"
-  - id: BUG-2026-07-03-glossary-sparse
-    status: fixed
-    severity: low
-    scope: docs
-    title: "GLOSSARY_LATEST.yaml sparse — BCP, WSJF, OKF, golden-story missing entries"
-    file: bugs/BUG-2026-07-03-glossary-sparse.md
-    risk_level: low
-    files_changed: "specs/product/GLOSSARY_LATEST.yaml"
-    approach: "Populated 19 core domain terms with definitions, source references, and related terms"
-    commit_message: "docs(glossary): populate GLOSSARY_LATEST.yaml with 19 core domain terms"
-  - id: BUG-2026-07-02T103911
-    status: fixed
-    severity: high
-    scope: scripts
-    title: "npm install fails on macOS — bash 3.2 lacks declare -A"
-    file: bugs/BUG-2026-07-02T103911.md
-    files_changed: "scripts/generate-skill-index.sh, scripts/regenerate-lockfile.sh, scripts/add-model-frontmatter.sh, scripts/sync-skills.sh"
-    approach: "Replace declare -A with case functions; add shasum fallback for macOS; add regression guard in sync-skills.sh"
-    risk_level: "high"
-    commit_message: "fix(scripts): replace declare -A with case for bash 3.2 macOS compatibility"
-    hardening: "Regression guard in sync-skills.sh fails build if declare -A reintroduced into install-chain scripts"
   - id: BUG-2026-06-02T164500
     status: fixed
     severity: high
@@ -72,36 +10,15 @@ bugs:
     approach: "sed -E whitespace collapse, jq version/description, lockfile refresh, Node 22 in publish workflow"
     risk_level: "high"
     commit_message: "fix(ci): repair sync-skills sed and refresh package-lock; fix(ci): use Node 22 for semantic-release workflow"
-  - id: BUG-2026-06-11T120000
-    status: fixed
-    severity: medium
-    scope: dashboard/tui
-    title: "TUI markup tags render as literal text; layout diverges from prototype"
-    file: bugs/BUG-2026-06-11T120000.md
-    files_changed: "dashboard/src/tui/index.js, dashboard/src/tui/pipeline.js, dashboard/src/tui/metrics-bar.js, dashboard/src/tui/epic-queue.js, dashboard/src/tui/state-yaml.js, dashboard/src/tui/filesystem.js"
-    approach: "Add tags:true to all blessed.box() calls; refactor pipeline to horizontal strip; expand metrics to 6-cell row; add title bar and ALL-CAPS panel headers"
-    risk_level: "low"
-    commit_message: "feat(dashboard/tui): render blessed tags and improve layout (fba0e49)"
-  - id: BUG-2026-06-11T160000
-    status: fixed
-    severity: medium
-    scope: dashboard/tui
-    title: "{dim} and {|} render as literal text after TUI prototype adaptation"
-    file: bugs/BUG-2026-06-11T160000.md
-    files_changed: "dashboard/src/tui/metrics-bar.js, dashboard/src/tui/pipeline.js, dashboard/src/tui/state-yaml.js, dashboard/src/tui/epic-queue.js, dashboard/src/tui/ledger.js, dashboard/src/tui/filesystem.js, dashboard/src/tui/index.js, dashboard/test/smoke.test.js"
-    approach: "Replace {dim}/{/dim} with {gray-fg}/{/gray-fg}; remove {|} from status line; add hardening test to smoke suite"
-    risk_level: "low"
-    commit_message: "fix(dashboard/tui): replace invalid {dim} tags with {gray-fg} (ce06c07)"
-    hardening: "Test 5 in smoke.test.js asserts no literal {dim} or {|} in render output"
   - id: BUG-2026-06-11T183000
     status: fixed
     severity: medium
     scope: dashboard/cli
     title: "dashboard CLI not exposed as bin entry — only works inside bigpowers repo"
     file: bugs/BUG-2026-06-11T183000.md
+    files_changed: "package.json"
     approach: "Add bigpowers-dashboard to bin field in package.json pointing to dashboard/bin/dashboard.js"
     risk_level: "low"
-    files_changed: "package.json"
     commit_message: "fix(dashboard): expose bigpowers-dashboard as global CLI bin entry"
   - id: BUG-2026-06-13T090000
     status: fixed
@@ -109,33 +26,12 @@ bugs:
     scope: docs
     title: "Doctrine drift — docs teach stale artifact names, dead skill references, and an undefined quality gate"
     file: bugs/BUG-2026-06-13T090000.md
+    files_changed: "docs/references/gates.md, docs/PRINCIPLES.md, docs/references/model-profiles.md, scripts/check-skill-size.sh, scripts/audit-compliance.sh"
     approach: "Update gates.md + PRINCIPLES.md to YAML artifact names; fix dead skill names in model-profiles.md; single-source skill count; add SKILL.md size lint; define or soften 94% threshold"
     risk_level: "medium"
-    files_changed: "docs/references/gates.md, docs/PRINCIPLES.md, docs/references/model-profiles.md, scripts/check-skill-size.sh, scripts/audit-compliance.sh"
     commit_message: "fix(docs): update doctrine to match YAML artifact layout, fix skill names, add size lint, instrument 94% gate"
-  - id: BUG-2026-06-18T100000
-    status: fixed
-    severity: medium
-    scope: scripts
-    title: "sync-skills.sh produces broken YAML — greedy awk + unescaped quotes"
-    file: bugs/BUG-2026-06-18T100000.md
-    files_changed: "scripts/sync-skills.sh, scripts/validate-skill-yaml.py"
-    approach: "Bound awk to stop at next YAML key; escape \" and \\ in description; propagate model: key; add validation guard"
-    risk_level: "medium"
-    commit_message: "fix(scripts): sync-skills.sh — escape YAML quotes, preserve model key, add validation guard"
-  - id: BUG-2026-06-24T045323
-    status: fixed
-    severity: high
-    scope: scripts
-    title: "npm install bigpowers fails during postinstall — docs/ excluded from tarball"
-    file: bugs/BUG-2026-06-24T045323.md
-    files_changed: "scripts/sync-skills.sh, scripts/generate-reference-tables.sh"
-    approach: "Gate generate-reference-tables.sh behind .git check in sync-skills.sh; add mkdir -p self-heal in generate-reference-tables.sh"
-    risk_level: "high"
-    hardening: "Sync-skills now skips generate-reference-tables when .git is absent; generate-reference-tables self-heals mkdir -p"
-    commit_message: "fix(scripts): gate reference table rebuild during consumer npm install, self-heal missing docs/"
   - id: BUG-2026-06-27T000000
-    status: fixed
+    status: open
     severity: high
     scope: ci
     title: "8 SKILL.md files exceed line cap — CI blocked on check-skill-size.sh"
@@ -144,12 +40,57 @@ bugs:
     approach: "Trim each over-length SKILL.md by moving procedural detail into REFERENCE.md"
     risk_level: "low"
     commit_message: "fix(ci): trim 8 over-length SKILL.md files to pass check-skill-size lint"
-  - id: BUG-2026-07-03T020000
+  - id: BUG-2026-07-03-codebase-wiki-venv-pollution
+    status: open
+    severity: medium
+    scope: specs
+    title: "OKF codebase-wiki concepts polluted with .venv/site-packages false-positive links from buggy trace run"
+    file: bugs/BUG-2026-07-03-codebase-wiki-venv-pollution.md
+    risk_level: "medium"
+  - id: BUG-2026-07-03-golden-lock-stale-e37-ids
+    status: open
+    severity: low
+    scope: ci
+    title: "e42 golden workflow renamed from e37 but lock file internals still carry 19 e37 identifiers"
+    file: bugs/BUG-2026-07-03-golden-lock-stale-e37-ids.md
+    risk_level: "low"
+  - id: BUG-2026-07-03-install-docs-stale
+    status: open
+    severity: medium
+    scope: docs
+    title: "README and docs reference removed npm lifecycle scripts (postinstall, npx)"
+    file: bugs/BUG-2026-07-03-install-docs-stale.md
+  - id: BUG-2026-07-03-trace-engine-vacuous-gate
+    status: open
+    severity: high
+    scope: scripts
+    title: "trace-stories.py uses lossy hand-rolled YAML parser — collects 1 of ~240 stories, --strict gate passes vacuously"
+    file: bugs/BUG-2026-07-03-trace-engine-vacuous-gate.md
+    risk_level: "high"
+  - id: BUG-2026-07-03-validate-specs-no-real-parser
+    status: open
+    severity: high
+    scope: scripts
+    title: "validate-specs-yaml.sh does no real YAML parsing — grep-only checks let 40 corrupt files pass every gate"
+    file: bugs/BUG-2026-07-03-validate-specs-no-real-parser.md
+    risk_level: "high"
+  - id: BUG-2026-07-03-venv-not-gitignored
+    status: open
+    severity: low
+    scope: repo
+    title: ".venv/ exists at repo root and is not gitignored — one 'git add .' from committing the virtualenv"
+    file: bugs/BUG-2026-07-03-venv-not-gitignored.md
+    risk_level: "low"
+  - id: BUG-2026-07-03-version-mirror-drift
     status: fixed
     severity: medium
-    scope: skills
-    title: "release-branch does not poll CI completion — declares success without waiting for workflows"
-    file: bugs/BUG-2026-07-03T020000.md
-    files_changed: "scripts/wait-for-ci.sh, skills/release-branch/SKILL.md, skills/release-branch/REFERENCE.md"
-    approach: "Extract CI polling to scripts/wait-for-ci.sh with auto-discovery, git fallback, wire into release-branch Step 7b"
-    risk_level: "medium"
+    scope: release-pipeline
+    title: "Version mirrors in state.yaml and release-plan.yaml drift after every semantic-release"
+    file: bugs/BUG-2026-07-03-version-mirror-drift.md
+  - id: BUG-2026-07-03-yaml-roundtrip-corruption
+    status: open
+    severity: critical
+    scope: release-pipeline
+    title: "Release prepare-hook corrupts YAML cockpit via lossy round-trip — 40 spec files flattened and committed"
+    file: bugs/BUG-2026-07-03-yaml-roundtrip-corruption.md
+    risk_level: "critical"

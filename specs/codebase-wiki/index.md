@@ -1,6 +1,6 @@
 ---
 type: Index
-generated_at: 2026-07-03T21:16:58.767080+00:00
+generated_at: 2026-07-03T23:12:00.597477+00:00
 total_concepts: 1
 ---
 

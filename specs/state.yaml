@@ -1,8 +1,8 @@
 active_flow: fix_bug
-bug_id: BUG-2026-07-03-install-docs-stale
+bug_id: BUG-2026-07-03-validate-specs-no-real-parser
 bug_cycle:
-  current_step: 1
-  completed_steps: []
+  current_step: 3
+  completed_steps: [1, 2]
 handoff:
   next_skill: "survey-context"
   context: ">"
