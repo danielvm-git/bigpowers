@@ -37,6 +37,7 @@ If you catch yourself thinking these, stop and reconsider — you are likely dev
 ### 1. Planning
 
 - [ ] Read active `specs/epics/*/epic.yaml` story tasks or `specs/bugs/BUG-*.md` — understand verify steps
+- [ ] If `specs/tech-architecture/eNN-TEST_PLAN_LATEST.md` exists for the active epic, read it before writing the first test. Implement P0 scenarios (`SC-*-P0-*`) before P1. P2/P3 scenarios are optional per time budget.
 - [ ] Confirm interface changes and behaviors to test (prioritize)
 - [ ] Design interfaces for testability — identify [deep modules](deep-modules.md) opportunities
 - [ ] Get user approval on the plan

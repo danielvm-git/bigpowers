@@ -18,25 +18,34 @@ Review answers "is the code good?"; Verify answers "does the built thing do what
 - --smoke: Cold-start only plus one happy-path flow. Use for hotfixes.
 - --cli: CLI tool verification — replaces cold-start with binary smoke checklist. Use for CLI tools with no server process.
 
+## Risk-Scaled Depth
+
+`verify-work` reads the `risk:` field from the story template (defaults to `P1` if absent) to scale verification rigor:
+- **P0**: Full verify-work multi-phase + `security-review` (step 5) + NFR evidence gate (step 5b).
+- **P1**: Standard verify-work (build, test, lint, step-by-step manual).
+- **P2**: Smoke, typecheck, lint only. Skip tests, security scan, and step-by-step manual UAT.
+- **P3**: Typecheck and lint only. Skip smoke, tests, security scan, and step-by-step manual UAT.
+
 ## Process
 
 > **Timing:** `bash scripts/bp-timing.sh start verify-work` at invocation; `bash scripts/bp-timing.sh end verify-work` before handoff.
 
 0. **Branch check** — must not be `main`/`master`.
 
-1. Read active story tasks from `specs/epics/<capsule>/eNNsYY-tasks.yaml` and story spec from `specs/epics/<capsule>/eNNsYY-<slug>.md` (countable-story-format, Gherkin in §17).
+1. Read active story tasks from `specs/epics/<capsule>/eNNsYY-tasks.yaml` and story spec from `specs/epics/<capsule>/eNNsYY-<slug>.md` (countable-story-format, Gherkin in §17). Note the `risk:` level (`P0`–`P3`).
 1a. **Pre-UAT verify validation** — for each task's `verify:` command, run it and detect pattern mismatches before UAT begins. If a grep/awk/jq command fails, check whether the pattern is wrong vs. a genuine failure:
     ```bash
     # For a failing grep -q 'PATTERN' FILE, check what is actually in FILE
     grep 'PATTERN' FILE || grep -n '' FILE | head -20   # show nearest lines
     ```
     Report: `"Pattern 'X' not found. Nearest match: 'Y' at line N"` and ask `"Update verify command? [Y/n]"`. Fix before proceeding — a mismatched verify command produces false failures during UAT.
-2. **Cold-start smoke** (if app): stop server, clear caches, boot from scratch.
+2. **Cold-start smoke** (if app; skip if P3): stop server, clear caches, boot from scratch.
 3. **AGENTS.md preflight** — before running default checks, call `bash scripts/bp-read-agents.sh` to detect project-specific commands. If `BP_PREFLIGHT` is set, run it instead of the default mechanical gates (or in addition to them if the project requires both). Output: `"Using preflight from AGENTS.md: <cmd>"`. Fall back to `CLAUDE.md` commands if AGENTS.md is absent.
-4. Mechanical gates: build → typecheck → lint → tests (from `CLAUDE.md` or AGENTS.md).
-5. **Security scan** — run `security-review` against the git diff (working tree vs merge-base). Parse findings report. If any HIGH findings with confidence ≥ 8 exist → **block the gate**. Write findings to `specs/security/REVIEW.md`. Allow documented exceptions via `specs/security/EXCEPTIONS.md`. MEDIUM/LOW findings warn but don't block.
+4. Mechanical gates: build → typecheck → lint → tests (from `CLAUDE.md` or AGENTS.md). Skip tests if P2/P3.
+5. **Security scan** (skip if P2/P3) — run `security-review` against the git diff (working tree vs merge-base). Parse findings report. If any HIGH findings with confidence ≥ 8 exist → **block the gate**. Write findings to `specs/security/REVIEW.md`. Allow documented exceptions via `specs/security/EXCEPTIONS.md`. MEDIUM/LOW findings warn but don't block.
 5a. **Blind-spot check** — run `bash scripts/check-blind-spots.sh`. This detects structural quality gaps (verify-gap, test-gap, stale-tag, etc.) beyond percentage coverage. If any HIGH-severity findings exist → **block the verify-work PASS gate**. Findings are written to `specs/blind-spots.json`. MEDIUM/LOW findings warn but don't block.
-6. **Step-by-step UAT** — one user-observable action at a time.
+5b. **NFR Evidence Gate** (P0 only) — Produces go/no-go output on three dimensions: Performance (response time, throughput), Reliability (error rate, recovery), and Operability (logging, health checks). Reads thresholds from `specs/tech-architecture/eNN-TEST_PLAN_LATEST.md` and writes evidence as OKF verification-report bundles to `specs/verifications/NFR-eNNsYY.json`. FAIL on any dimension blocks the gate.
+6. **Step-by-step UAT** (skip if P2/P3) — one user-observable action at a time.
 7. **Gaps loop** — failures → log → `plan-work` → re-verify. Unaddressed HIGH findings from step 5 feed into this loop alongside other quality gaps.
 
 ## Verify sub-operations

@@ -96,10 +96,10 @@ epics:
 - id: e46
   title: Risk-Based Verification — TEA-Informed Test Depth
   wsjf: 3.4
-  bcps: 10
+  bcps: 16  # CR-2026-07-04: +6 for e46s04 (plan-tests skill + CONVENTIONS.md updates)
   capsule_dir: epics/e46-risk-based-verification
   mode: capsule
-  status: proposed
+  status: active
 - id: e35
   title: Missing Historical References
   wsjf: 3.0

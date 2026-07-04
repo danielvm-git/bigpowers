@@ -17,6 +17,7 @@ tasks:
   - id: 1
     description: "Add login form component tests"
     verify: "npm test -- login-form.test.tsx"
+    risk: P1
     status: todo
 ```
 
@@ -28,6 +29,7 @@ Update `specs/epics/<capsule>/epic.yaml` manifest to list the story and its BCPs
 ### Story [X.Y]: [title] — Implementation Steps
 
 **type:** feat | fix | refactor
+**risk:** P0 | P1 | P2 | P3
 **context:** domain | infra
 **Context**: [One paragraph: what this story implements and why]
 
@@ -75,6 +77,17 @@ N. <What to do> → verify: <runnable command that proves it worked>
 ```
 
 ## Sub-operations
+
+### Risk Assignment Heuristics
+
+Every task and story MUST be assigned a `risk:` level (P0, P1, P2, P3). When `specs/tech-architecture/eNN-TEST_PLAN_LATEST.md` exists for the epic, defer to its scenario risk mapping (`SC-eNNsYY-P0-NN`). Otherwise, apply these heuristics based on BCP and story type:
+
+- **P0**: Critical path, data loss risk, auth/security boundary, external integration, or high BCP (≥ 5).
+- **P1**: Core feature logic, state mutations, standard business value (BCP 3-4).
+- **P2**: Utility functions, UI layout changes, display-only data, low risk (BCP 2).
+- **P3**: Documentation, cosmetic tweaks, CSS variables, zero behavioral change (BCP 1).
+
+`verify-work` scales its UAT depth based on this field.
 
 ### Define Success
 

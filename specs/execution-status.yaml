@@ -119,12 +119,11 @@ development_status:
   e26s07: "done"
   e27: "done"
   e27s01: "done"
-  e33: "backlog"
-  e33s01: "backlog"
-  e33s02: "backlog"
-  e33s03: "backlog"
-  e33s04: "backlog"
-  e33s05: "backlog"
+  e28: "backlog"
+  e28s01: "backlog"
+  e28s02: "backlog"
+  e28s03: "backlog"
+  e28s04: "backlog"
   e29: "done"
   e29s01: "done"
   e29s02: "done"
@@ -142,6 +141,25 @@ development_status:
   e31s05: "done"
   e31s06: "done"
   e31s07: "done"
+  e32: "backlog"
+  e32s01: "backlog"
+  e32s02: "backlog"
+  e32s03: "backlog"
+  e32s04: "backlog"
+  e32s05: "backlog"
+  e32s06: "backlog"
+  e32s07: "backlog"
+  e33: "backlog"
+  e33s01: "backlog"
+  e33s02: "backlog"
+  e33s03: "backlog"
+  e33s04: "backlog"
+  e33s05: "backlog"
+  e34: "done"
+  e34s01: "done"
+  e34s02: "done"
+  e34s03: "done"
+  e34s04: "done"
   e35: "backlog"
   e35s01: "backlog"
   e35s02: "backlog"
@@ -153,27 +171,17 @@ development_status:
   e35s08: "backlog"
   e35s09: "backlog"
   e35s10: "backlog"
-  e28: "backlog"
-  e28s01: "backlog"
-  e28s02: "backlog"
-  e28s03: "backlog"
-  e28s04: "backlog"
-  e34: "done"
-  e34s01: "done"
-  e34s02: "done"
-  e34s03: "done"
-  e34s04: "done"
   e36: "backlog"
   e36s01: "backlog"
   e36s02: "backlog"
   e36s03: "backlog"
   e36s04: "backlog"
   e36s05: backlog
-  e42: "ready"
-  e42s01: "done"
-  e42s02: "backlog"
-  e42s03: "backlog"
-  e42s04: "backlog"
+  e37: backlog
+  e37s01: backlog
+  e37s02: backlog
+  e37s03: backlog
+  e37s04: backlog
   e38: "done"
   e38s01: "done"
   e38s02: "done"
@@ -210,20 +218,17 @@ development_status:
   e41s03: "backlog"
   e41s04: "backlog"
   e41s05: "backlog"
+  e42: "ready"
+  e42s01: "done"
+  e42s02: "backlog"
+  e42s03: "backlog"
+  e42s04: "backlog"
   e43: "backlog"
   e43s01: "backlog"
   e43s02: "backlog"
   e43s03: "backlog"
   e43s04: "backlog"
   e43s05: backlog
-  e32: "backlog"
-  e32s01: "backlog"
-  e32s02: "backlog"
-  e32s03: "backlog"
-  e32s04: "backlog"
-  e32s05: "backlog"
-  e32s06: "backlog"
-  e32s07: "backlog"
   e44: "backlog"
   e44s01: "backlog"
   e44s02: "backlog"
@@ -238,15 +243,11 @@ development_status:
   e45s04: backlog
   e45s05: backlog
   e45s06: backlog
-  e46: backlog
-  e46s01: backlog
-  e46s02: backlog
-  e46s03: backlog
-  e37: backlog
-  e37s01: backlog
-  e37s02: backlog
-  e37s03: backlog
-  e37s04: backlog
+  e46: done
+  e46s01: done
+  e46s02: done
+  e46s03: done
+  e46s04: done
   e47: backlog
   e47s01: backlog
   e47s02: backlog

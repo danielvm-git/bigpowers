@@ -15,6 +15,7 @@ Deterministic quality gate that combines traceability coverage and blind-spot da
 | R2 | Any story done but no verify evidence | CONCERNS |
 | R3 | P0 story (top WSJF quartile) with 0% coverage | FAIL |
 | R4 | Overall coverage < 60% | CONCERNS |
+| R6 | P0 story + eNN-TEST_PLAN_LATEST.md exists + zero SC-eNNsYY-P0-* in test files | CONCERNS |
 | R5 | Overall ≥ 80% + no critical gaps + all verify → PASS | PASS |
 
 ## Oracle Confidence Downgrade

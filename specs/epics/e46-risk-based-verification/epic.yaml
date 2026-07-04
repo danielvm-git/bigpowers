@@ -1,8 +1,8 @@
 id: e46
 title: "Risk-Based Verification — TEA-Informed Test Depth"
 wsjf: 3.4
-bcps: 10
-status: proposed
+bcps: 16
+status: done
 release: v2.8x
 codename: "Docs Polish"
 source: |
@@ -25,10 +25,15 @@ note: >
   The NFR evidence gate (performance/reliability/operability) is a
   first-class go/no-go workflow in TEA that bigpowers lacks — security
   is gated (security-review) but non-functional evidence is not.
+  CR-2026-07-04: e46s04 added (upstream test-design artifact, registered
+  output path, and scenario ID format integrated into eNNsNN traceability
+  chain). BCPs updated from 10 to 16. Surfaced by red-team assessment of
+  the stand-alone design-tests proposal; rejected in favour of integration
+  into this epic.
 stories:
   - id: e46s01
     bcp: 3
-    status: todo
+    status: done
     title: "Write docs/references/tea.md — credit TEA and document its mechanisms"
     verify: 'test -f docs/references/tea.md && grep -q ''TEA\|BMAD\|risk-based\|NFR\|knowledge tiering'' docs/references/tea.md && echo OK'
     description: |
@@ -38,7 +43,7 @@ stories:
       - Risk-based test depth (P0–P3 scaling)
       - Tiered knowledge fragments (tea-index.csv: core/extended/specialized)
       - NFR evidence audit (performance, reliability, operability go/no-go)
-      - What bigpowers is adopting from TEA (e46 e46s02-s03)
+      - What bigpowers is adopting from TEA (e46 e46s02-s04)
       - What bigpowers is NOT adopting (per-workflow checklist.md, resume
         frontmatter — state.yaml already covers it better)
       - Provenance: link to BMAD TEA repo, credit culture precedent
@@ -46,7 +51,7 @@ stories:
 
   - id: e46s02
     bcp: 3
-    status: todo
+    status: done
     title: "Add risk: P0|P1|P2|P3 field to plan-work that scales verify-work depth"
     verify: 'grep -q ''risk:'' skills/plan-work/SKILL.md && grep -q ''P0\|P1\|P2\|P3'' skills/plan-work/SKILL.md && echo OK'
     description: |
@@ -62,10 +67,12 @@ stories:
       Source pattern: TEA test-design workflow (P0–P3 risk classes).
       Update plan-work REFERENCE.md with risk assignment heuristics.
       Update verify-work SKILL.md with risk-scaled depth table.
+      Note: risk is assigned in plan-work using context from e46s04
+      test-design artifact (SC-eNNsYY-P0-NN scenario IDs) when present.
 
   - id: e46s03
     bcp: 4
-    status: todo
+    status: done
     title: "NFR evidence gate — performance/reliability/operability with go/no-go output"
     verify: 'grep -q ''NFR\|non-functional\|performance.*gate\|reliability.*evidence'' skills/verify-work/SKILL.md && echo OK'
     description: |
@@ -83,3 +90,127 @@ stories:
       from e46s02). Source: TEA's bmad-testarch-nfr workflow.
       Note: exact shape TBD via grill-me — whether this is a verify-work
       sub-phase, a standalone skill, or a mode flag on security-review.
+
+  - id: e46s04
+    bcp: 6
+    status: done
+    title: "Upstream test-design artifact — plan-tests skill, registered output path, scenario ID traceability"
+    verify: |
+      # 1. Skill file exists and is correctly named
+      grep -q 'name: plan-tests' skills/plan-tests/SKILL.md &&
+      # 2. Canonical output path registered in CONVENTIONS
+      grep -q 'eNN-TEST_PLAN_LATEST' CONVENTIONS.md &&
+      # 3. Scenario ID format documented in CONVENTIONS
+      grep -q 'SC-eNNsYY' CONVENTIONS.md &&
+      # 4. gate-trace extended with R6 SC-coverage rule
+      grep -q 'R6\|SC-.*P0' skills/gate-trace/SKILL.md &&
+      # 5. check-blind-spots or blind-spots.py supports SC detection
+      grep -q 'scenario:\|SC-' scripts/check-blind-spots.sh scripts/lib/blind-spots.py 2>/dev/null &&
+      # 6. develop-tdd reads the test plan when present
+      grep -q 'TEST_PLAN_LATEST\|plan-tests' skills/develop-tdd/SKILL.md &&
+      # 7. orchestrate-project applies per-epic pattern
+      grep -q 'e\*-TEST_PLAN_LATEST\|eNN-TEST_PLAN' skills/orchestrate-project/SKILL.md &&
+      # 8. Feature file exists for compliance gate
+      test -f specs/verifications/features/plan-tests.feature &&
+      echo OK
+    description: |
+      Context (CR-2026-07-04): A stand-alone `design-tests` skill was
+      proposed to fill the upstream test-design gap TEA addresses with its
+      `bmad-testarch-test-design` workflow. A red-team assessment (13
+      findings, 3 CRITICAL) rejected it as a standalone skill. The correct
+      path is integration into e46. This story implements the surviving
+      substance of that proposal inside the e46 boundary.
+
+      Second-opinion verdict (2026-07-04): CR READY as spec; implementation
+      has 5 pre-wired failure modes captured below as non-optional subtasks.
+
+      ── What to build ──
+
+      1. New skill: `plan-tests` (verb-noun pair, PMBOK-compliant).
+         - Triggers: after `slice-tasks`, before `plan-work`, for any epic
+           with `risk: P0|P1` in its draft story template (readable from
+           the epic capsule once e46s02 lands). Can be waived for P2/P3
+           epics with an explicit `test_plan: waived` flag in state.yaml.
+         - Input:  `specs/epics/eNN-*/` story list.
+         - Output: `specs/tech-architecture/eNN-TEST_PLAN_LATEST.md`
+           (canonical path from CONVENTIONS.md §Security / test / design plans).
+         - Produces: risk matrix, test-level distribution (Unit / Integration
+           / E2E per scenario), fixture plan, NFR thresholds, and out-of-scope
+           declaration.
+         - SKILL.md <= 100 lines; advanced fixture + TEA fragment guidance in
+           REFERENCE.md (not a second lifecycle — guidance only);
+           `.feature` file at specs/verifications/features/plan-tests.feature.
+         - `## Verify` section:
+             verify: 'test -f specs/tech-architecture/$(echo $EPIC | sed "s|.*/||")-TEST_PLAN_LATEST.md && echo OK'
+         - `## Handoff` block: writes handoff.next_skill = plan-work.
+
+      2. Scenario ID format: SC-eNNsYY-P{0|1|2|3}-NN
+         - Namespace anchors scenario to its parent story (eNNsYY).
+         - Example: SC-e46s04-P0-01 = first critical-path scenario in e46s04.
+         - plan-work (e46s02) MUST copy SC IDs from the test-plan artifact
+           into §17 Gherkin when the artifact exists.
+         - trace-requirement: SC IDs appear as `// scenario: SC-eNNsYY-P0-01`
+           comments alongside the existing `// story: eNNsNN` tag.
+
+      3. CONVENTIONS.md updates (already applied at CR filing; verify at build):
+         - eNN-TEST_PLAN_LATEST.md in §Guardrails artifact table. ✓
+         - SC-eNNsYY format in §Traceability Mandate. ✓
+         - plan-tests in §next_skill mandate (optional P0/P1 epics). ✓
+
+      4. Prerequisite ordering:
+         e46s02 (risk field) → e46s04 (plan-tests) → e46s03 (NFR gate).
+         NFR gate reads NFR thresholds from test-plan artifact — hard dep.
+
+      ── Non-optional implementation subtasks (residual risks) ──
+
+      5. SC tooling — NOT aspirational, required to pass verify:
+         OPTION A: Extend `scripts/check-blind-spots.sh` with a new
+           SC-gap detector: for each P0 story where an
+           eNN-TEST_PLAN_LATEST.md exists, assert at least one
+           `// scenario: SC-eNNsYY-P0-*` comment appears in the test files
+           for that story. Missing → blind-spot type `sc-gap` (MEDIUM).
+         OPTION B: Add `--scenarios` mode to `scripts/lib/trace-stories.py`
+           that additionally scans for `scenario:` tags and emits them into
+           traceability-matrix.json.
+         Implement A (simpler); document B as future enhancement.
+         Also add gate-trace rule R6:
+           R6 | P0 story + eNN-TEST_PLAN_LATEST.md exists + zero
+                SC-eNNsYY-P0-* in test files → CONCERNS (waivable).
+
+      6. develop-tdd consumer — NOT aspirational, required to pass verify:
+         Update skills/develop-tdd/SKILL.md Planning phase (§1):
+         "If specs/tech-architecture/eNN-TEST_PLAN_LATEST.md exists for
+         the active epic, read it before writing the first test. Implement
+         P0 scenarios (SC-*-P0-*) before P1. P2/P3 scenarios are optional
+         per time budget."
+         This closes the ATDD red-phase gap (develop-tdd reads the SC list
+         from the test plan before any test code is written).
+
+      7. Path harmonization — update orchestrate-project:
+         skills/orchestrate-project/SKILL.md Phase 3 (Plan) currently
+         references a global TEST_PLAN_LATEST.md. Update to glob
+         `specs/tech-architecture/e*-TEST_PLAN_LATEST.md` so the
+         orchestrator applies the per-epic pattern introduced here.
+         Prevents per-epic and global plans silently co-existing.
+
+      8. Stronger verify (see verify: block above — already tightened):
+         The verify: must confirm gate-trace R6, SC tooling, develop-tdd
+         consumer, and the .feature file — not just string presence.
+         The tightened verify: block above is the contract.
+
+      9. CONVENTIONS.md §next_skill mandate:
+         Add plan-tests to the next_skill signaling mandate list alongside
+         survey-context, plan-work, etc. Phrased as optional for P0/P1
+         epics. (CONVENTIONS.md already has the scenario ID format; the
+         mandate sentence is the remaining gap.)
+
+      ── Solo-developer simplifications ──
+      - One test-plan doc per epic (not TEA's system + QA twin docs).
+      - Fixture planning is guidance in REFERENCE.md, not code generation.
+      - --lite flag: skips NFR section for P2/P3-dominant epics.
+      - test_plan: waived escape hatch in state.yaml for P2/P3 epics.
+
+      Source: TEA bmad-testarch-test-design + red-team CR-2026-07-04
+              + second-opinion verdict 2026-07-04.
+      Prior art: specs/archive/test-artifacts/test-design-progress.md
+      (completed TEA v1.11.0 run, archived 2026-05-18 — learnings fed scope).

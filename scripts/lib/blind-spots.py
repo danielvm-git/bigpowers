@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """story: e38s04 — TEA-inspired heuristic blind-spot detector (Python engine).
 
-Reads execution-status.yaml + traceability-matrix.json, runs 6 structural
+Reads execution-status.yaml + traceability-matrix.json, runs 7 structural
 quality checks, and emits specs/blind-spots.json.
 
 Usage: called by scripts/check-blind-spots.sh with positional args:
@@ -192,6 +192,42 @@ for sid in sorted(dev_status.keys()):
                     "description": f"Active story {sid} has {len(code_only)} tagged code file(s) but no test files detected",
                     "remediation": f"Add test files for: {', '.join(code_only[:3])}"
                 })
+
+# Check G: sc-gap
+TECH_ARCH_DIR = ROOT / "specs" / "tech-architecture"
+if EPICS_DIR.exists():
+    for epic_dir in sorted(EPICS_DIR.iterdir()):
+        if not epic_dir.is_dir() or epic_dir.name == "archive": continue
+        epic_match = re.match(r"(e\d+)", epic_dir.name)
+        if not epic_match: continue
+        epic_id = epic_match.group(1)
+        
+        test_plan = TECH_ARCH_DIR / f"{epic_id}-TEST_PLAN_LATEST.md"
+        if not test_plan.exists(): continue
+        
+        for task_file in sorted(epic_dir.glob("e*s[0-9]*-tasks.yaml")):
+            sid_match = re.match(r"(e\d+s\d+)", task_file.name)
+            if not sid_match: continue
+            sid = sid_match.group(1)
+            
+            content = task_file.read_text(encoding="utf-8")
+            if "risk: P0" in content:
+                found_sc = False
+                for f in tagged_files.get(sid, []):
+                    fpath = ROOT / f
+                    if fpath.exists():
+                        fcontent = fpath.read_text(encoding="utf-8", errors="ignore")
+                        if re.search(rf"SC-{sid}-P0", fcontent):
+                            found_sc = True
+                            break
+                if not found_sc:
+                    findings.append({
+                        "check": "sc-gap",
+                        "story_id": sid,
+                        "severity": "MEDIUM",
+                        "description": f"P0 story {sid} has a TEST_PLAN but no `scenario: SC-{sid}-P0-*` tags found in its implementing files",
+                        "remediation": f"Add `// scenario: SC-{sid}-P0-XX` tags to the test files for this story"
+                    })
 
 # Deduplicate
 seen: set[tuple] = set()

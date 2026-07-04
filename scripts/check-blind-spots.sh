@@ -2,10 +2,11 @@
 # story: e38s04
 # check-blind-spots.sh — TEA-inspired heuristic blind-spot detector.
 # Thin bash wrapper — the detection engine lives in scripts/lib/blind-spots.py.
-# Reads execution-status.yaml + traceability-matrix.json, runs 6 structural
+# Reads execution-status.yaml + traceability-matrix.json, runs 7 structural
 # quality checks, and emits specs/blind-spots.json.
+# Also detects SC- scenario gaps (sc-gap).
 #
-# Checks: verify-gap, test-gap, epic-orphan, stale-tag, double-tag, bootstrap-testless.
+# Checks: verify-gap, test-gap, epic-orphan, stale-tag, double-tag, bootstrap-testless, sc-gap.
 # Severities: HIGH / MEDIUM / LOW. Exit 1 on HIGH findings.
 
 set -euo pipefail
@@ -23,12 +24,12 @@ while [[ $# -gt 0 ]]; do
       cat <<'USAGE'
 Usage: check-blind-spots.sh [flags]
 
-Run 6 heuristic blind-spot checks on the codebase.
+Run 7 heuristic blind-spot checks on the codebase.
 
 Flags:
   --help   Print this message and exit.
 
-Checks: verify-gap, test-gap, epic-orphan, stale-tag, double-tag, bootstrap-testless.
+Checks: verify-gap, test-gap, epic-orphan, stale-tag, double-tag, bootstrap-testless, sc-gap.
 Output: specs/blind-spots.json
 Exit: 0 = no HIGH findings, 1 = HIGH findings or input files missing.
 USAGE

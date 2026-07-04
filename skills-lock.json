@@ -78,7 +78,7 @@
     },
     "develop-tdd": {
       "description": "Test-driven development with red-green-refactor loop using vertical slices. Use for features (epic tasks) or bugs (specs/bugs/BUG-*.md).",
-      "sha256": "63ae8ea76c99564f",
+      "sha256": "bd73cb58145ce1c1",
       "path": "skills/develop-tdd/SKILL.md"
     },
     "diagnose-root": {
@@ -128,7 +128,7 @@
     },
     "gate-trace": {
       "description": "\"Deterministic traceability quality gate — reads coverage matrix + blind-spot data, applies decision rules with oracle confidence downgrade, emits PASS/CONCERNS/FAIL/WAIVED verdict. Use before release-branch to gate merges on traceability.\"# story: e38s06",
-      "sha256": "636810f46c6d0b93",
+      "sha256": "7326525dc3d5d51f",
       "path": "skills/gate-trace/SKILL.md"
     },
     "grill-me": {
@@ -183,7 +183,7 @@
     },
     "orchestrate-project": {
       "description": "Meta-skill that enforces the 6-phase core loop (discover → elaborate → plan → build → verify → release) with hard gates. Use to coordinate multi-phase projects with guaranteed quality checkpoints. One-time command for the entire project lifecycle.",
-      "sha256": "ba15cd263bad8ddf",
+      "sha256": "4e53cd83ac296735",
       "path": "skills/orchestrate-project/SKILL.md"
     },
     "organize-workspace": {
@@ -201,9 +201,14 @@
       "sha256": "62dc272a091c8d7f",
       "path": "skills/plan-release/SKILL.md"
     },
+    "plan-tests": {
+      "description": "\"Design a risk-scaled test architecture for an epic before implementation begins. Produces prioritized scenarios, test level distribution, and fixture plans based on TEA and bigpowers principles.\"",
+      "sha256": "3f43a105b860105a",
+      "path": "skills/plan-tests/SKILL.md"
+    },
     "plan-work": {
       "description": "\"PLANNING SPINE STEP 3 of 3 — Plan the work: write detailed implementation tasks into the active epic capsule (specs/epics/eNN-slug/). Produces countable-story-format .md specs and runnable -tasks.yaml files. Use after slice-tasks (step 2). Not a substitute for scope-work (step 1) or slice-tasks (step 2).\"",
-      "sha256": "4c30ce3c1c0b2895",
+      "sha256": "29792e9d4499cc1e",
       "path": "skills/plan-work/SKILL.md"
     },
     "publish-package": {
@@ -343,7 +348,7 @@
     },
     "verify-work": {
       "description": "Multi-phase UAT gate — cold-start smoke, build, typecheck, lint, tests, step-by-step manual verification, gaps-closure loop. Use after execute-plan or develop-tdd, before audit-code.",
-      "sha256": "b2828b807467e5c7",
+      "sha256": "030622528b2bf5ed",
       "path": "skills/verify-work/SKILL.md"
     },
     "visual-dashboard": {

@@ -56,6 +56,7 @@ You are operating within the `bigpowers` spec-driven development methodology.
 - **Verification Mandate:** Every story implementation MUST end with a step-by-step manual verification script provided to the user. You must wait for the user to confirm behavioral correctness (UAT) before declaring the story done or moving to the next.
 - **Verification:** You MUST verify every change with tests. Code generation without a corresponding plan in `specs/` is strictly forbidden.
 - **Traceability Mandate:** Every story MUST have at least one `story: eNNsNN` tag in its implementing code or test file. `trace-stories.sh --strict` runs in CI to enforce this. Untagged stories fail the CI traceability gate.
+- **Scenario ID Format (e46s04+):** When a `specs/tech-architecture/eNN-TEST_PLAN_LATEST.md` exists for the epic, critical-path scenarios use the format `SC-eNNsYY-P{0|1|2|3}-NN` (e.g. `SC-e46s04-P0-01`). These IDs are referenced inside test files as `// scenario: SC-eNNsYY-P0-NN` comments alongside the existing `// story: eNNsNN` tag. SC gaps detected via check-blind-spots.sh; no separate SC tracing script required. gate-trace treats a P0 story with zero `SC-*-P0-*` references in test files as a CONCERNS finding (waivable via `state.yaml`). P2/P3 epics may set `test_plan: waived` in `state.yaml` to skip the `plan-tests` skill.
 - **Stream Continuity:** When writing large files or long documents, you MUST output continuously in chunks of ~200 lines. Do not pause between sections. Continue immediately until complete. If you need time to process, emit a placeholder comment or heading rather than going silent to prevent stream idle timeouts.
 
 ## specs/ — All Planning Output Goes Here
@@ -93,7 +94,9 @@ Missing timestamps are a gate violation — do not advance past `release-branch`
 
 ### next_skill signaling mandate (v2.0.0)
 
-Every critical-path skill (survey-context, plan-work, kickoff-branch, develop-tdd, verify-work, audit-code, commit-message, release-branch) MUST write `handoff.next_skill` to `specs/state.yaml` as its last action. Agents MUST read `state.yaml` and follow `handoff.next_skill` before asking "what comes next?".
+Every critical-path skill (survey-context, plan-tests, plan-work, kickoff-branch, develop-tdd, verify-work, audit-code, commit-message, release-branch) MUST write `handoff.next_skill` to `specs/state.yaml` as its last action. Agents MUST read `state.yaml` and follow `handoff.next_skill` before asking "what comes next?".
+
+`plan-tests` is an optional planning-spine step: after `slice-tasks`, before `plan-work`, for epics whose stories carry `risk: P0|P1`. It is skipped (set `test_plan: waived` in `state.yaml`) for P2/P3-dominant epics.
 
 ### Intent vs delivery vs execution
 
@@ -129,6 +132,7 @@ When planning closes, copy to `specs/product/snapshots/release-<version>/` (`rel
 |----------|------|
 | Stack / architecture | `specs/tech-architecture/TECH_STACK_LATEST.md` |
 | Security / test / design plans | `specs/tech-architecture/*_PLAN_LATEST.md` |
+| Epic test plan (P0/P1 epics) | `specs/tech-architecture/eNN-TEST_PLAN_LATEST.md` — produced by `plan-tests` skill (e46s04); one per epic. |
 | Domain context + ADRs | `specs/tech-architecture/TECH_STACK_LATEST.md` or legacy `specs/CONTEXT.md` + `specs/adr/` |
 | Bug investigation | `specs/bugs/BUG-*.md` + `specs/bugs/registry.yaml` (generated) |
 | Refactor / impact | `specs/tech-architecture/REFACTOR_LATEST.md`, `specs/tech-architecture/IMPACT_LATEST.md` |
