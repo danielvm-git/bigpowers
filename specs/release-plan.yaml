@@ -1,28 +1,24 @@
 release:
-  version: 2.59.4
+  version: 2.59.5
   codename: Deepening
   status: released
   semantic_release: true
   bump_hint: minor
-# Dependency-respecting build order (DEP-1, PLAN-AUDIT 2026-07-04). The `epics:`
-# list below is WSJF-sorted and is NOT buildable top-down: e41→e28, e44→e39→e33,
-# e37→e33, e46→e42 all depend on lower-ranked, unbuilt epics. build-epic MUST
-# follow this order, not raw WSJF rank. Regenerate if depends_on graph changes.
 build_order:
-  - e42   # in-flight (1/4 done) — finish; unlocks e46
-  - e47   # no deps (WSJF 4.3)
-  - e32   # no deps (WSJF 4.0)
-  - e33   # promoted ahead of rank — single gate for e39 + e37
-  - e39   # unlocked by e33
-  - e44   # unlocked by e39 (highest WSJF once buildable)
-  - e28   # unlocks e41
-  - e41   # unlocked by e28
-  - e46   # unlocked once e42 fully done
-  - e35   # remaining, WSJF order, no blockers
-  - e45
-  - e43
-  - e37
-  - e36
+- e42
+- e47
+- e32
+- e33
+- e39
+- e44
+- e28
+- e41
+- e46
+- e35
+- e45
+- e43
+- e37
+- e36
 done_epics_summary:
   count: 33
   source: specs/execution-status.yaml (development_status) — authoritative for completed epics; not re-listed

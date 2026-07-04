@@ -2,8 +2,8 @@ active_flow: null
 bug_id: null
 handoff:
   next_skill: survey-context
-  context: 'BUG-2026-07-03-golden-lock-stale-e37-ids fixed and landed (646afc4). Lock
-    file recompiled via gh aw compile — 19 stale e37 identifiers replaced with e42.'
+  context: BUG-2026-07-03-golden-lock-stale-e37-ids fixed and landed (646afc4). Lock file recompiled via
+    gh aw compile — 19 stale e37 identifiers replaced with e42.
 bug_cycle:
   current_step: null
   completed_steps: []
@@ -18,7 +18,7 @@ release:
   released_at: '2026-07-04T02:45:00Z'
   commit: a0f2ff0
   tag: v2.59.3 (semantic-release)
-bigpowers_version: 2.59.4
+bigpowers_version: 2.59.5
 node20_migration:
   completed: true
   commit: 5b6f1dd

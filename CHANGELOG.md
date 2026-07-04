@@ -1,3 +1,10 @@
+## [2.59.5](https://github.com/danielvm-git/bigpowers/compare/v2.59.4...v2.59.5) (2026-07-04)
+
+
+### Bug Fixes
+
+* **specs:** close 5 PLAN-AUDIT gaps (registry, build_order, hard_gate) ([acac02f](https://github.com/danielvm-git/bigpowers/commit/acac02f6f19f85d0e5310c5387240ffb7c0c0f17))
+
 ## [2.59.4](https://github.com/danielvm-git/bigpowers/compare/v2.59.3...v2.59.4) (2026-07-04)
 
 
