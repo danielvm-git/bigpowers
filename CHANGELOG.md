@@ -1,3 +1,10 @@
+## [2.59.6](https://github.com/danielvm-git/bigpowers/compare/v2.59.5...v2.59.6) (2026-07-04)
+
+
+### Bug Fixes
+
+* **specs:** close 3 remaining open bugs from PLAN-AUDIT ([b95c4e7](https://github.com/danielvm-git/bigpowers/commit/b95c4e71a9525ad653b1a3f35ce4d403ebb1f536))
+
 ## [2.59.5](https://github.com/danielvm-git/bigpowers/compare/v2.59.4...v2.59.5) (2026-07-04)
 
 
