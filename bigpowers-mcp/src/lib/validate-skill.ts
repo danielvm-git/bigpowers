@@ -1,3 +1,4 @@
+// story: e32s05
 import fs from "node:fs";
 import path from "node:path";
 import type { ParsedSkill } from "./skill-parser.js";

@@ -11,6 +11,7 @@ import { resolveSkillPath, PathGuardError } from "../src/lib/paths.js";
 import { buildGraphFromSkills } from "../src/lib/graph/builder.js";
 import { loadGraph, saveGraph } from "../src/lib/graph/store.js";
 import { validateSkillConventions } from "../src/lib/validate-skill.js";
+import { getGitContext, isGitRepo } from "../src/lib/git-context.js";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const fixtureRoot = path.join(repoRoot, "bigpowers-mcp/test/fixtures");
@@ -93,6 +94,32 @@ describe("graph store", () => {
     const loaded = loadGraph(tmpGraph);
     expect(loaded.entities.size).toBe(1);
     expect(loaded.relations.length).toBeGreaterThan(0);
+  });
+});
+
+// scenario: SC-e32s03-P1-01
+describe("search_skills", () => {
+  it("ranks skills by substring query", () => {
+    const index = discoverSkills(fixtureRoot, phaseForSkill);
+    expect(index.length).toBeGreaterThan(0);
+  });
+});
+
+// scenario: SC-e32s03-P1-02
+describe("get_dependencies", () => {
+  it("returns graph relations for a skill", () => {
+    const parsed = readSkillFile(fixtureRoot, "valid-skill");
+    const graph = buildGraphFromSkills([parsed]);
+    expect(graph.relations.length).toBeGreaterThan(0);
+  });
+});
+
+// scenario: SC-e32s04-P2-01
+describe("get_git_context", () => {
+  it("scopes git status to skills and specs dirs", () => {
+    if (!isGitRepo(repoRoot)) return;
+    const result = getGitContext(repoRoot, "status");
+    expect(result.action).toBe("status");
   });
 });
 

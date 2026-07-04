@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-04T18:02:40.657671+00:00",
+  "generated_at": "2026-07-04T18:07:31.529752+00:00",
   "matrix_version": "1.0",
   "stories": [
     {
@@ -864,13 +864,19 @@
       "status": "done",
       "links": [
         {
+          "file": "bigpowers-mcp/src/tools/index.ts",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "scripts/add-model-frontmatter.sh",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         }
       ],
-      "link_count": 1
+      "link_count": 2
     },
     {
       "id": "e32s03",
@@ -880,8 +886,15 @@
       "bcp": 2,
       "wsjf": 4.0,
       "status": "done",
-      "links": [],
-      "link_count": 0
+      "links": [
+        {
+          "file": "bigpowers-mcp/src/tools/index.ts",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        }
+      ],
+      "link_count": 1
     },
     {
       "id": "e32s04",
@@ -897,9 +910,21 @@
           "line": 1,
           "confidence": "high",
           "method": "explicit_tag"
+        },
+        {
+          "file": "bigpowers-mcp/build/lib/git-context.js",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "bigpowers-mcp/src/lib/git-context.ts",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
         }
       ],
-      "link_count": 1
+      "link_count": 3
     },
     {
       "id": "e32s05",
@@ -909,8 +934,21 @@
       "bcp": 2,
       "wsjf": 4.0,
       "status": "done",
-      "links": [],
-      "link_count": 0
+      "links": [
+        {
+          "file": "bigpowers-mcp/build/lib/validate-skill.js",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "bigpowers-mcp/src/lib/validate-skill.ts",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        }
+      ],
+      "link_count": 2
     },
     {
       "id": "e32s06",
@@ -1576,6 +1614,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260704-150326.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-165703.md",
           "line": 0,
           "confidence": "medium",
@@ -1841,6 +1885,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-214041.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260704-150417.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -2500,7 +2550,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 191
+      "link_count": 193
     },
     {
       "id": "e36s04",
@@ -4323,6 +4373,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-superpowers-20260704-150337.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-superpowers-20260703-162251.md",
           "line": 0,
           "confidence": "medium",
@@ -4330,6 +4386,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-superpowers-20260621-182636.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-superpowers-20260704-150428.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5379,7 +5441,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 195
+      "link_count": 197
     },
     {
       "id": "e43s01",
@@ -7616,6 +7678,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-plan-tests-20260704-150427.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-plan-tests-20260704-143850.md",
           "line": 0,
           "confidence": "medium",
@@ -7623,6 +7691,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-plan-tests-20260704-143514.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-plan-tests-20260704-150337.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -7670,7 +7744,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 24
+      "link_count": 26
     },
     {
       "id": "e47s01",
@@ -7745,13 +7819,11 @@
   ],
   "summary": {
     "total_stories": 79,
-    "tagged_stories": 8,
+    "tagged_stories": 11,
     "dark_stories": [
-      "e32s03",
-      "e32s05",
       "e46s03"
     ],
-    "dark_count": 3,
+    "dark_count": 1,
     "orphan_tags": [
       "e01s01",
       "e02s01",
@@ -7775,13 +7847,16 @@
     ],
     "orphan_count": 19,
     "stale_tags": [
+      "e32s02",
+      "e32s03",
       "e32s04",
+      "e32s05",
       "e46s01"
     ],
-    "stale_count": 2,
+    "stale_count": 5,
     "oracle_stats": {
-      "high": 51,
-      "medium": 1034,
+      "high": 57,
+      "medium": 1040,
       "low": 48
     }
   }

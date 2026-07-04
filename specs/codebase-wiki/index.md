@@ -1,6 +1,6 @@
 ---
 type: Index
-generated_at: 2026-07-04T18:02:40.659575+00:00
+generated_at: 2026-07-04T18:07:31.531483+00:00
 total_concepts: 79
 ---
 
@@ -15,10 +15,10 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e28s03](./e28s03.md) | Refactor sync-skills.sh to use render-target functions (one  | medium | 5 |
 | [e28s04](./e28s04.md) | Refactor regenerate-lockfile.sh, generate-skill-index.sh, bu | medium | 119 |
 | [e32s01](./e32s01.md) | Spike: build bigpowers-mcp with index_skills + read_skill, v | medium | 4 |
-| [e32s02](./e32s02.md) | Add build_skill_graph tool — entity-relation model from pars | medium | 1 |
-| [e32s03](./e32s03.md) | Add search_skills + get_dependencies tools | none | 0 |
-| [e32s04](./e32s04.md) | Add get_git_context tool — change awareness for drift detect | high | 1 |
-| [e32s05](./e32s05.md) | Add validate_skill tool — convention compliance check | none | 0 |
+| [e32s02](./e32s02.md) | Add build_skill_graph tool — entity-relation model from pars | high | 2 |
+| [e32s03](./e32s03.md) | Add search_skills + get_dependencies tools | high | 1 |
+| [e32s04](./e32s04.md) | Add get_git_context tool — change awareness for drift detect | high | 3 |
+| [e32s05](./e32s05.md) | Add validate_skill tool — convention compliance check | high | 2 |
 | [e32s06](./e32s06.md) | Register bigpowers-mcp in MCP client configs (Claude Code, C | medium | 7 |
 | [e32s07](./e32s07.md) | Write docs/references/bigpowers-mcp.md — architecture and op | medium | 2 |
 | [e33s01](./e33s01.md) | Scaffold Astro Starlight site in website/ with local dev | medium | 2 |
@@ -38,7 +38,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e35s10](./e35s10.md) | Cross-reference new docs from SKILL.md bodies | medium | 2 |
 | [e36s01](./e36s01.md) | Slim docs/references/uncle-bob.md to provenance pointer | low | 2 |
 | [e36s02](./e36s02.md) | Slim docs/references/akita.md, ousterhout.md, karpathy.md, w | low | 1 |
-| [e36s03](./e36s03.md) | Remove F.I.R.S.T rubric restatement from enforce-first and a | medium | 191 |
+| [e36s03](./e36s03.md) | Remove F.I.R.S.T rubric restatement from enforce-first and a | medium | 193 |
 | [e36s04](./e36s04.md) | Update docs/references/spec-kit.md to cover full SDD tool la | medium | 3 |
 | [e36s05](./e36s05.md) | Refresh docs/references/bmad.md from BMAD v6/TEA — currently | none | 0 |
 | [e37s01](./e37s01.md) | BCP Plus counter integration — install and smoke-test big-co | medium | 15 |
@@ -63,7 +63,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e42s01](./e42s01.md) | Spike: headless golden-chain harness — gh-aw + DeepSeek v4 p | medium | 2 |
 | [e42s02](./e42s02.md) | Create specs/benchmarks/fixtures/minimal-api/ fixture repo ( | medium | 4 |
 | [e42s03](./e42s03.md) | Author 4 golden story YAMLs (g-01, g-02, g-03, g-05) with co | medium | 17 |
-| [e42s04](./e42s04.md) | Add --agent mode to run-golden-suite.sh: headless chain exec | medium | 195 |
+| [e42s04](./e42s04.md) | Add --agent mode to run-golden-suite.sh: headless chain exec | medium | 197 |
 | [e43s01](./e43s01.md) | Scaffold the showcase app in a separate public repo via seed | medium | 8 |
 | [e43s02](./e43s02.md) | Build one feature epic end-to-end via the 8-step build-epic  | medium | 65 |
 | [e43s03](./e43s03.md) | Fix one real bug via the investigate-bug → develop-tdd → val | medium | 42 |
@@ -84,7 +84,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e46s01](./e46s01.md) | Write docs/references/tea.md — credit TEA and document its m | high | 7 |
 | [e46s02](./e46s02.md) | Add risk: P0|P1|P2|P3 field to plan-work that scales verify- | medium | 17 |
 | [e46s03](./e46s03.md) | NFR evidence gate — performance/reliability/operability with | none | 0 |
-| [e46s04](./e46s04.md) | Upstream test-design artifact — plan-tests skill, registered | medium | 24 |
+| [e46s04](./e46s04.md) | Upstream test-design artifact — plan-tests skill, registered | medium | 26 |
 | [e47s01](./e47s01.md) | install.sh — global pi coverage (install_pi/uninstall_pi) +  | none | 0 |
 | [e47s02](./e47s02.md) | seed-conventions — optional per-project local wiring for Cur | medium | 2 |
 | [e47s03](./e47s03.md) | docs — skill-catalog vs instruction-only distinction in agen | medium | 2 |

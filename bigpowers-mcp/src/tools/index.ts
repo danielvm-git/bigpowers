@@ -1,3 +1,5 @@
+// story: e32s02
+// story: e32s03
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { getRepoRoot, getGraphPath } from "../config.js";
 import { discoverSkills, readSkillFile } from "../lib/skill-parser.js";

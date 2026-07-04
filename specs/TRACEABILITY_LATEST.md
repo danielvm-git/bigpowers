@@ -1,16 +1,16 @@
 # Traceability Matrix
 
-**Generated:** 2026-07-04 18:02:40 UTC
+**Generated:** 2026-07-04 18:07:31 UTC
 **Total stories:** 79
-**Tagged stories:** 8
-**Dark stories:** 3
+**Tagged stories:** 11
+**Dark stories:** 1
 **Orphan tags:** 19
-**Stale tags:** 2
+**Stale tags:** 5
 
 ## Oracle Stats
 
-- **High** (explicit tag): 51
-- **Medium** (file heuristic): 1034
+- **High** (explicit tag): 57
+- **Medium** (file heuristic): 1040
 - **Low** (task reference): 48
 
 ## Story Coverage
@@ -22,10 +22,10 @@
 | e28s03 | Refactor sync-skills.sh to use render-target functions (one  | e28 | 5 | 2.0 | backlog | 5 |
 | e28s04 | Refactor regenerate-lockfile.sh, generate-skill-index.sh, bu | e28 | 3 | 2.0 | backlog | 119 |
 | e32s01 | Spike: build bigpowers-mcp with index_skills + read_skill, v | e32 | 3 | 4.0 | done | 4 |
-| e32s02 | Add build_skill_graph tool — entity-relation model from pars | e32 | 3 | 4.0 | done | 1 |
-| e32s03 | Add search_skills + get_dependencies tools | e32 | 2 | 4.0 | done | 0 |
-| e32s04 | Add get_git_context tool — change awareness for drift detect | e32 | 1 | 4.0 | done | 1 |
-| e32s05 | Add validate_skill tool — convention compliance check | e32 | 2 | 4.0 | done | 0 |
+| e32s02 | Add build_skill_graph tool — entity-relation model from pars | e32 | 3 | 4.0 | done | 2 |
+| e32s03 | Add search_skills + get_dependencies tools | e32 | 2 | 4.0 | done | 1 |
+| e32s04 | Add get_git_context tool — change awareness for drift detect | e32 | 1 | 4.0 | done | 3 |
+| e32s05 | Add validate_skill tool — convention compliance check | e32 | 2 | 4.0 | done | 2 |
 | e32s06 | Register bigpowers-mcp in MCP client configs (Claude Code, C | e32 | 1 | 4.0 | done | 7 |
 | e32s07 | Write docs/references/bigpowers-mcp.md — architecture and op | e32 | 1 | 4.0 | done | 2 |
 | e33s01 | Scaffold Astro Starlight site in website/ with local dev | e33 | 0 | 2.8 | backlog | 2 |
@@ -45,7 +45,7 @@
 | e35s10 | Cross-reference new docs from SKILL.md bodies | e35 | 2 | 3.0 | backlog | 2 |
 | e36s01 | Slim docs/references/uncle-bob.md to provenance pointer | e36 | 3 | 1.4 | backlog | 2 |
 | e36s02 | Slim docs/references/akita.md, ousterhout.md, karpathy.md, w | e36 | 3 | 1.4 | backlog | 1 |
-| e36s03 | Remove F.I.R.S.T rubric restatement from enforce-first and a | e36 | 2 | 1.4 | backlog | 191 |
+| e36s03 | Remove F.I.R.S.T rubric restatement from enforce-first and a | e36 | 2 | 1.4 | backlog | 193 |
 | e36s04 | Update docs/references/spec-kit.md to cover full SDD tool la | e36 | 2 | 1.4 | backlog | 3 |
 | e36s05 | Refresh docs/references/bmad.md from BMAD v6/TEA — currently | e36 | 2 | 1.4 | backlog | 0 |
 | e37s01 | BCP Plus counter integration — install and smoke-test big-co | e37 | 0 | 2.1 | backlog | 15 |
@@ -70,7 +70,7 @@
 | e42s01 | Spike: headless golden-chain harness — gh-aw + DeepSeek v4 p | e42 | 3 | 1.8 | done | 2 |
 | e42s02 | Create specs/benchmarks/fixtures/minimal-api/ fixture repo ( | e42 | 3 | 1.8 | backlog | 4 |
 | e42s03 | Author 4 golden story YAMLs (g-01, g-02, g-03, g-05) with co | e42 | 3 | 1.8 | backlog | 17 |
-| e42s04 | Add --agent mode to run-golden-suite.sh: headless chain exec | e42 | 4 | 1.8 | backlog | 195 |
+| e42s04 | Add --agent mode to run-golden-suite.sh: headless chain exec | e42 | 4 | 1.8 | backlog | 197 |
 | e43s01 | Scaffold the showcase app in a separate public repo via seed | e43 | 3 | 2.5 | backlog | 8 |
 | e43s02 | Build one feature epic end-to-end via the 8-step build-epic  | e43 | 3 | 2.5 | backlog | 65 |
 | e43s03 | Fix one real bug via the investigate-bug → develop-tdd → val | e43 | 2 | 2.5 | backlog | 42 |
@@ -91,7 +91,7 @@
 | e46s01 | Write docs/references/tea.md — credit TEA and document its m | e46 | 3 | 3.4 | done | 7 |
 | e46s02 | Add risk: P0|P1|P2|P3 field to plan-work that scales verify- | e46 | 3 | 3.4 | done | 17 |
 | e46s03 | NFR evidence gate — performance/reliability/operability with | e46 | 4 | 3.4 | done | 0 |
-| e46s04 | Upstream test-design artifact — plan-tests skill, registered | e46 | 6 | 3.4 | done | 24 |
+| e46s04 | Upstream test-design artifact — plan-tests skill, registered | e46 | 6 | 3.4 | done | 26 |
 | e47s01 | install.sh — global pi coverage (install_pi/uninstall_pi) +  | e47 | 3 | 4.3 | backlog | 0 |
 | e47s02 | seed-conventions — optional per-project local wiring for Cur | e47 | 3 | 4.3 | backlog | 2 |
 | e47s03 | docs — skill-catalog vs instruction-only distinction in agen | e47 | 1 | 4.3 | backlog | 2 |
@@ -99,8 +99,6 @@
 
 ## Dark Stories (no code links)
 
-- **e32s03**: Add search_skills + get_dependencies tools (status: done)
-- **e32s05**: Add validate_skill tool — convention compliance check (status: done)
 - **e46s03**: NFR evidence gate — performance/reliability/operability with go/no-go output (status: done)
 
 ## Orphan Tags (tag in code, no matching story)
@@ -127,5 +125,8 @@
 
 ## Stale Tags (story done, tag still in code)
 
+- `e32s02`
+- `e32s03`
 - `e32s04`
+- `e32s05`
 - `e46s01`
