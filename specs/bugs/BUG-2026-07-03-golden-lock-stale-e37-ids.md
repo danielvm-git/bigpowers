@@ -1,6 +1,6 @@
 ---
 bug_id: BUG-2026-07-03-golden-lock-stale-e37-ids
-status: open
+status: closed
 severity: low
 scope: ci
 title: "e42 golden workflow renamed from e37 but lock file internals still carry 19 e37 identifiers"

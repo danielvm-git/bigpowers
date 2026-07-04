@@ -1,15 +1,12 @@
-active_flow: fix_bug
-bug_id: BUG-2026-07-03-golden-lock-stale-e37-ids
+active_flow: null
+bug_id: null
 handoff:
-  next_skill: investigate-bug
-  context: 'Fix stale e37 IDs in golden lock file. Step 1: investigate-bug.'
+  next_skill: survey-context
+  context: 'BUG-2026-07-03-golden-lock-stale-e37-ids fixed and landed (646afc4). Lock
+    file recompiled via gh aw compile — 19 stale e37 identifiers replaced with e42.'
 bug_cycle:
-  current_step: 5
-  completed_steps:
-  - 1
-  - 2
-  - 3
-  - 4
+  current_step: null
+  completed_steps: []
 previous_handoff:
   next_skill: survey-context
   context: 'BUG-2026-07-03-trace-engine-vacuous-gate fixed and landed. This was the third and final fail-open
