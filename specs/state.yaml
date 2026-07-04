@@ -2,9 +2,9 @@ active_flow: null
 bug_id: null
 handoff:
   next_skill: survey-context
-  context: BUG-2026-07-03-codebase-wiki-venv-pollution fixed and landed on main. Added .venv, __pycache__,
-    etc. to EXCLUDE_DIRS in trace-stories.py. Cleaned and regenerated codebase-wiki. 0 polluted files
-    remaining.
+  context: 'BUG-2026-07-03-venv-not-gitignored landed on main (a0f2ff0). .gitignore
+    covers .venv/venv/__pycache__; G-11 golden gate registered. Bug registry reconciled.
+    1 open bug remains: golden-lock-stale-e37-ids.'
 bug_cycle:
   current_step: null
   completed_steps:
@@ -15,15 +15,16 @@ bug_cycle:
   - 5
 previous_handoff:
   next_skill: survey-context
-  context: 'BUG-2026-07-03-trace-engine-vacuous-gate fixed and landed. This was the third and final fail-open
-    bug in the bug class cluster: - BUG-2026-07-03-validate-specs-no-real-parser → fixed (real YAML parser)
-    - BUG-2026-07-03-yaml-roundtrip-corruption → fixed (PyYAML round-trip) - BUG-2026-07-03-trace-engine-vacuous-gate
-    → fixed (PyYAML + floor assertion + G-10)'
+  context: 'BUG-2026-07-03-trace-engine-vacuous-gate fixed and landed. This was the
+    third and final fail-open bug in the bug class cluster: - BUG-2026-07-03-validate-specs-no-real-parser
+    → fixed (real YAML parser) - BUG-2026-07-03-yaml-roundtrip-corruption → fixed
+    (PyYAML round-trip) - BUG-2026-07-03-trace-engine-vacuous-gate → fixed (PyYAML
+    + floor assertion + G-10)'
 release:
   ci_verified: true
-  released_at: '2026-07-03T21:04:06Z'
-  commit: aff4b4f
-  tag: v2.58.4 (semantic-release)
+  released_at: '2026-07-04T02:45:00Z'
+  commit: a0f2ff0
+  tag: v2.59.3 (semantic-release)
 bigpowers_version: 2.59.3
 node20_migration:
   completed: true
