@@ -1,5 +1,5 @@
 active_flow: fix_bug
-bug_id: 'BUG-2026-07-03-golden-lock-stale-e37-ids'
+bug_id: BUG-2026-07-03-golden-lock-stale-e37-ids
 handoff:
   next_skill: investigate-bug
   context: 'Fix stale e37 IDs in golden lock file. Step 1: investigate-bug.'
@@ -12,17 +12,16 @@ bug_cycle:
   - 4
 previous_handoff:
   next_skill: survey-context
-  context: 'BUG-2026-07-03-trace-engine-vacuous-gate fixed and landed. This was the
-    third and final fail-open bug in the bug class cluster: - BUG-2026-07-03-validate-specs-no-real-parser
-    → fixed (real YAML parser) - BUG-2026-07-03-yaml-roundtrip-corruption → fixed
-    (PyYAML round-trip) - BUG-2026-07-03-trace-engine-vacuous-gate → fixed (PyYAML
-    + floor assertion + G-10)'
+  context: 'BUG-2026-07-03-trace-engine-vacuous-gate fixed and landed. This was the third and final fail-open
+    bug in the bug class cluster: - BUG-2026-07-03-validate-specs-no-real-parser → fixed (real YAML parser)
+    - BUG-2026-07-03-yaml-roundtrip-corruption → fixed (PyYAML round-trip) - BUG-2026-07-03-trace-engine-vacuous-gate
+    → fixed (PyYAML + floor assertion + G-10)'
 release:
   ci_verified: true
   released_at: '2026-07-04T02:45:00Z'
   commit: a0f2ff0
   tag: v2.59.3 (semantic-release)
-bigpowers_version: 2.59.3
+bigpowers_version: 2.59.4
 node20_migration:
   completed: true
   commit: 5b6f1dd

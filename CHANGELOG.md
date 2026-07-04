@@ -1,3 +1,10 @@
+## [2.59.4](https://github.com/danielvm-git/bigpowers/compare/v2.59.3...v2.59.4) (2026-07-04)
+
+
+### Bug Fixes
+
+* **ci:** recompile golden lock file, purge stale e37 ids ([646afc4](https://github.com/danielvm-git/bigpowers/commit/646afc4aefe8d88a4dfbc986fc5f29f79499da4a))
+
 ## [2.59.3](https://github.com/danielvm-git/bigpowers/compare/v2.59.2...v2.59.3) (2026-07-04)
 
 
