@@ -1,7 +1,7 @@
 active_flow: null
 active_epic: null
 active_story: null
-bigpowers_version: 2.61.0
+bigpowers_version: 2.61.1
 bug_cycle:
   completed_steps: []
   current_step: null

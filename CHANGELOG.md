@@ -1,3 +1,10 @@
+## [2.61.1](https://github.com/danielvm-git/bigpowers/compare/v2.61.0...v2.61.1) (2026-07-04)
+
+
+### Bug Fixes
+
+* **e32:** add traceability tags for strict CI gate ([aca9a26](https://github.com/danielvm-git/bigpowers/commit/aca9a263dd1d2167e32c339c14d29a422a989177))
+
 # [2.61.0](https://github.com/danielvm-git/bigpowers/compare/v2.60.0...v2.61.0) (2026-07-04)
 
 
