@@ -1,3 +1,10 @@
+## [2.59.2](https://github.com/danielvm-git/bigpowers/compare/v2.59.1...v2.59.2) (2026-07-04)
+
+
+### Bug Fixes
+
+* **trace:** exclude .venv, site-packages, __pycache__ from trace-stories walker ([aff4b4f](https://github.com/danielvm-git/bigpowers/commit/aff4b4fc1b9b0acfd2940c5fd137c04285a834d9))
+
 ## [2.59.1](https://github.com/danielvm-git/bigpowers/compare/v2.59.0...v2.59.1) (2026-07-04)
 
 
