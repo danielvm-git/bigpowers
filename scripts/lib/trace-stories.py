@@ -17,6 +17,7 @@ Oracle tiers (TEA-inspired):
 import json, os, re, subprocess, sys
 from pathlib import Path
 from datetime import datetime, timezone
+import yaml
 
 ROOT = Path(sys.argv[1])
 MATRIX_JSON = Path(sys.argv[2])
@@ -26,103 +27,21 @@ STRICT = int(sys.argv[5])
 MODE = sys.argv[6]
 
 # -----------------------------------------------------------------------
-# 1. Parse release-plan.yaml → story inventory
+# 1. Parse YAML files → story inventory
 # -----------------------------------------------------------------------
-def parse_simple_yaml(text: str) -> dict:
-    """Parse flat and one-level-nested YAML including lists of objects."""
-    root: dict = {}
-    stack: list = [(0, root, None, None)]
-    skip_until_indent = None
-    for i, raw in enumerate(text.splitlines()):
-        stripped = raw.strip()
-        if not stripped or stripped.startswith("#"):
-            continue
-        indent = len(raw) - len(raw.lstrip())
-        if skip_until_indent is not None:
-            if indent > skip_until_indent:
-                continue
-            else:
-                skip_until_indent = None
-        while len(stack) > 1:
-            if indent < stack[-1][0]:
-                stack.pop()
-            elif indent == stack[-1][0]:
-                if isinstance(stack[-1][1], list) and stripped.startswith("- "):
-                    break
-                elif isinstance(stack[-1][1], dict) and stripped.startswith("- "):
-                    entry_container = stack[-1][1]
-                    entry_parent = stack[-1][2]
-                    entry_key = stack[-1][3]
-                    if entry_parent is not None and entry_key is not None:
-                        if not isinstance(entry_parent.get(entry_key), list):
-                            entry_parent[entry_key] = []
-                            stack[-1] = (stack[-1][0], entry_parent[entry_key], entry_parent, entry_key)
-                            break
-                    stack.pop()
-                else:
-                    stack.pop()
-            else:
-                break
-        container = stack[-1][1]
-        parent_dict = stack[-1][2]
-        key_in_parent = stack[-1][3]
-        if stripped.startswith("- "):
-            inner = stripped[2:]
-            if isinstance(container, dict) and parent_dict is not None and key_in_parent is not None:
-                if not isinstance(parent_dict.get(key_in_parent), list):
-                    orig_indent = stack[-1][0]
-                    parent_dict[key_in_parent] = []
-                    container = parent_dict[key_in_parent]
-                    stack[-1] = (orig_indent, container, parent_dict, key_in_parent)
-            if ":" in inner:
-                k, _, v = inner.partition(":")
-                k = k.strip(); v = v.strip()
-                if v in ("|", ">", "|-", ">-", "|+", ">+"):
-                    item = {k: v}; container.append(item)
-                    skip_until_indent = indent; continue
-                item = {k: _yaml_scalar(v) if v else None}
-                container.append(item)
-                if v == "":
-                    stack.append((indent, item, container, k))
-            else:
-                container.append(_yaml_scalar(inner))
-            continue
-        if ":" not in stripped:
-            continue
-        key, _, val = stripped.partition(":")
-        key = key.strip(); val = val.strip()
-        if val in ("|", ">", "|-", ">-", "|+", ">+"):
-            if isinstance(container, list) and container:
-                container[-1][key] = val
-            elif isinstance(container, dict):
-                container[key] = val
-            skip_until_indent = indent; continue
-        if isinstance(container, list) and container:
-            container[-1][key] = _yaml_scalar(val) if val else None
-            if val == "":
-                nxt = {}; container[-1][key] = nxt
-                stack.append((indent, nxt, container[-1], key))
-        elif isinstance(container, dict):
-            if val == "":
-                nxt = {}; container[key] = nxt
-                stack.append((indent, nxt, container, key))
-            else:
-                container[key] = _yaml_scalar(val)
-    return root
+_MIN_STORY_BASELINE = 50  # floor assertion: --strict FAILs if story count drops below this
 
-def _yaml_scalar(val: str):
-    val = val.strip('"').strip("'")
-    if val in ("true", "false"): return val == "true"
-    if val in ("null", "~", ""): return None
-    try: return int(val)
-    except ValueError:
-        try: return float(val)
-        except ValueError: return val
+def _load_yaml(path: Path) -> dict:
+    """Load a YAML file with PyYAML. Exits with code 1 if parse fails."""
+    try:
+        with open(str(path), encoding="utf-8") as f:
+            return yaml.safe_load(f) or {}
+    except Exception as e:
+        print(f"trace-stories.py: ERROR parsing {path}: {e}", file=sys.stderr)
+        sys.exit(1)
 
-release_text = (ROOT / "specs" / "release-plan.yaml").read_text(encoding="utf-8")
-release = parse_simple_yaml(release_text)
-exec_text = (ROOT / "specs" / "execution-status.yaml").read_text(encoding="utf-8")
-exec_status = parse_simple_yaml(exec_text)
+release = _load_yaml(ROOT / "specs" / "release-plan.yaml")
+exec_status = _load_yaml(ROOT / "specs" / "execution-status.yaml")
 dev_status = exec_status.get("development_status", {})
 
 # -----------------------------------------------------------------------
@@ -141,7 +60,7 @@ for epic in epics:
     if capsule_dir:
         capsule_path = ROOT / "specs" / capsule_dir / "epic.yaml"
         if capsule_path.exists():
-            cap = parse_simple_yaml(capsule_path.read_text(encoding="utf-8"))
+            cap = _load_yaml(capsule_path)
             for s in cap.get("stories", []) or []:
                 if isinstance(s, dict):
                     sid = s.get("id", "")
@@ -153,7 +72,7 @@ for epic in epics:
     if file_key and not capsule_dir:
         legacy_path = ROOT / "specs" / file_key
         if legacy_path.exists():
-            leg = parse_simple_yaml(legacy_path.read_text(encoding="utf-8"))
+            leg = _load_yaml(legacy_path)
             for s in leg.get("stories", []) or []:
                 if isinstance(s, dict):
                     sid = s.get("id", "")
@@ -362,6 +281,11 @@ for s in matrix_stories:
 # 8. Strict mode
 # -----------------------------------------------------------------------
 if STRICT:
+    # Floor assertion — anti-vacuity guard: if story count drops below baseline
+    # the matrix is degenerate and --strict must fail open.
+    if len(stories) < _MIN_STORY_BASELINE:
+        print(f"trace-stories.py: STRICT FAIL — story count {len(stories)} below baseline {_MIN_STORY_BASELINE}", file=sys.stderr)
+        sys.exit(2)
     if matrix_stories:
         wsjf_sorted = sorted(set(s["wsjf"] for s in matrix_stories), reverse=True)
         cutoff_idx = max(0, len(wsjf_sorted) // 4 - 1)

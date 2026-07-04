@@ -14,8 +14,8 @@ handoff:
 
     '
 bug_cycle:
-  current_step: 3
-  completed_steps: [1, 2]
+  current_step: 5
+  completed_steps: [1, 2, 3, 4]
 previous_handoff:
   next_skill: survey-context
   context: 'ALL 5 PLAN-AUDIT red-team bugs FIXED and LANDED on main:

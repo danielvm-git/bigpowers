@@ -1,96 +1,123 @@
-# AUTO-GENERATED — sync-bugs-registry.sh
 bugs:
-  - id: BUG-2026-06-02T164500
-    status: fixed
-    severity: high
-    scope: ci
-    title: "GitHub Actions Sync Skills and Release failed after YAML follow-up"
-    file: bugs/BUG-2026-06-02T164500.md
-    files_changed: "scripts/sync-skills.sh, package-lock.json, .github/workflows/publish.yml, .cursor/rules/trace-requirement.mdc, .gemini/extensions/bigpowers/gemini-extension.json"
-    approach: "sed -E whitespace collapse, jq version/description, lockfile refresh, Node 22 in publish workflow"
-    risk_level: "high"
-    commit_message: "fix(ci): repair sync-skills sed and refresh package-lock; fix(ci): use Node 22 for semantic-release workflow"
-  - id: BUG-2026-06-11T183000
-    status: fixed
-    severity: medium
-    scope: dashboard/cli
-    title: "dashboard CLI not exposed as bin entry — only works inside bigpowers repo"
-    file: bugs/BUG-2026-06-11T183000.md
-    files_changed: "package.json"
-    approach: "Add bigpowers-dashboard to bin field in package.json pointing to dashboard/bin/dashboard.js"
-    risk_level: "low"
-    commit_message: "fix(dashboard): expose bigpowers-dashboard as global CLI bin entry"
-  - id: BUG-2026-06-13T090000
-    status: fixed
-    severity: medium
-    scope: docs
-    title: "Doctrine drift — docs teach stale artifact names, dead skill references, and an undefined quality gate"
-    file: bugs/BUG-2026-06-13T090000.md
-    files_changed: "docs/references/gates.md, docs/PRINCIPLES.md, docs/references/model-profiles.md, scripts/check-skill-size.sh, scripts/audit-compliance.sh"
-    approach: "Update gates.md + PRINCIPLES.md to YAML artifact names; fix dead skill names in model-profiles.md; single-source skill count; add SKILL.md size lint; define or soften 94% threshold"
-    risk_level: "medium"
-    commit_message: "fix(docs): update doctrine to match YAML artifact layout, fix skill names, add size lint, instrument 94% gate"
-  - id: BUG-2026-06-27T000000
-    status: open
-    severity: high
-    scope: ci
-    title: "8 SKILL.md files exceed line cap — CI blocked on check-skill-size.sh"
-    file: bugs/BUG-2026-06-27T000000.md
-    files_changed: "deploy/SKILL.md, deploy/REFERENCE.md, develop-tdd/SKILL.md, migrate-spec/SKILL.md, migrate-spec/REFERENCE.md, publish-package/SKILL.md, publish-package/REFERENCE.md, release-branch/SKILL.md, release-branch/REFERENCE.md, smoke-test/SKILL.md, smoke-test/REFERENCE.md, validate-contracts/SKILL.md, validate-contracts/REFERENCE.md, wire-ci/SKILL.md, wire-ci/REFERENCE.md"
-    approach: "Trim each over-length SKILL.md by moving procedural detail into REFERENCE.md"
-    risk_level: "low"
-    commit_message: "fix(ci): trim 8 over-length SKILL.md files to pass check-skill-size lint"
-  - id: BUG-2026-07-03-codebase-wiki-venv-pollution
-    status: open
-    severity: medium
-    scope: specs
-    title: "OKF codebase-wiki concepts polluted with .venv/site-packages false-positive links from buggy trace run"
-    file: bugs/BUG-2026-07-03-codebase-wiki-venv-pollution.md
-    risk_level: "medium"
-  - id: BUG-2026-07-03-golden-lock-stale-e37-ids
-    status: open
-    severity: low
-    scope: ci
-    title: "e42 golden workflow renamed from e37 but lock file internals still carry 19 e37 identifiers"
-    file: bugs/BUG-2026-07-03-golden-lock-stale-e37-ids.md
-    risk_level: "low"
-  - id: BUG-2026-07-03-install-docs-stale
-    status: open
-    severity: medium
-    scope: docs
-    title: "README and docs reference removed npm lifecycle scripts (postinstall, npx)"
-    file: bugs/BUG-2026-07-03-install-docs-stale.md
-  - id: BUG-2026-07-03-trace-engine-vacuous-gate
-    status: open
-    severity: high
-    scope: scripts
-    title: "trace-stories.py uses lossy hand-rolled YAML parser — collects 1 of ~240 stories, --strict gate passes vacuously"
-    file: bugs/BUG-2026-07-03-trace-engine-vacuous-gate.md
-    risk_level: "high"
-  - id: BUG-2026-07-03-validate-specs-no-real-parser
-    status: open
-    severity: high
-    scope: scripts
-    title: "validate-specs-yaml.sh does no real YAML parsing — grep-only checks let 40 corrupt files pass every gate"
-    file: bugs/BUG-2026-07-03-validate-specs-no-real-parser.md
-    risk_level: "high"
-  - id: BUG-2026-07-03-venv-not-gitignored
-    status: open
-    severity: low
-    scope: repo
-    title: ".venv/ exists at repo root and is not gitignored — one 'git add .' from committing the virtualenv"
-    file: bugs/BUG-2026-07-03-venv-not-gitignored.md
-    risk_level: "low"
-  - id: BUG-2026-07-03-version-mirror-drift
-    status: fixed
-    severity: medium
-    scope: release-pipeline
-    title: "Version mirrors in state.yaml and release-plan.yaml drift after every semantic-release"
-    file: bugs/BUG-2026-07-03-version-mirror-drift.md
-  - id: BUG-2026-07-03-yaml-roundtrip-corruption
-    status: open
-    severity: critical
-    scope: release-pipeline
-    title: "Release prepare-hook corrupts YAML cockpit via lossy round-trip — 40 spec files flattened and committed"
-    file: bugs/BUG-2026-07-03-yaml-roundtrip-corruption.md
-    risk_level: "critical"
+- approach: sed -E whitespace collapse, jq version/description, lockfile refresh,
+    Node 22 in publish workflow
+  commit_message: 'fix(ci): repair sync-skills sed and refresh package-lock; fix(ci):
+    use Node 22 for semantic-release workflow'
+  file: bugs/BUG-2026-06-02T164500.md
+  files_changed: scripts/sync-skills.sh, package-lock.json, .github/workflows/publish.yml,
+    .cursor/rules/trace-requirement.mdc, .gemini/extensions/bigpowers/gemini-extension.json
+  id: BUG-2026-06-02T164500
+  risk_level: high
+  scope: ci
+  severity: high
+  status: fixed
+  title: GitHub Actions Sync Skills and Release failed after YAML follow-up
+- approach: Add bigpowers-dashboard to bin field in package.json pointing to dashboard/bin/dashboard.js
+  commit_message: 'fix(dashboard): expose bigpowers-dashboard as global CLI bin entry'
+  file: bugs/BUG-2026-06-11T183000.md
+  files_changed: package.json
+  id: BUG-2026-06-11T183000
+  risk_level: low
+  scope: dashboard/cli
+  severity: medium
+  status: fixed
+  title: dashboard CLI not exposed as bin entry — only works inside bigpowers repo
+- approach: Update gates.md + PRINCIPLES.md to YAML artifact names; fix dead skill
+    names in model-profiles.md; single-source skill count; add SKILL.md size lint;
+    define or soften 94% threshold
+  commit_message: 'fix(docs): update doctrine to match YAML artifact layout, fix skill
+    names, add size lint, instrument 94% gate'
+  file: bugs/BUG-2026-06-13T090000.md
+  files_changed: docs/references/gates.md, docs/PRINCIPLES.md, docs/references/model-profiles.md,
+    scripts/check-skill-size.sh, scripts/audit-compliance.sh
+  id: BUG-2026-06-13T090000
+  risk_level: medium
+  scope: docs
+  severity: medium
+  status: fixed
+  title: Doctrine drift — docs teach stale artifact names, dead skill references,
+    and an undefined quality gate
+- approach: Trim each over-length SKILL.md by moving procedural detail into REFERENCE.md
+  commit_message: 'fix(ci): trim 8 over-length SKILL.md files to pass check-skill-size
+    lint'
+  file: bugs/BUG-2026-06-27T000000.md
+  files_changed: deploy/SKILL.md, deploy/REFERENCE.md, develop-tdd/SKILL.md, migrate-spec/SKILL.md,
+    migrate-spec/REFERENCE.md, publish-package/SKILL.md, publish-package/REFERENCE.md,
+    release-branch/SKILL.md, release-branch/REFERENCE.md, smoke-test/SKILL.md, smoke-test/REFERENCE.md,
+    validate-contracts/SKILL.md, validate-contracts/REFERENCE.md, wire-ci/SKILL.md,
+    wire-ci/REFERENCE.md
+  id: BUG-2026-06-27T000000
+  risk_level: low
+  scope: ci
+  severity: high
+  status: open
+  title: 8 SKILL.md files exceed line cap — CI blocked on check-skill-size.sh
+- file: bugs/BUG-2026-07-03-codebase-wiki-venv-pollution.md
+  id: BUG-2026-07-03-codebase-wiki-venv-pollution
+  risk_level: medium
+  scope: specs
+  severity: medium
+  status: open
+  title: OKF codebase-wiki concepts polluted with .venv/site-packages false-positive
+    links from buggy trace run
+- file: bugs/BUG-2026-07-03-golden-lock-stale-e37-ids.md
+  id: BUG-2026-07-03-golden-lock-stale-e37-ids
+  risk_level: low
+  scope: ci
+  severity: low
+  status: open
+  title: e42 golden workflow renamed from e37 but lock file internals still carry
+    19 e37 identifiers
+- file: bugs/BUG-2026-07-03-install-docs-stale.md
+  id: BUG-2026-07-03-install-docs-stale
+  scope: docs
+  severity: medium
+  status: open
+  title: README and docs reference removed npm lifecycle scripts (postinstall, npx)
+- approach: Replace hand-rolled parse_simple_yaml() with yaml.safe_load, add floor
+    assertion to --strict, add G-10 golden test
+  commit_message: 'fix(trace): replace hand-rolled YAML parser with PyYAML + add floor
+    assertion and G-10 golden test'
+  file: bugs/BUG-2026-07-03-trace-engine-vacuous-gate.md
+  files_changed:
+  - scripts/lib/trace-stories.py
+  - scripts/golden-g10-trace-anti-vacuity.sh
+  - scripts/run-golden-suite.sh
+  - specs/verifications/fixtures/trace-vacuous/
+  id: BUG-2026-07-03-trace-engine-vacuous-gate
+  risk_level: high
+  scope: scripts
+  severity: high
+  status: fixed
+  title: trace-stories.py uses lossy hand-rolled YAML parser — collects 1 of ~240
+    stories, --strict gate passes vacuously
+- file: bugs/BUG-2026-07-03-validate-specs-no-real-parser.md
+  id: BUG-2026-07-03-validate-specs-no-real-parser
+  risk_level: high
+  scope: scripts
+  severity: high
+  status: open
+  title: validate-specs-yaml.sh does no real YAML parsing — grep-only checks let 40
+    corrupt files pass every gate
+- file: bugs/BUG-2026-07-03-venv-not-gitignored.md
+  id: BUG-2026-07-03-venv-not-gitignored
+  risk_level: low
+  scope: repo
+  severity: low
+  status: open
+  title: .venv/ exists at repo root and is not gitignored — one 'git add .' from committing
+    the virtualenv
+- file: bugs/BUG-2026-07-03-version-mirror-drift.md
+  id: BUG-2026-07-03-version-mirror-drift
+  scope: release-pipeline
+  severity: medium
+  status: fixed
+  title: Version mirrors in state.yaml and release-plan.yaml drift after every semantic-release
+- file: bugs/BUG-2026-07-03-yaml-roundtrip-corruption.md
+  id: BUG-2026-07-03-yaml-roundtrip-corruption
+  risk_level: critical
+  scope: release-pipeline
+  severity: critical
+  status: open
+  title: Release prepare-hook corrupts YAML cockpit via lossy round-trip — 40 spec
+    files flattened and committed

@@ -1,0 +1,11 @@
+release:
+  version: "1.0.0"
+  codename: "Test"
+  status: "proposed"
+epics:
+  - id: e99
+    title: "Test Epic"
+    wsjf: 3.0
+    bcps: 5
+    mode: capsule
+    status: proposed

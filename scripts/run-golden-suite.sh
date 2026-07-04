@@ -34,6 +34,7 @@ GATES=(
   "g07-negative-path:bash scripts/golden-g07-negative-path.sh:false"
   "g08-anti-vacuity:bash scripts/golden-g08-anti-vacuity.sh:false"
   "g09-yaml-roundtrip:bash scripts/golden-g09-yaml-roundtrip.sh:false"
+  "g10-trace-anti-vacuity:bash scripts/golden-g10-trace-anti-vacuity.sh:false"
   "specs-parse:bash scripts/validate-specs-yaml.sh:false"
 )
 
