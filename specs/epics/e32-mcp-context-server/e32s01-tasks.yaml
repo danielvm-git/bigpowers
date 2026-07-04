@@ -1,6 +1,6 @@
 story_id: e32s01
 title: "Spike — bigpowers-mcp index_skills + read_skill"
-status: todo
+status: done
 risk: P0
 bcps: 3
 security: low
@@ -9,21 +9,21 @@ tasks:
   - id: 1
     description: "Scaffold bigpowers-mcp/ — package.json, tsconfig, vitest, MCP SDK entrypoint"
     verify: "test -f bigpowers-mcp/package.json && test -f bigpowers-mcp/tsconfig.json && echo OK"
-    status: todo
+    status: done
   - id: 2
     description: "Implement index_skills tool — discover skills/*/SKILL.md"
     verify: "grep -q 'index_skills' bigpowers-mcp/src/tools/index.ts && echo OK"
-    status: todo
+    status: done
   - id: 3
     description: "Implement read_skill with remark-parse + remark-frontmatter + path guard"
     verify: "grep -q 'read_skill' bigpowers-mcp/src/tools/index.ts && grep -q 'remark' bigpowers-mcp/package.json && echo OK"
-    status: todo
+    status: done
   - id: 4
     description: "Vitest integration — parse full catalog, assert zero failures"
     verify: "cd bigpowers-mcp && npm test 2>&1 | grep -q 'pass\\|passed' && echo OK"
-    status: todo
+    status: done
     security: low
   - id: 5
     description: "MCP Inspector smoke — build server and verify tools respond"
     verify: "test -d bigpowers-mcp/build && npx @modelcontextprotocol/inspector node bigpowers-mcp/build/index.js >/dev/null 2>&1 && echo OK"
-    status: todo
+    status: done

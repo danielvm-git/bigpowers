@@ -2,7 +2,7 @@ id: e32
 title: "MCP Semantic Context Server"
 wsjf: 4.00
 bcps: 13
-status: active
+status: done
 release: v2.7x/v3.0 "Semantic Bridge" (leads)
 codename: "Deepening"
 supersedes: scripts/mcp-server.js (e21 prototype)
@@ -40,7 +40,7 @@ source: |
 stories:
   - id: e32s01
     bcp: 3
-    status: todo
+    status: done
     risk: P0
     spec: e32s01-mcp-spike.md
     tasks: e32s01-tasks.yaml
@@ -62,6 +62,7 @@ stories:
 
   - id: e32s02
     bcp: 3
+    status: done
     title: "Add build_skill_graph tool — entity-relation model from parsed SKILL.md data"
     verify: grep -q 'build_skill_graph\|create_entities\|create_relations' bigpowers-mcp/src/tools/index.ts && echo OK
     description: |
@@ -83,6 +84,7 @@ stories:
 
   - id: e32s03
     bcp: 2
+    status: done
     title: "Add search_skills + get_dependencies tools"
     verify: grep -q 'search_skills\|get_dependencies' bigpowers-mcp/src/tools/index.ts && echo OK
     description: |
@@ -99,6 +101,7 @@ stories:
 
   - id: e32s04
     bcp: 1
+    status: done
     title: "Add get_git_context tool — change awareness for drift detection"
     verify: grep -q 'get_git_context' bigpowers-mcp/src/tools/index.ts && echo OK
     description: |
@@ -112,6 +115,7 @@ stories:
 
   - id: e32s05
     bcp: 2
+    status: done
     title: "Add validate_skill tool — convention compliance check"
     verify: grep -q 'validate_skill' bigpowers-mcp/src/tools/index.ts && echo OK
     description: |
@@ -128,6 +132,7 @@ stories:
 
   - id: e32s06
     bcp: 1
+    status: done
     title: "Register bigpowers-mcp in MCP client configs (Claude Code, Cursor, OpenCode)"
     verify: grep -q 'bigpowers-mcp' .mcp.json 2>/dev/null || grep -q 'bigpowers-mcp' ~/.claude/mcp.json 2>/dev/null && echo OK
     description: |
@@ -150,6 +155,7 @@ stories:
 
   - id: e32s07
     bcp: 1
+    status: done
     title: "Write docs/references/bigpowers-mcp.md — architecture and operator guide"
     verify: test -f docs/references/bigpowers-mcp.md && grep -q 'MCP\|remark\|entity-relation\|knowledge graph' docs/references/bigpowers-mcp.md && echo OK
     description: |

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-04T12:10:39.704048+00:00",
+  "generated_at": "2026-07-04T18:02:40.657671+00:00",
   "matrix_version": "1.0",
   "stories": [
     {
@@ -235,6 +235,72 @@
         },
         {
           "file": "specs/epics/e39-knowledge-graph/e39s07-maintain-wiki-skill.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "bigpowers-mcp/test/fixtures/skills/broken-link/SKILL.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "bigpowers-mcp/test/fixtures/skills/missing-verify/SKILL.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "bigpowers-mcp/test/fixtures/skills/valid-skill/SKILL.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "bigpowers-mcp/build/lib/validate-skill.js.map",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "bigpowers-mcp/build/lib/validate-skill.d.ts",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "bigpowers-mcp/build/lib/skill-parser.d.ts",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "bigpowers-mcp/build/lib/skill-parser.js",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "bigpowers-mcp/build/lib/skill-parser.js.map",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "bigpowers-mcp/build/lib/validate-skill.js",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "bigpowers-mcp/src/lib/skill-parser.ts",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "bigpowers-mcp/src/lib/validate-skill.ts",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -690,6 +756,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "skills/plan-tests/SKILL.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "skills/seed-conventions/SKILL.md",
           "line": 0,
           "confidence": "medium",
@@ -744,7 +816,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 107
+      "link_count": 119
     },
     {
       "id": "e32s01",
@@ -753,16 +825,34 @@
       "epic_title": "MCP Semantic Context Server",
       "bcp": 3,
       "wsjf": 4.0,
-      "status": "backlog",
+      "status": "done",
       "links": [
         {
           "file": "specs/verifications/steps/and-files-should-be-small-enough-to-avoid-context-window-truncation-300-lines.sh",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e32-mcp-context-server/e32s01-mcp-spike.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "docs/references/bigpowers-mcp.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e32-mcp-context-server/e32s01-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
         }
       ],
-      "link_count": 1
+      "link_count": 4
     },
     {
       "id": "e32s02",
@@ -771,7 +861,7 @@
       "epic_title": "MCP Semantic Context Server",
       "bcp": 3,
       "wsjf": 4.0,
-      "status": "backlog",
+      "status": "done",
       "links": [
         {
           "file": "scripts/add-model-frontmatter.sh",
@@ -789,7 +879,7 @@
       "epic_title": "MCP Semantic Context Server",
       "bcp": 2,
       "wsjf": 4.0,
-      "status": "backlog",
+      "status": "done",
       "links": [],
       "link_count": 0
     },
@@ -800,9 +890,16 @@
       "epic_title": "MCP Semantic Context Server",
       "bcp": 1,
       "wsjf": 4.0,
-      "status": "backlog",
-      "links": [],
-      "link_count": 0
+      "status": "done",
+      "links": [
+        {
+          "file": "specs/tech-architecture/e32-TEST_PLAN_LATEST.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        }
+      ],
+      "link_count": 1
     },
     {
       "id": "e32s05",
@@ -811,7 +908,7 @@
       "epic_title": "MCP Semantic Context Server",
       "bcp": 2,
       "wsjf": 4.0,
-      "status": "backlog",
+      "status": "done",
       "links": [],
       "link_count": 0
     },
@@ -822,8 +919,14 @@
       "epic_title": "MCP Semantic Context Server",
       "bcp": 1,
       "wsjf": 4.0,
-      "status": "backlog",
+      "status": "done",
       "links": [
+        {
+          "file": ".mcp.json",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
         {
           "file": "opencode.json",
           "line": 0,
@@ -837,7 +940,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/epics/e32-mcp-context-server/e32s01-mcp-spike.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/epics/e21-mcp-discovery-tools/e21s01-mcp-server.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "docs/references/bigpowers-mcp.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -849,7 +964,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 4
+      "link_count": 7
     },
     {
       "id": "e32s07",
@@ -858,8 +973,14 @@
       "epic_title": "MCP Semantic Context Server",
       "bcp": 1,
       "wsjf": 4.0,
-      "status": "backlog",
+      "status": "done",
       "links": [
+        {
+          "file": "specs/verifications/steps/and-the-plan-specifies-test-levels-and-fixture-architectures.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
         {
           "file": "specs/verifications/steps/and-i-should-not-write-code-before-the-design-is-approved.sh",
           "line": 0,
@@ -867,7 +988,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 1
+      "link_count": 2
     },
     {
       "id": "e33s01",
@@ -1377,6 +1498,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260704-143153.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-005609.md",
           "line": 0,
           "confidence": "medium",
@@ -1599,6 +1726,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260704-143757.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260702-225914.md",
           "line": 0,
           "confidence": "medium",
@@ -1701,6 +1834,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260704-143840.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-214041.md",
           "line": 0,
           "confidence": "medium",
@@ -1708,6 +1847,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-155813.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260704-143504.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -1762,6 +1907,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260626-204652.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260704-091141.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -1846,6 +1997,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260629-130939.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260704-144202.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -2037,6 +2194,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260704-145833.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-142423.md",
           "line": 0,
           "confidence": "medium",
@@ -2068,6 +2231,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260704-082306.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260704-143447.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -2265,7 +2434,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260704-150200.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-163238.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260704-144506.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -2319,7 +2500,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 181
+      "link_count": 191
     },
     {
       "id": "e36s04",
@@ -2385,6 +2566,12 @@
         },
         {
           "file": "specs/verifications/steps/and-boundary-conditions-should-be-exhaustively-tested-t5.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-the-plan-specifies-test-levels-and-fixture-architectures.sh",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -2456,7 +2643,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 14
+      "link_count": 15
     },
     {
       "id": "e37s02",
@@ -2550,7 +2737,7 @@
     },
     {
       "id": "e39s01",
-      "title": "Emit the skill graph artifact via e43's MCP server (build_skill_graph tool), replacing the original standalone scripts/build-skill-graph.sh plan",
+      "title": "Consume e32 build_skill_graph MCP tool for skill graph artifact (replaces standalone build-skill-graph.sh)",
       "epic_id": "e39",
       "epic_title": "Semantic Context Bridge",
       "bcp": 3,
@@ -2582,73 +2769,7 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/steps/then-tests-should-follow-the-f-i-r-s-t-rubric.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/steps/given-the-system-architecture.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/steps/and-i-should-prioritize-the-minimum-viable-implementation.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/steps/and-there-should-be-clear-seams-for-testing-and-extension.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/steps/given-the-codebase-exists.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/steps/then-it-must-mandate-conventional-commits-1-0-0-and-semver-2-0-0.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/steps/and-i-should-match-the-existing-code-style-and-conventions.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/steps/then-i-should-surface-assumptions-before-writing-code.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/steps/and-i-should-reject-prs-that-do-not-meet-the-94-quality-threshold.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/steps/then-every-function-should-do-exactly-one-thing-g30.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
           "file": "specs/verifications/steps/given-a-skill-exists.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/steps/and-there-should-be-no-code-duplication-dry.sh",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -2660,157 +2781,7 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/steps/and-there-should-be-no-magic-strings-or-numbers-g25.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/steps/and-it-must-mandate-the-boy-scout-rule-leave-code-cleaner.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
           "file": "specs/verifications/steps/then-skills-should-include-bold-hard-gate-callout-blocks.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/steps/and-filenames-should-accurately-describe-their-contents-to-minimize-read-file-calls.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/steps/and-each-module-should-follow-the-single-responsibility-principle.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/steps/and-there-should-be-no-ignored-tests-without-an-explicit-ambiguity-note-t4.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/steps/and-there-should-be-no-commented-out-code-c5.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/steps/and-the-directory-structure-should-be-predictable.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/steps/and-it-must-mandate-the-srp-single-responsibility-principle.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/steps/then-modules-should-be-deep-simple-interface-complex-functionality.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/steps/then-functions-should-be-small-4-20-lines.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/steps/and-i-should-not-write-code-before-the-design-is-approved.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/steps/and-there-should-be-no-code-duplication-dry-g5.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/steps/and-it-must-mandate-the-f-i-r-s-t-rubric-for-tests.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/steps/then-it-should-pass.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/steps/then-this-step-always-fails.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/steps/and-error-messages-should-include-the-offending-value-and-expected-shape.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/steps/and-classes-should-follow-the-single-responsibility-principle-srp.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/steps/and-it-must-mandate-the-why-not-what-commenting-rule.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/steps/and-there-should-be-no-redundant-comments-that-restate-code.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/steps/and-error-messages-should-include-a-remediation-hint-for-the-agent.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/steps/given-the-file-conventions-md.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/steps/and-i-should-explain-the-code-s-purpose-and-callers-before-modifying-zoom-out.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/steps/then-public-symbols-should-be-unique-enough-to-be-searched-with-grep-5-results.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/steps/then-the-boy-scout-rule-should-be-applied-to-every-change-leave-it-cleaner.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/steps/then-names-should-be-intention-revealing-and-unambiguous-n1-n4.sh",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -2894,19 +2865,13 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/epics/e32-mcp-context-server/e32s01-mcp-spike.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/epics/e35-historical-refs/e35s10-cross-reference-skills.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/epics/e35-historical-refs/e35s03-feathers-reference.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/epics/e21-mcp-discovery-tools/e21s01-mcp-server.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -2925,6 +2890,72 @@
         },
         {
           "file": "specs/epics/e39-knowledge-graph/e39s07-maintain-wiki-skill.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "bigpowers-mcp/test/fixtures/skills/broken-link/SKILL.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "bigpowers-mcp/test/fixtures/skills/missing-verify/SKILL.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "bigpowers-mcp/test/fixtures/skills/valid-skill/SKILL.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "bigpowers-mcp/build/lib/validate-skill.js.map",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "bigpowers-mcp/build/lib/validate-skill.d.ts",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "bigpowers-mcp/build/lib/skill-parser.d.ts",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "bigpowers-mcp/build/lib/skill-parser.js",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "bigpowers-mcp/build/lib/skill-parser.js.map",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "bigpowers-mcp/build/lib/validate-skill.js",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "bigpowers-mcp/src/lib/skill-parser.ts",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "bigpowers-mcp/src/lib/validate-skill.ts",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -2955,12 +2986,6 @@
         },
         {
           "file": "scripts/install-cursor-skills-local.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "scripts/mcp-server.js",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -3380,6 +3405,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "skills/plan-tests/SKILL.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "skills/seed-conventions/SKILL.md",
           "line": 0,
           "confidence": "medium",
@@ -3434,7 +3465,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 146
+      "link_count": 120
     },
     {
       "id": "e39s02",
@@ -3776,6 +3807,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/steps/and-the-plan-specifies-test-levels-and-fixture-architectures.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/steps/and-i-should-automatically-bootstrap-project-context-at-session-start.sh",
           "line": 0,
           "confidence": "medium",
@@ -3812,7 +3849,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 7
+      "link_count": 8
     },
     {
       "id": "e39s10",
@@ -4022,6 +4059,12 @@
       "status": "backlog",
       "links": [
         {
+          "file": "specs/verifications/steps/and-the-plan-specifies-test-levels-and-fixture-architectures.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/steps/and-tests-should-verify-behavior-through-public-apis-not-implementation-t8.sh",
           "line": 0,
           "confidence": "medium",
@@ -4040,7 +4083,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 3
+      "link_count": 4
     },
     {
       "id": "e42s03",
@@ -4172,6 +4215,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/steps/given-a-sliced-epic-with-p0-or-p1-tasks.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/steps/and-files-should-remain-under-500-lines-newspaper-metaphor.sh",
           "line": 0,
           "confidence": "medium",
@@ -4257,6 +4306,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-superpowers-20260702-080048.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-superpowers-20260704-143201.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4550,6 +4605,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-superpowers-20260704-143514.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-superpowers-20260703-005410.md",
           "line": 0,
           "confidence": "medium",
@@ -4569,6 +4630,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-superpowers-20260704-000410.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-superpowers-20260704-145844.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4605,6 +4672,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-superpowers-20260626-204801.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-superpowers-20260704-143851.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4677,6 +4750,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-superpowers-20260703-235454.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-superpowers-20260704-144212.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4814,6 +4893,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-superpowers-20260704-143807.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-superpowers-20260703-173414.md",
           "line": 0,
           "confidence": "medium",
@@ -4910,6 +4995,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-superpowers-20260704-143457.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-superpowers-20260702-154434.md",
           "line": 0,
           "confidence": "medium",
@@ -4917,6 +5008,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-superpowers-20260703-122426.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-superpowers-20260704-150211.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5072,6 +5169,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-superpowers-20260704-091149.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-superpowers-20260629-132827.md",
           "line": 0,
           "confidence": "medium",
@@ -5115,6 +5218,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-superpowers-20260703-165710.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-superpowers-20260704-144516.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5270,7 +5379,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 184
+      "link_count": 195
     },
     {
       "id": "e43s01",
@@ -5341,6 +5450,12 @@
       "wsjf": 2.5,
       "status": "backlog",
       "links": [
+        {
+          "file": "specs/verifications/steps/given-a-sliced-epic-with-p0-or-p1-tasks.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
         {
           "file": "specs/verifications/steps/and-functions-should-descend-exactly-one-level-of-abstraction-g34.sh",
           "line": 0,
@@ -5666,6 +5781,30 @@
           "method": "file_heuristic"
         },
         {
+          "file": "bigpowers-mcp/build/lib/graph/builder.js.map",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "bigpowers-mcp/build/lib/graph/builder.d.ts",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "bigpowers-mcp/build/lib/graph/builder.js",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "bigpowers-mcp/src/lib/graph/builder.ts",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "docs/references/verification-patterns-extended.md",
           "line": 0,
           "confidence": "medium",
@@ -5702,7 +5841,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 60
+      "link_count": 65
     },
     {
       "id": "e43s03",
@@ -5715,6 +5854,12 @@
       "links": [
         {
           "file": "specs/verifications/steps/and-i-should-prioritize-the-minimum-viable-implementation.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-the-plan-specifies-test-levels-and-fixture-architectures.sh",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5960,7 +6105,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 41
+      "link_count": 42
     },
     {
       "id": "e43s04",
@@ -5971,6 +6116,12 @@
       "wsjf": 2.5,
       "status": "backlog",
       "links": [
+        {
+          "file": "specs/verifications/steps/and-the-plan-specifies-test-levels-and-fixture-architectures.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
         {
           "file": "specs/bugs/BUG-2026-07-03-golden-lock-stale-e37-ids.md",
           "line": 0,
@@ -6002,7 +6153,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 5
+      "link_count": 6
     },
     {
       "id": "e43s05",
@@ -6110,6 +6261,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/steps/and-the-plan-specifies-test-levels-and-fixture-architectures.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/steps/and-functions-should-stay-within-4-20-lines.sh",
           "line": 0,
           "confidence": "medium",
@@ -6170,6 +6327,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/steps/and-the-plan-contains-scenario-ids-in-the-format-sc-ennsyy-p-0-1-2-3-nn.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/steps/and-information-should-be-hidden-within-modules-not-leaked.sh",
           "line": 0,
           "confidence": "medium",
@@ -6218,7 +6381,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 31
+      "link_count": 33
     },
     {
       "id": "e44s02",
@@ -7181,8 +7344,14 @@
       "epic_title": "Risk-Based Verification \u2014 TEA-Informed Test Depth",
       "bcp": 3,
       "wsjf": 3.4,
-      "status": "backlog",
+      "status": "done",
       "links": [
+        {
+          "file": "docs/references/tea.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "specs/verifications/steps/then-it-must-mandate-conventional-commits-1-0-0-and-semver-2-0-0.sh",
           "line": 0,
@@ -7220,7 +7389,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 6
+      "link_count": 7
     },
     {
       "id": "e46s02",
@@ -7229,10 +7398,16 @@
       "epic_title": "Risk-Based Verification \u2014 TEA-Informed Test Depth",
       "bcp": 3,
       "wsjf": 3.4,
-      "status": "backlog",
+      "status": "done",
       "links": [
         {
           "file": "specs/WORKFLOW-solo-git.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-the-plan-contains-a-risk-matrix.sh",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -7328,7 +7503,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 16
+      "link_count": 17
     },
     {
       "id": "e46s03",
@@ -7337,9 +7512,165 @@
       "epic_title": "Risk-Based Verification \u2014 TEA-Informed Test Depth",
       "bcp": 4,
       "wsjf": 3.4,
-      "status": "backlog",
+      "status": "done",
       "links": [],
       "link_count": 0
+    },
+    {
+      "id": "e46s04",
+      "title": "Upstream test-design artifact \u2014 plan-tests skill, registered output path, scenario ID traceability",
+      "epic_id": "e46",
+      "epic_title": "Risk-Based Verification \u2014 TEA-Informed Test Depth",
+      "bcp": 6,
+      "wsjf": 3.4,
+      "status": "done",
+      "links": [
+        {
+          "file": "specs/SKILL-SEARCH-INDEX_LATEST.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/PLAN-AUDIT_LATEST.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/TRACEABILITY_LATEST.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/features/plan-tests.feature",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/then-tests-should-follow-the-f-i-r-s-t-rubric.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-the-plan-specifies-test-levels-and-fixture-architectures.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/then-it-produces-specs-tech-architecture-enn-test-plan-latest-md.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-tests-should-verify-behavior-through-public-apis-not-implementation-t8.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/when-i-run-plan-tests.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-there-should-be-no-ignored-tests-without-an-explicit-ambiguity-note-t4.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-it-must-mandate-the-f-i-r-s-t-rubric-for-tests.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-every-change-should-include-runnable-tests-as-verification.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-the-plan-contains-scenario-ids-in-the-format-sc-ennsyy-p-0-1-2-3-nn.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-tests-should-be-fast-and-run-with-a-single-command-t9.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-plan-tests-20260704-145844.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-plan-tests-20260704-143850.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-plan-tests-20260704-143514.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-plan-tests-20260704-143201.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-plan-tests-20260704-150211.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-plan-tests-20260704-143806.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-plan-tests-20260704-143457.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-03-negative-path-self-test.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/tech-architecture/e32-TEST_PLAN_LATEST.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "skills/develop-tdd/tests.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        }
+      ],
+      "link_count": 24
     },
     {
       "id": "e47s01",
@@ -7413,10 +7744,14 @@
     }
   ],
   "summary": {
-    "total_stories": 78,
-    "tagged_stories": 6,
-    "dark_stories": [],
-    "dark_count": 0,
+    "total_stories": 79,
+    "tagged_stories": 8,
+    "dark_stories": [
+      "e32s03",
+      "e32s05",
+      "e46s03"
+    ],
+    "dark_count": 3,
     "orphan_tags": [
       "e01s01",
       "e02s01",
@@ -7439,12 +7774,15 @@
       "e99s01"
     ],
     "orphan_count": 19,
-    "stale_tags": [],
-    "stale_count": 0,
+    "stale_tags": [
+      "e32s04",
+      "e46s01"
+    ],
+    "stale_count": 2,
     "oracle_stats": {
-      "high": 49,
-      "medium": 984,
-      "low": 47
+      "high": 51,
+      "medium": 1034,
+      "low": 48
     }
   }
 }

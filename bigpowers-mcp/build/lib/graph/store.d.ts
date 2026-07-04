@@ -1,0 +1,11 @@
+import type { GraphEntity, GraphRelation, SkillGraph } from "./types.js";
+export declare function emptyGraph(): SkillGraph;
+export declare function loadGraph(graphPath: string): SkillGraph;
+export declare function saveGraph(graphPath: string, graph: SkillGraph): void;
+export declare function searchNodes(graph: SkillGraph, query: string): GraphEntity[];
+export declare function openNodes(graph: SkillGraph, names: string[]): GraphEntity[];
+export declare function getRelationsFor(graph: SkillGraph, skillName: string): GraphRelation[];
+export declare function getForwardDeps(graph: SkillGraph, skillName: string): string[];
+export declare function getReverseDeps(graph: SkillGraph, skillName: string): string[];
+export declare function getHandoffChain(graph: SkillGraph, skillName: string): string[];
+export declare function getConventions(graph: SkillGraph, skillName: string): string[];

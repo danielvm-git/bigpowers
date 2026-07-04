@@ -20,7 +20,7 @@ build_order:
 - e37
 - e36
 done_epics_summary:
-  count: 33
+  count: 34
   source: specs/execution-status.yaml (development_status) — authoritative for completed epics; not re-listed
     here
   ids:
@@ -54,6 +54,7 @@ done_epics_summary:
   - e29
   - e30
   - e31
+  - e32
   - e34
   - e38
   - e40
@@ -71,7 +72,7 @@ epics:
   bcps: 13
   capsule_dir: epics/e32-mcp-context-server
   mode: capsule
-  status: active
+  status: done
 - id: e41
   title: Public Receipts — Live Evidence Page
   wsjf: 3.75

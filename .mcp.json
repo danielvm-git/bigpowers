@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "bigpowers-mcp": {
+      "command": "node",
+      "args": ["bigpowers-mcp/build/index.js"],
+      "cwd": "${workspaceFolder}"
+    }
+  }
+}

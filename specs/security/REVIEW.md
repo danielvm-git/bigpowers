@@ -1,19 +1,25 @@
-# Security Review — BUG-2026-07-04-stale-bak-features
+# Security Review — e32: bigpowers-mcp semantic context server
 
 ## Scope Resolution
-Scanned changes: `6c83112` — git diff `040808b..6c83112`
-Files changed: 3 spec files (BUG doc, registry.yaml, state.yaml)
-Languages: YAML/Markdown — no code changes.
+Scanned changes: `feat/e32-mcp-context-server` — `git diff main...HEAD`
+Files changed: `bigpowers-mcp/` (new TS MCP server), `.mcp.json`, docs, specs
+Languages: TypeScript, JSON, Markdown, YAML
 
 ## Vulnerability Assessment
-- **No code changes**: diff contains only documentation and YAML metadata updates
-- **No data flow changes**: no input/output paths modified
-- **No new dependencies**: no package.json or imports changed
-- **No secrets exposure**: no credentials, tokens, or keys in diff
-- **No injection vectors**: Markdown/YAML only — no eval, exec, or shell operations
+
+| Category | Finding | Severity | Mitigation |
+|----------|---------|----------|------------|
+| Path Traversal | `read_skill` accepts skill name param | MEDIUM | `resolveWithin()` + reject `..` — implemented in `src/lib/paths.ts` |
+| Command Injection | `get_git_context` shells out to git | MEDIUM | Fixed argv via `execFileSync`; scoped to `skills/` + `specs/` |
+| Secrets Exposure | git diff may include secrets | MEDIUM | Denylist `.env*`, `*.pem`, `*credentials*` in `git-context.ts` |
+| Arbitrary File Read | MCP tools read repo files | LOW | Allowlist: skills/, specs/ only |
+| Auth Bypass | Local stdio MCP | NONE | No network listener |
+
+Threat model: `specs/security/epics/e32/THREAT_MODEL.md` (pre-flight, 2026-07-04)
 
 ## False-Positive Filtering
-- All zero findings — nothing to filter
+- Compiled `build/` output is generated from reviewed source — no manual edits
+- `.mcp.json` uses workspace-relative paths only (no absolute home paths)
 
 ## Verdict
-**PASS** — No security issues. Specs-only change. No code, no data flow, no secrets.
+**PASS** — MEDIUM risks mitigated per threat model. No unresolved HIGH findings. Re-review at e32s04 scope was satisfied in this branch (git tool included with allowlist).

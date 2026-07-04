@@ -23,6 +23,10 @@ specs/.obsidian/
 .rtk/
 .ctxo/index/
 
+# bigpowers-mcp generated artifacts
+bigpowers-mcp/graph.jsonl
+bigpowers-mcp/node_modules/
+
 # Python virtualenvs and bytecode
 .venv/
 venv/

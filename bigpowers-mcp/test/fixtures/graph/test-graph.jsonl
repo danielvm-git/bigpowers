@@ -1,0 +1,5 @@
+{"type":"entity","name":"valid-skill","entityType":"Skill","observations":["model: haiku","effort: light","description: A valid fixture skill for parser tests."]}
+{"type":"relation","from":"plan-work","to":"survey-context.","relationType":"depends_on"}
+{"type":"relation","from":"plan-work","to":"survey-context.","relationType":"depends_on"}
+{"type":"relation","from":"valid-skill","to":"other-skill","relationType":"references"}
+{"type":"relation","from":"valid-skill","to":"other-skill","relationType":"references"}
