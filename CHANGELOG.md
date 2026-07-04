@@ -1,3 +1,10 @@
+## [2.61.2](https://github.com/danielvm-git/bigpowers/compare/v2.61.1...v2.61.2) (2026-07-04)
+
+
+### Bug Fixes
+
+* **e32:** inline story tags so tsc emit survives strict trace gate ([dcf45f6](https://github.com/danielvm-git/bigpowers/commit/dcf45f64342c8f68bf8e54174575a7b83ea2be72))
+
 ## [2.61.1](https://github.com/danielvm-git/bigpowers/compare/v2.61.0...v2.61.1) (2026-07-04)
 
 

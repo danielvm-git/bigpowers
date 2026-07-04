@@ -1,5 +1,5 @@
 release:
-  version: 2.61.1
+  version: 2.61.2
   codename: Deepening
   status: released
   semantic_release: true
