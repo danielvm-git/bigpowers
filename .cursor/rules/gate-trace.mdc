@@ -70,10 +70,6 @@ gate_trace:
 - scripts/check-blind-spots.sh (e38s04) — produces blind-spots.json.
 - specs/execution-status.yaml — output target for gate result.
 
-## Verify
-
-→ verify: `test -f skills/gate-trace/SKILL.md && grep -q 'PASS.*CONCERNS.*FAIL.*WAIVED' skills/gate-trace/SKILL.md && echo "OK: gate-trace skill created" || echo "FAIL"`
-
 ## Handoff
 
 Gate: READY → next: release-branch (final step before merge)

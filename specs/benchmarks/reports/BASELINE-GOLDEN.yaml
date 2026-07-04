@@ -1,95 +1,120 @@
-timestamp: "2026-07-03T03:57:19Z"
-git_commit: "34d0ce89c4a26915786bd9b45379e7f2c289cc06"
+timestamp: "2026-07-04T11:51:20Z"
+git_commit: "1a7e6dbe83b3f418b5ee8ee1e8621cc8cb05acc3"
 suite: "golden-deterministic"
 mode: "baseline"
 gates:
-- name: compliance
-  exit_code: 0
-  duration_seconds: 16.74
-  status: pass
-- name: g04-selftest
-  exit_code: 1
-  duration_seconds: .03
-  status: fail
+  - name: compliance
+    exit_code: 0
+    duration_seconds: 7.16
+    status: pass
+  - name: g04-selftest
+    exit_code: 0
+    duration_seconds: .03
+    status: pass
+  - name: g07-negative-path
+    exit_code: 0
+    duration_seconds: .08
+    status: pass
+  - name: g08-anti-vacuity
+    exit_code: 0
+    duration_seconds: .22
+    status: pass
+  - name: g09-yaml-roundtrip
+    exit_code: 0
+    duration_seconds: .42
+    status: pass
+  - name: g10-trace-anti-vacuity
+    exit_code: 0
+    duration_seconds: .23
+    status: pass
+  - name: g11-gitignore-venv
+    exit_code: 1
+    duration_seconds: .05
+    status: fail
+  - name: specs-parse
+    exit_code: 0
+    duration_seconds: 1.63
+    status: pass
 summary:
-  total: 2
-  passed: 1
+  total: 8
+  passed: 7
   failed: 1
   skipped: 0
-  pass_rate: .50
+  pass_rate: .87
   overall: "fail"
 
 # Skill byte counts (baseline for e31s04 size budget)
 skill_sizes:
-  align-grid: 12066
-  assess-impact: 3090
-  audit-code: 5894
-  audit-plan: 3580
-  build-epic: 5171
-  change-request: 2574
-  commit-message: 3512
-  compose-workflow: 2130
-  craft-skill: 2755
-  deepen-architecture: 6069
-  define-language: 3965
-  define-success: 2748
-  delegate-task: 3244
-  deploy: 4090
-  design-interface: 3650
-  develop-tdd: 4543
-  diagnose-root: 1257
-  dispatch-agents: 3192
-  edit-document: 1214
-  elaborate-spec: 3994
-  enforce-first: 3425
-  evolve-skill: 1729
-  execute-plan: 2204
-  extract-design: 4084
-  fix-bug: 2283
-  grill-me: 1960
-  grill-with-docs: 1425
-  guard-git: 2828
-  hook-commits: 2478
-  inspect-quality: 4466
-  investigate-bug: 4974
-  kickoff-branch: 4500
-  map-codebase: 3415
-  migrate-spec: 5435
-  model-domain: 4746
-  orchestrate-project: 3678
-  organize-workspace: 3911
-  plan-refactor: 3034
-  plan-release: 5856
-  plan-work: 4044
-  publish-package: 2857
-  quick-fix: 4370
-  release-branch: 5055
-  request-review: 3533
-  research-first: 2391
-  reset-baseline: 780
-  respond-review: 2151
-  run-benchmark: 2607
-  run-evals: 1259
-  run-planning: 4661
-  scope-work: 3874
-  search-skills: 3288
-  security-review: 2979
-  seed-conventions: 3915
-  session-state: 5975
-  setup-environment: 1106
-  simulate-agents: 1243
-  slice-tasks: 4312
-  smoke-test: 2151
-  spike-prototype: 3305
-  stocktake-skills: 2349
-  survey-context: 5467
-  terse-mode: 2132
-  trace-requirement: 2477
-  using-bigpowers: 4732
-  validate-contracts: 3483
-  validate-fix: 3769
-  verify-work: 6044
-  visual-dashboard: 2042
-  wire-ci: 5066
-  wire-observability: 3231
-  write-document: 5119
+  align-grid: 12083
+  assess-impact: 3107
+  audit-code: 5911
+  audit-plan: 3597
+  build-epic: 5678
+  change-request: 2591
+  commit-message: 3529
+  compose-workflow: 2147
+  craft-skill: 2772
+  deepen-architecture: 6086
+  define-language: 3982
+  define-success: 2765
+  delegate-task: 3261
+  deploy: 4107
+  design-interface: 3667
+  develop-tdd: 4560
+  diagnose-root: 1274
+  dispatch-agents: 3209
+  edit-document: 1231
+  elaborate-spec: 4011
+  enforce-first: 3442
+  evolve-skill: 2031
+  execute-plan: 2221
+  extract-design: 4101
+  fix-bug: 2300
+  gate-trace: 3095
+  grill-me: 1977
+  grill-with-docs: 1442
+  guard-git: 2845
+  hook-commits: 2495
+  inspect-quality: 4483
+  investigate-bug: 4991
+  kickoff-branch: 4517
+  map-codebase: 3432
+  migrate-spec: 5452
+  model-domain: 4763
+  orchestrate-project: 3695
+  organize-workspace: 3928
+  plan-refactor: 3051
+  plan-release: 5872
+  plan-work: 4061
+  publish-package: 2626
+  quick-fix: 4387
+  release-branch: 5072
+  request-review: 3550
+  research-first: 2408
+  reset-baseline: 797
+  respond-review: 2168
+  run-benchmark: 2474
+  run-evals: 1276
+  run-planning: 4678
+  scope-work: 3891
+  search-skills: 3305
+  security-review: 2996
+  seed-conventions: 3932
+  session-state: 6489
+  setup-environment: 1123
+  simulate-agents: 1260
+  slice-tasks: 4329
+  smoke-test: 2168
+  spike-prototype: 3322
+  stocktake-skills: 2366
+  survey-context: 5694
+  terse-mode: 2149
+  trace-requirement: 2494
+  using-bigpowers: 4793
+  validate-contracts: 3500
+  validate-fix: 3786
+  verify-work: 6428
+  visual-dashboard: 1926
+  wire-ci: 4859
+  wire-observability: 3248
+  write-document: 5136

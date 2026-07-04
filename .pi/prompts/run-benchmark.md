@@ -63,7 +63,3 @@ scenarios:
    - `IMPROVED: 0.67 → 0.83`
    - `REGRESSION: 0.83 → 0.67 — do NOT ship this change`
    - `STABLE: 0.83 = 0.83`
-
-## Verify
-
-→ verify: `test -f skills/run-benchmark/SKILL.md && grep -q 'pass_at_k\|pass.at.k' skills/run-benchmark/SKILL.md && echo OK || echo FAIL`

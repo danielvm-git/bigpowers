@@ -1,48 +1,51 @@
-active_flow: null
+active_flow: fix_bug
+bigpowers_version: 2.59.7
+bug_cycle:
+  completed_steps:
+  - 1
+  - 2
+  - 3
+  - 4
+  current_step: 5
 bug_id: null
 handoff:
-  next_skill: survey-context
-  context: 'Issue #38 complete. release-branch gates: compliance 88/88,
-    commits conventional, security review clean (specs-only, no code),
-    traceability WAIVED (no gate-trace script), CI 2/2 passed at 6c83112,
-    cycle time recorded. Landed on main.'
-bug_cycle:
-  current_step: null
-  completed_steps: []
-previous_handoff:
-  next_skill: survey-context
-  context: 'BUG-2026-07-03-trace-engine-vacuous-gate fixed and landed. This was the third and final fail-open
-    bug in the bug class cluster: - BUG-2026-07-03-validate-specs-no-real-parser → fixed (real YAML parser)
-    - BUG-2026-07-03-yaml-roundtrip-corruption → fixed (PyYAML round-trip) - BUG-2026-07-03-trace-engine-vacuous-gate
-    → fixed (PyYAML + floor assertion + G-10)'
-release:
-  ci_verified: true
-  released_at: '2026-07-04T08:35:00Z'
-  commit: 6c83112
-bigpowers_version: 2.59.7
-node20_migration:
-  completed: true
-  commit: 5b6f1dd
-  changes: actions/checkout v4→v6, concurrency, timeout-minutes
+  context: 'Issue #39 fixed: removed 7 tautological verify commands from 5 non-critical
+    skills. Compliance 88/88. Golden suite 7/8 (G-11 pre-existing). Ready for release-branch.'
+  next_skill: release-branch
 metrics:
+  epic_e31:
+    completed_at: '2026-07-03T04:10:07Z'
+    prs: []
+    stories: 7
+    total_bcps: 11
   skill_timings:
-    survey-context:
-      calls: 0
-      total_seconds: 0
-      avg_seconds: 0
-      _start: '2026-06-28T23:57:13Z'
-    release-branch:
-      calls: 2
-      total_seconds: 472.0
-      avg_seconds: 236.0
     plan-work:
+      avg_seconds: 101.0
       calls: 1
       total_seconds: 101.0
-      avg_seconds: 101.0
-  story_start: '2026-07-02T23:00:00Z'
+    release-branch:
+      avg_seconds: 236.0
+      calls: 2
+      total_seconds: 472.0
+    survey-context:
+      _start: '2026-06-28T23:57:13Z'
+      avg_seconds: 0
+      calls: 0
+      total_seconds: 0
   story_end: '2026-07-03T12:30:00Z'
-  epic_e31:
-    total_bcps: 11
-    stories: 7
-    prs: []
-    completed_at: '2026-07-03T04:10:07Z'
+  story_start: '2026-07-02T23:00:00Z'
+node20_migration:
+  changes: actions/checkout v4→v6, concurrency, timeout-minutes
+  commit: 5b6f1dd
+  completed: true
+previous_handoff:
+  context: 'BUG-2026-07-03-trace-engine-vacuous-gate fixed and landed. This was the
+    third and final fail-open bug in the bug class cluster: - BUG-2026-07-03-validate-specs-no-real-parser
+    → fixed (real YAML parser) - BUG-2026-07-03-yaml-roundtrip-corruption → fixed
+    (PyYAML round-trip) - BUG-2026-07-03-trace-engine-vacuous-gate → fixed (PyYAML
+    + floor assertion + G-10)'
+  next_skill: survey-context
+release:
+  ci_verified: true
+  commit: 6c83112
+  released_at: '2026-07-04T08:35:00Z'
