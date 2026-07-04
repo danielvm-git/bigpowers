@@ -165,6 +165,16 @@ bugs:
     file: bugs/BUG-2026-07-03-yaml-roundtrip-corruption.md
     risk_level: "critical"
     commit_message: "fix(release-pipeline): stop YAML round-trip corruption, recover specs"
+  - id: BUG-2026-07-04-stale-bak-features
+    status: fixed
+    severity: low
+    scope: specs
+    title: "Stale .bak file in features directory — karpathy.feature.bak"
+    file: bugs/BUG-2026-07-04-stale-bak-features.md
+    files_changed: "specs/verifications/features/karpathy.feature.bak"
+    approach: "Delete stale backup file; fixed on main in commit 21e85ec"
+    risk_level: "low"
+    commit_message: "fix(specs): delete stale karpathy.feature.bak from features directory"
   - id: BUG-2026-07-03T020000
     status: fixed
     severity: high

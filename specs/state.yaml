@@ -1,14 +1,17 @@
-active_flow: null
-bug_id: null
+active_flow: fix_bug
+bug_id: BUG-2026-07-04-stale-bak-features
 handoff:
   next_skill: release-branch
-  context: 'fix_bug cleared all 3 remaining open bugs: capsule-release-labels (added missing provenance
-    comments), glossary-sparse (already populated, just needed status sync), trace-stories-613-line (waivers.yaml
-    updated to reference CONVENTIONS.md File-Size Exceptions table). Registry now 24/24 fixed, zero open.
-    compliance 88/88 100% GATE PASS, golden suite 8/8. Not yet committed/landed — awaiting release-branch.'
+  context: 'GitHub issue #38 — stale .bak file in specs/verifications/features/.
+    File already deleted on main (commit 21e85ec). BUG file created, registry
+    updated, verify passes. Ready for release-branch (specs-only changes).'
 bug_cycle:
-  current_step: null
-  completed_steps: []
+  current_step: 5
+  completed_steps:
+    - 1  # investigate-bug — BUG file created, registry updated
+    - 2  # diagnose-root — RCA documented in BUG file
+    - 3  # develop-tdd — N/A (data-only fix, file already deleted on main)
+    - 4  # validate-fix — verify command passes: test ! -f ...bak → OK
 previous_handoff:
   next_skill: survey-context
   context: 'BUG-2026-07-03-trace-engine-vacuous-gate fixed and landed. This was the third and final fail-open
