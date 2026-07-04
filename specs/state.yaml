@@ -2,22 +2,17 @@ active_flow: fix_bug
 bug_id: BUG-2026-07-03-trace-engine-vacuous-gate
 handoff:
   next_skill: fix-bug
-  context: >
-    BUG-2026-07-03-validate-specs-no-real-parser and
-    BUG-2026-07-03-yaml-roundtrip-corruption both fixed, verified (golden
-    suite 6/6), and landed on main (db09bbf). CI failed on push: "Sync
-    Skills on Push" -> "Traceability gate (--strict)" ->
-    "trace-stories.sh: STRICT FAIL — P0 stories with 0% coverage: e32s03,
-    e32s04, e32s05". This is NOT a regression — it's the pre-existing,
-    already-logged BUG-2026-07-03-trace-engine-vacuous-gate (trace-stories.py
-    has its own separate copy of the same lossy hand-rolled YAML parser,
-    previously seeing only 1 story out of ~240 and passing --strict
-    vacuously). Fixing release-plan.yaml gave it real data for the first
-    time, and it correctly found a real, previously-invisible gap. Next:
-    either fix trace-stories.py's parser (same PyYAML fix pattern) and then
-    address e32s03-05 coverage, or address coverage first if the gate should
-    stay soft-blocked meanwhile. CI run:
-    https://github.com/danielvm-git/bigpowers/actions/runs/28689592654
+  context: 'BUG-2026-07-03-validate-specs-no-real-parser and BUG-2026-07-03-yaml-roundtrip-corruption
+    both fixed, verified (golden suite 6/6), and landed on main (db09bbf). CI failed on push: "Sync Skills
+    on Push" -> "Traceability gate (--strict)" -> "trace-stories.sh: STRICT FAIL — P0 stories with 0%
+    coverage: e32s03, e32s04, e32s05". This is NOT a regression — it''s the pre-existing, already-logged
+    BUG-2026-07-03-trace-engine-vacuous-gate (trace-stories.py has its own separate copy of the same lossy
+    hand-rolled YAML parser, previously seeing only 1 story out of ~240 and passing --strict vacuously).
+    Fixing release-plan.yaml gave it real data for the first time, and it correctly found a real, previously-invisible
+    gap. Next: either fix trace-stories.py''s parser (same PyYAML fix pattern) and then address e32s03-05
+    coverage, or address coverage first if the gate should stay soft-blocked meanwhile. CI run: https://github.com/danielvm-git/bigpowers/actions/runs/28689592654
+
+    '
 bug_cycle:
   current_step: 1
   completed_steps: []
@@ -44,7 +39,7 @@ release:
   released_at: '2026-07-03T21:04:06Z'
   commit: ed6f1c0
   tag: v2.58.4 (semantic-release)
-bigpowers_version: 2.58.8
+bigpowers_version: 2.58.9
 node20_migration:
   completed: true
   commit: 5b6f1dd

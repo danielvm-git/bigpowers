@@ -1,3 +1,10 @@
+## [2.58.9](https://github.com/danielvm-git/bigpowers/compare/v2.58.8...v2.58.9) (2026-07-04)
+
+
+### Bug Fixes
+
+* **trace:** exclude backlog stories from strict P0 gate ([4341ea0](https://github.com/danielvm-git/bigpowers/commit/4341ea0360a74bf5955a25174827c19d5c996a94))
+
 ## [2.58.8](https://github.com/danielvm-git/bigpowers/compare/v2.58.7...v2.58.8) (2026-07-04)
 
 
