@@ -2,10 +2,21 @@ id: e32
 title: "MCP Semantic Context Server"
 wsjf: 4.00
 bcps: 13
-status: proposed
+status: active
 release: v2.7x/v3.0 "Semantic Bridge" (leads)
 codename: "Deepening"
 supersedes: scripts/mcp-server.js (e21 prototype)
+preflight:
+  completed_at: "2026-07-04"
+  artifacts:
+    - specs/tech-architecture/e32-TEST_PLAN_LATEST.md
+    - specs/tech-architecture/IMPACT_LATEST.md
+    - specs/security/epics/e32/THREAT_MODEL.md
+    - specs/epics/e32-mcp-context-server/e32s01-mcp-spike.md
+    - specs/epics/e32-mcp-context-server/e32s01-tasks.yaml
+  build_order_waiver: "e32s01 spike proceeds before e42s02-s04 and e47 complete; e32s06 waits for e47 pi wiring or dual-setup doc"
+depends_on:
+  - e42  # soft — golden suite; waived for s01 spike per IMPACT_LATEST.md
 note: >
   Absorbs and replaces scripts/mcp-server.js (shipped by e21 as an MCP
   discovery prototype). e32 builds a production-grade TypeScript MCP server
@@ -29,6 +40,10 @@ source: |
 stories:
   - id: e32s01
     bcp: 3
+    status: todo
+    risk: P0
+    spec: e32s01-mcp-spike.md
+    tasks: e32s01-tasks.yaml
     title: "Spike: build bigpowers-mcp with index_skills + read_skill, validate against all SKILL.md files"
     verify: test -d bigpowers-mcp/ && test -f bigpowers-mcp/package.json && npx @modelcontextprotocol/inspector node bigpowers-mcp/build/index.js >/dev/null 2>&1 && echo OK
     description: |
@@ -63,7 +78,7 @@ stories:
         /see\s+skills\/(\S+)\/SKILL.md/g
       - Persist graph as JSONL file (bigpowers-mcp/graph.jsonl) for fast startup
       - Expose read_graph, search_nodes, open_nodes query methods
-      Built on top of index_skills + read_skill (e40s01). Each skill's
+      Built on top of index_skills + read_skill (e32s01). Each skill's
       frontmatter + prose is parsed once, then the graph is built incrementally.
 
   - id: e32s03

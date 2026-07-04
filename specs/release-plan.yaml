@@ -71,7 +71,7 @@ epics:
   bcps: 13
   capsule_dir: epics/e32-mcp-context-server
   mode: capsule
-  status: proposed
+  status: active
 - id: e41
   title: Public Receipts — Live Evidence Page
   wsjf: 3.75

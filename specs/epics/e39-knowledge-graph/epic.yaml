@@ -9,6 +9,11 @@ depends_on:
   - e33
 soft_depends_on:
   - e40
+  - e32  # e39s01 graph artifact comes from bigpowers-mcp build_skill_graph (e32s02), not standalone script
+note: >
+  e39s01 SUPERSEDED PATH (2026-07-04): standalone scripts/build-skill-graph.sh
+  deferred. e39s01 consumes e32 MCP build_skill_graph tool after e32s02 lands.
+  See specs/tech-architecture/IMPACT_LATEST.md and e32 epic preflight.
 source: |
   Session 2026-07-02/03 — Stack-layer gap analysis of bigpowers vs.
   "The Agentic Coding Stack: 5 Layers and the Missing Link" by Murat Aslan.
@@ -22,10 +27,11 @@ source: |
 stories:
   - id: e39s01
     bcp: 3
-    title: "Emit the skill graph artifact via e43's MCP server (build_skill_graph tool), replacing the original standalone scripts/build-skill-graph.sh plan"
+    title: "Consume e32 build_skill_graph MCP tool for skill graph artifact (replaces standalone build-skill-graph.sh)"
     spec: e39s01-build-skill-graph.md
     tasks: e39s01-tasks.yaml
-    status: todo
+    status: blocked
+    blocked_by: e32s02
   - id: e39s02
     bcp: 2
     title: "Create specs/agent-locks.yaml — multi-agent coordination protocol"

@@ -1,11 +1,16 @@
 STORY KEY: E39-S01
-TITLE:     Create scripts/build-skill-graph.sh — parse handoff chains and dependencies from 72 SKILL.md files
+TITLE:     Consume e32 build_skill_graph MCP tool — skill reference graph artifact
 TYPE:      Story
 PARENT:    e39
-STATUS:    Draft
+STATUS:    Blocked (e32s02)
 AUTHOR:    dvm           DATE: 2026-07-03
 MATURITY:  3
 SIZE:      M
+
+> **SUPERSESSION (2026-07-04):** Standalone `scripts/build-skill-graph.sh` is
+> deferred. This story now consumes `build_skill_graph` from `bigpowers-mcp`
+> (epic e32, story e32s02). Do not implement the shell script path. Update
+> tasks when e32s02 lands to call MCP tool or read `bigpowers-mcp/graph.jsonl`.
 
 ### 1. Business narrative
 The 72 skills under skills/ form an implicit dependency graph — handoff chains
