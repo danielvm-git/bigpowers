@@ -1,39 +1,22 @@
-active_flow: fix_bug
-bug_id: BUG-2026-07-03-trace-engine-vacuous-gate
+active_flow: null
+bug_id: null
 handoff:
-  next_skill: fix-bug
-  context: 'BUG-2026-07-03-validate-specs-no-real-parser and BUG-2026-07-03-yaml-roundtrip-corruption
-    both fixed, verified (golden suite 6/6), and landed on main (db09bbf). CI failed on push: "Sync Skills
-    on Push" -> "Traceability gate (--strict)" -> "trace-stories.sh: STRICT FAIL — P0 stories with 0%
-    coverage: e32s03, e32s04, e32s05". This is NOT a regression — it''s the pre-existing, already-logged
-    BUG-2026-07-03-trace-engine-vacuous-gate (trace-stories.py has its own separate copy of the same lossy
-    hand-rolled YAML parser, previously seeing only 1 story out of ~240 and passing --strict vacuously).
-    Fixing release-plan.yaml gave it real data for the first time, and it correctly found a real, previously-invisible
-    gap. Next: either fix trace-stories.py''s parser (same PyYAML fix pattern) and then address e32s03-05
-    coverage, or address coverage first if the gate should stay soft-blocked meanwhile. CI run: https://github.com/danielvm-git/bigpowers/actions/runs/28689592654
-
-    '
+  next_skill: survey-context
+  context: 'BUG-2026-07-03-trace-engine-vacuous-gate fixed and landed on main (67f7c71).
+    PyYAML replaced parse_simple_yaml() in trace-stories.py. Floor assertion (50)
+    ensures --strict fails closed. G-10 golden test wired into golden suite (7/7).
+    CI should no longer pass vacuously on the traceability gate.
+    Next: survey-context → build-epic on whatever epic is next (e28?).'
 bug_cycle:
-  current_step: 5
-  completed_steps: [1, 2, 3, 4]
+  current_step: null
+  completed_steps: [1, 2, 3, 4, 5]
 previous_handoff:
   next_skill: survey-context
-  context: 'ALL 5 PLAN-AUDIT red-team bugs FIXED and LANDED on main:
-
-    - P0 #1 waiver-scoring (985b67d): waiver subsystem in audit-compliance.sh
-
-    - P0 #2 negative-path-self-test (43a05b7): G-07 self-test wired into golden suite
-
-    - P2 capsule-release-labels (15b18f4): 8 capsule labels synced to release trains
-
-    - P2 glossary-sparse (8a22358): 19 core domain terms populated
-
-    - P3 trace-stories-613-line (607c0fd): documented exception in CONVENTIONS.md
-
-    PLAN-AUDIT full-project re-audit 2026-07-03: 7 capsule_dir mismatches fixed. All CI passed. 0 open
-    bugs at that point. Next was: survey-context -> build-epic on e28.
-
-    (Superseded by this session''s bug-fix work on BUG-2026-07-03-validate-specs-no-real-parser and BUG-2026-07-03-yaml-roundtrip-corruption.)'
+  context: 'BUG-2026-07-03-trace-engine-vacuous-gate fixed and landed.
+    This was the third and final fail-open bug in the bug class cluster:
+    - BUG-2026-07-03-validate-specs-no-real-parser → fixed (real YAML parser)
+    - BUG-2026-07-03-yaml-roundtrip-corruption → fixed (PyYAML round-trip)
+    - BUG-2026-07-03-trace-engine-vacuous-gate → fixed (PyYAML + floor assertion + G-10)'
 release:
   ci_verified: true
   released_at: '2026-07-03T21:04:06Z'
