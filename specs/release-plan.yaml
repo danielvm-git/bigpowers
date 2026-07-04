@@ -43,6 +43,13 @@ done_epics_summary:
   - e38
   - e40
 epics:
+- id: e47
+  title: Cross-Tool Skill Distribution — global install + per-project seed
+  wsjf: 4.3
+  bcps: 9
+  capsule_dir: epics/e47-cross-tool-distribution
+  mode: capsule
+  status: proposed
 - id: e32
   title: MCP Semantic Context Server
   wsjf: 4.0
