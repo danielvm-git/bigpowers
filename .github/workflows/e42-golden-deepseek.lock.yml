@@ -53,7 +53,7 @@
 name: "Golden Story G-01: CI Gate Regression Test"
 on:
   schedule:
-  - cron: "52 2 * * 1"
+  - cron: "36 5 * * 1"
     # Friendly format: weekly on monday (scattered)
   workflow_dispatch:
     inputs:
@@ -103,7 +103,7 @@ jobs:
           safe-output-artifact-client: ${{ env.GH_AW_MAX_DAILY_AI_CREDITS != '' }}
         env:
           GH_AW_SETUP_WORKFLOW_NAME: "Golden Story G-01: CI Gate Regression Test"
-          GH_AW_CURRENT_WORKFLOW_REF: ${{ github.repository }}/.github/workflows/e37-golden-deepseek.lock.yml@${{ github.ref }}
+          GH_AW_CURRENT_WORKFLOW_REF: ${{ github.repository }}/.github/workflows/e42-golden-deepseek.lock.yml@${{ github.ref }}
           GH_AW_INFO_VERSION: "2.1.191"
           GH_AW_INFO_AWF_VERSION: "v0.27.11"
           GH_AW_INFO_ENGINE_ID: "claude"
@@ -163,7 +163,7 @@ jobs:
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         env:
           GH_AW_WORKFLOW_NAME: "Golden Story G-01: CI Gate Regression Test"
-          GH_AW_WORKFLOW_ID: "e37-golden-deepseek"
+          GH_AW_WORKFLOW_ID: "e42-golden-deepseek"
           GH_AW_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           GH_AW_WORKFLOW_DISPATCH_AW_CONTEXT: ${{ github.event.inputs.aw_context || '' }}
           GH_AW_HAS_SLASH_COMMAND: "false"
@@ -208,7 +208,7 @@ jobs:
         id: check-lock-file
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         env:
-          GH_AW_WORKFLOW_FILE: "e37-golden-deepseek.lock.yml"
+          GH_AW_WORKFLOW_FILE: "e42-golden-deepseek.lock.yml"
           GH_AW_CONTEXT_WORKFLOW_REF: "${{ github.workflow_ref }}"
         with:
           script: |
@@ -245,24 +245,24 @@ jobs:
         run: |
           bash "${RUNNER_TEMP}/gh-aw/actions/create_prompt_first.sh"
           {
-          cat << 'GH_AW_PROMPT_b6f0e84ea22ee40b_EOF'
+          cat << 'GH_AW_PROMPT_6e65679f030d596b_EOF'
           <system>
-          GH_AW_PROMPT_b6f0e84ea22ee40b_EOF
+          GH_AW_PROMPT_6e65679f030d596b_EOF
           cat "${RUNNER_TEMP}/gh-aw/prompts/xpia.md"
           cat "${RUNNER_TEMP}/gh-aw/prompts/temp_folder_prompt.md"
           cat "${RUNNER_TEMP}/gh-aw/prompts/markdown.md"
           cat "${RUNNER_TEMP}/gh-aw/prompts/safe_outputs_prompt.md"
-          cat << 'GH_AW_PROMPT_b6f0e84ea22ee40b_EOF'
+          cat << 'GH_AW_PROMPT_6e65679f030d596b_EOF'
           <safe-output-tools>
           Tools: add_comment, create_issue(max:3), create_pull_request, push_to_pull_request_branch, missing_tool, missing_data, noop
-          GH_AW_PROMPT_b6f0e84ea22ee40b_EOF
+          GH_AW_PROMPT_6e65679f030d596b_EOF
           cat "${RUNNER_TEMP}/gh-aw/prompts/safe_outputs_create_pull_request.md"
           cat "${RUNNER_TEMP}/gh-aw/prompts/safe_outputs_push_to_pr_branch.md"
-          cat << 'GH_AW_PROMPT_b6f0e84ea22ee40b_EOF'
+          cat << 'GH_AW_PROMPT_6e65679f030d596b_EOF'
           </safe-output-tools>
-          GH_AW_PROMPT_b6f0e84ea22ee40b_EOF
+          GH_AW_PROMPT_6e65679f030d596b_EOF
           cat "${RUNNER_TEMP}/gh-aw/prompts/mcp_cli_tools_prompt.md"
-          cat << 'GH_AW_PROMPT_b6f0e84ea22ee40b_EOF'
+          cat << 'GH_AW_PROMPT_6e65679f030d596b_EOF'
           <github-context>
           The following GitHub context information is available for this workflow:
           {{#if github.actor}}
@@ -291,12 +291,12 @@ jobs:
           {{/if}}
           </github-context>
           
-          GH_AW_PROMPT_b6f0e84ea22ee40b_EOF
+          GH_AW_PROMPT_6e65679f030d596b_EOF
           cat "${RUNNER_TEMP}/gh-aw/prompts/github_mcp_tools_with_safeoutputs_prompt.md"
-          cat << 'GH_AW_PROMPT_b6f0e84ea22ee40b_EOF'
+          cat << 'GH_AW_PROMPT_6e65679f030d596b_EOF'
           </system>
-          {{#runtime-import .github/workflows/e37-golden-deepseek.md}}
-          GH_AW_PROMPT_b6f0e84ea22ee40b_EOF
+          {{#runtime-import .github/workflows/e42-golden-deepseek.md}}
+          GH_AW_PROMPT_6e65679f030d596b_EOF
           } > "$GH_AW_PROMPT"
       - name: Interpolate variables and render templates
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
@@ -421,7 +421,7 @@ jobs:
           parent-span-id: ${{ needs.activation.outputs.setup-parent-span-id || needs.activation.outputs.setup-span-id }}
         env:
           GH_AW_SETUP_WORKFLOW_NAME: "Golden Story G-01: CI Gate Regression Test"
-          GH_AW_CURRENT_WORKFLOW_REF: ${{ github.repository }}/.github/workflows/e37-golden-deepseek.lock.yml@${{ github.ref }}
+          GH_AW_CURRENT_WORKFLOW_REF: ${{ github.repository }}/.github/workflows/e42-golden-deepseek.lock.yml@${{ github.ref }}
           GH_AW_INFO_VERSION: "2.1.191"
           GH_AW_INFO_AWF_VERSION: "v0.27.11"
           GH_AW_INFO_ENGINE_ID: "claude"
@@ -1138,7 +1138,7 @@ jobs:
       issues: write
       pull-requests: write
     concurrency:
-      group: "gh-aw-conclusion-e37-golden-deepseek"
+      group: "gh-aw-conclusion-e42-golden-deepseek"
       cancel-in-progress: false
       queue: max
     env:
@@ -1159,7 +1159,7 @@ jobs:
           parent-span-id: ${{ needs.activation.outputs.setup-parent-span-id || needs.activation.outputs.setup-span-id }}
         env:
           GH_AW_SETUP_WORKFLOW_NAME: "Golden Story G-01: CI Gate Regression Test"
-          GH_AW_CURRENT_WORKFLOW_REF: ${{ github.repository }}/.github/workflows/e37-golden-deepseek.lock.yml@${{ github.ref }}
+          GH_AW_CURRENT_WORKFLOW_REF: ${{ github.repository }}/.github/workflows/e42-golden-deepseek.lock.yml@${{ github.ref }}
           GH_AW_INFO_VERSION: "2.1.191"
           GH_AW_INFO_AWF_VERSION: "v0.27.11"
           GH_AW_INFO_ENGINE_ID: "claude"
@@ -1266,14 +1266,14 @@ jobs:
           GH_AW_AGENT_OUTPUT: ${{ steps.setup-agent-output-env.outputs.GH_AW_AGENT_OUTPUT }}
           GH_AW_NOOP_MAX: "1"
           GH_AW_WORKFLOW_NAME: "Golden Story G-01: CI Gate Regression Test"
-          GH_AW_WORKFLOW_SOURCE_URL: "${{ github.server_url }}/${{ github.repository }}/blob/${{ github.ref_name }}/.github/workflows/e37-golden-deepseek.md"
+          GH_AW_WORKFLOW_SOURCE_URL: "${{ github.server_url }}/${{ github.repository }}/blob/${{ github.ref_name }}/.github/workflows/e42-golden-deepseek.md"
           GH_AW_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           GH_AW_AGENT_CONCLUSION: ${{ needs.agent.result }}
           GH_AW_NOOP_REPORT_AS_ISSUE: "true"
           GH_AW_AIC: ${{ needs.agent.outputs.aic }}
           GH_AW_THREAT_DETECTION_AIC: ${{ needs.detection.outputs.aic }}
           GH_AW_AMBIENT_CONTEXT: ${{ needs.agent.outputs.ambient_context }}
-          GH_AW_WORKFLOW_ID: "e37-golden-deepseek"
+          GH_AW_WORKFLOW_ID: "e42-golden-deepseek"
         with:
           github-token: ${{ secrets.GH_AW_GITHUB_TOKEN || secrets.GITHUB_TOKEN }}
           script: |
@@ -1287,7 +1287,7 @@ jobs:
         env:
           GH_AW_AGENT_OUTPUT: ${{ steps.setup-agent-output-env.outputs.GH_AW_AGENT_OUTPUT }}
           GH_AW_WORKFLOW_NAME: "Golden Story G-01: CI Gate Regression Test"
-          GH_AW_WORKFLOW_SOURCE_URL: "${{ github.server_url }}/${{ github.repository }}/blob/${{ github.ref_name }}/.github/workflows/e37-golden-deepseek.md"
+          GH_AW_WORKFLOW_SOURCE_URL: "${{ github.server_url }}/${{ github.repository }}/blob/${{ github.ref_name }}/.github/workflows/e42-golden-deepseek.md"
           GH_AW_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           GH_AW_DETECTION_CONCLUSION: ${{ needs.detection.outputs.detection_conclusion }}
           GH_AW_DETECTION_REASON: ${{ needs.detection.outputs.detection_reason }}
@@ -1305,7 +1305,7 @@ jobs:
           GH_AW_AGENT_OUTPUT: ${{ steps.setup-agent-output-env.outputs.GH_AW_AGENT_OUTPUT }}
           GH_AW_MISSING_TOOL_CREATE_ISSUE: "true"
           GH_AW_WORKFLOW_NAME: "Golden Story G-01: CI Gate Regression Test"
-          GH_AW_WORKFLOW_SOURCE_URL: "${{ github.server_url }}/${{ github.repository }}/blob/${{ github.ref_name }}/.github/workflows/e37-golden-deepseek.md"
+          GH_AW_WORKFLOW_SOURCE_URL: "${{ github.server_url }}/${{ github.repository }}/blob/${{ github.ref_name }}/.github/workflows/e42-golden-deepseek.md"
         with:
           github-token: ${{ secrets.GH_AW_GITHUB_TOKEN || secrets.GITHUB_TOKEN }}
           script: |
@@ -1320,7 +1320,7 @@ jobs:
           GH_AW_AGENT_OUTPUT: ${{ steps.setup-agent-output-env.outputs.GH_AW_AGENT_OUTPUT }}
           GH_AW_REPORT_INCOMPLETE_CREATE_ISSUE: "true"
           GH_AW_WORKFLOW_NAME: "Golden Story G-01: CI Gate Regression Test"
-          GH_AW_WORKFLOW_SOURCE_URL: "${{ github.server_url }}/${{ github.repository }}/blob/${{ github.ref_name }}/.github/workflows/e37-golden-deepseek.md"
+          GH_AW_WORKFLOW_SOURCE_URL: "${{ github.server_url }}/${{ github.repository }}/blob/${{ github.ref_name }}/.github/workflows/e42-golden-deepseek.md"
         with:
           github-token: ${{ secrets.GH_AW_GITHUB_TOKEN || secrets.GITHUB_TOKEN }}
           script: |
@@ -1335,10 +1335,10 @@ jobs:
         env:
           GH_AW_AGENT_OUTPUT: ${{ steps.setup-agent-output-env.outputs.GH_AW_AGENT_OUTPUT }}
           GH_AW_WORKFLOW_NAME: "Golden Story G-01: CI Gate Regression Test"
-          GH_AW_WORKFLOW_SOURCE_URL: "${{ github.server_url }}/${{ github.repository }}/blob/${{ github.ref_name }}/.github/workflows/e37-golden-deepseek.md"
+          GH_AW_WORKFLOW_SOURCE_URL: "${{ github.server_url }}/${{ github.repository }}/blob/${{ github.ref_name }}/.github/workflows/e42-golden-deepseek.md"
           GH_AW_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           GH_AW_AGENT_CONCLUSION: ${{ needs.agent.result }}
-          GH_AW_WORKFLOW_ID: "e37-golden-deepseek"
+          GH_AW_WORKFLOW_ID: "e42-golden-deepseek"
           GH_AW_ACTION_FAILURE_ISSUE_EXPIRES_HOURS: "168"
           GH_AW_ENGINE_ID: "claude"
           GH_AW_SECRET_VERIFICATION_RESULT: ${{ needs.activation.outputs.secret_verification_result }}
@@ -1400,7 +1400,7 @@ jobs:
           parent-span-id: ${{ needs.activation.outputs.setup-parent-span-id || needs.activation.outputs.setup-span-id }}
         env:
           GH_AW_SETUP_WORKFLOW_NAME: "Golden Story G-01: CI Gate Regression Test"
-          GH_AW_CURRENT_WORKFLOW_REF: ${{ github.repository }}/.github/workflows/e37-golden-deepseek.lock.yml@${{ github.ref }}
+          GH_AW_CURRENT_WORKFLOW_REF: ${{ github.repository }}/.github/workflows/e42-golden-deepseek.lock.yml@${{ github.ref }}
           GH_AW_INFO_VERSION: "2.1.191"
           GH_AW_INFO_AWF_VERSION: "v0.27.11"
           GH_AW_INFO_ENGINE_ID: "claude"
@@ -1645,7 +1645,7 @@ jobs:
       GH_AW_AGENT_AIC: ${{ needs.agent.outputs.aic }}
       GH_AW_AIC: ${{ needs.agent.outputs.aic }}
       GH_AW_AMBIENT_CONTEXT: ${{ needs.agent.outputs.ambient_context }}
-      GH_AW_CALLER_WORKFLOW_ID: "${{ github.repository }}/e37-golden-deepseek"
+      GH_AW_CALLER_WORKFLOW_ID: "${{ github.repository }}/e42-golden-deepseek"
       GH_AW_DETECTION_CONCLUSION: ${{ needs.detection.outputs.detection_conclusion }}
       GH_AW_DETECTION_REASON: ${{ needs.detection.outputs.detection_reason }}
       GH_AW_EFFECTIVE_TOKENS: ${{ needs.agent.outputs.effective_tokens }}
@@ -1653,9 +1653,9 @@ jobs:
       GH_AW_ENGINE_MODEL: "deepseek-v4-pro"
       GH_AW_RUNTIME_FEATURES: ${{ vars.GH_AW_RUNTIME_FEATURES }}
       GH_AW_THREAT_DETECTION_AIC: ${{ needs.detection.outputs.aic }}
-      GH_AW_WORKFLOW_ID: "e37-golden-deepseek"
+      GH_AW_WORKFLOW_ID: "e42-golden-deepseek"
       GH_AW_WORKFLOW_NAME: "Golden Story G-01: CI Gate Regression Test"
-      GH_AW_WORKFLOW_SOURCE_URL: "${{ github.server_url }}/${{ github.repository }}/blob/${{ github.ref_name }}/.github/workflows/e37-golden-deepseek.md"
+      GH_AW_WORKFLOW_SOURCE_URL: "${{ github.server_url }}/${{ github.repository }}/blob/${{ github.ref_name }}/.github/workflows/e42-golden-deepseek.md"
     outputs:
       code_push_failure_count: ${{ steps.process_safe_outputs.outputs.code_push_failure_count }}
       code_push_failure_errors: ${{ steps.process_safe_outputs.outputs.code_push_failure_errors }}
@@ -1682,7 +1682,7 @@ jobs:
           parent-span-id: ${{ needs.activation.outputs.setup-parent-span-id || needs.activation.outputs.setup-span-id }}
         env:
           GH_AW_SETUP_WORKFLOW_NAME: "Golden Story G-01: CI Gate Regression Test"
-          GH_AW_CURRENT_WORKFLOW_REF: ${{ github.repository }}/.github/workflows/e37-golden-deepseek.lock.yml@${{ github.ref }}
+          GH_AW_CURRENT_WORKFLOW_REF: ${{ github.repository }}/.github/workflows/e42-golden-deepseek.lock.yml@${{ github.ref }}
           GH_AW_INFO_VERSION: "2.1.191"
           GH_AW_INFO_AWF_VERSION: "v0.27.11"
           GH_AW_INFO_ENGINE_ID: "claude"

@@ -1,18 +1,15 @@
-active_flow: null
-bug_id: null
+active_flow: fix_bug
+bug_id: 'BUG-2026-07-03-golden-lock-stale-e37-ids'
 handoff:
-  next_skill: survey-context
-  context: 'BUG-2026-07-03-venv-not-gitignored landed on main (a0f2ff0). .gitignore
-    covers .venv/venv/__pycache__; G-11 golden gate registered. Bug registry reconciled.
-    1 open bug remains: golden-lock-stale-e37-ids.'
+  next_skill: investigate-bug
+  context: 'Fix stale e37 IDs in golden lock file. Step 1: investigate-bug.'
 bug_cycle:
-  current_step: null
+  current_step: 5
   completed_steps:
   - 1
   - 2
   - 3
   - 4
-  - 5
 previous_handoff:
   next_skill: survey-context
   context: 'BUG-2026-07-03-trace-engine-vacuous-gate fixed and landed. This was the
