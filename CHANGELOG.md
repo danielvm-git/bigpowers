@@ -1,3 +1,10 @@
+## [2.59.7](https://github.com/danielvm-git/bigpowers/compare/v2.59.6...v2.59.7) (2026-07-04)
+
+
+### Bug Fixes
+
+* **specs:** file BUG-2026-07-04 for stale .bak file ([#38](https://github.com/danielvm-git/bigpowers/issues/38)) ([6c83112](https://github.com/danielvm-git/bigpowers/commit/6c83112abbb667e34d60dd01815fca869087bee2))
+
 ## [2.59.6](https://github.com/danielvm-git/bigpowers/compare/v2.59.5...v2.59.6) (2026-07-04)
 
 
