@@ -10,6 +10,18 @@ bugs:
     approach: "sed -E whitespace collapse, jq version/description, lockfile refresh, Node 22 in publish workflow"
     risk_level: "high"
     commit_message: "fix(ci): repair sync-skills sed and refresh package-lock; fix(ci): use Node 22 for semantic-release workflow"
+  - id: BUG-2026-06-11T120000
+    status: fixed
+    severity: medium
+    scope: dashboard/tui
+    title: "TUI markup tags render as literal text; layout diverges from prototype"
+    file: bugs/BUG-2026-06-11T120000.md
+  - id: BUG-2026-06-11T160000
+    status: fixed
+    severity: medium
+    scope: dashboard/tui
+    title: "{dim} and {|} render as literal text after TUI prototype adaptation"
+    file: bugs/BUG-2026-06-11T160000.md
   - id: BUG-2026-06-11T183000
     status: fixed
     severity: medium
@@ -30,6 +42,18 @@ bugs:
     approach: "Update gates.md + PRINCIPLES.md to YAML artifact names; fix dead skill names in model-profiles.md; single-source skill count; add SKILL.md size lint; define or soften 94% threshold"
     risk_level: "medium"
     commit_message: "fix(docs): update doctrine to match YAML artifact layout, fix skill names, add size lint, instrument 94% gate"
+  - id: BUG-2026-06-18T100000
+    status: fixed
+    severity: high
+    scope: skills
+    title: "YAML frontmatter quoting breaks skill loading"
+    file: bugs/BUG-2026-06-18T100000.md
+  - id: BUG-2026-06-24T045323
+    status: fixed
+    severity: high
+    scope: ci
+    title: "npm install fails during postinstall — docs/ excluded from tarball"
+    file: bugs/BUG-2026-06-24T045323.md
   - id: BUG-2026-06-27T000000
     status: fixed
     severity: high
@@ -40,6 +64,24 @@ bugs:
     approach: "Trim each over-length SKILL.md by moving procedural detail into REFERENCE.md"
     risk_level: "low"
     commit_message: "fix(ci): trim 8 over-length SKILL.md files to pass check-skill-size lint"
+  - id: BUG-2026-07-02-skill-verify-false-fails
+    status: fixed
+    severity: medium
+    scope: ci
+    title: "skill-verify script reports false FAILs"
+    file: bugs/BUG-2026-07-02-skill-verify-false-fails.md
+  - id: BUG-2026-07-02T103911
+    status: fixed
+    severity: high
+    scope: ci
+    title: "npm install fails on macOS — bash 3.2 lacks declare -A"
+    file: bugs/BUG-2026-07-02T103911.md
+  - id: BUG-2026-07-03-capsule-release-labels
+    status: open
+    severity: medium
+    scope: specs
+    title: "Backlog capsule release labels drifted from their release trains"
+    file: bugs/BUG-2026-07-03-capsule-release-labels.md
   - id: BUG-2026-07-03-codebase-wiki-venv-pollution
     status: fixed
     severity: medium
@@ -48,8 +90,14 @@ bugs:
     file: bugs/BUG-2026-07-03-codebase-wiki-venv-pollution.md
     risk_level: "medium"
     commit_message: "fix(trace): exclude .venv, site-packages, __pycache__ from trace-stories walker"
-  - id: BUG-2026-07-03-golden-lock-stale-e37-ids
+  - id: BUG-2026-07-03-glossary-sparse
     status: open
+    severity: medium
+    scope: specs
+    title: "GLOSSARY_LATEST.yaml remains sparse — key domain terms missing"
+    file: bugs/BUG-2026-07-03-glossary-sparse.md
+  - id: BUG-2026-07-03-golden-lock-stale-e37-ids
+    status: fixed
     severity: low
     scope: ci
     title: "e42 golden workflow renamed from e37 but lock file internals still carry 19 e37 identifiers"
@@ -62,6 +110,12 @@ bugs:
     title: "README and docs reference removed npm lifecycle scripts (postinstall, npx)"
     file: bugs/BUG-2026-07-03-install-docs-stale.md
     commit_message: "docs: update all install instructions for postinstall-free flow"
+  - id: BUG-2026-07-03-negative-path-self-test
+    status: fixed
+    severity: medium
+    scope: ci
+    title: "Negative-path self-test — compliance step scripts have no proof they can fail"
+    file: bugs/BUG-2026-07-03-negative-path-self-test.md
   - id: BUG-2026-07-03-trace-engine-vacuous-gate
     status: fixed
     severity: high
@@ -69,6 +123,12 @@ bugs:
     title: "trace-stories.py uses lossy hand-rolled YAML parser — collects 1 of ~240 stories, --strict gate passes vacuously"
     file: bugs/BUG-2026-07-03-trace-engine-vacuous-gate.md
     risk_level: "high"
+  - id: BUG-2026-07-03-trace-stories-613-line
+    status: open
+    severity: low
+    scope: refactor
+    title: "trace-stories.sh 613-line waiver contradicts CONVENTIONS context-window justification"
+    file: bugs/BUG-2026-07-03-trace-stories-613-line.md
   - id: BUG-2026-07-03-validate-specs-no-real-parser
     status: fixed
     severity: high
@@ -91,6 +151,12 @@ bugs:
     scope: release-pipeline
     title: "Version mirrors in state.yaml and release-plan.yaml drift after every semantic-release"
     file: bugs/BUG-2026-07-03-version-mirror-drift.md
+  - id: BUG-2026-07-03-waiver-scoring
+    status: fixed
+    severity: medium
+    scope: ci
+    title: "Waiver-list scoring hides regressions inside intentional FAIL denominator"
+    file: bugs/BUG-2026-07-03-waiver-scoring.md
   - id: BUG-2026-07-03-yaml-roundtrip-corruption
     status: fixed
     severity: critical
@@ -99,3 +165,9 @@ bugs:
     file: bugs/BUG-2026-07-03-yaml-roundtrip-corruption.md
     risk_level: "critical"
     commit_message: "fix(release-pipeline): stop YAML round-trip corruption, recover specs"
+  - id: BUG-2026-07-03T020000
+    status: fixed
+    severity: high
+    scope: ci
+    title: "release-branch does not verify CI completion before declaring success"
+    file: bugs/BUG-2026-07-03T020000.md

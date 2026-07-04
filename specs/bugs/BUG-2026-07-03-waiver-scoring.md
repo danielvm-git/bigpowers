@@ -1,3 +1,11 @@
+---
+bug_id: BUG-2026-07-03-waiver-scoring
+status: fixed
+severity: medium
+scope: ci
+title: "Waiver-list scoring hides regressions inside intentional FAIL denominator"
+---
+
 # BUG-2026-07-03T133000: Waiver-list scoring hides regressions inside intentional FAIL denominator
 
 ## Problem

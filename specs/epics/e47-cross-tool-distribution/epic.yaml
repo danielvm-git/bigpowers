@@ -40,6 +40,14 @@ stories:
     bcp: 3
     title: "install.sh — global pi coverage (install_pi/uninstall_pi) + remove broken OpenCode step"
     verify: bash scripts/install.sh --dry-run | grep -q 'pi →' && ! bash scripts/install.sh --dry-run | grep -qi 'opencode.json' && echo OK
+    hard_gate: |
+      Removing install_opencode() deletes an installer path. Before writing code,
+      confirm with the user that no consumer relies on the current opencode.json
+      being written into the global install dir. Verified low-risk in the design
+      session (GAP-1, PLAN-AUDIT): the write targets $REPO_ROOT — node_modules for
+      a global npm consumer, a location OpenCode never reads — so it is a latent
+      no-op with no paired uninstall_opencode() to strand. Do not proceed to
+      develop-tdd until this removal is explicitly approved.
     description: |
       Add install_pi()/uninstall_pi() to scripts/install.sh, symmetric with the
       existing install_claude()/uninstall_claude() pair: per-skill symlinks

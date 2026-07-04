@@ -1,3 +1,11 @@
+---
+bug_id: BUG-2026-07-02-skill-verify-false-fails
+status: fixed
+severity: medium
+scope: ci
+title: "skill-verify script reports false FAILs"
+---
+
 # BUG-2026-07-02T103911: skill-verify script reports false FAILs
 
 ## Problem

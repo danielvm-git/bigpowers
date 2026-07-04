@@ -1,3 +1,11 @@
+---
+bug_id: BUG-2026-07-03-trace-stories-613-line
+status: open
+severity: low
+scope: refactor
+title: "trace-stories.sh 613-line waiver contradicts CONVENTIONS context-window justification"
+---
+
 # BUG-2026-07-03T134000: trace-stories.sh 613-line waiver contradicts CONVENTIONS' own context-window justification
 
 ## Problem

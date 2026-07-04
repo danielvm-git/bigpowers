@@ -1,3 +1,11 @@
+---
+bug_id: BUG-2026-07-03-glossary-sparse
+status: open
+severity: medium
+scope: specs
+title: "GLOSSARY_LATEST.yaml remains sparse — key domain terms missing"
+---
+
 # BUG-2026-07-03T135000: GLOSSARY_LATEST.yaml remains sparse — key domain terms missing
 
 ## Problem

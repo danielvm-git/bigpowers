@@ -1,3 +1,11 @@
+---
+bug_id: BUG-2026-07-03-negative-path-self-test
+status: fixed
+severity: medium
+scope: ci
+title: "Negative-path self-test — compliance step scripts have no proof they can fail"
+---
+
 # BUG-2026-07-03T133500: Negative-path self-test — compliance step scripts have no proof they can fail
 
 ## Problem

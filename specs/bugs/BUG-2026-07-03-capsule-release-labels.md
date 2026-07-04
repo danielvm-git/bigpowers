@@ -1,3 +1,11 @@
+---
+bug_id: BUG-2026-07-03-capsule-release-labels
+status: open
+severity: medium
+scope: specs
+title: "Backlog capsule release labels drifted from their release trains"
+---
+
 # BUG-2026-07-03T134500: Backlog capsule release: labels drifted from their release trains
 
 ## Problem

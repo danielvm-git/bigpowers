@@ -1,0 +1,5 @@
+# Python deps for repo scripts (validate-skill-yaml.py, validate-specs-yaml.sh,
+# trace-stories.sh, sync-*). Install into the python3 your shell resolves:
+#   python3 -m pip install --user -r requirements.txt
+# CI installs this before running the compliance gate.
+pyyaml>=6.0
