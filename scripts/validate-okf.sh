@@ -194,6 +194,31 @@ for m in d.get('migrations',[]):
   printf "${GREEN}PASS${NC} %s (%s migrations indexed)\n" "$name" "$count"
 }
 
+# ---- Receipts validation (e41s04) ----------------------------------------
+validate_receipts() {
+  local f="$ROOT/specs/receipts.json"
+  if [ ! -f "$f" ]; then printf "${YELLOW}SKIP${NC} receipts.json not found\n"; return; fi
+  python3 -c "
+import json, sys
+d=json.load(open('$f'))
+vs={'measured','estimated','backfilled','absent'}
+ss=('compliance','golden_suite','metrics','traceability')
+errs=0
+for sec in ss:
+    data=d.get(sec)
+    if data is None: continue
+    src=data.get('source','')
+    if not src: print(f'FAIL: receipts.json — {sec}: missing source tag'); errs+=1; continue
+    if src not in vs: print(f'FAIL: receipts.json — {sec}: unknown source \"{src}\"'); errs+=1; continue
+    hv='value' in data
+    if src=='absent' and hv: print(f'FAIL: receipts.json — {sec}: tagged absent but carries value'); errs+=1
+    elif src!='absent' and not hv: print(f'FAIL: receipts.json — {sec}: tagged {src} but missing value'); errs+=1
+if errs==0: print('PASS receipts.json')
+else: print(f'{errs} violation(s) in receipts.json')
+sys.exit(errs)
+" || { EXIT_CODE=1; return; }
+}
+
 # ---- Main validation dispatcher ----------------------------------------
 validate_bundle() {
   local file="$1"
@@ -279,5 +304,8 @@ else
   echo "validate-okf: nothing to validate (no --dir or --bundle)" >&2
   exit 1
 fi
+
+# e41s04: always validate receipts.json
+validate_receipts
 
 exit "$EXIT_CODE"

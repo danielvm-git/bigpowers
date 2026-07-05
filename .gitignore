@@ -32,3 +32,4 @@ bigpowers-mcp/node_modules/
 venv/
 __pycache__/
 *.pyc
+bigpowers-showcase/

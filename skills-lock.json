@@ -163,7 +163,7 @@
     },
     "kickoff-branch": {
       "description": "Create a git worktree and feature branch, then verify a clean test baseline before any code is written. Use when starting a new feature or task, when user wants to work in isolation from main, or mentions \"start a branch\" or \"new worktree\".",
-      "sha256": "f64d106744ecbf2f",
+      "sha256": "2857dac9f23bd7be",
       "path": "skills/kickoff-branchSKILL.md"
     },
     "map-codebase": {
@@ -223,7 +223,7 @@
     },
     "release-branch": {
       "description": "Make the merge/PR/keep/discard decision for a feature branch, verify coverage gates, create the PR with gh, and clean up the worktree. Use when a feature is done and ready to ship, or when user says \"release\", \"merge\", or \"open a PR\".",
-      "sha256": "4ad3f0f08766783f",
+      "sha256": "354267f0f4b593b5",
       "path": "skills/release-branchSKILL.md"
     },
     "request-review": {
