@@ -19,6 +19,10 @@ note: >
 
   Depends on e31 (deterministic gates) — golden stories are consumers of
   e31's output. Build order: e31 → e42s02-s04.
+
+  Fixture candidates: danielvm-git/bigpowers-showcase (e43 showcase repo)
+  — complete spec trail (scaffolding → feature epic → bug fix) serves as
+  test material for agent-driven golden stories.
 stories:
   - id: e42s01
     bcp: 3
