@@ -26,7 +26,7 @@ note: >
 stories:
   - id: e43s01
     bcp: 3
-    status: todo
+    status: done
     title: "Scaffold the showcase app in a separate public repo via seed-conventions"
     spec: e43s01-scaffold-showcase-repo.md
     tasks: e43s01-tasks.yaml
@@ -42,7 +42,7 @@ stories:
         verify: "gh repo view danielvm-git/bigpowers-showcase --json name -q .name | grep -q showcase && echo OK"
   - id: e43s02
     bcp: 3
-    status: todo
+    status: done
     title: "Build one feature epic end-to-end via the 8-step build-epic cycle"
     spec: e43s02-build-feature-epic.md
     tasks: e43s02-tasks.yaml
@@ -60,7 +60,7 @@ stories:
         verify: "gh api repos/danielvm-git/bigpowers-showcase/contents/specs --jq 'length' 2>/dev/null | awk '{if($1>0) print \"OK\"}' || echo 'PENDING: showcase repo not yet populated'"
   - id: e43s03
     bcp: 2
-    status: todo
+    status: done
     title: "Fix one real bug via the investigate-bug → develop-tdd → validate-fix trail"
     spec: e43s03-fix-real-bug.md
     tasks: e43s03-tasks.yaml
@@ -75,7 +75,7 @@ stories:
         verify: "gh search code --repo danielvm-git/bigpowers-showcase 'BUG-' --json path --jq 'length' 2>/dev/null | awk '{if($1>0) print \"OK\"}' || echo 'PENDING'"
   - id: e43s04
     bcp: 2
-    status: todo
+    status: done
     title: "Link the showcase from README + docs site; register as e37 golden-story fixture candidate"
     spec: e43s04-link-showcase.md
     tasks: e43s04-tasks.yaml
