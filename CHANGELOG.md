@@ -1,3 +1,11 @@
+## [2.64.1](https://github.com/danielvm-git/bigpowers/compare/v2.64.0...v2.64.1) (2026-07-05)
+
+
+### Bug Fixes
+
+* **ci:** bump docs-site node to 22 for Astro 7.x compatibility ([6487a32](https://github.com/danielvm-git/bigpowers/commit/6487a3245711e9a0e05b1a36017c9cfa111b4879))
+* **ci:** bump docs-site node to 22 for Astro 7.x compatibility ([b2df6b8](https://github.com/danielvm-git/bigpowers/commit/b2df6b87ecd594dcf3df037c93a1d671da2d13d6))
+
 # [2.64.0](https://github.com/danielvm-git/bigpowers/compare/v2.63.0...v2.64.0) (2026-07-05)
 
 
