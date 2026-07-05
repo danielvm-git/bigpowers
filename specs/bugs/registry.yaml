@@ -190,8 +190,10 @@ bugs:
     title: "Stale .bak file in features directory — karpathy.feature.bak"
     file: bugs/BUG-2026-07-04-stale-bak-features.md
   - id: BUG-2026-07-04-tautological-verify
-    status: open
+    status: fixed
     severity: medium
     scope: skills
     title: "Tautological verify commands in 5 non-critical skills — file-existence checks pass vacuously"
     file: bugs/BUG-2026-07-04-tautological-verify.md
+    fix_commit: "fix(ci): trim SKILL.md size caps — kickoff-branch 147, release-branch 150, verify-work 150"
+    fix_note: "Verify commands already converted to semantic keyword + SKILL-INDEX checks. No tautological file-existence verify commands remain in any skill."

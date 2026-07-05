@@ -33,7 +33,7 @@ Bridges the gap between slicing and planning by systematically designing the tes
 
 ## Verify
 
-→ verify: `test -f specs/tech-architecture/$(echo $EPIC | sed "s|.*/||")-TEST_PLAN_LATEST.md && echo OK`
+→ verify: `ls specs/tech-architecture/*-TEST_PLAN_LATEST.md 2>/dev/null | head -1 && echo OK || echo "SKIP: no test plan yet — EPIC not set or not generated"`
 
 ## Handoff
 

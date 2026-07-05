@@ -36,6 +36,14 @@ Orchestrates the **build** flow for a single epic: survey → plan tasks → kic
 8. On story complete, set `execution-status.yaml` story key to `done`; run `bash scripts/sync-status-from-epics.sh`.
 9. **Traceability refresh:** Before step 8 (release-branch), run `bash scripts/trace-stories.sh` to regenerate `specs/traceability-matrix.json`, `specs/TRACEABILITY_LATEST.md`, and the `specs/codebase-wiki/` OKF bundle. Surface dark/orphan/stale findings for the just-built epic in your verify summary. If `scripts/trace-stories.sh` is missing or fails, note "trace skipped" and continue — trace failure must be visible, not silent (blocking is gate-trace's job, e38s06).
 
+9b. **OKF wiki refresh (e39s08):** Before step 8, run maintain-wiki INGEST to refresh the OKF wiki bundle:
+   ```bash
+   bash scripts/decompose-conventions.sh
+   bash scripts/generate-agent-guide.sh
+   ```
+   If any script is missing or fails, note "OKF wiki refresh skipped" and continue.
+   This is non-blocking — stale concepts are caught by LINT in verify-work Phase 3.
+
 ### Step 6 — audit-code gate (non-optional)
 
 After step 5 (verify-work) completes successfully, step 6 runs `audit-code` automatically in `--gate` mode:

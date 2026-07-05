@@ -10,7 +10,6 @@ description: Make the merge/PR/keep/discard decision for a feature branch, verif
 Finalize a completed feature branch: verify coverage gates, integrate onto `main`, and clean up the worktree.
 
 ## Additional modes
-
 - `--hotfix`: Cherry-pick to main + tag. Skip PR in solo.
 - `--squash-state`: Squash `chore(state):` commits before merge.
 
@@ -73,9 +72,7 @@ bash scripts/land-branch.sh <task-slug> "feat(scope): description"
 
 ### 6. Create PR (team-pr only)
 
-See [REFERENCE.md](REFERENCE.md) for the full PR body template and gh commands.
-
-### 7. Merge (team-pr only)
+Create the pull request, then merge via `gh`:
 
 ```bash
 gh pr merge --squash --delete-branch
@@ -91,45 +88,32 @@ gh pr merge --squash --delete-branch
 mv specs/epics/eNN-slug specs/epics/archive/
 ```
 
-### 7b. CI verification (solo-local and team-pr)
+### 7b. CI verification & agent lock release (e39s02)
 
 > **HARD GATE** — Do NOT declare success until CI completes. A push that fails CI is a regression, not a release.
 
-After push (solo-local step 5 or team-pr step 7), run the CI polling script:
+After push, run CI polling:
 
 ```bash
 bash scripts/wait-for-ci.sh --timeout 600 --interval 30
 ```
 
-The script auto-discovers workflow runs for the pushed commit and polls until completion.
-See [REFERENCE.md](REFERENCE.md) for exit code semantics and git-only fallback.
+Then release the story lock:
+
+```bash
+LOCK="specs/agent-locks.yaml"; STORY="<story-id>"
+[ -f "$LOCK" ] && python3 -c "
+import yaml
+d=yaml.safe_load(open('$LOCK'))
+if d:d['locks']=[l for l in d['locks'] if l.get('story_id')!='$STORY']
+yaml.dump(d,open('$LOCK','w'),default_flow_style=False)
+print(f'LOCK RELEASED: $STORY')
+"||echo "No lock for $STORY — idempotent"
+```
 
 - [ ] CI workflow passes after push (wait-for-ci.sh exit 0)
 - [ ] `release.ci_verified: true` documented in state.yaml
-- On failure: `handoff.next_skill = fix-bug` with the CI failure URL
-
-### 7b. Release agent lock (e39s02)
-
-Before cleaning up, release the story lock in `specs/agent-locks.yaml`:
-
-```bash
-LOCK_FILE="specs/agent-locks.yaml"
-STORY_ID="<story-id>"
-if [ -f "$LOCK_FILE" ]; then
-  python3 -c "
-import yaml
-with open('$LOCK_FILE') as f:
-  d = yaml.safe_load(f)
-if d and 'locks' in d:
-  d['locks'] = [l for l in d['locks'] if l.get('story_id') != '$STORY_ID']
-with open('$LOCK_FILE', 'w') as f:
-  yaml.dump(d, f, default_flow_style=False)
-print(f'LOCK RELEASED: $STORY_ID')
-"
-fi
-```
-
-If no lock found for this story, warn and continue (idempotent release).
+- On failure: `handoff.next_skill = fix-bug` with CI failure URL
 
 ### 8. Clean up worktree
 
@@ -150,16 +134,13 @@ bash scripts/record-cycle-time.sh append \
   --file specs/metrics/cycle-times.yaml
 ```
 
-This replaces the previous hand-arithmetic approach (story_end minus story_start).
-See [REFERENCE.md](REFERENCE.md) for the git-hours model and field definitions.
-
 ### 9. Return to main
 
 ```bash
 git checkout main && git status && pwd
 ```
 
-Report: "Branch released. Integrate mode: <solo-local|team-pr>. cwd: $(pwd) on $(git branch --show-current)."
+Report: "Branch released."
 
 ## Verify
 

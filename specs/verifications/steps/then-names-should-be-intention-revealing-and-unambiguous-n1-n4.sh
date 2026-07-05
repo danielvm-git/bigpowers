@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 # Then names should be intention-revealing and unambiguous (N1, N4)
 # Verification: Check for "data", "manager", "handler" in filenames (smells)
+# Exclusions: compound words where data/manager/handler is part of a meaningful phrase
 BAD_NAMES=$(find . -type f \
   | grep -v '.git' | grep -v 'node_modules' | grep -v 'specs/epics' \
   | grep -vE '\.(git|venv|worktrees)/' \
+  | grep -vE '(without-data-loss|test-data|example-data)' \
   | grep -E '(^|[-_./])data([-_./]|$)|(^|[-_./])manager([-_./]|$)|(^|[-_./])handler([-_./]|$)' \
   || true)
 
