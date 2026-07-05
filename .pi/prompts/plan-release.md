@@ -89,6 +89,23 @@ title: Auth System
 wsjf: 4.5
 total_bcps: 8
 status: in_progress
+# Optional: BCP Plus 13-dimension breakdown
+bcp_plus_breakdown:
+  total: 14
+  dimensions:
+    dim_01_boundaries: 2
+    dim_02_interface_elements: 3
+    dim_03_business_rules: 4
+    dim_04_solution_variabilities: 1
+    dim_05_roles_permissions: 1
+    dim_06_domain_entities_existing: 2
+    dim_07_domain_entities_new: 0
+    dim_08_notifications: 0
+    dim_09_audits: 0
+    dim_10_background_processes: 0
+    dim_11_quality_attributes: 1
+    dim_12_security_compliance: 0
+    dim_13_ux_accessibility: 0
 stories:
   - id: e01s01
     title: Login

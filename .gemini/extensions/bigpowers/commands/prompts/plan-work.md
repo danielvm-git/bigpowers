@@ -46,6 +46,10 @@ If this plan touches an existing module, run `assess-impact` first to understand
 
 After writing capsule tasks, suggest `kickoff-branch` (if not already on a feature branch) then `build-epic`, `execute-plan`, or `develop-tdd`.
 
+### BCP Plus (optional)
+
+When the epic includes a `bcp_plus_breakdown` with 13-dimension sizing, carry it forward into the story spec under §5 and into `state.yaml` as `epic_cycle.bcp_plus`. The breakdown maps each dimension (dim_01 through dim_13) to an integer count. NFR dimensions (11–13) gated as standard-expectation score 0 with a one-line rationale per dimension (NFR Gate). See `specs/templates/story-template.md` for the field format.
+
 ## Verify
 
 
