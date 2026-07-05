@@ -1,3 +1,10 @@
+# [2.65.0](https://github.com/danielvm-git/bigpowers/compare/v2.64.2...v2.65.0) (2026-07-05)
+
+
+### Features
+
+* OKF Completion — wikis, verification reports, viz graph (e45) ([e04d209](https://github.com/danielvm-git/bigpowers/commit/e04d209c3e70c7e3c9aa2d19606294fde9b4cb23))
+
 ## [2.64.2](https://github.com/danielvm-git/bigpowers/compare/v2.64.1...v2.64.2) (2026-07-05)
 
 
