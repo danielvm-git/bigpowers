@@ -1,0 +1,26 @@
+story_id: e37s02
+title: "BCP Plus template — 13-dimension breakdown in story specs"
+status: done
+bcps: 5
+risk: P2
+tasks:
+  - id: 1
+    description: "Extend specs/templates/ to include optional BCP Plus breakdown section"
+    verify: "grep -c 'bcp_plus_breakdown' specs/templates/story-template.md"
+    risk: P2
+    status: done
+  - id: 2
+    description: "Add BCP Plus totals field to state.yaml schema (bcp_plus: {total, breakdown: {dim: points}})"
+    verify: "grep -c 'bcp_plus.*schema' specs/state.yaml"
+    risk: P2
+    status: done
+  - id: 3
+    description: "Update plan-work skill to emit BCP Plus breakdown alongside existing BCP"
+    verify: "grep -c 'BCP Plus' skills/plan-work/SKILL.md"
+    risk: P2
+    status: done
+  - id: 4
+    description: "Update plan-release to accept BCP Plus totals in epic YAML manifests"
+    verify: "grep -c 'bcp_plus' skills/plan-release/SKILL.md"
+    risk: P2
+    status: done
