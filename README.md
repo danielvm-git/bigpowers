@@ -2,7 +2,7 @@
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 ![npm version](https://img.shields.io/npm/v/bigpowers.svg)
-![Skills](https://img.shields.io/badge/skills-75-brightgreen.svg)
+![Skills](https://img.shields.io/badge/skills-74-brightgreen.svg)
 
 **Agent skills synthesizing 17 years of software engineering discipline — from Clean Code to AI-native architecture — into a single, prescriptive methodology for solo developers.**
 

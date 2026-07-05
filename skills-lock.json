@@ -166,11 +166,6 @@
       "sha256": "2857dac9f23bd7be",
       "path": "skills/kickoff-branch/SKILL.md"
     },
-    "maintain-wiki": {
-      "description": "Agent-maintained OKF knowledge wiki — INGEST (sync all wikis from sources), LINT (validate cross-references and staleness), QUERY (search and synthesize). Use after modifying source specs or conventions, during build-epic Step 8, or when the user asks about wiki health.",
-      "sha256": "c2dba2e8550a81d8",
-      "path": "skills/maintain-wiki/SKILL.md"
-    },
     "map-codebase": {
       "description": "\"Derives the tech-stack doc from scratch by scanning the codebase — analyzes stack, architecture, and gray areas (error handling, API shapes) and persists findings into specs/tech-architecture/tech-stack.md. Run when the tech doc doesn't exist yet; use survey-context to consume it once it does.\"",
       "sha256": "cfd8a71a3cdb63af",
