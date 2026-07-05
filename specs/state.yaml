@@ -1,7 +1,7 @@
 active_flow: build_epic
 active_epic: e42
 active_story: e42s02
-bigpowers_version: 2.62.0
+bigpowers_version: 2.63.0
 bug_cycle:
   completed_steps: []
   current_step: null

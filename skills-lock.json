@@ -278,7 +278,7 @@
     },
     "seed-conventions": {
       "description": "Generate CLAUDE.md and CONVENTIONS.md for a brand-new project through a brief interview, and create the specs/ directory with evolved bigpowers structure (product/, tech-architecture/, verifications/, epics/archive/). Entry point for greenfield projects. Use when starting a new project from scratch, when user asks to set up AI agent conventions, or when there is no CLAUDE.md yet.",
-      "sha256": "8a0ca3ccd93f42a7",
+      "sha256": "eb4cbca25d54fa81",
       "path": "skills/seed-conventions/SKILL.md"
     },
     "session-state": {

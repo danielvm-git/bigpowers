@@ -1,3 +1,10 @@
+# [2.63.0](https://github.com/danielvm-git/bigpowers/compare/v2.62.0...v2.63.0) (2026-07-05)
+
+
+### Features
+
+* **e47:** cross-tool skill distribution — pi install, seed wiring, docs, verify harness ([27c68b4](https://github.com/danielvm-git/bigpowers/commit/27c68b49b698e994b783abc85c3750637061664e))
+
 # [2.62.0](https://github.com/danielvm-git/bigpowers/compare/v2.61.4...v2.62.0) (2026-07-05)
 
 
