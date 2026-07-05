@@ -1,0 +1,2 @@
+description = "Agent-maintained OKF knowledge wiki — INGEST (sync all wikis from sources), LINT (validate cross-references and staleness), QUERY (search and synthesize). Use after modifying source specs or conventions, during build-epic Step 8, or when the user asks about wiki health."
+prompt = "@{commands/prompts/maintain-wiki.md}"

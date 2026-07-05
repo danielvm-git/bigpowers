@@ -80,7 +80,7 @@
 | `grill-with-docs` | Opus | Doc-grounded grill |
 | `setup-environment` / `reset-baseline` | Haiku | Mechanical prep |
 
-Full list: every SKILL.md declares `model:` — verify with `grep -rl '^model:' */SKILL.md | wc -l` (expect 74).
+Full list: every SKILL.md declares `model:` — verify with `grep -rl '^model:' */SKILL.md | wc -l` (expect 75).
 
 ### Release Phase
 | Skill | Model | Budget | Rationale |
@@ -272,6 +272,7 @@ Start: Task assigned
 | `/Users/danielvm/Developer/bigpowers/skills/inspect-quality` | **Sonnet** |
 | `/Users/danielvm/Developer/bigpowers/skills/investigate-bug` | **Sonnet** |
 | `/Users/danielvm/Developer/bigpowers/skills/kickoff-branch` | **Haiku** |
+| `/Users/danielvm/Developer/bigpowers/skills/maintain-wiki` | **Haiku** |
 | `/Users/danielvm/Developer/bigpowers/skills/map-codebase` | **Sonnet** |
 | `/Users/danielvm/Developer/bigpowers/skills/migrate-spec` | **Sonnet** |
 | `/Users/danielvm/Developer/bigpowers/skills/model-domain` | **Sonnet** |
@@ -314,5 +315,5 @@ Start: Task assigned
 | `/Users/danielvm/Developer/bigpowers/skills/wire-observability` | **Sonnet** |
 | `/Users/danielvm/Developer/bigpowers/skills/write-document` | **Sonnet** |
 
-Total: **74** skills — verify with `find . skills -maxdepth 2 -name SKILL.md 2>/dev/null | grep -v '.git\|.cursor\|.gemini\|.pi' | sort -u | wc -l`
+Total: **75** skills — verify with `find . skills -maxdepth 2 -name SKILL.md 2>/dev/null | grep -v '.git\|.cursor\|.gemini\|.pi' | sort -u | wc -l`
 <!-- AUTO-GENERATED-CATALOG: end -->
