@@ -72,7 +72,24 @@ jobs:
         continue-on-error: true
         run: |
           if [ -f scripts/validate-okf.sh ]; then
-            bash scripts/validate-okf.sh --dir specs/metrics || echo "::warning::OKF bundle validation found issues (non-blocking)"
+            echo "::group::OKF validation — all directories"
+            FAILED=0
+            for dir in \
+              specs/metrics \
+              specs/migrations \
+              specs/epics-wiki \
+              specs/adr-wiki \
+              specs/bugs \
+              specs/verifications/reports; do
+              if [ -d "$dir" ]; then
+                echo "  Validating: $dir"
+                bash scripts/validate-okf.sh --dir "$dir" || { echo "::warning::OKF issues in $dir"; FAILED=1; }
+              fi
+            done
+            echo "::endgroup::"
+            if [ "$FAILED" -eq 1 ]; then
+              echo "::warning::OKF bundle validation found issues in one or more directories (non-blocking)"
+            fi
           else
             echo "::notice::validate-okf.sh not found — skipping"
           fi

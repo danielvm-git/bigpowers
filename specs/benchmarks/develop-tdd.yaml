@@ -1,8 +1,11 @@
 skill: develop-tdd
-version: "1"
+# story: e48s01
+version: "2"
+runs: 3
 scenarios:
   - id: s01
     name: "follows red-green-refactor order"
+    split: validation
     prompt: |
       Run develop-tdd for a story that requires adding a new function. The story
       has a tasks.yaml with one task: "add sum() function to utils.js".
@@ -16,6 +19,7 @@ scenarios:
 
   - id: s02
     name: "--config mode skips test-writing for pure-config tasks"
+    split: train
     prompt: |
       Run develop-tdd --config for a task that updates package.json keywords.
       No test infrastructure exists for package.json.
@@ -30,6 +34,7 @@ scenarios:
 
   - id: s03
     name: "aborts if on main branch"
+    split: validation
     prompt: |
       Run develop-tdd while on the main branch (git branch shows main).
     grader:

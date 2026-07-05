@@ -1,0 +1,76 @@
+story_id: e47s01
+title: "install.sh — global pi coverage (install_pi/uninstall_pi) + remove broken OpenCode step"
+status: planned
+bcps: 3
+risk: P2
+tasks:
+  - id: 1
+    description: >-
+      Add install_pi() to scripts/install.sh, symmetric with install_claude().
+      Iterate all skill dirs under $SKILLS_ROOT/*/ with SKILL.md, symlink each
+      into ~/.pi/agent/skills/<name> → $skill_dir using link() helper.
+      pi reads ~/.pi/agent/skills/ the same way Claude Code reads
+      ~/.claude/skills (source-verified in earendil-works/pi source).
+    verify: >-
+      bash scripts/install.sh --dry-run 2>&1 | grep -q 'pi →' && echo OK
+    status: todo
+
+  - id: 2
+    description: >-
+      Add uninstall_pi() to scripts/install.sh. Remove only bigpowers-managed
+      symlinks from ~/.pi/agent/skills/ using unlink_if_managed() with
+      $REPO_ROOT as the prefix. Leave any user-authored pi skills untouched.
+      Pattern matches uninstall_claude() exactly.
+    verify: >-
+      bash scripts/install.sh --dry-run --uninstall 2>&1 | grep -q 'pi →' && echo OK
+    status: todo
+
+  - id: 3
+    description: >-
+      Wire install_pi into main install dispatch (after install_cursor, before
+      install_opencode) and wire uninstall_pi into uninstall dispatch (after
+      uninstall_cursor, mirroring install order).
+    verify: >-
+      bash scripts/install.sh --dry-run 2>&1 | grep 'pi →' | head -1 && echo OK
+    status: todo
+
+  - id: 4
+    description: >-
+      Confirm with user that removing install_opencode() is safe, then delete
+      install_opencode() function (lines ~200-213) and its
+      print_opencode_instructions() companion (lines ~215-220). Both target
+      $REPO_ROOT (node_modules for global npm consumer) — a location OpenCode
+      never reads. This is a latent no-op with no paired uninstall_opencode().
+      Hard gate: do NOT proceed to develop-tdd until removal is explicitly
+      approved per epic.yaml hard_gate.
+    verify: >-
+      ! grep -q 'install_opencode\|print_opencode_instructions' scripts/install.sh && echo OK
+    status: todo
+
+  - id: 5
+    description: >-
+      Remove install_opencode and print_opencode_instructions calls from main
+      dispatch (install path, lines ~238-239). Run dry-run to confirm no
+      opencode.json reference appears in output.
+    verify: >-
+      bash scripts/install.sh --dry-run 2>&1 | (! grep -qi 'opencode') && echo OK
+    status: todo
+
+  - id: 6
+    description: >-
+      Run sync-skills.sh to regenerate all artifacts and verify no regressions
+      in the install pipeline. Then run the epic-level verify command.
+    verify: >-
+      bash scripts/install.sh --dry-run | grep -q 'pi →' && ! bash scripts/install.sh --dry-run | grep -qi 'opencode.json' && echo OK
+    status: todo
+
+out_of_scope:
+  - "Cursor + OpenCode per-project wiring (belongs in e47s02 seed-conventions)"
+  - "Docs update for skill-catalog distinction (belongs in e47s03)"
+  - "verify-install.sh harness (belongs in e47s04)"
+  - "Any change to install_claude, install_gemini, or install_cursor functions"
+
+risks:
+  - "pi reads ~/.pi/agent/skills/ not ~/.pi/skills/ — double-check directory path against pi source before coding"
+  - "Removing install_opencode breaks any consumer that git-cloned bigpowers and ran install.sh expecting an opencode.json in the repo root"
+  - "~/.pi/agent/ directory may not exist on machines without pi installed — mkdir -p handles this in link() helper"

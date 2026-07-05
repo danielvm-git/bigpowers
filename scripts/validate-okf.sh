@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
-# story: e38s09
+# story: e38s09 e45s02
 # validate-okf.sh — kind-aware, fail-closed provenance gate for OKF bundles.
-# Validates story-metrics, spec-migration, and migration-registry bundles.
+# Validates story-metrics, spec-migration, migration-registry, concept,
+# and verification-report bundles.
 # Multi-dir default: specs/metrics/ + specs/migrations/.
 set -euo pipefail
 
@@ -11,7 +12,7 @@ EXIT_CODE=0
 RED='\033[0;31m'; GREEN='\033[0;32m'; YELLOW='\033[0;33m'; NC='\033[0m'
 
 usage_okf() {
-  cat <<'EOF'
+  cat <<'USAGEEOF'
 Usage: scripts/validate-okf.sh [flags]
 
 Flags:
@@ -28,19 +29,17 @@ Description:
     story-metrics       — effort/lead-time provenance (e40)
     spec-migration      — migration bundle schema (e44)
     migration-registry  — registry index integrity (e44)
-EOF
+    concept             — domain concept / wiki entry (e45)
+    verification-report — compliance/golden suite gate report (e45)
+USAGEEOF
   exit 0
 }
 
 # ---- Helpers ------------------------------------------------------------
 
-# True if value is empty, null JSON literal, or Python None string.
 val_nullish() { [ -z "$1" ] || [ "$1" = "null" ] || [ "$1" = "None" ]; }
-
-# True if value is nullish OR the JSON empty array literal.
 val_nullish_or_empty() { val_nullish "$1" || [ "$1" = "[]" ]; }
 
-# ---- YAML frontmatter parser (datetime-safe) ---------------------------
 parse_frontmatter() {
   local file="$1"
   python3 -c "
@@ -73,7 +72,6 @@ except Exception as e:
 validate_story_metrics() {
   local file="$1" fm="$2" name="$3"
   local errs=0
-
   for key in id epic bcps commit_range source generated_at generator; do
     local val
     val="$(echo "$fm" | python3 -c "import json,sys; d=json.load(sys.stdin); print(d.get('$key',''))" 2>/dev/null)"
@@ -84,7 +82,6 @@ validate_story_metrics() {
   done
   [ "$errs" -gt 0 ] && { EXIT_CODE=1; return; }
 
-  # Source enum
   local source
   source="$(echo "$fm" | python3 -c "import json,sys; d=json.load(sys.stdin); print(d.get('source',''))" 2>/dev/null)"
   if ! echo "measured estimated backfilled" | grep -qw "$source"; then
@@ -92,7 +89,6 @@ validate_story_metrics() {
     EXIT_CODE=1; return
   fi
 
-  # Generator
   local generator
   generator="$(echo "$fm" | python3 -c "import json,sys; d=json.load(sys.stdin); print(d.get('generator',''))" 2>/dev/null)"
   if [ "$generator" != "scripts/record-cycle-time.sh" ]; then
@@ -100,7 +96,6 @@ validate_story_metrics() {
     EXIT_CODE=1; return
   fi
 
-  # commit_range resolves
   local commit_range
   commit_range="$(echo "$fm" | python3 -c "import json,sys; d=json.load(sys.stdin); print(d.get('commit_range',''))" 2>/dev/null)"
   if ! git -C "$ROOT" log --oneline -1 "$commit_range" >/dev/null 2>&1; then
@@ -108,7 +103,6 @@ validate_story_metrics() {
     EXIT_CODE=1; return
   fi
 
-  # effort.effort_hours present and non-negative
   local eff
   eff="$(echo "$fm" | python3 -c "
 import json,sys
@@ -126,14 +120,12 @@ print(e)
     fi
     EXIT_CODE=1; return
   }
-
   printf "${GREEN}PASS${NC} %s (source=%s, generator=%s, commit_range resolves)\n" "$name" "$source" "$generator"
 }
 
 validate_spec_migration() {
   local file="$1" fm="$2" name="$3"
   local errs=0
-
   for key in id title since_version order actions_needed; do
     local val
     val="$(echo "$fm" | python3 -c "import json,sys; d=json.load(sys.stdin); print(d.get('$key',''))" 2>/dev/null)"
@@ -144,7 +136,6 @@ validate_spec_migration() {
   done
   [ "$errs" -gt 0 ] && { EXIT_CODE=1; return; }
 
-  # fingerprint.any has at least one check
   local fp_count
   fp_count="$(echo "$fm" | python3 -c "
 import json,sys
@@ -165,7 +156,6 @@ print(len(fp))
 
 validate_migration_registry() {
   local file="$1" fm="$2" name="$3"
-
   local count
   count="$(echo "$fm" | python3 -c "
 import json,sys
@@ -178,7 +168,6 @@ print(len(migrations))
     EXIT_CODE=1; return
   fi
 
-  # Check each migration has id + file + status
   local bad
   bad="$(echo "$fm" | python3 -c "
 import json,sys
@@ -190,29 +179,127 @@ for m in d.get('migrations',[]):
     printf "${RED}FAIL${NC} %s: migration '%s' missing id/file/status\n" "$name" "${bad:-?}"
     EXIT_CODE=1; return
   }
-
   printf "${GREEN}PASS${NC} %s (%s migrations indexed)\n" "$name" "$count"
 }
 
-# ---- Main validation dispatcher ----------------------------------------
+# ---- Concept validator (e45s02) ----
+validate_concept() {
+  local file="$1" fm="$2" name="$3"
+  local errs=0
+  for key in id title category; do
+    local val
+    val="$(echo "$fm" | python3 -c "import json,sys; d=json.load(sys.stdin); print(d.get('$key',''))" 2>/dev/null)"
+    if val_nullish "$val"; then
+      printf "${RED}FAIL${NC} %s: missing required key '%s'\n" "$name" "$key"
+      errs=$((errs + 1))
+    fi
+  done
+  local ref_count
+  ref_count="$(echo "$fm" | python3 -c "
+import json,sys
+d=json.load(sys.stdin)
+r=d.get('references',[])
+print(len(r) if isinstance(r,list) else 0)
+" 2>/dev/null)"
+  if [ "${ref_count:-0}" -eq 0 ]; then
+    printf "${RED}FAIL${NC} %s: references[] is empty or missing\n" "$name"
+    errs=$((errs + 1))
+  fi
+  [ "$errs" -gt 0 ] && { EXIT_CODE=1; return; }
+  local cat
+  cat="$(echo "$fm" | python3 -c "import json,sys; d=json.load(sys.stdin); print(d.get('category',''))" 2>/dev/null)"
+  printf "${GREEN}PASS${NC} %s (category=%s, %s reference(s))\n" "$name" "$cat" "$ref_count"
+}
+
+# ---- Verification-report validator (e45s02) ----
+validate_verification_report() {
+  local file="$1" fm="$2" name="$3"
+  local errs=0
+  for key in score gate_status threshold total_pass total_fail generated_by; do
+    local val
+    val="$(echo "$fm" | python3 -c "import json,sys; d=json.load(sys.stdin); print(d.get('$key',''))" 2>/dev/null)"
+    if val_nullish "$val"; then
+      printf "${RED}FAIL${NC} %s: missing required key '%s'\n" "$name" "$key"
+      errs=$((errs + 1))
+    fi
+  done
+  [ "$errs" -gt 0 ] && { EXIT_CODE=1; return; }
+
+  local gs
+  gs="$(echo "$fm" | python3 -c "import json,sys; d=json.load(sys.stdin); print(d.get('gate_status',''))" 2>/dev/null)"
+  if ! echo "pass fail concerns waived" | grep -qw "$gs"; then
+    printf "${RED}FAIL${NC} %s: invalid gate_status '%s' — must be pass|fail|concerns|waived\n" "$name" "$gs"
+    EXIT_CODE=1; return
+  fi
+
+  local score
+  score="$(echo "$fm" | python3 -c "
+import json,sys
+d=json.load(sys.stdin)
+s=d.get('score')
+if s is None or not isinstance(s,(int,float)):
+    sys.exit(1)
+if s < 0 or s > 100:
+    sys.exit(2)
+print(s)
+" 2>/dev/null)" || {
+    local rc=$?
+    if [ "$rc" -eq 1 ]; then
+      printf "${RED}FAIL${NC} %s: score missing or not numeric\n" "$name"
+    else
+      printf "${RED}FAIL${NC} %s: score out of bounds (0-100)\n" "$name"
+    fi
+    EXIT_CODE=1; return
+  }
+
+  printf "${GREEN}PASS${NC} %s (score=%.1f, gate=%s, threshold=%.1f)\n" \
+    "$name" "$score" "$gs" \
+    "$(echo "$fm" | python3 -c "import json,sys; d=json.load(sys.stdin); print(d.get('threshold',0))" 2>/dev/null)"
+}
+
+# ---- Receipts validation (e41s04) ----
+validate_receipts() {
+  local f="$ROOT/specs/receipts.json"
+  if [ ! -f "$f" ]; then printf "${YELLOW}SKIP${NC} receipts.json not found\n"; return; fi
+  python3 -c "
+import json, sys
+d=json.load(open('$f'))
+vs={'measured','estimated','backfilled','absent'}
+ss=('compliance','golden_suite','metrics','traceability')
+errs=0
+for sec in ss:
+    data=d.get(sec)
+    if data is None: continue
+    src=data.get('source','')
+    if not src: print(f'FAIL: receipts.json — {sec}: missing source tag'); errs+=1; continue
+    if src not in vs: print(f'FAIL: receipts.json — {sec}: unknown source \"{src}\"'); errs+=1; continue
+    hv='value' in data
+    if src=='absent' and hv: print(f'FAIL: receipts.json — {sec}: tagged absent but carries value'); errs+=1
+    elif src!='absent' and not hv: print(f'FAIL: receipts.json — {sec}: tagged {src} but missing value'); errs+=1
+if errs==0: print('PASS receipts.json')
+else: print(f'{errs} violation(s) in receipts.json')
+sys.exit(errs)
+" || { EXIT_CODE=1; return; }
+}
+
+# ---- Main validation dispatcher ----
 validate_bundle() {
   local file="$1"
   local name; name="$(basename "$file")"
-
   local fm
   fm="$(parse_frontmatter "$file")" || {
     printf "${RED}FAIL${NC} %s: cannot parse YAML frontmatter\n" "$name"
     EXIT_CODE=1
     return
   }
-
   local kind
   kind="$(echo "$fm" | python3 -c "import json,sys; d=json.load(sys.stdin); print(d.get('okf_kind',''))" 2>/dev/null)"
-
   case "$kind" in
     story-metrics)       validate_story_metrics "$file" "$fm" "$name" ;;
     spec-migration)      validate_spec_migration "$file" "$fm" "$name" ;;
     migration-registry)  validate_migration_registry "$file" "$fm" "$name" ;;
+    concept)             validate_concept "$file" "$fm" "$name" ;;
+    verification-report) validate_verification_report "$file" "$fm" "$name" ;;
     "")
       printf "${YELLOW}SKIP${NC} %s: no okf_kind — not an OKF bundle\n" "$name"
       ;;
@@ -222,7 +309,6 @@ validate_bundle() {
   esac
 }
 
-# ---- Scan directory ----------------------------------------------------
 scan_dir() {
   local dir="$1"
   if [ ! -d "$dir" ]; then
@@ -242,9 +328,10 @@ scan_dir() {
   fi
 }
 
-# ---- main ----------------------------------------------------------------
+# ---- main ----
 DIRS=()
 BUNDLE=""
+STAMPLINE="# e45s02 stamp -- concept and verification-report validators added"
 
 if [ $# -eq 0 ]; then
   DIRS=("$ROOT/specs/metrics" "$ROOT/specs/migrations")
@@ -255,29 +342,21 @@ while [ $# -gt 0 ]; do
     --dir)     DIRS+=("$2"); shift 2 ;;
     --bundle)  BUNDLE="$2"; shift 2 ;;
     --help|-h) usage_okf ;;
-    *)
-      echo "validate-okf: unknown flag: $1" >&2
-      echo "Run 'scripts/validate-okf.sh --help' for help." >&2
-      exit 2
-      ;;
+    *)         echo "validate-okf: unknown flag: $1" >&2; exit 2 ;;
   esac
 done
 
 echo "validate-okf: scanning for OKF bundles..."
 
 if [ -n "$BUNDLE" ]; then
-  if [ ! -f "$BUNDLE" ]; then
-    printf "${RED}FAIL${NC} bundle not found: %s\n" "$BUNDLE"
-    exit 1
-  fi
+  [ ! -f "$BUNDLE" ] && { printf "${RED}FAIL${NC} bundle not found: %s\n" "$BUNDLE"; exit 1; }
   validate_bundle "$BUNDLE"
 elif [ ${#DIRS[@]} -gt 0 ]; then
-  for d in "${DIRS[@]}"; do
-    scan_dir "$d"
-  done
+  for d in "${DIRS[@]}"; do scan_dir "$d"; done
 else
   echo "validate-okf: nothing to validate (no --dir or --bundle)" >&2
   exit 1
 fi
 
+validate_receipts
 exit "$EXIT_CODE"

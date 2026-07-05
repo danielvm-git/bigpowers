@@ -5,12 +5,10 @@
 # DO NOT edit SKILL-INDEX.md manually — it is auto-generated.
 set -euo pipefail
 
-REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+source "$(dirname "${BASH_SOURCE[0]}")/lib/skill-common.sh"
+
 LOCKFILE="$REPO_ROOT/skills-lock.json"
 INDEX_FILE="$REPO_ROOT/SKILL-INDEX.md"
-# SKILLS_ROOT: use skills/ when it exists, fall back to repo root
-SKILLS_ROOT="$REPO_ROOT"
-[[ -d "$REPO_ROOT/skills" ]] && SKILLS_ROOT="$REPO_ROOT/skills"
 
 if [[ ! -f "$LOCKFILE" ]]; then
   echo "generate-skill-index: ERROR — skills-lock.json not found. Run regenerate-lockfile.sh first." >&2

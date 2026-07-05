@@ -64,7 +64,7 @@ Run this self-review before asking anyone else to look at the code. The goal is 
 - [ ] Every new function has at least one test
 - [ ] Every bug fix has a regression test
 - [ ] Tests verify behavior through public interfaces (not implementation details)
-- [ ] Tests are F.I.R.S.T compliant (use `enforce-first` if unsure)
+- [ ] Tests are F.I.R.S.T compliant (per CONVENTIONS.md §Tests; use `enforce-first` if unsure)
 
 ### SOLID and Heuristics
 

@@ -77,4 +77,9 @@ Any further notes about the refactor.
 
 After writing `specs/REFACTOR_LATEST.md`, suggest running `kickoff-branch` next to create a refactor branch.
 
+## References
+
+- [Fowler's Refactoring Catalog](../../docs/references/fowler.md) — canonical refactoring vocabulary and code-smell taxonomy
+- [Beck's Tidy First?](../../docs/references/kent-beck.md) — structural change before behavioral change
+
 ## Verify

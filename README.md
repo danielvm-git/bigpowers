@@ -12,6 +12,12 @@ It is not a random collection of best practices. It is a chronological layer cak
 
 Published on npm: [bigpowers](https://www.npmjs.com/package/bigpowers). The skill count in the badge above is stamped automatically by `sync-skills.sh`; the canonical catalog is [`SKILL-INDEX.md`](SKILL-INDEX.md).
 
+Docs: [bigpowers docs site](https://danielvm-git.github.io/bigpowers/) — searchable, Google-discoverable reference for all skills, guides, and ADRs.
+
+**This methodology publishes its own evidence — see the [live receipts page](https://danielvm-git.github.io/bigpowers/receipts/).**
+
+**See it working:** [bigpowers-showcase](https://github.com/danielvm-git/bigpowers-showcase) — a real URL shortener (CLI + SQLite) built from scratch with the full spec trail committed from day one.
+
 ---
 
 ## 🗺 How to Read This README

@@ -1,6 +1,6 @@
 {
   "name": "bigpowers",
-  "version": "2.61.4",
+  "version": "2.65.1",
   "description": "73 agent skills synthesizing 17 years of software engineering discipline into a prescriptive methodology for solo developers",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,10 @@
     "version": "bash scripts/sync-skills.sh && git add .gemini/extensions/bigpowers/gemini-extension.json specs/SKILL-SEARCH-INDEX_LATEST.md",
     "release": "semantic-release",
     "dashboard": "node dashboard/bin/dashboard.js",
-    "dashboard:web": "node dashboard/bin/dashboard.js --web"
+    "dashboard:web": "node dashboard/bin/dashboard.js --web",
+    "site:dev": "cd website && npm run dev",
+    "site:build": "cd website && npm run build",
+    "site:preview": "cd website && npm run preview"
   },
   "keywords": [
     "skills",

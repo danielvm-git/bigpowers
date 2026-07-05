@@ -119,3 +119,8 @@ A numbered list of RED-GREEN cycles:
 </diagnosis-template>
 
 After writing the bug file, print a one-line summary of the root cause and suggest running `kickoff-branch` next to create a fix branch.
+
+## References
+
+- [Feathers' Seams & Characterization Tests](../../docs/references/feathers.md) — seam types, characterization tests, and the legacy code change algorithm
+- [Fowler's Code Smells](../../docs/references/fowler.md) — identifying structural problems by smell before investigating

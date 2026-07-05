@@ -56,6 +56,25 @@ The file name, loading strategy, and activation model differ per tool.
 
 **Symlink pattern**: create `AGENTS.md` as the single source, then symlink `CLAUDE.md` → `AGENTS.md` for Claude Code compatibility. Cline, Windsurf, and Cursor can also be pointed at it via their respective rule directories.
 
+### Skill-catalog vs instruction-only tools
+
+Only two tools support **discrete skill invocation** (a catalog of individually invokable `SKILL.md` units, per the Agent Skills format):
+
+| | Skill-catalog | Per-skill symlinks |
+|---|---|---|
+| **Claude Code** | Yes — `~/.claude/skills/<name>/` | One symlink per skill dir |
+| **pi** | Yes — `~/.pi/agent/skills/<name>/` | One symlink per skill dir (mirrors Claude Code) |
+
+Every other tool in the table above is **instruction-file-only** or **rules-directory**: they read one or more markdown files as always-on context, without discrete per-skill invocation.
+
+| Category | Tools |
+|----------|-------|
+| Instruction file (always-on) | Gemini CLI, OpenCode, Codex CLI, GitHub Copilot, Aider, Lovable, Amazon Q, Continue |
+| Rules directory (always-on) | Cline, Roo Code, Windsurf, Cursor |
+| Explicit wiring (opt-in) | Kiro |
+
+**Implication for distribution:** `install.sh` provides per-skill symlinks for Claude Code and pi (the two skill-catalog tools). For instruction-file-only tools, `seed-conventions` generates the project-root files (`CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, `opencode.json`) once at project bootstrap — there is no per-skill distribution mechanism because these tools structurally cannot use one. Do not propose per-skill symlinks or per-skill files for instruction-file-only tools.
+
 ### Open-source repos
 
 | Tool | License | Repo |

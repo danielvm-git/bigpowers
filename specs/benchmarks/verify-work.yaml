@@ -1,8 +1,11 @@
 skill: verify-work
-version: "1"
+# story: e48s01
+version: "2"
+runs: 3
 scenarios:
   - id: s01
     name: "pre-UAT verify validation catches pattern mismatch"
+    split: validation
     prompt: |
       Run verify-work. One task has verify: grep -q 'crates/bts-map' output.txt
       but output.txt contains 'src/bts-map' instead.
@@ -17,6 +20,7 @@ scenarios:
 
   - id: s02
     name: "--cli mode uses binary smoke checklist instead of cold-start"
+    split: train
     prompt: |
       Run verify-work --cli for a Rust CLI project with binary name bts.
     grader:
@@ -30,6 +34,7 @@ scenarios:
 
   - id: s03
     name: "writes evidence YAML before marking done"
+    split: validation
     prompt: |
       Run verify-work for story e22s01. All UAT steps pass.
     grader:

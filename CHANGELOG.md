@@ -1,3 +1,63 @@
+## [2.65.1](https://github.com/danielvm-git/bigpowers/compare/v2.65.0...v2.65.1) (2026-07-05)
+
+
+### Bug Fixes
+
+* **ci:** add workflow_dispatch trigger to docs-site workflow ([eaf2b0b](https://github.com/danielvm-git/bigpowers/commit/eaf2b0b4210b14d3ee6e24a44a208cf4280eaa5e))
+
+# [2.65.0](https://github.com/danielvm-git/bigpowers/compare/v2.64.2...v2.65.0) (2026-07-05)
+
+
+### Features
+
+* OKF Completion — wikis, verification reports, viz graph (e45) ([e04d209](https://github.com/danielvm-git/bigpowers/commit/e04d209c3e70c7e3c9aa2d19606294fde9b4cb23))
+
+## [2.64.2](https://github.com/danielvm-git/bigpowers/compare/v2.64.1...v2.64.2) (2026-07-05)
+
+
+### Bug Fixes
+
+* **ci:** enable GitHub Pages auto-configuration in docs-site workflow ([019aa2f](https://github.com/danielvm-git/bigpowers/commit/019aa2f8cc1b57d3f7c940172eb8c5672d1c322e))
+
+## [2.64.1](https://github.com/danielvm-git/bigpowers/compare/v2.64.0...v2.64.1) (2026-07-05)
+
+
+### Bug Fixes
+
+* **ci:** bump docs-site node to 22 for Astro 7.x compatibility ([6487a32](https://github.com/danielvm-git/bigpowers/commit/6487a3245711e9a0e05b1a36017c9cfa111b4879))
+* **ci:** bump docs-site node to 22 for Astro 7.x compatibility ([b2df6b8](https://github.com/danielvm-git/bigpowers/commit/b2df6b87ecd594dcf3df037c93a1d671da2d13d6))
+
+# [2.64.0](https://github.com/danielvm-git/bigpowers/compare/v2.63.0...v2.64.0) (2026-07-05)
+
+
+### Features
+
+* **e33:** Docs Website — fourth generated artifact target ([ff7f3ec](https://github.com/danielvm-git/bigpowers/commit/ff7f3ec6eab7c4b30a9676888468af5c9c9dd196))
+* **e35:** missing historical references — 10 stories, 8 new ref docs ([ffba59f](https://github.com/danielvm-git/bigpowers/commit/ffba59f3ebbe18a72385a3f325a5856a8a53da9e))
+* **e37s01:** BCP Plus counter integration — setup-environment + bcp-plus reference ([f2b4bdf](https://github.com/danielvm-git/bigpowers/commit/f2b4bdf86b6256089b593207aec37480e789edb7))
+* **e37s03:** NFR Gate integration — security-review and wire-observability sizing ([de47871](https://github.com/danielvm-git/bigpowers/commit/de478716f22e1b576a4b936103144aac39e921a4))
+* **e37s04:** Build-epic integration — BCP Plus in story sizing workflow ([a961e6b](https://github.com/danielvm-git/bigpowers/commit/a961e6be3c7f6a984654b38c4a867423ac6c11db))
+* **e43:** showcase repo — full worked example + sync-skills regeneration ([a872ca8](https://github.com/danielvm-git/bigpowers/commit/a872ca82745c6e7b983ef45f42f3251d3df0d680))
+* **e43:** showcase repo — full worked example of bigpowers methodology ([e32373b](https://github.com/danielvm-git/bigpowers/commit/e32373bff09cd0bf01a06406a95fccff8ad54f47)), closes [#dependent](https://github.com/danielvm-git/bigpowers/issues/dependent)
+* **e47:** cross-tool skill distribution — pi install, seed wiring, docs, verify harness ([0109c2f](https://github.com/danielvm-git/bigpowers/commit/0109c2fd87e2c2ef783e335a7e3d10e268ba5162))
+* **e48s01:** benchmark schema v2 — split/runs fields, story tags ([47bc1ef](https://github.com/danielvm-git/bigpowers/commit/47bc1ef92e6c34b01dc199f22b6edf357f5f0120))
+* **e48s01:** run-benchmark — delta grading + train/validation split ([d2d1fe8](https://github.com/danielvm-git/bigpowers/commit/d2d1fe84ec923f34454b7bdac40205667f18760f))
+* **e48s01:** run-benchmark — with/without-skill delta grading + train/validation split ([651d0d8](https://github.com/danielvm-git/bigpowers/commit/651d0d8b2c44477fa3be08162a5e0ecde2db2258))
+
+# [2.63.0](https://github.com/danielvm-git/bigpowers/compare/v2.62.0...v2.63.0) (2026-07-05)
+
+
+### Features
+
+* **e47:** cross-tool skill distribution — pi install, seed wiring, docs, verify harness ([27c68b4](https://github.com/danielvm-git/bigpowers/commit/27c68b49b698e994b783abc85c3750637061664e))
+
+# [2.62.0](https://github.com/danielvm-git/bigpowers/compare/v2.61.4...v2.62.0) (2026-07-05)
+
+
+### Features
+
+* **install:** add pi global install support, remove broken OpenCode step ([d91c86e](https://github.com/danielvm-git/bigpowers/commit/d91c86e46fd85d8fe6a7013484f4dd5ce6bc201f))
+
 ## [2.61.4](https://github.com/danielvm-git/bigpowers/compare/v2.61.3...v2.61.4) (2026-07-04)
 
 

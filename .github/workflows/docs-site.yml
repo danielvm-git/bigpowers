@@ -16,6 +16,9 @@ on:
       - 'README.md'
       - 'SKILL-INDEX.md'
       - '.github/workflows/docs-site.yml'
+      - 'scripts/build-receipts.sh'
+      - 'specs/receipts.json'
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -30,9 +33,19 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
           cache: npm
           cache-dependency-path: website/package-lock.json
+
+      - name: Generate receipts
+        run: bash scripts/build-receipts.sh
+
+      - name: Verify receipts.json
+        run: |
+          if [ ! -f specs/receipts.json ]; then
+            echo "ERROR: receipts.json not generated"; exit 1
+          fi
+          python3 -c "import json; json.load(open('specs/receipts.json')); print('receipts.json: valid JSON')"
 
       - name: Build docs site
         run: |
@@ -41,6 +54,8 @@ jobs:
           npm run build
 
       - uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       - uses: actions/upload-pages-artifact@v4
         with:

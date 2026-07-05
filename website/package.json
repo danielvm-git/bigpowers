@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "npm run generate && astro dev",
     "start": "npm run dev",
+    "prebuild": "node scripts/prebuild.mjs",
     "generate": "node scripts/prebuild.mjs",
     "build": "npm run generate && astro build",
     "preview": "astro preview",

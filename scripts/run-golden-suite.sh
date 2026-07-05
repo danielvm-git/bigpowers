@@ -37,6 +37,7 @@ done
 GATES=(
   "compliance:npm run compliance:false"
   "g04-selftest:bash scripts/golden-g04-selftest.sh:true"
+  "g06-migrate-version:bash tests/run-golden-migrate-version.sh:true"
   "g07-negative-path:bash scripts/golden-g07-negative-path.sh:false"
   "g08-anti-vacuity:bash scripts/golden-g08-anti-vacuity.sh:false"
   "g09-yaml-roundtrip:bash scripts/golden-g09-yaml-roundtrip.sh:false"
@@ -381,6 +382,38 @@ agent_stories:
 summary:
   combined_verdict: "$OVERALL"
 YAML_EOF
+
+# ── OKF verification-report (e45s02) ────────────────────────────────────
+OKF_DIR="specs/verifications/reports"
+mkdir -p "$OKF_DIR"
+OKF_FILE="$OKF_DIR/GOLDEN-${TODAY}.okf.md"
+THRESHOLD=100
+GATE_STATUS="$OVERALL"
+
+cat > "$OKF_FILE" << OKF_EOF
+---
+okf_kind: verification-report
+okf_version: "0.1"
+score: ${PASS_RATE}
+gate_status: "${GATE_STATUS}"
+threshold: ${THRESHOLD}
+total_pass: ${PASS_COUNT}
+total_fail: ${FAIL_COUNT}
+total_skip: ${SKIP_COUNT}
+generated_by: scripts/run-golden-suite.sh
+generated_at: "${TIMESTAMP}"
+git_commit: "${GIT_COMMIT}"
+---
+
+# Golden Suite — ${TODAY}
+
+**Score:** ${PASS_RATE} (${PASS_COUNT}/${TOTAL} passed)
+**Gate:** ${GATE_STATUS} | **Threshold:** ${THRESHOLD}%
+
+See \`${REPORT_FILE}\` for the full YAML report.
+OKF_EOF
+
+echo "OKF report: $OKF_FILE"
 
 # ── Size budget (placeholder for e31s04) ──────────────────────────────
 

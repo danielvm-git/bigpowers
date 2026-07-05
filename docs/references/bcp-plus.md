@@ -39,6 +39,25 @@ The original BCP is a tech-agnostic, universal complexity-sizing methodology des
 
 Each NFR dimension includes a **bottom-rung NFR Gate**: standard-expectation items (e.g., "use HTTPS") score N/A with 0 points and a one-line rationale. The Router always routes every distinct NFR requirement — gating is a sizing judgment, never a routing one.
 
+### NFR Gate Pattern
+
+**Purpose:** Prevent inflating complexity scores with standard-expected non-functional requirements.
+
+**Rule:** An NFR item that is baseline-expected for any professional software project scores 0 points. Only above-standard NFR requirements contribute to dimensions 11–13.
+
+**Examples:**
+
+| NFR Item | Gate Decision | Rationale |
+|:---------|:--------------|:----------|
+| "Use HTTPS for all endpoints" | 0 points (N/A) | Standard expectation for any web application |
+| "Log errors to structured JSON" | 0 points (N/A) | Standard expectation for any production service |
+| "WCAG 2.1 AA compliance" | Counted | Above-standard accessibility requirement |
+| "SOC 2 Type II audit trail" | Counted | Above-standard compliance requirement |
+| "p99 latency < 50ms under 10K RPS" | Counted | Above-standard performance SLO |
+| "Hash passwords with bcrypt" | 0 points (N/A) | Standard security expectation |
+
+**Pattern:** For every gated item, record: `[NFR Gate] <item> → 0 pts — standard expectation: <rationale>` in the breakdown. This provides auditability: reviewers can challenge a gate decision without re-running the counter.
+
 ### SNAP Compatibility
 
 The whitepaper's Exhibit 5 maps all 14 SNAP (Software Non-functional Assessment Process) subcategories onto combinations of BCP Plus dimensions. Element identity stays BCP-dimension-based; SNAP reconciliation happens through the mapping table. NFR size criteria use SNAP-style countable inputs.

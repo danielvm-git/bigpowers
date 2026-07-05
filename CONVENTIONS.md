@@ -140,6 +140,16 @@ When planning closes, copy to `specs/product/snapshots/release-<version>/` (`rel
 
 Validate YAML layout: `bash scripts/validate-specs-yaml.sh`. Patch runtime keys: `bash scripts/bp-yaml-set.sh specs/state.yaml git.branch feat/foo`.
 
+### Generated artifact targets
+
+Skill content is edited in `skills/*/SKILL.md` and auto-propagated to these targets by `bash scripts/sync-skills.sh`:
+- `.cursor/rules/` — Cursor IDE rules
+- `.gemini/extensions/bigpowers/` — Gemini CLI extensions
+- `.pi/skills/` + `.pi/prompts/` — pi agent
+- `website/src/content/docs/` — Docs website (Astro Starlight, deployed to GitHub Pages)
+
+**Never edit any of these targets directly.** Edit the SKILL.md sources and run rebuild scripts (`bash scripts/sync-skills.sh`, `npm run site:build`).
+
 ### Legacy paths (migrate away)
 
 | Old | New |

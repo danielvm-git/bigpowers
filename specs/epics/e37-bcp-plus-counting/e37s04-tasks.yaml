@@ -1,0 +1,26 @@
+story_id: e37s04
+title: "Build-epic integration — BCP Plus in story sizing workflow"
+status: done
+bcps: 4
+risk: P2
+tasks:
+  - id: 1
+    description: "Add BCP Plus total to build-epic Step 2 (plan-work) output validation"
+    verify: "grep -c 'bcp_plus' skills/build-epic/SKILL.md"
+    risk: P2
+    status: done
+  - id: 2
+    description: "Update cycle-times.yaml schema to record BCP Plus total alongside BCP"
+    verify: "grep -c 'bcp_plus' scripts/record-cycle-time.sh"
+    risk: P2
+    status: done
+  - id: 3
+    description: "Add BCP Plus to pre-merge checklist in CLAUDE.md"
+    verify: "grep -c 'BCP Plus' CLAUDE.md"
+    risk: P2
+    status: done
+  - id: 4
+    description: "Update develop-tdd to log BCP Plus total at story completion"
+    verify: "grep -c 'bcp_plus' skills/develop-tdd/SKILL.md"
+    risk: P2
+    status: done

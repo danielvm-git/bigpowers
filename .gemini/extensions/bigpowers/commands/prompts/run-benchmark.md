@@ -3,59 +3,78 @@
 
 > **HARD GATE** — Do NOT use benchmark scores to declare a skill "good" or "bad" in isolation. Benchmarks measure relative quality vs. a baseline — they catch regressions, they do not certify correctness.
 
-Reads benchmark definitions from `specs/benchmarks/`, executes each scenario's grader, and writes a structured `pass@k` report that `evolve-skill` consumes.
+Reads benchmark definitions from `specs/benchmarks/`, executes each scenario's grader with and without the skill loaded, and writes a structured `pass@k` report with delta grading that `evolve-skill` consumes.
+
+## With/Without-Skill Delta Grading
+
+Every scenario runs N times (default 3) in two modes: **with** the skill loaded and **without** (bare agent with only CLAUDE.md). The delta `Δ = pass@k_with − pass@k_without` isolates the skill's causal contribution. A negative delta is a regression flag.
+
+## Train/Validation Split
+
+Benchmark definitions partition scenarios into two sets:
+
+| Set | Tag | Purpose |
+|-----|-----|---------|
+| **Train** | `split: train` | Development scenarios — used while iterating. Hitting 100% on train is expected. |
+| **Validation** | `split: validation` | Held-out scenarios — the real quality signal. Overfitting train while validation stagnates is a design smell. |
+
+`pass@k` is reported separately for train and validation. Validation score is authoritative; train score is iteration guidance only.
 
 ## Usage
 
 ```bash
-# Benchmark a single skill
-run-benchmark <skill-name>
-
-# Benchmark all skills with definitions
-run-benchmark --all
-
-# Pin current results as baseline
-run-benchmark <skill-name> --baseline
+run-benchmark <skill-name>           # benchmark single skill
+run-benchmark --all                  # benchmark all with definitions
+run-benchmark <skill-name> --baseline # pin results as baseline
 ```
 
 ## Process
 
-1. **Locate definition** — Read `specs/benchmarks/<skill>.yaml`. If absent, report: `"No benchmark definition found for <skill>. Create specs/benchmarks/<skill>.yaml first."` and stop.
+1. **Locate definition** — Read `specs/benchmarks/<skill>.yaml`. If absent, stop with message.
 
-2. **Run each scenario** — For each scenario in `scenarios[]`:
-   - **Code grader:** Run `grader.command` in repo root via `bash -c`. Exit 0 → PASS. Non-zero → FAIL. Timeout: 15 seconds.
-   - **Rubric grader:** Present each criterion to the agent as a yes/no question about the scenario output. ≥ 80% yes → PASS, else FAIL.
+2. **Partition scenarios** — Split by `split` field (`train` → iteration, `validation` → authoritative, default: `validation`).
 
-3. **Calculate pass@k** — `pass@k = sum(weight of PASS scenarios) / sum(all weights)`. Round to 2 decimal places.
+3. **Run each scenario (N-run delta)** — For each scenario, run grader N times (default 3, configurable via `runs:`):
+   - **Without skill:** Agent with only CLAUDE.md/CONVENTIONS.md
+   - **With skill:** Agent with the skill under test active
+   - Code grader: `bash -c <command>`, exit 0 → PASS. Timeout: 15s.
+   - Rubric grader: yes/no per criterion, ≥ 80% yes → PASS.
+   - Record: `{scenario_id: {with: [P/F,...], without: [P/F,...]}}`
 
-4. **Write report** to `specs/benchmarks/reports/BENCHMARK-<skill>-<YYYY-MM-DD>.yaml`:
+4. **Calculate scores** — Per split (train, validation) and mode (with, without):
+   - `pass@k = sum(weight × pass_rate) / sum(weights)` where `pass_rate = passes/runs`
+   - `Δ = pass@k_with − pass@k_without` — causal contribution
+   - Round to 2 decimal places
 
-```yaml
-skill: survey-context
-run_date: "2026-06-22"
-pass_at_k: 0.83
-total_scenarios: 3
-passed: 2
-failed: 1
-scenarios:
-  - id: s01
-    name: "detects active epic from state.yaml"
-    result: PASS
-    weight: 1.0
-  - id: s02
-    name: "reads release-plan.yaml and reports next epic"
-    result: PASS
-    weight: 1.0
-  - id: s03
-    name: "handles missing state.yaml gracefully"
-    result: FAIL
-    weight: 0.5
-    failure_note: "crashed instead of suggesting state.yaml creation"
-```
+5. **Write benchmark.json** to `specs/benchmarks/reports/benchmark-<skill>.json`:
+   ```json
+   {"skill":"survey-context","run_date":"2026-06-22","runs_per_scenario":3,"train":{"with_skill":0.92,"without_skill":0.67,"delta":0.25,"scenarios":["s01","s02"]},"validation":{"with_skill":0.83,"without_skill":0.60,"delta":0.23,"scenarios":["s03","s04","s05"]}}
+   ```
 
-5. **Baseline mode** (`--baseline`) — Copy the report to `specs/benchmarks/reports/BASELINE-<skill>.yaml`. This is the reference point for regression checks in `evolve-skill`.
+6. **Write YAML report** to `specs/benchmarks/reports/BENCHMARK-<skill>-<YYYY-MM-DD>.yaml`:
+   ```yaml
+   skill: survey-context
+   run_date: "2026-06-22"
+   runs_per_scenario: 3
+   train:
+     pass_at_k_with: 0.92
+     pass_at_k_without: 0.67
+     delta: 0.25
+   validation:
+     pass_at_k_with: 0.83
+     pass_at_k_without: 0.60
+     delta: 0.23
+   scenarios:
+     - id: s01
+       split: train
+       with_pass_rate: 1.0
+       without_pass_rate: 0.67
+       delta: 0.33
+       weight: 1.0
+   ```
 
-6. **Compare to baseline** — If a `BASELINE-<skill>.yaml` exists, compare `pass_at_k`. Report:
-   - `IMPROVED: 0.67 → 0.83`
-   - `REGRESSION: 0.83 → 0.67 — do NOT ship this change`
-   - `STABLE: 0.83 = 0.83`
+7. **Baseline** (`--baseline`) — Copy to `BASELINE-<skill>.yaml` + `baseline-<skill>.json`.
+
+8. **Compare to baseline** — `IMPROVED: Δ 0.17 → 0.25` / `REGRESSION: Δ 0.25 → 0.17 — do NOT ship` / `STABLE`.
+
+9. **Delta threshold gate** — Validation Δ < 0.0 blocks release. Δ < 0.05 warns (marginal). Min meaningful threshold: 0.05.

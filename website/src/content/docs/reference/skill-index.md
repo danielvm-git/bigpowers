@@ -73,7 +73,7 @@ description: "Auto-generated catalog of all bigpowers skills."
 | 42 | Build | `wire-observability` | Add structured JSON logging, observability commands, and idempotent setup script | ✅ Active |
 | 43 | Verify | `audit-code` | Self-review checklist for the coding agent to run before dispatching a reviewer. | ✅ Active |
 | 44 | Verify | `diagnose-root` | Run 4-phase root cause analysis — reproduce, isolate, hypothesize, verify. Use | ✅ Active |
-| 45 | Verify | `enforce-first` | Apply the F.I.R.S.T test quality rubric (Fast, Independent, Repeatable, Self-Val | ✅ Active |
+| 45 | Verify | `enforce-first` | Apply the F.I.R.S.T test quality rubric (per CONVENTIONS.md §Tests) to a test s | ✅ Active |
 | 46 | Verify | `fix-bug` | Bug fix orchestrator — active_flow fix_bug; reads specs/bugs/BUG-*.md; chains  | ✅ Active |
 | 47 | Verify | `inspect-quality` | Interactive QA session where user reports bugs or issues conversationally, and t | ✅ Active |
 | 48 | Verify | `investigate-bug` | Investigate a bug or issue by exploring the codebase to find root cause, then wr | ✅ Active |
@@ -94,7 +94,7 @@ description: "Auto-generated catalog of all bigpowers skills."
 | 63 | Sustain | `migrate-spec` | Detect GSD, spec-kit, or BMAD spec artifacts and transform them into bigpowers Y | ✅ Active |
 | 64 | Sustain | `organize-workspace` | Scans the active workspace for disposable artifacts—logs, caches, stale build  | ✅ Active |
 | 65 | Sustain | `reset-baseline` | Restore the project to a known clean state between agent runs or experiments. Us | ✅ Active |
-| 66 | Sustain | `run-benchmark` | Run skill quality benchmarks from specs/benchmarks/ definitions and write pass@k | ✅ Active |
+| 66 | Sustain | `run-benchmark` | Run skill quality benchmarks from specs/benchmarks/ definitions — N-run with/w | ✅ Active |
 | 67 | Sustain | `session-state` | Track implementation decisions and progress in specs/state.yaml to prevent conte | ✅ Active |
 | 68 | Sustain | `simulate-agents` | Run Mock User and Auditor agents against a feature in fresh contexts before huma | ✅ Active |
 | 69 | Sustain | `stocktake-skills` | Sequential subagent batch audit of the bigpowers skill catalog — Quick Scan (c | ✅ Active |

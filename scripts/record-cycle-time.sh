@@ -37,7 +37,7 @@
 # Usage:
 #   scripts/record-cycle-time.sh report [--range <git-range>] [--story-key <key>]
 #   scripts/record-cycle-time.sh append --story <id> --bcps <n> \
-#         [--range <git-range>] [--merged-at <epoch>] [--file <path>] [--story-key <key>]
+#         [--bcp-plus <n>] [--range <git-range>] [--merged-at <epoch>] [--file <path>] [--story-key <key>]
 #
 # `report`  prints the per-story partition + an additivity self-check.
 # `append`  recomputes the partition and appends one row for <id> to the ledger.
@@ -59,9 +59,7 @@ Usage: scripts/record-cycle-time.sh <command> [flags]
 Commands:
   report      Compute per-story effort partition + additivity self-check.
               Flags: --range <git-range>  --story-key <trailer-key>
-  append      Recompute partition and append one row for a story.
-              Flags: --story <id> --bcps <n> [--range <git-range>]
-                     [--merged-at <epoch>] [--file <path>] [--story-key <trailer-key>]
+  append      Recompute partition and append one row for a story.\n              Flags: --story <id> --bcps <n> [--bcp-plus <n>] [--range <git-range>]\n                     [--merged-at <epoch>] [--file <path>] [--story-key <trailer-key>]
   self-test   Run report, then exit 0 on additivity PASS; exit 1 on FAIL.
               Flags: --range <git-range>  --story-key <trailer-key>
   help        Show this message.
@@ -133,6 +131,7 @@ cmd_append() {
     case "$1" in
       --story) story="$2"; shift 2 ;;
       --bcps) bcps="$2"; shift 2 ;;
+      --bcp-plus) bcp_plus="$2"; shift 2 ;;
       --range) range="$2"; shift 2 ;;
       --merged-at) merged_at="$2"; shift 2 ;;
       --file) file="$2"; shift 2 ;;
@@ -216,6 +215,9 @@ cmd_append() {
     printf -- 'id: %s\n' "$story"
     printf -- 'epic: %s\n' "${story%%s*}"          # e40s03 → e40
     printf -- 'bcps: %s\n' "$bcps"
+    if [ -n "$bcp_plus" ]; then
+      printf -- 'bcp_plus: %s\n' "$bcp_plus"
+    fi
     printf -- 'commit_range: "%s..%s"\n' "${range_lo:-$range_hi}" "$range_hi"
     printf -- 'source: measured\n'
     printf -- 'generated_at: %s\n' "$generated_at"

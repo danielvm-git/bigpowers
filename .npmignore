@@ -9,3 +9,4 @@ docs/
 .DS_Store
 .env
 .env.local
+website/
