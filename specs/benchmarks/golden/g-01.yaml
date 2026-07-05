@@ -1,0 +1,44 @@
+# story: e42s03
+# Golden story G-01: Add a validation rule (Build cycle)
+# Chain: survey-context → plan-work → kickoff-branch → develop-tdd → verify-work → audit-code
+
+id: g-01
+name: "Add email format validation rule (full build cycle)"
+chain:
+  - survey-context
+  - plan-work
+  - kickoff-branch
+  - develop-tdd
+  - verify-work
+  - audit-code
+fixture_repo: specs/benchmarks/fixtures/minimal-api
+setup:
+  state_yaml:
+    active_flow: build_epic
+    active_epic: e99
+    active_story: e99s01
+prompt: |
+  "Add email format validation to the createUser function in src/createUser.js.
+  Reject emails that do not contain '@'. Write a test for the new validation
+  rule and ensure the full test suite still passes. Follow the bigpowers
+  build-epic cycle: survey-context → plan-work → kickoff-branch → develop-tdd
+  → verify-work → audit-code."
+expected_artifacts:
+  - path: "specs/epics/e99/e99s01-tasks.yaml"
+    assert: "exists"
+  - path: "src/createUser.js"
+    assert: "grep -q 'email.*@' src/createUser.js"
+  - path: "test/createUser.test.js"
+    assert: "grep -q 'invalid.*email' test/createUser.test.js"
+  - path: "specs/state.yaml"
+    assert: "grep -q 'next_skill: release-branch' specs/state.yaml"
+grader:
+  type: code
+  command: |
+    test -f specs/epics/e99/e99s01-tasks.yaml &&
+    grep -q 'email.*@' src/createUser.js &&
+    grep -q 'invalid.*email' test/createUser.test.js &&
+    grep -q 'next_skill: release-branch' specs/state.yaml
+pass_at_k:
+  k: 3
+  threshold: 2

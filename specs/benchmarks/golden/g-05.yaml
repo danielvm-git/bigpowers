@@ -1,0 +1,37 @@
+# story: e42s03
+# Golden story G-05: Search and route (Discovery cycle)
+# Chain: search-skills → survey-context → using-bigpowers
+
+id: g-05
+name: "Search and route to the correct next skill (full discovery cycle)"
+chain:
+  - search-skills
+  - survey-context
+  - using-bigpowers
+fixture_repo: specs/benchmarks/fixtures/discovery-state
+setup:
+  state_yaml:
+    active_flow: build_epic
+    active_epic: e42
+    active_story: e42s02
+    handoff:
+      next_skill: develop-tdd
+      context: "e42s02 fixture ready, green tests. Ready for develop-tdd."
+prompt: |
+  "I'm working on epic e42 and just finished creating the minimal API
+  fixture. The tests pass. What should I do next? Follow the bigpowers
+  discovery chain: search-skills → survey-context → using-bigpowers."
+expected_artifacts:
+  - path: "specs/state.yaml"
+    assert: "grep -q 'next_skill:' specs/state.yaml"
+  - path: "agent_response.txt"
+    assert: "grep -qi 'develop-tdd' agent_response.txt"
+grader:
+  type: code
+  command: |
+    test -f specs/state.yaml &&
+    grep -q 'next_skill:' specs/state.yaml &&
+    (grep -qi 'develop-tdd' agent_response.txt 2>/dev/null || grep -qi 'develop-tdd' /dev/stdin)
+pass_at_k:
+  k: 3
+  threshold: 2

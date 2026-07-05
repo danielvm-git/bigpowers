@@ -1,0 +1,42 @@
+# story: e42s03
+# Golden story G-02: Investigate and fix a bug (Bug cycle)
+# Chain: investigate-bug → diagnose-root → develop-tdd → validate-fix → release-branch
+
+id: g-02
+name: "Investigate and fix an off-by-one bug (full bug cycle)"
+chain:
+  - investigate-bug
+  - diagnose-root
+  - develop-tdd
+  - validate-fix
+  - release-branch
+fixture_repo: specs/benchmarks/fixtures/off-by-one
+setup:
+  state_yaml:
+    bug_id: BUG-2026-07-05-off-by-one
+    bug_cycle:
+      current_step: 1
+prompt: |
+  "The paginate function in src/paginate.js returns one fewer item than
+  expected when the page size evenly divides the total count. Investigate
+  the bug, perform root cause analysis with the 4-phase RCA method
+  (Reproduce → Isolate → Hypothesize → Verify), write a TDD fix, validate
+  it, and ship the fix via release-branch. Follow the bigpowers bug cycle:
+  investigate-bug → diagnose-root → develop-tdd → validate-fix →
+  release-branch."
+expected_artifacts:
+  - path: "specs/bugs/BUG-2026-07-05-off-by-one.md"
+    assert: "grep -q 'Reproduce' specs/bugs/BUG-2026-07-05-off-by-one.md && grep -q 'Isolate' specs/bugs/BUG-2026-07-05-off-by-one.md && grep -q 'Hypothesize' specs/bugs/BUG-2026-07-05-off-by-one.md && grep -q 'Verify' specs/bugs/BUG-2026-07-05-off-by-one.md"
+  - path: "src/paginate.js"
+    assert: "exists"
+grader:
+  type: code
+  command: |
+    test -f specs/bugs/BUG-2026-07-05-off-by-one.md &&
+    grep -q 'Reproduce' specs/bugs/BUG-2026-07-05-off-by-one.md &&
+    grep -q 'Isolate' specs/bugs/BUG-2026-07-05-off-by-one.md &&
+    grep -q 'Hypothesize' specs/bugs/BUG-2026-07-05-off-by-one.md &&
+    grep -q 'Verify' specs/bugs/BUG-2026-07-05-off-by-one.md
+pass_at_k:
+  k: 3
+  threshold: 2
