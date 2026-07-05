@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-05T20:08:24.945578+00:00",
+  "generated_at": "2026-07-05T20:10:37.985132+00:00",
   "matrix_version": "1.0",
   "stories": [
     {
@@ -1035,7 +1035,7 @@
       "epic_title": "Missing Historical References",
       "bcp": 2,
       "wsjf": 3.0,
-      "status": "backlog",
+      "status": "done",
       "links": [
         {
           "file": "specs/epics/e35-historical-refs/e35s01-tasks.yaml",
@@ -1053,7 +1053,7 @@
       "epic_title": "Missing Historical References",
       "bcp": 2,
       "wsjf": 3.0,
-      "status": "backlog",
+      "status": "done",
       "links": [
         {
           "file": "specs/epics/e35-historical-refs/e35s02-tasks.yaml",
@@ -1071,7 +1071,7 @@
       "epic_title": "Missing Historical References",
       "bcp": 2,
       "wsjf": 3.0,
-      "status": "backlog",
+      "status": "done",
       "links": [
         {
           "file": "specs/epics/e35-historical-refs/e35s03-tasks.yaml",
@@ -1089,7 +1089,7 @@
       "epic_title": "Missing Historical References",
       "bcp": 2,
       "wsjf": 3.0,
-      "status": "backlog",
+      "status": "done",
       "links": [
         {
           "file": "specs/epics/e35-historical-refs/e35s04-tasks.yaml",
@@ -1107,7 +1107,7 @@
       "epic_title": "Missing Historical References",
       "bcp": 2,
       "wsjf": 3.0,
-      "status": "backlog",
+      "status": "done",
       "links": [
         {
           "file": "specs/epics/e35-historical-refs/e35s05-tasks.yaml",
@@ -1125,7 +1125,7 @@
       "epic_title": "Missing Historical References",
       "bcp": 2,
       "wsjf": 3.0,
-      "status": "backlog",
+      "status": "done",
       "links": [
         {
           "file": "specs/epics/e35-historical-refs/e35s06-tasks.yaml",
@@ -1143,7 +1143,7 @@
       "epic_title": "Missing Historical References",
       "bcp": 2,
       "wsjf": 3.0,
-      "status": "backlog",
+      "status": "done",
       "links": [
         {
           "file": "specs/epics/e35-historical-refs/e35s07-tasks.yaml",
@@ -1161,7 +1161,7 @@
       "epic_title": "Missing Historical References",
       "bcp": 2,
       "wsjf": 3.0,
-      "status": "backlog",
+      "status": "done",
       "links": [
         {
           "file": "specs/epics/archive/e40-metrics-integrity/e40s05-dora-four-keys.md",
@@ -1185,7 +1185,7 @@
       "epic_title": "Missing Historical References",
       "bcp": 2,
       "wsjf": 3.0,
-      "status": "backlog",
+      "status": "done",
       "links": [
         {
           "file": "specs/epics/e35-historical-refs/e35s09-tasks.yaml",
@@ -1203,7 +1203,7 @@
       "epic_title": "Missing Historical References",
       "bcp": 2,
       "wsjf": 3.0,
-      "status": "backlog",
+      "status": "done",
       "links": [
         {
           "file": "specs/epics/e35-historical-refs/e35s10-cross-reference-skills.md",
@@ -1944,6 +1944,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260705-170909.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260702-200136.md",
           "line": 0,
           "confidence": "medium",
@@ -2532,6 +2538,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260705-170940.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-153739.md",
           "line": 0,
           "confidence": "medium",
@@ -2850,7 +2862,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 263
+      "link_count": 265
     },
     {
       "id": "e36s04",
@@ -5405,6 +5417,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-superpowers-20260705-170918.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-superpowers-20260705-170949.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-superpowers-20260703-163142.md",
           "line": 0,
           "confidence": "medium",
@@ -6371,7 +6395,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 260
+      "link_count": 262
     },
     {
       "id": "e43s01",
@@ -8992,6 +9016,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-plan-tests-20260705-170918.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-plan-tests-20260705-170949.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-plan-tests-20260705-170448.md",
           "line": 0,
           "confidence": "medium",
@@ -9406,7 +9442,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 89
+      "link_count": 91
     },
     {
       "id": "e47s01",
@@ -9435,12 +9471,6 @@
       "wsjf": 4.3,
       "status": "done",
       "links": [
-        {
-          "file": "specs/state.yaml",
-          "line": 3,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
         {
           "file": "specs/skills-wiki/skills/seed-conventions.md",
           "line": 0,
@@ -9472,7 +9502,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 6
+      "link_count": 5
     },
     {
       "id": "e47s03",
@@ -11259,6 +11289,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260705-170909.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260702-200136.md",
           "line": 0,
           "confidence": "medium",
@@ -11847,6 +11883,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260705-170940.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-153739.md",
           "line": 0,
           "confidence": "medium",
@@ -12129,7 +12171,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 241
+      "link_count": 243
     },
     {
       "id": "e48s26",
@@ -12949,6 +12991,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260705-170909.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260702-200136.md",
           "line": 0,
           "confidence": "medium",
@@ -13537,6 +13585,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260705-170940.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-153739.md",
           "line": 0,
           "confidence": "medium",
@@ -13837,7 +13891,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 239
+      "link_count": 241
     },
     {
       "id": "e48s33",
@@ -14204,7 +14258,7 @@
   ],
   "summary": {
     "total_stories": 117,
-    "tagged_stories": 16,
+    "tagged_stories": 15,
     "dark_stories": [
       "e36s05",
       "e46s03"
@@ -14241,13 +14295,12 @@
       "e33s04",
       "e43s01",
       "e46s01",
-      "e47s02",
       "e47s04"
     ],
-    "stale_count": 5,
+    "stale_count": 4,
     "oracle_stats": {
-      "high": 64,
-      "medium": 2017,
+      "high": 63,
+      "medium": 2027,
       "low": 54
     }
   }

@@ -1,6 +1,6 @@
 ---
 type: Index
-generated_at: 2026-07-05T20:08:24.953200+00:00
+generated_at: 2026-07-05T20:10:37.993146+00:00
 total_concepts: 117
 ---
 
@@ -31,7 +31,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e35s10](./e35s10.md) | Cross-reference new docs from SKILL.md bodies | medium | 2 |
 | [e36s01](./e36s01.md) | Slim docs/references/uncle-bob.md to provenance pointer | low | 2 |
 | [e36s02](./e36s02.md) | Slim docs/references/akita.md, ousterhout.md, karpathy.md, w | low | 1 |
-| [e36s03](./e36s03.md) | Remove F.I.R.S.T rubric restatement from enforce-first and a | medium | 263 |
+| [e36s03](./e36s03.md) | Remove F.I.R.S.T rubric restatement from enforce-first and a | medium | 265 |
 | [e36s04](./e36s04.md) | Update docs/references/spec-kit.md to cover full SDD tool la | medium | 3 |
 | [e36s05](./e36s05.md) | Refresh docs/references/bmad.md from BMAD v6/TEA — currently | none | 0 |
 | [e37s01](./e37s01.md) | BCP Plus counter integration — install and smoke-test big-co | medium | 18 |
@@ -56,7 +56,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e42s01](./e42s01.md) | Spike: headless golden-chain harness — gh-aw + DeepSeek v4 p | medium | 4 |
 | [e42s02](./e42s02.md) | Create specs/benchmarks/fixtures/minimal-api/ fixture repo ( | medium | 4 |
 | [e42s03](./e42s03.md) | Author 4 golden story YAMLs (g-01, g-02, g-03, g-05) with co | medium | 19 |
-| [e42s04](./e42s04.md) | Add --agent mode to run-golden-suite.sh: headless chain exec | medium | 260 |
+| [e42s04](./e42s04.md) | Add --agent mode to run-golden-suite.sh: headless chain exec | medium | 262 |
 | [e43s01](./e43s01.md) | Scaffold the showcase app in a separate public repo via seed | high | 11 |
 | [e43s02](./e43s02.md) | Build one feature epic end-to-end via the 8-step build-epic  | medium | 73 |
 | [e43s03](./e43s03.md) | Fix one real bug via the investigate-bug → develop-tdd → val | medium | 54 |
@@ -77,9 +77,9 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e46s01](./e46s01.md) | Write docs/references/tea.md — credit TEA and document its m | high | 10 |
 | [e46s02](./e46s02.md) | Add risk: P0|P1|P2|P3 field to plan-work that scales verify- | medium | 30 |
 | [e46s03](./e46s03.md) | NFR evidence gate — performance/reliability/operability with | none | 0 |
-| [e46s04](./e46s04.md) | Upstream test-design artifact — plan-tests skill, registered | medium | 89 |
+| [e46s04](./e46s04.md) | Upstream test-design artifact — plan-tests skill, registered | medium | 91 |
 | [e47s01](./e47s01.md) | install.sh — global pi coverage (install_pi/uninstall_pi) +  | low | 1 |
-| [e47s02](./e47s02.md) | seed-conventions — optional per-project local wiring for Cur | high | 6 |
+| [e47s02](./e47s02.md) | seed-conventions — optional per-project local wiring for Cur | medium | 5 |
 | [e47s03](./e47s03.md) | docs — skill-catalog vs instruction-only distinction in agen | medium | 3 |
 | [e47s04](./e47s04.md) | verify-install.sh — manual verification harness for install  | high | 2 |
 | [e48s01](./e48s01.md) | run-benchmark: add train/validation-split + with/without-ski | high | 11 |
@@ -106,14 +106,14 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e48s22](./e48s22.md) | request-review: hard max-iteration cap | medium | 3 |
 | [e48s23](./e48s23.md) | requirements: ADDED/MODIFIED/REMOVED/RENAMED tags | none | 0 |
 | [e48s24](./e48s24.md) | subagent depth: formalize depth tiers | none | 0 |
-| [e48s25](./e48s25.md) | audit-code / deepen-architecture: churn-based look-here-firs | medium | 241 |
+| [e48s25](./e48s25.md) | audit-code / deepen-architecture: churn-based look-here-firs | medium | 243 |
 | [e48s26](./e48s26.md) | gate-trace / release-branch: adversarial-review refute frami | medium | 12 |
 | [e48s27](./e48s27.md) | requirements: per-section approval state | none | 0 |
 | [e48s28](./e48s28.md) | develop-tdd: snapshot-before-transition hardening | medium | 3 |
 | [e48s29](./e48s29.md) | plan-work: 5 fixed EARS sentence patterns | medium | 3 |
 | [e48s30](./e48s30.md) | specs: Documentation Responsibilities table | none | 0 |
 | [e48s31](./e48s31.md) | request-review: fan-out to parallel review subagents | medium | 14 |
-| [e48s32](./e48s32.md) | audit-code / security-review: worktree-isolated parallel che | medium | 239 |
+| [e48s32](./e48s32.md) | audit-code / security-review: worktree-isolated parallel che | medium | 241 |
 | [e48s33](./e48s33.md) | run-evals: graduated eval-strictness tiers | medium | 3 |
 | [e48s34](./e48s34.md) | orchestration: why-did-this-stall diagnostic skill | medium | 2 |
 | [e48s35](./e48s35.md) | seed-conventions / AGENTS.md: self-installing fenced markers | medium | 2 |

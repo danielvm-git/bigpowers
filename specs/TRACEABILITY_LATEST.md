@@ -1,16 +1,16 @@
 # Traceability Matrix
 
-**Generated:** 2026-07-05 20:08:24 UTC
+**Generated:** 2026-07-05 20:10:37 UTC
 **Total stories:** 117
-**Tagged stories:** 16
+**Tagged stories:** 15
 **Dark stories:** 2
 **Orphan tags:** 24
-**Stale tags:** 5
+**Stale tags:** 4
 
 ## Oracle Stats
 
-- **High** (explicit tag): 64
-- **Medium** (file heuristic): 2017
+- **High** (explicit tag): 63
+- **Medium** (file heuristic): 2027
 - **Low** (task reference): 54
 
 ## Story Coverage
@@ -26,19 +26,19 @@
 | e33s03 | SEO + AI discoverability layer | e33 | 0 | 2.8 | done | 2 |
 | e33s04 | GitHub Pages deploy workflow | e33 | 0 | 2.8 | done | 3 |
 | e33s05 | Doctrine wiring — site content is generated, never edited | e33 | 0 | 2.8 | done | 2 |
-| e35s01 | Create docs/references/kent-beck.md (XP, TDD origins, Tidy F | e35 | 2 | 3.0 | backlog | 1 |
-| e35s02 | Create docs/references/fowler.md (refactoring catalog, code  | e35 | 2 | 3.0 | backlog | 1 |
-| e35s03 | Create docs/references/feathers.md (seams, characterization  | e35 | 2 | 3.0 | backlog | 1 |
-| e35s04 | Create docs/references/pragmatic-programmer.md (DRY, broken  | e35 | 2 | 3.0 | backlog | 1 |
-| e35s05 | Create docs/references/rich-hickey.md (simple vs easy, compl | e35 | 2 | 3.0 | backlog | 1 |
-| e35s06 | Create docs/references/sandi-metz.md (SOLID in practice, mes | e35 | 2 | 3.0 | backlog | 1 |
-| e35s07 | Create docs/references/ddd.md (bounded contexts, context map | e35 | 2 | 3.0 | backlog | 1 |
-| e35s08 | Create docs/references/accelerate.md (DORA four keys) | e35 | 2 | 3.0 | backlog | 2 |
-| e35s09 | Update PRINCIPLES.md to credit Beck, Fowler, Feathers, Hunt  | e35 | 2 | 3.0 | backlog | 1 |
-| e35s10 | Cross-reference new docs from SKILL.md bodies | e35 | 2 | 3.0 | backlog | 2 |
+| e35s01 | Create docs/references/kent-beck.md (XP, TDD origins, Tidy F | e35 | 2 | 3.0 | done | 1 |
+| e35s02 | Create docs/references/fowler.md (refactoring catalog, code  | e35 | 2 | 3.0 | done | 1 |
+| e35s03 | Create docs/references/feathers.md (seams, characterization  | e35 | 2 | 3.0 | done | 1 |
+| e35s04 | Create docs/references/pragmatic-programmer.md (DRY, broken  | e35 | 2 | 3.0 | done | 1 |
+| e35s05 | Create docs/references/rich-hickey.md (simple vs easy, compl | e35 | 2 | 3.0 | done | 1 |
+| e35s06 | Create docs/references/sandi-metz.md (SOLID in practice, mes | e35 | 2 | 3.0 | done | 1 |
+| e35s07 | Create docs/references/ddd.md (bounded contexts, context map | e35 | 2 | 3.0 | done | 1 |
+| e35s08 | Create docs/references/accelerate.md (DORA four keys) | e35 | 2 | 3.0 | done | 2 |
+| e35s09 | Update PRINCIPLES.md to credit Beck, Fowler, Feathers, Hunt  | e35 | 2 | 3.0 | done | 1 |
+| e35s10 | Cross-reference new docs from SKILL.md bodies | e35 | 2 | 3.0 | done | 2 |
 | e36s01 | Slim docs/references/uncle-bob.md to provenance pointer | e36 | 3 | 1.4 | done | 2 |
 | e36s02 | Slim docs/references/akita.md, ousterhout.md, karpathy.md, w | e36 | 3 | 1.4 | done | 1 |
-| e36s03 | Remove F.I.R.S.T rubric restatement from enforce-first and a | e36 | 2 | 1.4 | done | 263 |
+| e36s03 | Remove F.I.R.S.T rubric restatement from enforce-first and a | e36 | 2 | 1.4 | done | 265 |
 | e36s04 | Update docs/references/spec-kit.md to cover full SDD tool la | e36 | 2 | 1.4 | done | 3 |
 | e36s05 | Refresh docs/references/bmad.md from BMAD v6/TEA — currently | e36 | 2 | 1.4 | done | 0 |
 | e37s01 | BCP Plus counter integration — install and smoke-test big-co | e37 | 0 | 2.1 | done | 18 |
@@ -63,7 +63,7 @@
 | e42s01 | Spike: headless golden-chain harness — gh-aw + DeepSeek v4 p | e42 | 3 | 1.8 | done | 4 |
 | e42s02 | Create specs/benchmarks/fixtures/minimal-api/ fixture repo ( | e42 | 3 | 1.8 | backlog | 4 |
 | e42s03 | Author 4 golden story YAMLs (g-01, g-02, g-03, g-05) with co | e42 | 3 | 1.8 | backlog | 19 |
-| e42s04 | Add --agent mode to run-golden-suite.sh: headless chain exec | e42 | 4 | 1.8 | backlog | 260 |
+| e42s04 | Add --agent mode to run-golden-suite.sh: headless chain exec | e42 | 4 | 1.8 | backlog | 262 |
 | e43s01 | Scaffold the showcase app in a separate public repo via seed | e43 | 3 | 2.5 | done | 11 |
 | e43s02 | Build one feature epic end-to-end via the 8-step build-epic  | e43 | 3 | 2.5 | done | 73 |
 | e43s03 | Fix one real bug via the investigate-bug → develop-tdd → val | e43 | 2 | 2.5 | done | 54 |
@@ -84,9 +84,9 @@
 | e46s01 | Write docs/references/tea.md — credit TEA and document its m | e46 | 3 | 3.4 | done | 10 |
 | e46s02 | Add risk: P0|P1|P2|P3 field to plan-work that scales verify- | e46 | 3 | 3.4 | done | 30 |
 | e46s03 | NFR evidence gate — performance/reliability/operability with | e46 | 4 | 3.4 | done | 0 |
-| e46s04 | Upstream test-design artifact — plan-tests skill, registered | e46 | 6 | 3.4 | done | 89 |
+| e46s04 | Upstream test-design artifact — plan-tests skill, registered | e46 | 6 | 3.4 | done | 91 |
 | e47s01 | install.sh — global pi coverage (install_pi/uninstall_pi) +  | e47 | 3 | 4.3 | done | 1 |
-| e47s02 | seed-conventions — optional per-project local wiring for Cur | e47 | 3 | 4.3 | done | 6 |
+| e47s02 | seed-conventions — optional per-project local wiring for Cur | e47 | 3 | 4.3 | done | 5 |
 | e47s03 | docs — skill-catalog vs instruction-only distinction in agen | e47 | 1 | 4.3 | done | 3 |
 | e47s04 | verify-install.sh — manual verification harness for install  | e47 | 2 | 4.3 | done | 2 |
 | e48s01 | run-benchmark: add train/validation-split + with/without-ski | e48 | 3 | 3.5 | backlog | 11 |
@@ -113,14 +113,14 @@
 | e48s22 | request-review: hard max-iteration cap | e48 | 2 | 3.5 | backlog | 3 |
 | e48s23 | requirements: ADDED/MODIFIED/REMOVED/RENAMED tags | e48 | 2 | 3.5 | backlog | 0 |
 | e48s24 | subagent depth: formalize depth tiers | e48 | 2 | 3.5 | backlog | 0 |
-| e48s25 | audit-code / deepen-architecture: churn-based look-here-firs | e48 | 2 | 3.5 | backlog | 241 |
+| e48s25 | audit-code / deepen-architecture: churn-based look-here-firs | e48 | 2 | 3.5 | backlog | 243 |
 | e48s26 | gate-trace / release-branch: adversarial-review refute frami | e48 | 2 | 3.5 | backlog | 12 |
 | e48s27 | requirements: per-section approval state | e48 | 2 | 3.5 | backlog | 0 |
 | e48s28 | develop-tdd: snapshot-before-transition hardening | e48 | 2 | 3.5 | backlog | 3 |
 | e48s29 | plan-work: 5 fixed EARS sentence patterns | e48 | 2 | 3.5 | backlog | 3 |
 | e48s30 | specs: Documentation Responsibilities table | e48 | 2 | 3.5 | backlog | 0 |
 | e48s31 | request-review: fan-out to parallel review subagents | e48 | 2 | 3.5 | backlog | 14 |
-| e48s32 | audit-code / security-review: worktree-isolated parallel che | e48 | 2 | 3.5 | backlog | 239 |
+| e48s32 | audit-code / security-review: worktree-isolated parallel che | e48 | 2 | 3.5 | backlog | 241 |
 | e48s33 | run-evals: graduated eval-strictness tiers | e48 | 2 | 3.5 | backlog | 3 |
 | e48s34 | orchestration: why-did-this-stall diagnostic skill | e48 | 2 | 3.5 | backlog | 2 |
 | e48s35 | seed-conventions / AGENTS.md: self-installing fenced markers | e48 | 2 | 3.5 | backlog | 2 |
@@ -172,5 +172,4 @@
 - `e33s04`
 - `e43s01`
 - `e46s01`
-- `e47s02`
 - `e47s04`

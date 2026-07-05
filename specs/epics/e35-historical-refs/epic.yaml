@@ -2,7 +2,7 @@ id: e35
 title: "Missing Historical References"
 wsjf: 3.0
 bcps: 20
-status: proposed
+status: done
 release: v2.8x "Docs Polish"
 codename: "Deepening"
 source: specs/MISSING-REFERENCES-AND-DELIVERY-PLAN.md
