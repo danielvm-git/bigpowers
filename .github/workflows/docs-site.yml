@@ -18,6 +18,7 @@ on:
       - '.github/workflows/docs-site.yml'
       - 'scripts/build-receipts.sh'
       - 'specs/receipts.json'
+  workflow_dispatch:
 
 permissions:
   contents: read
