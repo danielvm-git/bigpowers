@@ -1,3 +1,10 @@
+# [2.66.0](https://github.com/danielvm-git/bigpowers/compare/v2.65.1...v2.66.0) (2026-07-05)
+
+
+### Features
+
+* **e42:** Golden Story Suite — Agent-Driven (s02, s03, s04) ([#50](https://github.com/danielvm-git/bigpowers/issues/50)) ([c604577](https://github.com/danielvm-git/bigpowers/commit/c604577a5fa02361ae3e87cecdda18c467fc1ff6)), closes [#aw](https://github.com/danielvm-git/bigpowers/issues/aw)
+
 ## [2.65.1](https://github.com/danielvm-git/bigpowers/compare/v2.65.0...v2.65.1) (2026-07-05)
 
 
