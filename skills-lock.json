@@ -23,7 +23,7 @@
     },
     "build-epic": {
       "description": "Eight-step epic build cycle — reads state.yaml, execution-status.yaml, and one epic capsule; updates status via bp-yaml-set or direct edit. Resume mode runs one step per invocation. Use instead of ad-hoc execute-plan for release work.",
-      "sha256": "96fd5e0cc63a9962",
+      "sha256": "230ac9d30cae1a63",
       "path": "skills/build-epicSKILL.md"
     },
     "change-request": {
@@ -163,8 +163,13 @@
     },
     "kickoff-branch": {
       "description": "Create a git worktree and feature branch, then verify a clean test baseline before any code is written. Use when starting a new feature or task, when user wants to work in isolation from main, or mentions \"start a branch\" or \"new worktree\".",
-      "sha256": "ebe80e5cab94de5c",
+      "sha256": "928d87bae8cc4ddf",
       "path": "skills/kickoff-branchSKILL.md"
+    },
+    "maintain-wiki": {
+      "description": "\"Agent-maintained OKF wiki — INGEST source docs, LINT for issues, QUERY across concept pages. Run as part of build-epic Step 8 and verify-work Phase 3.\"# story: e39s07",
+      "sha256": "c54c6170db6fe3f9",
+      "path": "skills/maintain-wikiSKILL.md"
     },
     "map-codebase": {
       "description": "\"Derives the tech-stack doc from scratch by scanning the codebase — analyzes stack, architecture, and gray areas (error handling, API shapes) and persists findings into specs/tech-architecture/tech-stack.md. Run when the tech doc doesn't exist yet; use survey-context to consume it once it does.\"",
@@ -203,7 +208,7 @@
     },
     "plan-tests": {
       "description": "\"Design a risk-scaled test architecture for an epic before implementation begins. Produces prioritized scenarios, test level distribution, and fixture plans based on TEA and bigpowers principles.\"",
-      "sha256": "3f43a105b860105a",
+      "sha256": "ed22b3feb985eabb",
       "path": "skills/plan-testsSKILL.md"
     },
     "plan-work": {
@@ -223,7 +228,7 @@
     },
     "release-branch": {
       "description": "Make the merge/PR/keep/discard decision for a feature branch, verify coverage gates, create the PR with gh, and clean up the worktree. Use when a feature is done and ready to ship, or when user says \"release\", \"merge\", or \"open a PR\".",
-      "sha256": "4cf2329648e0bf3e",
+      "sha256": "73a9aebff3fb4dc0",
       "path": "skills/release-branchSKILL.md"
     },
     "request-review": {
@@ -348,7 +353,7 @@
     },
     "verify-work": {
       "description": "Multi-phase UAT gate — cold-start smoke, build, typecheck, lint, tests, step-by-step manual verification, gaps-closure loop. Use after execute-plan or develop-tdd, before audit-code.",
-      "sha256": "030622528b2bf5ed",
+      "sha256": "300e5a7c7695e33f",
       "path": "skills/verify-workSKILL.md"
     },
     "visual-dashboard": {

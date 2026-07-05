@@ -1,3 +1,16 @@
+# [2.67.0](https://github.com/danielvm-git/bigpowers/compare/v2.66.0...v2.67.0) (2026-07-05)
+
+
+### Bug Fixes
+
+* **ci:** plan-tests verify resilient to unset EPIC; N1/N4 word-boundary grep to reduce false positives ([b5dc673](https://github.com/danielvm-git/bigpowers/commit/b5dc673b4466d95ac44040c2ac269267b7d00e04))
+* **ci:** trim SKILL.md size caps — kickoff-branch 147, release-branch 150, verify-work 150 ([dcc857b](https://github.com/danielvm-git/bigpowers/commit/dcc857b020341a1b9936c31cf14797eeaacc5c67))
+
+
+### Features
+
+* **e39:** semantic context bridge — skill graph, agent locks, spec drift, OKF wikis ([#53](https://github.com/danielvm-git/bigpowers/issues/53)) ([2bd97b1](https://github.com/danielvm-git/bigpowers/commit/2bd97b14ed7a54d2022523cc6c23cd4bdc55b9a3))
+
 # [2.66.0](https://github.com/danielvm-git/bigpowers/compare/v2.65.1...v2.66.0) (2026-07-05)
 
 
