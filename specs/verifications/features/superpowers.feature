@@ -13,4 +13,5 @@ Feature: Superpowers Compliance (Hard Gates & Red Flags)
     And I should enforce a two-stage review gate
     And I should automatically bootstrap project context at session start
     And I should visualize implementation progress as a roadmap
-    And I should reject PRs that do not meet the 94% quality threshold
+    And I should reject work that fails its risk-tier verification gate
+    And each core skill should prove a positive with-skill versus without-skill eval delta

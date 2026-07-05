@@ -10,6 +10,7 @@ build_order:
 - e32
 - e33
 - e39
+- e48
 - e44
 - e28
 - e41
@@ -94,6 +95,13 @@ epics:
   capsule_dir: epics/e39-knowledge-graph
   mode: capsule
   status: proposed
+- id: e48
+  title: Prior-Art Audit — 9 High-Priority Mechanisms from 28 OSS Skill & SDD Repos
+  wsjf: 3.5
+  bcps: 25
+  capsule_dir: epics/e48-prior-art-audit
+  mode: capsule
+  status: proposed
 - id: e46
   title: Risk-Based Verification — TEA-Informed Test Depth
   wsjf: 3.4
@@ -127,6 +135,13 @@ epics:
   wsjf: 2.5
   bcps: 11
   capsule_dir: epics/e43-showcase-repo
+  mode: capsule
+  status: proposed
+- id: e49
+  title: GitHub Wiki as Derived OKF Rendering Target
+  wsjf: 2.4
+  bcps: 8
+  capsule_dir: epics/e49-wiki-rendering-target
   mode: capsule
   status: proposed
 - id: e37

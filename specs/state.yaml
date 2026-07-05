@@ -1,30 +1,30 @@
-active_flow: null
-active_epic: null
-active_story: null
+active_flow: build_epic
+active_epic: e47
+active_story: e47s01
 bigpowers_version: 2.61.4
 bug_cycle:
   completed_steps: []
   current_step: null
 bug_id: null
 handoff:
-  context: 'e32 complete (2026-07-04 yolo build): bigpowers-mcp TypeScript MCP server with 10 tools, vitest
-    catalog suite, .mcp.json registration, docs/references/bigpowers-mcp.md. Next active epic per build_order:
-    e33 (docs website) or e39 (semantic bridge, blocked on e32s02 — now unblocked).
+  context: 'build-epic e47 Step 1/8 complete. Threat model filed (LOW risk, CLEAR).
+    On main. Next: plan-work (Step 2) → kickoff-branch (Step 3) → develop-tdd (Step 4).
 
     '
-  next_skill: survey-context
+  next_skill: plan-work
 active_decisions:
   e32_build_order_waiver:
     date: '2026-07-04'
     scope: e32s01
     rationale: MCP spike independent of e42 golden fixture and e47 global install
 epic_cycle:
-  epic_id: null
-  story_id: null
-  story_bcps: null
-  story_risk: null
-  yolo_mode: true
-  completed_at: '2026-07-04'
+  epic_id: e47
+  story_id: e47s01
+  story_bcps: 3
+  story_risk: P2
+  step: 2
+  yolo_mode: false
+  completed_at: null
 metrics:
   epic_e32:
     completed_at: '2026-07-04T17:58:00Z'
@@ -51,7 +51,7 @@ metrics:
       calls: 0
       total_seconds: 0
   story_end: '2026-07-03T12:30:00Z'
-  story_start: '2026-07-02T23:00:00Z'
+  story_start: '2026-07-05T00:00:00Z'
 node20_migration:
   changes: actions/checkout v4→v6, concurrency, timeout-minutes
   commit: 5b6f1dd
