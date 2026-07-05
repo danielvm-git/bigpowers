@@ -1,0 +1,253 @@
+---
+// story: e41s02
+// Receipts page — renders quality evidence from specs/receipts.json.
+// Reads at build time; every section degrades to "not yet measured" for absent sources.
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+
+const REPO_ROOT = new URL('../..', import.meta.url).pathname;
+const receiptsPath = new URL('../../specs/receipts.json', import.meta.url).pathname;
+
+let receipts: Record<string, any> = {};
+let parseError: string | null = null;
+
+try {
+  const fs = await import('node:fs');
+  if (fs.existsSync(receiptsPath)) {
+    const raw = fs.readFileSync(receiptsPath, 'utf8');
+    receipts = JSON.parse(raw);
+  } else {
+    parseError = 'receipts.json not found — run bash scripts/build-receipts.sh first';
+  }
+} catch (e: any) {
+  parseError = `Failed to parse receipts.json: ${e.message}`;
+}
+
+const sectionLabels: Record<string, string> = {
+  compliance: 'Compliance Score',
+  golden_suite: 'Golden Suite',
+  metrics: 'OKF Story Metrics',
+  traceability: 'Traceability Matrix',
+};
+
+const sectionOrder = ['compliance', 'golden_suite', 'metrics', 'traceability'];
+
+function formatValue(section: string, value: any): string {
+  if (value === undefined || value === null) return '';
+  if (section === 'compliance') return `${value}%`;
+  if (section === 'golden_suite') {
+    const v = value as any;
+    return `${v.passed}/${v.total} gates passing (${(v.pass_rate * 100).toFixed(0)}%)`;
+  }
+  if (section === 'metrics') {
+    const v = value as any;
+    const parts = [`${v.story_count} stories`, `${v.total_effort_hours}h effort`, `${v.total_bcps} BCPs`];
+    return parts.join(' · ');
+  }
+  if (section === 'traceability') {
+    const v = value as any;
+    return `${v.linked_stories}/${v.total_stories} stories linked (${v.coverage_pct}%) · ${v.total_links} links`;
+  }
+  return JSON.stringify(value);
+}
+
+const sourceEmoji: Record<string, string> = {
+  measured: '📏',
+  estimated: '📊',
+  backfilled: '⚠️',
+  absent: '🚫',
+};
+
+function formatTimestamp(ts: string): string {
+  if (!ts) return '';
+  try {
+    return new Date(ts).toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' });
+  } catch {
+    return ts;
+  }
+}
+---
+
+<StarlightPage
+  frontmatter={{
+    title: 'Receipts',
+    description: 'Live quality evidence — this methodology publishes its own metrics.',
+  }}
+>
+  <p class="lede">
+    Every quality metric published below is generated from a documented, reproducible
+    command. Sections marked <strong>not yet measured</strong> degrade explicitly —
+    this page never fabricates a number.
+  </p>
+
+  {parseError && (
+    <div class="banner error">
+      <strong>Build error:</strong> {parseError}
+    </div>
+  )}
+
+  <div class="receipts-grid">
+    {sectionOrder.map((key) => {
+      const section = receipts[key] || { source: 'absent' };
+      const label = sectionLabels[key] || key;
+      const isAbsent = section.source === 'absent';
+      const isBackfilled = section.source === 'backfilled';
+
+      return (
+        <section class={`receipt-card ${isAbsent ? 'absent' : ''} ${isBackfilled ? 'backfilled' : ''}`}>
+          <header class="card-header">
+            <h2>{label}</h2>
+            <span class={`source-badge source-${section.source}`}>
+              {sourceEmoji[section.source] || ''} {section.source}
+            </span>
+          </header>
+
+          <div class="card-body">
+            {isAbsent ? (
+              <p class="not-yet">not yet measured</p>
+            ) : (
+              <>
+                <p class="value">{formatValue(key, section.value)}</p>
+                {section.value?.generated_at && section.value.generated_at !== section.generated_at && (
+                  <p class="freshness">Data from {formatTimestamp(section.value.generated_at)}</p>
+                )}
+                <p class="freshness">Aggregated {formatTimestamp(section.generated_at)}</p>
+                <p class="command"><code>{section.command}</code></p>
+              </>
+            )}
+          </div>
+
+          {isBackfilled && (
+            <div class="quarantine-notice">
+              ⚠️ Backfilled — not a measured value. See e40 provenance rules.
+            </div>
+          )}
+        </section>
+      );
+    })}
+  </div>
+</StarlightPage>
+
+<style>
+  .lede {
+    max-width: 48rem;
+    color: var(--sl-color-gray-2);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .banner {
+    padding: 1rem 1.25rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+  }
+  .banner.error {
+    background: rgba(239, 68, 68, 0.12);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: var(--sl-color-red-high);
+  }
+
+  .receipts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+    max-width: 64rem;
+  }
+
+  .receipt-card {
+    background: var(--sl-color-gray-7);
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 10px;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.2s;
+  }
+  .receipt-card:hover {
+    border-color: var(--sl-color-accent-low);
+  }
+  .receipt-card.absent {
+    opacity: 0.7;
+    border-style: dashed;
+  }
+  .receipt-card.backfilled {
+    border-color: rgba(234, 179, 8, 0.4);
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+  .card-header h2 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  .source-badge {
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 12px;
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .source-measured { background: rgba(34, 197, 94, 0.15); color: var(--sl-color-green-high); }
+  .source-estimated { background: rgba(59, 130, 246, 0.15); color: var(--sl-color-blue-high); }
+  .source-backfilled { background: rgba(234, 179, 8, 0.15); color: var(--sl-color-orange-high); }
+  .source-absent { background: rgba(148, 163, 184, 0.12); color: var(--sl-color-gray-2); }
+
+  .card-body {
+    flex: 1;
+  }
+
+  .value {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.4;
+  }
+  .absent .value {
+    display: none;
+  }
+
+  .not-yet {
+    font-style: italic;
+    color: var(--sl-color-gray-3);
+    font-size: 1.05rem;
+    margin: 0.5rem 0;
+  }
+
+  .freshness {
+    font-size: 0.8rem;
+    color: var(--sl-color-gray-3);
+    margin: 0.25rem 0;
+  }
+
+  .command {
+    margin-top: 0.75rem;
+    font-size: 0.78rem;
+  }
+  .command code {
+    background: var(--sl-color-gray-6);
+    padding: 2px 6px;
+    border-radius: 4px;
+    word-break: break-all;
+    font-size: 0.75rem;
+  }
+
+  .quarantine-notice {
+    margin-top: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    background: rgba(234, 179, 8, 0.1);
+    border-left: 3px solid rgba(234, 179, 8, 0.5);
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: var(--sl-color-orange-high);
+  }
+</style>

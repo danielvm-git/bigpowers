@@ -1,0 +1,57 @@
+# story: e33s04
+name: Deploy Docs Site to GitHub Pages
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'skills/*/SKILL.md'
+      - 'docs/**'
+      - 'specs/adr/**'
+      - 'website/**'
+      - 'README.md'
+      - 'SKILL-INDEX.md'
+      - '.github/workflows/docs-site.yml'
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+          cache-dependency-path: website/package-lock.json
+
+      - name: Build docs site
+        run: |
+          cd website
+          npm ci
+          npm run build
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: website/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
