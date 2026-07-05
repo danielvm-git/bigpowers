@@ -1,11 +1,21 @@
 story_id: e43s03
 title: "Fix one real bug via the investigate-bug → develop-tdd → validate-fix trail"
-status: todo
+status: done
 bcps: 2
 tasks:
   - id: 1
     description: "Find or introduce a genuine defect in the showcase app"
-    verify: "gh search code --repo danielvm-git/bigpowers-showcase 'BUG-' --json path --jq 'length' 2>/dev/null | awk '{if($1>0) print \"OK\"}' || echo 'PENDING'"
+    verify: >-
+      (gh search code --repo danielvm-git/bigpowers-showcase 'BUG-' --json path
+      --jq 'length' 2>/dev/null | awk '{if($1>0) print "OK"}')
+      || (test -f ../bigpowers-showcase/specs/bugs/BUG-*.md 2>/dev/null && echo "OK: local BUG found")
+      || echo "PENDING: offline, verify manually"
+    status: done
   - id: 2
     description: "Run investigate-bug → develop-tdd → validate-fix; commit BUG-*.md + regression test + fix"
-    verify: "gh api repos/danielvm-git/bigpowers-showcase/commits --jq '.[0].commit.message' 2>/dev/null | grep -q 'fix' && echo OK || echo 'PENDING'"
+    verify: >-
+      (gh api repos/danielvm-git/bigpowers-showcase/commits
+      --jq '.[0].commit.message' 2>/dev/null | grep -q 'fix' && echo OK)
+      || (cd ../bigpowers-showcase && git log --oneline -1 | grep -q 'fix' && echo "OK: local commit verifies")
+      || echo "PENDING: offline, verify manually"
+    status: done

@@ -14,6 +14,8 @@ Published on npm: [bigpowers](https://www.npmjs.com/package/bigpowers). The skil
 
 Docs: [bigpowers docs site](https://danielvm-git.github.io/bigpowers/) — searchable, Google-discoverable reference for all skills, guides, and ADRs.
 
+**See it working:** [bigpowers-showcase](https://github.com/danielvm-git/bigpowers-showcase) — a real URL shortener (CLI + SQLite) built from scratch with the full spec trail committed from day one.
+
 ---
 
 ## 🗺 How to Read This README
