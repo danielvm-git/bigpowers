@@ -108,6 +108,29 @@ See [REFERENCE.md](REFERENCE.md) for exit code semantics and git-only fallback.
 - [ ] `release.ci_verified: true` documented in state.yaml
 - On failure: `handoff.next_skill = fix-bug` with the CI failure URL
 
+### 7b. Release agent lock (e39s02)
+
+Before cleaning up, release the story lock in `specs/agent-locks.yaml`:
+
+```bash
+LOCK_FILE="specs/agent-locks.yaml"
+STORY_ID="<story-id>"
+if [ -f "$LOCK_FILE" ]; then
+  python3 -c "
+import yaml
+with open('$LOCK_FILE') as f:
+  d = yaml.safe_load(f)
+if d and 'locks' in d:
+  d['locks'] = [l for l in d['locks'] if l.get('story_id') != '$STORY_ID']
+with open('$LOCK_FILE', 'w') as f:
+  yaml.dump(d, f, default_flow_style=False)
+print(f'LOCK RELEASED: $STORY_ID')
+"
+fi
+```
+
+If no lock found for this story, warn and continue (idempotent release).
+
 ### 8. Clean up worktree
 
 ```bash

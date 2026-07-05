@@ -292,6 +292,24 @@ validate_bundle() {
     EXIT_CODE=1
     return
   }
+
+  # ── OKF v0.1 Generic Frontmatter Conformance (e39s10) ──
+  # Check required 'type' field
+  local fm_type
+  fm_type="$(echo "$fm" | python3 -c "import json,sys; d=json.load(sys.stdin); print(d.get('type',''))" 2>/dev/null)"
+  if [ -z "$fm_type" ]; then
+    printf "${RED}FAIL${NC} %s: OKF v0.1 — missing required 'type' field\n" "$name"
+    EXIT_CODE=1
+    return
+  fi
+
+  # Reserved filenames: index.md must have type: Index
+  if [ "$name" = "index.md" ] && [ "$fm_type" != "Index" ]; then
+    printf "${RED}FAIL${NC} %s: OKF v0.1 — index.md must have type: Index (got '%s')\n" "$name" "$fm_type"
+    EXIT_CODE=1
+    return
+  fi
+
   local kind
   kind="$(echo "$fm" | python3 -c "import json,sys; d=json.load(sys.stdin); print(d.get('okf_kind',''))" 2>/dev/null)"
   case "$kind" in

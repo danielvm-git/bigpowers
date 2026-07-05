@@ -109,6 +109,30 @@ phases:
     closed: true
 ```
 
+### 5b. OKF wiki LINT (e39s08)
+
+After closing gaps, run a lightweight OKF wiki health check:
+
+```bash
+# Stale concepts: source newer than OKF page
+for page in specs/skills-wiki/skills/*.md; do
+  skill=$(basename "$page" .md)
+  source="skills/$skill/SKILL.md"
+  if [ -f "$source" ] && [ "$page" -ot "$source" ]; then
+    echo "WARN: STALE specs/skills-wiki/skills/$skill.md (SKILL.md newer)"
+  fi
+done
+
+# Orphan pages: concept exists but source skill deleted
+for page in specs/conventions-wiki/*.md; do
+  [ "$(basename "$page")" = "index.md" ] && continue
+  slug=$(basename "$page" .md)
+  grep -q "$slug" CONVENTIONS.md || echo "WARN: ORPHAN specs/conventions-wiki/$slug.md (no section in CONVENTIONS.md)"
+done
+```
+
+Non-blocking: all findings are advisory. Fix stale/orphan concepts via INGEST in the next build-epic cycle.
+
 > **HARD GATE** — Verification evidence MUST be persisted before marking the story done. No evidence = not verified.
 
 ## --cli mode

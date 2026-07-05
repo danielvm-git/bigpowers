@@ -1,0 +1,139 @@
+{
+  "meta": {
+    "generated_by": "scripts/check-spec-drift.sh",
+    "source": "specs/traceability-matrix.json",
+    "timestamp": "2026-07-05T22:57:47Z"
+  },
+  "suspect_links": [],
+  "broken_links": [
+    {
+      "story_id": "e36s05",
+      "reason": "no trace links",
+      "severity": "broken"
+    },
+    {
+      "story_id": "e43s01",
+      "spec": "",
+      "file": "bigpowers-showcase/CONVENTIONS.md",
+      "reason": "implementing file does not exist",
+      "severity": "broken"
+    },
+    {
+      "story_id": "e43s02",
+      "spec": "",
+      "file": "bigpowers-showcase/specs/epics/e01-url-shortener/epic.yaml",
+      "reason": "implementing file does not exist",
+      "severity": "broken"
+    },
+    {
+      "story_id": "e43s03",
+      "spec": "",
+      "file": "bigpowers-showcase/specs/bugs/BUG-2026-07-05-race-condition.md",
+      "reason": "implementing file does not exist",
+      "severity": "broken"
+    },
+    {
+      "story_id": "e44s02",
+      "spec": "",
+      "file": ".ctxo/index/schema-version",
+      "reason": "implementing file does not exist",
+      "severity": "broken"
+    },
+    {
+      "story_id": "e45s03",
+      "spec": "",
+      "file": "bigpowers-showcase/specs/bugs/BUG-2026-07-05-race-condition.md",
+      "reason": "implementing file does not exist",
+      "severity": "broken"
+    },
+    {
+      "story_id": "e46s02",
+      "spec": "",
+      "file": "website/dist/pagefind/pagefind-worker.js",
+      "reason": "implementing file does not exist",
+      "severity": "broken"
+    },
+    {
+      "story_id": "e46s03",
+      "reason": "no trace links",
+      "severity": "broken"
+    },
+    {
+      "story_id": "e48s02",
+      "reason": "no trace links",
+      "severity": "broken"
+    },
+    {
+      "story_id": "e48s04",
+      "reason": "no trace links",
+      "severity": "broken"
+    },
+    {
+      "story_id": "e48s07",
+      "reason": "no trace links",
+      "severity": "broken"
+    },
+    {
+      "story_id": "e48s12",
+      "spec": "",
+      "file": "website/dist/pagefind/pagefind-worker.js",
+      "reason": "implementing file does not exist",
+      "severity": "broken"
+    },
+    {
+      "story_id": "e48s19",
+      "reason": "no trace links",
+      "severity": "broken"
+    },
+    {
+      "story_id": "e48s21",
+      "reason": "no trace links",
+      "severity": "broken"
+    },
+    {
+      "story_id": "e48s23",
+      "reason": "no trace links",
+      "severity": "broken"
+    },
+    {
+      "story_id": "e48s24",
+      "reason": "no trace links",
+      "severity": "broken"
+    },
+    {
+      "story_id": "e48s27",
+      "reason": "no trace links",
+      "severity": "broken"
+    },
+    {
+      "story_id": "e48s30",
+      "reason": "no trace links",
+      "severity": "broken"
+    },
+    {
+      "story_id": "e48s37",
+      "reason": "no trace links",
+      "severity": "broken"
+    },
+    {
+      "story_id": "e48s41",
+      "reason": "no trace links",
+      "severity": "broken"
+    },
+    {
+      "story_id": "e49s01",
+      "reason": "no trace links",
+      "severity": "broken"
+    },
+    {
+      "story_id": "e49s02",
+      "reason": "no trace links",
+      "severity": "broken"
+    }
+  ],
+  "summary": {
+    "suspect": 0,
+    "broken": 22,
+    "ok": 102
+  }
+}

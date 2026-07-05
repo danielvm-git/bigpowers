@@ -36,6 +36,34 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
+      - name: Stale-lock validation (e39s02)
+        run: |
+          if [ -f specs/agent-locks.yaml ]; then
+            python3 -c "
+import yaml, datetime, sys
+now = datetime.datetime.now(datetime.timezone.utc)
+with open('specs/agent-locks.yaml') as f:
+    d = yaml.safe_load(f)
+if d and 'locks' in d:
+    stale = []
+    for lock in d['locks']:
+        locked_at = datetime.datetime.fromisoformat(lock.get('locked_at', '1970-01-01T00:00:00Z'))
+        if locked_at.tzinfo is None:
+            locked_at = locked_at.replace(tzinfo=datetime.timezone.utc)
+        age_hours = (now - locked_at).total_seconds() / 3600
+        if age_hours > 24:
+            stale.append(f'{lock[\"story_id\"]}: locked by {lock.get(\"locked_by\", \"?\")} for {age_hours:.1f}h')
+    if stale:
+        print(f'::warning::Stale locks found (>24h):')
+        for s in stale:
+            print(f'  {s}')
+else:
+    print('No locks to validate')
+"
+          else:
+            echo "::notice::specs/agent-locks.yaml not found — skipping stale-lock check"
+          fi
+
       - name: Sync skills and verify artifacts committed
         run: |
           bash scripts/sync-skills.sh
