@@ -1,3 +1,10 @@
+## [2.65.1](https://github.com/danielvm-git/bigpowers/compare/v2.65.0...v2.65.1) (2026-07-05)
+
+
+### Bug Fixes
+
+* **ci:** add workflow_dispatch trigger to docs-site workflow ([eaf2b0b](https://github.com/danielvm-git/bigpowers/commit/eaf2b0b4210b14d3ee6e24a44a208cf4280eaa5e))
+
 # [2.65.0](https://github.com/danielvm-git/bigpowers/compare/v2.64.2...v2.65.0) (2026-07-05)
 
 
