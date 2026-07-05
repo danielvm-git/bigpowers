@@ -1,3 +1,20 @@
+# [2.64.0](https://github.com/danielvm-git/bigpowers/compare/v2.63.0...v2.64.0) (2026-07-05)
+
+
+### Features
+
+* **e33:** Docs Website — fourth generated artifact target ([ff7f3ec](https://github.com/danielvm-git/bigpowers/commit/ff7f3ec6eab7c4b30a9676888468af5c9c9dd196))
+* **e35:** missing historical references — 10 stories, 8 new ref docs ([ffba59f](https://github.com/danielvm-git/bigpowers/commit/ffba59f3ebbe18a72385a3f325a5856a8a53da9e))
+* **e37s01:** BCP Plus counter integration — setup-environment + bcp-plus reference ([f2b4bdf](https://github.com/danielvm-git/bigpowers/commit/f2b4bdf86b6256089b593207aec37480e789edb7))
+* **e37s03:** NFR Gate integration — security-review and wire-observability sizing ([de47871](https://github.com/danielvm-git/bigpowers/commit/de478716f22e1b576a4b936103144aac39e921a4))
+* **e37s04:** Build-epic integration — BCP Plus in story sizing workflow ([a961e6b](https://github.com/danielvm-git/bigpowers/commit/a961e6be3c7f6a984654b38c4a867423ac6c11db))
+* **e43:** showcase repo — full worked example + sync-skills regeneration ([a872ca8](https://github.com/danielvm-git/bigpowers/commit/a872ca82745c6e7b983ef45f42f3251d3df0d680))
+* **e43:** showcase repo — full worked example of bigpowers methodology ([e32373b](https://github.com/danielvm-git/bigpowers/commit/e32373bff09cd0bf01a06406a95fccff8ad54f47)), closes [#dependent](https://github.com/danielvm-git/bigpowers/issues/dependent)
+* **e47:** cross-tool skill distribution — pi install, seed wiring, docs, verify harness ([0109c2f](https://github.com/danielvm-git/bigpowers/commit/0109c2fd87e2c2ef783e335a7e3d10e268ba5162))
+* **e48s01:** benchmark schema v2 — split/runs fields, story tags ([47bc1ef](https://github.com/danielvm-git/bigpowers/commit/47bc1ef92e6c34b01dc199f22b6edf357f5f0120))
+* **e48s01:** run-benchmark — delta grading + train/validation split ([d2d1fe8](https://github.com/danielvm-git/bigpowers/commit/d2d1fe84ec923f34454b7bdac40205667f18760f))
+* **e48s01:** run-benchmark — with/without-skill delta grading + train/validation split ([651d0d8](https://github.com/danielvm-git/bigpowers/commit/651d0d8b2c44477fa3be08162a5e0ecde2db2258))
+
 # [2.63.0](https://github.com/danielvm-git/bigpowers/compare/v2.62.0...v2.63.0) (2026-07-05)
 
 
