@@ -1,8 +1,11 @@
 skill: survey-context
-version: "1"
+# story: e48s01
+version: "2"
+runs: 3
 scenarios:
   - id: s01
     name: "detects active epic from state.yaml"
+    split: validation
     prompt: |
       Run survey-context. specs/state.yaml exists with active_epic_id: e22 and
       active_story_id: e22s01. The epic capsule exists at specs/epics/e22-skill-catalog-ci-gate/.
@@ -13,6 +16,7 @@ scenarios:
 
   - id: s02
     name: "reads release-plan.yaml and reports next epic"
+    split: train
     prompt: |
       Run survey-context. specs/release-plan.yaml exists with 3 backlog epics.
     grader:
@@ -25,6 +29,7 @@ scenarios:
 
   - id: s03
     name: "handles missing state.yaml gracefully"
+    split: validation
     prompt: |
       Run survey-context when specs/state.yaml does not exist.
     grader:
