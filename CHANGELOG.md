@@ -1,3 +1,10 @@
+## [2.64.2](https://github.com/danielvm-git/bigpowers/compare/v2.64.1...v2.64.2) (2026-07-05)
+
+
+### Bug Fixes
+
+* **ci:** enable GitHub Pages auto-configuration in docs-site workflow ([019aa2f](https://github.com/danielvm-git/bigpowers/commit/019aa2f8cc1b57d3f7c940172eb8c5672d1c322e))
+
 ## [2.64.1](https://github.com/danielvm-git/bigpowers/compare/v2.64.0...v2.64.1) (2026-07-05)
 
 
