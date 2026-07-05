@@ -30,6 +30,8 @@ Ask the user these questions (one at a time, wait for each answer):
 5. **Conventions** — "Any naming, file organization, or patterns all agents must follow?"
 6. **Never-do list** — "What are the hard stops? Things an agent must never touch?"
 7. **Defensive code categories** — "Which apply? (Rate limit / Retry / Circuit breaker / Timeout / Graceful degradation)"
+8. **Local tool wiring (optional)** — "Wire bigpowers skills for project-local tools that global install can't reach? (Cursor + OpenCode only)" If yes, generate the local wiring artifacts described in [REFERENCE.md](REFERENCE.md) §Local tool wiring. If no, skip — the standard seed output is unchanged.
+8. **Local tool wiring (optional)** — "Wire bigpowers skills for project-local tools that global install can't reach? (Cursor + OpenCode only)" If yes, generate the local wiring artifacts described in [REFERENCE.md](REFERENCE.md) §Local tool wiring. If no, skip — the standard seed output is unchanged.
 
 ## Generate files
 

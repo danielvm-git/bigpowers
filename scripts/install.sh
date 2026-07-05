@@ -4,8 +4,8 @@
 # Supported tools:
 #   Claude Code  → ~/.claude/skills/<name>/ (one symlink per skill)
 #   Gemini CLI   → ~/.gemini/extensions/bigpowers/ (one dir symlink)
+#   pi           → ~/.pi/agent/skills/<name>/ (one symlink per skill)
 #   Cursor       → ~/.cursor/rules/ (one dir symlink; per-project note printed)
-#   OpenCode     → instructions printed (no standard global path)
 #
 # Usage:
 #   ./scripts/install.sh              # install
@@ -195,28 +195,33 @@ uninstall_cursor() {
   unlink_if_managed "$CURSOR_RULES_DST" "$REPO_ROOT/"
 }
 
-# ── OpenCode ──────────────────────────────────────────────────────────────────
+# ── pi ────────────────────────────────────────────────────────────────────────
 
-install_opencode() {
-  local opencode_config="$REPO_ROOT/opencode.json"
-  if [[ ! -f "$opencode_config" ]]; then
-    echo "Creating opencode.json..."
-    {
-      echo "{"
-      echo "  \"\$schema\": \"https://opencode.ai/config.json\","
-      echo "  \"instructions\": [\".cursor/rules/*.mdc\"]"
-      echo "}"
-    } > "$opencode_config"
-  else
-    echo "opencode.json already exists, skipping."
-  fi
+PI_CONFIG_DIR="$HOME/.pi"
+PI_SKILLS_DIR="$PI_CONFIG_DIR/agent/skills"
+
+install_pi() {
+  echo ""
+  echo "pi → $PI_SKILLS_DIR/"
+  local count=0
+  for skill_dir in "$SKILLS_ROOT"/*/; do
+    [[ -f "$skill_dir/SKILL.md" ]] || continue
+    local name; name="$(basename "$skill_dir")"
+    link "$skill_dir" "$PI_SKILLS_DIR/$name"
+    count=$((count + 1))
+  done
+  echo "  $count skills installed"
 }
 
-print_opencode_instructions() {
+uninstall_pi() {
   echo ""
-  echo "OpenCode — integration active:"
-  echo "  - opencode.json created (points to .cursor/rules/*.mdc)"
-  echo "  - Add AGENTS.md for project-specific rules if needed"
+  echo "pi → removing management from $PI_CONFIG_DIR/"
+  if [[ -d "$PI_SKILLS_DIR" ]]; then
+    for dst in "$PI_SKILLS_DIR"/*/; do
+      [[ -L "${dst%/}" ]] || continue
+      unlink_if_managed "${dst%/}" "$REPO_ROOT/"
+    done
+  fi
 }
 
 # ── main ──────────────────────────────────────────────────────────────────────
@@ -228,15 +233,15 @@ $UNINSTALL && echo "(uninstall mode)"
 if $UNINSTALL; then
   uninstall_claude
   uninstall_gemini
+  uninstall_pi
   uninstall_cursor
   echo ""
   echo "bigpowers uninstalled."
 else
   install_claude
   install_gemini
+  install_pi
   install_cursor
-  install_opencode
-  print_opencode_instructions
   echo ""
   echo "bigpowers installed. Future updates:"
   if [[ -d "$REPO_ROOT/.git" ]]; then

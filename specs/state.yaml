@@ -1,35 +1,34 @@
 active_flow: build_epic
-active_epic: e43
-active_story: e43s05
-bigpowers_version: 2.61.4
+active_epic: e47
+active_story: e47s02
+bigpowers_version: 2.62.0
 bug_cycle:
   completed_steps: []
   current_step: null
 bug_id: null
 handoff:
-  context: 'e43 EPIC COMPLETE (2026-07-05). All 5 stories done:
-    e43s01: Showcase repo scaffolded (danielvm-git/bigpowers-showcase)
-    e43s02: e01 feature epic built (28 tests, TDD trail)
-    e43s03: Bug fix trail (IntegrityError + regression test)
-    e43s04: README + e37 fixture registration
-    e43s05: Offline-tolerant verify fallbacks
-    Compliance: 96% (GATE PASS). Golden suite: 8/8.
-    Commit pushed to feat/e43-showcase-repo. Ready for release-branch.'
-  next_skill: release-branch
+  context: 'Full e47 implementation merged from main. All 4 stories: e47s01 (install
+    pi), e47s02 (seed-conventions local wiring), e47s03 (docs agent-config ref),
+    e47s04 (verify-install.sh). Next: run verification gates.'
+  next_skill: verify-work
 active_decisions:
   e32_build_order_waiver:
     date: '2026-07-04'
     scope: e32s01
     rationale: MCP spike independent of e42 golden fixture and e47 global install
 epic_cycle:
-  epic_id: e43
-  story_id: e35s02
-  story_bcps: 1
-  story_risk: P2
-  step: 8
+  epic_id: e47
+  story_id: e47s02
+  story_bcps: 3
+  story_risk: P3
+  step: 5
   yolo_mode: false
-  completed_at: '2026-07-05'
+  completed_at: null
 metrics:
+  epic_e47:
+    started_at: '2026-07-05'
+    stories: 4
+    total_bcps: 9
   epic_e32:
     completed_at: '2026-07-04T17:58:00Z'
     prs: []
@@ -64,15 +63,3 @@ node20_migration:
   changes: actions/checkout v4→v6, concurrency, timeout-minutes
   commit: 5b6f1dd
   completed: true
-previous_handoff:
-  context: 'e32 pre-flight complete (2026-07-04): TEST_PLAN, IMPACT, THREAT_MODEL, e32s01 spec+tasks.
-    Build-order waiver for s01 spike. e39s01 blocked on e32s02.
-
-    '
-  next_skill: kickoff-branch
-release:
-  ci_verified: true
-  commit: f0f95b7
-  released_at: '2026-07-04T18:04:00Z'
-  landed_at: '2026-07-04T18:22:00Z'
-  version: 2.61.4
