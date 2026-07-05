@@ -1,14 +1,12 @@
 #!/usr/bin/env bash
-# story: e13s03
+# story: e13s03 e28s03
 # sync-skills.sh — generate Cursor, Gemini CLI, and pi artifacts from SKILL.md source files
+# Architecture: Parse→IR→Render. Each target is its own render_<target>() function.
 # Run this after adding or updating any skill. Symlinks carry changes through automatically.
 set -euo pipefail
 
-REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-# SKILLS_ROOT: use skills/ subdirectory when it exists, fall back to repo root
-# This allows e29s02 to git-mv skill dirs into skills/ without changing this script.
-SKILLS_ROOT="$REPO_ROOT"
-[[ -d "$REPO_ROOT/skills" ]] && SKILLS_ROOT="$REPO_ROOT/skills"
+source "$(dirname "${BASH_SOURCE[0]}")/lib/skill-common.sh"
+
 CURSOR_RULES="$REPO_ROOT/.cursor/rules"
 GEMINI_EXT_DIR="$REPO_ROOT/.gemini/extensions/bigpowers"
 GEMINI_SKILLS="$GEMINI_EXT_DIR/skills"
@@ -26,100 +24,136 @@ rm -rf "${GEMINI_COMMANDS:?}"/*
 rm -rf "${PI_SKILLS:?}"/*
 rm -rf "${PI_PROMPTS:?}"/*
 
-# We'll collect metadata for the manifest if needed, 
-# though skills/commands are auto-discovered.
-# Manifest is still good for extension-level name/version.
+# ── IR: shared intermediate representation ──────────────────────────
+# These globals are set by the main loop per skill and consumed by render functions.
+IR_NAME=""
+IR_MODEL=""
+IR_DESCRIPTION=""
+IR_DESC_ESCAPED=""
+IR_BODY=""
 
-skill_count=0
+# ── build_body ──────────────────────────────────────────────────────
+# Builds the concatenated content: SKILL.md body + all other *.md files.
+# Args: $1 = path to SKILL.md, $2 = skill directory
+build_body() {
+  local skill_md="$1"
+  local skill_dir="$2"
+  local body
 
-for skill_dir in "$SKILLS_ROOT"/*/; do
-  skill_md="$skill_dir/SKILL.md"
-  [[ -f "$skill_md" ]] || continue
-
-  # Extract name, model, and description from YAML frontmatter
-  name=$(awk '/^---/{f++} f==1 && /^name:/{print; exit}' "$skill_md" | sed 's/^name:[[:space:]]*//')
-  model=$(awk '/^---/{f++} f==1 && /^model:/{print; exit}' "$skill_md" | sed 's/^model:[[:space:]]*//')
-  # Capture description: from "description:" line to next YAML key or closing ---
-  description=$(awk '/^---/{f++; next} f==1 && /^description:/{p=1; sub(/^description:[[:space:]]*/,""); print; next} f==1 && p && /^[a-z]+:/{exit} f==1 && p{print}' "$skill_md" \
-    | tr -d '\n' \
-    | sed -E 's/[[:space:]]+/ /g')
-
-  # Escape double quotes and backslashes for safe double-quoted YAML output
-  description_escaped=$(echo "$description" | sed 's/\\/\\\\/g; s/"/\\"/g')
-
-  [[ -z "$name" ]] && continue
-
-  # Build concatenated content: SKILL.md body + all other *.md files alphabetically
-  # Strip frontmatter from SKILL.md (content between second --- and EOF)
+  # Strip frontmatter from SKILL.md (content after second ---)
   body=$(awk '/^---/{f++; next} f>=2{print}' "$skill_md")
 
+  # Append extra *.md files alphabetically
+  local extra_md
   for extra_md in $(find "$skill_dir" -maxdepth 1 -name "*.md" ! -name "SKILL.md" | LC_ALL=C sort); do
     body="$body"$'\n\n'"---"$'\n\n'"$(cat "$extra_md")"
   done
 
   # Strip disable-model-invocation lines
-  body=$(echo "$body" | grep -v 'disable-model-invocation')
+  echo "$body" | grep -v 'disable-model-invocation'
+}
 
-  # 1. Write .cursor/rules/<name>.mdc
-  cursor_file="$CURSOR_RULES/$name.mdc"
+# ── Render target: Cursor ───────────────────────────────────────────
+# Writes .cursor/rules/<name>.mdc with YAML frontmatter + body.
+render_cursor() {
+  local cursor_file="$CURSOR_RULES/$IR_NAME.mdc"
   {
     echo "---"
-    echo "description: \"$description_escaped\""
+    echo "description: \"$IR_DESC_ESCAPED\""
     echo "alwaysApply: false"
     echo "---"
     echo ""
-    echo "$body"
+    echo "$IR_BODY"
   } > "$cursor_file"
+}
 
-  # 2. Write Gemini Agent Skill: .gemini/extensions/bigpowers/skills/<name>/SKILL.md
-  mkdir -p "$GEMINI_SKILLS/$name"
+# ── Render target: Gemini Agent Skill ───────────────────────────────
+# Writes .gemini/extensions/bigpowers/skills/<name>/SKILL.md
+render_gemini_skill() {
+  mkdir -p "$GEMINI_SKILLS/$IR_NAME"
   {
     echo "---"
-    echo "name: $name"
-    echo "description: \"$description_escaped\""
+    echo "name: $IR_NAME"
+    echo "description: \"$IR_DESC_ESCAPED\""
     echo "---"
     echo ""
-    echo "$body"
-  } > "$GEMINI_SKILLS/$name/SKILL.md"
+    echo "$IR_BODY"
+  } > "$GEMINI_SKILLS/$IR_NAME/SKILL.md"
+}
 
-  # 3. Write Gemini Slash Command: .gemini/extensions/bigpowers/commands/<name>.toml
-  # We use a dedicated prompt file to keep the TOML clean
+# ── Render target: Gemini Slash Command ─────────────────────────────
+# Writes .gemini/extensions/bigpowers/commands/<name>.toml + prompt file
+render_gemini_command() {
   mkdir -p "$GEMINI_COMMANDS/prompts"
-  prompt_file="commands/prompts/$name.md"
-  echo "$body" > "$GEMINI_EXT_DIR/$prompt_file"
-  
+  local prompt_file="commands/prompts/$IR_NAME.md"
+  echo "$IR_BODY" > "$GEMINI_EXT_DIR/$prompt_file"
   {
-    echo "description = \"$description_escaped\""
+    echo "description = \"$IR_DESC_ESCAPED\""
     echo "prompt = \"@{$prompt_file}\""
-  } > "$GEMINI_COMMANDS/$name.toml"
+  } > "$GEMINI_COMMANDS/$IR_NAME.toml"
+}
 
-  # 4. Write pi skill: .pi/skills/<name>/SKILL.md
-  # Pi implements the Agent Skills standard — same YAML frontmatter + body format
-  mkdir -p "$PI_SKILLS/$name"
+# ── Render target: pi Agent Skill ───────────────────────────────────
+# Writes .pi/skills/<name>/SKILL.md
+render_pi_skill() {
+  mkdir -p "$PI_SKILLS/$IR_NAME"
   {
     echo "---"
-    echo "name: $name"
-    echo "description: \"$description_escaped\""
-    [[ -n "$model" ]] && echo "model: $model"
+    echo "name: $IR_NAME"
+    echo "description: \"$IR_DESC_ESCAPED\""
+    [[ -n "$IR_MODEL" ]] && echo "model: $IR_MODEL"
     echo "---"
     echo ""
-    echo "$body"
-  } > "$PI_SKILLS/$name/SKILL.md"
+    echo "$IR_BODY"
+  } > "$PI_SKILLS/$IR_NAME/SKILL.md"
+}
 
-  # 5. Write pi prompt template: .pi/prompts/<name>.md
-  # Slash-command templates expandable via /<name> in pi's editor
+# ── Render target: pi Prompt Template ───────────────────────────────
+# Writes .pi/prompts/<name>.md
+render_pi_prompt() {
   {
     echo "---"
-    echo "description: $description"
+    echo "description: $IR_DESCRIPTION"
     echo "---"
     echo ""
-    echo "$body"
-  } > "$PI_PROMPTS/$name.md"
+    echo "$IR_BODY"
+  } > "$PI_PROMPTS/$IR_NAME.md"
+}
+
+# ── Target registry ─────────────────────────────────────────────────
+# Order matters: render functions are called in this order per skill.
+TARGETS=(render_cursor render_gemini_skill render_gemini_command render_pi_skill render_pi_prompt)
+
+skill_count=0
+
+# ── Main loop: Parse → IR → Render per skill ────────────────────────
+while IFS= read -r skill_dir; do
+  skill_md="$skill_dir/SKILL.md"
+
+  parse_frontmatter "$skill_md" || continue
+
+  IR_NAME="$_PF_NAME"
+  IR_MODEL="$_PF_MODEL"
+  IR_DESCRIPTION="$_PF_DESCRIPTION"
+
+  # Escape double quotes and backslashes for safe double-quoted YAML output
+  IR_DESC_ESCAPED=$(echo "$IR_DESCRIPTION" | sed 's/\\/\\\\/g; s/"/\\"/g')
+
+  [[ -z "$IR_NAME" ]] && continue
+
+  IR_BODY=$(build_body "$skill_md" "$skill_dir")
+
+  # Dispatch to each render target
+  for target_fn in "${TARGETS[@]}"; do
+    "$target_fn"
+  done
 
   skill_count=$((skill_count + 1))
-done
+done < <(iterate_skills)
 
-# Assemble final gemini-extension.json (top-level fields only — not scripts.version)
+# ── Post-loop: manifest, opencode, regeneration, guards, README badge ──
+
+# Assemble final gemini-extension.json
 pkg_version=$(jq -r '.version' "$REPO_ROOT/package.json")
 pkg_desc=$(jq -r '.description' "$REPO_ROOT/package.json")
 
@@ -128,8 +162,7 @@ jq -n --arg name "bigpowers" \
       --arg desc "${skill_count} skills — ${pkg_desc}" \
       '{name: $name, version: $version, description: $desc}' > "$GEMINI_MANIFEST"
 
-# 6. Write pi package config: .pi/package.json
-# Enables pi install (local path, npm, or git) with auto-discovered skills and prompts
+# Write pi package config: .pi/package.json
 jq -n --arg version "$pkg_version" \
       --arg desc "${skill_count} skills — ${pkg_desc}" \
       '{
@@ -143,9 +176,7 @@ jq -n --arg version "$pkg_version" \
         }
       }' > "$PI_PACKAGE_JSON"
 
-# 7. Write OpenCode configuration: opencode.json (minimal project-level config)
-# Skills are loaded on-demand via opencode's native skill tool, not instructions.
-# Full opencode integration lives in the bigpowers-opencode repo.
+# Write OpenCode configuration: opencode.json
 {
   echo "{"
   echo "  \"\$schema\": \"https://opencode.ai/config.json\","
@@ -153,7 +184,7 @@ jq -n --arg version "$pkg_version" \
   echo "}"
 } > "$REPO_ROOT/opencode.json"
 
-# 5. Sync to bigpowers-opencode repo (if --opencode path is provided)
+# Sync to bigpowers-opencode repo (if --opencode path is provided)
 OPN_TARGET=""
 for arg in "$@"; do
   case "$arg" in
@@ -194,8 +225,7 @@ if [[ -x "$REPO_ROOT/scripts/build-skill-index.sh" ]]; then
   bash "$REPO_ROOT/scripts/build-skill-index.sh" || true
 fi
 
-# Prune orphan cursor rules — .mdc files whose skill directory no longer exists.
-# Allowlist: hand-maintained rules that intentionally have no SKILL.md source.
+# Prune orphan cursor rules
 CURSOR_KEEP="context7.mdc"
 for mdc in "$CURSOR_RULES"/*.mdc; do
   [[ -e "$mdc" ]] || continue
@@ -207,8 +237,7 @@ for mdc in "$CURSOR_RULES"/*.mdc; do
   fi
 done
 
-# Stamp the README skill-count badge from the live count — never hardcode it by hand.
-# Portable (BSD/GNU): write to temp file instead of sed -i.
+# Stamp the README skill-count badge
 readme="$REPO_ROOT/README.md"
 if [[ -f "$readme" ]] && grep -q 'badge/skills-' "$readme"; then
   readme_tmp=$(mktemp)
@@ -229,7 +258,7 @@ echo "  → SKILL-INDEX.md (auto-generated skill reference)"
 echo "  → opencode.json (CLAUDE.md + CONVENTIONS.md instructions)"
 [[ -n "$OPN_TARGET" ]] && echo "  → bigpowers-opencode: $opencode_count skills"
 
-# Regression guard (BUG-2026-06-02T164500): BSD sed without -E strips '+' from descriptions
+# Regression guard (BUG-2026-06-02T164500)
 trace_mdc="$REPO_ROOT/.cursor/rules/trace-requirement.mdc"
 if [[ -f "$trace_mdc" ]] && ! grep -q 'release-plan.yaml + epic' "$trace_mdc"; then
   echo "sync-skills: FAIL — '+' missing from trace-requirement; use sed -E for whitespace collapse" >&2
@@ -257,15 +286,13 @@ if [[ -f "$validate_script" ]] && command -v python3 &>/dev/null; then
   fi
 fi
 
-# Regression guard (BUG-2026-07-02T103911): no bash 4+ features in install-chain scripts
-# macOS ships bash 3.2 which lacks declare -A (associative arrays)
+# Regression guard (BUG-2026-07-02T103911): no bash 4+ features
 if grep -rn '^declare -A\|^[[:space:]]*declare -A' scripts/sync-skills.sh scripts/generate-skill-index.sh scripts/regenerate-lockfile.sh scripts/build-skill-index.sh 2>/dev/null; then
   echo "sync-skills: FAIL — bash 4+ features detected in install-chain scripts (not macOS-compatible)" >&2
   exit 1
 fi
 
-# Regenerate derived reference tables from live SKILL.md frontmatter
-# Only in dev context (with .git) — not during consumer npm install where docs/ is excluded
+# Regenerate derived reference tables
 if [[ -d "$REPO_ROOT/.git" ]]; then
   bash "$REPO_ROOT/scripts/generate-reference-tables.sh"
 fi

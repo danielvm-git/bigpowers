@@ -13,7 +13,7 @@
     },
     "audit-code": {
       "description": "Self-review checklist for the coding agent to run before dispatching a reviewer. Checks CONVENTIONS.md compliance, Boy Scout Rule, test coverage, types, and SOLID. Produces a pass/fail checklist. Use before request-review, before committing, or when user asks for a code quality check.",
-      "sha256": "d9f3ed654fdfe3dd",
+      "sha256": "9a4afa72a83882d6",
       "path": "skills/audit-code/SKILL.md"
     },
     "audit-plan": {
@@ -23,7 +23,7 @@
     },
     "build-epic": {
       "description": "Eight-step epic build cycle — reads state.yaml, execution-status.yaml, and one epic capsule; updates status via bp-yaml-set or direct edit. Resume mode runs one step per invocation. Use instead of ad-hoc execute-plan for release work.",
-      "sha256": "5abf6858c529996c",
+      "sha256": "96fd5e0cc63a9962",
       "path": "skills/build-epic/SKILL.md"
     },
     "change-request": {
@@ -102,8 +102,8 @@
       "path": "skills/elaborate-spec/SKILL.md"
     },
     "enforce-first": {
-      "description": "Apply the F.I.R.S.T test quality rubric (Fast, Independent, Repeatable, Self-Validating, Timely) to a test suite or individual tests. Use when develop-tdd is writing tests, when test quality needs to be checked, or when user mentions F.I.R.S.T or \"test quality\".",
-      "sha256": "f2948df50c0add34",
+      "description": "Apply the F.I.R.S.T test quality rubric (per CONVENTIONS.md §Tests) to a test suite or individual tests. Use when develop-tdd is writing tests, when test quality needs to be checked, or when user mentions F.I.R.S.T or \"test quality\".",
+      "sha256": "20f717d0496ca20f",
       "path": "skills/enforce-first/SKILL.md"
     },
     "evolve-skill": {
@@ -247,8 +247,8 @@
       "path": "skills/respond-review/SKILL.md"
     },
     "run-benchmark": {
-      "description": "Run skill quality benchmarks from specs/benchmarks/ definitions and write pass@k reports. Use before and after evolve-skill to prove quality changes are improvements, not regressions.",
-      "sha256": "27fbc4e5346ecf21",
+      "description": "Run skill quality benchmarks from specs/benchmarks/ definitions — N-run with/without-skill delta grading, train/validation split, pass@k + benchmark.json reports. Use before and after evolve-skill to prove quality changes are improvements, not regressions.",
+      "sha256": "6c537b3d6b19aae7",
       "path": "skills/run-benchmark/SKILL.md"
     },
     "run-evals": {
@@ -363,7 +363,7 @@
     },
     "wire-observability": {
       "description": "Add structured JSON logging, observability commands, and idempotent setup scripts to a project. Use when a project needs production-readiness instrumentation, when user wants structured logging, or as a production-readiness gate at any phase of development.",
-      "sha256": "99e54f5aace10f97",
+      "sha256": "8ca534a65d4e6286",
       "path": "skills/wire-observability/SKILL.md"
     },
     "write-document": {
