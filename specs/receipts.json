@@ -1,0 +1,48 @@
+{
+  "compliance": {
+    "value": 100,
+    "generated_at": "2026-07-05T20:07:57Z",
+    "source": "measured",
+    "command": "bash scripts/audit-compliance.sh specs/verifications/features/"
+  },
+  "golden_suite": {
+    "value": {
+      "pass_rate": 1.0,
+      "passed": 8,
+      "total": 8,
+      "overall": "pass",
+      "timestamp": "2026-07-05T20:05:46Z",
+      "commit": "0d41b06e0af4f68fe41e47d24b69ef1b93bd98cf"
+    },
+    "generated_at": "2026-07-05T20:07:57Z",
+    "source": "measured",
+    "command": "specs/benchmarks/reports/GOLDEN-*.yaml (latest)"
+  },
+  "metrics": {
+    "value": {
+      "story_count": 1,
+      "total_effort_hours": 0.5,
+      "total_bcps": 1,
+      "source_breakdown": {
+        "measured": 0,
+        "estimated": 1,
+        "backfilled": 0
+      }
+    },
+    "generated_at": "2026-07-05T20:07:57Z",
+    "source": "measured",
+    "command": "specs/metrics/*.okf.md"
+  },
+  "traceability": {
+    "value": {
+      "total_stories": 79,
+      "linked_stories": 75,
+      "total_links": 1157,
+      "coverage_pct": 94.9,
+      "generated_at": "2026-07-04T18:18:38.119938+00:00"
+    },
+    "generated_at": "2026-07-05T20:07:57Z",
+    "source": "measured",
+    "command": "specs/traceability-matrix.json (trace-matrix.py)"
+  }
+}
