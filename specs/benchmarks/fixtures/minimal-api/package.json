@@ -1,0 +1,13 @@
+{
+  "name": "minimal-api-fixture",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Minimal API fixture for golden story G-01 (build cycle) — used by bigpowers e42 agent-driven test harness",
+  "main": "src/createUser.js",
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "keywords": [],
+  "license": "UNLICENSED",
+  "type": "commonjs"
+}
