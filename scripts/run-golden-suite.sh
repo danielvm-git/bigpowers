@@ -210,6 +210,7 @@ AGENT_PASS=0
 AGENT_FAIL=0
 AGENT_SKIP=0
 AGENT_FLAKE=0
+AGENT_TOTAL=0
 AGENT_RESULTS=()
 DETERMINISTIC_PASSED=false
 
@@ -371,7 +372,6 @@ deterministic:
 gates:
 $(printf '%s\n' "${GATE_RESULTS[@]}")
 agent_stories:
-$(printf '%s\n' "${AGENT_RESULTS[@]}")
   total: $AGENT_TOTAL
   passed: $AGENT_PASS
   failed: $AGENT_FAIL
