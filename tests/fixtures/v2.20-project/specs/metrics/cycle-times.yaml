@@ -1,0 +1,4 @@
+epics:
+  e01:
+    start: "2024-06-01"
+    end: null

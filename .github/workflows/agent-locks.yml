@@ -1,0 +1,71 @@
+# story: e39s02
+name: Agent Locks Validation
+
+concurrency:
+  group: agent-locks-${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  schedule:
+    - cron: "0 * * * *"  # Hourly stale-lock check
+  push:
+    branches: [main]
+    paths:
+      - 'specs/agent-locks.yaml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'specs/agent-locks.yaml'
+      - '.github/workflows/agent-locks.yml'
+  workflow_dispatch:
+
+jobs:
+  stale-check:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Validate agent-locks.yaml is parseable
+        run: |
+          python3 -c "
+          import yaml, sys
+          try:
+              with open('specs/agent-locks.yaml') as f:
+                  ledger = yaml.safe_load(f) or {'locks': []}
+              print(f'✅ agent-locks.yaml parseable: {len(ledger.get(\"locks\", []))} lock(s)')
+          except yaml.YAMLError as e:
+              print(f'❌ agent-locks.yaml is unparseable: {e}', file=sys.stderr)
+              sys.exit(1)
+          "
+
+      - name: Check for stale locks (>24h)
+        run: |
+          python3 -c "
+          import yaml, sys
+          from datetime import datetime, timezone, timedelta
+
+          with open('specs/agent-locks.yaml') as f:
+              ledger = yaml.safe_load(f) or {'locks': []}
+
+          now = datetime.now(timezone.utc)
+          stale_threshold = timedelta(hours=24)
+          stale = []
+
+          for lock in ledger.get('locks', []):
+              locked_at = datetime.fromisoformat(lock['locked_at'])
+              age = now - locked_at
+              if age > stale_threshold:
+                  stale.append((lock['story_id'], lock['locked_by'], lock['locked_at'], age))
+
+          if stale:
+              print(f'❌ Found {len(stale)} stale lock(s) (>24h):')
+              for story_id, holder, locked_at, age in stale:
+                  hours = age.total_seconds() / 3600
+                  print(f'  • {story_id}: locked by {holder} since {locked_at} ({hours:.1f}h ago)')
+              sys.exit(1)
+          else:
+              print('✅ No stale locks — all locks are <24h old')
+          "

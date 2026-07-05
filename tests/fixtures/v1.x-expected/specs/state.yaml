@@ -1,0 +1,15 @@
+git:
+  branch: feat/login
+active_flow: build_epic
+epic_cycle:
+  epic_id: e01
+handoff:
+  next_skill: null
+  context: 'Migrated from pre-v2.0.0 Markdown specs'
+metrics:
+  story_start: null
+  story_end: null
+release:
+  ci_verified: false
+bug_id: null
+bigpowers_version: 2.64.2

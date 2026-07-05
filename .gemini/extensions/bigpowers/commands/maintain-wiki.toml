@@ -1,0 +1,2 @@
+description = "Maintain the OKF knowledge graph with three operations: INGEST (read source → write/update OKF concepts), QUERY (search index.md → drill into concepts → synthesize answer with citations), and LINT (check contradictions, stale claims, orphans, missing cross-references). Use after code changes that affect the wiki, before planning to query architectural knowledge, or during verification to check wiki integrity."
+prompt = "@{commands/prompts/maintain-wiki.md}"

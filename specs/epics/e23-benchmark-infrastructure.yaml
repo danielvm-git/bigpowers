@@ -1,0 +1,34 @@
+id: e23
+title: "Benchmark Infrastructure"
+wsjf: 4.5
+bcps: 3
+status: done
+covers:
+  - "Define specs/benchmarks/ schema and 3 seed benchmark definitions"
+  - "Create run-benchmark skill for deterministic capability evaluation"
+  - "Wire evolve-skill to consume run-benchmark output for data-driven improvements"
+rationale: "BV=7 (data-driven skill evolution), TC=4 (infrastructure not urgent), RR=6 (enables objective quality measurement), JS=3 (3 BCPs — schema + skill + wiring)"
+stories:
+  - id: e23s01
+    title: "Define specs/benchmarks/ schema and 3 seed benchmark definitions"
+    bcps: 1
+    status: done
+    tasks:
+      - desc: "Write specs/benchmarks/SCHEMA.md documenting the benchmark YAML format (skill, scenarios, grader types)"
+        verify: "test -f specs/benchmarks/SCHEMA.md && grep -q 'grader' specs/benchmarks/SCHEMA.md && echo OK || echo FAIL"
+      - desc: "Write seed benchmark YAMLs for survey-context, develop-tdd, and verify-work with at least 2 scenarios each"
+        verify: "test -f specs/benchmarks/survey-context.yaml && test -f specs/benchmarks/develop-tdd.yaml && test -f specs/benchmarks/verify-work.yaml && echo OK || echo FAIL"
+  - id: e23s02
+    title: "Create run-benchmark skill"
+    bcps: 1
+    status: done
+    tasks:
+      - desc: "Create skills/run-benchmark/SKILL.md with benchmark execution workflow"
+        verify: "test -f skills/run-benchmark/SKILL.md && echo OK || echo FAIL"
+  - id: e23s03
+    title: "Wire evolve-skill to use run-benchmark output"
+    bcps: 1
+    status: done
+    tasks:
+      - desc: "Update evolve-skill/SKILL.md to consume benchmark results before proposing changes"
+        verify: "grep -q 'run-benchmark\\|benchmark.*report' evolve-skill/SKILL.md && echo OK || echo FAIL"

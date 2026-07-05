@@ -1,0 +1,36 @@
+id: e24
+title: "Planning Context Capsule"
+wsjf: 4.0
+bcps: 3
+status: done
+covers:
+  - "elaborate-spec writes specs/planning-context.yaml for downstream consumption"
+  - "scope-work and slice-tasks read planning-context.yaml instead of re-interviewing"
+  - "run-planning tracks context lifecycle in planning-status.yaml"
+rationale: "BV=6 (reduces re-interviewing across planning skills), TC=5 (planning UX), RR=5 (context persistence between skills), JS=3 (3 BCPs)"
+stories:
+  - id: e24s01
+    title: "elaborate-spec writes specs/planning-context.yaml"
+    bcps: 1
+    status: done
+    tasks:
+      - desc: "Add planning-context.yaml output section to elaborate-spec/SKILL.md with schema and write-at-end instruction"
+        verify: "grep -c 'planning-context\\|planning.context' elaborate-spec/SKILL.md | awk '{if($1>=1) print \"OK\"; else print \"FAIL\"}'"
+      - desc: "Document conflict handling (file already exists) in elaborate-spec/SKILL.md"
+        verify: "grep -q 'already exists\\|overwrite\\|Update existing' elaborate-spec/SKILL.md && echo OK || echo FAIL"
+  - id: e24s02
+    title: "scope-work and slice-tasks read planning-context.yaml"
+    bcps: 1
+    status: done
+    tasks:
+      - desc: "Update scope-work/SKILL.md to read planning-context.yaml before scoping questions"
+        verify: "grep -q 'planning-context' scope-work/SKILL.md && echo OK || echo FAIL"
+      - desc: "Update slice-tasks/SKILL.md to read planning-context.yaml before task decomposition"
+        verify: "grep -q 'planning-context' slice-tasks/SKILL.md && echo OK || echo FAIL"
+  - id: e24s03
+    title: "run-planning tracks context lifecycle in planning-status.yaml"
+    bcps: 1
+    status: done
+    tasks:
+      - desc: "Add planning-status.yaml update logic to run-planning workflow"
+        verify: "grep -q 'planning-status' run-planning/SKILL.md && echo OK || echo FAIL"

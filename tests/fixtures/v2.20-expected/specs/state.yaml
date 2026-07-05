@@ -1,0 +1,13 @@
+active_flow: null
+git:
+  branch: main
+  hash: def5678
+handoff:
+  next_skill: null
+  context: v2.20 project — capsule era, no stamp
+epic_cycle:
+  current_step: null
+  epic_id: e01
+release:
+  target_version: 1.0.0
+bigpowers_version: 2.64.2

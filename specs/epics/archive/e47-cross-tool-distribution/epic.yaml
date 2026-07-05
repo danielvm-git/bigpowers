@@ -1,0 +1,125 @@
+id: e47
+title: "Cross-Tool Skill Distribution — global install + per-project seed"
+wsjf: 4.3
+bcps: 9
+status: planned
+release: v2.8x
+codename: "Reach"
+source: |
+  Full design captured in specs/REFACTOR_LATEST.md (plan-refactor session
+  2026-07-03), grounded in source-verified reading of 9 open-source agent
+  tools (see docs/references/agent-config-files-and-okf.md).
+
+  Goal: a developer types "/" in any supported tool and sees bigpowers
+  skills, from a global one-time install PLUS an optional per-project seed —
+  without duplicating delivery paths.
+
+  Key finding that shaped scope: scripts/install.sh ALREADY solves the
+  global "/" case for Claude Code and Gemini CLI today (per-skill symlinks
+  into ~/.claude/skills and ~/.gemini/extensions). The real gaps are:
+   1. pi has zero coverage — but pi reads a global ~/.pi/agent/skills/ the
+      exact same way Claude Code reads ~/.claude/skills (source-verified in
+      earendil-works/pi core/skills.ts + config.ts), so install.sh can mirror
+      its existing install_claude() pattern.
+   2. install_opencode() writes opencode.json into $REPO_ROOT, which for a
+      real `npm install -g` consumer is the package's own node_modules dir,
+      not any location OpenCode reads — a latent no-op. Its job belongs in
+      per-project seed-conventions instead.
+   3. Cursor + OpenCode are project-root scoped by design and can't be solved
+      by a global installer — seed-conventions is the right home for them.
+
+  Explicitly NOT in scope (documented in REFACTOR_LATEST.md Out of Scope):
+  Cline/Roo Code/Continue/Codex CLI/Aider/Amazon Q/Copilot/Windsurf/Lovable/
+  Kiro — none expose a discrete skill/slash-command catalog; they read a
+  single instruction file or rules dir (always-on), already served by
+  seed-conventions' existing AGENTS.md/CLAUDE.md generation. AGY/Antigravity
+  excluded (closed-source, config format unverifiable).
+
+stories:
+  - id: e47s01
+    bcp: 3
+    title: "install.sh — global pi coverage (install_pi/uninstall_pi) + remove broken OpenCode step"
+    verify: bash scripts/install.sh --dry-run | grep -q 'pi →' && ! bash scripts/install.sh --dry-run | grep -qi 'opencode.json' && echo OK
+    hard_gate: |
+      Removing install_opencode() deletes an installer path. Before writing code,
+      confirm with the user that no consumer relies on the current opencode.json
+      being written into the global install dir. Verified low-risk in the design
+      session (GAP-1, PLAN-AUDIT): the write targets $REPO_ROOT — node_modules for
+      a global npm consumer, a location OpenCode never reads — so it is a latent
+      no-op with no paired uninstall_opencode() to strand. Do not proceed to
+      develop-tdd until this removal is explicitly approved.
+    description: |
+      Add install_pi()/uninstall_pi() to scripts/install.sh, symmetric with the
+      existing install_claude()/uninstall_claude() pair: per-skill symlinks
+      ~/.pi/agent/skills/<name> -> $SKILLS_ROOT/<name>, using the same
+      unlink_if_managed() safety check (only removes symlinks whose target is
+      under $REPO_ROOT, never a user's own pi skills). Wire both into the main
+      install/uninstall dispatch. Remove install_opencode() (and its
+      print_opencode_instructions companion if unused) — it targets $REPO_ROOT,
+      which is not a location OpenCode reads for a global npm consumer.
+
+      GIVEN a machine with bigpowers installed globally
+      WHEN `bigpowers setup` (scripts/install.sh) runs
+      THEN pi gains every skill at ~/.pi/agent/skills/<name> as a symlink
+      AND no opencode.json is written into the global install directory
+      AND `scripts/install.sh --uninstall` removes only bigpowers-managed pi
+          symlinks, leaving any user-authored pi skills untouched.
+
+  - id: e47s02
+    bcp: 3
+    title: "seed-conventions — optional per-project local wiring for Cursor + OpenCode"
+    verify: grep -qi 'local tool wiring' skills/seed-conventions/SKILL.md && grep -qi 'opencode.json' skills/seed-conventions/REFERENCE.md && echo OK
+    description: |
+      Add one optional interview step to skills/seed-conventions/SKILL.md —
+      "local tool wiring" — offered after the standard interview, covering only
+      the two tools install.sh's global mechanism structurally cannot reach:
+      Cursor (project-local `.cursor/rules` symlink) and OpenCode (project-local
+      AGENTS.md + a CORRECT project-root opencode.json). Add the templates to
+      REFERENCE.md. Keep it opt-in per the interview, not automatic — generating
+      70+ tool files unconditionally in every project is context bloat (settled
+      decision from the design session). Does NOT change the CLAUDE.md/AGENTS.md/
+      GEMINI.md/specs scaffolding seed-conventions already produces.
+
+      GIVEN a fresh project being seeded
+      WHEN the user opts into local tool wiring
+      THEN a project-local .cursor/rules pointer and a valid project-root
+          opencode.json + AGENTS.md are created
+      AND opting out leaves the standard seed output unchanged.
+
+  - id: e47s03
+    bcp: 1
+    title: "docs — skill-catalog vs instruction-only distinction in agent-config reference"
+    verify: grep -qi 'skill-catalog' docs/references/agent-config-files-and-okf.md && echo OK
+    description: |
+      Update docs/references/agent-config-files-and-okf.md with an authoritative
+      "skill-catalog vs instruction-only" distinction: Claude Code and pi are
+      skill-catalog tools (discrete invokable SKILL.md units, same Agent Skills
+      format); every other tool in the table is instruction-file/rules-directory
+      only (always-on context, no per-skill invocation). This scopes future work
+      so a contributor doesn't re-propose per-skill symlinks for tools that
+      structurally can't use them.
+
+      GIVEN the agent-config reference doc
+      WHEN a contributor reads it
+      THEN it clearly states which tools support discrete skill invocation
+          (Claude Code, pi) versus instruction-file-only tools, and why the
+          latter get no per-skill distribution mechanism.
+
+  - id: e47s04
+    bcp: 2
+    title: "verify-install.sh — manual verification harness for install + seed wiring"
+    verify: test -f scripts/verify-install.sh && bash scripts/verify-install.sh && echo OK
+    description: |
+      Add scripts/verify-install.sh, a manual assertion harness (modeled on the
+      project's existing standalone gate scripts — validate-specs-yaml.sh,
+      validate-okf.sh) that asserts install.sh --dry-run reports the expected
+      per-tool symlinks (Claude Code, Gemini, pi — one per skill; no opencode.json
+      step) and that seed-conventions' local-wiring templates produce the
+      expected files/symlinks in a scratch dir. Manual, not CI-wired, per the
+      design decision. This is the epic's test strategy (project has no automated
+      suite — Markdown/Bash).
+
+      GIVEN the verify harness
+      WHEN run after each story's change
+      THEN it exits non-zero on any missing/incorrect symlink or file, and
+          exits 0 only when all per-tool distribution is correct.

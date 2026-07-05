@@ -1,0 +1,10 @@
+release:
+  version: "1.0.0"
+  codename: Capsule
+  status: in_progress
+epics:
+  - id: e01
+    title: Security Audit
+    wsjf: 4.0
+    file: epics/e01-security/epic.yaml
+    mode: capsule

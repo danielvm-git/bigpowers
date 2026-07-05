@@ -1,0 +1,3 @@
+version: "1"
+source: specs/product/SCOPE_LATEST.yaml
+summary: Security audit scope

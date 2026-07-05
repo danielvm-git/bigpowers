@@ -1,0 +1,10 @@
+release:
+  version: "1.0.0"
+  codename: Initial
+  status: in_progress
+epics:
+  - id: e01
+    title: User Authentication
+    wsjf: 5.0
+    file: epics/e01-auth.yaml
+    mode: flat

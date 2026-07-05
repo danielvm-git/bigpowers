@@ -1,0 +1,10 @@
+active_flow: null
+git:
+  branch: main
+  hash: abc1234
+handoff:
+  next_skill: null
+  context: "Initial v2.0.0 project — no stamp yet"
+release:
+  target_version: "1.0.0"
+  ci_verified: false
