@@ -1,3 +1,10 @@
+# [2.62.0](https://github.com/danielvm-git/bigpowers/compare/v2.61.4...v2.62.0) (2026-07-05)
+
+
+### Features
+
+* **install:** add pi global install support, remove broken OpenCode step ([d91c86e](https://github.com/danielvm-git/bigpowers/commit/d91c86e46fd85d8fe6a7013484f4dd5ce6bc201f))
+
 ## [2.61.4](https://github.com/danielvm-git/bigpowers/compare/v2.61.3...v2.61.4) (2026-07-04)
 
 

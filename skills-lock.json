@@ -13,7 +13,7 @@
     },
     "audit-code": {
       "description": "Self-review checklist for the coding agent to run before dispatching a reviewer. Checks CONVENTIONS.md compliance, Boy Scout Rule, test coverage, types, and SOLID. Produces a pass/fail checklist. Use before request-review, before committing, or when user asks for a code quality check.",
-      "sha256": "d9f3ed654fdfe3dd",
+      "sha256": "9a4afa72a83882d6",
       "path": "skills/audit-code/SKILL.md"
     },
     "audit-plan": {
@@ -102,8 +102,8 @@
       "path": "skills/elaborate-spec/SKILL.md"
     },
     "enforce-first": {
-      "description": "Apply the F.I.R.S.T test quality rubric (Fast, Independent, Repeatable, Self-Validating, Timely) to a test suite or individual tests. Use when develop-tdd is writing tests, when test quality needs to be checked, or when user mentions F.I.R.S.T or \"test quality\".",
-      "sha256": "f2948df50c0add34",
+      "description": "Apply the F.I.R.S.T test quality rubric (per CONVENTIONS.md §Tests) to a test suite or individual tests. Use when develop-tdd is writing tests, when test quality needs to be checked, or when user mentions F.I.R.S.T or \"test quality\".",
+      "sha256": "20f717d0496ca20f",
       "path": "skills/enforce-first/SKILL.md"
     },
     "evolve-skill": {
