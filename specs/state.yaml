@@ -7,8 +7,10 @@ bug_cycle:
   current_step: null
 bug_id: null
 handoff:
-  context: 'build-epic e42 Step 2/8 complete. Security-review: LOW risk, CLEAR. Plan-work: tasks already exist in e42s02-tasks.yaml (4 tasks, 3 BCPs). Next: kickoff-branch (Step 3) → develop-tdd (Step 4).'
-  next_skill: kickoff-branch
+  context: 'build-epic e47 Step 3/8 complete. Worktree created: feat/e47s01-install-pi
+    at ../bigpowers-e47s01. Baseline: 7/8 (G11 failure is pre-existing worktree path
+    issue, not code). Next: develop-tdd (Step 4) — implement 6 tasks from e47s01-tasks.yaml.'
+  next_skill: develop-tdd
 active_decisions:
   e32_build_order_waiver:
     date: '2026-07-04'
@@ -19,7 +21,7 @@ epic_cycle:
   story_id: e42s02
   story_bcps: 3
   story_risk: P2
-  step: 2
+  step: 4
   yolo_mode: false
   completed_at: null
 metrics:
@@ -54,8 +56,8 @@ node20_migration:
   commit: 5b6f1dd
   completed: true
 previous_handoff:
-  context: 'e32 pre-flight complete (2026-07-04): TEST_PLAN, IMPACT, THREAT_MODEL, e32s01 spec+tasks.
-    Build-order waiver for s01 spike. e39s01 blocked on e32s02.
+  context: 'e32 pre-flight complete (2026-07-04): TEST_PLAN, IMPACT, THREAT_MODEL,
+    e32s01 spec+tasks. Build-order waiver for s01 spike. e39s01 blocked on e32s02.
 
     '
   next_skill: kickoff-branch

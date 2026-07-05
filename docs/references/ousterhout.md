@@ -3,8 +3,9 @@
 **Source:** [A Philosophy of Software Design](https://www.amazon.com/Philosophy-Software-Design-John-Ousterhout/dp/1732102201)
 **Author:** John Ousterhout
 
-## Core Concepts
-- **Deep Modules:** Modules should have a simple interface but provide a lot of functionality (low surface area, high internal complexity).
-- **Information Hiding:** Modules should hide as much complexity as possible from their users.
-- **Complexity is Incremental:** Software systems become complex one small mistake at a time.
-- **Define Errors Out of Existence:** Design APIs so that error cases are naturally handled or impossible to trigger.
+## Codified in CONVENTIONS.md
+
+- Deep Modules → design-interface skill (Design It Twice) + CONVENTIONS.md §Dependencies
+- Information Hiding → CONVENTIONS.md §Structure + §Dependencies
+- Complexity is Incremental → CONVENTIONS.md §Code style (Boy Scout Rule)
+- Define Errors Out of Existence → CONVENTIONS.md §Code style (exceptions over error codes)
