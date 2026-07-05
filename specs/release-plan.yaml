@@ -129,7 +129,7 @@ epics:
   bcps: 13
   capsule_dir: epics/e33-docs-website
   mode: capsule
-  status: planned
+  status: done
 - id: e43
   title: Showcase Repo — Worked Example Built With bigpowers
   wsjf: 2.5
