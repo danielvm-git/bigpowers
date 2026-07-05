@@ -1,36 +1,27 @@
 active_flow: build_epic
-active_epic: e47
-active_story: e47s01
+active_epic: e42
+active_story: e42s02
 bigpowers_version: 2.61.4
-# bcp_plus schema (optional): when BCP Plus sizing is used, add under epic_cycle:
-#   bcp_plus:
-#     total: 14
-#     breakdown:
-#       dim_01_boundaries: N
-#       dim_02_interface_elements: N
-#       ...
-#       dim_13_ux_accessibility: N
 bug_cycle:
   completed_steps: []
   current_step: null
 bug_id: null
 handoff:
-  context: 'build-epic e47 Step 1/8 complete. Threat model filed (LOW risk, CLEAR).
-    On main. Next: plan-work (Step 2) → kickoff-branch (Step 3) → develop-tdd (Step 4).
-
-    '
-  next_skill: plan-work
+  context: 'build-epic e47 Step 3/8 complete. Worktree created: feat/e47s01-install-pi
+    at ../bigpowers-e47s01. Baseline: 7/8 (G11 failure is pre-existing worktree path
+    issue, not code). Next: develop-tdd (Step 4) — implement 6 tasks from e47s01-tasks.yaml.'
+  next_skill: develop-tdd
 active_decisions:
   e32_build_order_waiver:
     date: '2026-07-04'
     scope: e32s01
     rationale: MCP spike independent of e42 golden fixture and e47 global install
 epic_cycle:
-  epic_id: e47
-  story_id: e47s01
+  epic_id: e42
+  story_id: e42s02
   story_bcps: 3
   story_risk: P2
-  step: 2
+  step: 4
   yolo_mode: false
   completed_at: null
 metrics:
@@ -65,8 +56,8 @@ node20_migration:
   commit: 5b6f1dd
   completed: true
 previous_handoff:
-  context: 'e32 pre-flight complete (2026-07-04): TEST_PLAN, IMPACT, THREAT_MODEL, e32s01 spec+tasks.
-    Build-order waiver for s01 spike. e39s01 blocked on e32s02.
+  context: 'e32 pre-flight complete (2026-07-04): TEST_PLAN, IMPACT, THREAT_MODEL,
+    e32s01 spec+tasks. Build-order waiver for s01 spike. e39s01 blocked on e32s02.
 
     '
   next_skill: kickoff-branch

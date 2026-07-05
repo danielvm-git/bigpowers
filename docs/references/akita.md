@@ -3,8 +3,9 @@
 **Source:** [Clean Code para Agentes de IA](https://akitaonrails.com/2026/04/20/clean-code-para-agentes-de-ia/)
 **Author:** Fabio Akita
 
-## Core Concepts
-- **Agentic Readability:** Code must be optimized for LLM consumption, not just human readability.
-- **Remediation Hints:** Error messages should include actionable hints for the agent.
-- **Structured Observability:** Mandatory JSON logging and idempotent setup.
-- **Strict Heuristics:** Function size (4-20 lines), file size (< 300 lines), and SRP enforcement.
+## Codified in CONVENTIONS.md
+
+- Agentic Readability → CLAUDE.md §Token Management + CONVENTIONS.md §Code style
+- Remediation Hints → CONVENTIONS.md §Code style (exception messages)
+- Structured Observability → CONVENTIONS.md §Logging + wire-observability skill
+- Strict Heuristics (fn/file size, SRP) → CONVENTIONS.md §Code style
