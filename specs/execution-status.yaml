@@ -218,11 +218,11 @@ development_status:
   e41s03: backlog
   e41s04: backlog
   e41s05: backlog
-  e42: ready
+  e42: done
   e42s01: done
-  e42s02: backlog
-  e42s03: backlog
-  e42s04: backlog
+  e42s02: done
+  e42s03: done
+  e42s04: done
   e43: backlog
   e43s01: backlog
   e43s02: backlog

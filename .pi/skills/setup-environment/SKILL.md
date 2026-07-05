@@ -20,6 +20,21 @@ Idempotent prep so BUILD phase commands succeed on first run.
 5. Run smoke: lint + one fast test or `--version` on key tools.
 6. Record versions in `specs/state.yaml` under Environment.
 
+## BCP Plus Counter (optional)
+
+The `big-counter` tool is an optional dependency for BCP Plus 13-dimension story sizing:
+
+```bash
+# Install from PyPI (recommended)
+pip install big-counter
+
+# Or from npm
+npm install -g big-counter
+```
+
+Verify the install: `big-counter --version`
+Skip if BCP Plus sizing is not needed for this project.
+
 ## Verify
 
 → verify: `test -f CLAUDE.md && grep -q 'Test' CLAUDE.md && echo "OK: CLAUDE.md has test table" || echo "MISSING: test commands"`
