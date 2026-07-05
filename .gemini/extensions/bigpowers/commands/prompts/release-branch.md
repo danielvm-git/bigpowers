@@ -2,6 +2,8 @@
 # Release Branch
 
 > **HARD GATE** — Do NOT merge or release if tests fail or if coverage gates are not met. If the branch is red, return to `develop-tdd` to fix regressions or add missing tests before proceeding.
+>
+> **HARD GATE** — After landing, remove the story's lock entry from `specs/agent-locks.yaml` (e39s02). This releases the story for other agents.
 
 Finalize a completed feature branch: verify coverage gates, integrate onto `main`, and clean up the worktree.
 

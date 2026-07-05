@@ -9,6 +9,8 @@ description: "Create a git worktree and feature branch, then verify a clean test
 > **HARD GATE** — Direct work on `main` or `master` is PROHIBITED. Every task MUST start with this skill to create a feature branch or worktree.
 >
 > **HARD GATE** — Do NOT proceed with development until a clean test baseline is verified. If the current base branch is failing tests, stop and fix the baseline before creating a new worktree.
+>
+> **HARD GATE** — Check `specs/agent-locks.yaml` (e39s02). If the active story is already locked by another agent, abort with a conflict message. This prevents two agents from working the same story simultaneously.
 
 Create an isolated working environment before touching any code. A clean baseline proves tests pass before you start — so any failure you see later was caused by your changes, not pre-existing issues.
 

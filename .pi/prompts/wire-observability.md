@@ -90,3 +90,7 @@ Place setup scripts in `scripts/setup.sh` (or language-appropriate equivalent). 
 - [ ] Run `scripts/setup.sh` twice — second run should produce no errors
 - [ ] Health check command returns success
 - [ ] No sensitive data in log output
+
+## BCP Plus Integration
+
+This skill maps to **BCP Plus dimension 11 (Quality Attributes)** — specifically performance, reliability, and availability instrumentation. Structured logging, health checks, and idempotent setup scripts are observable manifestations of quality-attribute requirements. The NFR Gate rule applies: standard-expectation items (e.g., "the app should log errors") score 0 with a one-line rationale; only above-standard quality requirements (e.g., p99 latency tracking, SLO-based alerting) contribute to the dimension 11 count. See `docs/references/bcp-plus.md` for the full 13-dimension framework and NFR Gate pattern.
