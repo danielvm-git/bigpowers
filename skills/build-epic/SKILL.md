@@ -36,7 +36,8 @@ Orchestrates the **build** flow for a single epic: survey → plan tasks → kic
 2. **Step 0 — Threat Model:** Run `security-review` against the epic's scope (read from the epic capsule). Output `specs/security/epics/<epic-id>/THREAT_MODEL.md` with surface area, vulnerability categories, risk level, and mitigation guidance.
 3. **Assess Impact (Step 2):** Before writing tasks, run `assess-impact --lightweight` on the proposed change. If the risk score exceeds 7, gate — require a `grill-me` session. Write the impact report to `specs/IMPACT-<epic>-<story>.md`. For net-new code with no existing dependents, skip.
 4. **BCP Tracking (Step 2):** After `plan-work` completes, read the `bcps:` count (Business Complexity Points story size) from the epic capsule and carry it into `state.yaml` as `epic_cycle.story_bcps = N`.
-5. If `epic_cycle.step` missing, set to `1`.
+5. **BCP Plus (Step 2, optional):** When the epic capsule carries a `bcp_plus_breakdown` (13-dimension sizing), also carry it into `state.yaml` as `epic_cycle.bcp_plus`. The breakdown maps each of the 13 dimensions to an integer count. NFR dimensions (11–13) that are N/A per the NFR Gate may be set to 0.
+6. If `epic_cycle.step` missing, set to `1`.
 6. Run **only the current step** (resume mode) unless user asked for full auto-run.
 7. After step verify passes, increment `epic_cycle.step` in `state.yaml` (or `bash scripts/bp-yaml-set.sh` if available).
 8. On story complete, set `execution-status.yaml` story key to `done`; run `bash scripts/sync-status-from-epics.sh`.

@@ -35,6 +35,8 @@ npm run compliance && bash scripts/run-golden-suite.sh
 
 If any gate fails, fix before merging. Run `--baseline` after any intentional increase in skill count or structure.
 
+**BCP Plus:** For stories sized with the 13-dimension BCP Plus methodology, confirm the `bcp_plus_breakdown` is present in the epic YAML and carried into `state.yaml` as `epic_cycle.bcp_plus`. See `docs/references/bcp-plus.md` for the NFR Gate pattern.
+
 ## Architecture
 
 Collection of verb-noun skills under `skills/`, each with a SKILL.md source file and supporting documentation. Runtime specs live in `specs/state.yaml`, `specs/release-plan.yaml`, and `specs/execution-status.yaml`; intent in `specs/product/`; epic shards in `specs/epics/`. The sync-skills.sh script auto-generates artifacts for Cursor (.cursor/rules) and Gemini CLI (.gemini/extensions/bigpowers/) from SKILL.md sources. All planning output goes to specs/ at the project root.
