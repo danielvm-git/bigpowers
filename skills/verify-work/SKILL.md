@@ -111,27 +111,10 @@ phases:
 
 ### 5b. OKF wiki LINT (e39s08)
 
-After closing gaps, run a lightweight OKF wiki health check:
-
 ```bash
-# Stale concepts: source newer than OKF page
-for page in specs/skills-wiki/skills/*.md; do
-  skill=$(basename "$page" .md)
-  source="skills/$skill/SKILL.md"
-  if [ -f "$source" ] && [ "$page" -ot "$source" ]; then
-    echo "WARN: STALE specs/skills-wiki/skills/$skill.md (SKILL.md newer)"
-  fi
-done
-
-# Orphan pages: concept exists but source skill deleted
-for page in specs/conventions-wiki/*.md; do
-  [ "$(basename "$page")" = "index.md" ] && continue
-  slug=$(basename "$page" .md)
-  grep -q "$slug" CONVENTIONS.md || echo "WARN: ORPHAN specs/conventions-wiki/$slug.md (no section in CONVENTIONS.md)"
-done
+for p in specs/skills-wiki/skills/*.md; do s="skills/$(basename "$p" .md)/SKILL.md"; [ -f "$s" ]&&[ "$p" -ot "$s" ]&&echo "STALE: $p"; done
+for p in specs/conventions-wiki/*.md; do [ "$(basename "$p")" = "index.md" ]&&continue; grep -q "$(basename "$p" .md)" CONVENTIONS.md||echo "ORPHAN: $p"; done
 ```
-
-Non-blocking: all findings are advisory. Fix stale/orphan concepts via INGEST in the next build-epic cycle.
 
 > **HARD GATE** — Verification evidence MUST be persisted before marking the story done. No evidence = not verified.
 
@@ -156,15 +139,12 @@ BINARY=$(grep '^BIN\s*=' Makefile 2>/dev/null | awk '{print $3}')
 3. Happy-path: run documented example command from README.md → assert non-empty output
 4. Edge case: `$BINARY --invalid-flag` → assert exit code ≠ 0 and error message printed
 
-No "stop server" or "clear caches" steps are executed in `--cli` mode. Steps 3–6 of the default process (mechanical gates, UAT, gaps loop) still run unchanged.
+No "stop server" / "clear caches" in `--cli` mode. Steps 3–6 still run unchanged.
 
 ## Verify
 
 → verify: `find specs/verifications -maxdepth 1 -name '*-verify.yaml' 2>/dev/null | head -1 | grep -q . && echo "Evidence persisted" || echo "No evidence yet"`
 
-See [REFERENCE.md](REFERENCE.md) for cold-start and gaps template.
-
 ## Handoff
-
-Gate: READY -> next: audit-code
+READY -> next: audit-code
 Writes: state.yaml handoff.next_skill = audit-code
