@@ -134,3 +134,12 @@ chore: update docs [skip ci]
 - `CHANGELOG.md` — auto-generated release notes
 
 See `.github/SEMANTIC-RELEASE.md` for detailed setup.
+
+## v3.0 Launch Note — Semantic Bridge
+
+The v3.0 "Semantic Bridge" release ships the **public receipts page** as its
+centerpiece: a live evidence dashboard at `/receipts` that renders bigpowers'
+own quality metrics — each with provenance and freshness. Every section degrades
+to "not yet measured" — this page never fabricates a number.
+
+See the [receipts page](https://danielvm-git.github.io/bigpowers/receipts/) for live data.

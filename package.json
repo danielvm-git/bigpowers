@@ -12,7 +12,10 @@
     "version": "bash scripts/sync-skills.sh && git add .gemini/extensions/bigpowers/gemini-extension.json specs/SKILL-SEARCH-INDEX_LATEST.md",
     "release": "semantic-release",
     "dashboard": "node dashboard/bin/dashboard.js",
-    "dashboard:web": "node dashboard/bin/dashboard.js --web"
+    "dashboard:web": "node dashboard/bin/dashboard.js --web",
+    "site:dev": "cd website && npm run dev",
+    "site:build": "cd website && npm run build",
+    "site:preview": "cd website && npm run preview"
   },
   "keywords": [
     "skills",

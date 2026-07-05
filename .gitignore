@@ -27,6 +27,9 @@ specs/.obsidian/
 bigpowers-mcp/graph.jsonl
 bigpowers-mcp/node_modules/
 
+# Generated website content (prebuilt from repo sources — e33s05)
+website/src/content/
+
 # Python virtualenvs and bytecode
 .venv/
 venv/

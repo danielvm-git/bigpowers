@@ -1,39 +1,39 @@
-timestamp: "2026-07-05T20:02:54Z"
-git_commit: "e32373bff09cd0bf01a06406a95fccff8ad54f47"
+timestamp: "2026-07-05T20:07:43Z"
+git_commit: "76538a7c9961960639d13919ccaeb2332fe12ce3"
 suite: "golden-deterministic"
 mode: "daily"
 gates:
   - name: compliance
     exit_code: 0
-    duration_seconds: 25.31
+    duration_seconds: 28.92
     status: pass
   - name: g04-selftest
     exit_code: 0
-    duration_seconds: .03
+    duration_seconds: .02
     status: pass
   - name: g07-negative-path
     exit_code: 0
-    duration_seconds: .04
+    duration_seconds: .03
     status: pass
   - name: g08-anti-vacuity
     exit_code: 0
-    duration_seconds: .08
+    duration_seconds: .04
     status: pass
   - name: g09-yaml-roundtrip
     exit_code: 0
-    duration_seconds: .11
+    duration_seconds: .08
     status: pass
   - name: g10-trace-anti-vacuity
     exit_code: 0
-    duration_seconds: .09
+    duration_seconds: .06
     status: pass
   - name: g11-gitignore-venv
     exit_code: 0
-    duration_seconds: .07
+    duration_seconds: .08
     status: pass
   - name: specs-parse
     exit_code: 0
-    duration_seconds: 1.06
+    duration_seconds: .77
     status: pass
 summary:
   total: 8
