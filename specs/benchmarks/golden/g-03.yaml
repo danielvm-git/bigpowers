@@ -1,0 +1,49 @@
+# story: e42s03
+# Golden story G-03: Plan a release (Plan cycle)
+# Chain: scope-work → slice-tasks → plan-work → plan-release
+
+id: g-03
+name: "Plan a release from a 3-feature scope (full planning spine)"
+chain:
+  - scope-work
+  - slice-tasks
+  - plan-work
+  - plan-release
+fixture_repo: specs/benchmarks/fixtures/planning-scope
+setup:
+  state_yaml:
+    active_flow: plan_release
+  fixture_files:
+    specs/product/SCOPE_LATEST.yaml: |
+      features:
+        - id: f1
+          name: "User authentication"
+          description: "Login, logout, password reset"
+          priority: high
+        - id: f2
+          name: "Dashboard analytics"
+          description: "Real-time metrics, charts, export"
+          priority: medium
+        - id: f3
+          name: "Notification system"
+          description: "Email and in-app notifications"
+          priority: low
+prompt: |
+  "Plan a release for a product with 3 features: User authentication,
+  Dashboard analytics, and Notification system. Follow the bigpowers
+  planning spine: scope-work → slice-tasks → plan-work → plan-release.
+  Each epic in the release plan must carry a BCP value."
+expected_artifacts:
+  - path: "specs/release-plan.yaml"
+    assert: "grep -q 'bcps:' specs/release-plan.yaml"
+  - path: "specs/product/SCOPE_LATEST.yaml"
+    assert: "exists"
+grader:
+  type: code
+  command: |
+    test -f specs/release-plan.yaml &&
+    grep -q 'bcps:' specs/release-plan.yaml &&
+    test -f specs/product/SCOPE_LATEST.yaml
+pass_at_k:
+  k: 3
+  threshold: 2

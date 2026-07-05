@@ -1,44 +1,52 @@
-timestamp: "2026-07-05T20:51:51Z"
-git_commit: "12e0c3d37f825be320a7a5f57171523635a6dadc"
-suite: "golden-deterministic"
+timestamp: "2026-07-05T19:47:06Z"
+git_commit: "d7c470b0b273bc76a20e2bdb6da650a70aa56949"
+suite: "golden-combined"
 mode: "daily"
+deterministic:
+  total: 8
+  passed: 7
+  failed: 1
+  skipped: 0
+  pass_rate: .87
 gates:
   - name: compliance
     exit_code: 0
-    duration_seconds: 32.08
+    duration_seconds: 30.04
     status: pass
   - name: g04-selftest
     exit_code: 0
-    duration_seconds: .04
+    duration_seconds: .11
     status: pass
   - name: g07-negative-path
     exit_code: 0
-    duration_seconds: .05
+    duration_seconds: .24
     status: pass
   - name: g08-anti-vacuity
     exit_code: 0
-    duration_seconds: .24
+    duration_seconds: .21
     status: pass
   - name: g09-yaml-roundtrip
     exit_code: 0
-    duration_seconds: .46
+    duration_seconds: .48
     status: pass
   - name: g10-trace-anti-vacuity
     exit_code: 0
-    duration_seconds: .28
+    duration_seconds: .21
     status: pass
   - name: g11-gitignore-venv
-    exit_code: 0
-    duration_seconds: .05
-    status: pass
+    exit_code: 1
+    duration_seconds: .13
+    status: fail
   - name: specs-parse
     exit_code: 0
-    duration_seconds: 1.86
+    duration_seconds: 1.88
     status: pass
-summary:
-  total: 8
-  passed: 8
+agent_stories:
+  total: 0
+  passed: 0
   failed: 0
   skipped: 0
-  pass_rate: 1.00
-  overall: "pass"
+  flake_count: 0
+  pass_rate: n/a
+summary:
+  combined_verdict: "fail"
