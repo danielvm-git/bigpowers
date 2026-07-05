@@ -1,16 +1,20 @@
 #!/usr/bin/env bash
-# sync-bugs-registry.sh — rebuild specs/bugs/registry.yaml from BUG-*.md frontmatter
+# story: e45s03
+# sync-bugs-registry.sh — rebuild specs/bugs/registry.yaml + OKF concept bundles
 set -euo pipefail
-REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+source "$(dirname "${BASH_SOURCE[0]}")/lib/skill-common.sh"
 BUGS="$REPO_ROOT/specs/bugs"
 mkdir -p "$BUGS"
 
-python3 - "$BUGS" <<'PY'
+python3 - "$BUGS" "$REPO_ROOT" <<'PY'
 import re
 import sys
 from pathlib import Path
 
 bugs_dir = Path(sys.argv[1])
+repo_root = Path(sys.argv[2])
+
+# ---- Phase 1: Build registry.yaml ----
 entries = []
 for path in sorted(bugs_dir.glob("BUG-*.md")):
     text = path.read_text(encoding="utf-8")
@@ -56,4 +60,40 @@ for e in entries:
 lines.append("")
 out.write_text("\n".join(lines), encoding="utf-8")
 print(f"sync-bugs-registry: {len(entries)} bugs -> {out}")
+
+# ---- Phase 2: Emit OKF concept bundles (e45s03) ----
+okf_count = 0
+for e in entries:
+    bug_id = e["id"]
+    slug = bug_id.replace("BUG-", "").lower()
+    bundle_path = bugs_dir / f"{bug_id}.okf.md"
+
+    title_escaped = e["title"].replace('"', "'")
+    refs = f"    - specs/bugs/{bug_id}.md"
+
+    bundle = f"""---
+okf_kind: concept
+okf_version: "0.1"
+id: "{bug_id}"
+title: "{title_escaped}"
+category: bug
+tier: extended
+severity: {e["severity"]}
+status: {e["status"]}
+generator: scripts/sync-bugs-registry.sh
+references:
+{refs}
+---
+
+# {title_escaped}
+
+**Bug:** {bug_id} | **Severity:** {e["severity"]} | **Status:** {e["status"]} | **Scope:** {e.get("scope", "general")}
+**Tier:** extended
+
+See `specs/bugs/{bug_id}.md` for full investigation and fix details.
+"""
+    bundle_path.write_text(bundle, encoding="utf-8")
+    okf_count += 1
+
+print(f"sync-bugs-registry: {okf_count} OKF concept bundles -> {bugs_dir}/")
 PY
