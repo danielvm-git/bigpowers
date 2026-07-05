@@ -128,7 +128,7 @@
     },
     "gate-trace": {
       "description": "\"Deterministic traceability quality gate — reads coverage matrix + blind-spot data, applies decision rules with oracle confidence downgrade, emits PASS/CONCERNS/FAIL/WAIVED verdict. Use before release-branch to gate merges on traceability.\"# story: e38s06",
-      "sha256": "7326525dc3d5d51f",
+      "sha256": "81deb2549867386b",
       "path": "skills/gate-traceSKILL.md"
     },
     "grill-me": {
@@ -163,7 +163,7 @@
     },
     "kickoff-branch": {
       "description": "Create a git worktree and feature branch, then verify a clean test baseline before any code is written. Use when starting a new feature or task, when user wants to work in isolation from main, or mentions \"start a branch\" or \"new worktree\".",
-      "sha256": "2857dac9f23bd7be",
+      "sha256": "ebe80e5cab94de5c",
       "path": "skills/kickoff-branchSKILL.md"
     },
     "map-codebase": {
@@ -223,7 +223,7 @@
     },
     "release-branch": {
       "description": "Make the merge/PR/keep/discard decision for a feature branch, verify coverage gates, create the PR with gh, and clean up the worktree. Use when a feature is done and ready to ship, or when user says \"release\", \"merge\", or \"open a PR\".",
-      "sha256": "354267f0f4b593b5",
+      "sha256": "4cf2329648e0bf3e",
       "path": "skills/release-branchSKILL.md"
     },
     "request-review": {

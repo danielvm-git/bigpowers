@@ -34,7 +34,8 @@ TEA-inspired: if trace links rely on heuristics rather than explicit tags, confi
 3. Read `specs/traceability-matrix.json` and `specs/blind-spots.json`.
 4. Apply decision rules R1–R5 in order (first match wins).
 5. Apply oracle confidence downgrade based on the heuristic link ratio from the matrix's `oracle_stats`.
-6. Output verdict + rationale to stdout.
+6. **Drift check (e39s03):** If `specs/drift-report.json` exists and has suspect links, mark verdict as CONCERNS with note: "Drift detected — some implementing files are newer than their specs. Run scripts/check-spec-drift.sh for details."
+7. Output verdict + rationale to stdout.
 7. Update `specs/execution-status.yaml` with gate-trace result.
 
 ## Verdict Semantics

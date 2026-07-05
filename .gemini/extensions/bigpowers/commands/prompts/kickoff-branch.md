@@ -89,6 +89,36 @@ git checkout -b <task-slug>
 
 ### 4. Verify clean baseline
 
+> **HARD GATE (e39s02):** Acquire the story lock in `specs/agent-locks.yaml` before running tests.
+
+```bash
+LOCK_FILE="specs/agent-locks.yaml"
+STORY_ID="<story-id>"  # from epic capsule
+if [ -f "$LOCK_FILE" ]; then
+  python3 -c "
+import yaml, sys, datetime
+with open('$LOCK_FILE') as f:
+  d = yaml.safe_load(f) or {'locks': []}
+for lock in d.get('locks', []):
+  if lock.get('story_id') == '$STORY_ID':
+    print(f'LOCKED by {lock[\"locked_by\"]} at {lock[\"locked_at\"]}')
+    sys.exit(1)
+d['locks'].append({
+  'story_id': '$STORY_ID',
+  'locked_by': f'agent: build-epic session-{datetime.datetime.utcnow().strftime(\"%Y%m%d%H%M%S\")}',
+  'locked_at': datetime.datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ'),
+  'files_touched': []
+})
+with open('$LOCK_FILE', 'w') as f:
+  yaml.dump(d, f, default_flow_style=False)
+print(f'LOCK ACQUIRED: $STORY_ID')
+"
+fi
+```
+
+If locked: abort, report holder + timestamp.
+If unlocked: entry added, proceed.
+
 Run the full test suite and confirm it passes before writing any code:
 
 ```bash

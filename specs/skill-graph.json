@@ -1,8 +1,14 @@
 {
+  "meta": {
+    "source": "bigpowers-mcp/graph.jsonl",
+    "generated_by": "scripts/build-skill-graph.sh",
+    "node_count": 74,
+    "edge_count": 34
+  },
   "nodes": [
     {
-      "name": "align-grid",
-      "entityType": "Skill",
+      "id": "align-grid",
+      "type": "Skill",
       "observations": [
         "model: sonnet",
         "effort: standard",
@@ -10,8 +16,8 @@
       ]
     },
     {
-      "name": "assess-impact",
-      "entityType": "Skill",
+      "id": "assess-impact",
+      "type": "Skill",
       "observations": [
         "model: sonnet",
         "effort: standard",
@@ -19,8 +25,8 @@
       ]
     },
     {
-      "name": "audit-code",
-      "entityType": "Skill",
+      "id": "audit-code",
+      "type": "Skill",
       "observations": [
         "model: haiku",
         "effort: standard",
@@ -28,8 +34,8 @@
       ]
     },
     {
-      "name": "audit-plan",
-      "entityType": "Skill",
+      "id": "audit-plan",
+      "type": "Skill",
       "observations": [
         "model: sonnet",
         "effort: standard",
@@ -37,8 +43,8 @@
       ]
     },
     {
-      "name": "build-epic",
-      "entityType": "Skill",
+      "id": "build-epic",
+      "type": "Skill",
       "observations": [
         "model: sonnet",
         "effort: standard",
@@ -46,8 +52,8 @@
       ]
     },
     {
-      "name": "change-request",
-      "entityType": "Skill",
+      "id": "change-request",
+      "type": "Skill",
       "observations": [
         "model: sonnet",
         "effort: standard",
@@ -55,8 +61,8 @@
       ]
     },
     {
-      "name": "commit-message",
-      "entityType": "Skill",
+      "id": "commit-message",
+      "type": "Skill",
       "observations": [
         "model: haiku",
         "effort: standard",
@@ -64,8 +70,8 @@
       ]
     },
     {
-      "name": "compose-workflow",
-      "entityType": "Skill",
+      "id": "compose-workflow",
+      "type": "Skill",
       "observations": [
         "model: sonnet",
         "effort: standard",
@@ -73,8 +79,8 @@
       ]
     },
     {
-      "name": "craft-skill",
-      "entityType": "Skill",
+      "id": "craft-skill",
+      "type": "Skill",
       "observations": [
         "model: sonnet",
         "effort: standard",
@@ -82,8 +88,8 @@
       ]
     },
     {
-      "name": "deepen-architecture",
-      "entityType": "Skill",
+      "id": "deepen-architecture",
+      "type": "Skill",
       "observations": [
         "model: sonnet",
         "effort: standard",
@@ -91,8 +97,8 @@
       ]
     },
     {
-      "name": "define-language",
-      "entityType": "Skill",
+      "id": "define-language",
+      "type": "Skill",
       "observations": [
         "model: sonnet",
         "effort: standard",
@@ -100,8 +106,8 @@
       ]
     },
     {
-      "name": "define-success",
-      "entityType": "Skill",
+      "id": "define-success",
+      "type": "Skill",
       "observations": [
         "model: sonnet",
         "effort: standard",
@@ -109,8 +115,8 @@
       ]
     },
     {
-      "name": "delegate-task",
-      "entityType": "Skill",
+      "id": "delegate-task",
+      "type": "Skill",
       "observations": [
         "model: sonnet",
         "effort: standard",
@@ -118,8 +124,8 @@
       ]
     },
     {
-      "name": "deploy",
-      "entityType": "Skill",
+      "id": "deploy",
+      "type": "Skill",
       "observations": [
         "model: sonnet",
         "effort: standard",
@@ -127,8 +133,8 @@
       ]
     },
     {
-      "name": "design-interface",
-      "entityType": "Skill",
+      "id": "design-interface",
+      "type": "Skill",
       "observations": [
         "model: opus",
         "effort: standard",
@@ -136,8 +142,8 @@
       ]
     },
     {
-      "name": "develop-tdd",
-      "entityType": "Skill",
+      "id": "develop-tdd",
+      "type": "Skill",
       "observations": [
         "model: sonnet",
         "effort: standard",
@@ -145,8 +151,8 @@
       ]
     },
     {
-      "name": "diagnose-root",
-      "entityType": "Skill",
+      "id": "diagnose-root",
+      "type": "Skill",
       "observations": [
         "model: sonnet",
         "effort: standard",
@@ -154,8 +160,8 @@
       ]
     },
     {
-      "name": "dispatch-agents",
-      "entityType": "Skill",
+      "id": "dispatch-agents",
+      "type": "Skill",
       "observations": [
         "model: sonnet",
         "effort: standard",
@@ -163,8 +169,8 @@
       ]
     },
     {
-      "name": "edit-document",
-      "entityType": "Skill",
+      "id": "edit-document",
+      "type": "Skill",
       "observations": [
         "model: sonnet",
         "effort: standard",
@@ -172,8 +178,8 @@
       ]
     },
     {
-      "name": "elaborate-spec",
-      "entityType": "Skill",
+      "id": "elaborate-spec",
+      "type": "Skill",
       "observations": [
         "model: opus",
         "effort: standard",
@@ -181,8 +187,8 @@
       ]
     },
     {
-      "name": "enforce-first",
-      "entityType": "Skill",
+      "id": "enforce-first",
+      "type": "Skill",
       "observations": [
         "model: haiku",
         "effort: standard",
@@ -190,8 +196,8 @@
       ]
     },
     {
-      "name": "evolve-skill",
-      "entityType": "Skill",
+      "id": "evolve-skill",
+      "type": "Skill",
       "observations": [
         "model: opus",
         "effort: standard",
@@ -199,8 +205,8 @@
       ]
     },
     {
-      "name": "execute-plan",
-      "entityType": "Skill",
+      "id": "execute-plan",
+      "type": "Skill",
       "observations": [
         "model: haiku",
         "effort: standard",
@@ -208,8 +214,8 @@
       ]
     },
     {
-      "name": "extract-design",
-      "entityType": "Skill",
+      "id": "extract-design",
+      "type": "Skill",
       "observations": [
         "model: sonnet",
         "effort: standard",
@@ -217,8 +223,8 @@
       ]
     },
     {
-      "name": "fix-bug",
-      "entityType": "Skill",
+      "id": "fix-bug",
+      "type": "Skill",
       "observations": [
         "model: sonnet",
         "effort: standard",
@@ -226,8 +232,8 @@
       ]
     },
     {
-      "name": "gate-trace",
-      "entityType": "Skill",
+      "id": "gate-trace",
+      "type": "Skill",
       "observations": [
         "model: haiku",
         "effort: light",
@@ -235,8 +241,8 @@
       ]
     },
     {
-      "name": "grill-me",
-      "entityType": "Skill",
+      "id": "grill-me",
+      "type": "Skill",
       "observations": [
         "model: sonnet",
         "effort: standard",
@@ -244,8 +250,8 @@
       ]
     },
     {
-      "name": "grill-with-docs",
-      "entityType": "Skill",
+      "id": "grill-with-docs",
+      "type": "Skill",
       "observations": [
         "model: opus",
         "effort: standard",
@@ -253,8 +259,8 @@
       ]
     },
     {
-      "name": "guard-git",
-      "entityType": "Skill",
+      "id": "guard-git",
+      "type": "Skill",
       "observations": [
         "model: haiku",
         "effort: standard",
@@ -262,8 +268,8 @@
       ]
     },
     {
-      "name": "hook-commits",
-      "entityType": "Skill",
+      "id": "hook-commits",
+      "type": "Skill",
       "observations": [
         "model: haiku",
         "effort: standard",
@@ -271,8 +277,8 @@
       ]
     },
     {
-      "name": "inspect-quality",
-      "entityType": "Skill",
+      "id": "inspect-quality",
+      "type": "Skill",
       "observations": [
         "model: sonnet",
         "effort: standard",
@@ -280,8 +286,8 @@
       ]
     },
     {
-      "name": "investigate-bug",
-      "entityType": "Skill",
+      "id": "investigate-bug",
+      "type": "Skill",
       "observations": [
         "model: sonnet",
         "effort: standard",
@@ -289,8 +295,8 @@
       ]
     },
     {
-      "name": "kickoff-branch",
-      "entityType": "Skill",
+      "id": "kickoff-branch",
+      "type": "Skill",
       "observations": [
         "model: haiku",
         "effort: standard",
@@ -298,8 +304,8 @@
       ]
     },
     {
-      "name": "map-codebase",
-      "entityType": "Skill",
+      "id": "map-codebase",
+      "type": "Skill",
       "observations": [
         "model: sonnet",
         "effort: standard",
@@ -307,8 +313,8 @@
       ]
     },
     {
-      "name": "migrate-spec",
-      "entityType": "Skill",
+      "id": "migrate-spec",
+      "type": "Skill",
       "observations": [
         "model: sonnet",
         "effort: standard",
@@ -316,8 +322,8 @@
       ]
     },
     {
-      "name": "model-domain",
-      "entityType": "Skill",
+      "id": "model-domain",
+      "type": "Skill",
       "observations": [
         "model: sonnet",
         "effort: standard",
@@ -325,8 +331,8 @@
       ]
     },
     {
-      "name": "orchestrate-project",
-      "entityType": "Skill",
+      "id": "orchestrate-project",
+      "type": "Skill",
       "observations": [
         "model: sonnet",
         "effort: standard",
@@ -334,8 +340,8 @@
       ]
     },
     {
-      "name": "organize-workspace",
-      "entityType": "Skill",
+      "id": "organize-workspace",
+      "type": "Skill",
       "observations": [
         "model: haiku",
         "effort: standard",
@@ -343,8 +349,8 @@
       ]
     },
     {
-      "name": "plan-refactor",
-      "entityType": "Skill",
+      "id": "plan-refactor",
+      "type": "Skill",
       "observations": [
         "model: sonnet",
         "effort: standard",
@@ -352,8 +358,8 @@
       ]
     },
     {
-      "name": "plan-release",
-      "entityType": "Skill",
+      "id": "plan-release",
+      "type": "Skill",
       "observations": [
         "model: sonnet",
         "effort: standard",
@@ -361,8 +367,8 @@
       ]
     },
     {
-      "name": "plan-tests",
-      "entityType": "Skill",
+      "id": "plan-tests",
+      "type": "Skill",
       "observations": [
         "model: opus",
         "effort: standard",
@@ -370,8 +376,8 @@
       ]
     },
     {
-      "name": "plan-work",
-      "entityType": "Skill",
+      "id": "plan-work",
+      "type": "Skill",
       "observations": [
         "model: opus",
         "effort: standard",
@@ -379,8 +385,8 @@
       ]
     },
     {
-      "name": "publish-package",
-      "entityType": "Skill",
+      "id": "publish-package",
+      "type": "Skill",
       "observations": [
         "model: sonnet",
         "effort: standard",
@@ -388,8 +394,8 @@
       ]
     },
     {
-      "name": "quick-fix",
-      "entityType": "Skill",
+      "id": "quick-fix",
+      "type": "Skill",
       "observations": [
         "model: sonnet",
         "effort: standard",
@@ -397,8 +403,8 @@
       ]
     },
     {
-      "name": "release-branch",
-      "entityType": "Skill",
+      "id": "release-branch",
+      "type": "Skill",
       "observations": [
         "model: haiku",
         "effort: standard",
@@ -406,8 +412,8 @@
       ]
     },
     {
-      "name": "request-review",
-      "entityType": "Skill",
+      "id": "request-review",
+      "type": "Skill",
       "observations": [
         "model: opus",
         "effort: standard",
@@ -415,8 +421,8 @@
       ]
     },
     {
-      "name": "research-first",
-      "entityType": "Skill",
+      "id": "research-first",
+      "type": "Skill",
       "observations": [
         "model: sonnet",
         "effort: standard",
@@ -424,8 +430,8 @@
       ]
     },
     {
-      "name": "reset-baseline",
-      "entityType": "Skill",
+      "id": "reset-baseline",
+      "type": "Skill",
       "observations": [
         "model: haiku",
         "effort: standard",
@@ -433,8 +439,8 @@
       ]
     },
     {
-      "name": "respond-review",
-      "entityType": "Skill",
+      "id": "respond-review",
+      "type": "Skill",
       "observations": [
         "model: sonnet",
         "effort: standard",
@@ -442,8 +448,8 @@
       ]
     },
     {
-      "name": "run-benchmark",
-      "entityType": "Skill",
+      "id": "run-benchmark",
+      "type": "Skill",
       "observations": [
         "model: haiku",
         "effort: standard",
@@ -451,8 +457,8 @@
       ]
     },
     {
-      "name": "run-evals",
-      "entityType": "Skill",
+      "id": "run-evals",
+      "type": "Skill",
       "observations": [
         "model: sonnet",
         "effort: standard",
@@ -460,8 +466,8 @@
       ]
     },
     {
-      "name": "run-planning",
-      "entityType": "Skill",
+      "id": "run-planning",
+      "type": "Skill",
       "observations": [
         "model: sonnet",
         "effort: standard",
@@ -469,8 +475,8 @@
       ]
     },
     {
-      "name": "scope-work",
-      "entityType": "Skill",
+      "id": "scope-work",
+      "type": "Skill",
       "observations": [
         "model: sonnet",
         "effort: standard",
@@ -478,8 +484,8 @@
       ]
     },
     {
-      "name": "search-skills",
-      "entityType": "Skill",
+      "id": "search-skills",
+      "type": "Skill",
       "observations": [
         "model: haiku",
         "effort: standard",
@@ -487,8 +493,8 @@
       ]
     },
     {
-      "name": "security-review",
-      "entityType": "Skill",
+      "id": "security-review",
+      "type": "Skill",
       "observations": [
         "model: sonnet",
         "effort: standard",
@@ -496,8 +502,8 @@
       ]
     },
     {
-      "name": "seed-conventions",
-      "entityType": "Skill",
+      "id": "seed-conventions",
+      "type": "Skill",
       "observations": [
         "model: sonnet",
         "effort: standard",
@@ -505,8 +511,8 @@
       ]
     },
     {
-      "name": "session-state",
-      "entityType": "Skill",
+      "id": "session-state",
+      "type": "Skill",
       "observations": [
         "model: haiku",
         "effort: standard",
@@ -514,8 +520,8 @@
       ]
     },
     {
-      "name": "setup-environment",
-      "entityType": "Skill",
+      "id": "setup-environment",
+      "type": "Skill",
       "observations": [
         "model: haiku",
         "effort: standard",
@@ -523,8 +529,8 @@
       ]
     },
     {
-      "name": "simulate-agents",
-      "entityType": "Skill",
+      "id": "simulate-agents",
+      "type": "Skill",
       "observations": [
         "model: sonnet",
         "effort: standard",
@@ -532,8 +538,8 @@
       ]
     },
     {
-      "name": "slice-tasks",
-      "entityType": "Skill",
+      "id": "slice-tasks",
+      "type": "Skill",
       "observations": [
         "model: sonnet",
         "effort: standard",
@@ -541,8 +547,8 @@
       ]
     },
     {
-      "name": "smoke-test",
-      "entityType": "Skill",
+      "id": "smoke-test",
+      "type": "Skill",
       "observations": [
         "model: sonnet",
         "effort: standard",
@@ -550,8 +556,8 @@
       ]
     },
     {
-      "name": "spike-prototype",
-      "entityType": "Skill",
+      "id": "spike-prototype",
+      "type": "Skill",
       "observations": [
         "model: sonnet",
         "effort: standard",
@@ -559,8 +565,8 @@
       ]
     },
     {
-      "name": "stocktake-skills",
-      "entityType": "Skill",
+      "id": "stocktake-skills",
+      "type": "Skill",
       "observations": [
         "model: sonnet",
         "effort: standard",
@@ -568,8 +574,8 @@
       ]
     },
     {
-      "name": "survey-context",
-      "entityType": "Skill",
+      "id": "survey-context",
+      "type": "Skill",
       "observations": [
         "model: haiku",
         "effort: standard",
@@ -577,8 +583,8 @@
       ]
     },
     {
-      "name": "terse-mode",
-      "entityType": "Skill",
+      "id": "terse-mode",
+      "type": "Skill",
       "observations": [
         "model: haiku",
         "effort: standard",
@@ -586,8 +592,8 @@
       ]
     },
     {
-      "name": "trace-requirement",
-      "entityType": "Skill",
+      "id": "trace-requirement",
+      "type": "Skill",
       "observations": [
         "model: haiku",
         "effort: standard",
@@ -595,8 +601,8 @@
       ]
     },
     {
-      "name": "using-bigpowers",
-      "entityType": "Skill",
+      "id": "using-bigpowers",
+      "type": "Skill",
       "observations": [
         "model: sonnet",
         "effort: standard",
@@ -604,8 +610,8 @@
       ]
     },
     {
-      "name": "validate-contracts",
-      "entityType": "Skill",
+      "id": "validate-contracts",
+      "type": "Skill",
       "observations": [
         "model: sonnet",
         "effort: standard",
@@ -613,8 +619,8 @@
       ]
     },
     {
-      "name": "validate-fix",
-      "entityType": "Skill",
+      "id": "validate-fix",
+      "type": "Skill",
       "observations": [
         "model: haiku",
         "effort: standard",
@@ -622,8 +628,8 @@
       ]
     },
     {
-      "name": "verify-work",
-      "entityType": "Skill",
+      "id": "verify-work",
+      "type": "Skill",
       "observations": [
         "model: haiku",
         "effort: standard",
@@ -631,8 +637,8 @@
       ]
     },
     {
-      "name": "visual-dashboard",
-      "entityType": "Skill",
+      "id": "visual-dashboard",
+      "type": "Skill",
       "observations": [
         "model: sonnet",
         "effort: standard",
@@ -640,8 +646,8 @@
       ]
     },
     {
-      "name": "wire-ci",
-      "entityType": "Skill",
+      "id": "wire-ci",
+      "type": "Skill",
       "observations": [
         "model: sonnet",
         "effort: standard",
@@ -649,8 +655,8 @@
       ]
     },
     {
-      "name": "wire-observability",
-      "entityType": "Skill",
+      "id": "wire-observability",
+      "type": "Skill",
       "observations": [
         "model: sonnet",
         "effort: standard",
@@ -658,8 +664,8 @@
       ]
     },
     {
-      "name": "write-document",
-      "entityType": "Skill",
+      "id": "write-document",
+      "type": "Skill",
       "observations": [
         "model: sonnet",
         "effort: standard",
@@ -669,174 +675,208 @@
   ],
   "edges": [
     {
-      "from": "audit-code",
-      "to": "CONVENTIONS.md \u00a7Tests;",
-      "relationType": "enforces"
+      "source": "audit-code",
+      "target": "CONVENTIONS.md \u00a7Tests;",
+      "relation": "enforces",
+      "provenance": ""
     },
     {
-      "from": "audit-code",
-      "to": "CONVENTIONS.md \u00a7Tests;",
-      "relationType": "enforces"
+      "source": "audit-code",
+      "target": "CONVENTIONS.md \u00a7Tests;",
+      "relation": "enforces",
+      "provenance": ""
     },
     {
-      "from": "commit-message",
-      "to": "CONVENTIONS.md",
-      "relationType": "enforces"
+      "source": "commit-message",
+      "target": "CONVENTIONS.md",
+      "relation": "enforces",
+      "provenance": ""
     },
     {
-      "from": "commit-message",
-      "to": "CONVENTIONS.md",
-      "relationType": "enforces"
+      "source": "commit-message",
+      "target": "CONVENTIONS.md",
+      "relation": "enforces",
+      "provenance": ""
     },
     {
-      "from": "craft-skill",
-      "to": "CONVENTIONS.md",
-      "relationType": "enforces"
+      "source": "craft-skill",
+      "target": "CONVENTIONS.md",
+      "relation": "enforces",
+      "provenance": ""
     },
     {
-      "from": "craft-skill",
-      "to": "CONVENTIONS.md",
-      "relationType": "enforces"
+      "source": "craft-skill",
+      "target": "CONVENTIONS.md",
+      "relation": "enforces",
+      "provenance": ""
     },
     {
-      "from": "craft-skill",
-      "to": "CONVENTIONS.md",
-      "relationType": "enforces"
+      "source": "craft-skill",
+      "target": "CONVENTIONS.md",
+      "relation": "enforces",
+      "provenance": ""
     },
     {
-      "from": "craft-skill",
-      "to": "CONVENTIONS.md",
-      "relationType": "enforces"
+      "source": "craft-skill",
+      "target": "CONVENTIONS.md",
+      "relation": "enforces",
+      "provenance": ""
     },
     {
-      "from": "delegate-task",
-      "to": "CONVENTIONS.md",
-      "relationType": "enforces"
+      "source": "delegate-task",
+      "target": "CONVENTIONS.md",
+      "relation": "enforces",
+      "provenance": ""
     },
     {
-      "from": "delegate-task",
-      "to": "CONVENTIONS.md",
-      "relationType": "enforces"
+      "source": "delegate-task",
+      "target": "CONVENTIONS.md",
+      "relation": "enforces",
+      "provenance": ""
     },
     {
-      "from": "delegate-task",
-      "to": "CONVENTIONS.md",
-      "relationType": "enforces"
+      "source": "delegate-task",
+      "target": "CONVENTIONS.md",
+      "relation": "enforces",
+      "provenance": ""
     },
     {
-      "from": "delegate-task",
-      "to": "CONVENTIONS.md",
-      "relationType": "enforces"
+      "source": "delegate-task",
+      "target": "CONVENTIONS.md",
+      "relation": "enforces",
+      "provenance": ""
     },
     {
-      "from": "dispatch-agents",
-      "to": "CONVENTIONS.md",
-      "relationType": "enforces"
+      "source": "dispatch-agents",
+      "target": "CONVENTIONS.md",
+      "relation": "enforces",
+      "provenance": ""
     },
     {
-      "from": "dispatch-agents",
-      "to": "CONVENTIONS.md",
-      "relationType": "enforces"
+      "source": "dispatch-agents",
+      "target": "CONVENTIONS.md",
+      "relation": "enforces",
+      "provenance": ""
     },
     {
-      "from": "enforce-first",
-      "to": "CONVENTIONS.md \u00a7Tests",
-      "relationType": "enforces"
+      "source": "enforce-first",
+      "target": "CONVENTIONS.md \u00a7Tests",
+      "relation": "enforces",
+      "provenance": ""
     },
     {
-      "from": "enforce-first",
-      "to": "CONVENTIONS.md \u00a7Tests.",
-      "relationType": "enforces"
+      "source": "enforce-first",
+      "target": "CONVENTIONS.md \u00a7Tests.",
+      "relation": "enforces",
+      "provenance": ""
     },
     {
-      "from": "enforce-first",
-      "to": "CONVENTIONS.md \u00a7Tests.",
-      "relationType": "enforces"
+      "source": "enforce-first",
+      "target": "CONVENTIONS.md \u00a7Tests.",
+      "relation": "enforces",
+      "provenance": ""
     },
     {
-      "from": "enforce-first",
-      "to": "CONVENTIONS.md \u00a7Tests",
-      "relationType": "enforces"
+      "source": "enforce-first",
+      "target": "CONVENTIONS.md \u00a7Tests",
+      "relation": "enforces",
+      "provenance": ""
     },
     {
-      "from": "enforce-first",
-      "to": "CONVENTIONS.md \u00a7Tests.",
-      "relationType": "enforces"
+      "source": "enforce-first",
+      "target": "CONVENTIONS.md \u00a7Tests.",
+      "relation": "enforces",
+      "provenance": ""
     },
     {
-      "from": "enforce-first",
-      "to": "CONVENTIONS.md \u00a7Tests.",
-      "relationType": "enforces"
+      "source": "enforce-first",
+      "target": "CONVENTIONS.md \u00a7Tests.",
+      "relation": "enforces",
+      "provenance": ""
     },
     {
-      "from": "release-branch",
-      "to": "CONVENTIONS.md",
-      "relationType": "enforces"
+      "source": "release-branch",
+      "target": "CONVENTIONS.md",
+      "relation": "enforces",
+      "provenance": ""
     },
     {
-      "from": "release-branch",
-      "to": "CONVENTIONS.md",
-      "relationType": "enforces"
+      "source": "release-branch",
+      "target": "CONVENTIONS.md",
+      "relation": "enforces",
+      "provenance": ""
     },
     {
-      "from": "request-review",
-      "to": "CONVENTIONS.md",
-      "relationType": "enforces"
+      "source": "request-review",
+      "target": "CONVENTIONS.md",
+      "relation": "enforces",
+      "provenance": ""
     },
     {
-      "from": "request-review",
-      "to": "CONVENTIONS.md",
-      "relationType": "enforces"
+      "source": "request-review",
+      "target": "CONVENTIONS.md",
+      "relation": "enforces",
+      "provenance": ""
     },
     {
-      "from": "respond-review",
-      "to": "CONVENTIONS.md",
-      "relationType": "enforces"
+      "source": "respond-review",
+      "target": "CONVENTIONS.md",
+      "relation": "enforces",
+      "provenance": ""
     },
     {
-      "from": "respond-review",
-      "to": "CONVENTIONS.md",
-      "relationType": "enforces"
+      "source": "respond-review",
+      "target": "CONVENTIONS.md",
+      "relation": "enforces",
+      "provenance": ""
     },
     {
-      "from": "run-benchmark",
-      "to": "CONVENTIONS.md",
-      "relationType": "enforces"
+      "source": "run-benchmark",
+      "target": "CONVENTIONS.md",
+      "relation": "enforces",
+      "provenance": ""
     },
     {
-      "from": "run-benchmark",
-      "to": "CONVENTIONS.md",
-      "relationType": "enforces"
+      "source": "run-benchmark",
+      "target": "CONVENTIONS.md",
+      "relation": "enforces",
+      "provenance": ""
     },
     {
-      "from": "seed-conventions",
-      "to": "CONVENTIONS.md",
-      "relationType": "enforces"
+      "source": "seed-conventions",
+      "target": "CONVENTIONS.md",
+      "relation": "enforces",
+      "provenance": ""
     },
     {
-      "from": "seed-conventions",
-      "to": "CONVENTIONS.md",
-      "relationType": "enforces"
+      "source": "seed-conventions",
+      "target": "CONVENTIONS.md",
+      "relation": "enforces",
+      "provenance": ""
     },
     {
-      "from": "session-state",
-      "to": "CONVENTIONS.md",
-      "relationType": "enforces"
+      "source": "session-state",
+      "target": "CONVENTIONS.md",
+      "relation": "enforces",
+      "provenance": ""
     },
     {
-      "from": "session-state",
-      "to": "CONVENTIONS.md",
-      "relationType": "enforces"
+      "source": "session-state",
+      "target": "CONVENTIONS.md",
+      "relation": "enforces",
+      "provenance": ""
     },
     {
-      "from": "simulate-agents",
-      "to": "CONVENTIONS.md",
-      "relationType": "enforces"
+      "source": "simulate-agents",
+      "target": "CONVENTIONS.md",
+      "relation": "enforces",
+      "provenance": ""
     },
     {
-      "from": "simulate-agents",
-      "to": "CONVENTIONS.md",
-      "relationType": "enforces"
+      "source": "simulate-agents",
+      "target": "CONVENTIONS.md",
+      "relation": "enforces",
+      "provenance": ""
     }
   ]
 }

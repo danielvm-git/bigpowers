@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-05T20:10:37.985132+00:00",
+  "generated_at": "2026-07-05T23:02:44.507266+00:00",
   "matrix_version": "1.0",
   "stories": [
     {
@@ -66,6 +66,12 @@
       "status": "backlog",
       "links": [
         {
+          "file": "specs/conventions-wiki/generated-artifact-targets.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/steps/and-dead-code-and-unused-functions-should-be-removed-g9-f4.sh",
           "line": 0,
           "confidence": "medium",
@@ -96,7 +102,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 5
+      "link_count": 6
     },
     {
       "id": "e28s04",
@@ -174,6 +180,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/conventions-wiki/skill-naming-conventions-and-exceptions.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/conventions-wiki/next-skill-signaling-mandate-v2-0-0.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/steps/and-each-core-skill-should-prove-a-positive-with-skill-versus-without-skill-eval-delta.sh",
           "line": 0,
           "confidence": "medium",
@@ -199,6 +217,12 @@
         },
         {
           "file": "specs/verifications/fixtures/negative-path/SKILL.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-02-skill-verify-false-fails.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -541,6 +565,12 @@
         },
         {
           "file": "skills/map-codebase/SKILL.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "skills/maintain-wiki/SKILL.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -900,7 +930,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 132
+      "link_count": 136
     },
     {
       "id": "e33s01",
@@ -909,7 +939,7 @@
       "epic_title": "Docs Website \u2014 Fourth Generated Artifact Target",
       "bcp": 0,
       "wsjf": 2.8,
-      "status": "done",
+      "status": "backlog",
       "links": [
         {
           "file": "specs/epics/e33-docs-website/e33s01-scaffold-starlight.md",
@@ -933,7 +963,7 @@
       "epic_title": "Docs Website \u2014 Fourth Generated Artifact Target",
       "bcp": 0,
       "wsjf": 2.8,
-      "status": "done",
+      "status": "backlog",
       "links": [
         {
           "file": "specs/epics/e33-docs-website/e33s02-source-mapping.md",
@@ -957,7 +987,7 @@
       "epic_title": "Docs Website \u2014 Fourth Generated Artifact Target",
       "bcp": 0,
       "wsjf": 2.8,
-      "status": "done",
+      "status": "backlog",
       "links": [
         {
           "file": "specs/epics/e33-docs-website/e33s03-seo-discoverability.md",
@@ -981,7 +1011,7 @@
       "epic_title": "Docs Website \u2014 Fourth Generated Artifact Target",
       "bcp": 0,
       "wsjf": 2.8,
-      "status": "done",
+      "status": "backlog",
       "links": [
         {
           "file": ".github/workflows/docs-site.yml",
@@ -1011,7 +1041,7 @@
       "epic_title": "Docs Website \u2014 Fourth Generated Artifact Target",
       "bcp": 0,
       "wsjf": 2.8,
-      "status": "done",
+      "status": "backlog",
       "links": [
         {
           "file": "specs/epics/e33-docs-website/e33s05-doctrine-wiring.md",
@@ -1035,7 +1065,7 @@
       "epic_title": "Missing Historical References",
       "bcp": 2,
       "wsjf": 3.0,
-      "status": "done",
+      "status": "backlog",
       "links": [
         {
           "file": "specs/epics/e35-historical-refs/e35s01-tasks.yaml",
@@ -1053,7 +1083,7 @@
       "epic_title": "Missing Historical References",
       "bcp": 2,
       "wsjf": 3.0,
-      "status": "done",
+      "status": "backlog",
       "links": [
         {
           "file": "specs/epics/e35-historical-refs/e35s02-tasks.yaml",
@@ -1071,7 +1101,7 @@
       "epic_title": "Missing Historical References",
       "bcp": 2,
       "wsjf": 3.0,
-      "status": "done",
+      "status": "backlog",
       "links": [
         {
           "file": "specs/epics/e35-historical-refs/e35s03-tasks.yaml",
@@ -1089,7 +1119,7 @@
       "epic_title": "Missing Historical References",
       "bcp": 2,
       "wsjf": 3.0,
-      "status": "done",
+      "status": "backlog",
       "links": [
         {
           "file": "specs/epics/e35-historical-refs/e35s04-tasks.yaml",
@@ -1107,7 +1137,7 @@
       "epic_title": "Missing Historical References",
       "bcp": 2,
       "wsjf": 3.0,
-      "status": "done",
+      "status": "backlog",
       "links": [
         {
           "file": "specs/epics/e35-historical-refs/e35s05-tasks.yaml",
@@ -1125,7 +1155,7 @@
       "epic_title": "Missing Historical References",
       "bcp": 2,
       "wsjf": 3.0,
-      "status": "done",
+      "status": "backlog",
       "links": [
         {
           "file": "specs/epics/e35-historical-refs/e35s06-tasks.yaml",
@@ -1143,7 +1173,7 @@
       "epic_title": "Missing Historical References",
       "bcp": 2,
       "wsjf": 3.0,
-      "status": "done",
+      "status": "backlog",
       "links": [
         {
           "file": "specs/epics/e35-historical-refs/e35s07-tasks.yaml",
@@ -1161,7 +1191,7 @@
       "epic_title": "Missing Historical References",
       "bcp": 2,
       "wsjf": 3.0,
-      "status": "done",
+      "status": "backlog",
       "links": [
         {
           "file": "specs/epics/archive/e40-metrics-integrity/e40s05-dora-four-keys.md",
@@ -1185,7 +1215,7 @@
       "epic_title": "Missing Historical References",
       "bcp": 2,
       "wsjf": 3.0,
-      "status": "done",
+      "status": "backlog",
       "links": [
         {
           "file": "specs/epics/e35-historical-refs/e35s09-tasks.yaml",
@@ -1203,7 +1233,7 @@
       "epic_title": "Missing Historical References",
       "bcp": 2,
       "wsjf": 3.0,
-      "status": "done",
+      "status": "backlog",
       "links": [
         {
           "file": "specs/epics/e35-historical-refs/e35s10-cross-reference-skills.md",
@@ -1227,7 +1257,7 @@
       "epic_title": "Documentation Deduplication",
       "bcp": 3,
       "wsjf": 1.4,
-      "status": "done",
+      "status": "backlog",
       "links": [
         {
           "file": "specs/epics/e36-doc-dedup/e36s01-tasks.yaml",
@@ -1251,7 +1281,7 @@
       "epic_title": "Documentation Deduplication",
       "bcp": 3,
       "wsjf": 1.4,
-      "status": "done",
+      "status": "backlog",
       "links": [
         {
           "file": "specs/epics/e36-doc-dedup/e36s02-tasks.yaml",
@@ -1269,7 +1299,7 @@
       "epic_title": "Documentation Deduplication",
       "bcp": 2,
       "wsjf": 1.4,
-      "status": "done",
+      "status": "backlog",
       "links": [
         {
           "file": "specs/skills-wiki/skills/enforce-first.md",
@@ -1291,6 +1321,12 @@
         },
         {
           "file": "specs/adr/0002-local-first-specs.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/agent-guide/sqz-context-compression-read-first.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -1542,6 +1578,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260705-181904.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260704-150326.md",
           "line": 0,
           "confidence": "medium",
@@ -1710,6 +1752,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260705-175313.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-163821.md",
           "line": 0,
           "confidence": "medium",
@@ -1848,6 +1896,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260705-181759.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-154353.md",
           "line": 0,
           "confidence": "medium",
@@ -1957,6 +2011,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-154246.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260705-180901.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -2166,6 +2226,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260705-181458.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-005720.md",
           "line": 0,
           "confidence": "medium",
@@ -2203,6 +2269,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-164833.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260705-181114.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -2256,6 +2328,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260705-181044.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260702-223249.md",
           "line": 0,
           "confidence": "medium",
@@ -2269,6 +2347,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-234324.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260705-180916.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -2370,6 +2454,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260705-175521.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260627-133613.md",
           "line": 0,
           "confidence": "medium",
@@ -2443,6 +2533,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-142359.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260705-175550.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -2766,7 +2862,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260705-175152.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-163238.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260705-180948.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -2803,6 +2911,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260621-185054.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/adr-wiki/0002-local-first-specs.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -2862,7 +2976,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 265
+      "link_count": 279
     },
     {
       "id": "e36s04",
@@ -2871,7 +2985,7 @@
       "epic_title": "Documentation Deduplication",
       "bcp": 2,
       "wsjf": 1.4,
-      "status": "done",
+      "status": "backlog",
       "links": [
         {
           "file": "specs/epics/e21-mcp-discovery-tools.yaml",
@@ -2901,7 +3015,7 @@
       "epic_title": "Documentation Deduplication",
       "bcp": 2,
       "wsjf": 1.4,
-      "status": "done",
+      "status": "backlog",
       "links": [],
       "link_count": 0
     },
@@ -2916,6 +3030,12 @@
       "links": [
         {
           "file": "specs/skills-wiki/skills/smoke-test.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/conventions-wiki/bcp-accounting-mandate-v2-0-0.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -3023,7 +3143,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 18
+      "link_count": 19
     },
     {
       "id": "e37s02",
@@ -3056,7 +3176,7 @@
       "epic_title": "BCP Plus Counting \u2014 Evolve from 3D to 13D story sizing",
       "bcp": 0,
       "wsjf": 2.1,
-      "status": "done",
+      "status": "backlog",
       "links": [
         {
           "file": "specs/skills-wiki/skills/security-review.md",
@@ -3095,6 +3215,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/adr-wiki/0005-hard-gate-mandate.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "website/src/content/docs/decisions/0005-hard-gate-mandate.md",
           "line": 0,
           "confidence": "medium",
@@ -3119,7 +3245,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 10
+      "link_count": 11
     },
     {
       "id": "e37s04",
@@ -3128,7 +3254,7 @@
       "epic_title": "BCP Plus Counting \u2014 Evolve from 3D to 13D story sizing",
       "bcp": 0,
       "wsjf": 2.1,
-      "status": "done",
+      "status": "backlog",
       "links": [
         {
           "file": "specs/skills-wiki/skills/build-epic.md",
@@ -3194,7 +3320,7 @@
       "epic_title": "Semantic Context Bridge",
       "bcp": 3,
       "wsjf": 3.6,
-      "status": "backlog",
+      "status": "done",
       "links": [
         {
           "file": "scripts/build-skill-graph.sh",
@@ -3257,6 +3383,24 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/conventions-wiki/skill-naming-conventions-and-exceptions.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/conventions-wiki/next-skill-signaling-mandate-v2-0-0.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/agent-guide/preferred-tools-mcp.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/steps/and-each-core-skill-should-prove-a-positive-with-skill-versus-without-skill-eval-delta.sh",
           "line": 0,
           "confidence": "medium",
@@ -3282,6 +3426,12 @@
         },
         {
           "file": "specs/verifications/fixtures/negative-path/SKILL.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-02-skill-verify-false-fails.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -3641,6 +3791,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "skills/maintain-wiki/SKILL.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "skills/align-grid/SKILL.md",
           "line": 0,
           "confidence": "medium",
@@ -3995,7 +4151,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 133
+      "link_count": 138
     },
     {
       "id": "e39s02",
@@ -4004,8 +4160,14 @@
       "epic_title": "Semantic Context Bridge",
       "bcp": 2,
       "wsjf": 3.6,
-      "status": "backlog",
+      "status": "done",
       "links": [
+        {
+          "file": "specs/agent-locks.yaml",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "specs/epics/e39-knowledge-graph/e39s02-tasks.yaml",
           "line": 0,
@@ -4013,7 +4175,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 1
+      "link_count": 2
     },
     {
       "id": "e39s03",
@@ -4022,8 +4184,14 @@
       "epic_title": "Semantic Context Bridge",
       "bcp": 2,
       "wsjf": 3.6,
-      "status": "backlog",
+      "status": "done",
       "links": [
+        {
+          "file": "scripts/check-spec-drift.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "specs/skills-wiki/skills/trace-requirement.md",
           "line": 0,
@@ -4049,7 +4217,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 4
+      "link_count": 5
     },
     {
       "id": "e39s04",
@@ -4058,10 +4226,28 @@
       "epic_title": "Semantic Context Bridge",
       "bcp": 3,
       "wsjf": 3.6,
-      "status": "backlog",
+      "status": "done",
       "links": [
         {
           "file": "specs/verifications/steps/and-files-should-be-small-enough-to-avoid-context-window-truncation-300-lines.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-03-install-docs-stale.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-04-filesize-gate-python-blindspot.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-03-codebase-wiki-venv-pollution.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4103,7 +4289,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 7
+      "link_count": 10
     },
     {
       "id": "e39s05",
@@ -4112,8 +4298,20 @@
       "epic_title": "Semantic Context Bridge",
       "bcp": 2,
       "wsjf": 3.6,
-      "status": "backlog",
+      "status": "done",
       "links": [
+        {
+          "file": "scripts/decompose-conventions.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-03-codebase-wiki-venv-pollution.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
         {
           "file": "specs/epics/e39-knowledge-graph/e39s04-okf-skills-wiki.md",
           "line": 0,
@@ -4133,7 +4331,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 3
+      "link_count": 5
     },
     {
       "id": "e39s06",
@@ -4142,8 +4340,14 @@
       "epic_title": "Semantic Context Bridge",
       "bcp": 1,
       "wsjf": 3.6,
-      "status": "backlog",
+      "status": "done",
       "links": [
+        {
+          "file": "scripts/generate-agent-guide.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "specs/epics/e39-knowledge-graph/e39s06-okf-agent-guide.md",
           "line": 0,
@@ -4157,7 +4361,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 2
+      "link_count": 3
     },
     {
       "id": "e39s07",
@@ -4166,8 +4370,32 @@
       "epic_title": "Semantic Context Bridge",
       "bcp": 3,
       "wsjf": 3.6,
-      "status": "backlog",
+      "status": "done",
       "links": [
+        {
+          "file": "skills/maintain-wiki/SKILL.md",
+          "line": 6,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/conventions-wiki/agent-workflow-mandates.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/conventions-wiki/skill-naming-conventions-and-exceptions.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/conventions-wiki/next-skill-signaling-mandate-v2-0-0.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
         {
           "file": "specs/verifications/steps/and-each-core-skill-should-prove-a-positive-with-skill-versus-without-skill-eval-delta.sh",
           "line": 0,
@@ -4188,6 +4416,24 @@
         },
         {
           "file": "specs/verifications/steps/and-the-skill-packaging-pipeline-round-trips-a-golden-fixture-without-data-loss.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-02-skill-verify-false-fails.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-03-codebase-wiki-venv-pollution.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/adr-wiki/0005-hard-gate-mandate.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4235,7 +4481,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 11
+      "link_count": 18
     },
     {
       "id": "e39s08",
@@ -4244,7 +4490,7 @@
       "epic_title": "Semantic Context Bridge",
       "bcp": 2,
       "wsjf": 3.6,
-      "status": "backlog",
+      "status": "done",
       "links": [
         {
           "file": "specs/skills-wiki/skills/verify-work.md",
@@ -4254,6 +4500,18 @@
         },
         {
           "file": "specs/skills-wiki/skills/build-epic.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/conventions-wiki/agent-workflow-mandates.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/agent-guide/rtk-commands-by-workflow.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4361,13 +4619,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "scripts/generate-epics-wiki.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/epics/e39-knowledge-graph/e39s08-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         }
       ],
-      "link_count": 20
+      "link_count": 23
     },
     {
       "id": "e39s09",
@@ -4376,8 +4640,14 @@
       "epic_title": "Semantic Context Bridge",
       "bcp": 1,
       "wsjf": 3.6,
-      "status": "backlog",
+      "status": "done",
       "links": [
+        {
+          "file": "docs/references/semantic-context-bridge.md",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "specs/verifications/steps/and-files-should-be-small-enough-to-avoid-context-window-truncation-300-lines.sh",
           "line": 0,
@@ -4427,7 +4697,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 8
+      "link_count": 9
     },
     {
       "id": "e39s10",
@@ -4436,8 +4706,14 @@
       "epic_title": "Semantic Context Bridge",
       "bcp": 1,
       "wsjf": 3.6,
-      "status": "backlog",
+      "status": "done",
       "links": [
+        {
+          "file": "specs/state.yaml",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "specs/epics/archive/e40-metrics-integrity/e40s06-validate-okf.md",
           "line": 0,
@@ -4457,7 +4733,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 3
+      "link_count": 4
     },
     {
       "id": "e41s01",
@@ -4547,6 +4823,12 @@
       "status": "backlog",
       "links": [
         {
+          "file": "specs/bugs/BUG-2026-07-03-validate-specs-no-real-parser.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/epics/e41-public-receipts/e41s04-honesty-guardrails.md",
           "line": 0,
           "confidence": "medium",
@@ -4577,7 +4859,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 5
+      "link_count": 6
     },
     {
       "id": "e41s05",
@@ -4658,8 +4940,26 @@
       "epic_title": "Golden Story Suite \u2014 Agent-Driven",
       "bcp": 3,
       "wsjf": 1.8,
-      "status": "backlog",
+      "status": "done",
       "links": [
+        {
+          "file": "specs/benchmarks/golden/g-05.yaml",
+          "line": 16,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/benchmarks/fixtures/minimal-api/test/createUser.test.js",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/benchmarks/fixtures/minimal-api/src/createUser.js",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "specs/verifications/steps/and-the-plan-specifies-test-levels-and-fixture-architectures.sh",
           "line": 0,
@@ -4685,7 +4985,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 4
+      "link_count": 7
     },
     {
       "id": "e42s03",
@@ -4694,8 +4994,32 @@
       "epic_title": "Golden Story Suite \u2014 Agent-Driven",
       "bcp": 3,
       "wsjf": 1.8,
-      "status": "backlog",
+      "status": "done",
       "links": [
+        {
+          "file": "specs/benchmarks/golden/g-03.yaml",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/benchmarks/golden/g-02.yaml",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/benchmarks/golden/g-05.yaml",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/benchmarks/golden/g-01.yaml",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "specs/verifications/steps/and-each-core-skill-should-prove-a-positive-with-skill-versus-without-skill-eval-delta.sh",
           "line": 0,
@@ -4811,7 +5135,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 19
+      "link_count": 23
     },
     {
       "id": "e42s04",
@@ -4820,8 +5144,26 @@
       "epic_title": "Golden Story Suite \u2014 Agent-Driven",
       "bcp": 4,
       "wsjf": 1.8,
-      "status": "backlog",
+      "status": "done",
       "links": [
+        {
+          "file": "specs/conventions-wiki/github-git-operations.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/conventions-wiki/pre-merge-golden-gate.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/agent-guide/golden-rule.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
         {
           "file": "specs/verifications/features/superpowers.feature",
           "line": 0,
@@ -4919,6 +5261,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/GOLDEN-2026-07-05.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-superpowers-20260703-175352.md",
           "line": 0,
           "confidence": "medium",
@@ -4998,6 +5346,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-superpowers-20260704-161738.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-superpowers-20260705-175323.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5255,6 +5609,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-superpowers-20260705-181122.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-superpowers-20260621-231044.md",
           "line": 0,
           "confidence": "medium",
@@ -5375,6 +5735,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-superpowers-20260705-180925.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-superpowers-20260705-165142.md",
           "line": 0,
           "confidence": "medium",
@@ -5412,6 +5778,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-superpowers-20260703-233714.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-superpowers-20260705-180901.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5538,6 +5910,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-superpowers-20260705-164616.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-superpowers-20260705-175600.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5795,7 +6173,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-superpowers-20260705-181808.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-superpowers-20260703-163115.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-superpowers-20260705-180956.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5820,6 +6210,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-superpowers-20260705-164527.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-superpowers-20260705-175531.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5892,6 +6288,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-superpowers-20260703-130924.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-superpowers-20260705-181051.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -6059,6 +6461,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-superpowers-20260705-181913.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-superpowers-20260703-153749.md",
           "line": 0,
           "confidence": "medium",
@@ -6125,6 +6533,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-superpowers-20260705-181507.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-superpowers-20260703-005808.md",
           "line": 0,
           "confidence": "medium",
@@ -6138,6 +6552,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-superpowers-20260705-163741.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-superpowers-20260705-175204.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -6246,6 +6666,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-03-golden-lock-stale-e37-ids.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-03-golden-lock-stale-e37-ids.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -6395,7 +6821,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 262
+      "link_count": 279
     },
     {
       "id": "e43s01",
@@ -6404,14 +6830,8 @@
       "epic_title": "Showcase Repo \u2014 Worked Example Built With bigpowers",
       "bcp": 3,
       "wsjf": 2.5,
-      "status": "done",
+      "status": "backlog",
       "links": [
-        {
-          "file": "bigpowers-showcase/CONVENTIONS.md",
-          "line": 1,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
         {
           "file": "specs/skills-wiki/skills/seed-conventions.md",
           "line": 0,
@@ -6473,7 +6893,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 11
+      "link_count": 10
     },
     {
       "id": "e43s02",
@@ -6482,10 +6902,22 @@
       "epic_title": "Showcase Repo \u2014 Worked Example Built With bigpowers",
       "bcp": 3,
       "wsjf": 2.5,
-      "status": "done",
+      "status": "backlog",
       "links": [
         {
           "file": "specs/skills-wiki/skills/build-epic.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/conventions-wiki/dependencies.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/agent-guide/build-compile-80-90-savings.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -6911,7 +7343,7 @@
           "method": "file_heuristic"
         },
         {
-          "file": "bigpowers-showcase/specs/epics/e01-url-shortener/epic.yaml",
+          "file": "scripts/generate-epics-wiki.sh",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -6923,7 +7355,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 73
+      "link_count": 75
     },
     {
       "id": "e43s03",
@@ -6932,7 +7364,7 @@
       "epic_title": "Showcase Repo \u2014 Worked Example Built With bigpowers",
       "bcp": 2,
       "wsjf": 2.5,
-      "status": "done",
+      "status": "backlog",
       "links": [
         {
           "file": "specs/skills-wiki/skills/develop-tdd.md",
@@ -6965,6 +7397,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/conventions-wiki/semantic-release-the-real-version-is-never-hand-tracked.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/agent-guide/analysis-debug-70-90-savings.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/steps/and-i-should-prioritize-the-minimum-viable-implementation.sh",
           "line": 0,
           "confidence": "medium",
@@ -6989,6 +7433,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-07-03-venv-not-gitignored.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-06-02T164500.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-04-python-interpreter-fragility.md",
           "line": 0,
           "confidence": "medium",
@@ -7001,7 +7457,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-07-03-validate-specs-no-real-parser.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-04-stale-bak-features.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-04-stale-bak-features.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -7013,7 +7481,25 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-07-02T103911.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-03-version-mirror-drift.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-06-11T183000.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-02-skill-verify-false-fails.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -7025,7 +7511,25 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-06-13T090000.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-03-trace-stories-613-line.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-02T103911.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-03-install-docs-stale.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -7049,7 +7553,31 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-07-03-glossary-sparse.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-04-filesize-gate-python-blindspot.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-03-glossary-sparse.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-03-negative-path-self-test.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-06-11T160000.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -7079,6 +7607,30 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-07-03-capsule-release-labels.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-06-27T000000.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-03-golden-lock-stale-e37-ids.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-04-python-interpreter-fragility.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-06-13T090000.md",
           "line": 0,
           "confidence": "medium",
@@ -7091,6 +7643,36 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-07-03-trace-engine-vacuous-gate.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-06-24T045323.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-03-yaml-roundtrip-corruption.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-04-tautological-verify.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-03-version-mirror-drift.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-03T020000.md",
           "line": 0,
           "confidence": "medium",
@@ -7098,6 +7680,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-03-validate-specs-no-real-parser.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-03-codebase-wiki-venv-pollution.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -7127,7 +7715,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-06-18T100000.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-02-skill-verify-false-fails.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-06-11T120000.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -7145,6 +7745,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-07-03T020000.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-03-install-docs-stale.md",
           "line": 0,
           "confidence": "medium",
@@ -7152,6 +7758,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-03-yaml-roundtrip-corruption.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-03-waiver-scoring.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -7247,19 +7859,13 @@
           "method": "file_heuristic"
         },
         {
-          "file": "bigpowers-showcase/specs/bugs/BUG-2026-07-05-race-condition.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
           "file": "specs/epics/e43-showcase-repo/e43s03-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         }
       ],
-      "link_count": 54
+      "link_count": 83
     },
     {
       "id": "e43s04",
@@ -7268,7 +7874,7 @@
       "epic_title": "Showcase Repo \u2014 Worked Example Built With bigpowers",
       "bcp": 2,
       "wsjf": 2.5,
-      "status": "done",
+      "status": "backlog",
       "links": [
         {
           "file": "specs/verifications/steps/and-the-plan-specifies-test-levels-and-fixture-architectures.sh",
@@ -7284,6 +7890,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-03-golden-lock-stale-e37-ids.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-03-golden-lock-stale-e37-ids.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -7319,7 +7931,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 8
+      "link_count": 9
     },
     {
       "id": "e43s05",
@@ -7328,7 +7940,7 @@
       "epic_title": "Showcase Repo \u2014 Worked Example Built With bigpowers",
       "bcp": 1,
       "wsjf": 2.5,
-      "status": "done",
+      "status": "backlog",
       "links": [
         {
           "file": "specs/verifications/steps/and-i-should-use-fresh-subagent-context-for-independent-reviews.sh",
@@ -7529,7 +8141,25 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-07-03-validate-specs-no-real-parser.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/registry.yaml",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/adr-wiki/0005-hard-gate-mandate.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/adr-wiki/0002-local-first-specs.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -7559,7 +8189,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 35
+      "link_count": 38
     },
     {
       "id": "e44s02",
@@ -7613,13 +8243,31 @@
           "method": "explicit_tag"
         },
         {
+          "file": "specs/conventions-wiki/types-version-bumps.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/conventions-wiki/semantic-release-the-real-version-is-never-hand-tracked.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/conventions-wiki/conventional-commits-semantic-versioning.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-03-version-mirror-drift.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         },
         {
-          "file": ".ctxo/index/schema-version",
+          "file": "specs/bugs/BUG-2026-07-03-version-mirror-drift.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -7631,7 +8279,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 10
+      "link_count": 13
     },
     {
       "id": "e44s03",
@@ -7901,13 +8549,37 @@
           "method": "explicit_tag"
         },
         {
+          "file": "specs/conventions-wiki/pre-merge-golden-gate.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/agent-guide/golden-rule.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/steps/and-the-skill-packaging-pipeline-round-trips-a-golden-fixture-without-data-loss.sh",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/GOLDEN-2026-07-05.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-03-golden-lock-stale-e37-ids.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-03-golden-lock-stale-e37-ids.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8009,7 +8681,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 26
+      "link_count": 30
     },
     {
       "id": "e45s01",
@@ -8021,13 +8693,37 @@
       "status": "backlog",
       "links": [
         {
+          "file": "scripts/generate-adr-wiki.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/generate-epics-wiki.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "specs/verifications/steps/and-complex-logic-should-include-provenance-links-adrs-jira-or-commits.sh",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-07-03-codebase-wiki-venv-pollution.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-03-codebase-wiki-venv-pollution.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/adr-wiki/0005-hard-gate-mandate.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8075,7 +8771,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 9
+      "link_count": 13
     },
     {
       "id": "e45s02",
@@ -8123,7 +8819,25 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/GOLDEN-2026-07-05.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-2026-07-05.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-03-golden-lock-stale-e37-ids.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/adr-wiki/0005-hard-gate-mandate.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8147,7 +8861,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 10
+      "link_count": 13
     },
     {
       "id": "e45s03",
@@ -8158,6 +8872,12 @@
       "wsjf": 3.0,
       "status": "backlog",
       "links": [
+        {
+          "file": "scripts/sync-bugs-registry.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "specs/skills-wiki/skills/fix-bug.md",
           "line": 0,
@@ -8177,6 +8897,24 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/agent-guide/analysis-debug-70-90-savings.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-03-venv-not-gitignored.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-06-02T164500.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-04-python-interpreter-fragility.md",
           "line": 0,
           "confidence": "medium",
@@ -8189,7 +8927,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-07-03-validate-specs-no-real-parser.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-04-stale-bak-features.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-04-stale-bak-features.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8201,7 +8951,25 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-07-02T103911.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-03-version-mirror-drift.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-06-11T183000.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-02-skill-verify-false-fails.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8213,7 +8981,25 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-06-13T090000.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-03-trace-stories-613-line.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-02T103911.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-03-install-docs-stale.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8237,7 +9023,31 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-07-03-glossary-sparse.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-04-filesize-gate-python-blindspot.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-03-glossary-sparse.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-03-negative-path-self-test.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-06-11T160000.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8267,6 +9077,30 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-07-03-capsule-release-labels.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-06-27T000000.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-03-golden-lock-stale-e37-ids.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-04-python-interpreter-fragility.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-06-13T090000.md",
           "line": 0,
           "confidence": "medium",
@@ -8279,6 +9113,36 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-07-03-trace-engine-vacuous-gate.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-06-24T045323.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-03-yaml-roundtrip-corruption.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-04-tautological-verify.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-03-version-mirror-drift.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-03T020000.md",
           "line": 0,
           "confidence": "medium",
@@ -8286,6 +9150,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-03-validate-specs-no-real-parser.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-03-codebase-wiki-venv-pollution.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8315,7 +9185,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-06-18T100000.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-02-skill-verify-false-fails.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-06-11T120000.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8333,6 +9215,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-07-03T020000.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-03-install-docs-stale.md",
           "line": 0,
           "confidence": "medium",
@@ -8340,6 +9228,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-03-yaml-roundtrip-corruption.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-03-waiver-scoring.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8367,21 +9261,9 @@
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
-        },
-        {
-          "file": "scripts/sync-bugs-registry.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "bigpowers-showcase/specs/bugs/BUG-2026-07-05-race-condition.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
         }
       ],
-      "link_count": 37
+      "link_count": 65
     },
     {
       "id": "e45s04",
@@ -8392,6 +9274,12 @@
       "wsjf": 3.0,
       "status": "backlog",
       "links": [
+        {
+          "file": "scripts/generate-viz-graph.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "specs/skills-wiki/skills/enforce-first.md",
           "line": 0,
@@ -8435,7 +9323,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 7
+      "link_count": 8
     },
     {
       "id": "e45s05",
@@ -8483,7 +9371,217 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/GOLDEN-2026-07-05.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-2026-07-05.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-03-venv-not-gitignored.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-06-02T164500.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-03-validate-specs-no-real-parser.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-04-stale-bak-features.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-02T103911.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-06-11T183000.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-02-skill-verify-false-fails.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-06-13T090000.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-03-trace-stories-613-line.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-03-install-docs-stale.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-03-glossary-sparse.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-04-filesize-gate-python-blindspot.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-03-negative-path-self-test.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-06-11T160000.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-03-capsule-release-labels.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-06-27T000000.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-03-golden-lock-stale-e37-ids.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-04-python-interpreter-fragility.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-03-trace-engine-vacuous-gate.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-06-24T045323.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-03-yaml-roundtrip-corruption.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-04-tautological-verify.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-03-version-mirror-drift.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-03-codebase-wiki-venv-pollution.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-06-18T100000.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-06-11T120000.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-03T020000.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-03-waiver-scoring.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/adr-wiki/0003-prescriptive-core-loop.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/adr-wiki/0005-hard-gate-mandate.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/adr-wiki/0006-model-routing.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/adr-wiki/0001-verb-noun-naming.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/adr-wiki/0002-local-first-specs.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/adr-wiki/0004-context-isolation.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8537,6 +9635,126 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/epics-wiki/e35.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics-wiki/e48.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics-wiki/e39.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics-wiki/e44.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics-wiki/e46.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics-wiki/e25.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics-wiki/e37.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics-wiki/e33.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics-wiki/e42.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics-wiki/e21.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics-wiki/e19.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics-wiki/e49.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics-wiki/e45.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics-wiki/e12.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics-wiki/e47.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics-wiki/e36.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics-wiki/e28.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics-wiki/e43.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics-wiki/e41.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics-wiki/e18.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "docs/references/agent-config-files-and-okf.md",
           "line": 0,
           "confidence": "medium",
@@ -8561,7 +9779,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 19
+      "link_count": 74
     },
     {
       "id": "e45s06",
@@ -8580,6 +9798,12 @@
         },
         {
           "file": "specs/verifications/steps/and-error-messages-should-include-a-remediation-hint-for-the-agent.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-03-codebase-wiki-venv-pollution.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8609,7 +9833,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 6
+      "link_count": 7
     },
     {
       "id": "e46s01",
@@ -8729,6 +9953,24 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/conventions-wiki/agent-workflow-mandates.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/agent-guide/rtk-commands-by-workflow.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/agent-guide/network-65-70-savings.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/steps/and-the-plan-contains-a-risk-matrix.sh",
           "line": 0,
           "confidence": "medium",
@@ -8807,12 +10049,6 @@
           "method": "file_heuristic"
         },
         {
-          "file": "website/dist/pagefind/pagefind-worker.js",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
           "file": "website/src/content/docs/guides/WORKFLOW-SOP-v2.md",
           "line": 0,
           "confidence": "medium",
@@ -8873,7 +10109,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 30
+      "link_count": 32
     },
     {
       "id": "e46s03",
@@ -8915,6 +10151,18 @@
         },
         {
           "file": "specs/skills-wiki/skills/plan-tests.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/conventions-wiki/specs-all-planning-output-goes-here.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/conventions-wiki/tests-f-i-r-s-t-uncle-bob-ch-9.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -9022,6 +10270,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-plan-tests-20260705-180901.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-plan-tests-20260705-170949.md",
           "line": 0,
           "confidence": "medium",
@@ -9070,6 +10324,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-plan-tests-20260705-180955.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-plan-tests-20260705-165324.md",
           "line": 0,
           "confidence": "medium",
@@ -9083,6 +10343,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-plan-tests-20260705-165046.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-plan-tests-20260705-180924.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -9143,6 +10409,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-plan-tests-20260705-170506.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-plan-tests-20260705-175323.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -9214,6 +10486,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-plan-tests-20260705-175559.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-plan-tests-20260705-170009.md",
           "line": 0,
           "confidence": "medium",
@@ -9227,6 +10505,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-plan-tests-20260705-164356.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-plan-tests-20260705-181913.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -9256,6 +10540,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-plan-tests-20260705-181507.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-plan-tests-20260705-164303.md",
           "line": 0,
           "confidence": "medium",
@@ -9263,6 +10553,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-plan-tests-20260705-163741.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-plan-tests-20260705-175204.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -9328,13 +10624,31 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-plan-tests-20260705-181808.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-plan-tests-20260705-165818.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-plan-tests-20260705-181121.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-plan-tests-20260705-164946.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-plan-tests-20260705-175531.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -9371,6 +10685,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-plan-tests-20260705-164903.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-plan-tests-20260705-181051.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -9418,6 +10738,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-07-03-negative-path-self-test.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-03-negative-path-self-test.md",
           "line": 0,
           "confidence": "medium",
@@ -9442,7 +10768,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 91
+      "link_count": 106
     },
     {
       "id": "e47s01",
@@ -9451,7 +10777,7 @@
       "epic_title": "Cross-Tool Skill Distribution \u2014 global install + per-project seed",
       "bcp": 3,
       "wsjf": 4.3,
-      "status": "done",
+      "status": "backlog",
       "links": [
         {
           "file": "specs/epics/e47-cross-tool-distribution/e47s01-tasks.yaml",
@@ -9469,7 +10795,7 @@
       "epic_title": "Cross-Tool Skill Distribution \u2014 global install + per-project seed",
       "bcp": 3,
       "wsjf": 4.3,
-      "status": "done",
+      "status": "backlog",
       "links": [
         {
           "file": "specs/skills-wiki/skills/seed-conventions.md",
@@ -9511,7 +10837,7 @@
       "epic_title": "Cross-Tool Skill Distribution \u2014 global install + per-project seed",
       "bcp": 1,
       "wsjf": 4.3,
-      "status": "done",
+      "status": "backlog",
       "links": [
         {
           "file": "specs/epics/e35-historical-refs/e35s10-cross-reference-skills.md",
@@ -9541,7 +10867,7 @@
       "epic_title": "Cross-Tool Skill Distribution \u2014 global install + per-project seed",
       "bcp": 2,
       "wsjf": 4.3,
-      "status": "done",
+      "status": "backlog",
       "links": [
         {
           "file": "scripts/verify-install.sh",
@@ -9788,6 +11114,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-07-03-trace-engine-vacuous-gate.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/benchmarks/verify-work.yaml",
           "line": 0,
           "confidence": "medium",
@@ -9830,7 +11162,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 11
+      "link_count": 12
     },
     {
       "id": "e48s07",
@@ -9961,7 +11293,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-07-04-filesize-gate-python-blindspot.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/workflows/code-review.yaml",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/adr-wiki/0005-hard-gate-mandate.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -10009,7 +11353,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 19
+      "link_count": 21
     },
     {
       "id": "e48s11",
@@ -10100,6 +11444,24 @@
         },
         {
           "file": "specs/skills-wiki/skills/organize-workspace.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/conventions-wiki/agent-workflow-mandates.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/agent-guide/rtk-commands-by-workflow.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/agent-guide/network-65-70-savings.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -10261,12 +11623,6 @@
           "method": "file_heuristic"
         },
         {
-          "file": "website/dist/pagefind/pagefind-worker.js",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
           "file": "website/src/content/docs/guides/WORKFLOW-SOP-v2.md",
           "line": 0,
           "confidence": "medium",
@@ -10327,7 +11683,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 44
+      "link_count": 46
     },
     {
       "id": "e48s13",
@@ -10613,8 +11969,15 @@
       "bcp": 2,
       "wsjf": 3.5,
       "status": "backlog",
-      "links": [],
-      "link_count": 0
+      "links": [
+        {
+          "file": "specs/agent-guide/rtk-commands-by-workflow.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        }
+      ],
+      "link_count": 1
     },
     {
       "id": "e48s20",
@@ -10887,6 +12250,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260705-181904.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260704-150326.md",
           "line": 0,
           "confidence": "medium",
@@ -11055,6 +12424,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260705-175313.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-163821.md",
           "line": 0,
           "confidence": "medium",
@@ -11193,6 +12568,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260705-181759.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-154353.md",
           "line": 0,
           "confidence": "medium",
@@ -11302,6 +12683,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-154246.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260705-180901.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -11511,6 +12898,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260705-181458.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-005720.md",
           "line": 0,
           "confidence": "medium",
@@ -11548,6 +12941,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-164833.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260705-181114.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -11601,6 +13000,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260705-181044.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260702-223249.md",
           "line": 0,
           "confidence": "medium",
@@ -11614,6 +13019,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-234324.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260705-180916.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -11715,6 +13126,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260705-175521.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260627-133613.md",
           "line": 0,
           "confidence": "medium",
@@ -11788,6 +13205,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-142359.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260705-175550.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -12111,7 +13534,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260705-175152.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-163238.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260705-180948.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -12171,7 +13606,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 243
+      "link_count": 255
     },
     {
       "id": "e48s26",
@@ -12202,6 +13637,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-03-trace-engine-vacuous-gate.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-03-trace-engine-vacuous-gate.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -12255,7 +13696,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 12
+      "link_count": 13
     },
     {
       "id": "e48s27",
@@ -12589,6 +14030,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260705-181904.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260704-150326.md",
           "line": 0,
           "confidence": "medium",
@@ -12757,6 +14204,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260705-175313.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-163821.md",
           "line": 0,
           "confidence": "medium",
@@ -12895,6 +14348,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260705-181759.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-154353.md",
           "line": 0,
           "confidence": "medium",
@@ -13004,6 +14463,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-154246.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260705-180901.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -13213,6 +14678,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260705-181458.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-005720.md",
           "line": 0,
           "confidence": "medium",
@@ -13250,6 +14721,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-164833.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260705-181114.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -13303,6 +14780,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260705-181044.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260702-223249.md",
           "line": 0,
           "confidence": "medium",
@@ -13316,6 +14799,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-234324.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260705-180916.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -13417,6 +14906,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260705-175521.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260627-133613.md",
           "line": 0,
           "confidence": "medium",
@@ -13490,6 +14985,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-142359.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260705-175550.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -13813,7 +15314,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260705-175152.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-163238.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260705-180948.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -13891,7 +15404,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 241
+      "link_count": 253
     },
     {
       "id": "e48s33",
@@ -14258,12 +15771,11 @@
   ],
   "summary": {
     "total_stories": 117,
-    "tagged_stories": 15,
+    "tagged_stories": 26,
     "dark_stories": [
-      "e36s05",
       "e46s03"
     ],
-    "dark_count": 2,
+    "dark_count": 1,
     "orphan_tags": [
       "e01s01",
       "e02s01",
@@ -14292,15 +15804,22 @@
     ],
     "orphan_count": 24,
     "stale_tags": [
-      "e33s04",
-      "e43s01",
-      "e46s01",
-      "e47s04"
+      "e39s01",
+      "e39s02",
+      "e39s03",
+      "e39s05",
+      "e39s06",
+      "e39s07",
+      "e39s09",
+      "e39s10",
+      "e42s02",
+      "e42s03",
+      "e46s01"
     ],
-    "stale_count": 4,
+    "stale_count": 11,
     "oracle_stats": {
-      "high": 63,
-      "medium": 2027,
+      "high": 80,
+      "medium": 2262,
       "low": 54
     }
   }
