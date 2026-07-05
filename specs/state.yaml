@@ -1,16 +1,16 @@
 active_flow: build_epic
 active_epic: e47
-active_story: e35_done
-bigpowers_version: 2.62.0
+active_story: e47s04
+bigpowers_version: 2.63.0
 bug_cycle:
   completed_steps: []
   current_step: null
 bug_id: null
 handoff:
-  context: 'Full e47 implementation merged from main. All 4 stories: e47s01 (install
-    pi), e47s02 (seed-conventions local wiring), e47s03 (docs agent-config ref),
-    e47s04 (verify-install.sh). Next: run verification gates.'
-  next_skill: verify-work
+  context: 'Epic e47 complete and landed. All 4 stories: e47s01 (install pi), e47s02
+    (seed-conventions local wiring), e47s03 (docs agent-config ref), e47s04 (verify-install.sh).
+    CI: sync-skills PASS, release PASS. Compliance 97%, golden suite 8/8.'
+  next_skill: null
 active_decisions:
   e32_build_order_waiver:
     date: '2026-07-04'
@@ -18,16 +18,15 @@ active_decisions:
     rationale: MCP spike independent of e42 golden fixture and e47 global install
 epic_cycle:
   epic_id: e47
-  story_id: e35s10
-  story_bcps: 3
+  story_id: e47s04
+  story_bcps: 2
   story_risk: P3
   step: 9
   yolo_mode: false
   completed_at: '2026-07-05'
-  completed_at: null
 metrics:
   epic_e47:
-    started_at: '2026-07-05'
+    completed_at: '2026-07-05'
     stories: 4
     total_bcps: 9
   epic_e32:
