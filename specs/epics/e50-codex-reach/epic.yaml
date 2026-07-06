@@ -23,58 +23,60 @@ stories:
     title: "seed-conventions — optional Codex wiring step (AGENTS.md + .codex/config.toml)"
     status: todo
     risk: P2
+    spec: e50s01-seed-codex-wiring.md
+    tasks: e50s01-tasks.yaml
     verify: grep -qi 'codex' skills/seed-conventions/SKILL.md && grep -qi 'config.toml' skills/seed-conventions/REFERENCE.md && echo OK
-    tasks:
-      - description: "Add opt-in interview step for Codex: project-root AGENTS.md header + .codex/config.toml template pointing at bigpowers rules/skills"
-        verify: "grep -qi 'Codex CLI' skills/seed-conventions/REFERENCE.md"
-        ac: |
-          Given a fresh project being seeded
-          When the user opts into Codex wiring
-          Then .codex/config.toml is created with valid TOML pointing at AGENTS.md
-          And AGENTS.md includes a Codex-specific header and bigpowers handoff links
-          And opting out leaves standard seed output unchanged
+    ac: |
+      Given a fresh project being seeded
+      When the user opts into Codex wiring
+      Then .codex/config.toml is created with valid TOML pointing at AGENTS.md
+      And AGENTS.md includes a Codex-specific header and bigpowers handoff links
+      And opting out leaves standard seed output unchanged
 
   - id: e50s02
     bcp: 2
     title: "install.sh — global ~/.codex/ AGENTS.md starter symlink"
     status: todo
     risk: P2
+    spec: e50s02-install-codex-global.md
+    tasks: e50s02-tasks.yaml
     verify: bash scripts/install.sh --dry-run 2>&1 | grep -qi 'codex' && echo OK
-    tasks:
-      - description: "Add install_codex()/uninstall_codex() mirroring managed symlink pattern — ~/.codex/AGENTS.md → bundled starter template"
-        verify: "grep -q 'install_codex' scripts/install.sh"
-        ac: |
-          Given bigpowers installed globally
-          When install.sh runs
-          Then ~/.codex/AGENTS.md exists as a managed symlink to the bigpowers starter
-          And uninstall removes only bigpowers-managed Codex files
+    ac: |
+      Given bigpowers installed globally
+      When install.sh runs
+      Then ~/.codex/AGENTS.md exists as a managed symlink to the bigpowers starter
+      And uninstall removes only bigpowers-managed Codex files
 
   - id: e50s03
-    bcp: 1
-    title: "Docs — Codex onboarding in using-bigpowers + agent-config cross-link"
+    bcp: 2
+    title: "using-bigpowers — Codex CLI onboarding section"
     status: todo
     risk: P3
-    verify: grep -qi 'codex' skills/using-bigpowers/SKILL.md && grep -qi 'issue.*52\|e50' specs/epics/e50-codex-reach/epic.yaml && echo OK
-    tasks:
-      - description: "Document Codex path: no slash skills; use AGENTS.md global + project seed; link to OpenAI Codex AGENTS.md guide"
-        verify: "grep -qi 'developers.openai.com/codex' skills/using-bigpowers/SKILL.md || grep -qi 'codex' docs/references/agent-config-files-and-okf.md"
-        ac: |
-          Given a Codex user reading using-bigpowers
-          When they finish the Codex section
-          Then they know to run install.sh for global AGENTS.md and seed-conventions for project wiring
-          And they understand Codex is instruction-file-only (not a skill catalog)
+    spec: e50s03-codex-onboarding-docs.md
+    tasks: e50s03-tasks.yaml
+    verify: grep -qi 'codex' skills/using-bigpowers/SKILL.md && grep -q '\.codex' skills/using-bigpowers/SKILL.md && echo OK
+    ac: |
+      Given a Codex user reading using-bigpowers
+      When they finish the Codex section
+      Then they know to run install.sh for global AGENTS.md and seed-conventions for project wiring
+      And they understand Codex is instruction-file-only (not a skill catalog)
 
   - id: e50s04
     bcp: 2
     title: "verify-install.sh — Codex wiring assertions"
     status: todo
     risk: P2
-    verify: bash scripts/verify-install.sh 2>&1 | grep -qi 'codex' && echo OK
-    tasks:
-      - description: "Extend verify-install.sh with Codex dry-run and scratch-dir seed assertions"
-        verify: "grep -qi 'codex' scripts/verify-install.sh"
-        ac: |
-          Given verify-install.sh after e50 changes
-          When run on a clean scratch environment
-          Then it asserts Codex AGENTS.md symlink target and .codex/config.toml shape
-          And exits non-zero if Codex wiring regresses
+    spec: e50s04-verify-install-codex.md
+    tasks: e50s04-tasks.yaml
+    verify: bash scripts/verify-install.sh && echo OK
+    ac: |
+      Given verify-install.sh after e50 changes
+      When run on a clean scratch environment
+      Then it asserts Codex dry-run output and template shape
+      And exits non-zero if Codex wiring regresses
+
+build_order:
+  - e50s01
+  - e50s02
+  - e50s03
+  - e50s04

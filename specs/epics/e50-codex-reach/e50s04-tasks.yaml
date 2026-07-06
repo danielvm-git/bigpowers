@@ -1,0 +1,67 @@
+story_id: e50s04
+title: "verify-install.sh — Codex dry-run and template assertions"
+status: todo
+bcps: 2
+risk: P2
+depends_on:
+  - e50s01
+  - e50s02
+tasks:
+  - id: 1
+    description: >-
+      Add verify-install dry-run assertion: install.sh --dry-run output must
+      mention Codex CLI (case-insensitive).
+    verify: >-
+      grep -q 'dry-run' scripts/verify-install.sh &&
+      grep -qi 'codex' scripts/verify-install.sh && echo OK
+    risk: P2
+    security: none
+    status: todo
+
+  - id: 2
+    description: >-
+      Assert docs/templates/codex/AGENTS.md exists, references bigpowers, and
+      fails if api key patterns present (reuse existing secret grep helper if any).
+    verify: >-
+      grep -q 'docs/templates/codex/AGENTS.md' scripts/verify-install.sh && echo OK
+    risk: P2
+    security: low
+    status: todo
+
+  - id: 3
+    description: >-
+      Assert seed-conventions REFERENCE config.toml template is parseable TOML
+      (python3 tomllib extract from fenced block — same pattern as e50s01 task 2).
+    verify: >-
+      grep -q 'seed-conventions/REFERENCE.md' scripts/verify-install.sh &&
+      grep -q 'tomllib' scripts/verify-install.sh && echo OK
+    risk: P2
+    security: none
+    status: todo
+
+  - id: 4
+    description: >-
+      Run full harness locally and in CI path: bash scripts/verify-install.sh
+      exits 0 after e50s01–s03 land.
+    verify: >-
+      bash scripts/verify-install.sh && echo OK
+    risk: P2
+    security: none
+    status: todo
+
+  - id: 5
+    description: >-
+      Document Codex checks in verify-install.sh header comment block (what is
+      asserted and why instruction-file-only).
+    verify: >-
+      grep -qi 'codex' scripts/verify-install.sh && echo OK
+    risk: P3
+    security: none
+    status: todo
+
+out_of_scope:
+  - "Installing or invoking codex binary"
+  - "Project-level E2E seed test in consumer repo"
+
+risks:
+  - "e50s04 task 4 verify fails until s01–s03 implemented — implement s04 last"
