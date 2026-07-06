@@ -1,5 +1,5 @@
 release:
-  version: "2.70.0"
+  version: 2.70.1
   codename: Reach
   status: planning
   semantic_release: true
@@ -14,10 +14,10 @@ done_epics_summary:
   count: 45
   source: specs/execution-status.yaml (development_status) — authoritative for completed epics; not re-listed
     here
-  audit: "2026-07-06 plan-release redo — code evidence verified: e33 (website/ deployed), e41 (receipts.astro
+  audit: '2026-07-06 plan-release redo — code evidence verified: e33 (website/ deployed), e41 (receipts.astro
     + receipts.json), e43 (bigpowers-showcase/), e44 (skills/migrate-spec/), e47 (install_pi in install.sh),
     e28 (Parse→IR→Render in sync-skills.sh), e36 (verification audits), e39 (build-skill-graph.sh etc),
-    e42 (golden YAMLs + run-golden-suite.sh --agent), e46 (plan-tests skill + NFR gate)."
+    e42 (golden YAMLs + run-golden-suite.sh --agent), e46 (plan-tests skill + NFR gate).'
   ids:
   - e01
   - e02

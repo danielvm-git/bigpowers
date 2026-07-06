@@ -1,7 +1,7 @@
 active_flow: null
 active_epic: null
 bug_id: null
-bigpowers_version: 2.70.0
+bigpowers_version: 2.70.1
 bug_cycle: {}
 epic_cycle:
   step: 8
@@ -10,5 +10,6 @@ epic_cycle:
   branch: feat/e35-historical-refs
   audit_result: pass
 handoff:
-  context: "BUG-2026-07-06-g06 fixed — g06 migrate-version golden test + migrate-version.sh bad substitution. Golden suite 9/9 PASS."
+  context: BUG-2026-07-06-g06 fixed — g06 migrate-version golden test + migrate-version.sh bad substitution.
+    Golden suite 9/9 PASS.
   next_skill: release-branch

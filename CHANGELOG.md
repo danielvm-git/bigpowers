@@ -1,3 +1,10 @@
+## [2.70.1](https://github.com/danielvm-git/bigpowers/compare/v2.70.0...v2.70.1) (2026-07-06)
+
+
+### Bug Fixes
+
+* **migrate-version:** resolve bash syntax error and update release specs ([dc07b0f](https://github.com/danielvm-git/bigpowers/commit/dc07b0f94755cd629b5de482949c6a10c04e9b75))
+
 # [2.70.0](https://github.com/danielvm-git/bigpowers/compare/v2.69.0...v2.70.0) (2026-07-06)
 
 
