@@ -51,8 +51,14 @@ jobs:
             skills-lock.json \
             README.md \
             specs/SKILL-SEARCH-INDEX_LATEST.md || {
-            echo "::error::Generated artifacts out of date. Run: bash scripts/sync-skills.sh && git add -A && git commit"
-            git diff --stat .cursor/rules .gemini/extensions/bigpowers .pi SKILL-INDEX.md skills-lock.json README.md specs/SKILL-SEARCH-INDEX_LATEST.md
+            echo "::error::Generated artifacts out of date"
+            echo "Files that differ:"
+            git diff --name-only .cursor/rules .gemini/extensions/bigpowers .pi SKILL-INDEX.md skills-lock.json README.md specs/SKILL-SEARCH-INDEX_LATEST.md 2>&1
+            echo "Diff stat:"
+            git diff --stat .cursor/rules .gemini/extensions/bigpowers .pi SKILL-INDEX.md skills-lock.json README.md specs/SKILL-SEARCH-INDEX_LATEST.md 2>&1
+            echo "First differing file content:"
+            FIRST=$(git diff --name-only .cursor/rules .gemini/extensions/bigpowers .pi SKILL-INDEX.md skills-lock.json README.md specs/SKILL-SEARCH-INDEX_LATEST.md 2>&1 | head -1)
+            if [ -n "$FIRST" ]; then git diff "$FIRST" 2>&1 | head -20; fi
             exit 1
           }
 
