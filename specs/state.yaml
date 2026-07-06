@@ -1,16 +1,19 @@
-active_flow: null
+active_flow: fix_bug
 active_epic: e45
 active_story: null
-bug_id: null
+bug_id: BUG-2026-07-06-craft-skill-sync-oversized
 bigpowers_version: 2.73.3
-bug_cycle: {}
+bug_cycle:
+  current_step: 5
+  completed_steps: [1, 2, 3, 4]
+  bug_id: BUG-2026-07-06-craft-skill-sync-oversized
 epic_cycle:
   current_step: 0
   story: null
   story_bcps: null
 handoff:
-  context: "BUG-2026-07-06-trace-requirement-stories-oversized released v2.73.3 — CI green."
-  next_skill: survey-context
+  context: "fix-bug step 5 — release-branch in progress for craft-skill-sync-oversized"
+  next_skill: release-branch
   epic: e45
 metrics:
   story_start: null
