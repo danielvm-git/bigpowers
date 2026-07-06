@@ -1,13 +1,14 @@
 active_flow: fix_bug
 bug_id: BUG-2026-07-04-python-interpreter-fragility
-bigpowers_version: 2.68.4
+bigpowers_version: 2.68.5
 bug_cycle:
   current_step: 3
   completed_steps:
   - 1 (investigate-bug)
   - 2 (diagnose-root)
 active_decisions:
-  fix_approach: "Option A — scripts source scripts/lib/python-env.sh, which prefers .venv/bin/python3, falls back to PATH python3, and fails loudly if PyYAML missing"
+  fix_approach: Option A — scripts source scripts/lib/python-env.sh, which prefers .venv/bin/python3,
+    falls back to PATH python3, and fails loudly if PyYAML missing
 handoff:
-  context: 'python-env.sh already created. Need to wire into 30 scripts that use bare python3.'
+  context: python-env.sh already created. Need to wire into 30 scripts that use bare python3.
   next_skill: develop-tdd

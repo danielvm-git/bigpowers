@@ -1,3 +1,10 @@
+## [2.68.5](https://github.com/danielvm-git/bigpowers/compare/v2.68.4...v2.68.5) (2026-07-06)
+
+
+### Bug Fixes
+
+* **bug:** python-interpreter-fragility — wire python-env.sh into 29 scripts ([1088995](https://github.com/danielvm-git/bigpowers/commit/10889957c5b4fb07fe2be5f4624a3608461802c7))
+
 ## [2.68.4](https://github.com/danielvm-git/bigpowers/compare/v2.68.3...v2.68.4) (2026-07-06)
 
 
