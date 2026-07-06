@@ -2,15 +2,15 @@ active_flow: null
 active_epic: e45
 active_story: null
 bug_id: null
-bigpowers_version: 2.73.2
+bigpowers_version: 2.73.3
 bug_cycle: {}
 epic_cycle:
   current_step: 0
   story: null
   story_bcps: null
 handoff:
-  context: BUG-2026-07-06-trace-requirement-stories-oversized fixed — trace-stories.py
-    283 lines, gates green. Step 5 release-branch pending user.
+  context: BUG-2026-07-06-trace-requirement-stories-oversized fixed — trace-stories.py 283 lines, gates
+    green. Step 5 release-branch pending user.
   next_skill: release-branch
   epic: e45
 metrics:

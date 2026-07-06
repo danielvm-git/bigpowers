@@ -1,3 +1,10 @@
+## [2.73.3](https://github.com/danielvm-git/bigpowers/compare/v2.73.2...v2.73.3) (2026-07-06)
+
+
+### Bug Fixes
+
+* **trace:** trim trace-stories.py under 300-line cap ([879bb8a](https://github.com/danielvm-git/bigpowers/commit/879bb8a87940a4bf337dfed7406359f744e09a31))
+
 ## [2.73.2](https://github.com/danielvm-git/bigpowers/compare/v2.73.1...v2.73.2) (2026-07-06)
 
 
