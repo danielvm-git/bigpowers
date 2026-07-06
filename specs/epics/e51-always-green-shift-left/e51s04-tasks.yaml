@@ -1,0 +1,29 @@
+story_id: e51s04
+title: "audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log routing on gate failure"
+status: todo
+bcps: 2
+risk: P1
+tasks:
+  - id: 1
+    description: >-
+      Update audit-code Scope section: discovered defects require fix-or-log;
+      Boy Scout applies to files opened to fix a gate; remove "surgically not broadly"
+      as excuse to skip red gates.
+    verify: grep -qi 'fix-or-log\|discovered defect' skills/audit-code/SKILL.md && echo OK
+    status: todo
+  - id: 2
+    description: >-
+      Update develop-tdd pushback table: gate failure during work always routes
+      quick-fix → fix-bug.
+    verify: grep -qi 'quick-fix\|fix-bug\|Preflight' skills/develop-tdd/SKILL.md && echo OK
+    status: todo
+  - id: 3
+    description: >-
+      Update quick-fix and fix-bug: baseline red / golden suite red / unrelated gate
+      failure is valid entry without user-reported bug.
+    verify: grep -qi 'gate failure\|baseline red\|Preflight' skills/quick-fix/SKILL.md skills/fix-bug/SKILL.md && echo OK
+    status: todo
+  - id: 4
+    description: Run bash scripts/sync-skills.sh.
+    verify: bash scripts/sync-skills.sh >/dev/null && echo OK
+    status: todo

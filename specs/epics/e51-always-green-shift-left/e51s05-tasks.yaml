@@ -1,0 +1,24 @@
+story_id: e51s05
+title: "CLAUDE.md — solo-default agent rules + bigpowers Preflight command row"
+status: todo
+bcps: 2
+risk: P1
+tasks:
+  - id: 1
+    description: >-
+      Add Preflight row to CLAUDE.md Commands table (compliance, golden suite,
+      workspace tests, sync-skills, trace --strict) and CI row (gh pr checks).
+    verify: grep -qi 'Preflight' CLAUDE.md && grep -qi 'golden-suite\|run-golden-suite' CLAUDE.md && echo OK
+    status: todo
+  - id: 2
+    description: >-
+      Replace Agent Rules scope-minimization with Always Green / fix-or-log mandate;
+      reference CONVENTIONS § Discovered Defects.
+    verify: grep -qi 'fix-or-log\|Always Green' CLAUDE.md && echo OK
+    status: todo
+  - id: 3
+    description: >-
+      Update seed-conventions REFERENCE.md Never section to match (never dismiss
+      reproducible defects; never proceed on red Preflight).
+    verify: grep -qi 'red Preflight\|discovered defect' skills/seed-conventions/REFERENCE.md && echo OK
+    status: todo

@@ -1,0 +1,127 @@
+id: e51
+title: "Always Green — Shift Left, Preflight Hard Block & Fix-or-Log Doctrine"
+wsjf: 7.0
+bcps: 12
+status: proposed
+mode: capsule
+capsule_dir: epics/e51-always-green-shift-left
+release: v2.9x
+codename: "Reach"
+source: |
+  Change request from grill-me session 2026-07-06 (solo-default defect doctrine).
+
+  Problem: agents dismiss reproducible failures as "pre-existing" or "unrelated to this
+  session" — rational given current scope-minimization rules in CLAUDE.md, audit-code,
+  and kickoff-branch, but wrong for solo developers who own the whole codebase.
+
+  Design decisions (grill-me, all locked):
+  - Solo-default doctrine everywhere (no meta vs application split; no team mode yet)
+  - Fix-or-log ladder: quick-fix → fix-bug on guardrail abort; never narrate-only
+  - Hard baseline block: Preflight + CI green before forward work
+  - Same PR, separate commits for discovered defects
+  - Banned phrases + required replacements in CONVENTIONS
+  - Unified name: Preflight (default when user says nothing in seed-conventions)
+  - Shift Left / 1-10-100 cost rationale as the "why"
+
+  Related epics (do not duplicate): e18 (build-epic gates), e19 (quick-fix path),
+  e21s03 (bp-read-agents preflight extraction). e51 wires doctrine + hard gates.
+
+  WSJF: BV 8 + TC 5 + RR 8 / Job 3 ≈ 7.0 — outranks e50 (4.3); insert first in build_order.
+
+stories:
+  - id: e51s01
+    bcp: 3
+    title: "CONVENTIONS — Always Green, Shift Left, Discovered Defects, banned phrases"
+    status: todo
+    risk: P1
+    spec: e51s01-conventions-always-green.md
+    tasks: e51s01-tasks.yaml
+    verify: >-
+      grep -q 'Always Green' CONVENTIONS.md &&
+      grep -q 'Shift Left' CONVENTIONS.md &&
+      grep -q 'Pre-existing' CONVENTIONS.md &&
+      grep -q 'fix-or-log' CONVENTIONS.md && echo OK
+    ac: |
+      Given CONVENTIONS.md is the agent rulebook
+      When an agent reads § Always Green / Discovered Defects
+      Then it finds Shift Left 1-10-100 rationale
+      And a banned-phrase table with required replacements
+      And fix-or-log is mandatory on any reproducible gate failure
+
+  - id: e51s02
+    bcp: 3
+    title: "seed-conventions — Preflight default, solo-git default, embed Always Green template"
+    status: todo
+    risk: P1
+    spec: e51s02-seed-preflight-default.md
+    tasks: e51s02-tasks.yaml
+    verify: >-
+      grep -qi 'Preflight' skills/seed-conventions/REFERENCE.md &&
+      grep -q 'solo-git' skills/seed-conventions/SKILL.md &&
+      grep -q 'Always Green' skills/seed-conventions/REFERENCE.md && echo OK
+    ac: |
+      Given seed-conventions interview for a greenfield Astro/TS/Python project
+      When the user does not name a verify command
+      Then generated CLAUDE.md includes a Preflight row (chained from test/lint/build)
+      And generated CONVENTIONS embeds Always Green + banned phrases
+      And specs/state.yaml defaults workflow_mode to solo-git
+
+  - id: e51s03
+    bcp: 2
+    title: "kickoff-branch + verify-work — Preflight hard block and CI green gate"
+    status: todo
+    risk: P0
+    spec: e51s03-preflight-hard-block.md
+    tasks: e51s03-tasks.yaml
+    verify: >-
+      grep -qi 'Preflight' skills/kickoff-branch/SKILL.md &&
+      ! grep -qi 'pre-existing issues' skills/kickoff-branch/SKILL.md &&
+      grep -qi 'Preflight\|BP_PREFLIGHT' skills/verify-work/SKILL.md &&
+      grep -qi 'CI green\|gh pr checks' skills/verify-work/SKILL.md && echo OK
+    ac: |
+      Given kickoff-branch or verify-work at session start
+      When Preflight or CI is red
+      Then the agent blocks forward work and routes to quick-fix or fix-bug
+      And kickoff-branch no longer frames failures as acceptable pre-existing issues
+
+  - id: e51s04
+    bcp: 2
+    title: "audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log routing on gate failure"
+    status: todo
+    risk: P1
+    spec: e51s04-fix-or-log-routing.md
+    tasks: e51s04-tasks.yaml
+    verify: >-
+      grep -qi 'fix-or-log\|quick-fix\|fix-bug' skills/audit-code/SKILL.md &&
+      grep -qi 'gate failure\|Preflight' skills/quick-fix/SKILL.md &&
+      grep -qi 'baseline red\|golden suite' skills/fix-bug/SKILL.md && echo OK
+    ac: |
+      Given any skill hits a reproducible gate failure during unrelated work
+      When the agent would previously narrate and continue
+      Then quick-fix or fix-bug is invoked instead
+      And audit-code scope checks allow fix-or-log without "outside scope" dismissal
+
+  - id: e51s05
+    bcp: 2
+    title: "CLAUDE.md — solo-default agent rules + bigpowers Preflight command row"
+    status: todo
+    risk: P1
+    spec: e51s05-claude-preflight-row.md
+    tasks: e51s05-tasks.yaml
+    verify: >-
+      grep -qi 'Preflight' CLAUDE.md &&
+      grep -qi 'Always Green\|fix-or-log' CLAUDE.md &&
+      ! grep -q 'Never refactor, rename, or reorganize code outside the task scope' CLAUDE.md && echo OK
+    ac: |
+      Given bigpowers CLAUDE.md agent bootstrap
+      When an agent starts any session in this repo
+      Then Commands table includes Preflight with full verification stack
+      And Agent Rules mandate fix-or-log on discovered defects
+      And scope-minimization language no longer permits ignoring reproducible failures
+
+build_order:
+  - e51s01
+  - e51s02
+  - e51s05
+  - e51s03
+  - e51s04

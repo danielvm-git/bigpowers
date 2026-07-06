@@ -5,6 +5,7 @@ release:
   semantic_release: true
   bump_hint: minor
 build_order:
+- e51
 - e50
 - e48
 - e45
@@ -65,6 +66,16 @@ done_epics_summary:
   - e46
   - e47
 epics:
+- id: e51
+  title: Always Green — Shift Left, Preflight Hard Block & Fix-or-Log Doctrine
+  wsjf: 7.0
+  bcps: 12
+  capsule_dir: epics/e51-always-green-shift-left
+  mode: capsule
+  status: planned
+  wsjf_rationale: 'BV 8 (solo-dev trust — agents dismiss defects as pre-existing) + TC 5
+    (active pain) + RR 8 (Shift Left across all seeded projects) / Job 3 ≈ 7.0'
+  source: grill-me session 2026-07-06 — Preflight hard block, fix-or-log, banned phrases
 - id: e50
   title: Codex CLI Reach — AGENTS.md & config.toml seed pack
   wsjf: 4.3

@@ -1,7 +1,7 @@
 # Traceability Matrix
 
-**Generated:** 2026-07-06 14:57:13 UTC
-**Total stories:** 59
+**Generated:** 2026-07-06 16:13:23 UTC
+**Total stories:** 64
 **Tagged stories:** 4
 **Dark stories:** 0
 **Orphan tags:** 58
@@ -10,8 +10,8 @@
 ## Oracle Stats
 
 - **High** (explicit tag): 9
-- **Medium** (file heuristic): 1072
-- **Low** (task reference): 14
+- **Medium** (file heuristic): 1444
+- **Low** (task reference): 19
 
 ## Story Coverage
 
@@ -23,9 +23,9 @@
 | e37s04 | Build-epic integration — BCP Plus in story sizing workflow | e37 | 0 | 2.1 | backlog | 9 |
 | e45s01 | Generate epics-wiki and adr-wiki as OKF concept bundles from | e45 | 2 | 3.0 | backlog | 15 |
 | e45s02 | Emit verification reports as OKF bundles from run-golden-sui | e45 | 2 | 3.0 | backlog | 18 |
-| e45s03 | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | e45 | 1 | 3.0 | backlog | 96 |
+| e45s03 | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | e45 | 1 | 3.0 | backlog | 97 |
 | e45s04 | Create viz.html — interactive force-layout graph companion f | e45 | 2 | 3.0 | backlog | 8 |
-| e45s05 | Wire OKF validation into CI (sync-skills.yml) and document i | e45 | 1 | 3.0 | backlog | 106 |
+| e45s05 | Wire OKF validation into CI (sync-skills.yml) and document i | e45 | 1 | 3.0 | backlog | 107 |
 | e45s06 | Add tier: field (core/extended/specialized) to OKF wiki inde | e45 | 2 | 3.0 | backlog | 8 |
 | e48s01 | run-benchmark: add train/validation-split + with/without-ski | e48 | 3 | 3.5 | backlog | 11 |
 | e48s02 | Context7 / bts docs: wrap in ETag-revalidated fetch cache | e48 | 2 | 3.5 | backlog | 0 |
@@ -51,14 +51,14 @@
 | e48s22 | request-review: hard max-iteration cap | e48 | 2 | 3.5 | backlog | 3 |
 | e48s23 | requirements: ADDED/MODIFIED/REMOVED/RENAMED tags | e48 | 2 | 3.5 | backlog | 0 |
 | e48s24 | subagent depth: formalize depth tiers | e48 | 2 | 3.5 | backlog | 0 |
-| e48s25 | audit-code / deepen-architecture: churn-based look-here-firs | e48 | 2 | 3.5 | backlog | 280 |
+| e48s25 | audit-code / deepen-architecture: churn-based look-here-firs | e48 | 2 | 3.5 | backlog | 286 |
 | e48s26 | gate-trace / release-branch: adversarial-review refute frami | e48 | 2 | 3.5 | backlog | 14 |
 | e48s27 | requirements: per-section approval state | e48 | 2 | 3.5 | backlog | 0 |
 | e48s28 | develop-tdd: snapshot-before-transition hardening | e48 | 2 | 3.5 | backlog | 3 |
 | e48s29 | plan-work: 5 fixed EARS sentence patterns | e48 | 2 | 3.5 | backlog | 3 |
 | e48s30 | specs: Documentation Responsibilities table | e48 | 2 | 3.5 | backlog | 0 |
 | e48s31 | request-review: fan-out to parallel review subagents | e48 | 2 | 3.5 | backlog | 14 |
-| e48s32 | audit-code / security-review: worktree-isolated parallel che | e48 | 2 | 3.5 | backlog | 278 |
+| e48s32 | audit-code / security-review: worktree-isolated parallel che | e48 | 2 | 3.5 | backlog | 284 |
 | e48s33 | run-evals: graduated eval-strictness tiers | e48 | 2 | 3.5 | backlog | 3 |
 | e48s34 | orchestration: why-did-this-stall diagnostic skill | e48 | 2 | 3.5 | backlog | 2 |
 | e48s35 | seed-conventions / AGENTS.md: self-installing fenced markers | e48 | 2 | 3.5 | backlog | 2 |
@@ -76,6 +76,11 @@
 | e50s02 | install.sh — global ~/.codex/ AGENTS.md starter symlink | e50 | 2 | 4.3 | backlog | 5 |
 | e50s03 | using-bigpowers — Codex CLI onboarding section | e50 | 2 | 4.3 | backlog | 7 |
 | e50s04 | verify-install.sh — Codex wiring assertions | e50 | 2 | 4.3 | backlog | 4 |
+| e51s01 | CONVENTIONS — Always Green, Shift Left, Discovered Defects,  | e51 | 3 | 7.0 | backlog | 2 |
+| e51s02 | seed-conventions — Preflight default, solo-git default, embe | e51 | 3 | 7.0 | backlog | 8 |
+| e51s03 | kickoff-branch + verify-work — Preflight hard block and CI g | e51 | 2 | 7.0 | backlog | 29 |
+| e51s04 | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | e51 | 2 | 7.0 | backlog | 320 |
+| e51s05 | CLAUDE.md — solo-default agent rules + bigpowers Preflight c | e51 | 2 | 7.0 | backlog | 4 |
 
 ## Orphan Tags (tag in code, no matching story)
 
