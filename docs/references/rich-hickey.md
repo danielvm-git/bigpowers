@@ -1,5 +1,7 @@
 # Rich Hickey: Simple vs Easy
 
+<!-- story: e35s05 -->
+
 **Purpose:** Documents Rich Hickey's core distinctions — simple vs easy, complecting, and the value of information over place-oriented programming — and how bigpowers skills embody these principles.
 
 **Credit:** Rich Hickey. Key talk: *Simple Made Easy* (Strange Loop 2011). Creator of Clojure and the Datomic database.

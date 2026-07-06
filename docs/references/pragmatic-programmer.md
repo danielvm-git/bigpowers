@@ -1,5 +1,7 @@
 # Andy Hunt & Dave Thomas: The Pragmatic Programmer
 
+<!-- story: e35s04 -->
+
 **Purpose:** Documents the pragmatic philosophy of software development from Hunt & Thomas — DRY, broken windows, tracer bullets, and the craftsmanship mindset — and how bigpowers skills embody these practices.
 
 **Credit:** Andy Hunt and Dave Thomas. Key work: *The Pragmatic Programmer: From Journeyman to Master* (1999), 20th Anniversary Edition (2019).

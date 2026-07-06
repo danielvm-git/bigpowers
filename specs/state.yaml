@@ -4,12 +4,17 @@ bug_id: null
 bigpowers_version: 2.68.6
 bug_cycle: {}
 epic_cycle:
-  epic_id: e36
-  story_id: e36s05
-  current_step: 5
-  completed_steps: [0, 1, 2, 3, 4]
+  step: 8
   story_bcps: 2
-  audit_result: null
+  fast_mode: false
+  branch: feat/e35-historical-refs
+  audit_result: pass
 handoff:
-  context: "Epic e36 (Documentation Deduplication) COMPLETE — all 5 stories done. 1 file edited (enforce-first/SKILL.md), 4 already conformed."
-  next_skill: null
+  context: "e50 plan-work complete — e50s01–e50s04 story specs + tasks.yaml in specs/epics/e50-codex-reach/. Issue #52 tracker open."
+  next_skill: kickoff-branch
+  epic: e50
+  stories:
+    - e50s01
+    - e50s02
+    - e50s03
+    - e50s04

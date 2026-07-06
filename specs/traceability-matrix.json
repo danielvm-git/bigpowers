@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-06T14:32:24.047150+00:00",
+  "generated_at": "2026-07-06T14:42:51.053127+00:00",
   "matrix_version": "1.0",
   "stories": [
     {
@@ -1083,8 +1083,14 @@
       "epic_title": "Missing Historical References",
       "bcp": 2,
       "wsjf": 3.0,
-      "status": "backlog",
+      "status": "done",
       "links": [
+        {
+          "file": "docs/references/kent-beck.md",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "specs/epics/e35-historical-refs/e35s01-tasks.yaml",
           "line": 0,
@@ -1092,7 +1098,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 1
+      "link_count": 2
     },
     {
       "id": "e35s02",
@@ -1101,8 +1107,14 @@
       "epic_title": "Missing Historical References",
       "bcp": 2,
       "wsjf": 3.0,
-      "status": "backlog",
+      "status": "done",
       "links": [
+        {
+          "file": "docs/references/fowler.md",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "specs/epics/e35-historical-refs/e35s02-tasks.yaml",
           "line": 0,
@@ -1110,7 +1122,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 1
+      "link_count": 2
     },
     {
       "id": "e35s03",
@@ -1119,8 +1131,14 @@
       "epic_title": "Missing Historical References",
       "bcp": 2,
       "wsjf": 3.0,
-      "status": "backlog",
+      "status": "done",
       "links": [
+        {
+          "file": "docs/references/feathers.md",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "specs/epics/e35-historical-refs/e35s03-tasks.yaml",
           "line": 0,
@@ -1128,7 +1146,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 1
+      "link_count": 2
     },
     {
       "id": "e35s04",
@@ -1137,8 +1155,14 @@
       "epic_title": "Missing Historical References",
       "bcp": 2,
       "wsjf": 3.0,
-      "status": "backlog",
+      "status": "done",
       "links": [
+        {
+          "file": "docs/references/pragmatic-programmer.md",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "specs/epics/e35-historical-refs/e35s04-tasks.yaml",
           "line": 0,
@@ -1146,7 +1170,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 1
+      "link_count": 2
     },
     {
       "id": "e35s05",
@@ -1155,8 +1179,14 @@
       "epic_title": "Missing Historical References",
       "bcp": 2,
       "wsjf": 3.0,
-      "status": "backlog",
+      "status": "done",
       "links": [
+        {
+          "file": "docs/references/rich-hickey.md",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "specs/epics/e35-historical-refs/e35s05-tasks.yaml",
           "line": 0,
@@ -1164,7 +1194,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 1
+      "link_count": 2
     },
     {
       "id": "e35s06",
@@ -1173,8 +1203,14 @@
       "epic_title": "Missing Historical References",
       "bcp": 2,
       "wsjf": 3.0,
-      "status": "backlog",
+      "status": "done",
       "links": [
+        {
+          "file": "docs/references/sandi-metz.md",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "specs/epics/e35-historical-refs/e35s06-tasks.yaml",
           "line": 0,
@@ -1182,7 +1218,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 1
+      "link_count": 2
     },
     {
       "id": "e35s07",
@@ -1191,8 +1227,14 @@
       "epic_title": "Missing Historical References",
       "bcp": 2,
       "wsjf": 3.0,
-      "status": "backlog",
+      "status": "done",
       "links": [
+        {
+          "file": "docs/references/ddd.md",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "specs/epics/e35-historical-refs/e35s07-tasks.yaml",
           "line": 0,
@@ -1200,7 +1242,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 1
+      "link_count": 2
     },
     {
       "id": "e35s08",
@@ -1209,8 +1251,14 @@
       "epic_title": "Missing Historical References",
       "bcp": 2,
       "wsjf": 3.0,
-      "status": "backlog",
+      "status": "done",
       "links": [
+        {
+          "file": "docs/references/accelerate.md",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "specs/epics/archive/e40-metrics-integrity/e40s05-dora-four-keys.md",
           "line": 0,
@@ -1224,7 +1272,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 2
+      "link_count": 3
     },
     {
       "id": "e35s09",
@@ -1233,8 +1281,14 @@
       "epic_title": "Missing Historical References",
       "bcp": 2,
       "wsjf": 3.0,
-      "status": "backlog",
+      "status": "done",
       "links": [
+        {
+          "file": "docs/PRINCIPLES.md",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "specs/epics/e35-historical-refs/e35s09-tasks.yaml",
           "line": 0,
@@ -1242,7 +1296,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 1
+      "link_count": 2
     },
     {
       "id": "e35s10",
@@ -1251,8 +1305,68 @@
       "epic_title": "Missing Historical References",
       "bcp": 2,
       "wsjf": 3.0,
-      "status": "backlog",
+      "status": "done",
       "links": [
+        {
+          "file": ".gemini/extensions/bigpowers/commands/prompts/plan-refactor.md",
+          "line": 77,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/commands/prompts/investigate-bug.md",
+          "line": 119,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/skills/plan-refactor/SKILL.md",
+          "line": 82,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/skills/investigate-bug/SKILL.md",
+          "line": 124,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "skills/plan-refactor/SKILL.md",
+          "line": 83,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "skills/investigate-bug/SKILL.md",
+          "line": 125,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/plan-refactor.md",
+          "line": 81,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/investigate-bug.md",
+          "line": 123,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/plan-refactor/SKILL.md",
+          "line": 83,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/investigate-bug/SKILL.md",
+          "line": 125,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "specs/epics/e35-historical-refs/e35s10-cross-reference-skills.md",
           "line": 0,
@@ -1266,7 +1380,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 2
+      "link_count": 12
     },
     {
       "id": "e36s01",
@@ -1299,7 +1413,7 @@
       "epic_title": "Documentation Deduplication",
       "bcp": 3,
       "wsjf": 1.4,
-      "status": "backlog",
+      "status": "done",
       "links": [
         {
           "file": "specs/epics/e36-doc-dedup/e36s02-tasks.yaml",
@@ -1317,7 +1431,7 @@
       "epic_title": "Documentation Deduplication",
       "bcp": 2,
       "wsjf": 1.4,
-      "status": "backlog",
+      "status": "done",
       "links": [
         {
           "file": "specs/skills-wiki/skills/enforce-first.md",
@@ -1765,6 +1879,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-162245.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-114127.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -2413,6 +2533,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-125842.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-113257.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -3114,7 +3240,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 299
+      "link_count": 301
     },
     {
       "id": "e36s04",
@@ -3123,7 +3249,7 @@
       "epic_title": "Documentation Deduplication",
       "bcp": 2,
       "wsjf": 1.4,
-      "status": "backlog",
+      "status": "done",
       "links": [
         {
           "file": "specs/epics/e21-mcp-discovery-tools.yaml",
@@ -3153,7 +3279,7 @@
       "epic_title": "Documentation Deduplication",
       "bcp": 2,
       "wsjf": 1.4,
-      "status": "backlog",
+      "status": "done",
       "links": [],
       "link_count": 0
     },
@@ -5873,6 +5999,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-superpowers-20260706-114138.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-superpowers-20260703-154223.md",
           "line": 0,
           "confidence": "medium",
@@ -6965,6 +7097,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-superpowers-20260706-113308.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-superpowers-20260703-164001.md",
           "line": 0,
           "confidence": "medium",
@@ -7175,7 +7313,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 301
+      "link_count": 303
     },
     {
       "id": "e43s01",
@@ -7541,6 +7679,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/epics/e50-codex-reach/epic.yaml",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/epics/e35-historical-refs/epic.yaml",
           "line": 0,
           "confidence": "medium",
@@ -7733,7 +7877,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 78
+      "link_count": 79
     },
     {
       "id": "e43s03",
@@ -11494,6 +11638,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-plan-tests-20260706-114138.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-plan-tests-20260705-182440.md",
           "line": 0,
           "confidence": "medium",
@@ -11932,6 +12082,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-plan-tests-20260706-113307.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-03-negative-path-self-test.okf.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -11968,7 +12124,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 125
+      "link_count": 127
     },
     {
       "id": "e47s01",
@@ -12010,6 +12166,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/epics/e50-codex-reach/e50s01-seed-codex-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "website/src/content/docs/skills/seed-conventions.mdx",
           "line": 0,
           "confidence": "medium",
@@ -12040,7 +12202,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 6
+      "link_count": 7
     },
     {
       "id": "e47s03",
@@ -12100,6 +12262,18 @@
           "method": "explicit_tag"
         },
         {
+          "file": "specs/epics/e50-codex-reach/e50s04-verify-install-codex.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e50-codex-reach/e50s01-seed-codex-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/epics/e47-cross-tool-distribution/e47s01-tasks.yaml",
           "line": 0,
           "confidence": "low",
@@ -12112,7 +12286,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 3
+      "link_count": 5
     },
     {
       "id": "e48s01",
@@ -13678,6 +13852,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-114127.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-170704.md",
           "line": 0,
           "confidence": "medium",
@@ -14321,6 +14501,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-125842.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-113257.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -14980,7 +15166,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 275
+      "link_count": 277
     },
     {
       "id": "e48s26",
@@ -15579,6 +15765,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-162245.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-114127.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -16227,6 +16419,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-125842.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-113257.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -16904,7 +17102,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 273
+      "link_count": 275
     },
     {
       "id": "e48s33",
@@ -17267,15 +17465,196 @@
         }
       ],
       "link_count": 11
+    },
+    {
+      "id": "e50s01",
+      "title": "seed-conventions \u2014 optional Codex wiring step (AGENTS.md + .codex/config.toml)",
+      "epic_id": "e50",
+      "epic_title": "Codex CLI Reach \u2014 AGENTS.md & config.toml seed pack",
+      "bcp": 3,
+      "wsjf": 4.3,
+      "status": "backlog",
+      "links": [
+        {
+          "file": "specs/skills-wiki/skills/seed-conventions.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e50-codex-reach/e50s01-seed-codex-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "website/src/content/docs/skills/seed-conventions.mdx",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e50-codex-reach/e50s02-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e50-codex-reach/e50s01-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e50-codex-reach/e50s04-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        }
+      ],
+      "link_count": 6
+    },
+    {
+      "id": "e50s02",
+      "title": "install.sh \u2014 global ~/.codex/ AGENTS.md starter symlink",
+      "epic_id": "e50",
+      "epic_title": "Codex CLI Reach \u2014 AGENTS.md & config.toml seed pack",
+      "bcp": 2,
+      "wsjf": 4.3,
+      "status": "backlog",
+      "links": [
+        {
+          "file": "specs/epics/e50-codex-reach/e50s02-install-codex-global.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e50-codex-reach/e50s02-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e50-codex-reach/e50s01-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e50-codex-reach/e50s04-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e50-codex-reach/e50s03-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        }
+      ],
+      "link_count": 5
+    },
+    {
+      "id": "e50s03",
+      "title": "using-bigpowers \u2014 Codex CLI onboarding section",
+      "epic_id": "e50",
+      "epic_title": "Codex CLI Reach \u2014 AGENTS.md & config.toml seed pack",
+      "bcp": 2,
+      "wsjf": 4.3,
+      "status": "backlog",
+      "links": [
+        {
+          "file": "specs/skills-wiki/skills/using-bigpowers.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e50-codex-reach/e50s03-codex-onboarding-docs.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "website/src/content/docs/guides/using-bigpowers.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "website/src/content/docs/skills/using-bigpowers.mdx",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "docs/using-bigpowers.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e50-codex-reach/e50s01-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e50-codex-reach/e50s03-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        }
+      ],
+      "link_count": 7
+    },
+    {
+      "id": "e50s04",
+      "title": "verify-install.sh \u2014 Codex wiring assertions",
+      "epic_id": "e50",
+      "epic_title": "Codex CLI Reach \u2014 AGENTS.md & config.toml seed pack",
+      "bcp": 2,
+      "wsjf": 4.3,
+      "status": "backlog",
+      "links": [
+        {
+          "file": "specs/epics/e50-codex-reach/e50s04-verify-install-codex.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e50-codex-reach/e50s01-seed-codex-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e50-codex-reach/e50s02-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e50-codex-reach/e50s04-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        }
+      ],
+      "link_count": 4
     }
   ],
   "summary": {
-    "total_stories": 117,
-    "tagged_stories": 27,
+    "total_stories": 121,
+    "tagged_stories": 37,
     "dark_stories": [
+      "e36s05",
       "e46s03"
     ],
-    "dark_count": 1,
+    "dark_count": 2,
     "orphan_tags": [
       "e01s01",
       "e01s03",
@@ -17307,6 +17686,16 @@
     "stale_tags": [
       "e28s01",
       "e28s04",
+      "e35s01",
+      "e35s02",
+      "e35s03",
+      "e35s04",
+      "e35s05",
+      "e35s06",
+      "e35s07",
+      "e35s08",
+      "e35s09",
+      "e35s10",
       "e39s01",
       "e39s02",
       "e39s03",
@@ -17319,11 +17708,11 @@
       "e42s03",
       "e46s01"
     ],
-    "stale_count": 13,
+    "stale_count": 23,
     "oracle_stats": {
-      "high": 88,
-      "medium": 2500,
-      "low": 58
+      "high": 107,
+      "medium": 2525,
+      "low": 69
     }
   }
 }

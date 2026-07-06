@@ -1,5 +1,7 @@
 # bigpowers Principles: The Evolution of Agentic Engineering
 
+<!-- story: e35s09 -->
+
 The `bigpowers` skill set is the result of a chronological evolution of software engineering discipline, starting from classic human-centric craftsmanship and culminating in a high-integrity, agent-first methodology.
 
 ---

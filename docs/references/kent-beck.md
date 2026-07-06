@@ -1,5 +1,7 @@
 # Kent Beck: XP, TDD, and Tidy First?
 
+<!-- story: e35s01 -->
+
 **Purpose:** Documents the intellectual origins Kent Beck contributed to software engineering — Extreme Programming (XP), Test-Driven Development (TDD / red-green-refactor), and the "Tidy First?" structural-change discipline — and how bigpowers skills embody these practices.
 
 **Credit:** Kent Beck. Key works: *Extreme Programming Explained* (1999, 2004), *Test-Driven Development: By Example* (2002), *Tidy First?* (2023).

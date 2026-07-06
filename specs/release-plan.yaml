@@ -1,5 +1,5 @@
 release:
-  version: 2.68.6
+  version: 2.69.0
   codename: Deepening
   status: released
   semantic_release: true
@@ -7,6 +7,7 @@ release:
 build_order:
 - e42
 - e47
+- e50
 - e32
 - e33
 - e39
@@ -67,6 +68,16 @@ epics:
   capsule_dir: epics/e47-cross-tool-distribution
   mode: capsule
   status: done
+- id: e50
+  title: Codex CLI Reach — AGENTS.md & config.toml seed pack
+  wsjf: 4.3
+  bcps: 8
+  capsule_dir: epics/e50-codex-reach
+  mode: capsule
+  status: proposed
+  source_issue: https://github.com/danielvm-git/bigpowers/issues/52
+  wsjf_rationale: 'BV 5 (community ask #52) + TC 3 + RR 5 (closes e47 Codex out-of-scope gap) / Job 3
+    ≈ 4.3'
 - id: e32
   title: MCP Semantic Context Server
   wsjf: 4.0
@@ -115,7 +126,7 @@ epics:
   bcps: 20
   capsule_dir: epics/e35-historical-refs
   mode: capsule
-  status: proposed
+  status: done
 - id: e45
   title: OKF Completion — Wikis, Verification Reports, Viz Graph
   wsjf: 3.0

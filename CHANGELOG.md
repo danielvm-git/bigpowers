@@ -1,3 +1,10 @@
+# [2.69.0](https://github.com/danielvm-git/bigpowers/compare/v2.68.6...v2.69.0) (2026-07-06)
+
+
+### Features
+
+* **specs:** add e50 Codex CLI reach epic from issue [#52](https://github.com/danielvm-git/bigpowers/issues/52) ([029efdf](https://github.com/danielvm-git/bigpowers/commit/029efdfdae944e1f1e5cf805cf77e5c2d8a86588))
+
 ## [2.68.6](https://github.com/danielvm-git/bigpowers/compare/v2.68.5...v2.68.6) (2026-07-06)
 
 

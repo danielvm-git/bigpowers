@@ -1,7 +1,7 @@
 ---
 type: Index
-generated_at: 2026-07-06T14:32:24.056070+00:00
-total_concepts: 117
+generated_at: 2026-07-06T14:42:51.062055+00:00
+total_concepts: 121
 ---
 
 # Codebase Wiki — Story Traceability
@@ -19,19 +19,19 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e33s03](./e33s03.md) | SEO + AI discoverability layer | medium | 2 |
 | [e33s04](./e33s04.md) | GitHub Pages deploy workflow | high | 4 |
 | [e33s05](./e33s05.md) | Doctrine wiring — site content is generated, never edited | medium | 2 |
-| [e35s01](./e35s01.md) | Create docs/references/kent-beck.md (XP, TDD origins, Tidy F | low | 1 |
-| [e35s02](./e35s02.md) | Create docs/references/fowler.md (refactoring catalog, code  | low | 1 |
-| [e35s03](./e35s03.md) | Create docs/references/feathers.md (seams, characterization  | low | 1 |
-| [e35s04](./e35s04.md) | Create docs/references/pragmatic-programmer.md (DRY, broken  | low | 1 |
-| [e35s05](./e35s05.md) | Create docs/references/rich-hickey.md (simple vs easy, compl | low | 1 |
-| [e35s06](./e35s06.md) | Create docs/references/sandi-metz.md (SOLID in practice, mes | low | 1 |
-| [e35s07](./e35s07.md) | Create docs/references/ddd.md (bounded contexts, context map | low | 1 |
-| [e35s08](./e35s08.md) | Create docs/references/accelerate.md (DORA four keys) | medium | 2 |
-| [e35s09](./e35s09.md) | Update PRINCIPLES.md to credit Beck, Fowler, Feathers, Hunt  | low | 1 |
-| [e35s10](./e35s10.md) | Cross-reference new docs from SKILL.md bodies | medium | 2 |
+| [e35s01](./e35s01.md) | Create docs/references/kent-beck.md (XP, TDD origins, Tidy F | high | 2 |
+| [e35s02](./e35s02.md) | Create docs/references/fowler.md (refactoring catalog, code  | high | 2 |
+| [e35s03](./e35s03.md) | Create docs/references/feathers.md (seams, characterization  | high | 2 |
+| [e35s04](./e35s04.md) | Create docs/references/pragmatic-programmer.md (DRY, broken  | high | 2 |
+| [e35s05](./e35s05.md) | Create docs/references/rich-hickey.md (simple vs easy, compl | high | 2 |
+| [e35s06](./e35s06.md) | Create docs/references/sandi-metz.md (SOLID in practice, mes | high | 2 |
+| [e35s07](./e35s07.md) | Create docs/references/ddd.md (bounded contexts, context map | high | 2 |
+| [e35s08](./e35s08.md) | Create docs/references/accelerate.md (DORA four keys) | high | 3 |
+| [e35s09](./e35s09.md) | Update PRINCIPLES.md to credit Beck, Fowler, Feathers, Hunt  | high | 2 |
+| [e35s10](./e35s10.md) | Cross-reference new docs from SKILL.md bodies | high | 12 |
 | [e36s01](./e36s01.md) | Slim docs/references/uncle-bob.md to provenance pointer | low | 2 |
 | [e36s02](./e36s02.md) | Slim docs/references/akita.md, ousterhout.md, karpathy.md, w | low | 1 |
-| [e36s03](./e36s03.md) | Remove F.I.R.S.T rubric restatement from enforce-first and a | medium | 299 |
+| [e36s03](./e36s03.md) | Remove F.I.R.S.T rubric restatement from enforce-first and a | medium | 301 |
 | [e36s04](./e36s04.md) | Update docs/references/spec-kit.md to cover full SDD tool la | medium | 3 |
 | [e36s05](./e36s05.md) | Refresh docs/references/bmad.md from BMAD v6/TEA — currently | none | 0 |
 | [e37s01](./e37s01.md) | BCP Plus counter integration — install and smoke-test big-co | medium | 19 |
@@ -56,9 +56,9 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e42s01](./e42s01.md) | Spike: headless golden-chain harness — gh-aw + DeepSeek v4 p | medium | 4 |
 | [e42s02](./e42s02.md) | Create specs/benchmarks/fixtures/minimal-api/ fixture repo ( | high | 7 |
 | [e42s03](./e42s03.md) | Author 4 golden story YAMLs (g-01, g-02, g-03, g-05) with co | high | 23 |
-| [e42s04](./e42s04.md) | Add --agent mode to run-golden-suite.sh: headless chain exec | medium | 301 |
+| [e42s04](./e42s04.md) | Add --agent mode to run-golden-suite.sh: headless chain exec | medium | 303 |
 | [e43s01](./e43s01.md) | Scaffold the showcase app in a separate public repo via seed | high | 11 |
-| [e43s02](./e43s02.md) | Build one feature epic end-to-end via the 8-step build-epic  | medium | 78 |
+| [e43s02](./e43s02.md) | Build one feature epic end-to-end via the 8-step build-epic  | medium | 79 |
 | [e43s03](./e43s03.md) | Fix one real bug via the investigate-bug → develop-tdd → val | medium | 117 |
 | [e43s04](./e43s04.md) | Link the showcase from README + docs site; register as e37 g | medium | 10 |
 | [e43s05](./e43s05.md) | Add offline-tolerant fallbacks for e43 verify commands that  | medium | 1 |
@@ -77,11 +77,11 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e46s01](./e46s01.md) | Write docs/references/tea.md — credit TEA and document its m | high | 10 |
 | [e46s02](./e46s02.md) | Add risk: P0|P1|P2|P3 field to plan-work that scales verify- | medium | 33 |
 | [e46s03](./e46s03.md) | NFR evidence gate — performance/reliability/operability with | none | 0 |
-| [e46s04](./e46s04.md) | Upstream test-design artifact — plan-tests skill, registered | medium | 125 |
+| [e46s04](./e46s04.md) | Upstream test-design artifact — plan-tests skill, registered | medium | 127 |
 | [e47s01](./e47s01.md) | install.sh — global pi coverage (install_pi/uninstall_pi) +  | low | 2 |
-| [e47s02](./e47s02.md) | seed-conventions — optional per-project local wiring for Cur | medium | 6 |
+| [e47s02](./e47s02.md) | seed-conventions — optional per-project local wiring for Cur | medium | 7 |
 | [e47s03](./e47s03.md) | docs — skill-catalog vs instruction-only distinction in agen | medium | 5 |
-| [e47s04](./e47s04.md) | verify-install.sh — manual verification harness for install  | high | 3 |
+| [e47s04](./e47s04.md) | verify-install.sh — manual verification harness for install  | high | 5 |
 | [e48s01](./e48s01.md) | run-benchmark: add train/validation-split + with/without-ski | high | 11 |
 | [e48s02](./e48s02.md) | Context7 / bts docs: wrap in ETag-revalidated fetch cache | none | 0 |
 | [e48s03](./e48s03.md) | craft-skill: CSO description discipline + completion-honesty | medium | 5 |
@@ -106,14 +106,14 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e48s22](./e48s22.md) | request-review: hard max-iteration cap | medium | 3 |
 | [e48s23](./e48s23.md) | requirements: ADDED/MODIFIED/REMOVED/RENAMED tags | none | 0 |
 | [e48s24](./e48s24.md) | subagent depth: formalize depth tiers | none | 0 |
-| [e48s25](./e48s25.md) | audit-code / deepen-architecture: churn-based look-here-firs | medium | 275 |
+| [e48s25](./e48s25.md) | audit-code / deepen-architecture: churn-based look-here-firs | medium | 277 |
 | [e48s26](./e48s26.md) | gate-trace / release-branch: adversarial-review refute frami | medium | 14 |
 | [e48s27](./e48s27.md) | requirements: per-section approval state | none | 0 |
 | [e48s28](./e48s28.md) | develop-tdd: snapshot-before-transition hardening | medium | 3 |
 | [e48s29](./e48s29.md) | plan-work: 5 fixed EARS sentence patterns | medium | 3 |
 | [e48s30](./e48s30.md) | specs: Documentation Responsibilities table | none | 0 |
 | [e48s31](./e48s31.md) | request-review: fan-out to parallel review subagents | medium | 14 |
-| [e48s32](./e48s32.md) | audit-code / security-review: worktree-isolated parallel che | medium | 273 |
+| [e48s32](./e48s32.md) | audit-code / security-review: worktree-isolated parallel che | medium | 275 |
 | [e48s33](./e48s33.md) | run-evals: graduated eval-strictness tiers | medium | 3 |
 | [e48s34](./e48s34.md) | orchestration: why-did-this-stall diagnostic skill | medium | 2 |
 | [e48s35](./e48s35.md) | seed-conventions / AGENTS.md: self-installing fenced markers | medium | 2 |
@@ -127,3 +127,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e49s02](./e49s02.md) | Add GitHub Action Template for publish-wiki.yml | none | 0 |
 | [e49s03](./e49s03.md) | Create Wiki Scaffold Templates and provenance header injecti | medium | 2 |
 | [e49s04](./e49s04.md) | Extend bigspec init with --with-wiki flag | medium | 11 |
+| [e50s01](./e50s01.md) | seed-conventions — optional Codex wiring step (AGENTS.md + . | medium | 6 |
+| [e50s02](./e50s02.md) | install.sh — global ~/.codex/ AGENTS.md starter symlink | medium | 5 |
+| [e50s03](./e50s03.md) | using-bigpowers — Codex CLI onboarding section | medium | 7 |
+| [e50s04](./e50s04.md) | verify-install.sh — Codex wiring assertions | medium | 4 |
