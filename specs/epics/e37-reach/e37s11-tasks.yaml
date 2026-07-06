@@ -1,13 +1,60 @@
 story_id: e37s11
-title: "targets.yaml \u2014 Wave C: qwen, kilocode (markdown commands + rules)"
+title: "targets.yaml — Wave C: qwen, kilocode (markdown commands + rules)"
 status: todo
 bcps: 3
 risk: P2
+depends_on:
+  - e37s05
+  - e37s07
+  - e37s08
 tasks:
-- id: 1
-  description: "targets.yaml \u2014 Wave C: qwen, kilocode (markdown commands + rules)"
-  verify: 'grep -q ''qwen'' scripts/targets.yaml && grep -q ''kilocode'' scripts/targets.yaml
-    && echo OK
+  - id: 1
+    description: >-
+      Add qwen target row to scripts/targets.yaml: id: qwen, label: "Qwen
+      (Alibaba)", context.mode: symlink, file: QWEN.md (AGENTS.md symlink),
+      skill: null (instruction-file-only), tier: opt_in.
+      Tag: # story: e37s11.
+    verify: >-
+      grep -q 'qwen' scripts/targets.yaml &&
+      bash scripts/validate-targets-yaml.sh && echo OK
+    risk: P2
+    security: none
+    status: todo
 
-    '
-  status: todo
+  - id: 2
+    description: >-
+      Create scripts/adapters/kilocode.sh: rules-based adapter targeting
+      kilocode's rules directory. Add kilocode row to targets.yaml:
+      skill.adapter: kilocode, context.mode: copy, tier: opt_in.
+    verify: >-
+      test -f scripts/adapters/kilocode.sh &&
+      grep -q 'kilocode' scripts/targets.yaml &&
+      bash scripts/validate-targets-yaml.sh && echo OK
+    risk: P2
+    security: none
+    status: todo
+
+  - id: 3
+    description: >-
+      Run bash scripts/test-adapters.sh qwen && bash scripts/test-adapters.sh
+      kilocode; both must pass.
+    verify: >-
+      bash scripts/test-adapters.sh qwen &&
+      bash scripts/test-adapters.sh kilocode && echo OK
+    risk: P2
+    security: none
+    status: todo
+
+  - id: 4
+    description: >-
+      Story verify: both ids present in targets.yaml and validate passes.
+    verify: >-
+      grep -q 'qwen' scripts/targets.yaml &&
+      grep -q 'kilocode' scripts/targets.yaml && echo OK
+    risk: P2
+    security: none
+    status: todo
+
+out_of_scope:
+  - "Platform-specific markdown rule rendering (tools read their own formats)"
+  - "E2E test with actual qwen or kilocode binary"

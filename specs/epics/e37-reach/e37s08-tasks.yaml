@@ -1,13 +1,60 @@
 story_id: e37s08
-title: "verify-install.sh \u2014 per-target contract matrix from targets.yaml"
+title: "verify-install.sh — per-target contract matrix from targets.yaml"
 status: todo
 bcps: 3
 risk: P1
+depends_on:
+  - e37s05
+  - e37s07
 tasks:
-- id: 1
-  description: "verify-install.sh \u2014 per-target contract matrix from targets.yaml"
-  verify: 'bash scripts/verify-install.sh --matrix 2>&1 | grep -q ''PASS'' && echo
-    OK
+  - id: 1
+    description: >-
+      Create scripts/lib/target-contracts.sh: one assertion function per contract
+      type used in targets.yaml (e.g., assert_agents_md, assert_rules_dir,
+      assert_symlink_valid, assert_config_file). Each prints "PASS [id]:[contract]"
+      or "FAIL [id]:[contract] — [reason]".
+      Tag: # story: e37s08, # scenario: SC-e37s08-P1-01.
+    verify: >-
+      test -f scripts/lib/target-contracts.sh &&
+      grep -q 'assert_' scripts/lib/target-contracts.sh && echo OK
+    risk: P1
+    security: none
+    status: todo
 
-    '
-  status: todo
+  - id: 2
+    description: >-
+      Add --matrix flag to scripts/verify-install.sh: parse targets.yaml via yq,
+      loop over targets, source target-contracts.sh, run each contract assertion,
+      emit one PASS/FAIL row per target. default_on always asserted; opt_in only
+      when artifacts present; optional only with --full flag.
+    verify: >-
+      grep -q '\-\-matrix' scripts/verify-install.sh &&
+      grep -qE 'default_on|opt_in' scripts/verify-install.sh && echo OK
+    risk: P1
+    security: none
+    status: todo
+
+  - id: 3
+    description: >-
+      Smoke-test --matrix against the e37s05 registry (must have >= 1 PASS row
+      for a default_on target).
+    verify: >-
+      bash scripts/verify-install.sh --matrix 2>&1 | grep -q 'PASS' && echo OK
+    risk: P1
+    security: none
+    status: todo
+
+  - id: 4
+    description: >-
+      Story verify: --matrix exits 0 with at least one PASS line.
+    verify: >-
+      bash scripts/verify-install.sh --matrix 2>&1 | grep -q 'PASS' && echo OK
+    risk: P1
+    security: none
+    status: todo
+
+out_of_scope:
+  - "Context generation or adapter dispatch (e37s06–s07)"
+  - "Installing or invoking any target binary"
+  - "Per-adapter smoke tests (e37s05 — test-adapters.sh)"
+  - "Codex-specific assertions (e37s04)"

@@ -9,6 +9,8 @@ bash scripts/run-verification-gates.sh &&
 echo OK
 ```
 
+Scenarios: SC-e37s07-P0-01, SC-e37s07-P0-02, SC-e37s07-P0-03 (see e37-TEST_PLAN_LATEST.md).
+
 ## Out of scope
 - Context derivative generation (e37s06)
 - Per-target contract matrix (e37s08)

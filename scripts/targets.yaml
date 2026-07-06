@@ -1,0 +1,202 @@
+# story: e37s05
+registry_version: "1"
+generated_by: bigpowers
+
+targets:
+  - id: cursor
+    name: Cursor
+    tier: default_on
+    skill:
+      adapter: cursor
+      output: .cursor/rules
+    context:
+      adapter: cursor
+      mode: symlink
+      file: CLAUDE.md
+    contracts:
+      - cursor_rules_nonempty
+      - symlink_claude_md
+
+  - id: gemini
+    name: Gemini CLI
+    tier: default_on
+    skill:
+      adapter: gemini
+      output: .gemini/extensions/bigpowers
+    context:
+      adapter: gemini
+      mode: symlink
+      file: GEMINI.md
+    contracts:
+      - gemini_ext_exists
+
+  - id: pi
+    name: pi Agent
+    tier: default_on
+    skill:
+      adapter: pi
+      output: .pi/skills
+    context:
+      adapter: pi
+      mode: symlink
+      file: CLAUDE.md
+    contracts:
+      - pi_skills_nonempty
+
+  - id: cline
+    name: Cline
+    tier: default_on
+    skill: null
+    context:
+      adapter: cline
+      mode: native
+    contracts:
+      - agents_md_exists
+
+  - id: aider
+    name: Aider
+    tier: opt_in
+    skill: null
+    context:
+      adapter: aider
+      mode: config-bridge
+      bridge_file: .aider.conf.yml
+      bridge_key: read
+    contracts:
+      - aider_bridge
+
+  # Wave A (e37s09) — Goose native AGENTS.md; agy proprietary beta
+  - id: goose
+    name: Goose (Block OSS)
+    tier: default_on
+    skill: null
+    context:
+      adapter: goose
+      mode: native
+    contracts:
+      - agents_md_exists
+
+  - id: agy
+    name: Antigravity agy (proprietary beta)
+    tier: opt_in
+    skill: null
+    context:
+      adapter: agy
+      mode: symlink
+      file: CLAUDE.md
+    contracts:
+      - symlink_claude_md
+
+  # Wave B (e37s10) — skills-dir adapters
+  - id: zed
+    name: Zed
+    tier: opt_in
+    skill:
+      adapter: zed
+      output: ~/.config/zed/assistant
+    context:
+      adapter: zed
+      mode: copy
+      file: AGENTS.md
+    contracts:
+      - agents_md_exists
+
+  - id: omp
+    name: Open Multi-Process
+    tier: opt_in
+    skill:
+      adapter: omp
+      output: .omp/skills
+    context:
+      adapter: omp
+      mode: symlink
+      file: CLAUDE.md
+    contracts:
+      - symlink_claude_md
+
+  - id: hermes
+    name: Hermes Agent
+    tier: opt_in
+    skill:
+      adapter: hermes
+      output: .hermes/skills
+    context:
+      adapter: hermes
+      mode: config-bridge
+      bridge_file: .hermes/config.yaml
+      bridge_key: instructions
+    contracts:
+      - agents_md_exists
+
+  # Wave C (e37s11)
+  - id: qwen
+    name: Qwen (Alibaba)
+    tier: opt_in
+    skill: null
+    context:
+      adapter: qwen
+      mode: symlink
+      file: QWEN.md
+    contracts:
+      - agents_md_exists
+
+  - id: kilocode
+    name: Kilocode
+    tier: opt_in
+    skill:
+      adapter: kilocode
+      output: .kilocode/rules
+    context:
+      adapter: kilocode
+      mode: copy
+      file: AGENTS.md
+    contracts:
+      - agents_md_exists
+
+  # Wave D (e37s12)
+  - id: continue
+    name: Continue
+    tier: opt_in
+    skill:
+      adapter: continue
+      output: .continue/rules
+    context:
+      adapter: continue
+      mode: copy
+      file: AGENTS.md
+    contracts:
+      - agents_md_exists
+
+  # Wave E (e37s13) — optional low-priority
+  - id: iflow
+    name: iFlow
+    tier: optional
+    skill: null
+    context:
+      adapter: iflow
+      mode: symlink
+      file: AGENTS.md
+    contracts:
+      - agents_md_exists
+
+  - id: vibe
+    name: Vibe
+    tier: optional
+    skill: null
+    context:
+      adapter: vibe
+      mode: symlink
+      file: AGENTS.md
+    contracts:
+      - agents_md_exists
+
+  - id: shai
+    name: Shai
+    tier: optional
+    skill: null
+    context:
+      adapter: shai
+      mode: symlink
+      file: AGENTS.md
+    contracts:
+      - agents_md_exists

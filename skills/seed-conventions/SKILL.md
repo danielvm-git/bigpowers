@@ -32,13 +32,16 @@ Ask the user these questions (one at a time, wait for each answer):
 5. **Conventions** — "Any naming, file organization, or patterns all agents must follow?"
 6. **Never-do list** — "What are the hard stops? Things an agent must never touch?"
 7. **Defensive code categories** — "Which apply? (Rate limit / Retry / Circuit breaker / Timeout / Graceful degradation)"
-8. **Local tool wiring (optional)** — "Wire bigpowers skills for project-local tools that global install can't reach? (Cursor + OpenCode only)" If yes, generate the local wiring artifacts described in [REFERENCE.md](REFERENCE.md) §Local tool wiring. If no, skip — the standard seed output is unchanged.
+8. **Local tool wiring (optional)** — "Wire bigpowers for project-local tools? (Cursor, OpenCode, Cline, Aider, Codex CLI)" If yes, generate AGENTS.md spine artifacts per [REFERENCE.md](REFERENCE.md) §Local tool wiring and §AGENTS.md spine. If no, skip — standard seed output unchanged (no AGENTS.md spine unless opted in).
 
 ## Generate files
 
 After the interview, generate each file using the templates in [REFERENCE.md](REFERENCE.md):
-- `CLAUDE.md`, `GEMINI.md`, `AGENTS.md` — from the agent-config template
-- `opencode.json` — from the opencode template
+- `AGENTS.md` — from `docs/templates/AGENTS.md` Reach Template (canonical spine source)
+- `CLAUDE.md` — symlink to `AGENTS.md` (copy fallback on Windows when symlink fails)
+- `GEMINI.md` — symlink to `AGENTS.md` when Gemini wiring opted in
+- `opencode.json` — with `"instructions": ["AGENTS.md"]` when OpenCode opted in
+- `.aider.conf.yml` — with `read: AGENTS.md` when Aider opted in
 - `CONVENTIONS.md` — bigpowers standard template + project defensive code categories
 
 ### `specs/` directory

@@ -1,12 +1,24 @@
-# story: e51s02
+# story: e51s02 e37s01 e37s03 e37s14
 # Seed Conventions — Reference Templates
 
-## Agent config template (CLAUDE.md / GEMINI.md / AGENTS.md)
+## AGENTS.md spine (Reach Template — e37s01)
+
+Canonical source: copy from `docs/templates/AGENTS.md` in the bigpowers repo (Reach Template).
+Do not invent structure ad hoc — the template includes multi-agent preamble, Preflight, Test/Lint/Build sections.
+
+When local tool wiring is opted in:
+1. Copy Reach Template → project root `AGENTS.md`, fill interview placeholders
+2. `ln -sf AGENTS.md CLAUDE.md` (or content copy on Windows when symlink fails)
+3. Write `opencode.json` with `"instructions": ["AGENTS.md"]`
+
+When user **opts out** of local tool wiring, do not emit AGENTS.md spine artifacts.
+
+## Agent config template (legacy — prefer AGENTS.md spine)
 
 All three files use the same structure — only the header differs:
-- `CLAUDE.md` → `# [Project Name] — Claude Code`
+- `CLAUDE.md` → `# [Project Name] — Claude Code` (or symlink to AGENTS.md)
 - `GEMINI.md` → `# [Project Name] — Gemini CLI`
-- `AGENTS.md` → `# [Project Name] — OpenCode`
+- `AGENTS.md` → `# [Project Name] — AI Agents` (Reach Template header)
 
 ```markdown
 # [Project Name] — [Agent]
@@ -55,9 +67,32 @@ Stack: [language, framework, runtime]
 ```json
 {
   "$schema": "https://opencode.ai/config.json",
-  "instructions": [".cursor/rules/*.mdc"]
+  "instructions": ["AGENTS.md"]
 }
 ```
+
+## Aider — `.aider.conf.yml` bridge (e37s03)
+
+When Aider wiring is opted in:
+
+```yaml
+read: AGENTS.md
+```
+
+Upstream: [Aider-AI/aider](https://github.com/Aider-AI/aider) (not paul-gauthier/aider).
+
+## Codex CLI — project-local `.codex/config.toml` + AGENTS.md (e37s14)
+
+Source: https://developers.openai.com/codex/guides/agents-md
+
+Codex is instruction-file-only — no slash skills. When Codex wiring is opted in:
+
+```toml
+# .codex/config.toml
+instructions = ["AGENTS.md"]
+```
+
+Use AGENTS.md header `# [Project Name] — AI Agents` (shared with OpenCode/Cline). Single AGENTS.md serves dual-tool projects.
 
 ## CONVENTIONS.md
 

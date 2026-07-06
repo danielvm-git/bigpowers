@@ -1,52 +1,33 @@
-active_flow: planning
-active_epic: e37
+active_flow: sustain
+active_epic: e45
 active_story: null
 bug_id: null
 bigpowers_version: 2.72.1
 bug_cycle: {}
 epic_cycle:
-  current_step: audit-gaps-closed (plan-tests done → plan-work)
-  next_step: plan-work
-  test_plan: done
+  current_step: 0
+  story: null
+  story_bcps: null
 handoff:
-  context: 'Epic redesign 2026-07-06: retired e49/e50/e52; renumbered e37/e45/e48.
-
-    e37 Reach — AGENTS.md spine + integration registry + OSS waves (former e50+e52).
-
-    e45 Quality Core — curated OSS hardening patterns (former e48).
-
-    e48 Foundation — OKF/wiki + BCP Plus (former e45+e49+e37).
-
-    Build order: e37 → e45 → e48. Start e37s01 (unified AGENTS.md template).
-
-    '
-  next_skill: plan-work
-  epic: e37
-  stories:
-  - e37s01
-  - e37s02
-  - e37s03
-  - e37s04
-  - e37s05
-  - e37s06
-  - e37s07
-  - e37s08
-  - e37s09
-  - e37s10
-  - e37s11
-  - e37s12
-  - e37s13
-  - e37s14
-  - e37s15
-  - e37s16
+  context: |
+    e37 Reach landed on main (squash merge). AGENTS.md spine, targets.yaml (16 targets),
+    registry-driven sync-skills, verify-install --matrix, optional Codex wave.
+    Build order continues: e45 → e48.
+  next_skill: kickoff-branch
+  epic: e45
 metrics:
   story_start: null
   story_end: null
   skill_timings:
     release-branch:
-      calls: 1
+      calls: 2
       total_seconds: 511.0
       avg_seconds: 511.0
+    plan-work:
+      calls: 1
+      total_seconds: 343.0
+      avg_seconds: 343.0
 release:
-  ci_verified: true
-  last_commit: cfd572db
+  ci_verified: false
+  last_commit: null
+  last_epic: e37

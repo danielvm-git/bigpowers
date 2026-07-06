@@ -75,8 +75,8 @@ tasks:
     status: todo
 
 out_of_scope:
-  - "install.sh global ~/.codex wiring (e37s02)"
-  - "using-bigpowers onboarding copy (e37s03)"
+  - "install.sh global ~/.codex wiring (e37s15)"
+  - "using-bigpowers onboarding copy (e37s16)"
   - "Per-skill symlinks for Codex"
 
 risks:

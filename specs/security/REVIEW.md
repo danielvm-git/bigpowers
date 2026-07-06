@@ -1,25 +1,21 @@
-# Security Review — e32: bigpowers-mcp semantic context server
+# Security Review — e37: Reach — Universal Agent Portability
 
 ## Scope Resolution
-Scanned changes: `feat/e32-mcp-context-server` — `git diff main...HEAD`
-Files changed: `bigpowers-mcp/` (new TS MCP server), `.mcp.json`, docs, specs
-Languages: TypeScript, JSON, Markdown, YAML
+Scanned changes: `feat/e37-reach` — AGENTS.md spine, `scripts/targets.yaml`, adapter dispatch, verify matrix, Codex optional wave.
+Files changed: Bash scripts, Markdown skills/docs, YAML registry
+Languages: Bash, Markdown, YAML
 
 ## Vulnerability Assessment
 
 | Category | Finding | Severity | Mitigation |
 |----------|---------|----------|------------|
-| Path Traversal | `read_skill` accepts skill name param | MEDIUM | `resolveWithin()` + reject `..` — implemented in `src/lib/paths.ts` |
-| Command Injection | `get_git_context` shells out to git | MEDIUM | Fixed argv via `execFileSync`; scoped to `skills/` + `specs/` |
-| Secrets Exposure | git diff may include secrets | MEDIUM | Denylist `.env*`, `*.pem`, `*credentials*` in `git-context.ts` |
-| Arbitrary File Read | MCP tools read repo files | LOW | Allowlist: skills/, specs/ only |
-| Auth Bypass | Local stdio MCP | NONE | No network listener |
+| Path Traversal | Adapters write to configured output paths | LOW | Registry-validated adapter ids; no user-supplied paths in CLI |
+| Symlink attacks | context-wire creates symlinks | LOW | Relative AGENTS.md → derivative only; copy fallback documented |
+| Secrets Exposure | Codex template, seed REFERENCE | LOW | e37s15 verify: no api keys in templates; install touches ~/.codex/AGENTS.md only |
+| Command Injection | validate-targets-yaml, test-adapters use yq/bash | LOW | No eval; fixed script paths |
+| Supply chain | Optional big-counter N/A for e37 | NONE | — |
 
-Threat model: `specs/security/epics/e32/THREAT_MODEL.md` (pre-flight, 2026-07-04)
-
-## False-Positive Filtering
-- Compiled `build/` output is generated from reviewed source — no manual edits
-- `.mcp.json` uses workspace-relative paths only (no absolute home paths)
+Threat model: `specs/security/epics/e37/THREAT_MODEL.md`
 
 ## Verdict
-**PASS** — MEDIUM risks mitigated per threat model. No unresolved HIGH findings. Re-review at e32s04 scope was satisfied in this branch (git tool included with allowlist).
+**PASS** — No unresolved HIGH findings. Bash-only surface; no network listeners. Codex global install limited to AGENTS.md symlink.

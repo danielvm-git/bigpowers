@@ -283,7 +283,7 @@
     },
     "seed-conventions": {
       "description": "Generate CLAUDE.md and CONVENTIONS.md for a brand-new project through a brief interview, and create the specs/ directory with evolved bigpowers structure (product/, tech-architecture/, verifications/, epics/archive/). Entry point for greenfield projects. Use when starting a new project from scratch, when user asks to set up AI agent conventions, or when there is no CLAUDE.md yet.",
-      "sha256": "397090fd29c8cac1",
+      "sha256": "ebb23bdd3aefa527",
       "path": "skills/seed-conventionsSKILL.md"
     },
     "session-state": {
@@ -338,7 +338,7 @@
     },
     "using-bigpowers": {
       "description": "One-time bootstrap that introduces the bigpowers skills system, the PMBOK lifecycle arc, and tells you which skill to call first for your situation. Use when starting with bigpowers for the first time, when user asks \"where do I start?\", or when the skills system needs to be explained.",
-      "sha256": "33f6d163b536e87d",
+      "sha256": "c910fc0ed3482341",
       "path": "skills/using-bigpowersSKILL.md"
     },
     "validate-contracts": {

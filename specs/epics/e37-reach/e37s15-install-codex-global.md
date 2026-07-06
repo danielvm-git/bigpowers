@@ -74,5 +74,5 @@ None — pattern mirrors install_pi with single AGENTS.md target.
 
 ### 20. References
 - scripts/install.sh (install_claude, install_pi patterns)
-- specs/epics/e37-codex-reach/epic.yaml
+- specs/epics/e37-reach/epic.yaml (e37s15)
 - GitHub issue #52

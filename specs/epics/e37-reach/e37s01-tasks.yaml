@@ -1,15 +1,60 @@
 story_id: e37s01
-title: "seed-conventions \u2014 unified AGENTS.md template with e51 Preflight + multi-agent\
-  \ header"
+title: "seed-conventions — unified AGENTS.md template with e51 Preflight + multi-agent header"
 status: todo
 bcps: 3
 risk: P1
 tasks:
-- id: 1
-  description: "seed-conventions \u2014 unified AGENTS.md template with e51 Preflight\
-    \ + multi-agent header"
-  verify: 'grep -q ''Preflight'' docs/templates/AGENTS.md && grep -qi ''cline\|opencode\|aider''
-    docs/templates/AGENTS.md && echo OK
+  - id: 1
+    description: >-
+      Create docs/templates/AGENTS.md Reach Template: multi-agent preamble naming
+      >=1 OSS target (Cline, Aider, OpenCode), neutral title, ## Preflight /
+      ## Test / ## Lint / ## Build sections (Test/Lint/Build may be N/A).
+    verify: >-
+      test -f docs/templates/AGENTS.md &&
+      grep -qi 'cline\|opencode\|aider' docs/templates/AGENTS.md &&
+      grep -q '## Preflight' docs/templates/AGENTS.md &&
+      grep -q '## Test' docs/templates/AGENTS.md && echo OK
+    status: todo
 
-    '
-  status: todo
+  - id: 2
+    description: >-
+      Add e51 Preflight command row to AGENTS.md template (install/sync command
+      matching CONVENTIONS Preflight chain).
+    verify: >-
+      grep -q 'Preflight' docs/templates/AGENTS.md &&
+      grep -qi 'install\|sync\|compliance' docs/templates/AGENTS.md && echo OK
+    status: todo
+
+  - id: 3
+    description: >-
+      Update seed-conventions/SKILL.md Generate files: emit AGENTS.md from template;
+      create CLAUDE.md as symlink to AGENTS.md (copy fallback on Windows); write
+      opencode.json with instructions ["AGENTS.md"].
+    verify: >-
+      grep -qi 'AGENTS.md' skills/seed-conventions/SKILL.md &&
+      grep -qi 'symlink' skills/seed-conventions/SKILL.md &&
+      grep -qi 'opencode.json' skills/seed-conventions/SKILL.md && echo OK
+    status: todo
+
+  - id: 4
+    description: >-
+      Document opt-out: when user declines local-tool wiring, standard seed output
+      unchanged (no AGENTS.md spine artifacts unless explicitly opted in).
+    verify: >-
+      grep -qi 'opt' skills/seed-conventions/SKILL.md &&
+      grep -qi 'AGENTS.md' skills/seed-conventions/SKILL.md && echo OK
+    status: todo
+
+  - id: 5
+    description: >-
+      Run bash scripts/sync-skills.sh; confirm seed-conventions artifacts regenerated.
+    verify: >-
+      bash scripts/sync-skills.sh >/dev/null &&
+      test -f .cursor/rules/seed-conventions.mdc &&
+      grep -q 'Preflight' docs/templates/AGENTS.md && echo OK
+    status: todo
+
+out_of_scope:
+  - "Codex wiring (e37s14)"
+  - "Aider .aider.conf.yml bridge (e37s03)"
+  - "targets.yaml registry rows (e37s05)"

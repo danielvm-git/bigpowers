@@ -21,6 +21,19 @@ wsjf_rationale: >
   BV 8 (AGENTS.md spine unblocks all AGENTS.md-native OSS tools) + TC 5 (active)
   + RR 8 (always-green Preflight across non-Claude runtimes) / Job 3 ≈ 7.0.
 
+in_scope:
+  - "AGENTS.md Context Spine + Context Derivatives (ADR-0007)"
+  - "scripts/targets.yaml Integration Registry + adapter dispatch"
+  - "OSS wave targets: goose, agy, zed, omp, hermes, qwen, kilocode, continue, iflow, vibe, shai"
+  - "Optional Codex wave (s14–s16): seed, global install, docs"
+
+out_of_scope:
+  - "Wave B+ deferred targets: roo, kiro-cli, tabnine, devin, windsurf, copilot"
+  - "Paperclip orchestration layer"
+  - "Per-skill symlinks for instruction-file-only tools (Codex, Cline, Aider)"
+  - "Relocating .cursor/, .gemini/, .pi/ artifact paths"
+  - "Live E2E sessions in third-party agent UIs (manual UAT only)"
+
 stories:
   - id: e37s01
     bcp: 3

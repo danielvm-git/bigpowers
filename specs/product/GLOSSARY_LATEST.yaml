@@ -278,6 +278,16 @@ terms:
     source: bigpowers e37 (Reach — Universal Agent Portability)
     related_terms: [context derivative, context spine, targets.yaml, generate-context-bundle.sh]
 
+  - term: integration registry
+    full: Integration Registry
+    definition: >
+      The declarative YAML file scripts/targets.yaml listing all Integration
+      Targets. Single source of truth for skill adapters, context wiring modes,
+      tiers, and contract names. Validated by validate-targets-yaml.sh (yq + bash).
+      Schema reference: docs/references/targets-registry.md.
+    source: bigpowers e37 (Reach — Universal Agent Portability)
+    related_terms: [integration target, targets.yaml, skill adapter, context derivative]
+
   - term: reach template
     full: Reach Template
     definition: >
@@ -292,9 +302,9 @@ terms:
 note: >
   Populated 2026-07-03 as part of BUG-2026-07-03-glossary-sparse (P2 #9);
   expanded 2026-07-06 with Reach domain terms (e37 — Universal Agent Portability).
-  25 core domain terms covering BCP, WSJF, OKF, golden story, HARD GATE,
+  26 core domain terms covering BCP, WSJF, OKF, golden story, HARD GATE,
   handoff, capsule, train, traceability gate, compliance, integration target,
-  skill adapter, context derivative, context spine, and more.
+  integration registry, skill adapter, context derivative, context spine, and more.
   Linked to authority sources (docs/references/, release-plan.yaml,
   CONVENTIONS.md, specs/tech-architecture/tech-stack.md). Maintain via
   define-language skill for additions.

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-06T18:49:02.705546+00:00",
+  "generated_at": "2026-07-06T20:42:15.677716+00:00",
   "matrix_version": "1.0",
   "stories": [
     {
@@ -9,10 +9,16 @@
       "epic_title": "Reach \u2014 Universal Agent Portability",
       "bcp": 3,
       "wsjf": 7.0,
-      "status": "todo",
+      "status": "done",
       "links": [
         {
           "file": "specs/epics/e37-reach/e37s01-agents-md-unify.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "docs/templates/AGENTS.md",
           "line": 1,
           "confidence": "high",
           "method": "explicit_tag"
@@ -48,13 +54,25 @@
           "method": "file_heuristic"
         },
         {
+          "file": ".continue/rules/seed-conventions.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "website/src/content/docs/skills/seed-conventions.mdx",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         },
         {
-          "file": "specs/epics/e37-reach/e37s14-tasks.yaml",
+          "file": ".kilocode/rules/seed-conventions.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s02-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
@@ -76,9 +94,15 @@
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s03-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
         }
       ],
-      "link_count": 11
+      "link_count": 15
     },
     {
       "id": "e37s02",
@@ -87,8 +111,14 @@
       "epic_title": "Reach \u2014 Universal Agent Portability",
       "bcp": 2,
       "wsjf": 7.0,
-      "status": "todo",
+      "status": "done",
       "links": [
+        {
+          "file": "specs/epics/e37-reach/e37s02-tasks.yaml",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "specs/epics/e37-reach/e37s02-cline-verify.md",
           "line": 1,
@@ -96,19 +126,7 @@
           "method": "explicit_tag"
         },
         {
-          "file": "specs/epics/e37-reach/e37s14-tasks.yaml",
-          "line": 0,
-          "confidence": "low",
-          "method": "task_reference"
-        },
-        {
           "file": "specs/epics/e37-reach/e37s16-tasks.yaml",
-          "line": 0,
-          "confidence": "low",
-          "method": "task_reference"
-        },
-        {
-          "file": "specs/epics/e37-reach/e37s02-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
@@ -120,13 +138,13 @@
           "method": "task_reference"
         },
         {
-          "file": "specs/epics/e37-reach/e37s15-tasks.yaml",
+          "file": "specs/epics/e37-reach/e37s03-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         }
       ],
-      "link_count": 6
+      "link_count": 5
     },
     {
       "id": "e37s03",
@@ -135,8 +153,14 @@
       "epic_title": "Reach \u2014 Universal Agent Portability",
       "bcp": 1,
       "wsjf": 7.0,
-      "status": "todo",
+      "status": "done",
       "links": [
+        {
+          "file": "specs/epics/e37-reach/e37s03-tasks.yaml",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "specs/epics/e37-reach/e37s03-aider-bridge.md",
           "line": 1,
@@ -150,31 +174,37 @@
           "method": "file_heuristic"
         },
         {
+          "file": ".continue/rules/seed-conventions.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "website/src/content/docs/skills/seed-conventions.mdx",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         },
         {
-          "file": "specs/epics/e37-reach/e37s14-tasks.yaml",
+          "file": ".kilocode/rules/seed-conventions.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s01-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         },
         {
-          "file": "specs/epics/e37-reach/e37s16-tasks.yaml",
-          "line": 0,
-          "confidence": "low",
-          "method": "task_reference"
-        },
-        {
-          "file": "specs/epics/e37-reach/e37s03-tasks.yaml",
+          "file": "specs/epics/e37-reach/e37s04-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         }
       ],
-      "link_count": 6
+      "link_count": 8
     },
     {
       "id": "e37s04",
@@ -183,13 +213,19 @@
       "epic_title": "Reach \u2014 Universal Agent Portability",
       "bcp": 2,
       "wsjf": 7.0,
-      "status": "todo",
+      "status": "done",
       "links": [
         {
           "file": "specs/epics/e37-reach/e37s04-verify-install-spine.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s08-tasks.yaml",
           "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
+          "confidence": "low",
+          "method": "task_reference"
         },
         {
           "file": "specs/epics/e37-reach/e37s04-tasks.yaml",
@@ -204,7 +240,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 3
+      "link_count": 4
     },
     {
       "id": "e37s05",
@@ -213,11 +249,77 @@
       "epic_title": "Reach \u2014 Universal Agent Portability",
       "bcp": 5,
       "wsjf": 7.0,
-      "status": "todo",
+      "status": "done",
       "links": [
         {
           "file": "specs/epics/e37-reach/e37s05-targets-registry.md",
           "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s05-targets-registry.md",
+          "line": 4,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "docs/references/targets-registry.md",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/validate-targets-yaml.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/targets.yaml",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/adapters/cline.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/adapters/cursor.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/adapters/pi.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/adapters/gemini.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/adapters/aider.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/lib/context-wire.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/test-adapters.sh",
+          "line": 2,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -232,9 +334,75 @@
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s08-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s11-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s07-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s13-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s02-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s10-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s01-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s09-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s12-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s03-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s06-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
         }
       ],
-      "link_count": 3
+      "link_count": 25
     },
     {
       "id": "e37s06",
@@ -243,13 +411,37 @@
       "epic_title": "Reach \u2014 Universal Agent Portability",
       "bcp": 3,
       "wsjf": 7.0,
-      "status": "todo",
+      "status": "done",
       "links": [
+        {
+          "file": "specs/epics/e37-reach/e37s06-tasks.yaml",
+          "line": 14,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s06-tasks.yaml",
+          "line": 27,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "specs/epics/e37-reach/e37s06-context-bundle.md",
           "line": 1,
           "confidence": "high",
           "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/generate-context-bundle.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/adr/0007-agents-md-spine-context-derivatives.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
         },
         {
           "file": "specs/verifications/steps/and-files-should-be-small-enough-to-avoid-context-window-truncation-300-lines.sh",
@@ -264,13 +456,31 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/epics/e37-reach/e37s06-tasks.yaml",
+          "file": "specs/adr-wiki/0007-agents-md-spine-context-derivatives.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s08-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s07-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s10-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         }
       ],
-      "link_count": 4
+      "link_count": 11
     },
     {
       "id": "e37s07",
@@ -279,8 +489,20 @@
       "epic_title": "Reach \u2014 Universal Agent Portability",
       "bcp": 5,
       "wsjf": 7.0,
-      "status": "todo",
+      "status": "done",
       "links": [
+        {
+          "file": "specs/tech-architecture/e37-TEST_PLAN_LATEST.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s07-tasks.yaml",
+          "line": 49,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "specs/epics/e37-reach/e37s07-adapter-dispatch.md",
           "line": 1,
@@ -294,13 +516,55 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/epics/e37-reach/e37s07-tasks.yaml",
+          "file": "specs/epics/e37-reach/e37s08-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s11-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s13-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s02-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s10-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s09-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s12-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s06-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         }
       ],
-      "link_count": 3
+      "link_count": 12
     },
     {
       "id": "e37s08",
@@ -309,8 +573,14 @@
       "epic_title": "Reach \u2014 Universal Agent Portability",
       "bcp": 3,
       "wsjf": 7.0,
-      "status": "todo",
+      "status": "done",
       "links": [
+        {
+          "file": "specs/epics/e37-reach/e37s08-tasks.yaml",
+          "line": 16,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "specs/epics/e37-reach/e37s08-verify-matrix.md",
           "line": 1,
@@ -318,13 +588,55 @@
           "method": "explicit_tag"
         },
         {
-          "file": "specs/epics/e37-reach/e37s08-tasks.yaml",
+          "file": "scripts/lib/target-contracts.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s11-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s07-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s10-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s04-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s09-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s12-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s06-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         }
       ],
-      "link_count": 2
+      "link_count": 10
     },
     {
       "id": "e37s09",
@@ -333,8 +645,14 @@
       "epic_title": "Reach \u2014 Universal Agent Portability",
       "bcp": 3,
       "wsjf": 7.0,
-      "status": "todo",
+      "status": "done",
       "links": [
+        {
+          "file": "specs/epics/e37-reach/e37s09-tasks.yaml",
+          "line": 17,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "specs/epics/e37-reach/e37s09-wave-a-targets.md",
           "line": 1,
@@ -342,13 +660,25 @@
           "method": "explicit_tag"
         },
         {
-          "file": "specs/epics/e37-reach/e37s09-tasks.yaml",
+          "file": "scripts/adapters/agy.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/adapters/goose.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s07-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         }
       ],
-      "link_count": 2
+      "link_count": 5
     },
     {
       "id": "e37s10",
@@ -357,8 +687,14 @@
       "epic_title": "Reach \u2014 Universal Agent Portability",
       "bcp": 4,
       "wsjf": 7.0,
-      "status": "todo",
+      "status": "done",
       "links": [
+        {
+          "file": "specs/epics/e37-reach/e37s10-tasks.yaml",
+          "line": 16,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "specs/epics/e37-reach/e37s10-wave-b-skills-dir.md",
           "line": 1,
@@ -366,13 +702,25 @@
           "method": "explicit_tag"
         },
         {
-          "file": "specs/epics/e37-reach/e37s10-tasks.yaml",
-          "line": 0,
-          "confidence": "low",
-          "method": "task_reference"
+          "file": "scripts/adapters/omp.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/adapters/zed.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/adapters/hermes.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
         }
       ],
-      "link_count": 2
+      "link_count": 5
     },
     {
       "id": "e37s11",
@@ -381,7 +729,7 @@
       "epic_title": "Reach \u2014 Universal Agent Portability",
       "bcp": 3,
       "wsjf": 7.0,
-      "status": "todo",
+      "status": "done",
       "links": [
         {
           "file": "specs/epics/e37-reach/e37s11-wave-c-markdown-rules.md",
@@ -391,12 +739,24 @@
         },
         {
           "file": "specs/epics/e37-reach/e37s11-tasks.yaml",
-          "line": 0,
-          "confidence": "low",
-          "method": "task_reference"
+          "line": 16,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/adapters/qwen.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/adapters/kilocode.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
         }
       ],
-      "link_count": 2
+      "link_count": 4
     },
     {
       "id": "e37s12",
@@ -405,11 +765,23 @@
       "epic_title": "Reach \u2014 Universal Agent Portability",
       "bcp": 2,
       "wsjf": 7.0,
-      "status": "todo",
+      "status": "done",
       "links": [
+        {
+          "file": "specs/epics/e37-reach/e37s12-tasks.yaml",
+          "line": 16,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "specs/epics/e37-reach/e37s12-wave-d-continue.md",
           "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/adapters/continue.sh",
+          "line": 2,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -418,15 +790,9 @@
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
-        },
-        {
-          "file": "specs/epics/e37-reach/e37s12-tasks.yaml",
-          "line": 0,
-          "confidence": "low",
-          "method": "task_reference"
         }
       ],
-      "link_count": 3
+      "link_count": 4
     },
     {
       "id": "e37s13",
@@ -435,11 +801,35 @@
       "epic_title": "Reach \u2014 Universal Agent Portability",
       "bcp": 2,
       "wsjf": 7.0,
-      "status": "todo",
+      "status": "done",
       "links": [
+        {
+          "file": "specs/epics/e37-reach/e37s13-tasks.yaml",
+          "line": 15,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "specs/epics/e37-reach/e37s13-wave-e-low-priority.md",
           "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/adapters/iflow.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/adapters/vibe.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/adapters/shai.sh",
+          "line": 2,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -448,15 +838,9 @@
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
-        },
-        {
-          "file": "specs/epics/e37-reach/e37s13-tasks.yaml",
-          "line": 0,
-          "confidence": "low",
-          "method": "task_reference"
         }
       ],
-      "link_count": 3
+      "link_count": 6
     },
     {
       "id": "e37s14",
@@ -465,7 +849,7 @@
       "epic_title": "Reach \u2014 Universal Agent Portability",
       "bcp": 3,
       "wsjf": 7.0,
-      "status": "todo",
+      "status": "done",
       "links": [
         {
           "file": "specs/skills-wiki/skills/seed-conventions.md",
@@ -480,13 +864,43 @@
           "method": "file_heuristic"
         },
         {
+          "file": ".continue/rules/seed-conventions.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "website/src/content/docs/skills/seed-conventions.mdx",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/seed-conventions.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s14-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s01-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s04-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
         }
       ],
-      "link_count": 3
+      "link_count": 8
     },
     {
       "id": "e37s15",
@@ -495,16 +909,34 @@
       "epic_title": "Reach \u2014 Universal Agent Portability",
       "bcp": 2,
       "wsjf": 7.0,
-      "status": "todo",
+      "status": "done",
       "links": [
+        {
+          "file": "docs/templates/codex/AGENTS.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "specs/epics/e37-reach/e37s15-install-codex-global.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s14-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s15-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
         }
       ],
-      "link_count": 1
+      "link_count": 4
     },
     {
       "id": "e37s16",
@@ -513,8 +945,20 @@
       "epic_title": "Reach \u2014 Universal Agent Portability",
       "bcp": 2,
       "wsjf": 7.0,
-      "status": "todo",
+      "status": "done",
       "links": [
+        {
+          "file": "specs/state.yaml",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/state.yaml",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "specs/skills-wiki/skills/using-bigpowers.md",
           "line": 0,
@@ -523,6 +967,12 @@
         },
         {
           "file": "specs/epics/e37-reach/e37s16-codex-onboarding-docs.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".continue/rules/using-bigpowers.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -544,9 +994,27 @@
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/using-bigpowers.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s14-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s16-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
         }
       ],
-      "link_count": 5
+      "link_count": 11
     },
     {
       "id": "e45s01",
@@ -594,7 +1062,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": ".continue/rules/run-benchmark.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "website/src/content/docs/skills/run-benchmark.mdx",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/run-benchmark.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -606,7 +1086,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 8
+      "link_count": 10
     },
     {
       "id": "e45s02",
@@ -642,13 +1122,25 @@
           "method": "file_heuristic"
         },
         {
+          "file": ".continue/rules/craft-skill.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "website/src/content/docs/skills/craft-skill.mdx",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/craft-skill.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         }
       ],
-      "link_count": 5
+      "link_count": 7
     },
     {
       "id": "e45s03",
@@ -708,6 +1200,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": ".continue/rules/slice-tasks.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".continue/rules/plan-work.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "website/scripts/prebuild.mjs",
           "line": 0,
           "confidence": "medium",
@@ -730,9 +1234,21 @@
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/slice-tasks.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/plan-work.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
         }
       ],
-      "link_count": 9
+      "link_count": 13
     },
     {
       "id": "e45s05",
@@ -804,6 +1320,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": ".continue/rules/gate-trace.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".continue/rules/verify-work.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "website/src/content/docs/skills/gate-trace.mdx",
           "line": 0,
           "confidence": "medium",
@@ -820,9 +1348,21 @@
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/gate-trace.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/verify-work.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
         }
       ],
-      "link_count": 13
+      "link_count": 17
     },
     {
       "id": "e45s06",
@@ -947,6 +1487,24 @@
           "method": "file_heuristic"
         },
         {
+          "file": ".continue/rules/security-review.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".continue/rules/request-review.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".continue/rules/respond-review.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "website/src/content/docs/decisions/0005-hard-gate-mandate.md",
           "line": 0,
           "confidence": "medium",
@@ -975,9 +1533,27 @@
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/security-review.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/request-review.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/respond-review.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
         }
       ],
-      "link_count": 22
+      "link_count": 28
     },
     {
       "id": "e45s08",
@@ -1007,6 +1583,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": ".continue/rules/develop-tdd.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".continue/rules/validate-fix.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "website/src/content/docs/skills/develop-tdd.mdx",
           "line": 0,
           "confidence": "medium",
@@ -1017,9 +1605,21 @@
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/develop-tdd.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/validate-fix.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
         }
       ],
-      "link_count": 5
+      "link_count": 9
     },
     {
       "id": "e45s09",
@@ -1253,6 +1853,36 @@
           "method": "file_heuristic"
         },
         {
+          "file": ".continue/rules/scope-work.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".continue/rules/plan-work.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".continue/rules/verify-work.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".continue/rules/compose-workflow.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".continue/rules/organize-workspace.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "website/dist/pagefind/pagefind-worker.js",
           "line": 0,
           "confidence": "medium",
@@ -1313,13 +1943,43 @@
           "method": "file_heuristic"
         },
         {
+          "file": ".kilocode/rules/scope-work.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/plan-work.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/verify-work.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/compose-workflow.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/organize-workspace.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "scripts/cleanup-worktrees.sh",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         }
       ],
-      "link_count": 48
+      "link_count": 58
     },
     {
       "id": "e45s10",
@@ -1355,13 +2015,25 @@
           "method": "file_heuristic"
         },
         {
+          "file": ".continue/rules/dispatch-agents.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "website/src/content/docs/skills/dispatch-agents.mdx",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/dispatch-agents.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         }
       ],
-      "link_count": 2
+      "link_count": 4
     },
     {
       "id": "e45s12",
@@ -1439,6 +2111,24 @@
           "method": "file_heuristic"
         },
         {
+          "file": ".continue/rules/stocktake-skills.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".continue/rules/search-skills.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".continue/rules/craft-skill.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "website/src/content/docs/skills/search-skills.mdx",
           "line": 0,
           "confidence": "medium",
@@ -1452,6 +2142,24 @@
         },
         {
           "file": "website/src/content/docs/skills/stocktake-skills.mdx",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/stocktake-skills.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/search-skills.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/craft-skill.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -1481,7 +2189,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 18
+      "link_count": 24
     },
     {
       "id": "e45s13",
@@ -1523,13 +2231,25 @@
           "method": "file_heuristic"
         },
         {
+          "file": ".continue/rules/verify-work.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "website/src/content/docs/skills/verify-work.mdx",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/verify-work.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         }
       ],
-      "link_count": 6
+      "link_count": 8
     },
     {
       "id": "e45s14",
@@ -1553,13 +2273,25 @@
           "method": "file_heuristic"
         },
         {
+          "file": ".continue/rules/deepen-architecture.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "website/src/content/docs/skills/deepen-architecture.mdx",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/deepen-architecture.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         }
       ],
-      "link_count": 3
+      "link_count": 5
     },
     {
       "id": "e45s15",
@@ -1595,13 +2327,25 @@
           "method": "file_heuristic"
         },
         {
+          "file": ".continue/rules/release-branch.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "website/src/content/docs/skills/release-branch.mdx",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/release-branch.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         }
       ],
-      "link_count": 5
+      "link_count": 7
     },
     {
       "id": "e45s16",
@@ -1691,6 +2435,24 @@
           "method": "file_heuristic"
         },
         {
+          "file": ".continue/rules/security-review.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".continue/rules/request-review.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".continue/rules/respond-review.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "website/src/content/docs/skills/respond-review.mdx",
           "line": 0,
           "confidence": "medium",
@@ -1713,9 +2475,27 @@
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/security-review.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/request-review.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/respond-review.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
         }
       ],
-      "link_count": 14
+      "link_count": 20
     },
     {
       "id": "e45s18",
@@ -1763,6 +2543,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-165427.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-180022.md",
           "line": 0,
           "confidence": "medium",
@@ -1788,6 +2574,18 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260704-143153.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-172717.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-174039.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -1901,6 +2699,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-173628.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-182629.md",
           "line": 0,
           "confidence": "medium",
@@ -1950,6 +2754,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-164609.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-165651.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -2112,6 +2922,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-233740.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-173515.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -2471,6 +3287,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-171058.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-164733.md",
           "line": 0,
           "confidence": "medium",
@@ -2531,6 +3353,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-174117.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260706-120150.md",
           "line": 0,
           "confidence": "medium",
@@ -2556,6 +3384,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-182807.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-173917.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -2729,6 +3563,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-173218.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260626-204822.md",
           "line": 0,
           "confidence": "medium",
@@ -2832,6 +3672,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260702-200055.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-173837.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -3137,6 +3983,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-163657.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-153739.md",
           "line": 0,
           "confidence": "medium",
@@ -3329,6 +4181,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-163613.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-173429.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-142458.md",
           "line": 0,
           "confidence": "medium",
@@ -3347,7 +4211,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-171134.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260621-182630.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-165733.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -3384,6 +4260,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260621-231038.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-172751.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -3437,6 +4319,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-173306.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260622-001925.md",
           "line": 0,
           "confidence": "medium",
@@ -3485,6 +4373,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": ".continue/rules/security-review.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".continue/rules/audit-code.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "website/src/content/docs/skills/audit-code.mdx",
           "line": 0,
           "confidence": "medium",
@@ -3501,9 +4401,21 @@
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/security-review.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/audit-code.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
         }
       ],
-      "link_count": 296
+      "link_count": 318
     },
     {
       "id": "e45s19",
@@ -3580,13 +4492,25 @@
           "method": "file_heuristic"
         },
         {
+          "file": ".continue/rules/seed-conventions.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "website/src/content/docs/skills/seed-conventions.mdx",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/seed-conventions.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         }
       ],
-      "link_count": 2
+      "link_count": 4
     },
     {
       "id": "e45s22",
@@ -3675,13 +4599,25 @@
           "method": "file_heuristic"
         },
         {
+          "file": ".continue/rules/security-review.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "website/src/content/docs/skills/security-review.mdx",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/security-review.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         }
       ],
-      "link_count": 2
+      "link_count": 4
     },
     {
       "id": "e45s27",
@@ -3716,13 +4652,25 @@
           "method": "file_heuristic"
         },
         {
+          "file": ".continue/rules/request-review.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "website/src/content/docs/skills/request-review.mdx",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/request-review.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         }
       ],
-      "link_count": 3
+      "link_count": 5
     },
     {
       "id": "e45s29",
@@ -3822,6 +4770,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-165427.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-180022.md",
           "line": 0,
           "confidence": "medium",
@@ -3847,6 +4801,18 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260704-143153.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-172717.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-174039.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -3960,6 +4926,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-173628.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-182629.md",
           "line": 0,
           "confidence": "medium",
@@ -4009,6 +4981,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-164609.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-165651.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4171,6 +5149,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-233740.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-173515.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4530,6 +5514,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-171058.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-164733.md",
           "line": 0,
           "confidence": "medium",
@@ -4590,6 +5580,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-174117.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260706-120150.md",
           "line": 0,
           "confidence": "medium",
@@ -4615,6 +5611,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-182807.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-173917.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4788,6 +5790,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-173218.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260626-204822.md",
           "line": 0,
           "confidence": "medium",
@@ -4891,6 +5899,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260702-200055.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-173837.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5196,6 +6210,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-163657.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-153739.md",
           "line": 0,
           "confidence": "medium",
@@ -5388,6 +6408,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-163613.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-173429.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-142458.md",
           "line": 0,
           "confidence": "medium",
@@ -5406,7 +6438,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-171134.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260621-182630.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-165733.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5443,6 +6487,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260621-231038.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-172751.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5496,6 +6546,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-173306.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260622-001925.md",
           "line": 0,
           "confidence": "medium",
@@ -5532,6 +6588,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": ".continue/rules/audit-code.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".continue/rules/deepen-architecture.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "website/src/content/docs/skills/audit-code.mdx",
           "line": 0,
           "confidence": "medium",
@@ -5542,9 +6610,21 @@
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/audit-code.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/deepen-architecture.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
         }
       ],
-      "link_count": 298
+      "link_count": 320
     },
     {
       "id": "e45s32",
@@ -5622,6 +6702,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": ".continue/rules/gate-trace.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".continue/rules/release-branch.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "website/src/content/docs/skills/gate-trace.mdx",
           "line": 0,
           "confidence": "medium",
@@ -5638,9 +6730,21 @@
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/gate-trace.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/release-branch.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
         }
       ],
-      "link_count": 14
+      "link_count": 18
     },
     {
       "id": "e45s33",
@@ -5675,13 +6779,25 @@
           "method": "file_heuristic"
         },
         {
+          "file": ".continue/rules/develop-tdd.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "website/src/content/docs/skills/develop-tdd.mdx",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/develop-tdd.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         }
       ],
-      "link_count": 3
+      "link_count": 5
     },
     {
       "id": "e45s35",
@@ -5705,13 +6821,25 @@
           "method": "file_heuristic"
         },
         {
+          "file": ".continue/rules/plan-work.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "website/src/content/docs/skills/plan-work.mdx",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/plan-work.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         }
       ],
-      "link_count": 3
+      "link_count": 5
     },
     {
       "id": "e45s36",
@@ -5746,13 +6874,25 @@
           "method": "file_heuristic"
         },
         {
+          "file": ".continue/rules/run-evals.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "website/src/content/docs/skills/run-evals.mdx",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/run-evals.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         }
       ],
-      "link_count": 3
+      "link_count": 5
     },
     {
       "id": "e45s38",
@@ -5829,13 +6969,25 @@
           "method": "file_heuristic"
         },
         {
+          "file": ".continue/rules/verify-work.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "website/src/content/docs/skills/verify-work.mdx",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/verify-work.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         }
       ],
-      "link_count": 6
+      "link_count": 8
     },
     {
       "id": "e45s41",
@@ -5853,13 +7005,25 @@
           "method": "file_heuristic"
         },
         {
+          "file": ".continue/rules/security-review.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "website/src/content/docs/skills/security-review.mdx",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/security-review.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         }
       ],
-      "link_count": 2
+      "link_count": 4
     },
     {
       "id": "e48s01",
@@ -5955,7 +7119,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": ".continue/rules/maintain-wiki.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "docs/references/agent-config-files-and-okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/maintain-wiki.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5991,7 +7167,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 20
+      "link_count": 22
     },
     {
       "id": "e48s02",
@@ -6687,6 +7863,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": ".continue/rules/fix-bug.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".continue/rules/investigate-bug.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "website/src/content/docs/skills/fix-bug.mdx",
           "line": 0,
           "confidence": "medium",
@@ -6694,6 +7882,18 @@
         },
         {
           "file": "website/src/content/docs/skills/investigate-bug.mdx",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/fix-bug.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/investigate-bug.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -6711,7 +7911,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 97
+      "link_count": 101
     },
     {
       "id": "e48s04",
@@ -6753,6 +7953,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": ".continue/rules/enforce-first.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".continue/rules/visual-dashboard.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "website/src/content/docs/skills/visual-dashboard.mdx",
           "line": 0,
           "confidence": "medium",
@@ -6763,9 +7975,21 @@
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/enforce-first.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/visual-dashboard.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
         }
       ],
-      "link_count": 7
+      "link_count": 11
     },
     {
       "id": "e48s05",
@@ -7203,6 +8427,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/adr-wiki/0007-agents-md-spine-context-derivatives.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/adr-wiki/0004-context-isolation.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -7419,7 +8649,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 107
+      "link_count": 108
     },
     {
       "id": "e48s06",
@@ -7455,6 +8685,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/adr-wiki/0007-agents-md-spine-context-derivatives.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/epics/e39-knowledge-graph/e39s04-okf-skills-wiki.md",
           "line": 0,
           "confidence": "medium",
@@ -7479,7 +8715,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 8
+      "link_count": 9
     },
     {
       "id": "e48s07",
@@ -7597,13 +8833,25 @@
           "method": "file_heuristic"
         },
         {
+          "file": ".continue/rules/grill-with-docs.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "website/src/content/docs/skills/grill-with-docs.mdx",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/grill-with-docs.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         }
       ],
-      "link_count": 11
+      "link_count": 13
     },
     {
       "id": "e48s11",
@@ -7699,7 +8947,37 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/epics/e48-foundation/e48s11-bcp-plus-counter-integration.md",
+          "file": "specs/epics/e48-foundation/e48s12-bcp-plus-s02.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e48-foundation/e48s13-bcp-plus-s03.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e48-foundation/e48s11-bcp-plus-s01.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e48-foundation/e48s11-bcp-plus-s01-tasks.yaml",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e48-foundation/e48s14-bcp-plus-s04.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".continue/rules/smoke-test.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -7721,9 +8999,15 @@
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/smoke-test.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
         }
       ],
-      "link_count": 18
+      "link_count": 24
     },
     {
       "id": "e48s12",
@@ -7735,7 +9019,31 @@
       "status": "todo",
       "links": [
         {
-          "file": "specs/epics/e48-foundation/e48s11-bcp-plus-counter-integration.md",
+          "file": "specs/epics/e48-foundation/e48s12-bcp-plus-s02.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e48-foundation/e48s13-bcp-plus-s03.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e48-foundation/e48s11-bcp-plus-s01.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e48-foundation/e48s11-bcp-plus-s01-tasks.yaml",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e48-foundation/e48s14-bcp-plus-s04.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -7745,9 +9053,15 @@
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e48-foundation/e48s12-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
         }
       ],
-      "link_count": 2
+      "link_count": 7
     },
     {
       "id": "e48s13",
@@ -7758,6 +9072,12 @@
       "wsjf": 2.5,
       "status": "todo",
       "links": [
+        {
+          "file": "specs/epics/e48-foundation/e48s13-bcp-plus-s03.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "specs/skills-wiki/skills/security-review.md",
           "line": 0,
@@ -7801,6 +9121,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": ".continue/rules/security-review.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".continue/rules/wire-observability.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "website/src/content/docs/decisions/0005-hard-gate-mandate.md",
           "line": 0,
           "confidence": "medium",
@@ -7817,9 +9149,27 @@
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/security-review.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/wire-observability.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e48-foundation/e48s13-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
         }
       ],
-      "link_count": 10
+      "link_count": 16
     },
     {
       "id": "e48s14",
@@ -7830,6 +9180,12 @@
       "wsjf": 2.5,
       "status": "todo",
       "links": [
+        {
+          "file": "specs/epics/e48-foundation/e48s14-bcp-plus-s04.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "specs/skills-wiki/skills/build-epic.md",
           "line": 0,
@@ -7855,13 +9211,37 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/epics/e48-foundation/e48s11-bcp-plus-counter-integration.md",
+          "file": "specs/epics/e48-foundation/e48s12-bcp-plus-s02.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e48-foundation/e48s13-bcp-plus-s03.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e48-foundation/e48s11-bcp-plus-s01.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e48-foundation/e48s11-bcp-plus-s01-tasks.yaml",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         },
         {
           "file": "specs/epics/e43-showcase-repo/e43s02-build-feature-epic.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".continue/rules/build-epic.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -7877,14 +9257,20 @@
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/build-epic.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
         }
       ],
-      "link_count": 8
+      "link_count": 14
     }
   ],
   "summary": {
     "total_stories": 71,
-    "tagged_stories": 16,
+    "tagged_stories": 22,
     "dark_stories": [
       "e45s06",
       "e45s20",
@@ -7965,12 +9351,28 @@
       "e99s01"
     ],
     "orphan_count": 63,
-    "stale_tags": [],
-    "stale_count": 0,
+    "stale_tags": [
+      "e37s01",
+      "e37s02",
+      "e37s03",
+      "e37s04",
+      "e37s05",
+      "e37s06",
+      "e37s07",
+      "e37s08",
+      "e37s09",
+      "e37s10",
+      "e37s11",
+      "e37s12",
+      "e37s13",
+      "e37s15",
+      "e37s16"
+    ],
+    "stale_count": 15,
     "oracle_stats": {
-      "high": 21,
-      "medium": 1129,
-      "low": 23
+      "high": 65,
+      "medium": 1286,
+      "low": 53
     }
   }
 }

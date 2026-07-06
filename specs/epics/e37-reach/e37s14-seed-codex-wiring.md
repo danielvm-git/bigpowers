@@ -92,8 +92,8 @@ Scenario: Codex wiring declined
   Then  no `.codex/` directory is created
 
 ### 18. Out of scope
-- Global `~/.codex/` install (e37s02).
-- using-bigpowers docs (e37s03).
+- Global `~/.codex/` install (e37s15).
+- using-bigpowers docs (e37s16).
 - verify-install harness (e37s04).
 
 ### 19. Open questions
@@ -101,7 +101,7 @@ Scenario: Codex wiring declined
   (config.toml companion to AGENTS.md per agent-config reference).
 
 ### 20. References
-- specs/epics/e37-codex-reach/epic.yaml
+- specs/epics/e37-reach/epic.yaml
 - docs/references/agent-config-files-and-okf.md §Codex CLI
 - skills/seed-conventions/SKILL.md, REFERENCE.md
 - GitHub issue #52

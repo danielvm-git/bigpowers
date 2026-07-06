@@ -13,9 +13,9 @@ npm install -g bigpowers       # global install
 bigpowers setup                # sync skills + link to your tools
 ```
 
-From source (contributors): `git clone` → `npm install` or `bash scripts/install.sh`.
+From source: `git clone` → `bash scripts/install.sh`. Package: [bigpowers on npm](https://www.npmjs.com/package/bigpowers).
 
-Package: [bigpowers on npm](https://www.npmjs.com/package/bigpowers)
+**Reach tools:** **Cline** — native AGENTS.md reader (no extension). **Aider** — opt-in `.aider.conf.yml` with `read: AGENTS.md` ([Aider-AI/aider](https://github.com/Aider-AI/aider)). **Codex CLI** — optional `.codex/config.toml` via seed-conventions; global `~/.codex/AGENTS.md` from install.sh.
 
 ## What bigpowers is
 

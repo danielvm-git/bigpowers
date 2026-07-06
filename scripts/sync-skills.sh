@@ -254,11 +254,18 @@ parse_frontmatter_okf() {
   return 0
 }
 
-# ── Target registry ─────────────────────────────────────────────────
-# Order matters: render functions are called in this order per skill.
-TARGETS=(render_cursor render_gemini_skill render_gemini_command render_pi_skill render_pi_prompt)
-if [[ "$OKF_MODE" -eq 1 ]]; then
-  TARGETS+=(render_okf_concept)
+# ── Target registry (e37s07) ────────────────────────────────────────
+# Load skill adapters from scripts/targets.yaml — no hardcoded target list.
+TARGETS_FILE="$REPO_ROOT/scripts/targets.yaml"
+SKILL_ADAPTERS=()
+if [[ -f "$TARGETS_FILE" ]] && command -v yq >/dev/null 2>&1; then
+  bash "$REPO_ROOT/scripts/validate-targets-yaml.sh" >/dev/null
+  while IFS= read -r adapter; do
+    [[ -n "$adapter" && "$adapter" != "null" ]] && SKILL_ADAPTERS+=("$adapter")
+  done < <(yq -r '.targets[] | select(.skill != null) | .skill.adapter' "$TARGETS_FILE" | sort -u)
+else
+  echo "sync-skills: WARN — targets.yaml missing; using legacy render list" >&2
+  SKILL_ADAPTERS=(cursor gemini pi)
 fi
 
 skill_count=0
@@ -283,11 +290,19 @@ while IFS= read -r skill_dir; do
   [[ -z "$IR_NAME" ]] && continue
 
   IR_BODY=$(build_body "$skill_md" "$skill_dir")
+  SKILL_MD_PATH="$skill_md"
 
-  # Dispatch to each render target
-  for target_fn in "${TARGETS[@]}"; do
-    "$target_fn"
+  # Dispatch to each skill adapter from registry (e37s07)
+  for adapter_name in "${SKILL_ADAPTERS[@]}"; do
+    adapter_script="$REPO_ROOT/scripts/adapters/${adapter_name}.sh"
+    # shellcheck source=/dev/null
+    source "$adapter_script"
+    render_skill
   done
+
+  if [[ "$OKF_MODE" -eq 1 ]]; then
+    render_okf_concept
+  fi
 
   skill_count=$((skill_count + 1))
 done < <(iterate_skills)

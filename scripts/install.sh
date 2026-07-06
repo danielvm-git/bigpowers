@@ -225,6 +225,25 @@ uninstall_pi() {
   fi
 }
 
+# ── Codex CLI (e37s15) ───────────────────────────────────────────────────────
+
+CODEX_DIR="$HOME/.codex"
+CODEX_AGENTS="$CODEX_DIR/AGENTS.md"
+CODEX_TEMPLATE="$REPO_ROOT/docs/templates/codex/AGENTS.md"
+
+install_codex() {
+  echo ""
+  echo "Codex CLI → $CODEX_AGENTS"
+  [[ -f "$CODEX_TEMPLATE" ]] || { echo "  skip: template missing $CODEX_TEMPLATE" >&2; return 0; }
+  link "$CODEX_TEMPLATE" "$CODEX_AGENTS"
+}
+
+uninstall_codex() {
+  echo ""
+  echo "Codex CLI → removing $CODEX_AGENTS"
+  unlink_if_managed "$CODEX_AGENTS" "$REPO_ROOT/"
+}
+
 # ── main ──────────────────────────────────────────────────────────────────────
 
 echo "bigpowers install.sh — REPO: $REPO_ROOT"
@@ -236,6 +255,7 @@ if $UNINSTALL; then
   uninstall_gemini
   uninstall_pi
   uninstall_cursor
+  uninstall_codex
   echo ""
   echo "bigpowers uninstalled."
 else
@@ -243,6 +263,7 @@ else
   install_gemini
   install_pi
   install_cursor
+  install_codex
   echo ""
   echo "bigpowers installed. Future updates:"
   if [[ -d "$REPO_ROOT/.git" ]]; then

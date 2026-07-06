@@ -125,63 +125,9 @@ defines the naming convention only.
 
 ## Initial core targets (P1)
 
-Minimum five rows shipping in e37s05:
-
-```yaml
-registry_version: "1"
-targets:
-  - id: cursor
-    name: Cursor
-    tier: default_on
-    skill:
-      adapter: cursor
-      output: .cursor/rules
-    context:
-      adapter: cursor
-      mode: symlink
-      file: CLAUDE.md
-    contracts: [agents_md_exists, symlink_claude_md, cursor_rules_nonempty]
-
-  - id: gemini
-    name: Gemini CLI
-    tier: default_on
-    skill:
-      adapter: gemini
-      output: .gemini/extensions/bigpowers
-    context:
-      adapter: gemini
-      mode: symlink
-      file: GEMINI.md
-    contracts: [gemini_manifest_valid]
-
-  - id: pi
-    name: pi
-    tier: default_on
-    skill:
-      adapter: pi
-      output: .pi/skills
-    context: null
-
-  - id: cline
-    name: Cline
-    tier: default_on
-    skill: null
-    context:
-      adapter: cline
-      mode: native
-    contracts: [agents_md_exists]
-
-  - id: aider
-    name: Aider
-    tier: opt_in
-    skill: null
-    context:
-      adapter: aider
-      mode: config-bridge
-      bridge_file: .aider.conf.yml
-      bridge_key: read
-    contracts: [aider_conf_read_agents]
-```
+Minimum five rows shipping in e37s05: **cursor**, **gemini**, **pi**, **cline**,
+**aider**. Full row YAML lives in `docs/references/targets-registry.md` § Core P1
+targets (single canonical copy — do not duplicate here).
 
 Wave targets (s09–s13) add rows + adapter files only — no orchestrator edits
 (invariant 15).
@@ -243,7 +189,9 @@ bash scripts/validate-targets-yaml.sh && bash scripts/test-adapters.sh
 
 ## `scripts/validate-targets-yaml.sh`
 
-Headless schema gate (Python `pyyaml` + bash assertions):
+Headless schema gate (**`yq` + bash** — no new Python dependency; `yq` already used
+in repo scripts per e38 threat model). Fail with actionable stderr if `yq` missing:
+`brew install yq` / `go install github.com/mikefarah/yq/v4@latest`.
 
 - `registry_version` present
 - `targets` is a non-empty list
@@ -287,13 +235,8 @@ echo OK
 
 ## Prior art
 
-- **spec-kit** — Python `INTEGRATION_REGISTRY`; per-integration `context_file`
-  (CLAUDE.md, GEMINI.md, AGENTS.md split). e37 converges on AGENTS.md-only.
-- **BMAD** — `platform-codes.yaml` declarative registry (schema reference for
-  e37s05 field comments). No unified context spine.
-- **GSD** — JS installer + runtime adapter modules; no verify matrix.
-- **superpowers** — manual multi-file sync (`sync-to-codex-plugin.sh`). e37
-  symlink/copy model eliminates this class of drift.
+See `docs/references/targets-registry.md` § Prior art (spec-kit, BMAD, GSD,
+superpowers).
 
 ## Out of scope (e37s05)
 

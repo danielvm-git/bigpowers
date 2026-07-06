@@ -11,3 +11,14 @@ And opencode.json instructions: ["AGENTS.md"] is present
 And the multi-agent preamble names active OSS tools without Codex-only title
 And opting out leaves standard seed output unchanged
 
+## Out of scope
+
+- Codex wiring (e37s14)
+- Aider `.aider.conf.yml` bridge (e37s03)
+- Integration registry rows (e37s05)
+
+## References
+
+- docs/templates/AGENTS.md (Reach Template — created by this story)
+- specs/adr/0007-agents-md-spine-context-derivatives.md
+- specs/tech-architecture/e37-TEST_PLAN_LATEST.md (SC-e37s01-P1-*)

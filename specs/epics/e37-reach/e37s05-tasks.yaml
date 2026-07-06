@@ -15,8 +15,8 @@ tasks:
     status: todo
 
   - id: 3
-    description: "scripts/validate-targets-yaml.sh — headless schema + invariant gate"
-    verify: 'bash scripts/validate-targets-yaml.sh && echo OK'
+    description: "scripts/validate-targets-yaml.sh — headless schema + invariant gate (yq + bash; no pyyaml)"
+    verify: 'command -v yq >/dev/null && bash scripts/validate-targets-yaml.sh && echo OK'
     status: todo
 
   - id: 4

@@ -117,6 +117,18 @@ in_scope:
   - id: fr-35
     title: OSS reach waves — Goose/Agy, zed/omp/hermes, qwen/kilocode, continue, iflow/vibe/shai (e37s09–s13)
     epic: e37
+  - id: fr-38
+    title: verify-install AGENTS.md spine assertions — Preflight, Cline/Aider wiring, optional Codex gating (e37s04)
+    epic: e37
+  - id: fr-39
+    title: Optional Codex seed wiring — .codex/config.toml + AGENTS.md header when opted in (e37s14)
+    epic: e37
+  - id: fr-40
+    title: Global Codex install — ~/.codex/ AGENTS.md starter symlink via install.sh (e37s15)
+    epic: e37
+  - id: fr-41
+    title: Codex CLI onboarding section in using-bigpowers (e37s16)
+    epic: e37
   - id: fr-36
     title: Skill hardening patterns — benchmark delta, PreToolUse hooks, review gates, orchestration resilience (e45)
     epic: e45
