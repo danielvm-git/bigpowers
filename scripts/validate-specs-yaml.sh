@@ -8,6 +8,11 @@
 # specs/**/*.yaml with PyYAML first, and runs the required-key checks
 # against the *parsed* objects, not against grep.
 set -euo pipefail
+
+# Resolve REPO_ROOT from script location
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+
 SPECS="${1:-$REPO_ROOT/specs}"
 
 err=0
