@@ -13,8 +13,9 @@
 # Usage: bash scripts/golden-g11-gitignore-venv.sh
 
 set -euo pipefail
+source "$(dirname "${BASH_SOURCE[0]}")/lib/skill-common.sh"
+resolve_repo_root
 
-REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$REPO_ROOT"
 
 RED='\033[0;31m'

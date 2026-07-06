@@ -127,7 +127,7 @@
       "path": "skills/fix-bugSKILL.md"
     },
     "gate-trace": {
-      "description": "\"Deterministic traceability quality gate — reads coverage matrix + blind-spot data, applies decision rules with oracle confidence downgrade, emits PASS/CONCERNS/FAIL/WAIVED verdict. Use before release-branch to gate merges on traceability.\"# story: e38s06",
+      "description": "\"Deterministic traceability quality gate — reads coverage matrix + blind-spot data, applies decision rules with oracle confidence downgrade, emits PASS/CONCERNS/FAIL/WAIVED verdict. Use before release-branch to gate merges on traceability.\"",
       "sha256": "81deb2549867386b",
       "path": "skills/gate-traceSKILL.md"
     },
@@ -167,7 +167,7 @@
       "path": "skills/kickoff-branchSKILL.md"
     },
     "maintain-wiki": {
-      "description": "\"Agent-maintained OKF wiki — INGEST source docs, LINT for issues, QUERY across concept pages. Run as part of build-epic Step 8 and verify-work Phase 3.\"# story: e39s07",
+      "description": "\"Agent-maintained OKF wiki — INGEST source docs, LINT for issues, QUERY across concept pages. Run as part of build-epic Step 8 and verify-work Phase 3.\"",
       "sha256": "c54c6170db6fe3f9",
       "path": "skills/maintain-wikiSKILL.md"
     },
@@ -277,7 +277,7 @@
       "path": "skills/search-skillsSKILL.md"
     },
     "security-review": {
-      "description": "> AI-powered security analysis of code changes — traces data flow, detects injection, auth bypass, secrets exposure, and unsafe deserialization across files. Use when reviewing pending changes, before release-branch, during verify-work Phase 5, during build-epic Step 0 threat modeling, or when the user says \"security review\" or \"scan for vulns\".",
+      "description": ">",
       "sha256": "da17dffef0b691c7",
       "path": "skills/security-reviewSKILL.md"
     },

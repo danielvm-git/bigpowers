@@ -13,6 +13,8 @@
 # Exit 1: at least one step script failed to detect a violation (fail-open risk)
 
 set -euo pipefail
+source "$(dirname "${BASH_SOURCE[0]}")/lib/skill-common.sh"
+resolve_repo_root
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -25,7 +27,6 @@ FAIL=0
 g07_pass() { echo -e "  ${GREEN}PASS${NC} $*"; PASS=$((PASS + 1)); }
 g07_fail() { echo -e "  ${RED}FAIL${NC} $*"; FAIL=$((FAIL + 1)); }
 
-REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 FIXTURE_DIR="$REPO_ROOT/specs/verifications/fixtures/negative-path"
 STEPS_DIR="$REPO_ROOT/specs/verifications/steps"
 

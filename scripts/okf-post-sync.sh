@@ -4,8 +4,9 @@
 # Called by sync-skills.sh --okf after concept files are rendered.
 # Steps: cross-references from skill-graph.json → index.md → validate-okf.sh
 set -euo pipefail
+source "$(dirname "${BASH_SOURCE[0]}")/lib/skill-common.sh"
+resolve_repo_root
 
-REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 GRAPH_JSON="$REPO_ROOT/specs/skill-graph.json"
 OKF_WIKI_SKILLS="$REPO_ROOT/specs/skills-wiki/skills"
 OKF_WIKI_DIR="$REPO_ROOT/specs/skills-wiki"

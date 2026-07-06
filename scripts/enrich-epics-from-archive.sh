@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # enrich-epics-from-archive.sh — populate specs/epics from archive RELEASE-PLAN.md
 set -euo pipefail
-REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 ARCHIVE="${1:-$REPO_ROOT/specs/archive/RELEASE-PLAN.md}"
 SPECS="$REPO_ROOT/specs"
 

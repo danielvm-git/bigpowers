@@ -77,7 +77,7 @@
 | 49 | Verify | `request-review` | Dispatch a fresh reviewer agent with a clean context to critique the code after  | ✅ Active |
 | 50 | Verify | `respond-review` | Act on a reviewer agent's feedback systematically — categorize findings, apply | ✅ Active |
 | 51 | Verify | `run-evals` | Eval-Driven Development — define capability and regression evals before buildi | ✅ Active |
-| 52 | Verify | `security-review` | > AI-powered security analysis of code changes — traces data flow, detects inj | ✅ Active |
+| 52 | Verify | `security-review` | > | ✅ Active |
 | 53 | Verify | `trace-requirement` | Link story IDs from specs/release-plan.yaml + epic capsule directories to the im | ✅ Active |
 | 54 | Verify | `validate-fix` | Prove a fix works before declaring done — re-run the failing test, run the ful | ✅ Active |
 | 55 | Verify | `verify-work` | Multi-phase UAT gate — cold-start smoke, build, typecheck, lint, tests, step-b | ✅ Active |

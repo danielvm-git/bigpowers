@@ -31,6 +31,7 @@ for arg in "$@"; do
 done
 
 source "$(dirname "${BASH_SOURCE[0]}")/lib/skill-common.sh"
+resolve_repo_root
 
 CURSOR_RULES="$REPO_ROOT/.cursor/rules"
 GEMINI_EXT_DIR="$REPO_ROOT/.gemini/extensions/bigpowers"
@@ -213,7 +214,22 @@ render_okf_concept() {
 }
 
 # ── Parse extended frontmatter for OKF (includes effort) ────────────
-# Extends the base parse_frontmatter with _PF_EFFORT.
+# Wrapper for library parse_frontmatter — sets _PF_* compat vars
+parse_frontmatter() {
+  # Delegate to library which now sets _PF_* vars
+  if command -v skill_common_parse >/dev/null 2>&1 || [ -n "${SKILL_COMMON_LOADED:-}" ]; then
+    source "$(dirname "${BASH_SOURCE[0]}")/lib/skill-common.sh" 2>/dev/null
+  fi
+  # Call library version (defined in skill-common.sh, sets SKILL_NAME and _PF_*)
+  # But since we have the same name, we need the inline version
+  _PF_NAME=$(awk '/^---/{f++} f==1 && /^name:/{print; exit}' "$1" | sed 's/^name:[[:space:]]*//')
+  _PF_MODEL=$(awk '/^---/{f++} f==1 && /^model:/{print; exit}' "$1" | sed 's/^model:[[:space:]]*//')
+  _PF_DESCRIPTION=$(awk '/^---/{f++; next} f==1 && /^description:/{p=1; sub(/^description:[[:space:]]*/,""); print; next} f==1 && p && /^[a-z]+:/{exit} f==1 && p{print}' "$1" | tr '\n' ' ' | sed 's/[[:space:]]*$//')
+  [[ -z "$_PF_NAME" ]] && return 1
+  return 0
+}
+
+# Extended parse_frontmatter for OKF mode (adds _PF_EFFORT)
 parse_frontmatter_okf() {
   local file="$1"
   _PF_EFFORT=""
