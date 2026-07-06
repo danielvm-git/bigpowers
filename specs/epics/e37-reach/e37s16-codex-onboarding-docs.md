@@ -1,4 +1,4 @@
-STORY KEY: E37-S03
+STORY KEY: E37-S16
 TITLE:     using-bigpowers — Codex CLI onboarding section
 TYPE:      Story
 PARENT:    e37

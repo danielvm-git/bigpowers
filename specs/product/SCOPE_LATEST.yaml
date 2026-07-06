@@ -125,7 +125,6 @@ in_scope:
     epic: e48
 
 out_of_scope:
-  - Continue (continuedev/continue) — repo self-declared read-only and unmaintained as of 2.0.0; users should migrate to Cline or OpenCode
   - Per-skill symlinks for instruction-file-only tools (Codex, Cline, Aider) — these tools use AGENTS.md, not a skill catalog
   - "'@bigpowers/mcp-server' npm package — not scoped until MCP server is built (separate initiative)"
   - Marketplace or plugin store model — deferred; dual-channel publishing depends on MCP server
@@ -134,8 +133,8 @@ out_of_scope:
   - Renaming any skill during layout moves (governed by ADR-0001, orthogonal to portability)
   - Relocating generated artifact targets .cursor/, .gemini/, .pi/ (consumer tools read these paths)
   - Relocating tool-read root files CLAUDE.md, GEMINI.md, opencode.json, index.js (breaks consumers)
-  - Hermes-agent, Paperclip — orchestration layers, not seed targets; different problem space
-  - Wave B+ targets (roo, kiro-cli, tabnine, qwen, devin, windsurf, copilot) — deferred until registry is stable
+  - Paperclip — orchestration layer, not a seed target; different problem space
+  - Wave B+ targets (roo, kiro-cli, tabnine, devin, windsurf, copilot) — deferred until registry is stable
 
 constraints:
   - Max 300 lines per file

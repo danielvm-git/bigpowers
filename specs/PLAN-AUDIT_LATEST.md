@@ -1,103 +1,113 @@
-# Plan Audit — Epic Redesign (6 → 3)
-**Date:** 2026-07-06 · **Auditor:** Cursor Agent
-**Verdict:** READY with 3 conditions (add to execution checklist before proceeding)
+# Plan Audit — e37 Reach (Universal Agent Portability)
+**Date:** 2026-07-06 · **Verdict:** ✅ **READY** (all gaps closed)
+**Audit:** audit-plan skill · **Re-audit:** 2026-07-06 (post-fix verification)
 
-**Ingested:**
-- `/Users/danielvm/.cursor/plans/epic_redesign_c386989e.plan.md`
-- `specs/release-plan.yaml`, `specs/state.yaml`, `CLAUDE.md`, `CONVENTIONS.md`
-- `specs/epics/e37-bcp-plus-counting/epic.yaml` (+ story files)
-- `specs/epics/e45-okf-completion/epic.yaml`
-- `specs/epics/e48-prior-art-audit/epic.yaml`
-- `specs/epics/e49-wiki-rendering-target/epic.yaml`
-- `specs/epics/e50-codex-reach/epic.yaml` (+ story files)
-- `specs/epics/e52-integration-registry/epic.yaml` (+ story files)
-- `specs/product/SCOPE_LATEST.yaml`
+> All 9 gaps identified in the initial audit have been closed. See below for
+> the closure log and evidence checklist.
 
 ---
 
-## Lens 1 — Principles Alignment
+## Gap Closure Log
+
+| # | Gap | Status | Fix |
+|---|-----|--------|-----|
+| G01 | Story ID collisions (e37s14/s15/s16 tasks & spec headers) | ✅ **FIXED** | `story_id` in all 3 tasks.yaml corrected (e37s01→e37s14, e37s02→e37s15, e37s03→e37s16). STORY KEY headers in all 3 spec .md files corrected (E37-S01→S14, S02→S15, S03→S16). |
+| G02 | e37s04 Codex contamination | ✅ **FIXED** | `e37s04-verify-install-spine.md` and `e37s04-tasks.yaml` rewritten. Removed stale Codex-dominant assertions. New spec focuses on AGENTS.md template shape, Preflight row, Cline/Aider wiring. Codex assertions are conditional (gated on Codex wave stories s14–s16 being present). |
+| G03 | SCOPE_LATEST.yaml contradictions (Continue, qwen, Hermes) | ✅ **FIXED** | Continue removed from `out_of_scope` (now in scope via fr-35 Reach wave). qwen removed from deferred Wave B+ list. Hermes removed from orchestration out_of_scope entry. Each is covered by the epic redesign scope (e37s09–s13). |
+| G04 | BCP sum mismatch (declared 40, actual 45) | ✅ **FIXED** | `epic.yaml bcps:` 40→45. `release-plan.yaml e37 bcps:` 40→45. Both match the sum of all 16 stories (3+2+1+2+5+3+5+3+3+4+3+2+2+3+2+2=45). |
+| G05 | state.yaml next_skill + missing stories | ✅ **FIXED** | `next_skill:` kickoff-branch → plan-tests. `handoff.stories` extended from s01–s08 to s01–s16. `epic_cycle.test_plan: done` added. |
+| G06 | Wave story depth (s06–s12 thin specs) | ✅ **FIXED** | Added `out_of_scope` and `adapter guidance` sections to all 7 thin wave specs (s06 context-bundle, s07 adapter-dispatch, s08 verify-matrix, s09 Wave A, s10 Wave B, s11 Wave C, s12 Wave D). Each now has explicit scope boundaries, adapter hook documentation, and verification gate instructions. |
+| G07 | Missing ADR for AGENTS.md convergence | ✅ **FIXED** | Created `specs/adr/0007-agents-md-spine-context-derivatives.md` — documents the decision, three options considered (multi-file, symlink spine, copy spine), selected approach with rationale, migration path. |
+| G08 | Missing GLOSSARY entries for Reach domain | ✅ **FIXED** | Added 7 Reach-domain terms to `GLOSSARY_LATEST.yaml`: integration target, skill adapter, context derivative, context spine, context.mode, context bundle, reach template. Updated note field to reference e37. |
+| G09 | Missing test plan (e37-TEST_PLAN_LATEST.md) | ✅ **FIXED** | Created `specs/tech-architecture/e37-TEST_PLAN_LATEST.md` with risk-scaled verification matrix (P0/P1/P2/P3), per-story verify table with gap notes, manual UAT steps for P0/P1 stories, hard gate table, and traceability mandate. |
+
+---
+
+## Principles Alignment
 
 | Check | Status | Note |
 |-------|--------|------|
-| Vertical slices | ✅ | This is a spec-surgery operation, not a feature. Deliverables are file creates/deletes/edits — each independently verifiable. |
-| Scope bounded — in_scope | ✅ | 6 capsule dirs deleted, 3 new capsule dirs created, 3 YAML files updated, 5 stray docs deleted. |
-| Scope bounded — out_of_scope | ⚠️ | Not explicitly stated. `execution-status.yaml`, `scripts/verify-install.sh`, `docs/references/`, and skill source files are implicitly untouched — should be listed. |
-| Success criteria defined | ⚠️ | Files-to-delete and files-to-create are listed but no runnable "done" assertion. Missing: `bash scripts/validate-specs-yaml.sh && echo PASS` as the terminal gate. |
-| HARD GATE candidates | ⚠️ | `validate-specs-yaml.sh` is the natural gate after YAML edits; not mentioned in the plan. `trace-stories.sh --strict` would also flag any orphaned story tags — not mentioned. |
-| Domain language | ✅ | Epic IDs, BCP, WSJF, capsule dir, story ID — all established bigpowers terminology used correctly. |
-| Number reuse coherence | ✅ | e37/e45/e48 reused from freed numbers; e49/e50/e52 retired without allocating new high-water marks. Clean. |
+| Vertical slices (not horizontal layers) | ✅ | Each story ships a complete, independently testable artifact (template / script / registry row). s01→s04 spine, s05→s08 core, s09→s13 waves, s14→s16 Codex — coherent vertical sequence. |
+| Scope bounded | ✅ | Every story now has explicit `out_of_scope` in its spec doc. Epic-level scope is bounded by `SCOPE_LATEST.yaml` fr-28 to fr-37. |
+| Success criteria defined | ✅ | Every story has a `verify:` shell command in `epic.yaml`. Stories with `.md` files have Gherkin AC. Test plan covers verification surface and known gaps. |
+| HARD GATE candidates | ✅ | s01 explicit prerequisite for all waves. s07 (P0) gates sync-skills rewrite. Gates documented in test plan. |
+| Domain language / ubiquitous terminology | ✅ | 7 Reach domain terms now in `GLOSSARY_LATEST.yaml`. `tech-stack.md § Reach Domain` has 25 invariants. |
+| BCP sizing | ✅ | All 16 stories have `bcp:` in `epic.yaml`. Epic sum (45) matches declared value. |
+| Optional stories clearly marked | ✅ | s13, s14, s15, s16 have `optional: true` + `wave: codex-optional`. |
 
 ---
 
-## Lens 2 — Conventions Completeness
+## Conventions Completeness
 
 | Check | Status | Note |
 |-------|--------|------|
-| `CLAUDE.md` exists | ✅ | Present. References e38s08, e51s05 story tags. |
-| `CONVENTIONS.md` exists | ✅ | Present and current (e51 Always Green block included). |
-| `specs/` directory layout | ✅ | `state.yaml`, `release-plan.yaml`, `execution-status.yaml`, `epics/`, `product/` all in place. |
-| Conventional Commits documented | ✅ | Fully documented in CONVENTIONS.md §Conventional Commits. |
-| Git workflow mode identified | ✅ | Solo-git via `scripts/land-branch.sh`. |
-| Traceability mandate | ✅ | All 6 upcoming epics are `status: todo` — no implementation code written yet. No `# story: e50sXX` or `# story: e52sXX` tags exist in code files. Renumbering to new IDs carries zero traceability debt. |
+| CLAUDE.md | ✅ | Present, complete, includes Preflight chain. |
+| CONVENTIONS.md | ✅ | Present, 300+ lines, authoritative. |
+| specs/ directory | ✅ | Full YAML cockpit. |
+| Commit conventions | ✅ | Conventional Commits 1.0.0. |
+| Git workflow mode | ✅ | Solo-git profile with land-branch.sh. |
+| Story ID consistency | ✅ | All 16 tasks.yaml + spec headers verified — no copy-paste collisions. |
+| state.yaml handoff.stories complete | ✅ | All 16 stories listed. |
+| Test plan for P0/P1 epic | ✅ | `specs/tech-architecture/e37-TEST_PLAN_LATEST.md` created. |
+| ADR for architectural decision | ✅ | `specs/adr/0007-agents-md-spine-context-derivatives.md` created. |
+| Glossary coverage | ✅ | 7 Reach domain terms added. Total: 26 terms. |
 
 ---
 
-## Lens 3 — Bigpowers Pre-flight
+## Pre-flight Answers
 
-| Command | Value |
-|---------|-------|
-| Test | N/A (Markdown/Bash project) |
-| Build / sync | `bash scripts/sync-skills.sh` |
-| Lint | `bash scripts/sync-skills.sh` (validates SKILL.md syntax) |
-| Validate specs YAML | `bash scripts/validate-specs-yaml.sh` |
-| Preflight | `npm run compliance && bash scripts/run-verification-gates.sh` |
-| Traceability gate | `bash scripts/trace-stories.sh --strict` |
-| CI platform | GitHub Actions |
-| Solo or team | Solo (solo-git via `land-branch.sh`) |
-| Language + framework | Markdown / Bash |
-| Greenfield or existing | Existing — spec surgery only, no code changes |
-
-**Key finding — validate-specs-yaml.sh not in plan:**
-The plan creates and edits YAML files (`epic.yaml` ×3, `release-plan.yaml`, `state.yaml`, `SCOPE_LATEST.yaml`) but does not include a validation pass. This is the highest-risk gap — a malformed YAML key would break the entire specs cockpit silently.
-
-**Key finding — execution-status.yaml not addressed:**
-`specs/execution-status.yaml` is the "sole SoT for story state" (CONVENTIONS.md). It currently carries `todo` entries for old story IDs (e50s05, e52s01, etc.). After deletion, those keys become orphans. The plan must include a cleanup pass on this file.
-
-**Key finding — out_of_scope section missing from plan:**
-The following files are implicitly NOT touched but this is unstated:
-- `scripts/verify-install.sh` (updated later in e37s04 story, not as part of restructuring)
-- `docs/references/agent-config-files-and-okf.md`
-- All `skills/*/SKILL.md` files
-- `.cursor/rules/`, `.gemini/`, `.pi/` (generated artifacts)
-- `specs/execution-status.yaml` — BUT see condition below; it IS implicitly affected
+| Question | Value | Status |
+|----------|-------|--------|
+| Test command | N/A (Markdown/Bash project) | ✅ Documented |
+| Build command | `bash scripts/install.sh` | ✅ |
+| Lint command | `bash scripts/sync-skills.sh` | ✅ |
+| Typecheck command | N/A | ✅ Documented as N/A |
+| CI platform | GitHub Actions | ✅ |
+| Solo or team | Solo (solo-git profile) | ✅ |
+| Language + framework | Markdown / Bash | ✅ |
+| Greenfield or existing | Existing — extends live repo | ✅ |
+| Preflight command | `npm run compliance && bash scripts/run-verification-gates.sh && bash scripts/sync-skills.sh && bash scripts/trace-stories.sh --strict` | ✅ In CLAUDE.md |
 
 ---
 
-## Open Gaps — Conditions Before Proceeding
+## Risk Coverage
 
-- [ ] **C1 — Add validation gate as final step:** After all edits, run `bash scripts/validate-specs-yaml.sh && bash scripts/run-verification-gates.sh && bash scripts/trace-stories.sh --strict`. If any gate fails, treat as a hard block.
-- [ ] **C2 — Clean up execution-status.yaml:** Remove (or mark `archived`) the old story ID keys for e37/e45/e48/e49/e50/e52 stories. Add placeholder `todo` entries for the new e37/e45/e48 story IDs once the new epics are written.
-- [ ] **C3 — Add explicit out_of_scope to the plan:** List `execution-status.yaml` (requires cleanup, not untouched), `docs/references/`, `skills/`, and generated artifact dirs as out of scope for this restructuring pass.
+| Story | Risk | Coverage | Note |
+|-------|------|----------|------|
+| e37s01 | P1 | AC covers opt-in/opt-out, symlink vs copy, multi-tool preamble | ✅ |
+| e37s02 | P2 | Simple grep assertions; low blast radius | ✅ |
+| e37s03 | P3 | Aider bridge; low risk, simple | ✅ |
+| e37s04 | P2 | verify-install spine with conditional Codex gating | ✅ |
+| e37s05 | P1 | Schema, Windows gap, adapter testability, validator — excellent spec | ✅ |
+| e37s06 | P1 | out_of_scope + adapter guidance added | ✅ |
+| e37s07 | P0 | out_of_scope + adapter guidance added; test plan covers UAT | ✅ |
+| e37s08 | P1 | out_of_scope + adapter guidance added | ✅ |
+| e37s09–s12 | P2 | out_of_scope + adapter guidance added to each | ✅ |
+| e37s13 | P3 | Optional; out_of_scope adequate | ✅ |
+| e37s14–s16 | P2/P3 | Optional wave; tasks well-decomposed | ✅ |
 
 ---
 
-## Risk Assessment
+## Traceability Assessment
 
-| Risk | Likelihood | Impact | Mitigation |
-|------|-----------|--------|-----------|
-| Malformed YAML after edits | Medium | High — breaks validate-specs-yaml.sh gate | C1 validation gate |
-| Orphaned story IDs in execution-status.yaml | High — guaranteed if not addressed | Low (CI traceability works on code tags, not this file) | C2 cleanup pass |
-| Story tag conflicts (old e37 reused) | Low — all e50/e52 stories are `todo`, no code tags exist | High if it happened | Zero risk: confirmed no code tags for todo stories |
-| Strategy doc deletion loses useful content | Low — content is now encoded in new epic capsules | Low | Stray docs are untracked; git history irrelevant |
+| Dimension | Status | Note |
+|-----------|--------|------|
+| Story tags in spec files | ✅ | All 16 `.md` files have `# story:` or `STORY KEY:` header. |
+| Story ID consistency | ✅ | All tasks.yaml story_ids verified matching spec IDs. |
+| execution-status.yaml | ✅ | All 16 e37 story keys present, status: todo. |
+| release-plan.yaml | ✅ | e37 entry updated (bcps: 45). |
 
 ---
 
 ## Verdict
 
-**READY** — proceed to execution with the 3 conditions incorporated as steps in the execution checklist.
+> **READY** — all 9 gaps closed. Proceed with `plan-work` → `kickoff-branch → build-epic`.
 
-The plan is structurally sound: the number reuse is clean, the story content mapping is complete (all e50/e52/e48/e45/e49/e37 work is accounted for in the three new epics), and there is no traceability debt since all stories are `todo`.
+## Recommended next skill sequence
 
-Add conditions C1–C3 to the bottom of the execution sequence before marking done.
-
-**Next skill:** Execute the plan (`execute-plan` style — step by step with human checkpoint after each capsule is created).
+```
+1. survey-context   → bootstrap session with closed gaps
+2. plan-work        → write detailed implementation tasks for e37s01
+3. kickoff-branch   → create worktree for e37s01
+4. build-epic       → step-by-step with human checkpoint after each story
+```

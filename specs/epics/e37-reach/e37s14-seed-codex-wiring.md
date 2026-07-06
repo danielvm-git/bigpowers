@@ -1,4 +1,4 @@
-STORY KEY: E37-S01
+STORY KEY: E37-S14
 TITLE:     seed-conventions — optional Codex wiring step (AGENTS.md + .codex/config.toml)
 TYPE:      Story
 PARENT:    e37
