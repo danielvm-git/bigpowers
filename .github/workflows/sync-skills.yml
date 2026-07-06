@@ -52,9 +52,9 @@ jobs:
             README.md \
             specs/SKILL-SEARCH-INDEX_LATEST.md || {
             rc=$?
-            echo "diff-exit=$rc" >&2
-            git status --short >&2
-            git diff --name-only .cursor/rules .gemini/extensions/bigpowers .pi SKILL-INDEX.md skills-lock.json README.md specs/SKILL-SEARCH-INDEX_LATEST.md >&2 || echo "name-only failed"
+            echo "::error::diff-exit-code=$rc"
+            echo "::error::status=$(git status --short)"
+            echo "::error::diff-files=$(git diff --name-only .cursor/rules .gemini/extensions/bigpowers .pi SKILL-INDEX.md skills-lock.json README.md specs/SKILL-SEARCH-INDEX_LATEST.md)"
             exit 1
           }
 
