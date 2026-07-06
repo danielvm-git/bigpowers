@@ -20,7 +20,7 @@ stories:
     title: "Slim docs/references/akita.md, ousterhout.md, karpathy.md, wasowski.md to provenance pointers"
     spec: e36s02-slim-author-refs.md
     tasks: e36s02-tasks.yaml
-    status: todo
+    status: done
     verify: "for f in akita ousterhout karpathy wasowski; do wc -l docs/references/$f.md | awk '{if($1>30) print \"FAIL: '\"'\"'$f'\"'\"' still long\"}'; done && echo OK"
   - id: e36s03
     bcp: 2
