@@ -4,14 +4,15 @@ active_story: null
 bug_id: null
 bigpowers_version: 2.73.1
 bug_cycle:
-  current_step: 4
+  current_step: 5
   completed_steps:
   - 1
   - 2
   - 3
   - 4
-  last_bug: BUG-2026-07-06T205700
-  resolution: validated 2026-07-06
+  - 5
+  last_bug: BUG-2026-07-04-python-interpreter-fragility
+  resolution: validated 2026-07-06 — python-env.sh resolver, all 31 callers use $PYTHON, compliance 100%
   handoff:
     next_skill: survey-context
 epic_cycle:

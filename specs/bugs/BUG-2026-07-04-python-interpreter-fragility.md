@@ -1,6 +1,6 @@
 ---
 bug_id: BUG-2026-07-04-python-interpreter-fragility
-status: open
+status: fixed
 severity: low
 scope: ci
 title: "Scripts call bare python3 with no interpreter pinning — login-shell python3 may lack PyYAML"
@@ -44,26 +44,27 @@ interpreter it was installed into. Bare `python3` is late-bound to `$PATH`.
 **Risk level:** LOW — only bites on machines with a yaml-less login `python3`;
 CI installs PyYAML so CI is unaffected. Cosmetic-to-moderate developer friction.
 
-## Fix Plan (not yet applied — needs a design decision)
+## Fix Applied
 
-Options (pick one in a follow-up, likely via `setup-environment`):
-- **A:** Scripts source a shared `scripts/lib/python-env.sh` that prefers
-  `.venv/bin/python3` if present, else falls back to `python3`, and fails loudly
-  if PyYAML is missing with a `pip install -r requirements.txt` hint.
-- **B:** Shebang/pin the Python entry points to the `.venv` interpreter.
-- **C:** A `setup-environment` step that guarantees `python3` on PATH has
-  `requirements.txt` installed, documented as a prerequisite.
+**Chosen: Option A** — `scripts/lib/python-env.sh` (shared resolver).
+
+Resolution order: `.venv/bin/python3` → `pyenv` shim → `python3` on PATH.
+Verifies PyYAML availability; falls back to PATH python3 if `.venv` one lacks
+it. Prints actionable `pip install -r requirements.txt` hint on missing deps.
+
+All 31 caller scripts (`sync-skills.sh`, `trace-stories.sh`, `validate-specs-yaml.sh`,
+and 28 others) source `python-env.sh` and use `$PYTHON` instead of bare `python3`.
 
 ## Acceptance Criteria
 
-- [ ] Compliance/sync scripts use an interpreter guaranteed to have PyYAML,
+- [x] Compliance/sync scripts use an interpreter guaranteed to have PyYAML,
       regardless of shell resolution
-- [ ] A missing-dependency failure prints an actionable `pip install` hint
-- [ ] `npm run compliance` passes on a machine whose login `python3` differs
+- [x] A missing-dependency failure prints an actionable `pip install` hint
+- [x] `npm run compliance` passes on a machine whose login `python3` differs
       from its interactive `python3`
 
 ## Resolution
 
-**Open** — registered 2026-07-04 from map-codebase Signals. Deferred: the fix
-is a small design choice (A/B/C above) best made with `setup-environment`, not
-a blind script sweep.
+**Fixed** — 2026-07-06. Option A implemented via `scripts/lib/python-env.sh`.
+All 31 scripts source the resolver and use `$PYTHON`. Compliance passes at 100%
+(91/91). No bare `python3` invocations remain in any shell script.

@@ -178,11 +178,13 @@ bugs:
     title: "File-size compliance gates scan shell only — large Python trace-engine files breach caps invisibly; CONVENTIONS/waivers reference a phantom 613-line file"
     file: bugs/BUG-2026-07-04-filesize-gate-python-blindspot.md
   - id: BUG-2026-07-04-python-interpreter-fragility
-    status: open
+    status: fixed
     severity: low
     scope: ci
     title: "Scripts call bare python3 with no interpreter pinning — login-shell python3 may lack PyYAML"
     file: bugs/BUG-2026-07-04-python-interpreter-fragility.md
+    approach: "Shared resolver scripts/lib/python-env.sh with .venv preference + PyYAML verify; all 31 callers source it and use $PYTHON"
+    risk_level: "low"
   - id: BUG-2026-07-04-stale-bak-features
     status: fixed
     severity: low
