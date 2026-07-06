@@ -1,5 +1,5 @@
 release:
-  version: 2.70.1
+  version: 2.71.0
   codename: Reach
   status: planning
   semantic_release: true
@@ -73,8 +73,8 @@ epics:
   capsule_dir: epics/e51-always-green-shift-left
   mode: capsule
   status: planned
-  wsjf_rationale: 'BV 8 (solo-dev trust — agents dismiss defects as pre-existing) + TC 5
-    (active pain) + RR 8 (Shift Left across all seeded projects) / Job 3 ≈ 7.0'
+  wsjf_rationale: BV 8 (solo-dev trust — agents dismiss defects as pre-existing) + TC 5 (active pain)
+    + RR 8 (Shift Left across all seeded projects) / Job 3 ≈ 7.0
   source: grill-me session 2026-07-06 — Preflight hard block, fix-or-log, banned phrases
 - id: e50
   title: Codex CLI Reach — AGENTS.md & config.toml seed pack

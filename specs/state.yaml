@@ -1,7 +1,7 @@
 active_flow: null
 active_epic: null
 bug_id: null
-bigpowers_version: 2.70.1
+bigpowers_version: 2.71.0
 bug_cycle: {}
 epic_cycle:
   step: 8
@@ -10,12 +10,13 @@ epic_cycle:
   branch: feat/e35-historical-refs
   audit_result: pass
 handoff:
-  context: "e51 change-request — Always Green / Preflight / fix-or-log epic added WSJF 7.0, first in build_order. Grill-me 2026-07-06."
+  context: e51 change-request — Always Green / Preflight / fix-or-log epic added WSJF 7.0, first in build_order.
+    Grill-me 2026-07-06.
   next_skill: kickoff-branch
   epic: e51
   stories:
-    - e51s01
-    - e51s02
-    - e51s03
-    - e51s04
-    - e51s05
+  - e51s01
+  - e51s02
+  - e51s03
+  - e51s04
+  - e51s05

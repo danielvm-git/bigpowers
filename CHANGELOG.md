@@ -1,3 +1,10 @@
+# [2.71.0](https://github.com/danielvm-git/bigpowers/compare/v2.70.1...v2.71.0) (2026-07-06)
+
+
+### Features
+
+* **specs:** add e51 Always Green epic and update release plan ([366b585](https://github.com/danielvm-git/bigpowers/commit/366b58572b2467d4e02e157cfe6534ffd6d7e825))
+
 ## [2.70.1](https://github.com/danielvm-git/bigpowers/compare/v2.70.0...v2.70.1) (2026-07-06)
 
 
