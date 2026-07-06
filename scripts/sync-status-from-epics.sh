@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # sync-status-from-epics.sh — seed execution-status.yaml keys from epic shards
 set -euo pipefail
-REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+source "$(dirname "${BASH_SOURCE[0]}")/lib/skill-common.sh"
+resolve_repo_root
 SPECS="$REPO_ROOT/specs"
 OUT="$SPECS/execution-status.yaml"
 EPICS="$SPECS/epics"

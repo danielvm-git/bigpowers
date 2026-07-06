@@ -17,12 +17,13 @@
 # Exit 1: round trip destroyed structure (corruption bug is back)
 
 set -euo pipefail
+source "$(dirname "${BASH_SOURCE[0]}")/lib/skill-common.sh"
+resolve_repo_root
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 NC='\033[0m'
 
-REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 FIXTURE="$REPO_ROOT/specs/verifications/fixtures/yaml-roundtrip/sample.yaml"
 TOOL="$REPO_ROOT/scripts/yaml-tools.py"
 
@@ -82,6 +83,8 @@ sys.exit(0)
 " "$WORKDIR/sample.yaml")"
 EXIT=$?
 set -e
+source "$(dirname "${BASH_SOURCE[0]}")/lib/skill-common.sh"
+resolve_repo_root
 
 echo "$RESULT"
 

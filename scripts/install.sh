@@ -12,11 +12,12 @@
 #   ./scripts/install.sh --dry-run   # show what would be linked
 #   ./scripts/install.sh --uninstall # remove all managed symlinks
 set -euo pipefail
+source "$(dirname "${BASH_SOURCE[0]}")/lib/skill-common.sh"
+resolve_repo_root
 
-REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 # SKILLS_ROOT: use skills/ subdirectory when it exists, fall back to repo root
-SKILLS_ROOT="$REPO_ROOT"
-[[ -d "$REPO_ROOT/skills" ]] && SKILLS_ROOT="$REPO_ROOT/skills"
+source "$(dirname "${BASH_SOURCE[0]}")/lib/skill-common.sh"
+resolve_repo_root
 
 DRY_RUN=false
 UNINSTALL=false

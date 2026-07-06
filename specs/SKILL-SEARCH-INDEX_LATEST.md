@@ -37,7 +37,7 @@ Regenerate: `bash scripts/build-skill-index.sh`
 | inspect-quality | sonnet | Interactive QA session where user reports bugs or issues conversationally, and the agent logs them to specs/bugs/registry.yaml with a structured audit schema. Explores the codebase in the background f |
 | investigate-bug | sonnet | Investigate a bug or issue by exploring the codebase to find root cause, then write a TDD-based fix plan to specs/bugs/BUG-*.md. Use when user reports a bug, wants to investigate a problem, mentions " |
 | kickoff-branch | haiku | Create a git worktree and feature branch, then verify a clean test baseline before any code is written. Use when starting a new feature or task, when user wants to work in isolation from main, or ment |
-| maintain-wiki | haiku | "Agent-maintained OKF wiki — INGEST source docs, LINT for issues, QUERY across concept pages. Run as part of build-epic Step 8 and verify-work Phase 3."# story: e39s07 |
+| maintain-wiki | haiku | "Agent-maintained OKF wiki — INGEST source docs, LINT for issues, QUERY across concept pages. Run as part of build-epic Step 8 and verify-work Phase 3." |
 | map-codebase | sonnet | "Derives the tech-stack doc from scratch by scanning the codebase — analyzes stack, architecture, and gray areas (error handling, API shapes) and persists findings into specs/tech-architecture/tech- |
 | migrate-spec | sonnet | Detect GSD, spec-kit, or BMAD spec artifacts and transform them into bigpowers YAML layout (state.yaml, release-plan.yaml, epics/, requirements/, plans/, ADRs). Use when migrating foreign spec docs. |
 | model-domain | sonnet | Grilling session that challenges your plan against the existing domain model, sharpens terminology, and updates specs/tech-architecture/tech-stack.md and specs/adr/ inline as decisions crystallise. Us |
@@ -59,7 +59,7 @@ Regenerate: `bash scripts/build-skill-index.sh`
 | run-planning | sonnet | "DISCOVER-PHASE ADVANCER — Drive the discover-phase checklist (specs/planning-status.yaml) through survey-context → scope-work → research-first → elaborate-spec → plan-release → slice-task |
 | scope-work | sonnet | "PLANNING SPINE STEP 1 of 3 — Scope the work: define what is in and out of scope and save as specs/product/SCOPE_LATEST.yaml. Use before slice-tasks or plan-release on any new initiative. Not a subs |
 | search-skills | haiku | Find the right bigpowers skill from natural-language intent using a local lexical index over SKILL.md frontmatter. Use when unsure which skill to invoke, or at start of research-first. |
-| security-review | sonnet | > AI-powered security analysis of code changes — traces data flow, detects injection, auth bypass, secrets exposure, and unsafe deserialization across files. Use when reviewing pending changes, befo |
+| security-review | sonnet | > |
 | seed-conventions | sonnet | Generate CLAUDE.md and CONVENTIONS.md for a brand-new project through a brief interview, and create the specs/ directory with evolved bigpowers structure (product/, tech-architecture/, verifications/, |
 | session-state | haiku | Track implementation decisions and progress in specs/state.yaml to prevent context rot. Use at the start of a session to load context, and whenever a significant decision is made or a milestone is rea |
 | setup-environment | haiku | Pre-install dependencies and configure tools before development work begins. Use at session start on a fresh clone, before kickoff-branch, or when user says setup environment or install deps. |

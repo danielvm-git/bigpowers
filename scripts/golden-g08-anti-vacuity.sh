@@ -18,12 +18,13 @@
 # Exit 1: validate-specs-yaml.sh passed vacuously on the corrupt fixture
 
 set -euo pipefail
+source "$(dirname "${BASH_SOURCE[0]}")/lib/skill-common.sh"
+resolve_repo_root
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 NC='\033[0m'
 
-REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 FIXTURE_DIR="$REPO_ROOT/specs/verifications/fixtures/corrupt-yaml"
 VALIDATOR="$REPO_ROOT/scripts/validate-specs-yaml.sh"
 
@@ -40,6 +41,8 @@ set +e
 actual_output=$(bash "$VALIDATOR" "$FIXTURE_DIR" 2>&1)
 actual_exit=$?
 set -e
+source "$(dirname "${BASH_SOURCE[0]}")/lib/skill-common.sh"
+resolve_repo_root
 
 echo "$actual_output"
 echo ""

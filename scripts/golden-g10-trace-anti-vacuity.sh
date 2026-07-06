@@ -13,12 +13,13 @@
 # Exit 1: trace-stories.py passed vacuously on the degenerate fixture (fail-open risk)
 
 set -euo pipefail
+source "$(dirname "${BASH_SOURCE[0]}")/lib/skill-common.sh"
+resolve_repo_root
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 NC='\033[0m'
 
-REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 FIXTURE_DIR="$REPO_ROOT/specs/verifications/fixtures/trace-vacuous"
 TRACE_ENGINE="$REPO_ROOT/scripts/lib/trace-stories.py"
 
@@ -40,6 +41,8 @@ set +e
 actual_output=$(python3 "$TRACE_ENGINE" "$FIXTURE_DIR" "$MATRIX_JSON" "$TRACE_MD" "$OKF_DIR" 1 "" 2>&1)
 actual_exit=$?
 set -e
+source "$(dirname "${BASH_SOURCE[0]}")/lib/skill-common.sh"
+resolve_repo_root
 
 echo "$actual_output"
 echo ""

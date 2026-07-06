@@ -2,7 +2,6 @@
 # bp-yaml-snapshot.sh — freeze release-plan + requirements into snapshots/
 # Usage: bp-yaml-snapshot.sh [version]  (default: read from release-plan.yaml)
 set -euo pipefail
-REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 SPECS="$REPO_ROOT/specs"
 VER="${1:-}"
 

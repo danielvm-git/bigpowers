@@ -11,7 +11,6 @@
 
 set -euo pipefail
 
-REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 BLIND_SPOTS_JSON="$REPO_ROOT/specs/blind-spots.json"
 EXEC_STATUS="$REPO_ROOT/specs/execution-status.yaml"
 MATRIX_JSON="$REPO_ROOT/specs/traceability-matrix.json"

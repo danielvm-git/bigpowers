@@ -17,7 +17,6 @@
 
 set -euo pipefail
 
-REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 MATRIX_JSON="$REPO_ROOT/specs/traceability-matrix.json"
 TRACE_MD="$REPO_ROOT/specs/TRACEABILITY_LATEST.md"
 RELEASE_PLAN="$REPO_ROOT/specs/release-plan.yaml"

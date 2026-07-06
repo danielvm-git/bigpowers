@@ -1,73 +1,102 @@
 #!/usr/bin/env bash
 # story: e28s01
-# scripts/lib/skill-common.sh — Shared bash library for skill pipeline scripts
-# Provides: resolve_repo_root, parse_frontmatter, iterate_skills
-# Safe to source under set -euo pipefail; double-source is a no-op.
+# Shared functions for bigpowers sync pipeline.
+# Source this from any script that needs REPO_ROOT, SKILLS_ROOT, or skill iteration.
+# Double-source guard: safe under set -euo pipefail.
 
-# Double-source guard
-if [[ -n "${_SKILL_COMMON_SOURCED:-}" ]]; then
+if [ -n "${SKILL_COMMON_LOADED:-}" ]; then
   return 0
 fi
-_SKILL_COMMON_SOURCED=1
+SKILL_COMMON_LOADED=1
 
-# ── resolve_repo_root ───────────────────────────────────────────────
-# Resolves REPO_ROOT to the repository root (two levels up from this
-# library at scripts/lib/skill-common.sh). Also sets SKILLS_ROOT:
-# skills/ subdirectory when it exists, repo root fallback.
+# resolve_repo_root — set REPO_ROOT and SKILLS_ROOT
 resolve_repo_root() {
-  REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+  local lib_dir
+  lib_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)" || return 1
+  # Library is at REPO/scripts/lib/skill-common.sh → two levels up
+  local repo_candidate
+  repo_candidate="$(cd "$lib_dir/../.." 2>/dev/null && pwd)"
+  if [ -n "$repo_candidate" ] && [ -d "$repo_candidate/skills" ]; then
+    REPO_ROOT="$repo_candidate"
+  else
+    repo_candidate="$(cd "$lib_dir/.." 2>/dev/null && pwd)"
+    REPO_ROOT="$repo_candidate"
+  fi
   SKILLS_ROOT="$REPO_ROOT"
-  [[ -d "$REPO_ROOT/skills" ]] && SKILLS_ROOT="$REPO_ROOT/skills"
+  [ -d "$REPO_ROOT/skills" ] && SKILLS_ROOT="$REPO_ROOT/skills"
+  export REPO_ROOT SKILLS_ROOT
 }
 
-# Resolve at source time so callers don't need to
-resolve_repo_root
-
-# ── parse_frontmatter ───────────────────────────────────────────────
-# Usage: parse_frontmatter <SKILL.md>
-# Extracts YAML frontmatter into globals: _PF_NAME, _PF_MODEL, _PF_DESCRIPTION
-# Returns 0 on success, non-zero if file missing or no name in frontmatter.
+# parse_frontmatter — extract name, model, description from SKILL.md YAML frontmatter
+# Usage: parse_frontmatter <path-to-SKILL.md>
+# Output: exports SKILL_NAME, SKILL_MODEL, SKILL_DESC
 parse_frontmatter() {
   local file="$1"
-  _PF_NAME=""
-  _PF_MODEL=""
-  _PF_DESCRIPTION=""
-
-  if [[ ! -f "$file" ]]; then
+  if [ ! -f "$file" ]; then
     echo "parse_frontmatter: file not found: $file" >&2
     return 1
   fi
 
-  # Verify YAML frontmatter exists (at least one --- delimiter)
-  if ! grep -q '^---$' "$file"; then
-    echo "parse_frontmatter: no YAML frontmatter in $file" >&2
-    return 1
-  fi
+  local in_block=0
+  local name="" model="" desc="" line
 
-  # Extract name (single-line, first match in frontmatter)
-  _PF_NAME=$(awk '/^---/{f++} f==1 && /^name:/{print; exit}' "$file" | sed 's/^name:[[:space:]]*//')
+  while IFS= read -r line; do
+    if [ "$line" = "---" ]; then
+      in_block=$((in_block + 1))
+      [ "$in_block" -eq 2 ] && break
+      continue
+    fi
+    [ "$in_block" -ne 1 ] && continue
 
-  # Extract model (single-line, first match in frontmatter)
-  _PF_MODEL=$(awk '/^---/{f++} f==1 && /^model:/{print; exit}' "$file" | sed 's/^model:[[:space:]]*//')
+    case "$line" in
+      name:*)
+        name="${line#name: }"
+        name="${name#name:}"
+        name="${name# }"
+        ;;
+      model:*)
+        model="${line#model: }"
+        model="${model#model:}"
+        model="${model# }"
+        ;;
+      description:*)
+        desc="${line#description: }"
+        desc="${desc#description:}"
+        desc="${desc# }"
+        # Handle multiline: keep reading indented continuation lines
+        ;;
+    esac
+  done < "$file"
 
-  # Extract description (potentially multiline, from "description:" to next YAML key or closing ---)
-  _PF_DESCRIPTION=$(awk '/^---/{f++; next} f==1 && /^description:/{p=1; sub(/^description:[[:space:]]*/,""); print; next} f==1 && p && /^[a-z]+:/{exit} f==1 && p{print}' "$file" \
-    | tr -d '\n' \
-    | sed -E 's/[[:space:]]+/ /g')
+  # Read continuation lines for multiline description
+  local continued=0
+  while IFS= read -r line; do
+    if [ "$line" = "---" ]; then
+      [ "$continued" -eq 0 ] && continued=1 || break
+      continue
+    fi
+    [ "$continued" -eq 0 ] && continue
+    # If next field starts (unindented key:), stop
+    [[ "$line" =~ ^[a-zA-Z_]+: ]] && break
+    desc="$desc $line"
+  done < "$file"
 
-  [[ -z "$_PF_NAME" ]] && return 1
-  return 0
+  SKILL_NAME="$name"
+  SKILL_MODEL="$model"
+  SKILL_DESC="$desc"
+  # Compatibility: also set _PF_* for scripts that expect them
+  _PF_NAME="$SKILL_NAME"
+  _PF_MODEL="$SKILL_MODEL"
+  _PF_DESCRIPTION="$SKILL_DESC"
+  export SKILL_NAME SKILL_MODEL SKILL_DESC _PF_NAME _PF_MODEL _PF_DESCRIPTION
 }
 
-# ── iterate_skills ──────────────────────────────────────────────────
-# Usage: iterate_skills
-# Outputs one absolute path per skill directory under SKILLS_ROOT that
-# contains a SKILL.md file, in stable sorted order (no trailing slash).
+# iterate_skills — list skill directories containing SKILL.md, stable sorted order
 iterate_skills() {
-  local dir
-  for dir in "$SKILLS_ROOT"/*/; do
-    [[ -d "$dir" ]] || continue
-    [[ -f "$dir/SKILL.md" ]] || continue
-    echo "${dir%/}"
-  done
+  resolve_repo_root 2>/dev/null || true
+  if [ -d "$SKILLS_ROOT" ]; then
+    for dir in "$SKILLS_ROOT"/*/; do
+      [ -f "${dir}SKILL.md" ] && echo "${dir%/}"
+    done | sort
+  fi
 }

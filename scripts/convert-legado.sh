@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # convert-legado.sh — RELEASE-PLAN.md + SCOPE.md → YAML layout (one-time migration helper)
 set -euo pipefail
-REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 SPECS="$REPO_ROOT/specs"
 RP_MD="$SPECS/RELEASE-PLAN.md"
 SCOPE_MD="$SPECS/SCOPE.md"

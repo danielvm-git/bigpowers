@@ -2,8 +2,9 @@
 # story: e47s04
 # verify-install.sh — manual assertion harness for install + seed wiring
 set -euo pipefail
+source "$(dirname "${BASH_SOURCE[0]}")/lib/skill-common.sh"
+resolve_repo_root
 
-REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 PASS=0
 FAIL=0
 TMPDIR=""
