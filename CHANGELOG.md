@@ -1,3 +1,10 @@
+## [2.68.4](https://github.com/danielvm-git/bigpowers/compare/v2.68.3...v2.68.4) (2026-07-06)
+
+
+### Bug Fixes
+
+* **ci:** restore REPO_ROOT init in trace-stories wrapper ([402a036](https://github.com/danielvm-git/bigpowers/commit/402a036259408a675bb1b12486d7a12eea56e30d))
+
 ## [2.68.3](https://github.com/danielvm-git/bigpowers/compare/v2.68.2...v2.68.3) (2026-07-06)
 
 
