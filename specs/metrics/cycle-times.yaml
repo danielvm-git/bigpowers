@@ -471,3 +471,14 @@ stories:
   end: '2026-07-06T13:50:00Z'
   commit: cfd572db
   note: Squash land via land-branch.sh; 2 commits squashed
+
+- id: BUG-2026-07-06T205700
+  type: bug
+  bcps: 0
+  effort_hours: 0.1
+  lead_time_minutes: 7
+  source: git-hours (1 commit, 1 session)
+  commit: e7a56bfd
+  started: '2026-07-06T21:11:00Z'
+  merged: '2026-07-06T21:18:00Z'
+
