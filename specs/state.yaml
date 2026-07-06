@@ -26,5 +26,5 @@ metrics:
       avg_seconds: 343.0
 release:
   ci_verified: true
-  last_commit: 544ce8f9
+  last_commit: 15a9e3fb
   last_epic: e37
