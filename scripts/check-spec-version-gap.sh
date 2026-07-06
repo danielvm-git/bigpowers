@@ -62,6 +62,35 @@ version_lt() {
   return 1
 }
 
+is_protected_branch() {
+  [[ "$1" == "main" || "$1" == "master" ]]
+}
+
+on_feature_branch() {
+  local branch="$1"
+  [[ -n "$branch" ]] || return 1
+  is_protected_branch "$branch" && return 1
+  return 0
+}
+
+yaml_value_set() {
+  local value="$1"
+  [[ -n "$value" ]] || return 1
+  [[ "$value" == "null" || "$value" == "None" ]] && return 1
+  return 0
+}
+
+has_dirty_specs() {
+  [[ -d "$SPECS" ]] && git -C "$PROJECT_DIR" status --porcelain -- specs/ 2>/dev/null | grep -q .
+}
+
+is_blocking_active_flow() {
+  local flow="$1"
+  yaml_value_set "$flow" || return 1
+  case "$flow" in build_epic|develop_tdd|fix_bug) return 0 ;; esac
+  return 1
+}
+
 find_migrations() {
   local ver="$1" reg="$BP_ROOT/specs/migrations/registry.okf.md"
   [[ ! -f "$reg" ]] && { echo "[]"; return; }
@@ -83,13 +112,12 @@ print(json.dumps(out))
 }
 
 check_active_work() {
-  local branch; branch=$(git -C "$PROJECT_DIR" branch --show-current 2>/dev/null || echo "")
-  if [[ -n "$branch" && "$branch" != "main" && "$branch" != "master" ]]; then echo "true"; return; fi
-  if [[ -d "$SPECS" ]] && git -C "$PROJECT_DIR" status --porcelain -- specs/ 2>/dev/null | grep -q .; then echo "true"; return; fi
-  local af; af=$(yaml_get "$SPECS/state.yaml" "active_flow")
-  if [[ -n "$af" && "$af" != "null" && "$af" != "None" ]]; then
-    case "$af" in build_epic|develop_tdd|fix_bug) echo "true"; return ;; esac
-  fi
+  local branch af
+  branch=$(git -C "$PROJECT_DIR" branch --show-current 2>/dev/null || echo "")
+  if on_feature_branch "$branch"; then echo "true"; return; fi
+  if has_dirty_specs; then echo "true"; return; fi
+  af=$(yaml_get "$SPECS/state.yaml" "active_flow")
+  if is_blocking_active_flow "$af"; then echo "true"; return; fi
   echo "false"
 }
 
@@ -103,7 +131,7 @@ fi
 
 SV=$(yaml_get "$SPECS/state.yaml" "bigpowers_version")
 
-if [[ -n "$SV" && "$SV" != "null" && "$SV" != "None" ]]; then
+if yaml_value_set "$SV"; then
   if [[ "$SV" == "$IV" ]]; then
     emit_json '{"gap":false,"stamp":true,"detected_version":"'"$SV"'","installed_version":"'"$IV"'","detection_method":"stamp","confidence":"high"}'
     exit 0
@@ -123,7 +151,7 @@ for f in release-plan.yaml execution-status.yaml product/SCOPE_LATEST.yaml metri
 done
 if [[ -f "$SPECS/state.yaml" ]]; then
   ec=$(yaml_get "$SPECS/state.yaml" "epic_cycle.current_step")
-  if [[ -n "$ec" && "$ec" != "null" && "$ec" != "None" ]]; then
+  if yaml_value_set "$ec"; then
     MARKERS+=("epic_cycle"); [[ "$DV" == "2.0.0" ]] && DV="2.20.0"
   fi
 fi

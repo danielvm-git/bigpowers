@@ -6,7 +6,7 @@ title: "plan-release: check-spec-version-gap.sh contains complex unencapsulated 
 category: bug
 tier: extended
 severity: medium
-status: open
+status: fixed
 generator: scripts/sync-bugs-registry.sh
 references:
     - specs/bugs/BUG-2026-07-06-plan-release-gap-logic-boolean.md
@@ -14,7 +14,7 @@ references:
 
 # plan-release: check-spec-version-gap.sh contains complex unencapsulated boolean logic (G28)
 
-**Bug:** BUG-2026-07-06-plan-release-gap-logic-boolean | **Severity:** medium | **Status:** open | **Scope:** skills/plan-release
+**Bug:** BUG-2026-07-06-plan-release-gap-logic-boolean | **Severity:** medium | **Status:** fixed | **Scope:** skills/plan-release
 **Tier:** extended
 
 See `specs/bugs/BUG-2026-07-06-plan-release-gap-logic-boolean.md` for full investigation and fix details.
