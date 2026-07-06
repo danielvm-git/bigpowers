@@ -137,6 +137,14 @@ else
   done
 fi
 
+# ── CI: trace-stories wrapper smoke (REPO_ROOT must be set under set -u) ───────
+echo "--- [CI] trace-stories wrapper smoke ---"
+if bash "$REPO_ROOT/scripts/trace-stories.sh" --help >/dev/null 2>&1; then
+  pass "trace-stories.sh --help exits 0 (REPO_ROOT initialized)"
+else
+  fail "trace-stories.sh --help failed — REPO_ROOT likely unset; run: bash scripts/trace-stories.sh --help"
+fi
+
 # ── Summary ────────────────────────────────────────────────────────────────────
 echo "---"
 if [[ "$ERRORS" -eq 0 ]]; then
