@@ -1,7 +1,7 @@
 active_flow: null
 active_epic: null
 bug_id: null
-bigpowers_version: 2.68.6
+bigpowers_version: 2.69.0
 bug_cycle: {}
 epic_cycle:
   step: 8
@@ -10,5 +10,6 @@ epic_cycle:
   branch: feat/e35-historical-refs
   audit_result: pass
 handoff:
-  context: "e35 complete — all 10 stories verified, story tags added, traceability regenerated. Pushed to main as 084f2de."
+  context: e35 complete — all 10 stories verified, story tags added, traceability regenerated. Pushed
+    to main as 084f2de.
   next_skill: null

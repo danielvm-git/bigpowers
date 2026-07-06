@@ -1,5 +1,5 @@
 release:
-  version: 2.68.6
+  version: 2.69.0
   codename: Deepening
   status: released
   semantic_release: true
@@ -76,7 +76,8 @@ epics:
   mode: capsule
   status: proposed
   source_issue: https://github.com/danielvm-git/bigpowers/issues/52
-  wsjf_rationale: "BV 5 (community ask #52) + TC 3 + RR 5 (closes e47 Codex out-of-scope gap) / Job 3 ≈ 4.3"
+  wsjf_rationale: 'BV 5 (community ask #52) + TC 3 + RR 5 (closes e47 Codex out-of-scope gap) / Job 3
+    ≈ 4.3'
 - id: e32
   title: MCP Semantic Context Server
   wsjf: 4.0
