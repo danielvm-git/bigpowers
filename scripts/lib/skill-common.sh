@@ -91,6 +91,27 @@ parse_frontmatter() {
   export SKILL_NAME SKILL_MODEL SKILL_DESC _PF_NAME _PF_MODEL _PF_DESCRIPTION
 }
 
+# parse_frontmatter_okf — like parse_frontmatter but also extracts effort field
+parse_frontmatter_okf() {
+  local file="$1"
+  _PF_EFFORT=""
+
+  if [[ ! -f "$file" ]] || ! grep -q '^---$' "$file"; then
+    return 1
+  fi
+
+  _PF_NAME=$(awk '/^---/{f++} f==1 && /^name:/{print; exit}' "$file" | sed 's/^name:[[:space:]]*//')
+  _PF_MODEL=$(awk '/^---/{f++} f==1 && /^model:/{print; exit}' "$file" | sed 's/^model:[[:space:]]*//')
+  _PF_EFFORT=$(awk '/^---/{f++} f==1 && /^effort:/{print; exit}' "$file" | sed 's/^effort:[[:space:]]*//')
+  _PF_DESCRIPTION=$(awk '/^---/{f++; next} f==1 && /^description:/{p=1; sub(/^description:[[:space:]]*/,""); print; next} f==1 && p && /^[a-z]+:/{exit} f==1 && p{print}' "$file" \
+    | tr -d '\n' \
+    | sed -E 's/[[:space:]]+/ /g')
+
+  [[ -z "$_PF_NAME" ]] && return 1
+  export _PF_NAME _PF_MODEL _PF_EFFORT _PF_DESCRIPTION
+  return 0
+}
+
 # iterate_skills — list skill directories containing SKILL.md, stable sorted order
 iterate_skills() {
   resolve_repo_root 2>/dev/null || true
