@@ -1,6 +1,6 @@
 ---
 bug_id: BUG-2026-07-06T134600
-status: open
+status: fixed
 severity: medium
 scope: ci
 title: "GitHub Pages deploy job fails with 'Deployment failed, try again later' while build succeeds"
