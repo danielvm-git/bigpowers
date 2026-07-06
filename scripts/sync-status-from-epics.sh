@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 # sync-status-from-epics.sh — seed execution-status.yaml keys from epic shards
 set -euo pipefail
+source "$(dirname "${BASH_SOURCE[0]}")/lib/python-env.sh"
 source "$(dirname "${BASH_SOURCE[0]}")/lib/skill-common.sh"
 resolve_repo_root
 SPECS="$REPO_ROOT/specs"
 OUT="$SPECS/execution-status.yaml"
 EPICS="$SPECS/epics"
 
-python3 - "$EPICS" "$OUT" <<'PY'
+$PYTHON - "$EPICS" "$OUT" <<'PY'
 import re
 import sys
 from pathlib import Path

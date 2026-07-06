@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # convert-legado.sh — RELEASE-PLAN.md + SCOPE.md → YAML layout (one-time migration helper)
 set -euo pipefail
+source "$(dirname "${BASH_SOURCE[0]}")/lib/python-env.sh"
 SPECS="$REPO_ROOT/specs"
 RP_MD="$SPECS/RELEASE-PLAN.md"
 SCOPE_MD="$SPECS/SCOPE.md"
@@ -26,7 +27,7 @@ archive_if_needed() {
 }
 
 # Parse ### WSn — Title · WSJF X.X from RELEASE-PLAN.md
-python3 - "$RP_MD" "$SPECS" <<'PY'
+$PYTHON - "$RP_MD" "$SPECS" <<'PY'
 import json
 import re
 import sys
@@ -112,7 +113,7 @@ fi
 # requirements/SCOPE stub from SCOPE.md if missing
 if [[ -f "$SCOPE_MD" && ! -f "$SPECS/requirements/SCOPE_LATEST.yaml" ]]; then
   mkdir -p "$SPECS/requirements"
-  python3 - "$SCOPE_MD" "$SPECS/requirements/SCOPE_LATEST.yaml" <<'PY'
+  $PYTHON - "$SCOPE_MD" "$SPECS/requirements/SCOPE_LATEST.yaml" <<'PY'
 import sys
 from pathlib import Path
 src = Path(sys.argv[1]).read_text(encoding="utf-8")

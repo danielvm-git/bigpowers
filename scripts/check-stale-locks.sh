@@ -2,6 +2,7 @@
 # story: e39s02
 # Validate that no agent lock in specs/agent-locks.yaml is >24h old.
 set -euo pipefail
+source "$(dirname "${BASH_SOURCE[0]}")/lib/python-env.sh"
 
 LOCK_FILE="specs/agent-locks.yaml"
 if [ ! -f "$LOCK_FILE" ]; then
@@ -9,7 +10,7 @@ if [ ! -f "$LOCK_FILE" ]; then
   exit 0
 fi
 
-python3 -c "
+$PYTHON -c "
 import yaml, datetime, sys
 
 now = datetime.datetime.now(datetime.timezone.utc)

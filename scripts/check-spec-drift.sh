@@ -3,6 +3,7 @@
 # Compare spec-file mtimes against implementing source-file mtimes,
 # mark suspect links, write to specs/drift-report.json
 set -euo pipefail
+source "$(dirname "${BASH_SOURCE[0]}")/lib/python-env.sh"
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
@@ -32,7 +33,7 @@ if [ ! -f "$TRACE_MATRIX" ]; then
   exit 1
 fi
 
-python3 -c "
+$PYTHON -c "
 import json, os, sys
 
 with open('$TRACE_MATRIX') as f:

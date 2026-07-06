@@ -2,11 +2,12 @@
 # story: e41s01
 # build-receipts.sh — aggregate all quality evidence into specs/receipts.json.
 set -euo pipefail
+source "$(dirname "${BASH_SOURCE[0]}")/lib/python-env.sh"
 ROOT="$(git rev-parse --show-toplevel 2>/dev/null)" || { echo "build-receipts: not inside a git repo" >&2; exit 1; }
 OUTFILE="$ROOT/specs/receipts.json"
 TIMESTAMP="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
 emit_json() {
-  python3 -c "
+  $PYTHON -c "
 import json, sys, os, subprocess, glob as gb
 sections = {}
 

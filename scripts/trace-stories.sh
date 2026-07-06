@@ -16,6 +16,7 @@
 #   2 — --strict mode: P0 story has 0% coverage
 
 set -euo pipefail
+source "$(dirname "${BASH_SOURCE[0]}")/lib/python-env.sh"
 
 source "$(dirname "${BASH_SOURCE[0]}")/lib/skill-common.sh"
 
@@ -68,5 +69,5 @@ if [[ ! -f "$EXEC_STATUS" ]]; then
   exit 1
 fi
 
-exec python3 "$(dirname "${BASH_SOURCE[0]}")/lib/trace-stories.py" \
+exec $PYTHON "$(dirname "${BASH_SOURCE[0]}")/lib/trace-stories.py" \
   "$REPO_ROOT" "$MATRIX_JSON" "$TRACE_MD" "$OKF_DIR" "$STRICT" "$MODE"

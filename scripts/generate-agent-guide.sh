@@ -2,6 +2,7 @@
 # story: e39s06
 # Decompose CLAUDE.md into specs/agent-guide/ for progressive disclosure
 set -euo pipefail
+source "$(dirname "${BASH_SOURCE[0]}")/lib/python-env.sh"
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
@@ -36,7 +37,7 @@ fi
 
 mkdir -p "$AGENT_GUIDE"
 
-python3 -c "
+$PYTHON -c "
 import re, os
 
 with open('$CLAUDE_MD') as f:

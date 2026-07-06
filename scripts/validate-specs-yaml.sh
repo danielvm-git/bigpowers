@@ -8,6 +8,7 @@
 # specs/**/*.yaml with PyYAML first, and runs the required-key checks
 # against the *parsed* objects, not against grep.
 set -euo pipefail
+source "$(dirname "${BASH_SOURCE[0]}")/lib/python-env.sh"
 
 # Resolve REPO_ROOT from script location
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -18,7 +19,7 @@ SPECS="${1:-$REPO_ROOT/specs}"
 err=0
 
 # ── Phase 1: real parse pass — every specs/**/*.yaml must be valid YAML ──────
-parse_report="$(python3 -c "
+parse_report="$($PYTHON -c "
 import sys, glob, os
 import yaml
 
@@ -61,7 +62,7 @@ need_key() {
     err=1
     return
   fi
-  if ! python3 -c "
+  if ! $PYTHON -c "
 import sys, yaml
 d = yaml.safe_load(open(sys.argv[1])) or {}
 sys.exit(0 if ($py_check) else 1)
@@ -79,7 +80,7 @@ need_key "$SPECS/execution-status.yaml" "isinstance(d.get('development_status'),
 
 # ── Phase 3: every epic's `file` reference must exist, read from the parsed object ──
 if [[ -f "$SPECS/release-plan.yaml" ]]; then
-  missing_files="$(python3 -c "
+  missing_files="$($PYTHON -c "
 import sys, os, yaml
 specs = sys.argv[1]
 d = yaml.safe_load(open(os.path.join(specs, 'release-plan.yaml'))) or {}

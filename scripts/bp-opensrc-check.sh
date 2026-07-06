@@ -3,6 +3,7 @@
 # Usage: bash scripts/bp-opensrc-check.sh [package.json|requirements.txt]
 # Output: one line per dependency — FOUND or NOT CACHED, with local path when found.
 set -euo pipefail
+source "$(dirname "${BASH_SOURCE[0]}")/lib/python-env.sh"
 
 INPUT="${1:-package.json}"
 
@@ -20,7 +21,7 @@ extract_deps() {
   local file="$1"
   case "$file" in
     *.json)
-      python3 -c "
+      $PYTHON -c "
 import json, sys
 data = json.load(open('$file'))
 deps = list(data.get('dependencies', {}).keys()) + list(data.get('devDependencies', {}).keys())

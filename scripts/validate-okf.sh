@@ -5,6 +5,7 @@
 # and verification-report bundles.
 # Multi-dir default: specs/metrics/ + specs/migrations/.
 set -euo pipefail
+source "$(dirname "${BASH_SOURCE[0]}")/lib/python-env.sh"
 
 ROOT="$(git rev-parse --show-toplevel 2>/dev/null)" || { echo "validate-okf: not inside a git repo"; exit 1; }
 EXIT_CODE=0
@@ -42,7 +43,7 @@ val_nullish_or_empty() { val_nullish "$1" || [ "$1" = "[]" ]; }
 
 parse_frontmatter() {
   local file="$1"
-  python3 -c "
+  $PYTHON -c "
 import yaml, sys, json
 
 class SafeEncoder(json.JSONEncoder):
@@ -74,7 +75,7 @@ validate_story_metrics() {
   local errs=0
   for key in id epic bcps commit_range source generated_at generator; do
     local val
-    val="$(echo "$fm" | python3 -c "import json,sys; d=json.load(sys.stdin); print(d.get('$key',''))" 2>/dev/null)"
+    val="$(echo "$fm" | $PYTHON -c "import json,sys; d=json.load(sys.stdin); print(d.get('$key',''))" 2>/dev/null)"
     if val_nullish "$val"; then
       printf "${RED}FAIL${NC} %s: missing required key '%s'\n" "$name" "$key"
       errs=$((errs + 1))
@@ -83,28 +84,28 @@ validate_story_metrics() {
   [ "$errs" -gt 0 ] && { EXIT_CODE=1; return; }
 
   local source
-  source="$(echo "$fm" | python3 -c "import json,sys; d=json.load(sys.stdin); print(d.get('source',''))" 2>/dev/null)"
+  source="$(echo "$fm" | $PYTHON -c "import json,sys; d=json.load(sys.stdin); print(d.get('source',''))" 2>/dev/null)"
   if ! echo "measured estimated backfilled" | grep -qw "$source"; then
     printf "${RED}FAIL${NC} %s: invalid source '%s' — must be measured|estimated|backfilled\n" "$name" "$source"
     EXIT_CODE=1; return
   fi
 
   local generator
-  generator="$(echo "$fm" | python3 -c "import json,sys; d=json.load(sys.stdin); print(d.get('generator',''))" 2>/dev/null)"
+  generator="$(echo "$fm" | $PYTHON -c "import json,sys; d=json.load(sys.stdin); print(d.get('generator',''))" 2>/dev/null)"
   if [ "$generator" != "scripts/record-cycle-time.sh" ]; then
     printf "${RED}FAIL${NC} %s: wrong generator '%s' — expected scripts/record-cycle-time.sh\n" "$name" "$generator"
     EXIT_CODE=1; return
   fi
 
   local commit_range
-  commit_range="$(echo "$fm" | python3 -c "import json,sys; d=json.load(sys.stdin); print(d.get('commit_range',''))" 2>/dev/null)"
+  commit_range="$(echo "$fm" | $PYTHON -c "import json,sys; d=json.load(sys.stdin); print(d.get('commit_range',''))" 2>/dev/null)"
   if ! git -C "$ROOT" log --oneline -1 "$commit_range" >/dev/null 2>&1; then
     printf "${RED}FAIL${NC} %s: commit_range '%s' does not resolve\n" "$name" "$commit_range"
     EXIT_CODE=1; return
   fi
 
   local eff
-  eff="$(echo "$fm" | python3 -c "
+  eff="$(echo "$fm" | $PYTHON -c "
 import json,sys
 d=json.load(sys.stdin)
 e=d.get('effort',{}).get('effort_hours')
@@ -128,7 +129,7 @@ validate_spec_migration() {
   local errs=0
   for key in id title since_version order actions_needed; do
     local val
-    val="$(echo "$fm" | python3 -c "import json,sys; d=json.load(sys.stdin); print(d.get('$key',''))" 2>/dev/null)"
+    val="$(echo "$fm" | $PYTHON -c "import json,sys; d=json.load(sys.stdin); print(d.get('$key',''))" 2>/dev/null)"
     if val_nullish_or_empty "$val"; then
       printf "${RED}FAIL${NC} %s: missing required key '%s'\n" "$name" "$key"
       errs=$((errs + 1))
@@ -137,7 +138,7 @@ validate_spec_migration() {
   [ "$errs" -gt 0 ] && { EXIT_CODE=1; return; }
 
   local fp_count
-  fp_count="$(echo "$fm" | python3 -c "
+  fp_count="$(echo "$fm" | $PYTHON -c "
 import json,sys
 d=json.load(sys.stdin)
 fp=d.get('fingerprint',{}).get('any',[])
@@ -150,14 +151,14 @@ print(len(fp))
 
   printf "${GREEN}PASS${NC} %s (actions=%s, fingerprint has %s check(s))\n" \
     "$name" \
-    "$(echo "$fm" | python3 -c "import json,sys; d=json.load(sys.stdin); print(len(d.get('actions_needed',[])))" 2>/dev/null)" \
+    "$(echo "$fm" | $PYTHON -c "import json,sys; d=json.load(sys.stdin); print(len(d.get('actions_needed',[])))" 2>/dev/null)" \
     "$fp_count"
 }
 
 validate_migration_registry() {
   local file="$1" fm="$2" name="$3"
   local count
-  count="$(echo "$fm" | python3 -c "
+  count="$(echo "$fm" | $PYTHON -c "
 import json,sys
 d=json.load(sys.stdin)
 migrations=d.get('migrations',[])
@@ -169,7 +170,7 @@ print(len(migrations))
   fi
 
   local bad
-  bad="$(echo "$fm" | python3 -c "
+  bad="$(echo "$fm" | $PYTHON -c "
 import json,sys
 d=json.load(sys.stdin)
 for m in d.get('migrations',[]):
@@ -188,14 +189,14 @@ validate_concept() {
   local errs=0
   for key in id title category; do
     local val
-    val="$(echo "$fm" | python3 -c "import json,sys; d=json.load(sys.stdin); print(d.get('$key',''))" 2>/dev/null)"
+    val="$(echo "$fm" | $PYTHON -c "import json,sys; d=json.load(sys.stdin); print(d.get('$key',''))" 2>/dev/null)"
     if val_nullish "$val"; then
       printf "${RED}FAIL${NC} %s: missing required key '%s'\n" "$name" "$key"
       errs=$((errs + 1))
     fi
   done
   local ref_count
-  ref_count="$(echo "$fm" | python3 -c "
+  ref_count="$(echo "$fm" | $PYTHON -c "
 import json,sys
 d=json.load(sys.stdin)
 r=d.get('references',[])
@@ -207,7 +208,7 @@ print(len(r) if isinstance(r,list) else 0)
   fi
   [ "$errs" -gt 0 ] && { EXIT_CODE=1; return; }
   local cat
-  cat="$(echo "$fm" | python3 -c "import json,sys; d=json.load(sys.stdin); print(d.get('category',''))" 2>/dev/null)"
+  cat="$(echo "$fm" | $PYTHON -c "import json,sys; d=json.load(sys.stdin); print(d.get('category',''))" 2>/dev/null)"
   printf "${GREEN}PASS${NC} %s (category=%s, %s reference(s))\n" "$name" "$cat" "$ref_count"
 }
 
@@ -217,7 +218,7 @@ validate_verification_report() {
   local errs=0
   for key in score gate_status threshold total_pass total_fail generated_by; do
     local val
-    val="$(echo "$fm" | python3 -c "import json,sys; d=json.load(sys.stdin); print(d.get('$key',''))" 2>/dev/null)"
+    val="$(echo "$fm" | $PYTHON -c "import json,sys; d=json.load(sys.stdin); print(d.get('$key',''))" 2>/dev/null)"
     if val_nullish "$val"; then
       printf "${RED}FAIL${NC} %s: missing required key '%s'\n" "$name" "$key"
       errs=$((errs + 1))
@@ -226,14 +227,14 @@ validate_verification_report() {
   [ "$errs" -gt 0 ] && { EXIT_CODE=1; return; }
 
   local gs
-  gs="$(echo "$fm" | python3 -c "import json,sys; d=json.load(sys.stdin); print(d.get('gate_status',''))" 2>/dev/null)"
+  gs="$(echo "$fm" | $PYTHON -c "import json,sys; d=json.load(sys.stdin); print(d.get('gate_status',''))" 2>/dev/null)"
   if ! echo "pass fail concerns waived" | grep -qw "$gs"; then
     printf "${RED}FAIL${NC} %s: invalid gate_status '%s' — must be pass|fail|concerns|waived\n" "$name" "$gs"
     EXIT_CODE=1; return
   fi
 
   local score
-  score="$(echo "$fm" | python3 -c "
+  score="$(echo "$fm" | $PYTHON -c "
 import json,sys
 d=json.load(sys.stdin)
 s=d.get('score')
@@ -254,14 +255,14 @@ print(s)
 
   printf "${GREEN}PASS${NC} %s (score=%.1f, gate=%s, threshold=%.1f)\n" \
     "$name" "$score" "$gs" \
-    "$(echo "$fm" | python3 -c "import json,sys; d=json.load(sys.stdin); print(d.get('threshold',0))" 2>/dev/null)"
+    "$(echo "$fm" | $PYTHON -c "import json,sys; d=json.load(sys.stdin); print(d.get('threshold',0))" 2>/dev/null)"
 }
 
 # ---- Receipts validation (e41s04) ----
 validate_receipts() {
   local f="$ROOT/specs/receipts.json"
   if [ ! -f "$f" ]; then printf "${YELLOW}SKIP${NC} receipts.json not found\n"; return; fi
-  python3 -c "
+  $PYTHON -c "
 import json, sys
 d=json.load(open('$f'))
 vs={'measured','estimated','backfilled','absent'}
@@ -296,7 +297,7 @@ validate_bundle() {
   # ── OKF v0.1 Generic Frontmatter Conformance (e39s10) ──
   # Check required 'type' field
   local fm_type
-  fm_type="$(echo "$fm" | python3 -c "import json,sys; d=json.load(sys.stdin); print(d.get('type',''))" 2>/dev/null)"
+  fm_type="$(echo "$fm" | $PYTHON -c "import json,sys; d=json.load(sys.stdin); print(d.get('type',''))" 2>/dev/null)"
   if [ -z "$fm_type" ]; then
     printf "${RED}FAIL${NC} %s: OKF v0.1 — missing required 'type' field\n" "$name"
     EXIT_CODE=1
@@ -311,7 +312,7 @@ validate_bundle() {
   fi
 
   local kind
-  kind="$(echo "$fm" | python3 -c "import json,sys; d=json.load(sys.stdin); print(d.get('okf_kind',''))" 2>/dev/null)"
+  kind="$(echo "$fm" | $PYTHON -c "import json,sys; d=json.load(sys.stdin); print(d.get('okf_kind',''))" 2>/dev/null)"
   case "$kind" in
     story-metrics)       validate_story_metrics "$file" "$fm" "$name" ;;
     spec-migration)      validate_spec_migration "$file" "$fm" "$name" ;;

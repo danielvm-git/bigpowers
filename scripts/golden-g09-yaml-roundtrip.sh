@@ -17,6 +17,7 @@
 # Exit 1: round trip destroyed structure (corruption bug is back)
 
 set -euo pipefail
+source "$(dirname "${BASH_SOURCE[0]}")/lib/python-env.sh"
 source "$(dirname "${BASH_SOURCE[0]}")/lib/skill-common.sh"
 resolve_repo_root
 
@@ -38,10 +39,10 @@ WORKDIR="$(mktemp -d)"
 trap 'rm -rf "$WORKDIR"' EXIT
 cp "$FIXTURE" "$WORKDIR/sample.yaml"
 
-python3 "$TOOL" set "$WORKDIR/sample.yaml" release.version "9.9.9-test"
+$PYTHON "$TOOL" set "$WORKDIR/sample.yaml" release.version "9.9.9-test"
 
 set +e
-RESULT="$(python3 -c "
+RESULT="$($PYTHON -c "
 import sys, yaml
 
 try:

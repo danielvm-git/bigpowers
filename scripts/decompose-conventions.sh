@@ -2,6 +2,7 @@
 # story: e39s05
 # Decompose CONVENTIONS.md into specs/conventions-wiki/ OKF concept bundle
 set -euo pipefail
+source "$(dirname "${BASH_SOURCE[0]}")/lib/python-env.sh"
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
@@ -51,7 +52,7 @@ context: conventions
 IDXEOF
 
 # Parse CONVENTIONS.md headings into sections
-python3 -c "
+$PYTHON -c "
 import re, os, json
 
 with open('$CONVENTIONS') as f:

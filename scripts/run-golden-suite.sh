@@ -13,6 +13,7 @@
 #   bash scripts/run-golden-suite.sh --baseline         # run + pin baseline
 
 set -euo pipefail
+source "$(dirname "${BASH_SOURCE[0]}")/lib/python-env.sh"
 
 REPORT_DIR="specs/benchmarks/reports"
 BASELINE_FILE="$REPORT_DIR/BASELINE-GOLDEN.yaml"
@@ -80,9 +81,9 @@ agent_dry_run() {
     (( yaml_count += 1 ))
     story_id=$(basename "$yaml_file" .yaml)
 
-    if python3 -c "import yaml; yaml.safe_load(open('$yaml_file'))" 2>/dev/null; then
-      local grader_type=$(python3 -c "import yaml; d=yaml.safe_load(open('$yaml_file')); print(d.get('grader',{}).get('type',''))" 2>/dev/null)
-      local pass_k=$(python3 -c "import yaml; d=yaml.safe_load(open('$yaml_file')); pk=d.get('pass_at_k',{}); print(f\"{pk.get('k',0)}-of-{pk.get('threshold',0)}\")" 2>/dev/null)
+    if $PYTHON -c "import yaml; yaml.safe_load(open('$yaml_file'))" 2>/dev/null; then
+      local grader_type=$($PYTHON -c "import yaml; d=yaml.safe_load(open('$yaml_file')); print(d.get('grader',{}).get('type',''))" 2>/dev/null)
+      local pass_k=$($PYTHON -c "import yaml; d=yaml.safe_load(open('$yaml_file')); pk=d.get('pass_at_k',{}); print(f\"{pk.get('k',0)}-of-{pk.get('threshold',0)}\")" 2>/dev/null)
       echo -e "  ${GREEN}OK${NC}   $story_id — grader=$grader_type, pass@k=$pass_k"
       (( yaml_ok += 1 ))
     else
@@ -235,8 +236,8 @@ if $AGENT_MODE && $DETERMINISTIC_PASSED; then
       echo -n "[$story_id] "
 
       # Read pass@k policy
-      PASS_K=$(python3 -c "import yaml; d=yaml.safe_load(open('$yaml_file')); print(d.get('pass_at_k',{}).get('k',3))" 2>/dev/null || echo 3)
-      PASS_THRESHOLD=$(python3 -c "import yaml; d=yaml.safe_load(open('$yaml_file')); print(d.get('pass_at_k',{}).get('threshold',2))" 2>/dev/null || echo 2)
+      PASS_K=$($PYTHON -c "import yaml; d=yaml.safe_load(open('$yaml_file')); print(d.get('pass_at_k',{}).get('k',3))" 2>/dev/null || echo 3)
+      PASS_THRESHOLD=$($PYTHON -c "import yaml; d=yaml.safe_load(open('$yaml_file')); print(d.get('pass_at_k',{}).get('threshold',2))" 2>/dev/null || echo 2)
 
       story_pass=0
       story_fail=0
@@ -254,7 +255,7 @@ if $AGENT_MODE && $DETERMINISTIC_PASSED; then
         # gh-aw run would go here. For now, check if workflow exists and is valid.
         # The actual agent execution is triggered via gh workflow run in CI;
         # local runs validate YAML definitions only.
-        if python3 -c "
+        if $PYTHON -c "
 import yaml
 d = yaml.safe_load(open('$yaml_file'))
 assert d.get('grader',{}).get('type') == 'code', 'grader must be code'

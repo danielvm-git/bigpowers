@@ -2,8 +2,9 @@
 # bp-timing.sh — Record skill invocation timings for stocktake effectiveness analysis.
 # Usage: bash scripts/bp-timing.sh start <skill-name>
 #        bash scripts/bp-timing.sh end <skill-name>
-# Requires: python3 (for YAML-safe state updates)
+# Requires: $PYTHON (for YAML-safe state updates)
 set -euo pipefail
+source "$(dirname "${BASH_SOURCE[0]}")/lib/python-env.sh"
 
 STATE_YAML="specs/state.yaml"
 TIMINGS_KEY="metrics.skill_timings"
@@ -21,7 +22,7 @@ SKILL="$2"
 case "$ACTION" in
   start)
     STAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
-    python3 -c "
+    $PYTHON -c "
 import yaml, sys
 try:
     with open('$STATE_YAML') as f:
@@ -42,7 +43,7 @@ with open('$STATE_YAML', 'w') as f:
 
   end)
     STAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
-    python3 -c "
+    $PYTHON -c "
 import yaml
 from datetime import datetime
 

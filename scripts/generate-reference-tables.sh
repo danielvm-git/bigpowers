@@ -3,6 +3,7 @@
 # from live */SKILL.md frontmatter. Run after any SKILL.md addition/rename.
 # Called by sync-skills.sh and npm version hooks.
 set -euo pipefail
+source "$(dirname "${BASH_SOURCE[0]}")/lib/python-env.sh"
 
 REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 TARGET="$REPO_ROOT/docs/references/model-profiles.md"
@@ -44,7 +45,7 @@ Total: **$TOTAL** skills — verify with \`find . skills -maxdepth 2 -name SKILL
 # --- 3. Splice block into target file ---
 # Replace between marker comments if they exist; otherwise append.
 if grep -q "AUTO-GENERATED-CATALOG: begin" "$TARGET"; then
-  python3 - "$TARGET" "$BLOCK" <<'PYEOF'
+  $PYTHON - "$TARGET" "$BLOCK" <<'PYEOF'
 import sys, re
 path = sys.argv[1]
 block = sys.argv[2]

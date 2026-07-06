@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 # enrich-epics-from-archive.sh — populate specs/epics from archive RELEASE-PLAN.md
 set -euo pipefail
+source "$(dirname "${BASH_SOURCE[0]}")/lib/python-env.sh"
 ARCHIVE="${1:-$REPO_ROOT/specs/archive/RELEASE-PLAN.md}"
 SPECS="$REPO_ROOT/specs"
 
-python3 - "$ARCHIVE" "$SPECS" <<'PY'
+$PYTHON - "$ARCHIVE" "$SPECS" <<'PY'
 import json
 import re
 import sys

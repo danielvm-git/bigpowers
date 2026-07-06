@@ -2,6 +2,7 @@
 # story: e45s01 e45s06
 # generate-adr-wiki.sh — emit OKF concept bundles from specs/adr/*.md
 set -euo pipefail
+source "$(dirname "${BASH_SOURCE[0]}")/lib/python-env.sh"
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 ADRS="$ROOT/specs/adr"
@@ -30,7 +31,7 @@ for adr_file in "$ADRS"/*.md; do
   # Parse YAML frontmatter if present
   fm="{}"
   if head -1 "$adr_file" 2>/dev/null | grep -q '^---$'; then
-    fm=$(python3 -c "
+    fm=$($PYTHON -c "
 import sys, yaml, json
 content = open('$adr_file').read()
 parts = content.split('---')
@@ -43,9 +44,9 @@ if len(parts) >= 3:
 " 2>/dev/null) || fm="{}"
   fi
 
-  title=$(echo "$fm" | python3 -c "import json,sys; d=json.load(sys.stdin); print(d.get('title',''))" 2>/dev/null || echo "")
-  status=$(echo "$fm" | python3 -c "import json,sys; d=json.load(sys.stdin); print(d.get('status','accepted'))" 2>/dev/null || echo "accepted")
-  decision=$(echo "$fm" | python3 -c "import json,sys; d=json.load(sys.stdin); print(d.get('decision',''))" 2>/dev/null || echo "")
+  title=$(echo "$fm" | $PYTHON -c "import json,sys; d=json.load(sys.stdin); print(d.get('title',''))" 2>/dev/null || echo "")
+  status=$(echo "$fm" | $PYTHON -c "import json,sys; d=json.load(sys.stdin); print(d.get('status','accepted'))" 2>/dev/null || echo "accepted")
+  decision=$(echo "$fm" | $PYTHON -c "import json,sys; d=json.load(sys.stdin); print(d.get('decision',''))" 2>/dev/null || echo "")
 
   # Fallback title from first heading
   if [ -z "$title" ]; then

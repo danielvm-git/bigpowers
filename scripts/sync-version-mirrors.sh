@@ -9,6 +9,7 @@
 # Runs BEFORE @semantic-release/git commits everything.
 
 set -euo pipefail
+source "$(dirname "${BASH_SOURCE[0]}")/lib/python-env.sh"
 
 VERSION="${1:?usage: sync-version-mirrors.sh <version>}"
 REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
@@ -16,10 +17,10 @@ REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 echo "sync-version-mirrors.sh: bumping mirrors to $VERSION"
 
 # ── 1. YAML mirror fields ──────────────────────────────────────────────
-python3 "$REPO_ROOT/scripts/yaml-tools.py" set \
+$PYTHON "$REPO_ROOT/scripts/yaml-tools.py" set \
   "$REPO_ROOT/specs/state.yaml" bigpowers_version "$VERSION"
 
-python3 "$REPO_ROOT/scripts/yaml-tools.py" set \
+$PYTHON "$REPO_ROOT/scripts/yaml-tools.py" set \
   "$REPO_ROOT/specs/release-plan.yaml" release.version "$VERSION"
 
 # ── 2. Regenerate derived artifacts (reads already-bumped package.json) ─

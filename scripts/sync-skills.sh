@@ -8,6 +8,7 @@
 #   --okf          Generate specs/skills-wiki/ OKF concept bundle from SKILL.md frontmatter
 #   --opencode <p> Sync to bigpowers-opencode repo
 set -euo pipefail
+source "$(dirname "${BASH_SOURCE[0]}")/lib/python-env.sh"
 
 # ── Parse CLI flags (must happen before source to allow early --help) ─
 OKF_MODE=0
@@ -409,7 +410,7 @@ if [[ "$OKF_MODE" -eq 1 ]]; then
   # Step 2b: Add cross-references from skill-graph.json edges into OKF concepts
   if [[ -f "$GRAPH_JSON" ]]; then
     echo "Adding cross-references from skill-graph.json..."
-    python3 - "$GRAPH_JSON" "$OKF_WIKI_SKILLS" <<'PYEOF'
+    $PYTHON - "$GRAPH_JSON" "$OKF_WIKI_SKILLS" <<'PYEOF'
 import json, sys, re
 from pathlib import Path
 
@@ -489,8 +490,8 @@ PYEOF
     # Add fallback references to all concepts
     for f in "$OKF_WIKI_SKILLS"/*.md; do
       [[ -f "$f" ]] || continue
-      if command -v python3 &>/dev/null; then
-        python3 -c "
+      if command -v $PYTHON &>/dev/null; then
+        $PYTHON -c "
 import re, sys
 content = open('$f').read()
 content = re.sub(r'references:\s*\[\]', 'references:\n  - concept: skills-wiki\n    type: belongs_to', content)
@@ -503,7 +504,7 @@ open('$f', 'w').write(content)
   # Step 3: Generate specs/skills-wiki/index.md with progressive disclosure
   echo "Generating index.md..."
   OKF_INDEX="$OKF_WIKI_DIR/index.md"
-  python3 - "$OKF_WIKI_SKILLS" "$OKF_WIKI_DIR" "$OKF_INDEX" <<'PYEOF'
+  $PYTHON - "$OKF_WIKI_SKILLS" "$OKF_WIKI_DIR" "$OKF_INDEX" <<'PYEOF'
 import json, sys, re
 from pathlib import Path
 from collections import defaultdict
@@ -662,10 +663,10 @@ fi
 
 # Regression guard (BUG-2026-06-18T100000): validate generated YAML frontmatter
 validate_script="$REPO_ROOT/scripts/validate-skill-yaml.py"
-if [[ -f "$validate_script" ]] && command -v python3 &>/dev/null; then
-  if ! python3 "$validate_script" > /dev/null 2>&1; then
+if [[ -f "$validate_script" ]] && command -v $PYTHON &>/dev/null; then
+  if ! $PYTHON "$validate_script" > /dev/null 2>&1; then
     echo "sync-skills: FAIL — YAML frontmatter validation failed" >&2
-    python3 "$validate_script" >&2
+    $PYTHON "$validate_script" >&2
     exit 1
   fi
 fi

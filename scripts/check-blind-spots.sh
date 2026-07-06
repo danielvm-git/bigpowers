@@ -10,6 +10,7 @@
 # Severities: HIGH / MEDIUM / LOW. Exit 1 on HIGH findings.
 
 set -euo pipefail
+source "$(dirname "${BASH_SOURCE[0]}")/lib/python-env.sh"
 
 BLIND_SPOTS_JSON="$REPO_ROOT/specs/blind-spots.json"
 EXEC_STATUS="$REPO_ROOT/specs/execution-status.yaml"
@@ -47,5 +48,5 @@ if [[ ! -f "$EXEC_STATUS" ]]; then
   exit 1
 fi
 
-exec python3 "$(dirname "${BASH_SOURCE[0]}")/lib/blind-spots.py" \
+exec $PYTHON "$(dirname "${BASH_SOURCE[0]}")/lib/blind-spots.py" \
   "$REPO_ROOT" "$BLIND_SPOTS_JSON" "$EXEC_STATUS" "$MATRIX_JSON" "$VERIFICATIONS_DIR" "$EPICS_DIR"

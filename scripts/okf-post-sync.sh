@@ -4,6 +4,7 @@
 # Called by sync-skills.sh --okf after concept files are rendered.
 # Steps: cross-references from skill-graph.json → index.md → validate-okf.sh
 set -euo pipefail
+source "$(dirname "${BASH_SOURCE[0]}")/lib/python-env.sh"
 source "$(dirname "${BASH_SOURCE[0]}")/lib/skill-common.sh"
 resolve_repo_root
 
@@ -28,13 +29,13 @@ fi
 # ── Step 2: Add cross-references from skill-graph.json ─────────────
 echo "Step 2: Adding cross-references to OKF concepts..."
 
-if [[ -f "$GRAPH_JSON" ]] && command -v python3 &>/dev/null; then
-  python3 "$REPO_ROOT/scripts/okf-add-references.py" "$GRAPH_JSON" "$OKF_WIKI_SKILLS"
+if [[ -f "$GRAPH_JSON" ]] && command -v $PYTHON &>/dev/null; then
+  $PYTHON "$REPO_ROOT/scripts/okf-add-references.py" "$GRAPH_JSON" "$OKF_WIKI_SKILLS"
 else
   echo "  Adding fallback references..."
   for f in "$OKF_WIKI_SKILLS"/*.md; do
     [[ -f "$f" ]] || continue
-    python3 -c "
+    $PYTHON -c "
 import re
 c = open('$f').read()
 c = re.sub(r'references:\s*\[\]', 'references:\n  - concept: skills-wiki\n    type: belongs_to', c)
@@ -46,7 +47,7 @@ fi
 # ── Step 3: Generate index.md with progressive disclosure ──────────
 echo "Step 3: Generating index.md..."
 
-python3 - "$OKF_WIKI_SKILLS" "$OKF_INDEX" <<'PYEOF'
+$PYTHON - "$OKF_WIKI_SKILLS" "$OKF_INDEX" <<'PYEOF'
 import re, sys
 from pathlib import Path
 from collections import defaultdict

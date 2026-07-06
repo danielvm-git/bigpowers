@@ -2,11 +2,12 @@
 # story: e45s03
 # sync-bugs-registry.sh — rebuild specs/bugs/registry.yaml + OKF concept bundles
 set -euo pipefail
+source "$(dirname "${BASH_SOURCE[0]}")/lib/python-env.sh"
 source "$(dirname "${BASH_SOURCE[0]}")/lib/skill-common.sh"
 BUGS="$REPO_ROOT/specs/bugs"
 mkdir -p "$BUGS"
 
-python3 - "$BUGS" "$REPO_ROOT" <<'PY'
+$PYTHON - "$BUGS" "$REPO_ROOT" <<'PY'
 import re
 import sys
 from pathlib import Path

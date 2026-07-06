@@ -1,27 +1,13 @@
-active_flow: build_epic
-active_epic: e39
-active_story: e39s10
+active_flow: fix_bug
+bug_id: BUG-2026-07-04-python-interpreter-fragility
 bigpowers_version: 2.68.4
-handoff:
-  context: 'e39 Semantic Context Bridge complete. 10 stories (20 BCP): s01 skill graph, s02 agent locks,
-    s03 spec drift, s04 OKF skills-wiki, s05 conventions-wiki, s06 agent-guide, s07 maintain-wiki skill,
-    s08 integration, s09 architecture guide, s10 OKF conformance. Moving to verify → audit → release.'
-  next_skill: null
-epic_cycle:
-  epic_id: e39
-  story_id: e39s10
-  step: 5
-  yolo_mode: true
-  story_bcps: 1
-  story_risk: P2
-  audit_result: null
-  fast_mode: false
+bug_cycle:
+  current_step: 3
   completed_steps:
-  - 0 (threat-model)
-  - 1 (survey-context)
-  - 2 (plan-work)
-  - 3 (kickoff-branch)
-  - 4 (develop-tdd: s01-s10)
-metrics: {}
-node20_migration:
-  completed: true
+  - 1 (investigate-bug)
+  - 2 (diagnose-root)
+active_decisions:
+  fix_approach: "Option A — scripts source scripts/lib/python-env.sh, which prefers .venv/bin/python3, falls back to PATH python3, and fails loudly if PyYAML missing"
+handoff:
+  context: 'python-env.sh already created. Need to wire into 30 scripts that use bare python3.'
+  next_skill: develop-tdd

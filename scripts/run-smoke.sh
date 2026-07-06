@@ -5,6 +5,7 @@
 # Reads from smoke-checks.yaml by default. Falls back to single-URL check.
 # Env vars: DEPLOY_URL, SMOKE_CHECKS_FILE, SMOKE_TIMEOUT, SMOKE_RETRIES
 set -euo pipefail
+source "$(dirname "${BASH_SOURCE[0]}")/lib/python-env.sh"
 
 SMOKE_CHECKS_FILE="${2:-${SMOKE_CHECKS_FILE:-smoke-checks.yaml}}"
 BASE_URL="${1:-${DEPLOY_URL:-}}"
@@ -27,9 +28,9 @@ run_single_url_check() {
   local content_signal="${4:-}"
 
   echo "[$name]"
-  start_time=$(python3 -c 'import time; print(int(time.time() * 1000))')
+  start_time=$($PYTHON -c 'import time; print(int(time.time() * 1000))')
   response=$(curl -s -o "$TMPDIR/body.txt" -w "%{http_code}" --max-time "$SMOKE_TIMEOUT" "$url")
-  response_time=$(( $(python3 -c 'import time; print(int(time.time() * 1000))') - start_time ))
+  response_time=$(( $($PYTHON -c 'import time; print(int(time.time() * 1000))') - start_time ))
   status="$response"
   body=$(cat "$TMPDIR/body.txt" 2>/dev/null || echo "")
 
@@ -147,9 +148,9 @@ run_parsed_check() {
 
   echo "[$name]"
   echo "  URL: $url"
-  start_time=$(python3 -c 'import time; print(int(time.time() * 1000))')
+  start_time=$($PYTHON -c 'import time; print(int(time.time() * 1000))')
   response=$(curl -s -o "$TMPDIR/body.txt" -w "%{http_code}" --max-time "$SMOKE_TIMEOUT" "$url" 2>/dev/null || echo "000")
-  response_time=$(( $(python3 -c 'import time; print(int(time.time() * 1000))') - start_time ))
+  response_time=$(( $($PYTHON -c 'import time; print(int(time.time() * 1000))') - start_time ))
   status="$response"
   body=$(cat "$TMPDIR/body.txt" 2>/dev/null || echo "")
 

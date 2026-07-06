@@ -2,11 +2,12 @@
 # story: e45s04
 # generate-viz-graph.sh — build specs/viz.html from bigpowers-mcp/graph.jsonl
 set -euo pipefail
+source "$(dirname "${BASH_SOURCE[0]}")/lib/python-env.sh"
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 GRAPH="$ROOT/bigpowers-mcp/graph.jsonl"
 OUT="$ROOT/specs/viz.html"
 
-ENTITIES_JSON=$(python3 -c "
+ENTITIES_JSON=$($PYTHON -c "
 import json, sys
 entities = []
 with open('$GRAPH') as f:
@@ -17,7 +18,7 @@ with open('$GRAPH') as f:
 print(json.dumps(entities))
 ")
 
-EDGES_JSON=$(python3 -c "
+EDGES_JSON=$($PYTHON -c "
 import json, sys
 edges = []
 with open('$GRAPH') as f:
@@ -28,7 +29,7 @@ with open('$GRAPH') as f:
 print(json.dumps(edges))
 ")
 
-python3 - "$ENTITIES_JSON" "$EDGES_JSON" "$OUT" << 'PY'
+$PYTHON - "$ENTITIES_JSON" "$EDGES_JSON" "$OUT" << 'PY'
 import sys, json
 
 entities_json = sys.argv[1]

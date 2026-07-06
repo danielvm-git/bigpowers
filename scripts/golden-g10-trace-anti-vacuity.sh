@@ -13,6 +13,7 @@
 # Exit 1: trace-stories.py passed vacuously on the degenerate fixture (fail-open risk)
 
 set -euo pipefail
+source "$(dirname "${BASH_SOURCE[0]}")/lib/python-env.sh"
 source "$(dirname "${BASH_SOURCE[0]}")/lib/skill-common.sh"
 resolve_repo_root
 
@@ -38,7 +39,7 @@ OKF_DIR=$(mktemp -d)
 trap 'rm -f "$MATRIX_JSON" "$TRACE_MD"; rm -rf "$OKF_DIR"' EXIT
 
 set +e
-actual_output=$(python3 "$TRACE_ENGINE" "$FIXTURE_DIR" "$MATRIX_JSON" "$TRACE_MD" "$OKF_DIR" 1 "" 2>&1)
+actual_output=$($PYTHON "$TRACE_ENGINE" "$FIXTURE_DIR" "$MATRIX_JSON" "$TRACE_MD" "$OKF_DIR" 1 "" 2>&1)
 actual_exit=$?
 set -e
 source "$(dirname "${BASH_SOURCE[0]}")/lib/skill-common.sh"

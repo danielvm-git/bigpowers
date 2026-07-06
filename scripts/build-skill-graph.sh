@@ -4,6 +4,7 @@
 #   - specs/skill-graph.json    — machine-readable dependency graph
 #   - specs/skills-wiki/        — OKF wiki with per-skill pages
 set -euo pipefail
+source "$(dirname "${BASH_SOURCE[0]}")/lib/python-env.sh"
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
@@ -41,7 +42,7 @@ TMP_NODES=$(mktemp)
 TMP_EDGES=$(mktemp)
 TMP_ALL=$(mktemp)
 
-python3 -c "
+$PYTHON -c "
 import json, sys
 
 nodes = {}
@@ -68,7 +69,7 @@ with open('$GRAPH_JSONL') as f:
 print(json.dumps(list(nodes.values()), indent=2))
 " > "$TMP_NODES"
 
-python3 -c "
+$PYTHON -c "
 import json
 # re-read edges into a separate file
 edges = []
@@ -86,7 +87,7 @@ print(json.dumps(edges, indent=2))
 " > "$TMP_EDGES"
 
 # --- Write skill-graph.json ---
-python3 -c "
+$PYTHON -c "
 import json
 
 with open('$TMP_NODES') as f:
@@ -133,7 +134,7 @@ context: benchmark
 WEOF
 
 # Generate one .md per skill
-python3 -c "
+$PYTHON -c "
 import json, os
 
 # Re-read nodes

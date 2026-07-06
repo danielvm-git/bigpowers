@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # check-spec-version-gap.sh — detect spec format gap (e44s02)
 set -euo pipefail
+source "$(dirname "${BASH_SOURCE[0]}")/lib/python-env.sh"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 BP_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 
@@ -33,12 +34,12 @@ emit_json() {
 }
 
 get_installed_version() {
-  python3 -c "import json; d=json.load(open('$BP_ROOT/package.json')); print(d.get('version','unknown'))" 2>/dev/null || echo "unknown"
+  $PYTHON -c "import json; d=json.load(open('$BP_ROOT/package.json')); print(d.get('version','unknown'))" 2>/dev/null || echo "unknown"
 }
 
 yaml_get() {
   [[ ! -f "$1" ]] && { echo ""; return; }
-  python3 -c "
+  $PYTHON -c "
 import sys, yaml
 d = yaml.safe_load(open('$1')) or {}
 parts = '$2'.split('.')
@@ -64,7 +65,7 @@ version_lt() {
 find_migrations() {
   local ver="$1" reg="$BP_ROOT/specs/migrations/registry.okf.md"
   [[ ! -f "$reg" ]] && { echo "[]"; return; }
-  python3 -c "
+  $PYTHON -c "
 import json, yaml
 def vt(v): return tuple(int(p) if p.isdigit() else 0 for p in v.lstrip('v').split('.')[:3])
 dt = vt('$ver')
@@ -108,8 +109,8 @@ if [[ -n "$SV" && "$SV" != "null" && "$SV" != "None" ]]; then
     exit 0
   fi
   APP=$(find_migrations "$SV")
-  CNT=$(echo "$APP" | python3 -c "import json,sys; print(len(json.load(sys.stdin)))" 2>/dev/null || echo 0)
-  emit_json "$(python3 -c "import json; a=json.loads('''$APP'''); print(json.dumps({'gap':True,'stamp':True,'detected_version':'$SV','detection_method':'stamp','installed_version':'$IV','applicable_migrations':len(a),'migration_ids':[m['id'] for m in a],'confidence':'high','active_work_blocked':False}))")"
+  CNT=$(echo "$APP" | $PYTHON -c "import json,sys; print(len(json.load(sys.stdin)))" 2>/dev/null || echo 0)
+  emit_json "$($PYTHON -c "import json; a=json.loads('''$APP'''); print(json.dumps({'gap':True,'stamp':True,'detected_version':'$SV','detection_method':'stamp','installed_version':'$IV','applicable_migrations':len(a),'migration_ids':[m['id'] for m in a],'confidence':'high','active_work_blocked':False}))")"
   exit 1
 fi
 
@@ -136,8 +137,8 @@ if [[ "$DV" != "unknown" ]] && ! version_lt "$DV" "$IV"; then
 fi
 
 APP=$(find_migrations "$DV")
-CNT=$(echo "$APP" | python3 -c "import json,sys; print(len(json.load(sys.stdin)))" 2>/dev/null || echo 0)
-MJ=$(printf '%s\n' "${MARKERS[@]}" | python3 -c "import json,sys; print(json.dumps([l.strip() for l in sys.stdin if l.strip()]))" 2>/dev/null || echo "[]")
+CNT=$(echo "$APP" | $PYTHON -c "import json,sys; print(len(json.load(sys.stdin)))" 2>/dev/null || echo 0)
+MJ=$(printf '%s\n' "${MARKERS[@]}" | $PYTHON -c "import json,sys; print(json.dumps([l.strip() for l in sys.stdin if l.strip()]))" 2>/dev/null || echo "[]")
 
-emit_json "$(python3 -c "import json; a=json.loads('''$APP'''); m=json.loads('''$MJ'''); print(json.dumps({'gap':True,'stamp':False,'detected_version':'$DV','detection_method':'fingerprint','installed_version':'$IV','applicable_migrations':len(a),'migration_ids':[x['id'] for x in a],'confidence':'$CONF','active_work_blocked':False,'matched_markers':m}))")"
+emit_json "$($PYTHON -c "import json; a=json.loads('''$APP'''); m=json.loads('''$MJ'''); print(json.dumps({'gap':True,'stamp':False,'detected_version':'$DV','detection_method':'fingerprint','installed_version':'$IV','applicable_migrations':len(a),'migration_ids':[x['id'] for x in a],'confidence':'$CONF','active_work_blocked':False,'matched_markers':m}))")"
 exit 1

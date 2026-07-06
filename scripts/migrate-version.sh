@@ -3,6 +3,7 @@
 # migrate-version.sh — one-shot ordered migration engine with triple safety net.
 # Safety: (1) backup, (2) dry-run diff, (3) auto-commit.
 set -euo pipefail
+source "$(dirname "${BASH_SOURCE[0]}")/lib/python-env.sh"
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
@@ -40,7 +41,7 @@ installed_version() {
 
 yaml_get() {
   local file="$1" key="$2"
-  python3 -c "
+  $PYTHON -c "
 import yaml, sys
 try:
     d = yaml.safe_load(open('$file'))
@@ -157,7 +158,7 @@ fi
 # ── build migration plan ──────────────────────────────────────────────────
 echo "migrate-version: building migration plan from $REGISTRY …"
 
-MIGRATION_PLAN="$(python3 -c "
+MIGRATION_PLAN="$($PYTHON -c "
 import yaml, json, sys
 
 with open('$REGISTRY') as f:
@@ -181,7 +182,7 @@ applicable = [m for m in plan if m['since_version'] > detected and m['since_vers
 print(json.dumps(applicable))
 " 2>/dev/null)"
 
-MIGRATION_COUNT="$(echo "$MIGRATION_PLAN" | python3 -c "import json,sys; print(len(json.load(sys.stdin)))" 2>/dev/null)"
+MIGRATION_COUNT="$(echo "$MIGRATION_PLAN" | $PYTHON -c "import json,sys; print(len(json.load(sys.stdin)))" 2>/dev/null)"
 
 if [ "${MIGRATION_COUNT:-0}" -eq 0 ]; then
   echo "migrate-version: no applicable migrations for $DETECTED → $INSTALLED — stamping version only"
@@ -190,7 +191,7 @@ fi
 echo "migrate-version: $MIGRATION_COUNT migration(s) to apply"
 
 if [ "$VERBOSE" = "true" ]; then
-  echo "$MIGRATION_PLAN" | python3 -c "
+  echo "$MIGRATION_PLAN" | $PYTHON -c "
 import json,sys
 for m in json.load(sys.stdin):
     print(f\"  {m['order']}. {m['id']}: {m['title']} (since {m['since_version']})\")
@@ -216,7 +217,7 @@ if [ "$DRY_RUN" = "true" ]; then
   echo "Detected version: $DETECTED"
   echo "Target version:   $INSTALLED"
   echo "Migrations:"
-  echo "$MIGRATION_PLAN" | python3 -c "
+  echo "$MIGRATION_PLAN" | $PYTHON -c "
 import json,sys
 for m in json.load(sys.stdin):
     deps = m.get('depends_on', [])
@@ -226,7 +227,7 @@ for m in json.load(sys.stdin):
 
   echo ""
   echo "Transforms preview:"
-  echo "$MIGRATION_PLAN" | python3 -c "
+  echo "$MIGRATION_PLAN" | $PYTHON -c "
 import json, sys, os
 for m in json.load(sys.stdin):
     bundle_path = os.path.join('$MIGRATIONS_DIR', m['file'])
@@ -287,15 +288,15 @@ apply_transform() {
   case "$action" in
     convert_md_to_yaml)
       local src tgt hm unc_count arch
-      src="$(echo "$tjson" | python3 -c "import json,sys; print(json.load(sys.stdin).get('source',''))")"
-      tgt="$(echo "$tjson" | python3 -c "import json,sys; print(json.load(sys.stdin).get('target',''))")"
-      arch="$(echo "$tjson" | python3 -c "import json,sys; print(json.load(sys.stdin).get('archive_source','false'))" 2>/dev/null)" || arch="false"
+      src="$(echo "$tjson" | $PYTHON -c "import json,sys; print(json.load(sys.stdin).get('source',''))")"
+      tgt="$(echo "$tjson" | $PYTHON -c "import json,sys; print(json.load(sys.stdin).get('target',''))")"
+      arch="$(echo "$tjson" | $PYTHON -c "import json,sys; print(json.load(sys.stdin).get('archive_source','false'))" 2>/dev/null)" || arch="false"
       if [ ! -f "$REPO_ROOT/$src" ]; then
         log_skip "$action: source '$src' not found"
         SKIPPED+=("$action:$src"); return
       fi
-      hm="$(echo "$tjson" | python3 -c "import json,sys; print(json.dumps(json.load(sys.stdin).get('heuristic_map',{})))")"
-      python3 -c "
+      hm="$(echo "$tjson" | $PYTHON -c "import json,sys; print(json.dumps(json.load(sys.stdin).get('heuristic_map',{})))")"
+      $PYTHON -c "
 import json, re, yaml, sys, os
 src = '$REPO_ROOT/$src'
 tgt = '$REPO_ROOT/$tgt'
@@ -320,7 +321,7 @@ os.makedirs(os.path.dirname(tgt), exist_ok=True)
 with open(tgt, 'w') as f:
     yaml.safe_dump(result, f, sort_keys=False, allow_unicode=True, width=100)
 "
-      unc_count="$(echo "$tjson" | python3 -c "import json,sys; print(len(json.load(sys.stdin).get('uncertainty',[])))")"
+      unc_count="$(echo "$tjson" | $PYTHON -c "import json,sys; print(len(json.load(sys.stdin).get('uncertainty',[])))")"
       UNCERTAINTY_COUNT=$((UNCERTAINTY_COUNT + unc_count))
       # Archive source file if requested
       if [ "$arch" = "true" ] || [ "$arch" = "True" ]; then
@@ -335,8 +336,8 @@ with open(tgt, 'w') as f:
 
     rename_file)
       local src tgt
-      src="$(echo "$tjson" | python3 -c "import json,sys; print(json.load(sys.stdin).get('source',''))")"
-      tgt="$(echo "$tjson" | python3 -c "import json,sys; print(json.load(sys.stdin).get('target',''))")"
+      src="$(echo "$tjson" | $PYTHON -c "import json,sys; print(json.load(sys.stdin).get('source',''))")"
+      tgt="$(echo "$tjson" | $PYTHON -c "import json,sys; print(json.load(sys.stdin).get('target',''))")"
       if [ ! -e "$REPO_ROOT/$src" ]; then
         log_skip "$action: source '$src' not found — idempotent"
         SKIPPED+=("$action:$src"); return
@@ -352,8 +353,8 @@ with open(tgt, 'w') as f:
 
     move_file)
       local src tgt
-      src="$(echo "$tjson" | python3 -c "import json,sys; print(json.load(sys.stdin).get('source',''))")"
-      tgt="$(echo "$tjson" | python3 -c "import json,sys; print(json.load(sys.stdin).get('target',''))")"
+      src="$(echo "$tjson" | $PYTHON -c "import json,sys; print(json.load(sys.stdin).get('source',''))")"
+      tgt="$(echo "$tjson" | $PYTHON -c "import json,sys; print(json.load(sys.stdin).get('target',''))")"
       if [ ! -e "$REPO_ROOT/$src" ]; then
         log_skip "$action: source '$src' not found"
         SKIPPED+=("$action:$src"); return
@@ -369,7 +370,7 @@ with open(tgt, 'w') as f:
 
     delete_file)
       local path
-      path="$(echo "$tjson" | python3 -c "import json,sys; print(json.load(sys.stdin).get('path',''))")"
+      path="$(echo "$tjson" | $PYTHON -c "import json,sys; print(json.load(sys.stdin).get('path',''))")"
       if [ ! -e "$REPO_ROOT/$path" ]; then
         log_skip "$action: '$path' not found — idempotent"
         SKIPPED+=("$action:$path"); return
@@ -380,10 +381,10 @@ with open(tgt, 'w') as f:
 
     set_yaml_key)
       local file key val if_missing
-      file="$(echo "$tjson" | python3 -c "import json,sys; print(json.load(sys.stdin).get('file',''))")"
-      key="$(echo "$tjson" | python3 -c "import json,sys; d=json.load(sys.stdin); print(d.get('path') or d.get('key',''))")"
-      val="$(echo "$tjson" | python3 -c "import json,sys; print(json.load(sys.stdin).get('value',''))")"
-      if_missing="$(echo "$tjson" | python3 -c "import json,sys; print(json.load(sys.stdin).get('if_missing','false'))" 2>/dev/null)" || if_missing="false"
+      file="$(echo "$tjson" | $PYTHON -c "import json,sys; print(json.load(sys.stdin).get('file',''))")"
+      key="$(echo "$tjson" | $PYTHON -c "import json,sys; d=json.load(sys.stdin); print(d.get('path') or d.get('key',''))")"
+      val="$(echo "$tjson" | $PYTHON -c "import json,sys; print(json.load(sys.stdin).get('value',''))")"
+      if_missing="$(echo "$tjson" | $PYTHON -c "import json,sys; print(json.load(sys.stdin).get('if_missing','false'))" 2>/dev/null)" || if_missing="false"
       if [ "$if_missing" = "true" ] || [ "$if_missing" = "True" ]; then
         if yaml_get "$REPO_ROOT/$file" "$key" >/dev/null 2>&1; then
           log_skip "$action: $file $key already set (if_missing=true) — idempotent"
@@ -391,22 +392,22 @@ with open(tgt, 'w') as f:
           return
         fi
       fi
-      python3 "$YAML_TOOLS" set "$REPO_ROOT/$file" "$key" "$val"
+      $PYTHON "$YAML_TOOLS" set "$REPO_ROOT/$file" "$key" "$val"
       log_done "$action: $file $key = $val"
       ;;
 
     rename_yaml_key)
       local file old_key new_key old_val
-      file="$(echo "$tjson" | python3 -c "import json,sys; print(json.load(sys.stdin).get('file',''))")"
-      old_key="$(echo "$tjson" | python3 -c "import json,sys; print(json.load(sys.stdin).get('old_key',''))")"
-      new_key="$(echo "$tjson" | python3 -c "import json,sys; print(json.load(sys.stdin).get('new_key',''))")"
+      file="$(echo "$tjson" | $PYTHON -c "import json,sys; print(json.load(sys.stdin).get('file',''))")"
+      old_key="$(echo "$tjson" | $PYTHON -c "import json,sys; print(json.load(sys.stdin).get('old_key',''))")"
+      new_key="$(echo "$tjson" | $PYTHON -c "import json,sys; print(json.load(sys.stdin).get('new_key',''))")"
       old_val="$(yaml_get "$REPO_ROOT/$file" "$old_key" 2>/dev/null)" || true
       if [ -z "${old_val:-}" ]; then
         log_skip "$action: key '$old_key' not found in $file"
         SKIPPED+=("$action:$old_key"); return
       fi
-      python3 "$YAML_TOOLS" set "$REPO_ROOT/$file" "$new_key" "$old_val"
-      python3 -c "
+      $PYTHON "$YAML_TOOLS" set "$REPO_ROOT/$file" "$new_key" "$old_val"
+      $PYTHON -c "
 import yaml
 data = yaml.safe_load(open('$REPO_ROOT/$file'))
 parts = '$old_key'.split('.')
@@ -424,13 +425,13 @@ with open('$REPO_ROOT/$file', 'w') as f:
 
     delete_yaml_key)
       local file key
-      file="$(echo "$tjson" | python3 -c "import json,sys; print(json.load(sys.stdin).get('file',''))")"
-      key="$(echo "$tjson" | python3 -c "import json,sys; d=json.load(sys.stdin); print(d.get('path') or d.get('key',''))")"
+      file="$(echo "$tjson" | $PYTHON -c "import json,sys; print(json.load(sys.stdin).get('file',''))")"
+      key="$(echo "$tjson" | $PYTHON -c "import json,sys; d=json.load(sys.stdin); print(d.get('path') or d.get('key',''))")"
       if ! yaml_get "$REPO_ROOT/$file" "$key" >/dev/null 2>&1; then
         log_skip "$action: key '$key' not found in $file — idempotent"
         SKIPPED+=("$action:$key"); return
       fi
-      python3 -c "
+      $PYTHON -c "
 import yaml
 data = yaml.safe_load(open('$REPO_ROOT/$file'))
 parts = '$key'.split('.')
@@ -448,10 +449,10 @@ with open('$REPO_ROOT/$file', 'w') as f:
 
     create_file_from_template)
       local src tgt subs inline_tmpl
-      src="$(echo "$tjson" | python3 -c "import json,sys; print(json.load(sys.stdin).get('source',''))")"
-      tgt="$(echo "$tjson" | python3 -c "import json,sys; print(json.load(sys.stdin).get('target',''))")"
-      subs="$(echo "$tjson" | python3 -c "import json,sys; print(json.dumps(json.load(sys.stdin).get('substitutions',{})))")"
-      inline_tmpl="$(echo "$tjson" | python3 -c "import json,sys; print(json.load(sys.stdin).get('template',''))")"
+      src="$(echo "$tjson" | $PYTHON -c "import json,sys; print(json.load(sys.stdin).get('source',''))")"
+      tgt="$(echo "$tjson" | $PYTHON -c "import json,sys; print(json.load(sys.stdin).get('target',''))")"
+      subs="$(echo "$tjson" | $PYTHON -c "import json,sys; print(json.dumps(json.load(sys.stdin).get('substitutions',{})))")"
+      inline_tmpl="$(echo "$tjson" | $PYTHON -c "import json,sys; print(json.load(sys.stdin).get('template',''))")"
       if [ -e "$REPO_ROOT/$tgt" ]; then
         log_skip "$action: target '$tgt' already exists — idempotent"
         SKIPPED+=("$action:$tgt"); return
@@ -461,7 +462,7 @@ with open('$REPO_ROOT/$file', 'w') as f:
       if [ -n "$inline_tmpl" ]; then
         echo "$inline_tmpl" > "$REPO_ROOT/$tgt"
         if [ "$subs" != "{}" ]; then
-          python3 -c "
+          $PYTHON -c "
 import json
 subs = json.loads('''$subs''')
 content = open('$REPO_ROOT/$tgt').read()
@@ -489,7 +490,7 @@ with open('$REPO_ROOT/$tgt', 'w') as f:
         SKIPPED+=("$action:$src"); return
       fi
       cp "$template_path" "$REPO_ROOT/$tgt"
-      python3 -c "
+      $PYTHON -c "
 import json
 subs = json.loads('''$subs''')
 content = open('$REPO_ROOT/$tgt').read()
@@ -509,12 +510,12 @@ with open('$REPO_ROOT/$tgt', 'w') as f:
 }
 
 # Execute each migration in order
-MIG_LIST="$(echo "$MIGRATION_PLAN" | python3 -c "import json,sys; [print(json.dumps(m)) for m in json.load(sys.stdin)]")"
+MIG_LIST="$(echo "$MIGRATION_PLAN" | $PYTHON -c "import json,sys; [print(json.dumps(m)) for m in json.load(sys.stdin)]")"
 while IFS= read -r mig_json; do
   [ -z "$mig_json" ] && continue
-  MIG_ID="$(echo "$mig_json" | python3 -c "import json,sys; print(json.load(sys.stdin)['id'])")"
-  MIG_FILE="$(echo "$mig_json" | python3 -c "import json,sys; print(json.load(sys.stdin)['file'])")"
-  MIG_TITLE="$(echo "$mig_json" | python3 -c "import json,sys; print(json.load(sys.stdin)['title'])")"
+  MIG_ID="$(echo "$mig_json" | $PYTHON -c "import json,sys; print(json.load(sys.stdin)['id'])")"
+  MIG_FILE="$(echo "$mig_json" | $PYTHON -c "import json,sys; print(json.load(sys.stdin)['file'])")"
+  MIG_TITLE="$(echo "$mig_json" | $PYTHON -c "import json,sys; print(json.load(sys.stdin)['title'])")"
 
   BUNDLE_PATH="$MIGRATIONS_DIR/$MIG_FILE"
   if [ ! -f "$BUNDLE_PATH" ]; then
@@ -526,7 +527,7 @@ while IFS= read -r mig_json; do
   echo ""
   echo "── $MIG_ID: $MIG_TITLE ──"
 
-  TRANSFORMS="$(python3 -c "
+  TRANSFORMS="$($PYTHON -c "
 import yaml, json
 with open('$BUNDLE_PATH') as f:
     parts = f.read().split('---')
@@ -534,15 +535,15 @@ with open('$BUNDLE_PATH') as f:
 print(json.dumps(fm.get('transforms', []), default=str))
 " 2>/dev/null)"
 
-  T_LIST="$(echo "$TRANSFORMS" | python3 -c "import json,sys; [print(json.dumps(t, default=str)) for t in json.load(sys.stdin)]")"
+  T_LIST="$(echo "$TRANSFORMS" | $PYTHON -c "import json,sys; [print(json.dumps(t, default=str)) for t in json.load(sys.stdin)]")"
   while IFS= read -r tjson; do
     [ -z "$tjson" ] && continue
-    action="$(echo "$tjson" | python3 -c "import json,sys; print(json.load(sys.stdin).get('action',''))")"
+    action="$(echo "$tjson" | $PYTHON -c "import json,sys; print(json.load(sys.stdin).get('action',''))")"
     apply_transform "$MIG_ID" "$action" "$tjson"
   done <<< "$T_LIST"
 
   # Run verify commands
-  VERIFY_CMDS="$(python3 -c "
+  VERIFY_CMDS="$($PYTHON -c "
 import yaml, json
 with open('$BUNDLE_PATH') as f:
     parts = f.read().split('---')
@@ -574,7 +575,7 @@ done <<< "$MIG_LIST"
 # ── stamp ─────────────────────────────────────────────────────────────────
 if [ -f "$SPECS_DIR/state.yaml" ]; then
   log_info "Stamping bigpowers_version=$INSTALLED in state.yaml"
-  python3 "$YAML_TOOLS" set "$SPECS_DIR/state.yaml" "bigpowers_version" "$INSTALLED"
+  $PYTHON "$YAML_TOOLS" set "$SPECS_DIR/state.yaml" "bigpowers_version" "$INSTALLED"
   log_done "stamp applied"
 fi
 
