@@ -4,6 +4,7 @@
 #   #33 e28 Sync Pipeline (was old e33) — fixed 2006f4b PR #54; skill-common.sh + render_* targets
 #   #32 e35 Historical References (was old e32) — fixed ffba59f; 9 ref docs + PRINCIPLES + cross-refs
 #   #31 e36 Doc Deduplication — fixed 83dd717; provenance pointers + spec-kit/bmad refresh (e36s05)
+# Change request (2026-07-06): #52 Codex Support → new epic e50 (instruction-file path, not slash skills)
 development_status:
   e01: done
   e01s01: done
@@ -309,3 +310,9 @@ development_status:
   e49s02: backlog
   e49s03: backlog
   e49s04: backlog
+  # #52 change-request 2026-07-06 — Codex CLI reach via AGENTS.md seed pack (e50, not slash skills)
+  e50: backlog
+  e50s01: backlog
+  e50s02: backlog
+  e50s03: backlog
+  e50s04: backlog
