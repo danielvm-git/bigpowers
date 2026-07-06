@@ -2,7 +2,7 @@ id: e36
 title: "Documentation Deduplication"
 wsjf: 1.4
 bcps: 12
-status: proposed
+status: done
 release: v2.8x "Docs Polish"
 codename: "Deepening"
 source: specs/DEEPEN-ARCHITECTURE-REVIEW.md §5.5
@@ -39,7 +39,7 @@ stories:
 
   - id: e36s05
     bcp: 2
-    status: todo
+    status: done
     title: "Refresh docs/references/bmad.md from BMAD v6/TEA — currently covers only Document Lifecycle"
     verify: 'grep -q ''TEA\|v6\|test-architecture\|risk-based'' docs/references/bmad.md && echo OK'
     description: |
