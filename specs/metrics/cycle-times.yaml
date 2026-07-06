@@ -463,3 +463,11 @@ stories:
   commit: 6c83112
   started: '2026-07-04T08:20:00Z'
   merged: '2026-07-04T08:33:00Z'
+- epic: e51
+  title: Always Green — Shift Left, Preflight Hard Block & Fix-or-Log Doctrine
+  total_bcps: 12
+  stories: 5
+  start: '2026-07-06T16:20:00Z'
+  end: '2026-07-06T13:50:00Z'
+  commit: cfd572db
+  note: Squash land via land-branch.sh; 2 commits squashed

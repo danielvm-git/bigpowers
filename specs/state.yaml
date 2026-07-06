@@ -1,27 +1,23 @@
-active_flow: build_epic
-active_epic: e51
+active_flow: null
+active_epic: null
 active_story: null
 bug_id: null
 bigpowers_version: 2.72.0
 bug_cycle: {}
-epic_cycle:
-  step: 8
-  story_bcps: 12
-  fast_mode: false
-  branch: feat/e51-always-green
-  audit_result: pass
-  current_story: null
+epic_cycle: {}
 handoff:
-  context: e51 complete — all 5 stories landed on feat/e51-always-green. Ready for commit + release-branch.
-  next_skill: commit-message
-  epic: e51
+  context: e51 released — feat(gates): Always Green — preflight hard block & fix-or-log (cfd572db). CI passed (3/3). Epic archived.
+  next_skill: survey-context
+  epic: null
   stories: []
 metrics:
-  story_start: '2026-07-06T16:20:00-03:00'
-  story_end: '2026-07-06T16:35:00-03:00'
+  story_start: null
+  story_end: null
   skill_timings:
     release-branch:
-      calls: 0
-      total_seconds: 0
-      avg_seconds: 0
-      _start: '2026-07-06T16:34:53Z'
+      calls: 1
+      total_seconds: 511.0
+      avg_seconds: 511.0
+release:
+  ci_verified: true
+  last_commit: cfd572db
