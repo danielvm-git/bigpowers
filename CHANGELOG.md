@@ -1,3 +1,10 @@
+## [2.73.4](https://github.com/danielvm-git/bigpowers/compare/v2.73.3...v2.73.4) (2026-07-06)
+
+
+### Bug Fixes
+
+* **sync:** split sync-skills.sh into lib modules under 300-line cap ([#59](https://github.com/danielvm-git/bigpowers/issues/59)) ([eed704f](https://github.com/danielvm-git/bigpowers/commit/eed704fe87a9f89dec211bbc6c6695afee884e52))
+
 ## [2.73.3](https://github.com/danielvm-git/bigpowers/compare/v2.73.2...v2.73.3) (2026-07-06)
 
 
