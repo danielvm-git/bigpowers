@@ -115,7 +115,7 @@ epics:
   bcps: 20
   capsule_dir: epics/e35-historical-refs
   mode: capsule
-  status: proposed
+  status: done
 - id: e45
   title: OKF Completion — Wikis, Verification Reports, Viz Graph
   wsjf: 3.0

@@ -158,7 +158,7 @@
     },
     "investigate-bug": {
       "description": "Investigate a bug or issue by exploring the codebase to find root cause, then write a TDD-based fix plan to specs/bugs/BUG-*.md. Use when user reports a bug, wants to investigate a problem, mentions \"triage\", or wants to plan a fix.",
-      "sha256": "548aaef63bc914c8",
+      "sha256": "b842fd329d1f7741",
       "path": "skills/investigate-bugSKILL.md"
     },
     "kickoff-branch": {
@@ -198,7 +198,7 @@
     },
     "plan-refactor": {
       "description": "Create a detailed refactor plan with tiny commits via user interview, then save it as specs/REFACTOR_LATEST.md. Use when user wants to plan a refactor, create a refactoring RFC, or break a refactor into safe incremental steps.",
-      "sha256": "53769bafec01a9e6",
+      "sha256": "c418c850806e2f16",
       "path": "skills/plan-refactorSKILL.md"
     },
     "plan-release": {

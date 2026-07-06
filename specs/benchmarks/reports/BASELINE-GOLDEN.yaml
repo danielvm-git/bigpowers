@@ -1,55 +1,67 @@
-timestamp: "2026-07-04T11:51:20Z"
-git_commit: "1a7e6dbe83b3f418b5ee8ee1e8621cc8cb05acc3"
-suite: "golden-deterministic"
+timestamp: "2026-07-06T14:22:19Z"
+git_commit: "3854df11995494e546a253bf647d7f033923a9f6"
+suite: "golden-combined"
 mode: "baseline"
+deterministic:
+  total: 9
+  passed: 7
+  failed: 2
+  skipped: 0
+  pass_rate: .77
 gates:
   - name: compliance
     exit_code: 0
-    duration_seconds: 7.16
+    duration_seconds: 28.10
     status: pass
   - name: g04-selftest
     exit_code: 0
-    duration_seconds: .03
+    duration_seconds: .04
     status: pass
+  - name: g06-migrate-version
+    exit_code: 1
+    duration_seconds: 23.58
+    status: fail
   - name: g07-negative-path
     exit_code: 0
-    duration_seconds: .08
+    duration_seconds: .07
     status: pass
   - name: g08-anti-vacuity
     exit_code: 0
-    duration_seconds: .22
+    duration_seconds: .49
     status: pass
   - name: g09-yaml-roundtrip
     exit_code: 0
-    duration_seconds: .42
+    duration_seconds: .71
     status: pass
   - name: g10-trace-anti-vacuity
     exit_code: 0
-    duration_seconds: .23
+    duration_seconds: .49
     status: pass
   - name: g11-gitignore-venv
     exit_code: 1
-    duration_seconds: .05
+    duration_seconds: .07
     status: fail
   - name: specs-parse
     exit_code: 0
-    duration_seconds: 1.63
+    duration_seconds: 2.58
     status: pass
-summary:
-  total: 8
-  passed: 7
-  failed: 1
+agent_stories:
+  total: 0
+  passed: 0
+  failed: 0
   skipped: 0
-  pass_rate: .87
-  overall: "fail"
+  flake_count: 0
+  pass_rate: n/a
+summary:
+  combined_verdict: "fail"
 
 # Skill byte counts (baseline for e31s04 size budget)
 skill_sizes:
   align-grid: 12083
   assess-impact: 3107
-  audit-code: 5911
+  audit-code: 5939
   audit-plan: 3597
-  build-epic: 5678
+  build-epic: 6363
   change-request: 2591
   commit-message: 3529
   compose-workflow: 2147
@@ -60,48 +72,50 @@ skill_sizes:
   delegate-task: 3261
   deploy: 4107
   design-interface: 3667
-  develop-tdd: 4560
+  develop-tdd: 5139
   diagnose-root: 1274
   dispatch-agents: 3209
   edit-document: 1231
   elaborate-spec: 4011
-  enforce-first: 3442
+  enforce-first: 1796
   evolve-skill: 2031
   execute-plan: 2221
   extract-design: 4101
   fix-bug: 2300
-  gate-trace: 3095
+  gate-trace: 3435
   grill-me: 1977
   grill-with-docs: 1442
   guard-git: 2845
   hook-commits: 2495
   inspect-quality: 4483
-  investigate-bug: 4991
-  kickoff-branch: 4517
+  investigate-bug: 5312
+  kickoff-branch: 5218
+  maintain-wiki: 2048
   map-codebase: 3432
   migrate-spec: 5452
   model-domain: 4763
-  orchestrate-project: 3695
+  orchestrate-project: 3698
   organize-workspace: 3928
-  plan-refactor: 3051
+  plan-refactor: 3324
   plan-release: 5872
-  plan-work: 4061
+  plan-tests: 1825
+  plan-work: 4358
   publish-package: 2626
   quick-fix: 4387
-  release-branch: 5072
+  release-branch: 4913
   request-review: 3550
   research-first: 2408
   reset-baseline: 797
   respond-review: 2168
-  run-benchmark: 2474
+  run-benchmark: 4013
   run-evals: 1276
   run-planning: 4678
   scope-work: 3891
   search-skills: 3305
-  security-review: 2996
-  seed-conventions: 3932
+  security-review: 3505
+  seed-conventions: 4548
   session-state: 6489
-  setup-environment: 1123
+  setup-environment: 1459
   simulate-agents: 1260
   slice-tasks: 4329
   smoke-test: 2168
@@ -113,8 +127,8 @@ skill_sizes:
   using-bigpowers: 4793
   validate-contracts: 3500
   validate-fix: 3786
-  verify-work: 6428
+  verify-work: 7643
   visual-dashboard: 1926
   wire-ci: 4859
-  wire-observability: 3248
+  wire-observability: 3891
   write-document: 5136

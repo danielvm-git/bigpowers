@@ -1,5 +1,7 @@
 # Domain-Driven Design (DDD)
 
+<!-- story: e35s07 -->
+
 **Purpose:** Documents Eric Evans' Domain-Driven Design — bounded contexts, context mapping, ubiquitous language, and strategic design — and how bigpowers skills embody these patterns for managing complexity at scale.
 
 **Credit:** Eric Evans. Key work: *Domain-Driven Design: Tackling Complexity in the Heart of Software* (2003).

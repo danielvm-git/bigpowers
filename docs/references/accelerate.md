@@ -1,5 +1,7 @@
 # Accelerate: The DORA Four Keys
 
+<!-- story: e35s08 -->
+
 **Purpose:** Documents the DORA (DevOps Research and Assessment) Four Keys metrics — deployment frequency, lead time for changes, time to restore service, and change failure rate — and how bigpowers skills embody these performance indicators.
 
 **Credit:** Nicole Forsgren, Jez Humble, and Gene Kim. Key work: *Accelerate: The Science of Lean Software and DevOps* (2018).

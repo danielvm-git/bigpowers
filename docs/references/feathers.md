@@ -1,5 +1,7 @@
 # Michael Feathers: Working Effectively with Legacy Code
 
+<!-- story: e35s03 -->
+
 **Purpose:** Documents Michael Feathers' key concepts — seams, characterization tests, and the "legacy code is code without tests" definition — and how bigpowers skills embody these practices for safe code modification.
 
 **Credit:** Michael Feathers. Key work: *Working Effectively with Legacy Code* (2004).

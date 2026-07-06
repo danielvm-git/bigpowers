@@ -1,5 +1,7 @@
 # Sandi Metz: Practical Object-Oriented Design
 
+<!-- story: e35s06 -->
+
 **Purpose:** Documents Sandi Metz's practical approach to SOLID principles, message-level testing, and object-oriented design — showing how bigpowers skills embody these practices for testable, maintainable code.
 
 **Credit:** Sandi Metz. Key works: *Practical Object-Oriented Design in Ruby* (POODR, 2012), *99 Bottles of OOP* (2016, with Katrina Owen).

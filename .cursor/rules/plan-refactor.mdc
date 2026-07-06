@@ -79,6 +79,8 @@ After writing `specs/REFACTOR_LATEST.md`, suggest running `kickoff-branch` next 
 
 ## References
 
+<!-- story: e35s10 -->
+
 - [Fowler's Refactoring Catalog](../../docs/references/fowler.md) — canonical refactoring vocabulary and code-smell taxonomy
 - [Beck's Tidy First?](../../docs/references/kent-beck.md) — structural change before behavioral change
 

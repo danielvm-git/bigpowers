@@ -1,5 +1,7 @@
 # Martin Fowler: Refactoring and Code Smells
 
+<!-- story: e35s02 -->
+
 **Purpose:** Documents Martin Fowler's refactoring catalog and code-smell taxonomy — the shared vocabulary for improving code design without changing behavior — and how bigpowers skills embody these practices.
 
 **Credit:** Martin Fowler. Key works: *Refactoring: Improving the Design of Existing Code* (1999, 2018), *Patterns of Enterprise Application Architecture* (2002).

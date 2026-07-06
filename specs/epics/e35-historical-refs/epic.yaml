@@ -12,68 +12,68 @@ stories:
     title: "Create docs/references/kent-beck.md (XP, TDD origins, Tidy First?)"
     spec: e35s01-kent-beck-reference.md
     tasks: e35s01-tasks.yaml
-    status: todo
+    status: done
     verify: "test -f docs/references/kent-beck.md && grep -q 'Tidy First' docs/references/kent-beck.md && echo OK"
   - id: e35s02
     bcp: 2
     title: "Create docs/references/fowler.md (refactoring catalog, code smells)"
     spec: e35s02-fowler-reference.md
     tasks: e35s02-tasks.yaml
-    status: todo
+    status: done
     verify: "test -f docs/references/fowler.md && grep -q 'Extract Method|code smell' docs/references/fowler.md && echo OK"
   - id: e35s03
     bcp: 2
     title: "Create docs/references/feathers.md (seams, characterization tests)"
     spec: e35s03-feathers-reference.md
     tasks: e35s03-tasks.yaml
-    status: todo
+    status: done
     verify: "test -f docs/references/feathers.md && grep -q 'characterization|seam' docs/references/feathers.md && echo OK"
   - id: e35s04
     bcp: 2
     title: "Create docs/references/pragmatic-programmer.md (DRY, broken windows, tracer bullets)"
     spec: e35s04-pragmatic-programmer-reference.md
     tasks: e35s04-tasks.yaml
-    status: todo
+    status: done
     verify: "test -f docs/references/pragmatic-programmer.md && grep -q 'broken window|tracer bullet' docs/references/pragmatic-programmer.md && echo OK"
   - id: e35s05
     bcp: 2
     title: "Create docs/references/rich-hickey.md (simple vs easy, complecting)"
     spec: e35s05-rich-hickey-reference.md
     tasks: e35s05-tasks.yaml
-    status: todo
+    status: done
     verify: "test -f docs/references/rich-hickey.md && grep -q 'simple.*easy|complect' docs/references/rich-hickey.md && echo OK"
   - id: e35s06
     bcp: 2
     title: "Create docs/references/sandi-metz.md (SOLID in practice, message-level testing)"
     spec: e35s06-sandi-metz-reference.md
     tasks: e35s06-tasks.yaml
-    status: todo
+    status: done
     verify: "test -f docs/references/sandi-metz.md && grep -q 'SOLID|message' docs/references/sandi-metz.md && echo OK"
   - id: e35s07
     bcp: 2
     title: "Create docs/references/ddd.md (bounded contexts, context mapping)"
     spec: e35s07-ddd-reference.md
     tasks: e35s07-tasks.yaml
-    status: todo
+    status: done
     verify: "test -f docs/references/ddd.md && grep -q 'bounded context|context map' docs/references/ddd.md && echo OK"
   - id: e35s08
     bcp: 2
     title: "Create docs/references/accelerate.md (DORA four keys)"
     spec: e35s08-accelerate-reference.md
     tasks: e35s08-tasks.yaml
-    status: todo
+    status: done
     verify: "test -f docs/references/accelerate.md && grep -q 'DORA|four key' docs/references/accelerate.md && echo OK"
   - id: e35s09
     bcp: 2
     title: "Update PRINCIPLES.md to credit Beck, Fowler, Feathers, Hunt & Thomas"
     spec: e35s09-principles-credits.md
     tasks: e35s09-tasks.yaml
-    status: todo
+    status: done
     verify: "grep -q 'Beck|Fowler|Feathers|Hunt' docs/PRINCIPLES.md && echo OK"
   - id: e35s10
     bcp: 2
     title: "Cross-reference new docs from SKILL.md bodies"
     spec: e35s10-cross-reference-skills.md
     tasks: e35s10-tasks.yaml
-    status: todo
+    status: done
     verify: "grep -q 'fowler' skills/plan-refactor/SKILL.md && grep -q 'feathers|characterization' skills/investigate-bug/SKILL.md && echo OK"
