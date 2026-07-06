@@ -31,6 +31,6 @@ metrics:
       total_seconds: 343.0
       avg_seconds: 343.0
 release:
-  ci_verified: false
-  last_commit: null
+  ci_verified: true
+  last_commit: 7d3b8569
   last_epic: e37
