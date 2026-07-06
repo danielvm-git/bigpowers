@@ -1,3 +1,10 @@
+## [2.68.3](https://github.com/danielvm-git/bigpowers/compare/v2.68.2...v2.68.3) (2026-07-06)
+
+
+### Bug Fixes
+
+* **ci:** git reset --hard before sync-skills to ensure clean working tree ([59938fe](https://github.com/danielvm-git/bigpowers/commit/59938fe804acb562e84792dc7cbf43ddd6967ed0))
+
 ## [2.68.2](https://github.com/danielvm-git/bigpowers/compare/v2.68.1...v2.68.2) (2026-07-06)
 
 
