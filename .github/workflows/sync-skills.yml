@@ -41,6 +41,7 @@ jobs:
 
       - name: Sync skills and verify artifacts committed
         run: |
+          git reset --hard HEAD
           bash scripts/sync-skills.sh
           bash scripts/validate-doctrine.sh
           git diff --exit-code \
@@ -51,19 +52,11 @@ jobs:
             skills-lock.json \
             README.md \
             specs/SKILL-SEARCH-INDEX_LATEST.md || {
-            git status --short > /tmp/sync-debug.log 2>&1
-            git diff --name-only .cursor/rules .gemini/extensions/bigpowers .pi SKILL-INDEX.md skills-lock.json README.md specs/SKILL-SEARCH-INDEX_LATEST.md >> /tmp/sync-debug.log 2>&1
-            echo "rc=1" >> /tmp/sync-debug.log
-            cat /tmp/sync-debug.log
+            echo "::error::Generated artifacts out of date"
+            git status --short
+            git diff --name-only .cursor/rules .gemini/extensions/bigpowers .pi SKILL-INDEX.md skills-lock.json README.md specs/SKILL-SEARCH-INDEX_LATEST.md
             exit 1
           }
-
-      - name: Upload sync debug log
-        uses: actions/upload-artifact@v6
-        if: failure()
-        with:
-          name: sync-debug
-          path: /tmp/sync-debug.log
 
       - name: Traceability gate (--strict)
         run: |
