@@ -1,3 +1,4 @@
+# story: e51s04
 ---
 name: quick-fix
 description: "Streamlined fast-path for trivial data-only fixes — no TDD, no branching ceremony. Collapses 6 skills into 2 for changes that are purely data with no logic risk. Aborts with fallback to investigate-bug if guardrails trigger."
@@ -13,6 +14,10 @@ effort: standard
 Fast-track for trivial data-only fixes that do not require the full bug-fix chain.
 
 When a bug fix is purely data — an add-missing-key, a typo correction, a config value update — the standard 6-skill chain (investigate-bug → diagnose-root → develop-tdd → kickoff-branch → verify-work → release-branch) is wasteful overhead. Quick-fix collapses it to 2 skills: **quick-fix** then **release-branch**.
+
+## Discovered gate failures (e51s04)
+
+A **Preflight**, **golden suite**, or **baseline red** failure discovered during unrelated work is valid quick-fix entry when the root cause is a data-only gap (missing key, typo, stale config) — **no user-reported bug required**. If guardrails abort (logic change, >1 file, >5 lines), fall back to `fix-bug` instead of narrating and continuing.
 
 ## Entry Criteria (ALL must be true)
 

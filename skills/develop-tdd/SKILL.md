@@ -1,3 +1,4 @@
+# story: e51s04
 ---
 name: develop-tdd
 model: sonnet
@@ -29,6 +30,8 @@ If you catch yourself thinking these, stop and reconsider — you are likely dev
 | "I'm just fixing a small bug." | Small bugs often indicate deep interface flaws. Investigate root cause. |
 | "I need to mock this internal class." | Mocking internals couples tests to implementation. Mock only I/O. |
 | "This refactor is out of scope." | Leave the code cleaner than you found it (Boy Scout Rule). |
+| "Preflight failed but it's unrelated." | **Always Green:** any reproducible gate failure routes **quick-fix → fix-bug** before forward work. Session boundaries do not waive Preflight. |
+| "I'll note the red gate and continue." | Narrating a failure is banned. fix-or-log is mandatory per CONVENTIONS § Discovered Defects. |
 
 ## Workflow
 

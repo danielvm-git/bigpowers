@@ -1,3 +1,4 @@
+<!-- story: e51s01 -->
 STORY KEY: E51-S01
 TITLE:     CONVENTIONS — Always Green, Shift Left, Discovered Defects, banned phrases
 TYPE:      Story
@@ -15,6 +16,15 @@ Solo developers using bigpowers report agents dismissing reproducible failures a
 ### 2. Value statement
 As a solo developer, I want CONVENTIONS to forbid defect dismissal, so agents fix or
 log every reproducible failure immediately.
+
+### 12. Seeded project migration note
+Existing projects seeded before e51 will **not** receive CONVENTIONS updates automatically.
+Owners must either:
+- Re-run `seed-conventions` on a branch and merge the Always Green sections, or
+- Manually copy § Always Green and § Discovered Defects from bigpowers `CONVENTIONS.md`, or
+- Run `migrate-version` when a migration step ships (future).
+
+Document this note inside CONVENTIONS § Always Green as a one-line "Existing projects" callout.
 
 ### 17. Acceptance criteria (Gherkin)
 ```gherkin

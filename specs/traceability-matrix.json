@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-06T16:13:23.343791+00:00",
+  "generated_at": "2026-07-06T16:36:27.196935+00:00",
   "matrix_version": "1.0",
   "stories": [
     {
@@ -504,6 +504,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "scripts/run-verification-gates.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "scripts/run-golden-suite.sh",
           "line": 0,
           "confidence": "medium",
@@ -516,7 +522,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 18
+      "link_count": 19
     },
     {
       "id": "e45s03",
@@ -2475,6 +2481,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/conventions-wiki/pre-merge-verification-gates.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/agent-guide/rtk-commands-by-workflow.md",
           "line": 0,
           "confidence": "medium",
@@ -2709,7 +2721,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 47
+      "link_count": 48
     },
     {
       "id": "e48s13",
@@ -3546,6 +3558,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-132530.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-174045.md",
           "line": 0,
           "confidence": "medium",
@@ -3793,6 +3811,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260626-204652.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-132944.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4092,6 +4116,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-132813.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-165959.md",
           "line": 0,
           "confidence": "medium",
@@ -4147,6 +4177,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260702-223249.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-133458.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4368,7 +4404,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-132604.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-142359.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-132933.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4512,6 +4560,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-132207.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-174148.md",
           "line": 0,
           "confidence": "medium",
@@ -4578,6 +4632,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-132130.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-182429.md",
           "line": 0,
           "confidence": "medium",
@@ -4603,6 +4663,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-164050.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-132858.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4818,7 +4884,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 286
+      "link_count": 295
     },
     {
       "id": "e48s26",
@@ -5518,6 +5584,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-132530.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-174045.md",
           "line": 0,
           "confidence": "medium",
@@ -5765,6 +5837,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260626-204652.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-132944.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -6064,6 +6142,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-132813.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-165959.md",
           "line": 0,
           "confidence": "medium",
@@ -6119,6 +6203,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260702-223249.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-133458.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -6340,7 +6430,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-132604.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-142359.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-132933.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -6484,6 +6586,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-132207.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-174148.md",
           "line": 0,
           "confidence": "medium",
@@ -6550,6 +6658,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-132130.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-182429.md",
           "line": 0,
           "confidence": "medium",
@@ -6575,6 +6689,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-164050.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-132858.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -6808,7 +6928,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 284
+      "link_count": 293
     },
     {
       "id": "e48s33",
@@ -7359,22 +7479,58 @@
       "epic_title": "Always Green \u2014 Shift Left, Preflight Hard Block & Fix-or-Log Doctrine",
       "bcp": 3,
       "wsjf": 7.0,
-      "status": "backlog",
+      "status": "done",
       "links": [
         {
+          "file": "CONVENTIONS.md",
+          "line": 4,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/verifications/AUDIT-e51-e51s01.md",
+          "line": 14,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "specs/epics/e51-always-green-shift-left/e51s01-conventions-always-green.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e51-always-green-shift-left/e51s01-tasks.yaml",
+          "line": 33,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e51-always-green-shift-left/e51s01-tasks.yaml",
+          "line": 34,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/conventions-wiki/banned-dismissive-phrases.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         },
         {
-          "file": "specs/epics/e51-always-green-shift-left/e51s01-tasks.yaml",
+          "file": "specs/conventions-wiki/always-green-shift-left.md",
           "line": 0,
-          "confidence": "low",
-          "method": "task_reference"
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/conventions-wiki/discovered-defects.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
         }
       ],
-      "link_count": 2
+      "link_count": 8
     },
     {
       "id": "e51s02",
@@ -7383,8 +7539,62 @@
       "epic_title": "Always Green \u2014 Shift Left, Preflight Hard Block & Fix-or-Log Doctrine",
       "bcp": 3,
       "wsjf": 7.0,
-      "status": "backlog",
+      "status": "done",
       "links": [
+        {
+          "file": ".gemini/extensions/bigpowers/commands/prompts/seed-conventions.md",
+          "line": 70,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/skills/seed-conventions/SKILL.md",
+          "line": 75,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e51-always-green-shift-left/e51s02-seed-preflight-default.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e51-always-green-shift-left/e51s02-tasks.yaml",
+          "line": 31,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e51-always-green-shift-left/e51s02-tasks.yaml",
+          "line": 32,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "skills/seed-conventions/REFERENCE.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "skills/seed-conventions/SKILL.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/seed-conventions.md",
+          "line": 74,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/seed-conventions/SKILL.md",
+          "line": 76,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "specs/WORKFLOW-solo-git.md",
           "line": 0,
@@ -7393,6 +7603,12 @@
         },
         {
           "file": "specs/skills-wiki/skills/seed-conventions.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/conventions-wiki/always-green-shift-left.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -7410,12 +7626,6 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/epics/e51-always-green-shift-left/e51s02-seed-preflight-default.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
           "file": "website/src/content/docs/skills/seed-conventions.mdx",
           "line": 0,
           "confidence": "medium",
@@ -7426,15 +7636,9 @@
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
-        },
-        {
-          "file": "specs/epics/e51-always-green-shift-left/e51s02-tasks.yaml",
-          "line": 0,
-          "confidence": "low",
-          "method": "task_reference"
         }
       ],
-      "link_count": 8
+      "link_count": 16
     },
     {
       "id": "e51s03",
@@ -7443,8 +7647,38 @@
       "epic_title": "Always Green \u2014 Shift Left, Preflight Hard Block & Fix-or-Log Doctrine",
       "bcp": 2,
       "wsjf": 7.0,
-      "status": "backlog",
+      "status": "done",
       "links": [
+        {
+          "file": "specs/epics/e51-always-green-shift-left/e51s03-tasks.yaml",
+          "line": 28,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e51-always-green-shift-left/e51s03-tasks.yaml",
+          "line": 30,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e51-always-green-shift-left/e51s03-preflight-hard-block.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "skills/verify-work/SKILL.md",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "skills/kickoff-branch/SKILL.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "specs/skills-wiki/skills/kickoff-branch.md",
           "line": 0,
@@ -7542,12 +7776,6 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/epics/e51-always-green-shift-left/e51s03-preflight-hard-block.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
           "file": "specs/epics/archive/e26-security-review/e26s06-release-branch-gate.md",
           "line": 0,
           "confidence": "medium",
@@ -7612,15 +7840,9 @@
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
-        },
-        {
-          "file": "specs/epics/e51-always-green-shift-left/e51s03-tasks.yaml",
-          "line": 0,
-          "confidence": "low",
-          "method": "task_reference"
         }
       ],
-      "link_count": 29
+      "link_count": 32
     },
     {
       "id": "e51s04",
@@ -7629,8 +7851,50 @@
       "epic_title": "Always Green \u2014 Shift Left, Preflight Hard Block & Fix-or-Log Doctrine",
       "bcp": 2,
       "wsjf": 7.0,
-      "status": "backlog",
+      "status": "done",
       "links": [
+        {
+          "file": "specs/epics/e51-always-green-shift-left/e51s04-fix-or-log-routing.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e51-always-green-shift-left/e51s04-tasks.yaml",
+          "line": 32,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e51-always-green-shift-left/e51s04-tasks.yaml",
+          "line": 34,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "skills/fix-bug/SKILL.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "skills/quick-fix/SKILL.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "skills/develop-tdd/SKILL.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "skills/audit-code/SKILL.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": ".fix_regex.sh",
           "line": 0,
@@ -8100,6 +8364,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-132530.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-174045.md",
           "line": 0,
           "confidence": "medium",
@@ -8347,6 +8617,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260626-204652.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-132944.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8646,6 +8922,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-132813.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-165959.md",
           "line": 0,
           "confidence": "medium",
@@ -8701,6 +8983,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260702-223249.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-133458.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8922,7 +9210,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-132604.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-142359.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-132933.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -9066,6 +9366,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-132207.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-174148.md",
           "line": 0,
           "confidence": "medium",
@@ -9132,6 +9438,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-132130.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-182429.md",
           "line": 0,
           "confidence": "medium",
@@ -9157,6 +9469,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-164050.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260706-132858.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -9462,12 +9780,6 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/epics/e51-always-green-shift-left/e51s04-fix-or-log-routing.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
           "file": "specs/epics/e18-quality-gates-impact/e18s01-audit-gate.md",
           "line": 0,
           "confidence": "medium",
@@ -9544,15 +9856,9 @@
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
-        },
-        {
-          "file": "specs/epics/e51-always-green-shift-left/e51s04-tasks.yaml",
-          "line": 0,
-          "confidence": "low",
-          "method": "task_reference"
         }
       ],
-      "link_count": 320
+      "link_count": 334
     },
     {
       "id": "e51s05",
@@ -9561,8 +9867,44 @@
       "epic_title": "Always Green \u2014 Shift Left, Preflight Hard Block & Fix-or-Log Doctrine",
       "bcp": 2,
       "wsjf": 7.0,
-      "status": "backlog",
+      "status": "done",
       "links": [
+        {
+          "file": "specs/PLAN-AUDIT_LATEST.md",
+          "line": 55,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e51-always-green-shift-left/e51s05-claude-preflight-row.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e51-always-green-shift-left/epic.yaml",
+          "line": 139,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e51-always-green-shift-left/e51s05-tasks.yaml",
+          "line": 31,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e51-always-green-shift-left/e51s05-tasks.yaml",
+          "line": 32,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "CLAUDE.md",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "specs/agent-guide/agent-rules.md",
           "line": 0,
@@ -9574,26 +9916,14 @@
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
-        },
-        {
-          "file": "specs/epics/e51-always-green-shift-left/e51s05-claude-preflight-row.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/epics/e51-always-green-shift-left/e51s05-tasks.yaml",
-          "line": 0,
-          "confidence": "low",
-          "method": "task_reference"
         }
       ],
-      "link_count": 4
+      "link_count": 8
     }
   ],
   "summary": {
     "total_stories": 64,
-    "tagged_stories": 4,
+    "tagged_stories": 9,
     "dark_stories": [],
     "dark_count": 0,
     "orphan_tags": [
@@ -9657,12 +9987,18 @@
       "e99s01"
     ],
     "orphan_count": 58,
-    "stale_tags": [],
-    "stale_count": 0,
+    "stale_tags": [
+      "e51s01",
+      "e51s02",
+      "e51s03",
+      "e51s04",
+      "e51s05"
+    ],
+    "stale_count": 5,
     "oracle_stats": {
-      "high": 9,
-      "medium": 1444,
-      "low": 19
+      "high": 41,
+      "medium": 1472,
+      "low": 14
     }
   }
 }

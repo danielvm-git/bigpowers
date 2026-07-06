@@ -1,4 +1,5 @@
 # story: e38s08
+# story: e51s05
 
 # bigpowers — Claude Code
 
@@ -22,15 +23,17 @@ Stack: Markdown / Bash (documentation-based; skills integrate with Claude Code, 
 | Typecheck | N/A (Markdown / Bash project) |
 | CI platform | GitHub Actions (`.github/workflows/publish.yml`, `sync-skills.yml`) |
 | Compliance | `npm run compliance` |
-| Golden Suite | `bash scripts/run-golden-suite.sh` |
+| Verification Gates | `bash scripts/run-verification-gates.sh` |
 | Traceability | `bash scripts/trace-stories.sh --strict` | grep for story tags (traceability check) |
+| Preflight | `npm run compliance && bash scripts/run-verification-gates.sh && bash scripts/sync-skills.sh && bash scripts/trace-stories.sh --strict` | Full local green stack before forward work |
+| CI | `gh pr checks` | Remote CI green when a PR is open |
 
 ### Pre-Merge Checklist
 
 Before opening a PR or landing a branch, run:
 
 ```bash
-npm run compliance && bash scripts/run-golden-suite.sh
+npm run compliance && bash scripts/run-verification-gates.sh
 ```
 
 If any gate fails, fix before merging. Run `--baseline` after any intentional increase in skill count or structure.
@@ -85,9 +88,9 @@ Before any task, run this sequence — not optional:
 ## Agent Rules
 
 - **Workflow Mandate:** You MUST use the bigpowers skills (e.g., `plan-work`, `develop-tdd`, `craft-skill`) to perform tasks. DO NOT write code directly in response to a user prompt like "build this feature".
+- **Always Green / fix-or-log:** Preflight and CI must be green before forward work. Any reproducible gate failure during unrelated work requires **quick-fix** or **fix-bug** — see CONVENTIONS § Discovered Defects. Never dismiss failures as pre-existing or out of scope.
 - Read specs/ and CONVENTIONS.md before writing code.
 - Write the minimum code that solves the stated problem. Nothing extra.
-- Never refactor, rename, or reorganize code outside the task scope.
 - Run tests after every change. Show evidence before declaring done.
 - One clarifying question beats a wrong assumption baked into 200 lines.
 - All written output (plans, specs, investigations) goes in specs/.

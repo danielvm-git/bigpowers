@@ -1,3 +1,4 @@
+<!-- story: e51s02 -->
 STORY KEY: E51-S02
 TITLE:     seed-conventions — Preflight default, solo-git default, embed Always Green template
 TYPE:      Story

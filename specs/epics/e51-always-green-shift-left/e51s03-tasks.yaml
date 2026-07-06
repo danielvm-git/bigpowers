@@ -1,6 +1,6 @@
 story_id: e51s03
 title: "kickoff-branch + verify-work — Preflight hard block and CI green gate"
-status: todo
+status: done
 bcps: 2
 risk: P0
 tasks:
@@ -10,15 +10,22 @@ tasks:
       remove "pre-existing issues" framing; route red Preflight to quick-fix/fix-bug.
     verify: >-
       ! grep -qi 'pre-existing issues' skills/kickoff-branch/SKILL.md &&
-      grep -qi 'Preflight' skills/kickoff-branch/SKILL.md && echo OK
-    status: todo
+      grep -qi 'Preflight' skills/kickoff-branch/SKILL.md &&
+      grep -qi 'quick-fix\|fix-bug' skills/kickoff-branch/SKILL.md && echo OK
+    status: done
   - id: 2
     description: >-
       Add verify-work step 0: run BP_PREFLIGHT or Commands Preflight + gh pr checks
       (CI green); FAIL blocks all later phases.
     verify: grep -qi 'Preflight\|BP_PREFLIGHT' skills/verify-work/SKILL.md && grep -qi 'gh pr checks\|CI green' skills/verify-work/SKILL.md && echo OK
-    status: todo
+    status: done
   - id: 3
     description: Run bash scripts/sync-skills.sh.
     verify: bash scripts/sync-skills.sh >/dev/null && echo OK
-    status: todo
+    status: done
+  - id: 4
+    description: >-
+      Add `# story: e51s03` tags to skills/kickoff-branch/SKILL.md and
+      skills/verify-work/SKILL.md.
+    verify: "grep -q 'story: e51s03' skills/kickoff-branch/SKILL.md skills/verify-work/SKILL.md && echo OK"
+    status: done

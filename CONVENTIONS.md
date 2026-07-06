@@ -1,6 +1,7 @@
 # story: e30s02
 # story: e30s03
 # story: e38s08
+# story: e51s01
 
 # Conventions
 
@@ -32,12 +33,12 @@ All changes to this repository MUST follow the [Conventional Commits 1.0.0](http
 - Never call GitHub REST API directly (curl, fetch, etc.)
 - Never create GitHub issues from automated workflows — produce local .md files in specs/ instead
 
-### Pre-Merge Golden Gate
+### Pre-Merge Verification Gates
 
-Before merging any branch, run the deterministic golden suite:
+Before merging any branch, run the deterministic verification gates:
 
 ```bash
-bash scripts/run-golden-suite.sh
+bash scripts/run-verification-gates.sh
 ```
 
 This runs compliance → G-04 self-test. If any gate fails, the merge is blocked.
@@ -58,6 +59,43 @@ You are operating within the `bigpowers` spec-driven development methodology.
 - **Traceability Mandate:** Every story MUST have at least one `story: eNNsNN` tag in its implementing code or test file. `trace-stories.sh --strict` runs in CI to enforce this. Untagged stories fail the CI traceability gate.
 - **Scenario ID Format (e46s04+):** When a `specs/tech-architecture/eNN-TEST_PLAN_LATEST.md` exists for the epic, critical-path scenarios use the format `SC-eNNsYY-P{0|1|2|3}-NN` (e.g. `SC-e46s04-P0-01`). These IDs are referenced inside test files as `// scenario: SC-eNNsYY-P0-NN` comments alongside the existing `// story: eNNsNN` tag. SC gaps detected via check-blind-spots.sh; no separate SC tracing script required. gate-trace treats a P0 story with zero `SC-*-P0-*` references in test files as a CONCERNS finding (waivable via `state.yaml`). P2/P3 epics may set `test_plan: waived` in `state.yaml` to skip the `plan-tests` skill.
 - **Stream Continuity:** When writing large files or long documents, you MUST output continuously in chunks of ~200 lines. Do not pause between sections. Continue immediately until complete. If you need time to process, emit a placeholder comment or heading rather than going silent to prevent stream idle timeouts.
+
+## Always Green / Shift Left
+
+Solo developers own the whole codebase. **Always Green** means Preflight and CI are green before any forward work — not "green enough for this task."
+
+**Shift Left (1-10-100):** Defects cost roughly 1× to fix in development, 10× in integration, 100× in production (IBM Systems Sciences Institute; CloudQA benchmarks). Fixing a red gate now is cheaper than shipping and debugging later.
+
+**Preflight** — the project's full local verification stack (chained from test, lint, typecheck, and build commands recorded in `CLAUDE.md`). Preflight MUST pass before kickoff, develop, or verify phases advance.
+
+**CI green** — when a PR exists or remote CI applies, `gh pr checks` (or equivalent) MUST show passing before merge or land.
+
+**Existing projects:** Projects seeded before e51 do not receive these sections automatically. Re-run `seed-conventions` and merge the Always Green blocks, or copy § Always Green and § Discovered Defects from bigpowers `CONVENTIONS.md` manually.
+
+## Discovered Defects
+
+Any **reproducible gate failure** encountered during unrelated work is a discovered defect — not optional background noise.
+
+**fix-or-log ladder (mandatory):**
+
+1. **quick-fix** — trivial, data-only, or single-file fixes within guardrails.
+2. **fix-bug** — when quick-fix guardrails abort, or the failure needs investigation (`specs/bugs/BUG-*.md` + TDD).
+3. **Log** — only when reproduction is blocked after good-faith attempt; write a BUG spec and stop forward work on the original task until triaged.
+
+Discovered fixes ship in the **same PR** as the original work but in **separate commits** (Conventional Commits). Never narrate a failure and continue.
+
+**Hard block:** Red Preflight or red CI blocks kickoff-branch, develop-tdd, and verify-work forward progress until fix-or-log produces green.
+
+### Banned dismissive phrases
+
+Agents MUST NOT use these phrases (or close paraphrases) to ignore reproducible failures:
+
+| Banned phrase | Required behavior instead |
+|---------------|---------------------------|
+| Pre-existing / pre-existing issues | Run fix-or-log; if truly unrelated, prove with a passing repro after revert |
+| unrelated to this session | Same — session boundaries do not waive green gates |
+| not introduced by my changes | Bisect or fix anyway; solo-default owns the whole tree |
+| out of scope (ignoring a red gate) | Invoke quick-fix or fix-bug; scope-minimization never overrides Always Green |
 
 ## specs/ — All Planning Output Goes Here
 

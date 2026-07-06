@@ -10,10 +10,10 @@ source: CLAUDE.md#pre-merge-checklist
 Before opening a PR or landing a branch, run:
 
 ```bash
-npm run compliance && bash scripts/run-golden-suite.sh
+npm run compliance && bash scripts/run-verification-gates.sh
 ```
 
-If any gate fails, fix before merging. Run `--baseline` after any intentional increas
+If any gate fails, fix before merging. Run `--baseline` after any intentional i
 
 > Full content: /Users/danielvm/Developer/bigpowers/CLAUDE.md section "Pre-Merge Checklist"
 ---

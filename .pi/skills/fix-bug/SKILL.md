@@ -13,6 +13,16 @@ Orchestrates **fix_bug** flow without mixing epic build state.
 
 > **HARD GATE** — Set `specs/state.yaml` `active_flow: fix_bug` and `bug_cycle.current_step: 1` before starting.
 
+## Discovered gate failures (e51s04)
+
+Valid entry **without a user-reported bug** when:
+
+- **Preflight** or **CI** is red at kickoff or verify-work
+- **Golden suite** or project baseline is red (`bash scripts/run-verification-gates.sh` or equivalent)
+- A reproducible gate failure during unrelated epic work exceeds quick-fix guardrails
+
+Create `specs/bugs/BUG-*.md` via `investigate-bug` (or inline in fix-bug step 1) describing the gate failure, then run the standard fix_bug chain.
+
 ## Five steps (`bug_cycle` in state.yaml)
 
 | Step | Skill / action |

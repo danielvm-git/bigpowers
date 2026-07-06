@@ -14,6 +14,10 @@ Fast-track for trivial data-only fixes that do not require the full bug-fix chai
 
 When a bug fix is purely data — an add-missing-key, a typo correction, a config value update — the standard 6-skill chain (investigate-bug → diagnose-root → develop-tdd → kickoff-branch → verify-work → release-branch) is wasteful overhead. Quick-fix collapses it to 2 skills: **quick-fix** then **release-branch**.
 
+## Discovered gate failures (e51s04)
+
+A **Preflight**, **golden suite**, or **baseline red** failure discovered during unrelated work is valid quick-fix entry when the root cause is a data-only gap (missing key, typo, stale config) — **no user-reported bug required**. If guardrails abort (logic change, >1 file, >5 lines), fall back to `fix-bug` instead of narrating and continuing.
+
 ## Entry Criteria (ALL must be true)
 
 Before invoking quick-fix, evaluate every item in this checklist:

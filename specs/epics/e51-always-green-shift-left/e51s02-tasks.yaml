@@ -1,6 +1,6 @@
 story_id: e51s02
 title: "seed-conventions — Preflight default, solo-git default, embed Always Green template"
-status: todo
+status: done
 bcps: 3
 risk: P1
 tasks:
@@ -9,20 +9,25 @@ tasks:
       Add interview question for Preflight command; if user says nothing, chain
       Test + Lint + Build answers into Preflight row in CLAUDE.md Commands table.
     verify: grep -qi 'Preflight' skills/seed-conventions/SKILL.md && echo OK
-    status: todo
+    status: done
   - id: 2
     description: >-
       Update REFERENCE.md agent-config template: Preflight + CI rows; embed Always
       Green and banned phrases in CONVENTIONS template fragment.
     verify: grep -qi 'Preflight' skills/seed-conventions/REFERENCE.md && grep -q 'Always Green' skills/seed-conventions/REFERENCE.md && echo OK
-    status: todo
+    status: done
   - id: 3
     description: >-
       Change specs/state.yaml default workflow_mode from team-pr to solo-git in
       seed-conventions Generate files section.
     verify: grep -q 'solo-git' skills/seed-conventions/SKILL.md && echo OK
-    status: todo
+    status: done
   - id: 4
     description: Run bash scripts/sync-skills.sh after SKILL.md and REFERENCE.md edits.
     verify: bash scripts/sync-skills.sh >/dev/null && grep -qi 'Preflight' .cursor/rules/seed-conventions.mdc && echo OK
-    status: todo
+    status: done
+  - id: 5
+    description: >-
+      Add `# story: e51s02` tags to skills/seed-conventions/SKILL.md and REFERENCE.md.
+    verify: "grep -q 'story: e51s02' skills/seed-conventions/SKILL.md skills/seed-conventions/REFERENCE.md && echo OK"
+    status: done

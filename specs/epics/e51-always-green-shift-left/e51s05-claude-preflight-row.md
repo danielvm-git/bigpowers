@@ -1,3 +1,4 @@
+<!-- story: e51s05 -->
 STORY KEY: E51-S05
 TITLE:     CLAUDE.md — solo-default agent rules + bigpowers Preflight command row
 TYPE:      Story

@@ -13,7 +13,7 @@
     },
     "audit-code": {
       "description": "Self-review checklist for the coding agent to run before dispatching a reviewer. Checks CONVENTIONS.md compliance, Boy Scout Rule, test coverage, types, and SOLID. Produces a pass/fail checklist. Use before request-review, before committing, or when user asks for a code quality check.",
-      "sha256": "9a4afa72a83882d6",
+      "sha256": "6d844137eda91fe7",
       "path": "skills/audit-codeSKILL.md"
     },
     "audit-plan": {
@@ -78,7 +78,7 @@
     },
     "develop-tdd": {
       "description": "Test-driven development with red-green-refactor loop using vertical slices. Use for features (epic tasks) or bugs (specs/bugs/BUG-*.md).",
-      "sha256": "02c444db6e21dade",
+      "sha256": "943a6181c39ab097",
       "path": "skills/develop-tddSKILL.md"
     },
     "diagnose-root": {
@@ -108,7 +108,7 @@
     },
     "evolve-skill": {
       "description": "Benchmark-gated skill evolution — consume bigpowers-benchmark report, propose plan-work change, edit skill via craft-skill, re-run benchmark, record ADR. Use when a skill underperforms on benchmark or stocktake finds systemic gap.",
-      "sha256": "3fe2aefbdfca4c4d",
+      "sha256": "db153994fb656052",
       "path": "skills/evolve-skillSKILL.md"
     },
     "execute-plan": {
@@ -123,7 +123,7 @@
     },
     "fix-bug": {
       "description": "Bug fix orchestrator — active_flow fix_bug; reads specs/bugs/BUG-*.md; chains investigate-bug, develop-tdd, validate-fix. Use when user reports a defect.",
-      "sha256": "ce4781244b970a14",
+      "sha256": "8e9e5922211b7e3b",
       "path": "skills/fix-bugSKILL.md"
     },
     "gate-trace": {
@@ -163,7 +163,7 @@
     },
     "kickoff-branch": {
       "description": "Create a git worktree and feature branch, then verify a clean test baseline before any code is written. Use when starting a new feature or task, when user wants to work in isolation from main, or mentions \"start a branch\" or \"new worktree\".",
-      "sha256": "928d87bae8cc4ddf",
+      "sha256": "c9bed1e15d6df733",
       "path": "skills/kickoff-branchSKILL.md"
     },
     "maintain-wiki": {
@@ -223,7 +223,7 @@
     },
     "quick-fix": {
       "description": "\"Streamlined fast-path for trivial data-only fixes — no TDD, no branching ceremony. Collapses 6 skills into 2 for changes that are purely data with no logic risk. Aborts with fallback to investigate-bug if guardrails trigger.\"",
-      "sha256": "f446202c2910b615",
+      "sha256": "6a1b70cb1530c428",
       "path": "skills/quick-fixSKILL.md"
     },
     "release-branch": {
@@ -283,7 +283,7 @@
     },
     "seed-conventions": {
       "description": "Generate CLAUDE.md and CONVENTIONS.md for a brand-new project through a brief interview, and create the specs/ directory with evolved bigpowers structure (product/, tech-architecture/, verifications/, epics/archive/). Entry point for greenfield projects. Use when starting a new project from scratch, when user asks to set up AI agent conventions, or when there is no CLAUDE.md yet.",
-      "sha256": "eb4cbca25d54fa81",
+      "sha256": "397090fd29c8cac1",
       "path": "skills/seed-conventionsSKILL.md"
     },
     "session-state": {
@@ -353,7 +353,7 @@
     },
     "verify-work": {
       "description": "Multi-phase UAT gate — cold-start smoke, build, typecheck, lint, tests, step-by-step manual verification, gaps-closure loop. Use after execute-plan or develop-tdd, before audit-code.",
-      "sha256": "300e5a7c7695e33f",
+      "sha256": "ae08ac8212a003ac",
       "path": "skills/verify-workSKILL.md"
     },
     "visual-dashboard": {

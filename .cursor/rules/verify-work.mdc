@@ -32,6 +32,8 @@ Review answers "is the code good?"; Verify answers "does the built thing do what
 
 0. **Branch check** — must not be `main`/`master`.
 
+0a. **Preflight / CI green (HARD GATE — e51s03)** — Run Preflight from `CLAUDE.md` or `BP_PREFLIGHT` (`bp-read-agents.sh`). If PR open: `gh pr checks` (**CI green**). Failure blocks all phases → `quick-fix` or `fix-bug`.
+
 1. Read active story tasks from `specs/epics/<capsule>/eNNsYY-tasks.yaml` and story spec from `specs/epics/<capsule>/eNNsYY-<slug>.md` (countable-story-format, Gherkin in §17). Note the `risk:` level (`P0`–`P3`).
 1a. **Pre-UAT verify validation** — for each task's `verify:` command, run it and detect pattern mismatches before UAT begins. If a grep/awk/jq command fails, check whether the pattern is wrong vs. a genuine failure:
     ```bash
@@ -40,7 +42,7 @@ Review answers "is the code good?"; Verify answers "does the built thing do what
     ```
     Report: `"Pattern 'X' not found. Nearest match: 'Y' at line N"` and ask `"Update verify command? [Y/n]"`. Fix before proceeding — a mismatched verify command produces false failures during UAT.
 2. **Cold-start smoke** (if app; skip if P3): stop server, clear caches, boot from scratch.
-3. **AGENTS.md preflight** — before running default checks, call `bash scripts/bp-read-agents.sh` to detect project-specific commands. If `BP_PREFLIGHT` is set, run it instead of the default mechanical gates (or in addition to them if the project requires both). Output: `"Using preflight from AGENTS.md: <cmd>"`. Fall back to `CLAUDE.md` commands if AGENTS.md is absent.
+3. **AGENTS.md preflight** — if 0a skipped BP_PREFLIGHT, run `bash scripts/bp-read-agents.sh` and use detected command.
 4. Mechanical gates: build → typecheck → lint → tests (from `CLAUDE.md` or AGENTS.md). Skip tests if P2/P3.
 5. **Security scan** (skip if P2/P3) — run `security-review` against the git diff (working tree vs merge-base). Parse findings report. If any HIGH findings with confidence ≥ 8 exist → **block the gate**. Write findings to `specs/security/REVIEW.md`. Allow documented exceptions via `specs/security/EXCEPTIONS.md`. MEDIUM/LOW findings warn but don't block.
 5a. **Blind-spot check** — run `bash scripts/check-blind-spots.sh`. This detects structural quality gaps (verify-gap, test-gap, stale-tag, etc.) beyond percentage coverage. If any HIGH-severity findings exist → **block the verify-work PASS gate**. Findings are written to `specs/blind-spots.json`. MEDIUM/LOW findings warn but don't block.
@@ -52,14 +54,7 @@ Review answers "is the code good?"; Verify answers "does the built thing do what
 
 ### Cold-Start Smoke (absorbed)
 
-For applications, verify correctness from a clean state:
-
-- Stop the running server (if any)
-- Clear any caches (browser, application caches, compiled artifacts)
-- Boot the application from scratch
-- Verify that no stale artifacts or configuration are affecting the behavior
-
-This catches environment-specific bugs and ensures the build is reproducible.
+Stop server, clear caches, boot from scratch; confirm no stale config affects behavior.
 
 ### Gaps Loop (absorbed)
 

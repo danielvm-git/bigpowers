@@ -1,3 +1,4 @@
+# story: e51s02
 # Seed Conventions — Reference Templates
 
 ## Agent config template (CLAUDE.md / GEMINI.md / AGENTS.md)
@@ -23,6 +24,8 @@ Stack: [language, framework, runtime]
 | Test   | `[cmd]` |
 | Build  | `[cmd]` |
 | Lint   | `[cmd]` |
+| Preflight | `[test && lint && build chain — or user-named full-green cmd]` |
+| CI     | `gh pr checks` (when a PR is open) |
 
 ## Architecture
 [1–2 sentences. Key modules and their relationships.]
@@ -32,15 +35,17 @@ Stack: [language, framework, runtime]
 - [convention 2]
 
 ## Never
+- Never dismiss reproducible gate failures as pre-existing or out of scope
+- Never proceed on red Preflight or red CI — invoke quick-fix or fix-bug first
 - [hard stop 1]
 - [hard stop 2]
 
 ## Agent Rules
 - **Workflow Mandate:** You MUST use the bigpowers skills (e.g. `plan-work`, `develop-tdd`, `orchestrate-project`) to perform tasks. DO NOT write code directly in response to a user prompt like "build this feature".
+- **Always Green:** Preflight and CI must be green before forward work. Reproducible gate failures require **fix-or-log** (quick-fix → fix-bug) per CONVENTIONS § Discovered Defects.
 - Read specs/ before writing code.
 - All planning and specifications MUST be written to `specs/` (`product/SCOPE_LATEST.yaml`, `release-plan.yaml`, `epics/`) before any code is generated.
 - Write the minimum code that solves the stated problem. Nothing extra.
-- Never refactor, rename, or reorganize code outside the task scope.
 - Run tests after every change. Show evidence before declaring done.
 - One clarifying question beats a wrong assumption baked into 200 lines.
 ```
@@ -57,6 +62,12 @@ Stack: [language, framework, runtime]
 ## CONVENTIONS.md
 
 Use the standard bigpowers CONVENTIONS.md as the base. Fill in the project-specific defensive code categories from the interview answers.
+
+**Always embed** these doctrine sections from bigpowers (adapt commands only):
+
+- **§ Always Green / Shift Left** — 1-10-100 rationale, Preflight + CI green definitions
+- **§ Discovered Defects** — fix-or-log ladder (quick-fix → fix-bug), separate commits for discovered fixes
+- **Banned dismissive phrases** table — pre-existing, unrelated to session, not introduced by my changes, out of scope (ignoring a red gate)
 
 ## Stack profile fragments
 

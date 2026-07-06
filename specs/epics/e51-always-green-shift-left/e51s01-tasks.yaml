@@ -1,6 +1,6 @@
 story_id: e51s01
 title: "CONVENTIONS — Always Green, Shift Left, Discovered Defects, banned phrases"
-status: todo
+status: done
 bcps: 3
 risk: P1
 tasks:
@@ -9,16 +9,27 @@ tasks:
       Add CONVENTIONS.md § Always Green / Shift Left with 1-10-100 cost rationale
       (IBM / CloudQA benchmarks) and Preflight + CI green definition.
     verify: grep -q 'Always Green' CONVENTIONS.md && grep -q '1-10-100' CONVENTIONS.md && echo OK
-    status: todo
+    status: done
   - id: 2
     description: >-
       Add § Discovered Defects — fix-or-log ladder (quick-fix → fix-bug), separate
       commits for discovered fixes, hard block on red Preflight.
     verify: grep -q 'fix-or-log' CONVENTIONS.md && grep -q 'quick-fix' CONVENTIONS.md && echo OK
-    status: todo
+    status: done
   - id: 3
     description: >-
       Add banned-phrase table (pre-existing, unrelated to session, not introduced by
       my changes, out of scope ignoring) with required replacement behaviors.
     verify: grep -q 'Pre-existing' CONVENTIONS.md && grep -q 'unrelated to this session' CONVENTIONS.md && echo OK
-    status: todo
+    status: done
+  - id: 4
+    description: >-
+      Add "Existing projects" callout under § Always Green — seeded projects before
+      e51 must manually merge Always Green sections or re-run seed-conventions.
+    verify: grep -q 'Existing projects' CONVENTIONS.md && grep -q 'seed-conventions' CONVENTIONS.md && echo OK
+    status: done
+  - id: 5
+    description: >-
+      Add `# story: e51s01` tag to CONVENTIONS.md header for trace-stories coverage.
+    verify: "grep -q 'story: e51s01' CONVENTIONS.md && echo OK"
+    status: done

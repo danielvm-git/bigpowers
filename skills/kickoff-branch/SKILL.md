@@ -1,3 +1,4 @@
+# story: e51s03
 ---
 name: kickoff-branch
 model: haiku
@@ -9,9 +10,9 @@ description: Create a git worktree and feature branch, then verify a clean test 
 
 > **HARD GATE** — Direct work on `main` or `master` is PROHIBITED. Every task MUST start with this skill to create a feature branch or worktree.
 >
-> **HARD GATE** — Do NOT proceed with development until a clean test baseline is verified. If the current base branch is failing tests, stop and fix the baseline before creating a new worktree.
+> **HARD GATE** — Do NOT proceed with development until **Preflight** passes on the default branch. Red Preflight blocks branch creation and all forward work — invoke `quick-fix` or `fix-bug` per CONVENTIONS § Discovered Defects.
 
-Create an isolated working environment before touching any code. A clean baseline proves tests pass before you start — so any failure you see later was caused by your changes, not pre-existing issues.
+Create an isolated working environment before touching any code. **Preflight must be green** before you write feature code — solo-default owns the whole tree, not just the current task diff.
 
 ## Process
 
@@ -114,32 +115,25 @@ fi
 
 If locked: abort. If unlocked: entry added, proceed.
 
-Run the full test suite and confirm it passes before writing any code:
+Run **Preflight** (from `CLAUDE.md` Commands table, or `BP_PREFLIGHT` from `bash scripts/bp-read-agents.sh`) and confirm green before writing any code:
 
 ```bash
-# Use the project's test command from CLAUDE.md or package.json
-npm test    # or: pytest, go test ./..., cargo test, etc.
+# Preflight — project's full local verification stack
+# bigpowers example:
+npm run compliance && bash scripts/run-verification-gates.sh
+
+# Or project-specific from CLAUDE.md / AGENTS.md
 ```
 
-- [ ] All tests pass
-- [ ] No type errors (`npm run typecheck` or equivalent)
-- [ ] No lint errors (`npm run lint` or equivalent)
+- [ ] Preflight passes (all chained gates green)
+- [ ] No type errors (`npm run typecheck` or equivalent, if not in Preflight)
+- [ ] No lint errors (`npm run lint` or equivalent, if not in Preflight)
 
-If the baseline is broken, **stop and tell the user**. Do not proceed with development on a broken baseline.
+If Preflight is red, **stop** — route to `quick-fix` or `fix-bug`. Fix before kickoff continues.
 
 ### 5. Confirm readiness
 
-Report the baseline result:
-```
-✓ Baseline clean: 42 tests passed, 0 failed
-Branch: <task-slug>
-Worktree: ../<task-slug>
-Ready to develop.
-```
-
-Suggest next skill: `develop-tdd` to start the TDD loop, or `execute-plan` if `specs/release-plan.yaml + epic capsule directories` already exists.
-
-
+Report: `✓ Preflight green` + branch + worktree. Suggest next: `develop-tdd` or `execute-plan`.
 
 ## Handoff
 

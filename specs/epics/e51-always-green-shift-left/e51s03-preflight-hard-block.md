@@ -1,3 +1,4 @@
+<!-- story: e51s03 -->
 STORY KEY: E51-S03
 TITLE:     kickoff-branch + verify-work — Preflight hard block and CI green gate
 TYPE:      Story

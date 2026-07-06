@@ -11,7 +11,7 @@ effort: standard
 
 ## Loop
 
-1. **Regression gate** — Run `bash scripts/run-golden-suite.sh` to catch mechanical regressions (compliance, sync pipeline, size budget) before spending time on benchmark evals. If golden suite fails, fix regressions first — they are pre-requisites for any capability improvement.
+1. **Regression gate** — Run `bash scripts/run-verification-gates.sh` to catch mechanical regressions (compliance, sync pipeline, size budget) before spending time on benchmark evals. If golden suite fails, fix regressions first — they are pre-requisites for any capability improvement.
 2. **Establish baseline** — Run `run-benchmark <skill> --baseline`. If no definition exists at `specs/benchmarks/<skill>.yaml`, create one following `specs/benchmarks/SCHEMA.md` first. Save report path in `state.yaml`. If `specs/benchmarks/reports/BASELINE-<skill>.yaml` already exists, skip this step.
 
 3. **Identify gap** — Read the baseline report (`specs/benchmarks/reports/BASELINE-<skill>.yaml`). Find scenarios with `result: FAIL` or low `pass_at_k`. This is the measurable gap.

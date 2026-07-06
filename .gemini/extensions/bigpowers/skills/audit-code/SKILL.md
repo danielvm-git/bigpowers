@@ -50,7 +50,8 @@ Run this self-review before asking anyone else to look at the code. The goal is 
 - [ ] Changes are limited to what was asked — nothing extra refactored or reorganized
 - [ ] No speculative features added
 - [ ] No files touched outside the stated scope
-- [ ] Changes are surgical: only code strictly required for the task; no refactoring, reorganization, or cleanup outside task scope (Boy Scout Rule applied surgically, not broadly)
+- [ ] **Discovered defects:** Reproducible gate failures (Preflight, CI, golden suite) require fix-or-log — `quick-fix` or `fix-bug` — even when "outside" the story scope. Scope-minimization does not waive Always Green.
+- [ ] Boy Scout Rule applies to files opened to fix a gate failure; it does not excuse skipping red Preflight
 
 ### Boy Scout Rule
 

@@ -1,8 +1,9 @@
+# story: e51
 id: e51
 title: "Always Green — Shift Left, Preflight Hard Block & Fix-or-Log Doctrine"
 wsjf: 7.0
 bcps: 12
-status: proposed
+status: done
 mode: capsule
 capsule_dir: epics/e51-always-green-shift-left
 release: v2.9x
@@ -28,14 +29,22 @@ source: |
 
   WSJF: BV 8 + TC 5 + RR 8 / Job 3 ≈ 7.0 — outranks e50 (4.3); insert first in build_order.
 
+out_of_scope:
+  - "developer_mode: team escape hatch (YAGNI — solo-default only for v1)"
+  - "project_kind meta vs application split (unified Preflight doctrine)"
+  - "New triage-defect skill (quick-fix → fix-bug is the router)"
+  - "Auto-push CONVENTIONS to already-seeded projects (document manual migrate in e51s01)"
+
 stories:
   - id: e51s01
     bcp: 3
     title: "CONVENTIONS — Always Green, Shift Left, Discovered Defects, banned phrases"
-    status: todo
+    status: done
     risk: P1
     spec: e51s01-conventions-always-green.md
     tasks: e51s01-tasks.yaml
+    trace_targets:
+      - CONVENTIONS.md
     verify: >-
       grep -q 'Always Green' CONVENTIONS.md &&
       grep -q 'Shift Left' CONVENTIONS.md &&
@@ -51,10 +60,13 @@ stories:
   - id: e51s02
     bcp: 3
     title: "seed-conventions — Preflight default, solo-git default, embed Always Green template"
-    status: todo
+    status: done
     risk: P1
     spec: e51s02-seed-preflight-default.md
     tasks: e51s02-tasks.yaml
+    trace_targets:
+      - skills/seed-conventions/SKILL.md
+      - skills/seed-conventions/REFERENCE.md
     verify: >-
       grep -qi 'Preflight' skills/seed-conventions/REFERENCE.md &&
       grep -q 'solo-git' skills/seed-conventions/SKILL.md &&
@@ -69,13 +81,17 @@ stories:
   - id: e51s03
     bcp: 2
     title: "kickoff-branch + verify-work — Preflight hard block and CI green gate"
-    status: todo
+    status: done
     risk: P0
     spec: e51s03-preflight-hard-block.md
     tasks: e51s03-tasks.yaml
+    trace_targets:
+      - skills/kickoff-branch/SKILL.md
+      - skills/verify-work/SKILL.md
     verify: >-
       grep -qi 'Preflight' skills/kickoff-branch/SKILL.md &&
       ! grep -qi 'pre-existing issues' skills/kickoff-branch/SKILL.md &&
+      grep -qi 'quick-fix\|fix-bug' skills/kickoff-branch/SKILL.md &&
       grep -qi 'Preflight\|BP_PREFLIGHT' skills/verify-work/SKILL.md &&
       grep -qi 'CI green\|gh pr checks' skills/verify-work/SKILL.md && echo OK
     ac: |
@@ -87,10 +103,15 @@ stories:
   - id: e51s04
     bcp: 2
     title: "audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log routing on gate failure"
-    status: todo
+    status: done
     risk: P1
     spec: e51s04-fix-or-log-routing.md
     tasks: e51s04-tasks.yaml
+    trace_targets:
+      - skills/audit-code/SKILL.md
+      - skills/develop-tdd/SKILL.md
+      - skills/quick-fix/SKILL.md
+      - skills/fix-bug/SKILL.md
     verify: >-
       grep -qi 'fix-or-log\|quick-fix\|fix-bug' skills/audit-code/SKILL.md &&
       grep -qi 'gate failure\|Preflight' skills/quick-fix/SKILL.md &&
@@ -104,13 +125,18 @@ stories:
   - id: e51s05
     bcp: 2
     title: "CLAUDE.md — solo-default agent rules + bigpowers Preflight command row"
-    status: todo
+    status: done
     risk: P1
     spec: e51s05-claude-preflight-row.md
     tasks: e51s05-tasks.yaml
+    trace_targets:
+      - CLAUDE.md
+      - skills/seed-conventions/REFERENCE.md
     verify: >-
       grep -qi 'Preflight' CLAUDE.md &&
-      grep -qi 'Always Green\|fix-or-log' CLAUDE.md &&
+      grep -q 'Always Green' CLAUDE.md &&
+      grep -q 'fix-or-log' CLAUDE.md &&
+      grep -q '# story: e51s05' CLAUDE.md &&
       ! grep -q 'Never refactor, rename, or reorganize code outside the task scope' CLAUDE.md && echo OK
     ac: |
       Given bigpowers CLAUDE.md agent bootstrap

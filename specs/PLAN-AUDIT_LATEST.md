@@ -1,64 +1,72 @@
-# Plan Audit — Whole Project (bigpowers, v2.59.4)
-
-**Date:** 2026-07-04 · **Verdict:** ✅ READY (proceed with `survey-context`) — all 5 gaps from the initial audit now CLOSED (see "Gap Closure" below); compliance gate 88/88, 100%, PASS
-
-**Scope audited:** Entire project, not just the pending epic slice — `CLAUDE.md`, `CONVENTIONS.md`, `specs/state.yaml`, `specs/release-plan.yaml`, `specs/execution-status.yaml`, `specs/bugs/registry.yaml` + all 24 bug files, `specs/tech-architecture/`, and a live run of `npm run compliance`. This supersedes the 2026-07-03 audit, which scoped only to the 14 not-yet-done epics.
+# Plan Audit — e51 Always Green / Shift Left
+**Date:** 2026-07-06 · **Verdict:** READY (gaps closed)
 
 ---
 
-## Principles Alignment
+## 1. Principles Alignment
 
 | Check | Status | Note |
-|---|---|---|
-| Vertical slices | ✅ | 33 done epics + 14 proposed, all `mode: capsule` with per-story `verify:` |
-| Scope bounded | ✅ | `specs/product/SCOPE_LATEST.yaml` present; epics carry `depends_on`/`soft_depends_on` |
-| Success criteria | ✅ | Verify commands present throughout; `run-golden-suite.sh` is the mechanical pre-merge gate |
-| HARD GATE candidates | ⚠️ | e47s01 (`install_opencode()` removal) still has no HARD GATE annotation — open since 2026-07-03, unresolved |
-| Domain language | ✅ | `specs/tech-architecture/HARD-GATES-REFERENCE.md` + `docs/PRINCIPLES.md` keep WSJF/BCP/capsule terms consistent |
-
-## Conventions Completeness
-
-| Check | Status | Note |
-|---|---|---|
-| `CLAUDE.md` / `CONVENTIONS.md` | ✅ | Both present, current, extensively cross-referenced |
-| `specs/` YAML cockpit | ✅ | `state.yaml`, `release-plan.yaml`, `execution-status.yaml` all present and internally consistent |
-| Commit conventions | ✅ | Conventional Commits + semantic-release enforced; recent commits comply (`fix(ci): ...`, `chore(bug): ...`) |
-| Git workflow mode | ✅ | Solo (`specs/WORKFLOW-solo-git.md`), `land-branch.sh` documented |
-| Tech-stack doc path | ⚠️ | `CONVENTIONS.md` names `specs/tech-architecture/TECH_STACK_LATEST.md` as canonical; actual file on disk is `tech-stack.md` (no `_LATEST` suffix, no `TECH_STACK` casing) — path drift, low severity |
-| Bug registry accuracy | ⚠️ | See Open Gaps — `registry.yaml` is stale in two ways |
-
-## Pre-flight Answers
-
-| Command | Value | Verified live |
-|---|---|---|
-| Test | `npm run compliance && bash scripts/run-golden-suite.sh` | ✅ ran `npm run compliance`: 87/88 checks PASS, score 98% (threshold 94%), **GATE: PASS** |
-| Build | `bash scripts/install.sh` | not re-run this session (no install-affecting change since 2.59.4) |
-| Lint | `bash scripts/sync-skills.sh` | ⚠️ fails standalone in this shell — see GAP-ENV below |
-| Typecheck | N/A (Markdown/Bash); TS scoped to e32 only | unchanged |
-| CI platform | GitHub Actions | unchanged |
-| Solo or team | Solo | unchanged |
-| Language/framework | Markdown / Bash, skill catalog for Claude Code / Cursor / Gemini CLI | unchanged |
-| Codebase state | Existing, 33-epic, mature | unchanged |
+|-------|--------|------|
+| Vertical slices | ✅ | 5 stories, each shippable independently |
+| Scope bounded | ✅ | `out_of_scope` added to epic.yaml |
+| Success criteria | ✅ | Gherkin AC + runnable `verify:` on every story |
+| HARD GATE candidates | ✅ | e51s03 P0; s01 prerequisite in build_order |
+| Domain language | ✅ | Preflight, fix-or-log, Always Green, 1-10-100 locked |
 
 ---
 
-## Gap Closure (2026-07-04 remediation)
+## 2. Conventions Completeness
 
-All five gaps closed in one remediation pass. Verification: `npm run compliance` → 88/88, SCORE 100%, GATE PASS; `validate-specs-yaml: OK`.
+| Check | Status | Note |
+|-------|--------|------|
+| CLAUDE.md exists | ✅ | e51s05 will update |
+| CONVENTIONS.md exists | ✅ | e51s01 first story |
+| specs/ layout | ✅ | Capsule complete |
+| Conventional Commits | ✅ | |
+| Git workflow mode | ✅ | solo-git |
+| story: tags in capsule | ✅ | `<!-- story: e51sNN -->` in all 5 story specs; `# story: e51` on epic.yaml; trace tag tasks per story |
+| OKF wiki stub | ✅ | `specs/epics-wiki/e51.okf.md` present |
 
-- [x] **GAP-ENV (closed):** Root cause was a python3 resolution split — login shells (which run the compliance gate) resolve `python3` → `/usr/bin/python3` (system, no `yaml`), while the interactive pyenv shim has it. The scripts call bare `python3`, so the gate hit the system interpreter. **Fix:** `/usr/bin/python3 -m pip install --user pyyaml` (login-shell import now OK) **+** added `requirements.txt` documenting the dependency so `setup-environment`/CI can install it reproducibly. The lone compliance FAIL ("sync skills preserves plus") now PASSes → 88/88.
-- [x] **DEP-1 (closed):** Added a `build_order:` list to `specs/release-plan.yaml` (with a provenance comment) encoding the dependency-respecting sequence: e42 → e47 → e32 → e33 → e39 → e44 → e28 → e41 → e46 → e35 → e45 → e43 → e37 → e36. `build-epic` now has an explicit, non-WSJF queue to follow. YAML re-validated.
-- [x] **GATE-1 (closed):** Added a `hard_gate:` field to e47s01 in `specs/epics/e47-cross-tool-distribution/epic.yaml` requiring explicit approval before removing `install_opencode()`, with the GAP-1 low-risk rationale inline.
-- [x] **REG-1 (closed):** Normalized the golden-lock bug frontmatter `status: closed` → `fixed` (matching registry vocabulary) and re-ran `scripts/sync-bugs-registry.sh`. Registry now reflects `fixed`.
-- [x] **REG-2 (closed):** Root cause: `sync-bugs-registry.sh` (line 17) skips any BUG file not starting with `---` frontmatter; the 12 missing files used a `# heading` style. **Fix:** prepended proper YAML frontmatter (`bug_id`/`status`/`severity`/`scope`/`title`) to all 12. Registry regenerated → **24/24 files now indexed** (was 12), status split 21 fixed / 3 open (the 3 open — capsule-release-labels, glossary-sparse, trace-stories-613-line — are genuinely unresolved and correctly flagged).
+---
 
-## Resolved Since Last Audit
+## 3. Bigpowers Pre-flight Answers
 
-- **SEQ-1** — `state.yaml.active_flow` was `fix_bug` on 2026-07-03; is now `null` with `handoff.next_skill: survey-context`. No bug-fix flow is blocking build work. ✅
-- **STATUS-1** — still technically present (`e42` is `"active"` in `release-plan.yaml`/`epic.yaml` but `"ready"` in `execution-status.yaml`), kept as informational only since it hasn't caused a real error yet; downgraded from the prior audit's open-gap list to a footnote.
+| Question | Answer |
+|----------|--------|
+| Test | `npm run compliance && bash scripts/run-golden-suite.sh` |
+| Build | `bash scripts/sync-skills.sh` |
+| Lint | `bash scripts/sync-skills.sh` |
+| Typecheck | N/A |
+| CI | GitHub Actions — sync-skills.yml, publish.yml |
+| Solo or team | solo-git |
+| Stack | Markdown / Bash / Python |
+| Greenfield or existing | Existing |
+
+---
+
+## 4. Verify Command Quality
+
+| Story | Status | Note |
+|-------|--------|------|
+| e51s01 | ✅ | grep assertions on CONVENTIONS content |
+| e51s02 | ✅ | Preflight + Always Green in seed templates |
+| e51s03 | ✅ | negative + positive (quick-fix/fix-bug routing) |
+| e51s04 | ✅ | fix-or-log across four skills |
+| e51s05 | ✅ | positive-first (`Always Green`, `fix-or-log`, `story: e51s05`) + negative on removed phrase |
+
+---
+
+## 5. Open Gaps — all closed
+
+- [x] **Medium** — e51s05 verify uses positive assertions first; task 2 dual positive+negative
+- [x] **Low** — story tags: epic.yaml `# story: e51`, story specs tagged, `trace_targets` per story, trace tasks in all tasks.yaml
+- [x] **Low** — e51.okf.md generated in specs/epics-wiki/
+- [x] **Low** — e51s01 task 4 + story spec §12 document seeded-project CONVENTIONS migration
+
+---
 
 ## Verdict
 
-**READY** — conventions, spec layout, and mechanical gates are sound and all five audit gaps are now closed. Live evidence: `npm run compliance` → 88/88, SCORE 100% (threshold 94%), **GATE PASS**; `validate-specs-yaml: OK`; bug registry 24/24 indexed.
+**READY** — all audit gaps closed. Proceed with `kickoff-branch` → `feat/e51-always-green` → `build-epic` on e51s01.
 
-**Next skill:** `survey-context` (per `state.yaml.handoff.next_skill`) → then `build-epic` following the new `build_order:` in `release-plan.yaml` (dependency-respecting), not raw WSJF rank. Three bugs remain genuinely open for later triage: `BUG-2026-07-03-capsule-release-labels`, `BUG-2026-07-03-glossary-sparse`, `BUG-2026-07-03-trace-stories-613-line` (the last is a documented P3 file-size waiver).
+**Next skill:** `kickoff-branch`
