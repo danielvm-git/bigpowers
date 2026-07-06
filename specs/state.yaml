@@ -9,24 +9,22 @@ epic_cycle:
   story: null
   story_bcps: null
 handoff:
-  context: BUG-2026-07-06-trace-requirement-stories-oversized fixed — trace-stories.py 283 lines, gates
-    green. Step 5 release-branch pending user.
-  next_skill: release-branch
+  context: "BUG-2026-07-06-trace-requirement-stories-oversized released v2.73.3 — CI green."
+  next_skill: survey-context
   epic: e45
 metrics:
   story_start: null
   story_end: null
   skill_timings:
     release-branch:
-      calls: 3
+      calls: 4
       total_seconds: 919.0
       avg_seconds: 306.3333333333333
-      _start: '2026-07-06T21:33:42Z'
     plan-work:
       calls: 1
       total_seconds: 343.0
       avg_seconds: 343.0
 release:
   ci_verified: true
-  last_commit: 7d3b8569
+  last_commit: 544ce8f9
   last_epic: e37
