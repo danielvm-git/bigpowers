@@ -3,24 +3,13 @@ active_epic: e45
 active_story: null
 bug_id: null
 bigpowers_version: 2.73.2
-bug_cycle:
-  current_step: 5
-  completed_steps:
-  - 1
-  - 2
-  - 3
-  - 4
-  - 5
-  last_bug: BUG-2026-07-04-python-interpreter-fragility
-  resolution: validated 2026-07-06 — python-env.sh resolver, all 31 callers use $PYTHON, compliance 100%
-  handoff:
-    next_skill: survey-context
+bug_cycle: {}
 epic_cycle:
   current_step: 0
   story: null
   story_bcps: null
 handoff:
-  context: BUG-2026-07-06T205700 released on main branch. Trace strict mode no longer flags todo P0 stories.
+  context: BUG-2026-07-04-python-interpreter-fragility released v2.73.2. All 31 scripts use python-env.sh + $PYTHON.
   next_skill: survey-context
   epic: e45
 metrics:
