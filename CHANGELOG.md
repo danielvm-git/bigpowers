@@ -1,3 +1,10 @@
+# [2.70.0](https://github.com/danielvm-git/bigpowers/compare/v2.69.0...v2.70.0) (2026-07-06)
+
+
+### Features
+
+* **specs:** add e50 Codex CLI reach epic and update tech stack ([5df68a2](https://github.com/danielvm-git/bigpowers/commit/5df68a278af02212a008b363a604c6935a15e21a))
+
 # [2.69.0](https://github.com/danielvm-git/bigpowers/compare/v2.68.6...v2.69.0) (2026-07-06)
 
 

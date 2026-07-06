@@ -1,7 +1,7 @@
 active_flow: null
 active_epic: null
 bug_id: null
-bigpowers_version: 2.68.6
+bigpowers_version: 2.70.0
 bug_cycle: {}
 epic_cycle:
   step: 8
@@ -10,11 +10,12 @@ epic_cycle:
   branch: feat/e35-historical-refs
   audit_result: pass
 handoff:
-  context: "e50 plan-work complete — e50s01–e50s04 story specs + tasks.yaml in specs/epics/e50-codex-reach/. Issue #52 tracker open."
+  context: 'e50 plan-work complete — e50s01–e50s04 story specs + tasks.yaml in specs/epics/e50-codex-reach/.
+    Issue #52 tracker open.'
   next_skill: kickoff-branch
   epic: e50
   stories:
-    - e50s01
-    - e50s02
-    - e50s03
-    - e50s04
+  - e50s01
+  - e50s02
+  - e50s03
+  - e50s04
