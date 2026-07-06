@@ -1,58 +1,63 @@
-STORY KEY: E37-S04
-TITLE:     verify-install.sh — AGENTS.md spine and OSS P1 assertions
-TYPE:      Story
-PARENT:    e37
-STATUS:    Draft
-AUTHOR:    dvm           DATE: 2026-07-06
-MATURITY:  3
-SIZE:      S
+# story: e37s04
+# verify-install.sh — AGENTS.md spine assertions (OSS P1 + optional Codex)
 
-### 1. Business narrative
-e47 added verify-install harness for pi/OpenCode; AGENTS.md spine must be regression-
-tested the same way so CI and local `bash scripts/verify-install.sh` catch
-drift in install output and seed templates.
+BCP: 2 | risk: P2
 
-### 2. Value statement
-As a maintainer, I want verify-install to assert Codex install dry-run and
-seed-conventions Codex templates, so e37 cannot ship broken wiring silently.
+## Summary
 
-### 3. Actors and permissions
-- CI workflow (verify-install job) — runs harness on every PR touching install/seed.
-- Developer — runs script locally before release.
+Extend `scripts/verify-install.sh` to assert AGENTS.md spine shape, Preflight row,
+and Cline/Aider wiring, plus optional Codex assertions when the Codex wave stories
+(s14–s16) are present. Mirrors the e47 verify-install pattern for pi/OpenCode.
 
-### 4. Trigger and preconditions
-Precondition: e37s01–s03 implemented (templates and install_codex exist).
+---
 
-### 5. Main flow and business logic
-1. Extend verify-install.sh dry-run checks: output contains Codex CLI section.
-2. Assert docs/templates/codex/AGENTS.md exists and passes secret grep (no keys).
-3. Assert seed-conventions REFERENCE contains parseable config.toml block (tomllib).
-4. Optional scratch-dir test: copy REFERENCE template to temp .codex/config.toml,
-   validate TOML parse (mirrors e47 REFERENCE JSON pattern).
-5. Full harness exit 0 in CI.
+## Acceptance Criteria
 
-### 6. Alternative flows
-Offline CI — dry-run only, no real ~/.codex writes (same as existing harness).
+Scenario: AGENTS.md spine assertions pass
+  Given verify-install.sh after e37 spine stories
+  When run on a clean scratch environment
+  Then it asserts AGENTS.md template shape and Preflight row
+  And it asserts Cline/Aider wiring when opted in
+  And optional Codex assertions run only when Codex wave stories are present
 
-### 7. Interface elements
-- scripts/verify-install.sh — new assert functions / grep blocks.
+---
 
-### 8–16. NFR
-Fast (<5s added); no network; no writes outside TMPDIR.
+## Behaviours
 
-### 17. Acceptance criteria
-Scenario: Harness passes with Codex support
-  When  bash scripts/verify-install.sh runs
-  Then  exit code is 0
-  And   AGENTS.md spine and OSS P1 checks execute
+### 1. AGENTS.md template shape
+- Assert `docs/templates/AGENTS.md` exists and contains a multi-agent preamble
+  naming ≥1 OSS target (Cline, Aider, OpenCode).
+- Assert `## Preflight` section is present and non-empty.
+- Assert `## Test`, `## Lint`, `## Build` are present (value may be `N/A`).
+- Assert title uses neutral agent wording (not Codex-only or Claude-only).
 
-### 18. Out of scope
-- Live Codex CLI binary invocation.
-- E2E Codex session test.
+### 2. Preflight row integrity
+- Assert the Preflight section contains a row with an install/sync command
+  (matches the e51 Preflight mandate).
 
-### 19. Open questions
-None.
+### 3. Cline wiring (e37s02)
+- Assert `AGENTS.md` exists at project root after seed-conventions runs.
+- Assert the template can be read by Cline (no forbidden patterns).
 
-### 20. References
-- scripts/verify-install.sh (e47s04 patterns)
-- specs/epics/e37-codex-reach/epic.yaml
+### 4. Aider wiring (e37s03)
+- When Aider is opted in: assert `.aider.conf.yml` exists with `read: AGENTS.md`.
+- Assert the Aider section in `using-bigpowers` references Aider-AI/aider.
+
+### 5. Codex assertions (optional, gated on Codex wave)
+- Only when Codex wave stories (s14–s16) are present: assert `docs/templates/codex/` exists,
+  assert `install.sh --dry-run` mentions Codex CLI, assert secret-free templates.
+- When Codex wave is absent: these assertions must be skipped (no false negatives).
+
+---
+
+## Out of scope
+- Live Codex CLI binary invocation (covered by e37s15 if opted in).
+- Project-level E2E seed test in consumer repo.
+- TOML config parsing (covered by e37s14 if opted in).
+- Per-target verify-matrix (covered by e37s08).
+
+---
+
+## References
+- scripts/verify-install.sh (e47s04 patterns — pi/OpenCode assertions)
+- epic.yaml (e37s04: "AGENTS.md spine assertions (OSS P1 + optional Codex)")

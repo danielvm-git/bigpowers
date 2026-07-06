@@ -1,4 +1,4 @@
-STORY KEY: E37-S02
+STORY KEY: E37-S15
 TITLE:     install.sh — global ~/.codex/ AGENTS.md starter symlink
 TYPE:      Story
 PARENT:    e37

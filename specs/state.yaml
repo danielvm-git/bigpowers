@@ -5,8 +5,9 @@ bug_id: null
 bigpowers_version: 2.72.0
 bug_cycle: {}
 epic_cycle:
-  current_step: epic-redesign complete (6→3)
-  next_step: kickoff-branch → build-epic (e37s01)
+  current_step: audit-gaps-closed (plan-tests done → plan-work)
+  next_step: plan-work
+  test_plan: done
 handoff:
   context: |
     Epic redesign 2026-07-06: retired e49/e50/e52; renumbered e37/e45/e48.
@@ -14,7 +15,7 @@ handoff:
     e45 Quality Core — curated OSS hardening patterns (former e48).
     e48 Foundation — OKF/wiki + BCP Plus (former e45+e49+e37).
     Build order: e37 → e45 → e48. Start e37s01 (unified AGENTS.md template).
-  next_skill: kickoff-branch
+  next_skill: plan-work
   epic: e37
   stories:
     - e37s01
@@ -25,6 +26,14 @@ handoff:
     - e37s06
     - e37s07
     - e37s08
+    - e37s09
+    - e37s10
+    - e37s11
+    - e37s12
+    - e37s13
+    - e37s14
+    - e37s15
+    - e37s16
 metrics:
   story_start: null
   story_end: null

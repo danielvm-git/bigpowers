@@ -1,7 +1,7 @@
 id: e37
 title: "Reach — Universal Agent Portability"
 wsjf: 7.0
-bcps: 40
+bcps: 45
 status: planned
 mode: capsule
 capsule_dir: epics/e37-reach
