@@ -5,9 +5,9 @@ bigpowers_version: 2.68.6
 bug_cycle: {}
 epic_cycle:
   epic_id: e36
-  story_id: e36s03
-  current_step: 4
-  completed_steps: [0, 1, 2, 3]
+  story_id: e36s04
+  current_step: 5
+  completed_steps: [0, 1, 2, 3, 4]
   story_bcps: 2
   audit_result: null
 handoff:

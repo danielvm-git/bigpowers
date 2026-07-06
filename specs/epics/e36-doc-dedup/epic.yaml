@@ -34,7 +34,7 @@ stories:
     title: "Update docs/references/spec-kit.md to cover full SDD tool landscape (Kiro, Tessl, BMAD, GSD)"
     spec: e36s04-sdd-tool-landscape.md
     tasks: e36s04-tasks.yaml
-    status: todo
+    status: done
     verify: "grep -q 'Kiro|Tessl' docs/references/spec-kit.md && echo OK"
 
   - id: e36s05

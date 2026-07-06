@@ -1,17 +1,25 @@
 story_id: e36s04
 title: "Update docs/references/spec-kit.md to cover full SDD tool landscape (Kiro, Tessl, BMAD, GSD)"
-status: todo
+status: done
 bcps: 2
 tasks:
   - id: 1
     description: "Audit current spec-kit.md for existing SDD tool coverage"
     verify: "wc -l docs/references/spec-kit.md | awk '{print $1\" lines baseline\"}'"
+    risk: P2
+    status: done
   - id: 2
     description: "Add Kiro and Tessl sections with feature summaries and bigpowers relation"
     verify: "grep -q 'Kiro' docs/references/spec-kit.md && grep -q 'Tessl' docs/references/spec-kit.md && echo OK"
+    risk: P2
+    status: done
   - id: 3
     description: "Add BMAD and GSD sections with methodology comparison"
     verify: "grep -q 'BMAD' docs/references/spec-kit.md && grep -q 'GSD' docs/references/spec-kit.md && echo OK"
+    risk: P2
+    status: done
   - id: 4
     description: "Add comparison matrix summarizing the tool landscape"
     verify: "grep -q '| Tool' docs/references/spec-kit.md && echo OK"
+    risk: P2
+    status: done
