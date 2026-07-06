@@ -17,11 +17,8 @@
 
 set -euo pipefail
 
-MATRIX_JSON="$REPO_ROOT/specs/traceability-matrix.json"
-TRACE_MD="$REPO_ROOT/specs/TRACEABILITY_LATEST.md"
-RELEASE_PLAN="$REPO_ROOT/specs/release-plan.yaml"
-EXEC_STATUS="$REPO_ROOT/specs/execution-status.yaml"
-OKF_DIR="$REPO_ROOT/specs/codebase-wiki"
+source "$(dirname "${BASH_SOURCE[0]}")/lib/skill-common.sh"
+
 MODE=""
 STRICT=0
 
@@ -54,6 +51,13 @@ USAGE
       ;;
   esac
 done
+
+resolve_repo_root
+MATRIX_JSON="$REPO_ROOT/specs/traceability-matrix.json"
+TRACE_MD="$REPO_ROOT/specs/TRACEABILITY_LATEST.md"
+RELEASE_PLAN="$REPO_ROOT/specs/release-plan.yaml"
+EXEC_STATUS="$REPO_ROOT/specs/execution-status.yaml"
+OKF_DIR="$REPO_ROOT/specs/codebase-wiki"
 
 if [[ ! -f "$RELEASE_PLAN" ]]; then
   echo "trace-stories.sh: release-plan.yaml: not found at $RELEASE_PLAN" >&2
