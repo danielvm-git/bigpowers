@@ -3,7 +3,7 @@ name: Deploy Docs Site to GitHub Pages
 
 concurrency:
   group: pages
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 on:
   push:
@@ -66,7 +66,40 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deploy_attempt_1.outputs.page_url || steps.deploy_attempt_2.outputs.page_url || steps.deploy_attempt_3.outputs.page_url || 'https://danielvm-git.github.io/bigpowers/' }}
     steps:
-      - id: deployment
+      - name: Deploy to GitHub Pages (attempt 1)
+        id: deploy_attempt_1
         uses: actions/deploy-pages@v4
+        continue-on-error: true
+
+      - name: Wait before deploy retry
+        if: steps.deploy_attempt_1.outcome == 'failure'
+        run: sleep 45
+
+      - name: Deploy to GitHub Pages (attempt 2)
+        id: deploy_attempt_2
+        if: steps.deploy_attempt_1.outcome == 'failure'
+        uses: actions/deploy-pages@v4
+        continue-on-error: true
+
+      - name: Wait before final deploy retry
+        if: steps.deploy_attempt_1.outcome == 'failure' && steps.deploy_attempt_2.outcome == 'failure'
+        run: sleep 45
+
+      - name: Deploy to GitHub Pages (attempt 3)
+        id: deploy_attempt_3
+        if: steps.deploy_attempt_1.outcome == 'failure' && steps.deploy_attempt_2.outcome == 'failure'
+        uses: actions/deploy-pages@v4
+        continue-on-error: true
+
+      - name: Verify deployment succeeded
+        run: |
+          if [ "${{ steps.deploy_attempt_1.outcome }}" = "success" ] || \
+             [ "${{ steps.deploy_attempt_2.outcome }}" = "success" ] || \
+             [ "${{ steps.deploy_attempt_3.outcome }}" = "success" ]; then
+            echo "GitHub Pages deployment succeeded"
+          else
+            echo "::error::GitHub Pages deployment failed after 3 attempts"
+            exit 1
+          fi
