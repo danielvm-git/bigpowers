@@ -103,7 +103,7 @@
     },
     "enforce-first": {
       "description": "Apply the F.I.R.S.T test quality rubric (per CONVENTIONS.md §Tests) to a test suite or individual tests. Use when develop-tdd is writing tests, when test quality needs to be checked, or when user mentions F.I.R.S.T or \"test quality\".",
-      "sha256": "20f717d0496ca20f",
+      "sha256": "64cde2c5f741c77f",
       "path": "skills/enforce-firstSKILL.md"
     },
     "evolve-skill": {

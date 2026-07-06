@@ -15,19 +15,11 @@ This skill is typically invoked internally by `develop-tdd` during the test-writ
 ## Modes
 
 - Default: full F.I.R.S.T audit (all 5 criteria)
-- --quick: Check F (Fast), I (Independent), and S (Self-Validating) only. Used by build-epic step 6 as a mechanical gate after audit-code. Skips R (Repeatable) and T (Timely) which require contextual judgment.
+- --quick: Check Fast, Independent, and Self-Validating criteria only (per CONVENTIONS.md §Tests). Used by build-epic step 6 as a mechanical gate after audit-code. Skips Repeatable and Timely which require contextual judgment.
 
 ## The F.I.R.S.T Rubric
 
-The canonical F.I.R.S.T definition lives in CONVENTIONS.md §Tests. This skill operationalizes each criterion:
-
-- **F (Fast):** No real I/O; suite target < 30s
-- **I (Independent):** No shared state; any order, same result
-- **R (Repeatable):** No machine deps; passes identically on CI and locally
-- **S (Self-Validating):** Assertions, not console.log; descriptive failures
-- **T (Timely):** Written with code; regression tests for every fix
-
-For the full rubric with checklists and fix patterns, see CONVENTIONS.md §Tests.
+See CONVENTIONS.md §Tests for the canonical F.I.R.S.T rubric definition, checklists, and fix patterns.
 
 ## Applying the rubric
 

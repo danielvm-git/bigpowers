@@ -27,7 +27,7 @@ stories:
     title: "Remove F.I.R.S.T rubric restatement from enforce-first and audit-code SKILL.md; replace with CONVENTIONS.md pointer"
     spec: e36s03-dedup-first-rubric.md
     tasks: e36s03-tasks.yaml
-    status: todo
+    status: done
     verify: "grep -c 'Fast.*Independent.*Repeatable' skills/enforce-first/SKILL.md skills/audit-code/SKILL.md | awk -F: '{sum+=$2} END{if(sum<=1) print \"OK\"; else print \"FAIL: \"sum}'"
   - id: e36s04
     bcp: 2
