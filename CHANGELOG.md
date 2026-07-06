@@ -1,3 +1,10 @@
+## [2.73.5](https://github.com/danielvm-git/bigpowers/compare/v2.73.4...v2.73.5) (2026-07-06)
+
+
+### Bug Fixes
+
+* **verify:** split golden suite and validate-okf into lib modules ([#60](https://github.com/danielvm-git/bigpowers/issues/60)) ([d0c1a7a](https://github.com/danielvm-git/bigpowers/commit/d0c1a7ae8811b37d532471a9eb758936964344f4))
+
 ## [2.73.4](https://github.com/danielvm-git/bigpowers/compare/v2.73.3...v2.73.4) (2026-07-06)
 
 

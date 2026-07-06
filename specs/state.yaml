@@ -2,7 +2,7 @@ active_flow: fix_bug
 active_epic: e45
 active_story: null
 bug_id: BUG-2026-07-06-craft-skill-sync-oversized
-bigpowers_version: 2.73.4
+bigpowers_version: 2.73.5
 bug_cycle:
   current_step: 5
   completed_steps:
