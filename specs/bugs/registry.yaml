@@ -250,7 +250,7 @@ bugs:
     title: "trace-requirement: Underlying story trace script trace-stories.py exceeds 300-line limit"
     file: bugs/BUG-2026-07-06-trace-requirement-stories-oversized.md
   - id: BUG-2026-07-06-verify-work-runner-scripts-oversized
-    status: open
+    status: fixed
     severity: medium
     scope: skills/verify-work
     title: "verify-work: run-verification-gates.sh, validate-okf.sh, and run-golden-suite.sh exceed 300-line limit"

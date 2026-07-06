@@ -1,6 +1,6 @@
 ---
 bug_id: BUG-2026-07-06-verify-work-runner-scripts-oversized
-status: open
+status: fixed
 severity: medium
 scope: skills/verify-work
 title: "verify-work: run-verification-gates.sh, validate-okf.sh, and run-golden-suite.sh exceed 300-line limit"
@@ -10,19 +10,27 @@ title: "verify-work: run-verification-gates.sh, validate-okf.sh, and run-golden-
 
 ## Problem
 
-**Actual behavior:** Three key runner scripts used by the verification gate fail the 300-line context window limit:
+Three key runner scripts exceeded the 300-line context window limit:
 1. `scripts/run-verification-gates.sh` — 492 lines
 2. `scripts/validate-okf.sh` — 381 lines
-3. `scripts/run-golden-suite.sh` — 492 lines
-
-**Expected behavior:** All scripts must remain under 300 lines.
-
-**How to reproduce:**
-1. Run `bash scripts/run-verification-gates.sh` with waivers disabled.
-2. Note the failures in `akita.feature` (file size > 300).
+3. `scripts/run-golden-suite.sh` — 492 lines (duplicate of run-verification-gates.sh)
 
 ## Root Cause Analysis
-These orchestration and validation scripts grew as new test suites, OKF formats, and verification loops were integrated into the core pipeline.
 
-## Proposed Resolution
-Factor out subcommands, JSON generation, and report parsing logic into modular libraries under `scripts/lib/` or separate Python helper scripts.
+Orchestration logic grew inline; `run-verification-gates.sh` and `run-golden-suite.sh` were full duplicates differing only in `generated_by` metadata.
+
+## Resolution
+
+**Fixed:** Extracted shared golden suite logic to `scripts/lib/golden-suite-{gates,agent,report,run}.sh`. Wrappers are 8 lines each. OKF validators moved to `scripts/lib/validate-okf-kinds.sh` (272 lines); `validate-okf.sh` is 65 lines. Also resolves `BUG-2026-07-06-run-evals-golden-suite-oversized`.
+
+| File | Before | After |
+|------|--------|-------|
+| run-verification-gates.sh | 492 | 8 |
+| run-golden-suite.sh | 492 | 8 |
+| validate-okf.sh | 381 | 65 |
+
+## Acceptance Criteria
+
+- [x] All three entry scripts under 300 lines
+- [x] `bash scripts/run-verification-gates.sh` — 9/9 PASS
+- [x] `bash scripts/validate-okf.sh` — PASS

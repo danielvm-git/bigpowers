@@ -1,0 +1,105 @@
+#!/usr/bin/env bash
+# story: e42s04 e45s02
+# Deterministic gate runner for golden suite — sourced by golden-suite-run.sh
+
+if [ -n "${GOLDEN_GATES_LOADED:-}" ]; then return 0; fi
+GOLDEN_GATES_LOADED=1
+
+GOLDEN_GATES=(
+  "compliance:npm run compliance:false"
+  "g04-selftest:bash scripts/golden-g04-selftest.sh:true"
+  "g06-migrate-version:bash tests/run-golden-migrate-version.sh:true"
+  "g07-negative-path:bash scripts/golden-g07-negative-path.sh:false"
+  "g08-anti-vacuity:bash scripts/golden-g08-anti-vacuity.sh:false"
+  "g09-yaml-roundtrip:bash scripts/golden-g09-yaml-roundtrip.sh:false"
+  "g10-trace-anti-vacuity:bash scripts/golden-g10-trace-anti-vacuity.sh:false"
+  "g11-gitignore-venv:bash scripts/golden-g11-gitignore-venv.sh:false"
+  "specs-parse:bash scripts/validate-specs-yaml.sh:false"
+)
+
+GOLDEN_GREEN='\033[0;32m'
+GOLDEN_RED='\033[0;31m'
+GOLDEN_YELLOW='\033[0;33m'
+GOLDEN_NC='\033[0m'
+
+golden_agent_dry_run() {
+  local yaml_count=0 yaml_ok=0 yaml_fail=0 yaml_file story_id
+
+  echo "Agent Golden Stories — DRY RUN"
+  echo "Golden YAML directory: $GOLDEN_DIR"
+
+  if [[ ! -d "$GOLDEN_DIR" ]]; then
+    echo -e "${GOLDEN_YELLOW}WARN: $GOLDEN_DIR not found${GOLDEN_NC}"
+    return 0
+  fi
+
+  for yaml_file in "$GOLDEN_DIR"/g-*.yaml; do
+    [[ -f "$yaml_file" ]] || continue
+    (( yaml_count += 1 ))
+    story_id=$(basename "$yaml_file" .yaml)
+
+    if $PYTHON -c "import yaml; yaml.safe_load(open('$yaml_file'))" 2>/dev/null; then
+      local grader_type pass_k
+      grader_type=$($PYTHON -c "import yaml; d=yaml.safe_load(open('$yaml_file')); print(d.get('grader',{}).get('type',''))" 2>/dev/null)
+      pass_k=$($PYTHON -c "import yaml; d=yaml.safe_load(open('$yaml_file')); pk=d.get('pass_at_k',{}); print(f\"{pk.get('k',0)}-of-{pk.get('threshold',0)}\")" 2>/dev/null)
+      echo -e "  ${GOLDEN_GREEN}OK${GOLDEN_NC}   $story_id — grader=$grader_type, pass@k=$pass_k"
+      (( yaml_ok += 1 ))
+    else
+      echo -e "  ${GOLDEN_RED}FAIL${GOLDEN_NC} $story_id — YAML parse error"
+      (( yaml_fail += 1 ))
+    fi
+  done
+
+  echo ""
+  echo "Agent YAML validation: $yaml_ok/$yaml_count parseable"
+  if [[ "$yaml_fail" -gt 0 ]]; then
+    echo -e "${GOLDEN_RED}$yaml_fail YAML(s) failed to parse${GOLDEN_NC}"
+    return 1
+  fi
+  return 0
+}
+
+golden_run_deterministic_gates() {
+  local gate name cmd is_optional main_cmd script_path
+  PASS_COUNT=0 FAIL_COUNT=0 SKIP_COUNT=0
+  GATE_RESULTS=()
+
+  for gate in "${GOLDEN_GATES[@]}"; do
+    IFS=':' read -r name cmd is_optional <<< "$gate"
+    echo -n "[$name] "
+
+    main_cmd=$(echo "$cmd" | awk '{print $1}')
+    if [[ "$main_cmd" == "bash" ]]; then
+      script_path=$(echo "$cmd" | awk '{print $2}')
+      if [[ ! -f "$script_path" ]]; then
+        if [[ "$is_optional" == "true" ]]; then
+          echo -e "${GOLDEN_YELLOW}SKIP${GOLDEN_NC} (script not yet implemented)"
+          GATE_RESULTS+=("  - name: $name" "    exit_code: skipped" "    duration_seconds: 0" "    status: skipped" "    note: script not found: $script_path")
+          (( SKIP_COUNT += 1 ))
+          continue
+        fi
+        echo -e "${GOLDEN_RED}FAIL${GOLDEN_NC} (script not found: $script_path)"
+        GATE_RESULTS+=("  - name: $name" "    exit_code: 127" "    duration_seconds: 0" "    status: fail" "    error: script not found: $script_path")
+        (( FAIL_COUNT += 1 ))
+        continue
+      fi
+    fi
+
+    local START_TIME END_TIME DURATION_MS DURATION_SEC GATE_EXIT
+    START_TIME=$(date +%s%N)
+    eval "$cmd" >/dev/null 2>&1 && GATE_EXIT=$? || GATE_EXIT=$?
+    END_TIME=$(date +%s%N)
+    DURATION_MS=$(( (END_TIME - START_TIME) / 1000000 ))
+    DURATION_SEC=$(echo "scale=2; $DURATION_MS / 1000" | bc 2>/dev/null || echo "0")
+
+    if [[ "$GATE_EXIT" -eq 0 ]]; then
+      echo -e "${GOLDEN_GREEN}PASS${GOLDEN_NC} (${DURATION_SEC}s)"
+      GATE_RESULTS+=("  - name: $name" "    exit_code: 0" "    duration_seconds: $DURATION_SEC" "    status: pass")
+      (( PASS_COUNT += 1 ))
+    else
+      echo -e "${GOLDEN_RED}FAIL${GOLDEN_NC} (${DURATION_SEC}s, exit $GATE_EXIT)"
+      GATE_RESULTS+=("  - name: $name" "    exit_code: $GATE_EXIT" "    duration_seconds: $DURATION_SEC" "    status: fail")
+      (( FAIL_COUNT += 1 ))
+    fi
+  done
+}
