@@ -51,12 +51,19 @@ jobs:
             skills-lock.json \
             README.md \
             specs/SKILL-SEARCH-INDEX_LATEST.md || {
-            rc=$?
-            echo "::error::diff-exit-code=$rc"
-            echo "::error::status=$(git status --short)"
-            echo "::error::diff-files=$(git diff --name-only .cursor/rules .gemini/extensions/bigpowers .pi SKILL-INDEX.md skills-lock.json README.md specs/SKILL-SEARCH-INDEX_LATEST.md)"
+            git status --short > /tmp/sync-debug.log 2>&1
+            git diff --name-only .cursor/rules .gemini/extensions/bigpowers .pi SKILL-INDEX.md skills-lock.json README.md specs/SKILL-SEARCH-INDEX_LATEST.md >> /tmp/sync-debug.log 2>&1
+            echo "rc=1" >> /tmp/sync-debug.log
+            cat /tmp/sync-debug.log
             exit 1
           }
+
+      - name: Upload sync debug log
+        uses: actions/upload-artifact@v6
+        if: failure()
+        with:
+          name: sync-debug
+          path: /tmp/sync-debug.log
 
       - name: Traceability gate (--strict)
         run: |
