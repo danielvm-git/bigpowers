@@ -1,7 +1,7 @@
 active_flow: build_epic
 active_epic: e39
 active_story: e39s10
-bigpowers_version: 2.68.0
+bigpowers_version: 2.68.1
 handoff:
   context: 'e39 Semantic Context Bridge complete. 10 stories (20 BCP): s01 skill graph, s02 agent locks,
     s03 spec drift, s04 OKF skills-wiki, s05 conventions-wiki, s06 agent-guide, s07 maintain-wiki skill,

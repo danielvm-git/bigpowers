@@ -1,3 +1,10 @@
+## [2.68.1](https://github.com/danielvm-git/bigpowers/compare/v2.68.0...v2.68.1) (2026-07-06)
+
+
+### Bug Fixes
+
+* **ci:** remove embedded git repo tests/fixtures/.tmp-v1.x causing submodule checkout failures ([288e20e](https://github.com/danielvm-git/bigpowers/commit/288e20ec834098dd85b235dcc056396f550ba94f))
+
 # [2.68.0](https://github.com/danielvm-git/bigpowers/compare/v2.67.1...v2.68.0) (2026-07-06)
 
 
