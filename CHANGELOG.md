@@ -1,3 +1,10 @@
+## [2.72.1](https://github.com/danielvm-git/bigpowers/compare/v2.72.0...v2.72.1) (2026-07-06)
+
+
+### Bug Fixes
+
+* **specs:** close 9 audit gaps for e37 Reach epic plan ([#58](https://github.com/danielvm-git/bigpowers/issues/58)) ([e5d44f4](https://github.com/danielvm-git/bigpowers/commit/e5d44f4bb9378dc16d34561432e79957af3fd613))
+
 # [2.72.0](https://github.com/danielvm-git/bigpowers/compare/v2.71.0...v2.72.0) (2026-07-06)
 
 

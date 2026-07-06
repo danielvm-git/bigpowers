@@ -1,5 +1,5 @@
 release:
-  version: 2.72.0
+  version: 2.72.1
   codename: Reach
   status: planning
   semantic_release: true
@@ -81,9 +81,9 @@ epics:
   mode: capsule
   status: planned
   source_issue: https://github.com/danielvm-git/bigpowers/issues/52
-  wsjf_rationale: 'BV 8 (AGENTS.md spine + registry unblocks OSS reach) + TC 5 (active) + RR 8
-    (always-green across runtimes) / Job 3 ≈ 7.0. Merges former e50+e52 into one arc:
-    spine s01–s04 → registry s05–s08 → OSS waves s09–s13 → optional Codex s14–s16.'
+  wsjf_rationale: 'BV 8 (AGENTS.md spine + registry unblocks OSS reach) + TC 5 (active) + RR 8 (always-green
+    across runtimes) / Job 3 ≈ 7.0. Merges former e50+e52 into one arc: spine s01–s04 → registry s05–s08
+    → OSS waves s09–s13 → optional Codex s14–s16.'
 - id: e45
   title: Quality Core — Skill Hardening & Verification Patterns
   wsjf: 5.0
@@ -91,8 +91,8 @@ epics:
   capsule_dir: epics/e45-quality-core
   mode: capsule
   status: planned
-  wsjf_rationale: 'BV 7 (skill quality compounds) + TC 4 (OSS pattern debt) + RR 6
-    (benchmark/evidence parity) / Job 4 ≈ 5.0. Curated P1 from former e48; P2 optional wave.'
+  wsjf_rationale: BV 7 (skill quality compounds) + TC 4 (OSS pattern debt) + RR 6 (benchmark/evidence
+    parity) / Job 4 ≈ 5.0. Curated P1 from former e48; P2 optional wave.
 - id: e48
   title: Foundation — Knowledge Layer + Process Maturity
   wsjf: 2.5
@@ -100,5 +100,5 @@ epics:
   capsule_dir: epics/e48-foundation
   mode: capsule
   status: planned
-  wsjf_rationale: 'BV 5 (discoverability + honest sizing) + TC 3 (internal tooling) + RR 4
-    (OKF/wiki parity) / Job 5 ≈ 2.5. Merges former e45 OKF, e49 wiki, e37 BCP Plus.'
+  wsjf_rationale: BV 5 (discoverability + honest sizing) + TC 3 (internal tooling) + RR 4 (OKF/wiki parity)
+    / Job 5 ≈ 2.5. Merges former e45 OKF, e49 wiki, e37 BCP Plus.

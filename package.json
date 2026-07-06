@@ -1,6 +1,6 @@
 {
   "name": "bigpowers",
-  "version": "2.72.0",
+  "version": "2.72.1",
   "description": "73 agent skills synthesizing 17 years of software engineering discipline into a prescriptive methodology for solo developers",
   "main": "index.js",
   "scripts": {
