@@ -1,5 +1,5 @@
 release:
-  version: 2.71.0
+  version: 2.72.0
   codename: Reach
   status: planning
   semantic_release: true

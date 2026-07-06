@@ -2,7 +2,7 @@ active_flow: build_epic
 active_epic: e51
 active_story: null
 bug_id: null
-bigpowers_version: 2.71.0
+bigpowers_version: 2.72.0
 bug_cycle: {}
 epic_cycle:
   step: 8
@@ -12,8 +12,7 @@ epic_cycle:
   audit_result: pass
   current_story: null
 handoff:
-  context: e51 complete — all 5 stories landed on feat/e51-always-green. Ready for
-    commit + release-branch.
+  context: e51 complete — all 5 stories landed on feat/e51-always-green. Ready for commit + release-branch.
   next_skill: commit-message
   epic: e51
   stories: []

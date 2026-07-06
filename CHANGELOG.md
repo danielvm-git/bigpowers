@@ -1,3 +1,10 @@
+# [2.72.0](https://github.com/danielvm-git/bigpowers/compare/v2.71.0...v2.72.0) (2026-07-06)
+
+
+### Features
+
+* **gates:** Always Green — preflight hard block & fix-or-log ([cfd572d](https://github.com/danielvm-git/bigpowers/commit/cfd572db09315895273466a72c55c0e7ab3d2b64))
+
 # [2.71.0](https://github.com/danielvm-git/bigpowers/compare/v2.70.1...v2.71.0) (2026-07-06)
 
 
