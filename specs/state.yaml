@@ -1,6 +1,6 @@
 active_flow: fix_bug
 bug_id: BUG-2026-07-06T134600
-bigpowers_version: 2.68.5
+bigpowers_version: 2.68.6
 bug_cycle:
   current_step: 4
   completed_steps:
@@ -8,7 +8,9 @@ bug_cycle:
   - 2 (diagnose-root)
   - 3 (develop-tdd)
 active_decisions:
-  fix_approach: "Deploy job retries actions/deploy-pages up to 3 times with 45s backoff; pages concurrency cancel-in-progress true"
+  fix_approach: Deploy job retries actions/deploy-pages up to 3 times with 45s backoff; pages concurrency
+    cancel-in-progress true
 handoff:
-  context: "GitHub Pages push deploy failed transiently (run 28795963238). workflow_dispatch succeeded. Retry wiring added to docs-site.yml."
+  context: GitHub Pages push deploy failed transiently (run 28795963238). workflow_dispatch succeeded.
+    Retry wiring added to docs-site.yml.
   next_skill: validate-fix
