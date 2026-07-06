@@ -1,8 +1,12 @@
-active_flow: null
+active_flow: fix_bug
 active_epic: null
-bug_id: null
+bug_id: BUG-2026-07-06-g06-migrate-version-golden
 bigpowers_version: 2.70.0
-bug_cycle: {}
+bug_cycle:
+  current_step: 4
+  completed_steps: [1, 2, 3]
+  handoff:
+    next_skill: validate-fix
 epic_cycle:
   step: 8
   story_bcps: 2

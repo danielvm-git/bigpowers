@@ -199,3 +199,11 @@ bugs:
     file: bugs/BUG-2026-07-04-tautological-verify.md
     fix_commit: "fix(ci): trim SKILL.md size caps — kickoff-branch 147, release-branch 150, verify-work 150"
     fix_note: "Verify commands already converted to semantic keyword + SKILL-INDEX checks. No tautological file-existence verify commands remain in any skill."
+  - id: BUG-2026-07-06-g06-migrate-version-golden
+    status: fixed
+    severity: medium
+    scope: scripts/migrate-version
+    title: "G-06 golden test fails — bash bad substitution + pipefail SIGPIPE in validate check"
+    file: bugs/BUG-2026-07-06-g06-migrate-version-golden.md
+    approach: "Fix invalid ${#ARRAY[@]:-0} syntax; replace grep pipeline with exit-code check in golden test"
+    risk_level: low

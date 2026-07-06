@@ -1,30 +1,23 @@
 release:
-  version: 2.70.0
-  codename: Deepening
-  status: released
+  version: "2.70.0"
+  codename: Reach
+  status: planning
   semantic_release: true
   bump_hint: minor
 build_order:
-- e42
-- e47
 - e50
-- e32
-- e33
-- e39
 - e48
-- e44
-- e28
-- e41
-- e46
-- e35
 - e45
-- e43
+- e49
 - e37
-- e36
 done_epics_summary:
-  count: 34
+  count: 45
   source: specs/execution-status.yaml (development_status) — authoritative for completed epics; not re-listed
     here
+  audit: "2026-07-06 plan-release redo — code evidence verified: e33 (website/ deployed), e41 (receipts.astro
+    + receipts.json), e43 (bigpowers-showcase/), e44 (skills/migrate-spec/), e47 (install_pi in install.sh),
+    e28 (Parse→IR→Render in sync-skills.sh), e36 (verification audits), e39 (build-skill-graph.sh etc),
+    e42 (golden YAMLs + run-golden-suite.sh --agent), e46 (plan-tests skill + NFR gate)."
   ids:
   - e01
   - e02
@@ -53,108 +46,56 @@ done_epics_summary:
   - e25
   - e26
   - e27
+  - e28
   - e29
   - e30
   - e31
   - e32
+  - e33
   - e34
+  - e35
+  - e36
   - e38
+  - e39
   - e40
+  - e41
+  - e42
+  - e43
+  - e44
+  - e46
+  - e47
 epics:
-- id: e47
-  title: Cross-Tool Skill Distribution — global install + per-project seed
-  wsjf: 4.3
-  bcps: 9
-  capsule_dir: epics/e47-cross-tool-distribution
-  mode: capsule
-  status: done
 - id: e50
   title: Codex CLI Reach — AGENTS.md & config.toml seed pack
   wsjf: 4.3
   bcps: 8
   capsule_dir: epics/e50-codex-reach
   mode: capsule
-  status: proposed
+  status: planned
   source_issue: https://github.com/danielvm-git/bigpowers/issues/52
   wsjf_rationale: 'BV 5 (community ask #52) + TC 3 + RR 5 (closes e47 Codex out-of-scope gap) / Job 3
     ≈ 4.3'
-- id: e32
-  title: MCP Semantic Context Server
-  wsjf: 4.0
-  bcps: 13
-  capsule_dir: epics/e32-mcp-context-server
-  mode: capsule
-  status: done
-- id: e41
-  title: Public Receipts — Live Evidence Page
-  wsjf: 3.75
-  bcps: 10
-  capsule_dir: epics/e41-public-receipts
-  mode: capsule
-  status: proposed
-- id: e44
-  title: Spec Version Migration — migrate-version Skill
-  wsjf: 3.75
-  bcps: 14
-  capsule_dir: epics/e44-migrate-version
-  mode: capsule
-  status: proposed
-- id: e39
-  title: Semantic Context Bridge
-  wsjf: 3.6
-  bcps: 20
-  capsule_dir: epics/e39-knowledge-graph
-  mode: capsule
-  status: proposed
 - id: e48
   title: Prior-Art Audit — 9 High-Priority Mechanisms from 28 OSS Skill & SDD Repos
   wsjf: 3.5
   bcps: 25
   capsule_dir: epics/e48-prior-art-audit
   mode: capsule
-  status: proposed
-- id: e46
-  title: Risk-Based Verification — TEA-Informed Test Depth
-  wsjf: 3.4
-  bcps: 16
-  capsule_dir: epics/e46-risk-based-verification
-  mode: capsule
-  status: active
-- id: e35
-  title: Missing Historical References
-  wsjf: 3.0
-  bcps: 20
-  capsule_dir: epics/e35-historical-refs
-  mode: capsule
-  status: done
+  status: backlog
 - id: e45
   title: OKF Completion — Wikis, Verification Reports, Viz Graph
   wsjf: 3.0
   bcps: 10
   capsule_dir: epics/e45-okf-completion
   mode: capsule
-  status: proposed
-- id: e33
-  title: Docs Website — Fourth Generated Artifact Target
-  wsjf: 2.8
-  bcps: 13
-  capsule_dir: epics/e33-docs-website
-  mode: capsule
-  status: done
-- id: e43
-  title: Showcase Repo — Worked Example Built With bigpowers
-  wsjf: 2.5
-  bcps: 11
-  capsule_dir: epics/e43-showcase-repo
-  mode: capsule
-  status: proposed
+  status: backlog
 - id: e49
   title: GitHub Wiki as Derived OKF Rendering Target
   wsjf: 2.4
   bcps: 8
   capsule_dir: epics/e49-wiki-rendering-target
   mode: capsule
-  status: proposed
+  status: backlog
 - id: e37
   title: BCP Plus Counting — Evolve from 3D to 13D story sizing
   wsjf: 2.1
@@ -162,24 +103,3 @@ epics:
   capsule_dir: epics/e37-bcp-plus-counting
   mode: capsule
   status: backlog
-- id: e28
-  title: Sync Pipeline Refactor — Parse→IR→Render
-  wsjf: 2.0
-  bcps: 13
-  capsule_dir: epics/e28-sync-pipeline
-  mode: capsule
-  status: proposed
-- id: e42
-  title: Golden Story Suite — Agent-Driven
-  wsjf: 1.8
-  bcps: 10
-  capsule_dir: epics/e42-golden-stories
-  mode: capsule
-  status: active
-- id: e36
-  title: Documentation Deduplication
-  wsjf: 1.4
-  bcps: 12
-  capsule_dir: epics/e36-doc-dedup
-  mode: capsule
-  status: proposed

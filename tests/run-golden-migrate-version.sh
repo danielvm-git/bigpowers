@@ -109,7 +109,7 @@ else
 fi
 
 # Validate YAML
-if bash "$VALIDATE_YAML" "$tmp4/specs" 2>&1 | grep -qv 'PARSE ERROR'; then
+if bash "$VALIDATE_YAML" "$tmp4/specs" >/dev/null 2>&1; then
   pass "v2.20: validate-specs-yaml"
 else
   fail "v2.20: validate-specs-yaml had parse errors"

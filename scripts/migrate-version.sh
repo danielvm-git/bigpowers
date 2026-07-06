@@ -18,6 +18,11 @@ DRY_RUN=false
 FORCE=false
 SKIP_COMMIT=false
 VERBOSE=false
+SUCCEEDED=()
+FAILED=()
+SKIPPED=()
+STALE_FILES=()
+UNCERTAINTY_COUNT=0
 
 # ── usage ────────────────────────────────────────────────────────────────
 usage() {
@@ -647,7 +652,7 @@ for m in "${SUCCEEDED[@]:-}"; do
   [ -z "$m" ] && continue
   echo "- $m PASS" >> "$REPORT_FILE"
 done
-FAILED_COUNT="${#FAILED[@]:-0}"
+FAILED_COUNT="${#FAILED[@]}"
 if [ "${FAILED_COUNT}" -gt 0 ]; then
   echo "" >> "$REPORT_FILE"
   echo "## Migrations Failed" >> "$REPORT_FILE"
@@ -669,7 +674,7 @@ echo "" >> "$REPORT_FILE"
 echo "## Verification" >> "$REPORT_FILE"
 echo "- validate-specs-yaml: ran as final gate" >> "$REPORT_FILE"
 
-if [ ${#STALE_FILES[@]:-0} -gt 0 ]; then
+if [ ${#STALE_FILES[@]} -gt 0 ]; then
   echo "" >> "$REPORT_FILE"
   echo "## Staleness Notice" >> "$REPORT_FILE"
   for f in "${STALE_FILES[@]:-}"; do
@@ -697,11 +702,11 @@ echo ""
 echo "=========================================="
 echo "  Migration complete: $DETECTED -> $INSTALLED"
 echo "=========================================="
-echo "  Applied:  ${#SUCCEEDED[@]:-0}"
-echo "  Failed:   ${#FAILED[@]:-0}"
-echo "  Skipped:  ${#SKIPPED[@]:-0}"
+echo "  Applied:  ${#SUCCEEDED[@]}"
+echo "  Failed:   ${#FAILED[@]}"
+echo "  Skipped:  ${#SKIPPED[@]}"
 echo "  WARN:     $UNCERTAINTY_COUNT"
-[ ${#STALE_FILES[@]:-0} -gt 0 ] && echo "  Stale:    ${STALE_FILES[*]:-}"
+[ ${#STALE_FILES[@]} -gt 0 ] && echo "  Stale:    ${STALE_FILES[*]:-}"
 echo "  Report:   $REPORT_FILE"
 echo "=========================================="
 echo "  Remember: run 'bash scripts/sync-skills.sh'"

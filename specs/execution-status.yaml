@@ -1,10 +1,3 @@
-# GitHub issue resolutions (2026-07-06 audit — renumbered epics verified against code):
-#   #42 skill-verify false FAILs — fixed 63ab33a; 0 FAIL on run-skill-verify.sh
-#       (BUG-2026-07-02-skill-verify-false-fails.md; related e30s04 tautological verify in 8823212)
-#   #33 e28 Sync Pipeline (was old e33) — fixed 2006f4b PR #54; skill-common.sh + render_* targets
-#   #32 e35 Historical References (was old e32) — fixed ffba59f; 9 ref docs + PRINCIPLES + cross-refs
-#   #31 e36 Doc Deduplication — fixed 83dd717; provenance pointers + spec-kit/bmad refresh (e36s05)
-# Change request (2026-07-06): #52 Codex Support → epic e50; plan-work 2026-07-06 (e50s01–s04 specs + tasks)
 development_status:
   e01: done
   e01s01: done
@@ -156,12 +149,12 @@ development_status:
   e32s05: done
   e32s06: done
   e32s07: done
-  e33: backlog
-  e33s01: backlog
-  e33s02: backlog
-  e33s03: backlog
-  e33s04: backlog
-  e33s05: backlog
+  e33: done
+  e33s01: done
+  e33s02: done
+  e33s03: done
+  e33s04: done
+  e33s05: done
   e34: done
   e34s01: done
   e34s02: done
@@ -219,30 +212,30 @@ development_status:
   e40s06: done
   e40s07: done
   e40s08: done
-  e41: backlog
-  e41s01: backlog
-  e41s02: backlog
-  e41s03: backlog
-  e41s04: backlog
-  e41s05: backlog
+  e41: done
+  e41s01: done
+  e41s02: done
+  e41s03: done
+  e41s04: done
+  e41s05: done
   e42: done
   e42s01: done
   e42s02: done
   e42s03: done
   e42s04: done
-  e43: backlog
-  e43s01: backlog
-  e43s02: backlog
-  e43s03: backlog
-  e43s04: backlog
-  e43s05: backlog
-  e44: backlog
-  e44s01: backlog
-  e44s02: backlog
-  e44s03: backlog
-  e44s04: backlog
-  e44s05: backlog
-  e44s06: backlog
+  e43: done
+  e43s01: done
+  e43s02: done
+  e43s03: done
+  e43s04: done
+  e43s05: done
+  e44: done
+  e44s01: done
+  e44s02: done
+  e44s03: done
+  e44s04: done
+  e44s05: done
+  e44s06: done
   e45: backlog
   e45s01: backlog
   e45s02: backlog
@@ -255,11 +248,11 @@ development_status:
   e46s02: done
   e46s03: done
   e46s04: done
-  e47: backlog
-  e47s01: backlog
-  e47s02: backlog
-  e47s03: backlog
-  e47s04: backlog
+  e47: done
+  e47s01: done
+  e47s02: done
+  e47s03: done
+  e47s04: done
   e48: backlog
   e48s01: backlog
   e48s02: backlog
