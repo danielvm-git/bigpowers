@@ -1,3 +1,10 @@
+## [2.73.2](https://github.com/danielvm-git/bigpowers/compare/v2.73.1...v2.73.2) (2026-07-06)
+
+
+### Bug Fixes
+
+* **ci:** close BUG-2026-07-04-python-interpreter-fragility — python-env.sh resolver verified ([1f4fd30](https://github.com/danielvm-git/bigpowers/commit/1f4fd301f9ec19b2eb60100d43d79ac57891bed6))
+
 ## [2.73.1](https://github.com/danielvm-git/bigpowers/compare/v2.73.0...v2.73.1) (2026-07-06)
 
 

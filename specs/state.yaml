@@ -2,7 +2,7 @@ active_flow: null
 active_epic: e45
 active_story: null
 bug_id: null
-bigpowers_version: 2.73.1
+bigpowers_version: 2.73.2
 bug_cycle:
   current_step: 5
   completed_steps:
