@@ -69,4 +69,9 @@ Verified via `gh run view` and deployment API:
 
 ## Resolution
 
-<!-- filled in by validate-fix -->
+**Fixed** in PR #56 — merged to `main` as `f124ff0`.
+
+- Root cause: transient GitHub Pages API rejection after successful build (run 28795963238); not a site build defect.
+- Fix: 3-attempt deploy with 45s backoff; `cancel-in-progress: true` on pages concurrency group.
+- Verify: post-merge run [28796637544](https://github.com/danielvm-git/bigpowers/actions/runs/28796637544) — build + deploy green on attempt 1.
+- Site: https://danielvm-git.github.io/bigpowers/ returns 200.
