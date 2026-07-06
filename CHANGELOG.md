@@ -1,3 +1,10 @@
+# [2.68.0](https://github.com/danielvm-git/bigpowers/compare/v2.67.1...v2.68.0) (2026-07-06)
+
+
+### Features
+
+* **e28:** sync pipeline refactor — Parse→IR→Render with shared library ([#54](https://github.com/danielvm-git/bigpowers/issues/54)) ([2006f4b](https://github.com/danielvm-git/bigpowers/commit/2006f4bdbe794c454fc167b485e92bd9d3ff71a0))
+
 ## [2.67.1](https://github.com/danielvm-git/bigpowers/compare/v2.67.0...v2.67.1) (2026-07-05)
 
 
