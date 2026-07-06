@@ -19,7 +19,8 @@ epic_cycle:
   story: null
   story_bcps: null
 handoff:
-  context: "BUG-2026-07-06T205700 released on main branch. Trace strict mode no longer flags todo P0 stories."
+  context: BUG-2026-07-06T205700 released on main branch. Trace strict mode no longer
+    flags todo P0 stories.
   next_skill: survey-context
   epic: e45
 metrics:
@@ -27,10 +28,9 @@ metrics:
   story_end: null
   skill_timings:
     release-branch:
-      calls: 2
-      total_seconds: 511.0
-      avg_seconds: 511.0
-      _start: '2026-07-06T21:11:47Z'
+      calls: 3
+      total_seconds: 919.0
+      avg_seconds: 306.3333333333333
     plan-work:
       calls: 1
       total_seconds: 343.0
