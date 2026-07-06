@@ -8,10 +8,7 @@ Usage: called by scripts/trace-stories.sh with positional args:
   python3 scripts/lib/trace-stories.py <repo_root> <matrix_json> <trace_md>
       <okf_dir> <strict> <mode>
 
-Oracle tiers (TEA-inspired):
-  Tier 1: explicit story tag → confidence high
-  Tier 2: file-name heuristic match → confidence medium
-  Tier 3: epic capsule task reference → confidence low
+Oracle tiers: Tier 1 explicit tag (high), Tier 2 file heuristic (medium), Tier 3 task ref (low).
 """
 
 import json, os, re, subprocess, sys
@@ -26,9 +23,7 @@ OKF_DIR = Path(sys.argv[4])
 STRICT = int(sys.argv[5])
 MODE = sys.argv[6]
 
-# -----------------------------------------------------------------------
-# 1. Parse YAML files → story inventory
-# -----------------------------------------------------------------------
+# --- 1. Parse YAML files → story inventory
 _MIN_STORY_BASELINE = 50  # floor assertion: --strict FAILs if story count drops below this
 _STRICT_UNIMPLEMENTED_STATUSES = frozenset({"backlog", "todo", "planned"})
 
@@ -45,9 +40,7 @@ release = _load_yaml(ROOT / "specs" / "release-plan.yaml")
 exec_status = _load_yaml(ROOT / "specs" / "execution-status.yaml")
 dev_status = exec_status.get("development_status", {})
 
-# -----------------------------------------------------------------------
-# 2. Build story inventory
-# -----------------------------------------------------------------------
+# --- 2. Build story inventory
 stories: dict[str, dict] = {}
 epics = release.get("epics", [])
 if not isinstance(epics, list):
@@ -82,9 +75,7 @@ for epic in epics:
                         "bcp": s.get("bcp", 0), "wsjf": float(ewsjf),
                         "description": s.get("description", "")}
 
-# -----------------------------------------------------------------------
-# 3. Grep codebase for story tags
-# -----------------------------------------------------------------------
+# --- 3. Grep codebase for story tags
 result = subprocess.run(
     ["grep", "-rn", "--include=*.md", "--include=*.sh", "--include=*.py",
      "--include=*.js", "--include=*.ts", "--include=*.yaml", "--include=*.yml",
@@ -104,9 +95,7 @@ for line in result.stdout.splitlines():
         tagged_sids.add(sid)
         tag_index.setdefault(sid, []).append({"file": fpath, "line": fline})
 
-# -----------------------------------------------------------------------
-# 4. Oracle tiers
-# -----------------------------------------------------------------------
+# --- 4. Oracle tiers
 EXCLUDE_DIRS = {".git", "node_modules", ".cursor", ".gemini", ".pi", ".venv", "venv", ".tox", "__pycache__", "site-packages", ".mypy_cache", ".pytest_cache", ".ruff_cache"}
 EXCLUDE_PREFIXES = ("specs/archive/", "specs/codebase-wiki/")
 
@@ -177,9 +166,7 @@ for sid, sinfo in sorted(stories.items()):
 orphan_tags = [sid for sid in sorted(tagged_sids) if sid not in stories]
 stale_tags = [sid for sid in sorted(tagged_sids) if sid in stories and dev_status.get(sid) == "done"]
 
-# -----------------------------------------------------------------------
-# 5. Emit matrix JSON
-# -----------------------------------------------------------------------
+# --- 5. Emit matrix JSON
 matrix = {
     "generated_at": datetime.now(timezone.utc).isoformat(),
     "matrix_version": "1.0",
@@ -200,9 +187,7 @@ matrix = {
 MATRIX_JSON.parent.mkdir(parents=True, exist_ok=True)
 MATRIX_JSON.write_text(json.dumps(matrix, indent=2), encoding="utf-8")
 
-# -----------------------------------------------------------------------
-# 6. Emit TRACEABILITY_LATEST.md
-# -----------------------------------------------------------------------
+# --- 6. Emit TRACEABILITY_LATEST.md
 lines = ["# Traceability Matrix", "",
     f"**Generated:** {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')}",
     f"**Total stories:** {len(stories)}",
@@ -237,9 +222,7 @@ if stale_tags:
 TRACE_MD.parent.mkdir(parents=True, exist_ok=True)
 TRACE_MD.write_text("\n".join(lines), encoding="utf-8")
 
-# -----------------------------------------------------------------------
-# 7. Emit OKF bundle (specs/codebase-wiki/)
-# -----------------------------------------------------------------------
+# --- 7. Emit OKF bundle (specs/codebase-wiki/)
 OKF_DIR.mkdir(parents=True, exist_ok=True)
 idx_lines = ["---", "type: Index",
     f"generated_at: {datetime.now(timezone.utc).isoformat()}",
@@ -278,9 +261,7 @@ for s in matrix_stories:
     concept.append("")
     (OKF_DIR / f"{s['id']}.md").write_text("\n".join(concept), encoding="utf-8")
 
-# -----------------------------------------------------------------------
-# 8. Strict mode
-# -----------------------------------------------------------------------
+# --- 8. Strict mode
 if STRICT:
     # Floor assertion — anti-vacuity guard: if story count drops below baseline
     # the matrix is degenerate and --strict must fail open.

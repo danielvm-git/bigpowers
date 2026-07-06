@@ -183,8 +183,6 @@ bugs:
     scope: ci
     title: "Scripts call bare python3 with no interpreter pinning — login-shell python3 may lack PyYAML"
     file: bugs/BUG-2026-07-04-python-interpreter-fragility.md
-    approach: "Shared resolver scripts/lib/python-env.sh with .venv preference + PyYAML verify; all 31 callers source it and use $PYTHON"
-    risk_level: "low"
   - id: BUG-2026-07-04-stale-bak-features
     status: fixed
     severity: low
@@ -246,7 +244,7 @@ bugs:
     title: "run-evals: Underlying test suite runner run-golden-suite.sh exceeds 300-line context window limit"
     file: bugs/BUG-2026-07-06-run-evals-golden-suite-oversized.md
   - id: BUG-2026-07-06-trace-requirement-stories-oversized
-    status: open
+    status: fixed
     severity: medium
     scope: skills/trace-requirement
     title: "trace-requirement: Underlying story trace script trace-stories.py exceeds 300-line limit"

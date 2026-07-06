@@ -1,6 +1,6 @@
 # Traceability Matrix
 
-**Generated:** 2026-07-06 21:15:27 UTC
+**Generated:** 2026-07-06 21:34:48 UTC
 **Total stories:** 55
 **Tagged stories:** 7
 **Dark stories:** 11
@@ -10,7 +10,7 @@
 ## Oracle Stats
 
 - **High** (explicit tag): 14
-- **Medium** (file heuristic): 1282
+- **Medium** (file heuristic): 1296
 - **Low** (task reference): 2
 
 ## Story Coverage
@@ -34,7 +34,7 @@
 | e45s15 | release-branch / deploy: three-independent-facts verificatio | e45 | 2 | 5.0 | todo | 7 |
 | e45s16 | CLAUDE.md rtk mandate: wire rtk-ai/rtk PreToolUse hook | e45 | 2 | 5.0 | todo | 1 |
 | e45s17 | request-review: fan-out to parallel review subagents | e45 | 2 | 5.0 | todo | 20 |
-| e45s18 | audit-code / security-review: worktree-isolated parallel che | e45 | 2 | 5.0 | todo | 333 |
+| e45s18 | audit-code / security-review: worktree-isolated parallel che | e45 | 2 | 5.0 | todo | 340 |
 | e45s19 | Context7: bounded retry cap and explicit fallback block | e45 | 2 | 5.0 | todo | 6 |
 | e45s20 | Context7 / bts docs: wrap in ETag-revalidated fetch cache | e45 | 2 | 5.0 | todo | 0 |
 | e45s21 | seed-conventions / AGENTS.md: self-installing fenced markers | e45 | 2 | 5.0 | todo | 4 |
@@ -47,7 +47,7 @@
 | e45s28 | request-review: hard max-iteration cap | e45 | 2 | 5.0 | todo | 5 |
 | e45s29 | requirements: ADDED/MODIFIED/REMOVED/RENAMED tags | e45 | 2 | 5.0 | todo | 0 |
 | e45s30 | subagent depth: formalize depth tiers | e45 | 2 | 5.0 | todo | 0 |
-| e45s31 | audit-code / deepen-architecture: churn-based look-here-firs | e45 | 2 | 5.0 | todo | 335 |
+| e45s31 | audit-code / deepen-architecture: churn-based look-here-firs | e45 | 2 | 5.0 | todo | 342 |
 | e45s32 | gate-trace / release-branch: adversarial-review refute frami | e45 | 2 | 5.0 | todo | 19 |
 | e45s33 | requirements: per-section approval state | e45 | 2 | 5.0 | todo | 0 |
 | e45s34 | develop-tdd: snapshot-before-transition hardening | e45 | 2 | 5.0 | todo | 5 |

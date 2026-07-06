@@ -1,6 +1,6 @@
 ---
 type: Index
-generated_at: 2026-07-06T21:15:27.460397+00:00
+generated_at: 2026-07-06T21:34:48.401624+00:00
 total_concepts: 55
 ---
 
@@ -27,7 +27,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e45s15](./e45s15.md) | release-branch / deploy: three-independent-facts verificatio | medium | 7 |
 | [e45s16](./e45s16.md) | CLAUDE.md rtk mandate: wire rtk-ai/rtk PreToolUse hook | medium | 1 |
 | [e45s17](./e45s17.md) | request-review: fan-out to parallel review subagents | medium | 20 |
-| [e45s18](./e45s18.md) | audit-code / security-review: worktree-isolated parallel che | medium | 333 |
+| [e45s18](./e45s18.md) | audit-code / security-review: worktree-isolated parallel che | medium | 340 |
 | [e45s19](./e45s19.md) | Context7: bounded retry cap and explicit fallback block | medium | 6 |
 | [e45s20](./e45s20.md) | Context7 / bts docs: wrap in ETag-revalidated fetch cache | none | 0 |
 | [e45s21](./e45s21.md) | seed-conventions / AGENTS.md: self-installing fenced markers | medium | 4 |
@@ -40,7 +40,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e45s28](./e45s28.md) | request-review: hard max-iteration cap | medium | 5 |
 | [e45s29](./e45s29.md) | requirements: ADDED/MODIFIED/REMOVED/RENAMED tags | none | 0 |
 | [e45s30](./e45s30.md) | subagent depth: formalize depth tiers | none | 0 |
-| [e45s31](./e45s31.md) | audit-code / deepen-architecture: churn-based look-here-firs | medium | 335 |
+| [e45s31](./e45s31.md) | audit-code / deepen-architecture: churn-based look-here-firs | medium | 342 |
 | [e45s32](./e45s32.md) | gate-trace / release-branch: adversarial-review refute frami | medium | 19 |
 | [e45s33](./e45s33.md) | requirements: per-section approval state | none | 0 |
 | [e45s34](./e45s34.md) | develop-tdd: snapshot-before-transition hardening | medium | 5 |

@@ -1,5 +1,5 @@
-timestamp: "2026-07-06T21:12:35Z"
-git_commit: "604c4b0e11b57d7d9756de231b82b756b4f76457"
+timestamp: "2026-07-06T21:33:49Z"
+git_commit: "ae929877b6c593999c19397288803130500764d6"
 suite: "golden-combined"
 mode: "daily"
 deterministic:
@@ -11,7 +11,7 @@ deterministic:
 gates:
   - name: compliance
     exit_code: 0
-    duration_seconds: 34.88
+    duration_seconds: 37.85
     status: pass
   - name: g04-selftest
     exit_code: 0
@@ -19,11 +19,11 @@ gates:
     status: pass
   - name: g06-migrate-version
     exit_code: 0
-    duration_seconds: 5.61
+    duration_seconds: 5.79
     status: pass
   - name: g07-negative-path
     exit_code: 0
-    duration_seconds: .05
+    duration_seconds: .06
     status: pass
   - name: g08-anti-vacuity
     exit_code: 0
@@ -35,7 +35,7 @@ gates:
     status: pass
   - name: g10-trace-anti-vacuity
     exit_code: 0
-    duration_seconds: .08
+    duration_seconds: .09
     status: pass
   - name: g11-gitignore-venv
     exit_code: 0

@@ -9,8 +9,9 @@ epic_cycle:
   story: null
   story_bcps: null
 handoff:
-  context: BUG-2026-07-04-python-interpreter-fragility released v2.73.2. All 31 scripts use python-env.sh + $PYTHON.
-  next_skill: survey-context
+  context: BUG-2026-07-06-trace-requirement-stories-oversized fixed — trace-stories.py
+    283 lines, gates green. Step 5 release-branch pending user.
+  next_skill: release-branch
   epic: e45
 metrics:
   story_start: null
@@ -20,6 +21,7 @@ metrics:
       calls: 3
       total_seconds: 919.0
       avg_seconds: 306.3333333333333
+      _start: '2026-07-06T21:33:42Z'
     plan-work:
       calls: 1
       total_seconds: 343.0
