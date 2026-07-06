@@ -13,7 +13,7 @@ stories:
     title: "Slim docs/references/uncle-bob.md to provenance pointer"
     spec: e36s01-slim-uncle-bob.md
     tasks: e36s01-tasks.yaml
-    status: todo
+    status: done
     verify: "wc -l docs/references/uncle-bob.md | awk '{if($1<20) print \"OK: slimmed\"; else print \"FAIL: \"$1\" lines\"}'"
   - id: e36s02
     bcp: 3

@@ -1,6 +1,6 @@
 story_id: e36s01
 title: "Slim docs/references/uncle-bob.md to provenance pointer"
-status: todo
+status: done
 bcps: 3
 tasks:
   - id: 1
@@ -10,6 +10,8 @@ tasks:
       functions); confirm no principle lacks an authority
     verify: >-
       grep -q 'F.I.R.S.T' CONVENTIONS.md && grep -q 'Boy Scout Rule' CONVENTIONS.md && echo OK
+    risk: P2
+    status: done
   - id: 2
     description: >-
       Rewrite uncle-bob.md as a thin provenance pointer: title, Source,
@@ -17,7 +19,11 @@ tasks:
       remove all restated principle text
     verify: >-
       grep -q 'CONVENTIONS.md' docs/references/uncle-bob.md && ! grep -q 'Fast, Independent, Repeatable' docs/references/uncle-bob.md && echo OK
+    risk: P2
+    status: done
   - id: 3
     description: "Confirm the story-level size budget: file under 20 lines"
     verify: >-
       wc -l docs/references/uncle-bob.md | awk '{exit ($1<20)?0:1}' && echo OK
+    risk: P2
+    status: done

@@ -1,7 +1,15 @@
-active_flow: null
+active_flow: build_epic
+active_epic: e36
 bug_id: null
 bigpowers_version: 2.68.6
 bug_cycle: {}
+epic_cycle:
+  epic_id: e36
+  story_id: e36s01
+  current_step: 5
+  completed_steps: [0, 1, 2, 3, 4]
+  story_bcps: 3
+  audit_result: null
 handoff:
   context: "BUG-2026-07-06T134600 fixed — GitHub Pages deploy retry merged (PR #56). Run 28796637544 green."
   next_skill: null
