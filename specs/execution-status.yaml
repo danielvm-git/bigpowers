@@ -1,3 +1,9 @@
+# GitHub issue resolutions (2026-07-06 audit — renumbered epics verified against code):
+#   #42 skill-verify false FAILs — fixed 63ab33a; 0 FAIL on run-skill-verify.sh
+#       (BUG-2026-07-02-skill-verify-false-fails.md; related e30s04 tautological verify in 8823212)
+#   #33 e28 Sync Pipeline (was old e33) — fixed 2006f4b PR #54; skill-common.sh + render_* targets
+#   #32 e35 Historical References (was old e32) — fixed ffba59f; 9 ref docs + PRINCIPLES + cross-refs
+#   #31 e36 Doc Deduplication — fixed 83dd717; provenance pointers + spec-kit/bmad refresh (e36s05)
 development_status:
   e01: done
   e01s01: done
@@ -119,6 +125,7 @@ development_status:
   e26s07: done
   e27: done
   e27s01: done
+  # #33 closed 2026-07-06 — e28 sync pipeline landed 2006f4b (PR #54)
   e28: done
   e28s01: done
   e28s02: done
@@ -160,23 +167,25 @@ development_status:
   e34s02: done
   e34s03: done
   e34s04: done
-  e35: backlog
-  e35s01: backlog
-  e35s02: backlog
-  e35s03: backlog
-  e35s04: backlog
-  e35s05: backlog
-  e35s06: backlog
-  e35s07: backlog
-  e35s08: backlog
-  e35s09: backlog
-  e35s10: backlog
-  e36: backlog
-  e36s01: backlog
-  e36s02: backlog
-  e36s03: backlog
-  e36s04: backlog
-  e36s05: backlog
+  # #32 closed 2026-07-06 — e35 historical refs landed ffba59f (all story verifies pass)
+  e35: done
+  e35s01: done
+  e35s02: done
+  e35s03: done
+  e35s04: done
+  e35s05: done
+  e35s06: done
+  e35s07: done
+  e35s08: done
+  e35s09: done
+  e35s10: done
+  # #31 closed 2026-07-06 — e36 doc dedup landed 83dd717 (incl. e36s05 bmad.md refresh)
+  e36: done
+  e36s01: done
+  e36s02: done
+  e36s03: done
+  e36s04: done
+  e36s05: done
   e37: backlog
   e37s01: done
   e37s02: backlog
