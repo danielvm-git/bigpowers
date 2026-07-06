@@ -1,3 +1,10 @@
+## [2.73.6](https://github.com/danielvm-git/bigpowers/compare/v2.73.5...v2.73.6) (2026-07-06)
+
+
+### Bug Fixes
+
+* **plan-release:** encapsulate G28 boolean logic in check-spec-version-gap ([#61](https://github.com/danielvm-git/bigpowers/issues/61)) ([613e45c](https://github.com/danielvm-git/bigpowers/commit/613e45c00a636f66783a220f35ec4e26916649ee))
+
 ## [2.73.5](https://github.com/danielvm-git/bigpowers/compare/v2.73.4...v2.73.5) (2026-07-06)
 
 
