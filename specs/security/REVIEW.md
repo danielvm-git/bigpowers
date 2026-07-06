@@ -1,21 +1,20 @@
-# Security Review — e37: Reach — Universal Agent Portability
+# Security Review — BUG-2026-07-06T205700
 
 ## Scope Resolution
-Scanned changes: `feat/e37-reach` — AGENTS.md spine, `scripts/targets.yaml`, adapter dispatch, verify matrix, Codex optional wave.
-Files changed: Bash scripts, Markdown skills/docs, YAML registry
-Languages: Bash, Markdown, YAML
+Scanned changes: `fix/BUG-2026-07-06T205700-strict-todo`
+Files changed:
+- `scripts/lib/trace-stories.py`
+- `scripts/sync-bugs-registry.sh`
+- `scripts/test-trace-strict.sh`
+Languages: Python, Bash
 
 ## Vulnerability Assessment
 
 | Category | Finding | Severity | Mitigation |
 |----------|---------|----------|------------|
-| Path Traversal | Adapters write to configured output paths | LOW | Registry-validated adapter ids; no user-supplied paths in CLI |
-| Symlink attacks | context-wire creates symlinks | LOW | Relative AGENTS.md → derivative only; copy fallback documented |
-| Secrets Exposure | Codex template, seed REFERENCE | LOW | e37s15 verify: no api keys in templates; install touches ~/.codex/AGENTS.md only |
-| Command Injection | validate-targets-yaml, test-adapters use yq/bash | LOW | No eval; fixed script paths |
-| Supply chain | Optional big-counter N/A for e37 | NONE | — |
-
-Threat model: `specs/security/epics/e37/THREAT_MODEL.md`
+| Path Traversal | None | NONE | No path operations accept untrusted input; mktemp is used for testing. |
+| Command Injection | None | NONE | No shell execution of untrusted input. |
+| Secrets Exposure | None | NONE | No secrets or credentials used or stored. |
 
 ## Verdict
-**PASS** — No unresolved HIGH findings. Bash-only surface; no network listeners. Codex global install limited to AGENTS.md symlink.
+**PASS** — No security vulnerabilities introduced. The changes are local logic fixes and test fixtures.

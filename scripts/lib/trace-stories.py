@@ -30,6 +30,7 @@ MODE = sys.argv[6]
 # 1. Parse YAML files → story inventory
 # -----------------------------------------------------------------------
 _MIN_STORY_BASELINE = 50  # floor assertion: --strict FAILs if story count drops below this
+_STRICT_UNIMPLEMENTED_STATUSES = frozenset({"backlog", "todo", "planned"})
 
 def _load_yaml(path: Path) -> dict:
     """Load a YAML file with PyYAML. Exits with code 1 if parse fails."""
@@ -290,10 +291,10 @@ if STRICT:
         wsjf_sorted = sorted(set(s["wsjf"] for s in matrix_stories), reverse=True)
         cutoff_idx = max(0, len(wsjf_sorted) // 4 - 1)
         p0_threshold = wsjf_sorted[cutoff_idx] if cutoff_idx < len(wsjf_sorted) else 0
-        # Only flag non-backlog stories — backlog stories haven't been implemented yet
+        # Only flag stories expected to have implementation — skip backlog/todo/planned
         uncovered_p0 = [s["id"] for s in matrix_stories
             if s["wsjf"] >= p0_threshold and len(s["links"]) == 0
-            and s["status"] != "backlog"]
+            and s["status"] not in _STRICT_UNIMPLEMENTED_STATUSES]
         if uncovered_p0:
             print(f"trace-stories.sh: STRICT FAIL — P0 stories with 0% coverage: {', '.join(uncovered_p0)}", file=sys.stderr)
             sys.exit(2)

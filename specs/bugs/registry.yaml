@@ -178,13 +178,11 @@ bugs:
     title: "File-size compliance gates scan shell only — large Python trace-engine files breach caps invisibly; CONVENTIONS/waivers reference a phantom 613-line file"
     file: bugs/BUG-2026-07-04-filesize-gate-python-blindspot.md
   - id: BUG-2026-07-04-python-interpreter-fragility
-    status: fixed
+    status: open
     severity: low
     scope: ci
     title: "Scripts call bare python3 with no interpreter pinning — login-shell python3 may lack PyYAML"
     file: bugs/BUG-2026-07-04-python-interpreter-fragility.md
-    fix_commit: "fix(bug): python-interpreter-fragility — wire python-env.sh into 29 scripts"
-    fix_note: "All 29 scripts that use python3 now source scripts/lib/python-env.sh. Resolves .venv/bin/python3 → PATH python3, checks PyYAML availability."
   - id: BUG-2026-07-04-stale-bak-features
     status: fixed
     severity: low
@@ -192,18 +190,89 @@ bugs:
     title: "Stale .bak file in features directory — karpathy.feature.bak"
     file: bugs/BUG-2026-07-04-stale-bak-features.md
   - id: BUG-2026-07-04-tautological-verify
-    status: fixed
+    status: open
     severity: medium
     scope: skills
     title: "Tautological verify commands in 5 non-critical skills — file-existence checks pass vacuously"
     file: bugs/BUG-2026-07-04-tautological-verify.md
-    fix_commit: "fix(ci): trim SKILL.md size caps — kickoff-branch 147, release-branch 150, verify-work 150"
-    fix_note: "Verify commands already converted to semantic keyword + SKILL-INDEX checks. No tautological file-existence verify commands remain in any skill."
+  - id: BUG-2026-07-06-audit-code-auditor-oversized
+    status: open
+    severity: medium
+    scope: skills/audit-code
+    title: "audit-code: Underlying auditor scripts exceed 300-line context window limit"
+    file: bugs/BUG-2026-07-06-audit-code-auditor-oversized.md
+  - id: BUG-2026-07-06-craft-skill-sync-oversized
+    status: open
+    severity: medium
+    scope: skills/craft-skill
+    title: "craft-skill: Underlying compilation script sync-skills.sh exceeds line limits and contains duplicate helper function names"
+    file: bugs/BUG-2026-07-06-craft-skill-sync-oversized.md
+  - id: BUG-2026-07-06-evolve-skill-sync-oversized
+    status: open
+    severity: medium
+    scope: skills/evolve-skill
+    title: "evolve-skill: Underlying compilation script sync-skills.sh exceeds line limits and contains duplicate helper function names"
+    file: bugs/BUG-2026-07-06-evolve-skill-sync-oversized.md
   - id: BUG-2026-07-06-g06-migrate-version-golden
     status: fixed
     severity: medium
     scope: scripts/migrate-version
     title: "G-06 golden test fails — bash bad substitution + pipefail SIGPIPE in validate check"
     file: bugs/BUG-2026-07-06-g06-migrate-version-golden.md
-    approach: "Fix invalid ${#ARRAY[@]:-0} syntax; replace grep pipeline with exit-code check in golden test"
-    risk_level: low
+  - id: BUG-2026-07-06-gate-trace-matrix-oversized
+    status: open
+    severity: medium
+    scope: skills/gate-trace
+    title: "gate-trace: Underlying matrix compilation engine trace-matrix.py exceeds line limits"
+    file: bugs/BUG-2026-07-06-gate-trace-matrix-oversized.md
+  - id: BUG-2026-07-06-migrate-spec-migration-logic-violations
+    status: open
+    severity: medium
+    scope: skills/migrate-spec
+    title: "migrate-spec: migrate-version.sh and check-spec-version-gap.sh exceed line limits and violate boolean encapsulation (G28)"
+    file: bugs/BUG-2026-07-06-migrate-spec-migration-logic-violations.md
+  - id: BUG-2026-07-06-plan-release-gap-logic-boolean
+    status: open
+    severity: medium
+    scope: skills/plan-release
+    title: "plan-release: check-spec-version-gap.sh contains complex unencapsulated boolean logic (G28)"
+    file: bugs/BUG-2026-07-06-plan-release-gap-logic-boolean.md
+  - id: BUG-2026-07-06-run-evals-golden-suite-oversized
+    status: open
+    severity: medium
+    scope: skills/run-evals
+    title: "run-evals: Underlying test suite runner run-golden-suite.sh exceeds 300-line context window limit"
+    file: bugs/BUG-2026-07-06-run-evals-golden-suite-oversized.md
+  - id: BUG-2026-07-06-trace-requirement-stories-oversized
+    status: open
+    severity: medium
+    scope: skills/trace-requirement
+    title: "trace-requirement: Underlying story trace script trace-stories.py exceeds 300-line limit"
+    file: bugs/BUG-2026-07-06-trace-requirement-stories-oversized.md
+  - id: BUG-2026-07-06-verify-work-runner-scripts-oversized
+    status: open
+    severity: medium
+    scope: skills/verify-work
+    title: "verify-work: run-verification-gates.sh, validate-okf.sh, and run-golden-suite.sh exceed 300-line limit"
+    file: bugs/BUG-2026-07-06-verify-work-runner-scripts-oversized.md
+  - id: BUG-2026-07-06T124600
+    status: fixed
+    severity: high
+    scope: ci
+    title: "Sync Skills on Push fails — trace-stories.sh references unset REPO_ROOT"
+    file: bugs/BUG-2026-07-06T124600-sync-trace-repo-root.md
+    files_changed: "scripts/trace-stories.sh, scripts/validate-doctrine.sh"
+    approach: "Source skill-common.sh, call resolve_repo_root after CLI parsing; validate-doctrine smoke"
+    commit_message: "fix(ci): restore REPO_ROOT init in trace-stories wrapper"
+  - id: BUG-2026-07-06T134600
+    status: open
+    severity: medium
+    scope: ci
+    title: "GitHub Pages deploy job fails with 'Deployment failed, try again later' while build succeeds"
+    file: bugs/BUG-2026-07-06T134600-github-pages-deploy-flaky.md
+  - id: BUG-2026-07-06T205700
+    status: fixed
+    severity: high
+    scope: ci
+    title: "Sync Skills on Push fails — --strict flags todo e45 P0 stories with 0% coverage"
+    file: bugs/BUG-2026-07-06T205700-sync-strict-todo-p0-block.md

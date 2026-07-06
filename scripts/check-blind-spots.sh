@@ -11,6 +11,9 @@
 
 set -euo pipefail
 source "$(dirname "${BASH_SOURCE[0]}")/lib/python-env.sh"
+source "$(dirname "${BASH_SOURCE[0]}")/lib/skill-common.sh"
+resolve_repo_root
+
 
 BLIND_SPOTS_JSON="$REPO_ROOT/specs/blind-spots.json"
 EXEC_STATUS="$REPO_ROOT/specs/execution-status.yaml"

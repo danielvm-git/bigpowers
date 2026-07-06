@@ -1,22 +1,27 @@
-active_flow: sustain
+active_flow: fix_bug
 active_epic: e45
 active_story: null
-bug_id: null
+bug_id: BUG-2026-07-06T205700
 bigpowers_version: 2.73.0
-bug_cycle: {}
+bug_cycle:
+  current_step: 4
+  completed_steps:
+  - 1
+  - 2
+  - 3
+  - 4
+  last_bug: BUG-2026-07-06T205700
+  resolution: validated 2026-07-06
+  handoff:
+    next_skill: release-branch
 epic_cycle:
   current_step: 0
   story: null
   story_bcps: null
 handoff:
-  context: 'e37 Reach landed on main (squash merge). AGENTS.md spine, targets.yaml (16 targets),
-
-    registry-driven sync-skills, verify-install --matrix, optional Codex wave.
-
-    Build order continues: e45 → e48.
-
-    '
-  next_skill: kickoff-branch
+  context: BUG-2026-07-06T205700 fixed — trace --strict skips todo/planned P0 stories.
+    Ready for release-branch.
+  next_skill: release-branch
   epic: e45
 metrics:
   story_start: null
@@ -26,6 +31,7 @@ metrics:
       calls: 2
       total_seconds: 511.0
       avg_seconds: 511.0
+      _start: '2026-07-06T21:11:47Z'
     plan-work:
       calls: 1
       total_seconds: 343.0

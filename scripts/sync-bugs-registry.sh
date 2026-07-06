@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# story: e45s03
 # sync-bugs-registry.sh — rebuild specs/bugs/registry.yaml + OKF concept bundles
 set -euo pipefail
 source "$(dirname "${BASH_SOURCE[0]}")/lib/python-env.sh"
 source "$(dirname "${BASH_SOURCE[0]}")/lib/skill-common.sh"
+resolve_repo_root
 BUGS="$REPO_ROOT/specs/bugs"
 mkdir -p "$BUGS"
 
@@ -18,6 +18,8 @@ repo_root = Path(sys.argv[2])
 # ---- Phase 1: Build registry.yaml ----
 entries = []
 for path in sorted(bugs_dir.glob("BUG-*.md")):
+    if ".okf" in path.name:
+        continue
     text = path.read_text(encoding="utf-8")
     if not text.startswith("---"):
         continue
