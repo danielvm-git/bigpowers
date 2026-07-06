@@ -229,16 +229,16 @@ bugs:
     status: open
     severity: medium
     scope: skills/migrate-spec
-    title: "migrate-spec: migrate-version.sh and check-spec-version-gap.sh exceed line limits and violate boolean encapsulation (G28)"
+    title: "migrate-spec: migrate-version.sh exceeds line limits (G28 in check-spec-version-gap fixed separately)"
     file: bugs/BUG-2026-07-06-migrate-spec-migration-logic-violations.md
   - id: BUG-2026-07-06-plan-release-gap-logic-boolean
-    status: open
+    status: fixed
     severity: medium
     scope: skills/plan-release
     title: "plan-release: check-spec-version-gap.sh contains complex unencapsulated boolean logic (G28)"
     file: bugs/BUG-2026-07-06-plan-release-gap-logic-boolean.md
   - id: BUG-2026-07-06-run-evals-golden-suite-oversized
-    status: open
+    status: fixed
     severity: medium
     scope: skills/run-evals
     title: "run-evals: Underlying test suite runner run-golden-suite.sh exceeds 300-line context window limit"

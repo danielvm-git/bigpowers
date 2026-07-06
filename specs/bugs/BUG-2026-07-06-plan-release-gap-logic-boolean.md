@@ -1,6 +1,6 @@
 ---
 bug_id: BUG-2026-07-06-plan-release-gap-logic-boolean
-status: open
+status: fixed
 severity: medium
 scope: skills/plan-release
 title: "plan-release: check-spec-version-gap.sh contains complex unencapsulated boolean logic (G28)"
@@ -10,16 +10,8 @@ title: "plan-release: check-spec-version-gap.sh contains complex unencapsulated 
 
 ## Problem
 
-**Actual behavior:** The version check logic in `scripts/check-spec-version-gap.sh` violates the G28 boolean encapsulation gate by writing multiple three-clause conditionals on a single line (Lines 87, 90, 106, 126).
+`scripts/check-spec-version-gap.sh` violated G28 by using multi-clause `&&` conditionals inline at lines 87, 90, 106, and 126.
 
-**Expected behavior:** Complex conditionals should be encapsulated in named, intention-revealing functions.
+## Resolution
 
-**How to reproduce:**
-1. Run `bash scripts/run-verification-gates.sh` with waivers disabled.
-2. Note the failure in `cleancode.feature` (complex boolean logic G28).
-
-## Root Cause Analysis
-Shell conditionals checking arrays and environment flags did not structure the boolean checks into clean function definitions, resulting in long conditional clauses.
-
-## Proposed Resolution
-Extract the complex conditionals into named shell functions with intention-revealing names.
+**Fixed:** Extracted `yaml_value_set`, `on_feature_branch`, `is_protected_branch`, `has_dirty_specs`, and `is_blocking_active_flow` helpers. Call sites now use single intention-revealing predicates. Golden suite 9/9 PASS.

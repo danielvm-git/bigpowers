@@ -2,7 +2,7 @@
 okf_kind: concept
 okf_version: "0.1"
 id: "BUG-2026-07-06-migrate-spec-migration-logic-violations"
-title: "migrate-spec: migrate-version.sh and check-spec-version-gap.sh exceed line limits and violate boolean encapsulation (G28)"
+title: "migrate-spec: migrate-version.sh exceeds line limits (G28 in check-spec-version-gap fixed separately)"
 category: bug
 tier: extended
 severity: medium
@@ -12,7 +12,7 @@ references:
     - specs/bugs/BUG-2026-07-06-migrate-spec-migration-logic-violations.md
 ---
 
-# migrate-spec: migrate-version.sh and check-spec-version-gap.sh exceed line limits and violate boolean encapsulation (G28)
+# migrate-spec: migrate-version.sh exceeds line limits (G28 in check-spec-version-gap fixed separately)
 
 **Bug:** BUG-2026-07-06-migrate-spec-migration-logic-violations | **Severity:** medium | **Status:** open | **Scope:** skills/migrate-spec
 **Tier:** extended
