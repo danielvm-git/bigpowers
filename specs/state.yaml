@@ -1,12 +1,8 @@
-active_flow: fix_bug
+active_flow: null
 active_epic: null
-bug_id: BUG-2026-07-06-g06-migrate-version-golden
+bug_id: null
 bigpowers_version: 2.70.0
-bug_cycle:
-  current_step: 4
-  completed_steps: [1, 2, 3]
-  handoff:
-    next_skill: validate-fix
+bug_cycle: {}
 epic_cycle:
   step: 8
   story_bcps: 2
@@ -14,12 +10,5 @@ epic_cycle:
   branch: feat/e35-historical-refs
   audit_result: pass
 handoff:
-  context: 'e50 plan-work complete — e50s01–e50s04 story specs + tasks.yaml in specs/epics/e50-codex-reach/.
-    Issue #52 tracker open.'
-  next_skill: kickoff-branch
-  epic: e50
-  stories:
-  - e50s01
-  - e50s02
-  - e50s03
-  - e50s04
+  context: "BUG-2026-07-06-g06 fixed — g06 migrate-version golden test + migrate-version.sh bad substitution. Golden suite 9/9 PASS."
+  next_skill: release-branch
