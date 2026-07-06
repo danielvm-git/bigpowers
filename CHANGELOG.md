@@ -1,3 +1,10 @@
+# [2.73.0](https://github.com/danielvm-git/bigpowers/compare/v2.72.1...v2.73.0) (2026-07-06)
+
+
+### Features
+
+* **reach:** AGENTS.md spine and integration registry (e37) ([7d3b856](https://github.com/danielvm-git/bigpowers/commit/7d3b85691384e8df67e71d61fccfd143cc637f56))
+
 ## [2.72.1](https://github.com/danielvm-git/bigpowers/compare/v2.72.0...v2.72.1) (2026-07-06)
 
 

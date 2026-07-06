@@ -2,17 +2,20 @@ active_flow: sustain
 active_epic: e45
 active_story: null
 bug_id: null
-bigpowers_version: 2.72.1
+bigpowers_version: 2.73.0
 bug_cycle: {}
 epic_cycle:
   current_step: 0
   story: null
   story_bcps: null
 handoff:
-  context: |
-    e37 Reach landed on main (squash merge). AGENTS.md spine, targets.yaml (16 targets),
+  context: 'e37 Reach landed on main (squash merge). AGENTS.md spine, targets.yaml (16 targets),
+
     registry-driven sync-skills, verify-install --matrix, optional Codex wave.
+
     Build order continues: e45 → e48.
+
+    '
   next_skill: kickoff-branch
   epic: e45
 metrics:
