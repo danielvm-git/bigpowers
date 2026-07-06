@@ -1,3 +1,10 @@
+## [2.67.1](https://github.com/danielvm-git/bigpowers/compare/v2.67.0...v2.67.1) (2026-07-05)
+
+
+### Bug Fixes
+
+* **compliance:** resolve 5 pre-existing CI failures — 91/91 PASS ([de0a163](https://github.com/danielvm-git/bigpowers/commit/de0a1637eff11b6d445b7235a1474a5ca4163635))
+
 # [2.67.0](https://github.com/danielvm-git/bigpowers/compare/v2.66.0...v2.67.0) (2026-07-05)
 
 
