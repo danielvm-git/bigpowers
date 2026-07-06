@@ -1,3 +1,11 @@
+## [2.68.2](https://github.com/danielvm-git/bigpowers/compare/v2.68.1...v2.68.2) (2026-07-06)
+
+
+### Bug Fixes
+
+* **ci:** extract stale-lock check to script — inline Python broke YAML parser ([1fd0126](https://github.com/danielvm-git/bigpowers/commit/1fd01261c0c3bee250a89aab394f35fb21e41c75))
+* **ci:** validate-specs-yaml.sh REPO_ROOT unbound in skill-health — add local resolution ([4dada67](https://github.com/danielvm-git/bigpowers/commit/4dada67dfe47c9e3228cb1749c3200851a6f241a))
+
 ## [2.68.1](https://github.com/danielvm-git/bigpowers/compare/v2.68.0...v2.68.1) (2026-07-06)
 
 
