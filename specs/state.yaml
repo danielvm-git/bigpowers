@@ -1,15 +1,30 @@
-active_flow: null
-active_epic: null
+active_flow: planning
+active_epic: e37
 active_story: null
 bug_id: null
 bigpowers_version: 2.72.0
 bug_cycle: {}
-epic_cycle: {}
+epic_cycle:
+  current_step: epic-redesign complete (6→3)
+  next_step: kickoff-branch → build-epic (e37s01)
 handoff:
-  context: e51 released — feat(gates): Always Green — preflight hard block & fix-or-log (cfd572db). CI passed (3/3). Epic archived.
-  next_skill: survey-context
-  epic: null
-  stories: []
+  context: |
+    Epic redesign 2026-07-06: retired e49/e50/e52; renumbered e37/e45/e48.
+    e37 Reach — AGENTS.md spine + integration registry + OSS waves (former e50+e52).
+    e45 Quality Core — curated OSS hardening patterns (former e48).
+    e48 Foundation — OKF/wiki + BCP Plus (former e45+e49+e37).
+    Build order: e37 → e45 → e48. Start e37s01 (unified AGENTS.md template).
+  next_skill: kickoff-branch
+  epic: e37
+  stories:
+    - e37s01
+    - e37s02
+    - e37s03
+    - e37s04
+    - e37s05
+    - e37s06
+    - e37s07
+    - e37s08
 metrics:
   story_start: null
   story_end: null

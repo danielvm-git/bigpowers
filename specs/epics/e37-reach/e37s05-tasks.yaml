@@ -1,0 +1,30 @@
+story_id: e37s05
+title: "scripts/targets.yaml — declarative integration registry for all targets"
+status: todo
+bcps: 5
+risk: P1
+tasks:
+  - id: 1
+    description: "docs/references/targets-registry.md — BMAD-style schema reference (fields, modes, tier, contracts)"
+    verify: 'test -f docs/references/targets-registry.md && grep -q "registry_version" docs/references/targets-registry.md && grep -q "copy" docs/references/targets-registry.md && echo OK'
+    status: todo
+
+  - id: 2
+    description: "scripts/targets.yaml — core P1 rows (cursor, gemini, pi, cline, aider) per schema"
+    verify: 'test -f scripts/targets.yaml && python3 -c "import yaml; d=yaml.safe_load(open(''scripts/targets.yaml'')); assert len(d[''targets''])>=5; print(''OK'')"'
+    status: todo
+
+  - id: 3
+    description: "scripts/validate-targets-yaml.sh — headless schema + invariant gate"
+    verify: 'bash scripts/validate-targets-yaml.sh && echo OK'
+    status: todo
+
+  - id: 4
+    description: "scripts/lib/context-wire.sh — wire_symlink_or_copy with Windows copy fallback"
+    verify: 'test -f scripts/lib/context-wire.sh && grep -q wire_symlink_or_copy scripts/lib/context-wire.sh && echo OK'
+    status: todo
+
+  - id: 5
+    description: "scripts/test-adapters.sh — per-adapter smoke harness (exists, hooks, idempotent wire_context)"
+    verify: 'bash scripts/test-adapters.sh && echo OK'
+    status: todo

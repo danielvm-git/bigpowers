@@ -1,0 +1,14 @@
+story_id: e37s06
+title: "scripts/generate-context-bundle.sh \u2014 AGENTS.md single source + all derivatives"
+status: todo
+bcps: 3
+risk: P1
+tasks:
+- id: 1
+  description: "scripts/generate-context-bundle.sh \u2014 AGENTS.md single source\
+    \ + all derivatives"
+  verify: 'test -f scripts/generate-context-bundle.sh && bash scripts/generate-context-bundle.sh
+    --dry-run 2>&1 | grep -qi ''AGENTS.md'' && echo OK
+
+    '
+  status: todo

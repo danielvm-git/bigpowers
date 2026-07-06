@@ -1,0 +1,13 @@
+story_id: e37s02
+title: "verify-install.sh + docs \u2014 Cline native AGENTS.md verification"
+status: todo
+bcps: 2
+risk: P2
+tasks:
+- id: 1
+  description: "verify-install.sh + docs \u2014 Cline native AGENTS.md verification"
+  verify: 'grep -qi ''cline'' scripts/verify-install.sh && grep -qi ''cline'' skills/using-bigpowers/SKILL.md
+    && echo OK
+
+    '
+  status: todo

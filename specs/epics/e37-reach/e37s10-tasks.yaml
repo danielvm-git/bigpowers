@@ -1,0 +1,13 @@
+story_id: e37s10
+title: "targets.yaml \u2014 Wave B: zed, omp, hermes (skills-dir adapters)"
+status: todo
+bcps: 4
+risk: P2
+tasks:
+- id: 1
+  description: "targets.yaml \u2014 Wave B: zed, omp, hermes (skills-dir adapters)"
+  verify: 'grep -q ''zed'' scripts/targets.yaml && grep -q ''omp'' scripts/targets.yaml
+    && grep -q ''hermes'' scripts/targets.yaml && echo OK
+
+    '
+  status: todo

@@ -1,0 +1,274 @@
+id: e48
+title: Foundation — Knowledge Layer + Process Maturity
+wsjf: 2.5
+bcps: 36
+status: planned
+mode: capsule
+capsule_dir: epics/e48-foundation
+release: v2.9x
+codename: Foundation
+source: Epic redesign 2026-07-06 — merges former e45 (OKF completion), e49 (GitHub
+  Wiki), and e37 (BCP Plus counting).
+wsjf_rationale: BV 5 (discoverability + honest sizing) + TC 3 (internal tooling) +
+  RR 4 (OKF/wiki parity) / Job 5 ≈ 2.5.
+depends_on:
+- e40
+- e33
+stories:
+- id: e48s01
+  title: Generate epics-wiki and adr-wiki as OKF concept bundles from sync-skills.sh
+  verify: test -d specs/epics-wiki/ && test -d specs/adr-wiki/ && bash scripts/validate-okf.sh
+    --dir specs/epics-wiki && bash scripts/validate-okf.sh --dir specs/adr-wiki &&
+    echo OK
+  description: 'Extend sync-skills.sh (or a new render target) to emit OKF concept
+    bundles
+
+    for epics and ADRs. Each bundle is a standard .md file with okf_kind: concept,
+
+    id, title, category, and references[] frontmatter. The epics-wiki/ directory
+
+    mirrors specs/epics/ — one concept bundle per epic with its WSJF, BCP, and
+
+    story list. The adr-wiki/ directory mirrors specs/adr/ — one concept bundle
+
+    per ADR with its status, decision, and consequences. Both are validated by
+
+    validate-okf.sh as concept-type bundles.
+
+    '
+  status: todo
+  bcp: 2
+- id: e48s02
+  title: Emit verification reports as OKF bundles from run-golden-suite.sh and audit-compliance.sh
+  verify: bash scripts/run-golden-suite.sh && test -f specs/verifications/reports/GOLDEN-$(date
+    +%Y-%m-%d).okf.md && bash scripts/validate-okf.sh --bundle specs/verifications/reports/GOLDEN-$(date
+    +%Y-%m-%d).okf.md && echo OK
+  description: 'Add an OKF output mode to run-golden-suite.sh and audit-compliance.sh.
+
+    Each run produces a verification-report OKF bundle with okf_kind:
+
+    verification-report, score, gate_status (pass/fail/concerns/waived),
+
+    threshold, total_pass, total_fail, and generated_by frontmatter.
+
+    The existing markdown reports (GOLDEN-YYYY-MM-DD.yaml, audit-*.md) remain
+
+    as raw data sources; the OKF bundle is the machine-validatable wrapper.
+
+    validate-okf.sh gates on structure: is score present? does gate_status
+
+    match the score vs threshold?
+
+    '
+  status: todo
+  bcp: 2
+- id: e48s03
+  title: 'OKF-ify bug-registry: specs/bugs/registry.yaml emits concept bundles per
+    bug'
+  verify: bash scripts/sync-bugs-registry.sh && bash scripts/validate-okf.sh --dir
+    specs/bugs/ && echo OK
+  description: 'Extend sync-bugs-registry.sh to emit one OKF concept bundle per bug
+    entry.
+
+    Each bundle carries okf_kind: concept, id: BUG-<slug>, category: bug,
+
+    severity, status, root_cause, and fix_story frontmatter. The existing
+
+    registry.yaml remains the authority; OKF bundles are derivatives gated
+
+    by validate-okf.sh. This makes bug data discoverable via the same OKF
+
+    toolchain as everything else.
+
+    '
+  status: todo
+  bcp: 1
+- id: e48s04
+  title: Create viz.html — interactive force-layout graph companion for visual-dashboard
+  verify: test -f specs/viz.html && grep -q 'force\|d3\|graph' specs/viz.html && echo
+    OK
+  description: 'Build a standalone HTML page (specs/viz.html, no server needed) that
+
+    renders the entity-relation graph from e43''s build_skill_graph output
+
+    as a browsable interactive force-directed layout. Uses D3.js (loaded
+
+    from CDN, no build step). Nodes are skills color-coded by effort tier;
+
+    edges show handoff_to, depends_on, and gates relationships. Renders in
+
+    the visual-dashboard''s browser pane. The graph JSON is read from
+
+    bigpowers-mcp/graph.jsonl (e43s02 output) or a static snapshot bundled
+
+    at generation time.
+
+    '
+  status: todo
+  bcp: 2
+- id: e48s05
+  status: todo
+  title: Wire OKF validation into CI (sync-skills.yml) and document in OKF authority
+  verify: grep -q 'validate-okf.sh' .github/workflows/sync-skills.yml && bash scripts/sync-skills.sh
+    && echo OK
+  description: 'Add a CI step to sync-skills.yml that runs validate-okf.sh on all
+
+    standard OKF directories (specs/metrics/, specs/migrations/,
+
+    specs/epics-wiki/, specs/adr-wiki/, specs/verifications/reports/,
+
+    specs/bugs/). Update docs/references/okf.md with the CI integration
+
+    section. This closes the loop: OKF bundles are validated on every push,
+
+    not just when someone remembers to run the script manually.
+
+    '
+  bcp: 1
+- id: e48s06
+  status: todo
+  title: 'Add tier: field (core/extended/specialized) to OKF wiki indexes for conditional
+    agent loading'
+  verify: 'grep -q ''tier:'' specs/epics-wiki/e38-traceability-gate.okf.md 2>/dev/null
+    && grep -q ''tier:'' specs/adr-wiki/ADR-0001.okf.md 2>/dev/null && echo OK ||
+    echo ''PENDING: wiki dirs not yet generated'''
+  description: "Add a `tier:` field (core | extended | specialized) to every OKF\n\
+    concept bundle emitted by e45s01 (epics-wiki + adr-wiki). Source\npattern: TEA's\
+    \ tea-index.csv (core/extended/specialized + tags,\nconditionally loaded — TEA\
+    \ reports 40-50% context savings).\n\nTier assignment rules:\n- core: fundamental\
+    \ concepts every agent needs (BCP, WSJF, HARD GATE,\n  build-epic cycle, CONVENTIONS,\
+    \ ADR-0001/0002/0003)\n- extended: specific skills, individual epics, most ADRs\n\
+    - specialized: deprecated epics, flat-format legacy, spike archives\n\nThe tier\
+    \ field enables agents to conditionally load OKF reference\nknowledge instead\
+    \ of all-or-nothing — this is e34's select/compress\nstrategy applied to bigpowers'\
+    \ own documentation. Update\ndocs/references/okf.md with tier field spec and docs/references/tea.md\n\
+    with tiering provenance. (specs/metrics/, specs/migrations/,\nspecs/epics-wiki/,\
+    \ specs/adr-wiki/, specs/verifications/reports/,\nspecs/bugs/). Update docs/references/okf.md\
+    \ with the CI integration\nsection. This closes the loop: OKF bundles are validated\
+    \ on every push,\nnot just when someone remembers to run the script manually.\n"
+  bcp: 2
+- id: e48s07
+  title: Create publish-to-wiki kernel tool
+  status: todo
+  risk: P1
+  verify: test -f kernel/src/publish-to-wiki.sh && bash kernel/src/publish-to-wiki.sh
+    --help && echo OK
+  tasks:
+  - description: Map OKF kinds to wiki sections, render Markdown, rewrite relative
+      links, push to .wiki.git
+    verify: bash kernel/src/publish-to-wiki.sh --dry-run
+    ac: 'Given an OKF bundle in specs/
+
+      When publish-to-wiki runs
+
+      Then it rewrites local links to wiki slug format
+
+      And it pushes to the configured wiki git repo
+
+      '
+  bcp: 3
+- id: e48s08
+  title: Add GitHub Action Template for publish-wiki.yml
+  status: todo
+  risk: P1
+  verify: test -f .github/workflows/publish-wiki.yml && grep -q 'publish-to-wiki'
+    .github/workflows/publish-wiki.yml && echo OK
+  tasks:
+  - description: Create workflow that runs on main merge, gates on validate-okf, then
+      runs publish-to-wiki
+    verify: cat .github/workflows/publish-wiki.yml
+    ac: 'Given a merge to main
+
+      When the publish-wiki action runs
+
+      Then it must run validate-okf first
+
+      And it must fail if validate-okf fails
+
+      And it requires a PAT for wiki push
+
+      '
+  bcp: 1
+- id: e48s09
+  title: Create Wiki Scaffold Templates and provenance header injection
+  status: todo
+  risk: P2
+  verify: test -f kernel/templates/wiki/_Sidebar.md && echo OK
+  tasks:
+  - description: Create default _Sidebar.md, _Footer.md, and Home.md and provenance
+      injection logic
+    verify: grep -q 'AUTO-GENERATED FROM OKF BUNDLES' kernel/templates/wiki/header.md
+      || echo pending
+    ac: 'Given a wiki page template
+
+      When it is rendered
+
+      Then it contains a prominent warning not to edit it directly
+
+      '
+  bcp: 2
+- id: e48s10
+  title: Extend bigspec init with --with-wiki flag
+  status: todo
+  risk: P2
+  verify: grep -q 'with-wiki' bin/bigspec || echo pending
+  tasks:
+  - description: Seed the wiki repo on first run, handling uninitialized wiki edge
+      case
+    verify: echo 'Check init flow'
+    ac: 'Given a fresh project
+
+      When bigspec init --with-wiki is called
+
+      Then it handles the uninitialized wiki edge case via instructions or API
+
+      '
+  bcp: 2
+- id: e48s11
+  title: BCP Plus counter integration — install and smoke-test big-counter as optional
+    tool
+  bcp: 5
+  status: todo
+  risk: P2
+  spec: e48s11-bcp-plus-s01.md
+  verify: big-counter --version exits 0 from the project venv
+  legacy_id: e37s01
+- id: e48s12
+  title: BCP Plus template — 13-dimension breakdown in story specs
+  bcp: 5
+  status: todo
+  risk: P2
+  spec: e48s12-bcp-plus-s02.md
+  verify: grep -c 'bcp_plus_breakdown' specs/templates/story-template.md
+  legacy_id: e37s02
+- id: e48s13
+  title: NFR Gate integration — security-review and wire-observability sizing
+  bcp: 4
+  status: todo
+  risk: P2
+  spec: e48s13-bcp-plus-s03.md
+  verify: grep -c 'BCP Plus.*dimension 12' skills/security-review/SKILL.md
+  legacy_id: e37s03
+- id: e48s14
+  title: Build-epic integration — BCP Plus in story sizing workflow
+  bcp: 4
+  status: todo
+  risk: P2
+  spec: e48s14-bcp-plus-s04.md
+  verify: grep -c 'bcp_plus' skills/build-epic/SKILL.md
+  legacy_id: e37s04
+build_order:
+- e48s01
+- e48s02
+- e48s03
+- e48s04
+- e48s05
+- e48s06
+- e48s07
+- e48s08
+- e48s09
+- e48s10
+- e48s11
+- e48s12
+- e48s13
+- e48s14

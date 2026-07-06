@@ -1,0 +1,13 @@
+story_id: e37s08
+title: "verify-install.sh \u2014 per-target contract matrix from targets.yaml"
+status: todo
+bcps: 3
+risk: P1
+tasks:
+- id: 1
+  description: "verify-install.sh \u2014 per-target contract matrix from targets.yaml"
+  verify: 'bash scripts/verify-install.sh --matrix 2>&1 | grep -q ''PASS'' && echo
+    OK
+
+    '
+  status: todo

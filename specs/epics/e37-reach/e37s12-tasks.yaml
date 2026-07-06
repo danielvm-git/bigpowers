@@ -1,0 +1,14 @@
+story_id: e37s12
+title: "targets.yaml \u2014 Wave D: continue (rules adapter; re-opened active OSS)"
+status: todo
+bcps: 2
+risk: P2
+tasks:
+- id: 1
+  description: "targets.yaml \u2014 Wave D: continue (rules adapter; re-opened active\
+    \ OSS)"
+  verify: 'grep -q ''continue'' scripts/targets.yaml && bash scripts/verify-install.sh
+    --matrix 2>&1 | grep -q ''continue'' && echo OK
+
+    '
+  status: todo

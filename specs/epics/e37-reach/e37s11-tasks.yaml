@@ -1,0 +1,13 @@
+story_id: e37s11
+title: "targets.yaml \u2014 Wave C: qwen, kilocode (markdown commands + rules)"
+status: todo
+bcps: 3
+risk: P2
+tasks:
+- id: 1
+  description: "targets.yaml \u2014 Wave C: qwen, kilocode (markdown commands + rules)"
+  verify: 'grep -q ''qwen'' scripts/targets.yaml && grep -q ''kilocode'' scripts/targets.yaml
+    && echo OK
+
+    '
+  status: todo

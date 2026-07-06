@@ -1,0 +1,13 @@
+story_id: e37s07
+title: "sync-skills.sh \u2014 adapter dispatch from targets.yaml"
+status: todo
+bcps: 5
+risk: P0
+tasks:
+- id: 1
+  description: "sync-skills.sh \u2014 adapter dispatch from targets.yaml"
+  verify: 'bash scripts/sync-skills.sh && bash scripts/run-verification-gates.sh &&
+    echo OK
+
+    '
+  status: todo

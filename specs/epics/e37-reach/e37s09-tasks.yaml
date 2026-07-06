@@ -1,0 +1,14 @@
+story_id: e37s09
+title: "targets.yaml \u2014 Wave A: Goose (OSS) + Antigravity agy (proprietary beta)"
+status: todo
+bcps: 3
+risk: P2
+tasks:
+- id: 1
+  description: "targets.yaml \u2014 Wave A: Goose (OSS) + Antigravity agy (proprietary\
+    \ beta)"
+  verify: 'grep -q ''goose'' scripts/targets.yaml && bash scripts/verify-install.sh
+    --matrix 2>&1 | grep -q ''goose.*PASS'' && echo OK
+
+    '
+  status: todo

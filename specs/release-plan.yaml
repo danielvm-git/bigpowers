@@ -5,12 +5,9 @@ release:
   semantic_release: true
   bump_hint: minor
 build_order:
-- e51
-- e50
-- e48
-- e45
-- e49
 - e37
+- e45
+- e48
 done_epics_summary:
   count: 45
   source: specs/execution-status.yaml (development_status) — authoritative for completed epics; not re-listed
@@ -72,45 +69,36 @@ epics:
   bcps: 12
   capsule_dir: epics/e51-always-green-shift-left
   mode: capsule
-  status: planned
+  status: done
   wsjf_rationale: BV 8 (solo-dev trust — agents dismiss defects as pre-existing) + TC 5 (active pain)
     + RR 8 (Shift Left across all seeded projects) / Job 3 ≈ 7.0
   source: grill-me session 2026-07-06 — Preflight hard block, fix-or-log, banned phrases
-- id: e50
-  title: Codex CLI Reach — AGENTS.md & config.toml seed pack
-  wsjf: 4.3
-  bcps: 8
-  capsule_dir: epics/e50-codex-reach
+- id: e37
+  title: Reach — Universal Agent Portability
+  wsjf: 7.0
+  bcps: 40
+  capsule_dir: epics/e37-reach
   mode: capsule
   status: planned
   source_issue: https://github.com/danielvm-git/bigpowers/issues/52
-  wsjf_rationale: 'BV 5 (community ask #52) + TC 3 + RR 5 (closes e47 Codex out-of-scope gap) / Job 3
-    ≈ 4.3'
-- id: e48
-  title: Prior-Art Audit — 9 High-Priority Mechanisms from 28 OSS Skill & SDD Repos
-  wsjf: 3.5
-  bcps: 25
-  capsule_dir: epics/e48-prior-art-audit
-  mode: capsule
-  status: backlog
+  wsjf_rationale: 'BV 8 (AGENTS.md spine + registry unblocks OSS reach) + TC 5 (active) + RR 8
+    (always-green across runtimes) / Job 3 ≈ 7.0. Merges former e50+e52 into one arc:
+    spine s01–s04 → registry s05–s08 → OSS waves s09–s13 → optional Codex s14–s16.'
 - id: e45
-  title: OKF Completion — Wikis, Verification Reports, Viz Graph
-  wsjf: 3.0
-  bcps: 10
-  capsule_dir: epics/e45-okf-completion
+  title: Quality Core — Skill Hardening & Verification Patterns
+  wsjf: 5.0
+  bcps: 45
+  capsule_dir: epics/e45-quality-core
   mode: capsule
-  status: backlog
-- id: e49
-  title: GitHub Wiki as Derived OKF Rendering Target
-  wsjf: 2.4
-  bcps: 8
-  capsule_dir: epics/e49-wiki-rendering-target
+  status: planned
+  wsjf_rationale: 'BV 7 (skill quality compounds) + TC 4 (OSS pattern debt) + RR 6
+    (benchmark/evidence parity) / Job 4 ≈ 5.0. Curated P1 from former e48; P2 optional wave.'
+- id: e48
+  title: Foundation — Knowledge Layer + Process Maturity
+  wsjf: 2.5
+  bcps: 36
+  capsule_dir: epics/e48-foundation
   mode: capsule
-  status: backlog
-- id: e37
-  title: BCP Plus Counting — Evolve from 3D to 13D story sizing
-  wsjf: 2.1
-  bcps: 18
-  capsule_dir: epics/e37-bcp-plus-counting
-  mode: capsule
-  status: backlog
+  status: planned
+  wsjf_rationale: 'BV 5 (discoverability + honest sizing) + TC 3 (internal tooling) + RR 4
+    (OKF/wiki parity) / Job 5 ≈ 2.5. Merges former e45 OKF, e49 wiki, e37 BCP Plus.'

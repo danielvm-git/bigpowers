@@ -1,0 +1,14 @@
+story_id: e37s13
+title: "targets.yaml \u2014 Wave E: iflow, vibe, shai (markdown commands; optional)"
+status: todo
+bcps: 2
+risk: P3
+tasks:
+- id: 1
+  description: "targets.yaml \u2014 Wave E: iflow, vibe, shai (markdown commands;\
+    \ optional)"
+  verify: 'grep -q ''iflow'' scripts/targets.yaml && grep -q ''vibe'' scripts/targets.yaml
+    && grep -q ''shai'' scripts/targets.yaml && echo OK
+
+    '
+  status: todo

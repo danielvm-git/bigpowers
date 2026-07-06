@@ -177,11 +177,23 @@ development_status:
   e36s03: done
   e36s04: done
   e36s05: done
-  e37: backlog
-  e37s01: done
-  e37s02: backlog
-  e37s03: backlog
-  e37s04: backlog
+  e37: planned
+  e37s01: todo
+  e37s02: todo
+  e37s03: todo
+  e37s04: todo
+  e37s05: todo
+  e37s06: todo
+  e37s07: todo
+  e37s08: todo
+  e37s09: todo
+  e37s10: todo
+  e37s11: todo
+  e37s12: todo
+  e37s13: todo
+  e37s14: todo
+  e37s15: todo
+  e37s16: todo
   e38: done
   e38s01: done
   e38s02: done
@@ -236,13 +248,48 @@ development_status:
   e44s04: done
   e44s05: done
   e44s06: done
-  e45: backlog
-  e45s01: backlog
-  e45s02: backlog
-  e45s03: backlog
-  e45s04: backlog
-  e45s05: backlog
-  e45s06: backlog
+  e45: planned
+  e45s01: todo
+  e45s02: todo
+  e45s03: todo
+  e45s04: todo
+  e45s05: todo
+  e45s06: todo
+  e45s07: todo
+  e45s08: todo
+  e45s09: todo
+  e45s10: todo
+  e45s11: todo
+  e45s12: todo
+  e45s13: todo
+  e45s14: todo
+  e45s15: todo
+  e45s16: todo
+  e45s17: todo
+  e45s18: todo
+  e45s19: todo
+  e45s20: todo
+  e45s21: todo
+  e45s22: todo
+  e45s23: todo
+  e45s24: todo
+  e45s25: todo
+  e45s26: todo
+  e45s27: todo
+  e45s28: todo
+  e45s29: todo
+  e45s30: todo
+  e45s31: todo
+  e45s32: todo
+  e45s33: todo
+  e45s34: todo
+  e45s35: todo
+  e45s36: todo
+  e45s37: todo
+  e45s38: todo
+  e45s39: todo
+  e45s40: todo
+  e45s41: todo
   e46: done
   e46s01: done
   e46s02: done
@@ -253,58 +300,21 @@ development_status:
   e47s02: done
   e47s03: done
   e47s04: done
-  e48: backlog
-  e48s01: backlog
-  e48s02: backlog
-  e48s03: backlog
-  e48s04: backlog
-  e48s05: backlog
-  e48s06: backlog
-  e48s07: backlog
-  e48s08: backlog
-  e48s09: backlog
-  e48s10: backlog
-  e48s11: backlog
-  e48s12: backlog
-  e48s13: backlog
-  e48s14: backlog
-  e48s15: backlog
-  e48s16: backlog
-  e48s17: backlog
-  e48s18: backlog
-  e48s19: backlog
-  e48s20: backlog
-  e48s21: backlog
-  e48s22: backlog
-  e48s23: backlog
-  e48s24: backlog
-  e48s25: backlog
-  e48s26: backlog
-  e48s27: backlog
-  e48s28: backlog
-  e48s29: backlog
-  e48s30: backlog
-  e48s31: backlog
-  e48s32: backlog
-  e48s33: backlog
-  e48s34: backlog
-  e48s35: backlog
-  e48s36: backlog
-  e48s37: backlog
-  e48s38: backlog
-  e48s39: backlog
-  e48s40: backlog
-  e48s41: backlog
-  e49: backlog
-  e49s01: backlog
-  e49s02: backlog
-  e49s03: backlog
-  e49s04: backlog
-  e50: backlog
-  e50s01: backlog
-  e50s02: backlog
-  e50s03: backlog
-  e50s04: backlog
+  e48: planned
+  e48s01: todo
+  e48s02: todo
+  e48s03: todo
+  e48s04: todo
+  e48s05: todo
+  e48s06: todo
+  e48s07: todo
+  e48s08: todo
+  e48s09: todo
+  e48s10: todo
+  e48s11: todo
+  e48s12: todo
+  e48s13: todo
+  e48s14: todo
   e51: done
   e51s01: done
   e51s02: done

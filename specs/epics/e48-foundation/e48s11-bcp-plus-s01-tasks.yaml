@@ -1,0 +1,26 @@
+story_id: e48s11
+title: "BCP Plus counter integration — install and smoke-test big-counter as optional tool"
+status: done
+bcps: 5
+risk: P1
+tasks:
+  - id: 1
+    description: "Add big-counter install step to setup-environment skill (pip install or npm link)"
+    verify: "big-counter --version exits 0 from the project venv"
+    risk: P1
+    status: done
+  - id: 2
+    description: "Create docs/references/bcp-plus.md reference document (done: 2026-07-03)"
+    verify: "test -f docs/references/bcp-plus.md"
+    risk: P2
+    status: done
+  - id: 3
+    description: "Add BCP Plus dimension reference table to docs/references/bcp.md cross-link"
+    verify: "grep -c 'bcp-plus.md' docs/references/bcp.md"
+    risk: P2
+    status: done
+  - id: 4
+    description: "Smoke-test: run big-counter against 3 golden stories, record baseline CV"
+    verify: "test -f docs/references/bcp-plus.md && (big-counter --version 2>/dev/null && echo 'big-counter ready for smoke test' || echo 'DEFERRED: big-counter not yet installed')"
+    risk: P1
+    status: done

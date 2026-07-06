@@ -82,22 +82,60 @@ in_scope:
     title: Spec version migration — migrate-version skill auto-detects spec format gaps and applies OKF migration bundles to upgrade downstream projects (e44)
     epic: e44
   - id: fr-25
-    title: OKF completion — epics-wiki, adr-wiki, verification reports as OKF bundles, bug-registry OKF-ification, viz.html graph companion, and tier field for conditional loading (e45)
-    epic: e45
+    title: OKF completion — epics-wiki, adr-wiki, verification reports as OKF bundles, bug-registry OKF-ification, viz.html graph companion, and tier field for conditional loading (e48)
+    epic: e48
   - id: fr-26
     title: Risk-based verification — risk-scaled verify-work depth (P0–P3), NFR evidence gate (performance/reliability/operability), and tea.md reference doc crediting TEA (e46)
     epic: e46
   - id: fr-27
-    title: BCP Plus counting — evolve from 3D to 13D story sizing via big-counter integration, NFR gate, and 13-dimension templates (e37)
+    title: BCP Plus counting — evolve from 3D to 13D story sizing via big-counter integration, NFR gate, and 13-dimension templates (e48)
+    epic: e48
+
+  # ── Epic redesign track — Reach → Quality → Foundation (2026-07-06) ─────
+  # Merges former e50+e52 (e37), e48 prior-art (e45), e45+e49+e37 (e48).
+  - id: fr-28
+    title: Unified AGENTS.md template with e51 Preflight row; CLAUDE.md symlink; multi-agent preamble (e37s01)
     epic: e37
+  - id: fr-29
+    title: Cline native AGENTS.md verification — verify-install + using-bigpowers docs (e37s02)
+    epic: e37
+  - id: fr-30
+    title: Aider seed bridge — .aider.conf.yml with read:AGENTS.md when opted in (e37s03)
+    epic: e37
+  - id: fr-31
+    title: Agent Target Registry — declarative targets.yaml for all integration targets (e37s05)
+    epic: e37
+  - id: fr-32
+    title: ContextBundle generator — AGENTS.md once, all derived files (e37s06)
+    epic: e37
+  - id: fr-33
+    title: Adapter dispatch engine — sync-skills.sh routes via targets.yaml (e37s07)
+    epic: e37
+  - id: fr-34
+    title: Verification matrix — verify-install.sh --matrix per target (e37s08)
+    epic: e37
+  - id: fr-35
+    title: OSS reach waves — Goose/Agy, zed/omp/hermes, qwen/kilocode, continue, iflow/vibe/shai (e37s09–s13)
+    epic: e37
+  - id: fr-36
+    title: Skill hardening patterns — benchmark delta, PreToolUse hooks, review gates, orchestration resilience (e45)
+    epic: e45
+  - id: fr-37
+    title: OKF completion, GitHub Wiki rendering, BCP Plus 13D sizing (e48)
+    epic: e48
 
 out_of_scope:
+  - Continue (continuedev/continue) — repo self-declared read-only and unmaintained as of 2.0.0; users should migrate to Cline or OpenCode
+  - Per-skill symlinks for instruction-file-only tools (Codex, Cline, Aider) — these tools use AGENTS.md, not a skill catalog
+  - "'@bigpowers/mcp-server' npm package — not scoped until MCP server is built (separate initiative)"
+  - Marketplace or plugin store model — deferred; dual-channel publishing depends on MCP server
   - Domain-specific scaffold skills
   - SaaS tracker integrations (Jira, Linear)
-  - Marketplace or plugin store model
-  - Renaming any skill during the layout move (deferred — naming is governed by ADR-0001, orthogonal to location)
+  - Renaming any skill during layout moves (governed by ADR-0001, orthogonal to portability)
   - Relocating generated artifact targets .cursor/, .gemini/, .pi/ (consumer tools read these paths)
-  - Relocating tool-read root files CLAUDE.md, GEMINI.md, opencode.json, index.js (breaks Claude Code, Gemini CLI, opencode, npm)
+  - Relocating tool-read root files CLAUDE.md, GEMINI.md, opencode.json, index.js (breaks consumers)
+  - Hermes-agent, Paperclip — orchestration layers, not seed targets; different problem space
+  - Wave B+ targets (roo, kiro-cli, tabnine, qwen, devin, windsurf, copilot) — deferred until registry is stable
 
 constraints:
   - Max 300 lines per file
