@@ -1,3 +1,10 @@
+## [2.73.1](https://github.com/danielvm-git/bigpowers/compare/v2.73.0...v2.73.1) (2026-07-06)
+
+
+### Bug Fixes
+
+* **ci:** skip unimplemented P0 stories in trace --strict gate ([e7a56bf](https://github.com/danielvm-git/bigpowers/commit/e7a56bfd94d5dbebf0f7736383e2c381016616b9))
+
 # [2.73.0](https://github.com/danielvm-git/bigpowers/compare/v2.72.1...v2.73.0) (2026-07-06)
 
 

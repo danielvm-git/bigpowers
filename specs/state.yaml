@@ -2,7 +2,7 @@ active_flow: null
 active_epic: e45
 active_story: null
 bug_id: null
-bigpowers_version: 2.73.0
+bigpowers_version: 2.73.1
 bug_cycle:
   current_step: 4
   completed_steps:
@@ -19,8 +19,7 @@ epic_cycle:
   story: null
   story_bcps: null
 handoff:
-  context: BUG-2026-07-06T205700 released on main branch. Trace strict mode no longer
-    flags todo P0 stories.
+  context: BUG-2026-07-06T205700 released on main branch. Trace strict mode no longer flags todo P0 stories.
   next_skill: survey-context
   epic: e45
 metrics:
