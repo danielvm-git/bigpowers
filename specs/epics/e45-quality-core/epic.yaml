@@ -2,7 +2,7 @@ id: e45
 title: Quality Core — Skill Hardening & Verification Patterns
 wsjf: 5.0
 bcps: 45
-  status: done
+status: done
 mode: capsule
 capsule_dir: epics/e45-quality-core
 release: v2.9x

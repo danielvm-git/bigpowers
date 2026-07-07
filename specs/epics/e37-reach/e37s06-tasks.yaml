@@ -1,0 +1,61 @@
+story_id: e37s06
+title: "scripts/generate-context-bundle.sh — AGENTS.md single source + all derivatives"
+status: todo
+bcps: 3
+risk: P1
+depends_on:
+  - e37s05
+tasks:
+  - id: 1
+    description: >-
+      Create scripts/lib/context-wire.sh: implement wire_context(target_id,
+      context_mode, dest_path) that creates a symlink (copy fallback on Windows/no-ln).
+      Must be idempotent — skip if dest already points to AGENTS.md.
+      Tag: # story: e37s06, # scenario: SC-e37s06-P1-02.
+    verify: >-
+      test -f scripts/lib/context-wire.sh &&
+      grep -q 'wire_context' scripts/lib/context-wire.sh && echo OK
+    risk: P1
+    security: none
+    status: todo
+
+  - id: 2
+    description: >-
+      Create scripts/generate-context-bundle.sh: load scripts/targets.yaml via
+      yq; loop over targets with non-null context block; call wire_context for
+      each. Implement --dry-run flag: print "would wire [id] → [dest]" without
+      writing. Tag: # story: e37s06, # scenario: SC-e37s06-P1-01.
+    verify: >-
+      test -f scripts/generate-context-bundle.sh &&
+      bash scripts/validate-targets-yaml.sh >/dev/null &&
+      bash scripts/generate-context-bundle.sh --dry-run 2>&1 | grep -qi 'AGENTS.md' && echo OK
+    risk: P1
+    security: none
+    status: todo
+
+  - id: 3
+    description: >-
+      Verify idempotency: run generate-context-bundle.sh twice in dry-run mode;
+      confirm second run produces same output without errors.
+    verify: >-
+      bash scripts/generate-context-bundle.sh --dry-run >/dev/null &&
+      bash scripts/generate-context-bundle.sh --dry-run >/dev/null && echo OK
+    risk: P1
+    security: none
+    status: todo
+
+  - id: 4
+    description: >-
+      Story verify: both AC assertions pass.
+    verify: >-
+      test -f scripts/generate-context-bundle.sh &&
+      bash scripts/generate-context-bundle.sh --dry-run 2>&1 | grep -qi 'AGENTS.md' && echo OK
+    risk: P1
+    security: none
+    status: todo
+
+out_of_scope:
+  - "Adapter dispatch (e37s07)"
+  - "Per-target contract verification (e37s08)"
+  - "Windows copy fallback implementation (e37s05 context-wire.sh)"
+  - "symlink verification in CI"

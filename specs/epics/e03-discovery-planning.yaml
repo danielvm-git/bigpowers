@@ -14,3 +14,8 @@ stories:
     tasks:
       - desc: "`using-bigpowers` lifecycle updated"
         verify: "ls scope-work/SKILL.md slice-tasks/SKILL.md grill-with-docs/SKILL.md research-first/SKILL.md"
+  - id: e03s03
+    title: "Absorb 5 near-duplicate utility skills into session-state and survey-context"
+    tasks:
+      - desc: "Absorb show-state, reset-state, compact-state into session-state; absorb list-epics, check-gates into survey-context"
+        verify: "grep -c 'show-state\|reset-state\|compact-state' skills/session-state/SKILL.md | awk '{if($1>0) print \"OK\"}'"

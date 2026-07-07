@@ -2,7 +2,7 @@ id: e34
 title: "Context Engineering Layer"
 wsjf: 2.75
 bcps: 10
-status: proposed
+status: done
 release: v2.45.0
 codename: "Deepening"
 source: specs/MISSING-REFERENCES-AND-DELIVERY-PLAN.md §4 Epic 4

@@ -2,7 +2,7 @@ id: e38
 title: "Spec-to-Code Traceability Gate"
 wsjf: 3.50
 bcps: 13
-status: proposed
+status: done
 release: v2.45.0
 codename: "Deepening"
 depends_on: []

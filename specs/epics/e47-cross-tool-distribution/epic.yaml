@@ -2,7 +2,7 @@ id: e47
 title: "Cross-Tool Skill Distribution — global install + per-project seed"
 wsjf: 4.3
 bcps: 9
-status: planned
+status: done
 release: v2.8x
 codename: "Reach"
 source: |

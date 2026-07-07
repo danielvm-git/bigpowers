@@ -1,0 +1,55 @@
+story_id: e37s02
+title: "verify-install.sh + docs — Cline native AGENTS.md verification"
+status: todo
+bcps: 2
+risk: P2
+tasks:
+  - id: 1
+    description: >-
+      Add Cline assertion block to scripts/verify-install.sh: check AGENTS.md
+      exists at project root and is readable; print "Cline: AGENTS.md present (native
+      reader)" on pass, "Cline: AGENTS.md missing" on fail. Tag: # story: e37s02.
+    verify: >-
+      grep -qi 'cline' scripts/verify-install.sh &&
+      grep -qi 'AGENTS.md' scripts/verify-install.sh && echo OK
+    risk: P2
+    security: none
+    status: todo
+
+  - id: 2
+    description: >-
+      Add "Cline" subsection to skills/using-bigpowers/SKILL.md Install section:
+      Cline reads AGENTS.md natively — no adapter required; reference e37s01 template;
+      note that no .cursor/ or .gemini/ extension needed for Cline.
+    verify: >-
+      grep -qi 'cline' skills/using-bigpowers/SKILL.md &&
+      grep -qi 'native' skills/using-bigpowers/SKILL.md && echo OK
+    risk: P2
+    security: none
+    status: todo
+
+  - id: 3
+    description: >-
+      Run bash scripts/sync-skills.sh to regenerate using-bigpowers artifacts
+      (.cursor/rules, .gemini, .pi); confirm Cline section propagated.
+    verify: >-
+      bash scripts/sync-skills.sh >/dev/null &&
+      grep -qi 'cline' .cursor/rules/using-bigpowers.mdc && echo OK
+    risk: P2
+    security: none
+    status: todo
+
+  - id: 4
+    description: >-
+      Story verify: both AC assertions pass end-to-end.
+    verify: >-
+      grep -qi 'cline' scripts/verify-install.sh &&
+      grep -qi 'cline' skills/using-bigpowers/SKILL.md && echo OK
+    risk: P2
+    security: none
+    status: todo
+
+out_of_scope:
+  - "Cline targets.yaml registry row (e37s05)"
+  - "Cline adapter dispatch (e37s07)"
+  - "AGENTS.md template changes (e37s01)"

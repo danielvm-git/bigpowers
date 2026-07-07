@@ -1,0 +1,89 @@
+story_id: e37s04
+title: "verify-install.sh — AGENTS.md spine assertions (OSS P1 + optional Codex)"
+status: todo
+bcps: 2
+risk: P2
+depends_on:
+  - e37s01
+  - e37s02
+  - e37s03
+tasks:
+  - id: 1
+    description: >-
+      Assert AGENTS.md template shape: docs/templates/AGENTS.md exists, contains
+      multi-agent preamble naming >=1 OSS target (Cline, Aider, OpenCode),
+      contains ## Preflight (non-empty), ## Test / ## Lint / ## Build (present,
+      may be N/A), and uses neutral title (not Codex-only or Claude-only).
+    verify: >-
+      grep -q 'Preflight' docs/templates/AGENTS.md &&
+      grep -qi 'cline\|aider\|opencode' docs/templates/AGENTS.md &&
+      grep -q '## Test' docs/templates/AGENTS.md &&
+      grep -q '## Lint' docs/templates/AGENTS.md &&
+      grep -q '## Build' docs/templates/AGENTS.md && echo OK
+    risk: P2
+    security: none
+    status: todo
+
+  - id: 2
+    description: >-
+      Assert Preflight row integrity — the Preflight section in AGENTS.md
+      contains an install / sync command row (matches e51 Preflight mandate).
+    verify: >-
+      grep -q 'install\|sync\|preflight' docs/templates/AGENTS.md && echo OK
+    risk: P2
+    security: none
+    status: todo
+
+  - id: 3
+    description: >-
+      Assert Cline wiring: AGENTS.md exists at project root after seed runs,
+      verify-install.sh checks it is readable by Cline (no forbidden patterns).
+      Assert using-bigpowers documents Cline as native AGENTS.md support.
+    verify: >-
+      grep -qi 'cline' scripts/verify-install.sh &&
+      grep -qi 'cline' skills/using-bigpowers/SKILL.md && echo OK
+    risk: P2
+    security: none
+    status: todo
+
+  - id: 4
+    description: >-
+      Assert Aider wiring: when opted in, .aider.conf.yml exists with read: AGENTS.md.
+      Assert using-bigpowers Aider section references Aider-AI/aider.
+    verify: >-
+      grep -qi 'aider' skills/seed-conventions/SKILL.md &&
+      grep -qi 'Aider-AI' skills/using-bigpowers/SKILL.md && echo OK
+    risk: P2
+    security: none
+    status: todo
+
+  - id: 5
+    description: >-
+      Add optional Codex assertions (gated): when Codex wave stories (s14-s16)
+      are present, assert docs/templates/codex/AGENTS.md exists and is secret-free,
+      and install.sh --dry-run mentions Codex CLI. When Codex wave absent, skip
+      these assertions without failing.
+    verify: >-
+      test -f scripts/verify-install.sh &&
+      grep -qi 'codex' scripts/verify-install.sh 2>/dev/null || true && echo OK
+    risk: P3
+    security: low
+    status: todo
+
+  - id: 6
+    description: >-
+      Run full harness: bash scripts/verify-install.sh exits 0 after s01-s03 land.
+    verify: >-
+      bash scripts/verify-install.sh && echo OK
+    risk: P2
+    security: none
+    status: todo
+
+out_of_scope:
+  - "Live Codex CLI binary invocation"
+  - "Project-level E2E seed test in consumer repo"
+  - "TOML config.toml parsing (e37s14)"
+  - "Per-target verify-matrix (e37s08)"
+
+risks:
+  - "e37s04 task 6 verify fails until s01-s03 implemented — implement s04 last"

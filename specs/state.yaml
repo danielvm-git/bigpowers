@@ -1,9 +1,11 @@
-active_flow: null
-active_epic: e45
+active_flow: fix_bug
+active_epic: null
 active_story: null
-bug_id: null
+bug_id: BUG-001
 bigpowers_version: 2.73.9
-bug_cycle: null
+bug_cycle:
+  current_step: 1
+  completed_steps: []
 handoff:
   context: "e45 complete — all 41 stories s01-s41 implemented on feat/e45-quality-core"
   next_skill: release-branch

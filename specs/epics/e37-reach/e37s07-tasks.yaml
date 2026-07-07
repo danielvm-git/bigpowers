@@ -1,0 +1,59 @@
+story_id: e37s07
+title: "sync-skills.sh — adapter dispatch from targets.yaml"
+status: todo
+bcps: 5
+risk: P0
+depends_on:
+  - e37s05
+tasks:
+  - id: 1
+    description: >-
+      Add scripts/lib/targets-load.sh — parse scripts/targets.yaml via yq; export
+      target ids and skill.adapter paths. Fail fast if validate-targets-yaml.sh fails.
+    verify: >-
+      bash scripts/validate-targets-yaml.sh &&
+      grep -q 'targets.yaml' scripts/sync-skills.sh && echo OK
+    status: todo
+
+  - id: 2
+    description: >-
+      Refactor sync-skills.sh: for each target with non-null skill block, source
+      scripts/adapters/<adapter>.sh and call render_skill. No hardcoded target list
+      (invariant 13).
+    verify: >-
+      grep -q 'render_skill' scripts/sync-skills.sh &&
+      grep -q 'targets.yaml' scripts/sync-skills.sh && echo OK
+    status: todo
+
+  - id: 3
+    description: >-
+      Preserve artifact parity: after dispatch, .cursor/rules/, .gemini/extensions/bigpowers/,
+      and .pi/skills/ must be non-empty (same as pre-refactor baseline).
+    verify: >-
+      bash scripts/sync-skills.sh >/dev/null &&
+      test -n "$(ls -A .cursor/rules 2>/dev/null)" &&
+      test -d .gemini/extensions/bigpowers && echo OK
+    status: todo
+
+  - id: 4
+    description: >-
+      Integrate validate-targets-yaml.sh as pre-dispatch gate inside sync-skills.sh
+      (or call from run-verification-gates.sh if already wired).
+    verify: >-
+      grep -qE 'validate-targets-yaml|targets.yaml' scripts/sync-skills.sh && echo OK
+    status: todo
+
+  - id: 5
+    description: >-
+      Full preflight after sync: bash scripts/run-verification-gates.sh exits 0.
+      Tag changed scripts with story: e37s07.
+    verify: >-
+      bash scripts/sync-skills.sh &&
+      bash scripts/run-verification-gates.sh &&
+      echo OK
+    status: todo
+
+out_of_scope:
+  - "Context derivative generation (e37s06)"
+  - "Per-target contract matrix (e37s08)"
+  - "Wave adapter file creation (e37s09–s13)"

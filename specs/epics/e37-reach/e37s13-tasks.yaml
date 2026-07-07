@@ -1,0 +1,58 @@
+story_id: e37s13
+title: "targets.yaml — Wave E: iflow, vibe, shai (markdown commands; optional)"
+status: todo
+bcps: 2
+risk: P3
+optional: true
+depends_on:
+  - e37s05
+  - e37s07
+tasks:
+  - id: 1
+    description: >-
+      Add iflow target row to scripts/targets.yaml: id: iflow, label: "iflow",
+      context.mode: symlink, file: AGENTS.md (instruction-file-only), skill: null,
+      tier: opt_in. Tag: # story: e37s13.
+    verify: >-
+      grep -q 'iflow' scripts/targets.yaml &&
+      bash scripts/validate-targets-yaml.sh && echo OK
+    risk: P3
+    security: none
+    status: todo
+
+  - id: 2
+    description: >-
+      Add vibe target row to scripts/targets.yaml: id: vibe, label: "Vibe",
+      context.mode: symlink, file: AGENTS.md, skill: null, tier: opt_in.
+    verify: >-
+      grep -q 'vibe' scripts/targets.yaml &&
+      bash scripts/validate-targets-yaml.sh && echo OK
+    risk: P3
+    security: none
+    status: todo
+
+  - id: 3
+    description: >-
+      Add shai target row to scripts/targets.yaml: id: shai, label: "Shai",
+      context.mode: symlink, file: AGENTS.md, skill: null, tier: opt_in.
+    verify: >-
+      grep -q 'shai' scripts/targets.yaml &&
+      bash scripts/validate-targets-yaml.sh && echo OK
+    risk: P3
+    security: none
+    status: todo
+
+  - id: 4
+    description: >-
+      Story verify: all three ids present in targets.yaml and schema validates.
+    verify: >-
+      grep -q 'iflow' scripts/targets.yaml &&
+      grep -q 'vibe' scripts/targets.yaml &&
+      grep -q 'shai' scripts/targets.yaml && echo OK
+    risk: P3
+    security: none
+    status: todo
+
+out_of_scope:
+  - "Adapter files for instruction-file-only targets (no scripts/adapters/ needed)"
+  - "E2E verification with any of these tools' binaries"

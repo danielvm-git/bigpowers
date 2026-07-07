@@ -1,0 +1,63 @@
+story_id: e37s12
+title: "targets.yaml — Wave D: continue (rules adapter; re-opened active OSS)"
+status: todo
+bcps: 2
+risk: P2
+depends_on:
+  - e37s05
+  - e37s07
+  - e37s08
+tasks:
+  - id: 1
+    description: >-
+      Confirm Continue.dev current config format (active upstream: continuedev/continue).
+      Verify whether context is provided via .continuerc.json or a rules directory.
+      Add a comment in targets.yaml citing the config path used.
+      Tag: # story: e37s12.
+    verify: >-
+      # research step — confirm by reading https://docs.continue.dev or local docs
+      echo "research-complete"
+    risk: P2
+    security: none
+    status: todo
+
+  - id: 2
+    description: >-
+      Create scripts/adapters/continue.sh: rules-based adapter that wires bigpowers
+      skill files to Continue.dev's expected config/rules path. Add continue row
+      to targets.yaml: skill.adapter: continue, context.mode: symlink (copy fallback),
+      tier: opt_in. Reference continuedev/continue (not archived upstream).
+    verify: >-
+      test -f scripts/adapters/continue.sh &&
+      grep -q 'continue' scripts/targets.yaml &&
+      bash scripts/validate-targets-yaml.sh && echo OK
+    risk: P2
+    security: none
+    status: todo
+
+  - id: 3
+    description: >-
+      Run bash scripts/test-adapters.sh continue; must pass.
+    verify: >-
+      bash scripts/test-adapters.sh continue && echo OK
+    risk: P2
+    security: none
+    status: todo
+
+  - id: 4
+    description: >-
+      Story verify: continue in targets.yaml + verify-install --matrix mentions continue.
+    verify: >-
+      grep -q 'continue' scripts/targets.yaml &&
+      bash scripts/verify-install.sh --matrix 2>&1 | grep -q 'continue' && echo OK
+    risk: P2
+    security: none
+    status: todo
+
+out_of_scope:
+  - "Rules file format parsing (Continue.dev reads its own format)"
+  - "E2E test with actual Continue.dev binary"
+  - "Continue.dev plugin or extension setup"
+
+risks:
+  - "Continue.dev config format may have changed — verify against live docs before locking adapter"

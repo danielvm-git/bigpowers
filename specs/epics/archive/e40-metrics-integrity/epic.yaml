@@ -2,7 +2,7 @@ id: e40
 title: "Metrics Integrity — Honest, Additive, Benchmarkable"
 wsjf: 3.2
 bcps: 18
-status: proposed
+status: done
 release: v2.45.0
 codename: "Deepening"
 supersedes: e35

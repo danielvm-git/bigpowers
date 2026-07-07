@@ -1,0 +1,84 @@
+story_id: e37s14
+title: "seed-conventions — optional Codex wiring step (AGENTS.md + .codex/config.toml)"
+status: todo
+bcps: 3
+risk: P2
+tasks:
+  - id: 1
+    description: >-
+      Fetch current Codex AGENTS.md + config.toml guidance from
+      https://developers.openai.com/codex/guides/agents-md and quote the
+      required project paths in a comment at the top of the new REFERENCE §.
+    verify: >-
+      grep -q 'developers.openai.com/codex' skills/seed-conventions/REFERENCE.md && echo OK
+    risk: P3
+    security: none
+    status: todo
+
+  - id: 2
+    description: >-
+      Add REFERENCE.md § "Codex CLI — project-local .codex/config.toml + AGENTS.md"
+      with a valid TOML template (instructions pointing at root AGENTS.md) and
+      AGENTS.md header variant "# [Project Name] — Codex CLI".
+    verify: >-
+      grep -qi 'Codex CLI' skills/seed-conventions/REFERENCE.md &&
+      grep -q 'config.toml' skills/seed-conventions/REFERENCE.md &&
+      python3 -c "import tomllib, re, pathlib; t=pathlib.Path('skills/seed-conventions/REFERENCE.md').read_text(); m=re.search(r'```toml\\n(.*?)```', t, re.S); tomllib.loads(m.group(1)) if m else (_ for _ in ()).throw(SystemExit(1))" &&
+      echo OK
+    risk: P2
+    security: none
+    status: todo
+
+  - id: 3
+    description: >-
+      Collapse duplicate interview step 8 in seed-conventions/SKILL.md into one
+      step listing Cursor, OpenCode, and Codex CLI; document that Codex is
+      instruction-file-only (no slash skills).
+    verify: >-
+      test "$(grep -c 'Local tool wiring' skills/seed-conventions/SKILL.md)" -eq 1 &&
+      grep -qi 'codex' skills/seed-conventions/SKILL.md && echo OK
+    risk: P2
+    security: none
+    status: todo
+
+  - id: 4
+    description: >-
+      Update Generate files section: when Codex opted in, write .codex/config.toml
+      from template and set AGENTS.md header to Codex CLI variant (merge if AGENTS.md
+      already generated for OpenCode — single AGENTS.md, dual-purpose header note).
+    verify: >-
+      grep -qi '\.codex/config\.toml' skills/seed-conventions/SKILL.md && echo OK
+    risk: P2
+    security: none
+    status: todo
+
+  - id: 5
+    description: >-
+      Run bash scripts/sync-skills.sh and confirm generated artifacts include
+      seed-conventions updates (.cursor/rules, .gemini, .pi).
+    verify: >-
+      bash scripts/sync-skills.sh >/dev/null &&
+      test -f .cursor/rules/seed-conventions.mdc &&
+      grep -qi 'codex' skills/seed-conventions/SKILL.md && echo OK
+    risk: P2
+    security: none
+    status: todo
+
+  - id: 6
+    description: >-
+      Epic-level verify: seed-conventions SKILL and REFERENCE mention Codex wiring.
+    verify: >-
+      grep -qi 'codex' skills/seed-conventions/SKILL.md &&
+      grep -qi 'config.toml' skills/seed-conventions/REFERENCE.md && echo OK
+    risk: P2
+    security: none
+    status: todo
+
+out_of_scope:
+  - "install.sh global ~/.codex wiring (e37s15)"
+  - "using-bigpowers onboarding copy (e37s16)"
+  - "Per-skill symlinks for Codex"
+
+risks:
+  - "Codex config.toml schema may change — verify against live docs before locking template"
+  - "AGENTS.md shared with OpenCode — dual-tool projects need one file, two instruction paths"
