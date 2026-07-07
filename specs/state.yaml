@@ -1,13 +1,17 @@
 active_flow: fix_bug
 active_epic: null
 active_story: null
-bug_id: null
+bug_id: BUG-2026-07-07-install-gemini-plugins
 bigpowers_version: 2.74.8
-bug_cycle: null
+bug_cycle:
+  current_step: 3
+  completed_steps:
+  - '1'
+  - '2'
 handoff:
-  context: e45 complete — all 41 stories s01-s41 implemented on feat/e45-quality-core
-  next_skill: release-branch
-  epic: e45
+  context: Bug investigated and diagnosed, ready for develop-tdd
+  next_skill: develop-tdd
+  epic: null
 epic_cycle:
   step: 8
   current_step: 8

@@ -294,3 +294,12 @@ bugs:
     approach: "Hoisted const pkg to module scope, removed 5 block-scoped duplicates"
     risk_level: low
     commit_message: "fix(install): add missing pkg declaration in CLI default handler"
+  - id: BUG-2026-07-07-install-gemini-plugins
+    status: fixed
+    severity: high
+    scope: install
+    title: "install.sh uses legacy .gemini/extensions/ directory instead of config/plugins/"
+    file: bugs/BUG-2026-07-07-install-gemini-plugins.md
+    files_changed: "scripts/install.sh"
+    approach: "Updated GEMINI_EXT_DST from extensions/ to config/plugins/"
+    commit_message: "fix(install): update gemini plugin directory for antigravity 2.0"

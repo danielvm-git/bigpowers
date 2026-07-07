@@ -4,7 +4,7 @@
 #
 # Supported tools:
 #   Claude Code  → ~/.claude/skills/<name>/ (one symlink per skill)
-#   Gemini CLI   → ~/.gemini/extensions/bigpowers/ (one dir symlink)
+#   Gemini CLI   → ~/.gemini/config/plugins/bigpowers/ (one dir symlink)
 #   pi           → ~/.pi/agent/skills/<name>/ (one symlink per skill)
 #   Cursor       → ~/.cursor/rules/ (one dir symlink; per-project note printed)
 #
@@ -129,7 +129,7 @@ uninstall_claude() {
 
 GEMINI_CONFIG_DIR="$HOME/.gemini"
 GEMINI_EXT_SRC="$REPO_ROOT/.gemini/extensions/bigpowers"
-GEMINI_EXT_DST="$GEMINI_CONFIG_DIR/extensions/bigpowers"
+GEMINI_EXT_DST="$GEMINI_CONFIG_DIR/config/plugins/bigpowers"
 GEMINI_HOOKS_DIR="$GEMINI_CONFIG_DIR/hooks"
 GEMINI_SETTINGS="$GEMINI_CONFIG_DIR/settings.json"
 
