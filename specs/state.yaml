@@ -2,10 +2,12 @@ active_flow: build_epic
 active_epic: e48
 active_story: e48s15
 bug_id: null
-bigpowers_version: 2.74.12
+bigpowers_version: 2.75.0
 bug_cycle: null
 handoff:
-  context: "All 49 epics complete. 48 archived, 1 active pending (e37 Reach). Repository at v2.74.12. Next cycle: plan and build e37 Reach — Universal Agent Portability (AGENTS.md spine, targets.yaml registry, OSS waves A-E)."
+  context: 'All 49 epics complete. 48 archived, 1 active pending (e37 Reach). Repository at v2.74.12.
+    Next cycle: plan and build e37 Reach — Universal Agent Portability (AGENTS.md spine, targets.yaml
+    registry, OSS waves A-E).'
   next_skill: release-branch
   epic: e48
 epic_cycle:

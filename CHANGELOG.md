@@ -1,3 +1,10 @@
+# [2.75.0](https://github.com/danielvm-git/bigpowers/compare/v2.74.12...v2.75.0) (2026-07-07)
+
+
+### Features
+
+* **srp:** refactor skills render pipeline to hybrid JSON seam ([9532291](https://github.com/danielvm-git/bigpowers/commit/9532291010aad9027867895af2e2224df9449e7c))
+
 ## [2.74.12](https://github.com/danielvm-git/bigpowers/compare/v2.74.11...v2.74.12) (2026-07-07)
 
 
