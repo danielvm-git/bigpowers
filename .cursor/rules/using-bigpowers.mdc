@@ -105,3 +105,7 @@ Start the HTTP dashboard with `visual-dashboard` → `GET /api/status?projectDir
 ## After this
 
 Call `survey-context` to read your project's current state and get a personalized recommendation for where to go next.
+
+
+
+<!-- story: e03s02 -->

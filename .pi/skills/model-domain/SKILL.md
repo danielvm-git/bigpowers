@@ -98,6 +98,10 @@ When the plan touches shared state, async, or multi-threaded code:
 - [ ] Flag **race risks** (check-then-act, non-atomic read-modify-write) with severity.
 - [ ] Record findings in `specs/tech-architecture/tech-stack.md` under `## Concurrency` or in an ADR if architectural.
 
+
+
+<!-- story: e07s03 -->
+
 ---
 
 # ADR Format

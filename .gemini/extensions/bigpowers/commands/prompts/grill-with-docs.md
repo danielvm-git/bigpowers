@@ -24,6 +24,9 @@
 
 See [REFERENCE.md](REFERENCE.md) for question templates.
 
+
+<!-- story: e03s01 -->
+
 ---
 
 # Grill With Docs — Question templates

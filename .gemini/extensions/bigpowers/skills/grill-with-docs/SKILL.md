@@ -29,6 +29,9 @@ description: "Doc-grounded variant of grill-me — stress-tests plan assumptions
 
 See [REFERENCE.md](REFERENCE.md) for question templates.
 
+
+<!-- story: e03s01 -->
+
 ---
 
 # Grill With Docs — Question templates

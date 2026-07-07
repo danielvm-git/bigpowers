@@ -130,6 +130,11 @@ In `--gate` mode, print one summary line per checklist section (`PASS Supply Cha
 Gate: READY -> next: commit-message
 Writes: state.yaml handoff.next_skill = commit-message
 
+
+<!-- story: e01s02 -->
+<!-- story: e06s03 -->
+<!-- story: e07s01 -->
+
 ---
 
 # Clean Code Heuristics (Chapter 17)

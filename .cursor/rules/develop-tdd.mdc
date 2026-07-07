@@ -119,6 +119,9 @@ Writes: state.yaml handoff.next_skill = verify-work
 
 At story completion, if the story was sized with BCP Plus (13-dimension breakdown), log the `bcp_plus.total` alongside the standard `bcps:` count in the story's tasks.yaml. The breakdown is available from the epic capsule's `bcp_plus_breakdown` field. See `docs/references/bcp-plus.md` for the full methodology and NFR Gate pattern.
 
+
+<!-- story: e02s04 -->
+
 ---
 
 # Develop TDD — Reference

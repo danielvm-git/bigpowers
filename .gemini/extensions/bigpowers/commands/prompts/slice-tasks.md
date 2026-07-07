@@ -58,3 +58,6 @@ Produce **epic capsule story tasks** in `specs/epics/eNN-slug/` — vertical sli
 ## Verify
 
 → verify: `find specs/epics -name "*-tasks.yaml" | wc -l | awk '{if($1>0) print "OK: "$1" task files"; else print "MISSING"}'`
+
+
+<!-- story: e03s01 -->

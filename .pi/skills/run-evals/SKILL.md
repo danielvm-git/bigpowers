@@ -37,6 +37,9 @@ model: sonnet
 
 → verify: `find specs/verifications -name "*-eval-report.md" | wc -l | awk '{if($1>0) print "OK: "$1" eval reports"; else print "MISSING"}'`
 
+
+<!-- story: e02s01 -->
+
 ---
 
 # Run Evals — Reference

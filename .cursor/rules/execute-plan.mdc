@@ -53,3 +53,9 @@ Suggest: `verify-work` → `run-evals` → `audit-code` → `simulate-agents` �
 ## Rules
 
 - **Loop until behavioral correctness is verified**: if a verify command passes but the observed behavior is still wrong, return to step 1 and run the execution cycle again.
+
+
+
+<!-- story: e02s03 -->
+<!-- story: e05s02 -->
+<!-- story: e08s01 -->

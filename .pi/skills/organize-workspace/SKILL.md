@@ -77,6 +77,10 @@ Do this when the repo is under Git and the cleanup surfaced **untracked** noise:
 
 See [REFERENCE.md](REFERENCE.md) for shell patterns, `.gitignore` mechanics, and safety checks.
 
+
+
+<!-- story: e04s03 -->
+
 ---
 
 # clean-my-room — reference patterns

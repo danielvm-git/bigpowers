@@ -92,6 +92,12 @@ After writing capsule tasks, suggest `kickoff-branch` (if not already on a featu
 Gate: READY -> next: kickoff-branch
 Writes: state.yaml handoff.next_skill = kickoff-branch
 
+
+<!-- story: e01s01 -->
+<!-- story: e02s02 -->
+<!-- story: e06s01 -->
+<!-- story: e06s02 -->
+
 ---
 
 # Plan Work — Reference

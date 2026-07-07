@@ -42,6 +42,10 @@ To add or remove patterns or protected branches, edit `pre-tool-use.sh`.
 
 Full JSON examples, merge rules, Antigravity deny-list entries, and test commands: [REFERENCE.md](REFERENCE.md).
 
+
+
+<!-- story: e01s03 -->
+
 ---
 
 # Git guardrails — reference

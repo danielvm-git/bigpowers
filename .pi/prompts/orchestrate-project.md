@@ -66,6 +66,10 @@ All phases complete with artifacts:
 verify: test -f specs/state.yaml && test -f specs/release-plan.yaml && test -f specs/product/SCOPE_LATEST.yaml && ls specs/epics/*.yaml 1>/dev/null && echo "✅ All phases complete"
 ```
 
+
+
+<!-- story: e05s03 -->
+
 ---
 
 # Orchestrate Reference: Phases, Modes, and Workflows

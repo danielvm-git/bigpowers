@@ -125,3 +125,6 @@ Print the current `active_flow` from `specs/state.yaml`, run `bash scripts/valid
 
 Gate: READY -> next: plan-work
 Writes: state.yaml handoff.next_skill = plan-work
+
+
+<!-- story: e03s03 -->
