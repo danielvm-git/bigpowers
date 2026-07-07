@@ -5,9 +5,9 @@ bug_id: null
 bigpowers_version: 2.76.0
 bug_cycle: null
 handoff:
-  context: All 6 compliance bugs fixed. Compliance 98% PASS (threshold 94%). Golden suite 11/11 PASS.
-    e37 closeout still uncommitted. Ready for release-branch.
-  next_skill: release-branch
+  context: e37 Reach release complete — all 16 stories done, 6 compliance bugs fixed,
+    capsule archived, CI green. All 50 epics now complete.
+  next_skill: survey-context
   epic: e37
 epic_cycle:
   step: 8
@@ -20,15 +20,14 @@ metrics:
   story_end: '2026-07-07T22:30:00Z'
   skill_timings:
     release-branch:
-      calls: 6
-      total_seconds: 4900.0
-      avg_seconds: 816.7
-      _start: '2026-07-07T22:36:08Z'
+      calls: 7
+      total_seconds: 5076.0
+      avg_seconds: 725.1428571428571
     plan-work:
       calls: 1
       total_seconds: 343.0
       avg_seconds: 343.0
 release:
-  ci_verified: false
-  last_commit: bf079ad3
+  ci_verified: true
+  last_commit: 5a7f4070
   last_epic: e37
