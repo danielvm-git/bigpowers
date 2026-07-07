@@ -1,3 +1,10 @@
+## [2.74.7](https://github.com/danielvm-git/bigpowers/compare/v2.74.6...v2.74.7) (2026-07-07)
+
+
+### Bug Fixes
+
+* **packaging:** move Codex template out of docs/ so npm pack includes it ([#65](https://github.com/danielvm-git/bigpowers/issues/65)) ([8264598](https://github.com/danielvm-git/bigpowers/commit/82645984c3da224b9e2e01f2c70fadfb638b40bb))
+
 ## [2.74.6](https://github.com/danielvm-git/bigpowers/compare/v2.74.5...v2.74.6) (2026-07-07)
 
 

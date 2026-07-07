@@ -2,7 +2,7 @@ active_flow: fix_bug
 active_epic: null
 active_story: null
 bug_id: null
-bigpowers_version: 2.74.6
+bigpowers_version: 2.74.7
 bug_cycle: null
 handoff:
   context: e45 complete — all 41 stories s01-s41 implemented on feat/e45-quality-core
