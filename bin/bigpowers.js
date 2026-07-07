@@ -10,6 +10,7 @@ const path = require('path');
 
 const ROOT = path.dirname(path.dirname(__filename));
 const SKILLS_MARKER = path.join(os.homedir(), '.claude', 'skills', 'survey-context');
+const pkg = require(path.join(ROOT, 'package.json'));
 
 function isInstalled() {
   try {
@@ -31,7 +32,6 @@ function run(cmd, cwd = ROOT) {
 const cmd = process.argv[2];
 
 if (cmd === 'setup' || cmd === 'install') {
-  const pkg = require(path.join(ROOT, 'package.json'));
   console.log(`🚀 bigpowers v${pkg.version} — setting up...\n`);
   run('bash scripts/sync-skills.sh');
   run('bash scripts/install.sh');
@@ -42,7 +42,6 @@ if (cmd === 'setup' || cmd === 'install') {
 }
 
 if (cmd === 'update') {
-  const pkg = require(path.join(ROOT, 'package.json'));
   console.log(`🔄 Updating bigpowers v${pkg.version}...\n`);
   run('bash scripts/sync-skills.sh');
   run('bash scripts/install.sh');
@@ -52,7 +51,6 @@ if (cmd === 'update') {
 
 if (cmd === 'status') {
   if (isInstalled()) {
-    const pkg = require(path.join(ROOT, 'package.json'));
     const count = fs.readdirSync(path.join(os.homedir(), '.claude', 'skills'))
       .filter(d => fs.lstatSync(path.join(os.homedir(), '.claude', 'skills', d)).isSymbolicLink())
       .length;
@@ -78,11 +76,9 @@ Commands:
 
 // Default: check state and guide
 if (isInstalled()) {
-  const pkg = require(path.join(ROOT, 'package.json'));
   console.log(`bigpowers v${pkg.version} — already installed.`);
   console.log('Commands: bigpowers {setup|update|status|help}');
 } else {
-  const pkg = require(path.join(ROOT, 'package.json'));
   console.log(`🚀 bigpowers v${pkg.version} — skills not yet installed.`);
   console.log('   Run: bigpowers setup');
   process.exit(1);

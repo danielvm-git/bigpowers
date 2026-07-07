@@ -276,3 +276,13 @@ bugs:
     scope: ci
     title: "Sync Skills on Push fails — --strict flags todo e45 P0 stories with 0% coverage"
     file: bugs/BUG-2026-07-06T205700-sync-strict-todo-p0-block.md
+  - id: BUG-2026-07-07-install-reference-error
+    status: fixed
+    severity: medium
+    scope: install
+    title: "bigpowers CLI ReferenceError: pkg is not defined on --version / bare invocation"
+    file: bugs/BUG-2026-07-07-install-reference-error.md
+    files_changed: "bin/bigpowers.js"
+    approach: "Hoisted const pkg to module scope, removed 5 block-scoped duplicates"
+    risk_level: low
+    commit_message: "fix(install): add missing pkg declaration in CLI default handler"
