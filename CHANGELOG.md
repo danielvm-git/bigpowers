@@ -1,3 +1,10 @@
+## [2.73.9](https://github.com/danielvm-git/bigpowers/compare/v2.73.8...v2.73.9) (2026-07-07)
+
+
+### Bug Fixes
+
+* **gate-trace:** split trace-matrix.py under 300-line cap ([ece8389](https://github.com/danielvm-git/bigpowers/commit/ece8389c815614d116d91b57dda9c67f6133caaf))
+
 ## [2.73.8](https://github.com/danielvm-git/bigpowers/compare/v2.73.7...v2.73.8) (2026-07-07)
 
 
