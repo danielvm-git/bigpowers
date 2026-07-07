@@ -1,9 +1,49 @@
 # story: e38s08
 # story: e51s05
+# story: e45s22
+# story: e45s23
 
 # bigpowers — Claude Code
 
 Read CONVENTIONS.md before any GitHub or git operation.
+
+<!-- BEGIN bigpowers:context-routing -->
+## Context Routing
+
+Load subdirectory context **by file glob** — do not read the full doc tree up front.
+
+| Glob / trigger | Load first | Fallback |
+|----------------|------------|----------|
+| `skills/**` | Active skill's `SKILL.md` + sibling `REFERENCE.md` if linked | `SKILL-INDEX.md` |
+| `specs/epics/**` | Capsule `epic.yaml` + active story `-tasks.yaml` | `specs/release-plan.yaml` |
+| `specs/product/**` | `SCOPE_LATEST.yaml`, `VISION_LATEST.yaml` | `specs/README.md` |
+| `specs/tech-architecture/**` | `tech-stack.md` + epic `eNN-TEST_PLAN_LATEST.md` if present | `CONVENTIONS.md` |
+| `scripts/**` | `CONVENTIONS.md` § Generated artifact targets | This file § Commands |
+| `website/**` | `website/README.md` if present | Never edit `website/src/content/docs/` (generated) |
+| `docs/**` | Matching doc under `docs/` | `docs/references/` |
+| Default / session start | This file → `CONVENTIONS.md` → `specs/state.yaml` | `survey-context` |
+
+Sub-AGENTS.md files (when present in consumer projects) override this table for their directory only.
+<!-- END bigpowers:context-routing -->
+
+<!-- BEGIN bigpowers:learned-preferences -->
+## Learned User Preferences
+
+_Durable preferences discovered across sessions. Update via `session-state` — do not infer from chat alone._
+
+- Prefer `rtk`-prefixed shell commands for git, test, and build output (token savings).
+- Run Preflight before forward work; never dismiss red gates as pre-existing.
+- Edit `skills/*/SKILL.md` sources only — never `.cursor/rules/` or `.gemini/` artifacts.
+
+## Workspace Facts
+
+_Stable repo facts — prefer these over re-discovery._
+
+- Stack: Markdown / Bash documentation project; skills sync via `bash scripts/sync-skills.sh`.
+- Planning SoT: `specs/state.yaml`, `specs/release-plan.yaml`, `specs/execution-status.yaml`.
+- Story traceability: `# story: eNNsNN` tags in implementing files; `bash scripts/trace-stories.sh --strict` in CI.
+- Rule matrix: `bash scripts/compile-rule-matrix.sh` → `specs/rule-matrix.json` (P0–P3 tiers from CONVENTIONS.md).
+<!-- END bigpowers:learned-preferences -->
 
 ## Project
 
@@ -62,6 +102,18 @@ Collection of verb-noun skills under `skills/`, each with a SKILL.md source file
 
 ## Token Management
 
+**Mechanical backstop (e45s03):** `scripts/hooks/token-mgmt-pre-tool-use.sh` blocks oversized tool calls when prose rules are ignored. Wire as a `PreToolUse` hook for `Read`, `Grep`, and `Bash` (alongside `hooks/pre-tool-use.sh` for git safety). Thresholds: Read >100KB, Grep >200 matches without `head_limit`, Bash commands likely to exceed 500 output lines without `rtk`/`sqz compress`. Install snippet:
+
+```json
+{
+  "hooks": {
+    "PreToolUse": [
+      { "matcher": "Read|Grep|Bash", "hooks": [{ "type": "command", "command": "bash scripts/hooks/token-mgmt-pre-tool-use.sh" }] }
+    ]
+  }
+}
+```
+
 Context engineering (write/select/compress/isolate — see `docs/references/context-engineering.md`):
 
 - **Write (token-efficient content):** Short functions (4-20 lines), unique symbol names, headless tests. Don't restate code in comments.
@@ -113,8 +165,14 @@ Before any task, run this sequence — not optional:
 - Search with `bts find` before opening files to locate a symbol or pattern.
 - Pipe anything > 200 lines through `bts compress` before adding to context.
 - Run `bts map` when asked for a repo overview.
-- Use `bts docs <lib>` before answering questions about library APIs.
+- Use `bts docs <lib>` before answering questions about library APIs. Doc fetches use `scripts/lib/doc-fetch-cache.sh` (ETag-revalidated, 300s TTL — see `context7-mcp` skill, e45s20).
 - If a tool is missing, say so and run `bts doctor` — do not silently substitute.
+
+<!-- BEGIN rtk-pretooluse-hook (e45s16 — mechanical PreToolUse backstop; remove block to disable) -->
+
+**RTK hook (installed):** `scripts/hooks/rtk-rewrite.sh` is symlinked into `~/.claude/hooks/` by `bash scripts/install.sh` and registered as a Bash `PreToolUse` hook. It delegates to `rtk hook claude` — prose rules below are a fallback only when the hook is absent.
+
+<!-- END rtk-pretooluse-hook -->
 
 <!-- BEGIN sqz-claude-guidance (auto-installed by sqz init; remove this block to disable) -->
 

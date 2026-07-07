@@ -5,6 +5,8 @@ model: sonnet
 effort: standard
 ---
 
+# story: e45s29
+
 # Slice Tasks
 
 > **Spine position:** Step 2 — scope-work → slice-tasks → plan-work.
@@ -37,6 +39,7 @@ Produce **epic capsule story tasks** in `specs/epics/eNN-slug/` — vertical sli
    - `eNNsYY-tasks.yaml` with `story_id`, `title`, `status`, `bcps`, `tasks[]` (each with `id`, `description`, `verify`, `status`)
    - Story spec `.md` files are written by `plan-work` and follow countable-story-format.md
    - The epic capsule manifest (`epic.yaml`) is updated to list the story ID and BCPs
+   - **Requirement deltas (e45s29):** Stories that alter existing behavior MUST carry `delta:` in `epic.yaml` (`ADDED` | `MODIFIED` | `REMOVED` | `RENAMED`). `plan-work` expands deltas into full before/after requirement text.
 
 5. **Order by WSJF** in `release-plan.yaml` epic list — highest WSJF first. Weight-shortest-job-first ensures the highest value arrives earliest.
 

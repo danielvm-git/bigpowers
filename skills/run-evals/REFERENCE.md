@@ -1,15 +1,25 @@
 # Run Evals — Reference
 
+## Strictness tiers (e45s37)
+
+Add a `tier:` column to each eval row:
+
+| Tier | Gate behaviour |
+|------|----------------|
+| `EXPERIMENTAL` | Log only — does not block |
+| `USUALLY_PASSES` | Warn on failure; blocks only when paired with failing `ALWAYS_PASSES` |
+| `ALWAYS_PASSES` | Hard block on any failure |
+
 ## EVALS template
 
 ```markdown
 # EVALS: <feature>
 
 ## Capability
-| ID | Eval | Grader | verify / rubric |
-|----|------|--------|-----------------|
-| C1 | ... | code | `verify: npm test -- <file>` |
-| C2 | ... | model | Rubric: [ ] criterion A [ ] criterion B |
+| ID | Eval | Grader | Tier | verify / rubric |
+|----|------|--------|------|-----------------|
+| C1 | ... | code | ALWAYS_PASSES | `verify: npm test -- <file>` |
+| C2 | ... | model | USUALLY_PASSES | Rubric: [ ] criterion A [ ] criterion B |
 
 ## Regression
 | ID | Eval | Grader | verify / rubric |

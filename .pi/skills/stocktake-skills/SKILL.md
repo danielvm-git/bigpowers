@@ -21,6 +21,7 @@ Audit SKILL.md catalog for drift, stale triggers, missing HARD GATEs, and INDEX 
 
 ## Process
 
+0. **Catalog validator (code-enforced)** — run `bash scripts/validate-skill-catalog.sh`. Any FAIL is a critical finding before manual review. Add `--archive` to list zero-usage skills from `metrics.skill_timings` for auto-archiving candidates (move to `specs/epics/archive/` or delete after user confirms).
 1. Run `bash scripts/audit-catalog.sh` to verify pi/skills ↔ source SKILL.md sync. Mismatch is a critical finding.
 2. Run mode; for each skill check: exists, verb-noun, &lt;300 lines total, HARD GATE present, INDEX row matches.
 3. Write `specs/STOCKTAKE-<date>.md` with findings table (skill, issue, severity).
@@ -52,7 +53,7 @@ Timing data is populated by `scripts/bp-timing.sh start|end <skill>` calls withi
 
 ## Verify
 
-→ verify: `test -f specs/STOCKTAKE-*.md && echo OK || echo MISSING`
+→ verify: `test -f specs/STOCKTAKE-*.md && bash scripts/validate-skill-catalog.sh && echo OK || echo MISSING`
 
 See [REFERENCE.md](REFERENCE.md) for checklist.
 

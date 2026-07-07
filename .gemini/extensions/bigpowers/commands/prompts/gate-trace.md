@@ -32,7 +32,15 @@ TEA-inspired: if trace links rely on heuristics rather than explicit tags, confi
 5. Apply oracle confidence downgrade based on the heuristic link ratio from the matrix's `oracle_stats`.
 6. **Drift check (e39s03):** If `specs/drift-report.json` exists and has suspect links, mark verdict as CONCERNS with note: "Drift detected — some implementing files are newer than their specs. Run scripts/check-spec-drift.sh for details."
 7. Output verdict + rationale to stdout.
-7. Update `specs/execution-status.yaml` with gate-trace result.
+8. **Adversarial refute check (e45s32):** Before emitting PASS, attempt to **refute** the verdict — list at least one concrete traceability gap that would block merge if it were real. If the gap is real, downgrade the verdict. Rubber-stamping is prohibited; every PASS must survive one refutation attempt.
+9. **Completeness critic (e45s05)** — Run adversarial gap-finding:
+
+```bash
+bash scripts/lib/completeness-critic.sh
+```
+
+Classify output as **BLOCKER / WARNING / FILLED**. **BLOCKER overrides any PASS verdict → FAIL.** Append critic summary to rationale.
+10. Update `specs/execution-status.yaml` with gate-trace result.
 
 ## Verdict Semantics
 

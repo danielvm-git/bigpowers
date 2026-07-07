@@ -1,0 +1,17 @@
+# story: e45s10
+name: Sync References (SSOT)
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"  # Weekly Monday 06:00 UTC
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v6
+      - name: Regenerate docs/references from SSOT
+        run: bash scripts/sync-references.sh

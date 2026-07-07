@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "story": "e45s14",
+  "description": "Declared import-boundary allowlist for scripts/lib (Playwright DEPS.list pattern). CI enforces via scripts/check-import-boundaries.sh.",
+  "boundaries": [
+    {
+      "from": "scripts/*.sh",
+      "allow": [
+        "scripts/lib/*.sh",
+        "guard-git/scripts/*.sh"
+      ],
+      "deny": [
+        "skills/*",
+        "website/*"
+      ]
+    },
+    {
+      "from": "scripts/lib/golden-suite-run.sh",
+      "allow": [
+        "scripts/lib/golden-suite-gates.sh",
+        "scripts/lib/golden-suite-agent.sh",
+        "scripts/lib/golden-suite-report.sh"
+      ]
+    },
+    {
+      "from": "scripts/lib/migrate-version-run.sh",
+      "allow": [
+        "scripts/lib/migrate-version-common.sh",
+        "scripts/lib/migrate-version-plan.sh",
+        "scripts/lib/migrate-version-transforms.sh",
+        "scripts/lib/migrate-version-execute.sh",
+        "scripts/lib/migrate-version-post.sh"
+      ]
+    },
+    {
+      "from": "scripts/lib/audit-compliance-runner.sh",
+      "allow": [
+        "scripts/lib/audit-compliance-judge.sh"
+      ]
+    }
+  ]
+}

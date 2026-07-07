@@ -1,5 +1,17 @@
 # Validate Contracts — Reference
 
+## Navigation
+
+| Lines | Section |
+|-------|---------|
+| 1 | Title |
+| 3–14 | Navigation |
+| 16–24 | Integration |
+| 26–35 | Configuration |
+| 37–46 | Verification |
+| 48–170 | Reference blocks + Examples 1–6 |
+| 172–190 | Integration (duplicate) + Configuration + Verification |
+
 ## Integration
 
 - **Pre-deploy gate:** The `deploy` skill runs `validate-contracts` before smoke-test.

@@ -1,5 +1,19 @@
 # Release Branch — Reference
 
+## Navigation
+
+| Lines | Section |
+|-------|---------|
+| 1–3 | Title |
+| 5–16 | Navigation |
+| 18–41 | PR body template |
+| 43–54 | Worktree cleanup |
+| 56–96 | Cycle-time recording |
+| 98–119 | CI verification |
+| 121–126 | Solo-local fallback |
+| 128–134 | Handoff |
+| 136–155 | Reference block 1 (manual squash) |
+
 # Release Branch — Reference
 
 ## PR body template (team-pr mode)

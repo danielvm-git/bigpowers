@@ -1,5 +1,16 @@
 # Plan Work — Reference
 
+## Navigation
+
+| Lines | Section |
+|-------|---------|
+| 1 | Title |
+| 3–14 | Navigation |
+| 16–38 | Output file formats |
+| 40–71 | Plan template |
+| 73–91 | Verify step format rules |
+| 93–131 | Sub-operations (risk, define-success, zoom-out, slopcheck, delta tags) |
+
 ## Output file formats
 
 ### Story spec: `specs/epics/<capsule>/eNNsYY-<slug>.md`
@@ -11,14 +22,14 @@ Populated countable-story-format with all 20 sections. Minimum maturity: 3 (Coun
 ```yaml
 story_id: e01s01
 title: Login
-status: todo
+status: failing
 bcps: 3
 tasks:
   - id: 1
     description: "Add login form component tests"
     verify: "npm test -- login-form.test.tsx"
     risk: P1
-    status: todo
+    status: failing   # flip to passing only after verify exits 0 (e45s06)
 ```
 
 Update `specs/epics/<capsule>/epic.yaml` manifest to list the story and its BCPs. Run `bash scripts/sync-status-from-epics.sh` after structural changes.
@@ -88,6 +99,22 @@ Every task and story MUST be assigned a `risk:` level (P0, P1, P2, P3). When `sp
 - **P3**: Documentation, cosmetic tweaks, CSS variables, zero behavioral change (BCP 1).
 
 `verify-work` scales its UAT depth based on this field.
+
+### Requirement delta tags (e45s29)
+
+When modifying existing behavior in story spec § Requirements:
+
+```markdown
+#### MODIFIED: User can reset password via email link
+**Before:** Password reset required admin approval.
+**After:** Self-service reset via signed email link (expires 1h).
+
+#### REMOVED: Legacy OAuth1 login
+**Before:** OAuth1 provider supported for enterprise SSO.
+**After:** (removed) — provider deprecated; OAuth2 only.
+```
+
+Tags: `ADDED`, `MODIFIED`, `REMOVED`, `RENAMED`. `MODIFIED`/`REMOVED`/`RENAMED` without before/after → plan-work gate FAIL.
 
 ### Define Success
 

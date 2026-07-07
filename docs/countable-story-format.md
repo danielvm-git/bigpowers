@@ -1,5 +1,7 @@
 # Countable Story Format
 
+<!-- story: e45s33 -->
+
 The canonical format for stories and bug-fix specs that need to be **countable** — i.e., readable by automated counters that score scope, sizing, and non-functional coverage. Every spec-producing skill in bigpowers writes output in this format.
 
 This is a structural contract. Counters key off the exact section names and order. Section omissions are not equivalent to "no content here" — they make the spec uncountable. Use `Not applicable` instead.
@@ -15,6 +17,7 @@ This is a structural contract. Counters key off the exact section names and orde
 5. **Acceptance criteria are Gherkin only** (`Scenario / Given / When / Then`) and live in §17.
 6. **Acceptance criteria must cover the main flow (§5) plus every alternative/exception listed in §6.** One scenario per branch, minimum.
 7. **Multiple occurrences of the same dimension are listed separately**, each with its own one-line rationale. Do not collapse.
+8. **Per-section approval state (e45s33):** Every section heading MUST include an inline tag — `[draft]`, `[reviewed]`, or `[locked]` — immediately after the section number. Example: `### 5. Main flow and business logic [reviewed]`. Silent rewrites of `[locked]` sections are prohibited; unlocking requires explicit user approval and resets downstream sections to `[draft]`.
 
 ## Maturity rubric (self-score in the header)
 

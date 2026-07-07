@@ -48,6 +48,20 @@ Full JSON examples, merge rules, Antigravity deny-list entries, and test command
 
 # Git guardrails — reference
 
+## Navigation
+
+| Lines | Section |
+|-------|---------|
+| 1 | Title |
+| 3–14 | Navigation |
+| 16–24 | Secret patterns |
+| 26–44 | Copy layout |
+| 46–72 | Claude Code |
+| 74–92 | Cursor and Cursor CLI |
+| 94–120 | Gemini CLI |
+| 122–135 | Google Antigravity |
+| 137–178 | Verify (local tests) |
+
 ## Secret patterns (audit + pre-commit)
 
 Agents must not commit files containing:

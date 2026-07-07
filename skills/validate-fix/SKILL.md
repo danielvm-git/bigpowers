@@ -1,3 +1,4 @@
+# story: e45s08
 ---
 name: validate-fix
 model: haiku
@@ -10,6 +11,8 @@ description: Prove a fix works before declaring done — re-run the failing test
 
 
 Prove the fix works. "I think it works" is not evidence. Run the suite, show the output, then harden against recurrence.
+
+> **Two-commit red/green policy (e45s08)** — Bug fixes follow the same two-commit discipline as `develop-tdd`: first commit adds/adjusts the failing test (`test(<scope>): …`), second commit applies the fix (`fix(<scope>): …`). Do not squash RED and GREEN before review.
 
 ## Checklist
 

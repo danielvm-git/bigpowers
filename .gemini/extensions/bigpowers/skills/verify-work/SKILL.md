@@ -44,11 +44,19 @@ Review answers "is the code good?"; Verify answers "does the built thing do what
 2. **Cold-start smoke** (if app; skip if P3): stop server, clear caches, boot from scratch.
 3. **AGENTS.md preflight** — if 0a skipped BP_PREFLIGHT, run `bash scripts/bp-read-agents.sh` and use detected command.
 4. Mechanical gates: build → typecheck → lint → tests (from `CLAUDE.md` or AGENTS.md). Skip tests if P2/P3.
+
+> **HARD GATE — One-test-minimum terminal verdict (e45s13):** At least one mechanical gate MUST be a **real terminal-verdict command** (shell exits 0 or non-zero — not prose, not combined log excerpts). Record that command's stdout/stderr from a **single contiguous run** in `specs/verifications/eNNsYY-verify.yaml` under `terminal_verdict`. Bug reports and gap logs MUST NOT merge evidence from multiple runs into one verdict — each failing run gets its own evidence block.
+
 5. **Security scan** (skip if P2/P3) — run `security-review` against the git diff (working tree vs merge-base). Parse findings report. If any HIGH findings with confidence ≥ 8 exist → **block the gate**. Write findings to `specs/security/REVIEW.md`. Allow documented exceptions via `specs/security/EXCEPTIONS.md`. MEDIUM/LOW findings warn but don't block.
 5a. **Blind-spot check** — run `bash scripts/check-blind-spots.sh`. This detects structural quality gaps (verify-gap, test-gap, stale-tag, etc.) beyond percentage coverage. If any HIGH-severity findings exist → **block the verify-work PASS gate**. Findings are written to `specs/blind-spots.json`. MEDIUM/LOW findings warn but don't block.
+5a2. **Completeness critic (e45s05)** — `bash scripts/lib/completeness-critic.sh`. **BLOCKER** aborts merge gate; WARNING → gaps loop; FILLED = evidence only.
+
 5b. **NFR Evidence Gate** (P0 only) — Produces go/no-go output on three dimensions: Performance (response time, throughput), Reliability (error rate, recovery), and Operability (logging, health checks). Reads thresholds from `specs/tech-architecture/eNN-TEST_PLAN_LATEST.md` and writes evidence as OKF verification-report bundles to `specs/verifications/NFR-eNNsYY.json`. FAIL on any dimension blocks the gate.
 6. **Step-by-step UAT** (skip if P2/P3) — one user-observable action at a time.
 7. **Gaps loop** — failures → log → `plan-work` → re-verify. Unaddressed HIGH findings from step 5 feed into this loop alongside other quality gaps.
+
+7a. **Validation gate (e45s09)** — All tasks `status: passing`; evidence in `specs/verifications/`; update `execution-status.yaml`.
+7b. **Reopen-don't-refile (e45s09)** — Regressions reopen existing story/bug — no duplicate capsule entries.
 
 ## Verify sub-operations
 
@@ -92,6 +100,11 @@ phases:
   tests:
     passed: true
     coverage: "94.2%"
+  terminal_verdict:
+    command: "npm test"
+    exit_code: 0
+    captured_at: "2026-06-11T14:25:00Z"
+    note: "Single run — do not merge output from other attempts"
   manual:
     steps:
       - step: "Open /login"
@@ -113,26 +126,7 @@ for p in specs/conventions-wiki/*.md; do [ "$(basename "$p")" = "index.md" ]&&co
 
 ## --cli mode
 
-For CLI tools where cold-start smoke (stop server / clear caches) does not apply. Auto-detected when the project has no server process (no `listen()`, no `server.js`, no blocking `main()`); or explicitly activated with `--cli`.
-
-**Auto-detect binary name:**
-```bash
-# Cargo.toml
-BINARY=$(grep '^name' Cargo.toml | head -1 | awk -F'"' '{print $2}')
-# package.json
-BINARY=$(node -e "console.log(require('./package.json').bin && Object.keys(require('./package.json').bin)[0] || '')" 2>/dev/null)
-# Makefile
-BINARY=$(grep '^BIN\s*=' Makefile 2>/dev/null | awk '{print $3}')
-```
-
-**CLI verification checklist (replaces cold-start smoke):**
-
-1. `--help` smoke: `$BINARY --help` → assert output contains "Usage"
-2. `--version` check: `$BINARY --version` → assert version matches manifest (Cargo.toml / package.json)
-3. Happy-path: run documented example command from README.md → assert non-empty output
-4. Edge case: `$BINARY --invalid-flag` → assert exit code ≠ 0 and error message printed
-
-No "stop server" / "clear caches" in `--cli` mode. Steps 3–6 still run unchanged.
+CLI tools: use `--cli` when no server process. Binary detect + checklist: [REFERENCE.md](REFERENCE.md#cli-mode).
 
 ## Verify
 
@@ -167,3 +161,20 @@ sleep 3 && curl -sf http://localhost:<port>/health || echo "BOOT FAIL"
 ```
 
 Feed gaps to `plan-work` as new steps with verify commands, then re-run verify-work.
+
+## CLI mode
+
+For CLI tools where cold-start smoke does not apply. Auto-detected when no server process; or use `--cli`.
+
+**Auto-detect binary name:**
+```bash
+BINARY=$(grep '^name' Cargo.toml | head -1 | awk -F'"' '{print $2}')  # Cargo
+BINARY=$(node -e "console.log(require('./package.json').bin && Object.keys(require('./package.json').bin)[0] || '')" 2>/dev/null)
+BINARY=$(grep '^BIN\s*=' Makefile 2>/dev/null | awk '{print $3}')
+```
+
+**Checklist (replaces cold-start smoke):**
+1. `$BINARY --help` → output contains "Usage"
+2. `$BINARY --version` → matches manifest
+3. README example command → non-empty output
+4. `$BINARY --invalid-flag` → exit ≠ 0 with error message

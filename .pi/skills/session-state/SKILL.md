@@ -5,6 +5,8 @@ model: haiku
 ---
 
 
+# story: e45s23
+
 # Session State
 > **HARD GATE** — **HARD GATE** — Session state must be synchronized with git state. If state.yaml conflicts with the working tree, halt and ask for clarification. Do NOT assume state is correct.
 
@@ -18,6 +20,8 @@ Session-state implements the **isolate** strategy from the context-engineering f
 Maintain a single source of truth for the *current* session in `specs/state.yaml`. This complements long-term docs in `specs/tech-architecture/` and delivery detail in `specs/epics/` + `specs/release-plan.yaml`.
 
 Legacy markdown (`specs/archive/STATE.md`, `RELEASE-PLAN.md`) is **not** SoT when YAML exists — use `specs/state.yaml` only.
+
+When a story modifies existing behavior, patch only between matching marker pairs in `CLAUDE.md` / `AGENTS.md` `learned-preferences` fence — see e45s21.
 
 ## Handoff block (cold start)
 
@@ -65,6 +69,7 @@ When starting a new session or after a significant context flush:
 Whenever a significant decision is made or a milestone is reached:
 
 - [ ] Patch via `bash scripts/bp-yaml-set.sh specs/state.yaml git.hash <hash>` (or edit directly).
+- [ ] Patch `handoff` and `learned_preferences` / `workspace_facts` in `CLAUDE.md` fenced block when durable user preferences or repo facts crystallize (e45s23).
 - [ ] Update `handoff.open_decisions` with rationale.
 - [ ] Update `epic_cycle` when advancing `ship-epic` steps.
 - [ ] Record open questions under `handoff.open_decisions` or an ADR.
@@ -130,16 +135,6 @@ handoff:
   open_decisions: []
   next_skill: survey-context
 ```
-
-## Tracking commit ratio
-
-After `release-branch` lands, compute fix-to-feature ratio via:
-```bash
-FEAT_COUNT=$(git log main --oneline --grep="^feat" | wc -l | tr -d ' ')
-FIX_COUNT=$(git log main --oneline --grep="^fix" | wc -l | tr -d ' ')
-FIX_PCT=$((FIX_COUNT * 100 / (FEAT_COUNT + FIX_COUNT)))
-```
-Update `specs/state.yaml` `metrics.commit_ratio` with counts. If `fix_pct > 30%`, emit: `"High fix rate (N%) — deploy + smoke-test recommended"`.
 
 ## Anti-Patterns
 

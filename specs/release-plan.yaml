@@ -90,7 +90,7 @@ epics:
   bcps: 45
   capsule_dir: epics/e45-quality-core
   mode: capsule
-  status: planned
+  status: done
   wsjf_rationale: BV 7 (skill quality compounds) + TC 4 (OSS pattern debt) + RR 6 (benchmark/evidence
     parity) / Job 4 ≈ 5.0. Curated P1 from former e48; P2 optional wave.
 - id: e48

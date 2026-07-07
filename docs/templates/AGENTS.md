@@ -1,4 +1,5 @@
 # story: e37s01
+# story: e45s21
 # scenario: SC-e37s01-P1-01
 # [Project Name] — AI Agents
 
@@ -6,6 +7,23 @@
 
 Read CONVENTIONS.md before any GitHub or git operation.
 
+<!-- BEGIN bigpowers:context-routing -->
+## Context Routing
+
+Load subdirectory context by file glob — see project-specific routing table (seeded by `seed-conventions`).
+<!-- END bigpowers:context-routing -->
+
+<!-- BEGIN bigpowers:learned-preferences -->
+## Learned User Preferences
+
+- (none yet — updated via `session-state`)
+
+## Workspace Facts
+
+- (none yet — durable facts discovered across sessions)
+<!-- END bigpowers:learned-preferences -->
+
+<!-- BEGIN bigpowers:project -->
 ## Project
 
 [One sentence. What this codebase does.]
@@ -57,3 +75,4 @@ Stack: [language, framework, runtime]
 - Write the minimum code that solves the stated problem.
 - Run tests after every change. Show evidence before declaring done.
 - All planning output goes in specs/.
+<!-- END bigpowers:project -->

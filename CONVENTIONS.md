@@ -1,7 +1,10 @@
 # story: e30s02
 # story: e30s03
 # story: e38s08
+# story: e45s10
 # story: e51s01
+# story: e45s25
+# story: e45s36
 
 # Conventions
 
@@ -85,6 +88,43 @@ Any **reproducible gate failure** encountered during unrelated work is a discove
 Discovered fixes ship in the **same PR** as the original work but in **separate commits** (Conventional Commits). Never narrate a failure and continue.
 
 **Hard block:** Red Preflight or red CI blocks kickoff-branch, develop-tdd, and verify-work forward progress until fix-or-log produces green.
+
+## Risk Tiers (Effective Rule Matrix)
+
+Human-readable source of truth for verification depth. Machine-readable compile:
+
+```bash
+bash scripts/compile-rule-matrix.sh   # → specs/rule-matrix.json
+```
+
+Diff `specs/rule-matrix.json` across git tags to audit rule drift. Schema version in JSON `matrix_version` field.
+
+### P0 — Critical (never violate)
+
+- **[always-green]**: Preflight and CI must be green before forward work. (`verify-work`, `kickoff-branch`, `develop-tdd`)
+- **[no-direct-coding]**: Route feature work through bigpowers skills — no ad-hoc implementation without a plan in `specs/`. (`plan-work`, `orchestrate-project`)
+- **[traceability]**: Every story has ≥1 `story: eNNsNN` tag in implementing code or tests. (`trace-stories.sh --strict`)
+- **[no-generated-edits]**: Never edit `.cursor/rules/`, `.gemini/`, or `website/src/content/docs/` directly. (`sync-skills.sh`)
+
+### P1 — High (fix before merge)
+
+- **[conventional-commits]**: All commits follow Conventional Commits; semantic-release owns version bumps. (`commit-message`, `release-branch`)
+- **[verify-per-story]**: Every story/task has runnable `verify:` commands; `verify-work` confirms before done. (`plan-work`, `verify-work`)
+- **[test-on-change]**: New functions and bug fixes include tests; regressions get regression tests. (`develop-tdd`, `validate-fix`)
+- **[branch-protection]**: No direct work on `main`/`master`; feature branches via `kickoff-branch`. (`guard-git`)
+
+### P2 — Medium (address in same epic or next)
+
+- **[plan-tests-waiver]**: P2/P3-dominant epics may set `test_plan: waived` in `state.yaml`. (`plan-tests`)
+- **[file-size-cap]**: Source files under 300 lines unless listed in § File-Size Exceptions. (`audit-code`)
+- **[handoff-signaling]**: Critical-path skills write `handoff.next_skill` to `state.yaml`. (`session-state`)
+- **[delta-requirements]**: Behavior changes require `ADDED`/`MODIFIED`/`REMOVED`/`RENAMED` tags in requirement specs. (`plan-work`, `change-request`)
+
+### P3 — Low (best effort)
+
+- **[boy-scout]**: Leave touched files at least as clean as found. (`audit-code`)
+- **[terse-when-heavy]**: Switch to `terse-mode` when context exceeds ~20 turns. (`terse-mode`)
+- **[skill-naming]**: Verb-noun kebab-case under `skills/`; documented exceptions only. (`craft-skill`)
 
 ### Banned dismissive phrases
 
@@ -177,6 +217,30 @@ When planning closes, copy to `specs/product/snapshots/release-<version>/` (`rel
 | Legacy markdown | `specs/archive/` after `bash scripts/convert-legado.sh` |
 
 Validate YAML layout: `bash scripts/validate-specs-yaml.sh`. Patch runtime keys: `bash scripts/bp-yaml-set.sh specs/state.yaml git.branch feat/foo`.
+
+### Documentation Responsibilities (e45s36)
+
+Each specs/ artifact owns specific facts. Update the owning file when the fact changes — do not duplicate across files.
+
+| File / directory | Owns | Update when |
+|------------------|------|-------------|
+| `specs/state.yaml` | Active session, handoff, story timing, workflow mode | Every skill handoff; branch switch; story start/end |
+| `specs/release-plan.yaml` | Epic ordering, WSJF, BCP baselines, release codename | New epic scoped; WSJF re-prioritized; BCP re-estimated |
+| `specs/execution-status.yaml` | Story/epic done/todo status (sole SoT) | Story completes; gate-trace runs; manual status change |
+| `specs/product/SCOPE_LATEST.yaml` | In/out of scope, initiative boundaries | scope-work; change-request Add mode |
+| `specs/product/VISION_LATEST.yaml` | North star, strategic intent | Major product pivot; scope-work |
+| `specs/product/GLOSSARY_LATEST.yaml` | Canonical domain terms | define-language; model-domain term crystallizes |
+| `specs/epics/eNN-*/epic.yaml` | Epic manifest, story list, BCPs | slice-tasks; plan-work adds stories |
+| `specs/epics/eNN-*/eNNsYY-*.md` | Story requirements (countable-story-format) | plan-work; section approval state changes |
+| `specs/epics/eNN-*/eNNsYY-tasks.yaml` | Runnable implementation tasks + verify | plan-work; develop-tdd task completion |
+| `specs/tech-architecture/tech-stack.md` | Stack, modules, gray areas | map-codebase; deepen-architecture; model-domain |
+| `specs/tech-architecture/eNN-TEST_PLAN_LATEST.md` | P0/P1 test scenarios per epic | plan-tests |
+| `specs/adr/ADR-*.md` | Architectural decisions | model-domain; deepen-architecture ADR offer accepted |
+| `specs/bugs/BUG-*.md` | Bug RCA + fix plan | investigate-bug |
+| `specs/bugs/registry.yaml` | Bug index (generated) | inspect-quality; sync-bugs-registry.sh |
+| `specs/verifications/*` | Verify evidence, audit reports, eval reports | verify-work; audit-code; run-evals |
+| `specs/security/REVIEW.md` | Latest security scan findings | security-review |
+| `specs/metrics/cycle-times.yaml` | Delivery velocity ledger | release-branch lands story |
 
 ### Generated artifact targets
 
@@ -300,3 +364,15 @@ BUG-2026-07-06-gate-trace-matrix-oversized. Prior exception rows for trace-matri
 and trace-stories.py are removed — both are now under the 300-line cap.
 
 Any new exception requires an entry in this table with rationale and a review date.
+
+## docs/references SSOT Sync (e45s10)
+
+Agent-guidance files under `docs/references/` are **distilled from upstream sources**, not hand-edited ad hoc. Canonical inputs live in `CLAUDE.md`, `docs/PRINCIPLES.md`, and `skills/*/SKILL.md`.
+
+| Action | Command |
+|--------|---------|
+| Regenerate locally | `bash scripts/sync-references.sh` |
+| Manifest | `scripts/references-manifest.yaml` |
+| Scheduled CI | `.github/workflows/sync-references.yml` (weekly) |
+
+After changing SKILL.md `model:` frontmatter or token-management prose in CLAUDE.md, run `sync-references.sh` to refresh reference docs and `.sync-stamp`.

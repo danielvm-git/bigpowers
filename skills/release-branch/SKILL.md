@@ -1,4 +1,7 @@
 <!-- story: e38s07 -->
+<!-- story: e45s15 -->
+<!-- story: e45s32 -->
+<!-- story: e45s39 -->
 ---
 name: release-branch
 model: haiku
@@ -55,6 +58,8 @@ If REVIEW.md is missing or stale → run `security-review` inline. Findings bloc
 
 Run `gate-trace` before merge. FAIL blocks merge; CONCERNS requires explicit override in `specs/state.yaml` (`traceability_override: CONCERNS accepted, reason: <explanation>`). WAIVED if no matrix available.
 
+> **Adversarial refute framing (e45s32):** The final pre-merge check is **refute, not rubber-stamp**. Before declaring ready, actively try to disprove traceability completeness — missing story tags, absent verify evidence, stale security review. Only proceed when refutation fails.
+
 ### 3. Diff review
 
 - [ ] All commits intentional, no secrets, CONVENTIONS.md compliance
@@ -75,9 +80,26 @@ bash scripts/land-branch.sh <task-slug> "feat(scope): description"
 
 ### 6. Create PR (team-pr only)
 
-Create the pull request, then merge via `gh`:
+Create the pull request with a **literal provenance marker** in the body so agent-generated PRs are identifiable and do not rot silently:
+
+```markdown
+<!-- bigpowers-provenance: agent-generated -->
+```
+
+Place the marker on its own line immediately after the `## Summary` heading. Then merge via `gh`:
 
 ```bash
+gh pr create --title "..." --body "$(cat <<'EOF'
+## Summary
+<!-- bigpowers-provenance: agent-generated -->
+
+- ...
+
+## Test plan
+- [ ] ...
+
+EOF
+)"
 gh pr merge --squash --delete-branch
 ```
 
@@ -93,55 +115,18 @@ mv specs/epics/eNN-slug specs/epics/archive/
 
 ### 7b. CI verification & agent lock release (e39s02)
 
-> **HARD GATE** — Do NOT declare success until CI completes. A push that fails CI is a regression, not a release.
-
-After push, run CI polling:
+> **HARD GATE** — Do NOT declare success until CI completes. **Three-independent-facts** (e45s15): commit landed, workflow green, registry visible — see [REFERENCE.md](REFERENCE.md#three-independent-facts-release).
 
 ```bash
 bash scripts/wait-for-ci.sh --timeout 600 --interval 30
 ```
 
-Then release the story lock:
+- [ ] CI passes; `release.ci_verified: true` in state.yaml
+- On failure: `handoff.next_skill = fix-bug`
 
-```bash
-LOCK="specs/agent-locks.yaml"; STORY="<story-id>"
-[ -f "$LOCK" ] && python3 -c "
-import yaml
-d=yaml.safe_load(open('$LOCK'))
-if d:d['locks']=[l for l in d['locks'] if l.get('story_id')!='$STORY']
-yaml.dump(d,open('$LOCK','w'),default_flow_style=False)
-print(f'LOCK RELEASED: $STORY')
-"||echo "No lock for $STORY — idempotent"
-```
+### 8. Clean up & return
 
-- [ ] CI workflow passes after push (wait-for-ci.sh exit 0)
-- [ ] `release.ci_verified: true` documented in state.yaml
-- On failure: `handoff.next_skill = fix-bug` with CI failure URL
-
-### 8. Clean up worktree
-
-```bash
-git worktree prune
-git worktree remove ../<branch-name> 2>/dev/null || true
-git branch -d <branch-name>
-```
-
-### 8a. Cycle-time recording
-
-After landing, record delivery metrics with the git-derived, additive script:
-
-```bash
-bash scripts/record-cycle-time.sh append \
-  --story <story_id> --bcps <bcps> \
-  --range "$(git merge-base main HEAD)..HEAD" \
-  --file specs/metrics/cycle-times.yaml
-```
-
-### 9. Return to main
-
-```bash
-git checkout main && git status && pwd
-```
+Worktree prune, branch delete, `git checkout main`. Cycle-time: see [REFERENCE.md](REFERENCE.md#cycle-time).
 
 Report: "Branch released."
 

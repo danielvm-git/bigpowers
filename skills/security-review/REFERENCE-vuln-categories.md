@@ -7,6 +7,8 @@ Each category: vulnerable pattern → safe pattern → code example.
 | Aspect | Detail |
 |--------|--------|
 | **Vulnerable** | String interpolation in SQL queries: `f"SELECT * FROM users WHERE id = {uid}"` |
+| **CWE** | CWE-89 (SQL Injection) |
+| **Fixtures** | `fixtures/CWE-89-sqli-positive.py` (flag) · `fixtures/CWE-89-sqli-negative.py` (pass) |
 | **Safe** | Parameterized queries / ORM: `cursor.execute("SELECT * FROM users WHERE id = %s", (uid,))` |
 | **Look for** | f-strings, `+` concatenation, `format()` in query builders; raw SQL in ORM `.raw()` / `.execute()` |
 | **False-positive guard** | Not a FP if the input is user-controlled (HTTP param, file, env var, CLI arg). Env vars are trusted (see exclusion rules). |
@@ -16,6 +18,8 @@ Each category: vulnerable pattern → safe pattern → code example.
 | Aspect | Detail |
 |--------|--------|
 | **Vulnerable** | `element.innerHTML = userInput`, `dangerouslySetInnerHTML={{__html: userInput}}` |
+| **CWE** | CWE-79 (Cross-site Scripting) |
+| **Fixtures** | `fixtures/CWE-79-xss-positive.js` (flag) · `fixtures/CWE-79-xss-negative.js` (pass) |
 | **Safe** | `element.textContent = userInput`, React JSX (auto-escaped), template engines with auto-escaping |
 | **Look for** | `.innerHTML`, `document.write()`, `dangerouslySetInnerHTML`, `v-html` (Vue), `bypassSecurityTrustHtml` (Angular) |
 | **False-positive guard** | React/Angular components without unsafe methods are NOT vulnerable (see exclusion rules). |

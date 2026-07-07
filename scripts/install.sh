@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# story: e45s16
 # install.sh — global symlink install for bigpowers skills
 #
 # Supported tools:
@@ -83,6 +84,9 @@ install_claude() {
   link "$REPO_ROOT/.gemini/extensions/bigpowers/hooks/run-hook.cmd" "$CLAUDE_HOOKS_DIR/run-hook.cmd"
   link "$REPO_ROOT/guard-git/scripts/block-dangerous-git.sh" "$CLAUDE_HOOKS_DIR/block-dangerous-git.sh"
   link "$REPO_ROOT/guard-git/scripts/lib" "$CLAUDE_HOOKS_DIR/lib"
+  link "$REPO_ROOT/scripts/hooks/rtk-rewrite.sh" "$CLAUDE_HOOKS_DIR/rtk-rewrite.sh"
+  # story: e45s16
+  chmod +x "$REPO_ROOT/scripts/hooks/rtk-rewrite.sh" 2>/dev/null || true
 
   if [[ -f "$CLAUDE_SETTINGS" ]]; then
     echo "  Configuring global hooks in $CLAUDE_SETTINGS..."
@@ -92,6 +96,7 @@ install_claude() {
       cat "$CLAUDE_SETTINGS" | jq '
         .hooks.SessionStart += [{"matcher":"startup|clear|compact","hooks":[{"type":"command","command":"\"'"$CLAUDE_HOOKS_DIR/run-hook.cmd"'\" session-start","async":false}]}] |
         .hooks.PreToolUse += [{"matcher":"Bash","hooks":[{"type":"command","command":"\"'"$CLAUDE_HOOKS_DIR/block-dangerous-git.sh"'\""}]}] |
+        .hooks.PreToolUse += [{"matcher":"Bash","hooks":[{"type":"command","command":"\"'"$CLAUDE_HOOKS_DIR/rtk-rewrite.sh"'\""}]}] |
         # deduplicate
         .hooks.SessionStart |= unique |
         .hooks.PreToolUse |= unique
@@ -115,6 +120,7 @@ uninstall_claude() {
     unlink_if_managed "$CLAUDE_HOOKS_DIR/session-start" "$REPO_ROOT/"
     unlink_if_managed "$CLAUDE_HOOKS_DIR/run-hook.cmd" "$REPO_ROOT/"
     unlink_if_managed "$CLAUDE_HOOKS_DIR/block-dangerous-git.sh" "$REPO_ROOT/"
+    unlink_if_managed "$CLAUDE_HOOKS_DIR/rtk-rewrite.sh" "$REPO_ROOT/"
     unlink_if_managed "$CLAUDE_HOOKS_DIR/lib" "$REPO_ROOT/"
   fi
 }

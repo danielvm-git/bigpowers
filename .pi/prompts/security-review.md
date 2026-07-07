@@ -3,11 +3,23 @@ description: >
 ---
 
 
+# story: e45s26
+
 # Security Review
 
 > **HARD GATE** — Requires git context (branch with merge-base or diff). Never
 > writes files outside `specs/security/`. Findings below confidence 8/10 are
 > suppressed. **→ verify:** `git rev-parse HEAD >/dev/null 2>&1 && echo "ok" || echo "BLOCKED"`
+
+## Parallel worktree mode (e45s18)
+
+When running alongside `audit-code`, use isolated worktrees so scans do not race on the same index:
+
+```bash
+bash scripts/lib/parallel-review-worktrees.sh security-review
+```
+
+Each check gets a detached worktree at `.bigpowers/worktrees/review-<name>/`; reports still write only under `specs/security/`.
 
 ## 5-phase scan
 
@@ -22,6 +34,37 @@ description: >
 ## Categories
 
 Covered: SQLi, XSS, SSRF, command injection, auth bypass, unsafe deserialization, path traversal, IDOR, crypto flaws, secrets exposure, template injection, NoSQLi
+
+## CWE mapping mandate (e45s26)
+
+Every **new detection rule** added to this skill MUST:
+
+1. Map to a [CWE](https://cwe.mitre.org/) ID in `REFERENCE-vuln-categories.md` (e.g. SQLi → CWE-89, XSS → CWE-79).
+2. Ship **two fixture pairs** under `skills/security-review/fixtures/`:
+   - **Positive** — minimal code the rule MUST flag (vulnerable pattern present).
+   - **Negative** — structurally similar code the rule MUST NOT flag (safe pattern / false-positive guard).
+
+| Rule | CWE | Positive fixture | Negative fixture |
+|------|-----|------------------|------------------|
+| SQL injection | CWE-89 | `fixtures/CWE-89-sqli-positive.py` | `fixtures/CWE-89-sqli-negative.py` |
+| XSS (DOM) | CWE-79 | `fixtures/CWE-79-xss-positive.js` | `fixtures/CWE-79-xss-negative.js` |
+
+Before merging a new category, run both fixtures through the detection guidance and confirm positive flags / negative passes.
+
+## SQL-safety doctrine (e45s41 — proven authorship)
+
+Formal rule for SQL injection classification:
+
+| SQL source | Attacker-reachable input? | Verdict |
+|------------|---------------------------|---------|
+| Hardcoded / compile-time constant string | N/A | **Safe** — proven authorship |
+| Developer-authored query with bound parameters only | No dynamic fragments from user input | **Safe** |
+| String concatenation / template with user-controlled values | Yes | **Unsafe** — report as SQLi |
+| ORM query builder with user input in WHERE/JOIN | Yes | **Unsafe** unless parameterized |
+| Stored procedure call with bound args | Args from trusted constants only | **Safe** |
+| Stored procedure with dynamic SQL inside | User input reaches EXEC | **Unsafe** |
+
+**Provenance test:** If the agent cannot prove the query string was authored entirely by the developer (no attacker-reachable interpolation), treat as vulnerable. Hardcoded SQL in migrations, seeds, and admin scripts is safe; anything reachable from HTTP/CLI/user input is not.
 
 ## BCP Plus Integration
 
@@ -174,14 +217,15 @@ Automatically exclude findings matching these patterns:
 | 8 | **Race conditions / timing attacks** that are theoretical | Only report if concretely problematic |
 | 9 | **Outdated third-party libraries** | Managed separately by dependency scanners |
 | 10 | **Memory safety** in Rust or other memory-safe languages | Impossible by language guarantees |
-| 11 | **Unit test files only** | Not production risk |
-| 12 | **Log spoofing** | Outputting unsanitized input to logs is not a vuln |
-| 13 | **SSRF that only controls path** | Only host/protocol control is exploitable |
-| 14 | **User-controlled content in AI system prompts** | Not a security vulnerability |
-| 15 | **Regex injection** | Injecting untrusted content into regex is not a vuln |
-| 16 | **Regex DOS** | Excluded alongside general DOS |
-| 17 | **Documentation files** (.md, .txt) | Insecure docs are not code vulnerabilities |
-| 18 | **Lack of audit logs** | Not a vulnerability |
+| 11 | **Hardcoded SQL with proven authorship** — migrations, seeds, static admin queries with no user interpolation | Developer-authored SQL is safe per SQL-safety doctrine (e45s41) |
+| 12 | **Unit test files only** | Not production risk |
+| 13 | **Log spoofing** | Outputting unsanitized input to logs is not a vuln |
+| 14 | **SSRF that only controls path** | Only host/protocol control is exploitable |
+| 15 | **User-controlled content in AI system prompts** | Not a security vulnerability |
+| 16 | **Regex injection** | Injecting untrusted content into regex is not a vuln |
+| 17 | **Regex DOS** | Excluded alongside general DOS |
+| 18 | **Documentation files** (.md, .txt) | Insecure docs are not code vulnerabilities |
+| 19 | **Lack of audit logs** | Not a vulnerability |
 
 ## Precedent Rules
 
@@ -233,6 +277,8 @@ Each category: vulnerable pattern → safe pattern → code example.
 | Aspect | Detail |
 |--------|--------|
 | **Vulnerable** | String interpolation in SQL queries: `f"SELECT * FROM users WHERE id = {uid}"` |
+| **CWE** | CWE-89 (SQL Injection) |
+| **Fixtures** | `fixtures/CWE-89-sqli-positive.py` (flag) · `fixtures/CWE-89-sqli-negative.py` (pass) |
 | **Safe** | Parameterized queries / ORM: `cursor.execute("SELECT * FROM users WHERE id = %s", (uid,))` |
 | **Look for** | f-strings, `+` concatenation, `format()` in query builders; raw SQL in ORM `.raw()` / `.execute()` |
 | **False-positive guard** | Not a FP if the input is user-controlled (HTTP param, file, env var, CLI arg). Env vars are trusted (see exclusion rules). |
@@ -242,6 +288,8 @@ Each category: vulnerable pattern → safe pattern → code example.
 | Aspect | Detail |
 |--------|--------|
 | **Vulnerable** | `element.innerHTML = userInput`, `dangerouslySetInnerHTML={{__html: userInput}}` |
+| **CWE** | CWE-79 (Cross-site Scripting) |
+| **Fixtures** | `fixtures/CWE-79-xss-positive.js` (flag) · `fixtures/CWE-79-xss-negative.js` (pass) |
 | **Safe** | `element.textContent = userInput`, React JSX (auto-escaped), template engines with auto-escaping |
 | **Look for** | `.innerHTML`, `document.write()`, `dangerouslySetInnerHTML`, `v-html` (Vue), `bypassSecurityTrustHtml` (Angular) |
 | **False-positive guard** | React/Angular components without unsafe methods are NOT vulnerable (see exclusion rules). |

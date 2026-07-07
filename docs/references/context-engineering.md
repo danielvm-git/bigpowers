@@ -91,3 +91,5 @@ for their current context budget:
 - `skills/session-state/SKILL.md` — context persistence across sessions
 - `docs/references/bcp.md` — BCP sizing (effort classification's sibling concept)
 - `skills/terse-mode/SKILL.md` — ultra-compressed communication mode
+
+**Last synced:** 2026-07-07T03:04:55Z (from CLAUDE.md + PRINCIPLES.md)

@@ -44,6 +44,12 @@ Read existing documentation first:
 
 If any of these files don't exist, proceed silently — don't flag their absence or suggest creating them upfront.
 
+**Look-here-first (churn heuristic):** Before organic exploration, rank candidate modules by recent commit frequency. High-churn files are architectural friction magnets — start there.
+
+```bash
+bash scripts/bp-churn-rank.sh --since 90.days --limit 20
+```
+
 Then use the Agent tool with `subagent_type=Explore` to walk the codebase. Don't follow rigid heuristics — explore organically and note where you experience friction:
 
 - Where does understanding one concept require bouncing between many small modules?
@@ -91,6 +97,20 @@ Side effects happen inline as decisions crystallize:
 - **Sharpening a fuzzy term during the conversation?** Update `specs/tech-architecture/tech-stack.md` right there.
 - **User rejects the candidate with a load-bearing reason?** Offer an ADR, framed as: _"Want me to record this as an ADR so future architecture reviews don't re-suggest it?"_ Only offer when the reason would actually be needed by a future explorer. See [ADR-FORMAT.md](../model-domain/ADR-FORMAT.md).
 - **Want to explore alternative interfaces for the deepened module?** See [INTERFACE-DESIGN.md](INTERFACE-DESIGN.md).
+
+### 5. Import-boundary hygiene (e45s14)
+
+When a deepening move **splits or merges modules**, update `specs/import-boundaries.json` (Playwright `DEPS.list` pattern) — declare which `scripts/lib/*.sh` files may `source` which peers. CI enforces via:
+
+```bash
+bash scripts/check-import-boundaries.sh
+```
+
+Run the check before proposing cross-module `source` edges. Convention docs alone do not authorize new imports; the allowlist must list them.
+
+## Verify
+
+→ verify: `test -f specs/import-boundaries.json && bash scripts/check-import-boundaries.sh && echo OK || echo FAIL`
 
 ---
 

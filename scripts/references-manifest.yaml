@@ -1,0 +1,19 @@
+# story: e45s10
+# SSOT → docs/references distillation manifest.
+# Each entry: source globs/files regenerate target via generator script.
+version: 1
+generated_at_field: docs/references/.sync-stamp
+
+entries:
+  - id: model-profiles-catalog
+    sources:
+      - skills/*/SKILL.md
+    target: docs/references/model-profiles.md
+    generator: scripts/generate-reference-tables.sh
+
+  - id: context-engineering
+    sources:
+      - CLAUDE.md
+      - docs/PRINCIPLES.md
+    target: docs/references/context-engineering.md
+    generator: scripts/lib/sync-context-engineering-ref.sh

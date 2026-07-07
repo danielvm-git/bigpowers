@@ -1,4 +1,6 @@
 
+# story: e45s29
+
 # Change Request
 
 > **HARD GATE** — `specs/release-plan.yaml` must exist before running either mode. If it doesn't, run `plan-release` first.
@@ -13,7 +15,7 @@ Intake a new requirement mid-flight without disrupting work in progress.
 
 1. **Capture**: What is the change? What problem does it solve?
 2. **Locate**: Which existing stories in `specs/epics/` does it affect or replace?
-3. **Draft**: Add story + `tasks[]` with Gherkin-style AC in epic YAML (each task has `verify`).
+3. **Draft**: Add story + `tasks[]` with Gherkin-style AC in epic YAML (each task has `verify`). Tag requirement deltas: `ADDED` / `MODIFIED` / `REMOVED` / `RENAMED` with before/after for non-`ADDED` changes (e45s29).
 4. **Place**: Append story under existing epic capsule, or create `specs/epics/eNN-slug.yaml` and register in `release-plan.yaml` `epics[]`.
 5. **Score**: Compute WSJF; note if it outranks in-progress work.
 
