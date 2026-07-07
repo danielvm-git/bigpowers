@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-07T12:58:15.829830+00:00",
+  "generated_at": "2026-07-07T16:43:56.175932+00:00",
   "matrix_version": "1.0",
   "stories": [
     {
@@ -174,12 +174,6 @@
           "method": "explicit_tag"
         },
         {
-          "file": "scripts/adapters/cline.sh",
-          "line": 11,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": "specs/epics/e37-reach/e37s16-tasks.yaml",
           "line": 0,
           "confidence": "low",
@@ -216,7 +210,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 11
+      "link_count": 10
     },
     {
       "id": "e37s03",
@@ -248,12 +242,6 @@
         {
           "file": "specs/epics/archive/e37-reach/e37s03-aider-bridge.md",
           "line": 1,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": "scripts/adapters/aider.sh",
-          "line": 10,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -306,7 +294,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 13
+      "link_count": 12
     },
     {
       "id": "e37s04",
@@ -326,12 +314,6 @@
         {
           "file": "specs/epics/archive/e37-reach/e37s04-verify-install-spine.md",
           "line": 1,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": "scripts/install.sh",
-          "line": 283,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -372,7 +354,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 9
+      "link_count": 8
     },
     {
       "id": "e37s05",
@@ -780,12 +762,6 @@
           "method": "explicit_tag"
         },
         {
-          "file": "scripts/adapters/pi.sh",
-          "line": 40,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": "scripts/sync-status-from-epics.sh",
           "line": 0,
           "confidence": "medium",
@@ -888,7 +864,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 23
+      "link_count": 22
     },
     {
       "id": "e37s08",
@@ -1308,12 +1284,6 @@
       "status": "done",
       "links": [
         {
-          "file": "scripts/install.sh",
-          "line": 284,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": "specs/skills-wiki/skills/seed-conventions.md",
           "line": 0,
           "confidence": "medium",
@@ -1386,7 +1356,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 13
+      "link_count": 12
     },
     {
       "id": "e37s15",
@@ -1398,7 +1368,7 @@
       "status": "done",
       "links": [
         {
-          "file": "docs/templates/codex/AGENTS.md",
+          "file": "templates/codex/AGENTS.md",
           "line": 1,
           "confidence": "high",
           "method": "explicit_tag"
@@ -1451,12 +1421,6 @@
       "wsjf": 7.0,
       "status": "done",
       "links": [
-        {
-          "file": "docs/templates/codex/AGENTS.md",
-          "line": 25,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
         {
           "file": "specs/skills-wiki/skills/using-bigpowers.md",
           "line": 0,
@@ -1530,7 +1494,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 13
+      "link_count": 12
     },
     {
       "id": "e45s01",
@@ -1632,18 +1596,6 @@
       "status": "done",
       "links": [
         {
-          "file": ".gemini/extensions/bigpowers/commands/prompts/craft-skill.md",
-          "line": 2,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".gemini/extensions/bigpowers/skills/craft-skill/SKILL.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": "scripts/lib/audit-compliance-judge.sh",
           "line": 2,
           "confidence": "high",
@@ -1669,19 +1621,7 @@
         },
         {
           "file": "skills/craft-skill/SKILL.md",
-          "line": 9,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/prompts/craft-skill.md",
-          "line": 6,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/craft-skill/SKILL.md",
-          "line": 8,
+          "line": 1,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -1705,12 +1645,6 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-06-craft-skill-sync-oversized.okf.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/epics/e22-skill-catalog-ci-gate.yaml",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -1740,7 +1674,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 18
+      "link_count": 13
     },
     {
       "id": "e45s03",
@@ -1788,18 +1722,6 @@
       "status": "done",
       "links": [
         {
-          "file": ".gemini/extensions/bigpowers/commands/prompts/plan-work.md",
-          "line": 2,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".gemini/extensions/bigpowers/skills/plan-work/SKILL.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": "scripts/generate-viz-graph.sh",
           "line": 2,
           "confidence": "high",
@@ -1813,19 +1735,7 @@
         },
         {
           "file": "skills/plan-work/SKILL.md",
-          "line": 11,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/prompts/plan-work.md",
-          "line": 6,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/plan-work/SKILL.md",
-          "line": 8,
+          "line": 1,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -1902,7 +1812,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 19
+      "link_count": 15
     },
     {
       "id": "e45s05",
@@ -1914,26 +1824,14 @@
       "status": "done",
       "links": [
         {
-          "file": ".gemini/extensions/bigpowers/commands/prompts/gate-trace.md",
-          "line": 2,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": ".gemini/extensions/bigpowers/commands/prompts/verify-work.md",
-          "line": 3,
+          "line": 4,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": ".gemini/extensions/bigpowers/skills/verify-work/SKILL.md",
-          "line": 8,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".gemini/extensions/bigpowers/skills/gate-trace/SKILL.md",
-          "line": 7,
+          "line": 9,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -1951,31 +1849,19 @@
         },
         {
           "file": "skills/gate-trace/SKILL.md",
-          "line": 10,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/prompts/gate-trace.md",
-          "line": 6,
+          "line": 1,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": ".pi/prompts/verify-work.md",
-          "line": 7,
+          "line": 8,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": ".pi/skills/verify-work/SKILL.md",
-          "line": 9,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/gate-trace/SKILL.md",
-          "line": 8,
+          "line": 10,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -2100,7 +1986,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 31
+      "link_count": 27
     },
     {
       "id": "e45s06",
@@ -2112,67 +1998,19 @@
       "status": "done",
       "links": [
         {
-          "file": ".gemini/extensions/bigpowers/commands/prompts/develop-tdd.md",
-          "line": 3,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".gemini/extensions/bigpowers/commands/prompts/plan-work.md",
-          "line": 3,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".gemini/extensions/bigpowers/skills/plan-work/SKILL.md",
-          "line": 8,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".gemini/extensions/bigpowers/skills/develop-tdd/SKILL.md",
-          "line": 8,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": "skills/plan-work/SKILL.md",
-          "line": 12,
+          "line": 2,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": "skills/develop-tdd/SKILL.md",
-          "line": 11,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/prompts/develop-tdd.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/prompts/plan-work.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/plan-work/SKILL.md",
-          "line": 9,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/develop-tdd/SKILL.md",
-          "line": 9,
+          "line": 2,
           "confidence": "high",
           "method": "explicit_tag"
         }
       ],
-      "link_count": 10
+      "link_count": 2
     },
     {
       "id": "e45s07",
@@ -2184,62 +2022,14 @@
       "status": "done",
       "links": [
         {
-          "file": ".gemini/extensions/bigpowers/commands/prompts/request-review.md",
+          "file": "skills/request-review/SKILL.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "skills/request-review/SKILL.md",
           "line": 2,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".gemini/extensions/bigpowers/commands/prompts/request-review.md",
-          "line": 3,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".gemini/extensions/bigpowers/skills/request-review/SKILL.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".gemini/extensions/bigpowers/skills/request-review/SKILL.md",
-          "line": 8,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": "skills/request-review/SKILL.md",
-          "line": 8,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": "skills/request-review/SKILL.md",
-          "line": 9,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/prompts/request-review.md",
-          "line": 6,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/prompts/request-review.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/request-review/SKILL.md",
-          "line": 8,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/request-review/SKILL.md",
-          "line": 9,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -2412,7 +2202,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 38
+      "link_count": 30
     },
     {
       "id": "e45s08",
@@ -2424,62 +2214,14 @@
       "status": "done",
       "links": [
         {
-          "file": ".gemini/extensions/bigpowers/commands/prompts/develop-tdd.md",
-          "line": 4,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".gemini/extensions/bigpowers/commands/prompts/validate-fix.md",
-          "line": 2,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".gemini/extensions/bigpowers/skills/validate-fix/SKILL.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".gemini/extensions/bigpowers/skills/develop-tdd/SKILL.md",
-          "line": 9,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": "skills/validate-fix/SKILL.md",
-          "line": 8,
+          "line": 1,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": "skills/develop-tdd/SKILL.md",
-          "line": 12,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/prompts/develop-tdd.md",
-          "line": 8,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/prompts/validate-fix.md",
-          "line": 6,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/validate-fix/SKILL.md",
-          "line": 8,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/develop-tdd/SKILL.md",
-          "line": 10,
+          "line": 3,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -2538,7 +2280,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 19
+      "link_count": 11
     },
     {
       "id": "e45s09",
@@ -2550,32 +2292,20 @@
       "status": "done",
       "links": [
         {
-          "file": ".gemini/extensions/bigpowers/commands/prompts/plan-work.md",
-          "line": 4,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": ".gemini/extensions/bigpowers/commands/prompts/verify-work.md",
-          "line": 4,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".gemini/extensions/bigpowers/skills/plan-work/SKILL.md",
-          "line": 9,
+          "line": 5,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": ".gemini/extensions/bigpowers/skills/verify-work/SKILL.md",
-          "line": 9,
+          "line": 10,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": "skills/plan-work/SKILL.md",
-          "line": 13,
+          "line": 3,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -2586,26 +2316,14 @@
           "method": "explicit_tag"
         },
         {
-          "file": ".pi/prompts/plan-work.md",
-          "line": 8,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": ".pi/prompts/verify-work.md",
-          "line": 8,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/plan-work/SKILL.md",
-          "line": 10,
+          "line": 9,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": ".pi/skills/verify-work/SKILL.md",
-          "line": 10,
+          "line": 11,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -2982,7 +2700,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 72
+      "link_count": 68
     },
     {
       "id": "e45s10",
@@ -3049,13 +2767,13 @@
       "links": [
         {
           "file": ".gemini/extensions/bigpowers/commands/prompts/dispatch-agents.md",
-          "line": 3,
+          "line": 4,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": ".gemini/extensions/bigpowers/skills/dispatch-agents/SKILL.md",
-          "line": 8,
+          "line": 9,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -3067,13 +2785,13 @@
         },
         {
           "file": ".pi/prompts/dispatch-agents.md",
-          "line": 7,
+          "line": 8,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": ".pi/skills/dispatch-agents/SKILL.md",
-          "line": 9,
+          "line": 10,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -3115,25 +2833,13 @@
       "links": [
         {
           "file": ".gemini/extensions/bigpowers/commands/prompts/stocktake-skills.md",
-          "line": 2,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".gemini/extensions/bigpowers/commands/prompts/craft-skill.md",
           "line": 3,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
-          "file": ".gemini/extensions/bigpowers/skills/craft-skill/SKILL.md",
-          "line": 8,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": ".gemini/extensions/bigpowers/skills/stocktake-skills/SKILL.md",
-          "line": 7,
+          "line": 8,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -3145,7 +2851,7 @@
         },
         {
           "file": "skills/craft-skill/SKILL.md",
-          "line": 10,
+          "line": 2,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -3157,25 +2863,13 @@
         },
         {
           "file": ".pi/prompts/stocktake-skills.md",
-          "line": 6,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/prompts/craft-skill.md",
           "line": 7,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
-          "file": ".pi/skills/craft-skill/SKILL.md",
-          "line": 9,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": ".pi/skills/stocktake-skills/SKILL.md",
-          "line": 8,
+          "line": 9,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -3342,7 +3036,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 38
+      "link_count": 34
     },
     {
       "id": "e45s13",
@@ -3355,13 +3049,13 @@
       "links": [
         {
           "file": ".gemini/extensions/bigpowers/commands/prompts/verify-work.md",
-          "line": 5,
+          "line": 6,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": ".gemini/extensions/bigpowers/skills/verify-work/SKILL.md",
-          "line": 10,
+          "line": 11,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -3373,13 +3067,13 @@
         },
         {
           "file": ".pi/prompts/verify-work.md",
-          "line": 9,
+          "line": 10,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": ".pi/skills/verify-work/SKILL.md",
-          "line": 11,
+          "line": 12,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -3456,18 +3150,6 @@
       "status": "done",
       "links": [
         {
-          "file": ".gemini/extensions/bigpowers/commands/prompts/deepen-architecture.md",
-          "line": 3,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".gemini/extensions/bigpowers/skills/deepen-architecture/SKILL.md",
-          "line": 8,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": "scripts/check-import-boundaries.sh",
           "line": 2,
           "confidence": "high",
@@ -3475,19 +3157,7 @@
         },
         {
           "file": "skills/deepen-architecture/SKILL.md",
-          "line": 10,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/prompts/deepen-architecture.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/deepen-architecture/SKILL.md",
-          "line": 9,
+          "line": 2,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -3522,7 +3192,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 11
+      "link_count": 7
     },
     {
       "id": "e45s15",
@@ -3534,20 +3204,8 @@
       "status": "done",
       "links": [
         {
-          "file": ".gemini/extensions/bigpowers/commands/prompts/deploy.md",
-          "line": 2,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": ".gemini/extensions/bigpowers/commands/prompts/release-branch.md",
           "line": 3,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".gemini/extensions/bigpowers/skills/deploy/SKILL.md",
-          "line": 7,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -3559,7 +3217,7 @@
         },
         {
           "file": "skills/deploy/SKILL.md",
-          "line": 9,
+          "line": 1,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -3570,20 +3228,8 @@
           "method": "explicit_tag"
         },
         {
-          "file": ".pi/prompts/deploy.md",
-          "line": 6,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": ".pi/prompts/release-branch.md",
           "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/deploy/SKILL.md",
-          "line": 8,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -3636,7 +3282,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 17
+      "link_count": 13
     },
     {
       "id": "e45s16",
@@ -3684,32 +3330,8 @@
       "status": "done",
       "links": [
         {
-          "file": ".gemini/extensions/bigpowers/commands/prompts/request-review.md",
-          "line": 4,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".gemini/extensions/bigpowers/skills/request-review/SKILL.md",
-          "line": 9,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": "skills/request-review/SKILL.md",
-          "line": 10,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/prompts/request-review.md",
-          "line": 8,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/request-review/SKILL.md",
-          "line": 10,
+          "line": 3,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -3840,7 +3462,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 26
+      "link_count": 22
     },
     {
       "id": "e45s18",
@@ -3858,19 +3480,7 @@
           "method": "explicit_tag"
         },
         {
-          "file": ".gemini/extensions/bigpowers/commands/prompts/audit-code.md",
-          "line": 3,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": ".gemini/extensions/bigpowers/skills/security-review/SKILL.md",
-          "line": 8,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".gemini/extensions/bigpowers/skills/audit-code/SKILL.md",
           "line": 8,
           "confidence": "high",
           "method": "explicit_tag"
@@ -3889,7 +3499,7 @@
         },
         {
           "file": "skills/audit-code/SKILL.md",
-          "line": 13,
+          "line": 2,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -3900,19 +3510,7 @@
           "method": "explicit_tag"
         },
         {
-          "file": ".pi/prompts/audit-code.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": ".pi/skills/security-review/SKILL.md",
-          "line": 9,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/audit-code/SKILL.md",
           "line": 9,
           "confidence": "high",
           "method": "explicit_tag"
@@ -3937,6 +3535,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260702-165245.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-102313.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4110,6 +3714,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-101228.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-102150.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260706-214411.md",
           "line": 0,
           "confidence": "medium",
@@ -4140,6 +3756,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-105239.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-181904.md",
           "line": 0,
           "confidence": "medium",
@@ -4153,6 +3775,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-170432.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-101847.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4320,6 +3948,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-101730.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-170710.md",
           "line": 0,
           "confidence": "medium",
@@ -4345,6 +3979,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260706-213042.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-134029.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4417,6 +4057,18 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-165945.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-110149.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-105711.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4512,6 +4164,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-133945.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-174055.md",
           "line": 0,
           "confidence": "medium",
@@ -4578,6 +4236,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-105145.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260706-184319.md",
           "line": 0,
           "confidence": "medium",
@@ -4609,6 +4273,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-182555.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-124641.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4735,6 +4405,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-154246.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-111510.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5010,7 +4686,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-105013.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260702-200110.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-114242.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5029,6 +4717,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260706-183102.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-133837.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5166,6 +4860,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-120815.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-165959.md",
           "line": 0,
           "confidence": "medium",
@@ -5251,6 +4951,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260706-120136.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-104009.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5395,6 +5101,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-175521.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-110050.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5689,6 +5401,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260706-132207.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-105058.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -6030,6 +5748,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-123626.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260706-184355.md",
           "line": 0,
           "confidence": "medium",
@@ -6043,6 +5767,24 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-170431.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-101633.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-103924.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-101425.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -6216,7 +5958,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 394
+      "link_count": 414
     },
     {
       "id": "e45s19",
@@ -6301,25 +6043,25 @@
       "links": [
         {
           "file": ".gemini/extensions/bigpowers/commands/prompts/seed-conventions.md",
-          "line": 3,
+          "line": 6,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": ".gemini/extensions/bigpowers/commands/prompts/seed-conventions.md",
-          "line": 99,
+          "line": 102,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": ".gemini/extensions/bigpowers/skills/seed-conventions/SKILL.md",
-          "line": 8,
+          "line": 11,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": ".gemini/extensions/bigpowers/skills/seed-conventions/SKILL.md",
-          "line": 104,
+          "line": 107,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -6343,25 +6085,25 @@
         },
         {
           "file": ".pi/prompts/seed-conventions.md",
-          "line": 7,
+          "line": 10,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": ".pi/prompts/seed-conventions.md",
-          "line": 103,
+          "line": 106,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": ".pi/skills/seed-conventions/SKILL.md",
-          "line": 9,
+          "line": 12,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": ".pi/skills/seed-conventions/SKILL.md",
-          "line": 105,
+          "line": 108,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -6412,15 +6154,9 @@
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
-        },
-        {
-          "file": "specs/epics/e05-context-isolation-routing.yaml",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
         }
       ],
-      "link_count": 3
+      "link_count": 2
     },
     {
       "id": "e45s23",
@@ -6445,7 +6181,7 @@
         },
         {
           "file": "skills/session-state/SKILL.md",
-          "line": 11,
+          "line": 8,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -6492,12 +6228,6 @@
       "status": "done",
       "links": [
         {
-          "file": "skills/plan-work/REFERENCE.md",
-          "line": 2,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": "specs/verifications/steps/and-files-should-be-small-enough-to-avoid-context-window-truncation-300-lines.sh",
           "line": 0,
           "confidence": "medium",
@@ -6510,7 +6240,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 3
+      "link_count": 2
     },
     {
       "id": "e45s25",
@@ -6565,19 +6295,19 @@
       "links": [
         {
           "file": ".gemini/extensions/bigpowers/commands/prompts/security-review.md",
-          "line": 6,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".gemini/extensions/bigpowers/skills/security-review/SKILL.md",
           "line": 11,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
+          "file": ".gemini/extensions/bigpowers/skills/security-review/SKILL.md",
+          "line": 16,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "skills/security-review/SKILL.md",
-          "line": 23,
+          "line": 22,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -6607,13 +6337,13 @@
         },
         {
           "file": ".pi/prompts/security-review.md",
-          "line": 10,
+          "line": 15,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": ".pi/skills/security-review/SKILL.md",
-          "line": 12,
+          "line": 17,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -6655,13 +6385,13 @@
       "links": [
         {
           "file": ".gemini/extensions/bigpowers/commands/prompts/compose-workflow.md",
-          "line": 2,
+          "line": 3,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": ".gemini/extensions/bigpowers/skills/compose-workflow/SKILL.md",
-          "line": 7,
+          "line": 8,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -6673,13 +6403,13 @@
         },
         {
           "file": ".pi/prompts/compose-workflow.md",
-          "line": 6,
+          "line": 7,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": ".pi/skills/compose-workflow/SKILL.md",
-          "line": 8,
+          "line": 9,
           "confidence": "high",
           "method": "explicit_tag"
         }
@@ -6697,31 +6427,31 @@
       "links": [
         {
           "file": ".gemini/extensions/bigpowers/commands/prompts/request-review.md",
-          "line": 7,
+          "line": 2,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": ".gemini/extensions/bigpowers/skills/request-review/SKILL.md",
-          "line": 12,
+          "line": 7,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": "skills/request-review/SKILL.md",
-          "line": 13,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/prompts/request-review.md",
           "line": 11,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
+          "file": ".pi/prompts/request-review.md",
+          "line": 6,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": ".pi/skills/request-review/SKILL.md",
-          "line": 13,
+          "line": 8,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -6775,7 +6505,7 @@
         },
         {
           "file": ".gemini/extensions/bigpowers/commands/prompts/plan-work.md",
-          "line": 9,
+          "line": 2,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -6787,7 +6517,7 @@
         },
         {
           "file": ".gemini/extensions/bigpowers/skills/plan-work/SKILL.md",
-          "line": 14,
+          "line": 7,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -6805,7 +6535,7 @@
         },
         {
           "file": "skills/plan-work/SKILL.md",
-          "line": 16,
+          "line": 13,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -6817,7 +6547,7 @@
         },
         {
           "file": "skills/slice-tasks/SKILL.md",
-          "line": 9,
+          "line": 8,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -6829,7 +6559,7 @@
         },
         {
           "file": ".pi/prompts/plan-work.md",
-          "line": 13,
+          "line": 6,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -6841,7 +6571,7 @@
         },
         {
           "file": ".pi/skills/plan-work/SKILL.md",
-          "line": 15,
+          "line": 8,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -6871,7 +6601,7 @@
       "links": [
         {
           "file": ".gemini/extensions/bigpowers/commands/prompts/dispatch-agents.md",
-          "line": 6,
+          "line": 7,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -6889,13 +6619,13 @@
         },
         {
           "file": ".gemini/extensions/bigpowers/skills/dispatch-agents/SKILL.md",
-          "line": 11,
+          "line": 12,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": "skills/delegate-task/SKILL.md",
-          "line": 9,
+          "line": 8,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -6907,7 +6637,7 @@
         },
         {
           "file": ".pi/prompts/dispatch-agents.md",
-          "line": 10,
+          "line": 11,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -6925,7 +6655,7 @@
         },
         {
           "file": ".pi/skills/dispatch-agents/SKILL.md",
-          "line": 12,
+          "line": 13,
           "confidence": "high",
           "method": "explicit_tag"
         }
@@ -6942,30 +6672,6 @@
       "status": "done",
       "links": [
         {
-          "file": ".gemini/extensions/bigpowers/commands/prompts/audit-code.md",
-          "line": 4,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".gemini/extensions/bigpowers/commands/prompts/deepen-architecture.md",
-          "line": 2,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".gemini/extensions/bigpowers/skills/deepen-architecture/SKILL.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".gemini/extensions/bigpowers/skills/audit-code/SKILL.md",
-          "line": 9,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": "scripts/bp-churn-rank.sh",
           "line": 2,
           "confidence": "high",
@@ -6973,37 +6679,13 @@
         },
         {
           "file": "skills/deepen-architecture/SKILL.md",
-          "line": 9,
+          "line": 1,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": "skills/audit-code/SKILL.md",
-          "line": 14,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/prompts/audit-code.md",
-          "line": 8,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/prompts/deepen-architecture.md",
-          "line": 6,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/deepen-architecture/SKILL.md",
-          "line": 8,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/audit-code/SKILL.md",
-          "line": 10,
+          "line": 3,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -7057,6 +6739,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260702-165245.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-102313.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -7230,6 +6918,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-101228.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-102150.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260706-214411.md",
           "line": 0,
           "confidence": "medium",
@@ -7260,6 +6960,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-105239.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-181904.md",
           "line": 0,
           "confidence": "medium",
@@ -7273,6 +6979,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-170432.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-101847.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -7440,6 +7152,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-101730.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-170710.md",
           "line": 0,
           "confidence": "medium",
@@ -7465,6 +7183,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260706-213042.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-134029.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -7537,6 +7261,18 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-165945.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-110149.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-105711.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -7632,6 +7368,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-133945.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-174055.md",
           "line": 0,
           "confidence": "medium",
@@ -7698,6 +7440,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-105145.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260706-184319.md",
           "line": 0,
           "confidence": "medium",
@@ -7729,6 +7477,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-182555.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-124641.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -7855,6 +7609,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-154246.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-111510.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8130,7 +7890,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-105013.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260702-200110.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-114242.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8149,6 +7921,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260706-183102.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-133837.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8286,6 +8064,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-120815.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-165959.md",
           "line": 0,
           "confidence": "medium",
@@ -8371,6 +8155,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260706-120136.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-104009.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8515,6 +8305,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-175521.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-110050.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8809,6 +8605,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260706-132207.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-105058.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -9150,6 +8952,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-123626.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260706-184355.md",
           "line": 0,
           "confidence": "medium",
@@ -9163,6 +8971,24 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-170431.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-101633.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-103924.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-101425.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -9318,7 +9144,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 396
+      "link_count": 412
     },
     {
       "id": "e45s32",
@@ -9349,7 +9175,7 @@
         },
         {
           "file": "skills/gate-trace/SKILL.md",
-          "line": 5,
+          "line": 6,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -9492,14 +9318,8 @@
       "status": "done",
       "links": [
         {
-          "file": ".gemini/extensions/bigpowers/commands/prompts/plan-work.md",
-          "line": 5,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".gemini/extensions/bigpowers/skills/plan-work/SKILL.md",
-          "line": 10,
+          "file": "website/src/content/docs/guides/countable-story-format.md",
+          "line": 6,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -9511,24 +9331,12 @@
         },
         {
           "file": "skills/plan-work/SKILL.md",
-          "line": 14,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/prompts/plan-work.md",
-          "line": 9,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/plan-work/SKILL.md",
-          "line": 11,
+          "line": 4,
           "confidence": "high",
           "method": "explicit_tag"
         }
       ],
-      "link_count": 6
+      "link_count": 3
     },
     {
       "id": "e45s34",
@@ -9540,32 +9348,8 @@
       "status": "done",
       "links": [
         {
-          "file": ".gemini/extensions/bigpowers/commands/prompts/develop-tdd.md",
-          "line": 5,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".gemini/extensions/bigpowers/skills/develop-tdd/SKILL.md",
-          "line": 10,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": "skills/develop-tdd/SKILL.md",
-          "line": 13,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/prompts/develop-tdd.md",
-          "line": 9,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/develop-tdd/SKILL.md",
-          "line": 11,
+          "line": 4,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -9600,7 +9384,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 10
+      "link_count": 6
     },
     {
       "id": "e45s35",
@@ -9612,32 +9396,8 @@
       "status": "done",
       "links": [
         {
-          "file": ".gemini/extensions/bigpowers/commands/prompts/plan-work.md",
-          "line": 6,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".gemini/extensions/bigpowers/skills/plan-work/SKILL.md",
-          "line": 11,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": "skills/plan-work/SKILL.md",
-          "line": 15,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/prompts/plan-work.md",
-          "line": 10,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/plan-work/SKILL.md",
-          "line": 12,
+          "line": 5,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -9672,7 +9432,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 10
+      "link_count": 6
     },
     {
       "id": "e45s36",
@@ -9708,32 +9468,8 @@
       "status": "done",
       "links": [
         {
-          "file": ".gemini/extensions/bigpowers/commands/prompts/run-evals.md",
-          "line": 2,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".gemini/extensions/bigpowers/skills/run-evals/SKILL.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": "skills/run-evals/SKILL.md",
-          "line": 9,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/prompts/run-evals.md",
-          "line": 6,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/run-evals/SKILL.md",
-          "line": 8,
+          "line": 1,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -9751,12 +9487,6 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-06-run-evals-golden-suite-oversized.okf.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/epics/e02-verification-evals.yaml",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -9780,7 +9510,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 12
+      "link_count": 7
     },
     {
       "id": "e45s38",
@@ -9792,32 +9522,20 @@
       "status": "done",
       "links": [
         {
-          "file": ".gemini/extensions/bigpowers/commands/prompts/diagnose-stall.md",
-          "line": 2,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": ".gemini/extensions/bigpowers/commands/prompts/dispatch-agents.md",
-          "line": 2,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".gemini/extensions/bigpowers/skills/diagnose-stall/SKILL.md",
-          "line": 7,
+          "line": 3,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": ".gemini/extensions/bigpowers/skills/dispatch-agents/SKILL.md",
-          "line": 7,
+          "line": 8,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": "skills/diagnose-stall/SKILL.md",
-          "line": 8,
+          "line": 1,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -9828,26 +9546,14 @@
           "method": "explicit_tag"
         },
         {
-          "file": ".pi/prompts/diagnose-stall.md",
-          "line": 6,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": ".pi/prompts/dispatch-agents.md",
-          "line": 6,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/diagnose-stall/SKILL.md",
-          "line": 8,
+          "line": 7,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": ".pi/skills/dispatch-agents/SKILL.md",
-          "line": 8,
+          "line": 9,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -9864,7 +9570,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 12
+      "link_count": 8
     },
     {
       "id": "e45s39",
@@ -9919,13 +9625,13 @@
       "links": [
         {
           "file": ".gemini/extensions/bigpowers/commands/prompts/verify-work.md",
-          "line": 6,
+          "line": 7,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": ".gemini/extensions/bigpowers/skills/verify-work/SKILL.md",
-          "line": 11,
+          "line": 12,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -9937,13 +9643,13 @@
         },
         {
           "file": ".pi/prompts/verify-work.md",
-          "line": 10,
+          "line": 11,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": ".pi/skills/verify-work/SKILL.md",
-          "line": 12,
+          "line": 13,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -10033,7 +9739,7 @@
         },
         {
           "file": "specs/state.yaml",
-          "line": 14,
+          "line": 18,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -10089,7 +9795,7 @@
       "epic_title": "Foundation \u2014 Knowledge Layer + Process Maturity",
       "bcp": 2,
       "wsjf": 2.5,
-      "status": "todo",
+      "status": "done",
       "links": [
         {
           "file": "specs/benchmarks/develop-tdd.yaml",
@@ -10228,9 +9934,21 @@
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
+        },
+        {
+          "file": ".github/workflows/publish-wiki.yml",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "kernel/src/publish-to-wiki.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
         }
       ],
-      "link_count": 23
+      "link_count": 25
     },
     {
       "id": "e48s02",
@@ -10239,7 +9957,7 @@
       "epic_title": "Foundation \u2014 Knowledge Layer + Process Maturity",
       "bcp": 2,
       "wsjf": 2.5,
-      "status": "todo",
+      "status": "done",
       "links": [
         {
           "file": "specs/verifications/AUDIT-e42-golden-stories.md",
@@ -10413,7 +10131,7 @@
       "epic_title": "Foundation \u2014 Knowledge Layer + Process Maturity",
       "bcp": 1,
       "wsjf": 2.5,
-      "status": "todo",
+      "status": "done",
       "links": [
         {
           "file": "specs/skills-wiki/skills/fix-bug.md",
@@ -10447,6 +10165,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-06-g06-migrate-version-golden.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-001.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -10549,6 +10273,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-06-plan-release-gap-logic-boolean.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-001.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -10722,6 +10452,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-07-07-install-gemini-plugins.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-03-golden-lock-stale-e37-ids.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -10752,7 +10488,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-07-07-install-reference-error.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-06-gate-trace-matrix-oversized.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-07T113000.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -10998,7 +10746,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 97
+      "link_count": 102
     },
     {
       "id": "e48s04",
@@ -11007,7 +10755,7 @@
       "epic_title": "Foundation \u2014 Knowledge Layer + Process Maturity",
       "bcp": 2,
       "wsjf": 2.5,
-      "status": "todo",
+      "status": "done",
       "links": [
         {
           "file": "specs/skills-wiki/skills/enforce-first.md",
@@ -11085,7 +10833,7 @@
       "epic_title": "Foundation \u2014 Knowledge Layer + Process Maturity",
       "bcp": 1,
       "wsjf": 2.5,
-      "status": "todo",
+      "status": "done",
       "links": [
         {
           "file": "specs/IMPACT-e38-okf-adoption.md",
@@ -11209,6 +10957,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-06-plan-release-gap-logic-boolean.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-001.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -11676,7 +11430,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 98
+      "link_count": 99
     },
     {
       "id": "e48s06",
@@ -11685,7 +11439,7 @@
       "epic_title": "Foundation \u2014 Knowledge Layer + Process Maturity",
       "bcp": 2,
       "wsjf": 2.5,
-      "status": "todo",
+      "status": "done",
       "links": [
         {
           "file": "specs/verifications/steps/and-i-should-use-fresh-subagent-context-for-independent-reviews.sh",
@@ -11751,9 +11505,22 @@
       "epic_title": "Foundation \u2014 Knowledge Layer + Process Maturity",
       "bcp": 3,
       "wsjf": 2.5,
-      "status": "todo",
-      "links": [],
-      "link_count": 0
+      "status": "done",
+      "links": [
+        {
+          "file": "kernel/src/publish-to-wiki.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".github/workflows/publish-wiki.yml",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        }
+      ],
+      "link_count": 2
     },
     {
       "id": "e48s08",
@@ -11762,9 +11529,16 @@
       "epic_title": "Foundation \u2014 Knowledge Layer + Process Maturity",
       "bcp": 1,
       "wsjf": 2.5,
-      "status": "todo",
-      "links": [],
-      "link_count": 0
+      "status": "done",
+      "links": [
+        {
+          "file": ".github/workflows/publish-wiki.yml",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        }
+      ],
+      "link_count": 1
     },
     {
       "id": "e48s09",
@@ -11773,7 +11547,7 @@
       "epic_title": "Foundation \u2014 Knowledge Layer + Process Maturity",
       "bcp": 2,
       "wsjf": 2.5,
-      "status": "todo",
+      "status": "done",
       "links": [
         {
           "file": "specs/verifications/steps/and-it-must-mandate-provenance-links-for-complex-logic.sh",
@@ -11797,7 +11571,7 @@
       "epic_title": "Foundation \u2014 Knowledge Layer + Process Maturity",
       "bcp": 2,
       "wsjf": 2.5,
-      "status": "todo",
+      "status": "done",
       "links": [
         {
           "file": "specs/skills-wiki/skills/grill-with-docs.md",
@@ -11887,7 +11661,7 @@
       "epic_title": "Foundation \u2014 Knowledge Layer + Process Maturity",
       "bcp": 5,
       "wsjf": 2.5,
-      "status": "todo",
+      "status": "done",
       "links": [
         {
           "file": "specs/skills-wiki/skills/smoke-test.md",
@@ -12043,13 +11817,19 @@
       "epic_title": "Foundation \u2014 Knowledge Layer + Process Maturity",
       "bcp": 5,
       "wsjf": 2.5,
-      "status": "todo",
+      "status": "done",
       "links": [
         {
           "file": "specs/epics/e48-foundation/e48s12-bcp-plus-s02.md",
           "line": 1,
           "confidence": "high",
           "method": "explicit_tag"
+        },
+        {
+          "file": "specs/templates/story-template.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
         },
         {
           "file": "specs/epics/e48-foundation/e48s13-bcp-plus-s03.md",
@@ -12088,7 +11868,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 7
+      "link_count": 8
     },
     {
       "id": "e48s13",
@@ -12097,7 +11877,7 @@
       "epic_title": "Foundation \u2014 Knowledge Layer + Process Maturity",
       "bcp": 4,
       "wsjf": 2.5,
-      "status": "todo",
+      "status": "done",
       "links": [
         {
           "file": "specs/epics/e48-foundation/e48s13-bcp-plus-s03.md",
@@ -12205,7 +11985,7 @@
       "epic_title": "Foundation \u2014 Knowledge Layer + Process Maturity",
       "bcp": 4,
       "wsjf": 2.5,
-      "status": "todo",
+      "status": "done",
       "links": [
         {
           "file": "specs/epics/e48-foundation/e48s14-bcp-plus-s04.md",
@@ -12215,12 +11995,6 @@
         },
         {
           "file": "specs/skills-wiki/skills/build-epic.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/epics/e20-build-epic-ergonomics.yaml",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -12292,17 +12066,14 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 14
+      "link_count": 13
     }
   ],
   "summary": {
     "total_stories": 71,
-    "tagged_stories": 61,
-    "dark_stories": [
-      "e48s07",
-      "e48s08"
-    ],
-    "dark_count": 2,
+    "tagged_stories": 60,
+    "dark_stories": [],
+    "dark_count": 0,
     "orphan_tags": [
       "e01s01",
       "e01s02",
@@ -12329,40 +12100,20 @@
       "e07s03",
       "e08s01",
       "e09s01",
-      "e09s02",
-      "e09s03",
       "e09s04",
       "e09s05",
-      "e09s06",
       "e10s01",
       "e10s02",
-      "e11s01",
-      "e11s02",
-      "e11s03",
-      "e11s05",
       "e12s01",
       "e12s02",
       "e12s03",
       "e12s04",
-      "e12s05",
       "e12s06",
-      "e13s01",
+      "e13s02",
       "e13s03",
       "e14s01",
-      "e14s02",
-      "e14s03",
-      "e15s01",
-      "e15s02",
-      "e15s03",
-      "e16s01",
-      "e16s02",
-      "e17s01",
       "e18s01",
-      "e18s02",
-      "e18s03",
-      "e18s04",
       "e18s05",
-      "e19s01",
       "e20s01",
       "e20s02",
       "e20s03",
@@ -12405,12 +12156,7 @@
       "e30s01",
       "e30s02",
       "e30s03",
-      "e31s01",
-      "e31s02",
-      "e31s03",
       "e31s04",
-      "e31s05",
-      "e31s06",
       "e31s07",
       "e32s01",
       "e32s02",
@@ -12422,10 +12168,6 @@
       "e33s03",
       "e33s04",
       "e33s05",
-      "e34s01",
-      "e34s02",
-      "e34s03",
-      "e34s04",
       "e35s01",
       "e35s02",
       "e35s03",
@@ -12456,17 +12198,15 @@
       "e39s05",
       "e39s06",
       "e39s07",
-      "e39s08",
       "e39s09",
-      "e39s10",
       "e40s04",
       "e40s06",
       "e41s01",
-      "e42s01",
       "e42s02",
       "e42s03",
       "e42s04",
       "e43s01",
+      "e43s02",
       "e44s01",
       "e44s02",
       "e44s03",
@@ -12474,9 +12214,7 @@
       "e44s05",
       "e44s06",
       "e46s01",
-      "e46s04",
       "e47s02",
-      "e47s03",
       "e47s04",
       "e51s01",
       "e51s02",
@@ -12485,7 +12223,7 @@
       "e51s05",
       "e99s01"
     ],
-    "orphan_count": 180,
+    "orphan_count": 147,
     "stale_tags": [
       "e37s01",
       "e37s02",
@@ -12500,9 +12238,7 @@
       "e37s11",
       "e37s12",
       "e37s13",
-      "e37s14",
       "e37s15",
-      "e37s16",
       "e45s01",
       "e45s02",
       "e45s03",
@@ -12526,7 +12262,6 @@
       "e45s21",
       "e45s22",
       "e45s23",
-      "e45s24",
       "e45s25",
       "e45s26",
       "e45s27",
@@ -12543,12 +12278,18 @@
       "e45s38",
       "e45s39",
       "e45s40",
-      "e45s41"
+      "e45s41",
+      "e48s01",
+      "e48s07",
+      "e48s08",
+      "e48s12",
+      "e48s13",
+      "e48s14"
     ],
-    "stale_count": 57,
+    "stale_count": 60,
     "oracle_stats": {
-      "high": 358,
-      "medium": 1445,
+      "high": 266,
+      "medium": 1499,
       "low": 104
     }
   }

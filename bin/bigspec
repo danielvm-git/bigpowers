@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+if [[ "$1" == "--with-wiki" ]]; then echo "wiki enabled"; fi
