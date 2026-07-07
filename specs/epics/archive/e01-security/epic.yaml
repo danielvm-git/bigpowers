@@ -1,0 +1,42 @@
+id: e01
+title: Security
+wsjf: 4.5
+bcps: 4
+status: done
+mode: capsule
+capsule_dir: epics/archive/e01-security
+release: v1.0.0
+codename: Security
+stories:
+- id: e01s01
+  bcp: 1
+  title: slopcheck tags in `plan-work` ([OK]/[SUS]/[SLOP])
+  status: done
+  verify: 'grep -r slopcheck plan-work/SKILL.md audit-code/SKILL.md | wc -l | awk
+    ''{if($1>=2) print "OK"}''
+
+    '
+- id: e01s02
+  bcp: 1
+  title: Supply-chain + OWASP in `audit-code`
+  status: done
+  verify: 'grep -r slopcheck plan-work/SKILL.md audit-code/SKILL.md | wc -l | awk
+    ''{if($1>=2) print "OK"}''
+
+    '
+- id: e01s03
+  bcp: 1
+  title: Secret patterns documented in `guard-git`
+  status: done
+  verify: 'grep -r slopcheck plan-work/SKILL.md audit-code/SKILL.md | wc -l | awk
+    ''{if($1>=2) print "OK"}''
+
+    '
+- id: e01s04
+  bcp: 1
+  title: '`docs/references/security-threats.md` reconciled'
+  status: done
+  verify: 'grep -r slopcheck plan-work/SKILL.md audit-code/SKILL.md | wc -l | awk
+    ''{if($1>=2) print "OK"}''
+
+    '
