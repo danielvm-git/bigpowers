@@ -1,6 +1,6 @@
 ---
 bug_id: BUG-2026-07-06-migrate-spec-migration-logic-violations
-status: open
+status: fixed
 severity: medium
 scope: skills/migrate-spec
 title: "migrate-spec: migrate-version.sh exceeds line limits (G28 in check-spec-version-gap fixed separately)"
@@ -10,10 +10,15 @@ title: "migrate-spec: migrate-version.sh exceeds line limits (G28 in check-spec-
 
 ## Problem
 
-**Remaining:** `scripts/migrate-version.sh` — 727 lines (exceeds 300/500 limits).
+`scripts/migrate-version.sh` — 727 lines (exceeded 300/500 limits).
 
-**Fixed elsewhere:** G28 in `check-spec-version-gap.sh` — see `BUG-2026-07-06-plan-release-gap-logic-boolean`.
+## Resolution
 
-## Proposed Resolution
+**Fixed:** Split into lib modules — `migrate-version-{common,plan,transforms,execute,post,run}.sh`. Entry script 727 → 55 lines. G-06 golden 7/7 PASS, golden suite 9/9 PASS.
 
-Partition `migrate-version.sh` migration steps into lib modules under 300 lines.
+| File | Lines |
+|------|-------|
+| migrate-version.sh | 55 |
+| migrate-version-transforms.sh | 231 |
+| migrate-version-post.sh | 170 |
+| (other libs) | ≤119 each |
