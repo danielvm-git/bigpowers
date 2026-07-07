@@ -1,0 +1,17 @@
+id: e08
+title: Wave Execution
+wsjf: 2.5
+bcps: 1
+status: done
+mode: capsule
+capsule_dir: epics/archive/e08-wave-execution
+release: v1.0.0
+codename: Wave Execution
+stories:
+- id: e08s01
+  bcp: 1
+  title: Wave Execution
+  status: done
+  verify: 'grep -c ''depends-on'' execute-plan/SKILL.md | awk ''{if($1>0) print "OK"}''
+
+    '

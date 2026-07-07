@@ -1,0 +1,34 @@
+id: e05
+title: Context Isolation + Routing
+wsjf: 3.3
+bcps: 3
+status: done
+mode: capsule
+capsule_dir: epics/archive/e05-context-isolation-routing
+release: v1.0.0
+codename: Context Isolation + Routing
+stories:
+- id: e05s01
+  bcp: 1
+  title: '`model:` on all SKILL.md'
+  status: done
+  verify: 'grep -rl ''^model:'' */SKILL.md 2>/dev/null | wc -l | awk ''{if($1==58)
+    print "OK"; else print $1}''
+
+    '
+- id: e05s02
+  bcp: 1
+  title: '`execute-plan` isolation + STATE.md channel'
+  status: done
+  verify: 'grep -rl ''^model:'' */SKILL.md 2>/dev/null | wc -l | awk ''{if($1==58)
+    print "OK"; else print $1}''
+
+    '
+- id: e05s03
+  bcp: 1
+  title: '`orchestrate-project` reads model + spawn list'
+  status: done
+  verify: 'grep -rl ''^model:'' */SKILL.md 2>/dev/null | wc -l | awk ''{if($1==58)
+    print "OK"; else print $1}''
+
+    '

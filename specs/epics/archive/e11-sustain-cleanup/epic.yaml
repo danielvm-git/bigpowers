@@ -1,0 +1,42 @@
+id: e11
+title: Sustain Cleanup
+wsjf: 1.0
+bcps: 10
+status: done
+mode: capsule
+capsule_dir: epics/archive/e11-sustain-cleanup
+release: v1.0.0
+codename: Sustain Cleanup
+stories:
+- id: e11s01
+  bcp: 1
+  title: Dashboard TUI UAT
+  status: done
+  verify: "node -e '(test TUI modules + render functions)' \u2192 29/29 assertions\n"
+- id: e11s02
+  bcp: 1
+  title: Dashboard Web UAT
+  status: done
+  verify: 'curl /api/state returns JSON, / returns HTML, /events connects
+
+    '
+- id: e11s03
+  bcp: 1
+  title: BCP accounting + cycle-time ledger
+  status: done
+  verify: "grep -c 'bcps:' specs/epics/*.yaml \u2192 10; specs/metrics/cycle-times.yaml\
+    \ has 31 entries\n"
+- id: e11s04
+  bcp: 1
+  title: Plan retirement + scope correction
+  status: done
+  verify: 'test -f specs/archive/PLAN-factory-dashboard.md && test -f specs/archive/PLAN-refactor-skills-workflow.md
+
+    '
+- id: e11s05
+  bcp: 1
+  title: SKILL-INDEX fix + dead code removal
+  status: done
+  verify: 'grep ''Total.*43'' SKILL-INDEX.md; test ! -d dashboard/src/data/
+
+    '

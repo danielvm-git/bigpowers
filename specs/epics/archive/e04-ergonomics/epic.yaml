@@ -1,0 +1,31 @@
+id: e04
+title: Ergonomics
+wsjf: 3.8
+bcps: 3
+status: done
+mode: capsule
+capsule_dir: epics/archive/e04-ergonomics
+release: v1.0.0
+codename: Ergonomics
+stories:
+- id: e04s01
+  bcp: 1
+  title: Handoff + compaction in `session-state`
+  status: done
+  verify: 'grep -c Handoff session-state/SKILL.md | awk ''{if($1>0) print "OK"}''
+
+    '
+- id: e04s02
+  bcp: 1
+  title: '`terse-mode` caveman rules (existing)'
+  status: done
+  verify: 'grep -c Handoff session-state/SKILL.md | awk ''{if($1>0) print "OK"}''
+
+    '
+- id: e04s03
+  bcp: 1
+  title: '`organize-workspace` gitignore section (existing)'
+  status: done
+  verify: 'grep -c Handoff session-state/SKILL.md | awk ''{if($1>0) print "OK"}''
+
+    '

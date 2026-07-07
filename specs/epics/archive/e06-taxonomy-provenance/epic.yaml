@@ -1,0 +1,31 @@
+id: e06
+title: Taxonomy & Provenance
+wsjf: 3.0
+bcps: 3
+status: done
+mode: capsule
+capsule_dir: epics/archive/e06-taxonomy-provenance
+release: v1.0.0
+codename: Taxonomy & Provenance
+stories:
+- id: e06s01
+  bcp: 1
+  title: '`type:` / `context:` in plan-work template'
+  status: done
+  verify: 'grep -c ''type:'' plan-work/SKILL.md | awk ''{if($1>0) print "OK"}''
+
+    '
+- id: e06s02
+  bcp: 1
+  title: ADR/SHA refs on steps
+  status: done
+  verify: 'grep -c ''type:'' plan-work/SKILL.md | awk ''{if($1>0) print "OK"}''
+
+    '
+- id: e06s03
+  bcp: 1
+  title: '`audit-code` metadata checks'
+  status: done
+  verify: 'grep -c ''type:'' plan-work/SKILL.md | awk ''{if($1>0) print "OK"}''
+
+    '

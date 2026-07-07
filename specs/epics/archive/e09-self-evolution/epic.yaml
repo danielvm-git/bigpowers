@@ -1,0 +1,101 @@
+id: e09
+title: Self-Evolution
+wsjf: 2.0
+bcps: 11
+status: done
+mode: capsule
+capsule_dir: epics/archive/e09-self-evolution
+release: v1.0.0
+codename: Self-Evolution
+stories:
+- id: e09s01
+  bcp: 1
+  title: stocktake-skills, evolve-skill, search-skills, compose-workflow, simulate-agents
+  status: done
+  verify: 'ls evolve-skill/SKILL.md specs/METHODOLOGY.md
+
+    '
+- id: e09s02
+  bcp: 1
+  title: '`specs/METHODOLOGY.md`'
+  status: done
+  verify: 'ls evolve-skill/SKILL.md specs/METHODOLOGY.md
+
+    '
+- id: e09s03
+  bcp: 1
+  title: craft-skill README generator
+  status: done
+  verify: 'ls evolve-skill/SKILL.md specs/METHODOLOGY.md
+
+    '
+- id: e09s04
+  bcp: 1
+  title: Iterative retrieval in dispatch-agents / delegate-task
+  status: done
+  verify: 'ls evolve-skill/SKILL.md specs/METHODOLOGY.md
+
+    '
+- id: e09s05
+  bcp: 1
+  title: evolve-skill benchmark path documented; run `bash scripts/score_run.sh` in
+    bigpo
+  status: done
+  verify: 'ls evolve-skill/SKILL.md specs/METHODOLOGY.md
+
+    '
+- id: e09s06
+  bcp: 1
+  title: Add HARD GATE enforcement callouts to 35 skills
+  status: done
+  verify: 'test -f specs/tech-architecture/HARD-GATES-REFERENCE.md && grep -c ''^##''
+    specs/tech-architecture/HARD-GATES-REFERENCE.md | grep -q ''[1-9]''
+
+
+    for skill in survey-context map-codebase research-first elaborate-spec; do grep
+    -q ''> \*\*HARD GATE\*\*'' $skill/SKILL.md || echo MISSING; done | wc -l | grep
+    -q ''^0$''
+
+
+    for skill in define-language deepen-architecture design-interface grill-me model-domain;
+    do grep -q ''> \*\*HARD GATE\*\*'' $skill/SKILL.md || echo MISSING; done | wc
+    -l | grep -q ''^0$''
+
+
+    for skill in assess-impact plan-refactor scope-work change-request; do grep -q
+    ''> \*\*HARD GATE\*\*'' $skill/SKILL.md || echo MISSING; done | wc -l | grep -q
+    ''^0$''
+
+
+    for skill in guard-git hook-commits seed-conventions; do grep -q ''> \*\*HARD
+    GATE\*\*'' $skill/SKILL.md || echo MISSING; done | wc -l | grep -q ''^0$''
+
+
+    for skill in delegate-task dispatch-agents enforce-first run-planning; do grep
+    -q ''> \*\*HARD GATE\*\*'' $skill/SKILL.md || echo MISSING; done | wc -l | grep
+    -q ''^0$''
+
+
+    for skill in inspect-quality organize-workspace stocktake-skills evolve-skill;
+    do grep -q ''> \*\*HARD GATE\*\*'' $skill/SKILL.md || echo MISSING; done | wc
+    -l | grep -q ''^0$''
+
+
+    for skill in terse-mode compose-workflow edit-document session-state search-skills
+    setup-environment simulate-agents validate-fix visual-dashboard wire-observability;
+    do grep -q ''> \*\*HARD GATE\*\*'' $skill/SKILL.md || echo MISSING; done | wc
+    -l | grep -q ''^0$''
+
+
+    for skill in using-bigpowers orchestrate-project spike-prototype commit-message
+    audit-code respond-review; do grep -q ''> \*\*HARD GATE\*\*'' $skill/SKILL.md
+    || echo MISSING; done | wc -l | grep -q ''^0$''
+
+
+    bash scripts/sync-skills.sh && test -f .cursor/rules/bigpowers.md
+
+
+    grep -c ''> \*\*HARD GATE\*\*'' */SKILL.md | awk -F: ''{s+=$2} END {print s}''
+    | grep -q ''[3-9][0-9]''
+
+    '

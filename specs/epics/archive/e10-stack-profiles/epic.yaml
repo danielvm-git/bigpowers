@@ -1,0 +1,24 @@
+id: e10
+title: Stack Profiles
+wsjf: 1.8
+bcps: 2
+status: done
+mode: capsule
+capsule_dir: epics/archive/e10-stack-profiles
+release: v1.0.0
+codename: Stack Profiles
+stories:
+- id: e10s01
+  bcp: 1
+  title: profiles/swift.md, typescript-vue.md, node-service.md
+  status: done
+  verify: 'ls profiles/*.md | wc -l | awk ''{if($1==3) print "OK"}''
+
+    '
+- id: e10s02
+  bcp: 1
+  title: seed-conventions profile picker
+  status: done
+  verify: 'ls profiles/*.md | wc -l | awk ''{if($1==3) print "OK"}''
+
+    '

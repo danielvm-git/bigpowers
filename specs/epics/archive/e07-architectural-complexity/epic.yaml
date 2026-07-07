@@ -1,0 +1,34 @@
+id: e07
+title: Architectural Complexity
+wsjf: 2.8
+bcps: 3
+status: done
+mode: capsule
+capsule_dir: epics/archive/e07-architectural-complexity
+release: v1.0.0
+codename: Architectural Complexity
+stories:
+- id: e07s01
+  bcp: 1
+  title: Demeter in CONVENTIONS.md + audit-code
+  status: done
+  verify: 'grep -c Demeter CONVENTIONS.md audit-code/SKILL.md | awk -F: ''{s+=$2}
+    END {if(s>=2) print "OK"}''
+
+    '
+- id: e07s02
+  bcp: 1
+  title: Module Depth score in deepen-architecture
+  status: done
+  verify: 'grep -c Demeter CONVENTIONS.md audit-code/SKILL.md | awk -F: ''{s+=$2}
+    END {if(s>=2) print "OK"}''
+
+    '
+- id: e07s03
+  bcp: 1
+  title: Concurrency audit in model-domain
+  status: done
+  verify: 'grep -c Demeter CONVENTIONS.md audit-code/SKILL.md | awk -F: ''{s+=$2}
+    END {if(s>=2) print "OK"}''
+
+    '

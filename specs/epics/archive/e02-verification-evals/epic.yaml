@@ -1,0 +1,38 @@
+id: e02
+title: Verification & Evals
+wsjf: 4.3
+bcps: 4
+status: done
+mode: capsule
+capsule_dir: epics/archive/e02-verification-evals
+release: v1.0.0
+codename: Verification & Evals
+stories:
+- id: e02s01
+  bcp: 1
+  title: '`verify-work`, `run-evals` skills'
+  status: done
+  verify: 'test -d verify-work && test -d run-evals && echo OK
+
+    '
+- id: e02s02
+  bcp: 1
+  title: Verification Script template in `plan-work`
+  status: done
+  verify: 'test -d verify-work && test -d run-evals && echo OK
+
+    '
+- id: e02s03
+  bcp: 1
+  title: UAT checkpoint in `execute-plan`
+  status: done
+  verify: 'test -d verify-work && test -d run-evals && echo OK
+
+    '
+- id: e02s04
+  bcp: 1
+  title: RED/GREEN/REFACTOR commits in `develop-tdd`
+  status: done
+  verify: 'test -d verify-work && test -d run-evals && echo OK
+
+    '

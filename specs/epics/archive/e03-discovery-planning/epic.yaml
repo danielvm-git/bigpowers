@@ -1,0 +1,32 @@
+id: e03
+title: Discovery & Planning
+wsjf: 4.0
+bcps: 2
+status: done
+mode: capsule
+capsule_dir: epics/archive/e03-discovery-planning
+release: v1.0.0
+codename: Discovery & Planning
+stories:
+- id: e03s01
+  bcp: 1
+  title: '`research-first`, `scope-work`, `slice-tasks`, `grill-with-docs`'
+  status: done
+  verify: 'ls scope-work/SKILL.md slice-tasks/SKILL.md grill-with-docs/SKILL.md research-first/SKILL.md
+
+    '
+- id: e03s02
+  bcp: 1
+  title: '`using-bigpowers` lifecycle updated'
+  status: done
+  verify: 'ls scope-work/SKILL.md slice-tasks/SKILL.md grill-with-docs/SKILL.md research-first/SKILL.md
+
+    '
+- id: e03s03
+  bcp: 1
+  title: Absorb 5 near-duplicate utility skills into session-state and survey-context
+  status: done
+  verify: 'grep -c ''show-state\|reset-state\|compact-state'' skills/session-state/SKILL.md
+    | awk ''{if($1>0) print \"OK\"}''
+
+    '
