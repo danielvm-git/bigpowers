@@ -2,11 +2,11 @@ active_flow: null
 active_epic: null
 active_story: null
 bug_id: null
-bigpowers_version: 2.75.1
+bigpowers_version: 2.75.2
 bug_cycle: null
 handoff:
-  context: All open bugs fixed — BUG-001 epic status drift + BUG-2026-07-07-e48-audit-gaps
-    (prior session). Zero open bugs in registry.
+  context: All open bugs fixed — BUG-001 epic status drift + BUG-2026-07-07-e48-audit-gaps (prior session).
+    Zero open bugs in registry.
   next_skill: commit-message
   epic: null
 epic_cycle: null

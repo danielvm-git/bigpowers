@@ -1,3 +1,10 @@
+## [2.75.2](https://github.com/danielvm-git/bigpowers/compare/v2.75.1...v2.75.2) (2026-07-07)
+
+
+### Bug Fixes
+
+* **ci:** enforce blocking OKF validation and close bug audit gaps ([e502c62](https://github.com/danielvm-git/bigpowers/commit/e502c62583024df36bed086d8e44a871907632cd))
+
 ## [2.75.1](https://github.com/danielvm-git/bigpowers/compare/v2.75.0...v2.75.1) (2026-07-07)
 
 
