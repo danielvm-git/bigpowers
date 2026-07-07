@@ -26,7 +26,7 @@ assign_tier() {
   esac
 }
 
-for epic_yaml in "$ROOT"/specs/epics/*/epic.yaml; do
+for epic_yaml in "$ROOT"/specs/epics/*/epic.yaml "$ROOT"/specs/epics/archive/*/epic.yaml; do
   [ -f "$epic_yaml" ] || continue
 
   epic_dir=$(dirname "$epic_yaml")
@@ -45,8 +45,8 @@ for epic_yaml in "$ROOT"/specs/epics/*/epic.yaml; do
   tier=$(assign_tier "$epic_id")
 
   # Build references array from story list
-  story_count=$(grep -c '^\s\+- id:' "$epic_yaml" 2>/dev/null || echo "0")
-  refs=$(grep '^\s\+- id:' "$epic_yaml" 2>/dev/null | sed 's/.*- id: */    - /' || echo "")
+  story_count=$(grep -c '^\s*- id:' "$epic_yaml" 2>/dev/null || true)
+  refs=$(grep '^\s*- id:' "$epic_yaml" 2>/dev/null | sed 's/.*- id: */    - /' || true)
 
   bundle="$WIKI/${epic_id}.okf.md"
 
@@ -54,6 +54,7 @@ for epic_yaml in "$ROOT"/specs/epics/*/epic.yaml; do
 ---
 okf_kind: concept
 okf_version: "0.1"
+type: epic
 id: "${epic_id}"
 title: "${title:-${epic_slug}}"
 category: epic

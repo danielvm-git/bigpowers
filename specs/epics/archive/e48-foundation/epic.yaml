@@ -2,7 +2,7 @@ id: e48
 title: Foundation — Knowledge Layer + Process Maturity
 wsjf: 2.5
 bcps: 36
-status: planned
+status: done
 mode: capsule
 capsule_dir: epics/e48-foundation
 release: v2.9x
@@ -36,7 +36,7 @@ stories:
     validate-okf.sh as concept-type bundles.
 
     '
-  status: todo
+  status: done
   bcp: 2
 - id: e48s02
   title: Emit verification reports as OKF bundles from run-golden-suite.sh and audit-compliance.sh
@@ -60,7 +60,7 @@ stories:
     match the score vs threshold?
 
     '
-  status: todo
+  status: done
   bcp: 2
 - id: e48s03
   title: 'OKF-ify bug-registry: specs/bugs/registry.yaml emits concept bundles per
@@ -81,7 +81,7 @@ stories:
     toolchain as everything else.
 
     '
-  status: todo
+  status: done
   bcp: 1
 - id: e48s04
   title: Create viz.html — interactive force-layout graph companion for visual-dashboard
@@ -104,10 +104,10 @@ stories:
     at generation time.
 
     '
-  status: todo
+  status: done
   bcp: 2
 - id: e48s05
-  status: todo
+  status: done
   title: Wire OKF validation into CI (sync-skills.yml) and document in OKF authority
   verify: grep -q 'validate-okf.sh' .github/workflows/sync-skills.yml && bash scripts/sync-skills.sh
     && echo OK
@@ -126,7 +126,7 @@ stories:
     '
   bcp: 1
 - id: e48s06
-  status: todo
+  status: done
   title: 'Add tier: field (core/extended/specialized) to OKF wiki indexes for conditional
     agent loading'
   verify: 'grep -q ''tier:'' specs/epics-wiki/e38-traceability-gate.okf.md 2>/dev/null
@@ -149,7 +149,7 @@ stories:
   bcp: 2
 - id: e48s07
   title: Create publish-to-wiki kernel tool
-  status: todo
+  status: done
   risk: P1
   verify: test -f kernel/src/publish-to-wiki.sh && bash kernel/src/publish-to-wiki.sh
     --help && echo OK
@@ -169,7 +169,7 @@ stories:
   bcp: 3
 - id: e48s08
   title: Add GitHub Action Template for publish-wiki.yml
-  status: todo
+  status: done
   risk: P1
   verify: test -f .github/workflows/publish-wiki.yml && grep -q 'publish-to-wiki'
     .github/workflows/publish-wiki.yml && echo OK
@@ -191,7 +191,7 @@ stories:
   bcp: 1
 - id: e48s09
   title: Create Wiki Scaffold Templates and provenance header injection
-  status: todo
+  status: done
   risk: P2
   verify: test -f kernel/templates/wiki/_Sidebar.md && echo OK
   tasks:
@@ -209,7 +209,7 @@ stories:
   bcp: 2
 - id: e48s10
   title: Extend bigspec init with --with-wiki flag
-  status: todo
+  status: done
   risk: P2
   verify: grep -q 'with-wiki' bin/bigspec || echo pending
   tasks:
@@ -228,7 +228,7 @@ stories:
   title: BCP Plus counter integration — install and smoke-test big-counter as optional
     tool
   bcp: 5
-  status: todo
+  status: done
   risk: P2
   spec: e48s11-bcp-plus-s01.md
   verify: big-counter --version exits 0 from the project venv
@@ -236,7 +236,7 @@ stories:
 - id: e48s12
   title: BCP Plus template — 13-dimension breakdown in story specs
   bcp: 5
-  status: todo
+  status: done
   risk: P2
   spec: e48s12-bcp-plus-s02.md
   verify: grep -c 'bcp_plus_breakdown' specs/templates/story-template.md
@@ -244,7 +244,7 @@ stories:
 - id: e48s13
   title: NFR Gate integration — security-review and wire-observability sizing
   bcp: 4
-  status: todo
+  status: done
   risk: P2
   spec: e48s13-bcp-plus-s03.md
   verify: grep -c 'BCP Plus.*dimension 12' skills/security-review/SKILL.md
@@ -252,7 +252,7 @@ stories:
 - id: e48s14
   title: Build-epic integration — BCP Plus in story sizing workflow
   bcp: 4
-  status: todo
+  status: done
   risk: P2
   spec: e48s14-bcp-plus-s04.md
   verify: grep -c 'bcp_plus' skills/build-epic/SKILL.md

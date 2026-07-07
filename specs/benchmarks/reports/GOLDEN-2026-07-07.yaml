@@ -1,5 +1,5 @@
-timestamp: "2026-07-07T14:42:41Z"
-git_commit: "82645984c3da224b9e2e01f2c70fadfb638b40bb"
+timestamp: "2026-07-07T16:51:35Z"
+git_commit: "da48c392c57234263ec5f437743c32c157c848f5"
 suite: "golden-combined"
 mode: "daily"
 deterministic:
@@ -11,7 +11,7 @@ deterministic:
 gates:
   - name: compliance
     exit_code: 0
-    duration_seconds: 39.50
+    duration_seconds: 32.50
     status: pass
   - name: g04-selftest
     exit_code: 0
@@ -19,11 +19,11 @@ gates:
     status: pass
   - name: g06-migrate-version
     exit_code: 0
-    duration_seconds: 6.07
+    duration_seconds: 5.75
     status: pass
   - name: g07-negative-path
     exit_code: 0
-    duration_seconds: .06
+    duration_seconds: .05
     status: pass
   - name: g08-anti-vacuity
     exit_code: 0
@@ -43,15 +43,15 @@ gates:
     status: pass
   - name: import-boundaries
     exit_code: 0
-    duration_seconds: .23
+    duration_seconds: .21
     status: pass
   - name: skill-catalog
     exit_code: 0
-    duration_seconds: 1.41
+    duration_seconds: 1.55
     status: pass
   - name: specs-parse
     exit_code: 0
-    duration_seconds: .52
+    duration_seconds: .48
     status: pass
 agent_stories:
   total: 0
