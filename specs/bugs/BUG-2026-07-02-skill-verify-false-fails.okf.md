@@ -1,6 +1,7 @@
 ---
 okf_kind: concept
 okf_version: "0.1"
+type: Bug
 id: "BUG-2026-07-02-skill-verify-false-fails"
 title: "skill-verify script reports false FAILs"
 category: bug

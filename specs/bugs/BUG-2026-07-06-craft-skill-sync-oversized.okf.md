@@ -1,6 +1,7 @@
 ---
 okf_kind: concept
 okf_version: "0.1"
+type: Bug
 id: "BUG-2026-07-06-craft-skill-sync-oversized"
 title: "craft-skill: Underlying compilation script sync-skills.sh exceeds line limits and contains duplicate helper function names"
 category: bug

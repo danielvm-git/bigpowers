@@ -2,7 +2,7 @@ id: e18
 title: "Quality Gates & Impact Analysis"
 wsjf: 4.8
 total_bcps: 5
-status: in_progress
+status: done
 stories:
   - id: e18s01
     title: "audit-code as hard gate in build-epic step 6"

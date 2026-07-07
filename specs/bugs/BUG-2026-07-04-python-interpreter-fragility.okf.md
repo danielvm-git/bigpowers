@@ -1,6 +1,7 @@
 ---
 okf_kind: concept
 okf_version: "0.1"
+type: Bug
 id: "BUG-2026-07-04-python-interpreter-fragility"
 title: "Scripts call bare python3 with no interpreter pinning — login-shell python3 may lack PyYAML"
 category: bug

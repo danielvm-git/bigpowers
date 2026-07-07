@@ -1,6 +1,7 @@
 ---
 okf_kind: concept
 okf_version: "0.1"
+type: Bug
 id: "BUG-2026-07-04-tautological-verify"
 title: "Tautological verify commands in 5 non-critical skills — file-existence checks pass vacuously"
 category: bug

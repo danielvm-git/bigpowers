@@ -1,6 +1,7 @@
 ---
 okf_kind: concept
 okf_version: "0.1"
+type: Bug
 id: "BUG-2026-07-06-migrate-spec-migration-logic-violations"
 title: "migrate-spec: migrate-version.sh exceeds line limits (G28 in check-spec-version-gap fixed separately)"
 category: bug

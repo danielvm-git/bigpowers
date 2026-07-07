@@ -1,6 +1,7 @@
 ---
 okf_kind: concept
 okf_version: "0.1"
+type: Bug
 id: "BUG-2026-07-06-audit-code-auditor-oversized"
 title: "audit-code: Underlying auditor scripts exceed 300-line context window limit"
 category: bug

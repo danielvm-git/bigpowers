@@ -1,13 +1,14 @@
 # AUTO-GENERATED — sync-bugs-registry.sh
 bugs:
-  - id: BUG-2026-07-07T113000
+  - id: BUG-001
     status: fixed
-    severity: low
-    scope: website
-    title: "Website docs build fails — missing React integration for TSX/JSX"
-    file: bugs/BUG-2026-07-07T113000.md
-    risk_level: "low"
-    approach: "installed @astrojs/react, configured integration in astro.config.mjs, added @/ alias in tsconfig.json, installed missing yaml/clsx/tailwind-merge deps"
+    severity: high
+    scope: planning
+    title: "Epic Status Drift in YAML files"
+    file: bugs/BUG-001.md
+    files_changed: "specs/epics/archive/e12-pi-support/epic.yaml, specs/epics/archive/e18-quality-gates-impact/epic.yaml, specs/epics/archive/e19-quick-fix-fast-path/epic.yaml, specs/epics/archive/e26-security-review/epic.yaml, specs/epics/archive/e27-specs-naming-convention/epic.yaml, specs/epics/archive/e29-skills-directory/epic.yaml, tests/test-epic-status-drift.sh"
+    approach: "Set epic-level status: done where execution-status.yaml already marks epic done; add regression test"
+    commit_message: "fix(planning): align epic.yaml status with execution-status for completed epics"
   - id: BUG-2026-06-02T164500
     status: fixed
     severity: high
@@ -284,22 +285,18 @@ bugs:
     scope: ci
     title: "Sync Skills on Push fails — --strict flags todo e45 P0 stories with 0% coverage"
     file: bugs/BUG-2026-07-06T205700-sync-strict-todo-p0-block.md
-  - id: BUG-2026-07-07-install-reference-error
+  - id: BUG-2026-07-07-e48-audit-gaps
     status: fixed
-    severity: medium
-    scope: install
-    title: "bigpowers CLI ReferenceError: pkg is not defined on --version / bare invocation"
-    file: bugs/BUG-2026-07-07-install-reference-error.md
-    files_changed: "bin/bigpowers.js"
-    approach: "Hoisted const pkg to module scope, removed 5 block-scoped duplicates"
-    risk_level: low
-    commit_message: "fix(install): add missing pkg declaration in CLI default handler"
+    severity: high
+    scope: ci
+    title: "e48 audit gaps — OKF CI non-blocking, stub wiki tools, missing generator tests"
+    file: bugs/BUG-2026-07-07-e48-audit-gaps.md
+    files_changed: ".github/workflows/sync-skills.yml, docs/references/okf.md, tests/test-okf-generators.sh, kernel/src/publish-to-wiki.sh, bin/bigspec, scripts/generate-epics-wiki.sh, scripts/generate-adr-wiki.sh"
+    approach: "Make OKF validation blocking in sync-skills.yml; add generator regression test; implement publish-to-wiki dry-run link rewrite; flesh out bigspec --with-wiki guidance"
+    commit_message: "fix(ci): enforce blocking OKF validation and close e48 audit gaps"
   - id: BUG-2026-07-07-install-gemini-plugins
     status: fixed
     severity: high
     scope: install
     title: "install.sh uses legacy .gemini/extensions/ directory instead of config/plugins/"
     file: bugs/BUG-2026-07-07-install-gemini-plugins.md
-    files_changed: "scripts/install.sh"
-    approach: "Updated GEMINI_EXT_DST from extensions/ to config/plugins/"
-    commit_message: "fix(install): update gemini plugin directory for antigravity 2.0"

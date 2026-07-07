@@ -118,15 +118,14 @@ bash scripts/validate-okf.sh
 `validate-okf.sh` is kind-aware — it dispatches to the correct validator
 based on `okf_kind`. Unknown kinds are SKIP-ped gracefully.
 
-## CI Integration (e45s05)
+## CI Integration (e48s05 HARD GATE)
 
 OKF bundles are validated on every push to `main` and `develop` via the
 `sync-skills.yml` workflow. The CI step (`Validate OKF bundles`) scans
-six standard directories and is configured as non-blocking — it surfaces
-warnings without failing the build:
+six standard directories and **fails the build** on any validation error:
 
 ```yaml
-# .github/workflows/sync-skills.yml — OKF validation step
+# .github/workflows/sync-skills.yml — OKF validation step (blocking)
 for dir in \
   specs/metrics \
   specs/migrations \
@@ -134,7 +133,7 @@ for dir in \
   specs/adr-wiki \
   specs/bugs \
   specs/verifications/reports; do
-  bash scripts/validate-okf.sh --dir "$dir"
+  bash scripts/validate-okf.sh --dir "$dir" || exit 1
 done
 ```
 

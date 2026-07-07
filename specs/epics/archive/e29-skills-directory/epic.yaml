@@ -2,7 +2,7 @@ id: e29
 title: "Repository Layout — Skill Sources Under skills/"
 wsjf: 3.3   # (BV 5 + TC 2 + RR-OE 3) / JS 3 — see release-plan note
 total_bcps: 7
-status: todo
+status: done
 description: >
   Move all skill source directories (verb-noun/SKILL.md) from the repo root
   into skills/ so the GitHub landing page shows the README instead of ~72

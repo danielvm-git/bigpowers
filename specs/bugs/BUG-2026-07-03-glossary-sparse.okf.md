@@ -1,6 +1,7 @@
 ---
 okf_kind: concept
 okf_version: "0.1"
+type: Bug
 id: "BUG-2026-07-03-glossary-sparse"
 title: "GLOSSARY_LATEST.yaml remains sparse — key domain terms missing"
 category: bug

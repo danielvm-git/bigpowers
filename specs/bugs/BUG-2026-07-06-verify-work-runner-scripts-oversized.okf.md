@@ -1,6 +1,7 @@
 ---
 okf_kind: concept
 okf_version: "0.1"
+type: Bug
 id: "BUG-2026-07-06-verify-work-runner-scripts-oversized"
 title: "verify-work: run-verification-gates.sh, validate-okf.sh, and run-golden-suite.sh exceed 300-line limit"
 category: bug

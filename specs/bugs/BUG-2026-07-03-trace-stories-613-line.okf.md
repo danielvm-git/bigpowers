@@ -1,6 +1,7 @@
 ---
 okf_kind: concept
 okf_version: "0.1"
+type: Bug
 id: "BUG-2026-07-03-trace-stories-613-line"
 title: "trace-stories.sh 613-line waiver contradicts CONVENTIONS context-window justification"
 category: bug

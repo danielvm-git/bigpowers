@@ -1,6 +1,7 @@
 ---
 okf_kind: concept
 okf_version: "0.1"
+type: Bug
 id: "BUG-2026-07-04-stale-bak-features"
 title: "Stale .bak file in features directory — karpathy.feature.bak"
 category: bug

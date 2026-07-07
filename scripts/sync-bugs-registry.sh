@@ -77,6 +77,7 @@ for e in entries:
     bundle = f"""---
 okf_kind: concept
 okf_version: "0.1"
+type: Bug
 id: "{bug_id}"
 title: "{title_escaped}"
 category: bug

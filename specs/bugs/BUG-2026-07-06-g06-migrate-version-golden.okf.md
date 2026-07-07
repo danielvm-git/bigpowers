@@ -1,6 +1,7 @@
 ---
 okf_kind: concept
 okf_version: "0.1"
+type: Bug
 id: "BUG-2026-07-06-g06-migrate-version-golden"
 title: "G-06 golden test fails — bash bad substitution + pipefail SIGPIPE in validate check"
 category: bug

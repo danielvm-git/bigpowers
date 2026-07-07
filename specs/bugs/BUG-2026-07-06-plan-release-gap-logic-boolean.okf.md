@@ -1,6 +1,7 @@
 ---
 okf_kind: concept
 okf_version: "0.1"
+type: Bug
 id: "BUG-2026-07-06-plan-release-gap-logic-boolean"
 title: "plan-release: check-spec-version-gap.sh contains complex unencapsulated boolean logic (G28)"
 category: bug

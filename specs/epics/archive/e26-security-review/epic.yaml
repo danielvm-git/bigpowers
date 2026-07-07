@@ -2,7 +2,7 @@ id: e26
 title: "Security-Review Lifecycle Integration"
 wsjf: 4.2
 total_bcps: 21
-status: planned
+status: done
 description: >
   Weave security gates into the existing bigpowers lifecycle — threat model
   during epics, security-aware stories during planning, diff-scan during

@@ -1,40 +1,19 @@
 {
-  "generated_at": "2026-07-07T18:04:53.382462+00:00",
+  "generated_at": "2026-07-07T19:42:06.397654+00:00",
   "version": "1.0",
   "summary": {
-    "total_findings": 718,
+    "total_findings": 735,
     "high": 0,
-    "medium": 653,
-    "low": 65
+    "medium": 668,
+    "low": 67
   },
   "findings": [
     {
       "check": "stale-tag",
-      "story_id": "e45s12",
+      "story_id": "e37s09",
       "severity": "LOW",
-      "description": "Story e45s12 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s12` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s06",
-      "severity": "LOW",
-      "description": "Story e45s06 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s06` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e51s02",
-      "severity": "LOW",
-      "description": "Story e51s02 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e51s02` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e51s04",
-      "severity": "LOW",
-      "description": "Story e51s04 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e51s04` tags from files or confirm the story should remain done"
+      "description": "Story e37s09 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e37s09` tags from files or confirm the story should remain done"
     },
     {
       "check": "stale-tag",
@@ -45,328 +24,6 @@
     },
     {
       "check": "stale-tag",
-      "story_id": "e37s12",
-      "severity": "LOW",
-      "description": "Story e37s12 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e37s12` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s23",
-      "severity": "LOW",
-      "description": "Story e45s23 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s23` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s39",
-      "severity": "LOW",
-      "description": "Story e45s39 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s39` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e48s01",
-      "severity": "LOW",
-      "description": "Story e48s01 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e48s01` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s07",
-      "severity": "LOW",
-      "description": "Story e45s07 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s07` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s05",
-      "severity": "LOW",
-      "description": "Story e45s05 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s05` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e48s07",
-      "severity": "LOW",
-      "description": "Story e48s07 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e48s07` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s03",
-      "severity": "LOW",
-      "description": "Story e45s03 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s03` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e48s08",
-      "severity": "LOW",
-      "description": "Story e48s08 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e48s08` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e51s05",
-      "severity": "LOW",
-      "description": "Story e51s05 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e51s05` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s08",
-      "severity": "LOW",
-      "description": "Story e45s08 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s08` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e48s14",
-      "severity": "LOW",
-      "description": "Story e48s14 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e48s14` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e37s10",
-      "severity": "LOW",
-      "description": "Story e37s10 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e37s10` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s04",
-      "severity": "LOW",
-      "description": "Story e45s04 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s04` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s35",
-      "severity": "LOW",
-      "description": "Story e45s35 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s35` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s25",
-      "severity": "LOW",
-      "description": "Story e45s25 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s25` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e37s13",
-      "severity": "LOW",
-      "description": "Story e37s13 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e37s13` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e37s05",
-      "severity": "LOW",
-      "description": "Story e37s05 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e37s05` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s09",
-      "severity": "LOW",
-      "description": "Story e45s09 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s09` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s41",
-      "severity": "LOW",
-      "description": "Story e45s41 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s41` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s18",
-      "severity": "LOW",
-      "description": "Story e45s18 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s18` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s20",
-      "severity": "LOW",
-      "description": "Story e45s20 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s20` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s19",
-      "severity": "LOW",
-      "description": "Story e45s19 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s19` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e37s08",
-      "severity": "LOW",
-      "description": "Story e37s08 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e37s08` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s13",
-      "severity": "LOW",
-      "description": "Story e45s13 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s13` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s15",
-      "severity": "LOW",
-      "description": "Story e45s15 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s15` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e51s03",
-      "severity": "LOW",
-      "description": "Story e51s03 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e51s03` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s17",
-      "severity": "LOW",
-      "description": "Story e45s17 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s17` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e37s03",
-      "severity": "LOW",
-      "description": "Story e37s03 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e37s03` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s28",
-      "severity": "LOW",
-      "description": "Story e45s28 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s28` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e37s09",
-      "severity": "LOW",
-      "description": "Story e37s09 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e37s09` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s22",
-      "severity": "LOW",
-      "description": "Story e45s22 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s22` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s30",
-      "severity": "LOW",
-      "description": "Story e45s30 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s30` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s27",
-      "severity": "LOW",
-      "description": "Story e45s27 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s27` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s37",
-      "severity": "LOW",
-      "description": "Story e45s37 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s37` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s31",
-      "severity": "LOW",
-      "description": "Story e45s31 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s31` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s11",
-      "severity": "LOW",
-      "description": "Story e45s11 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s11` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e48s13",
-      "severity": "LOW",
-      "description": "Story e48s13 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e48s13` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e37s06",
-      "severity": "LOW",
-      "description": "Story e37s06 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e37s06` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e37s04",
-      "severity": "LOW",
-      "description": "Story e37s04 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e37s04` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s38",
-      "severity": "LOW",
-      "description": "Story e45s38 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s38` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e37s11",
-      "severity": "LOW",
-      "description": "Story e37s11 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e37s11` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e48s12",
-      "severity": "LOW",
-      "description": "Story e48s12 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e48s12` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s32",
-      "severity": "LOW",
-      "description": "Story e45s32 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s32` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e37s01",
-      "severity": "LOW",
-      "description": "Story e37s01 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e37s01` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e37s02",
-      "severity": "LOW",
-      "description": "Story e37s02 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e37s02` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
       "story_id": "e37s07",
       "severity": "LOW",
       "description": "Story e37s07 is marked done but still has story tags in code",
@@ -374,38 +31,10 @@
     },
     {
       "check": "stale-tag",
-      "story_id": "e37s15",
+      "story_id": "e45s06",
       "severity": "LOW",
-      "description": "Story e37s15 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e37s15` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s26",
-      "severity": "LOW",
-      "description": "Story e45s26 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s26` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s40",
-      "severity": "LOW",
-      "description": "Story e45s40 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s40` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e51s01",
-      "severity": "LOW",
-      "description": "Story e51s01 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e51s01` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s02",
-      "severity": "LOW",
-      "description": "Story e45s02 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s02` tags from files or confirm the story should remain done"
+      "description": "Story e45s06 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s06` tags from files or confirm the story should remain done"
     },
     {
       "check": "stale-tag",
@@ -416,38 +45,129 @@
     },
     {
       "check": "stale-tag",
-      "story_id": "e45s01",
+      "story_id": "e45s03",
       "severity": "LOW",
-      "description": "Story e45s01 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s01` tags from files or confirm the story should remain done"
+      "description": "Story e45s03 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s03` tags from files or confirm the story should remain done"
     },
     {
       "check": "stale-tag",
-      "story_id": "e45s14",
+      "story_id": "e45s13",
       "severity": "LOW",
-      "description": "Story e45s14 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s14` tags from files or confirm the story should remain done"
+      "description": "Story e45s13 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s13` tags from files or confirm the story should remain done"
     },
     {
       "check": "stale-tag",
-      "story_id": "e45s29",
+      "story_id": "e45s26",
       "severity": "LOW",
-      "description": "Story e45s29 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s29` tags from files or confirm the story should remain done"
+      "description": "Story e45s26 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s26` tags from files or confirm the story should remain done"
     },
     {
       "check": "stale-tag",
-      "story_id": "e45s10",
+      "story_id": "e37s12",
       "severity": "LOW",
-      "description": "Story e45s10 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s10` tags from files or confirm the story should remain done"
+      "description": "Story e37s12 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e37s12` tags from files or confirm the story should remain done"
     },
     {
       "check": "stale-tag",
-      "story_id": "e45s34",
+      "story_id": "e37s06",
       "severity": "LOW",
-      "description": "Story e45s34 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s34` tags from files or confirm the story should remain done"
+      "description": "Story e37s06 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e37s06` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s15",
+      "severity": "LOW",
+      "description": "Story e45s15 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s15` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e37s04",
+      "severity": "LOW",
+      "description": "Story e37s04 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e37s04` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e51s02",
+      "severity": "LOW",
+      "description": "Story e51s02 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e51s02` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e51s01",
+      "severity": "LOW",
+      "description": "Story e51s01 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e51s01` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e48s14",
+      "severity": "LOW",
+      "description": "Story e48s14 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e48s14` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e48s13",
+      "severity": "LOW",
+      "description": "Story e48s13 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e48s13` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e48s07",
+      "severity": "LOW",
+      "description": "Story e48s07 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e48s07` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e51s05",
+      "severity": "LOW",
+      "description": "Story e51s05 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e51s05` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s04",
+      "severity": "LOW",
+      "description": "Story e45s04 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s04` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s20",
+      "severity": "LOW",
+      "description": "Story e45s20 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s20` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s05",
+      "severity": "LOW",
+      "description": "Story e45s05 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s05` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s17",
+      "severity": "LOW",
+      "description": "Story e45s17 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s17` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s18",
+      "severity": "LOW",
+      "description": "Story e45s18 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s18` tags from files or confirm the story should remain done"
     },
     {
       "check": "stale-tag",
@@ -458,10 +178,304 @@
     },
     {
       "check": "stale-tag",
+      "story_id": "e45s27",
+      "severity": "LOW",
+      "description": "Story e45s27 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s27` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s09",
+      "severity": "LOW",
+      "description": "Story e45s09 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s09` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s11",
+      "severity": "LOW",
+      "description": "Story e45s11 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s11` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e37s02",
+      "severity": "LOW",
+      "description": "Story e37s02 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e37s02` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e37s08",
+      "severity": "LOW",
+      "description": "Story e37s08 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e37s08` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e37s13",
+      "severity": "LOW",
+      "description": "Story e37s13 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e37s13` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s30",
+      "severity": "LOW",
+      "description": "Story e45s30 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s30` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s38",
+      "severity": "LOW",
+      "description": "Story e45s38 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s38` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e48s01",
+      "severity": "LOW",
+      "description": "Story e48s01 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e48s01` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e37s11",
+      "severity": "LOW",
+      "description": "Story e37s11 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e37s11` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s35",
+      "severity": "LOW",
+      "description": "Story e45s35 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s35` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s10",
+      "severity": "LOW",
+      "description": "Story e45s10 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s10` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e37s05",
+      "severity": "LOW",
+      "description": "Story e37s05 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e37s05` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s12",
+      "severity": "LOW",
+      "description": "Story e45s12 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s12` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s25",
+      "severity": "LOW",
+      "description": "Story e45s25 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s25` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e48s08",
+      "severity": "LOW",
+      "description": "Story e48s08 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e48s08` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s37",
+      "severity": "LOW",
+      "description": "Story e45s37 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s37` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s40",
+      "severity": "LOW",
+      "description": "Story e45s40 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s40` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e37s01",
+      "severity": "LOW",
+      "description": "Story e37s01 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e37s01` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e37s10",
+      "severity": "LOW",
+      "description": "Story e37s10 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e37s10` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s23",
+      "severity": "LOW",
+      "description": "Story e45s23 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s23` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s32",
+      "severity": "LOW",
+      "description": "Story e45s32 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s32` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s22",
+      "severity": "LOW",
+      "description": "Story e45s22 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s22` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s08",
+      "severity": "LOW",
+      "description": "Story e45s08 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s08` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s14",
+      "severity": "LOW",
+      "description": "Story e45s14 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s14` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s39",
+      "severity": "LOW",
+      "description": "Story e45s39 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s39` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e37s15",
+      "severity": "LOW",
+      "description": "Story e37s15 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e37s15` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e48s03",
+      "severity": "LOW",
+      "description": "Story e48s03 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e48s03` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e48s12",
+      "severity": "LOW",
+      "description": "Story e48s12 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e48s12` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s41",
+      "severity": "LOW",
+      "description": "Story e45s41 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s41` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s07",
+      "severity": "LOW",
+      "description": "Story e45s07 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s07` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s34",
+      "severity": "LOW",
+      "description": "Story e45s34 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s34` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
       "story_id": "e45s21",
       "severity": "LOW",
       "description": "Story e45s21 is marked done but still has story tags in code",
       "remediation": "Remove `// story: e45s21` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s01",
+      "severity": "LOW",
+      "description": "Story e45s01 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s01` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s31",
+      "severity": "LOW",
+      "description": "Story e45s31 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s31` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s19",
+      "severity": "LOW",
+      "description": "Story e45s19 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s19` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s29",
+      "severity": "LOW",
+      "description": "Story e45s29 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s29` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e51s04",
+      "severity": "LOW",
+      "description": "Story e51s04 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e51s04` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e48s15",
+      "severity": "LOW",
+      "description": "Story e48s15 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e48s15` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s28",
+      "severity": "LOW",
+      "description": "Story e45s28 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s28` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s02",
+      "severity": "LOW",
+      "description": "Story e45s02 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s02` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e51s03",
+      "severity": "LOW",
+      "description": "Story e51s03 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e51s03` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e37s03",
+      "severity": "LOW",
+      "description": "Story e37s03 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e37s03` tags from files or confirm the story should remain done"
     },
     {
       "check": "double-tag",
@@ -573,6 +587,27 @@
       "file": "specs/epics/e37-reach/e37s08-tasks.yaml",
       "severity": "MEDIUM",
       "description": "File 'specs/epics/e37-reach/e37s08-tasks.yaml' is tagged with multiple stories: e37s04, e37s05, e37s06, e37s07, e37s08",
+      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
+    },
+    {
+      "check": "double-tag",
+      "file": "scripts/adapters/cursor.sh",
+      "severity": "MEDIUM",
+      "description": "File 'scripts/adapters/cursor.sh' is tagged with multiple stories: e37s05, e48s15",
+      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
+    },
+    {
+      "check": "double-tag",
+      "file": "scripts/adapters/pi.sh",
+      "severity": "MEDIUM",
+      "description": "File 'scripts/adapters/pi.sh' is tagged with multiple stories: e37s05, e48s15",
+      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
+    },
+    {
+      "check": "double-tag",
+      "file": "scripts/adapters/gemini.sh",
+      "severity": "MEDIUM",
+      "description": "File 'scripts/adapters/gemini.sh' is tagged with multiple stories: e37s05, e48s15",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -1396,6 +1431,13 @@
     },
     {
       "check": "double-tag",
+      "file": "scripts/sync-skills.sh",
+      "severity": "MEDIUM",
+      "description": "File 'scripts/sync-skills.sh' is tagged with multiple stories: e45s12, e48s15",
+      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
+    },
+    {
+      "check": "double-tag",
       "file": "scripts/install-cursor-skills-local.sh",
       "severity": "MEDIUM",
       "description": "File 'scripts/install-cursor-skills-local.sh' is tagged with multiple stories: e45s12, e45s38",
@@ -1637,6 +1679,13 @@
       "file": "specs/verifications/reports/audit-cleancode-20260705-163733.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260705-163733.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
+      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
+    },
+    {
+      "check": "double-tag",
+      "file": "specs/verifications/reports/audit-cleancode-20260707-155647.md",
+      "severity": "MEDIUM",
+      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-155647.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -2621,6 +2670,13 @@
     },
     {
       "check": "double-tag",
+      "file": "specs/verifications/reports/audit-cleancode-20260707-154541.md",
+      "severity": "MEDIUM",
+      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-154541.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
+      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
+    },
+    {
+      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260707-111510.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260707-111510.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
@@ -2817,6 +2873,13 @@
     },
     {
       "check": "double-tag",
+      "file": "specs/verifications/reports/audit-cleancode-20260707-150742.md",
+      "severity": "MEDIUM",
+      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-150742.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
+      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
+    },
+    {
+      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260705-164733.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260705-164733.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
@@ -2876,6 +2939,13 @@
       "file": "specs/verifications/reports/audit-cleancode-20260705-164441.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260705-164441.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
+      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
+    },
+    {
+      "check": "double-tag",
+      "file": "specs/verifications/reports/audit-cleancode-20260707-154637.md",
+      "severity": "MEDIUM",
+      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-154637.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -3433,6 +3503,13 @@
     },
     {
       "check": "double-tag",
+      "file": "specs/verifications/reports/audit-cleancode-20260707-150937.md",
+      "severity": "MEDIUM",
+      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-150937.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
+      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
+    },
+    {
+      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260704-091017.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260704-091017.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
@@ -3545,6 +3622,13 @@
     },
     {
       "check": "double-tag",
+      "file": "specs/verifications/reports/audit-cleancode-20260707-164036.md",
+      "severity": "MEDIUM",
+      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-164036.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
+      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
+    },
+    {
+      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260705-165346.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260705-165346.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
@@ -3639,6 +3723,13 @@
       "file": "specs/verifications/reports/audit-cleancode-20260704-143447.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260704-143447.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
+      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
+    },
+    {
+      "check": "double-tag",
+      "file": "specs/verifications/reports/audit-cleancode-20260707-155114.md",
+      "severity": "MEDIUM",
+      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-155114.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -4497,6 +4588,20 @@
     },
     {
       "check": "double-tag",
+      "file": "specs/bugs/BUG-2026-07-07-e48-audit-gaps.md",
+      "severity": "MEDIUM",
+      "description": "File 'specs/bugs/BUG-2026-07-07-e48-audit-gaps.md' is tagged with multiple stories: e48s01, e48s03, e51s04",
+      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
+    },
+    {
+      "check": "double-tag",
+      "file": "tests/test-okf-generators.sh",
+      "severity": "MEDIUM",
+      "description": "File 'tests/test-okf-generators.sh' is tagged with multiple stories: e48s01, e48s03, e48s05",
+      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
+    },
+    {
+      "check": "double-tag",
       "file": "specs/verifications/steps/and-complex-logic-should-include-provenance-links-adrs-jira-or-commits.sh",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/steps/and-complex-logic-should-include-provenance-links-adrs-jira-or-commits.sh' is tagged with multiple stories: e48s01, e48s09",
@@ -4633,6 +4738,13 @@
       "file": "specs/bugs/BUG-2026-07-06-g06-migrate-version-golden.okf.md",
       "severity": "MEDIUM",
       "description": "File 'specs/bugs/BUG-2026-07-06-g06-migrate-version-golden.okf.md' is tagged with multiple stories: e48s02, e48s03, e48s05",
+      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
+    },
+    {
+      "check": "double-tag",
+      "file": "specs/bugs/BUG-2026-07-07-e48-audit-gaps.okf.md",
+      "severity": "MEDIUM",
+      "description": "File 'specs/bugs/BUG-2026-07-07-e48-audit-gaps.okf.md' is tagged with multiple stories: e48s02, e48s03, e48s05, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -4815,6 +4927,13 @@
       "file": "specs/bugs/BUG-2026-07-03-capsule-release-labels.okf.md",
       "severity": "MEDIUM",
       "description": "File 'specs/bugs/BUG-2026-07-03-capsule-release-labels.okf.md' is tagged with multiple stories: e48s03, e48s05",
+      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
+    },
+    {
+      "check": "double-tag",
+      "file": "specs/bugs/BUG-2026-07-07-install-gemini-plugins.okf.md",
+      "severity": "MEDIUM",
+      "description": "File 'specs/bugs/BUG-2026-07-07-install-gemini-plugins.okf.md' is tagged with multiple stories: e48s03, e48s05",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {

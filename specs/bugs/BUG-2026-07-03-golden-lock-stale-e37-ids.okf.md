@@ -1,6 +1,7 @@
 ---
 okf_kind: concept
 okf_version: "0.1"
+type: Bug
 id: "BUG-2026-07-03-golden-lock-stale-e37-ids"
 title: "e42 golden workflow renamed from e37 but lock file internals still carry 19 e37 identifiers"
 category: bug

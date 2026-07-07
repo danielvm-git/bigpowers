@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# story: e48s01
 # story: e45s01 e45s06
 # generate-adr-wiki.sh — emit OKF concept bundles from specs/adr/*.md
 set -euo pipefail

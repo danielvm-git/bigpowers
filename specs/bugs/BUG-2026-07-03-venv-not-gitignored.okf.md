@@ -1,6 +1,7 @@
 ---
 okf_kind: concept
 okf_version: "0.1"
+type: Bug
 id: "BUG-2026-07-03-venv-not-gitignored"
 title: ".venv/ exists at repo root and is not gitignored — one 'git add .' from committing the virtualenv"
 category: bug

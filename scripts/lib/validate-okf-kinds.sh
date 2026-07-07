@@ -265,7 +265,7 @@ okf_scan_dir() {
       validate_bundle "$f"
       count=$((count + 1))
     fi
-  done < <(find "$dir" -maxdepth 1 -name '*.md' -print0 2>/dev/null || true)
+  done < <(find "$dir" -maxdepth 1 \( -name '*.okf.md' -o -name 'registry.okf.md' \) -print0 2>/dev/null || true)
   if [ "$count" -eq 0 ]; then
     printf "${YELLOW}SKIP${NC} no OKF bundles found in %s\n" "$dir"
   fi

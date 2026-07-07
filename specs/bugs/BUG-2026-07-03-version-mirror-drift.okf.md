@@ -1,6 +1,7 @@
 ---
 okf_kind: concept
 okf_version: "0.1"
+type: Bug
 id: "BUG-2026-07-03-version-mirror-drift"
 title: "Version mirrors in state.yaml and release-plan.yaml drift after every semantic-release"
 category: bug

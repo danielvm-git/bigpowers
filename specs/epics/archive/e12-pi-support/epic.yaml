@@ -1,6 +1,6 @@
 id: e12
 title: "Pi Support"
-status: in_progress
+status: done
 bcps: 8
 stories:
   - id: e12s01

@@ -1,2 +1,36 @@
 #!/usr/bin/env bash
-if [[ "$1" == "--with-wiki" ]]; then echo "wiki enabled"; fi
+# story: e48s10
+# bigspec — minimal project bootstrap helper
+
+print_wiki_setup() {
+  cat <<'EOF'
+Wiki publishing enabled.
+
+1. Create a GitHub Wiki for this repository (or use the .wiki.git remote).
+2. Configure CI secrets: WIKI_PAT (repo scope for wiki push).
+3. Set WIKI_REPO_URL to the wiki clone URL (e.g. https://github.com/org/repo.wiki.git).
+4. Dry-run locally: bash kernel/src/publish-to-wiki.sh --dry-run
+5. Publish on merge: .github/workflows/publish-wiki.yml (gates on validate-okf first).
+
+See docs/references/okf.md for OKF bundle layout and CI integration.
+EOF
+}
+
+case "${1:-}" in
+  init)
+    if [[ "${2:-}" == "--with-wiki" ]]; then
+      print_wiki_setup
+      exit 0
+    fi
+    echo "Usage: bigspec init [--with-wiki]"
+    exit 1
+    ;;
+  --with-wiki)
+    print_wiki_setup
+    exit 0
+    ;;
+  *)
+    echo "Usage: bigspec init [--with-wiki]"
+    exit 1
+    ;;
+esac

@@ -1,6 +1,7 @@
 ---
 okf_kind: concept
 okf_version: "0.1"
+type: Bug
 id: "BUG-2026-07-06-trace-requirement-stories-oversized"
 title: "trace-requirement: Underlying story trace script trace-stories.py exceeds 300-line limit"
 category: bug

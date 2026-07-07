@@ -2,7 +2,7 @@ id: e27
 title: "Specs Output Naming Convention — _LATEST.md suffix"
 wsjf: 2.0
 total_bcps: 7
-status: not-started
+status: done
 description: >
   Rename all fixed-name generated single files in specs/ root to use the
   _LATEST.md suffix (e.g. PLAN-AUDIT.md → PLAN-AUDIT_LATEST.md), consistent

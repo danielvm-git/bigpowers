@@ -1,6 +1,7 @@
 ---
 okf_kind: concept
 okf_version: "0.1"
+type: Bug
 id: "BUG-2026-07-03-yaml-roundtrip-corruption"
 title: "Release prepare-hook corrupts YAML cockpit via lossy round-trip — 40 spec files flattened and committed"
 category: bug
