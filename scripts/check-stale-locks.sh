@@ -23,7 +23,8 @@ if not d or 'locks' not in d:
 
 stale = []
 for lock in d['locks']:
-    locked_at = datetime.datetime.fromisoformat(lock.get('locked_at', '1970-01-01T00:00:00Z'))
+    locked_at_str = lock.get('locked_at', '1970-01-01T00:00:00Z').replace('Z', '+00:00')
+    locked_at = datetime.datetime.fromisoformat(locked_at_str)
     if locked_at.tzinfo is None:
         locked_at = locked_at.replace(tzinfo=datetime.timezone.utc)
     age_hours = (now - locked_at).total_seconds() / 3600

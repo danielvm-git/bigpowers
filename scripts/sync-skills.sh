@@ -82,7 +82,7 @@ OKF_FLAG=""
 [[ "$OKF_MODE" -eq 1 ]] && OKF_FLAG="--okf"
 
 # Run srp-engine.py --all to process all skills in Python
-python3 "$REPO_ROOT/scripts/lib/srp-engine.py" --all $OKF_FLAG
+"$PYTHON" "$REPO_ROOT/scripts/lib/srp-engine.py" --all $OKF_FLAG
 
 # Count generated skills
 skill_count=$(find "$CURSOR_RULES" -maxdepth 1 -name "*.mdc" | wc -l | tr -d ' ')

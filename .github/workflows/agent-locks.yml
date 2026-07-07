@@ -55,7 +55,8 @@ jobs:
           stale = []
 
           for lock in ledger.get('locks', []):
-              locked_at = datetime.fromisoformat(lock['locked_at'])
+              locked_at_str = lock['locked_at'].replace('Z', '+00:00')
+              locked_at = datetime.fromisoformat(locked_at_str)
               age = now - locked_at
               if age > stale_threshold:
                   stale.append((lock['story_id'], lock['locked_by'], lock['locked_at'], age))
