@@ -1,3 +1,16 @@
+# [2.76.0](https://github.com/danielvm-git/bigpowers/compare/v2.75.2...v2.76.0) (2026-07-07)
+
+
+### Bug Fixes
+
+* **ci:** add OKF type fields and gate wiki publish on WIKI_PAT ([9628122](https://github.com/danielvm-git/bigpowers/commit/96281227e91ebed19300daed8dd05d51d6021c9e))
+* **ci:** skip estimated commit_range check and wiki publish without PAT ([bf079ad](https://github.com/danielvm-git/bigpowers/commit/bf079ad384c4363980fe30383406d37629718b89))
+
+
+### Features
+
+* **e37:** Reach — Close release: AGENTS.md spine, targets.yaml registry, OSS waves A-E; fix 6 compliance bugs ([5a7f407](https://github.com/danielvm-git/bigpowers/commit/5a7f407008818cec518969a2b46e5ae28ee130bb))
+
 ## [2.75.2](https://github.com/danielvm-git/bigpowers/compare/v2.75.1...v2.75.2) (2026-07-07)
 
 

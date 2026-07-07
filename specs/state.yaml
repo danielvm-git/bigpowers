@@ -2,11 +2,11 @@ active_flow: null
 active_epic: e37
 active_story: null
 bug_id: null
-bigpowers_version: 2.75.2
+bigpowers_version: 2.76.0
 bug_cycle: null
 handoff:
-  context: All 6 compliance bugs fixed. Compliance 98% PASS (threshold 94%). Golden
-    suite 11/11 PASS. e37 closeout still uncommitted. Ready for release-branch.
+  context: All 6 compliance bugs fixed. Compliance 98% PASS (threshold 94%). Golden suite 11/11 PASS.
+    e37 closeout still uncommitted. Ready for release-branch.
   next_skill: release-branch
   epic: e37
 epic_cycle:
