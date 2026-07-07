@@ -1,3 +1,10 @@
+## [2.73.7](https://github.com/danielvm-git/bigpowers/compare/v2.73.6...v2.73.7) (2026-07-07)
+
+
+### Bug Fixes
+
+* **migrate-spec:** split migrate-version.sh into lib modules under 300-line cap ([#62](https://github.com/danielvm-git/bigpowers/issues/62)) ([11842f2](https://github.com/danielvm-git/bigpowers/commit/11842f297c58d88df24f451316153242e3f4c63a))
+
 ## [2.73.6](https://github.com/danielvm-git/bigpowers/compare/v2.73.5...v2.73.6) (2026-07-06)
 
 
