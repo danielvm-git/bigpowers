@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: oklch(0.16 0.008 250);
+    --foreground: oklch(0.95 0.005 250);
+    --card: oklch(0.2 0.009 250);
+    --card-foreground: oklch(0.95 0.005 250);
+    --popover: oklch(0.2 0.009 250);
+    --popover-foreground: oklch(0.95 0.005 250);
+    --primary: oklch(0.78 0.16 155);
+    --primary-foreground: oklch(0.18 0.02 155);
+    --secondary: oklch(0.26 0.01 250);
+    --secondary-foreground: oklch(0.95 0.005 250);
+    --muted: oklch(0.24 0.01 250);
+    --muted-foreground: oklch(0.66 0.01 250);
+    --accent: oklch(0.28 0.012 250);
+    --accent-foreground: oklch(0.95 0.005 250);
+    --destructive: oklch(0.64 0.2 22);
+    --destructive-foreground: oklch(0.95 0.005 250);
+    --border: oklch(1 0 0 / 9%);
+    --input: oklch(1 0 0 / 12%);
+    --ring: oklch(0.78 0.16 155);
+    --radius: 0.4rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(to right, oklch(1 0 0 / 4%) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(1 0 0 / 4%) 1px, transparent 1px);
+  background-size: 40px 40px;
+}

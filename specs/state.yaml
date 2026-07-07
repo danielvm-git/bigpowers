@@ -14,15 +14,14 @@ metrics:
   story_end: null
   skill_timings:
     release-branch:
-      calls: 4
-      total_seconds: 919.0
-      avg_seconds: 306.3333333333333
-      _start: '2026-07-07T00:52:01Z'
+      calls: 5
+      total_seconds: 1422.0
+      avg_seconds: 284.4
     plan-work:
       calls: 1
       total_seconds: 343.0
       avg_seconds: 343.0
 release:
   ci_verified: true
-  last_commit: 15a9e3fb
-  last_epic: e37
+  last_commit: ece8389c
+  last_epic: e45

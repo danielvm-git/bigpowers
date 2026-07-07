@@ -1,0 +1,18 @@
+---
+import '../styles/cockpit.css';
+import CockpitPage from '../components/cockpit/CockpitPage.tsx';
+
+// We can pass data if we want, or CockpitPage will fetch it internally using `getCockpit()` since it's server-rendered.
+---
+
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bigpowers Cockpit</title>
+</head>
+<body class="bg-background text-foreground min-h-screen">
+  <CockpitPage />
+</body>
+</html>
