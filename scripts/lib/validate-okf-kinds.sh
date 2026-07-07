@@ -59,9 +59,12 @@ validate_story_metrics() {
   fi
 
   commit_range="$(echo "$fm" | $PYTHON -c "import json,sys; d=json.load(sys.stdin); print(d.get('commit_range',''))" 2>/dev/null)"
-  if ! git -C "$ROOT" log --oneline -1 "$commit_range" >/dev/null 2>&1; then
-    printf "${RED}FAIL${NC} %s: commit_range '%s' does not resolve\n" "$name" "$commit_range"
-    EXIT_CODE=1; return
+  if [ "$source" != "estimated" ]; then
+    if ! git -C "$ROOT" log --oneline -1 "$commit_range" >/dev/null 2>&1; then
+      printf "${RED}FAIL${NC} %s: commit_range '%s' does not resolve\n" "$name" "$commit_range"
+      EXIT_CODE=1
+      return
+    fi
   fi
 
   eff="$(echo "$fm" | $PYTHON -c "

@@ -142,4 +142,9 @@ if [[ "$DRY_RUN" -eq 1 ]]; then
   exit 0
 fi
 
+if [[ -z "${WIKI_PAT:-}" ]]; then
+  echo "publish-to-wiki: WIKI_PAT not set — skipping wiki push"
+  exit 0
+fi
+
 push_to_wiki "$STAGING"
