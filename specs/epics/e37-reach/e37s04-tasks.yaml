@@ -60,7 +60,7 @@ tasks:
   - id: 5
     description: >-
       Add optional Codex assertions (gated): when Codex wave stories (s14-s16)
-      are present, assert docs/templates/codex/AGENTS.md exists and is secret-free,
+      are present, assert templates/codex/AGENTS.md exists and is secret-free,
       and install.sh --dry-run mentions Codex CLI. When Codex wave absent, skip
       these assertions without failing.
     verify: >-

@@ -6,13 +6,13 @@ risk: P2
 tasks:
   - id: 1
     description: >-
-      Create docs/templates/codex/AGENTS.md starter: bigpowers intro, link to
+      Create templates/codex/AGENTS.md starter: bigpowers intro, link to
       using-bigpowers, seed-conventions for project wiring, note instruction-file-only
       model (not slash skills). No API keys.
     verify: >-
-      test -f docs/templates/codex/AGENTS.md &&
-      grep -qi 'bigpowers' docs/templates/codex/AGENTS.md &&
-      ! grep -qiE 'api[_-]?key|sk-' docs/templates/codex/AGENTS.md && echo OK
+      test -f templates/codex/AGENTS.md &&
+      grep -qi 'bigpowers' templates/codex/AGENTS.md &&
+      ! grep -qiE 'api[_-]?key|sk-' templates/codex/AGENTS.md && echo OK
     risk: P3
     security: low
     status: todo
@@ -20,11 +20,11 @@ tasks:
   - id: 2
     description: >-
       Add install_codex() to scripts/install.sh: CODEX_DIR="$HOME/.codex",
-      link docs/templates/codex/AGENTS.md → ~/.codex/AGENTS.md via link() helper,
+      link templates/codex/AGENTS.md → ~/.codex/AGENTS.md via link() helper,
       print "Codex CLI → ~/.codex/AGENTS.md".
     verify: >-
       grep -q 'install_codex()' scripts/install.sh &&
-      grep -q 'docs/templates/codex/AGENTS.md' scripts/install.sh && echo OK
+      grep -q 'templates/codex/AGENTS.md' scripts/install.sh && echo OK
     risk: P2
     security: none
     status: todo
