@@ -235,7 +235,7 @@ uninstall_pi() {
 
 CODEX_DIR="$HOME/.codex"
 CODEX_AGENTS="$CODEX_DIR/AGENTS.md"
-CODEX_TEMPLATE="$REPO_ROOT/docs/templates/codex/AGENTS.md"
+CODEX_TEMPLATE="$REPO_ROOT/templates/codex/AGENTS.md"
 
 install_codex() {
   echo ""

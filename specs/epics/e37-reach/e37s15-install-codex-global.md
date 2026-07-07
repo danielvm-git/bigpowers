@@ -25,10 +25,10 @@ project.
 ### 4. Trigger and preconditions
 Trigger: install.sh invoked without --uninstall.
 Precondition: bundled starter template exists in bigpowers repo
-(`docs/templates/codex/AGENTS.md`).
+(`templates/codex/AGENTS.md`).
 
 ### 5. Main flow and business logic
-1. Add `docs/templates/codex/AGENTS.md` starter (points to using-bigpowers,
+1. Add `templates/codex/AGENTS.md` starter (points to using-bigpowers,
    seed-conventions, issue #52 / e37 epic).
 2. Implement install_codex() — mkdir ~/.codex, symlink AGENTS.md to starter.
 3. Implement uninstall_codex() — unlink_if_managed for ~/.codex/AGENTS.md only.
@@ -42,10 +42,10 @@ Precondition: bundled starter template exists in bigpowers repo
 
 ### 7. Interface elements
 - scripts/install.sh — install_codex, uninstall_codex, dispatch.
-- docs/templates/codex/AGENTS.md — bundled starter content.
+- templates/codex/AGENTS.md — bundled starter content.
 
 ### 8. Domain model
-~/.codex/AGENTS.md symlink → REPO_ROOT/docs/templates/codex/AGENTS.md.
+~/.codex/AGENTS.md symlink → REPO_ROOT/templates/codex/AGENTS.md.
 
 ### 9. Integrations and boundaries
 - Codex CLI global config path ~/.codex/ (external).

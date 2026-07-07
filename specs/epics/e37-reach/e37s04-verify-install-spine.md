@@ -44,7 +44,7 @@ Scenario: AGENTS.md spine assertions pass
 - Assert the Aider section in `using-bigpowers` references Aider-AI/aider.
 
 ### 5. Codex assertions (optional, gated on Codex wave)
-- Only when Codex wave stories (s14–s16) are present: assert `docs/templates/codex/` exists,
+- Only when Codex wave stories (s14–s16) are present: assert `templates/codex/` exists,
   assert `install.sh --dry-run` mentions Codex CLI, assert secret-free templates.
 - When Codex wave is absent: these assertions must be skipped (no false negatives).
 

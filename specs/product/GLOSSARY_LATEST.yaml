@@ -295,7 +295,7 @@ terms:
       seed-conventions to seed new projects. Contains the Context Spine
       shape (multi-agent preamble, Preflight, Test/Lint/Build rows).
       Not to be confused with tool-specific derivative templates
-      (e.g., docs/templates/codex/AGENTS.md for Codex CLI).
+      (e.g., templates/codex/AGENTS.md for Codex CLI).
     source: bigpowers e37 (Reach — Universal Agent Portability)
     related_terms: [AGENTS.md, context spine, seed-conventions, context derivative]
 
