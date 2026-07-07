@@ -35,3 +35,4 @@ website/src/content/
 venv/
 __pycache__/
 *.pyc
+bigpowers-showcase/
