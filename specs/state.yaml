@@ -1,15 +1,13 @@
-active_flow: fix_bug
+active_flow: null
 active_epic: e45
 active_story: null
-bug_id: BUG-2026-07-06-gate-trace-matrix-oversized
+bug_id: null
 bigpowers_version: 2.73.8
-bug_cycle:
-  current_step: 1
-  completed_steps: []
-  bug_id: BUG-2026-07-06-gate-trace-matrix-oversized
+bug_cycle: null
 handoff:
-  context: fix-bug step 1 — investigate-bug for gate-trace-matrix-oversized
-  next_skill: investigate-bug
+  context: BUG-2026-07-06-gate-trace-matrix-oversized fixed — trace-matrix.py split
+    to 252 lines
+  next_skill: null
   epic: e45
 metrics:
   story_start: null
@@ -19,6 +17,7 @@ metrics:
       calls: 4
       total_seconds: 919.0
       avg_seconds: 306.3333333333333
+      _start: '2026-07-07T00:52:01Z'
     plan-work:
       calls: 1
       total_seconds: 343.0

@@ -11,14 +11,13 @@ window. The following files are documented exceptions:
 
 | File | Lines | Rationale | Review date |
 |------|-------|-----------|-------------|
-| `scripts/lib/trace-matrix.py` | 523 | Traceability matrix engine: tag scanning, oracle-confidence scoring, and JSON/markdown emission share tightly-coupled dataclasses and a single pass over the story index. Splitting would fragment the matrix model across modules. Split candidate for a future plan-refactor (BUG-2026-07-04-filesize-gate-python-blindspot); documented meanwhile. Also exceeds the 500-line cap. | 2026-10-01 |
-| `scripts/lib/trace-stories.py` | 301 | Story-tag discovery + file-to-story mapping; the phases share regex state and a common file walk. One line over cap; monitor for split alongside trace-matrix.py. | 2026-10-01 |
 | `scripts/audit-compliance.sh` | 300 | Gherkin harness with embedded judge logic and waiver subsystem; splitting the judge loop from the reporting layer would require fragile state-passing. At the 300-line cap; monitor. | 2026-10-01 |
 
 **Note:** `scripts/trace-stories.sh` was refactored from a 613-line monolith into a
-69-line orchestrator delegating to the `scripts/lib/*.py` engine above — it is no
-longer an exception. The prior exception row (and its waiver) referenced a file
-that no longer exists; see BUG-2026-07-04-filesize-gate-python-blindspot.
+69-line orchestrator delegating to `scripts/lib/trace-stories.py`. `scripts/lib/trace-matrix.py`
+was split into `simple_yaml.py` + `trace_renderer.py` (252 lines); see
+BUG-2026-07-06-gate-trace-matrix-oversized. Prior exception rows for trace-matrix.py
+and trace-stories.py are removed — both are now under the 300-line cap.
 
 Any new exception requires an entry in this table with rationale and a review date.
 

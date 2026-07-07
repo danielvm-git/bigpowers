@@ -12,142 +12,18 @@ import json, os, re, sys, time
 from pathlib import Path
 from datetime import datetime, timezone
 
+# Add parent or current directory to sys.path so we can import local helper modules
+sys.path.insert(0, str(Path(__file__).parent))
+
+from simple_yaml import parse_simple_yaml
+from trace_renderer import emit_matrix_json, emit_trace_md, emit_okf_bundle
+
 ROOT = Path(sys.argv[1])
 MATRIX_JSON = Path(sys.argv[2])
 TRACE_MD = Path(sys.argv[3])
 OKF_DIR = Path(sys.argv[4])
 STRICT = int(sys.argv[5])
 MODE = sys.argv[6]
-
-# -----------------------------------------------------------------------
-# 1. Parse release-plan.yaml → story inventory
-# -----------------------------------------------------------------------
-def parse_simple_yaml(text: str) -> dict:
-    """Parse flat and one-level-nested YAML including lists of objects."""
-    root: dict = {}
-    # Each stack entry: (indent, container, parent_dict, key_in_parent)
-    stack: list = [(0, root, None, None)]
-    skip_until_indent = None  # skip block scalar continuation lines (| and >)
-    for i, raw in enumerate(text.splitlines()):
-        stripped = raw.strip()
-        if not stripped or stripped.startswith("#"):
-            # Reset block-scalar skip on blank lines
-            continue
-        indent = len(raw) - len(raw.lstrip())
-        
-        # Skip block scalar continuation (| and > in YAML)
-        if skip_until_indent is not None:
-            if indent > skip_until_indent:
-                continue
-            else:
-                skip_until_indent = None
-        
-        # Pop stack until we're at the right nesting level
-        # Don't pop list containers at same indent — sibling items stay in same list
-        while len(stack) > 1:
-            if indent < stack[-1][0]:
-                stack.pop()
-            elif indent == stack[-1][0]:
-                # Same indent: pop dicts (moving to sibling key), keep lists (sibling items)
-                if isinstance(stack[-1][1], list) and stripped.startswith("- "):
-                    break  # stay in same list for next item
-                elif isinstance(stack[-1][1], dict) and stripped.startswith("- "):
-                    # dict at same indent with upcoming list item — convert to list
-                    entry_container = stack[-1][1]
-                    entry_parent = stack[-1][2]
-                    entry_key = stack[-1][3]
-                    if entry_parent is not None and entry_key is not None:
-                        if not isinstance(entry_parent.get(entry_key), list):
-                            entry_parent[entry_key] = []
-                            stack[-1] = (stack[-1][0], entry_parent[entry_key], entry_parent, entry_key)
-                            break
-                    stack.pop()
-                else:
-                    stack.pop()  # other same-indent transitions
-            else:
-                break  # indent > stack indent — staying inside
-        
-        container = stack[-1][1]
-        parent_dict = stack[-1][2]
-        key_in_parent = stack[-1][3]
-        
-        # List item
-        if stripped.startswith("- "):
-            inner = stripped[2:]
-            # Convert dict to list if needed (preserve original indent from dict push)
-            if isinstance(container, dict) and parent_dict is not None and key_in_parent is not None:
-                if not isinstance(parent_dict.get(key_in_parent), list):
-                    orig_indent = stack[-1][0]
-                    parent_dict[key_in_parent] = []
-                    container = parent_dict[key_in_parent]
-                    stack[-1] = (orig_indent, container, parent_dict, key_in_parent)
-            
-            if ":" in inner:
-                k, _, v = inner.partition(":")
-                k = k.strip()
-                v = v.strip()
-                # Detect block scalars in list items too
-                if v in ("|", ">", "|-", ">-", "|+", ">+"):
-                    item = {k: v}
-                    container.append(item)
-                    skip_until_indent = indent
-                    continue
-                item = {k: _yaml_scalar(v) if v else None}
-                container.append(item)
-                if v == "":
-                    stack.append((indent, item, container, k))
-            else:
-                container.append(_yaml_scalar(inner))
-            continue
-        
-        # Key: value
-        if ":" not in stripped:
-            continue
-        key, _, val = stripped.partition(":")
-        key = key.strip()
-        val = val.strip()
-        
-        # Detect block scalars (|, >, |- etc.)
-        if val in ("|", ">", "|-", ">-", "|+", ">+"):
-            if isinstance(container, list) and container:
-                container[-1][key] = val  # store the marker
-            elif isinstance(container, dict):
-                container[key] = val
-            skip_until_indent = indent
-            continue
-        
-        if isinstance(container, list) and container:
-            # Inside a list item dict
-            container[-1][key] = _yaml_scalar(val) if val else None
-            if val == "":
-                nxt = {}
-                container[-1][key] = nxt
-                stack.append((indent, nxt, container[-1], key))
-        elif isinstance(container, dict):
-            if val == "":
-                # Store as dict first; will convert to list if next line is "-"
-                nxt = {}
-                container[key] = nxt
-                stack.append((indent, nxt, container, key))
-            else:
-                container[key] = _yaml_scalar(val)
-    return root
-
-
-def _yaml_scalar(val: str):
-    """Convert a YAML scalar string to Python type."""
-    val = val.strip('"').strip("'")
-    if val in ("true", "false"):
-        return val == "true"
-    if val in ("null", "~", ""):
-        return None
-    try:
-        return int(val)
-    except ValueError:
-        try:
-            return float(val)
-        except ValueError:
-            return val
 
 # Parse release plan for epics/stories
 release_plan_path = ROOT / "specs" / "release-plan.yaml"
@@ -248,10 +124,6 @@ for line in result.stdout.splitlines():
 # -----------------------------------------------------------------------
 # 4. Resolve each story through oracle tiers
 # -----------------------------------------------------------------------
-# Tier 1: explicit story tag (already captured above)
-# Tier 2: file-name heuristic match
-# Tier 3: epic capsule task reference
-
 # Collect all file basenames for heuristic matching
 all_files = []
 for root_dir, dirs, files in os.walk(str(ROOT)):
@@ -353,153 +225,10 @@ for sid in sorted(tagged_sids):
     if sid in stories and dev_status.get(sid) == "done":
         stale_tags.append(sid)
 
-# -----------------------------------------------------------------------
-# 5. Emit matrix JSON
-# -----------------------------------------------------------------------
-matrix = {
-    "generated_at": datetime.now(timezone.utc).isoformat(),
-    "matrix_version": "1.0",
-    "stories": matrix_stories,
-    "summary": {
-        "total_stories": len(stories),
-        "tagged_stories": len(tagged_sids & set(stories.keys())),
-        "dark_stories": dark_stories,
-        "dark_count": len(dark_stories),
-        "orphan_tags": orphan_tags,
-        "orphan_count": len(orphan_tags),
-        "stale_tags": stale_tags,
-        "stale_count": len(stale_tags),
-        "oracle_stats": {
-            "high": sum(1 for s in matrix_stories for l in s["links"] if l["confidence"] == "high"),
-            "medium": sum(1 for s in matrix_stories for l in s["links"] if l["confidence"] == "medium"),
-            "low": sum(1 for s in matrix_stories for l in s["links"] if l["confidence"] == "low")
-        }
-    }
-}
-
-MATRIX_JSON.parent.mkdir(parents=True, exist_ok=True)
-MATRIX_JSON.write_text(json.dumps(matrix, indent=2), encoding="utf-8")
-
-# -----------------------------------------------------------------------
-# 6. Emit TRACEABILITY_LATEST.md (human-readable report)
-# -----------------------------------------------------------------------
-lines = []
-lines.append("# Traceability Matrix")
-lines.append("")
-lines.append(f"**Generated:** {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')}")
-lines.append(f"**Total stories:** {len(stories)}")
-lines.append(f"**Tagged stories:** {len(tagged_sids & set(stories.keys()))}")
-lines.append(f"**Dark stories:** {len(dark_stories)}")
-lines.append(f"**Orphan tags:** {len(orphan_tags)}")
-lines.append(f"**Stale tags:** {len(stale_tags)}")
-lines.append("")
-lines.append("## Oracle Stats")
-lines.append("")
-lines.append(f"- **High** (explicit tag): {matrix['summary']['oracle_stats']['high']}")
-lines.append(f"- **Medium** (file heuristic): {matrix['summary']['oracle_stats']['medium']}")
-lines.append(f"- **Low** (task reference): {matrix['summary']['oracle_stats']['low']}")
-lines.append("")
-
-# Story coverage table
-lines.append("## Story Coverage")
-lines.append("")
-lines.append("| Story | Title | Epic | BCP | WSJF | Status | Links |")
-lines.append("|-------|-------|------|-----|------|--------|-------|")
-for s in matrix_stories:
-    lines.append(f"| {s['id']} | {s['title'][:60]} | {s['epic_id']} | {s['bcp']} | {s['wsjf']} | {s['status']} | {s['link_count']} |")
-lines.append("")
-
-# Findings
-if dark_stories:
-    lines.append("## Dark Stories (no code links)")
-    lines.append("")
-    for ds in dark_stories:
-        sinfo = stories.get(ds, {})
-        lines.append(f"- **{ds}**: {sinfo.get('title', 'Unknown')} (status: {dev_status.get(ds, '?')})")
-    lines.append("")
-
-if orphan_tags:
-    lines.append("## Orphan Tags (tag in code, no matching story)")
-    lines.append("")
-    for ot in orphan_tags:
-        lines.append(f"- `{ot}`")
-    lines.append("")
-
-if stale_tags:
-    lines.append("## Stale Tags (story done, tag still in code)")
-    lines.append("")
-    for st in stale_tags:
-        lines.append(f"- `{st}`")
-    lines.append("")
-
-TRACE_MD.parent.mkdir(parents=True, exist_ok=True)
-TRACE_MD.write_text("\n".join(lines), encoding="utf-8")
-
-# -----------------------------------------------------------------------
-# 7. Emit OKF bundle (specs/codebase-wiki/)
-# -----------------------------------------------------------------------
-OKF_DIR.mkdir(parents=True, exist_ok=True)
-
-# Generate index.md
-idx_lines = []
-idx_lines.append("---")
-idx_lines.append("type: Index")
-idx_lines.append(f"generated_at: {datetime.now(timezone.utc).isoformat()}")
-idx_lines.append(f"total_concepts: {len(stories)}")
-idx_lines.append("---")
-idx_lines.append("")
-idx_lines.append("# Codebase Wiki — Story Traceability")
-idx_lines.append("")
-idx_lines.append("Auto-generated OKF bundle from trace-stories.sh.")
-idx_lines.append("")
-idx_lines.append("| Story | Title | Confidence | Links |")
-idx_lines.append("|-------|-------|------------|-------|")
-for s in matrix_stories:
-    confs = {l["confidence"] for l in s["links"]}
-    max_conf = "high" if "high" in confs else ("medium" if "medium" in confs else ("low" if confs else "none"))
-    idx_lines.append(f"| [{s['id']}](./{s['id']}.md) | {s['title'][:60]} | {max_conf} | {s['link_count']} |")
-idx_lines.append("")
-(OKF_DIR / "index.md").write_text("\n".join(idx_lines), encoding="utf-8")
-
-# Generate one concept per story
-for s in matrix_stories:
-    concept = []
-    concept.append("---")
-    concept.append(f"type: Story")
-    concept.append(f"id: {s['id']}")
-    concept.append(f"epic: {s['epic_id']}")
-    concept.append(f"bcps: {s['bcp']}")
-    concept.append(f"wsjf: {s['wsjf']}")
-    concept.append(f"implementation_status: {s['status']}")
-    max_confs = set()
-    for l in s["links"]:
-        max_confs.add(l["confidence"])
-    conf = "high" if "high" in max_confs else ("medium" if "medium" in max_confs else ("low" if max_confs else "none"))
-    concept.append(f"coverage_status: {'covered' if s['link_count'] > 0 else 'dark'}")
-    concept.append(f"confidence: {conf}")
-    concept.append("links:")
-    for l in s["links"]:
-        concept.append(f"  - file: {l['file']}")
-        concept.append(f"    line: {l['line']}")
-        concept.append(f"    confidence: {l['confidence']}")
-        concept.append(f"    method: {l['method']}")
-    concept.append("---")
-    concept.append("")
-    concept.append(f"# {s['id']}: {s['title']}")
-    concept.append("")
-    concept.append(f"**Epic:** {s['epic_id']} — {s.get('epic_title', 'Unknown')}")
-    concept.append(f"**Status:** {s['status']}")
-    concept.append(f"**BCP:** {s['bcp']} | **WSJF:** {s['wsjf']}")
-    concept.append("")
-    if s["links"]:
-        concept.append("## Implemented In")
-        concept.append("")
-        for l in s["links"]:
-            concept.append(f"- `{l['file']}` (line {l['line']}, confidence: {l['confidence']}, method: {l['method']})")
-    else:
-        concept.append("*No code links found — this is a dark story.*")
-    concept.append("")
-    (OKF_DIR / f"{s['id']}.md").write_text("\n".join(concept), encoding="utf-8")
+# Emit outputs via trace_renderer
+matrix = emit_matrix_json(MATRIX_JSON, stories, tagged_sids, dark_stories, orphan_tags, stale_tags, matrix_stories)
+emit_trace_md(TRACE_MD, stories, tagged_sids, dark_stories, orphan_tags, stale_tags, matrix_stories, matrix, dev_status)
+emit_okf_bundle(OKF_DIR, stories, matrix_stories)
 
 # -----------------------------------------------------------------------
 # 8. Strict mode — exit non-zero on P0 uncovered

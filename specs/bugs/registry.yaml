@@ -220,7 +220,7 @@ bugs:
     title: "G-06 golden test fails — bash bad substitution + pipefail SIGPIPE in validate check"
     file: bugs/BUG-2026-07-06-g06-migrate-version-golden.md
   - id: BUG-2026-07-06-gate-trace-matrix-oversized
-    status: open
+    status: fixed
     severity: medium
     scope: skills/gate-trace
     title: "gate-trace: Underlying matrix compilation engine trace-matrix.py exceeds line limits"
