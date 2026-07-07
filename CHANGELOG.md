@@ -1,3 +1,10 @@
+## [2.74.11](https://github.com/danielvm-git/bigpowers/compare/v2.74.10...v2.74.11) (2026-07-07)
+
+
+### Bug Fixes
+
+* **epics-wiki:** remove orphan e49/e50 OKF bundles without epic.yamls ([6d32a30](https://github.com/danielvm-git/bigpowers/commit/6d32a306be4cbd098cdff0529fbba9efad7054a7))
+
 ## [2.74.10](https://github.com/danielvm-git/bigpowers/compare/v2.74.9...v2.74.10) (2026-07-07)
 
 
