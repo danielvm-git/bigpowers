@@ -1,16 +1,12 @@
-active_flow: fix_bug
+active_flow: null
 active_epic: null
 active_story: null
-bug_id: BUG-2026-07-07-install-gemini-plugins
+bug_id: null
 bigpowers_version: 2.74.12
-bug_cycle:
-  current_step: 3
-  completed_steps:
-  - '1'
-  - '2'
+bug_cycle: null
 handoff:
-  context: Bug investigated and diagnosed, ready for develop-tdd
-  next_skill: develop-tdd
+  context: e48 release complete — all 14 stories done, capsule archived, CI green
+  next_skill: survey-context
   epic: null
 epic_cycle:
   step: 8
@@ -35,14 +31,14 @@ metrics:
   story_end: '2026-07-07T03:25:00Z'
   skill_timings:
     release-branch:
-      calls: 5
-      total_seconds: 1422.0
-      avg_seconds: 284.4
+      calls: 6
+      total_seconds: 4900.0
+      avg_seconds: 816.7
     plan-work:
       calls: 1
       total_seconds: 343.0
       avg_seconds: 343.0
 release:
   ci_verified: true
-  last_commit: ece8389c
-  last_epic: e45
+  last_commit: 3f279d85
+  last_epic: e48
