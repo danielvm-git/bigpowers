@@ -1,3 +1,10 @@
+## [2.74.10](https://github.com/danielvm-git/bigpowers/compare/v2.74.9...v2.74.10) (2026-07-07)
+
+
+### Bug Fixes
+
+* **generate-epics-wiki:** fix grep pattern for story count, add type field for OKF validation ([4543e56](https://github.com/danielvm-git/bigpowers/commit/4543e56f2d23c98044299a8c2b1b8db8be91ac6d))
+
 ## [2.74.9](https://github.com/danielvm-git/bigpowers/compare/v2.74.8...v2.74.9) (2026-07-07)
 
 
