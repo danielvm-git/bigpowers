@@ -1,3 +1,10 @@
+## [2.75.1](https://github.com/danielvm-git/bigpowers/compare/v2.75.0...v2.75.1) (2026-07-07)
+
+
+### Bug Fixes
+
+* **ci:** improve python compatibility with Z timezones, release agent lock ([bd92144](https://github.com/danielvm-git/bigpowers/commit/bd92144d0d2dc6ceb2db3999af215c5863939924))
+
 # [2.75.0](https://github.com/danielvm-git/bigpowers/compare/v2.74.12...v2.75.0) (2026-07-07)
 
 
