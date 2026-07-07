@@ -82,6 +82,7 @@ if (isInstalled()) {
   console.log(`bigpowers v${pkg.version} — already installed.`);
   console.log('Commands: bigpowers {setup|update|status|help}');
 } else {
+  const pkg = require(path.join(ROOT, 'package.json'));
   console.log(`🚀 bigpowers v${pkg.version} — skills not yet installed.`);
   console.log('   Run: bigpowers setup');
   process.exit(1);
