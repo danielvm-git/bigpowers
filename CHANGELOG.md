@@ -1,3 +1,10 @@
+## [2.74.5](https://github.com/danielvm-git/bigpowers/compare/v2.74.4...v2.74.5) (2026-07-07)
+
+
+### Bug Fixes
+
+* **install:** add missing pkg declaration in CLI default handler ([4d47e47](https://github.com/danielvm-git/bigpowers/commit/4d47e471a206eb5d7af579edcb0ec3dcf93951a8))
+
 ## [2.74.4](https://github.com/danielvm-git/bigpowers/compare/v2.74.3...v2.74.4) (2026-07-07)
 
 
