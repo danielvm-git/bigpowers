@@ -1,3 +1,10 @@
+## [2.73.8](https://github.com/danielvm-git/bigpowers/compare/v2.73.7...v2.73.8) (2026-07-07)
+
+
+### Bug Fixes
+
+* **audit-code:** split audit-compliance.sh into lib modules under 300-line cap ([#63](https://github.com/danielvm-git/bigpowers/issues/63)) ([7d5ea6e](https://github.com/danielvm-git/bigpowers/commit/7d5ea6e0f0c992f26b493b3843ede886770eed6f))
+
 ## [2.73.7](https://github.com/danielvm-git/bigpowers/compare/v2.73.6...v2.73.7) (2026-07-07)
 
 

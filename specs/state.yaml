@@ -2,13 +2,13 @@ active_flow: fix_bug
 active_epic: e45
 active_story: null
 bug_id: BUG-2026-07-06-gate-trace-matrix-oversized
-bigpowers_version: 2.73.7
+bigpowers_version: 2.73.8
 bug_cycle:
   current_step: 1
   completed_steps: []
   bug_id: BUG-2026-07-06-gate-trace-matrix-oversized
 handoff:
-  context: "fix-bug step 1 — investigate-bug for gate-trace-matrix-oversized"
+  context: fix-bug step 1 — investigate-bug for gate-trace-matrix-oversized
   next_skill: investigate-bug
   epic: e45
 metrics:
