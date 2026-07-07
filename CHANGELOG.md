@@ -1,3 +1,10 @@
+## [2.74.9](https://github.com/danielvm-git/bigpowers/compare/v2.74.8...v2.74.9) (2026-07-07)
+
+
+### Bug Fixes
+
+* **install:** update gemini plugin directory for antigravity 2.0 ([3d3365e](https://github.com/danielvm-git/bigpowers/commit/3d3365e5880135a85b5c913f95bcba90ef2b5168))
+
 ## [2.74.8](https://github.com/danielvm-git/bigpowers/compare/v2.74.7...v2.74.8) (2026-07-07)
 
 
