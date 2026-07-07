@@ -1,3 +1,10 @@
+## [2.74.3](https://github.com/danielvm-git/bigpowers/compare/v2.74.2...v2.74.3) (2026-07-07)
+
+
+### Bug Fixes
+
+* **traceability:** backfill story tags for e01 e02 e03 e04 e05 e06 e07 e08 e10 ([2926f8f](https://github.com/danielvm-git/bigpowers/commit/2926f8f49304fa28f09e8eb0c2b63f1c405c4d94))
+
 ## [2.74.2](https://github.com/danielvm-git/bigpowers/compare/v2.74.1...v2.74.2) (2026-07-07)
 
 

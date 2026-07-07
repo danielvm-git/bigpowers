@@ -13,7 +13,7 @@
     },
     "audit-code": {
       "description": "Self-review checklist for the coding agent to run before dispatching a reviewer. Checks CONVENTIONS.md compliance, Boy Scout Rule, test coverage, types, and SOLID. Produces a pass/fail checklist. Use before request-review, before committing, or when user asks for a code quality check.",
-      "sha256": "b4d70ad39eca5902",
+      "sha256": "bbb128254464f8f4",
       "path": "skills/audit-codeSKILL.md"
     },
     "audit-plan": {
@@ -53,7 +53,7 @@
     },
     "deepen-architecture": {
       "description": "Find deepening opportunities in a codebase, informed by the domain language in specs/tech-architecture/tech-stack.md and the decisions in specs/adr/. Use when the user wants to improve architecture, find refactoring opportunities, consolidate tightly-coupled modules, or make a codebase more testable and AI-navigable.",
-      "sha256": "591441a980d0447c",
+      "sha256": "a31de1fbd4800060",
       "path": "skills/deepen-architectureSKILL.md"
     },
     "define-language": {
@@ -83,7 +83,7 @@
     },
     "develop-tdd": {
       "description": "Test-driven development with red-green-refactor loop using vertical slices. Use for features (epic tasks) or bugs (specs/bugs/BUG-*.md).",
-      "sha256": "1989004e232bb4be",
+      "sha256": "91928da1d9757094",
       "path": "skills/develop-tddSKILL.md"
     },
     "diagnose-root": {
@@ -123,7 +123,7 @@
     },
     "execute-plan": {
       "description": "Batch-execute tasks from the active epic capsule sequentially, with a human checkpoint after each step. Use when user has an approved plan and wants step-by-step oversight.",
-      "sha256": "259833a91f470ac3",
+      "sha256": "9d6d2bf18e58dafd",
       "path": "skills/execute-planSKILL.md"
     },
     "extract-design": {
@@ -148,12 +148,12 @@
     },
     "grill-with-docs": {
       "description": "Doc-grounded variant of grill-me — stress-tests plan assumptions by fetching and citing real library or API documentation. Every challenge must cite a real URL. Use when the plan depends on a specific library or external API.",
-      "sha256": "e78bea0ebcd9ae9b",
+      "sha256": "bd4267952e492f9c",
       "path": "skills/grill-with-docsSKILL.md"
     },
     "guard-git": {
       "description": "Block dangerous git commands (push, force push, reset --hard, clean, branch -D, checkout/restore .) and enforce Conventional Commits & Branch Protection before an AI agent runs them. Installs hook scripts for Claude Code, Cursor, Cursor CLI, and Gemini CLI; documents Google Antigravity Terminal deny lists. Use when the user wants git safety hooks, to block git push or destructive git in agents, or to mirror the same policy across AI coding tools.",
-      "sha256": "1386000c275dc9ef",
+      "sha256": "9ee881df89273b00",
       "path": "skills/guard-gitSKILL.md"
     },
     "hook-commits": {
@@ -193,17 +193,17 @@
     },
     "model-domain": {
       "description": "Grilling session that challenges your plan against the existing domain model, sharpens terminology, and updates specs/tech-architecture/tech-stack.md and specs/adr/ inline as decisions crystallise. Use when user wants to stress-test a plan against their project's domain language and documented decisions.",
-      "sha256": "982bf9996a89183e",
+      "sha256": "857d86ccd37236eb",
       "path": "skills/model-domainSKILL.md"
     },
     "orchestrate-project": {
       "description": "Meta-skill that enforces the 6-phase core loop (discover → elaborate → plan → build → verify → release) with hard gates. Use to coordinate multi-phase projects with guaranteed quality checkpoints. One-time command for the entire project lifecycle.",
-      "sha256": "4e53cd83ac296735",
+      "sha256": "e38e21bb3ad47734",
       "path": "skills/orchestrate-projectSKILL.md"
     },
     "organize-workspace": {
       "description": "Scans the active workspace for disposable artifacts—logs, caches, stale build output, and stray draft markdown—and proposes consolidation of scattered assets. Produces a reviewable list, asks for explicit confirmation before any delete or move, and optionally revises .gitignore. Use when the user says \"clean my room\", \"organize workspace\", \"workspace cleanup\", \"remove temp files\", \"organize assets\", \"gitignore\", or wants a safe tidy pass.",
-      "sha256": "d98b8d6312d94a20",
+      "sha256": "8295d674c2cd461e",
       "path": "skills/organize-workspaceSKILL.md"
     },
     "plan-refactor": {
@@ -223,7 +223,7 @@
     },
     "plan-work": {
       "description": "\"PLANNING SPINE STEP 3 of 3 — Plan the work: write detailed implementation tasks into the active epic capsule (specs/epics/eNN-slug/). Produces countable-story-format .md specs and runnable -tasks.yaml files. Use after slice-tasks (step 2). Not a substitute for scope-work (step 1) or slice-tasks (step 2).\"",
-      "sha256": "4cc87b8c2ae13dae",
+      "sha256": "aabc7f15b46525c2",
       "path": "skills/plan-workSKILL.md"
     },
     "publish-package": {
@@ -268,7 +268,7 @@
     },
     "run-evals": {
       "description": "Eval-Driven Development — define capability and regression evals before building; code graders use verify commands, model graders use explicit rubrics; log pass@k. Use before develop-tdd on new features, or when measuring agent capability over runs.",
-      "sha256": "2fd60cbf4a4e1c63",
+      "sha256": "928eb6bcc1176a40",
       "path": "skills/run-evalsSKILL.md"
     },
     "run-planning": {
@@ -298,7 +298,7 @@
     },
     "session-state": {
       "description": "Track implementation decisions and progress in specs/state.yaml to prevent context rot. Use at the start of a session to load context, and whenever a significant decision is made or a milestone is reached.",
-      "sha256": "4b607fee350390c6",
+      "sha256": "943075be867cd50e",
       "path": "skills/session-stateSKILL.md"
     },
     "setup-environment": {
@@ -313,7 +313,7 @@
     },
     "slice-tasks": {
       "description": "\"PLANNING SPINE STEP 2 of 3 — Slice the work: break a scoped PRD into vertical-slice stories in specs/epics/. Use after scope-work (step 1), before plan-work (step 3). Not a substitute for scope-work or plan-work.\"",
-      "sha256": "b89b61159fc619e5",
+      "sha256": "b60f861b88387e4d",
       "path": "skills/slice-tasksSKILL.md"
     },
     "smoke-test": {
@@ -333,12 +333,12 @@
     },
     "survey-context": {
       "description": "Per-task context bootstrap — reads existing specs/ and tech-architecture docs to map the current lifecycle phase and suggest the next skill. Use at the start of any task, when returning after a break, or when unsure what to do next. For deriving a tech-stack doc from scratch, use map-codebase first.",
-      "sha256": "eab179b810784ef4",
+      "sha256": "8beae3b8b7eab0f7",
       "path": "skills/survey-contextSKILL.md"
     },
     "terse-mode": {
       "description": "Fallback ultra-compressed communication mode. Cuts token usage ~75% by dropping filler, articles, and pleasantries while keeping full technical accuracy. Use ONLY when context is critically long and compressing output is necessary to continue. Not a strategy — token discipline comes from code shape (small functions, unique names, headless tests), not terser prompts. Use when user says \"caveman mode\", \"terse mode\", \"less tokens\", \"be brief\", or invokes /terse-mode.",
-      "sha256": "bb6fce40d59044a5",
+      "sha256": "952aa309f6287804",
       "path": "skills/terse-modeSKILL.md"
     },
     "trace-requirement": {
@@ -348,7 +348,7 @@
     },
     "using-bigpowers": {
       "description": "One-time bootstrap that introduces the bigpowers skills system, the PMBOK lifecycle arc, and tells you which skill to call first for your situation. Use when starting with bigpowers for the first time, when user asks \"where do I start?\", or when the skills system needs to be explained.",
-      "sha256": "c910fc0ed3482341",
+      "sha256": "332d6468868b759b",
       "path": "skills/using-bigpowersSKILL.md"
     },
     "validate-contracts": {
