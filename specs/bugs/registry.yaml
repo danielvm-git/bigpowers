@@ -226,7 +226,7 @@ bugs:
     title: "gate-trace: Underlying matrix compilation engine trace-matrix.py exceeds line limits"
     file: bugs/BUG-2026-07-06-gate-trace-matrix-oversized.md
   - id: BUG-2026-07-06-migrate-spec-migration-logic-violations
-    status: open
+    status: fixed
     severity: medium
     scope: skills/migrate-spec
     title: "migrate-spec: migrate-version.sh exceeds line limits (G28 in check-spec-version-gap fixed separately)"
