@@ -1,3 +1,10 @@
+## [2.74.6](https://github.com/danielvm-git/bigpowers/compare/v2.74.5...v2.74.6) (2026-07-07)
+
+
+### Bug Fixes
+
+* **install:** hoist pkg require to module scope ([e77d24a](https://github.com/danielvm-git/bigpowers/commit/e77d24aed50a0f048ab8df1c912aaef7aebdc285))
+
 ## [2.74.5](https://github.com/danielvm-git/bigpowers/compare/v2.74.4...v2.74.5) (2026-07-07)
 
 
