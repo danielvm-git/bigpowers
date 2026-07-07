@@ -1,5 +1,13 @@
 # AUTO-GENERATED — sync-bugs-registry.sh
 bugs:
+  - id: BUG-2026-07-07T113000
+    status: fixed
+    severity: low
+    scope: website
+    title: "Website docs build fails — missing React integration for TSX/JSX"
+    file: bugs/BUG-2026-07-07T113000.md
+    risk_level: "low"
+    approach: "installed @astrojs/react, configured integration in astro.config.mjs, added @/ alias in tsconfig.json, installed missing yaml/clsx/tailwind-merge deps"
   - id: BUG-2026-06-02T164500
     status: fixed
     severity: high

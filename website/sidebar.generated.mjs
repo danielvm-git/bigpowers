@@ -291,8 +291,16 @@ export const generatedSidebar = [
 						"slug": "skills/compose-workflow"
 					},
 					{
+						"label": "context7-mcp",
+						"slug": "skills/context7-mcp"
+					},
+					{
 						"label": "delegate-task",
 						"slug": "skills/delegate-task"
+					},
+					{
+						"label": "diagnose-stall",
+						"slug": "skills/diagnose-stall"
 					},
 					{
 						"label": "dispatch-agents",
@@ -305,6 +313,10 @@ export const generatedSidebar = [
 					{
 						"label": "evolve-skill",
 						"slug": "skills/evolve-skill"
+					},
+					{
+						"label": "maintain-wiki",
+						"slug": "skills/maintain-wiki"
 					},
 					{
 						"label": "migrate-spec",
@@ -363,6 +375,10 @@ export const generatedSidebar = [
 	{
 		"label": "Decisions",
 		"items": [
+			{
+				"label": "ADR-0007: Single AGENTS.md Spine with Tool-Specific Context Derivatives",
+				"slug": "decisions/0007-agents-md-spine-context-derivatives"
+			},
 			{
 				"label": "ADR-0006: Model Routing — Skill-Specific Model Assignment",
 				"slug": "decisions/0006-model-routing"

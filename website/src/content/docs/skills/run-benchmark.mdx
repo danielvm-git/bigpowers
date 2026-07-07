@@ -27,9 +27,9 @@ Benchmark definitions partition scenarios into two sets:
 ## Usage
 
 ```bash
-run-benchmark <skill-name>           # benchmark single skill
-run-benchmark --all                  # benchmark all with definitions
-run-benchmark <skill-name> --baseline # pin results as baseline
+bash scripts/run-benchmark.sh <skill-name>           # benchmark single skill
+bash scripts/run-benchmark.sh --all                  # benchmark all with definitions
+bash scripts/run-benchmark.sh <skill-name> --baseline # pin results as baseline
 ```
 
 ## Process
