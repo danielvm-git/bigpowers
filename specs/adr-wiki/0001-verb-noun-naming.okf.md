@@ -1,6 +1,7 @@
 ---
 okf_kind: concept
 okf_version: "0.1"
+type: adr
 id: "0001-verb-noun-naming"
 title: "ADR-0001: Verb-Noun Skill Naming"
 category: adr

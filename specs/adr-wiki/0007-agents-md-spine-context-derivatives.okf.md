@@ -1,6 +1,7 @@
 ---
 okf_kind: concept
 okf_version: "0.1"
+type: adr
 id: "0007-agents-md-spine-context-derivatives"
 title: "ADR-0007: Single AGENTS.md Spine with Tool-Specific Context Derivatives"
 category: adr

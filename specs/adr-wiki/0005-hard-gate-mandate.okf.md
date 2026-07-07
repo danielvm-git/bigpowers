@@ -1,6 +1,7 @@
 ---
 okf_kind: concept
 okf_version: "0.1"
+type: adr
 id: "0005-hard-gate-mandate"
 title: "ADR-0005: Hard Gate Mandate"
 category: adr

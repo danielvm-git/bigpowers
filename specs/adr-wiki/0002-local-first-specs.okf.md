@@ -1,6 +1,7 @@
 ---
 okf_kind: concept
 okf_version: "0.1"
+type: adr
 id: "0002-local-first-specs"
 title: "ADR-0002: Local-First Specs"
 category: adr

@@ -1,6 +1,7 @@
 ---
 okf_kind: concept
 okf_version: "0.1"
+type: adr
 id: "0004-context-isolation"
 title: "ADR-0004: Context Isolation — Fresh Window per Skill Spawn"
 category: adr

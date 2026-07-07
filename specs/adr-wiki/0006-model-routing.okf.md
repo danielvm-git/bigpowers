@@ -1,6 +1,7 @@
 ---
 okf_kind: concept
 okf_version: "0.1"
+type: adr
 id: "0006-model-routing"
 title: "ADR-0006: Model Routing — Skill-Specific Model Assignment"
 category: adr

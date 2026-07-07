@@ -1,6 +1,7 @@
 ---
 okf_kind: concept
 okf_version: "0.1"
+type: adr
 id: "0003-prescriptive-core-loop"
 title: "ADR-0003: Prescriptive Core Loop with Fast-Track Mode"
 category: adr

@@ -62,6 +62,7 @@ if len(parts) >= 3:
 ---
 okf_kind: concept
 okf_version: "0.1"
+type: adr
 id: "${adr_name}"
 title: "${title}"
 category: adr
