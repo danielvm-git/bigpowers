@@ -18,7 +18,9 @@ jobs:
           bash scripts/validate-okf.sh --dir specs/adr-wiki
 
       - name: Publish to Wiki
+        if: ${{ secrets.WIKI_PAT != '' }}
         env:
           WIKI_PAT: ${{ secrets.WIKI_PAT }}
+          WIKI_REPO_URL: https://github.com/${{ github.repository }}.wiki.git
         run: |
           bash kernel/src/publish-to-wiki.sh

@@ -7,6 +7,7 @@
 # ─────────────────────────────────────────────────────────────────────
 okf_kind: story-metrics
 okf_version: "0.1"
+type: StoryMetrics
 
 # Identity & provenance ─ • static
 id: e31s07

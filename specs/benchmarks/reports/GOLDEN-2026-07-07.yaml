@@ -1,25 +1,25 @@
-timestamp: "2026-07-07T19:40:35Z"
-git_commit: "18b26532c481321526ea36cfe8ddc770867499d9"
+timestamp: "2026-07-07T19:47:58Z"
+git_commit: "e502c62583024df36bed086d8e44a871907632cd"
 suite: "golden-combined"
 mode: "daily"
 deterministic:
   total: 11
-  passed: 11
-  failed: 0
+  passed: 10
+  failed: 1
   skipped: 0
-  pass_rate: 1.00
+  pass_rate: .90
 gates:
   - name: compliance
-    exit_code: 0
-    duration_seconds: 37.06
-    status: pass
+    exit_code: 1
+    duration_seconds: 18.69
+    status: fail
   - name: g04-selftest
     exit_code: 0
     duration_seconds: .03
     status: pass
   - name: g06-migrate-version
     exit_code: 0
-    duration_seconds: 5.45
+    duration_seconds: 6.09
     status: pass
   - name: g07-negative-path
     exit_code: 0
@@ -27,7 +27,7 @@ gates:
     status: pass
   - name: g08-anti-vacuity
     exit_code: 0
-    duration_seconds: .07
+    duration_seconds: .06
     status: pass
   - name: g09-yaml-roundtrip
     exit_code: 0
@@ -35,23 +35,23 @@ gates:
     status: pass
   - name: g10-trace-anti-vacuity
     exit_code: 0
-    duration_seconds: .10
+    duration_seconds: .08
     status: pass
   - name: g11-gitignore-venv
     exit_code: 0
-    duration_seconds: .05
+    duration_seconds: .06
     status: pass
   - name: import-boundaries
     exit_code: 0
-    duration_seconds: .21
+    duration_seconds: .20
     status: pass
   - name: skill-catalog
     exit_code: 0
-    duration_seconds: 1.35
+    duration_seconds: 1.34
     status: pass
   - name: specs-parse
     exit_code: 0
-    duration_seconds: .47
+    duration_seconds: .45
     status: pass
 agent_stories:
   total: 0
@@ -61,4 +61,4 @@ agent_stories:
   flake_count: 0
   pass_rate: n/a
 summary:
-  combined_verdict: "pass"
+  combined_verdict: "fail"

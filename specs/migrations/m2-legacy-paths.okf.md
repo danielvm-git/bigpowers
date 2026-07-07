@@ -1,6 +1,7 @@
 ---
 okf_kind: spec-migration
 okf_version: "0.1"
+type: Migration
 id: m2-legacy-paths
 title: "Legacy Path Migration"
 since_version: "2.0.0"

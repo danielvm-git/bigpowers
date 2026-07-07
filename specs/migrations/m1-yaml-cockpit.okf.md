@@ -1,6 +1,7 @@
 ---
 okf_kind: spec-migration
 okf_version: "0.1"
+type: Migration
 id: m1-yaml-cockpit
 title: "Markdown → YAML Cockpit"
 since_version: "2.0.0"

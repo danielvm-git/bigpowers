@@ -80,6 +80,7 @@ YAML_EOF
 ---
 okf_kind: verification-report
 okf_version: "0.1"
+type: VerificationReport
 score: ${PASS_RATE}
 gate_status: "${GATE_STATUS}"
 threshold: ${THRESHOLD}

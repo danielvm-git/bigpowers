@@ -40,6 +40,11 @@ bash "$REPO_ROOT/scripts/sync-bugs-registry.sh" >/dev/null
 require_min_count "$REPO_ROOT/specs/bugs" 1 "bug"
 bash "$REPO_ROOT/scripts/validate-okf.sh" --dir "$REPO_ROOT/specs/bugs"
 
+echo "→ validate all CI OKF directories"
+for dir in specs/metrics specs/migrations specs/verifications/reports; do
+  bash "$REPO_ROOT/scripts/validate-okf.sh" --dir "$REPO_ROOT/$dir"
+done
+
 echo "→ publish-to-wiki.sh --dry-run"
 OUTPUT="$(bash "$REPO_ROOT/kernel/src/publish-to-wiki.sh" --dry-run)"
 if [[ "$OUTPUT" != *"pages:"* ]]; then

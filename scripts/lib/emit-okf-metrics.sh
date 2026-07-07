@@ -31,6 +31,7 @@ emit_okf_metrics() {
     printf -- '---\n'
     printf -- 'okf_kind: story-metrics\n'
     printf -- 'okf_version: "0.1"\n'
+    printf -- 'type: StoryMetrics\n'
     printf -- 'id: %s\n' "$story"
     printf -- 'epic: %s\n' "${story%%s*}"
     printf -- 'bcps: %s\n' "$bcps"

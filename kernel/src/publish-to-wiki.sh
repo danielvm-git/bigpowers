@@ -83,8 +83,13 @@ push_to_wiki() {
   local work_dir="${WIKI_WORK_DIR:-}"
 
   if [[ -z "$wiki_repo" ]]; then
-    echo "publish-to-wiki: WIKI_REPO_URL is not set — cannot push" >&2
-    return 1
+    echo "publish-to-wiki: WIKI_REPO_URL is not set — skipping push" >&2
+    return 0
+  fi
+
+  local clone_url="$wiki_repo"
+  if [[ -n "${WIKI_PAT:-}" && "$wiki_repo" == https://* ]]; then
+    clone_url="${wiki_repo/https:\/\//https://x-access-token:${WIKI_PAT}@}"
   fi
 
   if [[ -z "$work_dir" ]]; then
@@ -95,7 +100,7 @@ push_to_wiki() {
   if [[ -d "$work_dir/.git" ]]; then
     git -C "$work_dir" pull --rebase origin master 2>/dev/null || git -C "$work_dir" pull --rebase origin main
   else
-    git clone "$wiki_repo" "$work_dir"
+    git clone "$clone_url" "$work_dir"
   fi
 
   rsync -a --delete "$staged_root/" "$work_dir/"

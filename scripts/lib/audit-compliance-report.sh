@@ -26,6 +26,7 @@ audit_write_okf_report() {
 ---
 okf_kind: verification-report
 okf_version: "0.1"
+type: VerificationReport
 score: ${SCORE}
 gate_status: "${GATE}"
 threshold: 94

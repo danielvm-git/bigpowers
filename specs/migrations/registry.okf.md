@@ -1,6 +1,7 @@
 ---
 okf_kind: migration-registry
 okf_version: "0.1"
+type: MigrationRegistry
 generated_at: 2026-07-03T00:00:00Z
 # bigpowers_version: mirror, not the authority — the real version lives in git tags (gh release view).
 # Stamp this at generation time; do not hand-maintain.
