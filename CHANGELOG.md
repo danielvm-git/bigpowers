@@ -1,3 +1,10 @@
+## [2.74.8](https://github.com/danielvm-git/bigpowers/compare/v2.74.7...v2.74.8) (2026-07-07)
+
+
+### Bug Fixes
+
+* **website:** add React integration for cockpit TSX components ([#66](https://github.com/danielvm-git/bigpowers/issues/66)) ([3547f3e](https://github.com/danielvm-git/bigpowers/commit/3547f3e3d4dbce053f6f701a21050e28fe4653ff))
+
 ## [2.74.7](https://github.com/danielvm-git/bigpowers/compare/v2.74.6...v2.74.7) (2026-07-07)
 
 
