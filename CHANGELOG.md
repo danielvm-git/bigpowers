@@ -1,3 +1,10 @@
+## [2.74.12](https://github.com/danielvm-git/bigpowers/compare/v2.74.11...v2.74.12) (2026-07-07)
+
+
+### Bug Fixes
+
+* **adr-wiki:** add type field to ADR OKF bundles for validation compliance ([3f279d8](https://github.com/danielvm-git/bigpowers/commit/3f279d85927cd57f221c39c96535a33d6214e691))
+
 ## [2.74.11](https://github.com/danielvm-git/bigpowers/compare/v2.74.10...v2.74.11) (2026-07-07)
 
 
