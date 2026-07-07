@@ -1,0 +1,38 @@
+id: e14
+title: Release Hardening & Quality Metrics
+wsjf: 6.0
+bcps: 3
+status: done
+mode: capsule
+capsule_dir: epics/archive/e14-release-hardening-quality
+release: v1.0.0
+codename: Release Hardening & Quality Metrics
+stories:
+- id: e14s01
+  bcp: 1
+  title: Harden release-branch solo-local fallback
+  status: done
+  verify: 'grep -c "land-branch.sh\|fallback\|git merge --no-ff" release-branch/SKILL.md
+    | awk ''{if($1>=3) print "OK: fallback documented"; else print "FAIL: only " $1
+    " references"}''
+
+
+    '
+- id: e14s02
+  bcp: 1
+  title: Add fix-rate KPI to session-state tracking
+  status: done
+  verify: 'grep -c "commit_ratio\|fix_pct" session-state/SKILL.md | awk ''{if($1>=2)
+    print "OK: KPI in skill"; else print "FAIL: only " $1 " references"}''
+
+
+    '
+- id: e14s03
+  bcp: 1
+  title: "Catalog completeness audit \u2014 verify all pi skills exist in public catalog"
+  status: done
+  verify: 'bash scripts/audit-catalog.sh 2>&1 | grep -q "OK:" && echo "OK: audit passes"
+    || echo "FAIL or no audit script"
+
+
+    '

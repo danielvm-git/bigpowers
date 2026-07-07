@@ -1,18 +1,33 @@
 id: e22
-title: "Skill Catalog CI Gate"
+title: Skill Catalog CI Gate
 wsjf: 5.5
-total_bcps: 2
+bcps: 2
 status: done
+mode: capsule
+capsule_dir: epics/archive/e22-skill-catalog-ci-gate
+release: v1.0.0
+codename: Skill Catalog CI Gate
 stories:
-  - id: e22s01
-    title: "scripts/run-skill-verify.sh — machine-runnable catalog health check"
-    bcps: 1
-    status: done
-    spec: e22s01-run-skill-verify.md
-    tasks: e22s01-tasks.yaml
-  - id: e22s02
-    title: "Wire skill-verify to CI and stocktake-skills --verify mode"
-    bcps: 1
-    status: done
-    spec: e22s02-ci-integration.md
-    tasks: e22s02-tasks.yaml
+- id: e22s01
+  bcp: 1
+  title: "scripts/run-skill-verify.sh \u2014 machine-runnable catalog health check"
+  status: done
+  verify: 'bash scripts/run-skill-verify.sh 2>&1 | grep -qE ''^PASS|^SKIP'' && echo
+    OK || echo FAIL
+
+
+    bash scripts/run-skill-verify.sh; echo "exit: $?"
+
+    '
+- id: e22s02
+  bcp: 1
+  title: Wire skill-verify to CI and stocktake-skills --verify mode
+  status: done
+  verify: 'grep -q ''run-skill-verify'' .github/workflows/ci.yml && echo OK || echo
+    FAIL
+
+
+    grep -c ''\-\-verify\|verify.*mode'' stocktake-skills/SKILL.md | awk ''{if($1>=1)
+    print "OK"; else print "FAIL"}''
+
+    '

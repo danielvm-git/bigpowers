@@ -1,24 +1,39 @@
 id: e24
-title: "Planning Context Capsule"
+title: Planning Context Capsule
 wsjf: 4.0
-total_bcps: 3
+bcps: 3
 status: done
+mode: capsule
+capsule_dir: epics/archive/e24-planning-context-capsule
+release: v1.0.0
+codename: Planning Context Capsule
 stories:
-  - id: e24s01
-    title: "elaborate-spec writes specs/planning-context.yaml"
-    bcps: 1
-    status: done
-    spec: e24s01-elaborate-spec-output.md
-    tasks: e24s01-tasks.yaml
-  - id: e24s02
-    title: "scope-work and slice-tasks read planning-context.yaml"
-    bcps: 1
-    status: done
-    spec: e24s02-downstream-reads.md
-    tasks: e24s02-tasks.yaml
-  - id: e24s03
-    title: "run-planning tracks context lifecycle in planning-status.yaml"
-    bcps: 1
-    status: done
-    spec: e24s03-lifecycle-tracking.md
-    tasks: e24s03-tasks.yaml
+- id: e24s01
+  bcp: 1
+  title: elaborate-spec writes specs/planning-context.yaml
+  status: done
+  verify: 'grep -c ''planning-context\|planning.context'' elaborate-spec/SKILL.md
+    | awk ''{if($1>=1) print "OK"; else print "FAIL"}''
+
+
+    grep -q ''already exists\|overwrite\|Update existing'' elaborate-spec/SKILL.md
+    && echo OK || echo FAIL
+
+    '
+- id: e24s02
+  bcp: 1
+  title: scope-work and slice-tasks read planning-context.yaml
+  status: done
+  verify: 'grep -q ''planning-context'' scope-work/SKILL.md && echo OK || echo FAIL
+
+
+    grep -q ''planning-context'' slice-tasks/SKILL.md && echo OK || echo FAIL
+
+    '
+- id: e24s03
+  bcp: 1
+  title: run-planning tracks context lifecycle in planning-status.yaml
+  status: done
+  verify: 'grep -q ''planning-status'' run-planning/SKILL.md && echo OK || echo FAIL
+
+    '

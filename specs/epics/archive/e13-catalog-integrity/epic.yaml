@@ -1,0 +1,48 @@
+id: e13
+title: Catalog Integrity & Index Automation
+wsjf: 7.7
+bcps: 3
+status: done
+mode: capsule
+capsule_dir: epics/archive/e13-catalog-integrity
+release: v1.0.0
+codename: Catalog Integrity & Index Automation
+stories:
+- id: e13s01
+  bcp: 1
+  title: Regenerate skills-lock.json with all 62 skills
+  status: done
+  verify: "python3 -c \"\nimport json, os, hashlib\nd = json.load(open('skills-lock.json'))\n\
+    skills = d.get('skills', d)\nprint(f'Skills in lock: {len(skills)}')\nassert len(skills)\
+    \ == 62, f'Expected 62, got {len(skills)}'\nfor name, info in skills.items():\n\
+    \    path = info.get('path', f'{name}/SKILL.md')\n    assert os.path.exists(path),\
+    \ f'{path} not found'\n    content = open(path).read()\n    expected = hashlib.sha256(content.encode()).hexdigest()\n\
+    \    if 'sha256' in info:\n        assert info['sha256'] == expected[:16], f'SHA\
+    \ mismatch for {name}'\nprint('OK: 62 skills, all paths exist, hashes match')\n\
+    \"\n\n"
+- id: e13s02
+  bcp: 1
+  title: Autogenerate SKILL-INDEX.md from lockfile + frontmatter
+  status: done
+  verify: 'bash scripts/sync-skills.sh 2>&1 | grep -q "SKILL-INDEX.md" && echo "OK:
+    index regenerated" || echo "FAIL: not in sync"
+
+    grep -c "| \[" SKILL-INDEX.md | awk ''{if($1>=60) print "OK: " $1 " skills indexed";
+    else print "FAIL: only " $1 " indexed"}''
+
+    grep "generated:" SKILL-INDEX.md && echo "OK: has timestamp" || echo "FAIL: no
+    timestamp"
+
+
+    '
+- id: e13s03
+  bcp: 1
+  title: Complete or deprecate stale planned skills
+  status: done
+  verify: "for skill in scope-work slice-tasks run-planning search-skills; do\n  lines=$(wc\
+    \ -l < \"$skill/SKILL.md\")\n  if [ \"$lines\" -ge 50 ]; then\n    echo \"OK:\
+    \ $skill has $lines lines\"\n  else\n    deprecated=$(grep -c \"status: deprecated\"\
+    \ \"$skill/SKILL.md\" 2>/dev/null || echo 0)\n    if [ \"$deprecated\" -gt 0 ];\
+    \ then\n      echo \"DEPRECATED: $skill ($lines lines)\"\n    else\n      echo\
+    \ \"STUB: $skill only $lines lines \u2014 needs completion or deprecation\"\n\
+    \    fi\n  fi\ndone\n\n"

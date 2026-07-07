@@ -1,24 +1,37 @@
 id: e23
-title: "Benchmark Infrastructure"
+title: Benchmark Infrastructure
 wsjf: 4.5
-total_bcps: 3
+bcps: 3
 status: done
+mode: capsule
+capsule_dir: epics/archive/e23-benchmark-infrastructure
+release: v1.0.0
+codename: Benchmark Infrastructure
 stories:
-  - id: e23s01
-    title: "Define specs/benchmarks/ schema and 3 seed benchmark definitions"
-    bcps: 1
-    status: done
-    spec: e23s01-benchmark-schema.md
-    tasks: e23s01-tasks.yaml
-  - id: e23s02
-    title: "Create run-benchmark skill"
-    bcps: 1
-    status: done
-    spec: e23s02-run-benchmark-skill.md
-    tasks: e23s02-tasks.yaml
-  - id: e23s03
-    title: "Wire evolve-skill to use run-benchmark output"
-    bcps: 1
-    status: done
-    spec: e23s03-evolve-skill-wiring.md
-    tasks: e23s03-tasks.yaml
+- id: e23s01
+  bcp: 1
+  title: Define specs/benchmarks/ schema and 3 seed benchmark definitions
+  status: done
+  verify: 'test -f specs/benchmarks/SCHEMA.md && grep -q ''grader'' specs/benchmarks/SCHEMA.md
+    && echo OK || echo FAIL
+
+
+    test -f specs/benchmarks/survey-context.yaml && test -f specs/benchmarks/develop-tdd.yaml
+    && test -f specs/benchmarks/verify-work.yaml && echo OK || echo FAIL
+
+    '
+- id: e23s02
+  bcp: 1
+  title: Create run-benchmark skill
+  status: done
+  verify: 'test -f skills/run-benchmark/SKILL.md && echo OK || echo FAIL
+
+    '
+- id: e23s03
+  bcp: 1
+  title: Wire evolve-skill to use run-benchmark output
+  status: done
+  verify: 'grep -q ''run-benchmark\|benchmark.*report'' evolve-skill/SKILL.md && echo
+    OK || echo FAIL
+
+    '

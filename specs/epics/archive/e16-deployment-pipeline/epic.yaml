@@ -1,18 +1,47 @@
 id: e16
-title: "Deployment Pipeline"
-wsjf: 5.6
-total_bcps: 5
-status: backlog
+title: Deployment Pipeline
+wsjf: 5.2
+bcps: 5
+status: done
+mode: capsule
+capsule_dir: epics/archive/e16-deployment-pipeline
+release: v1.0.0
+codename: Deployment Pipeline
 stories:
-  - id: e16s01
-    title: "craft-skill: deploy — build → verify → deploy → wait → smoke"
-    bcps: 3
-    status: backlog
-    spec: e16s01-deploy.md
-    tasks: e16s01-tasks.yaml
-  - id: e16s02
-    title: "craft-skill: smoke-test — post-deploy health-check against live URL"
-    bcps: 2
-    status: backlog
-    spec: e16s02-smoke-test.md
-    tasks: e16s02-tasks.yaml
+- id: e16s01
+  bcp: 1
+  title: "craft-skill: deploy \u2014 build \u2192 verify \u2192 deploy \u2192 wait\
+    \ \u2192 smoke"
+  status: done
+  verify: 'test -f deploy/SKILL.md && echo "OK: skill file exists" || echo "FAIL:
+    no skill file"
+
+    grep -q "name: deploy" deploy/SKILL.md && echo "OK: frontmatter" || echo "FAIL:
+    frontmatter"
+
+    grep -qi "build\|artifact\|deploy\|smoke" deploy/SKILL.md && echo "OK: covers
+    pipeline stages" || echo "FAIL: missing stages"
+
+    grep -q "deploy" SKILL-INDEX.md && echo "OK: in SKILL-INDEX" || echo "FAIL: not
+    indexed"
+
+
+    '
+- id: e16s02
+  bcp: 1
+  title: "craft-skill: smoke-test \u2014 post-deploy health-check against live URL"
+  status: done
+  verify: 'test -f smoke-test/SKILL.md && echo "OK: skill file exists" || echo "FAIL:
+    no skill file"
+
+    grep -q "name: smoke-test" smoke-test/SKILL.md && echo "OK: frontmatter" || echo
+    "FAIL: frontmatter"
+
+    grep -qi "health\|check\|endpoint\|assert" smoke-test/SKILL.md && echo "OK: health-check
+    semantics" || echo "FAIL: missing semantics"
+
+    grep -q "smoke-test" SKILL-INDEX.md && echo "OK: in SKILL-INDEX" || echo "FAIL:
+    not indexed"
+
+
+    '
