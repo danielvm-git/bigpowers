@@ -2,10 +2,10 @@ active_flow: null
 active_epic: e45
 active_story: null
 bug_id: null
-bigpowers_version: 2.73.9
+bigpowers_version: 2.74.0
 bug_cycle: null
 handoff:
-  context: "e45 complete — all 41 stories s01-s41 implemented on feat/e45-quality-core"
+  context: e45 complete — all 41 stories s01-s41 implemented on feat/e45-quality-core
   next_skill: release-branch
   epic: e45
 epic_cycle:
@@ -15,11 +15,20 @@ epic_cycle:
   story_bcps: 2
   yolo_mode: true
   fast_mode: true
-  completed_steps: ["0","1","2","3","4","5","6","7","8"]
+  completed_steps:
+  - '0'
+  - '1'
+  - '2'
+  - '3'
+  - '4'
+  - '5'
+  - '6'
+  - '7'
+  - '8'
   audit_result: pass
 metrics:
-  story_start: "2026-07-07T02:53:00Z"
-  story_end: "2026-07-07T03:25:00Z"
+  story_start: '2026-07-07T02:53:00Z'
+  story_end: '2026-07-07T03:25:00Z'
   skill_timings:
     release-branch:
       calls: 5

@@ -1,3 +1,10 @@
+# [2.74.0](https://github.com/danielvm-git/bigpowers/compare/v2.73.9...v2.74.0) (2026-07-07)
+
+
+### Features
+
+* **e45:** skill hardening & verification patterns (s01–s41) ([9253dc0](https://github.com/danielvm-git/bigpowers/commit/9253dc04d4304256cdc07263a24eaf0ec7d757df))
+
 ## [2.73.9](https://github.com/danielvm-git/bigpowers/compare/v2.73.8...v2.73.9) (2026-07-07)
 
 
