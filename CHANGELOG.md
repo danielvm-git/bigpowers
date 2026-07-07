@@ -1,3 +1,10 @@
+## [2.74.4](https://github.com/danielvm-git/bigpowers/compare/v2.74.3...v2.74.4) (2026-07-07)
+
+
+### Bug Fixes
+
+* **sync-skills:** regenerate artifacts after story tag backfill ([35a0455](https://github.com/danielvm-git/bigpowers/commit/35a04555a3067ff3820580c2f08d3d2c071bfd87))
+
 ## [2.74.3](https://github.com/danielvm-git/bigpowers/compare/v2.74.2...v2.74.3) (2026-07-07)
 
 
