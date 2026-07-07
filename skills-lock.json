@@ -8,12 +8,12 @@
     },
     "assess-impact": {
       "description": "Analyze the blast radius of a proposed change before any code is written. Maps dependents, affected stories, and test coverage. Produces specs/IMPACT_LATEST.md. Use before plan-work on any non-trivial change, when touching a shared module, or when the user asks \"what does this break?\".",
-      "sha256": "9946928bd07934a7",
+      "sha256": "eb5c09bcbcae4a6b",
       "path": "skills/assess-impactSKILL.md"
     },
     "audit-code": {
       "description": "Self-review checklist for the coding agent to run before dispatching a reviewer. Checks CONVENTIONS.md compliance, Boy Scout Rule, test coverage, types, and SOLID. Produces a pass/fail checklist. Use before request-review, before committing, or when user asks for a code quality check.",
-      "sha256": "3c311b7e415f9ff9",
+      "sha256": "b4d70ad39eca5902",
       "path": "skills/audit-codeSKILL.md"
     },
     "audit-plan": {
@@ -48,12 +48,12 @@
     },
     "craft-skill": {
       "description": "Create new bigpowers skills with proper structure, progressive disclosure, and bundled resources. Use when user wants to create, write, or build a new skill for the bigpowers lifecycle.",
-      "sha256": "f087606947071927",
+      "sha256": "cbf8ab939cfbab87",
       "path": "skills/craft-skillSKILL.md"
     },
     "deepen-architecture": {
       "description": "Find deepening opportunities in a codebase, informed by the domain language in specs/tech-architecture/tech-stack.md and the decisions in specs/adr/. Use when the user wants to improve architecture, find refactoring opportunities, consolidate tightly-coupled modules, or make a codebase more testable and AI-navigable.",
-      "sha256": "af41c8da19a96d5d",
+      "sha256": "591441a980d0447c",
       "path": "skills/deepen-architectureSKILL.md"
     },
     "define-language": {
@@ -62,18 +62,18 @@
       "path": "skills/define-languageSKILL.md"
     },
     "define-success": {
-      "description": "'Convert an imperative task statement into explicit \"step → verify: <cmd>\" pairs before implementation begins. Use before plan-work when success criteria are unclear, when a task lacks verifiable checkpoints, or when user says \"how will we know this is done?\".'",
-      "sha256": "82e85d33a6f1ec87",
+      "description": "Convert an imperative task statement into explicit \"step → verify: <cmd>\" pairs before implementation begins. Use before plan-work when success criteria are unclear, when a task lacks verifiable checkpoints, or when user says \"how will we know this is done?\".",
+      "sha256": "4e29bd8dcabbce88",
       "path": "skills/define-successSKILL.md"
     },
     "delegate-task": {
       "description": "Delegate one complex task to a single subagent, review its work in two stages before merging back. Sequential — one agent at a time, with oversight. Use when a task is complex and requires careful review before the result is accepted. Distinct from dispatch-agents (no parallelism here; reviewer sees full diff before proceeding).",
-      "sha256": "9537d6766453a3b1",
+      "sha256": "a7ff44e8add873e2",
       "path": "skills/delegate-taskSKILL.md"
     },
     "deploy": {
       "description": "\"Build → verify artifact → deploy → wait → smoke deployment pipeline. Platform-agnostic (MCP or CLI), with configurable timeout, retry with exponential backoff, and integrated health-check. The deploy half of CI/CD: run after build to push to production.\"",
-      "sha256": "305d0a301a7f0e20",
+      "sha256": "38b542713906d451",
       "path": "skills/deploySKILL.md"
     },
     "design-interface": {
@@ -83,7 +83,7 @@
     },
     "develop-tdd": {
       "description": "Test-driven development with red-green-refactor loop using vertical slices. Use for features (epic tasks) or bugs (specs/bugs/BUG-*.md).",
-      "sha256": "def2c84a67685796",
+      "sha256": "1989004e232bb4be",
       "path": "skills/develop-tddSKILL.md"
     },
     "diagnose-root": {
@@ -93,7 +93,7 @@
     },
     "diagnose-stall": {
       "description": "Diagnose why agent orchestration stopped producing progress — silent stalls in /loop, dispatch-agents, or execute-plan. Use when work appears hung, no output for several minutes, or a subagent never returned.",
-      "sha256": "f0da16b077033b0c",
+      "sha256": "7bf260ea295aef62",
       "path": "skills/diagnose-stallSKILL.md"
     },
     "dispatch-agents": {
@@ -113,7 +113,7 @@
     },
     "enforce-first": {
       "description": "Apply the F.I.R.S.T test quality rubric (per CONVENTIONS.md §Tests) to a test suite or individual tests. Use when develop-tdd is writing tests, when test quality needs to be checked, or when user mentions F.I.R.S.T or \"test quality\".",
-      "sha256": "18ebf6ea8f789b1e",
+      "sha256": "64cde2c5f741c77f",
       "path": "skills/enforce-firstSKILL.md"
     },
     "evolve-skill": {
@@ -123,7 +123,7 @@
     },
     "execute-plan": {
       "description": "Batch-execute tasks from the active epic capsule sequentially, with a human checkpoint after each step. Use when user has an approved plan and wants step-by-step oversight.",
-      "sha256": "1387d32e45166ed1",
+      "sha256": "259833a91f470ac3",
       "path": "skills/execute-planSKILL.md"
     },
     "extract-design": {
@@ -133,12 +133,12 @@
     },
     "fix-bug": {
       "description": "Bug fix orchestrator — active_flow fix_bug; reads specs/bugs/BUG-*.md; chains investigate-bug, develop-tdd, validate-fix. Use when user reports a defect.",
-      "sha256": "61a867cfcc23566c",
+      "sha256": "8e9e5922211b7e3b",
       "path": "skills/fix-bugSKILL.md"
     },
     "gate-trace": {
       "description": "\"Deterministic traceability quality gate — reads coverage matrix + blind-spot data, applies decision rules with oracle confidence downgrade, emits PASS/CONCERNS/FAIL/WAIVED verdict. Use before release-branch to gate merges on traceability.\"",
-      "sha256": "044acc3e2c872e41",
+      "sha256": "ed37c315dcef6f87",
       "path": "skills/gate-traceSKILL.md"
     },
     "grill-me": {
@@ -148,12 +148,12 @@
     },
     "grill-with-docs": {
       "description": "Doc-grounded variant of grill-me — stress-tests plan assumptions by fetching and citing real library or API documentation. Every challenge must cite a real URL. Use when the plan depends on a specific library or external API.",
-      "sha256": "aa99c983ff3351ec",
+      "sha256": "e78bea0ebcd9ae9b",
       "path": "skills/grill-with-docsSKILL.md"
     },
     "guard-git": {
       "description": "Block dangerous git commands (push, force push, reset --hard, clean, branch -D, checkout/restore .) and enforce Conventional Commits & Branch Protection before an AI agent runs them. Installs hook scripts for Claude Code, Cursor, Cursor CLI, and Gemini CLI; documents Google Antigravity Terminal deny lists. Use when the user wants git safety hooks, to block git push or destructive git in agents, or to mirror the same policy across AI coding tools.",
-      "sha256": "37fd2e3ea8f02054",
+      "sha256": "1386000c275dc9ef",
       "path": "skills/guard-gitSKILL.md"
     },
     "hook-commits": {
@@ -178,7 +178,7 @@
     },
     "maintain-wiki": {
       "description": "\"Agent-maintained OKF wiki — INGEST source docs, LINT for issues, QUERY across concept pages. Run as part of build-epic Step 8 and verify-work Phase 3.\"",
-      "sha256": "cc7849845b033223",
+      "sha256": "c54c6170db6fe3f9",
       "path": "skills/maintain-wikiSKILL.md"
     },
     "map-codebase": {
@@ -193,17 +193,17 @@
     },
     "model-domain": {
       "description": "Grilling session that challenges your plan against the existing domain model, sharpens terminology, and updates specs/tech-architecture/tech-stack.md and specs/adr/ inline as decisions crystallise. Use when user wants to stress-test a plan against their project's domain language and documented decisions.",
-      "sha256": "6a5a90a4b92d7c00",
+      "sha256": "982bf9996a89183e",
       "path": "skills/model-domainSKILL.md"
     },
     "orchestrate-project": {
       "description": "Meta-skill that enforces the 6-phase core loop (discover → elaborate → plan → build → verify → release) with hard gates. Use to coordinate multi-phase projects with guaranteed quality checkpoints. One-time command for the entire project lifecycle.",
-      "sha256": "65c9d4001015ab86",
+      "sha256": "4e53cd83ac296735",
       "path": "skills/orchestrate-projectSKILL.md"
     },
     "organize-workspace": {
       "description": "Scans the active workspace for disposable artifacts—logs, caches, stale build output, and stray draft markdown—and proposes consolidation of scattered assets. Produces a reviewable list, asks for explicit confirmation before any delete or move, and optionally revises .gitignore. Use when the user says \"clean my room\", \"organize workspace\", \"workspace cleanup\", \"remove temp files\", \"organize assets\", \"gitignore\", or wants a safe tidy pass.",
-      "sha256": "326154e66c8c60a3",
+      "sha256": "d98b8d6312d94a20",
       "path": "skills/organize-workspaceSKILL.md"
     },
     "plan-refactor": {
@@ -218,22 +218,22 @@
     },
     "plan-tests": {
       "description": "\"Design a risk-scaled test architecture for an epic before implementation begins. Produces prioritized scenarios, test level distribution, and fixture plans based on TEA and bigpowers principles.\"",
-      "sha256": "f77c7ce6b7e4d388",
+      "sha256": "ed22b3feb985eabb",
       "path": "skills/plan-testsSKILL.md"
     },
     "plan-work": {
       "description": "\"PLANNING SPINE STEP 3 of 3 — Plan the work: write detailed implementation tasks into the active epic capsule (specs/epics/eNN-slug/). Produces countable-story-format .md specs and runnable -tasks.yaml files. Use after slice-tasks (step 2). Not a substitute for scope-work (step 1) or slice-tasks (step 2).\"",
-      "sha256": "4a34550a586b6172",
+      "sha256": "4cc87b8c2ae13dae",
       "path": "skills/plan-workSKILL.md"
     },
     "publish-package": {
       "description": "\"Package registry publishing for npm, crates.io, PyPI, and Homebrew. Verifies prerequisites, runs the publish command, confirms success, and surfaces actionable error hints on failure.\"",
-      "sha256": "0a5ccd7109cf5374",
+      "sha256": "3c1b82a417a7f170",
       "path": "skills/publish-packageSKILL.md"
     },
     "quick-fix": {
       "description": "\"Streamlined fast-path for trivial data-only fixes — no TDD, no branching ceremony. Collapses 6 skills into 2 for changes that are purely data with no logic risk. Aborts with fallback to investigate-bug if guardrails trigger.\"",
-      "sha256": "cd1c1366966aca0a",
+      "sha256": "6a1b70cb1530c428",
       "path": "skills/quick-fixSKILL.md"
     },
     "release-branch": {
@@ -243,7 +243,7 @@
     },
     "request-review": {
       "description": "Dispatch a fresh reviewer agent with a clean context to critique the code after audit-code passes. The reviewer has no shared state with the coding agent and gives a genuine second opinion. Use after audit-code passes, before committing, or when user wants an independent code review.",
-      "sha256": "0c4d8cf79adf7569",
+      "sha256": "5a845fc8c2ba7acb",
       "path": "skills/request-reviewSKILL.md"
     },
     "research-first": {
@@ -268,7 +268,7 @@
     },
     "run-evals": {
       "description": "Eval-Driven Development — define capability and regression evals before building; code graders use verify commands, model graders use explicit rubrics; log pass@k. Use before develop-tdd on new features, or when measuring agent capability over runs.",
-      "sha256": "afc3c74b3b1ba2bd",
+      "sha256": "2fd60cbf4a4e1c63",
       "path": "skills/run-evalsSKILL.md"
     },
     "run-planning": {
@@ -298,7 +298,7 @@
     },
     "session-state": {
       "description": "Track implementation decisions and progress in specs/state.yaml to prevent context rot. Use at the start of a session to load context, and whenever a significant decision is made or a milestone is reached.",
-      "sha256": "8e9cbf44245550d1",
+      "sha256": "4b607fee350390c6",
       "path": "skills/session-stateSKILL.md"
     },
     "setup-environment": {
@@ -308,17 +308,17 @@
     },
     "simulate-agents": {
       "description": "Run Mock User and Auditor agents against a feature in fresh contexts before human review. Use after verify-work, before request-review, when user wants pre-review simulation.",
-      "sha256": "d91e02a5d3141333",
+      "sha256": "0c67b6be32007e65",
       "path": "skills/simulate-agentsSKILL.md"
     },
     "slice-tasks": {
       "description": "\"PLANNING SPINE STEP 2 of 3 — Slice the work: break a scoped PRD into vertical-slice stories in specs/epics/. Use after scope-work (step 1), before plan-work (step 3). Not a substitute for scope-work or plan-work.\"",
-      "sha256": "5f8342753cd70488",
+      "sha256": "b89b61159fc619e5",
       "path": "skills/slice-tasksSKILL.md"
     },
     "smoke-test": {
       "description": "\"Post-deploy health-check against a live URL. Validates HTTP status, response content, and critical endpoints. Runnable standalone OR as the final step of the deploy skill.\"",
-      "sha256": "063174e872408fb0",
+      "sha256": "664c11f36df51da8",
       "path": "skills/smoke-testSKILL.md"
     },
     "spike-prototype": {
@@ -333,12 +333,12 @@
     },
     "survey-context": {
       "description": "Per-task context bootstrap — reads existing specs/ and tech-architecture docs to map the current lifecycle phase and suggest the next skill. Use at the start of any task, when returning after a break, or when unsure what to do next. For deriving a tech-stack doc from scratch, use map-codebase first.",
-      "sha256": "90dee82e5f68cfd0",
+      "sha256": "eab179b810784ef4",
       "path": "skills/survey-contextSKILL.md"
     },
     "terse-mode": {
       "description": "Fallback ultra-compressed communication mode. Cuts token usage ~75% by dropping filler, articles, and pleasantries while keeping full technical accuracy. Use ONLY when context is critically long and compressing output is necessary to continue. Not a strategy — token discipline comes from code shape (small functions, unique names, headless tests), not terser prompts. Use when user says \"caveman mode\", \"terse mode\", \"less tokens\", \"be brief\", or invokes /terse-mode.",
-      "sha256": "0fe97637d4ed616f",
+      "sha256": "bb6fce40d59044a5",
       "path": "skills/terse-modeSKILL.md"
     },
     "trace-requirement": {
@@ -348,17 +348,17 @@
     },
     "using-bigpowers": {
       "description": "One-time bootstrap that introduces the bigpowers skills system, the PMBOK lifecycle arc, and tells you which skill to call first for your situation. Use when starting with bigpowers for the first time, when user asks \"where do I start?\", or when the skills system needs to be explained.",
-      "sha256": "8277bdef4137148c",
+      "sha256": "c910fc0ed3482341",
       "path": "skills/using-bigpowersSKILL.md"
     },
     "validate-contracts": {
       "description": "\"Assert data shape consistency across system boundaries — live API responses against JSON Schema, key-set comparison across layers, data shape validation for migrations and exports. Catches silent data corruption before deploy.\"",
-      "sha256": "0800d81236a0a8e4",
+      "sha256": "7d944527859c3c14",
       "path": "skills/validate-contractsSKILL.md"
     },
     "validate-fix": {
       "description": "Prove a fix works before declaring done — re-run the failing test, run the full suite, typecheck, lint, and harden against recurrence. Use after implementing a bug fix, when user says \"is this fixed?\", or before closing an investigation.",
-      "sha256": "574b7aba7e686b7b",
+      "sha256": "e3a38b117a7f3b2d",
       "path": "skills/validate-fixSKILL.md"
     },
     "verify-work": {
@@ -373,7 +373,7 @@
     },
     "wire-ci": {
       "description": "\"CI pipeline setup with pre-built templates and local validation. Generates GitHub Actions workflows, validates YAML syntax and permissions, supports dry-run via act/gh. The CI equivalent of wire-observability.\"",
-      "sha256": "25c1a5ab430e4f84",
+      "sha256": "732ab59251710ea1",
       "path": "skills/wire-ciSKILL.md"
     },
     "wire-observability": {

@@ -1,3 +1,11 @@
+## [2.74.1](https://github.com/danielvm-git/bigpowers/compare/v2.74.0...v2.74.1) (2026-07-07)
+
+
+### Bug Fixes
+
+* **planning:** resolve yaml status drift for implemented epics ([fd06c68](https://github.com/danielvm-git/bigpowers/commit/fd06c68fc491746b7b7ff283fa561fce72ebb883))
+* **traceability:** backfill story tags for e01-e29, fix YAML/size issues ([cca4942](https://github.com/danielvm-git/bigpowers/commit/cca494288a4c2e90a2dc871d46acefacf50ccf0b))
+
 # [2.74.0](https://github.com/danielvm-git/bigpowers/compare/v2.73.9...v2.74.0) (2026-07-07)
 
 
