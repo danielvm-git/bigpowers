@@ -1,6 +1,6 @@
 story_id: e37s15
 title: "install.sh — global ~/.codex/ AGENTS.md starter symlink"
-status: todo
+status: done
 bcps: 2
 risk: P2
 tasks:
@@ -15,7 +15,7 @@ tasks:
       ! grep -qiE 'api[_-]?key|sk-' docs/templates/codex/AGENTS.md && echo OK
     risk: P3
     security: low
-    status: todo
+    status: done
 
   - id: 2
     description: >-
@@ -27,7 +27,7 @@ tasks:
       grep -q 'docs/templates/codex/AGENTS.md' scripts/install.sh && echo OK
     risk: P2
     security: none
-    status: todo
+    status: done
 
   - id: 3
     description: >-
@@ -38,7 +38,7 @@ tasks:
       grep -q 'install_codex' scripts/install.sh && echo OK
     risk: P2
     security: none
-    status: todo
+    status: done
 
   - id: 4
     description: >-
@@ -47,7 +47,7 @@ tasks:
       bash scripts/install.sh --dry-run 2>&1 | grep -qi 'codex' && echo OK
     risk: P2
     security: none
-    status: todo
+    status: done
 
   - id: 5
     description: >-
@@ -57,7 +57,7 @@ tasks:
       bash scripts/install.sh --dry-run 2>&1 | grep -qi 'Codex CLI' && echo OK
     risk: P2
     security: none
-    status: todo
+    status: done
 
 out_of_scope:
   - "Project .codex/config.toml (e37s01)"

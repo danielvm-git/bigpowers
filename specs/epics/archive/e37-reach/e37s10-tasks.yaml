@@ -1,6 +1,6 @@
 story_id: e37s10
 title: "targets.yaml — Wave B: zed, omp, hermes (skills-dir adapters)"
-status: todo
+status: done
 bcps: 4
 risk: P2
 depends_on:
@@ -20,7 +20,7 @@ tasks:
       bash scripts/validate-targets-yaml.sh && echo OK
     risk: P2
     security: none
-    status: todo
+    status: done
 
   - id: 2
     description: >-
@@ -33,7 +33,7 @@ tasks:
       bash scripts/validate-targets-yaml.sh && echo OK
     risk: P2
     security: none
-    status: todo
+    status: done
 
   - id: 3
     description: >-
@@ -46,7 +46,7 @@ tasks:
       bash scripts/validate-targets-yaml.sh && echo OK
     risk: P2
     security: none
-    status: todo
+    status: done
 
   - id: 4
     description: >-
@@ -58,7 +58,7 @@ tasks:
       bash scripts/test-adapters.sh hermes && echo OK
     risk: P2
     security: none
-    status: todo
+    status: done
 
   - id: 5
     description: >-
@@ -69,7 +69,7 @@ tasks:
       grep -q 'hermes' scripts/targets.yaml && echo OK
     risk: P2
     security: none
-    status: todo
+    status: done
 
 out_of_scope:
   - "Context derivatives for these targets (e37s06)"

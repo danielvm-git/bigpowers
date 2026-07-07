@@ -19,8 +19,8 @@ NC='\033[0m'
 TRACE_ENGINE="$REPO_ROOT/scripts/lib/trace-stories.py"
 FAILURES=0
 
-pass() { echo -e "${GREEN}PASS${NC} $1"; }
-fail() { echo -e "${RED}FAIL${NC} $1"; FAILURES=$((FAILURES + 1)); }
+trace_strict_pass() { echo -e "${GREEN}PASS${NC} $1"; }
+trace_strict_fail() { echo -e "${RED}FAIL${NC} $1"; FAILURES=$((FAILURES + 1)); }
 
 run_strict() {
   local root="$1"
@@ -88,9 +88,9 @@ bash "$REPO_ROOT/scripts/trace-stories.sh" --strict --json >/dev/null 2>&1
 repo_exit=$?
 set -e
 if [[ $repo_exit -eq 0 ]]; then
-  pass "trace-stories.sh --strict exits 0 on repo"
+  trace_strict_pass "trace-stories.sh --strict exits 0 on repo"
 else
-  fail "trace-stories.sh --strict exits $repo_exit on repo (expected 0)"
+  trace_strict_fail "trace-stories.sh --strict exits $repo_exit on repo (expected 0)"
 fi
 
 echo ""
@@ -103,9 +103,9 @@ todo_output=$(run_strict "$FIXTURE_ROOT")
 todo_exit=$?
 set -e
 if [[ $todo_exit -eq 0 ]]; then
-  pass "strict passes when P0 stories are todo with 0 links"
+  trace_strict_pass "strict passes when P0 stories are todo with 0 links"
 else
-  fail "strict exits $todo_exit on all-todo fixture (expected 0)"
+  trace_strict_fail "strict exits $todo_exit on all-todo fixture (expected 0)"
   echo "$todo_output"
 fi
 
@@ -117,9 +117,9 @@ done_output=$(run_strict "$FIXTURE_ROOT")
 done_exit=$?
 set -e
 if [[ $done_exit -eq 2 ]] && grep -q "P0 stories with 0% coverage" <<<"$done_output"; then
-  pass "strict fails when a done P0 story has 0 links"
+  trace_strict_pass "strict fails when a done P0 story has 0 links"
 else
-  fail "strict exits $done_exit on done-dark fixture (expected 2 with P0 message)"
+  trace_strict_fail "strict exits $done_exit on done-dark fixture (expected 2 with P0 message)"
   echo "$done_output"
 fi
 

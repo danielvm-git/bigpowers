@@ -1,6 +1,6 @@
 story_id: e37s12
 title: "targets.yaml — Wave D: continue (rules adapter; re-opened active OSS)"
-status: todo
+status: done
 bcps: 2
 risk: P2
 depends_on:
@@ -19,7 +19,7 @@ tasks:
       echo "research-complete"
     risk: P2
     security: none
-    status: todo
+    status: done
 
   - id: 2
     description: >-
@@ -33,7 +33,7 @@ tasks:
       bash scripts/validate-targets-yaml.sh && echo OK
     risk: P2
     security: none
-    status: todo
+    status: done
 
   - id: 3
     description: >-
@@ -42,7 +42,7 @@ tasks:
       bash scripts/test-adapters.sh continue && echo OK
     risk: P2
     security: none
-    status: todo
+    status: done
 
   - id: 4
     description: >-
@@ -52,7 +52,7 @@ tasks:
       bash scripts/verify-install.sh --matrix 2>&1 | grep -q 'continue' && echo OK
     risk: P2
     security: none
-    status: todo
+    status: done
 
 out_of_scope:
   - "Rules file format parsing (Continue.dev reads its own format)"

@@ -11,7 +11,7 @@ CONVENTIONS_WIKI="$REPO_ROOT/specs/conventions-wiki"
 CONVENTIONS_INDEX="$CONVENTIONS_WIKI/index.md"
 SKILL_GRAPH="$REPO_ROOT/specs/skill-graph.json"
 
-show_help() {
+decompose_show_help() {
   cat <<EOF
 Usage: $(basename "$0") [OPTION]
 
@@ -24,7 +24,7 @@ EOF
 }
 
 if [ "$#" -eq 1 ] && [ "$1" = "--help" ]; then
-  show_help
+  decompose_show_help
   exit 0
 fi
 

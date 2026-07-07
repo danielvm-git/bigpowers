@@ -1,6 +1,6 @@
 # Traceability Matrix
 
-**Generated:** 2026-07-07 19:42:06 UTC
+**Generated:** 2026-07-07 22:37:15 UTC
 **Total stories:** 77
 **Tagged stories:** 67
 **Dark stories:** 0
@@ -10,7 +10,7 @@
 ## Oracle Stats
 
 - **High** (explicit tag): 295
-- **Medium** (file heuristic): 2074
+- **Medium** (file heuristic): 2135
 - **Low** (task reference): 54
 
 ## Story Coverage
@@ -26,7 +26,7 @@
 | e37s07 | sync-skills.sh — adapter dispatch from targets.yaml | e37 | 5 | 7.0 | done | 12 |
 | e37s08 | verify-install.sh — per-target contract matrix from targets. | e37 | 3 | 7.0 | done | 10 |
 | e37s09 | targets.yaml — Wave A: Goose (OSS) + Antigravity agy (propri | e37 | 3 | 7.0 | done | 5 |
-| e37s10 | targets.yaml — Wave B: zed, omp, hermes (skills-dir adapters | e37 | 4 | 7.0 | done | 5 |
+| e37s10 | targets.yaml — Wave B: zed, omp, hermes (skills-dir adapters | e37 | 4 | 7.0 | done | 7 |
 | e37s11 | targets.yaml — Wave C: qwen, kilocode (markdown commands + r | e37 | 3 | 7.0 | done | 4 |
 | e37s12 | targets.yaml — Wave D: continue (rules adapter; re-opened ac | e37 | 2 | 7.0 | done | 4 |
 | e37s13 | targets.yaml — Wave E: iflow, vibe, shai (markdown commands; | e37 | 2 | 7.0 | done | 6 |
@@ -50,7 +50,7 @@
 | e45s15 | release-branch / deploy: three-independent-facts verificatio | e45 | 2 | 5.0 | done | 13 |
 | e45s16 | CLAUDE.md rtk mandate: wire rtk-ai/rtk PreToolUse hook | e45 | 2 | 5.0 | done | 4 |
 | e45s17 | request-review: fan-out to parallel review subagents | e45 | 2 | 5.0 | done | 22 |
-| e45s18 | audit-code / security-review: worktree-isolated parallel che | e45 | 2 | 5.0 | done | 427 |
+| e45s18 | audit-code / security-review: worktree-isolated parallel che | e45 | 2 | 5.0 | done | 440 |
 | e45s19 | Context7: bounded retry cap and explicit fallback block | e45 | 2 | 5.0 | done | 7 |
 | e45s20 | Context7 / bts docs: wrap in ETag-revalidated fetch cache | e45 | 2 | 5.0 | done | 1 |
 | e45s21 | seed-conventions / AGENTS.md: self-installing fenced markers | e45 | 2 | 5.0 | done | 15 |
@@ -63,7 +63,7 @@
 | e45s28 | request-review: hard max-iteration cap | e45 | 2 | 5.0 | done | 10 |
 | e45s29 | requirements: ADDED/MODIFIED/REMOVED/RENAMED tags | e45 | 2 | 5.0 | done | 15 |
 | e45s30 | subagent depth: formalize depth tiers | e45 | 2 | 5.0 | done | 10 |
-| e45s31 | audit-code / deepen-architecture: churn-based look-here-firs | e45 | 2 | 5.0 | done | 425 |
+| e45s31 | audit-code / deepen-architecture: churn-based look-here-firs | e45 | 2 | 5.0 | done | 438 |
 | e45s32 | gate-trace / release-branch: adversarial-review refute frami | e45 | 2 | 5.0 | done | 25 |
 | e45s33 | requirements: per-section approval state | e45 | 2 | 5.0 | done | 3 |
 | e45s34 | develop-tdd: snapshot-before-transition hardening | e45 | 2 | 5.0 | done | 6 |
@@ -76,9 +76,9 @@
 | e45s41 | security-review: proven authorship SQL-safety doctrine | e45 | 2 | 5.0 | done | 9 |
 | e48s01 | Generate epics-wiki and adr-wiki as OKF concept bundles from | e48 | 2 | 2.5 | done | 28 |
 | e48s02 | Emit verification reports as OKF bundles from run-golden-sui | e48 | 2 | 2.5 | done | 28 |
-| e48s03 | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | e48 | 1 | 2.5 | done | 106 |
+| e48s03 | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | e48 | 1 | 2.5 | done | 118 |
 | e48s04 | Create viz.html — interactive force-layout graph companion f | e48 | 2 | 2.5 | done | 10 |
-| e48s05 | Wire OKF validation into CI (sync-skills.yml) and document i | e48 | 1 | 2.5 | done | 136 |
+| e48s05 | Wire OKF validation into CI (sync-skills.yml) and document i | e48 | 1 | 2.5 | done | 142 |
 | e48s06 | Add tier: field (core/extended/specialized) to OKF wiki inde | e48 | 2 | 2.5 | done | 9 |
 | e48s07 | Create publish-to-wiki kernel tool | e48 | 3 | 2.5 | done | 2 |
 | e48s08 | Add GitHub Action Template for publish-wiki.yml [HARD GATE] | e48 | 1 | 2.5 | done | 8 |
@@ -92,7 +92,7 @@
 | e51s01 | CONVENTIONS — Always Green, Shift Left, Discovered Defects,  | e51 | 3 | 7.0 | done | 8 |
 | e51s02 | seed-conventions — Preflight default, solo-git default, embe | e51 | 3 | 7.0 | done | 22 |
 | e51s03 | kickoff-branch + verify-work — Preflight hard block and CI g | e51 | 2 | 7.0 | done | 46 |
-| e51s04 | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | e51 | 2 | 7.0 | done | 470 |
+| e51s04 | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | e51 | 2 | 7.0 | done | 485 |
 | e51s05 | CLAUDE.md — solo-default agent rules + bigpowers Preflight c | e51 | 2 | 7.0 | done | 7 |
 
 ## Orphan Tags (tag in code, no matching story)

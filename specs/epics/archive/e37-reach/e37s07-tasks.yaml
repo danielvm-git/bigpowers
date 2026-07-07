@@ -1,6 +1,6 @@
 story_id: e37s07
 title: "sync-skills.sh — adapter dispatch from targets.yaml"
-status: todo
+status: done
 bcps: 5
 risk: P0
 depends_on:
@@ -13,7 +13,7 @@ tasks:
     verify: >-
       bash scripts/validate-targets-yaml.sh &&
       grep -q 'targets.yaml' scripts/sync-skills.sh && echo OK
-    status: todo
+    status: done
 
   - id: 2
     description: >-
@@ -23,7 +23,7 @@ tasks:
     verify: >-
       grep -q 'render_skill' scripts/sync-skills.sh &&
       grep -q 'targets.yaml' scripts/sync-skills.sh && echo OK
-    status: todo
+    status: done
 
   - id: 3
     description: >-
@@ -33,7 +33,7 @@ tasks:
       bash scripts/sync-skills.sh >/dev/null &&
       test -n "$(ls -A .cursor/rules 2>/dev/null)" &&
       test -d .gemini/extensions/bigpowers && echo OK
-    status: todo
+    status: done
 
   - id: 4
     description: >-
@@ -41,7 +41,7 @@ tasks:
       (or call from run-verification-gates.sh if already wired).
     verify: >-
       grep -qE 'validate-targets-yaml|targets.yaml' scripts/sync-skills.sh && echo OK
-    status: todo
+    status: done
 
   - id: 5
     description: >-
@@ -51,7 +51,7 @@ tasks:
       bash scripts/sync-skills.sh &&
       bash scripts/run-verification-gates.sh &&
       echo OK
-    status: todo
+    status: done
 
 out_of_scope:
   - "Context derivative generation (e37s06)"

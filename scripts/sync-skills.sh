@@ -43,9 +43,9 @@ for arg in "$@"; do
 done
 
 _LIB_DIR="$(dirname "${BASH_SOURCE[0]}")/lib"
-source "$_LIB_DIR/skill-common.sh"
-source "$_LIB_DIR/sync-render.sh"
-source "$_LIB_DIR/sync-post.sh"
+source "$(dirname "${BASH_SOURCE[0]}")/lib/skill-common.sh"
+source "$(dirname "${BASH_SOURCE[0]}")/lib/sync-render.sh"
+source "$(dirname "${BASH_SOURCE[0]}")/lib/sync-post.sh"
 resolve_repo_root
 
 CURSOR_RULES="$REPO_ROOT/.cursor/rules"

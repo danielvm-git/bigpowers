@@ -5,7 +5,7 @@ source "$(dirname "${BASH_SOURCE[0]}")/lib/python-env.sh"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 BP_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 
-usage() {
+gap_usage() {
   cat <<'EOF'
 Usage: check-spec-version-gap.sh [--help] [--project <dir>] [--json]
 Exit codes: 0=no gap, 1=gap, 2=no specs, 3=blocked, 4=error
@@ -18,7 +18,7 @@ JSON_STDOUT=false
 SKIP_BLOCK=false
 while [[ $# -gt 0 ]]; do
   case "$1" in
-    --help|-h) usage ;;
+    --help|-h) gap_usage ;;
     --project) PROJECT_DIR="${2:?}"; shift 2 ;;
     --json) JSON_STDOUT=true; shift ;;
     --skip-block) SKIP_BLOCK=true; shift ;;
@@ -29,7 +29,7 @@ done
 PROJECT_DIR="$(cd "$PROJECT_DIR" 2>/dev/null && pwd)" || { echo "bad dir: $PROJECT_DIR" >&2; exit 4; }
 SPECS="$PROJECT_DIR/specs"
 
-emit_json() {
+gap_emit_json() {
   if $JSON_STDOUT; then echo "$1"; else echo "$1" >&2; fi
 }
 
@@ -37,7 +37,7 @@ get_installed_version() {
   $PYTHON -c "import json; d=json.load(open('$BP_ROOT/package.json')); print(d.get('version','unknown'))" 2>/dev/null || echo "unknown"
 }
 
-yaml_get() {
+gap_yaml_get() {
   [[ ! -f "$1" ]] && { echo ""; return; }
   $PYTHON -c "
 import sys, yaml
@@ -116,29 +116,29 @@ check_active_work() {
   branch=$(git -C "$PROJECT_DIR" branch --show-current 2>/dev/null || echo "")
   if on_feature_branch "$branch"; then echo "true"; return; fi
   if has_dirty_specs; then echo "true"; return; fi
-  af=$(yaml_get "$SPECS/state.yaml" "active_flow")
+  af=$(gap_yaml_get "$SPECS/state.yaml" "active_flow")
   if is_blocking_active_flow "$af"; then echo "true"; return; fi
   echo "false"
 }
 
 # Main
-[[ ! -d "$SPECS" ]] && { emit_json '{"gap":false,"reason":"NO_SPECS"}'; exit 2; }
+[[ ! -d "$SPECS" ]] && { gap_emit_json '{"gap":false,"reason":"NO_SPECS"}'; exit 2; }
 IV=$(get_installed_version)
 if [ "$SKIP_BLOCK" != "true" ] && [[ "$(check_active_work)" == "true" ]]; then
-  emit_json '{"gap":true,"blocked":true,"reason":"ACTIVE_WORK","installed_version":"'"$IV"'"}'
+  gap_emit_json '{"gap":true,"blocked":true,"reason":"ACTIVE_WORK","installed_version":"'"$IV"'"}'
   exit 3
 fi
 
-SV=$(yaml_get "$SPECS/state.yaml" "bigpowers_version")
+SV=$(gap_yaml_get "$SPECS/state.yaml" "bigpowers_version")
 
 if yaml_value_set "$SV"; then
   if [[ "$SV" == "$IV" ]]; then
-    emit_json '{"gap":false,"stamp":true,"detected_version":"'"$SV"'","installed_version":"'"$IV"'","detection_method":"stamp","confidence":"high"}'
+    gap_emit_json '{"gap":false,"stamp":true,"detected_version":"'"$SV"'","installed_version":"'"$IV"'","detection_method":"stamp","confidence":"high"}'
     exit 0
   fi
   APP=$(find_migrations "$SV")
   CNT=$(echo "$APP" | $PYTHON -c "import json,sys; print(len(json.load(sys.stdin)))" 2>/dev/null || echo 0)
-  emit_json "$($PYTHON -c "import json; a=json.loads('''$APP'''); print(json.dumps({'gap':True,'stamp':True,'detected_version':'$SV','detection_method':'stamp','installed_version':'$IV','applicable_migrations':len(a),'migration_ids':[m['id'] for m in a],'confidence':'high','active_work_blocked':False}))")"
+  gap_emit_json "$($PYTHON -c "import json; a=json.loads('''$APP'''); print(json.dumps({'gap':True,'stamp':True,'detected_version':'$SV','detection_method':'stamp','installed_version':'$IV','applicable_migrations':len(a),'migration_ids':[m['id'] for m in a],'confidence':'high','active_work_blocked':False}))")"
   exit 1
 fi
 
@@ -150,7 +150,7 @@ for f in release-plan.yaml execution-status.yaml product/SCOPE_LATEST.yaml metri
   [[ -f "$SPECS/$f" ]] && { MARKERS+=("$f"); [[ -z "$DV" ]] && DV="2.0.0"; }
 done
 if [[ -f "$SPECS/state.yaml" ]]; then
-  ec=$(yaml_get "$SPECS/state.yaml" "epic_cycle.current_step")
+  ec=$(gap_yaml_get "$SPECS/state.yaml" "epic_cycle.current_step")
   if yaml_value_set "$ec"; then
     MARKERS+=("epic_cycle"); [[ "$DV" == "2.0.0" ]] && DV="2.20.0"
   fi
@@ -161,12 +161,12 @@ fi
 [[ -z "$DV" ]] && { DV="unknown"; CONF="low"; }
 
 if [[ "$DV" != "unknown" ]] && ! version_lt "$DV" "$IV"; then
-  [[ "$DV" == "$IV" ]] && { emit_json '{"gap":false,"stamp":false,"detected_version":"'"$DV"'","installed_version":"'"$IV"'","detection_method":"fingerprint","confidence":"'"$CONF"'"}'; exit 0; }
+  [[ "$DV" == "$IV" ]] && { gap_emit_json '{"gap":false,"stamp":false,"detected_version":"'"$DV"'","installed_version":"'"$IV"'","detection_method":"fingerprint","confidence":"'"$CONF"'"}'; exit 0; }
 fi
 
 APP=$(find_migrations "$DV")
 CNT=$(echo "$APP" | $PYTHON -c "import json,sys; print(len(json.load(sys.stdin)))" 2>/dev/null || echo 0)
 MJ=$(printf '%s\n' "${MARKERS[@]}" | $PYTHON -c "import json,sys; print(json.dumps([l.strip() for l in sys.stdin if l.strip()]))" 2>/dev/null || echo "[]")
 
-emit_json "$($PYTHON -c "import json; a=json.loads('''$APP'''); m=json.loads('''$MJ'''); print(json.dumps({'gap':True,'stamp':False,'detected_version':'$DV','detection_method':'fingerprint','installed_version':'$IV','applicable_migrations':len(a),'migration_ids':[x['id'] for x in a],'confidence':'$CONF','active_work_blocked':False,'matched_markers':m}))")"
+gap_emit_json "$($PYTHON -c "import json; a=json.loads('''$APP'''); m=json.loads('''$MJ'''); print(json.dumps({'gap':True,'stamp':False,'detected_version':'$DV','detection_method':'fingerprint','installed_version':'$IV','applicable_migrations':len(a),'migration_ids':[x['id'] for x in a],'confidence':'$CONF','active_work_blocked':False,'matched_markers':m}))")"
 exit 1

@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 # audit-compliance.sh — Agentic Gherkin Compliance Harness (LLM-Judge Upgrade)
 
-_LIB="$(dirname "${BASH_SOURCE[0]}")/lib"
-source "$_LIB/audit-compliance-runner.sh"
-source "$_LIB/audit-compliance-report.sh"
+source "$(dirname "${BASH_SOURCE[0]}")/lib/audit-compliance-runner.sh"
+source "$(dirname "${BASH_SOURCE[0]}")/lib/audit-compliance-report.sh"
 
 audit_show_help() {
   cat <<EOF

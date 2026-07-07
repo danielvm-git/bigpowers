@@ -32,7 +32,11 @@ golden_suite_main() {
     esac
   done
 
-  if $AGENT_MODE && ! command -v gh-aw &>/dev/null && ! command -v gh &>/dev/null; then
+  golden_agent_cli_available() {
+    $AGENT_MODE && ! command -v gh-aw &>/dev/null && ! command -v gh &>/dev/null
+  }
+
+  if golden_agent_cli_available; then
     echo -e "${GOLDEN_YELLOW}WARNING: gh-aw not installed — agent gate skipped${GOLDEN_NC}" >&2
     AGENT_MODE=false
   fi

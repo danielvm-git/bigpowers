@@ -1,6 +1,6 @@
 story_id: e37s08
 title: "verify-install.sh — per-target contract matrix from targets.yaml"
-status: todo
+status: done
 bcps: 3
 risk: P1
 depends_on:
@@ -19,7 +19,7 @@ tasks:
       grep -q 'assert_' scripts/lib/target-contracts.sh && echo OK
     risk: P1
     security: none
-    status: todo
+    status: done
 
   - id: 2
     description: >-
@@ -32,7 +32,7 @@ tasks:
       grep -qE 'default_on|opt_in' scripts/verify-install.sh && echo OK
     risk: P1
     security: none
-    status: todo
+    status: done
 
   - id: 3
     description: >-
@@ -42,7 +42,7 @@ tasks:
       bash scripts/verify-install.sh --matrix 2>&1 | grep -q 'PASS' && echo OK
     risk: P1
     security: none
-    status: todo
+    status: done
 
   - id: 4
     description: >-
@@ -51,7 +51,7 @@ tasks:
       bash scripts/verify-install.sh --matrix 2>&1 | grep -q 'PASS' && echo OK
     risk: P1
     security: none
-    status: todo
+    status: done
 
 out_of_scope:
   - "Context generation or adapter dispatch (e37s06–s07)"

@@ -1,6 +1,6 @@
 story_id: e37s13
 title: "targets.yaml — Wave E: iflow, vibe, shai (markdown commands; optional)"
-status: todo
+status: done
 bcps: 2
 risk: P3
 optional: true
@@ -18,7 +18,7 @@ tasks:
       bash scripts/validate-targets-yaml.sh && echo OK
     risk: P3
     security: none
-    status: todo
+    status: done
 
   - id: 2
     description: >-
@@ -29,7 +29,7 @@ tasks:
       bash scripts/validate-targets-yaml.sh && echo OK
     risk: P3
     security: none
-    status: todo
+    status: done
 
   - id: 3
     description: >-
@@ -40,7 +40,7 @@ tasks:
       bash scripts/validate-targets-yaml.sh && echo OK
     risk: P3
     security: none
-    status: todo
+    status: done
 
   - id: 4
     description: >-
@@ -51,7 +51,7 @@ tasks:
       grep -q 'shai' scripts/targets.yaml && echo OK
     risk: P3
     security: none
-    status: todo
+    status: done
 
 out_of_scope:
   - "Adapter files for instruction-file-only targets (no scripts/adapters/ needed)"

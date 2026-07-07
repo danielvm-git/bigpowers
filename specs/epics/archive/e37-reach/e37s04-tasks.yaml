@@ -1,6 +1,6 @@
 story_id: e37s04
 title: "verify-install.sh — AGENTS.md spine assertions (OSS P1 + optional Codex)"
-status: todo
+status: done
 bcps: 2
 risk: P2
 depends_on:
@@ -22,7 +22,7 @@ tasks:
       grep -q '## Build' docs/templates/AGENTS.md && echo OK
     risk: P2
     security: none
-    status: todo
+    status: done
 
   - id: 2
     description: >-
@@ -32,7 +32,7 @@ tasks:
       grep -q 'install\|sync\|preflight' docs/templates/AGENTS.md && echo OK
     risk: P2
     security: none
-    status: todo
+    status: done
 
   - id: 3
     description: >-
@@ -44,7 +44,7 @@ tasks:
       grep -qi 'cline' skills/using-bigpowers/SKILL.md && echo OK
     risk: P2
     security: none
-    status: todo
+    status: done
 
   - id: 4
     description: >-
@@ -55,7 +55,7 @@ tasks:
       grep -qi 'Aider-AI' skills/using-bigpowers/SKILL.md && echo OK
     risk: P2
     security: none
-    status: todo
+    status: done
 
   - id: 5
     description: >-
@@ -68,7 +68,7 @@ tasks:
       grep -qi 'codex' scripts/verify-install.sh 2>/dev/null || true && echo OK
     risk: P3
     security: low
-    status: todo
+    status: done
 
   - id: 6
     description: >-
@@ -77,7 +77,7 @@ tasks:
       bash scripts/verify-install.sh && echo OK
     risk: P2
     security: none
-    status: todo
+    status: done
 
 out_of_scope:
   - "Live Codex CLI binary invocation"

@@ -22,12 +22,12 @@ bash "$SCRIPT_DIR/validate-targets-yaml.sh" >/dev/null
 PASS=0
 FAIL=0
 TMPDIR=""
+TA_PASS=0
+TA_FAIL=0
+TA_TMPDIR=""
 
-cleanup() { [[ -n "$TMPDIR" && -d "$TMPDIR" ]] && rm -rf "$TMPDIR"; }
-trap cleanup EXIT
-
-pass() { echo "  PASS $1"; PASS=$((PASS + 1)); }
-fail() { echo "  FAIL $1"; FAIL=$((FAIL + 1)); }
+source "$SCRIPT_DIR/lib/test-assertions.sh"
+trap ta_cleanup EXIT
 
 test_adapter() {
   local id="$1"
@@ -38,11 +38,11 @@ test_adapter() {
     return 0
   fi
 
-  [[ -f "$adapter_file" ]] || { fail "$id: adapter missing"; return; }
-  pass "$id: exists"
+  [[ -f "$adapter_file" ]] || { ta_fail "$id: adapter missing"; return; }
+  ta_pass "$id: exists"
 
   # shellcheck source=/dev/null
-  source "$adapter_file" 2>/dev/null && pass "$id: sourceable" || { fail "$id: source error"; return; }
+  source "$adapter_file" 2>/dev/null && ta_pass "$id: sourceable" || { ta_fail "$id: source error"; return; }
 
   local has_skill has_context mode
   has_skill=$(yq -r ".targets[] | select(.id==\"$id\") | .skill != null" "$TARGETS_FILE")
@@ -50,11 +50,11 @@ test_adapter() {
   mode=$(yq -r ".targets[] | select(.id==\"$id\") | .context.mode // \"\"" "$TARGETS_FILE")
 
   if [[ "$has_skill" == "true" ]]; then
-    declare -f render_skill >/dev/null 2>&1 && pass "$id: render_skill defined" || fail "$id: render_skill missing"
+    declare -f render_skill >/dev/null 2>&1 && ta_pass "$id: render_skill defined" || ta_fail "$id: render_skill missing"
   fi
 
   if [[ "$has_context" == "true" && "$mode" != "native" ]]; then
-    declare -f wire_context >/dev/null 2>&1 && pass "$id: wire_context defined" || fail "$id: wire_context missing"
+    declare -f wire_context >/dev/null 2>&1 && ta_pass "$id: wire_context defined" || ta_fail "$id: wire_context missing"
 
     TMPDIR=$(mktemp -d)
     cp "$SCRIPT_DIR/../docs/templates/AGENTS.md" "$TMPDIR/AGENTS.md" 2>/dev/null || echo "# test" > "$TMPDIR/AGENTS.md"
@@ -63,7 +63,7 @@ test_adapter() {
       # shellcheck source=/dev/null
       source "$adapter_file"
       wire_context 2>/dev/null || true
-      wire_context 2>/dev/null && pass "$id: idempotent wire_context" || fail "$id: wire_context failed"
+      wire_context 2>/dev/null && ta_pass "$id: idempotent wire_context" || ta_fail "$id: wire_context failed"
     )
   fi
 }
@@ -76,5 +76,5 @@ else
   done < <(yq -r '.targets[] | (.skill.adapter // .context.adapter)' "$TARGETS_FILE" | sort -u)
 fi
 
-echo "test-adapters: $PASS passed, $FAIL failed"
-[[ "$FAIL" -eq 0 ]] || exit 1
+echo "test-adapters: $TA_PASS passed, $TA_FAIL failed"
+[[ "$TA_FAIL" -eq 0 ]] || exit 1

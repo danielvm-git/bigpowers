@@ -17,7 +17,7 @@ fi
 
 count=0
 
-assign_tier() {
+adr_wiki_assign_tier() {
   local adr_id="$1"
   case "$adr_id" in
     ADR-0001|ADR-0002|ADR-0003|0001-*|0002-*|0003-*) echo "core" ;;
@@ -55,7 +55,7 @@ if len(parts) >= 3:
   fi
   [ -z "$title" ] && title="$adr_name"
 
-  tier=$(assign_tier "$adr_name")
+  tier=$(adr_wiki_assign_tier "$adr_name")
 
   bundle="$WIKI/${adr_name}.okf.md"
 

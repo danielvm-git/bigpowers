@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-07T19:42:06.041327+00:00",
+  "generated_at": "2026-07-07T22:37:15.064648+00:00",
   "matrix_version": "1.0",
   "stories": [
     {
@@ -12,7 +12,7 @@
       "status": "done",
       "links": [
         {
-          "file": "specs/epics/e37-reach/e37s01-agents-md-unify.md",
+          "file": "specs/epics/archive/e37-reach/e37s01-agents-md-unify.md",
           "line": 1,
           "confidence": "high",
           "method": "explicit_tag"
@@ -72,31 +72,31 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/epics/e37-reach/e37s02-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s02-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         },
         {
-          "file": "specs/epics/e37-reach/e37s01-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s01-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         },
         {
-          "file": "specs/epics/e37-reach/e37s04-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s04-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         },
         {
-          "file": "specs/epics/e37-reach/e37s15-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s15-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         },
         {
-          "file": "specs/epics/e37-reach/e37s03-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s03-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
@@ -114,31 +114,31 @@
       "status": "done",
       "links": [
         {
-          "file": "specs/epics/e37-reach/e37s02-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s02-tasks.yaml",
           "line": 11,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
-          "file": "specs/epics/e37-reach/e37s02-cline-verify.md",
+          "file": "specs/epics/archive/e37-reach/e37s02-cline-verify.md",
           "line": 1,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
-          "file": "specs/epics/e37-reach/e37s16-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s16-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         },
         {
-          "file": "specs/epics/e37-reach/e37s04-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s04-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         },
         {
-          "file": "specs/epics/e37-reach/e37s03-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s03-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
@@ -156,13 +156,13 @@
       "status": "done",
       "links": [
         {
-          "file": "specs/epics/e37-reach/e37s03-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s03-tasks.yaml",
           "line": 11,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
-          "file": "specs/epics/e37-reach/e37s03-aider-bridge.md",
+          "file": "specs/epics/archive/e37-reach/e37s03-aider-bridge.md",
           "line": 1,
           "confidence": "high",
           "method": "explicit_tag"
@@ -192,13 +192,13 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/epics/e37-reach/e37s01-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s01-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         },
         {
-          "file": "specs/epics/e37-reach/e37s04-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s04-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
@@ -216,25 +216,25 @@
       "status": "done",
       "links": [
         {
-          "file": "specs/epics/e37-reach/e37s04-verify-install-spine.md",
+          "file": "specs/epics/archive/e37-reach/e37s04-verify-install-spine.md",
           "line": 1,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
-          "file": "specs/epics/e37-reach/e37s08-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s08-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         },
         {
-          "file": "specs/epics/e37-reach/e37s04-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s04-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         },
         {
-          "file": "specs/epics/e37-reach/e37s15-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s15-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
@@ -252,13 +252,13 @@
       "status": "done",
       "links": [
         {
-          "file": "specs/epics/e37-reach/e37s05-targets-registry.md",
+          "file": "specs/epics/archive/e37-reach/e37s05-targets-registry.md",
           "line": 1,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
-          "file": "specs/epics/e37-reach/e37s05-targets-registry.md",
+          "file": "specs/epics/archive/e37-reach/e37s05-targets-registry.md",
           "line": 4,
           "confidence": "high",
           "method": "explicit_tag"
@@ -330,73 +330,73 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/epics/e37-reach/e37s05-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s05-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         },
         {
-          "file": "specs/epics/e37-reach/e37s08-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s08-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         },
         {
-          "file": "specs/epics/e37-reach/e37s11-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s11-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         },
         {
-          "file": "specs/epics/e37-reach/e37s07-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s07-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         },
         {
-          "file": "specs/epics/e37-reach/e37s13-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s13-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         },
         {
-          "file": "specs/epics/e37-reach/e37s02-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s02-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         },
         {
-          "file": "specs/epics/e37-reach/e37s10-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s10-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         },
         {
-          "file": "specs/epics/e37-reach/e37s01-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s01-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         },
         {
-          "file": "specs/epics/e37-reach/e37s09-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s09-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         },
         {
-          "file": "specs/epics/e37-reach/e37s12-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s12-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         },
         {
-          "file": "specs/epics/e37-reach/e37s03-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s03-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         },
         {
-          "file": "specs/epics/e37-reach/e37s06-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s06-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
@@ -414,19 +414,19 @@
       "status": "done",
       "links": [
         {
-          "file": "specs/epics/e37-reach/e37s06-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s06-tasks.yaml",
           "line": 14,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
-          "file": "specs/epics/e37-reach/e37s06-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s06-tasks.yaml",
           "line": 27,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
-          "file": "specs/epics/e37-reach/e37s06-context-bundle.md",
+          "file": "specs/epics/archive/e37-reach/e37s06-context-bundle.md",
           "line": 1,
           "confidence": "high",
           "method": "explicit_tag"
@@ -468,19 +468,19 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/epics/e37-reach/e37s08-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s08-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         },
         {
-          "file": "specs/epics/e37-reach/e37s07-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s07-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         },
         {
-          "file": "specs/epics/e37-reach/e37s10-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s10-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
@@ -504,13 +504,13 @@
           "method": "explicit_tag"
         },
         {
-          "file": "specs/epics/e37-reach/e37s07-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s07-tasks.yaml",
           "line": 49,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
-          "file": "specs/epics/e37-reach/e37s07-adapter-dispatch.md",
+          "file": "specs/epics/archive/e37-reach/e37s07-adapter-dispatch.md",
           "line": 1,
           "confidence": "high",
           "method": "explicit_tag"
@@ -522,49 +522,49 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/epics/e37-reach/e37s08-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s08-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         },
         {
-          "file": "specs/epics/e37-reach/e37s11-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s11-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         },
         {
-          "file": "specs/epics/e37-reach/e37s13-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s13-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         },
         {
-          "file": "specs/epics/e37-reach/e37s02-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s02-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         },
         {
-          "file": "specs/epics/e37-reach/e37s10-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s10-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         },
         {
-          "file": "specs/epics/e37-reach/e37s09-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s09-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         },
         {
-          "file": "specs/epics/e37-reach/e37s12-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s12-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         },
         {
-          "file": "specs/epics/e37-reach/e37s06-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s06-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
@@ -582,13 +582,13 @@
       "status": "done",
       "links": [
         {
-          "file": "specs/epics/e37-reach/e37s08-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s08-tasks.yaml",
           "line": 16,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
-          "file": "specs/epics/e37-reach/e37s08-verify-matrix.md",
+          "file": "specs/epics/archive/e37-reach/e37s08-verify-matrix.md",
           "line": 1,
           "confidence": "high",
           "method": "explicit_tag"
@@ -600,43 +600,43 @@
           "method": "explicit_tag"
         },
         {
-          "file": "specs/epics/e37-reach/e37s11-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s11-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         },
         {
-          "file": "specs/epics/e37-reach/e37s07-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s07-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         },
         {
-          "file": "specs/epics/e37-reach/e37s10-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s10-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         },
         {
-          "file": "specs/epics/e37-reach/e37s04-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s04-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         },
         {
-          "file": "specs/epics/e37-reach/e37s09-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s09-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         },
         {
-          "file": "specs/epics/e37-reach/e37s12-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s12-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         },
         {
-          "file": "specs/epics/e37-reach/e37s06-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s06-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
@@ -654,13 +654,13 @@
       "status": "done",
       "links": [
         {
-          "file": "specs/epics/e37-reach/e37s09-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s09-tasks.yaml",
           "line": 17,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
-          "file": "specs/epics/e37-reach/e37s09-wave-a-targets.md",
+          "file": "specs/epics/archive/e37-reach/e37s09-wave-a-targets.md",
           "line": 1,
           "confidence": "high",
           "method": "explicit_tag"
@@ -678,7 +678,7 @@
           "method": "explicit_tag"
         },
         {
-          "file": "specs/epics/e37-reach/e37s07-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s07-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
@@ -696,13 +696,13 @@
       "status": "done",
       "links": [
         {
-          "file": "specs/epics/e37-reach/e37s10-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s10-tasks.yaml",
           "line": 16,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
-          "file": "specs/epics/e37-reach/e37s10-wave-b-skills-dir.md",
+          "file": "specs/epics/archive/e37-reach/e37s10-wave-b-skills-dir.md",
           "line": 1,
           "confidence": "high",
           "method": "explicit_tag"
@@ -724,9 +724,21 @@
           "line": 2,
           "confidence": "high",
           "method": "explicit_tag"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-07-compliance-record-cycle-time-oversized.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-07-compliance-record-cycle-time-oversized.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
         }
       ],
-      "link_count": 5
+      "link_count": 7
     },
     {
       "id": "e37s11",
@@ -738,13 +750,13 @@
       "status": "done",
       "links": [
         {
-          "file": "specs/epics/e37-reach/e37s11-wave-c-markdown-rules.md",
+          "file": "specs/epics/archive/e37-reach/e37s11-wave-c-markdown-rules.md",
           "line": 1,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
-          "file": "specs/epics/e37-reach/e37s11-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s11-tasks.yaml",
           "line": 16,
           "confidence": "high",
           "method": "explicit_tag"
@@ -774,13 +786,13 @@
       "status": "done",
       "links": [
         {
-          "file": "specs/epics/e37-reach/e37s12-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s12-tasks.yaml",
           "line": 16,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
-          "file": "specs/epics/e37-reach/e37s12-wave-d-continue.md",
+          "file": "specs/epics/archive/e37-reach/e37s12-wave-d-continue.md",
           "line": 1,
           "confidence": "high",
           "method": "explicit_tag"
@@ -792,7 +804,7 @@
           "method": "explicit_tag"
         },
         {
-          "file": "specs/epics/e37-reach/e37s11-wave-c-markdown-rules.md",
+          "file": "specs/epics/archive/e37-reach/e37s11-wave-c-markdown-rules.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -810,13 +822,13 @@
       "status": "done",
       "links": [
         {
-          "file": "specs/epics/e37-reach/e37s13-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s13-tasks.yaml",
           "line": 15,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
-          "file": "specs/epics/e37-reach/e37s13-wave-e-low-priority.md",
+          "file": "specs/epics/archive/e37-reach/e37s13-wave-e-low-priority.md",
           "line": 1,
           "confidence": "high",
           "method": "explicit_tag"
@@ -840,7 +852,7 @@
           "method": "explicit_tag"
         },
         {
-          "file": "specs/epics/e37-reach/e37s11-wave-c-markdown-rules.md",
+          "file": "specs/epics/archive/e37-reach/e37s11-wave-c-markdown-rules.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -864,7 +876,7 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/epics/e37-reach/e37s14-seed-codex-wiring.md",
+          "file": "specs/epics/archive/e37-reach/e37s14-seed-codex-wiring.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -888,19 +900,19 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/epics/e37-reach/e37s14-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s14-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         },
         {
-          "file": "specs/epics/e37-reach/e37s01-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s01-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         },
         {
-          "file": "specs/epics/e37-reach/e37s04-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s04-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
@@ -924,19 +936,19 @@
           "method": "explicit_tag"
         },
         {
-          "file": "specs/epics/e37-reach/e37s15-install-codex-global.md",
+          "file": "specs/epics/archive/e37-reach/e37s15-install-codex-global.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         },
         {
-          "file": "specs/epics/e37-reach/e37s14-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s14-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         },
         {
-          "file": "specs/epics/e37-reach/e37s15-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s15-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
@@ -960,7 +972,7 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/epics/e37-reach/e37s16-codex-onboarding-docs.md",
+          "file": "specs/epics/archive/e37-reach/e37s16-codex-onboarding-docs.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -996,13 +1008,13 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/epics/e37-reach/e37s14-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s14-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         },
         {
-          "file": "specs/epics/e37-reach/e37s16-tasks.yaml",
+          "file": "specs/epics/archive/e37-reach/e37s16-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
@@ -2436,7 +2448,7 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/epics/e37-reach/e37s10-wave-b-skills-dir.md",
+          "file": "specs/epics/archive/e37-reach/e37s10-wave-b-skills-dir.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -3036,6 +3048,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-190334.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-175346.md",
           "line": 0,
           "confidence": "medium",
@@ -3396,6 +3414,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-192340.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260706-165651.md",
           "line": 0,
           "confidence": "medium",
@@ -3415,6 +3439,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-163954.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-190002.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -3511,6 +3541,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260707-134029.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-164826.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -3618,6 +3654,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-192541.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-233740.md",
           "line": 0,
           "confidence": "medium",
@@ -3631,6 +3673,18 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260704-090946.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-190415.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-192435.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -3774,6 +3828,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-193609.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260706-174351.md",
           "line": 0,
           "confidence": "medium",
@@ -3895,6 +3955,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260704-143504.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-185913.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4242,6 +4308,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-192433.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-165207.md",
           "line": 0,
           "confidence": "medium",
@@ -4315,6 +4387,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-005720.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-164345.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4435,6 +4513,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-164817.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-164759.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5226,6 +5310,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-190539.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-170706.md",
           "line": 0,
           "confidence": "medium",
@@ -5544,7 +5634,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 427
+      "link_count": 440
     },
     {
       "id": "e45s19",
@@ -6318,6 +6408,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-190334.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-175346.md",
           "line": 0,
           "confidence": "medium",
@@ -6678,6 +6774,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-192340.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260706-165651.md",
           "line": 0,
           "confidence": "medium",
@@ -6697,6 +6799,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-163954.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-190002.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -6793,6 +6901,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260707-134029.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-164826.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -6900,6 +7014,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-192541.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-233740.md",
           "line": 0,
           "confidence": "medium",
@@ -6913,6 +7033,18 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260704-090946.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-190415.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-192435.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -7056,6 +7188,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-193609.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260706-174351.md",
           "line": 0,
           "confidence": "medium",
@@ -7177,6 +7315,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260704-143504.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-185913.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -7524,6 +7668,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-192433.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-165207.md",
           "line": 0,
           "confidence": "medium",
@@ -7597,6 +7747,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-005720.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-164345.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -7717,6 +7873,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-164817.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-164759.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8508,6 +8670,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-190539.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-170706.md",
           "line": 0,
           "confidence": "medium",
@@ -8808,7 +8976,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 425
+      "link_count": 438
     },
     {
       "id": "e45s32",
@@ -9852,7 +10020,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-07-07-compliance-skill-catalog-n7.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-06-g06-migrate-version-golden.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-07-compliance-duplicate-symbols.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -10008,6 +10188,24 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-07-07-compliance-record-cycle-time-oversized.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-07-compliance-duplicate-symbols.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-07-compliance-boolean-chains-g28.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-06T205700-sync-strict-todo-p0-block.md",
           "line": 0,
           "confidence": "medium",
@@ -10081,6 +10279,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-07-e48-audit-gaps.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-07-compliance-error-messages.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -10302,7 +10506,25 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-07-07-compliance-error-messages.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-03-codebase-wiki-venv-pollution.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-07-compliance-skill-catalog-n7.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-07-compliance-cross-module-sourcing.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -10344,6 +10566,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-07-07-compliance-record-cycle-time-oversized.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-07-compliance-boolean-chains-g28.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-06-11T183000.md",
           "line": 0,
           "confidence": "medium",
@@ -10369,6 +10603,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-03-yaml-roundtrip-corruption.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-07-compliance-cross-module-sourcing.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -10452,7 +10692,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 106
+      "link_count": 118
     },
     {
       "id": "e48s04",
@@ -10638,7 +10878,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-07-07-compliance-skill-catalog-n7.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-06-g06-migrate-version-golden.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-07-compliance-duplicate-symbols.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -10704,6 +10956,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-07-07-compliance-record-cycle-time-oversized.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-07-compliance-boolean-chains-g28.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-06-13T090000.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -10741,6 +11005,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-07-e48-audit-gaps.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-07-compliance-error-messages.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -10861,6 +11131,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-06-audit-code-auditor-oversized.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-07-compliance-cross-module-sourcing.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -11352,7 +11628,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 136
+      "link_count": 142
     },
     {
       "id": "e48s06",
@@ -12702,6 +12978,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-190334.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-175346.md",
           "line": 0,
           "confidence": "medium",
@@ -13062,6 +13344,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-192340.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260706-165651.md",
           "line": 0,
           "confidence": "medium",
@@ -13081,6 +13369,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-163954.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-190002.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -13177,6 +13471,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260707-134029.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-164826.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -13284,6 +13584,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-192541.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-233740.md",
           "line": 0,
           "confidence": "medium",
@@ -13297,6 +13603,18 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260704-090946.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-190415.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-192435.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -13440,6 +13758,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-193609.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260706-174351.md",
           "line": 0,
           "confidence": "medium",
@@ -13561,6 +13885,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260704-143504.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-185913.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -13908,6 +14238,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-192433.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-165207.md",
           "line": 0,
           "confidence": "medium",
@@ -13981,6 +14317,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-005720.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-164345.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -14101,6 +14443,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-164817.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-164759.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -14892,6 +15240,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-190539.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-170706.md",
           "line": 0,
           "confidence": "medium",
@@ -15138,6 +15492,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-07-07-compliance-skill-catalog-n7.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-04-filesize-gate-python-blindspot.md",
           "line": 0,
           "confidence": "medium",
@@ -15241,6 +15601,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-03-codebase-wiki-venv-pollution.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-07-compliance-skill-catalog-n7.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -15408,7 +15774,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 470
+      "link_count": 485
     },
     {
       "id": "e51s05",
@@ -15687,7 +16053,7 @@
     "stale_count": 67,
     "oracle_stats": {
       "high": 295,
-      "medium": 2074,
+      "medium": 2135,
       "low": 54
     }
   }

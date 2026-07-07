@@ -1,6 +1,6 @@
 story_id: e37s01
 title: "seed-conventions — unified AGENTS.md template with e51 Preflight + multi-agent header"
-status: todo
+status: done
 bcps: 3
 risk: P1
 tasks:
@@ -14,7 +14,7 @@ tasks:
       grep -qi 'cline\|opencode\|aider' docs/templates/AGENTS.md &&
       grep -q '## Preflight' docs/templates/AGENTS.md &&
       grep -q '## Test' docs/templates/AGENTS.md && echo OK
-    status: todo
+    status: done
 
   - id: 2
     description: >-
@@ -23,7 +23,7 @@ tasks:
     verify: >-
       grep -q 'Preflight' docs/templates/AGENTS.md &&
       grep -qi 'install\|sync\|compliance' docs/templates/AGENTS.md && echo OK
-    status: todo
+    status: done
 
   - id: 3
     description: >-
@@ -34,7 +34,7 @@ tasks:
       grep -qi 'AGENTS.md' skills/seed-conventions/SKILL.md &&
       grep -qi 'symlink' skills/seed-conventions/SKILL.md &&
       grep -qi 'opencode.json' skills/seed-conventions/SKILL.md && echo OK
-    status: todo
+    status: done
 
   - id: 4
     description: >-
@@ -43,7 +43,7 @@ tasks:
     verify: >-
       grep -qi 'opt' skills/seed-conventions/SKILL.md &&
       grep -qi 'AGENTS.md' skills/seed-conventions/SKILL.md && echo OK
-    status: todo
+    status: done
 
   - id: 5
     description: >-
@@ -52,7 +52,7 @@ tasks:
       bash scripts/sync-skills.sh >/dev/null &&
       test -f .cursor/rules/seed-conventions.mdc &&
       grep -q 'Preflight' docs/templates/AGENTS.md && echo OK
-    status: todo
+    status: done
 
 out_of_scope:
   - "Codex wiring (e37s14)"

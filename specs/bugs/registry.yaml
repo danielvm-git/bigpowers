@@ -285,6 +285,42 @@ bugs:
     scope: ci
     title: "Sync Skills on Push fails — --strict flags todo e45 P0 stories with 0% coverage"
     file: bugs/BUG-2026-07-06T205700-sync-strict-todo-p0-block.md
+  - id: BUG-2026-07-07-compliance-boolean-chains-g28
+    status: fixed
+    severity: low
+    scope: ci
+    title: "Compliance cleancode G28 — unencapsulated 3-clause boolean chains"
+    file: bugs/BUG-2026-07-07-compliance-boolean-chains-g28.md
+  - id: BUG-2026-07-07-compliance-cross-module-sourcing
+    status: fixed
+    severity: medium
+    scope: ci
+    title: "Compliance pocock step flags lib sources using variable paths without literal /lib/"
+    file: bugs/BUG-2026-07-07-compliance-cross-module-sourcing.md
+  - id: BUG-2026-07-07-compliance-duplicate-symbols
+    status: fixed
+    severity: medium
+    scope: ci
+    title: "Compliance akita grep uniqueness — duplicate function names across scripts/"
+    file: bugs/BUG-2026-07-07-compliance-duplicate-symbols.md
+  - id: BUG-2026-07-07-compliance-error-messages
+    status: fixed
+    severity: medium
+    scope: ci
+    title: "Compliance akita step false-negative — error messages check scoped to audit-compliance.sh only"
+    file: bugs/BUG-2026-07-07-compliance-error-messages.md
+  - id: BUG-2026-07-07-compliance-record-cycle-time-oversized
+    status: fixed
+    severity: low
+    scope: ci
+    title: "Compliance akita file-size gate — record-cycle-time.sh exceeds 300 lines"
+    file: bugs/BUG-2026-07-07-compliance-record-cycle-time-oversized.md
+  - id: BUG-2026-07-07-compliance-skill-catalog-n7
+    status: fixed
+    severity: low
+    scope: ci
+    title: "Compliance cleancode N7 false-positive on validate-skill-catalog.sh sed patterns"
+    file: bugs/BUG-2026-07-07-compliance-skill-catalog-n7.md
   - id: BUG-2026-07-07-e48-audit-gaps
     status: fixed
     severity: high

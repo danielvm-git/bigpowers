@@ -10,7 +10,7 @@ REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 TRACE_MATRIX="$REPO_ROOT/specs/traceability-matrix.json"
 DRIFT_REPORT="$REPO_ROOT/specs/drift-report.json"
 
-show_help() {
+drift_show_help() {
   cat <<EOF
 Usage: $(basename "$0") [OPTION]
 
@@ -23,7 +23,7 @@ EOF
 }
 
 if [ "$#" -eq 1 ] && [ "$1" = "--help" ]; then
-  show_help
+  drift_show_help
   exit 0
 fi
 

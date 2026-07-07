@@ -2,7 +2,6 @@
 # story: e44s03
 if [ -n "${MIGRATE_VERSION_TRANSFORMS_LOADED:-}" ]; then return 0; fi
 MIGRATE_VERSION_TRANSFORMS_LOADED=1
-yaml_get() { migrate_yaml_get "$@"; }
 apply_transform() {
   local mig_id="$1" action="$2" tjson="$3"
 
@@ -107,7 +106,7 @@ with open(tgt, 'w') as f:
       val="$(echo "$tjson" | $PYTHON -c "import json,sys; print(json.load(sys.stdin).get('value',''))")"
       if_missing="$(echo "$tjson" | $PYTHON -c "import json,sys; print(json.load(sys.stdin).get('if_missing','false'))" 2>/dev/null)" || if_missing="false"
       if [ "$if_missing" = "true" ] || [ "$if_missing" = "True" ]; then
-        if yaml_get "$REPO_ROOT/$file" "$key" >/dev/null 2>&1; then
+        if migrate_yaml_get "$REPO_ROOT/$file" "$key" >/dev/null 2>&1; then
           log_skip "$action: $file $key already set (if_missing=true) — idempotent"
           SKIPPED+=("$action:$key")
           return
@@ -122,7 +121,7 @@ with open(tgt, 'w') as f:
       file="$(echo "$tjson" | $PYTHON -c "import json,sys; print(json.load(sys.stdin).get('file',''))")"
       old_key="$(echo "$tjson" | $PYTHON -c "import json,sys; print(json.load(sys.stdin).get('old_key',''))")"
       new_key="$(echo "$tjson" | $PYTHON -c "import json,sys; print(json.load(sys.stdin).get('new_key',''))")"
-      old_val="$(yaml_get "$REPO_ROOT/$file" "$old_key" 2>/dev/null)" || true
+      old_val="$(migrate_yaml_get "$REPO_ROOT/$file" "$old_key" 2>/dev/null)" || true
       if [ -z "${old_val:-}" ]; then
         log_skip "$action: key '$old_key' not found in $file"
         SKIPPED+=("$action:$old_key"); return
@@ -148,7 +147,7 @@ with open('$REPO_ROOT/$file', 'w') as f:
       local file key
       file="$(echo "$tjson" | $PYTHON -c "import json,sys; print(json.load(sys.stdin).get('file',''))")"
       key="$(echo "$tjson" | $PYTHON -c "import json,sys; d=json.load(sys.stdin); print(d.get('path') or d.get('key',''))")"
-      if ! yaml_get "$REPO_ROOT/$file" "$key" >/dev/null 2>&1; then
+      if ! migrate_yaml_get "$REPO_ROOT/$file" "$key" >/dev/null 2>&1; then
         log_skip "$action: key '$key' not found in $file — idempotent"
         SKIPPED+=("$action:$key"); return
       fi

@@ -16,17 +16,17 @@ NC='\033[0m'
 CAP=300
 FAILURES=0
 
-pass() { echo -e "${GREEN}PASS${NC} $1"; }
-fail() { echo -e "${RED}FAIL${NC} $1"; FAILURES=$((FAILURES + 1)); }
+trace_size_pass() { echo -e "${GREEN}PASS${NC} $1"; }
+trace_size_fail() { echo -e "${RED}FAIL${NC} $1"; FAILURES=$((FAILURES + 1)); }
 
 check_lines() {
   local file="$1"
   local lines
   lines=$(wc -l < "$REPO_ROOT/$file" | tr -d ' ')
   if [[ "$lines" -le "$CAP" ]]; then
-    pass "$file: $lines lines (≤ $CAP)"
+    trace_size_pass "$file: $lines lines (≤ $CAP)"
   else
-    fail "$file: $lines lines (exceeds $CAP)"
+    trace_size_fail "$file: $lines lines (exceeds $CAP)"
   fi
 }
 

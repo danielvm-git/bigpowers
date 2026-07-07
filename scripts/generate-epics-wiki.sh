@@ -16,7 +16,7 @@ extract() {
 
 count=0
 
-assign_tier() {
+epics_wiki_assign_tier() {
   local epic_id="$1"
   case "$epic_id" in
     e28|e38|e40|e41|e44|e45|e46) echo "core" ;;
@@ -43,7 +43,7 @@ for epic_yaml in "$ROOT"/specs/epics/*/epic.yaml "$ROOT"/specs/epics/archive/*/e
 
   [[ -z "$epic_id" ]] && continue
 
-  tier=$(assign_tier "$epic_id")
+  tier=$(epics_wiki_assign_tier "$epic_id")
 
   # Build references array from story list
   story_count=$(grep -c '^\s*- id:' "$epic_yaml" 2>/dev/null || true)

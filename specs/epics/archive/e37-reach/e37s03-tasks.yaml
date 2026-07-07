@@ -1,6 +1,6 @@
 story_id: e37s03
 title: "seed-conventions — .aider.conf.yml read:AGENTS.md bridge for Aider users"
-status: todo
+status: done
 bcps: 1
 risk: P3
 tasks:
@@ -14,7 +14,7 @@ tasks:
       grep -qi '\.aider\.conf\.yml' skills/seed-conventions/SKILL.md && echo OK
     risk: P3
     security: none
-    status: todo
+    status: done
 
   - id: 2
     description: >-
@@ -25,7 +25,7 @@ tasks:
       ! grep -qi 'paul-gauthier' skills/using-bigpowers/SKILL.md && echo OK
     risk: P3
     security: none
-    status: todo
+    status: done
 
   - id: 3
     description: >-
@@ -35,7 +35,7 @@ tasks:
       bash scripts/sync-skills.sh >/dev/null && echo OK
     risk: P3
     security: none
-    status: todo
+    status: done
 
   - id: 4
     description: >-
@@ -45,7 +45,7 @@ tasks:
       grep -qi 'Aider-AI' skills/using-bigpowers/SKILL.md && echo OK
     risk: P3
     security: none
-    status: todo
+    status: done
 
 out_of_scope:
   - "Aider targets.yaml registry row (e37s05)"

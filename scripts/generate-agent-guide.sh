@@ -9,7 +9,7 @@ REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 CLAUDE_MD="$REPO_ROOT/CLAUDE.md"
 AGENT_GUIDE="$REPO_ROOT/specs/agent-guide"
 
-show_help() {
+agent_guide_show_help() {
   cat <<EOF
 Usage: $(basename "$0") [OPTION]
 
@@ -22,7 +22,7 @@ EOF
 }
 
 if [ "$#" -eq 1 ] && [ "$1" = "--help" ]; then
-  show_help
+  agent_guide_show_help
   exit 0
 fi
 

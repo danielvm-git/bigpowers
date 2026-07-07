@@ -82,9 +82,9 @@ epics:
   title: Reach — Universal Agent Portability
   wsjf: 7.0
   bcps: 45
-  capsule_dir: epics/e37-reach
+  capsule_dir: epics/archive/e37-reach
   mode: capsule
-  status: planned
+  status: done
   source_issue: https://github.com/danielvm-git/bigpowers/issues/52
   wsjf_rationale: 'BV 8 (AGENTS.md spine + registry unblocks OSS reach) + TC 5 (active) + RR 8 (always-green
     across runtimes) / Job 3 ≈ 7.0. Merges former e50+e52 into one arc: spine s01–s04 → registry s05–s08

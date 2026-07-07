@@ -12,7 +12,7 @@ GRAPH_JSONL="$REPO_ROOT/bigpowers-mcp/graph.jsonl"
 SKILL_GRAPH_JSON="$REPO_ROOT/specs/skill-graph.json"
 SKILLS_WIKI="$REPO_ROOT/specs/skills-wiki/skills"
 
-show_help() {
+skill_graph_show_help() {
   cat <<EOF
 Usage: $(basename "$0") [OPTION]
 

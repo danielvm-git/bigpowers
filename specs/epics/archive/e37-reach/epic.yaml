@@ -2,9 +2,9 @@ id: e37
 title: "Reach — Universal Agent Portability"
 wsjf: 7.0
 bcps: 45
-status: planned
+status: done
 mode: capsule
-capsule_dir: epics/e37-reach
+capsule_dir: epics/archive/e37-reach
 release: v2.9x
 codename: "Reach"
 source: |
@@ -38,7 +38,7 @@ stories:
   - id: e37s01
     bcp: 3
     title: "seed-conventions — unified AGENTS.md template with e51 Preflight + multi-agent header"
-    status: todo
+    status: done
     risk: P1
     spec: e37s01-agents-md-unify.md
     tasks: e37s01-tasks.yaml
@@ -58,7 +58,7 @@ stories:
   - id: e37s02
     bcp: 2
     title: "verify-install.sh + docs — Cline native AGENTS.md verification"
-    status: todo
+    status: done
     risk: P2
     spec: e37s02-cline-verify.md
     tasks: e37s02-tasks.yaml
@@ -75,7 +75,7 @@ stories:
   - id: e37s03
     bcp: 1
     title: "seed-conventions — .aider.conf.yml read:AGENTS.md bridge for Aider users"
-    status: todo
+    status: done
     risk: P3
     spec: e37s03-aider-bridge.md
     tasks: e37s03-tasks.yaml
@@ -92,7 +92,7 @@ stories:
   - id: e37s04
     bcp: 2
     title: "verify-install.sh — AGENTS.md spine assertions (OSS P1 + optional Codex)"
-    status: todo
+    status: done
     risk: P2
     spec: e37s04-verify-install-spine.md
     tasks: e37s04-tasks.yaml
@@ -107,7 +107,7 @@ stories:
   - id: e37s05
     bcp: 5
     title: "scripts/targets.yaml — declarative integration registry for all targets"
-    status: todo
+    status: done
     risk: P1
     spec: e37s05-targets-registry.md
     tasks: e37s05-tasks.yaml
@@ -126,7 +126,7 @@ stories:
   - id: e37s06
     bcp: 3
     title: "scripts/generate-context-bundle.sh — AGENTS.md single source + all derivatives"
-    status: todo
+    status: done
     risk: P1
     spec: e37s06-context-bundle.md
     tasks: e37s06-tasks.yaml
@@ -138,7 +138,7 @@ stories:
   - id: e37s07
     bcp: 5
     title: "sync-skills.sh — adapter dispatch from targets.yaml"
-    status: todo
+    status: done
     risk: P0
     spec: e37s07-adapter-dispatch.md
     tasks: e37s07-tasks.yaml
@@ -150,7 +150,7 @@ stories:
   - id: e37s08
     bcp: 3
     title: "verify-install.sh — per-target contract matrix from targets.yaml"
-    status: todo
+    status: done
     risk: P1
     spec: e37s08-verify-matrix.md
     tasks: e37s08-tasks.yaml
@@ -161,7 +161,7 @@ stories:
   - id: e37s09
     bcp: 3
     title: "targets.yaml — Wave A: Goose (OSS) + Antigravity agy (proprietary beta)"
-    status: todo
+    status: done
     risk: P2
     spec: e37s09-wave-a-targets.md
     tasks: e37s09-tasks.yaml
@@ -173,7 +173,7 @@ stories:
   - id: e37s10
     bcp: 4
     title: "targets.yaml — Wave B: zed, omp, hermes (skills-dir adapters)"
-    status: todo
+    status: done
     risk: P2
     spec: e37s10-wave-b-skills-dir.md
     tasks: e37s10-tasks.yaml
@@ -186,7 +186,7 @@ stories:
   - id: e37s11
     bcp: 3
     title: "targets.yaml — Wave C: qwen, kilocode (markdown commands + rules)"
-    status: todo
+    status: done
     risk: P2
     spec: e37s11-wave-c-markdown-rules.md
     tasks: e37s11-tasks.yaml
@@ -198,7 +198,7 @@ stories:
   - id: e37s12
     bcp: 2
     title: "targets.yaml — Wave D: continue (rules adapter; re-opened active OSS)"
-    status: todo
+    status: done
     risk: P2
     spec: e37s12-wave-d-continue.md
     tasks: e37s12-tasks.yaml
@@ -210,7 +210,7 @@ stories:
   - id: e37s13
     bcp: 2
     title: "targets.yaml — Wave E: iflow, vibe, shai (markdown commands; optional)"
-    status: todo
+    status: done
     optional: true
     risk: P3
     spec: e37s13-wave-e-low-priority.md
@@ -224,7 +224,7 @@ stories:
   - id: e37s14
     bcp: 3
     title: "seed-conventions — optional Codex wiring step (AGENTS.md + .codex/config.toml)"
-    status: todo
+    status: done
     optional: true
     wave: codex-optional
     risk: P2
@@ -235,7 +235,7 @@ stories:
   - id: e37s15
     bcp: 2
     title: "install.sh — global ~/.codex/ AGENTS.md starter symlink"
-    status: todo
+    status: done
     optional: true
     wave: codex-optional
     risk: P2
@@ -246,7 +246,7 @@ stories:
   - id: e37s16
     bcp: 2
     title: "using-bigpowers — Codex CLI onboarding section"
-    status: todo
+    status: done
     optional: true
     wave: codex-optional
     risk: P3

@@ -9,12 +9,12 @@ cd "$REPO_ROOT"
 
 ERRORS=0
 
-fail() {
+doctrine_fail() {
   echo "FAIL: $*" >&2
   ERRORS=$((ERRORS + 1))
 }
 
-pass() {
+doctrine_pass() {
   echo "ok  : $*"
 }
 
@@ -33,10 +33,10 @@ done < <(grep -oE '`[a-z][a-z-]+`' docs/references/model-profiles.md \
   | sort -u)
 
 if [[ ${#DEAD[@]} -eq 0 ]]; then
-  pass "all skill names in model-profiles.md resolve to real directories"
+  doctrine_pass "all skill names in model-profiles.md resolve to real directories"
 else
   for name in "${DEAD[@]}"; do
-    fail "dead skill name in model-profiles.md: '$name' has no matching directory"
+    doctrine_fail "dead skill name in model-profiles.md: '$name' has no matching directory"
   done
 fi
 
@@ -49,9 +49,9 @@ LEGACY_HITS=$(grep -rE "PLAN\.md|STATE\.md|PROJECT\.md|CONTEXT\.md|SUMMARY\.md|V
   | grep -v "specs/archive" \
   | wc -l | tr -d ' ') || true
 if [[ "$LEGACY_HITS" -eq 0 ]]; then
-  pass "no legacy MD artifact names in live docs/ (docs/archive/ exempt)"
+  doctrine_pass "no legacy MD artifact names in live docs/ (docs/archive/ exempt)"
 else
-  fail "legacy MD artifact names found in docs/ ($LEGACY_HITS occurrences)"
+  doctrine_fail "legacy MD artifact names found in docs/ ($LEGACY_HITS occurrences)"
   grep -rE "PLAN\.md|STATE\.md|PROJECT\.md|CONTEXT\.md|SUMMARY\.md|VERIFICATION\.md|RESEARCH\.md|RELEASE-PLAN\.md" \
     docs/ 2>/dev/null \
     | grep -v "docs/archive/" \
@@ -68,9 +68,9 @@ fi
 STALE_COUNT_HITS=$(grep -rE "expect [0-9]+" docs/ 2>/dev/null \
   | grep -v "expect $LIVE_COUNT" | wc -l | tr -d ' ') || true
 if [[ "$STALE_COUNT_HITS" -eq 0 ]]; then
-  pass "skill count annotations match live count ($LIVE_COUNT)"
+  doctrine_pass "skill count annotations match live count ($LIVE_COUNT)"
 else
-  fail "stale skill count annotation in docs/ (live=$LIVE_COUNT, $STALE_COUNT_HITS mismatches)"
+  doctrine_fail "stale skill count annotation in docs/ (live=$LIVE_COUNT, $STALE_COUNT_HITS mismatches)"
   grep -rE "expect [0-9]+" docs/ 2>/dev/null | grep -v "expect $LIVE_COUNT" >&2
 fi
 
@@ -86,9 +86,9 @@ LEGACY_SPECS=$(grep -rE "specs/(requirements|plans|audit)\b" \
   | grep -v "CHANGELOG\.md\|specs/verifications/reports/\|PLAN-evolve-structure\.md" \
   | wc -l | tr -d ' ') || true
 if [[ "$LEGACY_SPECS" -eq 0 ]]; then
-  pass "no legacy specs/ subpaths (requirements/, plans/, audit/)"
+  doctrine_pass "no legacy specs/ subpaths (requirements/, plans/, audit/)"
 else
-  fail "legacy specs/ subpaths found ($LEGACY_SPECS occurrences)"
+  doctrine_fail "legacy specs/ subpaths found ($LEGACY_SPECS occurrences)"
   grep -rE "specs/(requirements|plans|audit)\b" \
     --include="*.md" --include="*.sh" --include="*.yaml" --include="*.yml" --include="*.json" . \
     2>/dev/null \
@@ -103,9 +103,9 @@ BCP_SLOP=$(grep -ri "build commit point" . 2>/dev/null \
   | grep -v "specs/archive\|\.git\|node_modules\|\.gemini\|\.cursor\|validate-doctrine\.sh" \
   | wc -l | tr -d ' ') || true
 if [[ "$BCP_SLOP" -eq 0 ]]; then
-  pass "no 'Build Commit Point' slop — BCP = Business Complexity Points"
+  doctrine_pass "no 'Build Commit Point' slop — BCP = Business Complexity Points"
 else
-  fail "'Build Commit Point' found ($BCP_SLOP hits) — canonical term is 'Business Complexity Points'; see docs/references/bcp.md"
+  doctrine_fail "'Build Commit Point' found ($BCP_SLOP hits) — canonical term is 'Business Complexity Points'; see docs/references/bcp.md"
   grep -ri "build commit point" . 2>/dev/null \
     | grep -v "specs/archive\|\.git\|node_modules\|\.gemini\|\.cursor\|validate-doctrine\.sh" | head -5 >&2
 fi
@@ -113,9 +113,9 @@ fi
 # ── Epic 4: SKILL.md size cap ─────────────────────────────────────────────────
 echo "--- [Epic 4] SKILL.md size cap ---"
 if bash "$REPO_ROOT/scripts/check-skill-size.sh" >/dev/null 2>&1; then
-  pass "all SKILL.md files within tiered size cap (150 critical-path / 120 utility)"
+  doctrine_pass "all SKILL.md files within tiered size cap (150 critical-path / 120 utility)"
 else
-  fail "a SKILL.md exceeds its size cap — run: bash scripts/check-skill-size.sh"
+  doctrine_fail "a SKILL.md exceeds its size cap — run: bash scripts/check-skill-size.sh"
   bash "$REPO_ROOT/scripts/check-skill-size.sh" 2>&1 | grep "^FAIL:" >&2 || true
 fi
 
@@ -130,19 +130,19 @@ for s in "${CRITICAL_HANDOFF[@]}"; do
   fi
 done
 if [[ ${#MISSING_HANDOFF[@]} -eq 0 ]]; then
-  pass "all critical-path skills document a handoff target"
+  doctrine_pass "all critical-path skills document a handoff target"
 else
   for s in "${MISSING_HANDOFF[@]}"; do
-    fail "critical-path skill '$s' has no documented handoff/next_skill"
+    doctrine_fail "critical-path skill '$s' has no documented handoff/next_skill"
   done
 fi
 
 # ── CI: trace-stories wrapper smoke (REPO_ROOT must be set under set -u) ───────
 echo "--- [CI] trace-stories wrapper smoke ---"
 if bash "$REPO_ROOT/scripts/trace-stories.sh" --help >/dev/null 2>&1; then
-  pass "trace-stories.sh --help exits 0 (REPO_ROOT initialized)"
+  doctrine_pass "trace-stories.sh --help exits 0 (REPO_ROOT initialized)"
 else
-  fail "trace-stories.sh --help failed — REPO_ROOT likely unset; run: bash scripts/trace-stories.sh --help"
+  doctrine_fail "trace-stories.sh --help failed — REPO_ROOT likely unset; run: bash scripts/trace-stories.sh --help"
 fi
 
 # ── Summary ────────────────────────────────────────────────────────────────────

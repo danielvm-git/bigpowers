@@ -1,6 +1,6 @@
 story_id: e37s02
 title: "verify-install.sh + docs — Cline native AGENTS.md verification"
-status: todo
+status: done
 bcps: 2
 risk: P2
 tasks:
@@ -14,7 +14,7 @@ tasks:
       grep -qi 'AGENTS.md' scripts/verify-install.sh && echo OK
     risk: P2
     security: none
-    status: todo
+    status: done
 
   - id: 2
     description: >-
@@ -26,7 +26,7 @@ tasks:
       grep -qi 'native' skills/using-bigpowers/SKILL.md && echo OK
     risk: P2
     security: none
-    status: todo
+    status: done
 
   - id: 3
     description: >-
@@ -37,7 +37,7 @@ tasks:
       grep -qi 'cline' .cursor/rules/using-bigpowers.mdc && echo OK
     risk: P2
     security: none
-    status: todo
+    status: done
 
   - id: 4
     description: >-
@@ -47,7 +47,7 @@ tasks:
       grep -qi 'cline' skills/using-bigpowers/SKILL.md && echo OK
     risk: P2
     security: none
-    status: todo
+    status: done
 
 out_of_scope:
   - "Cline targets.yaml registry row (e37s05)"

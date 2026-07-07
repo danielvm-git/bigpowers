@@ -6,7 +6,7 @@ source "$(dirname "${BASH_SOURCE[0]}")/lib/python-env.sh"
 ROOT="$(git rev-parse --show-toplevel 2>/dev/null)" || { echo "build-receipts: not inside a git repo" >&2; exit 1; }
 OUTFILE="$ROOT/specs/receipts.json"
 TIMESTAMP="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
-emit_json() {
+receipts_emit_json() {
   $PYTHON -c "
 import json, sys, os, subprocess, glob as gb
 sections = {}
@@ -103,6 +103,6 @@ for key, sec in sections.items(): print(f'  {key}: source={sec.get(\"source\",\"
 "
 }
 echo "build-receipts: aggregating quality evidence..."
-emit_json
+receipts_emit_json
 echo "build-receipts: done — $(date -u +%H:%M:%SZ)"
 exit 0

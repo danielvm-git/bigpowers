@@ -13,7 +13,7 @@ usage_land() {
   exit 1
 }
 
-deny() {
+land_branch_deny() {
   echo "ERROR: $1" >&2
   exit 1
 }
@@ -34,16 +34,16 @@ COMMIT_MSG="${ARGS[1]:-}"
 [ -n "$FEATURE_BRANCH" ] && [ -n "$COMMIT_MSG" ] || usage_land
 
 if [[ ! "$COMMIT_MSG" =~ $CONVENTIONAL_REGEX ]]; then
-  deny "Commit message must follow Conventional Commits: <type>(<scope>): <subject>"
+  land_branch_deny "Commit message must follow Conventional Commits: <type>(<scope>): <subject>"
 fi
 
 if [ ${#COMMIT_MSG} -gt 72 ]; then
-  deny "Commit subject line must be 72 characters or less"
+  land_branch_deny "Commit subject line must be 72 characters or less"
 fi
 
 # Primary worktree only (.git is a directory, not a gitdir pointer file)
 if [ -f .git ]; then
-  deny "Run from the primary repository root, not a linked worktree (cd to main repo first)"
+  land_branch_deny "Run from the primary repository root, not a linked worktree (cd to main repo first)"
 fi
 
 detect_default_branch() {
@@ -58,7 +58,7 @@ detect_default_branch() {
   elif git show-ref --verify --quiet refs/heads/master; then
     echo "master"
   else
-    deny "Could not detect default branch (main/master)"
+    land_branch_deny "Could not detect default branch (main/master)"
   fi
 }
 
@@ -69,12 +69,12 @@ echo "==> Land branch: $FEATURE_BRANCH -> $DEFAULT_BRANCH"
 echo "    Repo root: $REPO_ROOT"
 
 if ! git show-ref --verify --quiet "refs/heads/$FEATURE_BRANCH"; then
-  deny "Feature branch '$FEATURE_BRANCH' does not exist"
+  land_branch_deny "Feature branch '$FEATURE_BRANCH' does not exist"
 fi
 
 for protected in main master; do
   if [ "$FEATURE_BRANCH" = "$protected" ]; then
-    deny "Cannot land protected branch '$FEATURE_BRANCH'"
+    land_branch_deny "Cannot land protected branch '$FEATURE_BRANCH'"
   fi
 done
 
@@ -115,15 +115,15 @@ fi
 echo "==> Updating $DEFAULT_BRANCH"
 git checkout "$DEFAULT_BRANCH"
 if ! git diff-index --quiet HEAD -- 2>/dev/null; then
-  deny "Working tree on $DEFAULT_BRANCH is not clean. Stash or commit first."
+  land_branch_deny "Working tree on $DEFAULT_BRANCH is not clean. Stash or commit first."
 fi
 
 if git remote get-url origin >/dev/null 2>&1; then
-  git pull --ff-only origin "$DEFAULT_BRANCH" || deny "git pull --ff-only failed; resolve before landing"
+  git pull --ff-only origin "$DEFAULT_BRANCH" || land_branch_deny "git pull --ff-only failed; resolve before landing"
 fi
 
 if ! git merge-base --is-ancestor "$DEFAULT_BRANCH" "$FEATURE_BRANCH" 2>/dev/null; then
-  deny "Feature branch '$FEATURE_BRANCH' is not based on current $DEFAULT_BRANCH (rebase or recreate branch)"
+  land_branch_deny "Feature branch '$FEATURE_BRANCH' is not based on current $DEFAULT_BRANCH (rebase or recreate branch)"
 fi
 
 export GIT_BIGPOWERS_LAND=1
@@ -131,7 +131,7 @@ export GIT_BIGPOWERS_LAND=1
 echo "==> Squash merge $FEATURE_BRANCH"
 git merge --squash "$FEATURE_BRANCH"
 if git diff-index --quiet HEAD -- 2>/dev/null; then
-  deny "Squash merge produced no changes (already merged?)"
+  land_branch_deny "Squash merge produced no changes (already merged?)"
 fi
 
 git commit -m "$COMMIT_MSG"

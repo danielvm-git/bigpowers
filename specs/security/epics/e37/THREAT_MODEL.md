@@ -1,73 +1,84 @@
-# Threat Model — Epic e37: BCP Plus Counting
+# Threat Model — Epic e37: Reach — Universal Agent Portability
 
-**Date:** 2026-07-05
-**Risk Level:** LOW
-**Epic Scope:** Evolve story sizing from 3D BCP to 13D BCP Plus; integrate big-counter optional tool; update affected skills.
+**Date:** 2026-07-07
+**Risk Level:** MEDIUM
+**Epic Scope:** AGENTS.md context spine, `scripts/targets.yaml` integration registry, adapter dispatch in `sync-skills.sh`, OSS wave targets, optional Codex wiring.
 
 ## Surface Area
 
 | Component | Type | Exposure |
 |-----------|------|----------|
-| `skills/build-epic/SKILL.md` | Markdown skill | Internal — agent reads only |
-| `skills/plan-work/SKILL.md` | Markdown skill | Internal — agent reads only |
-| `skills/plan-release/SKILL.md` | Markdown skill | Internal — agent reads only |
-| `skills/develop-tdd/SKILL.md` | Markdown skill | Internal — agent reads only |
-| `skills/security-review/SKILL.md` | Markdown skill | Internal — agent reads only |
-| `skills/wire-observability/SKILL.md` | Markdown skill | Internal — agent reads only |
-| `skills/setup-environment/SKILL.md` | Markdown skill | Internal — agent reads only |
-| `docs/references/bcp-plus.md` | Reference doc | Internal — documentation |
-| `docs/references/bcp.md` | Reference doc | Internal — documentation (cross-link) |
-| `specs/templates/story-template.md` | Template | Internal — spec generation |
-| `specs/state.yaml` | Runtime state | Internal — YAML schema extension |
-| `scripts/record-cycle-time.sh` | Bash script | Internal — metrics recording |
-| `CLAUDE.md` | Config | Internal — agent instructions |
-| `big-counter` (optional) | External tool | pip/npm install — trusted PyPI/npm registry |
+| `docs/templates/AGENTS.md` | Template | Seeded into consumer projects — agent-readable instructions |
+| `scripts/targets.yaml` | Config registry | Declares adapter paths, symlink/copy modes, contract matrix |
+| `scripts/adapters/*.sh` | Bash adapters | Write symlinks, copies, config bridges into consumer project dirs |
+| `scripts/generate-context-bundle.sh` | Bash orchestrator | Sources adapter scripts; wires context derivatives from AGENTS.md |
+| `scripts/sync-skills.sh` | Bash orchestrator | Dispatches skill artifacts per target registry |
+| `scripts/verify-install.sh` | Verification | Asserts per-target contracts from targets.yaml |
+| `skills/seed-conventions/SKILL.md` | Skill | Emits AGENTS.md, symlinks, opencode.json, optional Codex/Aider wiring |
+| `scripts/install.sh` | Installer | Global `~/.codex/` symlink (optional wave) |
+| Consumer project dirs | Filesystem | `.cursor/`, `.gemini/`, `.pi/`, `.aider.conf.yml`, `.codex/` |
 
 ## Vulnerability Assessment
 
-### 1. Dependency Supply Chain (big-counter)
+### 1. Symlink / Path Traversal in Adapters
 
-**Category:** Supply chain
+**Category:** Path traversal / unsafe file write
+**Severity:** MEDIUM
+**Risk:** Adapters create symlinks and copy files based on `targets.yaml` paths. A compromised or malformed registry entry could write outside the project root.
+**Mitigation:** `wire_context_mode` in `scripts/lib/context-wire.sh` resolves paths relative to repo root; `validate-targets-yaml.sh` schema-checks registry before dispatch. Adapters must not accept user-controlled path segments.
+
+### 2. Command Injection via Adapter Scripts
+
+**Category:** Command injection
 **Severity:** LOW
-**Risk:** The `big-counter` tool is an optional external dependency. If installed from a compromised source, it could inject malicious code into the agent's execution context.
-**Mitigation:** Install only from trusted registries (PyPI or npm). The skill text should specify `pip install big-counter` or `npm install -g big-counter` from official registries. No custom URLs or third-party mirrors.
+**Risk:** Adapter shell scripts source each other and invoke filesystem operations. User input should not reach `eval` or unquoted shell expansion.
+**Mitigation:** Adapters use `set -euo pipefail`; paths are quoted; no user input in adapter dispatch — only registry-defined ids.
 
-### 2. YAML Schema Injection
+### 3. Supply Chain — OSS Target Documentation
 
-**Category:** Configuration manipulation
+**Category:** Social engineering / misleading install guidance
 **Severity:** LOW
-**Risk:** Extending `specs/state.yaml` with `bcp_plus` fields adds new keys. A malformed YAML could theoretically cause parser issues, but YAML is a declarative format read by trusted scripts — no code execution path.
-**Mitigation:** Validate with existing `python3 scripts/yaml-tools.py validate-file specs/state.yaml`. The BCP Plus fields are numeric only (integer totals).
+**Risk:** `using-bigpowers` documents third-party tools (Goose, Continue, etc.). Stale or incorrect repo URLs could point users to wrong packages.
+**Mitigation:** Verify commands in epic stories grep for canonical org names (e.g. `Aider-AI/aider`). Manual UAT for live agent sessions is explicitly out of scope.
 
-### 3. SKILL.md Content Poisoning
+### 4. Secrets Exposure in AGENTS.md Template
 
-**Category:** Prompt injection (theoretical)
+**Category:** Information disclosure
 **Severity:** LOW
-**Risk:** Adding BCP Plus references to SKILL.md files could theoretically include malicious instructions if the source files were compromised. However, all edits are done by the agent under user supervision.
-**Mitigation:** All SKILL.md changes go through sync-skills.sh validation. No untrusted external content is injected.
+**Risk:** AGENTS.md is the single context spine copied/symlinked across tools. Accidental inclusion of secrets in the template would propagate to all derivatives.
+**Mitigation:** Template contains only commands and conventions — no credential placeholders. Preflight chain uses public npm/bash scripts only.
 
-### 4. Cross-Skill Inconsistency
+### 5. Windows Copy-Fallback Integrity
 
-**Category:** Logic flaw
+**Category:** Configuration drift
 **Severity:** LOW
-**Risk:** If one skill emits BCP Plus but another doesn't consume it, the sizing pipeline breaks silently. This is a correctness risk, not a security risk.
-**Mitigation:** Verification grep commands in each task ensure each skill references `bcp_plus`. The traceability gate catches untagged stories.
+**Risk:** Symlink mode falls back to copy on Windows; copies can stale relative to AGENTS.md source.
+**Mitigation:** `generate-context-bundle.sh` re-wires on each run; `verify-install.sh --matrix` asserts per-target contracts.
+
+### 6. Optional Codex Global Install
+
+**Category:** Filesystem write outside project
+**Severity:** LOW
+**Risk:** `install.sh` creates `~/.codex/` starter symlink — writes to user home directory.
+**Mitigation:** Opt-in only (e37s14–s16 optional wave); dry-run documented; user must run install explicitly.
 
 ## Risk Summary
 
-| Category | Count | Max Severity |
-|----------|-------|-------------|
+| Category | Count | Highest |
+|----------|-------|---------|
+| Path traversal | 1 | MEDIUM |
+| Command injection | 1 | LOW |
 | Supply chain | 1 | LOW |
-| Configuration | 1 | LOW |
-| Prompt injection | 1 | LOW |
-| Logic | 1 | LOW |
+| Info disclosure | 1 | LOW |
+| Config drift | 1 | LOW |
+| Filesystem (home) | 1 | LOW |
 
-## Recommendation
+**Overall: MEDIUM** — primary concern is adapter path safety; mitigated by schema validation and repo-relative resolution.
 
-**CLEAR — No blocking findings.** Proceed with the build cycle. All risks are LOW. The primary watchpoint is the optional `big-counter` dependency — the install instructions should reference only trusted registries. No code executes network-facing endpoints; no user data is processed; no authentication boundaries exist in scope.
+## Mitigation Guidance
 
-## Verification
-
-- [ ] `big-counter` install instructions in `setup-environment` reference PyPI/npm only
-- [ ] `bcp_plus` YAML fields are integer-only in schema validation
-- [ ] All SKILL.md changes pass `sync-skills.sh` validation
+1. Run `bash scripts/validate-targets-yaml.sh` before any registry change.
+2. Run `bash scripts/test-adapters.sh` and `bash scripts/verify-install.sh --matrix` after adapter edits.
+3. Never add user-interpolated paths to `targets.yaml` output fields.
+4. Keep AGENTS.md template free of secrets and environment-specific values.
+5. Treat optional Codex global install as explicit opt-in with dry-run preview.

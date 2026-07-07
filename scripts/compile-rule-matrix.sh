@@ -10,7 +10,7 @@ CONVENTIONS="$REPO_ROOT/CONVENTIONS.md"
 OUTPUT="$REPO_ROOT/specs/rule-matrix.json"
 MATRIX_VERSION="1.0.0"
 
-show_help() {
+matrix_show_help() {
   cat <<EOF
 Usage: $(basename "$0") [OPTION]
 
@@ -26,7 +26,7 @@ EOF
 STDOUT_ONLY=0
 if [ "$#" -eq 1 ]; then
   case "$1" in
-    --help) show_help; exit 0 ;;
+    --help) matrix_show_help; exit 0 ;;
     --stdout) STDOUT_ONLY=1 ;;
     *) echo "[ERROR] Unknown option: $1" >&2; exit 1 ;;
   esac

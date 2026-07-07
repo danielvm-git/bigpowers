@@ -8,6 +8,11 @@ if [ -n "${SYNC_POST_LOADED:-}" ]; then
 fi
 SYNC_POST_LOADED=1
 
+sync_post_gemini_version_mismatch() {
+  local ext_ver="$1" pkg_ver="$2"
+  [[ -n "$ext_ver" && -n "$pkg_ver" && "$ext_ver" != "$pkg_ver" ]]
+}
+
 sync_post_run() {
   local skill_count="${1:-0}"
   local opencode_count="${2:-0}"
@@ -116,7 +121,7 @@ sync_post_regression_guards() {
   if [[ -f "$manifest" ]]; then
     ext_ver=$(jq -r '.version // empty' "$manifest")
     pkg_ver=$(jq -r '.version // empty' "$REPO_ROOT/package.json")
-    if [[ -n "$ext_ver" && -n "$pkg_ver" && "$ext_ver" != "$pkg_ver" ]]; then
+    if sync_post_gemini_version_mismatch "$ext_ver" "$pkg_ver"; then
       echo "sync-skills: FAIL — gemini-extension.json version ($ext_ver) != package.json ($pkg_ver)" >&2
       exit 1
     fi

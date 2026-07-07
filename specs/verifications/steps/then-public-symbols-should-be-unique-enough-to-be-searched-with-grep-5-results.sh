@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 # Then public symbols should be unique enough to be searched with 'grep' (< 5 results)
 # Check: no function name is defined in more than one script file.
+# Adapters are isolated plugin stubs — each defines the same contract (render_skill, wire_context).
 VIOLATIONS=$(grep -rEoh '^[a-z_][a-z_0-9]*\s*\(\)' scripts/ specs/verifications/steps/ 2>/dev/null \
+  --exclude-dir=adapters \
   | sed 's/[[:space:]]*()//' \
   | sort | uniq -d)
 

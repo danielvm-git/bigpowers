@@ -1,6 +1,6 @@
 story_id: e37s14
 title: "seed-conventions — optional Codex wiring step (AGENTS.md + .codex/config.toml)"
-status: todo
+status: done
 bcps: 3
 risk: P2
 tasks:
@@ -13,7 +13,7 @@ tasks:
       grep -q 'developers.openai.com/codex' skills/seed-conventions/REFERENCE.md && echo OK
     risk: P3
     security: none
-    status: todo
+    status: done
 
   - id: 2
     description: >-
@@ -27,7 +27,7 @@ tasks:
       echo OK
     risk: P2
     security: none
-    status: todo
+    status: done
 
   - id: 3
     description: >-
@@ -39,7 +39,7 @@ tasks:
       grep -qi 'codex' skills/seed-conventions/SKILL.md && echo OK
     risk: P2
     security: none
-    status: todo
+    status: done
 
   - id: 4
     description: >-
@@ -50,7 +50,7 @@ tasks:
       grep -qi '\.codex/config\.toml' skills/seed-conventions/SKILL.md && echo OK
     risk: P2
     security: none
-    status: todo
+    status: done
 
   - id: 5
     description: >-
@@ -62,7 +62,7 @@ tasks:
       grep -qi 'codex' skills/seed-conventions/SKILL.md && echo OK
     risk: P2
     security: none
-    status: todo
+    status: done
 
   - id: 6
     description: >-
@@ -72,7 +72,7 @@ tasks:
       grep -qi 'config.toml' skills/seed-conventions/REFERENCE.md && echo OK
     risk: P2
     security: none
-    status: todo
+    status: done
 
 out_of_scope:
   - "install.sh global ~/.codex wiring (e37s15)"

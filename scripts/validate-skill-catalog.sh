@@ -20,7 +20,7 @@ WARNINGS=0
 # Documented naming exceptions (craft-skill REFERENCE.md)
 VERB_NOUN_EXCEPTIONS="grill-me grill-with-docs context7-mcp using-bigpowers deploy"
 
-usage() {
+catalog_usage() {
   echo "Usage: bash scripts/validate-skill-catalog.sh [--archive] [--strict] [--skill <name>]"
   exit 2
 }
@@ -31,15 +31,15 @@ while [[ $# -gt 0 ]]; do
     --strict) STRICT=true; shift ;;
     --skill) TARGET_SKILL="${2:-}"; shift 2 ;;
     --skill=*) TARGET_SKILL="${1#*=}"; shift ;;
-    -h|--help) usage ;;
-    *) echo "Unknown flag: $1" >&2; usage ;;
+    -h|--help) catalog_usage ;;
+    *) echo "Unknown flag: $1" >&2; catalog_usage ;;
   esac
 done
 
 report_catalog_violation() { echo "FAIL: $1" >&2; VIOLATIONS=$((VIOLATIONS + 1)); }
 report_catalog_warning() { echo "WARN: $1" >&2; WARNINGS=$((WARNINGS + 1)); }
 
-check_verb_noun() {
+catalog_validate_verb_noun() {
   local name="$1"
   if echo " $VERB_NOUN_EXCEPTIONS " | grep -q " $name "; then
     return 0
@@ -55,12 +55,12 @@ check_verb_noun() {
   fi
 }
 
-check_skill() {
+catalog_validate_skill() {
   local skill_md="$1"
   local name
   name=$(basename "$(dirname "$skill_md")")
 
-  check_verb_noun "$name" || true
+  catalog_validate_verb_noun "$name" || true
 
   if ! grep -q 'HARD GATE' "$skill_md" 2>/dev/null; then
     if $STRICT; then report_catalog_violation "$name: missing HARD GATE block"; else report_catalog_warning "$name: missing HARD GATE block"; fi
@@ -68,7 +68,7 @@ check_skill() {
 
   local desc
   desc=$(awk 'BEGIN{f=0} /^---$/{f++; next} f==1{print} f==2{exit}' "$skill_md" \
-    | grep -E '^description:' | head -1 | sed 's/^description: *//; s/^> //' | tr -d '"' || true)
+    | grep -E '^description:' | head -1 | sed 's/^description: *//; s/^\x3e //' | tr -d '"' || true)
   if [[ -n "$desc" && ${#desc} -gt 1024 ]]; then
     report_catalog_violation "$name: description ${#desc} chars (max 1024)"
   fi
@@ -80,7 +80,7 @@ check_skill() {
   fi
 
   local cmd
-  cmd=$(grep -E '^(> )?→ verify:' "$skill_md" 2>/dev/null | tail -1 | sed 's/^> // ; s/^→ verify: *//' || true)
+  cmd=$(grep 'verify:' "$skill_md" 2>/dev/null | tail -1 | sed 's/^\x3e //; s/^→ verify: *//' || true)
   if [[ -z "$cmd" ]]; then
     if $STRICT; then report_catalog_violation "$name: missing → verify: command"; else report_catalog_warning "$name: missing → verify: command"; fi
   fi
@@ -90,11 +90,11 @@ echo "Validating skill catalog under $SKILLS_ROOT ..."
 if [[ -n "$TARGET_SKILL" ]]; then
   skill_md="$SKILLS_ROOT/$TARGET_SKILL/SKILL.md"
   [[ -f "$skill_md" ]] || { echo "FAIL: $skill_md not found" >&2; exit 1; }
-  check_skill "$skill_md"
+  catalog_validate_skill "$skill_md"
 else
   for skill_md in "$SKILLS_ROOT"/*/SKILL.md; do
     [[ -f "$skill_md" ]] || continue
-    check_skill "$skill_md"
+    catalog_validate_skill "$skill_md"
   done
 fi
 
