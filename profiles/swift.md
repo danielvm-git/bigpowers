@@ -25,3 +25,6 @@ Opt-in conventions fragment for `seed-conventions`. Core bigpowers skills stay l
 
 - Never force-unwrap (`!`) in production paths without documented invariant
 - Never commit `DerivedData/` or `.build/`
+
+
+<!-- story: e10s01 -->

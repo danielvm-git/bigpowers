@@ -26,3 +26,6 @@ Opt-in conventions fragment for `seed-conventions`.
 
 - Never log secrets or full auth tokens
 - Never use `any` on public API types
+
+
+<!-- story: e10s01 -->

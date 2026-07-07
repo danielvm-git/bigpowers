@@ -26,3 +26,6 @@ Opt-in conventions fragment for `seed-conventions`.
 
 - Never use Options API for new components unless extending legacy
 - Never commit `dist/`, `node_modules/`, `.env`
+
+
+<!-- story: e10s01 -->

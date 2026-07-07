@@ -181,3 +181,6 @@ verify: grep -q "\[SUS\]" specs/epics/eNN-*.yaml && \
 - model-profiles.md — Which model for security reviews?
 - plan-work (SKILL.md) — slopcheck integration workflow
 - verify: npm audit --audit-level=moderate
+
+
+<!-- story: e01s04 -->

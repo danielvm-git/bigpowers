@@ -37,3 +37,6 @@ Run `compose-workflow` or copy `specs/WORKFLOW-solo-git.md` and note in `specs/S
 - Never land without `release-branch` §1–3 gates (tests, coverage, diff review)
 - Never commit on `main` outside `land-branch.sh`
 - Never skip `kickoff-branch` for feature work
+
+
+<!-- story: e10s01 -->

@@ -29,3 +29,6 @@ effort: standard
 → verify: `grep -c 'https\?://' skills/grill-with-docs/SKILL.md | awk '{if($1>=2) print "OK"; else print "NEEDS DOCS"}'`
 
 See [REFERENCE.md](REFERENCE.md) for question templates.
+
+
+<!-- story: e03s01 -->
