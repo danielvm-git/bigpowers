@@ -6,7 +6,7 @@ title: "Tautological verify commands in 5 non-critical skills — file-existence
 category: bug
 tier: extended
 severity: medium
-status: open
+status: fixed
 generator: scripts/sync-bugs-registry.sh
 references:
     - specs/bugs/BUG-2026-07-04-tautological-verify.md
@@ -14,7 +14,7 @@ references:
 
 # Tautological verify commands in 5 non-critical skills — file-existence checks pass vacuously
 
-**Bug:** BUG-2026-07-04-tautological-verify | **Severity:** medium | **Status:** open | **Scope:** skills
+**Bug:** BUG-2026-07-04-tautological-verify | **Severity:** medium | **Status:** fixed | **Scope:** skills
 **Tier:** extended
 
 See `specs/bugs/BUG-2026-07-04-tautological-verify.md` for full investigation and fix details.

@@ -1,6 +1,6 @@
 ---
 bug_id: BUG-2026-07-04-tautological-verify
-status: open
+status: fixed
 severity: medium
 scope: skills
 title: "Tautological verify commands in 5 non-critical skills — file-existence checks pass vacuously"
