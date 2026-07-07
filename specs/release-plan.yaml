@@ -1,15 +1,15 @@
 release:
   version: 2.74.12
-  codename: Reach
-  status: planning
+  codename: Foundation
+  status: released
   semantic_release: true
   bump_hint: minor
 build_order:
-- e37
 - e45
 - e48
+- e51
 done_epics_summary:
-  count: 45
+  count: 49
   source: specs/execution-status.yaml (development_status) — authoritative for completed epics; not re-listed
     here
   audit: '2026-07-06 plan-release redo — code evidence verified: e33 (website/ deployed), e41 (receipts.astro
@@ -60,14 +60,18 @@ done_epics_summary:
   - e42
   - e43
   - e44
+  - e37
+  - e45
   - e46
   - e47
+  - e48
+  - e51
 epics:
 - id: e51
   title: Always Green — Shift Left, Preflight Hard Block & Fix-or-Log Doctrine
   wsjf: 7.0
   bcps: 12
-  capsule_dir: epics/e51-always-green-shift-left
+  capsule_dir: epics/archive/e51-always-green-shift-left
   mode: capsule
   status: done
   wsjf_rationale: BV 8 (solo-dev trust — agents dismiss defects as pre-existing) + TC 5 (active pain)
@@ -88,7 +92,7 @@ epics:
   title: Quality Core — Skill Hardening & Verification Patterns
   wsjf: 5.0
   bcps: 45
-  capsule_dir: epics/e45-quality-core
+  capsule_dir: epics/archive/e45-quality-core
   mode: capsule
   status: done
   wsjf_rationale: BV 7 (skill quality compounds) + TC 4 (OSS pattern debt) + RR 6 (benchmark/evidence
@@ -97,8 +101,8 @@ epics:
   title: Foundation — Knowledge Layer + Process Maturity
   wsjf: 2.5
   bcps: 36
-  capsule_dir: epics/e48-foundation
+  capsule_dir: epics/archive/e48-foundation
   mode: capsule
-  status: planned
+  status: done
   wsjf_rationale: BV 5 (discoverability + honest sizing) + TC 3 (internal tooling) + RR 4 (OKF/wiki parity)
     / Job 5 ≈ 2.5. Merges former e45 OKF, e49 wiki, e37 BCP Plus.
