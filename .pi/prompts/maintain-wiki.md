@@ -61,6 +61,3 @@ grep -ril "keyword" specs/skills-wiki/skills/*.md
 ## Verify
 
 → verify: `test -d specs/skills-wiki && test -d specs/conventions-wiki && test -d specs/agent-guide && echo "OKF wiki present" || echo "FAIL"`
-
-
-<!-- story: e39s08 -->

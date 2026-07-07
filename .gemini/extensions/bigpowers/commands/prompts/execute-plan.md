@@ -1,8 +1,4 @@
 
-# story: e02s03
-# story: e05s02
-# story: e08s01
-
 # Execute Plan
 
 Execute tasks from the **active epic** (`specs/epics/eNN-slug/epic.yaml` story `tasks[]`) one at a time, showing evidence after each step before proceeding.

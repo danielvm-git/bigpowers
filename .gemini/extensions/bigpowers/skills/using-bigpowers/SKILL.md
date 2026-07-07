@@ -4,8 +4,6 @@ description: "One-time bootstrap that introduces the bigpowers skills system, th
 ---
 
 
-# story: e03s02
-
 # Using bigpowers
 > **HARD GATE** — **HARD GATE** — This skill is the entry point. Do NOT skip it when onboarding new users or starting a new session. It establishes the bigpowers methodology, lifecycle phases, and conventions.
 

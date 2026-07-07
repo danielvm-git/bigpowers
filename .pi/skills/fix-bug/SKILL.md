@@ -5,9 +5,6 @@ model: sonnet
 ---
 
 
-# story: e51s04
-
-
 # Fix Bug
 
 **Boundary**: Orchestrator flow — chains `investigate-bug` (entry point + RCA via `diagnose-root`) → `develop-tdd` → `validate-fix`. Does not implement RCA or write bug files directly.

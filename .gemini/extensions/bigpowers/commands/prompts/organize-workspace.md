@@ -1,6 +1,4 @@
 
-# story: e04s03
-
 # Organize Workspace
 > **HARD GATE** — **HARD GATE** — Workspace structure must reflect domain structure. If the codebase feels disorganized, flag it. Disorganization != 'just a style thing;' it is a signal of domain misalignment.
 

@@ -1,7 +1,4 @@
 
-# story: e45s05
-
-
 # Gate Trace
 
 Deterministic quality gate that combines traceability coverage and blind-spot data into a single PASS/FAIL/CONCERNS/WAIVED decision before release.

@@ -1,11 +1,8 @@
 ---
 name: define-success
-description: "'Convert an imperative task statement into explicit \"step → verify: <cmd>\" pairs before implementation begins. Use before plan-work when success criteria are unclear, when a task lacks verifiable checkpoints, or when user says \"how will we know this is done?\".'"
+description: "Convert an imperative task statement into explicit \"step → verify: <cmd>\" pairs before implementation begins. Use before plan-work when success criteria are unclear, when a task lacks verifiable checkpoints, or when user says \"how will we know this is done?\"."
 model: sonnet
 ---
-
-
-ARCHIVED: content absorbed into plan-work
 
 
 # Define Success

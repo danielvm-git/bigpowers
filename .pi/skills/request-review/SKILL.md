@@ -5,11 +5,6 @@ model: opus
 ---
 
 
-# story: e45s07
-<!-- story: e45s07 -->
-<!-- story: e45s17 -->
-
-
 # story: e45s28
 
 # Request Review

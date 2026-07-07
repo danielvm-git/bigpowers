@@ -4,7 +4,6 @@ description: "Delegate one complex task to a single subagent, review its work in
 ---
 
 
-# story: e09s04
 # story: e45s30
 
 # Delegate Task

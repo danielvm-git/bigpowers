@@ -3,8 +3,6 @@ description: Track implementation decisions and progress in specs/state.yaml to 
 ---
 
 
-# story: e03s03
-# story: e04s01
 # story: e45s23
 
 # Session State
@@ -141,6 +139,3 @@ handoff:
 - **Duplicate Plan**: Don't copy `release-plan.yaml` or epic shards into `state.yaml`.
 - **Stale State**: Forgetting to update `state.yaml` after a major refactor or decision.
 - **Status in release-plan**: Story/epic status lives only in `execution-status.yaml`.
-
-
-<!-- story: e34s04 -->

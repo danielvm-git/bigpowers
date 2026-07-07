@@ -3,8 +3,6 @@ description: Fallback ultra-compressed communication mode. Cuts token usage ~75%
 ---
 
 
-# story: e04s02
-
 Respond terse like smart caveman. All technical substance stay. Only fluff die.
 
 ## Persistence

@@ -3,14 +3,6 @@ description: "PLANNING SPINE STEP 3 of 3 — Plan the work: write detailed imple
 ---
 
 
-# story: e01s01 e46s02
-# story: e02s02
-# story: e06s01
-# story: e45s04
-# story: e45s06
-# story: e45s09
-# story: e45s33
-# story: e45s35
 # story: e45s29
 
 # Plan Work
@@ -103,7 +95,6 @@ Writes: state.yaml handoff.next_skill = kickoff-branch
 ---
 
 # Plan Work — Reference
-<!-- story: e45s24 -->
 
 ## Navigation
 

@@ -5,7 +5,6 @@ model: sonnet
 ---
 
 
-# story: e03s01
 # story: e45s29
 
 # Slice Tasks
