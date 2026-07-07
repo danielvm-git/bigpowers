@@ -3,7 +3,6 @@ description: "Batch-execute tasks from the active epic capsule sequentially, wit
 alwaysApply: false
 ---
 
-
 # Execute Plan
 
 Execute tasks from the **active epic** (`specs/epics/eNN-slug/epic.yaml` story `tasks[]`) one at a time, showing evidence after each step before proceeding.

@@ -3,7 +3,6 @@ description: "Test-driven development with red-green-refactor loop using vertica
 alwaysApply: false
 ---
 
-
 # Develop TDD
 
 > **HARD GATE** — Do NOT proceed if on `main` or `master`. Run `kickoff-branch` first to create a feature branch or worktree.

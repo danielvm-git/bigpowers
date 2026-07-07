@@ -1,25 +1,25 @@
 story_id: e48s15
 title: Refactor Skills Render Pipeline to Hybrid JSON Seam
-status: failing
+status: passing
 bcps: 4
 tasks:
   - id: 1
     description: "Scaffold scripts/lib/srp-engine.py to parse SKILL.md into JSON (stdout)"
     verify: "python3 scripts/lib/srp-engine.py skills/plan-work/SKILL.md --dry-run | jq .name"
     risk: P0
-    status: failing
+    status: passing
   - id: 2
     description: "Update cursor adapter to read SkillIR JSON from stdin"
     verify: "echo '{\"name\":\"test\",\"description\":\"desc\",\"body\":\"content\"}' | bash scripts/adapters/cursor.sh"
     risk: P1
-    status: failing
+    status: passing
   - id: 3
     description: "Implement subprocess dispatch in srp-engine.py"
     verify: "python3 scripts/lib/srp-engine.py skills/plan-work/SKILL.md --target cursor"
     risk: P0
-    status: failing
+    status: passing
   - id: 4
     description: "Refactor sync-skills.sh to delegate to srp-engine.py and update remaining adapters"
     verify: "bash scripts/sync-skills.sh"
     risk: P0
-    status: failing
+    status: passing

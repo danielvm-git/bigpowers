@@ -3,7 +3,6 @@ description: "Write, organize, and sync high-integrity technical documents using
 alwaysApply: false
 ---
 
-
 # Write Document (BMAD)
 
 Create high-signal technical documentation that serves as an expert collaborator for both humans and AI. This skill enforces the BMAD principles to prevent context rot and ensure architectural durability.

@@ -1,8 +1,9 @@
 ---
 name: run-benchmark
+model: haiku
 description: "Run skill quality benchmarks from specs/benchmarks/ definitions — N-run with/without-skill delta grading, train/validation split, pass@k + benchmark.json reports. Use before and after evolve-skill to prove quality changes are improvements, not regressions."
+disable-model-invocation: true
 ---
-
 
 # Run Benchmark
 

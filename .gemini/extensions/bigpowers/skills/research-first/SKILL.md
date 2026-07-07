@@ -1,8 +1,9 @@
 ---
 name: research-first
+model: sonnet
 description: "Look-before-build — search registries, repo, existing skills, and web for prior art before implementing. Appends Prior Art to the spec. Use after survey-context and before elaborate-spec, when adding dependencies, or when the task may already be solved."
+disable-model-invocation: true
 ---
-
 
 # story: e03s01
 # story: e21s02

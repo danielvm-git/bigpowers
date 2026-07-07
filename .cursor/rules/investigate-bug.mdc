@@ -3,7 +3,6 @@ description: "Investigate a bug or issue by exploring the codebase to find root 
 alwaysApply: false
 ---
 
-
 # Investigate Bug
 
 **Boundary**: End-to-end bug entry point — history check → RCA (via `diagnose-root`) → fix approach → TDD plan → bug file. Delegates the 4-phase RCA to `diagnose-root`; does not re-implement it.

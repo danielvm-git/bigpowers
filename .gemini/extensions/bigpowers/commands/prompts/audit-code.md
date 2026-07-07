@@ -1,3 +1,7 @@
+---
+name: audit-code
+description: "Self-review checklist for the coding agent to run before dispatching a reviewer. Checks CONVENTIONS.md compliance, Boy Scout Rule, test coverage, types, and SOLID. Produces a pass/fail checklist. Use before request-review, before committing, or when user asks for a code quality check."
+---
 
 # Audit Code
 > **HARD GATE** — **HARD GATE** — Audit must check for: bugs (correctness), security, performance, and clarity. Do NOT skip security review if the code touches user data, auth, or external APIs.

@@ -1,3 +1,7 @@
+---
+name: plan-refactor
+description: "Create a detailed refactor plan with tiny commits via user interview, then save it as specs/REFACTOR_LATEST.md. Use when user wants to plan a refactor, create a refactoring RFC, or break a refactor into safe incremental steps."
+---
 
 # Plan Refactor
 > **HARD GATE** — **HARD GATE** — Before refactoring, document the current behavior and why it is wrong. Extract one invariant that must be preserved. If you skip this, you will break things you don't expect.

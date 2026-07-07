@@ -1,8 +1,9 @@
 ---
 name: audit-plan
+model: sonnet
 description: "Evaluate an incoming project plan against bigpowers principles and conventions, surface gaps, and produce a READY/NOT READY verdict before engagement begins. Use when a new project arrives, when adapting a foreign plan, or before running seed-conventions on an unfamiliar codebase."
+disable-model-invocation: true
 ---
-
 
 # Audit Plan
 

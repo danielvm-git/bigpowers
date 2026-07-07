@@ -3,7 +3,6 @@ description: "Evaluate an incoming project plan against bigpowers principles and
 alwaysApply: false
 ---
 
-
 # Audit Plan
 
 > **HARD GATE** — Do NOT start build skills (kickoff-branch, develop-tdd) until audit-plan returns a READY verdict. A plan missing test commands, scope boundaries, or success criteria will produce drift and rework downstream.

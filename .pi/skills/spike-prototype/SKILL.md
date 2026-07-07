@@ -1,9 +1,8 @@
 ---
 name: spike-prototype
-description: "Throw-away prototype for unknown problem spaces. Output is learning notes in specs/archive/spikes/SPIKE-<name>.md, not production code. Use when the domain or technology is unexplored, when estimates are impossible without experimentation, or when user says \"spike\", \"prototype\", or \"proof of concept\"."
 model: sonnet
+description: "Throw-away prototype for unknown problem spaces. Output is learning notes in specs/archive/spikes/SPIKE-<name>.md, not production code. Use when the domain or technology is unexplored, when estimates are impossible without experimentation, or when user says \"spike\", \"prototype\", or \"proof of concept\"."
 ---
-
 
 # Spike Prototype
 > **HARD GATE** — **HARD GATE** — Spikes are time-boxed experiments, not shipping code. Results must be throwaway or clearly isolated. Do NOT merge a spike without a plan to integrate it or replace it with a proper implementation.

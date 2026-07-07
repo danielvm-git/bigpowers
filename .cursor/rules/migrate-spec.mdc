@@ -20,6 +20,7 @@ Transform existing GSD, spec-kit, or BMAD planning artifacts into the bigpowers 
 2. The skill auto-detects the source framework and presents its findings before transforming anything.
 3. All output goes to `specs/` at the project root.
 
+---
 
 ## Red flags — stop and ask
 
@@ -32,6 +33,7 @@ Before proceeding, check for these rationalization traps:
 
 If any red flag fires: surface it, wait for explicit user confirmation before continuing.
 
+---
 
 ## Process
 

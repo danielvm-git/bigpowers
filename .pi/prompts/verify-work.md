@@ -1,7 +1,7 @@
 ---
-description: Multi-phase UAT gate — cold-start smoke, build, typecheck, lint, tests, step-by-step manual verification, gaps-closure loop. Use after execute-plan or develop-tdd, before audit-code.
+name: verify-work
+description: "Multi-phase UAT gate — cold-start smoke, build, typecheck, lint, tests, step-by-step manual verification, gaps-closure loop. Use after execute-plan or develop-tdd, before audit-code."
 ---
-
 
 <!-- story: e02s01 e46s03 -->
 <!-- story: e38s05 -->

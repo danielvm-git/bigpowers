@@ -1,9 +1,8 @@
 ---
 name: plan-tests
-description: "\"Design a risk-scaled test architecture for an epic before implementation begins. Produces prioritized scenarios, test level distribution, and fixture plans based on TEA and bigpowers principles.\""
 model: opus
+description: "Design a risk-scaled test architecture for an epic before implementation begins. Produces prioritized scenarios, test level distribution, and fixture plans based on TEA and bigpowers principles."
 ---
-
 
 # Plan Tests
 

@@ -1,3 +1,7 @@
+---
+name: hook-commits
+description: "Set up pre-commit hooks with lint-staged (Prettier), type checking, and tests in the current repo. Use when user wants to add pre-commit hooks, set up Husky, configure lint-staged, or add commit-time formatting/typechecking/testing."
+---
 
 # Hook Commits
 > **HARD GATE** — **HARD GATE** — Pre-commit and commit-msg hooks must run before any commit lands. Skipping hooks (`--no-verify`) is forbidden unless explicitly authorized for a specific commit and documented.

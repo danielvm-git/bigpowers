@@ -1,8 +1,9 @@
 ---
 name: release-branch
+model: haiku
 description: "Make the merge/PR/keep/discard decision for a feature branch, verify coverage gates, create the PR with gh, and clean up the worktree. Use when a feature is done and ready to ship, or when user says \"release\", \"merge\", or \"open a PR\"."
+disable-model-invocation: true
 ---
-
 
 <!-- story: e38s07 -->
 <!-- story: e45s15 -->

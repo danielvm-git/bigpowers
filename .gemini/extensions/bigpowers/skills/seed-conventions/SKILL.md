@@ -1,8 +1,9 @@
 ---
 name: seed-conventions
+model: sonnet
 description: "Generate CLAUDE.md and CONVENTIONS.md for a brand-new project through a brief interview, and create the specs/ directory with evolved bigpowers structure (product/, tech-architecture/, verifications/, epics/archive/). Entry point for greenfield projects. Use when starting a new project from scratch, when user asks to set up AI agent conventions, or when there is no CLAUDE.md yet."
+disable-model-invocation: true
 ---
-
 
 # story: e10s01
 # story: e47s02

@@ -1,8 +1,9 @@
 ---
 name: setup-environment
+model: haiku
 description: "Pre-install dependencies and configure tools before development work begins. Use at session start on a fresh clone, before kickoff-branch, or when user says setup environment or install deps."
+disable-model-invocation: true
 ---
-
 
 # Setup Environment
 > **HARD GATE** — **HARD GATE** — Environment setup must be idempotent and reproducible. If setup fails, provide clear error messages and remediation steps. Do NOT assume prior state.

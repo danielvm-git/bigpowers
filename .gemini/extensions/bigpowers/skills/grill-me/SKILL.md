@@ -1,8 +1,9 @@
 ---
 name: grill-me
+model: sonnet
 description: "Interactive assumption-surfacing Q&A that stress-tests a plan through relentless questioning until every decision is resolved. Use when user wants to challenge a plan, validate decisions from conversation/context, or mentions \"grill me\". For doc-grounded variant, use grill-with-docs."
+disable-model-invocation: true
 ---
-
 
 # Grill Me
 

@@ -1,9 +1,8 @@
 ---
 name: dispatch-agents
-description: "Dispatch multiple subagents in parallel on independent tasks. No waiting between them — all run concurrently. Use when tasks are truly decoupled and speed matters. Distinct from delegate-task (concurrent here, no inter-task review gate)."
 model: sonnet
+description: "Dispatch multiple subagents in parallel on independent tasks. No waiting between them — all run concurrently. Use when tasks are truly decoupled and speed matters. Distinct from delegate-task (concurrent here, no inter-task review gate)."
 ---
-
 
 # story: e09s04
 # story: e45s38

@@ -1,8 +1,9 @@
 ---
 name: align-grid
-description: "\"Build editorial/magazine/report webpages on a GENUINE Müller-Brockmann modular grid (International Typographic Style) — not a decorative one. Encodes the discipline (columns + modules + baseline, grotesque type, flush-left, restrained black/white/red palette) AND the hard-won front-end engineering to make the grid real, visible, and verified: one CSS-variable source of truth, an interactive grid-toggle overlay that lives in the SAME content box as the content, subgrid \\\"bands\\\" so every element snaps to a column line, an 8px baseline lock, and runtime OPTICAL ALIGNMENT that puts display type's ink (not its box) on the line. Ships with a scaffold generator and a Puppeteer verification harness that proves 0px adherence.\""
+model: sonnet
+description: "Build editorial/magazine/report webpages on a GENUINE Müller-Brockmann modular grid (International Typographic Style) — not a decorative one. Encodes the discipline (columns + modules + baseline, grotesque type, flush-left, restrained black/white/red palette) AND the hard-won front-end engineering to make the grid real, visible, and verified: one CSS-variable source of truth, an interactive grid-toggle overlay that lives in the SAME content box as the content, subgrid \"bands\" so every element snaps to a column line, an 8px baseline lock, and runtime OPTICAL ALIGNMENT that puts display type's ink (not its box) on the line. Ships with a scaffold generator and a Puppeteer verification harness that proves 0px adherence."
+disable-model-invocation: true
 ---
-
 
 # Müller-Brockmann Grid Systems — built real, visible, and verified
 
@@ -14,6 +15,7 @@ Josef Müller-Brockmann (1914–1996), Zurich; *Grid Systems in Graphic Design* 
 > 1. *"the grid is just slapped on top and misaligned"* → the overlay wasn't in the same content box as the content (see §2.2).
 > 2. *"the H in the headline is off the grid"* → the headline's BOX was on the grid but its INK wasn't; large glyphs carry a side-bearing (see §2.6). **Box-on-grid ≠ ink-on-grid.**
 
+---
 
 ## PART 1 — THE DISCIPLINE (decide before drawing)
 - **Objective order.** The grid brings "constructive thought," legibility, and "objective and functional" design. Restraint is the point; the system, not the ego, organizes the page.
@@ -23,6 +25,7 @@ Josef Müller-Brockmann (1914–1996), Zurich; *Grid Systems in Graphic Design* 
 - **Palette.** Pure white paper, near-black ink, **one accent — red is canonical**. Avoid the warm-cream "Claude look"; **never blue/purple gradients** (hard house rule).
 - **White space + asymmetry.** Generous margins; asymmetric compositions held in tension by the grid.
 
+---
 
 ## PART 2 — MAKE THE GRID REAL ON THE WEB (the load-bearing engineering)
 `grid_tokens.py` emits this whole scaffold correctly; the rules below are why it's built the way it is.
@@ -68,6 +71,7 @@ document.querySelectorAll('.masthead,.numeral,.shead h2,.h2b').forEach(function(
 Apply to the masthead, big numerals, and section headlines. It scales with fluid type (re-runs on resize) and uses the **actually-loaded** font, so it's correct in the user's browser.
 **CRITICAL measurement caveat:** side-bearing is **font-specific**. If you measure with the wrong font you get the wrong nudge. Headless/sandbox Chrome usually lacks the webfont, so canvas falls back to a different grotesque (measured **−16px on the fallback vs −7px on real Inter** for the same `H`). To verify optics offline you must **embed the real webfont** via `@font-face` (local TTF). In production the runtime JS measures the loaded font and is correct.
 
+---
 
 ## PART 3 — VERIFY (don't trust, measure)  → `verify_grid.js`
 Render with headless Chrome (Puppeteer) and assert, at **several widths including > and < `--maxw`** (to catch centered-container drift, e.g. 1440 / 1180 / 900):
@@ -80,6 +84,7 @@ Sandbox Chrome flags that work: `--headless=new --no-sandbox --disable-gpu --dis
 
 A clean run looks like: `col=0px overlay=0px baseline≤4px ink=0px` → `GRID VERIFY: PASS`.
 
+---
 
 ## PART 4 — CRAFT DEFAULTS (so it looks excellent, not just aligned)
 - **Palette:** white `#fff`, ink `#111`, one accent (Swiss red `#e4002b`). No warm-cream Claude look; no blue/purple gradients.
@@ -89,6 +94,7 @@ A clean run looks like: `col=0px overlay=0px baseline≤4px ink=0px` → `GRID V
 - **Type fidelity if you ever rasterize art** (cairosvg / headless screenshots / image-gen reference): a `Helvetica`/`Arial` CSS stack silently falls back to **Noto Sans** (reads like Calibri). Render in **Liberation Sans** or an embedded Helvetica/Arimo TTF before trusting it. (Same trap as the optical-measurement caveat: wrong font in → wrong result out.)
 - **Spread model:** full-width sections, each its own per-spread `.grid` + `.guides`, consistent margins/folios.
 
+---
 
 ## PART 5 — WORKFLOW
 1. Pick the subject; gather real photos; host them publicly.

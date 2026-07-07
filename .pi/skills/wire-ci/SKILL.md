@@ -1,9 +1,8 @@
 ---
 name: wire-ci
-description: "\"CI pipeline setup with pre-built templates and local validation. Generates GitHub Actions workflows, validates YAML syntax and permissions, supports dry-run via act/gh. The CI equivalent of wire-observability.\""
 model: sonnet
+description: "CI pipeline setup with pre-built templates and local validation. Generates GitHub Actions workflows, validates YAML syntax and permissions, supports dry-run via act/gh. The CI equivalent of wire-observability."
 ---
-
 
 # Wire CI
 

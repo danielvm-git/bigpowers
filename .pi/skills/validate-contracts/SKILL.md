@@ -1,9 +1,8 @@
 ---
 name: validate-contracts
-description: "\"Assert data shape consistency across system boundaries — live API responses against JSON Schema, key-set comparison across layers, data shape validation for migrations and exports. Catches silent data corruption before deploy.\""
 model: sonnet
+description: "Assert data shape consistency across system boundaries — live API responses against JSON Schema, key-set comparison across layers, data shape validation for migrations and exports. Catches silent data corruption before deploy."
 ---
-
 
 # Validate Contracts
 

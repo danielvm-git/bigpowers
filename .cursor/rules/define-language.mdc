@@ -3,7 +3,6 @@ description: "Extract a DDD-style ubiquitous language glossary from the current 
 alwaysApply: false
 ---
 
-
 # Define Language
 
 Extract and formalize domain terminology from the current conversation into a consistent glossary, saved to `specs/UBIQUITOUS_LANGUAGE_LATEST.md`.

@@ -3,7 +3,6 @@ description: "Make the merge/PR/keep/discard decision for a feature branch, veri
 alwaysApply: false
 ---
 
-
 <!-- story: e38s07 -->
 <!-- story: e45s15 -->
 <!-- story: e45s32 -->

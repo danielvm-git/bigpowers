@@ -1,7 +1,7 @@
 ---
-description: Bug fix orchestrator — active_flow fix_bug; reads specs/bugs/BUG-*.md; chains investigate-bug, develop-tdd, validate-fix. Use when user reports a defect.
+name: fix-bug
+description: "Bug fix orchestrator — active_flow fix_bug; reads specs/bugs/BUG-*.md; chains investigate-bug, develop-tdd, validate-fix. Use when user reports a defect."
 ---
-
 
 # Fix Bug
 
@@ -52,11 +52,13 @@ Track progress via `specs/state.yaml` `bug_cycle`:
 One markdown file per bug with frontmatter:
 
 ```yaml
+---
 bug_id: BUG-001
 status: open
 severity: high
 scope: api
 title: Short title
+---
 ```
 
 ## Verify

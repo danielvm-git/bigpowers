@@ -3,7 +3,6 @@ description: "Run 4-phase root cause analysis — reproduce, isolate, hypothesiz
 alwaysApply: false
 ---
 
-
 # Diagnose Root
 
 **Boundary**: Canonical, reusable 4-phase RCA engine. Invoked by `investigate-bug` (as step 2 of the end-to-end flow) and by `fix-bug` (when no bug file exists). Does not write the bug file — that is `investigate-bug`'s responsibility.

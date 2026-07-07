@@ -3,7 +3,6 @@ description: "Throw-away prototype for unknown problem spaces. Output is learnin
 alwaysApply: false
 ---
 
-
 # Spike Prototype
 > **HARD GATE** — **HARD GATE** — Spikes are time-boxed experiments, not shipping code. Results must be throwaway or clearly isolated. Do NOT merge a spike without a plan to integrate it or replace it with a proper implementation.
 

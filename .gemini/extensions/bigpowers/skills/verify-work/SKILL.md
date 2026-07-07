@@ -1,8 +1,9 @@
 ---
 name: verify-work
+model: haiku
 description: "Multi-phase UAT gate — cold-start smoke, build, typecheck, lint, tests, step-by-step manual verification, gaps-closure loop. Use after execute-plan or develop-tdd, before audit-code."
+disable-model-invocation: true
 ---
-
 
 <!-- story: e02s01 e46s03 -->
 <!-- story: e38s05 -->

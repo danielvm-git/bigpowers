@@ -1,8 +1,9 @@
 ---
 name: wire-observability
+model: sonnet
 description: "Add structured JSON logging, observability commands, and idempotent setup scripts to a project. Use when a project needs production-readiness instrumentation, when user wants structured logging, or as a production-readiness gate at any phase of development."
+disable-model-invocation: true
 ---
-
 
 # Wire Observability
 > **HARD GATE** — **HARD GATE** — Observability is not optional. Before shipping, verify: structured logging is in place, key metrics are instrumented, error cases emit signals. 'We'll add metrics later' becomes 'never.'

@@ -1,8 +1,9 @@
 ---
 name: define-success
+model: sonnet
 description: "Convert an imperative task statement into explicit \"step → verify: <cmd>\" pairs before implementation begins. Use before plan-work when success criteria are unclear, when a task lacks verifiable checkpoints, or when user says \"how will we know this is done?\"."
+disable-model-invocation: true
 ---
-
 
 # Define Success
 

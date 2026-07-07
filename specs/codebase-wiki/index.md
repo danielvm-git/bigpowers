@@ -1,7 +1,7 @@
 ---
 type: Index
-generated_at: 2026-07-07T17:17:29.306727+00:00
-total_concepts: 76
+generated_at: 2026-07-07T18:06:02.373253+00:00
+total_concepts: 77
 ---
 
 # Codebase Wiki — Story Traceability
@@ -43,7 +43,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e45s15](./e45s15.md) | release-branch / deploy: three-independent-facts verificatio | high | 13 |
 | [e45s16](./e45s16.md) | CLAUDE.md rtk mandate: wire rtk-ai/rtk PreToolUse hook | high | 4 |
 | [e45s17](./e45s17.md) | request-review: fan-out to parallel review subagents | high | 22 |
-| [e45s18](./e45s18.md) | audit-code / security-review: worktree-isolated parallel che | high | 416 |
+| [e45s18](./e45s18.md) | audit-code / security-review: worktree-isolated parallel che | high | 420 |
 | [e45s19](./e45s19.md) | Context7: bounded retry cap and explicit fallback block | high | 7 |
 | [e45s20](./e45s20.md) | Context7 / bts docs: wrap in ETag-revalidated fetch cache | high | 1 |
 | [e45s21](./e45s21.md) | seed-conventions / AGENTS.md: self-installing fenced markers | high | 15 |
@@ -56,7 +56,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e45s28](./e45s28.md) | request-review: hard max-iteration cap | high | 10 |
 | [e45s29](./e45s29.md) | requirements: ADDED/MODIFIED/REMOVED/RENAMED tags | high | 15 |
 | [e45s30](./e45s30.md) | subagent depth: formalize depth tiers | high | 10 |
-| [e45s31](./e45s31.md) | audit-code / deepen-architecture: churn-based look-here-firs | high | 414 |
+| [e45s31](./e45s31.md) | audit-code / deepen-architecture: churn-based look-here-firs | high | 418 |
 | [e45s32](./e45s32.md) | gate-trace / release-branch: adversarial-review refute frami | high | 25 |
 | [e45s33](./e45s33.md) | requirements: per-section approval state | high | 3 |
 | [e45s34](./e45s34.md) | develop-tdd: snapshot-before-transition hardening | high | 6 |
@@ -66,23 +66,24 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e45s38](./e45s38.md) | orchestration: why-did-this-stall diagnostic skill | high | 8 |
 | [e45s39](./e45s39.md) | PR generation: literal provenance marker | high | 5 |
 | [e45s40](./e45s40.md) | verify-work: mandatory real-browser verification | high | 15 |
-| [e45s41](./e45s41.md) | security-review: proven authorship SQL-safety doctrine | high | 10 |
+| [e45s41](./e45s41.md) | security-review: proven authorship SQL-safety doctrine | high | 9 |
 | [e48s01](./e48s01.md) | Generate epics-wiki and adr-wiki as OKF concept bundles from | high | 25 |
 | [e48s02](./e48s02.md) | Emit verification reports as OKF bundles from run-golden-sui | medium | 27 |
 | [e48s03](./e48s03.md) | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | medium | 102 |
 | [e48s04](./e48s04.md) | Create viz.html — interactive force-layout graph companion f | medium | 10 |
-| [e48s05](./e48s05.md) | Wire OKF validation into CI (sync-skills.yml) and document i | medium | 126 |
+| [e48s05](./e48s05.md) | Wire OKF validation into CI (sync-skills.yml) and document i | medium | 133 |
 | [e48s06](./e48s06.md) | Add tier: field (core/extended/specialized) to OKF wiki inde | medium | 9 |
 | [e48s07](./e48s07.md) | Create publish-to-wiki kernel tool | high | 2 |
-| [e48s08](./e48s08.md) | Add GitHub Action Template for publish-wiki.yml | high | 1 |
+| [e48s08](./e48s08.md) | Add GitHub Action Template for publish-wiki.yml [HARD GATE] | high | 8 |
 | [e48s09](./e48s09.md) | Create Wiki Scaffold Templates and provenance header injecti | medium | 2 |
 | [e48s10](./e48s10.md) | Extend bigspec init with --with-wiki flag | medium | 13 |
 | [e48s11](./e48s11.md) | BCP Plus counter integration — install and smoke-test big-co | medium | 24 |
 | [e48s12](./e48s12.md) | BCP Plus template — 13-dimension breakdown in story specs | high | 8 |
 | [e48s13](./e48s13.md) | NFR Gate integration — security-review and wire-observabilit | high | 16 |
 | [e48s14](./e48s14.md) | Build-epic integration — BCP Plus in story sizing workflow | high | 13 |
+| [e48s15](./e48s15.md) | Refactor Skills Render Pipeline to Hybrid JSON Seam | high | 9 |
 | [e51s01](./e51s01.md) | CONVENTIONS — Always Green, Shift Left, Discovered Defects,  | high | 8 |
 | [e51s02](./e51s02.md) | seed-conventions — Preflight default, solo-git default, embe | high | 22 |
 | [e51s03](./e51s03.md) | kickoff-branch + verify-work — Preflight hard block and CI g | high | 46 |
-| [e51s04](./e51s04.md) | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | high | 457 |
+| [e51s04](./e51s04.md) | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | high | 461 |
 | [e51s05](./e51s05.md) | CLAUDE.md — solo-default agent rules + bigpowers Preflight c | high | 7 |

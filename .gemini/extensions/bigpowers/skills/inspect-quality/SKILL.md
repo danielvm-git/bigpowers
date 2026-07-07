@@ -1,8 +1,9 @@
 ---
 name: inspect-quality
+model: sonnet
 description: "Interactive QA session where user reports bugs or issues conversationally, and the agent logs them to specs/bugs/registry.yaml with a structured audit schema. Explores the codebase in the background for context and domain language. Use when user wants to report bugs, do QA, or mentions \"QA session\"."
+disable-model-invocation: true
 ---
-
 
 # Inspect Quality
 > **HARD GATE** — **HARD GATE** — Quality metrics (coverage, lint, cyclomatic complexity, security scans) must be monitored. If a metric degrades, surface it as a blocker. Do NOT accept regressions.

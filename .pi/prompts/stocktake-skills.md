@@ -1,7 +1,7 @@
 ---
-description: Sequential subagent batch audit of the bigpowers skill catalog — Quick Scan (changed only) or Full (all skills). Use during sustain phase, before a major release, or when catalog drift is suspected.
+name: stocktake-skills
+description: "Sequential subagent batch audit of the bigpowers skill catalog — Quick Scan (changed only) or Full (all skills). Use during sustain phase, before a major release, or when catalog drift is suspected."
 ---
-
 
 # story: e09s01
 <!-- story: e45s12 -->

@@ -1,3 +1,7 @@
+---
+name: maintain-wiki
+description: "Agent-maintained OKF wiki — INGEST source docs, LINT for issues, QUERY across concept pages. Run as part of build-epic Step 8 and verify-work Phase 3."
+---
 
 # Maintain Wiki
 

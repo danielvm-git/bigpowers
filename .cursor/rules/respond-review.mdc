@@ -3,7 +3,6 @@ description: "Act on a reviewer agent's feedback systematically — categorize f
 alwaysApply: false
 ---
 
-
 # Respond Review
 > **HARD GATE** — **HARD GATE** — Every reviewer comment must be addressed (fix, disagree + document reason, or ask clarification). Do NOT ignore feedback and merge.
 

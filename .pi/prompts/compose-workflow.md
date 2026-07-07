@@ -1,7 +1,7 @@
 ---
-description: Chain multiple bigpowers skills into a custom workflow recipe saved in specs/. Use when a project repeats a non-standard skill sequence, or user wants a documented playbook beyond orchestrate-project modes.
+name: compose-workflow
+description: "Chain multiple bigpowers skills into a custom workflow recipe saved in specs/. Use when a project repeats a non-standard skill sequence, or user wants a documented playbook beyond orchestrate-project modes."
 ---
-
 
 # story: e09s01
 # story: e45s27

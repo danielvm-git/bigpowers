@@ -1,7 +1,7 @@
 ---
-description: Start a browser-based dashboard that visualizes architecture, implementation plans, and project status. Persists artifacts in .bigpowers/dashboard/. Reads specs/state.yaml, release-plan.yaml, epics, and planning-status via HTTP API or opencode panel.
+name: visual-dashboard
+description: "Start a browser-based dashboard that visualizes architecture, implementation plans, and project status. Persists artifacts in .bigpowers/dashboard/. Reads specs/state.yaml, release-plan.yaml, epics, and planning-status via HTTP API or opencode panel."
 ---
-
 
 # Visual Dashboard
 > **HARD GATE** — **HARD GATE** — Dashboards are read-only. Do NOT use visualization to make decisions without consulting the source data. 'The chart looks better' is not a decision.

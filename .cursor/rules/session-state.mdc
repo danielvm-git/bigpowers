@@ -3,7 +3,6 @@ description: "Track implementation decisions and progress in specs/state.yaml to
 alwaysApply: false
 ---
 
-
 # story: e45s23
 
 # Session State

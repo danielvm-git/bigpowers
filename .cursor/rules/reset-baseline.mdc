@@ -3,7 +3,6 @@ description: "Restore the project to a known clean state between agent runs or e
 alwaysApply: false
 ---
 
-
 # Reset Baseline
 
 > **HARD GATE** — Confirm with user before any destructive git operation. Never `reset --hard` without explicit approval.

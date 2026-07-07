@@ -3,7 +3,6 @@ description: "Edit and improve documents by restructuring sections, improving cl
 alwaysApply: false
 ---
 
-
 # Edit Document
 
 **Distinct from `write-document`:** Use this skill when the document already exists and needs restructuring, clarity, or prose improvements. Use `write-document` to create a document from scratch.

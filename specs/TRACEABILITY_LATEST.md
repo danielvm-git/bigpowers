@@ -1,17 +1,17 @@
 # Traceability Matrix
 
-**Generated:** 2026-07-07 17:17:29 UTC
-**Total stories:** 76
-**Tagged stories:** 65
+**Generated:** 2026-07-07 18:06:02 UTC
+**Total stories:** 77
+**Tagged stories:** 66
 **Dark stories:** 0
 **Orphan tags:** 142
-**Stale tags:** 65
+**Stale tags:** 66
 
 ## Oracle Stats
 
-- **High** (explicit tag): 284
-- **Medium** (file heuristic): 2020
-- **Low** (task reference): 53
+- **High** (explicit tag): 291
+- **Medium** (file heuristic): 2046
+- **Low** (task reference): 54
 
 ## Story Coverage
 
@@ -50,7 +50,7 @@
 | e45s15 | release-branch / deploy: three-independent-facts verificatio | e45 | 2 | 5.0 | done | 13 |
 | e45s16 | CLAUDE.md rtk mandate: wire rtk-ai/rtk PreToolUse hook | e45 | 2 | 5.0 | done | 4 |
 | e45s17 | request-review: fan-out to parallel review subagents | e45 | 2 | 5.0 | done | 22 |
-| e45s18 | audit-code / security-review: worktree-isolated parallel che | e45 | 2 | 5.0 | done | 416 |
+| e45s18 | audit-code / security-review: worktree-isolated parallel che | e45 | 2 | 5.0 | done | 420 |
 | e45s19 | Context7: bounded retry cap and explicit fallback block | e45 | 2 | 5.0 | done | 7 |
 | e45s20 | Context7 / bts docs: wrap in ETag-revalidated fetch cache | e45 | 2 | 5.0 | done | 1 |
 | e45s21 | seed-conventions / AGENTS.md: self-installing fenced markers | e45 | 2 | 5.0 | done | 15 |
@@ -63,7 +63,7 @@
 | e45s28 | request-review: hard max-iteration cap | e45 | 2 | 5.0 | done | 10 |
 | e45s29 | requirements: ADDED/MODIFIED/REMOVED/RENAMED tags | e45 | 2 | 5.0 | done | 15 |
 | e45s30 | subagent depth: formalize depth tiers | e45 | 2 | 5.0 | done | 10 |
-| e45s31 | audit-code / deepen-architecture: churn-based look-here-firs | e45 | 2 | 5.0 | done | 414 |
+| e45s31 | audit-code / deepen-architecture: churn-based look-here-firs | e45 | 2 | 5.0 | done | 418 |
 | e45s32 | gate-trace / release-branch: adversarial-review refute frami | e45 | 2 | 5.0 | done | 25 |
 | e45s33 | requirements: per-section approval state | e45 | 2 | 5.0 | done | 3 |
 | e45s34 | develop-tdd: snapshot-before-transition hardening | e45 | 2 | 5.0 | done | 6 |
@@ -73,25 +73,26 @@
 | e45s38 | orchestration: why-did-this-stall diagnostic skill | e45 | 2 | 5.0 | done | 8 |
 | e45s39 | PR generation: literal provenance marker | e45 | 2 | 5.0 | done | 5 |
 | e45s40 | verify-work: mandatory real-browser verification | e45 | 2 | 5.0 | done | 15 |
-| e45s41 | security-review: proven authorship SQL-safety doctrine | e45 | 2 | 5.0 | done | 10 |
+| e45s41 | security-review: proven authorship SQL-safety doctrine | e45 | 2 | 5.0 | done | 9 |
 | e48s01 | Generate epics-wiki and adr-wiki as OKF concept bundles from | e48 | 2 | 2.5 | done | 25 |
 | e48s02 | Emit verification reports as OKF bundles from run-golden-sui | e48 | 2 | 2.5 | done | 27 |
 | e48s03 | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | e48 | 1 | 2.5 | done | 102 |
 | e48s04 | Create viz.html — interactive force-layout graph companion f | e48 | 2 | 2.5 | done | 10 |
-| e48s05 | Wire OKF validation into CI (sync-skills.yml) and document i | e48 | 1 | 2.5 | done | 126 |
+| e48s05 | Wire OKF validation into CI (sync-skills.yml) and document i | e48 | 1 | 2.5 | done | 133 |
 | e48s06 | Add tier: field (core/extended/specialized) to OKF wiki inde | e48 | 2 | 2.5 | done | 9 |
 | e48s07 | Create publish-to-wiki kernel tool | e48 | 3 | 2.5 | done | 2 |
-| e48s08 | Add GitHub Action Template for publish-wiki.yml | e48 | 1 | 2.5 | done | 1 |
+| e48s08 | Add GitHub Action Template for publish-wiki.yml [HARD GATE] | e48 | 1 | 2.5 | done | 8 |
 | e48s09 | Create Wiki Scaffold Templates and provenance header injecti | e48 | 2 | 2.5 | done | 2 |
 | e48s10 | Extend bigspec init with --with-wiki flag | e48 | 2 | 2.5 | done | 13 |
 | e48s11 | BCP Plus counter integration — install and smoke-test big-co | e48 | 5 | 2.5 | done | 24 |
 | e48s12 | BCP Plus template — 13-dimension breakdown in story specs | e48 | 5 | 2.5 | done | 8 |
 | e48s13 | NFR Gate integration — security-review and wire-observabilit | e48 | 4 | 2.5 | done | 16 |
 | e48s14 | Build-epic integration — BCP Plus in story sizing workflow | e48 | 4 | 2.5 | done | 13 |
+| e48s15 | Refactor Skills Render Pipeline to Hybrid JSON Seam | e48 | 4 | 2.5 | done | 9 |
 | e51s01 | CONVENTIONS — Always Green, Shift Left, Discovered Defects,  | e51 | 3 | 7.0 | done | 8 |
 | e51s02 | seed-conventions — Preflight default, solo-git default, embe | e51 | 3 | 7.0 | done | 22 |
 | e51s03 | kickoff-branch + verify-work — Preflight hard block and CI g | e51 | 2 | 7.0 | done | 46 |
-| e51s04 | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | e51 | 2 | 7.0 | done | 457 |
+| e51s04 | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | e51 | 2 | 7.0 | done | 461 |
 | e51s05 | CLAUDE.md — solo-default agent rules + bigpowers Preflight c | e51 | 2 | 7.0 | done | 7 |
 
 ## Orphan Tags (tag in code, no matching story)
@@ -301,6 +302,7 @@
 - `e48s12`
 - `e48s13`
 - `e48s14`
+- `e48s15`
 - `e51s01`
 - `e51s02`
 - `e51s03`

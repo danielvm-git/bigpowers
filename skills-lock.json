@@ -62,8 +62,8 @@
       "path": "skills/define-languageSKILL.md"
     },
     "define-success": {
-      "description": "Convert an imperative task statement into explicit \"step → verify: <cmd>\" pairs before implementation begins. Use before plan-work when success criteria are unclear, when a task lacks verifiable checkpoints, or when user says \"how will we know this is done?\".",
-      "sha256": "4e29bd8dcabbce88",
+      "description": "'Convert an imperative task statement into explicit \"step → verify: <cmd>\" pairs before implementation begins. Use before plan-work when success criteria are unclear, when a task lacks verifiable checkpoints, or when user says \"how will we know this is done?\".'",
+      "sha256": "458d06a29b0a5b67",
       "path": "skills/define-successSKILL.md"
     },
     "delegate-task": {

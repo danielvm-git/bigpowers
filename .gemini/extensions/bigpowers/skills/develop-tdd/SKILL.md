@@ -1,8 +1,9 @@
 ---
 name: develop-tdd
+model: sonnet
 description: "Test-driven development with red-green-refactor loop using vertical slices. Use for features (epic tasks) or bugs (specs/bugs/BUG-*.md)."
+disable-model-invocation: true
 ---
-
 
 # Develop TDD
 

@@ -35,7 +35,7 @@
 | 7 | Discover | `using-bigpowers` | One-time bootstrap that introduces the bigpowers skills system, the PMBOK lifecy | ✅ Active |
 | 8 | Design | `deepen-architecture` | Find deepening opportunities in a codebase, informed by the domain language in s | ✅ Active |
 | 9 | Design | `define-language` | Extract a DDD-style ubiquitous language glossary from the current conversation,  | ✅ Active |
-| 10 | Design | `define-success` | Convert an imperative task statement into explicit "step → verify: <cmd>" pair | ✅ Active |
+| 10 | Design | `define-success` | 'Convert an imperative task statement into explicit "step → verify: <cmd>" pai | ✅ Active |
 | 11 | Design | `design-interface` | Generate multiple radically different interface designs for a module using paral | ✅ Active |
 | 12 | Design | `grill-me` | Interactive assumption-surfacing Q&A that stress-tests a plan through relentless | ✅ Active |
 | 13 | Design | `grill-with-docs` | Doc-grounded variant of grill-me — stress-tests plan assumptions by fetching a | ✅ Active |

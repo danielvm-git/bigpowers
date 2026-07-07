@@ -3,7 +3,6 @@ description: "Interactive assumption-surfacing Q&A that stress-tests a plan thro
 alwaysApply: false
 ---
 
-
 # Grill Me
 
 > **Use this vs grill-with-docs:** `grill-me` surfaces assumptions from the conversation and context alone — no documentation fetching. Use `grill-with-docs` (the doc-grounded variant) when the plan relies on a specific library or external API and every challenge must cite a real doc URL.

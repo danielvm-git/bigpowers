@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# story: e48s15
 # story: e05s01
 # story: e12s01
 # story: e12s02
@@ -58,6 +59,8 @@ PI_PACKAGE_JSON="$REPO_ROOT/.pi/package.json"
 OKF_WIKI_SKILLS="$REPO_ROOT/specs/skills-wiki/skills"
 OKF_WIKI_DIR="$REPO_ROOT/specs/skills-wiki"
 
+export CURSOR_RULES GEMINI_EXT_DIR GEMINI_SKILLS GEMINI_COMMANDS GEMINI_MANIFEST PI_SKILLS PI_PROMPTS PI_PACKAGE_JSON OKF_WIKI_SKILLS OKF_WIKI_DIR
+
 mkdir -p "$CURSOR_RULES" "$GEMINI_SKILLS" "$GEMINI_COMMANDS" "$PI_SKILLS" "$PI_PROMPTS"
 rm -rf "${GEMINI_SKILLS:?}"/* "${GEMINI_COMMANDS:?}"/* "${PI_SKILLS:?}"/* "${PI_PROMPTS:?}"/*
 
@@ -75,35 +78,14 @@ else
   SKILL_ADAPTERS=(cursor gemini pi)
 fi
 
-skill_count=0
-while IFS= read -r skill_dir; do
-  skill_md="$skill_dir/SKILL.md"
+OKF_FLAG=""
+[[ "$OKF_MODE" -eq 1 ]] && OKF_FLAG="--okf"
 
-  if [[ "$OKF_MODE" -eq 1 ]]; then
-    parse_frontmatter_okf "$skill_md" || continue
-  else
-    parse_frontmatter "$skill_md" || continue
-  fi
+# Run srp-engine.py --all to process all skills in Python
+python3 "$REPO_ROOT/scripts/lib/srp-engine.py" --all $OKF_FLAG
 
-  IR_NAME="$_PF_NAME"
-  IR_MODEL="$_PF_MODEL"
-  IR_DESCRIPTION="$_PF_DESCRIPTION"
-  IR_DESC_ESCAPED=$(echo "$IR_DESCRIPTION" | sed 's/\\/\\\\/g; s/\"/\\"/g')
-  [[ -z "$IR_NAME" ]] && continue
-
-  IR_BODY=$(build_body "$skill_md" "$skill_dir")
-  SKILL_MD_PATH="$skill_md"
-
-  for adapter_name in "${SKILL_ADAPTERS[@]}"; do
-    adapter_script="$REPO_ROOT/scripts/adapters/${adapter_name}.sh"
-    # shellcheck source=/dev/null
-    source "$adapter_script"
-    render_skill
-  done
-
-  [[ "$OKF_MODE" -eq 1 ]] && render_okf_concept
-  skill_count=$((skill_count + 1))
-done < <(iterate_skills)
+# Count generated skills
+skill_count=$(find "$CURSOR_RULES" -maxdepth 1 -name "*.mdc" | wc -l | tr -d ' ')
 
 opencode_count=0
 [[ -n "$OPN_TARGET" ]] && sync_opencode_copy && opencode_count="${SYNC_OPENCODE_COUNT:-0}"

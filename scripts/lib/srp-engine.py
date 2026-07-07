@@ -1,0 +1,245 @@
+#!/usr/bin/env python3
+# story: e48s15
+import os
+import sys
+import json
+import glob
+import subprocess
+import yaml
+
+def resolve_repo_root():
+    lib_dir = os.path.dirname(os.path.abspath(__file__))
+    # scripts/lib/srp-engine.py -> two levels up is REPO_ROOT
+    repo_candidate = os.path.dirname(os.path.dirname(lib_dir))
+    if os.path.isdir(os.path.join(repo_candidate, "skills")):
+        return repo_candidate
+    return os.path.dirname(lib_dir)
+
+def parse_skill(skill_md_path):
+    if not os.path.isfile(skill_md_path):
+        print(f"Error: file not found {skill_md_path}", file=sys.stderr)
+        sys.exit(1)
+
+    skill_dir = os.path.dirname(skill_md_path)
+
+    # Read file content
+    with open(skill_md_path, 'r', encoding='utf-8') as f:
+        content = f.read()
+
+    # Split frontmatter and body
+    parts = content.split('---')
+    if len(parts) < 3:
+        print(f"Error: invalid SKILL.md format in {skill_md_path}", file=sys.stderr)
+        sys.exit(1)
+
+    frontmatter_raw = parts[1]
+    # The body of SKILL.md starts after the second '---'
+    skill_body = '---'.join(parts[2:])
+
+    try:
+        frontmatter = yaml.safe_load(frontmatter_raw)
+    except Exception as e:
+        print(f"Error parsing YAML frontmatter in {skill_md_path}: {e}", file=sys.stderr)
+        sys.exit(1)
+
+    if not isinstance(frontmatter, dict):
+        print(f"Error: frontmatter is not a dictionary in {skill_md_path}", file=sys.stderr)
+        sys.exit(1)
+
+    name = frontmatter.get('name', '')
+    description = frontmatter.get('description', '')
+    effort = frontmatter.get('effort', 'standard')
+    model = frontmatter.get('model', '')
+
+    # Compile the full body (including other *.md files in the directory)
+    body = skill_body.strip()
+    extra_files = glob.glob(os.path.join(skill_dir, "*.md"))
+    # Filter out SKILL.md
+    extra_files = [f for f in extra_files if os.path.basename(f) != "SKILL.md"]
+    # Sort them by name (ASCII sorting as in LC_ALL=C sort)
+    extra_files.sort()
+
+    for extra_file in extra_files:
+        with open(extra_file, 'r', encoding='utf-8') as f:
+            extra_content = f.read()
+        body += "\n\n---\n\n" + extra_content.strip()
+
+    # Remove lines containing 'disable-model-invocation'
+    body_lines = body.splitlines()
+    body_lines = [line for line in body_lines if 'disable-model-invocation' not in line]
+    body = '\n'.join(body_lines)
+
+    return {
+        'name': name,
+        'description': description,
+        'effort': effort,
+        'model': model,
+        'body': body
+    }
+
+def get_active_adapters(repo_root):
+    targets_file = os.path.join(repo_root, "scripts", "targets.yaml")
+    if not os.path.isfile(targets_file):
+        return ["cursor", "gemini", "pi"]
+    try:
+        with open(targets_file, 'r', encoding='utf-8') as f:
+            data = yaml.safe_load(f)
+        adapters = []
+        for target in data.get('targets', []):
+            if target.get('skill') is not None:
+                adapter = target['skill'].get('adapter')
+                if adapter and adapter not in adapters:
+                    adapters.append(adapter)
+        return sorted(adapters)
+    except Exception as e:
+        print(f"Warning: error reading targets.yaml: {e}", file=sys.stderr)
+        return ["cursor", "gemini", "pi"]
+
+def iterate_skills(repo_root):
+    skills_root = os.path.join(repo_root, "skills")
+    if not os.path.isdir(skills_root):
+        skills_root = repo_root
+    
+    skills = []
+    for entry in os.listdir(skills_root):
+        skill_dir = os.path.join(skills_root, entry)
+        if os.path.isdir(skill_dir):
+            skill_md = os.path.join(skill_dir, "SKILL.md")
+            if os.path.isfile(skill_md):
+                skills.append(skill_md)
+    return sorted(skills)
+
+def render_okf_concept(skill_data, okf_wiki_skills):
+    name = skill_data['name']
+    model = skill_data['model']
+    effort = skill_data['effort']
+    description = skill_data['description']
+    
+    os.makedirs(okf_wiki_skills, exist_ok=True)
+    okf_file = os.path.join(okf_wiki_skills, f"{name}.md")
+    
+    phase = "utility"
+    critical_path_skills = {
+        "survey-context", "elaborate-spec", "model-domain", "define-language",
+        "design-interface", "plan-work", "plan-release", "slice-tasks",
+        "kickoff-branch", "develop-tdd", "verify-work", "audit-code",
+        "commit-message", "release-branch", "security-review",
+        "assess-impact", "investigate-bug", "validate-fix", "dispatch-agents",
+        "request-review", "respond-review", "hook-commits", "guard-git",
+        "wire-observability", "wire-ci", "smoke-test", "deploy", "enforce-first"
+    }
+    if name in critical_path_skills:
+        phase = "critical-path"
+        
+    title = name.replace("-", " ").title()
+    desc_escaped = description.replace("\\", "\\\\").replace('"', '\\"')
+    
+    lines = [
+        "---",
+        "okf_kind: concept",
+        "type: Skill",
+        f"id: {name}",
+        f'title: "{title}"',
+        f"name: {name}",
+        "category: skills"
+    ]
+    if model:
+        lines.append(f"model: {model}")
+    lines.extend([
+        f"effort: {effort}",
+        f"phase: {phase}",
+        f'description: "{desc_escaped}"',
+        "references: []",
+        "---",
+        "",
+        f"# {title}",
+        "",
+        f"**Phase:** {phase}"
+    ])
+    if model:
+        lines.append(f"**Model:** {model}")
+    lines.extend([
+        f"**Effort:** {effort}",
+        "",
+        description,
+        "",
+        f"> Auto-generated by sync-skills.sh --okf (e39s04) from skills/{name}/SKILL.md"
+    ])
+    
+    with open(okf_file, 'w', encoding='utf-8') as f:
+        f.write('\n'.join(lines) + '\n')
+
+def dispatch_to_adapter(skill_data, target, repo_root):
+    adapter_path = os.path.join(repo_root, "scripts", "adapters", f"{target}.sh")
+    if not os.path.isfile(adapter_path):
+        print(f"Error: adapter not found: {adapter_path}", file=sys.stderr)
+        sys.exit(1)
+
+    # Pipe JSON to the adapter
+    proc = subprocess.Popen(
+        ['bash', adapter_path],
+        stdin=subprocess.PIPE,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        text=True
+    )
+    stdout, stderr = proc.communicate(input=json.dumps(skill_data))
+
+    if stdout:
+        print(stdout, end="")
+    if stderr:
+        print(stderr, end="", file=sys.stderr)
+
+    if proc.returncode != 0:
+        print(f"Error: adapter {target} failed with exit code {proc.returncode}", file=sys.stderr)
+        sys.exit(proc.returncode)
+
+def main():
+    repo_root = resolve_repo_root()
+
+    if "--all" in sys.argv:
+        okf_mode = "--okf" in sys.argv
+        skills = iterate_skills(repo_root)
+        adapters = get_active_adapters(repo_root)
+
+        okf_wiki_skills = os.environ.get("OKF_WIKI_SKILLS", os.path.join(repo_root, "specs", "skills-wiki", "skills"))
+
+        for skill_md in skills:
+            skill_data = parse_skill(skill_md)
+            if not skill_data['name']:
+                continue
+
+            for adapter in adapters:
+                dispatch_to_adapter(skill_data, adapter, repo_root)
+
+            if okf_mode:
+                render_okf_concept(skill_data, okf_wiki_skills)
+        return
+
+    if len(sys.argv) < 2:
+        print("Usage: srp-engine.py <path-to-SKILL.md> [--dry-run] [--target <target>]", file=sys.stderr)
+        print("       srp-engine.py --all [--okf]", file=sys.stderr)
+        sys.exit(1)
+
+    skill_md_path = sys.argv[1]
+    dry_run = "--dry-run" in sys.argv
+    target = None
+
+    if "--target" in sys.argv:
+        try:
+            target_idx = sys.argv.index("--target")
+            target = sys.argv[target_idx + 1]
+        except (ValueError, IndexError):
+            print("Error: --target requires an argument", file=sys.stderr)
+            sys.exit(1)
+
+    skill_data = parse_skill(skill_md_path)
+
+    if dry_run or not target:
+        print(json.dumps(skill_data, indent=2))
+        return
+
+    dispatch_to_adapter(skill_data, target, repo_root)
+
+if __name__ == "__main__":
+    main()

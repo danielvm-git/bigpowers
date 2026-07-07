@@ -1,5 +1,5 @@
-timestamp: "2026-07-07T17:16:22Z"
-git_commit: "cdef7d713853dba7209421fa98f356801ff0082e"
+timestamp: "2026-07-07T17:54:22Z"
+git_commit: "91205435361f6bca663d3411114f5458e8d428ec"
 suite: "golden-combined"
 mode: "daily"
 deterministic:
@@ -11,7 +11,7 @@ deterministic:
 gates:
   - name: compliance
     exit_code: 0
-    duration_seconds: 33.18
+    duration_seconds: 32.83
     status: pass
   - name: g04-selftest
     exit_code: 0
@@ -19,19 +19,19 @@ gates:
     status: pass
   - name: g06-migrate-version
     exit_code: 0
-    duration_seconds: 5.68
+    duration_seconds: 5.54
     status: pass
   - name: g07-negative-path
     exit_code: 0
-    duration_seconds: .05
+    duration_seconds: .07
     status: pass
   - name: g08-anti-vacuity
     exit_code: 0
-    duration_seconds: .08
+    duration_seconds: .07
     status: pass
   - name: g09-yaml-roundtrip
     exit_code: 0
-    duration_seconds: .10
+    duration_seconds: .09
     status: pass
   - name: g10-trace-anti-vacuity
     exit_code: 0
@@ -39,15 +39,15 @@ gates:
     status: pass
   - name: g11-gitignore-venv
     exit_code: 0
-    duration_seconds: .05
+    duration_seconds: .06
     status: pass
   - name: import-boundaries
     exit_code: 0
-    duration_seconds: .22
+    duration_seconds: .20
     status: pass
   - name: skill-catalog
     exit_code: 0
-    duration_seconds: 1.56
+    duration_seconds: 1.32
     status: pass
   - name: specs-parse
     exit_code: 0

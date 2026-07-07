@@ -3,7 +3,6 @@ description: "Interactive QA session where user reports bugs or issues conversat
 alwaysApply: false
 ---
 
-
 # Inspect Quality
 > **HARD GATE** — **HARD GATE** — Quality metrics (coverage, lint, cyclomatic complexity, security scans) must be monitored. If a metric degrades, surface it as a blocker. Do NOT accept regressions.
 

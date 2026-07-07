@@ -271,7 +271,7 @@ stories:
 - id: e48s15
   title: Refactor Skills Render Pipeline to Hybrid JSON Seam
   bcp: 4
-  status: failing
+  status: done
   risk: P0
   spec: e48s15-srp-hybrid.md
   verify: bash scripts/sync-skills.sh

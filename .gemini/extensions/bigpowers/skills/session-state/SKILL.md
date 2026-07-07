@@ -1,8 +1,9 @@
 ---
 name: session-state
+model: haiku
 description: "Track implementation decisions and progress in specs/state.yaml to prevent context rot. Use at the start of a session to load context, and whenever a significant decision is made or a milestone is reached."
+disable-model-invocation: true
 ---
-
 
 # story: e45s23
 

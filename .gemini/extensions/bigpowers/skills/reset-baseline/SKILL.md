@@ -1,8 +1,9 @@
 ---
 name: reset-baseline
+model: haiku
 description: "Restore the project to a known clean state between agent runs or experiments. Use between benchmark runs, after a failed spike, or when user wants a clean working tree."
+disable-model-invocation: true
 ---
-
 
 # Reset Baseline
 

@@ -1,9 +1,8 @@
 ---
 name: grill-with-docs
-description: "Doc-grounded variant of grill-me — stress-tests plan assumptions by fetching and citing real library or API documentation. Every challenge must cite a real URL. Use when the plan depends on a specific library or external API."
 model: opus
+description: "Doc-grounded variant of grill-me — stress-tests plan assumptions by fetching and citing real library or API documentation. Every challenge must cite a real URL. Use when the plan depends on a specific library or external API."
 ---
-
 
 # Grill With Docs
 

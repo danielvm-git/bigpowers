@@ -1,3 +1,8 @@
+---
+name: migrate-spec
+description: "Detect GSD, spec-kit, or BMAD spec artifacts and transform them into bigpowers YAML layout (state.yaml, release-plan.yaml, epics/, requirements/, plans/, ADRs). Use when migrating foreign spec docs."
+---
+
 # story: e25s01
 # story: e25s02
 # story: e25s03
@@ -15,6 +20,7 @@ Transform existing GSD, spec-kit, or BMAD planning artifacts into the bigpowers 
 2. The skill auto-detects the source framework and presents its findings before transforming anything.
 3. All output goes to `specs/` at the project root.
 
+---
 
 ## Red flags — stop and ask
 
@@ -27,6 +33,7 @@ Before proceeding, check for these rationalization traps:
 
 If any red flag fires: surface it, wait for explicit user confirmation before continuing.
 
+---
 
 ## Process
 

@@ -3,7 +3,6 @@ description: "Run skill quality benchmarks from specs/benchmarks/ definitions �
 alwaysApply: false
 ---
 
-
 # Run Benchmark
 
 > **HARD GATE** — Do NOT use benchmark scores to declare a skill "good" or "bad" in isolation. Benchmarks measure relative quality vs. a baseline — they catch regressions, they do not certify correctness.

@@ -3,7 +3,6 @@ description: "Fetch current library docs via Context7 MCP instead of training da
 alwaysApply: false
 ---
 
-
 # Context7 MCP
 
 > **HARD GATE** — Max **3** Context7 tool calls per user question (`resolve-library-id` + `query-docs` count toward the cap). On quota/rate-limit errors, emit an explicit **CONTEXT7_UNAVAILABLE** block — do NOT silently answer from training data.

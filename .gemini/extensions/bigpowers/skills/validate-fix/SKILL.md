@@ -1,8 +1,9 @@
 ---
 name: validate-fix
+model: haiku
 description: "Prove a fix works before declaring done — re-run the failing test, run the full suite, typecheck, lint, and harden against recurrence. Use after implementing a bug fix, when user says \"is this fixed?\", or before closing an investigation."
+disable-model-invocation: true
 ---
-
 
 # Validate Fix
 > **HARD GATE** — **HARD GATE** — Fix must not regress. Run full test suite and manual UAT before declaring success. A fix that passes tests but breaks something else is a failure.

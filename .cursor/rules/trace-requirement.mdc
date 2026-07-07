@@ -3,7 +3,6 @@ description: "Link story IDs from specs/release-plan.yaml + epic capsule directo
 alwaysApply: false
 ---
 
-
 # Trace Requirement
 
 Build a traceability matrix from `specs/release-plan.yaml + epic capsule directories` to implementing code and tests. Surfaces gaps in both directions: stories with no code, and code with no story.

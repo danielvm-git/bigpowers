@@ -3,7 +3,6 @@ description: "Analyze the blast radius of a proposed change before any code is w
 alwaysApply: false
 ---
 
-
 # Assess Impact
 
 > **HARD GATE** — Run this skill before `plan-work` whenever a change touches an existing module, symbol, or file used by more than one caller. Skip only for net-new code with no existing dependents.

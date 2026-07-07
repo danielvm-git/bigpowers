@@ -1,3 +1,7 @@
+---
+name: simulate-agents
+description: "Run Mock User and Auditor agents against a feature in fresh contexts before human review. Use after verify-work, before request-review, when user wants pre-review simulation."
+---
 
 # Simulate Agents
 > **HARD GATE** — **HARD GATE** — Simulations are hypothetical. Do NOT use sim results to make production decisions without validation on real agents. Sims help discover gaps, not replace testing.
