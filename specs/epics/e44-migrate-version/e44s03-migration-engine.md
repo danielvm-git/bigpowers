@@ -48,7 +48,7 @@ Each action must be safe to run twice:
 
 | Action | Idempotency strategy |
 |--------|---------------------|
-| `convert_md_to_yaml` | Check if target already exists + source already archived. Skip both if done. |
+| `convert_md_to_yaml` | Deep-merge heuristic extractions into target if it exists, with existing target keys taking strict precedence. Archive source when done. |
 | `rename_file` | Check if target exists. If yes and source missing → skip. If both exist → warn, don't overwrite. |
 | `move_file` | Same as rename_file. |
 | `set_yaml_key` | `if_missing: true` only sets when key absent. Already-present keys are untouched. |

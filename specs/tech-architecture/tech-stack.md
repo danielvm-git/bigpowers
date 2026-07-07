@@ -169,3 +169,27 @@ _Avoid_: compile, build (when meaning the full chain in one command)
 - **Python / Bash Versioning**: Python dependencies are loose (`pyyaml>=6.0`). Bash scripts must remain v3.2 compatible for macOS compatibility (no associative arrays `declare -A`).
 - **Strict Naming Rules**: Enforces strict `verb-noun` kebab-case naming for all skills under `skills/`, with documented exceptions in `CONVENTIONS.md`.
 - **Traceability Verification**: Uses `trace-stories.sh` and Python helper scripts to scan for `story: eNNsNN` tags in implementation and test files, gating the build on complete traceability.
+
+## Migration Engine Domain (e44)
+
+### Language
+
+**Migration Engine**:
+The orchestrator component that handles safety, DAG resolution, and dry-run user prompts. Must delegate complex data structures to Python (`scripts/lib/migrate-engine.py`).
+_Avoid_: monolithic bash script parsing yaml
+
+**OKF Bundle**:
+A YAML file containing `okf_kind: spec-migration` or `okf_kind: migration-registry`, specifying dependencies, heuristics, and transformations.
+
+**Action Adapter**:
+A concrete implementation of a domain-specific transformation (e.g., `convert_md_to_yaml`, `rename_file`) exposing `dry_run` and `apply` methods.
+_Avoid_: massive switch/case block
+
+**Triple Safety Net**:
+The three-stage protection protocol: Backup (copy before mutation) → Dry Run (show diffs with ⚠ markers) → Auto-commit (allows git reset).
+
+### Invariants
+1. `migrate-version.sh` wrapper MUST NOT perform complex DAG resolution or YAML parsing in Bash.
+2. The Migration Engine MUST treat OKF Bundles as the source of truth.
+3. Every Action Adapter MUST be strictly idempotent.
+4. If any migration fails during Apply, the Engine MUST rollback the entire batch to the backup and abort the auto-commit.

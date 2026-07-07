@@ -28,6 +28,9 @@ check_spec_version_gap()
                                         └─ no specs/ at all → UNKNOWN
 ```
 
+**Invariant: Version Stamp Precedence**
+The Version Stamp (`bigpowers_version` in `state.yaml`) is the absolute authority for skipping. If a stamp is present (e.g. `2.70.0`), the engine MUST unconditionally skip any migration whose `since_version` is <= `2.70.0`. The engine MUST NOT evaluate the `fingerprint` for these skipped migrations. This ensures performance and prevents regressions if a user intentionally re-creates legacy-shaped files.
+
 ## Fingerprint Table
 
 Heuristic markers that identify a downstream project's spec era:
