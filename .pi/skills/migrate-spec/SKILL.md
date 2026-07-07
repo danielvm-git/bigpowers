@@ -240,6 +240,18 @@ These GSD artifacts are not migrated — they are execution records, not plannin
 
 # Migrate Spec — Reference
 
+## Navigation
+
+| Lines | Section |
+|-------|---------|
+| 1 | Title |
+| 3–22 | Navigation |
+| 24–62 | spec-kit → bigpowers Mapping |
+| 64–130 | BMAD → bigpowers Mapping |
+| 132–154 | Learnings to Adopt |
+| 156–350 | Output Formats + state.yaml template |
+| 352–620 | Reference blocks 1–2 + extended mappings |
+
 # migrate-spec Reference — spec-kit, BMAD, Learnings
 
 Transformation rules for spec-kit and BMAD projects, plus learnings to adopt and output formats.

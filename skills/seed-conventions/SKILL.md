@@ -1,4 +1,5 @@
 # story: e51s02
+# story: e45s21
 ---
 name: seed-conventions
 model: sonnet
@@ -64,7 +65,28 @@ echo "# Specs\n\nAll planning documents for this project." > specs/README.md
 
 When generating `CLAUDE.md`, if the user did not name a Preflight command, chain the Test + Lint + Build interview answers into one **Preflight** row (e.g. `npm test && npm run lint && npm run build`).
 
+### Self-installing fenced markers (e45s21)
 
+Skills that write into `CLAUDE.md` or `AGENTS.md` MUST use **fenced HTML comment markers** so handwritten content outside the fence is never clobbered:
+
+```markdown
+<!-- BEGIN bigpowers:section-id -->
+…agent-managed content only…
+<!-- END bigpowers:section-id -->
+```
+
+**Merge rule:** On update, replace only the content *between* matching `BEGIN`/`END` pairs. If a marker pair is missing, append a new fenced block at the end of the file — never rewrite the whole file.
+
+**Standard marker IDs** for seeded projects (see [REFERENCE.md](REFERENCE.md) § Fenced markers):
+
+| Marker ID | Owner skill | Purpose |
+|-----------|-------------|---------|
+| `project` | seed-conventions | Project, Commands, Architecture |
+| `context-routing` | seed-conventions | Glob → sub-AGENTS.md routing table |
+| `learned-preferences` | session-state | Learned User Preferences + Workspace Facts |
+| `tooling` | setup-environment, guard-git | sqz/rtk/hook blocks installed by tooling skills |
+
+Emit these fences in `AGENTS.md` (and therefore `CLAUDE.md` symlink) from `docs/templates/AGENTS.md`. User prose outside fences is sacred.
 
 - [ ] CLAUDE.md exists and is populated
 - [ ] CONVENTIONS.md exists and includes specs/ output convention

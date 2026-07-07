@@ -50,16 +50,27 @@ Apply the **enforce-first** F.I.R.S.T rubric: Fast, Independent, Repeatable, Sel
 Write ONE test that confirms ONE thing about the system:
 
 ```
-RED:    Write test for first behavior → test fails → commit: test(<scope>): ...
-GREEN:  Write minimal code to pass → test passes → commit: feat(<scope>): ...
+RED:    Write test for first behavior → test fails → commit: test(<scope>): ...  (test-only; red in CI)
+GREEN:  Write minimal code to pass → test passes → commit: feat(<scope>): ...   (fix commit; green)
 REFACTOR (optional): clean up → commit: refactor(<scope>): ...
 ```
 
+> **Two-commit red/green policy (HARD GATE — e45s08)** — Each behavior cycle requires **two separate commits**: (1) test-only commit that fails in CI (RED), then (2) implementation commit that makes it pass (GREEN). Never combine test + fix in one commit. Show `git log -2 --oneline` as evidence before proceeding to the next behavior.
+
+> **tasks.yaml ledger (e45s06)** — After each task's `verify:` exits 0, update `eNNsYY-tasks.yaml`: set that task's `status: passing`. Story-level `status: passing` only when all tasks pass.
+
 ### 3. Incremental Loop
 
-> **STREAM CONTINUITY** — When writing file content, output in continuous chunks of ~200 lines. Do not pause. Emit a placeholder comment rather than going silent.
+> **Snapshot-before-transition (e45s34):** Before each RED → GREEN or GREEN → REFACTOR transition, create a checkpoint so a failed transition can be rolled back cleanly:
 
-For each remaining behavior: RED → GREEN → REFACTOR (optional). One test at a time. Commit after every GREEN phase.
+```bash
+bash scripts/bp-yaml-snapshot.sh specs/state.yaml   # if state changed this cycle
+git stash push -m "tdd-checkpoint-$(git rev-parse --short HEAD)-red" --keep-index 2>/dev/null || true
+```
+
+After GREEN passes and is committed, drop the stash (`git stash drop` if empty). Never refactor while RED.
+
+For each remaining behavior: RED → GREEN → REFACTOR (optional). One test at a time. **Two commits per behavior** (test-only RED, then fix GREEN). Commit after every GREEN phase.
 
 ### 4. Visual Slices (UI alternate workflow)
 

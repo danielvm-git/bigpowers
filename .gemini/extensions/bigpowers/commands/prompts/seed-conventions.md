@@ -57,7 +57,28 @@ echo "# Specs\n\nAll planning documents for this project." > specs/README.md
 
 When generating `CLAUDE.md`, if the user did not name a Preflight command, chain the Test + Lint + Build interview answers into one **Preflight** row (e.g. `npm test && npm run lint && npm run build`).
 
+### Self-installing fenced markers (e45s21)
 
+Skills that write into `CLAUDE.md` or `AGENTS.md` MUST use **fenced HTML comment markers** so handwritten content outside the fence is never clobbered:
+
+```markdown
+<!-- BEGIN bigpowers:section-id -->
+…agent-managed content only…
+<!-- END bigpowers:section-id -->
+```
+
+**Merge rule:** On update, replace only the content *between* matching `BEGIN`/`END` pairs. If a marker pair is missing, append a new fenced block at the end of the file — never rewrite the whole file.
+
+**Standard marker IDs** for seeded projects (see [REFERENCE.md](REFERENCE.md) § Fenced markers):
+
+| Marker ID | Owner skill | Purpose |
+|-----------|-------------|---------|
+| `project` | seed-conventions | Project, Commands, Architecture |
+| `context-routing` | seed-conventions | Glob → sub-AGENTS.md routing table |
+| `learned-preferences` | session-state | Learned User Preferences + Workspace Facts |
+| `tooling` | setup-environment, guard-git | sqz/rtk/hook blocks installed by tooling skills |
+
+Emit these fences in `AGENTS.md` (and therefore `CLAUDE.md` symlink) from `docs/templates/AGENTS.md`. User prose outside fences is sacred.
 
 - [ ] CLAUDE.md exists and is populated
 - [ ] CONVENTIONS.md exists and includes specs/ output convention
@@ -71,7 +92,47 @@ When generating `CLAUDE.md`, if the user did not name a Preflight command, chain
 ---
 
 # story: e51s02 e37s01 e37s03 e37s14
+# story: e45s21
 # Seed Conventions — Reference Templates
+
+## Navigation
+
+| Lines | Section |
+|-------|---------|
+| 1–4 | Title + story tags |
+| 6–22 | Navigation (this table) |
+| 24–35 | AGENTS.md spine |
+| 37–76 | Agent config template |
+| 78–85 | opencode.json template |
+| 87–96 | Aider bridge |
+| 98–108 | Codex CLI wiring |
+| 110–118 | CONVENTIONS.md |
+| 120–122 | Stack profile fragments |
+| 124–153 | Local tool wiring |
+
+## Fenced markers (e45s21)
+
+Self-installing blocks prevent skills from overwriting user-authored prose. Pattern:
+
+```markdown
+<!-- BEGIN bigpowers:section-id -->
+…managed content…
+<!-- END bigpowers:section-id -->
+```
+
+**Merge algorithm:**
+
+1. If `BEGIN bigpowers:<id>` exists → replace inner content only.
+2. If missing → append new fenced block at EOF.
+3. Never delete content outside fences.
+
+Seed these marker IDs in generated `AGENTS.md`:
+
+| ID | Initial content |
+|----|-----------------|
+| `project` | Project, Commands, Architecture, Conventions, Never, Agent Rules |
+| `context-routing` | Glob → sub-AGENTS.md table (see CLAUDE.md e45s22) |
+| `learned-preferences` | Empty Learned User Preferences + Workspace Facts lists |
 
 ## AGENTS.md spine (Reach Template — e37s01)
 

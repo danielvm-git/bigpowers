@@ -3,6 +3,8 @@ description: Delegate one complex task to a single subagent, review its work in 
 ---
 
 
+# story: e45s30
+
 # Delegate Task
 > **HARD GATE** — **HARD GATE** — Delegated work must have clear success criteria and verification commands. The delegate must be able to verify completion independently.
 
@@ -10,6 +12,18 @@ description: Delegate one complex task to a single subagent, review its work in 
 Delegate a single complex task to a subagent with a two-stage review gate before accepting the result. Use when oversight of a single task matters more than speed.
 
 **Distinct from `dispatch-agents`:** This skill runs one subagent sequentially with a mandatory review. `dispatch-agents` runs multiple subagents in parallel without inter-task review gates.
+
+## Subagent depth tiers (e45s30)
+
+Select brief depth from task `risk:` and skill `effort:` before spawning:
+
+| Tier | When | Brief includes |
+|------|------|----------------|
+| `full_maturity` | P0 stories, multi-file refactors, security work | Full template + CONVENTIONS excerpts + threat model if present |
+| `standard` | Default implementation tasks | Goal, scope, out-of-bounds, constraints, verify, prior decisions |
+| `minimal_decisive` | Light probes, read-only audits | Goal, verify, explicit file list (≤15 lines total) |
+
+State `depth: <tier>` in the Agent tool description field.
 
 ## Process
 

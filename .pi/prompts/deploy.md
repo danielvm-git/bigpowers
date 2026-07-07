@@ -103,6 +103,14 @@ For comprehensive health-checking, chain to the `smoke-test` skill:
 bash scripts/run-smoke.sh "$DEPLOY_URL"
 ```
 
+### 7. Three-independent-facts verification (e45s15)
+
+Before declaring deploy success, verify **three independent facts** — build artifact, platform accept, live/registry reachability. See [REFERENCE.md](REFERENCE.md#three-independent-facts).
+
+## Verify
+
+→ verify: `command -v curl >/dev/null 2>&1 && grep -qi 'three-independent-facts' skills/deploy/SKILL.md && echo OK || echo FAIL`
+
 ---
 
 # Deploy — Reference

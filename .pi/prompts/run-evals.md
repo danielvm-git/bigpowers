@@ -14,8 +14,18 @@ description: Eval-Driven Development — define capability and regression evals 
    - **Capability evals** (does it do the job?)
    - **Regression evals** (did we break anything?)
 3. Assign grader type per eval: `code` (shell verify) or `model` (rubric).
-4. Run evals; log results table with pass@k (e.g. 3/3 runs).
-5. Block BUILD phase until capability evals pass at agreed k.
+4. Assign **strictness tier** per eval (graduated promotion — e45s37):
+
+   | Tier | Meaning | Promotion rule |
+   |------|---------|------------------|
+   | `EXPERIMENTAL` | New eval, may flake | Not gating |
+   | `USUALLY_PASSES` | Stable in dev; ≥2/3 recent runs pass | Blocks BUILD only when combined with ALWAYS_PASSES suite |
+   | `ALWAYS_PASSES` | Zero tolerance; required for release | Any single failure blocks BUILD and merge |
+
+   Promote: `EXPERIMENTAL → USUALLY_PASSES` after 3 consecutive passes; `USUALLY_PASSES → ALWAYS_PASSES` after 5 consecutive passes with zero flakes documented in `specs/state.yaml`.
+
+5. Run evals; log results table with pass@k (e.g. 3/3 runs) and tier per eval.
+6. Block BUILD phase until all `ALWAYS_PASSES` evals pass at agreed k. `USUALLY_PASSES` failures warn; `EXPERIMENTAL` failures log only.
 
 ## Artefact
 
@@ -29,16 +39,26 @@ description: Eval-Driven Development — define capability and regression evals 
 
 # Run Evals — Reference
 
+## Strictness tiers (e45s37)
+
+Add a `tier:` column to each eval row:
+
+| Tier | Gate behaviour |
+|------|----------------|
+| `EXPERIMENTAL` | Log only — does not block |
+| `USUALLY_PASSES` | Warn on failure; blocks only when paired with failing `ALWAYS_PASSES` |
+| `ALWAYS_PASSES` | Hard block on any failure |
+
 ## EVALS template
 
 ```markdown
 # EVALS: <feature>
 
 ## Capability
-| ID | Eval | Grader | verify / rubric |
-|----|------|--------|-----------------|
-| C1 | ... | code | `verify: npm test -- <file>` |
-| C2 | ... | model | Rubric: [ ] criterion A [ ] criterion B |
+| ID | Eval | Grader | Tier | verify / rubric |
+|----|------|--------|------|-----------------|
+| C1 | ... | code | ALWAYS_PASSES | `verify: npm test -- <file>` |
+| C2 | ... | model | USUALLY_PASSES | Rubric: [ ] criterion A [ ] criterion B |
 
 ## Regression
 | ID | Eval | Grader | verify / rubric |

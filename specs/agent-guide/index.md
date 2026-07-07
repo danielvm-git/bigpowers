@@ -11,6 +11,9 @@ context: guide
 
 ## Guide Sections
 
+- [Context Routing](context-routing.md)
+- [Learned User Preferences](learned-user-preferences.md)
+- [Workspace Facts](workspace-facts.md)
 - [Project](project.md)
 - [Commands](commands.md)
 - [Pre-Merge Checklist](pre-merge-checklist.md)

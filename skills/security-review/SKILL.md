@@ -1,3 +1,5 @@
+# story: e45s41
+<!-- story: e45s18 -->
 ---
 name: security-review
 model: sonnet
@@ -10,11 +12,23 @@ description: >
   the user says "security review" or "scan for vulns".
 ---
 
+# story: e45s26
+
 # Security Review
 
 > **HARD GATE** — Requires git context (branch with merge-base or diff). Never
 > writes files outside `specs/security/`. Findings below confidence 8/10 are
 > suppressed. **→ verify:** `git rev-parse HEAD >/dev/null 2>&1 && echo "ok" || echo "BLOCKED"`
+
+## Parallel worktree mode (e45s18)
+
+When running alongside `audit-code`, use isolated worktrees so scans do not race on the same index:
+
+```bash
+bash scripts/lib/parallel-review-worktrees.sh security-review
+```
+
+Each check gets a detached worktree at `.bigpowers/worktrees/review-<name>/`; reports still write only under `specs/security/`.
 
 ## 5-phase scan
 
@@ -29,6 +43,37 @@ description: >
 ## Categories
 
 Covered: SQLi, XSS, SSRF, command injection, auth bypass, unsafe deserialization, path traversal, IDOR, crypto flaws, secrets exposure, template injection, NoSQLi
+
+## CWE mapping mandate (e45s26)
+
+Every **new detection rule** added to this skill MUST:
+
+1. Map to a [CWE](https://cwe.mitre.org/) ID in `REFERENCE-vuln-categories.md` (e.g. SQLi → CWE-89, XSS → CWE-79).
+2. Ship **two fixture pairs** under `skills/security-review/fixtures/`:
+   - **Positive** — minimal code the rule MUST flag (vulnerable pattern present).
+   - **Negative** — structurally similar code the rule MUST NOT flag (safe pattern / false-positive guard).
+
+| Rule | CWE | Positive fixture | Negative fixture |
+|------|-----|------------------|------------------|
+| SQL injection | CWE-89 | `fixtures/CWE-89-sqli-positive.py` | `fixtures/CWE-89-sqli-negative.py` |
+| XSS (DOM) | CWE-79 | `fixtures/CWE-79-xss-positive.js` | `fixtures/CWE-79-xss-negative.js` |
+
+Before merging a new category, run both fixtures through the detection guidance and confirm positive flags / negative passes.
+
+## SQL-safety doctrine (e45s41 — proven authorship)
+
+Formal rule for SQL injection classification:
+
+| SQL source | Attacker-reachable input? | Verdict |
+|------------|---------------------------|---------|
+| Hardcoded / compile-time constant string | N/A | **Safe** — proven authorship |
+| Developer-authored query with bound parameters only | No dynamic fragments from user input | **Safe** |
+| String concatenation / template with user-controlled values | Yes | **Unsafe** — report as SQLi |
+| ORM query builder with user input in WHERE/JOIN | Yes | **Unsafe** unless parameterized |
+| Stored procedure call with bound args | Args from trusted constants only | **Safe** |
+| Stored procedure with dynamic SQL inside | User input reaches EXEC | **Unsafe** |
+
+**Provenance test:** If the agent cannot prove the query string was authored entirely by the developer (no attacker-reachable interpolation), treat as vulnerable. Hardcoded SQL in migrations, seeds, and admin scripts is safe; anything reachable from HTTP/CLI/user input is not.
 
 ## BCP Plus Integration
 

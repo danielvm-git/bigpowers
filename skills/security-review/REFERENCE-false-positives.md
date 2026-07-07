@@ -19,14 +19,15 @@ Automatically exclude findings matching these patterns:
 | 8 | **Race conditions / timing attacks** that are theoretical | Only report if concretely problematic |
 | 9 | **Outdated third-party libraries** | Managed separately by dependency scanners |
 | 10 | **Memory safety** in Rust or other memory-safe languages | Impossible by language guarantees |
-| 11 | **Unit test files only** | Not production risk |
-| 12 | **Log spoofing** | Outputting unsanitized input to logs is not a vuln |
-| 13 | **SSRF that only controls path** | Only host/protocol control is exploitable |
-| 14 | **User-controlled content in AI system prompts** | Not a security vulnerability |
-| 15 | **Regex injection** | Injecting untrusted content into regex is not a vuln |
-| 16 | **Regex DOS** | Excluded alongside general DOS |
-| 17 | **Documentation files** (.md, .txt) | Insecure docs are not code vulnerabilities |
-| 18 | **Lack of audit logs** | Not a vulnerability |
+| 11 | **Hardcoded SQL with proven authorship** — migrations, seeds, static admin queries with no user interpolation | Developer-authored SQL is safe per SQL-safety doctrine (e45s41) |
+| 12 | **Unit test files only** | Not production risk |
+| 13 | **Log spoofing** | Outputting unsanitized input to logs is not a vuln |
+| 14 | **SSRF that only controls path** | Only host/protocol control is exploitable |
+| 15 | **User-controlled content in AI system prompts** | Not a security vulnerability |
+| 16 | **Regex injection** | Injecting untrusted content into regex is not a vuln |
+| 17 | **Regex DOS** | Excluded alongside general DOS |
+| 18 | **Documentation files** (.md, .txt) | Insecure docs are not code vulnerabilities |
+| 19 | **Lack of audit logs** | Not a vulnerability |
 
 ## Precedent Rules
 

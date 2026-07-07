@@ -12,11 +12,27 @@ Run this self-review before asking anyone else to look at the code. The goal is 
 
 **Distinct from `request-review`:** This is the coding agent checking its own work. No second agent is involved. Run this first; run `request-review` after this passes.
 
+## Look-here-first (churn heuristic)
+
+Before the checklist, rank changed files by git churn and review **high-churn hotspots first** — they carry the most latent risk regardless of diff size.
+
+```bash
+bash scripts/bp-churn-rank.sh --since 90.days --limit 15
+```
+
+Apply the full checklist to churn-ranked files in descending order. Files with zero recent commits but large diffs still get reviewed; churn only sets priority, not scope.
+
 ## Modes
 
 - Default: full checklist
 - --quick: Run only Supply Chain and Test Coverage. Use for changes under 50 LOC.
 - --gate: Non-interactive mode for automated CI gating (used by build-epic step 6). Exit with non-zero status code (`exit 1`) on ANY checklist failure; `exit 0` only if ALL items pass. Produces a compact pass/fail summary to stderr. On failure, list every ✗ item with reason.
+- --parallel: Run checklist sections in **isolated git worktrees** (e45s18) so concurrent checks cannot corrupt each other's working tree. See [REFERENCE.md](REFERENCE.md) or:
+
+```bash
+bash scripts/lib/parallel-review-worktrees.sh audit-code
+```
+
 
 ## Checklist
 
@@ -108,23 +124,11 @@ Report the checklist with ✓ / ✗ per item. For each ✗, describe what needs 
 If all items pass: suggest running `request-review` for an independent second opinion.
 If any items fail: fix them before proceeding.
 
-### Gate mode output (`--gate`)
-
-In `--gate` mode, print one summary line per checklist section:
-
-```
-PASS Supply Chain & Security
-FAIL Provenance & Metadata (2 items)
-PASS Law of Demeter
-...
-```
-
-Aggregate exit code: `0` if all sections PASS, `1` (non-zero) if any section FAILs. Write the full audit report to `specs/verifications/AUDIT-<epic>-<story>.md` as a permanent record.
+In `--gate` mode, print one summary line per checklist section (`PASS Supply Chain` / `FAIL Provenance (2 items)`). Exit `0` only if all PASS. Write full report to `specs/verifications/AUDIT-<epic>-<story>.md`.
 
 ## Verify
 
 → verify: `test -f CONVENTIONS.md && test -d skills/enforce-first && test -d skills/request-review && echo "OK: audit-code dependencies present" || echo "FAIL"`
-
 
 ## Handoff
 

@@ -82,6 +82,16 @@ Suggest next skill: `audit-code` or `sync-skills.sh`.
 
 Combined from dbader/readme-template and jehna/readme-best-practices. No TOC.
 
+## Navigation
+
+| Lines | Section |
+|-------|---------|
+| 1 | Title |
+| 5–16 | Navigation |
+| 18–24 | Sections intro |
+| 26–178 | README section templates (1–15) |
+| 180–183 | Verify |
+
 ## Sections
 
 ### 1. Title + Badges

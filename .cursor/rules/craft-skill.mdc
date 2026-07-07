@@ -8,6 +8,19 @@ alwaysApply: false
 
 > **HARD GATE** — Do NOT name a skill without a two-word verb-noun pair. Do NOT merge a new skill without running `sync-skills.sh` — the generated `.cursor/rules/` and `.gemini/` artifacts must match the source SKILL.md.
 
+## CSO Description Discipline (e45s02)
+
+The YAML `description` is the **Catalog Selection Object** — the only field agents see when picking a skill.
+
+| Rule | Limit |
+|------|-------|
+| Max length | 1024 characters |
+| Voice | Third person |
+| Content | Capability + `Use when …` triggers only |
+| Forbidden | Workflow steps, phase chains, numbered lists, `→ verify:`, HARD GATE prose |
+
+Move process detail into the SKILL.md body or REFERENCE.md — never into `description`.
+
 ## Process
 
 1. **Gather requirements** — ask user about:
@@ -39,6 +52,12 @@ alwaysApply: false
    - Anything missing or unclear?
    - Should any section be more/less detailed?
 
+6. **Completion-honesty gate (HARD GATE — e45s02)** — Before declaring done:
+   - Run `bash scripts/validate-skill-description.sh skills/<name>/SKILL.md` — must exit 0
+   - Run `bash scripts/sync-skills.sh` — must complete without error
+   - Run `bash scripts/run-skill-verify.sh <name>` if the skill defines a verify command
+   - Show terminal output for each — narration without evidence is rejected
+
 ## Naming Rules
 
 Every skill name must be a **two-word verb-noun pair**. See [REFERENCE.md](REFERENCE.md) for full rules, examples, and documented exceptions.
@@ -52,12 +71,21 @@ If the skill produces written output, it goes in `specs/` at the project root. D
 After drafting, verify:
 
 - [ ] Name is a two-word verb-noun pair (or follows grill-me exception)
+- [ ] Description < 1024 chars, triggers only, no workflow-summary leakage
 - [ ] Description includes triggers ("Use when...")
 - [ ] SKILL.md under 100 lines
 - [ ] No time-sensitive info
 - [ ] Consistent terminology with CONVENTIONS.md
 - [ ] specs/ output documented if applicable
+- [ ] `validate-skill-description.sh` exits 0
 - [ ] `sync-skills.sh` run to propagate to Cursor/Gemini
+- [ ] `bash scripts/validate-skill-catalog.sh` passes for the new skill (HARD GATE — completion honesty)
+
+> **HARD GATE** — Do NOT declare the skill done until `bash scripts/validate-skill-catalog.sh --strict --skill <name>` exits 0. Validator enforces verb-noun name, HARD GATE block, description ≤1024 chars, and `→ verify:` command.
+
+## Verify
+
+→ verify: `bash scripts/validate-skill-catalog.sh --strict --skill craft-skill && bash scripts/validate-skill-description.sh skills/craft-skill/SKILL.md && echo OK || echo FAIL`
 
 ---
 

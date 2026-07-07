@@ -4,6 +4,8 @@ description: "Chain multiple bigpowers skills into a custom workflow recipe save
 ---
 
 
+# story: e45s27
+
 # Compose Workflow
 > **HARD GATE** — **HARD GATE** — Workflows are orchestration, not automation. Do NOT create workflows for tasks that should be single skills. Workflow complexity must be justified.
 
@@ -19,6 +21,19 @@ description: "Chain multiple bigpowers skills into a custom workflow recipe save
 
 > **Prefer the YAML recipe format** over the legacy `specs/WORKFLOW-<name>.md` markdown format.
 > YAML recipes are command-mappable, machine-readable, and listed in the Standard Recipe Library.
+
+## Terminal-state taxonomy (e45s27)
+
+Every workflow step and `/loop` tick MUST exit with exactly one terminal state:
+
+| State | Meaning | Next action |
+|-------|---------|-------------|
+| `success` | Step verify passed; artifacts written | Advance to next skill in recipe |
+| `no-op` | Nothing to do (already green / already applied) | Skip step; advance |
+| `blocked` | External gate (approval, red CI, missing dep) | `diagnose-stall` or escalate to user |
+| `exhausted` | Max iterations/cycles reached (review cap, dispatch cycles) | Stop; human decision required |
+
+Record terminal state in `specs/state.yaml` `handoff.last_terminal_state` when a recipe step completes. `/loop` ticks that produce no progress for two consecutive wakes → invoke `diagnose-stall`.
 
 ## Standard Recipe Library
 

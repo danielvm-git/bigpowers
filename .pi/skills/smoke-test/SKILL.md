@@ -70,6 +70,17 @@ DEPLOY_URL="$DEPLOY_URL" bash scripts/run-smoke.sh
 
 # Smoke Test — Reference
 
+## Navigation
+
+| Lines | Section |
+|-------|---------|
+| 1 | Title |
+| 3–12 | Navigation |
+| 14–31 | Runner script |
+| 33–42 | Configuration reference |
+| 44–53 | Verification |
+| 55–160 | Reference blocks 1–5 |
+
 ## Runner script
 
 A ready-to-use runner is provided for standalone operation:

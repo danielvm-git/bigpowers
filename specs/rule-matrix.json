@@ -1,0 +1,129 @@
+{
+  "generated_at": "2026-07-07T03:07:38Z",
+  "matrix_version": "1.0.0",
+  "source": "CONVENTIONS.md",
+  "source_hash": "77d7e4d49b562a2c",
+  "source_section": "Risk Tiers (Effective Rule Matrix)",
+  "tiers": {
+    "P0": [
+      {
+        "enforce": [
+          "verify-work",
+          "kickoff-branch",
+          "develop-tdd"
+        ],
+        "id": "always-green",
+        "text": "Preflight and CI must be green before forward work"
+      },
+      {
+        "enforce": [
+          "plan-work",
+          "orchestrate-project"
+        ],
+        "id": "no-direct-coding",
+        "text": "Route feature work through bigpowers skills \u2014 no ad-hoc implementation without a plan in `specs/`"
+      },
+      {
+        "enforce": [
+          "trace-stories.sh --strict"
+        ],
+        "id": "traceability",
+        "text": "Every story has \u22651 `story: eNNsNN` tag in implementing code or tests"
+      },
+      {
+        "enforce": [
+          "sync-skills.sh"
+        ],
+        "id": "no-generated-edits",
+        "text": "Never edit `.cursor/rules/`, `.gemini/`, or `website/src/content/docs/` directly"
+      }
+    ],
+    "P1": [
+      {
+        "enforce": [
+          "commit-message",
+          "release-branch"
+        ],
+        "id": "conventional-commits",
+        "text": "All commits follow Conventional Commits; semantic-release owns version bumps"
+      },
+      {
+        "enforce": [
+          "plan-work",
+          "verify-work"
+        ],
+        "id": "verify-per-story",
+        "text": "Every story/task has runnable `verify:` commands; `verify-work` confirms before done"
+      },
+      {
+        "enforce": [
+          "develop-tdd",
+          "validate-fix"
+        ],
+        "id": "test-on-change",
+        "text": "New functions and bug fixes include tests; regressions get regression tests"
+      },
+      {
+        "enforce": [
+          "guard-git"
+        ],
+        "id": "branch-protection",
+        "text": "No direct work on `main`/`master`; feature branches via `kickoff-branch`"
+      }
+    ],
+    "P2": [
+      {
+        "enforce": [
+          "plan-tests"
+        ],
+        "id": "plan-tests-waiver",
+        "text": "P2/P3-dominant epics may set `test_plan: waived` in `state.yaml`"
+      },
+      {
+        "enforce": [
+          "audit-code"
+        ],
+        "id": "file-size-cap",
+        "text": "Source files under 300 lines unless listed in \u00a7 File-Size Exceptions"
+      },
+      {
+        "enforce": [
+          "session-state"
+        ],
+        "id": "handoff-signaling",
+        "text": "Critical-path skills write `handoff.next_skill` to `state.yaml`"
+      },
+      {
+        "enforce": [
+          "plan-work",
+          "change-request"
+        ],
+        "id": "delta-requirements",
+        "text": "Behavior changes require `ADDED`/`MODIFIED`/`REMOVED`/`RENAMED` tags in requirement specs"
+      }
+    ],
+    "P3": [
+      {
+        "enforce": [
+          "audit-code"
+        ],
+        "id": "boy-scout",
+        "text": "Leave touched files at least as clean as found"
+      },
+      {
+        "enforce": [
+          "terse-mode"
+        ],
+        "id": "terse-when-heavy",
+        "text": "Switch to `terse-mode` when context exceeds ~20 turns"
+      },
+      {
+        "enforce": [
+          "craft-skill"
+        ],
+        "id": "skill-naming",
+        "text": "Verb-noun kebab-case under `skills/`; documented exceptions only"
+      }
+    ]
+  }
+}

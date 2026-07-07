@@ -80,7 +80,7 @@
 | `grill-with-docs` | Opus | Doc-grounded grill |
 | `setup-environment` / `reset-baseline` | Haiku | Mechanical prep |
 
-Full list: every SKILL.md declares `model:` — verify with `grep -rl '^model:' */SKILL.md | wc -l` (expect 75).
+Full list: every SKILL.md declares `model:` — verify with `grep -rl '^model:' */SKILL.md | wc -l` (expect 77).
 
 ### Release Phase
 | Skill | Model | Budget | Rationale |
@@ -247,6 +247,7 @@ Start: Task assigned
 | `/Users/danielvm/Developer/bigpowers/skills/change-request` | **Sonnet** |
 | `/Users/danielvm/Developer/bigpowers/skills/commit-message` | **Haiku** |
 | `/Users/danielvm/Developer/bigpowers/skills/compose-workflow` | **Sonnet** |
+| `/Users/danielvm/Developer/bigpowers/skills/context7-mcp` | **Haiku** |
 | `/Users/danielvm/Developer/bigpowers/skills/craft-skill` | **Sonnet** |
 | `/Users/danielvm/Developer/bigpowers/skills/deepen-architecture` | **Sonnet** |
 | `/Users/danielvm/Developer/bigpowers/skills/define-language` | **Sonnet** |
@@ -256,6 +257,7 @@ Start: Task assigned
 | `/Users/danielvm/Developer/bigpowers/skills/design-interface` | **Opus** |
 | `/Users/danielvm/Developer/bigpowers/skills/develop-tdd` | **Sonnet** |
 | `/Users/danielvm/Developer/bigpowers/skills/diagnose-root` | **Sonnet** |
+| `/Users/danielvm/Developer/bigpowers/skills/diagnose-stall` | **Haiku** |
 | `/Users/danielvm/Developer/bigpowers/skills/dispatch-agents` | **Sonnet** |
 | `/Users/danielvm/Developer/bigpowers/skills/edit-document` | **Sonnet** |
 | `/Users/danielvm/Developer/bigpowers/skills/elaborate-spec` | **Opus** |
@@ -315,5 +317,5 @@ Start: Task assigned
 | `/Users/danielvm/Developer/bigpowers/skills/wire-observability` | **Sonnet** |
 | `/Users/danielvm/Developer/bigpowers/skills/write-document` | **Sonnet** |
 
-Total: **75** skills — verify with `find . skills -maxdepth 2 -name SKILL.md 2>/dev/null | grep -v '.git\|.cursor\|.gemini\|.pi' | sort -u | wc -l`
+Total: **77** skills — verify with `find . skills -maxdepth 2 -name SKILL.md 2>/dev/null | grep -v '.git\|.cursor\|.gemini\|.pi' | sort -u | wc -l`
 <!-- AUTO-GENERATED-CATALOG: end -->

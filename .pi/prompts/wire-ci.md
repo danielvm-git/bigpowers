@@ -106,6 +106,17 @@ Add the following to the project's documentation or CLAUDE.md after setup:
 
 # Wire Ci — Reference
 
+## Navigation
+
+| Lines | Section |
+|-------|---------|
+| 1 | Title |
+| 3–14 | Navigation |
+| 16–38 | Examples |
+| 40–52 | Options |
+| 54–62 | Integration with build-epic |
+| 64–270 | Reference blocks 1–8 |
+
 ## Examples
 
 ### Create CI for a Rust project

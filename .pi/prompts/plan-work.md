@@ -3,6 +3,8 @@ description: "PLANNING SPINE STEP 3 of 3 — Plan the work: write detailed imple
 ---
 
 
+# story: e45s29
+
 # Plan Work
 
 > **Spine position:** Step 3 — scope-work → slice-tasks → plan-work.
@@ -44,13 +46,44 @@ If this plan touches an existing module, run `assess-impact` first to understand
 
 3. **Write capsule story spec + tasks** — Output two files inside the active epic capsule. See [REFERENCE.md](REFERENCE.md) for file formats and the plan-template. Each task MUST include a `risk:` field (`P0` | `P1` | `P2` | `P3`) based on BCP + story type heuristics (see REFERENCE.md). If a test plan artifact (`specs/tech-architecture/eNN-TEST_PLAN_LATEST.md`) exists, read it and inherit its P0/P1 risk classifications and scenario IDs (`SC-eNNsYY-P0-NN`). Each task optionally includes a `security:` field (`none` / `low` / `medium` / `high`) sourced from the epic's `specs/security/epics/<id>/THREAT_MODEL.md`. Tasks with `security: medium` or `security: high` MUST include "no new security findings in affected paths" in their verify steps.
 
+   **Requirement delta tags (e45s29):** When a story modifies existing behavior, the story spec § Requirements MUST use OpenSpec-style delta tags with mandatory before/after content:
+
+   | Tag | When | Required content |
+   |-----|------|------------------|
+   | `ADDED` | New requirement | Full requirement text |
+   | `MODIFIED` | Changed behavior | **Before:** prior behavior · **After:** new behavior |
+   | `REMOVED` | Retired requirement | **Before:** what existed · **After:** (removed) + rationale |
+   | `RENAMED` | ID or title change only | **Before:** old ID/title · **After:** new ID/title |
+
+   Net-new stories (greenfield) use `ADDED` only. `MODIFIED`/`REMOVED`/`RENAMED` without before/after blocks fail the plan-work gate.
+
 4. **Verify step format** — Every step MUST follow: `N. <What to do> → verify: <runnable command>`. See [REFERENCE.md](REFERENCE.md) for good/bad examples.
 
+4a. **Cross-artifact consistency pass (HARD GATE — e45s04)** — Before handoff, run:
+
+```bash
+bash scripts/lib/plan-consistency-check.sh specs/epics/<capsule>/
+```
+
+Print CRITICAL / HIGH / MED findings. **CRITICAL or HIGH blocks code generation** — fix capsule artifacts first. MED requires explicit user acknowledgment.
+
+4b. **tasks.yaml failing ledger (e45s06)** — Every new task entry starts with `status: failing`. Only flip to `status: passing` after its `verify:` command exits 0 during `develop-tdd` or `verify-work`. Never pre-mark passing at plan time.
+
 5. **Review with user** — Confirm step order, granularity, and that verify commands are runnable in this project.
+
+## Lifecycle Gates (e45s09)
+
+| Gate | When | Pass condition |
+|------|------|----------------|
+| **Pre-Implementation** | Before `kickoff-branch` / first RED commit | Root-cause stated for bugs; `assess-impact` done for module changes; plan-consistency-check PASS |
+| **Validation** | Story marked done | All tasks `status: passing`; verify evidence in `specs/verifications/` |
+| **Reopen-don't-refile** | Regression on shipped story | Reopen existing story/bug — do not create duplicate capsule entries |
 
 After writing capsule tasks, suggest `kickoff-branch` (if not already on a feature branch) then `build-epic`, `execute-plan`, or `develop-tdd`.
 
 ## Verify
+
+→ verify: `test -f scripts/lib/plan-consistency-check.sh && bash scripts/lib/plan-consistency-check.sh specs/epics/e45-quality-core/ 2>&1 | head -5`
 
 
 
@@ -63,6 +96,17 @@ Writes: state.yaml handoff.next_skill = kickoff-branch
 
 # Plan Work — Reference
 
+## Navigation
+
+| Lines | Section |
+|-------|---------|
+| 1 | Title |
+| 3–14 | Navigation |
+| 16–38 | Output file formats |
+| 40–71 | Plan template |
+| 73–91 | Verify step format rules |
+| 93–131 | Sub-operations (risk, define-success, zoom-out, slopcheck, delta tags) |
+
 ## Output file formats
 
 ### Story spec: `specs/epics/<capsule>/eNNsYY-<slug>.md`
@@ -74,14 +118,14 @@ Populated countable-story-format with all 20 sections. Minimum maturity: 3 (Coun
 ```yaml
 story_id: e01s01
 title: Login
-status: todo
+status: failing
 bcps: 3
 tasks:
   - id: 1
     description: "Add login form component tests"
     verify: "npm test -- login-form.test.tsx"
     risk: P1
-    status: todo
+    status: failing   # flip to passing only after verify exits 0 (e45s06)
 ```
 
 Update `specs/epics/<capsule>/epic.yaml` manifest to list the story and its BCPs. Run `bash scripts/sync-status-from-epics.sh` after structural changes.
@@ -151,6 +195,22 @@ Every task and story MUST be assigned a `risk:` level (P0, P1, P2, P3). When `sp
 - **P3**: Documentation, cosmetic tweaks, CSS variables, zero behavioral change (BCP 1).
 
 `verify-work` scales its UAT depth based on this field.
+
+### Requirement delta tags (e45s29)
+
+When modifying existing behavior in story spec § Requirements:
+
+```markdown
+#### MODIFIED: User can reset password via email link
+**Before:** Password reset required admin approval.
+**After:** Self-service reset via signed email link (expires 1h).
+
+#### REMOVED: Legacy OAuth1 login
+**Before:** OAuth1 provider supported for enterprise SSO.
+**After:** (removed) — provider deprecated; OAuth2 only.
+```
+
+Tags: `ADDED`, `MODIFIED`, `REMOVED`, `RENAMED`. `MODIFIED`/`REMOVED`/`RENAMED` without before/after → plan-work gate FAIL.
 
 ### Define Success
 

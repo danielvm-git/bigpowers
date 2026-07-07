@@ -7,9 +7,7 @@ source: CLAUDE.md#token-management
 
 # Token Management
 
-Context engineering (write/select/compress/isolate — see `docs/references/context-engineering.md`):
-
-- **Write (token-efficient content):** Short functions (4-20 lines), unique symbol names, headless 
+**Mechanical backstop (e45s03):** `scripts/hooks/token-mgmt-pre-tool-use.sh` blocks oversized tool calls when prose rules are ignored. Wire as a `PreToolUse` hook for `Read`, `Grep`, and `Bash` (along
 
 > Full content: /Users/danielvm/Developer/bigpowers/CLAUDE.md section "Token Management"
 ---

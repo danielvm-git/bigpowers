@@ -1,0 +1,26 @@
+run_date: '2026-07-06'
+runs_per_scenario: 3
+scenarios:
+- delta: 1.0
+  id: s01
+  split: validation
+  weight: 1.0
+  with_pass_rate: 1.0
+  without_pass_rate: 0.0
+- id: s02
+  split: train
+  status: pending_agent_eval
+  weight: 1.0
+- id: s03
+  split: validation
+  status: pending_agent_eval
+  weight: 0.5
+skill: survey-context
+train:
+  delta: 0.0
+  pass_at_k_with: 0.0
+  pass_at_k_without: 0.0
+validation:
+  delta: 1.0
+  pass_at_k_with: 1.0
+  pass_at_k_without: 0.0

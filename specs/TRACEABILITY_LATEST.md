@@ -1,69 +1,69 @@
 # Traceability Matrix
 
-**Generated:** 2026-07-06 21:34:48 UTC
+**Generated:** 2026-07-07 03:20:35 UTC
 **Total stories:** 55
-**Tagged stories:** 7
-**Dark stories:** 11
-**Orphan tags:** 77
+**Tagged stories:** 44
+**Dark stories:** 2
+**Orphan tags:** 79
 **Stale tags:** 0
 
 ## Oracle Stats
 
-- **High** (explicit tag): 14
-- **Medium** (file heuristic): 1296
+- **High** (explicit tag): 136
+- **Medium** (file heuristic): 1390
 - **Low** (task reference): 2
 
 ## Story Coverage
 
 | Story | Title | Epic | BCP | WSJF | Status | Links |
 |-------|-------|------|-----|------|--------|-------|
-| e45s01 | run-benchmark: add train/validation-split + with/without-ski | e45 | 3 | 5.0 | todo | 10 |
-| e45s02 | craft-skill: CSO description discipline + completion-honesty | e45 | 2 | 5.0 | todo | 9 |
-| e45s03 | CLAUDE.md token mgmt: mechanical PreToolUse hook backstop | e45 | 3 | 5.0 | todo | 3 |
-| e45s04 | slice-tasks / plan-work: pre-build cross-artifact consistenc | e45 | 3 | 5.0 | todo | 13 |
-| e45s05 | verify-work / gate-trace: adversarial gap-finding completene | e45 | 4 | 5.0 | todo | 20 |
-| e45s06 | tasks.yaml: literal failing→passing task ledger | e45 | 2 | 5.0 | todo | 0 |
-| e45s07 | request-review: dual-blind AND-gate review (Santa Method) | e45 | 2 | 5.0 | todo | 27 |
-| e45s08 | develop-tdd / validate-fix: two-commit red/green regression  | e45 | 2 | 5.0 | todo | 9 |
-| e45s09 | verify-work / plan-work: Pre-Implementation and Validation g | e45 | 2 | 5.0 | todo | 60 |
-| e45s10 | docs/references: auto-regenerate from source-of-truth docs v | e45 | 2 | 5.0 | todo | 1 |
-| e45s11 | orchestration / dispatch-agents: typed message protocol + 3- | e45 | 2 | 5.0 | todo | 4 |
-| e45s12 | stocktake-skills / craft-skill: code-enforced validator + au | e45 | 2 | 5.0 | todo | 26 |
-| e45s13 | verify-work: one-test-minimum terminal-verdict rule | e45 | 2 | 5.0 | todo | 10 |
-| e45s14 | deepen-architecture: declared import-boundary allowlist enfo | e45 | 2 | 5.0 | todo | 5 |
-| e45s15 | release-branch / deploy: three-independent-facts verificatio | e45 | 2 | 5.0 | todo | 7 |
-| e45s16 | CLAUDE.md rtk mandate: wire rtk-ai/rtk PreToolUse hook | e45 | 2 | 5.0 | todo | 1 |
-| e45s17 | request-review: fan-out to parallel review subagents | e45 | 2 | 5.0 | todo | 20 |
-| e45s18 | audit-code / security-review: worktree-isolated parallel che | e45 | 2 | 5.0 | todo | 340 |
-| e45s19 | Context7: bounded retry cap and explicit fallback block | e45 | 2 | 5.0 | todo | 6 |
-| e45s20 | Context7 / bts docs: wrap in ETag-revalidated fetch cache | e45 | 2 | 5.0 | todo | 0 |
-| e45s21 | seed-conventions / AGENTS.md: self-installing fenced markers | e45 | 2 | 5.0 | todo | 4 |
-| e45s22 | CLAUDE.md: context-aware directory routing | e45 | 2 | 5.0 | todo | 1 |
-| e45s23 | CLAUDE.md: live Learned User Preferences / Workspace Facts | e45 | 2 | 5.0 | todo | 0 |
+| e45s01 | run-benchmark: add train/validation-split + with/without-ski | e45 | 3 | 5.0 | todo | 15 |
+| e45s02 | craft-skill: CSO description discipline + completion-honesty | e45 | 2 | 5.0 | todo | 14 |
+| e45s03 | CLAUDE.md token mgmt: mechanical PreToolUse hook backstop | e45 | 3 | 5.0 | todo | 4 |
+| e45s04 | slice-tasks / plan-work: pre-build cross-artifact consistenc | e45 | 3 | 5.0 | todo | 15 |
+| e45s05 | verify-work / gate-trace: adversarial gap-finding completene | e45 | 4 | 5.0 | todo | 23 |
+| e45s06 | tasks.yaml: literal failing→passing task ledger | e45 | 2 | 5.0 | todo | 2 |
+| e45s07 | request-review: dual-blind AND-gate review (Santa Method) | e45 | 2 | 5.0 | todo | 30 |
+| e45s08 | develop-tdd / validate-fix: two-commit red/green regression  | e45 | 2 | 5.0 | todo | 11 |
+| e45s09 | verify-work / plan-work: Pre-Implementation and Validation g | e45 | 2 | 5.0 | todo | 63 |
+| e45s10 | docs/references: auto-regenerate from source-of-truth docs v | e45 | 2 | 5.0 | todo | 6 |
+| e45s11 | orchestration / dispatch-agents: typed message protocol + 3- | e45 | 2 | 5.0 | todo | 5 |
+| e45s12 | stocktake-skills / craft-skill: code-enforced validator + au | e45 | 2 | 5.0 | todo | 29 |
+| e45s13 | verify-work: one-test-minimum terminal-verdict rule | e45 | 2 | 5.0 | todo | 11 |
+| e45s14 | deepen-architecture: declared import-boundary allowlist enfo | e45 | 2 | 5.0 | todo | 7 |
+| e45s15 | release-branch / deploy: three-independent-facts verificatio | e45 | 2 | 5.0 | todo | 9 |
+| e45s16 | CLAUDE.md rtk mandate: wire rtk-ai/rtk PreToolUse hook | e45 | 2 | 5.0 | todo | 4 |
+| e45s17 | request-review: fan-out to parallel review subagents | e45 | 2 | 5.0 | todo | 22 |
+| e45s18 | audit-code / security-review: worktree-isolated parallel che | e45 | 2 | 5.0 | todo | 382 |
+| e45s19 | Context7: bounded retry cap and explicit fallback block | e45 | 2 | 5.0 | todo | 7 |
+| e45s20 | Context7 / bts docs: wrap in ETag-revalidated fetch cache | e45 | 2 | 5.0 | todo | 1 |
+| e45s21 | seed-conventions / AGENTS.md: self-installing fenced markers | e45 | 2 | 5.0 | todo | 11 |
+| e45s22 | CLAUDE.md: context-aware directory routing | e45 | 2 | 5.0 | todo | 2 |
+| e45s23 | CLAUDE.md: live Learned User Preferences / Workspace Facts | e45 | 2 | 5.0 | todo | 6 |
 | e45s24 | REFERENCE.md files: embedded line-range navigation guides | e45 | 2 | 5.0 | todo | 2 |
-| e45s25 | CONVENTIONS.md risk tiers: compile to versioned, diffable ru | e45 | 4 | 5.0 | todo | 1 |
-| e45s26 | security-review: CWE mapping + 2 positive/2 negative fixture | e45 | 2 | 5.0 | todo | 4 |
-| e45s27 | loop / workflow: terminal-state taxonomy | e45 | 2 | 5.0 | todo | 0 |
-| e45s28 | request-review: hard max-iteration cap | e45 | 2 | 5.0 | todo | 5 |
-| e45s29 | requirements: ADDED/MODIFIED/REMOVED/RENAMED tags | e45 | 2 | 5.0 | todo | 0 |
-| e45s30 | subagent depth: formalize depth tiers | e45 | 2 | 5.0 | todo | 0 |
-| e45s31 | audit-code / deepen-architecture: churn-based look-here-firs | e45 | 2 | 5.0 | todo | 342 |
-| e45s32 | gate-trace / release-branch: adversarial-review refute frami | e45 | 2 | 5.0 | todo | 19 |
-| e45s33 | requirements: per-section approval state | e45 | 2 | 5.0 | todo | 0 |
-| e45s34 | develop-tdd: snapshot-before-transition hardening | e45 | 2 | 5.0 | todo | 5 |
-| e45s35 | plan-work: 5 fixed EARS sentence patterns | e45 | 2 | 5.0 | todo | 5 |
-| e45s36 | specs: Documentation Responsibilities table | e45 | 2 | 5.0 | todo | 0 |
-| e45s37 | run-evals: graduated eval-strictness tiers | e45 | 2 | 5.0 | todo | 7 |
-| e45s38 | orchestration: why-did-this-stall diagnostic skill | e45 | 2 | 5.0 | todo | 2 |
-| e45s39 | PR generation: literal provenance marker | e45 | 2 | 5.0 | todo | 0 |
-| e45s40 | verify-work: mandatory real-browser verification | e45 | 2 | 5.0 | todo | 10 |
-| e45s41 | security-review: proven authorship SQL-safety doctrine | e45 | 2 | 5.0 | todo | 4 |
+| e45s25 | CONVENTIONS.md risk tiers: compile to versioned, diffable ru | e45 | 4 | 5.0 | todo | 4 |
+| e45s26 | security-review: CWE mapping + 2 positive/2 negative fixture | e45 | 2 | 5.0 | todo | 13 |
+| e45s27 | loop / workflow: terminal-state taxonomy | e45 | 2 | 5.0 | todo | 5 |
+| e45s28 | request-review: hard max-iteration cap | e45 | 2 | 5.0 | todo | 10 |
+| e45s29 | requirements: ADDED/MODIFIED/REMOVED/RENAMED tags | e45 | 2 | 5.0 | todo | 15 |
+| e45s30 | subagent depth: formalize depth tiers | e45 | 2 | 5.0 | todo | 10 |
+| e45s31 | audit-code / deepen-architecture: churn-based look-here-firs | e45 | 2 | 5.0 | todo | 384 |
+| e45s32 | gate-trace / release-branch: adversarial-review refute frami | e45 | 2 | 5.0 | todo | 21 |
+| e45s33 | requirements: per-section approval state | e45 | 2 | 5.0 | todo | 2 |
+| e45s34 | develop-tdd: snapshot-before-transition hardening | e45 | 2 | 5.0 | todo | 6 |
+| e45s35 | plan-work: 5 fixed EARS sentence patterns | e45 | 2 | 5.0 | todo | 6 |
+| e45s36 | specs: Documentation Responsibilities table | e45 | 2 | 5.0 | todo | 1 |
+| e45s37 | run-evals: graduated eval-strictness tiers | e45 | 2 | 5.0 | todo | 8 |
+| e45s38 | orchestration: why-did-this-stall diagnostic skill | e45 | 2 | 5.0 | todo | 4 |
+| e45s39 | PR generation: literal provenance marker | e45 | 2 | 5.0 | todo | 1 |
+| e45s40 | verify-work: mandatory real-browser verification | e45 | 2 | 5.0 | todo | 11 |
+| e45s41 | security-review: proven authorship SQL-safety doctrine | e45 | 2 | 5.0 | todo | 5 |
 | e48s01 | Generate epics-wiki and adr-wiki as OKF concept bundles from | e48 | 2 | 2.5 | todo | 23 |
-| e48s02 | Emit verification reports as OKF bundles from run-golden-sui | e48 | 2 | 2.5 | todo | 23 |
-| e48s03 | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | e48 | 1 | 2.5 | todo | 96 |
+| e48s02 | Emit verification reports as OKF bundles from run-golden-sui | e48 | 2 | 2.5 | todo | 27 |
+| e48s03 | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | e48 | 1 | 2.5 | todo | 97 |
 | e48s04 | Create viz.html — interactive force-layout graph companion f | e48 | 2 | 2.5 | todo | 11 |
-| e48s05 | Wire OKF validation into CI (sync-skills.yml) and document i | e48 | 1 | 2.5 | todo | 93 |
-| e48s06 | Add tier: field (core/extended/specialized) to OKF wiki inde | e48 | 2 | 2.5 | todo | 8 |
+| e48s05 | Wire OKF validation into CI (sync-skills.yml) and document i | e48 | 1 | 2.5 | todo | 98 |
+| e48s06 | Add tier: field (core/extended/specialized) to OKF wiki inde | e48 | 2 | 2.5 | todo | 9 |
 | e48s07 | Create publish-to-wiki kernel tool | e48 | 3 | 2.5 | todo | 0 |
 | e48s08 | Add GitHub Action Template for publish-wiki.yml | e48 | 1 | 2.5 | todo | 0 |
 | e48s09 | Create Wiki Scaffold Templates and provenance header injecti | e48 | 2 | 2.5 | todo | 2 |
@@ -75,15 +75,6 @@
 
 ## Dark Stories (no code links)
 
-- **e45s06**: tasks.yaml: literal failing→passing task ledger (status: todo)
-- **e45s20**: Context7 / bts docs: wrap in ETag-revalidated fetch cache (status: todo)
-- **e45s23**: CLAUDE.md: live Learned User Preferences / Workspace Facts (status: todo)
-- **e45s27**: loop / workflow: terminal-state taxonomy (status: todo)
-- **e45s29**: requirements: ADDED/MODIFIED/REMOVED/RENAMED tags (status: todo)
-- **e45s30**: subagent depth: formalize depth tiers (status: todo)
-- **e45s33**: requirements: per-section approval state (status: todo)
-- **e45s36**: specs: Documentation Responsibilities table (status: todo)
-- **e45s39**: PR generation: literal provenance marker (status: todo)
 - **e48s07**: Create publish-to-wiki kernel tool (status: todo)
 - **e48s08**: Add GitHub Action Template for publish-wiki.yml (status: todo)
 
@@ -99,6 +90,7 @@
 - `e30s01`
 - `e30s02`
 - `e30s03`
+- `e31s04`
 - `e32s01`
 - `e32s02`
 - `e32s03`
@@ -151,6 +143,7 @@
 - `e41s01`
 - `e42s02`
 - `e42s03`
+- `e42s04`
 - `e43s01`
 - `e44s01`
 - `e44s02`

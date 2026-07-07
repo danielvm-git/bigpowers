@@ -78,6 +78,17 @@ See [REFERENCE.md](REFERENCE.md)
 
 # Publish Package — Reference
 
+## Navigation
+
+| Lines | Section |
+|-------|---------|
+| 1 | Title |
+| 3–18 | Navigation |
+| 20–28 | Options |
+| 30–60 | Examples |
+| 62–72 | Integration with release-branch |
+| 74–252 | Reference blocks 1–8 |
+
 ## Options
 
 | Flag | Description |

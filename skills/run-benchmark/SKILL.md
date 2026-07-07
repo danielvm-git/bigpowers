@@ -1,6 +1,6 @@
 ---
 name: run-benchmark
-# story: e48s01
+# story: e45s01
 model: haiku
 effort: standard
 description: Run skill quality benchmarks from specs/benchmarks/ definitions — N-run with/without-skill delta grading, train/validation split, pass@k + benchmark.json reports. Use before and after evolve-skill to prove quality changes are improvements, not regressions.
@@ -30,9 +30,9 @@ Benchmark definitions partition scenarios into two sets:
 ## Usage
 
 ```bash
-run-benchmark <skill-name>           # benchmark single skill
-run-benchmark --all                  # benchmark all with definitions
-run-benchmark <skill-name> --baseline # pin results as baseline
+bash scripts/run-benchmark.sh <skill-name>           # benchmark single skill
+bash scripts/run-benchmark.sh --all                  # benchmark all with definitions
+bash scripts/run-benchmark.sh <skill-name> --baseline # pin results as baseline
 ```
 
 ## Process
