@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# story: e22s01
 # Run all SKILL.md → verify: commands and report PASS/FAIL/SKIP.
 # Exit 0 only when zero FAILs.
 # Usage: bash scripts/run-skill-verify.sh [skill-name]

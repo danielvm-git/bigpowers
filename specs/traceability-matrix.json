@@ -1,7 +1,1537 @@
 {
-  "generated_at": "2026-07-07T03:20:35.010716+00:00",
+  "generated_at": "2026-07-07T12:58:15.829830+00:00",
   "matrix_version": "1.0",
   "stories": [
+    {
+      "id": "e37s01",
+      "title": "seed-conventions \u2014 unified AGENTS.md template with e51 Preflight + multi-agent header",
+      "epic_id": "e37",
+      "epic_title": "Reach \u2014 Universal Agent Portability",
+      "bcp": 3,
+      "wsjf": 7.0,
+      "status": "done",
+      "links": [
+        {
+          "file": "specs/epics/e37-reach/e37s01-agents-md-unify.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s01-agents-md-unify.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "docs/templates/AGENTS.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/skills-wiki/skills/seed-conventions.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/archive/e51-always-green-shift-left/e51s01-conventions-always-green.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/archive/e51-always-green-shift-left/e51s02-seed-preflight-default.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/archive/e51-always-green-shift-left/e51s05-claude-preflight-row.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/archive/e51-always-green-shift-left/e51s03-preflight-hard-block.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".continue/rules/seed-conventions.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "website/src/content/docs/skills/seed-conventions.mdx",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/seed-conventions.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s02-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s01-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s04-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s15-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s03-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s02-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s01-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s04-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s15-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s03-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        }
+      ],
+      "link_count": 21
+    },
+    {
+      "id": "e37s02",
+      "title": "verify-install.sh + docs \u2014 Cline native AGENTS.md verification",
+      "epic_id": "e37",
+      "epic_title": "Reach \u2014 Universal Agent Portability",
+      "bcp": 2,
+      "wsjf": 7.0,
+      "status": "done",
+      "links": [
+        {
+          "file": "specs/epics/e37-reach/e37s02-tasks.yaml",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s02-cline-verify.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s02-tasks.yaml",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s02-cline-verify.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/adapters/cline.sh",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s16-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s04-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s03-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s16-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s04-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s03-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        }
+      ],
+      "link_count": 11
+    },
+    {
+      "id": "e37s03",
+      "title": "seed-conventions \u2014 .aider.conf.yml read:AGENTS.md bridge for Aider users",
+      "epic_id": "e37",
+      "epic_title": "Reach \u2014 Universal Agent Portability",
+      "bcp": 1,
+      "wsjf": 7.0,
+      "status": "done",
+      "links": [
+        {
+          "file": "specs/epics/e37-reach/e37s03-tasks.yaml",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s03-aider-bridge.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s03-tasks.yaml",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s03-aider-bridge.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/adapters/aider.sh",
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/skills-wiki/skills/seed-conventions.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".continue/rules/seed-conventions.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "website/src/content/docs/skills/seed-conventions.mdx",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/seed-conventions.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s01-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s04-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s01-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s04-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        }
+      ],
+      "link_count": 13
+    },
+    {
+      "id": "e37s04",
+      "title": "verify-install.sh \u2014 AGENTS.md spine assertions (OSS P1 + optional Codex)",
+      "epic_id": "e37",
+      "epic_title": "Reach \u2014 Universal Agent Portability",
+      "bcp": 2,
+      "wsjf": 7.0,
+      "status": "done",
+      "links": [
+        {
+          "file": "specs/epics/e37-reach/e37s04-verify-install-spine.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s04-verify-install-spine.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/install.sh",
+          "line": 283,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s08-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s04-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s15-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s08-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s04-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s15-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        }
+      ],
+      "link_count": 9
+    },
+    {
+      "id": "e37s05",
+      "title": "scripts/targets.yaml \u2014 declarative integration registry for all targets",
+      "epic_id": "e37",
+      "epic_title": "Reach \u2014 Universal Agent Portability",
+      "bcp": 5,
+      "wsjf": 7.0,
+      "status": "done",
+      "links": [
+        {
+          "file": "specs/epics/e37-reach/e37s05-targets-registry.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s05-targets-registry.md",
+          "line": 4,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s05-targets-registry.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s05-targets-registry.md",
+          "line": 4,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "docs/references/targets-registry.md",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/validate-targets-yaml.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/targets.yaml",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/adapters/cline.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/adapters/cursor.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/adapters/pi.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/adapters/gemini.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/adapters/aider.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/lib/context-wire.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/test-adapters.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/verifications/steps/and-i-should-explain-the-code-s-purpose-and-callers-before-modifying-zoom-out.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s05-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s08-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s11-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s07-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s13-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s02-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s10-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s01-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s09-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s12-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s03-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s06-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s05-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s08-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s11-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s07-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s13-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s02-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s10-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s01-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s09-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s12-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s03-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s06-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        }
+      ],
+      "link_count": 39
+    },
+    {
+      "id": "e37s06",
+      "title": "scripts/generate-context-bundle.sh \u2014 AGENTS.md single source + all derivatives",
+      "epic_id": "e37",
+      "epic_title": "Reach \u2014 Universal Agent Portability",
+      "bcp": 3,
+      "wsjf": 7.0,
+      "status": "done",
+      "links": [
+        {
+          "file": "specs/epics/e37-reach/e37s06-tasks.yaml",
+          "line": 14,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s06-tasks.yaml",
+          "line": 27,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s06-context-bundle.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s06-tasks.yaml",
+          "line": 14,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s06-tasks.yaml",
+          "line": 27,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s06-context-bundle.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/generate-context-bundle.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/adr/0007-agents-md-spine-context-derivatives.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-files-should-be-small-enough-to-avoid-context-window-truncation-300-lines.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-i-should-automatically-bootstrap-project-context-at-session-start.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/adr-wiki/0007-agents-md-spine-context-derivatives.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "website/src/content/docs/decisions/0007-agents-md-spine-context-derivatives.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s08-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s07-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s10-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s08-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s07-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s10-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        }
+      ],
+      "link_count": 18
+    },
+    {
+      "id": "e37s07",
+      "title": "sync-skills.sh \u2014 adapter dispatch from targets.yaml",
+      "epic_id": "e37",
+      "epic_title": "Reach \u2014 Universal Agent Portability",
+      "bcp": 5,
+      "wsjf": 7.0,
+      "status": "done",
+      "links": [
+        {
+          "file": "specs/tech-architecture/e37-TEST_PLAN_LATEST.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s07-tasks.yaml",
+          "line": 49,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s07-adapter-dispatch.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s07-tasks.yaml",
+          "line": 49,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s07-adapter-dispatch.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/adapters/pi.sh",
+          "line": 40,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/sync-status-from-epics.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s08-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s11-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s13-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s02-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s10-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s09-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s12-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s06-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s08-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s11-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s13-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s02-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s10-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s09-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s12-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s06-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        }
+      ],
+      "link_count": 23
+    },
+    {
+      "id": "e37s08",
+      "title": "verify-install.sh \u2014 per-target contract matrix from targets.yaml",
+      "epic_id": "e37",
+      "epic_title": "Reach \u2014 Universal Agent Portability",
+      "bcp": 3,
+      "wsjf": 7.0,
+      "status": "done",
+      "links": [
+        {
+          "file": "specs/epics/e37-reach/e37s08-tasks.yaml",
+          "line": 16,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s08-verify-matrix.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s08-tasks.yaml",
+          "line": 16,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s08-verify-matrix.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/lib/target-contracts.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s11-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s07-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s10-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s04-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s09-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s12-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s06-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s11-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s07-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s10-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s04-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s09-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s12-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s06-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        }
+      ],
+      "link_count": 19
+    },
+    {
+      "id": "e37s09",
+      "title": "targets.yaml \u2014 Wave A: Goose (OSS) + Antigravity agy (proprietary beta)",
+      "epic_id": "e37",
+      "epic_title": "Reach \u2014 Universal Agent Portability",
+      "bcp": 3,
+      "wsjf": 7.0,
+      "status": "done",
+      "links": [
+        {
+          "file": "specs/epics/e37-reach/e37s09-tasks.yaml",
+          "line": 17,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s09-wave-a-targets.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s09-tasks.yaml",
+          "line": 17,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s09-wave-a-targets.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/adapters/agy.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/adapters/goose.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s07-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s07-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        }
+      ],
+      "link_count": 8
+    },
+    {
+      "id": "e37s10",
+      "title": "targets.yaml \u2014 Wave B: zed, omp, hermes (skills-dir adapters)",
+      "epic_id": "e37",
+      "epic_title": "Reach \u2014 Universal Agent Portability",
+      "bcp": 4,
+      "wsjf": 7.0,
+      "status": "done",
+      "links": [
+        {
+          "file": "specs/epics/e37-reach/e37s10-tasks.yaml",
+          "line": 16,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s10-wave-b-skills-dir.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s10-tasks.yaml",
+          "line": 16,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s10-wave-b-skills-dir.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/adapters/omp.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/adapters/zed.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/adapters/hermes.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        }
+      ],
+      "link_count": 7
+    },
+    {
+      "id": "e37s11",
+      "title": "targets.yaml \u2014 Wave C: qwen, kilocode (markdown commands + rules)",
+      "epic_id": "e37",
+      "epic_title": "Reach \u2014 Universal Agent Portability",
+      "bcp": 3,
+      "wsjf": 7.0,
+      "status": "done",
+      "links": [
+        {
+          "file": "specs/epics/e37-reach/e37s11-wave-c-markdown-rules.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s11-tasks.yaml",
+          "line": 16,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s11-wave-c-markdown-rules.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s11-tasks.yaml",
+          "line": 16,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/adapters/qwen.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/adapters/kilocode.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        }
+      ],
+      "link_count": 6
+    },
+    {
+      "id": "e37s12",
+      "title": "targets.yaml \u2014 Wave D: continue (rules adapter; re-opened active OSS)",
+      "epic_id": "e37",
+      "epic_title": "Reach \u2014 Universal Agent Portability",
+      "bcp": 2,
+      "wsjf": 7.0,
+      "status": "done",
+      "links": [
+        {
+          "file": "specs/epics/e37-reach/e37s12-tasks.yaml",
+          "line": 16,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s12-wave-d-continue.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s12-tasks.yaml",
+          "line": 16,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s12-wave-d-continue.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/adapters/continue.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s11-wave-c-markdown-rules.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s11-wave-c-markdown-rules.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        }
+      ],
+      "link_count": 7
+    },
+    {
+      "id": "e37s13",
+      "title": "targets.yaml \u2014 Wave E: iflow, vibe, shai (markdown commands; optional)",
+      "epic_id": "e37",
+      "epic_title": "Reach \u2014 Universal Agent Portability",
+      "bcp": 2,
+      "wsjf": 7.0,
+      "status": "done",
+      "links": [
+        {
+          "file": "specs/epics/e37-reach/e37s13-tasks.yaml",
+          "line": 15,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s13-wave-e-low-priority.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s13-tasks.yaml",
+          "line": 15,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s13-wave-e-low-priority.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/adapters/iflow.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/adapters/vibe.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/adapters/shai.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s11-wave-c-markdown-rules.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s11-wave-c-markdown-rules.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        }
+      ],
+      "link_count": 9
+    },
+    {
+      "id": "e37s14",
+      "title": "seed-conventions \u2014 optional Codex wiring step (AGENTS.md + .codex/config.toml)",
+      "epic_id": "e37",
+      "epic_title": "Reach \u2014 Universal Agent Portability",
+      "bcp": 3,
+      "wsjf": 7.0,
+      "status": "done",
+      "links": [
+        {
+          "file": "scripts/install.sh",
+          "line": 284,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/skills-wiki/skills/seed-conventions.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s14-seed-codex-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s14-seed-codex-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".continue/rules/seed-conventions.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "website/src/content/docs/skills/seed-conventions.mdx",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/seed-conventions.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s14-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s01-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s04-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s14-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s01-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s04-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        }
+      ],
+      "link_count": 13
+    },
+    {
+      "id": "e37s15",
+      "title": "install.sh \u2014 global ~/.codex/ AGENTS.md starter symlink",
+      "epic_id": "e37",
+      "epic_title": "Reach \u2014 Universal Agent Portability",
+      "bcp": 2,
+      "wsjf": 7.0,
+      "status": "done",
+      "links": [
+        {
+          "file": "docs/templates/codex/AGENTS.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s15-install-codex-global.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s15-install-codex-global.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s14-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s15-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s14-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s15-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        }
+      ],
+      "link_count": 7
+    },
+    {
+      "id": "e37s16",
+      "title": "using-bigpowers \u2014 Codex CLI onboarding section",
+      "epic_id": "e37",
+      "epic_title": "Reach \u2014 Universal Agent Portability",
+      "bcp": 2,
+      "wsjf": 7.0,
+      "status": "done",
+      "links": [
+        {
+          "file": "docs/templates/codex/AGENTS.md",
+          "line": 25,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/skills-wiki/skills/using-bigpowers.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s16-codex-onboarding-docs.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s16-codex-onboarding-docs.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".continue/rules/using-bigpowers.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "website/src/content/docs/guides/using-bigpowers.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "website/src/content/docs/skills/using-bigpowers.mdx",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "docs/using-bigpowers.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".kilocode/rules/using-bigpowers.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s14-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s16-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s14-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e37-reach/e37s16-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        }
+      ],
+      "link_count": 13
+    },
     {
       "id": "e45s01",
       "title": "run-benchmark: add train/validation-split + with/without-skill delta grading",
@@ -9,20 +1539,8 @@
       "epic_title": "Quality Core \u2014 Skill Hardening & Verification Patterns",
       "bcp": 3,
       "wsjf": 5.0,
-      "status": "todo",
+      "status": "done",
       "links": [
-        {
-          "file": "specs/state.yaml",
-          "line": 3,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": "specs/state.yaml",
-          "line": 14,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
         {
           "file": "scripts/run-benchmark.sh",
           "line": 2,
@@ -102,7 +1620,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 15
+      "link_count": 13
     },
     {
       "id": "e45s02",
@@ -111,8 +1629,20 @@
       "epic_title": "Quality Core \u2014 Skill Hardening & Verification Patterns",
       "bcp": 2,
       "wsjf": 5.0,
-      "status": "todo",
+      "status": "done",
       "links": [
+        {
+          "file": ".gemini/extensions/bigpowers/commands/prompts/craft-skill.md",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/skills/craft-skill/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "scripts/lib/audit-compliance-judge.sh",
           "line": 2,
@@ -139,7 +1669,19 @@
         },
         {
           "file": "skills/craft-skill/SKILL.md",
-          "line": 1,
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/craft-skill.md",
+          "line": 6,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/craft-skill/SKILL.md",
+          "line": 8,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -198,7 +1740,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 14
+      "link_count": 18
     },
     {
       "id": "e45s03",
@@ -207,7 +1749,7 @@
       "epic_title": "Quality Core \u2014 Skill Hardening & Verification Patterns",
       "bcp": 3,
       "wsjf": 5.0,
-      "status": "todo",
+      "status": "done",
       "links": [
         {
           "file": "specs/bugs/BUG-2026-07-06T205700-sync-strict-todo-p0-block.md",
@@ -243,8 +1785,20 @@
       "epic_title": "Quality Core \u2014 Skill Hardening & Verification Patterns",
       "bcp": 3,
       "wsjf": 5.0,
-      "status": "todo",
+      "status": "done",
       "links": [
+        {
+          "file": ".gemini/extensions/bigpowers/commands/prompts/plan-work.md",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/skills/plan-work/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "scripts/generate-viz-graph.sh",
           "line": 2,
@@ -259,7 +1813,19 @@
         },
         {
           "file": "skills/plan-work/SKILL.md",
-          "line": 1,
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/plan-work.md",
+          "line": 6,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/plan-work/SKILL.md",
+          "line": 8,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -336,7 +1902,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 15
+      "link_count": 19
     },
     {
       "id": "e45s05",
@@ -345,8 +1911,32 @@
       "epic_title": "Quality Core \u2014 Skill Hardening & Verification Patterns",
       "bcp": 4,
       "wsjf": 5.0,
-      "status": "todo",
+      "status": "done",
       "links": [
+        {
+          "file": ".gemini/extensions/bigpowers/commands/prompts/gate-trace.md",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/commands/prompts/verify-work.md",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/skills/verify-work/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/skills/gate-trace/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "scripts/lib/completeness-critic.sh",
           "line": 2,
@@ -355,13 +1945,37 @@
         },
         {
           "file": "skills/verify-work/SKILL.md",
-          "line": 2,
+          "line": 10,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": "skills/gate-trace/SKILL.md",
-          "line": 1,
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/gate-trace.md",
+          "line": 6,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/verify-work.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/verify-work/SKILL.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/gate-trace/SKILL.md",
+          "line": 8,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -486,7 +2100,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 23
+      "link_count": 31
     },
     {
       "id": "e45s06",
@@ -495,22 +2109,70 @@
       "epic_title": "Quality Core \u2014 Skill Hardening & Verification Patterns",
       "bcp": 2,
       "wsjf": 5.0,
-      "status": "todo",
+      "status": "done",
       "links": [
         {
+          "file": ".gemini/extensions/bigpowers/commands/prompts/develop-tdd.md",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/commands/prompts/plan-work.md",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/skills/plan-work/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/skills/develop-tdd/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "skills/plan-work/SKILL.md",
-          "line": 2,
+          "line": 12,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": "skills/develop-tdd/SKILL.md",
-          "line": 2,
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/develop-tdd.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/plan-work.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/plan-work/SKILL.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/develop-tdd/SKILL.md",
+          "line": 9,
           "confidence": "high",
           "method": "explicit_tag"
         }
       ],
-      "link_count": 2
+      "link_count": 10
     },
     {
       "id": "e45s07",
@@ -519,17 +2181,65 @@
       "epic_title": "Quality Core \u2014 Skill Hardening & Verification Patterns",
       "bcp": 2,
       "wsjf": 5.0,
-      "status": "todo",
+      "status": "done",
       "links": [
         {
-          "file": "skills/request-review/SKILL.md",
-          "line": 1,
+          "file": ".gemini/extensions/bigpowers/commands/prompts/request-review.md",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/commands/prompts/request-review.md",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/skills/request-review/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/skills/request-review/SKILL.md",
+          "line": 8,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": "skills/request-review/SKILL.md",
-          "line": 2,
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "skills/request-review/SKILL.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/request-review.md",
+          "line": 6,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/request-review.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/request-review/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/request-review/SKILL.md",
+          "line": 9,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -702,7 +2412,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 30
+      "link_count": 38
     },
     {
       "id": "e45s08",
@@ -711,17 +2421,65 @@
       "epic_title": "Quality Core \u2014 Skill Hardening & Verification Patterns",
       "bcp": 2,
       "wsjf": 5.0,
-      "status": "todo",
+      "status": "done",
       "links": [
         {
+          "file": ".gemini/extensions/bigpowers/commands/prompts/develop-tdd.md",
+          "line": 4,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/commands/prompts/validate-fix.md",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/skills/validate-fix/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/skills/develop-tdd/SKILL.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "skills/validate-fix/SKILL.md",
-          "line": 1,
+          "line": 8,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": "skills/develop-tdd/SKILL.md",
-          "line": 3,
+          "line": 12,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/develop-tdd.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/validate-fix.md",
+          "line": 6,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/validate-fix/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/develop-tdd/SKILL.md",
+          "line": 10,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -780,7 +2538,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 11
+      "link_count": 19
     },
     {
       "id": "e45s09",
@@ -789,17 +2547,65 @@
       "epic_title": "Quality Core \u2014 Skill Hardening & Verification Patterns",
       "bcp": 2,
       "wsjf": 5.0,
-      "status": "todo",
+      "status": "done",
       "links": [
         {
+          "file": ".gemini/extensions/bigpowers/commands/prompts/plan-work.md",
+          "line": 4,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/commands/prompts/verify-work.md",
+          "line": 4,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/skills/plan-work/SKILL.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/skills/verify-work/SKILL.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "skills/plan-work/SKILL.md",
-          "line": 3,
+          "line": 13,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": "skills/verify-work/SKILL.md",
-          "line": 3,
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/plan-work.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/verify-work.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/plan-work/SKILL.md",
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/verify-work/SKILL.md",
+          "line": 10,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -865,6 +2671,12 @@
         },
         {
           "file": "specs/agent-guide/network-65-70-savings.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/agent-guide/workspace-facts.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -1170,7 +2982,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 63
+      "link_count": 72
     },
     {
       "id": "e45s10",
@@ -1179,11 +2991,11 @@
       "epic_title": "Quality Core \u2014 Skill Hardening & Verification Patterns",
       "bcp": 2,
       "wsjf": 5.0,
-      "status": "todo",
+      "status": "done",
       "links": [
         {
           "file": "CONVENTIONS.md",
-          "line": 4,
+          "line": 7,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -1212,13 +3024,19 @@
           "method": "explicit_tag"
         },
         {
+          "file": "specs/conventions-wiki/docs-references-ssot-sync-e45s10.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "scripts/sync-status-from-epics.sh",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         }
       ],
-      "link_count": 6
+      "link_count": 7
     },
     {
       "id": "e45s11",
@@ -1227,11 +3045,35 @@
       "epic_title": "Quality Core \u2014 Skill Hardening & Verification Patterns",
       "bcp": 2,
       "wsjf": 5.0,
-      "status": "todo",
+      "status": "done",
       "links": [
         {
+          "file": ".gemini/extensions/bigpowers/commands/prompts/dispatch-agents.md",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/skills/dispatch-agents/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "skills/dispatch-agents/SKILL.md",
-          "line": 2,
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/dispatch-agents.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/dispatch-agents/SKILL.md",
+          "line": 9,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -1260,7 +3102,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 5
+      "link_count": 9
     },
     {
       "id": "e45s12",
@@ -1269,8 +3111,32 @@
       "epic_title": "Quality Core \u2014 Skill Hardening & Verification Patterns",
       "bcp": 2,
       "wsjf": 5.0,
-      "status": "todo",
+      "status": "done",
       "links": [
+        {
+          "file": ".gemini/extensions/bigpowers/commands/prompts/stocktake-skills.md",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/commands/prompts/craft-skill.md",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/skills/craft-skill/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/skills/stocktake-skills/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "scripts/validate-skill-catalog.sh",
           "line": 2,
@@ -1279,13 +3145,37 @@
         },
         {
           "file": "skills/craft-skill/SKILL.md",
-          "line": 2,
+          "line": 10,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": "skills/stocktake-skills/SKILL.md",
-          "line": 1,
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/stocktake-skills.md",
+          "line": 6,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/craft-skill.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/craft-skill/SKILL.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/stocktake-skills/SKILL.md",
+          "line": 8,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -1333,6 +3223,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-06-craft-skill-sync-oversized.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e37-reach/e37s10-wave-b-skills-dir.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -1446,7 +3342,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 29
+      "link_count": 38
     },
     {
       "id": "e45s13",
@@ -1455,11 +3351,35 @@
       "epic_title": "Quality Core \u2014 Skill Hardening & Verification Patterns",
       "bcp": 2,
       "wsjf": 5.0,
-      "status": "todo",
+      "status": "done",
       "links": [
         {
+          "file": ".gemini/extensions/bigpowers/commands/prompts/verify-work.md",
+          "line": 5,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/skills/verify-work/SKILL.md",
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "skills/verify-work/SKILL.md",
-          "line": 4,
+          "line": 12,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/verify-work.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/verify-work/SKILL.md",
+          "line": 11,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -1524,7 +3444,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 11
+      "link_count": 15
     },
     {
       "id": "e45s14",
@@ -1533,8 +3453,20 @@
       "epic_title": "Quality Core \u2014 Skill Hardening & Verification Patterns",
       "bcp": 2,
       "wsjf": 5.0,
-      "status": "todo",
+      "status": "done",
       "links": [
+        {
+          "file": ".gemini/extensions/bigpowers/commands/prompts/deepen-architecture.md",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/skills/deepen-architecture/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "scripts/check-import-boundaries.sh",
           "line": 2,
@@ -1543,7 +3475,19 @@
         },
         {
           "file": "skills/deepen-architecture/SKILL.md",
-          "line": 2,
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/deepen-architecture.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/deepen-architecture/SKILL.md",
+          "line": 9,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -1578,7 +3522,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 7
+      "link_count": 11
     },
     {
       "id": "e45s15",
@@ -1587,17 +3531,65 @@
       "epic_title": "Quality Core \u2014 Skill Hardening & Verification Patterns",
       "bcp": 2,
       "wsjf": 5.0,
-      "status": "todo",
+      "status": "done",
       "links": [
         {
+          "file": ".gemini/extensions/bigpowers/commands/prompts/deploy.md",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/commands/prompts/release-branch.md",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/skills/deploy/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/skills/release-branch/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "skills/deploy/SKILL.md",
-          "line": 1,
+          "line": 9,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": "skills/release-branch/SKILL.md",
-          "line": 2,
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/deploy.md",
+          "line": 6,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/release-branch.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/deploy/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/release-branch/SKILL.md",
+          "line": 9,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -1644,7 +3636,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 9
+      "link_count": 17
     },
     {
       "id": "e45s16",
@@ -1653,7 +3645,7 @@
       "epic_title": "Quality Core \u2014 Skill Hardening & Verification Patterns",
       "bcp": 2,
       "wsjf": 5.0,
-      "status": "todo",
+      "status": "done",
       "links": [
         {
           "file": "scripts/install.sh",
@@ -1689,11 +3681,35 @@
       "epic_title": "Quality Core \u2014 Skill Hardening & Verification Patterns",
       "bcp": 2,
       "wsjf": 5.0,
-      "status": "todo",
+      "status": "done",
       "links": [
         {
+          "file": ".gemini/extensions/bigpowers/commands/prompts/request-review.md",
+          "line": 4,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/skills/request-review/SKILL.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "skills/request-review/SKILL.md",
-          "line": 3,
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/request-review.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/request-review/SKILL.md",
+          "line": 10,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -1824,7 +3840,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 22
+      "link_count": 26
     },
     {
       "id": "e45s18",
@@ -1833,8 +3849,32 @@
       "epic_title": "Quality Core \u2014 Skill Hardening & Verification Patterns",
       "bcp": 2,
       "wsjf": 5.0,
-      "status": "todo",
+      "status": "done",
       "links": [
+        {
+          "file": ".gemini/extensions/bigpowers/commands/prompts/security-review.md",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/commands/prompts/audit-code.md",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/skills/security-review/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/skills/audit-code/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "scripts/lib/parallel-review-worktrees.sh",
           "line": 2,
@@ -1843,13 +3883,37 @@
         },
         {
           "file": "skills/security-review/SKILL.md",
-          "line": 2,
+          "line": 14,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": "skills/audit-code/SKILL.md",
-          "line": 2,
+          "line": 13,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/security-review.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/audit-code.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/security-review/SKILL.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/audit-code/SKILL.md",
+          "line": 9,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -3300,6 +5364,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-084719.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260704-171157.md",
           "line": 0,
           "confidence": "medium",
@@ -3624,6 +5694,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-084617.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-084805.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260706-174631.md",
           "line": 0,
           "confidence": "medium",
@@ -3906,6 +5988,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-084911.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260629-130700.md",
           "line": 0,
           "confidence": "medium",
@@ -4128,7 +6216,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 382
+      "link_count": 394
     },
     {
       "id": "e45s19",
@@ -4137,7 +6225,7 @@
       "epic_title": "Quality Core \u2014 Skill Hardening & Verification Patterns",
       "bcp": 2,
       "wsjf": 5.0,
-      "status": "todo",
+      "status": "done",
       "links": [
         {
           "file": "skills/context7-mcp/SKILL.md",
@@ -4191,7 +6279,7 @@
       "epic_title": "Quality Core \u2014 Skill Hardening & Verification Patterns",
       "bcp": 2,
       "wsjf": 5.0,
-      "status": "todo",
+      "status": "done",
       "links": [
         {
           "file": "scripts/lib/doc-fetch-cache.sh",
@@ -4209,17 +6297,29 @@
       "epic_title": "Quality Core \u2014 Skill Hardening & Verification Patterns",
       "bcp": 2,
       "wsjf": 5.0,
-      "status": "todo",
+      "status": "done",
       "links": [
         {
           "file": ".gemini/extensions/bigpowers/commands/prompts/seed-conventions.md",
-          "line": 95,
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/commands/prompts/seed-conventions.md",
+          "line": 99,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": ".gemini/extensions/bigpowers/skills/seed-conventions/SKILL.md",
-          "line": 100,
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/skills/seed-conventions/SKILL.md",
+          "line": 104,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -4237,19 +6337,31 @@
         },
         {
           "file": "skills/seed-conventions/SKILL.md",
-          "line": 2,
+          "line": 12,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": ".pi/prompts/seed-conventions.md",
-          "line": 99,
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/seed-conventions.md",
+          "line": 103,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": ".pi/skills/seed-conventions/SKILL.md",
-          "line": 101,
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/seed-conventions/SKILL.md",
+          "line": 105,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -4278,7 +6390,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 11
+      "link_count": 15
     },
     {
       "id": "e45s22",
@@ -4287,7 +6399,7 @@
       "epic_title": "Quality Core \u2014 Skill Hardening & Verification Patterns",
       "bcp": 2,
       "wsjf": 5.0,
-      "status": "todo",
+      "status": "done",
       "links": [
         {
           "file": "CLAUDE.md",
@@ -4296,13 +6408,19 @@
           "method": "explicit_tag"
         },
         {
+          "file": "specs/agent-guide/context-routing.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/epics/e05-context-isolation-routing.yaml",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         }
       ],
-      "link_count": 2
+      "link_count": 3
     },
     {
       "id": "e45s23",
@@ -4311,7 +6429,7 @@
       "epic_title": "Quality Core \u2014 Skill Hardening & Verification Patterns",
       "bcp": 2,
       "wsjf": 5.0,
-      "status": "todo",
+      "status": "done",
       "links": [
         {
           "file": ".gemini/extensions/bigpowers/commands/prompts/session-state.md",
@@ -4327,7 +6445,7 @@
         },
         {
           "file": "skills/session-state/SKILL.md",
-          "line": 8,
+          "line": 11,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -4348,9 +6466,21 @@
           "line": 8,
           "confidence": "high",
           "method": "explicit_tag"
+        },
+        {
+          "file": "specs/agent-guide/learned-user-preferences.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/agent-guide/workspace-facts.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
         }
       ],
-      "link_count": 6
+      "link_count": 8
     },
     {
       "id": "e45s24",
@@ -4359,8 +6489,14 @@
       "epic_title": "Quality Core \u2014 Skill Hardening & Verification Patterns",
       "bcp": 2,
       "wsjf": 5.0,
-      "status": "todo",
+      "status": "done",
       "links": [
+        {
+          "file": "skills/plan-work/REFERENCE.md",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "specs/verifications/steps/and-files-should-be-small-enough-to-avoid-context-window-truncation-300-lines.sh",
           "line": 0,
@@ -4374,7 +6510,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 2
+      "link_count": 3
     },
     {
       "id": "e45s25",
@@ -4383,11 +6519,11 @@
       "epic_title": "Quality Core \u2014 Skill Hardening & Verification Patterns",
       "bcp": 4,
       "wsjf": 5.0,
-      "status": "todo",
+      "status": "done",
       "links": [
         {
           "file": "CONVENTIONS.md",
-          "line": 6,
+          "line": 9,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -4404,13 +6540,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/conventions-wiki/risk-tiers-effective-rule-matrix.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/steps/and-the-plan-contains-a-risk-matrix.sh",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         }
       ],
-      "link_count": 4
+      "link_count": 5
     },
     {
       "id": "e45s26",
@@ -4419,23 +6561,23 @@
       "epic_title": "Quality Core \u2014 Skill Hardening & Verification Patterns",
       "bcp": 2,
       "wsjf": 5.0,
-      "status": "todo",
+      "status": "done",
       "links": [
         {
           "file": ".gemini/extensions/bigpowers/commands/prompts/security-review.md",
-          "line": 2,
+          "line": 6,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": ".gemini/extensions/bigpowers/skills/security-review/SKILL.md",
-          "line": 7,
+          "line": 11,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": "skills/security-review/SKILL.md",
-          "line": 15,
+          "line": 23,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -4465,13 +6607,13 @@
         },
         {
           "file": ".pi/prompts/security-review.md",
-          "line": 6,
+          "line": 10,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": ".pi/skills/security-review/SKILL.md",
-          "line": 8,
+          "line": 12,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -4509,7 +6651,7 @@
       "epic_title": "Quality Core \u2014 Skill Hardening & Verification Patterns",
       "bcp": 2,
       "wsjf": 5.0,
-      "status": "todo",
+      "status": "done",
       "links": [
         {
           "file": ".gemini/extensions/bigpowers/commands/prompts/compose-workflow.md",
@@ -4525,7 +6667,7 @@
         },
         {
           "file": "skills/compose-workflow/SKILL.md",
-          "line": 8,
+          "line": 9,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -4551,35 +6693,35 @@
       "epic_title": "Quality Core \u2014 Skill Hardening & Verification Patterns",
       "bcp": 2,
       "wsjf": 5.0,
-      "status": "todo",
+      "status": "done",
       "links": [
         {
           "file": ".gemini/extensions/bigpowers/commands/prompts/request-review.md",
-          "line": 2,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".gemini/extensions/bigpowers/skills/request-review/SKILL.md",
           "line": 7,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
+          "file": ".gemini/extensions/bigpowers/skills/request-review/SKILL.md",
+          "line": 12,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "skills/request-review/SKILL.md",
-          "line": 11,
+          "line": 13,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": ".pi/prompts/request-review.md",
-          "line": 6,
+          "line": 11,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": ".pi/skills/request-review/SKILL.md",
-          "line": 8,
+          "line": 13,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -4623,7 +6765,7 @@
       "epic_title": "Quality Core \u2014 Skill Hardening & Verification Patterns",
       "bcp": 2,
       "wsjf": 5.0,
-      "status": "todo",
+      "status": "done",
       "links": [
         {
           "file": ".gemini/extensions/bigpowers/commands/prompts/slice-tasks.md",
@@ -4633,7 +6775,7 @@
         },
         {
           "file": ".gemini/extensions/bigpowers/commands/prompts/plan-work.md",
-          "line": 2,
+          "line": 9,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -4645,7 +6787,7 @@
         },
         {
           "file": ".gemini/extensions/bigpowers/skills/plan-work/SKILL.md",
-          "line": 7,
+          "line": 14,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -4663,7 +6805,7 @@
         },
         {
           "file": "skills/plan-work/SKILL.md",
-          "line": 13,
+          "line": 16,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -4675,7 +6817,7 @@
         },
         {
           "file": "skills/slice-tasks/SKILL.md",
-          "line": 8,
+          "line": 9,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -4687,7 +6829,7 @@
         },
         {
           "file": ".pi/prompts/plan-work.md",
-          "line": 6,
+          "line": 13,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -4699,7 +6841,7 @@
         },
         {
           "file": ".pi/skills/plan-work/SKILL.md",
-          "line": 8,
+          "line": 15,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -4725,11 +6867,11 @@
       "epic_title": "Quality Core \u2014 Skill Hardening & Verification Patterns",
       "bcp": 2,
       "wsjf": 5.0,
-      "status": "todo",
+      "status": "done",
       "links": [
         {
           "file": ".gemini/extensions/bigpowers/commands/prompts/dispatch-agents.md",
-          "line": 2,
+          "line": 6,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -4747,25 +6889,25 @@
         },
         {
           "file": ".gemini/extensions/bigpowers/skills/dispatch-agents/SKILL.md",
-          "line": 7,
+          "line": 11,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": "skills/delegate-task/SKILL.md",
-          "line": 8,
+          "line": 9,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": "skills/dispatch-agents/SKILL.md",
-          "line": 10,
+          "line": 13,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": ".pi/prompts/dispatch-agents.md",
-          "line": 6,
+          "line": 10,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -4783,7 +6925,7 @@
         },
         {
           "file": ".pi/skills/dispatch-agents/SKILL.md",
-          "line": 8,
+          "line": 12,
           "confidence": "high",
           "method": "explicit_tag"
         }
@@ -4797,8 +6939,32 @@
       "epic_title": "Quality Core \u2014 Skill Hardening & Verification Patterns",
       "bcp": 2,
       "wsjf": 5.0,
-      "status": "todo",
+      "status": "done",
       "links": [
+        {
+          "file": ".gemini/extensions/bigpowers/commands/prompts/audit-code.md",
+          "line": 4,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/commands/prompts/deepen-architecture.md",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/skills/deepen-architecture/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/skills/audit-code/SKILL.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "scripts/bp-churn-rank.sh",
           "line": 2,
@@ -4807,13 +6973,37 @@
         },
         {
           "file": "skills/deepen-architecture/SKILL.md",
-          "line": 1,
+          "line": 9,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": "skills/audit-code/SKILL.md",
-          "line": 3,
+          "line": 14,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/audit-code.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/deepen-architecture.md",
+          "line": 6,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/deepen-architecture/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/audit-code/SKILL.md",
+          "line": 10,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -6294,6 +8484,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-084719.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260704-171157.md",
           "line": 0,
           "confidence": "medium",
@@ -6618,6 +8814,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-084617.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-084805.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260706-174631.md",
           "line": 0,
           "confidence": "medium",
@@ -6900,6 +9108,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260707-084911.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260629-130700.md",
           "line": 0,
           "confidence": "medium",
@@ -7104,7 +9318,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 384
+      "link_count": 396
     },
     {
       "id": "e45s32",
@@ -7113,17 +9327,41 @@
       "epic_title": "Quality Core \u2014 Skill Hardening & Verification Patterns",
       "bcp": 2,
       "wsjf": 5.0,
-      "status": "todo",
+      "status": "done",
       "links": [
         {
+          "file": ".gemini/extensions/bigpowers/commands/prompts/release-branch.md",
+          "line": 4,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/skills/release-branch/SKILL.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "skills/release-branch/SKILL.md",
-          "line": 3,
+          "line": 11,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": "skills/gate-trace/SKILL.md",
-          "line": 6,
+          "line": 5,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/release-branch.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/release-branch/SKILL.md",
+          "line": 10,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -7242,7 +9480,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 21
+      "link_count": 25
     },
     {
       "id": "e45s33",
@@ -7251,8 +9489,20 @@
       "epic_title": "Quality Core \u2014 Skill Hardening & Verification Patterns",
       "bcp": 2,
       "wsjf": 5.0,
-      "status": "todo",
+      "status": "done",
       "links": [
+        {
+          "file": ".gemini/extensions/bigpowers/commands/prompts/plan-work.md",
+          "line": 5,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/skills/plan-work/SKILL.md",
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "docs/countable-story-format.md",
           "line": 3,
@@ -7261,12 +9511,24 @@
         },
         {
           "file": "skills/plan-work/SKILL.md",
-          "line": 4,
+          "line": 14,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/plan-work.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/plan-work/SKILL.md",
+          "line": 11,
           "confidence": "high",
           "method": "explicit_tag"
         }
       ],
-      "link_count": 2
+      "link_count": 6
     },
     {
       "id": "e45s34",
@@ -7275,11 +9537,35 @@
       "epic_title": "Quality Core \u2014 Skill Hardening & Verification Patterns",
       "bcp": 2,
       "wsjf": 5.0,
-      "status": "todo",
+      "status": "done",
       "links": [
         {
+          "file": ".gemini/extensions/bigpowers/commands/prompts/develop-tdd.md",
+          "line": 5,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/skills/develop-tdd/SKILL.md",
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "skills/develop-tdd/SKILL.md",
-          "line": 4,
+          "line": 13,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/develop-tdd.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/develop-tdd/SKILL.md",
+          "line": 11,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -7314,7 +9600,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 6
+      "link_count": 10
     },
     {
       "id": "e45s35",
@@ -7323,11 +9609,35 @@
       "epic_title": "Quality Core \u2014 Skill Hardening & Verification Patterns",
       "bcp": 2,
       "wsjf": 5.0,
-      "status": "todo",
+      "status": "done",
       "links": [
         {
+          "file": ".gemini/extensions/bigpowers/commands/prompts/plan-work.md",
+          "line": 6,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/skills/plan-work/SKILL.md",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "skills/plan-work/SKILL.md",
-          "line": 5,
+          "line": 15,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/plan-work.md",
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/plan-work/SKILL.md",
+          "line": 12,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -7362,7 +9672,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 6
+      "link_count": 10
     },
     {
       "id": "e45s36",
@@ -7371,16 +9681,22 @@
       "epic_title": "Quality Core \u2014 Skill Hardening & Verification Patterns",
       "bcp": 2,
       "wsjf": 5.0,
-      "status": "todo",
+      "status": "done",
       "links": [
         {
           "file": "CONVENTIONS.md",
-          "line": 7,
+          "line": 10,
           "confidence": "high",
           "method": "explicit_tag"
+        },
+        {
+          "file": "specs/conventions-wiki/documentation-responsibilities-e45s36.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
         }
       ],
-      "link_count": 1
+      "link_count": 2
     },
     {
       "id": "e45s37",
@@ -7389,11 +9705,35 @@
       "epic_title": "Quality Core \u2014 Skill Hardening & Verification Patterns",
       "bcp": 2,
       "wsjf": 5.0,
-      "status": "todo",
+      "status": "done",
       "links": [
         {
+          "file": ".gemini/extensions/bigpowers/commands/prompts/run-evals.md",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/skills/run-evals/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "skills/run-evals/SKILL.md",
-          "line": 1,
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/run-evals.md",
+          "line": 6,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/run-evals/SKILL.md",
+          "line": 8,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -7440,7 +9780,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 8
+      "link_count": 12
     },
     {
       "id": "e45s38",
@@ -7449,17 +9789,65 @@
       "epic_title": "Quality Core \u2014 Skill Hardening & Verification Patterns",
       "bcp": 2,
       "wsjf": 5.0,
-      "status": "todo",
+      "status": "done",
       "links": [
         {
+          "file": ".gemini/extensions/bigpowers/commands/prompts/diagnose-stall.md",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/commands/prompts/dispatch-agents.md",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/skills/diagnose-stall/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/skills/dispatch-agents/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "skills/diagnose-stall/SKILL.md",
-          "line": 1,
+          "line": 8,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": "skills/dispatch-agents/SKILL.md",
-          "line": 1,
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/diagnose-stall.md",
+          "line": 6,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/dispatch-agents.md",
+          "line": 6,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/diagnose-stall/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/dispatch-agents/SKILL.md",
+          "line": 8,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -7476,7 +9864,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 4
+      "link_count": 12
     },
     {
       "id": "e45s39",
@@ -7485,16 +9873,40 @@
       "epic_title": "Quality Core \u2014 Skill Hardening & Verification Patterns",
       "bcp": 2,
       "wsjf": 5.0,
-      "status": "todo",
+      "status": "done",
       "links": [
         {
+          "file": ".gemini/extensions/bigpowers/commands/prompts/release-branch.md",
+          "line": 5,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/skills/release-branch/SKILL.md",
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "skills/release-branch/SKILL.md",
-          "line": 4,
+          "line": 12,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/release-branch.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/release-branch/SKILL.md",
+          "line": 11,
           "confidence": "high",
           "method": "explicit_tag"
         }
       ],
-      "link_count": 1
+      "link_count": 5
     },
     {
       "id": "e45s40",
@@ -7503,11 +9915,35 @@
       "epic_title": "Quality Core \u2014 Skill Hardening & Verification Patterns",
       "bcp": 2,
       "wsjf": 5.0,
-      "status": "todo",
+      "status": "done",
       "links": [
         {
+          "file": ".gemini/extensions/bigpowers/commands/prompts/verify-work.md",
+          "line": 6,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/skills/verify-work/SKILL.md",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "skills/verify-work/SKILL.md",
-          "line": 5,
+          "line": 13,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/verify-work.md",
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/verify-work/SKILL.md",
+          "line": 12,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -7572,7 +10008,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 11
+      "link_count": 15
     },
     {
       "id": "e45s41",
@@ -7581,11 +10017,41 @@
       "epic_title": "Quality Core \u2014 Skill Hardening & Verification Patterns",
       "bcp": 2,
       "wsjf": 5.0,
-      "status": "todo",
+      "status": "done",
       "links": [
         {
+          "file": ".gemini/extensions/bigpowers/commands/prompts/security-review.md",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/skills/security-review/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/state.yaml",
+          "line": 14,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "skills/security-review/SKILL.md",
-          "line": 1,
+          "line": 13,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/security-review.md",
+          "line": 6,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/security-review/SKILL.md",
+          "line": 8,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -7614,7 +10080,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 5
+      "link_count": 10
     },
     {
       "id": "e48s01",
@@ -7633,7 +10099,7 @@
         },
         {
           "file": "specs/benchmarks/SCHEMA.md",
-          "line": 2,
+          "line": 3,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -9830,8 +12296,8 @@
     }
   ],
   "summary": {
-    "total_stories": 55,
-    "tagged_stories": 44,
+    "total_stories": 71,
+    "tagged_stories": 61,
     "dark_stories": [
       "e48s07",
       "e48s08"
@@ -9839,22 +12305,127 @@
     "dark_count": 2,
     "orphan_tags": [
       "e01s01",
+      "e01s02",
       "e01s03",
+      "e01s04",
       "e02s01",
-      "e13s02",
+      "e02s02",
+      "e02s03",
+      "e02s04",
+      "e03s01",
+      "e03s02",
+      "e03s03",
+      "e04s01",
+      "e04s02",
+      "e04s03",
+      "e05s01",
+      "e05s02",
+      "e05s03",
+      "e06s01",
+      "e06s02",
+      "e06s03",
+      "e07s01",
+      "e07s02",
+      "e07s03",
+      "e08s01",
+      "e09s01",
+      "e09s02",
+      "e09s03",
+      "e09s04",
+      "e09s05",
+      "e09s06",
+      "e10s01",
+      "e10s02",
+      "e11s01",
+      "e11s02",
+      "e11s03",
+      "e11s05",
+      "e12s01",
+      "e12s02",
+      "e12s03",
+      "e12s04",
+      "e12s05",
+      "e12s06",
+      "e13s01",
       "e13s03",
+      "e14s01",
+      "e14s02",
+      "e14s03",
+      "e15s01",
+      "e15s02",
+      "e15s03",
+      "e16s01",
+      "e16s02",
+      "e17s01",
+      "e18s01",
+      "e18s02",
+      "e18s03",
+      "e18s04",
+      "e18s05",
+      "e19s01",
+      "e20s01",
+      "e20s02",
+      "e20s03",
+      "e20s04",
+      "e20s05",
+      "e20s06",
+      "e21s01",
+      "e21s02",
+      "e21s03",
+      "e21s04",
+      "e22s01",
+      "e22s02",
+      "e23s01",
+      "e23s02",
+      "e23s03",
+      "e24s01",
+      "e24s02",
+      "e24s03",
+      "e25s01",
+      "e25s02",
+      "e25s03",
+      "e25s04",
+      "e25s05",
+      "e25s06",
+      "e26s01",
+      "e26s02",
+      "e26s03",
+      "e26s04",
+      "e26s05",
+      "e26s06",
+      "e26s07",
+      "e27s01",
       "e28s01",
+      "e28s02",
+      "e28s03",
       "e28s04",
+      "e29s01",
+      "e29s02",
+      "e29s03",
       "e30s01",
       "e30s02",
       "e30s03",
+      "e31s01",
+      "e31s02",
+      "e31s03",
       "e31s04",
+      "e31s05",
+      "e31s06",
+      "e31s07",
       "e32s01",
       "e32s02",
       "e32s03",
       "e32s04",
       "e32s05",
+      "e33s01",
+      "e33s02",
+      "e33s03",
       "e33s04",
+      "e33s05",
+      "e34s01",
+      "e34s02",
+      "e34s03",
+      "e34s04",
       "e35s01",
       "e35s02",
       "e35s03",
@@ -9865,20 +12436,10 @@
       "e35s08",
       "e35s09",
       "e35s10",
-      "e37s01",
-      "e37s02",
-      "e37s03",
-      "e37s04",
-      "e37s05",
-      "e37s06",
-      "e37s07",
-      "e37s08",
-      "e37s09",
-      "e37s10",
-      "e37s11",
-      "e37s12",
-      "e37s13",
-      "e37s15",
+      "e36s01",
+      "e36s02",
+      "e36s03",
+      "e36s04",
       "e38s01",
       "e38s02",
       "e38s03",
@@ -9895,10 +12456,13 @@
       "e39s05",
       "e39s06",
       "e39s07",
+      "e39s08",
       "e39s09",
+      "e39s10",
       "e40s04",
       "e40s06",
       "e41s01",
+      "e42s01",
       "e42s02",
       "e42s03",
       "e42s04",
@@ -9910,6 +12474,9 @@
       "e44s05",
       "e44s06",
       "e46s01",
+      "e46s04",
+      "e47s02",
+      "e47s03",
       "e47s04",
       "e51s01",
       "e51s02",
@@ -9918,13 +12485,71 @@
       "e51s05",
       "e99s01"
     ],
-    "orphan_count": 79,
-    "stale_tags": [],
-    "stale_count": 0,
+    "orphan_count": 180,
+    "stale_tags": [
+      "e37s01",
+      "e37s02",
+      "e37s03",
+      "e37s04",
+      "e37s05",
+      "e37s06",
+      "e37s07",
+      "e37s08",
+      "e37s09",
+      "e37s10",
+      "e37s11",
+      "e37s12",
+      "e37s13",
+      "e37s14",
+      "e37s15",
+      "e37s16",
+      "e45s01",
+      "e45s02",
+      "e45s03",
+      "e45s04",
+      "e45s05",
+      "e45s06",
+      "e45s07",
+      "e45s08",
+      "e45s09",
+      "e45s10",
+      "e45s11",
+      "e45s12",
+      "e45s13",
+      "e45s14",
+      "e45s15",
+      "e45s16",
+      "e45s17",
+      "e45s18",
+      "e45s19",
+      "e45s20",
+      "e45s21",
+      "e45s22",
+      "e45s23",
+      "e45s24",
+      "e45s25",
+      "e45s26",
+      "e45s27",
+      "e45s28",
+      "e45s29",
+      "e45s30",
+      "e45s31",
+      "e45s32",
+      "e45s33",
+      "e45s34",
+      "e45s35",
+      "e45s36",
+      "e45s37",
+      "e45s38",
+      "e45s39",
+      "e45s40",
+      "e45s41"
+    ],
+    "stale_count": 57,
     "oracle_stats": {
-      "high": 136,
-      "medium": 1390,
-      "low": 2
+      "high": 358,
+      "medium": 1445,
+      "low": 104
     }
   }
 }

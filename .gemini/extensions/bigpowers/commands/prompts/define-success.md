@@ -1,4 +1,7 @@
 
+ARCHIVED: content absorbed into plan-work
+
+
 # Define Success
 
 Transform "do X" into "step → verify: <cmd>" pairs. This is the pre-flight check before `plan-work` or `develop-tdd` — it makes success observable and removes ambiguity about when you're done.

@@ -3,6 +3,7 @@ name: elaborate-spec
 model: opus
 effort: standard
 description: Refine a rough idea into a clear, detailed specification through dialogue. Does not produce code. Use when user has a vague idea, wants to think through a feature before planning, or needs to turn "I want X" into a concrete spec.
+# story: e24s01
 ---
 
 # Elaborate Spec

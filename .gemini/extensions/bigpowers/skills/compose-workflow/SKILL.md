@@ -4,7 +4,9 @@ description: "Chain multiple bigpowers skills into a custom workflow recipe save
 ---
 
 
+# story: e09s01
 # story: e45s27
+# story: e21s04
 
 # Compose Workflow
 > **HARD GATE** — **HARD GATE** — Workflows are orchestration, not automation. Do NOT create workflows for tasks that should be single skills. Workflow complexity must be justified.

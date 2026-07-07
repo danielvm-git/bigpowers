@@ -4,6 +4,8 @@ description: "Grilling session that challenges your plan against the existing do
 ---
 
 
+# story: e07s03
+
 # Model Domain
 
 **Distinct from `define-language` and `deepen-architecture`:** Use this skill to stress-test a plan through a grilling interview that resolves domain model decisions and captures invariants. Use `define-language` to produce a canonical glossary of terms. Use `deepen-architecture` to find module-level refactoring opportunities in code.

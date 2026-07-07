@@ -5,6 +5,8 @@ model: haiku
 ---
 
 
+# story: e01s03
+
 # Guard Git
 > **HARD GATE** — **HARD GATE** — Before committing, verify: branch is not main/master, author is correct, git user is configured. Bad commits are hard to fix.
 

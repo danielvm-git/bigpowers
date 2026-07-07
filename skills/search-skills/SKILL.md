@@ -5,6 +5,9 @@ model: haiku
 effort: standard
 ---
 
+# story: e09s01
+# story: e21s01
+
 # Search Skills
 
 > **HARD GATE** — Search results must be ranked by relevance. Do NOT return all matches without prioritization. Use skill metadata (phase, purpose, frequency) to rank.

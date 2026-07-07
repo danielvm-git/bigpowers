@@ -1,10 +1,13 @@
-# story: e51s03
 ---
 name: kickoff-branch
 model: haiku
 effort: standard
 description: Create a git worktree and feature branch, then verify a clean test baseline before any code is written. Use when starting a new feature or task, when user wants to work in isolation from main, or mentions "start a branch" or "new worktree".
 ---
+
+# story: e51s03
+# story: e20s03
+
 
 # Kickoff Branch
 

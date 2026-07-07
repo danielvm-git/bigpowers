@@ -1,3 +1,6 @@
+# story: e05s01 e46s04
+# story: e06s02
+# story: e07s01
 # story: e30s02
 # story: e30s03
 # story: e38s08
@@ -5,6 +8,8 @@
 # story: e51s01
 # story: e45s25
 # story: e45s36
+# story: e27s01
+# story: e29s03
 
 # Conventions
 

@@ -5,6 +5,11 @@ model: sonnet
 ---
 
 
+# story: e07s02
+# story: e45s31
+<!-- story: e45s14 -->
+
+
 # Deepen Architecture
 
 Surface architectural friction and propose **deepening opportunities** — refactors that turn shallow modules into deep ones. The aim is testability and AI-navigability.

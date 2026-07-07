@@ -1,3 +1,7 @@
+# story: e23s03
+
+# story: e09s01
+# story: e09s05
 
 # Evolve Skill
 
@@ -25,6 +29,9 @@
 → verify: `grep -c 'run-benchmark\|pass_at_k\|BASELINE-' skills/evolve-skill/SKILL.md | awk '{if($1>=2) print "OK"; else print "FAIL"}'`
 
 See [REFERENCE.md](REFERENCE.md) for ADR template.
+
+
+<!-- story: e31s07 -->
 
 ---
 

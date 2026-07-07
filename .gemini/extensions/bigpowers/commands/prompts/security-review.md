@@ -1,4 +1,13 @@
 
+# story: e45s41
+<!-- story: e45s18 -->
+# story: e26s01
+# story: e26s02
+# story: e26s03
+# story: e26s04
+# story: e26s05
+# story: e26s06
+# story: e26s07
 # story: e45s26
 
 # Security Review
@@ -95,11 +104,8 @@ Each finding: **`File:Line` — Severity — Category**
 
 ## Verify
 
-
-
 ```bash
-test -d specs/security && echo "OK: specs/security/ exists" || mkdir -p specs/security
-grep -q "Merge-base\|merge.base\|git diff" SKILL.md && echo "OK: git context verified"
+test -d specs/security && echo "OK: specs/security/ exists" || mkdir -p specs/security; grep -q "Merge-base\|merge.base\|git diff" SKILL.md && echo "OK: git context verified"
 ```
 
 ---

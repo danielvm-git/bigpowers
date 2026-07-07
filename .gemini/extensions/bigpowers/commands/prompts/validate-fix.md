@@ -1,4 +1,7 @@
 
+# story: e45s08
+
+
 # Validate Fix
 > **HARD GATE** — **HARD GATE** — Fix must not regress. Run full test suite and manual UAT before declaring success. A fix that passes tests but breaks something else is a failure.
 

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# story: e21s03
 # bp-read-agents.sh — Extract preflight/test/build/lint/deploy commands from AGENTS.md.
 # Outputs env-var exports: BP_PREFLIGHT, BP_TEST, BP_BUILD, BP_LINT, BP_DEPLOY
 # Usage: eval "$(bash scripts/bp-read-agents.sh)"  # imports env vars

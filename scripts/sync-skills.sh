@@ -1,5 +1,16 @@
 #!/usr/bin/env bash
-# story: e13s03 e28s03 e39s04
+# story: e05s01
+# story: e12s01
+# story: e12s02
+# story: e12s03
+# story: e12s04
+# story: e12s06
+# story: e13s03
+# story: e28s02
+# story: e28s03
+# story: e39s04
+# story: e29s01
+# story: e29s02
 # sync-skills.sh — generate Cursor, Gemini CLI, pi, and OKF artifacts from SKILL.md source files
 # Architecture: Parse→IR→Render. Each target is its own render_<target>() function.
 # Run this after adding or updating any skill. Symlinks carry changes through automatically.

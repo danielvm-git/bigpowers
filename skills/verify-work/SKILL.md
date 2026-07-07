@@ -1,15 +1,20 @@
-<!-- story: e38s05 -->
-<!-- story: e45s05 -->
-<!-- story: e45s09 -->
-<!-- story: e45s13 -->
-<!-- story: e45s40 -->
-<!-- story: e51s03 -->
 ---
 name: verify-work
 description: Multi-phase UAT gate — cold-start smoke, build, typecheck, lint, tests, step-by-step manual verification, gaps-closure loop. Use after execute-plan or develop-tdd, before audit-code.
 model: haiku
 effort: standard
 ---
+
+<!-- story: e02s01 e46s03 -->
+<!-- story: e38s05 -->
+<!-- story: e45s05 -->
+<!-- story: e45s09 -->
+<!-- story: e45s13 -->
+<!-- story: e45s40 -->
+<!-- story: e51s03 -->
+<!-- story: e20s04 -->
+<!-- story: e20s06 -->
+
 
 # Verify Work
 

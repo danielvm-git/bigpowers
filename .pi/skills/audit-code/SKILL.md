@@ -5,6 +5,14 @@ model: haiku
 ---
 
 
+# story: e01s02
+# story: e06s03
+# story: e07s01
+# story: e51s04
+# story: e45s18
+# story: e45s31
+
+
 # Audit Code
 > **HARD GATE** — **HARD GATE** — Audit must check for: bugs (correctness), security, performance, and clarity. Do NOT skip security review if the code touches user data, auth, or external APIs.
 

@@ -3,6 +3,17 @@ description: Multi-phase UAT gate — cold-start smoke, build, typecheck, lint, 
 ---
 
 
+<!-- story: e02s01 e46s03 -->
+<!-- story: e38s05 -->
+<!-- story: e45s05 -->
+<!-- story: e45s09 -->
+<!-- story: e45s13 -->
+<!-- story: e45s40 -->
+<!-- story: e51s03 -->
+<!-- story: e20s04 -->
+<!-- story: e20s06 -->
+
+
 # Verify Work
 
 > **HARD GATE** — No story is "done" until manual UAT for the active story is confirmed with evidence.

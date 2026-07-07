@@ -1,10 +1,12 @@
 ---
 name: build-epic
-# story: e38s02
+# story: e18s01 e18s02 e18s03 e38s02
 model: sonnet
 effort: standard
 description: Eight-step epic build cycle — reads state.yaml, execution-status.yaml, and one epic capsule; updates status via bp-yaml-set or direct edit. Resume mode runs one step per invocation. Use instead of ad-hoc execute-plan for release work.
 ---
+
+# story: e20s05
 
 # Build Epic
 
@@ -90,3 +92,6 @@ Write `handoff.next_skill` and `handoff.context` in `state.yaml` when pausing mi
 ## Verify
 
 → verify: `test -f specs/state.yaml && test -f specs/execution-status.yaml && test -f specs/release-plan.yaml && test -d skills/assess-impact && test -d skills/audit-code && test -d skills/security-review && echo "OK: build-epic dependencies present" || echo "FAIL"`
+
+
+<!-- story: e38s02 -->

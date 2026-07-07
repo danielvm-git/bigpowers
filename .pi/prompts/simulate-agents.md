@@ -3,6 +3,8 @@ description: Run Mock User and Auditor agents against a feature in fresh context
 ---
 
 
+# story: e09s01
+
 # Simulate Agents
 > **HARD GATE** — **HARD GATE** — Simulations are hypothetical. Do NOT use sim results to make production decisions without validation on real agents. Sims help discover gaps, not replace testing.
 

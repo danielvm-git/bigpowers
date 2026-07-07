@@ -1,4 +1,9 @@
 
+# story: e09s04
+# story: e45s38
+<!-- story: e45s11 -->
+
+
 # story: e45s30
 
 # Dispatch Agents
@@ -105,5 +110,4 @@ Merge accepted results. Resolve conflicts manually; note in summary.
 Report: which tasks succeeded, which need revision, overall verify status.
 
 ## Verify
-
 → verify: `grep -q 'circuit_open' skills/dispatch-agents/SKILL.md && grep -q 'task_brief' skills/dispatch-agents/SKILL.md && echo OK || echo FAIL`

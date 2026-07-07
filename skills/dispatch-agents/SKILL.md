@@ -1,11 +1,14 @@
-# story: e45s38
-<!-- story: e45s11 -->
 ---
 name: dispatch-agents
 model: sonnet
 effort: standard
 description: Dispatch multiple subagents in parallel on independent tasks. No waiting between them — all run concurrently. Use when tasks are truly decoupled and speed matters. Distinct from delegate-task (concurrent here, no inter-task review gate).
 ---
+
+# story: e09s04
+# story: e45s38
+<!-- story: e45s11 -->
+
 
 # story: e45s30
 
@@ -113,6 +116,5 @@ Merge accepted results. Resolve conflicts manually; note in summary.
 Report: which tasks succeeded, which need revision, overall verify status.
 
 ## Verify
-
 → verify: `grep -q 'circuit_open' skills/dispatch-agents/SKILL.md && grep -q 'task_brief' skills/dispatch-agents/SKILL.md && echo OK || echo FAIL`
 

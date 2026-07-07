@@ -1,13 +1,17 @@
-<!-- story: e38s07 -->
-<!-- story: e45s15 -->
-<!-- story: e45s32 -->
-<!-- story: e45s39 -->
 ---
 name: release-branch
+# story: e14s01 e15s03
 model: haiku
 effort: standard
 description: Make the merge/PR/keep/discard decision for a feature branch, verify coverage gates, create the PR with gh, and clean up the worktree. Use when a feature is done and ready to ship, or when user says "release", "merge", or "open a PR".
 ---
+
+<!-- story: e38s07 -->
+<!-- story: e45s15 -->
+<!-- story: e45s32 -->
+<!-- story: e45s39 -->
+<!-- story: e20s02 -->
+
 
 # Release Branch
 

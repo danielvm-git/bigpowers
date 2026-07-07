@@ -2,6 +2,12 @@
 description: Detect GSD, spec-kit, or BMAD spec artifacts and transform them into bigpowers YAML layout (state.yaml, release-plan.yaml, epics/, requirements/, plans/, ADRs). Use when migrating foreign spec docs.
 ---
 
+# story: e25s01
+# story: e25s02
+# story: e25s03
+# story: e25s04
+# story: e25s05
+# story: e25s06
 
 # Migrate Spec
 

@@ -1,63 +1,79 @@
 # Traceability Matrix
 
-**Generated:** 2026-07-07 03:20:35 UTC
-**Total stories:** 55
-**Tagged stories:** 44
+**Generated:** 2026-07-07 12:58:15 UTC
+**Total stories:** 71
+**Tagged stories:** 61
 **Dark stories:** 2
-**Orphan tags:** 79
-**Stale tags:** 0
+**Orphan tags:** 180
+**Stale tags:** 57
 
 ## Oracle Stats
 
-- **High** (explicit tag): 136
-- **Medium** (file heuristic): 1390
-- **Low** (task reference): 2
+- **High** (explicit tag): 358
+- **Medium** (file heuristic): 1445
+- **Low** (task reference): 104
 
 ## Story Coverage
 
 | Story | Title | Epic | BCP | WSJF | Status | Links |
 |-------|-------|------|-----|------|--------|-------|
-| e45s01 | run-benchmark: add train/validation-split + with/without-ski | e45 | 3 | 5.0 | todo | 15 |
-| e45s02 | craft-skill: CSO description discipline + completion-honesty | e45 | 2 | 5.0 | todo | 14 |
-| e45s03 | CLAUDE.md token mgmt: mechanical PreToolUse hook backstop | e45 | 3 | 5.0 | todo | 4 |
-| e45s04 | slice-tasks / plan-work: pre-build cross-artifact consistenc | e45 | 3 | 5.0 | todo | 15 |
-| e45s05 | verify-work / gate-trace: adversarial gap-finding completene | e45 | 4 | 5.0 | todo | 23 |
-| e45s06 | tasks.yaml: literal failing→passing task ledger | e45 | 2 | 5.0 | todo | 2 |
-| e45s07 | request-review: dual-blind AND-gate review (Santa Method) | e45 | 2 | 5.0 | todo | 30 |
-| e45s08 | develop-tdd / validate-fix: two-commit red/green regression  | e45 | 2 | 5.0 | todo | 11 |
-| e45s09 | verify-work / plan-work: Pre-Implementation and Validation g | e45 | 2 | 5.0 | todo | 63 |
-| e45s10 | docs/references: auto-regenerate from source-of-truth docs v | e45 | 2 | 5.0 | todo | 6 |
-| e45s11 | orchestration / dispatch-agents: typed message protocol + 3- | e45 | 2 | 5.0 | todo | 5 |
-| e45s12 | stocktake-skills / craft-skill: code-enforced validator + au | e45 | 2 | 5.0 | todo | 29 |
-| e45s13 | verify-work: one-test-minimum terminal-verdict rule | e45 | 2 | 5.0 | todo | 11 |
-| e45s14 | deepen-architecture: declared import-boundary allowlist enfo | e45 | 2 | 5.0 | todo | 7 |
-| e45s15 | release-branch / deploy: three-independent-facts verificatio | e45 | 2 | 5.0 | todo | 9 |
-| e45s16 | CLAUDE.md rtk mandate: wire rtk-ai/rtk PreToolUse hook | e45 | 2 | 5.0 | todo | 4 |
-| e45s17 | request-review: fan-out to parallel review subagents | e45 | 2 | 5.0 | todo | 22 |
-| e45s18 | audit-code / security-review: worktree-isolated parallel che | e45 | 2 | 5.0 | todo | 382 |
-| e45s19 | Context7: bounded retry cap and explicit fallback block | e45 | 2 | 5.0 | todo | 7 |
-| e45s20 | Context7 / bts docs: wrap in ETag-revalidated fetch cache | e45 | 2 | 5.0 | todo | 1 |
-| e45s21 | seed-conventions / AGENTS.md: self-installing fenced markers | e45 | 2 | 5.0 | todo | 11 |
-| e45s22 | CLAUDE.md: context-aware directory routing | e45 | 2 | 5.0 | todo | 2 |
-| e45s23 | CLAUDE.md: live Learned User Preferences / Workspace Facts | e45 | 2 | 5.0 | todo | 6 |
-| e45s24 | REFERENCE.md files: embedded line-range navigation guides | e45 | 2 | 5.0 | todo | 2 |
-| e45s25 | CONVENTIONS.md risk tiers: compile to versioned, diffable ru | e45 | 4 | 5.0 | todo | 4 |
-| e45s26 | security-review: CWE mapping + 2 positive/2 negative fixture | e45 | 2 | 5.0 | todo | 13 |
-| e45s27 | loop / workflow: terminal-state taxonomy | e45 | 2 | 5.0 | todo | 5 |
-| e45s28 | request-review: hard max-iteration cap | e45 | 2 | 5.0 | todo | 10 |
-| e45s29 | requirements: ADDED/MODIFIED/REMOVED/RENAMED tags | e45 | 2 | 5.0 | todo | 15 |
-| e45s30 | subagent depth: formalize depth tiers | e45 | 2 | 5.0 | todo | 10 |
-| e45s31 | audit-code / deepen-architecture: churn-based look-here-firs | e45 | 2 | 5.0 | todo | 384 |
-| e45s32 | gate-trace / release-branch: adversarial-review refute frami | e45 | 2 | 5.0 | todo | 21 |
-| e45s33 | requirements: per-section approval state | e45 | 2 | 5.0 | todo | 2 |
-| e45s34 | develop-tdd: snapshot-before-transition hardening | e45 | 2 | 5.0 | todo | 6 |
-| e45s35 | plan-work: 5 fixed EARS sentence patterns | e45 | 2 | 5.0 | todo | 6 |
-| e45s36 | specs: Documentation Responsibilities table | e45 | 2 | 5.0 | todo | 1 |
-| e45s37 | run-evals: graduated eval-strictness tiers | e45 | 2 | 5.0 | todo | 8 |
-| e45s38 | orchestration: why-did-this-stall diagnostic skill | e45 | 2 | 5.0 | todo | 4 |
-| e45s39 | PR generation: literal provenance marker | e45 | 2 | 5.0 | todo | 1 |
-| e45s40 | verify-work: mandatory real-browser verification | e45 | 2 | 5.0 | todo | 11 |
-| e45s41 | security-review: proven authorship SQL-safety doctrine | e45 | 2 | 5.0 | todo | 5 |
+| e37s01 | seed-conventions — unified AGENTS.md template with e51 Prefl | e37 | 3 | 7.0 | done | 21 |
+| e37s02 | verify-install.sh + docs — Cline native AGENTS.md verificati | e37 | 2 | 7.0 | done | 11 |
+| e37s03 | seed-conventions — .aider.conf.yml read:AGENTS.md bridge for | e37 | 1 | 7.0 | done | 13 |
+| e37s04 | verify-install.sh — AGENTS.md spine assertions (OSS P1 + opt | e37 | 2 | 7.0 | done | 9 |
+| e37s05 | scripts/targets.yaml — declarative integration registry for  | e37 | 5 | 7.0 | done | 39 |
+| e37s06 | scripts/generate-context-bundle.sh — AGENTS.md single source | e37 | 3 | 7.0 | done | 18 |
+| e37s07 | sync-skills.sh — adapter dispatch from targets.yaml | e37 | 5 | 7.0 | done | 23 |
+| e37s08 | verify-install.sh — per-target contract matrix from targets. | e37 | 3 | 7.0 | done | 19 |
+| e37s09 | targets.yaml — Wave A: Goose (OSS) + Antigravity agy (propri | e37 | 3 | 7.0 | done | 8 |
+| e37s10 | targets.yaml — Wave B: zed, omp, hermes (skills-dir adapters | e37 | 4 | 7.0 | done | 7 |
+| e37s11 | targets.yaml — Wave C: qwen, kilocode (markdown commands + r | e37 | 3 | 7.0 | done | 6 |
+| e37s12 | targets.yaml — Wave D: continue (rules adapter; re-opened ac | e37 | 2 | 7.0 | done | 7 |
+| e37s13 | targets.yaml — Wave E: iflow, vibe, shai (markdown commands; | e37 | 2 | 7.0 | done | 9 |
+| e37s14 | seed-conventions — optional Codex wiring step (AGENTS.md + . | e37 | 3 | 7.0 | done | 13 |
+| e37s15 | install.sh — global ~/.codex/ AGENTS.md starter symlink | e37 | 2 | 7.0 | done | 7 |
+| e37s16 | using-bigpowers — Codex CLI onboarding section | e37 | 2 | 7.0 | done | 13 |
+| e45s01 | run-benchmark: add train/validation-split + with/without-ski | e45 | 3 | 5.0 | done | 13 |
+| e45s02 | craft-skill: CSO description discipline + completion-honesty | e45 | 2 | 5.0 | done | 18 |
+| e45s03 | CLAUDE.md token mgmt: mechanical PreToolUse hook backstop | e45 | 3 | 5.0 | done | 4 |
+| e45s04 | slice-tasks / plan-work: pre-build cross-artifact consistenc | e45 | 3 | 5.0 | done | 19 |
+| e45s05 | verify-work / gate-trace: adversarial gap-finding completene | e45 | 4 | 5.0 | done | 31 |
+| e45s06 | tasks.yaml: literal failing→passing task ledger | e45 | 2 | 5.0 | done | 10 |
+| e45s07 | request-review: dual-blind AND-gate review (Santa Method) | e45 | 2 | 5.0 | done | 38 |
+| e45s08 | develop-tdd / validate-fix: two-commit red/green regression  | e45 | 2 | 5.0 | done | 19 |
+| e45s09 | verify-work / plan-work: Pre-Implementation and Validation g | e45 | 2 | 5.0 | done | 72 |
+| e45s10 | docs/references: auto-regenerate from source-of-truth docs v | e45 | 2 | 5.0 | done | 7 |
+| e45s11 | orchestration / dispatch-agents: typed message protocol + 3- | e45 | 2 | 5.0 | done | 9 |
+| e45s12 | stocktake-skills / craft-skill: code-enforced validator + au | e45 | 2 | 5.0 | done | 38 |
+| e45s13 | verify-work: one-test-minimum terminal-verdict rule | e45 | 2 | 5.0 | done | 15 |
+| e45s14 | deepen-architecture: declared import-boundary allowlist enfo | e45 | 2 | 5.0 | done | 11 |
+| e45s15 | release-branch / deploy: three-independent-facts verificatio | e45 | 2 | 5.0 | done | 17 |
+| e45s16 | CLAUDE.md rtk mandate: wire rtk-ai/rtk PreToolUse hook | e45 | 2 | 5.0 | done | 4 |
+| e45s17 | request-review: fan-out to parallel review subagents | e45 | 2 | 5.0 | done | 26 |
+| e45s18 | audit-code / security-review: worktree-isolated parallel che | e45 | 2 | 5.0 | done | 394 |
+| e45s19 | Context7: bounded retry cap and explicit fallback block | e45 | 2 | 5.0 | done | 7 |
+| e45s20 | Context7 / bts docs: wrap in ETag-revalidated fetch cache | e45 | 2 | 5.0 | done | 1 |
+| e45s21 | seed-conventions / AGENTS.md: self-installing fenced markers | e45 | 2 | 5.0 | done | 15 |
+| e45s22 | CLAUDE.md: context-aware directory routing | e45 | 2 | 5.0 | done | 3 |
+| e45s23 | CLAUDE.md: live Learned User Preferences / Workspace Facts | e45 | 2 | 5.0 | done | 8 |
+| e45s24 | REFERENCE.md files: embedded line-range navigation guides | e45 | 2 | 5.0 | done | 3 |
+| e45s25 | CONVENTIONS.md risk tiers: compile to versioned, diffable ru | e45 | 4 | 5.0 | done | 5 |
+| e45s26 | security-review: CWE mapping + 2 positive/2 negative fixture | e45 | 2 | 5.0 | done | 13 |
+| e45s27 | loop / workflow: terminal-state taxonomy | e45 | 2 | 5.0 | done | 5 |
+| e45s28 | request-review: hard max-iteration cap | e45 | 2 | 5.0 | done | 10 |
+| e45s29 | requirements: ADDED/MODIFIED/REMOVED/RENAMED tags | e45 | 2 | 5.0 | done | 15 |
+| e45s30 | subagent depth: formalize depth tiers | e45 | 2 | 5.0 | done | 10 |
+| e45s31 | audit-code / deepen-architecture: churn-based look-here-firs | e45 | 2 | 5.0 | done | 396 |
+| e45s32 | gate-trace / release-branch: adversarial-review refute frami | e45 | 2 | 5.0 | done | 25 |
+| e45s33 | requirements: per-section approval state | e45 | 2 | 5.0 | done | 6 |
+| e45s34 | develop-tdd: snapshot-before-transition hardening | e45 | 2 | 5.0 | done | 10 |
+| e45s35 | plan-work: 5 fixed EARS sentence patterns | e45 | 2 | 5.0 | done | 10 |
+| e45s36 | specs: Documentation Responsibilities table | e45 | 2 | 5.0 | done | 2 |
+| e45s37 | run-evals: graduated eval-strictness tiers | e45 | 2 | 5.0 | done | 12 |
+| e45s38 | orchestration: why-did-this-stall diagnostic skill | e45 | 2 | 5.0 | done | 12 |
+| e45s39 | PR generation: literal provenance marker | e45 | 2 | 5.0 | done | 5 |
+| e45s40 | verify-work: mandatory real-browser verification | e45 | 2 | 5.0 | done | 15 |
+| e45s41 | security-review: proven authorship SQL-safety doctrine | e45 | 2 | 5.0 | done | 10 |
 | e48s01 | Generate epics-wiki and adr-wiki as OKF concept bundles from | e48 | 2 | 2.5 | todo | 23 |
 | e48s02 | Emit verification reports as OKF bundles from run-golden-sui | e48 | 2 | 2.5 | todo | 27 |
 | e48s03 | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | e48 | 1 | 2.5 | todo | 97 |
@@ -81,22 +97,127 @@
 ## Orphan Tags (tag in code, no matching story)
 
 - `e01s01`
+- `e01s02`
 - `e01s03`
+- `e01s04`
 - `e02s01`
-- `e13s02`
+- `e02s02`
+- `e02s03`
+- `e02s04`
+- `e03s01`
+- `e03s02`
+- `e03s03`
+- `e04s01`
+- `e04s02`
+- `e04s03`
+- `e05s01`
+- `e05s02`
+- `e05s03`
+- `e06s01`
+- `e06s02`
+- `e06s03`
+- `e07s01`
+- `e07s02`
+- `e07s03`
+- `e08s01`
+- `e09s01`
+- `e09s02`
+- `e09s03`
+- `e09s04`
+- `e09s05`
+- `e09s06`
+- `e10s01`
+- `e10s02`
+- `e11s01`
+- `e11s02`
+- `e11s03`
+- `e11s05`
+- `e12s01`
+- `e12s02`
+- `e12s03`
+- `e12s04`
+- `e12s05`
+- `e12s06`
+- `e13s01`
 - `e13s03`
+- `e14s01`
+- `e14s02`
+- `e14s03`
+- `e15s01`
+- `e15s02`
+- `e15s03`
+- `e16s01`
+- `e16s02`
+- `e17s01`
+- `e18s01`
+- `e18s02`
+- `e18s03`
+- `e18s04`
+- `e18s05`
+- `e19s01`
+- `e20s01`
+- `e20s02`
+- `e20s03`
+- `e20s04`
+- `e20s05`
+- `e20s06`
+- `e21s01`
+- `e21s02`
+- `e21s03`
+- `e21s04`
+- `e22s01`
+- `e22s02`
+- `e23s01`
+- `e23s02`
+- `e23s03`
+- `e24s01`
+- `e24s02`
+- `e24s03`
+- `e25s01`
+- `e25s02`
+- `e25s03`
+- `e25s04`
+- `e25s05`
+- `e25s06`
+- `e26s01`
+- `e26s02`
+- `e26s03`
+- `e26s04`
+- `e26s05`
+- `e26s06`
+- `e26s07`
+- `e27s01`
 - `e28s01`
+- `e28s02`
+- `e28s03`
 - `e28s04`
+- `e29s01`
+- `e29s02`
+- `e29s03`
 - `e30s01`
 - `e30s02`
 - `e30s03`
+- `e31s01`
+- `e31s02`
+- `e31s03`
 - `e31s04`
+- `e31s05`
+- `e31s06`
+- `e31s07`
 - `e32s01`
 - `e32s02`
 - `e32s03`
 - `e32s04`
 - `e32s05`
+- `e33s01`
+- `e33s02`
+- `e33s03`
 - `e33s04`
+- `e33s05`
+- `e34s01`
+- `e34s02`
+- `e34s03`
+- `e34s04`
 - `e35s01`
 - `e35s02`
 - `e35s03`
@@ -107,20 +228,10 @@
 - `e35s08`
 - `e35s09`
 - `e35s10`
-- `e37s01`
-- `e37s02`
-- `e37s03`
-- `e37s04`
-- `e37s05`
-- `e37s06`
-- `e37s07`
-- `e37s08`
-- `e37s09`
-- `e37s10`
-- `e37s11`
-- `e37s12`
-- `e37s13`
-- `e37s15`
+- `e36s01`
+- `e36s02`
+- `e36s03`
+- `e36s04`
 - `e38s01`
 - `e38s02`
 - `e38s03`
@@ -137,10 +248,13 @@
 - `e39s05`
 - `e39s06`
 - `e39s07`
+- `e39s08`
 - `e39s09`
+- `e39s10`
 - `e40s04`
 - `e40s06`
 - `e41s01`
+- `e42s01`
 - `e42s02`
 - `e42s03`
 - `e42s04`
@@ -152,6 +266,9 @@
 - `e44s05`
 - `e44s06`
 - `e46s01`
+- `e46s04`
+- `e47s02`
+- `e47s03`
 - `e47s04`
 - `e51s01`
 - `e51s02`
@@ -159,3 +276,63 @@
 - `e51s04`
 - `e51s05`
 - `e99s01`
+
+## Stale Tags (story done, tag still in code)
+
+- `e37s01`
+- `e37s02`
+- `e37s03`
+- `e37s04`
+- `e37s05`
+- `e37s06`
+- `e37s07`
+- `e37s08`
+- `e37s09`
+- `e37s10`
+- `e37s11`
+- `e37s12`
+- `e37s13`
+- `e37s14`
+- `e37s15`
+- `e37s16`
+- `e45s01`
+- `e45s02`
+- `e45s03`
+- `e45s04`
+- `e45s05`
+- `e45s06`
+- `e45s07`
+- `e45s08`
+- `e45s09`
+- `e45s10`
+- `e45s11`
+- `e45s12`
+- `e45s13`
+- `e45s14`
+- `e45s15`
+- `e45s16`
+- `e45s17`
+- `e45s18`
+- `e45s19`
+- `e45s20`
+- `e45s21`
+- `e45s22`
+- `e45s23`
+- `e45s24`
+- `e45s25`
+- `e45s26`
+- `e45s27`
+- `e45s28`
+- `e45s29`
+- `e45s30`
+- `e45s31`
+- `e45s32`
+- `e45s33`
+- `e45s34`
+- `e45s35`
+- `e45s36`
+- `e45s37`
+- `e45s38`
+- `e45s39`
+- `e45s40`
+- `e45s41`

@@ -4,6 +4,13 @@ description: "Generate CLAUDE.md and CONVENTIONS.md for a brand-new project thro
 ---
 
 
+# story: e10s01
+# story: e47s02
+# story: e10s02
+# story: e51s02
+# story: e45s21
+
+
 # Seed Conventions
 > **HARD GATE** — Before any new code lands, confirm the project conventions are understood. Ask: 'What does a good commit message look like in this project?'
 

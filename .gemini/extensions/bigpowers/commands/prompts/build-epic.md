@@ -1,4 +1,6 @@
 
+# story: e20s05
+
 # Build Epic
 
 Scope: one story. Called by orchestrate-project Phase 4. Not a replacement for orchestrate-project.
@@ -83,3 +85,6 @@ Write `handoff.next_skill` and `handoff.context` in `state.yaml` when pausing mi
 ## Verify
 
 → verify: `test -f specs/state.yaml && test -f specs/execution-status.yaml && test -f specs/release-plan.yaml && test -d skills/assess-impact && test -d skills/audit-code && test -d skills/security-review && echo "OK: build-epic dependencies present" || echo "FAIL"`
+
+
+<!-- story: e38s02 -->

@@ -2,6 +2,10 @@
 description: Benchmark-gated skill evolution — consume bigpowers-benchmark report, propose plan-work change, edit skill via craft-skill, re-run benchmark, record ADR. Use when a skill underperforms on benchmark or stocktake finds systemic gap.
 ---
 
+# story: e23s03
+
+# story: e09s01
+# story: e09s05
 
 # Evolve Skill
 
@@ -29,6 +33,9 @@ description: Benchmark-gated skill evolution — consume bigpowers-benchmark rep
 → verify: `grep -c 'run-benchmark\|pass_at_k\|BASELINE-' skills/evolve-skill/SKILL.md | awk '{if($1>=2) print "OK"; else print "FAIL"}'`
 
 See [REFERENCE.md](REFERENCE.md) for ADR template.
+
+
+<!-- story: e31s07 -->
 
 ---
 

@@ -1,10 +1,15 @@
-<!-- story: e45s12 -->
 ---
 name: stocktake-skills
+# story: e18s05
 description: Sequential subagent batch audit of the bigpowers skill catalog — Quick Scan (changed only) or Full (all skills). Use during sustain phase, before a major release, or when catalog drift is suspected.
+# story: e22s02
 model: sonnet
 effort: standard
 ---
+
+# story: e09s01
+<!-- story: e45s12 -->
+
 
 # Stocktake Skills
 > **HARD GATE** — **HARD GATE** — Skill inventory must be current. Missing HARD GATEs, stale descriptions, or broken verify commands are defects, not cosmetic. Fix them in `evolve-skill`.

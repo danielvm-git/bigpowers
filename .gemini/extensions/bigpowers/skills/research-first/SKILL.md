@@ -4,6 +4,9 @@ description: "Look-before-build — search registries, repo, existing skills, an
 ---
 
 
+# story: e03s01
+# story: e21s02
+
 # Research First
 
 > **HARD GATE** — Do NOT implement until prior art is searched. Minimum outcome: adopt, extend, compose, or build — with evidence.

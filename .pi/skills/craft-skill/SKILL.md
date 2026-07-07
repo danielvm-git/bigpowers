@@ -5,6 +5,11 @@ model: sonnet
 ---
 
 
+# story: e09s03
+# story: e45s02
+<!-- story: e45s12 -->
+
+
 # Craft Skill
 
 > **HARD GATE** — Do NOT name a skill without a two-word verb-noun pair. Do NOT merge a new skill without running `sync-skills.sh` — the generated `.cursor/rules/` and `.gemini/` artifacts must match the source SKILL.md.

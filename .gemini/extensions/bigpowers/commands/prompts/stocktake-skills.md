@@ -1,4 +1,8 @@
 
+# story: e09s01
+<!-- story: e45s12 -->
+
+
 # Stocktake Skills
 > **HARD GATE** — **HARD GATE** — Skill inventory must be current. Missing HARD GATEs, stale descriptions, or broken verify commands are defects, not cosmetic. Fix them in `evolve-skill`.
 

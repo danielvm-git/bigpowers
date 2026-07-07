@@ -1,4 +1,7 @@
 
+# story: e03s01
+# story: e24s02
+
 # Scope Work
 
 > **Spine position:** Step 1 — scope-work → slice-tasks → plan-work.

@@ -5,6 +5,9 @@ model: sonnet
 ---
 
 
+<!-- story: e45s15 -->
+
+
 # Deploy
 
 > **HARD GATE** — Do not deploy without running tests first. Run `test` or your CI suite before this skill.

@@ -3,6 +3,8 @@ description: Per-task context bootstrap — reads existing specs/ and tech-archi
 ---
 
 
+# story: e03s03 e44s05
+
 # Survey Context
 
 Read the project's current state and give a phase map + next-skill recommendation. This is the "where am I?" skill — run it at the start of every task.

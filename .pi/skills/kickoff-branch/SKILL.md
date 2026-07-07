@@ -5,6 +5,10 @@ model: haiku
 ---
 
 
+# story: e51s03
+# story: e20s03
+
+
 # Kickoff Branch
 
 > **HARD GATE** — Direct work on `main` or `master` is PROHIBITED. Every task MUST start with this skill to create a feature branch or worktree.
