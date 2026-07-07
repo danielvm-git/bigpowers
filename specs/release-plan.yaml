@@ -2,6 +2,7 @@ release:
   version: 2.74.12
   codename: Foundation
   status: released
+  next_release: Reach
   semantic_release: true
   bump_hint: minor
 build_order:

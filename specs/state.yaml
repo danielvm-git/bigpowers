@@ -5,9 +5,9 @@ bug_id: null
 bigpowers_version: 2.74.12
 bug_cycle: null
 handoff:
-  context: e48 release complete — all 14 stories done, capsule archived, CI green
-  next_skill: survey-context
-  epic: null
+  context: All 49 epics complete. 48 archived, 1 active pending (e37 Reach). Repository at v2.74.12. Next cycle: plan and build e37 Reach — Universal Agent Portability (AGENTS.md spine, targets.yaml registry, OSS waves A-E).
+  next_skill: scope-work
+  epic: e37
 epic_cycle:
   step: 8
   current_step: 8
@@ -40,5 +40,5 @@ metrics:
       avg_seconds: 343.0
 release:
   ci_verified: true
-  last_commit: 3f279d85
+  last_commit: 023f0d3c
   last_epic: e48
