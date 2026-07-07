@@ -190,13 +190,13 @@ bugs:
     title: "Stale .bak file in features directory — karpathy.feature.bak"
     file: bugs/BUG-2026-07-04-stale-bak-features.md
   - id: BUG-2026-07-04-tautological-verify
-    status: open
+    status: fixed
     severity: medium
     scope: skills
     title: "Tautological verify commands in 5 non-critical skills — file-existence checks pass vacuously"
     file: bugs/BUG-2026-07-04-tautological-verify.md
   - id: BUG-2026-07-06-audit-code-auditor-oversized
-    status: open
+    status: fixed
     severity: medium
     scope: skills/audit-code
     title: "audit-code: Underlying auditor scripts exceed 300-line context window limit"
