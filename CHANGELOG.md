@@ -1,3 +1,10 @@
+## [2.74.2](https://github.com/danielvm-git/bigpowers/compare/v2.74.1...v2.74.2) (2026-07-07)
+
+
+### Bug Fixes
+
+* **sync-skills:** regenerate artifacts after main merge ([6f37c8a](https://github.com/danielvm-git/bigpowers/commit/6f37c8acdc56862792fbcebcaae32f0662e0b3f7))
+
 ## [2.74.1](https://github.com/danielvm-git/bigpowers/compare/v2.74.0...v2.74.1) (2026-07-07)
 
 
