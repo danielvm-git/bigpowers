@@ -1,7 +1,7 @@
 id: e48
 title: Foundation — Knowledge Layer + Process Maturity
 wsjf: 2.5
-bcps: 36
+bcps: 40
 status: done
 mode: capsule
 capsule_dir: epics/e48-foundation
@@ -14,6 +14,17 @@ wsjf_rationale: BV 5 (discoverability + honest sizing) + TC 3 (internal tooling)
 depends_on:
 - e40
 - e33
+scope:
+  in_scope:
+  - Emitting OKF concept bundles for epics, ADRs, verification reports, and bugs
+  - Wiring OKF validation into GitHub Actions CI
+  - Publishing OKF bundles to a GitHub Wiki via a kernel publish tool
+  - Creating a standalone static viz.html for skill graph visualization
+  - Integrating BCP Plus into templates, security-review, and build-epic skills
+  out_of_scope:
+  - Altering the underlying structure of raw source files (OKF bundles are derivatives)
+  - Building a web server or complex application for the visualizer
+  - Modifying the core logic of the external big-counter tool
 stories:
 - id: e48s01
   title: Generate epics-wiki and adr-wiki as OKF concept bundles from sync-skills.sh
@@ -108,7 +119,7 @@ stories:
   bcp: 2
 - id: e48s05
   status: done
-  title: Wire OKF validation into CI (sync-skills.yml) and document in OKF authority
+  title: Wire OKF validation into CI (sync-skills.yml) and document in OKF authority [HARD GATE]
   verify: grep -q 'validate-okf.sh' .github/workflows/sync-skills.yml && bash scripts/sync-skills.sh
     && echo OK
   description: 'Add a CI step to sync-skills.yml that runs validate-okf.sh on all
@@ -168,7 +179,7 @@ stories:
       '
   bcp: 3
 - id: e48s08
-  title: Add GitHub Action Template for publish-wiki.yml
+  title: Add GitHub Action Template for publish-wiki.yml [HARD GATE]
   status: done
   risk: P1
   verify: test -f .github/workflows/publish-wiki.yml && grep -q 'publish-to-wiki'
@@ -257,6 +268,13 @@ stories:
   spec: e48s14-bcp-plus-s04.md
   verify: grep -c 'bcp_plus' skills/build-epic/SKILL.md
   legacy_id: e37s04
+- id: e48s15
+  title: Refactor Skills Render Pipeline to Hybrid JSON Seam
+  bcp: 4
+  status: failing
+  risk: P0
+  spec: e48s15-srp-hybrid.md
+  verify: bash scripts/sync-skills.sh
 build_order:
 - e48s01
 - e48s02
@@ -272,3 +290,4 @@ build_order:
 - e48s12
 - e48s13
 - e48s14
+- e48s15

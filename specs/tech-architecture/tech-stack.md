@@ -15,7 +15,7 @@
 - **Pattern Description**: Documentation-as-Code / Build-time Compilation. The project acts as a single-source-of-truth for AI agent skills (`SKILL.md` files) and compiles them into IDE-specific formats (Cursor rules, Gemini CLI extensions, Pi skills, OKF concepts).
 - **Data Flow**:
   - **Input**: `verb-noun` directories in `skills/` containing a `SKILL.md` source file.
-  - **Processing**: `scripts/sync-skills.sh` iterates over skills, parses frontmatter and concatenated markdown body, dispatches to target-specific renderers (Cursor `.mdc`, Gemini `.json`/`.toml`, Pi skill folders, OKF markdown wiki concepts).
+  - **Processing**: `scripts/sync-skills.sh` delegates to `scripts/lib/srp-engine.py`, which iterates over skills, parses frontmatter into a `SkillIR` JSON object, and spawns target-specific Bash adapters as subprocesses, piping the JSON payload to `stdin`.
   - **Output**: Auto-generated artifacts in `.cursor/rules/`, `.gemini/extensions/bigpowers/`, `.pi/`, and lockfiles/indices (`skills-lock.json`, `SKILL-INDEX.md`, `specs/skills-wiki/`).
 - **Entry Points**:
   - **CLI Entry Point**: `bin/bigpowers.js` (detects setup state and installs/updates/checks version).
@@ -165,7 +165,7 @@ _Avoid_: compile, build (when meaning the full chain in one command)
 > **Domain expert:** "Yes — mention Cursor in the preamble. OpenCode is opt-in at bundle time, not required in the contract."
 
 ## Signals / Active Considerations
-- **Debt Hotspot (sync-skills.sh)**: `scripts/sync-skills.sh` is a large Bash script (693 lines) that has grown significantly to handle multiple rendering pipelines (Cursor, Gemini CLI, Pi, OKF concepts). It performs complex regex matching, file concatenations, and Python subprocess calls.
+- **Skills Render Pipeline (SRP) Hybrid Architecture**: The core compilation is migrating to a hybrid model (`scripts/lib/srp-engine.py`). Python handles complex YAML/frontmatter parsing and constructs an immutable JSON `SkillIR`. Bash adapters (`scripts/adapters/*.sh`) are spawned as subprocesses and read this payload via `stdin` using `jq`, honoring ADR-0007 while eliminating leaky global bash state.
 - **Python / Bash Versioning**: Python dependencies are loose (`pyyaml>=6.0`). Bash scripts must remain v3.2 compatible for macOS compatibility (no associative arrays `declare -A`).
 - **Strict Naming Rules**: Enforces strict `verb-noun` kebab-case naming for all skills under `skills/`, with documented exceptions in `CONVENTIONS.md`.
 - **Traceability Verification**: Uses `trace-stories.sh` and Python helper scripts to scan for `story: eNNsNN` tags in implementation and test files, gating the build on complete traceability.
