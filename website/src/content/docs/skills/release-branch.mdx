@@ -3,6 +3,13 @@ title: release-branch
 description: "Make the merge/PR/keep/discard decision for a feature branch, verify coverage gates, create the PR with gh, and clean up the worktree. Use when a feature is done and ready to ship, or when user says \"release\", \"merge\", or \"open a PR\"."
 ---
 
+&lt;!-- story: e38s07 -->
+&lt;!-- story: e45s15 -->
+&lt;!-- story: e45s32 -->
+&lt;!-- story: e45s39 -->
+&lt;!-- story: e20s02 -->
+
+
 # Release Branch
 
 > **HARD GATE** — Do NOT merge or release if tests fail or if coverage gates are not met. If the branch is red, return to `develop-tdd` to fix regressions or add missing tests before proceeding.
@@ -10,7 +17,6 @@ description: "Make the merge/PR/keep/discard decision for a feature branch, veri
 Finalize a completed feature branch: verify coverage gates, integrate onto `main`, and clean up the worktree.
 
 ## Additional modes
-
 - `--hotfix`: Cherry-pick to main + tag. Skip PR in solo.
 - `--squash-state`: Squash `chore(state):` commits before merge.
 
@@ -53,6 +59,8 @@ If REVIEW.md is missing or stale → run `security-review` inline. Findings bloc
 
 Run `gate-trace` before merge. FAIL blocks merge; CONCERNS requires explicit override in `specs/state.yaml` (`traceability_override: CONCERNS accepted, reason: &lt;explanation>`). WAIVED if no matrix available.
 
+> **Adversarial refute framing (e45s32):** The final pre-merge check is **refute, not rubber-stamp**. Before declaring ready, actively try to disprove traceability completeness — missing story tags, absent verify evidence, stale security review. Only proceed when refutation fails.
+
 ### 3. Diff review
 
 - [ ] All commits intentional, no secrets, CONVENTIONS.md compliance
@@ -73,11 +81,26 @@ bash scripts/land-branch.sh <task-slug> "feat(scope): description"
 
 ### 6. Create PR (team-pr only)
 
-See [REFERENCE.md](REFERENCE.md) for the full PR body template and gh commands.
+Create the pull request with a **literal provenance marker** in the body so agent-generated PRs are identifiable and do not rot silently:
 
-### 7. Merge (team-pr only)
+```markdown
+<!-- bigpowers-provenance: agent-generated -->
+```
+
+Place the marker on its own line immediately after the `## Summary` heading. Then merge via `gh`:
 
 ```bash
+gh pr create --title "..." --body "$(cat <<'EOF'
+## Summary
+<!-- bigpowers-provenance: agent-generated -->
+
+- ...
+
+## Test plan
+- [ ] ...
+
+EOF
+)"
 gh pr merge --squash --delete-branch
 ```
 
@@ -91,52 +114,22 @@ gh pr merge --squash --delete-branch
 mv specs/epics/eNN-slug specs/epics/archive/
 ```
 
-### 7b. CI verification (solo-local and team-pr)
+### 7b. CI verification & agent lock release (e39s02)
 
-> **HARD GATE** — Do NOT declare success until CI completes. A push that fails CI is a regression, not a release.
-
-After push (solo-local step 5 or team-pr step 7), run the CI polling script:
+> **HARD GATE** — Do NOT declare success until CI completes. **Three-independent-facts** (e45s15): commit landed, workflow green, registry visible — see [REFERENCE.md](REFERENCE.md#three-independent-facts-release).
 
 ```bash
 bash scripts/wait-for-ci.sh --timeout 600 --interval 30
 ```
 
-The script auto-discovers workflow runs for the pushed commit and polls until completion.
-See [REFERENCE.md](REFERENCE.md) for exit code semantics and git-only fallback.
+- [ ] CI passes; `release.ci_verified: true` in state.yaml
+- On failure: `handoff.next_skill = fix-bug`
 
-- [ ] CI workflow passes after push (wait-for-ci.sh exit 0)
-- [ ] `release.ci_verified: true` documented in state.yaml
-- On failure: `handoff.next_skill = fix-bug` with the CI failure URL
+### 8. Clean up & return
 
-### 8. Clean up worktree
+Worktree prune, branch delete, `git checkout main`. Cycle-time: see [REFERENCE.md](REFERENCE.md#cycle-time).
 
-```bash
-git worktree prune
-git worktree remove ../<branch-name> 2>/dev/null || true
-git branch -d <branch-name>
-```
-
-### 8a. Cycle-time recording
-
-After landing, record delivery metrics with the git-derived, additive script:
-
-```bash
-bash scripts/record-cycle-time.sh append \
-  --story <story_id> --bcps <bcps> \
-  --range "$(git merge-base main HEAD)..HEAD" \
-  --file specs/metrics/cycle-times.yaml
-```
-
-This replaces the previous hand-arithmetic approach (story_end minus story_start).
-See [REFERENCE.md](REFERENCE.md) for the git-hours model and field definitions.
-
-### 9. Return to main
-
-```bash
-git checkout main && git status && pwd
-```
-
-Report: "Branch released. Integrate mode: &lt;solo-local|team-pr>. cwd: $(pwd) on $(git branch --show-current)."
+Report: "Branch released."
 
 ## Verify
 

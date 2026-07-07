@@ -3,6 +3,8 @@ title: "bigpowers Principles: The Evolution of Agentic Engineering"
 description: "bigpowers Principles: The Evolution of Agentic Engineering"
 ---
 
+&lt;!-- story: e35s09 -->
+
 The `bigpowers` skill set is the result of a chronological evolution of software engineering discipline, starting from classic human-centric craftsmanship and culminating in a high-integrity, agent-first methodology.
 
 ---
@@ -117,6 +119,16 @@ The philosophy sources cited above (Uncle Bob, Ousterhout, Akita, Karpathy, Poco
 - [`gates.md`](references/gates.md) — confirm/quality/safety/transition gates and the computed 94% threshold
 - [`checkpoints.md`](references/checkpoints.md) — progress-reporting milestones
 - [`verification-patterns.md`](references/verification-patterns.md) — how outputs are verified
+
+**Historical foundations (credited per the e35 Missing Historical References epic):**
+- [`kent-beck.md`](references/kent-beck.md) — Beck: XP, TDD (red-green-refactor), and Tidy First?
+- [`fowler.md`](references/fowler.md) — Fowler: refactoring catalog and code-smell taxonomy
+- [`feathers.md`](references/feathers.md) — Feathers: seams, characterization tests, and legacy code
+- [`pragmatic-programmer.md`](references/pragmatic-programmer.md) — Hunt & Thomas: DRY, broken windows, tracer bullets
+- [`rich-hickey.md`](references/rich-hickey.md) — Hickey: simple vs easy, complecting
+- [`sandi-metz.md`](references/sandi-metz.md) — Metz: SOLID in practice, message-level testing
+- [`ddd.md`](references/ddd.md) — Evans: bounded contexts, context mapping, ubiquitous language
+- [`accelerate.md`](references/accelerate.md) — Forsgren, Humble, Kim: DORA four keys
 
 **Routing & methods:**
 - [`model-profiles.md`](references/model-profiles.md) — per-skill model assignment (auto-generated) and token budgets

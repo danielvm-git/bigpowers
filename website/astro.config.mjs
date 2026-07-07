@@ -2,6 +2,7 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import sitemap from '@astrojs/sitemap';
+import react from '@astrojs/react';
 import { generatedSidebar } from './sidebar.generated.mjs';
 
 const site = 'https://danielvm-git.github.io';
@@ -12,6 +13,7 @@ export default defineConfig({
 	site,
 	base,
 	integrations: [
+		react(),
 		starlight({
 			title: 'bigpowers',
 			description:
