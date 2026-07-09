@@ -1,3 +1,10 @@
+## [2.76.2](https://github.com/danielvm-git/bigpowers/compare/v2.76.1...v2.76.2) (2026-07-09)
+
+
+### Bug Fixes
+
+* **ci:** add orphan gitlink guard to prevent checkout failures ([#70](https://github.com/danielvm-git/bigpowers/issues/70)) ([4325ae9](https://github.com/danielvm-git/bigpowers/commit/4325ae9fd853defbb37d63c41317278b8882a6be))
+
 ## [2.76.1](https://github.com/danielvm-git/bigpowers/compare/v2.76.0...v2.76.1) (2026-07-09)
 
 

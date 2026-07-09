@@ -2,10 +2,13 @@ active_flow: fix_bug
 active_epic: e37
 active_story: null
 bug_id: BUG-2026-07-09T033939-golden-g01-submodule-checkout
-bigpowers_version: 2.76.1
+bigpowers_version: 2.76.2
 bug_cycle:
   current_step: 4
-  completed_steps: [1, 2, 3]
+  completed_steps:
+  - 1
+  - 2
+  - 3
 handoff:
   context: fix-bug yolo — orphan gitlink regression gate added; preflight green; pushing for CI verify
   next_skill: validate-fix
