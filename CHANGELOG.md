@@ -1,3 +1,10 @@
+## [2.76.1](https://github.com/danielvm-git/bigpowers/compare/v2.76.0...v2.76.1) (2026-07-09)
+
+
+### Bug Fixes
+
+* **scripts:** remove dead function skill_graph_show_help ([b927dca](https://github.com/danielvm-git/bigpowers/commit/b927dca2c67c8cdd03432f627dcfa3b4a27d65ca))
+
 # [2.76.0](https://github.com/danielvm-git/bigpowers/compare/v2.75.2...v2.76.0) (2026-07-07)
 
 
