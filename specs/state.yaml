@@ -1,13 +1,14 @@
-active_flow: null
+active_flow: fix_bug
 active_epic: e37
 active_story: null
-bug_id: null
+bug_id: BUG-2026-07-09-dead-function-build-skill-graph
 bigpowers_version: 2.76.0
-bug_cycle: null
+bug_cycle:
+  current_step: 5
+  completed_steps: [1, 2, 3, 4]
 handoff:
-  context: e37 Reach release complete — all 16 stories done, 6 compliance bugs fixed,
-    capsule archived, CI green. All 50 epics now complete.
-  next_skill: survey-context
+  context: fix-bug — removed dead function skill_graph_show_help from build-skill-graph.sh; compliance 95/95 PASS, gates 11/11 PASS.
+  next_skill: release-branch
   epic: e37
 epic_cycle:
   step: 8

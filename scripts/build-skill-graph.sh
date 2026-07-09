@@ -12,20 +12,6 @@ GRAPH_JSONL="$REPO_ROOT/bigpowers-mcp/graph.jsonl"
 SKILL_GRAPH_JSON="$REPO_ROOT/specs/skill-graph.json"
 SKILLS_WIKI="$REPO_ROOT/specs/skills-wiki/skills"
 
-skill_graph_show_help() {
-  cat <<EOF
-Usage: $(basename "$0") [OPTION]
-
-Consume bigpowers-mcp/graph.jsonl and emit:
-  - specs/skill-graph.json          — full skill dependency graph
-  - specs/skills-wiki/skills/*.md   — per-skill OKF wiki pages
-
-Options:
-  --help    Show this help and exit
-  --wiki    Regenerate only the skills-wiki OKF bundle (skip graph.json)
-EOF
-}
-
 # --- Error handling ---
 missing_graph() {
   echo "[ERROR] MCP graph not found at: $GRAPH_JSONL" >&2
