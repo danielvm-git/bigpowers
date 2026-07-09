@@ -1,17 +1,12 @@
-active_flow: fix_bug
+active_flow: null
 active_epic: e37
 active_story: null
-bug_id: BUG-2026-07-09T033939-golden-g01-submodule-checkout
+bug_id: null
 bigpowers_version: 2.76.2
-bug_cycle:
-  current_step: 4
-  completed_steps:
-  - 1
-  - 2
-  - 3
+bug_cycle: null
 handoff:
-  context: fix-bug yolo — orphan gitlink regression gate added; preflight green; pushing for CI verify
-  next_skill: validate-fix
+  context: fix-bug complete — orphan gitlink guard merged (#70); Golden G-01 run 28992991794 all green; main CI green.
+  next_skill: survey-context
   epic: e37
 epic_cycle:
   step: 8

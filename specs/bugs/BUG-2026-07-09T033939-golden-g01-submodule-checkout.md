@@ -100,12 +100,13 @@ git submodule status   # fails with same error on affected SHAs
 - [x] Doctrine/compliance gate detects orphan gitlinks
 - [x] Regression test for gitlink guard passes
 - [x] Existing tests still pass
-- [ ] Golden G-01 workflow dispatch green post-merge
+- [x] Golden G-01 workflow dispatch green post-merge (run 28992991794)
 
 ## Resolution
 
-**Fixed** — data fix in `288e20e`; regression gate added in fix branch.
+**Fixed** in PR #70 — merged to `main`.
 
 - Root cause: orphan gitlink at `tests/fixtures/.tmp-v1.x` without `.gitmodules` URL broke `actions/checkout` submodule cleanup.
-- Prevention: `scripts/lib/check-orphan-gitlinks.sh` wired into `validate-doctrine.sh`; `tests/test-no-orphan-gitlinks.sh` covers clean tree + synthetic orphan.
-- Verify: `bash tests/test-no-orphan-gitlinks.sh && bash scripts/validate-doctrine.sh`
+- Data fix: `288e20e` (prior); prevention: `check-orphan-gitlinks.sh` + `tests/test-no-orphan-gitlinks.sh`.
+- CI verify: Golden Story G-01 run [28992991794](https://github.com/danielvm-git/bigpowers/actions/runs/28992991794) — all jobs green (activation, agent, detection, safe_outputs, conclusion).
+- Local verify: `bash tests/test-no-orphan-gitlinks.sh && npm run compliance && bash scripts/run-verification-gates.sh`
