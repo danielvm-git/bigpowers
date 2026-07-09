@@ -1,12 +1,14 @@
-active_flow: null
+active_flow: fix_bug
 active_epic: e37
 active_story: null
-bug_id: null
+bug_id: BUG-2026-07-09T033939-golden-g01-submodule-checkout
 bigpowers_version: 2.76.1
-bug_cycle: null
+bug_cycle:
+  current_step: 4
+  completed_steps: [1, 2, 3]
 handoff:
-  context: fix-bug complete — removed dead function skill_graph_show_help from build-skill-graph.sh; landed via fix/dead-function-build-skill-graph (b927dca2); compliance 95/95, gates 11/11.
-  next_skill: survey-context
+  context: fix-bug yolo — orphan gitlink regression gate added; preflight green; pushing for CI verify
+  next_skill: validate-fix
   epic: e37
 epic_cycle:
   step: 8

@@ -137,6 +137,17 @@ else
   done
 fi
 
+# ── CI: orphan gitlinks break actions/checkout submodule cleanup ───────────────
+echo "--- [CI] orphan gitlinks ---"
+# shellcheck source=lib/check-orphan-gitlinks.sh
+source "$REPO_ROOT/scripts/lib/check-orphan-gitlinks.sh"
+if check_orphan_gitlinks "$REPO_ROOT" >/dev/null; then
+  doctrine_pass "no orphan gitlinks"
+else
+  doctrine_fail "git index contains gitlink(s) without .gitmodules URL — breaks actions/checkout"
+  check_orphan_gitlinks "$REPO_ROOT" >&2 || true
+fi
+
 # ── CI: trace-stories wrapper smoke (REPO_ROOT must be set under set -u) ───────
 echo "--- [CI] trace-stories wrapper smoke ---"
 if bash "$REPO_ROOT/scripts/trace-stories.sh" --help >/dev/null 2>&1; then
