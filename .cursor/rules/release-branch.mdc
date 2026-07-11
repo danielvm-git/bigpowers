@@ -40,9 +40,12 @@ If unsure, prefer **solo-local**.
 ```bash
 <full test command> && <typecheck command> && <lint command>
 git log main...HEAD --oneline | grep -vE "^[a-f0-9]+ (feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\(.+\))?!?: .+$" && echo "❌ Non-conventional commits found" || echo "✅ Commits verified"
+# Block AI agent attribution (P1)
+git log main...HEAD --format="%B" | grep -qiE 'co[- ]authored[- ]by' && echo "❌ Co-authored-by footer found — blocked" || echo "✅ No AI attribution"
 ```
 
 - [ ] All tests pass, no type errors, no lint violations, all commits follow Conventional Commits
+- [ ] **NO `Co-authored-by` or `Co-Authored-By`** in any commit body — P1 rule (CONVENTIONS.md § Git Attribution). `land-branch.sh` blocks the merge if found.
 
 ### 2. Coverage check
 

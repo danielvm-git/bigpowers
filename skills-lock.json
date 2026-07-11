@@ -33,7 +33,7 @@
     },
     "commit-message": {
       "description": "Reviews working-tree changes, then drafts a Conventional Commits title/body and states the semantic-release version bump a single such commit would imply. Also notes which defensive-code categories were touched. Use when the user wants to commit recent work, prepare a Conventional Commits message, or asks for semantic-release / semver-consistent messaging before git commit.",
-      "sha256": "61d7f45ea8ccd085",
+      "sha256": "1ed4ef65d813a84d",
       "path": "skills/commit-messageSKILL.md"
     },
     "compose-workflow": {
@@ -238,7 +238,7 @@
     },
     "release-branch": {
       "description": "Make the merge/PR/keep/discard decision for a feature branch, verify coverage gates, create the PR with gh, and clean up the worktree. Use when a feature is done and ready to ship, or when user says \"release\", \"merge\", or \"open a PR\".",
-      "sha256": "5da46a5b7aa7403f",
+      "sha256": "7e94a540b1dc75c1",
       "path": "skills/release-branchSKILL.md"
     },
     "request-review": {

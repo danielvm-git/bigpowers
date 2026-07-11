@@ -107,6 +107,11 @@ if [[ "$COMMAND" =~ git[[:space:]]+commit ]] || [[ "$COMMAND" =~ git[[:space:]]+
       if [ ${#SUBJECT} -gt 72 ]; then
         deny "BLOCKED: Commit subject line must be 72 characters or less."
       fi
+
+      # Block AI agent attribution (P1 — NEVER Co-authored-by:)
+      if echo "$MSG" | grep -qiE '^co[- ]authored[- ]by:' || echo "$MSG" | grep -qiE '\nco[- ]authored[- ]by:'; then
+        deny "BLOCKED: Commit must not include Co-authored-by: footer. All commits must appear as if authored solely by the human user (CONVENTIONS.md § Git Attribution)."
+      fi
     fi
 
     # Block direct commits to main unless land script is active

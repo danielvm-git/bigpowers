@@ -41,6 +41,16 @@ if [ ${#COMMIT_MSG} -gt 72 ]; then
   land_branch_deny "Commit subject line must be 72 characters or less"
 fi
 
+# Block AI agent attribution (P1 — CONVENTIONS.md § Git Attribution)
+if echo "$COMMIT_MSG" | grep -qiE '^co[- ]authored[- ]by:' || echo "$COMMIT_MSG" | grep -qiE '\nco[- ]authored[- ]by:'; then
+  land_branch_deny "Commit must not include Co-authored-by: footer. All commits must appear as if authored solely by the human user."
+fi
+
+# Scan all commits in feature branch for Co-authored-by: footers
+if git log "$DEFAULT_BRANCH..$FEATURE_BRANCH" --format="%B" 2>/dev/null | grep -qiE '^co[- ]authored[- ]by:'; then
+  land_branch_deny "Feature branch '$FEATURE_BRANCH' contains Co-authored-by: footer(s). Amend commits to remove all AI agent attribution before landing."
+fi
+
 # Primary worktree only (.git is a directory, not a gitdir pointer file)
 if [ -f .git ]; then
   land_branch_deny "Run from the primary repository root, not a linked worktree (cd to main repo first)"

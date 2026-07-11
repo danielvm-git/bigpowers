@@ -1,12 +1,14 @@
-active_flow: null
+active_flow: fix_bug
 active_epic: e37
 active_story: null
-bug_id: null
+bug_id: BUG-2026-07-10-co-authored-by-no-enforcement
 bigpowers_version: 2.76.2
-bug_cycle: null
+bug_cycle:
+  current_step: 1
+  completed_steps: []
 handoff:
-  context: fix-bug complete — orphan gitlink guard merged (#70); Golden G-01 run 28992991794 all green; main CI green.
-  next_skill: survey-context
+  context: fix-bug — Co-authored-by ban is documented in CONVENTIONS.md but has zero enforcement. Must add to git hook, commit-message skill, and CI.
+  next_skill: investigate-bug
   epic: e37
 epic_cycle:
   step: 8
