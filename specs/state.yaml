@@ -1,14 +1,12 @@
-active_flow: fix_bug
+active_flow: null
 active_epic: e37
 active_story: null
-bug_id: BUG-2026-07-10-co-authored-by-no-enforcement
+bug_id: null
 bigpowers_version: 2.76.2
-bug_cycle:
-  current_step: 1
-  completed_steps: []
+bug_cycle: null
 handoff:
-  context: fix-bug — Co-authored-by ban is documented in CONVENTIONS.md but has zero enforcement. Must add to git hook, commit-message skill, and CI.
-  next_skill: investigate-bug
+  context: fix-bug complete — Co-authored-by ban now enforced in 3 layers (git hook, land-branch.sh, CI). Regex matches only "Co-authored-by:" footer syntax (with colon), not mentions in prose. Synced to both bigpowers and .github repos.
+  next_skill: survey-context
   epic: e37
 epic_cycle:
   step: 8
