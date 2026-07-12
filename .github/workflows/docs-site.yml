@@ -1,5 +1,5 @@
 # story: e33s04
-name: Deploy Docs Site to GitHub Pages
+name: Deploy Docs (GitHub Pages)
 
 concurrency:
   group: pages
