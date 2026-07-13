@@ -126,8 +126,8 @@ for story_id in sorted(stories.keys()):
     cycle_minutes = ct_data.get("cycle_minutes", 0)
     bcp_per_hour = ct_data.get("bcp_per_hour", 0)
 
-    # Time: use cycle_minutes / 60 as seconds for Allure display
-    time_seconds = cycle_minutes / 60.0 if cycle_minutes else 0.0
+    # Time: cycle_minutes * 60 for seconds in Allure display
+    time_seconds = cycle_minutes * 60.0 if cycle_minutes else 0.0
 
     testcase = ET.SubElement(testsuite, "testcase", {
         "classname": epic_id,
@@ -145,7 +145,7 @@ for story_id in sorted(stories.keys()):
 
     if status != "done":
         ET.SubElement(testcase, "failure", {
-            "message": f"Story {story_id} is {status}",
+            "message": f"Story {story_id} is {status} [risk={risk_max}, security={security_max}]",
             "type": "StoryIncomplete"
         })
 
@@ -227,7 +227,7 @@ PY
   </testcase>
   <testcase classname="e01" name="e01s99: Some incomplete story" time="0.0">
     <properties>...</properties>
-    <failure message="Story e01s99 is backlog" type="StoryIncomplete"/>
+    <failure message="Story e01s99 is backlog [risk=P0, security=high]" type="StoryIncomplete"/>
   </testcase>
 </testsuite>
 ```

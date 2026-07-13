@@ -63,7 +63,7 @@ for story_id in sorted(stories.keys()):
     cycle_minutes = ct_data.get("cycle_minutes", 0) if isinstance(ct_data, dict) else 0
     bcp_per_hour = ct_data.get("bcp_per_hour", 0) if isinstance(ct_data, dict) else 0
 
-    time_seconds = cycle_minutes / 60.0 if cycle_minutes else 0.0
+    time_seconds = cycle_minutes * 60.0 if cycle_minutes else 0.0
 
     testcase = ET.SubElement(testsuite, "testcase", {
         "classname": epic_id,
@@ -81,7 +81,7 @@ for story_id in sorted(stories.keys()):
 
     if status != "done":
         ET.SubElement(testcase, "failure", {
-            "message": f"Story {story_id} is {status}",
+            "message": f"Story {story_id} is {status} [risk={risk_max}, security={security_max}]",
             "type": "StoryIncomplete"
         })
 

@@ -1,5 +1,5 @@
 ---
-description: ""
+description: "Harden a production Linux VPS for BigBase across three layers — BigBase app (systemd hardening, monitoring alerts, backup automation), Ubuntu OS (UFW firewall, fail2ban SSH, unattended-upgrades, SSH hardening), and Contabo VPS (health checks, daily backups, monthly snapshots). Use when the user wants to secure a production server, harden a VPS, audit server security, or mentions production hardening, VPS security, or harden the server."
 alwaysApply: false
 ---
 
@@ -146,7 +146,7 @@ WorkingDirectory=/opt/bigbase
 ExecStart=/opt/bigbase/bin/bigbase serve \
     --port 8080 \
     --db /opt/bigbase/data/bigbase.db \
-    --sites-domain bigbase.click
+    --sites-domain <your-domain.example.com>
 EnvironmentFile=-/opt/bigbase/.env
 Environment=BIGBASE_HOME=/opt/bigbase
 Environment=HOME=/opt/bigbase
@@ -202,7 +202,7 @@ Deploy to `/opt/bigbase/scripts/contabo-snapshot.sh`. Reads credentials from `/o
 set -e
 LOG=/var/log/bigbase/snapshot.log
 ENVFILE=/opt/bigbase/.env
-INSTANCE_ID=vmi3338033
+INSTANCE_ID=<your-contabo-instance-id>
 
 [ -f "$ENVFILE" ] || { echo "$(date -Iseconds) ERROR: $ENVFILE missing" >> "$LOG"; exit 1; }
 set -a; source "$ENVFILE"; set +a
@@ -245,16 +245,18 @@ Source: Contabo Customer Control Panel → API Details. ClientId and ClientSecre
 
 **Pipeline:** GitHub Secrets → deploy workflow → `/opt/bigbase/.env` on VPS. For local dev (`cntb get instances`), add to `.envrc`.
 
-## Contabo instance info (vmi3338033)
+## Contabo instance info template
+
+Fill in your instance details from the Contabo Customer Control Panel:
 
 ```
-IP:           89.116.26.187
-IPv6:         2a02:c207:2333:8033::1
-Region:       EU
-OS:           Ubuntu 24.04.4 LTS
-Disk:         200 GB (Cloud VPS 20 SSD)
+IP:           <your-instance-ip>
+IPv6:         <your-instance-ipv6>
+Region:       <your-region>
+OS:           <your-os-version>
+Disk:         <your-disk-size>
 Default user: root
-Customer ID:  15027696
+Customer ID:  <your-customer-id>
 ```
 
 ## BigBase monitoring alert SQL
