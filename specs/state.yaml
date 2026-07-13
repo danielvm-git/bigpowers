@@ -2,10 +2,12 @@ active_flow: null
 active_epic: e37
 active_story: null
 bug_id: null
-bigpowers_version: 2.76.2
+bigpowers_version: 2.76.3
 bug_cycle: null
 handoff:
-  context: fix-bug complete — Co-authored-by ban now enforced in 3 layers (git hook, land-branch.sh, CI). Regex matches only "Co-authored-by:" footer syntax (with colon), not mentions in prose. Synced to both bigpowers and .github repos.
+  context: fix-bug complete — Co-authored-by ban now enforced in 3 layers (git hook, land-branch.sh, CI).
+    Regex matches only "Co-authored-by:" footer syntax (with colon), not mentions in prose. Synced to
+    both bigpowers and .github repos.
   next_skill: survey-context
   epic: e37
 epic_cycle:

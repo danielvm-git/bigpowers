@@ -1,3 +1,11 @@
+## [2.76.3](https://github.com/danielvm-git/bigpowers/compare/v2.76.2...v2.76.3) (2026-07-11)
+
+
+### Bug Fixes
+
+* **scripts:** move Co-authored-by feature branch scan after DEFAULT_BRANCH is set ([842dfb3](https://github.com/danielvm-git/bigpowers/commit/842dfb3c8caf710f75b1bc234f3178596d2e78df))
+* **security:** enforce Co-authored-by ban across all commit paths ([b8610cd](https://github.com/danielvm-git/bigpowers/commit/b8610cdb060faebf94b614354c80c052d985c40d))
+
 ## [2.76.2](https://github.com/danielvm-git/bigpowers/compare/v2.76.1...v2.76.2) (2026-07-09)
 
 
