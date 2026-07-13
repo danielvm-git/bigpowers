@@ -163,7 +163,7 @@
     },
     "harden-vps": {
       "description": ">-",
-      "sha256": "194a69140fab008c",
+      "sha256": "0f19a2bf8aeafb1e",
       "path": "skills/harden-vpsSKILL.md"
     },
     "hook-commits": {
@@ -223,7 +223,7 @@
     },
     "plan-release": {
       "description": "\"RELEASE-INDEX BUILDER — Sequence elaborated epics into specs/release-plan.yaml with WSJF ordering and BCP baselines. NOT a planning-spine substitute: it does not scope work (scope-work) or write story tasks (plan-work). Use after elaborate-spec when the user wants a versioned release index of epics.\"",
-      "sha256": "d15da185fd058a1f",
+      "sha256": "b56b800817cd383e",
       "path": "skills/plan-releaseSKILL.md"
     },
     "plan-tests": {

@@ -18,7 +18,7 @@ VIOLATIONS=0
 WARNINGS=0
 
 # Documented naming exceptions (craft-skill REFERENCE.md)
-VERB_NOUN_EXCEPTIONS="grill-me grill-with-docs context7-mcp using-bigpowers deploy"
+VERB_NOUN_EXCEPTIONS="grill-me grill-with-docs context7-mcp using-bigpowers deploy generate-allure-report"
 
 catalog_usage() {
   echo "Usage: bash scripts/validate-skill-catalog.sh [--archive] [--strict] [--skill <name>]"

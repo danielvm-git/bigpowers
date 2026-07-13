@@ -37,7 +37,6 @@ specs/epics/e01-auth-system/
 **Rationale:** Capsule dirs achieve change isolation (C9), enable archive pruning (C2/C6), and enforce SRP by decoupling spec `.md` from execution `-tasks.yaml` (C1).
 
 ## Process
-
 ### 1. Draft epics and stories
 
 From the conversation context, define:
@@ -47,15 +46,12 @@ From the conversation context, define:
 WSJF-sort epics: score = (Business Value + Time Criticality + Risk Reduction) / Job Size. Highest score first.
 
 > **Security risk boost:** If an epic's `specs/security/epics/<id>/THREAT_MODEL.md` identifies HIGH or CRITICAL risk, add +2 to the WSJF numerator (BV + TC + RR + 2) to reflect the urgency of addressing security concerns before they ship. Document the boost in the epic's note field in release-plan.yaml.
-
 ### 2. Write acceptance criteria (Gherkin)
 
 For each story, write at least one happy-path and one edge-case scenario (countable format §17 if maturity ≥ 3).
-
 ### 3. Write tasks with verify commands
 
 Every task must have a `verify:` command. No verify command = not a task.
-
 ### 4. Save specs/release-plan.yaml
 
 > **Do NOT hand-track the real version.** semantic-release decides it at merge. `version` here is a
@@ -79,7 +75,6 @@ epics:
     wsjf: 3.8
     capsule_dir: epics/e02-user-profile
 ```
-
 ### 5. Save epic manifest (`epic.yaml`)
 
 Each epic capsule directory contains an `epic.yaml` manifest:
@@ -104,11 +99,9 @@ stories:
     spec: e01s02-jwt.md
     tasks: e01s02-tasks.yaml
 ```
-
 ### 6. Save story specs (countable-story-format .md)
 
 Each story becomes a standalone `.md` file following [countable-story-format.md](file:///Users/danielvm/Developer/bigpowers/countable-story-format.md). Minimum: maturity 3 (Countable) with all 20 sections present. Acceptance criteria in §17 use Gherkin scenarios.
-
 ### 7. Save decoupled task files (`-tasks.yaml`)
 
 Each story has a decoupled `-tasks.yaml` with implementation steps:
@@ -132,21 +125,9 @@ tasks:
 > **HARD GATE** — Every task MUST have a runnable `verify:` command. No `verify:` = not a task.
 
 → verify: `bash scripts/validate-specs-yaml.sh`
-
 ### 7b. Generate bug registry summary
 
-Read `specs/bugs/registry.yaml` and add a `bugs:` section to `release-plan.yaml`:
-
-```yaml
-bugs:
-  total: 42
-  fixed: 38
-  deferred: 2
-  wontfix: 2
-  registry: specs/bugs/registry.yaml
-```
-
-Count bugs by status: `fixed`, `deferred`, `wontfix`, `open`. Total = sum of all statuses. `registry` is the canonical path.
+Read `specs/bugs/registry.yaml` and add a `bugs:` section to `release-plan.yaml` with totals by status (`fixed`, `deferred`, `wontfix`, `open`): `bugs: { total: N, fixed: N, deferred: N, wontfix: N, registry: specs/bugs/registry.yaml }`.
 
 ### 8. Sync execution status
 
@@ -156,7 +137,6 @@ bash scripts/sync-status-from-epics.sh
 ### 9. Snapshot on planning close (optional)
 
 Copy to `specs/product/snapshots/release-<version>/` when the user approves the plan.
-
 ### 10. Suggest next steps
 
 - Run `assess-impact` before `plan-work` for any story touching existing modules.

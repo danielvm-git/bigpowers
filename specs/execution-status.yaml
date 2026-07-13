@@ -325,7 +325,7 @@ development_status:
   e51s05: done
   generated_at: "2026-07-07T04:00:00Z"
   heuristic_ratio: 0.80
-  rationale: "Gate-trace
+  rationale: "Gate-trace PASS: 83.1% coverage (59/71 tagged), 0 dark stories after tag fix, 0 BLOCKER from completeness-critic, adversarial refute survived. Heuristic ratio 80.2% at 2-level threshold but from legacy/generated artifacts, not active gaps."
   verdict: PASS
 
 epics:
