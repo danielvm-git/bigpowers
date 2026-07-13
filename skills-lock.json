@@ -141,6 +141,11 @@
       "sha256": "ed37c315dcef6f87",
       "path": "skills/gate-traceSKILL.md"
     },
+    "generate-allure-report": {
+      "description": "\"Generate Allure-ready reports from bigpowers YAML metadata. Reads execution-status.yaml, release-plan.yaml, epic capsules, task YAMLs, cycle-times.yaml, and bug registry to produce allure-results/junit-results.xml, categories.json, and executor.json. Use when preparing progress dashboards, integrating with Allure TestOps, or generating CI reports.\"",
+      "sha256": "acaa43602dc56291",
+      "path": "skills/generate-allure-reportSKILL.md"
+    },
     "grill-me": {
       "description": "Interactive assumption-surfacing Q&A that stress-tests a plan through relentless questioning until every decision is resolved. Use when user wants to challenge a plan, validate decisions from conversation/context, or mentions \"grill me\". For doc-grounded variant, use grill-with-docs.",
       "sha256": "8ef90da0f127f2fd",
