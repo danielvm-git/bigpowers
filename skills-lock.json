@@ -23,7 +23,7 @@
     },
     "build-epic": {
       "description": "Eight-step epic build cycle — reads state.yaml, execution-status.yaml, and one epic capsule; updates status via bp-yaml-set or direct edit. Resume mode runs one step per invocation. Use instead of ad-hoc execute-plan for release work.",
-      "sha256": "85275fd5f2f5664f",
+      "sha256": "11fe35d1dcdec25a",
       "path": "skills/build-epicSKILL.md"
     },
     "change-request": {
@@ -218,7 +218,7 @@
     },
     "plan-release": {
       "description": "\"RELEASE-INDEX BUILDER — Sequence elaborated epics into specs/release-plan.yaml with WSJF ordering and BCP baselines. NOT a planning-spine substitute: it does not scope work (scope-work) or write story tasks (plan-work). Use after elaborate-spec when the user wants a versioned release index of epics.\"",
-      "sha256": "62dc272a091c8d7f",
+      "sha256": "d15da185fd058a1f",
       "path": "skills/plan-releaseSKILL.md"
     },
     "plan-tests": {
@@ -228,7 +228,7 @@
     },
     "plan-work": {
       "description": "\"PLANNING SPINE STEP 3 of 3 — Plan the work: write detailed implementation tasks into the active epic capsule (specs/epics/eNN-slug/). Produces countable-story-format .md specs and runnable -tasks.yaml files. Use after slice-tasks (step 2). Not a substitute for scope-work (step 1) or slice-tasks (step 2).\"",
-      "sha256": "aabc7f15b46525c2",
+      "sha256": "2cccc734ae9781ab",
       "path": "skills/plan-workSKILL.md"
     },
     "publish-package": {

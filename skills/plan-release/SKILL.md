@@ -134,6 +134,21 @@ tasks:
 
 → verify: `bash scripts/validate-specs-yaml.sh`
 
+### 7b. Generate bug registry summary
+
+Read `specs/bugs/registry.yaml` and add a `bugs:` section to `release-plan.yaml`:
+
+```yaml
+bugs:
+  total: 42
+  fixed: 38
+  deferred: 2
+  wontfix: 2
+  registry: specs/bugs/registry.yaml
+```
+
+Count bugs by status: `fixed`, `deferred`, `wontfix`, `open`. Total = sum of all statuses. `registry` is the canonical path.
+
 ### 8. Sync execution status
 
 ```bash
