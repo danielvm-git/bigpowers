@@ -50,6 +50,7 @@ STORY_KEY="Story"
 # git-hours engine — partition + whole_range_hours (additivity oracle)
 true && source "$(dirname "${BASH_SOURCE[0]}")/lib/git-hours.sh"
 true && source "$(dirname "${BASH_SOURCE[0]}")/lib/record-cycle-time-lib.sh"
+true && source "$(dirname "${BASH_SOURCE[0]}")/lib/python-env.sh"
 
 die() { record_cycle_die "$@"; }
 usage_cycle() { record_cycle_usage; }
@@ -256,6 +257,33 @@ cmd_append() {
   } >> "$file"
 
   echo "record-cycle-time: OKF bundle written for $story → $file (effort=$eff h, lead=$lead_min min, commits=$count)"
+
+  # Also update execution-status.yaml with cycle-time data
+  local exec_yaml="$ROOT/specs/execution-status.yaml"
+  if [ -f "$exec_yaml" ]; then
+    # Compute bcp_per_hour: bcps / effort_hours, handle zero effort
+    local bph
+    bph="$(awk -v b="$bcps" -v e="$eff" 'BEGIN{if(e>0)printf "%.1f", b/e; else print "0.0"}')"
+
+    $PYTHON -c "
+import sys
+sys.path.insert(0, '$ROOT/scripts/lib')
+import yaml
+try:
+    with open('$exec_yaml') as f:
+        data = yaml.safe_load(f) or {}
+except: data = {}
+
+stories = data.setdefault('stories', {})
+entry = stories.setdefault('$story', {})
+entry['effort_hours'] = float('$eff')
+entry['lead_time_minutes'] = int('$lead_min')
+entry['bcp_per_hour'] = float('$bph')
+
+with open('$exec_yaml', 'w') as f:
+    yaml.dump(data, f, default_flow_style=False, sort_keys=False, allow_unicode=True)
+" 2>/dev/null || echo "WARN: could not update execution-status.yaml with cycle-time data" >&2
+  fi
 }
 
 [ $# -ge 1 ] || { usage_cycle; }
