@@ -1,0 +1,2743 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuite name="bigpowers-epic-progress" tests="274" failures="0" errors="0" skipped="0">
+  <testcase classname="e01" name="e01s01: slopcheck tags in `plan-work` ([OK]/[SUS]/[SLOP])" time="2700.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="1.3" />
+      <property name="lead_time_minutes" value="45" />
+    </properties>
+  </testcase>
+  <testcase classname="e01" name="e01s02: Supply-chain + OWASP in `audit-code`" time="2700.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="1.3" />
+      <property name="lead_time_minutes" value="45" />
+    </properties>
+  </testcase>
+  <testcase classname="e01" name="e01s03: Secret patterns documented in `guard-git`" time="2700.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="1.3" />
+      <property name="lead_time_minutes" value="45" />
+    </properties>
+  </testcase>
+  <testcase classname="e01" name="e01s04: `docs/references/security-threats.md` reconciled" time="2700.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="1.3" />
+      <property name="lead_time_minutes" value="45" />
+    </properties>
+  </testcase>
+  <testcase classname="e02" name="e02s01: `verify-work`, `run-evals` skills" time="2700.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="1.3" />
+      <property name="lead_time_minutes" value="45" />
+    </properties>
+  </testcase>
+  <testcase classname="e02" name="e02s02: Verification Script template in `plan-work`" time="2700.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="1.3" />
+      <property name="lead_time_minutes" value="45" />
+    </properties>
+  </testcase>
+  <testcase classname="e02" name="e02s03: UAT checkpoint in `execute-plan`" time="2700.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="1.3" />
+      <property name="lead_time_minutes" value="45" />
+    </properties>
+  </testcase>
+  <testcase classname="e02" name="e02s04: RED/GREEN/REFACTOR commits in `develop-tdd`" time="2700.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="1.3" />
+      <property name="lead_time_minutes" value="45" />
+    </properties>
+  </testcase>
+  <testcase classname="e03" name="e03s01: `research-first`, `scope-work`, `slice-tasks`, `grill-with-docs`" time="5400.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0.7" />
+      <property name="lead_time_minutes" value="90" />
+    </properties>
+  </testcase>
+  <testcase classname="e03" name="e03s02: `using-bigpowers` lifecycle updated" time="5400.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0.7" />
+      <property name="lead_time_minutes" value="90" />
+    </properties>
+  </testcase>
+  <testcase classname="e03" name="e03s03: Absorb 5 near-duplicate utility skills into session-state and survey-context" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e04" name="e04s01: Handoff + compaction in `session-state`" time="3600.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="1.0" />
+      <property name="lead_time_minutes" value="60" />
+    </properties>
+  </testcase>
+  <testcase classname="e04" name="e04s02: `terse-mode` caveman rules (existing)" time="1800.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="2.0" />
+      <property name="lead_time_minutes" value="30" />
+    </properties>
+  </testcase>
+  <testcase classname="e04" name="e04s03: `organize-workspace` gitignore section (existing)" time="1800.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="2.0" />
+      <property name="lead_time_minutes" value="30" />
+    </properties>
+  </testcase>
+  <testcase classname="e05" name="e05s01: `model:` on all SKILL.md" time="3600.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="1.0" />
+      <property name="lead_time_minutes" value="60" />
+    </properties>
+  </testcase>
+  <testcase classname="e05" name="e05s02: `execute-plan` isolation + STATE.md channel" time="3600.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="1.0" />
+      <property name="lead_time_minutes" value="60" />
+    </properties>
+  </testcase>
+  <testcase classname="e05" name="e05s03: `orchestrate-project` reads model + spawn list" time="3600.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="1.0" />
+      <property name="lead_time_minutes" value="60" />
+    </properties>
+  </testcase>
+  <testcase classname="e06" name="e06s01: `type:` / `context:` in plan-work template" time="3600.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="1.0" />
+      <property name="lead_time_minutes" value="60" />
+    </properties>
+  </testcase>
+  <testcase classname="e06" name="e06s02: ADR/SHA refs on steps" time="3600.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="1.0" />
+      <property name="lead_time_minutes" value="60" />
+    </properties>
+  </testcase>
+  <testcase classname="e06" name="e06s03: `audit-code` metadata checks" time="3600.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="1.0" />
+      <property name="lead_time_minutes" value="60" />
+    </properties>
+  </testcase>
+  <testcase classname="e07" name="e07s01: Demeter in CONVENTIONS.md + audit-code" time="3600.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="1.0" />
+      <property name="lead_time_minutes" value="60" />
+    </properties>
+  </testcase>
+  <testcase classname="e07" name="e07s02: Module Depth score in deepen-architecture" time="3600.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="1.0" />
+      <property name="lead_time_minutes" value="60" />
+    </properties>
+  </testcase>
+  <testcase classname="e07" name="e07s03: Concurrency audit in model-domain" time="3600.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="1.0" />
+      <property name="lead_time_minutes" value="60" />
+    </properties>
+  </testcase>
+  <testcase classname="e08" name="e08s01: Wave Execution" time="3600.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="1.0" />
+      <property name="lead_time_minutes" value="60" />
+    </properties>
+  </testcase>
+  <testcase classname="e09" name="e09s01: stocktake-skills, evolve-skill, search-skills, compose-workflow, simulate-agents" time="3600.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="2.0" />
+      <property name="lead_time_minutes" value="60" />
+    </properties>
+  </testcase>
+  <testcase classname="e09" name="e09s02: `specs/METHODOLOGY.md`" time="1800.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="2.0" />
+      <property name="lead_time_minutes" value="30" />
+    </properties>
+  </testcase>
+  <testcase classname="e09" name="e09s03: craft-skill README generator" time="1800.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="2.0" />
+      <property name="lead_time_minutes" value="30" />
+    </properties>
+  </testcase>
+  <testcase classname="e09" name="e09s04: Iterative retrieval in dispatch-agents / delegate-task" time="2700.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="1.3" />
+      <property name="lead_time_minutes" value="45" />
+    </properties>
+  </testcase>
+  <testcase classname="e09" name="e09s05: evolve-skill benchmark path documented; run `bash scripts/score_run.sh` in bigpo" time="1800.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="2.0" />
+      <property name="lead_time_minutes" value="30" />
+    </properties>
+  </testcase>
+  <testcase classname="e09" name="e09s06: Add HARD GATE enforcement callouts to 35 skills" time="10800.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="1.7" />
+      <property name="lead_time_minutes" value="180" />
+    </properties>
+  </testcase>
+  <testcase classname="e10" name="e10s01: profiles/swift.md, typescript-vue.md, node-service.md" time="2700.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="1.3" />
+      <property name="lead_time_minutes" value="45" />
+    </properties>
+  </testcase>
+  <testcase classname="e10" name="e10s02: seed-conventions profile picker" time="2700.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="1.3" />
+      <property name="lead_time_minutes" value="45" />
+    </properties>
+  </testcase>
+  <testcase classname="e11" name="e11s01: Dashboard TUI UAT" time="3600.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="2.0" />
+      <property name="lead_time_minutes" value="60" />
+    </properties>
+  </testcase>
+  <testcase classname="e11" name="e11s02: Dashboard Web UAT" time="3600.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="2.0" />
+      <property name="lead_time_minutes" value="60" />
+    </properties>
+  </testcase>
+  <testcase classname="e11" name="e11s03: BCP accounting + cycle-time ledger" time="3000.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="2.4" />
+      <property name="lead_time_minutes" value="50" />
+    </properties>
+  </testcase>
+  <testcase classname="e11" name="e11s04: Plan retirement + scope correction" time="3000.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="2.4" />
+      <property name="lead_time_minutes" value="50" />
+    </properties>
+  </testcase>
+  <testcase classname="e11" name="e11s05: SKILL-INDEX fix + dead code removal" time="1800.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="4.0" />
+      <property name="lead_time_minutes" value="30" />
+    </properties>
+  </testcase>
+  <testcase classname="e12" name="e12s01: Pi skill generation — .pi/skills/&lt;name&gt;/SKILL.md" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e12" name="e12s02: Pi prompt templates — .pi/prompts/&lt;name&gt;.md" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e12" name="e12s03: Pi package config — package.json with pi manifest" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e12" name="e12s04: sync-skills.sh pi target" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e12" name="e12s05: Installation docs — document pi install process" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e12" name="e12s06: Validation — test pi loads all skills correctly" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e13" name="e13s01: Regenerate skills-lock.json with all 62 skills" time="11580.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0.3" />
+      <property name="lead_time_minutes" value="193" />
+    </properties>
+  </testcase>
+  <testcase classname="e13" name="e13s02: Autogenerate SKILL-INDEX.md from lockfile + frontmatter" time="11580.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0.3" />
+      <property name="lead_time_minutes" value="193" />
+    </properties>
+  </testcase>
+  <testcase classname="e13" name="e13s03: Complete or deprecate stale planned skills" time="11580.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0.3" />
+      <property name="lead_time_minutes" value="193" />
+    </properties>
+  </testcase>
+  <testcase classname="e14" name="e14s01: Harden release-branch solo-local fallback" time="1020.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="3.5" />
+      <property name="lead_time_minutes" value="17" />
+    </properties>
+  </testcase>
+  <testcase classname="e14" name="e14s02: Add fix-rate KPI to session-state tracking" time="720.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="5.0" />
+      <property name="lead_time_minutes" value="12" />
+    </properties>
+  </testcase>
+  <testcase classname="e14" name="e14s03: Catalog completeness audit — verify all pi skills exist in public catalog" time="540.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="6.7" />
+      <property name="lead_time_minutes" value="9" />
+    </properties>
+  </testcase>
+  <testcase classname="e15" name="e15s01: craft-skill: wire-ci — CI pipeline setup with templates and local validation" time="780.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="9.2" />
+      <property name="lead_time_minutes" value="13" />
+    </properties>
+  </testcase>
+  <testcase classname="e15" name="e15s02: craft-skill: publish-package — npm, crates.io, Homebrew publishing" time="420.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="8.6" />
+      <property name="lead_time_minutes" value="7" />
+    </properties>
+  </testcase>
+  <testcase classname="e15" name="e15s03: Add CI verification step to release-branch + CI dry-run to develop-tdd" time="600.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="12.0" />
+      <property name="lead_time_minutes" value="10" />
+    </properties>
+  </testcase>
+  <testcase classname="e16" name="e16s01: craft-skill: deploy — build → verify → deploy → wait → smoke" time="240.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="45.0" />
+      <property name="lead_time_minutes" value="4" />
+    </properties>
+  </testcase>
+  <testcase classname="e16" name="e16s02: craft-skill: smoke-test — post-deploy health-check against live URL" time="60.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="120.0" />
+      <property name="lead_time_minutes" value="1" />
+    </properties>
+  </testcase>
+  <testcase classname="e17" name="e17s01: craft-skill: validate-contracts — assert data shape consistency across system boundaries" time="2040.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="5.3" />
+      <property name="lead_time_minutes" value="34" />
+    </properties>
+  </testcase>
+  <testcase classname="e18" name="e18s01: audit-code as hard gate in build-epic step 6" time="3780.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="1.9" />
+      <property name="lead_time_minutes" value="63" />
+    </properties>
+  </testcase>
+  <testcase classname="e18" name="e18s02: Wire enforce-first (F.I.R.S.T) into build-epic gate chain" time="120.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="30.0" />
+      <property name="lead_time_minutes" value="2" />
+    </properties>
+  </testcase>
+  <testcase classname="e18" name="e18s03: Wire assess-impact into build-epic step 2 (plan-work)" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e18" name="e18s04: Universalize resume/checkpoint pattern to fix-bug and orchestrate-project" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e18" name="e18s05: Add auto-timing to critical-path skills for stocktake effectiveness" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e19" name="e19s01: craft-skill: quick-fix — fast-path for trivial data-only fixes" time="300.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="36.0" />
+      <property name="lead_time_minutes" value="5" />
+    </properties>
+  </testcase>
+  <testcase classname="e20" name="e20s01: change-request conversational intake — parse natural-language requests" time="420.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="8.6" />
+      <property name="lead_time_minutes" value="7" />
+    </properties>
+  </testcase>
+  <testcase classname="e20" name="e20s02: Reduce state.yaml commit noise — squash state: commits or out-of-band tracking" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e20" name="e20s03: kickoff-branch pre-commit for spec artifacts — fix dirty-tree conflicts" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e20" name="e20s04: verify-work verify-command validation — detect mismatches before UAT" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e20" name="e20s05: develop-tdd --config mode + build-epic --fast mode" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e20" name="e20s06: verify-work --cli mode for CLI tools" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e21" name="e21s01: MCP-native skill discovery — register skills as MCP tools" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e21" name="e21s02: Wire opensrc into research-first for learn-before-build" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e21" name="e21s03: CI-aware skills — read preflight commands from AGENTS.md" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e21" name="e21s04: compose-workflow → AGENTS.md agentic stack mapping" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e22" name="e22s01: scripts/run-skill-verify.sh — machine-runnable catalog health check" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e22" name="e22s02: Wire skill-verify to CI and stocktake-skills --verify mode" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e23" name="e23s01: Define specs/benchmarks/ schema and 3 seed benchmark definitions" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e23" name="e23s02: Create run-benchmark skill" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e23" name="e23s03: Wire evolve-skill to use run-benchmark output" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e24" name="e24s01: elaborate-spec writes specs/planning-context.yaml" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e24" name="e24s02: scope-work and slice-tasks read planning-context.yaml" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e24" name="e24s03: run-planning tracks context lifecycle in planning-status.yaml" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e25" name="e25s01: Promote ID tracking from YAML comments to first-class fields" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e25" name="e25s02: Emit FR-XX / UJ-XX REQUIREMENTS_TRACE.yaml on migration" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e25" name="e25s03: Promote handoff block from optional to mandatory Step 4 output" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e25" name="e25s04: Add adversarial review pass after migration (BMAD learning)" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e25" name="e25s05: Add two-pass spec writing gate (spec-kit learning)" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e25" name="e25s06: Add methodology doc template (GSD learning)" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e26" name="e26s01: Core security-review skill + reference files" time="600.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="5" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="30.0" />
+      <property name="lead_time_minutes" value="10" />
+    </properties>
+  </testcase>
+  <testcase classname="e26" name="e26s02: build-epic integration — threat model step" time="600.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="low" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="18.0" />
+      <property name="lead_time_minutes" value="10" />
+    </properties>
+  </testcase>
+  <testcase classname="e26" name="e26s03: plan-work / plan-release integration" time="480.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="low" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="22.5" />
+      <property name="lead_time_minutes" value="8" />
+    </properties>
+  </testcase>
+  <testcase classname="e26" name="e26s04: audit-code / request-review integration" time="420.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="low" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="25.7" />
+      <property name="lead_time_minutes" value="7" />
+    </properties>
+  </testcase>
+  <testcase classname="e26" name="e26s05: verify-work integration — Phase 5 security scan" time="420.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="medium" />
+      <property name="bcps" value="4" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="34.3" />
+      <property name="lead_time_minutes" value="7" />
+    </properties>
+  </testcase>
+  <testcase classname="e26" name="e26s06: release-branch hard gate" time="360.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="medium" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="20.0" />
+      <property name="lead_time_minutes" value="6" />
+    </properties>
+  </testcase>
+  <testcase classname="e26" name="e26s07: fix-bug / validate-fix integration" time="420.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="high" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="8.6" />
+      <property name="lead_time_minutes" value="7" />
+    </properties>
+  </testcase>
+  <testcase classname="e27" name="e27s01: Rename generated specs-root files to _LATEST.md in all source skills" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="7" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e28" name="e28s01: Create scripts/lib/skill-common.sh with shared functions (resolve_repo_root, parse_frontmatter, iterate_skills)" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e28" name="e28s02: Refactor 13 scripts to source skill-common.sh instead of duplicating boilerplate" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e28" name="e28s03: Refactor sync-skills.sh to use render-target functions (one per target)" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="5" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e28" name="e28s04: Refactor regenerate-lockfile.sh, generate-skill-index.sh, build-skill-index.sh to source skill-common.sh" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e29" name="e29s01: Location-agnostic skill discovery in all consumer scripts" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e29" name="e29s02: Relocate skill sources to skills/ and re-point CI" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e29" name="e29s03: Root cleanup and doctrine update" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e30" name="e30s01: Add 3 missing skills to get_phase() in generate-skill-index.sh" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e30" name="e30s02: Fix 4 broken specs/tech-architecture/ references" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e30" name="e30s03: Delete stale karpathy.feature.bak" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e30" name="e30s04: Replace tautological verify commands with behavior-relevant checks" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e31" name="e31s01: Create scripts/golden-g04-selftest.sh — sync-pipeline self-test (G-04): asserts 72 artifacts per target, skills-lock.json count, SKILL-INDEX total" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e31" name="e31s02: Wire npm run compliance into CI (.github/workflows/publish.yml) as a gate before semantic-release" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e31" name="e31s03: Create scripts/run-golden-suite.sh (deterministic mode): compliance -&gt; G-04 self-test -&gt; size budget; writes specs/benchmarks/reports/GOLDEN-&lt;date&gt;.yaml; --baseline pins" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e31" name="e31s04: Add static size budget to run-golden-suite.sh — per-skill and total SKILL.md bytes vs baseline (+20% warn, +50% fail)" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e31" name="e31s05: Pin baseline via run-golden-suite.sh --baseline -&gt; specs/benchmarks/reports/BASELINE-GOLDEN.yaml" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e31" name="e31s06: Mandate run-golden-suite.sh as pre-merge step in CLAUDE.md and CONVENTIONS.md" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e31" name="e31s07: Point evolve-skill SKILL.md at run-golden-suite.sh for regression checks (keeps per-skill run-benchmark for capability evals)" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e32" name="e32s01: Spike: build bigpowers-mcp with index_skills + read_skill, validate against all SKILL.md files" time="0.0">
+    <properties>
+      <property name="risk" value="P0" />
+      <property name="security" value="low" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e32" name="e32s02: Add build_skill_graph tool — entity-relation model from parsed SKILL.md data" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e32" name="e32s03: Add search_skills + get_dependencies tools" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e32" name="e32s04: Add get_git_context tool — change awareness for drift detection" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e32" name="e32s05: Add validate_skill tool — convention compliance check" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e32" name="e32s06: Register bigpowers-mcp in MCP client configs (Claude Code, Cursor, OpenCode)" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e32" name="e32s07: Write docs/references/bigpowers-mcp.md — architecture and operator guide" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e33" name="e33s01: Scaffold Astro Starlight site in website/ with local dev" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e33" name="e33s02: Source-mapping prebuild — pages generated from repo sources" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="5" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e33" name="e33s03: SEO + AI discoverability layer" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e33" name="e33s04: GitHub Pages deploy workflow" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e33" name="e33s05: Doctrine wiring — site content is generated, never edited" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e34" name="e34s01: Create docs/references/context-engineering.md (write/select/compress/isolate framework)" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e34" name="e34s02: Add optional effort: heavy|light frontmatter to all 72 skills" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e34" name="e34s03: Update CLAUDE.md Token Management to use context-engineering vocabulary" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e34" name="e34s04: Update session-state SKILL.md to name the four context-engineering strategies" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e35" name="e35s01: Create docs/references/kent-beck.md (XP, TDD origins, Tidy First?)" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e35" name="e35s02: Create docs/references/fowler.md (refactoring catalog, code smells)" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e35" name="e35s03: Create docs/references/feathers.md (seams, characterization tests)" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e35" name="e35s04: Create docs/references/pragmatic-programmer.md (DRY, broken windows, tracer bullets)" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e35" name="e35s05: Create docs/references/rich-hickey.md (simple vs easy, complecting)" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e35" name="e35s06: Create docs/references/sandi-metz.md (SOLID in practice, message-level testing)" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e35" name="e35s07: Create docs/references/ddd.md (bounded contexts, context mapping)" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e35" name="e35s08: Create docs/references/accelerate.md (DORA four keys)" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e35" name="e35s09: Update PRINCIPLES.md to credit Beck, Fowler, Feathers, Hunt &amp; Thomas" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e35" name="e35s10: Cross-reference new docs from SKILL.md bodies" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e36" name="e36s01: Slim docs/references/uncle-bob.md to provenance pointer" time="0.0">
+    <properties>
+      <property name="risk" value="P2" />
+      <property name="security" value="none" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e36" name="e36s02: Slim docs/references/akita.md, ousterhout.md, karpathy.md, wasowski.md to provenance pointers" time="0.0">
+    <properties>
+      <property name="risk" value="P2" />
+      <property name="security" value="none" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e36" name="e36s03: Remove F.I.R.S.T rubric restatement from enforce-first and audit-code SKILL.md; replace with CONVENTIONS.md pointer" time="0.0">
+    <properties>
+      <property name="risk" value="P2" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e36" name="e36s04: Update docs/references/spec-kit.md to cover full SDD tool landscape (Kiro, Tessl, BMAD, GSD)" time="0.0">
+    <properties>
+      <property name="risk" value="P2" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e36" name="e36s05: Refresh docs/references/bmad.md from BMAD v6/TEA — currently covers only Document Lifecycle" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e37" name="e37s01: seed-conventions — unified AGENTS.md template with e51 Preflight + multi-agent header" time="0.0">
+    <properties>
+      <property name="risk" value="P1" />
+      <property name="security" value="none" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e37" name="e37s02: verify-install.sh + docs — Cline native AGENTS.md verification" time="0.0">
+    <properties>
+      <property name="risk" value="P2" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e37" name="e37s03: seed-conventions — .aider.conf.yml read:AGENTS.md bridge for Aider users" time="0.0">
+    <properties>
+      <property name="risk" value="P3" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e37" name="e37s04: verify-install.sh — AGENTS.md spine assertions (OSS P1 + optional Codex)" time="0.0">
+    <properties>
+      <property name="risk" value="P2" />
+      <property name="security" value="low" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e37" name="e37s05: scripts/targets.yaml — declarative integration registry for all targets" time="0.0">
+    <properties>
+      <property name="risk" value="P1" />
+      <property name="security" value="none" />
+      <property name="bcps" value="5" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e37" name="e37s06: scripts/generate-context-bundle.sh — AGENTS.md single source + all derivatives" time="0.0">
+    <properties>
+      <property name="risk" value="P1" />
+      <property name="security" value="none" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e37" name="e37s07: sync-skills.sh — adapter dispatch from targets.yaml" time="0.0">
+    <properties>
+      <property name="risk" value="P0" />
+      <property name="security" value="none" />
+      <property name="bcps" value="5" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e37" name="e37s08: verify-install.sh — per-target contract matrix from targets.yaml" time="0.0">
+    <properties>
+      <property name="risk" value="P1" />
+      <property name="security" value="none" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e37" name="e37s09: targets.yaml — Wave A: Goose (OSS) + Antigravity agy (proprietary beta)" time="0.0">
+    <properties>
+      <property name="risk" value="P2" />
+      <property name="security" value="none" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e37" name="e37s10: targets.yaml — Wave B: zed, omp, hermes (skills-dir adapters)" time="0.0">
+    <properties>
+      <property name="risk" value="P2" />
+      <property name="security" value="none" />
+      <property name="bcps" value="4" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e37" name="e37s11: targets.yaml — Wave C: qwen, kilocode (markdown commands + rules)" time="0.0">
+    <properties>
+      <property name="risk" value="P2" />
+      <property name="security" value="none" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e37" name="e37s12: targets.yaml — Wave D: continue (rules adapter; re-opened active OSS)" time="0.0">
+    <properties>
+      <property name="risk" value="P2" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e37" name="e37s13: targets.yaml — Wave E: iflow, vibe, shai (markdown commands; optional)" time="0.0">
+    <properties>
+      <property name="risk" value="P3" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e37" name="e37s14: seed-conventions — optional Codex wiring step (AGENTS.md + .codex/config.toml)" time="0.0">
+    <properties>
+      <property name="risk" value="P2" />
+      <property name="security" value="none" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e37" name="e37s15: install.sh — global ~/.codex/ AGENTS.md starter symlink" time="0.0">
+    <properties>
+      <property name="risk" value="P2" />
+      <property name="security" value="low" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e37" name="e37s16: using-bigpowers — Codex CLI onboarding section" time="0.0">
+    <properties>
+      <property name="risk" value="P3" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e38" name="e38s01: Create scripts/trace-stories.sh — deterministic coverage matrix builder" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e38" name="e38s02: Integrate trace-stories.sh into build-epic Step 8 (verify phase)" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e38" name="e38s03: Add trace-stories.sh --strict to CI gate (sync-skills.yml)" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e38" name="e38s04: Create scripts/check-blind-spots.sh — heuristic quality detector" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e38" name="e38s05: Integrate check-blind-spots.sh into verify-work Phase 3" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e38" name="e38s06: Create gate-trace skill — deterministic quality gate before release" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e38" name="e38s07: Wire gate-trace into release-branch pre-PR gate" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e38" name="e38s08: Update CLAUDE.md and CONVENTIONS.md with traceability mandate" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e38" name="e38s09: Write docs/references/traceability-gate.md — architecture &amp; operator guide" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e39" name="e39s01: Consume e32 build_skill_graph MCP tool for skill graph artifact (replaces standalone build-skill-graph.sh)" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e39" name="e39s02: Create specs/agent-locks.yaml — multi-agent coordination protocol" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e39" name="e39s03: Create scripts/check-spec-drift.sh — requirement change → suspect trace links" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e39" name="e39s04: OKF Phase 2 — sync-skills.sh generates specs/skills-wiki/ from all SKILL.md files" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e39" name="e39s05: OKF Phase 3a — decompose CONVENTIONS.md into specs/conventions-wiki/" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e39" name="e39s06: OKF Phase 3b — decompose CLAUDE.md into specs/agent-guide/ for progressive disclosure" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e39" name="e39s07: Create maintain-wiki skill — agent-maintained OKF ingest, lint, and query" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e39" name="e39s08: Integrate maintain-wiki into build-epic Step 8 and verify-work Phase 3" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e39" name="e39s09: Write docs/references/semantic-context-bridge.md — architecture and operator guide" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e39" name="e39s10: Extend scripts/validate-okf.sh (created by e40s06) with OKF v0.1 frontmatter conformance checks" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e40" name="e40s01: Land record-cycle-time.sh — git-derived additive effort + lead_time (report/append + additivity self-check)" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e40" name="e40s02: Wire record-cycle-time.sh append into release-branch; deprecate story_start/story_end hand-arithmetic in survey-context + release-branch" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e40" name="e40s03: Adopt OKF story-metrics bundle format (specs/templates/story-metrics.okf.md); emit one bundle per merged story" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e40" name="e40s04: Agent code-gen telemetry capture where harness exposes usage (pi, Claude Code): cost, tokens, cache_hit, tier, tool_calls" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e40" name="e40s05: DORA four keys per story, computed from git/deploy events (lead time, deploy frequency, change failure, restore time) — median/rate aggregation only" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e40" name="e40s06: validate-okf.sh + provenance gate (e31-style): bundle valid iff generator ran and commit_range resolves; wire into compliance CI" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e40" name="e40s07: Quarantine fabricated cycle-times.yaml rows (tag source: backfilled) and exclude from aggregates" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e40" name="e40s08: Benchmark axes scaffold in specs/benchmarks using OKF bundles (delivery, reliability, cost, routing, quality)" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e41" name="e41s01: Create scripts/build-receipts.sh — aggregate all quality evidence into specs/receipts.json" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e41" name="e41s02: Render /receipts page on the e28 docs site from receipts.json" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e41" name="e41s03: CI wiring — regenerate receipts on every main push; provenance gate, e40-style" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e41" name="e41s04: Honesty guardrails codified — validate-okf checks receipts.json source tags" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e41" name="e41s05: README + launch note point to the live receipts page" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e42" name="e42s01: Spike: headless golden-chain harness — gh-aw + DeepSeek v4 prototype confirmed viable" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e42" name="e42s02: Create specs/benchmarks/fixtures/minimal-api/ fixture repo (createUser + failing-ready test harness)" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e42" name="e42s03: Author 4 golden story YAMLs (g-01, g-02, g-03, g-05) with code graders and pass@k 2-of-3 flake policy" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e42" name="e42s04: Add --agent mode to run-golden-suite.sh: headless chain execution per golden story, per-epic cadence, report merged with deterministic gates" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="4" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e43" name="e43s01: Scaffold the showcase app in a separate public repo via seed-conventions" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e43" name="e43s02: Build one feature epic end-to-end via the 8-step build-epic cycle" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e43" name="e43s03: Fix one real bug via the investigate-bug → develop-tdd → validate-fix trail" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e43" name="e43s04: Link the showcase from README + docs site; register as e37 golden-story fixture candidate" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e43" name="e43s05: Add offline-tolerant fallbacks for e43 verify commands that depend on gh api/gh search" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e44" name="e44s01: Define OKF schema for spec-migration and migration-registry; create initial registry with m1-m2" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e44" name="e44s02: Create scripts/check-spec-version-gap.sh — fingerprint + stamp-based version detection" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e44" name="e44s03: Create scripts/migrate-version.sh — one-shot ordered migration engine with triple safety net" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="4" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e44" name="e44s04: Verification gates + migration report generation + CLAUDE.md/CONVENTIONS.md staleness check" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e44" name="e44s05: Integrate check_spec_version_gap into survey-context; wire handoff signal" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e44" name="e44s06: Golden test fixtures (v1.x, v2.0.0, v2.20) + roundtrip validation; wire as G-06 golden story" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e45" name="e45s01: run-benchmark: add train/validation-split + with/without-skill delta grading" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e45" name="e45s02: craft-skill: CSO description discipline + completion-honesty gate" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e45" name="e45s03: CLAUDE.md token mgmt: mechanical PreToolUse hook backstop" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e45" name="e45s04: slice-tasks / plan-work: pre-build cross-artifact consistency pass" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e45" name="e45s05: verify-work / gate-trace: adversarial gap-finding completeness critic" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="4" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e45" name="e45s06: tasks.yaml: literal failing→passing task ledger" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e45" name="e45s07: request-review: dual-blind AND-gate review (Santa Method)" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e45" name="e45s08: develop-tdd / validate-fix: two-commit red/green regression policy" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e45" name="e45s09: verify-work / plan-work: Pre-Implementation and Validation gates" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e45" name="e45s10: docs/references: auto-regenerate from source-of-truth docs via scheduled sync" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e45" name="e45s11: orchestration / dispatch-agents: typed message protocol + 3-failure circuit breaker" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e45" name="e45s12: stocktake-skills / craft-skill: code-enforced validator + auto-archiving" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e45" name="e45s13: verify-work: one-test-minimum terminal-verdict rule" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e45" name="e45s14: deepen-architecture: declared import-boundary allowlist enforced in CI" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e45" name="e45s15: release-branch / deploy: three-independent-facts verification" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e45" name="e45s16: CLAUDE.md rtk mandate: wire rtk-ai/rtk PreToolUse hook" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e45" name="e45s17: request-review: fan-out to parallel review subagents" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e45" name="e45s18: audit-code / security-review: worktree-isolated parallel checks" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e45" name="e45s19: Context7: bounded retry cap and explicit fallback block" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e45" name="e45s20: Context7 / bts docs: wrap in ETag-revalidated fetch cache" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e45" name="e45s21: seed-conventions / AGENTS.md: self-installing fenced markers" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e45" name="e45s22: CLAUDE.md: context-aware directory routing" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e45" name="e45s23: CLAUDE.md: live Learned User Preferences / Workspace Facts" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e45" name="e45s24: REFERENCE.md files: embedded line-range navigation guides" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e45" name="e45s25: CONVENTIONS.md risk tiers: compile to versioned, diffable rule matrix" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="4" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e45" name="e45s26: security-review: CWE mapping + 2 positive/2 negative fixtures" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e45" name="e45s27: loop / workflow: terminal-state taxonomy" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e45" name="e45s28: request-review: hard max-iteration cap" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e45" name="e45s29: requirements: ADDED/MODIFIED/REMOVED/RENAMED tags" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e45" name="e45s30: subagent depth: formalize depth tiers" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e45" name="e45s31: audit-code / deepen-architecture: churn-based look-here-first heuristic" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e45" name="e45s32: gate-trace / release-branch: adversarial-review refute framing" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e45" name="e45s33: requirements: per-section approval state" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e45" name="e45s34: develop-tdd: snapshot-before-transition hardening" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e45" name="e45s35: plan-work: 5 fixed EARS sentence patterns" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e45" name="e45s36: specs: Documentation Responsibilities table" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e45" name="e45s37: run-evals: graduated eval-strictness tiers" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e45" name="e45s38: orchestration: why-did-this-stall diagnostic skill" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e45" name="e45s39: PR generation: literal provenance marker" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e45" name="e45s40: verify-work: mandatory real-browser verification" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e45" name="e45s41: security-review: proven authorship SQL-safety doctrine" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e46" name="e46s01: Write docs/references/tea.md — credit TEA and document its mechanisms" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e46" name="e46s02: Add risk: P0|P1|P2|P3 field to plan-work that scales verify-work depth" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e46" name="e46s03: NFR evidence gate — performance/reliability/operability with go/no-go output" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="4" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e46" name="e46s04: Upstream test-design artifact — plan-tests skill, registered output path, scenario ID traceability" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="6" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e47" name="e47s01: install.sh — global pi coverage (install_pi/uninstall_pi) + remove broken OpenCode step" time="0.0">
+    <properties>
+      <property name="risk" value="P2" />
+      <property name="security" value="none" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e47" name="e47s02: seed-conventions — optional per-project local wiring for Cursor + OpenCode" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e47" name="e47s03: docs — skill-catalog vs instruction-only distinction in agent-config reference" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e47" name="e47s04: verify-install.sh — manual verification harness for install + seed wiring" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e48" name="e48s01: Generate epics-wiki and adr-wiki as OKF concept bundles from sync-skills.sh" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e48" name="e48s02: Emit verification reports as OKF bundles from run-golden-suite.sh and audit-compliance.sh" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e48" name="e48s03: OKF-ify bug-registry: specs/bugs/registry.yaml emits concept bundles per bug" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e48" name="e48s04: Create viz.html — interactive force-layout graph companion for visual-dashboard" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e48" name="e48s05: Wire OKF validation into CI (sync-skills.yml) and document in OKF authority [HARD GATE]" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e48" name="e48s06: Add tier: field (core/extended/specialized) to OKF wiki indexes for conditional agent loading" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e48" name="e48s07: Create publish-to-wiki kernel tool" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e48" name="e48s08: Add GitHub Action Template for publish-wiki.yml [HARD GATE]" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="1" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e48" name="e48s09: Create Wiki Scaffold Templates and provenance header injection" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e48" name="e48s10: Extend bigspec init with --with-wiki flag" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e48" name="e48s11: BCP Plus counter integration — install and smoke-test big-counter as optional tool" time="0.0">
+    <properties>
+      <property name="risk" value="P1" />
+      <property name="security" value="none" />
+      <property name="bcps" value="5" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e48" name="e48s12: BCP Plus template — 13-dimension breakdown in story specs" time="0.0">
+    <properties>
+      <property name="risk" value="P2" />
+      <property name="security" value="none" />
+      <property name="bcps" value="5" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e48" name="e48s13: NFR Gate integration — security-review and wire-observability sizing" time="0.0">
+    <properties>
+      <property name="risk" value="P2" />
+      <property name="security" value="none" />
+      <property name="bcps" value="4" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e48" name="e48s14: Build-epic integration — BCP Plus in story sizing workflow" time="0.0">
+    <properties>
+      <property name="risk" value="none" />
+      <property name="security" value="none" />
+      <property name="bcps" value="4" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e48" name="e48s15: Refactor Skills Render Pipeline to Hybrid JSON Seam" time="0.0">
+    <properties>
+      <property name="risk" value="P0" />
+      <property name="security" value="none" />
+      <property name="bcps" value="4" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e51" name="e51s01: CONVENTIONS — Always Green, Shift Left, Discovered Defects, banned phrases" time="0.0">
+    <properties>
+      <property name="risk" value="P1" />
+      <property name="security" value="none" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e51" name="e51s02: seed-conventions — Preflight default, solo-git default, embed Always Green template" time="0.0">
+    <properties>
+      <property name="risk" value="P1" />
+      <property name="security" value="none" />
+      <property name="bcps" value="3" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e51" name="e51s03: kickoff-branch + verify-work — Preflight hard block and CI green gate" time="0.0">
+    <properties>
+      <property name="risk" value="P0" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e51" name="e51s04: audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log routing on gate failure" time="0.0">
+    <properties>
+      <property name="risk" value="P1" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+  <testcase classname="e51" name="e51s05: CLAUDE.md — solo-default agent rules + bigpowers Preflight command row" time="0.0">
+    <properties>
+      <property name="risk" value="P1" />
+      <property name="security" value="none" />
+      <property name="bcps" value="2" />
+      <property name="status" value="done" />
+      <property name="bcp_per_hour" value="0" />
+      <property name="lead_time_minutes" value="0" />
+    </properties>
+  </testcase>
+</testsuite>

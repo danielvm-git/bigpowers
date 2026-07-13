@@ -1,0 +1,23 @@
+[
+  {
+    "name": "P0 Risk",
+    "matchedStatuses": [
+      "failed"
+    ],
+    "messageRegex": ".*risk.*P0.*"
+  },
+  {
+    "name": "Security Review",
+    "matchedStatuses": [
+      "failed"
+    ],
+    "messageRegex": ".*security.*(?:medium|high).*"
+  },
+  {
+    "name": "Open Bugs",
+    "matchedStatuses": [
+      "failed"
+    ],
+    "messageRegex": ".*Bug.*"
+  }
+]

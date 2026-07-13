@@ -1,0 +1,146 @@
+#!/usr/bin/env bash
+# story: e76
+set -euo pipefail
+source "$(dirname "${BASH_SOURCE[0]}")/lib/python-env.sh"
+ROOT="$(git rev-parse --show-toplevel 2>/dev/null)" || ROOT="$(dirname "${BASH_SOURCE[0]}")/.."
+
+mkdir -p "$ROOT/allure-results"
+
+$PYTHON - "$ROOT" <<'PY'
+import json
+import sys
+import xml.etree.ElementTree as ET
+from pathlib import Path
+
+root = Path(sys.argv[1])
+out = root / "allure-results"
+
+exec_status_file = root / "specs" / "execution-status.yaml"
+release_plan_file = root / "specs" / "release-plan.yaml"
+cycle_times_file = root / "specs" / "metrics" / "cycle-times.yaml"
+bugs_registry_file = root / "specs" / "bugs" / "registry.yaml"
+
+sys.path.insert(0, str(root / "scripts" / "lib"))
+from simple_yaml import parse_simple_yaml
+
+exec_status = parse_simple_yaml(exec_status_file.read_text()) if exec_status_file.exists() else {}
+release_plan = parse_simple_yaml(release_plan_file.read_text()) if release_plan_file.exists() else {}
+cycle_times = parse_simple_yaml(cycle_times_file.read_text()) if cycle_times_file.exists() else {"stories": []}
+bugs_registry = parse_simple_yaml(bugs_registry_file.read_text()) if bugs_registry_file.exists() else {"bugs": []}
+
+# Build cycle-times lookup
+ct_lookup = {}
+for ct in cycle_times.get("stories", []):
+    if isinstance(ct, dict):
+        ct_lookup[ct.get("id", "")] = ct
+
+# Build JUnit XML
+stories = exec_status.get("stories", {})
+total_stories = len(stories)
+incomplete = sum(1 for s in stories.values() if isinstance(s, dict) and s.get("status") != "done")
+
+testsuite = ET.Element("testsuite", {
+    "name": "bigpowers-epic-progress",
+    "tests": str(total_stories),
+    "failures": str(incomplete),
+    "errors": "0",
+    "skipped": "0",
+})
+
+for story_id in sorted(stories.keys()):
+    story = stories[story_id]
+    if not isinstance(story, dict):
+        continue
+
+    epic_id = story.get("epic", "unknown")
+    title = story.get("title", story_id)
+    bcps = story.get("bcps", 0)
+    status = story.get("status", "backlog")
+    risk_max = story.get("risk_max", "none")
+    security_max = story.get("security_max", "none")
+
+    ct_data = ct_lookup.get(story_id, {})
+    cycle_minutes = ct_data.get("cycle_minutes", 0) if isinstance(ct_data, dict) else 0
+    bcp_per_hour = ct_data.get("bcp_per_hour", 0) if isinstance(ct_data, dict) else 0
+
+    time_seconds = cycle_minutes * 60.0 if cycle_minutes else 0.0
+
+    testcase = ET.SubElement(testsuite, "testcase", {
+        "classname": epic_id,
+        "name": f"{story_id}: {title}",
+        "time": str(round(time_seconds, 3)),
+    })
+
+    props = ET.SubElement(testcase, "properties")
+    ET.SubElement(props, "property", {"name": "risk", "value": risk_max})
+    ET.SubElement(props, "property", {"name": "security", "value": security_max})
+    ET.SubElement(props, "property", {"name": "bcps", "value": str(bcps)})
+    ET.SubElement(props, "property", {"name": "status", "value": status})
+    ET.SubElement(props, "property", {"name": "bcp_per_hour", "value": str(bcp_per_hour)})
+    ET.SubElement(props, "property", {"name": "lead_time_minutes", "value": str(cycle_minutes)})
+
+    if status != "done":
+        ET.SubElement(testcase, "failure", {
+            "message": f"Story {story_id} is {status} [risk={risk_max}, security={security_max}]",
+            "type": "StoryIncomplete"
+        })
+
+tree = ET.ElementTree(testsuite)
+ET.indent(tree, space="  ")
+tree.write(str(out / "junit-results.xml"), encoding="utf-8", xml_declaration=True)
+
+# Categories JSON
+epics = exec_status.get("epics", {})
+categories = []
+
+for epic_id in sorted(epics.keys()):
+    epic = epics[epic_id]
+    if isinstance(epic, dict) and epic.get("status") != "done":
+        categories.append({
+            "name": f"Epic: {epic.get('title', epic_id)}",
+            "matchedStatuses": ["failed"],
+            "messageRegex": f".*{epic_id}:.*"
+        })
+
+categories.append({
+    "name": "P0 Risk",
+    "matchedStatuses": ["failed"],
+    "messageRegex": ".*risk.*P0.*"
+})
+categories.append({
+    "name": "Security Review",
+    "matchedStatuses": ["failed"],
+    "messageRegex": ".*security.*(?:medium|high).*"
+})
+
+bug_list = bugs_registry.get("bugs", [])
+bug_count = len(bug_list) if isinstance(bug_list, list) else 0
+open_bugs = sum(1 for b in bug_list if isinstance(b, dict) and b.get("status") not in ("fixed", "closed", None))
+if open_bugs > 0:
+    categories.append({
+        "name": "Open Bugs",
+        "matchedStatuses": ["failed"],
+        "messageRegex": ".*Bug.*"
+    })
+
+(out / "categories.json").write_text(json.dumps(categories, indent=2))
+
+# Executor JSON
+rl = release_plan.get("release", {})
+if not isinstance(rl, dict):
+    rl = {}
+executor = {
+    "name": "bigpowers",
+    "type": "bigpowers",
+    "buildName": rl.get("version", "unknown"),
+    "buildOrder": len(exec_status.get("development_status", {})),
+}
+(out / "executor.json").write_text(json.dumps(executor, indent=2))
+
+epic_count = len([e for e in epics.values() if isinstance(e, dict) and e.get("status") == "done"])
+total_epics = len(epics)
+print(f"generate-allure-report: {total_stories} stories, {epic_count}/{total_epics} epics done, {bug_count} bugs")
+print(f"  -> {out}/junit-results.xml")
+print(f"  -> {out}/categories.json")
+print(f"  -> {out}/executor.json")
+PY

@@ -23,7 +23,7 @@
     },
     "build-epic": {
       "description": "Eight-step epic build cycle — reads state.yaml, execution-status.yaml, and one epic capsule; updates status via bp-yaml-set or direct edit. Resume mode runs one step per invocation. Use instead of ad-hoc execute-plan for release work.",
-      "sha256": "85275fd5f2f5664f",
+      "sha256": "11fe35d1dcdec25a",
       "path": "skills/build-epicSKILL.md"
     },
     "change-request": {
@@ -141,6 +141,11 @@
       "sha256": "ed37c315dcef6f87",
       "path": "skills/gate-traceSKILL.md"
     },
+    "generate-allure-report": {
+      "description": "\"Generate Allure-ready reports from bigpowers YAML metadata. Reads execution-status.yaml, release-plan.yaml, epic capsules, task YAMLs, cycle-times.yaml, and bug registry to produce allure-results/junit-results.xml, categories.json, and executor.json. Use when preparing progress dashboards, integrating with Allure TestOps, or generating CI reports.\"",
+      "sha256": "acaa43602dc56291",
+      "path": "skills/generate-allure-reportSKILL.md"
+    },
     "grill-me": {
       "description": "Interactive assumption-surfacing Q&A that stress-tests a plan through relentless questioning until every decision is resolved. Use when user wants to challenge a plan, validate decisions from conversation/context, or mentions \"grill me\". For doc-grounded variant, use grill-with-docs.",
       "sha256": "8ef90da0f127f2fd",
@@ -155,6 +160,11 @@
       "description": "Block dangerous git commands (push, force push, reset --hard, clean, branch -D, checkout/restore .) and enforce Conventional Commits & Branch Protection before an AI agent runs them. Installs hook scripts for Claude Code, Cursor, Cursor CLI, and Gemini CLI; documents Google Antigravity Terminal deny lists. Use when the user wants git safety hooks, to block git push or destructive git in agents, or to mirror the same policy across AI coding tools.",
       "sha256": "9ee881df89273b00",
       "path": "skills/guard-gitSKILL.md"
+    },
+    "harden-vps": {
+      "description": "\"Harden a production Linux VPS for BigBase across three layers — BigBase app (systemd hardening, monitoring alerts, backup automation), Ubuntu OS (UFW firewall, fail2ban SSH, unattended-upgrades, SSH hardening), and Contabo VPS (health checks, daily backups, monthly snapshots). Use when the user wants to secure a production server, harden a VPS, audit server security, or mentions production hardening, VPS security, or harden the server.\"",
+      "sha256": "6ea255a1777523d9",
+      "path": "skills/harden-vpsSKILL.md"
     },
     "hook-commits": {
       "description": "Set up pre-commit hooks with lint-staged (Prettier), type checking, and tests in the current repo. Use when user wants to add pre-commit hooks, set up Husky, configure lint-staged, or add commit-time formatting/typechecking/testing.",
@@ -213,7 +223,7 @@
     },
     "plan-release": {
       "description": "\"RELEASE-INDEX BUILDER — Sequence elaborated epics into specs/release-plan.yaml with WSJF ordering and BCP baselines. NOT a planning-spine substitute: it does not scope work (scope-work) or write story tasks (plan-work). Use after elaborate-spec when the user wants a versioned release index of epics.\"",
-      "sha256": "62dc272a091c8d7f",
+      "sha256": "b56b800817cd383e",
       "path": "skills/plan-releaseSKILL.md"
     },
     "plan-tests": {
@@ -223,7 +233,7 @@
     },
     "plan-work": {
       "description": "\"PLANNING SPINE STEP 3 of 3 — Plan the work: write detailed implementation tasks into the active epic capsule (specs/epics/eNN-slug/). Produces countable-story-format .md specs and runnable -tasks.yaml files. Use after slice-tasks (step 2). Not a substitute for scope-work (step 1) or slice-tasks (step 2).\"",
-      "sha256": "aabc7f15b46525c2",
+      "sha256": "2cccc734ae9781ab",
       "path": "skills/plan-workSKILL.md"
     },
     "publish-package": {

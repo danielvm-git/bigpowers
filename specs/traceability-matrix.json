@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-07T22:37:15.064648+00:00",
+  "generated_at": "2026-07-13T17:07:01.225264+00:00",
   "matrix_version": "1.0",
   "stories": [
     {
@@ -3348,6 +3348,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260711-001225.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-010055.md",
           "line": 0,
           "confidence": "medium",
@@ -3438,6 +3444,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260713-134603.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-163954.md",
           "line": 0,
           "confidence": "medium",
@@ -3457,6 +3469,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-164251.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260713-140513.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -3697,6 +3715,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260706-215656.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260713-135950.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -3972,6 +3996,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260713-140559.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-163136.md",
           "line": 0,
           "confidence": "medium",
@@ -4164,6 +4194,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260709-005225.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-143007.md",
           "line": 0,
           "confidence": "medium",
@@ -4338,7 +4374,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260709-001233.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260629-130939.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260709-002229.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4429,6 +4477,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-194053.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260709-001439.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4759,6 +4813,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260707-110050.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260709-001337.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5112,7 +5172,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260709-002322.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-164429.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260713-135838.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5197,6 +5269,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-163956.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260709-001902.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5346,7 +5424,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260709-005318.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260706-235409.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260709-001952.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5359,6 +5449,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-164155.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260709-002154.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5634,7 +5730,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 440
+      "link_count": 456
     },
     {
       "id": "e45s19",
@@ -6708,6 +6804,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260711-001225.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-010055.md",
           "line": 0,
           "confidence": "medium",
@@ -6798,6 +6900,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260713-134603.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-163954.md",
           "line": 0,
           "confidence": "medium",
@@ -6817,6 +6925,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-164251.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260713-140513.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -7057,6 +7171,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260706-215656.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260713-135950.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -7332,6 +7452,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260713-140559.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-163136.md",
           "line": 0,
           "confidence": "medium",
@@ -7524,6 +7650,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260709-005225.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-143007.md",
           "line": 0,
           "confidence": "medium",
@@ -7698,7 +7830,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260709-001233.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260629-130939.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260709-002229.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -7789,6 +7933,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-194053.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260709-001439.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8119,6 +8269,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260707-110050.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260709-001337.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8472,7 +8628,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260709-002322.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-164429.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260713-135838.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8557,6 +8725,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-163956.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260709-001902.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8706,7 +8880,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260709-005318.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260706-235409.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260709-001952.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8719,6 +8905,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-164155.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260709-002154.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8976,7 +9168,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 438
+      "link_count": 454
     },
     {
       "id": "e45s32",
@@ -9846,6 +10038,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/GOLDEN-2026-07-09.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/GOLDEN-2026-07-05.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -9864,6 +10062,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/GOLDEN-2026-07-13.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-2026-07-07.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -9877,6 +10081,24 @@
         },
         {
           "file": "specs/verifications/reports/audit-2026-07-05.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-2026-07-09.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-2026-07-13.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-2026-07-11.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -9919,6 +10141,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-06-audit-code-auditor-oversized.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-09T033939-golden-g01-submodule-checkout.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -9972,7 +10200,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 28
+      "link_count": 34
     },
     {
       "id": "e48s03",
@@ -10105,6 +10333,18 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-04-stale-bak-features.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-09-dead-function-build-skill-graph.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-09T033939-golden-g01-submodule-checkout.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -10422,6 +10662,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-07-09-dead-function-build-skill-graph.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-03-yaml-roundtrip-corruption.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -10566,6 +10812,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-07-09T033939-golden-g01-submodule-checkout.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-07-compliance-record-cycle-time-oversized.md",
           "line": 0,
           "confidence": "medium",
@@ -10692,7 +10944,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 118
+      "link_count": 122
     },
     {
       "id": "e48s04",
@@ -10836,6 +11088,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/GOLDEN-2026-07-09.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/GOLDEN-2026-07-05.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -10854,6 +11112,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/GOLDEN-2026-07-13.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-2026-07-07.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -10867,6 +11131,24 @@
         },
         {
           "file": "specs/verifications/reports/audit-2026-07-05.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-2026-07-09.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-2026-07-13.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-2026-07-11.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -10921,6 +11203,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-04-stale-bak-features.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-09-dead-function-build-skill-graph.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -11149,6 +11437,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-06-11T120000.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-09T033939-golden-g01-submodule-checkout.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -11628,7 +11922,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 142
+      "link_count": 149
     },
     {
       "id": "e48s06",
@@ -13278,6 +13572,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260711-001225.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-010055.md",
           "line": 0,
           "confidence": "medium",
@@ -13368,6 +13668,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260713-134603.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-163954.md",
           "line": 0,
           "confidence": "medium",
@@ -13387,6 +13693,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-164251.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260713-140513.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -13627,6 +13939,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260706-215656.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260713-135950.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -13902,6 +14220,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260713-140559.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-163136.md",
           "line": 0,
           "confidence": "medium",
@@ -14094,6 +14418,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260709-005225.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-143007.md",
           "line": 0,
           "confidence": "medium",
@@ -14268,7 +14598,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260709-001233.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260629-130939.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260709-002229.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -14359,6 +14701,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-194053.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260709-001439.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -14689,6 +15037,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260707-110050.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260709-001337.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -15042,7 +15396,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260709-002322.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-164429.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260713-135838.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -15127,6 +15493,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-163956.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260709-001902.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -15276,7 +15648,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260709-005318.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260706-235409.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260709-001952.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -15289,6 +15673,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-164155.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260709-002154.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -15774,7 +16164,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 485
+      "link_count": 501
     },
     {
       "id": "e51s05",
@@ -16053,7 +16443,7 @@
     "stale_count": 67,
     "oracle_stats": {
       "high": 295,
-      "medium": 2135,
+      "medium": 2200,
       "low": 54
     }
   }

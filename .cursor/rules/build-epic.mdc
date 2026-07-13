@@ -32,6 +32,7 @@ Orchestrates the **build** flow for a single epic: survey → plan tasks → kic
 ## Process
 
 1. Read `specs/state.yaml`, `specs/execution-status.yaml`, `specs/release-plan.yaml`, active `specs/epics/eNN-slug/epic.yaml`.
+   - **On story start (step 1):** Write `started_at` ISO 8601 timestamp to `execution-status.yaml` under the story's key in the `stories:` section. The `bp-timing.sh` script already tracks skill-level timings — this is story-level.
 2. **Step 0 — Threat Model:** Run `security-review` against the epic's scope (read from the epic capsule). Output `specs/security/epics/<epic-id>/THREAT_MODEL.md` with surface area, vulnerability categories, risk level, and mitigation guidance.
 3. **Assess Impact (Step 2):** Before writing tasks, run `assess-impact --lightweight` on the proposed change. If the risk score exceeds 7, gate — require a `grill-me` session. Write the impact report to `specs/IMPACT-<epic>-<story>.md`. For net-new code with no existing dependents, skip.
 4. **BCP Tracking (Step 2):** After `plan-work` completes, read the `bcps:` count (Business Complexity Points story size) from the epic capsule and carry it into `state.yaml` as `epic_cycle.story_bcps = N`.
@@ -40,6 +41,15 @@ Orchestrates the **build** flow for a single epic: survey → plan tasks → kic
 6. Run **only the current step** (resume mode) unless user asked for full auto-run.
 7. After step verify passes, increment `epic_cycle.step` in `state.yaml` (or `bash scripts/bp-yaml-set.sh` if available).
 8. On story complete, set `execution-status.yaml` story key to `done`; run `bash scripts/sync-status-from-epics.sh`.
+   - **On story complete (step 8):** Write `completed_at` ISO 8601 timestamp to `execution-status.yaml` under the same story key. Format:
+
+     ```yaml
+     stories:
+       e01s01:
+         status: done
+         started_at: "2026-07-12T16:00:00-03:00"
+         completed_at: "2026-07-12T18:45:00-03:00"
+     ```
 9. **Traceability refresh:** Before step 8 (release-branch), run `bash scripts/trace-stories.sh` to regenerate `specs/traceability-matrix.json`, `specs/TRACEABILITY_LATEST.md`, and the `specs/codebase-wiki/` OKF bundle. Surface dark/orphan/stale findings for the just-built epic in your verify summary. If `scripts/trace-stories.sh` is missing or fails, note "trace skipped" and continue — trace failure must be visible, not silent (blocking is gate-trace's job, e38s06).
 
 9b. **OKF wiki refresh (e39s08):** Before step 8, run maintain-wiki INGEST to refresh the OKF wiki bundle:

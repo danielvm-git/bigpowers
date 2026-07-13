@@ -30,7 +30,20 @@ tasks:
     verify: "npm test -- login-form.test.tsx"
     risk: P1
     status: failing   # flip to passing only after verify exits 0 (e45s06)
+    allure:
+      severity: high              # P0→critical, P1→high, P2→normal, P3→minor
+      categories:
+        - "Auth"
+        - "Security Review"
 ```
+
+**Allure severity mapping:**
+- `P0` → `critical`
+- `P1` → `high`
+- `P2` → `normal`
+- `P3` → `minor`
+
+`categories` is a list of relevant tags — wave names, test categories (e.g. `"unit"`, `"integration"`), or thematic groupings (e.g. `"Security Review"`).
 
 Update `specs/epics/<capsule>/epic.yaml` manifest to list the story and its BCPs. Run `bash scripts/sync-status-from-epics.sh` after structural changes.
 
