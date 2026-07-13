@@ -1,3 +1,10 @@
+# [2.77.0](https://github.com/danielvm-git/bigpowers/compare/v2.76.3...v2.77.0) (2026-07-13)
+
+
+### Features
+
+* **e76:** enrich YAML metadata for Allure dashboards ([94c4417](https://github.com/danielvm-git/bigpowers/commit/94c4417cab844f86c794466ea38812b7e0b36a44))
+
 ## [2.76.3](https://github.com/danielvm-git/bigpowers/compare/v2.76.2...v2.76.3) (2026-07-11)
 
 
