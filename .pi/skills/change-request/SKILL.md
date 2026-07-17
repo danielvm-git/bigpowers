@@ -31,7 +31,7 @@ Intake a new requirement mid-flight without disrupting work in progress.
 
 Value-engineering pass over the full release using WSJF.
 
-See [REFERENCE.md](REFERENCE.md) for the full WSJF scoring rubric.
+See [REFERENCE.md](../../../skills/change-request/REFERENCE.md) for the full WSJF scoring rubric.
 
 1. **Score** each epic/story: BV + TC + RR / Job Size.
 2. **Re-sort** `release-plan.yaml` `epics[]` and per-epic `wsjf` fields.

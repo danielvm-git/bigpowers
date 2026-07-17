@@ -42,25 +42,25 @@ If no manifest is found, prompt the user to specify the type or pass `--type <ru
 Create `.github/workflows/ci.yaml` with standard steps derived from the project type and its manifest:
 
 **Rust template (`Cargo.toml`):**
-See [REFERENCE.md](REFERENCE.md)
+See [REFERENCE.md](../../../skills/wire-ci/REFERENCE.md)
 
 **Node template (`package.json`):**
-See [REFERENCE.md](REFERENCE.md)
+See [REFERENCE.md](../../../skills/wire-ci/REFERENCE.md)
 
 **Python template (`setup.py` / `pyproject.toml`):**
-See [REFERENCE.md](REFERENCE.md)
+See [REFERENCE.md](../../../skills/wire-ci/REFERENCE.md)
 
 **Go template (`go.mod`):**
-See [REFERENCE.md](REFERENCE.md)
+See [REFERENCE.md](../../../skills/wire-ci/REFERENCE.md)
 
 **C/C++ template (`CMakeLists.txt`):**
-See [REFERENCE.md](REFERENCE.md)
+See [REFERENCE.md](../../../skills/wire-ci/REFERENCE.md)
 
 ### 3. Generate release workflow (if semantic-release detected)
 
 If the project has semantic-release configured (in `package.json`, `.releaserc`, or `release.config.js`), also generate `.github/workflows/release.yaml`:
 
-See [REFERENCE.md](REFERENCE.md)
+See [REFERENCE.md](../../../skills/wire-ci/REFERENCE.md)
 
 > **NPM_TOKEN is required** for publishing to npm. Without it, semantic-release will fail at the publish step. See `--validate` to check this.
 
@@ -68,7 +68,7 @@ See [REFERENCE.md](REFERENCE.md)
 
 Run `wire-ci --validate` to check all generated workflow files:
 
-See [REFERENCE.md](REFERENCE.md)
+See [REFERENCE.md](../../../skills/wire-ci/REFERENCE.md)
 
 **Exit codes:**
 - `0` — all checks pass (no errors)
@@ -79,7 +79,7 @@ See [REFERENCE.md](REFERENCE.md)
 
 Attempt to run the generated workflows locally to catch errors before push:
 
-See [REFERENCE.md](REFERENCE.md)
+See [REFERENCE.md](../../../skills/wire-ci/REFERENCE.md)
 
 > **act** runs workflows in a local Docker environment — the most accurate pre-push validation.
 > **gh workflow run** sends the workflow to GitHub but doesn't execute locally — useful for checking YAML parsing but not for testing the actual steps.

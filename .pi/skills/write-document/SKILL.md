@@ -46,7 +46,7 @@ Write the document focusing on "Expert Collaboration":
 ### Quick README (Project READMEs only)
 
 1. Ask: "Project name? One-sentence description?"
-2. Generate `README.md` at project root using the template in [REFERENCE.md](REFERENCE.md) — no TOC, no second interview round.
+2. Generate `README.md` at project root using the template in [REFERENCE.md](../../../skills/write-document/REFERENCE.md) — no TOC, no second interview round.
 3. Fill gaps from `CLAUDE.md` commands if available; use `TODO` markers otherwise.
 4. Output and suggest `edit-document` for polish.
 
@@ -220,7 +220,7 @@ Auto-fill from CLAUDE.md `Test` and `Lint` commands.
 ```markdown
 ## Changelog
 
-See [CHANGELOG.md](CHANGELOG.md) or [Releases](https://github.com/user/repo/releases).
+See [CHANGELOG.md](../../../CHANGELOG.md) or [Releases](https://github.com/user/repo/releases).
 ```
 
 ### 13. Links
@@ -237,7 +237,7 @@ See [CHANGELOG.md](CHANGELOG.md) or [Releases](https://github.com/user/repo/rele
 ```markdown
 ## License
 
-MIT — see [LICENSE](LICENSE) for details.
+MIT — see [LICENSE](../../../LICENSE) for details.
 ```
 
 Detect from CLAUDE.md or project LICENSE file.

@@ -1,11 +1,39 @@
 #!/usr/bin/env python3
 # story: e48s15
 import os
+import re
 import sys
 import json
 import glob
 import subprocess
 import yaml
+
+LINK_RE = re.compile(r'\[([^\]]*)\]\(([^)\s]+)\)')
+EXTERNAL_RE = re.compile(r'(?i)^(https?|ftp|file|mailto):')
+
+def rewrite_links_for_pi(body, name):
+    """Repoint relative links so they resolve from .pi/skills/<name>/.
+
+    Sibling *.md content is inlined into the rendered SKILL.md body, but the
+    links to those files (and to repo-root docs) still point at paths relative
+    to the source dir, so they dangle in the rendered tree. Repoint them at
+    the shipped source tree (skills/, profiles/, repo-root files) so links
+    resolve in repo checkouts and npm installs alike. External, anchor, and
+    absolute links pass through untouched.
+    """
+    out_dir = os.path.join(".pi", "skills", name)
+
+    def repl(m):
+        text, target = m.group(1), m.group(2).strip()
+        if EXTERNAL_RE.match(target) or target.startswith(('#', '/')):
+            return m.group(0)
+        resolved = os.path.normpath(os.path.join("skills", name, target))
+        if resolved.startswith(".."):
+            return m.group(0)  # escapes repo root; leave untouched
+        new_target = os.path.relpath(resolved, out_dir).replace(os.sep, '/')
+        return f"[{text}]({new_target})"
+
+    return LINK_RE.sub(repl, body)
 
 def resolve_repo_root():
     lib_dir = os.path.dirname(os.path.abspath(__file__))
@@ -210,7 +238,11 @@ def main():
                 continue
 
             for adapter in adapters:
-                dispatch_to_adapter(skill_data, adapter, repo_root)
+                data = skill_data
+                if adapter == "pi":
+                    data = dict(skill_data)
+                    data["body_pi_skill"] = rewrite_links_for_pi(skill_data['body'], skill_data['name'])
+                dispatch_to_adapter(data, adapter, repo_root)
 
             if okf_mode:
                 render_okf_concept(skill_data, okf_wiki_skills)
@@ -234,6 +266,10 @@ def main():
             sys.exit(1)
 
     skill_data = parse_skill(skill_md_path)
+
+    if target == "pi":
+        skill_data = dict(skill_data)
+        skill_data["body_pi_skill"] = rewrite_links_for_pi(skill_data['body'], skill_data['name'])
 
     if dry_run or not target:
         print(json.dumps(skill_data, indent=2))

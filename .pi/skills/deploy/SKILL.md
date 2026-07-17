@@ -87,15 +87,15 @@ exit 1
 
 After invoking the deploy command, poll for completion:
 
-See [REFERENCE.md](REFERENCE.md)
+See [REFERENCE.md](../../../skills/deploy/REFERENCE.md)
 
 Use exponential backoff for retries on transient failures:
 
-See [REFERENCE.md](REFERENCE.md)
+See [REFERENCE.md](../../../skills/deploy/REFERENCE.md)
 
 ### 6. Baseline smoke test
 
-See [REFERENCE.md](REFERENCE.md)
+See [REFERENCE.md](../../../skills/deploy/REFERENCE.md)
 
 For comprehensive health-checking, chain to the `smoke-test` skill:
 
@@ -106,7 +106,7 @@ bash scripts/run-smoke.sh "$DEPLOY_URL"
 
 ### 7. Three-independent-facts verification (e45s15)
 
-Before declaring deploy success, verify **three independent facts** — build artifact, platform accept, live/registry reachability. See [REFERENCE.md](REFERENCE.md#three-independent-facts).
+Before declaring deploy success, verify **three independent facts** — build artifact, platform accept, live/registry reachability. See [REFERENCE.md](../../../skills/deploy/REFERENCE.md#three-independent-facts).
 
 ## Verify
 

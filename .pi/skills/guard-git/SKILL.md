@@ -16,15 +16,15 @@ Installs a shared hook that blocks destructive git operations and enforces workf
 - **Discipline**: Blocks direct commits or pushes to protected branches (`main`, `master`) unless `GIT_BIGPOWERS_LAND=1` (set only by `scripts/land-branch.sh`).
 - **Allows**: `git push origin <feature-branch>` for backup/CI; solo land push to `main` only inside `land-branch.sh`.
 - **Standardization**: Enforces [Conventional Commits](https://www.conventionalcommits.org/) for all `git commit` commands.
-- **Secrets**: Blocks commits containing common secret patterns (`sk-`, `ghp_`, `AKIA`, `xoxb-`, `-----BEGIN` private keys) — see [REFERENCE.md](REFERENCE.md).
+- **Secrets**: Blocks commits containing common secret patterns (`sk-`, `ghp_`, `AKIA`, `xoxb-`, `-----BEGIN` private keys) — see [REFERENCE.md](../../../skills/guard-git/REFERENCE.md).
 
 ## Quick start
 
 1. **Scope**: ask project-only vs global (paths differ per product).
-2. **Copy the hook bundle** from the root [hooks/](hooks/) directory to the client's hooks directory.
+2. **Write the hook bundle** from [REFERENCE.md](../../../skills/guard-git/REFERENCE.md) into the client's hooks directory.
 3. **Run `chmod +x`** on `pre-tool-use.sh`.
-4. **Merge** the hook snippet from [REFERENCE.md](REFERENCE.md) into the right settings file — do not wipe unrelated keys.
-5. **Verify** with the tests in [REFERENCE.md](REFERENCE.md).
+4. **Merge** the hook snippet from [REFERENCE.md](../../../skills/guard-git/REFERENCE.md) into the right settings file — do not wipe unrelated keys.
+5. **Verify** with the tests in [REFERENCE.md](../../../skills/guard-git/REFERENCE.md).
 
 | Client | Mechanism | Config |
 |--------|-----------|--------|
@@ -41,7 +41,7 @@ To add or remove patterns or protected branches, edit `pre-tool-use.sh`.
 
 ## Advanced
 
-Full JSON examples, merge rules, Antigravity deny-list entries, and test commands: [REFERENCE.md](REFERENCE.md).
+Full JSON examples, merge rules, Antigravity deny-list entries, and test commands: [REFERENCE.md](../../../skills/guard-git/REFERENCE.md).
 
 
 

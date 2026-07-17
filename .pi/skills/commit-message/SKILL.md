@@ -24,7 +24,7 @@ description: "Reviews working-tree changes, then drafts a Conventional Commits t
 1. **Inventory** — List changed paths; group by feature vs chore vs docs vs test-only.
 2. **Decide commit shape** — One atomic commit is ideal. If the diff mixes unrelated concerns, recommend **multiple commits** (each with its own type/scope) before suggesting one message.
 3. **Classify for semantic release** — `fix` → patch, `feat` → minor, **breaking** → major.
-4. **Write the message** — `type(optional-scope)!: description` (see [REFERENCE.md](REFERENCE.md#message-format)). Use `!` or a `BREAKING CHANGE:` footer when behavior contracts change.
+4. **Write the message** — `type(optional-scope)!: description` (see [REFERENCE.md](../../../skills/commit-message/REFERENCE.md#message-format)). Use `!` or a `BREAKING CHANGE:` footer when behavior contracts change.
 5. **Note defensive-code categories touched** — from CONVENTIONS.md: Rate limit | Retry with backoff | Circuit breaker | Timeout | Graceful degradation
 6. **Note fix-ratio contribution** — Each `fix:` commit counts toward `metrics.commit_ratio.fix` in `specs/state.yaml`. After `release-branch`, `session-state` recalculates the ratio automatically. A high fix rate (>30%) triggers a deploy + smoke-test suggestion.
 7. **Deliver** — Output:
@@ -42,11 +42,11 @@ description: "Reviews working-tree changes, then drafts a Conventional Commits t
 
 ## When not to invent a bump
 
-If the repo uses a custom `@semantic-release/commit-analyzer` preset, note that your bump is **heuristic** and they should match `.releaserc` / `release.config.*`. See [REFERENCE.md](REFERENCE.md#custom-repositories).
+If the repo uses a custom `@semantic-release/commit-analyzer` preset, note that your bump is **heuristic** and they should match `.releaserc` / `release.config.*`. See [REFERENCE.md](../../../skills/commit-message/REFERENCE.md#custom-repositories).
 
 ## Further reading
 
-- [REFERENCE.md](REFERENCE.md) — Message shape, footers, release mapping, squashing notes.
+- [REFERENCE.md](../../../skills/commit-message/REFERENCE.md) — Message shape, footers, release mapping, squashing notes.
 
 
 

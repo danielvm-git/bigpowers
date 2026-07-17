@@ -53,4 +53,4 @@ See [REFERENCE.md](REFERENCE.md) for ADR template.
 **Evidence:** path/to/benchmark-report.md
 ```
 
-Benchmark repo: `/Users/danielvm/Developer/bigpowers-benchmark/`
+Benchmark repo: `bigpowers-benchmark` — resolve the local clone on this machine (e.g. `gh repo clone danielvm-git/bigpowers-benchmark` if absent); never assume a hard-coded absolute path.

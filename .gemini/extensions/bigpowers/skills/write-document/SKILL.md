@@ -221,7 +221,7 @@ Auto-fill from CLAUDE.md `Test` and `Lint` commands.
 ```markdown
 ## Changelog
 
-See [CHANGELOG.md](CHANGELOG.md) or [Releases](https://github.com/user/repo/releases).
+See [CHANGELOG.md](../../CHANGELOG.md) or [Releases](https://github.com/user/repo/releases).
 ```
 
 ### 13. Links
@@ -238,7 +238,7 @@ See [CHANGELOG.md](CHANGELOG.md) or [Releases](https://github.com/user/repo/rele
 ```markdown
 ## License
 
-MIT — see [LICENSE](LICENSE) for details.
+MIT — see [LICENSE](../../LICENSE) for details.
 ```
 
 Detect from CLAUDE.md or project LICENSE file.

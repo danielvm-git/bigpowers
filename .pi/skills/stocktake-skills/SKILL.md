@@ -58,7 +58,7 @@ Timing data is populated by `scripts/bp-timing.sh start|end <skill>` calls withi
 
 → verify: `test -f specs/STOCKTAKE-*.md && bash scripts/validate-skill-catalog.sh && echo OK || echo MISSING`
 
-See [REFERENCE.md](REFERENCE.md) for checklist.
+See [REFERENCE.md](../../../skills/stocktake-skills/REFERENCE.md) for checklist.
 
 ---
 

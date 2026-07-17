@@ -21,7 +21,7 @@ Can be run standalone for quick health checks or chained as the final step of th
 
 Smoke checks are defined in `smoke-checks.yaml` at the project root:
 
-See [REFERENCE.md](REFERENCE.md)
+See [REFERENCE.md](../../../skills/smoke-test/REFERENCE.md)
 
 Checks can also be specified inline via environment variables or CLI arguments for ad-hoc use.
 
@@ -40,21 +40,21 @@ Checks can also be specified inline via environment variables or CLI arguments f
 
 ### 1. Load smoke checks
 
-See [REFERENCE.md](REFERENCE.md)
+See [REFERENCE.md](../../../skills/smoke-test/REFERENCE.md)
 
 ### 2. Run each check
 
 For each check in the configuration, perform an HTTP request:
 
-See [REFERENCE.md](REFERENCE.md)
+See [REFERENCE.md](../../../skills/smoke-test/REFERENCE.md)
 
 ### 3. Assert results
 
-See [REFERENCE.md](REFERENCE.md)
+See [REFERENCE.md](../../../skills/smoke-test/REFERENCE.md)
 
 ### 4. Generate report
 
-See [REFERENCE.md](REFERENCE.md)
+See [REFERENCE.md](../../../skills/smoke-test/REFERENCE.md)
 
 ## Integration with deploy skill
 

@@ -34,7 +34,7 @@ description: "Benchmark-gated skill evolution — consume bigpowers-benchmark re
 
 → verify: `grep -c 'run-benchmark\|pass_at_k\|BASELINE-' skills/evolve-skill/SKILL.md | awk '{if($1>=2) print "OK"; else print "FAIL"}'`
 
-See [REFERENCE.md](REFERENCE.md) for ADR template.
+See [REFERENCE.md](../../../skills/evolve-skill/REFERENCE.md) for ADR template.
 
 
 <!-- story: e31s07 -->
@@ -52,4 +52,4 @@ See [REFERENCE.md](REFERENCE.md) for ADR template.
 **Evidence:** path/to/benchmark-report.md
 ```
 
-Benchmark repo: `/Users/danielvm/Developer/bigpowers-benchmark/`
+Benchmark repo: `bigpowers-benchmark` — resolve the local clone on this machine (e.g. `gh repo clone danielvm-git/bigpowers-benchmark` if absent); never assume a hard-coded absolute path.

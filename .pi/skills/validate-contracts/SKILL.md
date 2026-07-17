@@ -28,13 +28,13 @@ Three modes of validation:
 
 All contract files live in `specs/contracts/` and use YAML:
 
-See [REFERENCE.md](REFERENCE.md) for examples.
+See [REFERENCE.md](../../../skills/validate-contracts/REFERENCE.md) for examples.
 
 ### 1. API Response Contracts (`--schema`)
 
 Define expected API response shapes and validate live endpoints against them:
 
-See [REFERENCE.md](REFERENCE.md) for examples.
+See [REFERENCE.md](../../../skills/validate-contracts/REFERENCE.md) for examples.
 
 Usage:
 
@@ -48,21 +48,21 @@ validate-contracts --schema specs/contracts/users.schema.yaml --url https://api.
 
 Assert that two data sources share a consistent set of keys:
 
-See [REFERENCE.md](REFERENCE.md) for examples.
+See [REFERENCE.md](../../../skills/validate-contracts/REFERENCE.md) for examples.
 
 Usage:
 
-See [REFERENCE.md](REFERENCE.md) for examples.
+See [REFERENCE.md](../../../skills/validate-contracts/REFERENCE.md) for examples.
 
 ### 3. Data Shape Contracts (`--shape`)
 
 Validate that a data file matches expected column types and constraints:
 
-See [REFERENCE.md](REFERENCE.md) for examples.
+See [REFERENCE.md](../../../skills/validate-contracts/REFERENCE.md) for examples.
 
 Usage:
 
-See [REFERENCE.md](REFERENCE.md) for examples.
+See [REFERENCE.md](../../../skills/validate-contracts/REFERENCE.md) for examples.
 
 ## Process
 

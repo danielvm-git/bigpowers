@@ -74,7 +74,7 @@ node extract-design/scripts/extract.js --lint-only
 node extract-design/tests/test-extraction.js
 ```
 
-See [REFERENCE.md](REFERENCE.md) for extraction algorithms and heuristics.
+See [REFERENCE.md](../../../skills/extract-design/REFERENCE.md) for extraction algorithms and heuristics.
 
 ---
 

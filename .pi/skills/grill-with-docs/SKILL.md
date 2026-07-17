@@ -27,7 +27,7 @@ description: "Doc-grounded variant of grill-me — stress-tests plan assumptions
 
 → verify: `grep -c 'https\?://' skills/grill-with-docs/SKILL.md | awk '{if($1>=2) print "OK"; else print "NEEDS DOCS"}'`
 
-See [REFERENCE.md](REFERENCE.md) for question templates.
+See [REFERENCE.md](../../../skills/grill-with-docs/REFERENCE.md) for question templates.
 
 
 <!-- story: e03s01 -->

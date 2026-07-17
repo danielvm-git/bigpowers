@@ -37,11 +37,11 @@ Ask the user these questions (one at a time, wait for each answer):
 5. **Conventions** — "Any naming, file organization, or patterns all agents must follow?"
 6. **Never-do list** — "What are the hard stops? Things an agent must never touch?"
 7. **Defensive code categories** — "Which apply? (Rate limit / Retry / Circuit breaker / Timeout / Graceful degradation)"
-8. **Local tool wiring (optional)** — "Wire bigpowers for project-local tools? (Cursor, OpenCode, Cline, Aider, Codex CLI)" If yes, generate AGENTS.md spine artifacts per [REFERENCE.md](REFERENCE.md) §Local tool wiring and §AGENTS.md spine. If no, skip — standard seed output unchanged (no AGENTS.md spine unless opted in).
+8. **Local tool wiring (optional)** — "Wire bigpowers for project-local tools? (Cursor, OpenCode, Cline, Aider, Codex CLI)" If yes, generate AGENTS.md spine artifacts per [REFERENCE.md](../../../skills/seed-conventions/REFERENCE.md) §Local tool wiring and §AGENTS.md spine. If no, skip — standard seed output unchanged (no AGENTS.md spine unless opted in).
 
 ## Generate files
 
-After the interview, generate each file using the templates in [REFERENCE.md](REFERENCE.md):
+After the interview, generate each file using the templates in [REFERENCE.md](../../../skills/seed-conventions/REFERENCE.md):
 - `AGENTS.md` — from `docs/templates/AGENTS.md` Reach Template (canonical spine source)
 - `CLAUDE.md` — symlink to `AGENTS.md` (copy fallback on Windows when symlink fails)
 - `GEMINI.md` — symlink to `AGENTS.md` when Gemini wiring opted in
@@ -81,7 +81,7 @@ Skills that write into `CLAUDE.md` or `AGENTS.md` MUST use **fenced HTML comment
 
 **Merge rule:** On update, replace only the content *between* matching `BEGIN`/`END` pairs. If a marker pair is missing, append a new fenced block at the end of the file — never rewrite the whole file.
 
-**Standard marker IDs** for seeded projects (see [REFERENCE.md](REFERENCE.md) § Fenced markers):
+**Standard marker IDs** for seeded projects (see [REFERENCE.md](../../../skills/seed-conventions/REFERENCE.md) § Fenced markers):
 
 | Marker ID | Owner skill | Purpose |
 |-----------|-------------|---------|

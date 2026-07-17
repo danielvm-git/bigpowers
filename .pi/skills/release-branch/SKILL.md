@@ -120,7 +120,7 @@ mv specs/epics/eNN-slug specs/epics/archive/
 
 ### 7b. CI verification & agent lock release (e39s02)
 
-> **HARD GATE** — Do NOT declare success until CI completes. **Three-independent-facts** (e45s15): commit landed, workflow green, registry visible — see [REFERENCE.md](REFERENCE.md#three-independent-facts-release).
+> **HARD GATE** — Do NOT declare success until CI completes. **Three-independent-facts** (e45s15): commit landed, workflow green, registry visible — see [REFERENCE.md](../../../skills/release-branch/REFERENCE.md#three-independent-facts-release).
 
 ```bash
 bash scripts/wait-for-ci.sh --timeout 600 --interval 30
@@ -131,7 +131,7 @@ bash scripts/wait-for-ci.sh --timeout 600 --interval 30
 
 ### 8. Clean up & return
 
-Worktree prune, branch delete, `git checkout main`. Cycle-time: see [REFERENCE.md](REFERENCE.md#cycle-time).
+Worktree prune, branch delete, `git checkout main`. Cycle-time: see [REFERENCE.md](../../../skills/release-branch/REFERENCE.md#cycle-time).
 
 Report: "Branch released."
 

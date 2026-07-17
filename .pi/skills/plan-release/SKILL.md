@@ -17,7 +17,7 @@ Synthesize the conversation context into `specs/release-plan.yaml` (index) and s
 |------|---------|
 | `specs/release-plan.yaml` | `release.version`, semver bump hint, WSJF-ordered epic list with `id`, `capsule_dir`, `wsjf`, `bcps` — **no story status** |
 | `specs/epics/eNN-<slug>/epic.yaml` | Epic manifest: `id`, `title`, `wsjf`, `total_bcps`, `status`, `stories[]` list |
-| `specs/epics/eNN-<slug>/eNNsYY-<slug>.md` | Story spec in [countable-story-format.md](file:///Users/danielvm/Developer/bigpowers/countable-story-format.md) with 20 sections and Gherkin acceptance criteria |
+| `specs/epics/eNN-<slug>/eNNsYY-<slug>.md` | Story spec in [countable-story-format.md](https://github.com/danielvm-git/bigpowers/blob/main/docs/countable-story-format.md) with 20 sections and Gherkin acceptance criteria |
 | `specs/epics/eNN-<slug>/eNNsYY-tasks.yaml` | Decoupled task checklist with `verify:` commands per task |
 | `specs/execution-status.yaml` | Flat key-value store for story status (`eNNsYY: todo`) |
 
@@ -102,7 +102,7 @@ stories:
 ```
 ### 6. Save story specs (countable-story-format .md)
 
-Each story becomes a standalone `.md` file following [countable-story-format.md](file:///Users/danielvm/Developer/bigpowers/countable-story-format.md). Minimum: maturity 3 (Countable) with all 20 sections present. Acceptance criteria in §17 use Gherkin scenarios.
+Each story becomes a standalone `.md` file following [countable-story-format.md](https://github.com/danielvm-git/bigpowers/blob/main/docs/countable-story-format.md). Minimum: maturity 3 (Countable) with all 20 sections present. Acceptance criteria in §17 use Gherkin scenarios.
 ### 7. Save decoupled task files (`-tasks.yaml`)
 
 Each story has a decoupled `-tasks.yaml` with implementation steps:

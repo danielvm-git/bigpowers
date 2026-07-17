@@ -137,7 +137,7 @@ for p in specs/conventions-wiki/*.md; do [ "$(basename "$p")" = "index.md" ]&&co
 
 ## --cli mode
 
-CLI tools: use `--cli` when no server process. Binary detect + checklist: [REFERENCE.md](REFERENCE.md#cli-mode).
+CLI tools: use `--cli` when no server process. Binary detect + checklist: [REFERENCE.md](../../../skills/verify-work/REFERENCE.md#cli-mode).
 
 ## Verify
 

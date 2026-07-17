@@ -17,7 +17,7 @@ render_skill() {
       echo "description: \"$IR_DESC_ESCAPED\""
       echo "---"
       echo ""
-      echo "$IR_BODY"
+      echo "${IR_BODY_SKILL:-$IR_BODY}"
     } > "${PI_SKILLS}/$IR_NAME/SKILL.md"
   }
 
@@ -45,6 +45,9 @@ if [[ ! -t 0 ]]; then
     IR_MODEL=$(echo "$JSON_INPUT" | jq -r '.model')
     IR_DESCRIPTION=$(echo "$JSON_INPUT" | jq -r '.description')
     IR_BODY=$(echo "$JSON_INPUT" | jq -r '.body')
+    # Skill files get link-rewritten bodies (relative links repointed from
+    # .pi/skills/<name>/ to the shipped source tree); prompts keep the raw body.
+    IR_BODY_SKILL=$(echo "$JSON_INPUT" | jq -r '.body_pi_skill // .body')
     IR_DESC_ESCAPED=$(echo "$IR_DESCRIPTION" | sed 's/\\/\\\\/g; s/\"/\\"/g')
     render_skill
   fi

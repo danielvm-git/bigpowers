@@ -14,7 +14,7 @@ Surface architectural friction and propose **deepening opportunities** — refac
 
 ## Glossary
 
-Use these terms exactly in every suggestion. Consistent language is the point — don't drift into "component," "service," "API," or "boundary." Full definitions in [LANGUAGE.md](LANGUAGE.md).
+Use these terms exactly in every suggestion. Consistent language is the point — don't drift into "component," "service," "API," or "boundary." Full definitions in [LANGUAGE.md](../../../skills/deepen-architecture/LANGUAGE.md).
 
 - **Module** — anything with an interface and an implementation (function, class, package, slice).
 - **Interface** — everything a caller must know to use the module: types, invariants, error modes, ordering, config. Not just the type signature.
@@ -25,13 +25,13 @@ Use these terms exactly in every suggestion. Consistent language is the point �
 - **Leverage** — what callers get from depth.
 - **Locality** — what maintainers get from depth: change, bugs, knowledge concentrated in one place.
 
-Key principles (see [LANGUAGE.md](LANGUAGE.md) for the full list):
+Key principles (see [LANGUAGE.md](../../../skills/deepen-architecture/LANGUAGE.md) for the full list):
 
 - **Deletion test**: imagine deleting the module. If complexity vanishes, it was a pass-through. If complexity reappears across N callers, it was earning its keep.
 - **The interface is the test surface.**
 - **One adapter = hypothetical seam. Two adapters = real seam.**
 
-This skill is _informed_ by the project's domain model — `specs/tech-architecture/tech-stack.md` and any `specs/adr/`. The domain language gives names to good seams; ADRs record decisions the skill should not re-litigate. See [CONTEXT-FORMAT.md](../model-domain/CONTEXT-FORMAT.md) and [ADR-FORMAT.md](../model-domain/ADR-FORMAT.md).
+This skill is _informed_ by the project's domain model — `specs/tech-architecture/tech-stack.md` and any `specs/adr/`. The domain language gives names to good seams; ADRs record decisions the skill should not re-litigate. See [CONTEXT-FORMAT.md](../../../skills/model-domain/CONTEXT-FORMAT.md) and [ADR-FORMAT.md](../../../skills/model-domain/ADR-FORMAT.md).
 
 ## Process
 
@@ -81,7 +81,7 @@ Present a numbered list of deepening opportunities. For each candidate:
 - **Solution** — plain English description of what would change
 - **Benefits** — explained in terms of locality and leverage, and how tests would improve
 
-**Use `specs/tech-architecture/tech-stack.md` vocabulary for the domain, and [LANGUAGE.md](LANGUAGE.md) vocabulary for the architecture.**
+**Use `specs/tech-architecture/tech-stack.md` vocabulary for the domain, and [LANGUAGE.md](../../../skills/deepen-architecture/LANGUAGE.md) vocabulary for the architecture.**
 
 **ADR conflicts**: if a candidate contradicts an existing ADR, only surface it when the friction is real enough to warrant revisiting the ADR. Mark it clearly. Don't list every theoretical refactor an ADR forbids.
 
@@ -93,10 +93,10 @@ Once the user picks a candidate, drop into a grilling conversation. Walk the des
 
 Side effects happen inline as decisions crystallize:
 
-- **Naming a deepened module after a concept not in `specs/tech-architecture/tech-stack.md`?** Add the term to `specs/tech-architecture/tech-stack.md` — same discipline as `model-domain` (see [CONTEXT-FORMAT.md](../model-domain/CONTEXT-FORMAT.md)). Create the file lazily if it doesn't exist.
+- **Naming a deepened module after a concept not in `specs/tech-architecture/tech-stack.md`?** Add the term to `specs/tech-architecture/tech-stack.md` — same discipline as `model-domain` (see [CONTEXT-FORMAT.md](../../../skills/model-domain/CONTEXT-FORMAT.md)). Create the file lazily if it doesn't exist.
 - **Sharpening a fuzzy term during the conversation?** Update `specs/tech-architecture/tech-stack.md` right there.
-- **User rejects the candidate with a load-bearing reason?** Offer an ADR, framed as: _"Want me to record this as an ADR so future architecture reviews don't re-suggest it?"_ Only offer when the reason would actually be needed by a future explorer. See [ADR-FORMAT.md](../model-domain/ADR-FORMAT.md).
-- **Want to explore alternative interfaces for the deepened module?** See [INTERFACE-DESIGN.md](INTERFACE-DESIGN.md).
+- **User rejects the candidate with a load-bearing reason?** Offer an ADR, framed as: _"Want me to record this as an ADR so future architecture reviews don't re-suggest it?"_ Only offer when the reason would actually be needed by a future explorer. See [ADR-FORMAT.md](../../../skills/model-domain/ADR-FORMAT.md).
+- **Want to explore alternative interfaces for the deepened module?** See [INTERFACE-DESIGN.md](../../../skills/deepen-architecture/INTERFACE-DESIGN.md).
 
 ### 5. Import-boundary hygiene (e45s14)
 
@@ -120,7 +120,7 @@ Run the check before proposing cross-module `source` edges. Convention docs alon
 
 # Deepening
 
-How to deepen a cluster of shallow modules safely, given its dependencies. Assumes the vocabulary in [LANGUAGE.md](LANGUAGE.md) — **module**, **interface**, **seam**, **adapter**.
+How to deepen a cluster of shallow modules safely, given its dependencies. Assumes the vocabulary in [LANGUAGE.md](../../../skills/deepen-architecture/LANGUAGE.md) — **module**, **interface**, **seam**, **adapter**.
 
 ## Dependency categories
 
@@ -162,7 +162,7 @@ Third-party services (Stripe, Twilio, etc.) you don't control. The deepened modu
 
 When the user wants to explore alternative interfaces for a chosen deepening candidate, use this parallel sub-agent pattern. Based on "Design It Twice" (Ousterhout) — your first idea is unlikely to be the best.
 
-Uses the vocabulary in [LANGUAGE.md](LANGUAGE.md) — **module**, **interface**, **seam**, **adapter**, **leverage**.
+Uses the vocabulary in [LANGUAGE.md](../../../skills/deepen-architecture/LANGUAGE.md) — **module**, **interface**, **seam**, **adapter**, **leverage**.
 
 ## Process
 
@@ -171,7 +171,7 @@ Uses the vocabulary in [LANGUAGE.md](LANGUAGE.md) — **module**, **interface**,
 Before spawning sub-agents, write a user-facing explanation of the problem space for the chosen candidate:
 
 - The constraints any new interface would need to satisfy
-- The dependencies it would rely on, and which category they fall into (see [DEEPENING.md](DEEPENING.md))
+- The dependencies it would rely on, and which category they fall into (see [DEEPENING.md](../../../skills/deepen-architecture/DEEPENING.md))
 - A rough illustrative code sketch to ground the constraints — not a proposal, just a way to make the constraints concrete
 
 Show this to the user, then immediately proceed to Step 2. The user reads and thinks while the sub-agents work in parallel.
@@ -180,21 +180,21 @@ Show this to the user, then immediately proceed to Step 2. The user reads and th
 
 Spawn 3+ sub-agents in parallel using the Agent tool. Each must produce a **radically different** interface for the deepened module.
 
-Prompt each sub-agent with a separate technical brief (file paths, coupling details, dependency category from [DEEPENING.md](DEEPENING.md), what sits behind the seam). The brief is independent of the user-facing problem-space explanation in Step 1. Give each agent a different design constraint:
+Prompt each sub-agent with a separate technical brief (file paths, coupling details, dependency category from [DEEPENING.md](../../../skills/deepen-architecture/DEEPENING.md), what sits behind the seam). The brief is independent of the user-facing problem-space explanation in Step 1. Give each agent a different design constraint:
 
 - Agent 1: "Minimize the interface — aim for 1–3 entry points max. Maximise leverage per entry point."
 - Agent 2: "Maximise flexibility — support many use cases and extension."
 - Agent 3: "Optimise for the most common caller — make the default case trivial."
 - Agent 4 (if applicable): "Design around ports & adapters for cross-seam dependencies."
 
-Include both [LANGUAGE.md](LANGUAGE.md) vocabulary and CONTEXT.md vocabulary in the brief so each sub-agent names things consistently with the architecture language and the project's domain language.
+Include both [LANGUAGE.md](../../../skills/deepen-architecture/LANGUAGE.md) vocabulary and CONTEXT.md vocabulary in the brief so each sub-agent names things consistently with the architecture language and the project's domain language.
 
 Each sub-agent outputs:
 
 1. Interface (types, methods, params — plus invariants, ordering, error modes)
 2. Usage example showing how callers use it
 3. What the implementation hides behind the seam
-4. Dependency strategy and adapters (see [DEEPENING.md](DEEPENING.md))
+4. Dependency strategy and adapters (see [DEEPENING.md](../../../skills/deepen-architecture/DEEPENING.md))
 5. Trade-offs — where leverage is high, where it's thin
 
 ### 3. Present and compare
