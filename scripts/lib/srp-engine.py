@@ -1,15 +1,18 @@
 #!/usr/bin/env python3
 # story: e48s15
 import os
-import re
 import sys
 import json
 import glob
 import subprocess
 import yaml
 
-LINK_RE = re.compile(r'\[([^\]]*)\]\(([^)\s]+)\)')
-EXTERNAL_RE = re.compile(r'(?i)^(https?|ftp|file|mailto):')
+# Ensure scripts/lib is on the path so link_utils resolves regardless of cwd.
+_LIB_DIR = os.path.dirname(os.path.abspath(__file__))
+if _LIB_DIR not in sys.path:
+    sys.path.insert(0, _LIB_DIR)
+
+from link_utils import LINK_RE, EXTERNAL_RE, strip_code_spans  # noqa: E402
 
 def rewrite_links_for_pi(body, name):
     """Repoint relative links so they resolve from .pi/skills/<name>/.
@@ -20,20 +23,66 @@ def rewrite_links_for_pi(body, name):
     the shipped source tree (skills/, profiles/, repo-root files) so links
     resolve in repo checkouts and npm installs alike. External, anchor, and
     absolute links pass through untouched.
+
+    Code fences and inline code are skipped — links inside them are examples,
+    not navigation targets.
     """
     out_dir = os.path.join(".pi", "skills", name)
+    # Build a "shadow" copy with code spans blanked out so LINK_RE never
+    # matches inside ``` blocks or inline `code`.
+    shadow = strip_code_spans(body)
 
     def repl(m):
-        text, target = m.group(1), m.group(2).strip()
-        if EXTERNAL_RE.match(target) or target.startswith(('#', '/')):
+        # If this match falls inside a code span the shadow char is a space;
+        # the real body char at that position is not a '[' — so LINK_RE won't
+        # match in the shadow at all.  The sub() runs on the shadow but we
+        # return the replacement for the real body using the captured groups.
+        text, raw_target = m.group(1), m.group(2).strip()
+        if EXTERNAL_RE.match(raw_target) or raw_target.startswith(('#', '/')):
             return m.group(0)
-        resolved = os.path.normpath(os.path.join("skills", name, target))
+        # Split fragment before normpath to avoid mangling '#section/sub'.
+        if '#' in raw_target:
+            path_part, fragment = raw_target.split('#', 1)
+            frag_suffix = '#' + fragment
+        else:
+            path_part, frag_suffix = raw_target, ''
+        resolved = os.path.normpath(os.path.join("skills", name, path_part))
         if resolved.startswith(".."):
             return m.group(0)  # escapes repo root; leave untouched
-        new_target = os.path.relpath(resolved, out_dir).replace(os.sep, '/')
+        new_target = os.path.relpath(resolved, out_dir).replace(os.sep, '/') + frag_suffix
         return f"[{text}]({new_target})"
 
-    return LINK_RE.sub(repl, body)
+    return LINK_RE.sub(repl, shadow).replace(shadow, body) if shadow == body else _apply_repl_on_real(body, shadow, name, out_dir)
+
+
+def _apply_repl_on_real(body, shadow, name, out_dir):
+    """Apply link rewrites to *body* using *shadow* to skip code spans.
+
+    Iterates LINK_RE matches on *shadow* (which has code spans blanked) and
+    rebuilds body with only the matched positions replaced.
+    """
+    result = []
+    last = 0
+    for m in LINK_RE.finditer(shadow):
+        result.append(body[last:m.start()])
+        text, raw_target = m.group(1), m.group(2).strip()
+        if EXTERNAL_RE.match(raw_target) or raw_target.startswith(('#', '/')):
+            result.append(body[m.start():m.end()])
+        else:
+            if '#' in raw_target:
+                path_part, fragment = raw_target.split('#', 1)
+                frag_suffix = '#' + fragment
+            else:
+                path_part, frag_suffix = raw_target, ''
+            resolved = os.path.normpath(os.path.join("skills", name, path_part))
+            if resolved.startswith(".."):
+                result.append(body[m.start():m.end()])
+            else:
+                new_target = os.path.relpath(resolved, out_dir).replace(os.sep, '/') + frag_suffix
+                result.append(f"[{text}]({new_target})")
+        last = m.end()
+    result.append(body[last:])
+    return ''.join(result)
 
 def resolve_repo_root():
     lib_dir = os.path.dirname(os.path.abspath(__file__))
