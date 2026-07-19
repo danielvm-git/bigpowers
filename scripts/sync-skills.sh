@@ -74,7 +74,7 @@ if [[ -f "$TARGETS_FILE" ]] && command -v yq >/dev/null 2>&1; then
     [[ -n "$adapter" && "$adapter" != "null" ]] && SKILL_ADAPTERS+=("$adapter")
   done < <(yq -r '.targets[] | select(.skill != null) | .skill.adapter' "$TARGETS_FILE" | sort -u)
 else
-  echo "sync-skills: WARN — targets.yaml missing; using legacy render list" >&2
+  echo "sync-skills: WARN — yq unavailable or targets.yaml missing; using legacy render list (cursor gemini pi)" >&2
   SKILL_ADAPTERS=(cursor gemini pi)
 fi
 
