@@ -7,20 +7,30 @@ def parse_simple_yaml(text: str) -> dict:
     root: dict = {}
     # Each stack entry: (indent, container, parent_dict, key_in_parent)
     stack: list = [(0, root, None, None)]
-    skip_until_indent = None  # skip block scalar continuation lines (| and >)
+    skip_until_indent = None  # indent of an active block scalar's key line
+    block: dict = {}  # active block scalar: {'lines': [...], 'style': str, 'assign': fn}
+
+    def flush_block():
+        if block:
+            block['assign'](_fold_block(block['lines'], block['style']))
+            block.clear()
+
     for i, raw in enumerate(text.splitlines()):
         stripped = raw.strip()
-        if not stripped or stripped.startswith("#"):
-            # Reset block-scalar skip on blank lines
-            continue
         indent = len(raw) - len(raw.lstrip())
-        
-        # Skip block scalar continuation (| and > in YAML)
+
+        # Inside a block scalar: capture continuation lines verbatim. Blank and
+        # '#'-prefixed lines are literal content here, not comments.
         if skip_until_indent is not None:
-            if indent > skip_until_indent:
+            if not stripped or indent > skip_until_indent:
+                if block:
+                    block['lines'].append(raw)
                 continue
-            else:
-                skip_until_indent = None
+            flush_block()
+            skip_until_indent = None
+
+        if not stripped or stripped.startswith("#"):
+            continue
         
         # Pop stack until we're at the right nesting level
         # Don't pop list containers at same indent — sibling items stay in same list
@@ -68,8 +78,11 @@ def parse_simple_yaml(text: str) -> dict:
                 v = v.strip()
                 # Detect block scalars in list items too
                 if v in ("|", ">", "|-", ">-", "|+", ">+"):
-                    item = {k: v}
+                    item = {k: None}
                     container.append(item)
+                    block.clear()
+                    block.update(lines=[], style=v,
+                                 assign=lambda s, _i=item, _k=k: _i.__setitem__(_k, s))
                     skip_until_indent = indent
                     continue
                 item = {k: _yaml_scalar(v) if v else None}
@@ -87,12 +100,18 @@ def parse_simple_yaml(text: str) -> dict:
         key = key.strip()
         val = val.strip()
         
-        # Detect block scalars (|, >, |- etc.)
+        # Detect block scalars (|, >, |- etc.) and capture their folded content.
         if val in ("|", ">", "|-", ">-", "|+", ">+"):
+            tgt = None
             if isinstance(container, list) and container:
-                container[-1][key] = val  # store the marker
+                tgt = container[-1]
             elif isinstance(container, dict):
-                container[key] = val
+                tgt = container
+            if tgt is not None:
+                tgt[key] = None
+                block.clear()
+                block.update(lines=[], style=val,
+                             assign=lambda s, _t=tgt, _k=key: _t.__setitem__(_k, s))
             skip_until_indent = indent
             continue
         
@@ -111,11 +130,43 @@ def parse_simple_yaml(text: str) -> dict:
                 stack.append((indent, nxt, container, key))
             else:
                 container[key] = _yaml_scalar(val)
+    flush_block()
     return root
+
+
+def _fold_block(raw_lines, style):
+    """Fold a YAML block scalar (| literal / > folded) to match PyYAML."""
+    # Strip the common leading indentation of the block's content lines.
+    indents = [len(l) - len(l.lstrip()) for l in raw_lines if l.strip()]
+    ci = min(indents) if indents else 0
+    lines = [l[ci:] if len(l) >= ci else l.strip() for l in raw_lines]
+    if style[0] == "|":  # literal: keep line breaks
+        text = "\n".join(lines)
+    else:  # folded: single break -> space, blank line -> newline
+        parts, prev_blank = [], True
+        for l in lines:
+            if l == "":
+                parts.append("\n")
+                prev_blank = True
+            else:
+                if parts and not prev_blank:
+                    parts.append(" ")
+                parts.append(l)
+                prev_blank = False
+        text = "".join(parts)
+    text = text.rstrip("\n")
+    # Chomping indicator: '-' strip, default clip (single trailing newline).
+    return text if style.endswith("-") else text + "\n"
 
 
 def _yaml_scalar(val: str):
     """Convert a YAML scalar string to Python type."""
+    stripped = val.strip()
+    # Double-quoted scalar: unescape YAML escapes (\" and \\) like PyYAML, and
+    # keep it a string (no bool/int coercion). Keeps the PyYAML-free fallback
+    # byte-identical to PyYAML for quoted descriptions.
+    if len(stripped) >= 2 and stripped[0] == '"' and stripped[-1] == '"':
+        return stripped[1:-1].replace('\\"', '"').replace("\\\\", "\\")
     val = val.strip('"').strip("'")
     if val in ("true", "false"):
         return val == "true"

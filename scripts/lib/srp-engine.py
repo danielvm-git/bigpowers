@@ -1,18 +1,29 @@
 #!/usr/bin/env python3
 # story: e48s15
+# story: BUG-2026-07-18-setup-pyyaml-missing
 import os
 import sys
 import json
 import glob
 import subprocess
-import yaml
 
-# Ensure scripts/lib is on the path so link_utils resolves regardless of cwd.
+# Ensure scripts/lib is on the path so sibling modules (link_utils, and the
+# simple_yaml fallback below) resolve regardless of cwd.
 _LIB_DIR = os.path.dirname(os.path.abspath(__file__))
 if _LIB_DIR not in sys.path:
     sys.path.insert(0, _LIB_DIR)
 
 from link_utils import LINK_RE, EXTERNAL_RE, strip_code_spans  # noqa: E402
+
+# End-user setup (bigpowers setup) may run on a python3 without PyYAML.
+# Prefer PyYAML for exact parsing; fall back to the dependency-free
+# simple_yaml.py (story e38s01) so setup never hard-crashes.
+try:
+    import yaml
+    _load_yaml = yaml.safe_load
+except ModuleNotFoundError:
+    from simple_yaml import parse_simple_yaml
+    _load_yaml = parse_simple_yaml
 
 def rewrite_links_for_pi(body, name):
     """Repoint relative links so they resolve from .pi/skills/<name>/.
@@ -114,7 +125,7 @@ def parse_skill(skill_md_path):
     skill_body = '---'.join(parts[2:])
 
     try:
-        frontmatter = yaml.safe_load(frontmatter_raw)
+        frontmatter = _load_yaml(frontmatter_raw)
     except Exception as e:
         print(f"Error parsing YAML frontmatter in {skill_md_path}: {e}", file=sys.stderr)
         sys.exit(1)
@@ -160,7 +171,7 @@ def get_active_adapters(repo_root):
         return ["cursor", "gemini", "pi"]
     try:
         with open(targets_file, 'r', encoding='utf-8') as f:
-            data = yaml.safe_load(f)
+            data = _load_yaml(f.read())
         adapters = []
         for target in data.get('targets', []):
             if target.get('skill') is not None:

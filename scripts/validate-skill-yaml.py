@@ -4,11 +4,18 @@ import glob
 import sys
 import os
 
+# Prefer PyYAML; fall back to the dependency-free scripts/lib/simple_yaml.py
+# (story e38s01) so `bigpowers setup` works on a python3 without PyYAML.
+# story: BUG-2026-07-18-setup-pyyaml-missing
+_LIB = os.path.join(os.path.dirname(os.path.abspath(__file__)), "lib")
 try:
     import yaml
-except ImportError:
-    print("ERROR: PyYAML required — pip install pyyaml")
-    sys.exit(2)
+    _load_yaml = yaml.safe_load
+except ModuleNotFoundError:
+    if _LIB not in sys.path:
+        sys.path.insert(0, _LIB)
+    from simple_yaml import parse_simple_yaml
+    _load_yaml = parse_simple_yaml
 
 SKILLS_DIR = ".pi/skills"
 files = sorted(glob.glob(f"{SKILLS_DIR}/*/SKILL.md"))
@@ -30,8 +37,8 @@ for path in files:
     frontmatter = parts[1]
 
     try:
-        data = yaml.safe_load(frontmatter)
-    except yaml.YAMLError as e:
+        data = _load_yaml(frontmatter)
+    except Exception as e:
         parse_failures.append((skill_name, str(e).split("\n")[0]))
         continue
 
