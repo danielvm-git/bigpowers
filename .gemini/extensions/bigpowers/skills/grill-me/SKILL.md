@@ -77,7 +77,7 @@ Ask one question at a time. For each challenge, cite the specific URL and sectio
 
 When an assumption doesn't match the docs:
 
-> "Your plan uses `library.doThing(a, b)` but the [docs](URL) show the signature is `doThing(config: {a, b})` with a config object. This will fail at runtime."
+> "Your plan uses `library.doThing(a, b)` but the [docs](https://example.com/api-reference) show the signature is `doThing(config: {a, b})` with a config object. This will fail at runtime."
 
 Document each discrepancy clearly.
 

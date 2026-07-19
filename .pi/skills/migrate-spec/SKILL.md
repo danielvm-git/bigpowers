@@ -56,13 +56,13 @@ If none found: ask the user which framework before proceeding.
 
 List every artifact found matching the detected framework. Present the list to the user:
 
-See [REFERENCE.md](REFERENCE.md) — `Detected: GSD...`
+See [REFERENCE.md](../../../skills/migrate-spec/REFERENCE.md) — `Detected: GSD...`
 
 → verify: `find . -maxdepth 4 \( -name "ROADMAP.md" -o -name "spec.md" -o -name "prd.md" -o -name "REQUIREMENTS.md" \) 2>/dev/null | grep -v ".git" | head -15`
 
 ### Step 3 — Transform (one artifact at a time, show diffs)
 
-Apply the mapping from [REFERENCE.md](./REFERENCE.md) and [REFERENCE-GSD.md](./REFERENCE-GSD.md). For each target file:
+Apply the mapping from [REFERENCE.md](../../../skills/migrate-spec/REFERENCE.md) and [REFERENCE-GSD.md](../../../skills/migrate-spec/REFERENCE-GSD.md). For each target file:
 
 1. Show what will be created or appended (title + first 20 lines).
 2. Ask: "Create this? [yes / edit / skip]"
@@ -72,25 +72,25 @@ Apply the mapping from [REFERENCE.md](./REFERENCE.md) and [REFERENCE-GSD.md](./R
 
 When source artifacts contain IDs (REQ-XX, FR-XX, UJ-XX), emit them as **first-class YAML fields** in `in_scope` entries, not YAML comments:
 
-See [REFERENCE.md](REFERENCE.md) — `# CORRECT — first-class id: field...`
+See [REFERENCE.md](../../../skills/migrate-spec/REFERENCE.md) — `# CORRECT — first-class id: field...`
 
 **When source has no IDs:** Prompt the user: "No IDs found. Assign auto-generated IDs? [yes / no]". If yes, emit `REQ-{NNN}` with `# auto-generated` annotation.
 
 **When source has MIXED IDs:** Items with IDs get `id:` fields; items without IDs receive auto-generated `REQ-NNN` entries. Document which were auto-generated in a comment block at the top of `in_scope`.
 
-See [REFERENCE.md — in_scope format with ID tracking](./REFERENCE.md#in_scope-format-with-id-tracking) for examples.
+See [REFERENCE.md — in_scope format with ID tracking](../../../skills/migrate-spec/REFERENCE.md#in_scope-format-with-id-tracking) for examples.
 
 #### Traceability Output (FR-XX, UJ-XX)
 
 When source has FR-XX or UJ-XX IDs, emit `specs/product/REQUIREMENTS_TRACE.yaml` for end-to-end requirement traceability:
 
-See [REFERENCE.md](REFERENCE.md) — `trace:...`
+See [REFERENCE.md](../../../skills/migrate-spec/REFERENCE.md) — `trace:...`
 
 **Existing trace file:** If `REQUIREMENTS_TRACE.yaml` already exists, prompt: "REQUIREMENTS_TRACE.yaml exists. [overwrite / merge / skip]"
 
 **No FR-XX/UJ-XX found:** Skip trace file; add note to state.yaml handoff: "No FR-XX/UJ-XX IDs found — traceability file skipped".
 
-See [REFERENCE.md — REQUIREMENTS_TRACE.yaml format](./REFERENCE.md#requirements_traceyaml-format) for the complete schema.
+See [REFERENCE.md — REQUIREMENTS_TRACE.yaml format](../../../skills/migrate-spec/REFERENCE.md#requirements_traceyaml-format) for the complete schema.
 
 > **HARD GATE** — Never overwrite an existing `specs/` file without explicit user confirmation. Merge into it if it exists; don't clobber.
 >
@@ -102,11 +102,11 @@ See [REFERENCE.md — REQUIREMENTS_TRACE.yaml format](./REFERENCE.md#requirement
 
 Always regenerate `specs/state.yaml` from scratch in bigpowers YAML format (see REFERENCE.md for template). The **handoff block is mandatory** and must include all four fields:
 
-See [REFERENCE.md](REFERENCE.md) — `active_flow: null...`
+See [REFERENCE.md](../../../skills/migrate-spec/REFERENCE.md) — `active_flow: null...`
 
 If no open decisions were found during migration, the `open_decisions` list may be empty with an explanatory comment:
 
-See [REFERENCE.md](REFERENCE.md) — `handoff:...`
+See [REFERENCE.md](../../../skills/migrate-spec/REFERENCE.md) — `handoff:...`
 
 → verify: `grep -q 'handoff:' specs/state.yaml && grep -q 'last_step_completed' specs/state.yaml && echo "ok" || echo "MISSING or INCOMPLETE: handoff block"`
 
@@ -116,7 +116,7 @@ See [REFERENCE.md](REFERENCE.md) — `handoff:...`
 
 Full artifact transformation rules for migrating GSD projects to bigpowers YAML layout.
 
-See [REFERENCE.md](./REFERENCE.md) for spec-kit, BMAD, learnings, and ADR/DECISION-LOG formats.
+See [REFERENCE.md](../../../skills/migrate-spec/REFERENCE.md) for spec-kit, BMAD, learnings, and ADR/DECISION-LOG formats.
 
 ---
 
@@ -162,7 +162,7 @@ Transform:
 GSD REQUIREMENTS has: REQ-XX IDs, Validated/Active/Out-of-Scope categories, traceability.
 
 Transform:
-- Preserve REQ-XX IDs as **first-class `id:` fields** in `in_scope` entries (see [REFERENCE.md — ID tracking format](./REFERENCE.md#in_scope-format-with-id-tracking))
+- Preserve REQ-XX IDs as **first-class `id:` fields** in `in_scope` entries (see [REFERENCE.md — ID tracking format](../../../skills/migrate-spec/REFERENCE.md#in_scope-format-with-id-tracking))
 - Validated requirements → `in_scope` entries with `id:`, `description:`, `source:` fields
 - Out-of-Scope → `out_of_scope` entries (preserve IDs if present)
 - Active (in-progress) → `in_scope` with status note
@@ -264,7 +264,7 @@ These GSD artifacts are not migrated — they are execution records, not plannin
 
 Transformation rules for spec-kit and BMAD projects, plus learnings to adopt and output formats.
 
-See [REFERENCE-GSD.md](./REFERENCE-GSD.md) for full GSD → bigpowers YAML mapping.
+See [REFERENCE-GSD.md](../../../skills/migrate-spec/REFERENCE-GSD.md) for full GSD → bigpowers YAML mapping.
 
 ---
 
@@ -776,7 +776,7 @@ If **no**, skip. Add note to handoff: "Methodology doc: skipped — can be added
 
 ## Artifact Mapping Summary
 
-Full mapping tables: [REFERENCE-GSD.md](./REFERENCE-GSD.md) (GSD) · [REFERENCE.md](./REFERENCE.md) (spec-kit, BMAD, learnings).
+Full mapping tables: [REFERENCE-GSD.md](../../../skills/migrate-spec/REFERENCE-GSD.md) (GSD) · [REFERENCE.md](../../../skills/migrate-spec/REFERENCE.md) (spec-kit, BMAD, learnings).
 
 | Source | Target |
 |--------|--------|
@@ -814,7 +814,7 @@ Full mapping tables: [REFERENCE-GSD.md](./REFERENCE-GSD.md) (GSD) · [REFERENCE.
 
 After migration, offer the user a brief analysis of what the source framework did that bigpowers doesn't have yet.
 
-Use the learnings table from [REFERENCE.md](./REFERENCE.md#learnings-to-adopt). Present as checkboxes so the user can decide which to adopt.
+Use the learnings table from [REFERENCE.md](../../../skills/migrate-spec/REFERENCE.md#learnings-to-adopt). Present as checkboxes so the user can decide which to adopt.
 
 → verify: `grep -c "\- \[ \]" specs/state.yaml 2>/dev/null && echo "pending items recorded" || echo "no pending items in state.yaml"`
 

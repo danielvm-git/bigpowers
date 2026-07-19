@@ -14,7 +14,7 @@ description: "Test-driven development with red-green-refactor loop using vertica
 
 ## Philosophy
 
-Tests verify behavior through public interfaces, not implementation details. A good test reads like a specification. See [REFERENCE.md](REFERENCE.md) for the horizontal-slice anti-pattern and TDD phase detail.
+Tests verify behavior through public interfaces, not implementation details. A good test reads like a specification. See [REFERENCE.md](../../../skills/develop-tdd/REFERENCE.md) for the horizontal-slice anti-pattern and TDD phase detail.
 
 ## Red Flags
 
@@ -40,7 +40,7 @@ If you catch yourself thinking these, stop and reconsider — you are likely dev
 - [ ] Read active `specs/epics/*/epic.yaml` story tasks or `specs/bugs/BUG-*.md` — understand verify steps
 - [ ] If `specs/tech-architecture/eNN-TEST_PLAN_LATEST.md` exists for the active epic, read it before writing the first test. Implement P0 scenarios (`SC-*-P0-*`) before P1. P2/P3 scenarios are optional per time budget.
 - [ ] Confirm interface changes and behaviors to test (prioritize)
-- [ ] Design interfaces for testability — identify [deep modules](deep-modules.md) opportunities
+- [ ] Design interfaces for testability — identify [deep modules](../../../skills/develop-tdd/deep-modules.md) opportunities
 - [ ] Get user approval on the plan
 
 Apply the **enforce-first** F.I.R.S.T rubric: Fast, Independent, Repeatable, Self-Validating, Timely.
@@ -74,7 +74,7 @@ For each remaining behavior: RED → GREEN → REFACTOR (optional). One test at 
 
 ### 4. Visual Slices (UI alternate workflow)
 
-For UI components where behavioral unit testing is brittle: extract logic into a Controller/ViewModel/Hook (pure TDD), then use Visual Slices for the View layer. See [REFERENCE.md](REFERENCE.md) for the full Visual Slices procedure.
+For UI components where behavioral unit testing is brittle: extract logic into a Controller/ViewModel/Hook (pure TDD), then use Visual Slices for the View layer. See [REFERENCE.md](../../../skills/develop-tdd/REFERENCE.md) for the full Visual Slices procedure.
 
 ### 5. Refactor
 
@@ -91,7 +91,7 @@ Once all tests pass: locate the Verification Script in the active epic capsule, 
 
 ### 6a. CI dry-run sub-step
 
-If this cycle modified files in `.github/workflows/`, run the CI dry-run procedure documented in [REFERENCE.md](REFERENCE.md#ci-dry-run).
+If this cycle modified files in `.github/workflows/`, run the CI dry-run procedure documented in [REFERENCE.md](../../../skills/develop-tdd/REFERENCE.md#ci-dry-run).
 
 ## Checklist Per Cycle
 
@@ -149,7 +149,7 @@ RIGHT (vertical):
   ...
 ```
 
-> The Red Flags table lives in [SKILL.md](SKILL.md#red-flags) — it is core behavioral guidance, not reference detail.
+> The Red Flags table lives in [SKILL.md](../../../skills/develop-tdd/SKILL.md#red-flags) — it is core behavioral guidance, not reference detail.
 
 ## TDD Phases (Detail)
 

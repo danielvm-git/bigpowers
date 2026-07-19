@@ -27,7 +27,7 @@ Apply the full checklist to churn-ranked files in descending order. Files with z
 - Default: full checklist
 - --quick: Run only Supply Chain and Test Coverage. Use for changes under 50 LOC.
 - --gate: Non-interactive mode for automated CI gating (used by build-epic step 6). Exit with non-zero status code (`exit 1`) on ANY checklist failure; `exit 0` only if ALL items pass. Produces a compact pass/fail summary to stderr. On failure, list every ✗ item with reason.
-- --parallel: Run checklist sections in **isolated git worktrees** (e45s18) so concurrent checks cannot corrupt each other's working tree. See [REFERENCE.md](REFERENCE.md) or:
+- --parallel: Run checklist sections in **isolated git worktrees** (e45s18) so concurrent checks cannot corrupt each other's working tree:
 
 ```bash
 bash scripts/lib/parallel-review-worktrees.sh audit-code

@@ -6,7 +6,7 @@ description: "Harden a production Linux VPS for BigBase across three layers — 
 
 # Harden VPS
 
-Three-layer production hardening for BigBase on Contabo VPS. Each layer independently verifiable. Apply OS first (firewall blocks attacks immediately), then BigBase (alerts + backups), then Contabo (snapshots). See [REFERENCE.md](REFERENCE.md) for full script bodies, systemd unit template, and gotchas.
+Three-layer production hardening for BigBase on Contabo VPS. Each layer independently verifiable. Apply OS first (firewall blocks attacks immediately), then BigBase (alerts + backups), then Contabo (snapshots). See [REFERENCE.md](../../../skills/harden-vps/REFERENCE.md) for full script bodies, systemd unit template, and gotchas.
 
 ## Quick start
 

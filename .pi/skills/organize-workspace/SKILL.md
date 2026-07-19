@@ -74,7 +74,7 @@ Do this when the repo is under Git and the cleanup surfaced **untracked** noise:
 4. **User must approve** the exact diff before editing the file.
 5. **Verify**: run `git check-ignore -v <path>` on 2–3 representative paths.
 
-See [REFERENCE.md](REFERENCE.md) for shell patterns, `.gitignore` mechanics, and safety checks.
+See [REFERENCE.md](../../../skills/organize-workspace/REFERENCE.md) for shell patterns, `.gitignore` mechanics, and safety checks.
 
 
 

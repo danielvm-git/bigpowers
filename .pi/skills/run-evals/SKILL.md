@@ -30,7 +30,7 @@ description: "Eval-Driven Development — define capability and regression evals
 
 ## Artefact
 
-`specs/verifications/eNNsYY-eval-report.md` — see [REFERENCE.md](REFERENCE.md) for template. Eval reports are stored alongside verification evidence in `specs/verifications/`, keyed by story ID for traceability.
+`specs/verifications/eNNsYY-eval-report.md` — see [REFERENCE.md](../../../skills/run-evals/REFERENCE.md) for template. Eval reports are stored alongside verification evidence in `specs/verifications/`, keyed by story ID for traceability.
 
 ## Verify
 

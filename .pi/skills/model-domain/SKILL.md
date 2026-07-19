@@ -74,7 +74,7 @@ When the user states how something works, check whether the code agrees. If you 
 
 ### Update specs/tech-architecture/tech-stack.md inline
 
-When a term is resolved, update `specs/tech-architecture/tech-stack.md` right there. Don't batch these up — capture them as they happen. Use the format in [CONTEXT-FORMAT.md](./CONTEXT-FORMAT.md).
+When a term is resolved, update `specs/tech-architecture/tech-stack.md` right there. Don't batch these up — capture them as they happen. Use the format in [CONTEXT-FORMAT.md](../../../skills/model-domain/CONTEXT-FORMAT.md).
 
 Don't couple `specs/tech-architecture/tech-stack.md` to implementation details. Only include terms that are meaningful to domain experts.
 
@@ -86,7 +86,7 @@ Only offer to create an ADR when all three are true:
 2. **Surprising without context** — a future reader will wonder "why did they do it this way?"
 3. **The result of a real trade-off** — there were genuine alternatives and you picked one for specific reasons
 
-If any of the three is missing, skip the ADR. Use the format in [ADR-FORMAT.md](./ADR-FORMAT.md).
+If any of the three is missing, skip the ADR. Use the format in [ADR-FORMAT.md](../../../skills/model-domain/ADR-FORMAT.md).
 
 ## Concurrency safety audit
 
@@ -212,9 +212,9 @@ _Avoid_: Client, buyer, account
 
 ## Contexts
 
-- [Ordering](./src/ordering/CONTEXT.md) — receives and tracks customer orders
-- [Billing](./src/billing/CONTEXT.md) — generates invoices and processes payments
-- [Fulfillment](./src/fulfillment/CONTEXT.md) — manages warehouse picking and shipping
+- Ordering — `src/ordering/CONTEXT.md` — receives and tracks customer orders
+- Billing — `src/billing/CONTEXT.md` — generates invoices and processes payments
+- Fulfillment — `src/fulfillment/CONTEXT.md` — manages warehouse picking and shipping
 
 ## Relationships
 

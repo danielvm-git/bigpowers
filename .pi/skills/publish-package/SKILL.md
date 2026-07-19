@@ -33,41 +33,41 @@ If no manifest is found, prompt the user to specify the type or pass `--type <np
 Before attempting any publish, run all applicable checks:
 
 **npm (`package.json`):**
-See [REFERENCE.md](REFERENCE.md)
+See [REFERENCE.md](../../../skills/publish-package/REFERENCE.md)
 
 **crates.io (`Cargo.toml`):**
-See [REFERENCE.md](REFERENCE.md)
+See [REFERENCE.md](../../../skills/publish-package/REFERENCE.md)
 
 **PyPI (`setup.py` / `pyproject.toml`):**
-See [REFERENCE.md](REFERENCE.md)
+See [REFERENCE.md](../../../skills/publish-package/REFERENCE.md)
 
 ### 3. Run publish
 
 After all prerequisite checks pass, run the registry-specific command:
 
-See [REFERENCE.md](REFERENCE.md)
+See [REFERENCE.md](../../../skills/publish-package/REFERENCE.md)
 
 ### 4. Verify publish success
 
 After publish, confirm the version appears on the registry:
 
-See [REFERENCE.md](REFERENCE.md)
+See [REFERENCE.md](../../../skills/publish-package/REFERENCE.md)
 
 ### 5. Error handling
 
 On failure, surface actionable hints:
 
-See [REFERENCE.md](REFERENCE.md)
+See [REFERENCE.md](../../../skills/publish-package/REFERENCE.md)
 
 ### 6. Dry-run mode (`--dry-run`)
 
 Run `--dry-run` to verify all prerequisites without actually publishing:
 
-See [REFERENCE.md](REFERENCE.md)
+See [REFERENCE.md](../../../skills/publish-package/REFERENCE.md)
 
 ### 7. Dry-run mode per registry
 
-See [REFERENCE.md](REFERENCE.md)
+See [REFERENCE.md](../../../skills/publish-package/REFERENCE.md)
 
 ## Verify
 

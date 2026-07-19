@@ -26,7 +26,7 @@ Three files in `allure-results/`:
 
 ## Data Sources
 
-See [REFERENCE.md](REFERENCE.md)
+See [REFERENCE.md](../../../skills/generate-allure-report/REFERENCE.md)
 
 ## Verify
 

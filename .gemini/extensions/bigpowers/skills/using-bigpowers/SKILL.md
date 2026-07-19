@@ -78,7 +78,7 @@ UTILITY     terse-mode / craft-skill / edit-document (any phase)
 
 If you work alone and do not want PR ceremony every task:
 
-1. Read [profiles/solo-git.md](../profiles/solo-git.md).
+1. Read [profiles/solo-git.md](../../profiles/solo-git.md).
 2. Register with `compose-workflow` → `specs/WORKFLOW-solo-git.md`.
 3. Ship with `release-branch` in **solo-local** mode (`land-branch.sh`), not `gh pr create`.
 

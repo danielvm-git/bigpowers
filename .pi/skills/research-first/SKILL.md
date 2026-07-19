@@ -52,7 +52,7 @@ If opensrc is not installed or the package is not cached, fall through to web do
 
 → verify: `grep -c "Prior Art" specs/product/SCOPE_LATEST.yaml specs/release-plan.yaml + epic shards 2>/dev/null | awk '{s+=$1} END {if(s>0) print "OK"; else print "MISSING"}'`
 
-See [REFERENCE.md](REFERENCE.md) for search commands and registry checklist.
+See [REFERENCE.md](../../../skills/research-first/REFERENCE.md) for search commands and registry checklist.
 
 ---
 

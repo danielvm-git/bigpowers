@@ -13,7 +13,7 @@
     },
     "audit-code": {
       "description": "Self-review checklist for the coding agent to run before dispatching a reviewer. Checks CONVENTIONS.md compliance, Boy Scout Rule, test coverage, types, and SOLID. Produces a pass/fail checklist. Use before request-review, before committing, or when user asks for a code quality check.",
-      "sha256": "bbb128254464f8f4",
+      "sha256": "0636f1d9d6c591a3",
       "path": "skills/audit-codeSKILL.md"
     },
     "audit-plan": {
@@ -48,7 +48,7 @@
     },
     "craft-skill": {
       "description": "Create new bigpowers skills with proper structure, progressive disclosure, and bundled resources. Use when user wants to create, write, or build a new skill for the bigpowers lifecycle.",
-      "sha256": "cbf8ab939cfbab87",
+      "sha256": "2caa9d8ae9298b4b",
       "path": "skills/craft-skillSKILL.md"
     },
     "deepen-architecture": {
@@ -108,7 +108,7 @@
     },
     "elaborate-spec": {
       "description": "Refine a rough idea into a clear, detailed specification through dialogue. Does not produce code. Use when user has a vague idea, wants to think through a feature before planning, or needs to turn \"I want X\" into a concrete spec.",
-      "sha256": "62ebfca87e6d0162",
+      "sha256": "9307ab61c789a0a0",
       "path": "skills/elaborate-specSKILL.md"
     },
     "enforce-first": {
@@ -158,7 +158,7 @@
     },
     "guard-git": {
       "description": "Block dangerous git commands (push, force push, reset --hard, clean, branch -D, checkout/restore .) and enforce Conventional Commits & Branch Protection before an AI agent runs them. Installs hook scripts for Claude Code, Cursor, Cursor CLI, and Gemini CLI; documents Google Antigravity Terminal deny lists. Use when the user wants git safety hooks, to block git push or destructive git in agents, or to mirror the same policy across AI coding tools.",
-      "sha256": "9ee881df89273b00",
+      "sha256": "e7083cba6d95a15f",
       "path": "skills/guard-gitSKILL.md"
     },
     "harden-vps": {
@@ -178,7 +178,7 @@
     },
     "investigate-bug": {
       "description": "Investigate a bug or issue by exploring the codebase to find root cause, then write a TDD-based fix plan to specs/bugs/BUG-*.md. Use when user reports a bug, wants to investigate a problem, mentions \"triage\", or wants to plan a fix.",
-      "sha256": "b842fd329d1f7741",
+      "sha256": "54f8c5417be34ef0",
       "path": "skills/investigate-bugSKILL.md"
     },
     "kickoff-branch": {
@@ -218,12 +218,12 @@
     },
     "plan-refactor": {
       "description": "Create a detailed refactor plan with tiny commits via user interview, then save it as specs/REFACTOR_LATEST.md. Use when user wants to plan a refactor, create a refactoring RFC, or break a refactor into safe incremental steps.",
-      "sha256": "c418c850806e2f16",
+      "sha256": "2d18809da7cc9de8",
       "path": "skills/plan-refactorSKILL.md"
     },
     "plan-release": {
       "description": "\"RELEASE-INDEX BUILDER — Sequence elaborated epics into specs/release-plan.yaml with WSJF ordering and BCP baselines. NOT a planning-spine substitute: it does not scope work (scope-work) or write story tasks (plan-work). Use after elaborate-spec when the user wants a versioned release index of epics.\"",
-      "sha256": "b56b800817cd383e",
+      "sha256": "9334ff48e5b1fab3",
       "path": "skills/plan-releaseSKILL.md"
     },
     "plan-tests": {
@@ -358,7 +358,7 @@
     },
     "using-bigpowers": {
       "description": "One-time bootstrap that introduces the bigpowers skills system, the PMBOK lifecycle arc, and tells you which skill to call first for your situation. Use when starting with bigpowers for the first time, when user asks \"where do I start?\", or when the skills system needs to be explained.",
-      "sha256": "332d6468868b759b",
+      "sha256": "bad9ebe9bf303b36",
       "path": "skills/using-bigpowersSKILL.md"
     },
     "validate-contracts": {

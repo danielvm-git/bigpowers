@@ -30,20 +30,20 @@ Move process detail into the SKILL.md body or REFERENCE.md — never into `descr
    - Any reference materials to include?
    - What specs/ output does it produce (if any)?
 
-2. **Verify Principles** — Ensure the skill aligns with [PRINCIPLES.md](../docs/PRINCIPLES.md):
+2. **Verify Principles** — Ensure the skill aligns with [PRINCIPLES.md](https://github.com/danielvm-git/bigpowers/blob/main/docs/PRINCIPLES.md):
    - Is it atomic (verb-noun)?
    - Is it "deep" (simple interface, complex internal logic)?
    - Does it include Hard Gates?
    - Is it verifiable with a `.feature` file?
 
 3. **Draft the skill** — create:
-   - SKILL.md with concise instructions (see [REFERENCE.md](REFERENCE.md) for template)
+   - SKILL.md with concise instructions (see [REFERENCE.md](../../../skills/craft-skill/REFERENCE.md) for template)
    - Additional reference files if content exceeds 100 lines
    - Utility scripts if deterministic operations needed
 
    **Auto-skill from library README:** When user provides a library README or API docs URL, extract: triggers, HARD GATEs, verify commands, specs/ output — draft SKILL.md without inventing APIs not in the source.
 
-4. Add `model:` frontmatter (`haiku` | `sonnet` | `opus`) per [model-profiles.md](../docs/references/model-profiles.md).
+4. Add `model:` frontmatter (`haiku` | `sonnet` | `opus`) per [model-profiles.md](https://github.com/danielvm-git/bigpowers/blob/main/docs/references/model-profiles.md).
 
 > **STREAM CONTINUITY** — When writing file content, output in continuous chunks of ~200 lines. Do not pause. Continue immediately until complete. If you need time, emit a placeholder comment rather than going silent.
 
@@ -60,7 +60,7 @@ Move process detail into the SKILL.md body or REFERENCE.md — never into `descr
 
 ## Naming Rules
 
-Every skill name must be a **two-word verb-noun pair**. See [REFERENCE.md](REFERENCE.md) for full rules, examples, and documented exceptions.
+Every skill name must be a **two-word verb-noun pair**. See [REFERENCE.md](../../../skills/craft-skill/REFERENCE.md) for full rules, examples, and documented exceptions.
 
 ## specs/ Output
 

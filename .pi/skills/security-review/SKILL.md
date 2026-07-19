@@ -103,9 +103,9 @@ Each finding: **`File:Line` — Severity — Category**
 
 ## Reference files
 
-- [Vuln categories](REFERENCE-vuln-categories.md) — detection guidance per vuln type
-- [False positives](REFERENCE-false-positives.md) — hard exclusions + precedent
-- [Confidence rubric](REFERENCE-confidence-rubric.md) — scoring methodology (0–10)
+- [Vuln categories](../../../skills/security-review/REFERENCE-vuln-categories.md) — detection guidance per vuln type
+- [False positives](../../../skills/security-review/REFERENCE-false-positives.md) — hard exclusions + precedent
+- [Confidence rubric](../../../skills/security-review/REFERENCE-confidence-rubric.md) — scoring methodology (0–10)
 
 ## Verify
 

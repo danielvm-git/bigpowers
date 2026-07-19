@@ -40,7 +40,7 @@ Track progress via `specs/state.yaml` `project_cycle`:
 - `handoff.next_skill`: skill for the current phase
 - On resume, read `project_cycle.current_phase` and continue from there
 
-See [REFERENCE.md](REFERENCE.md) for detailed phase specifications and gate types.
+See [REFERENCE.md](../../../skills/orchestrate-project/REFERENCE.md) for detailed phase specifications and gate types.
 
 ## How Orchestrate Works
 
@@ -58,7 +58,7 @@ See [REFERENCE.md](REFERENCE.md) for detailed phase specifications and gate type
 - **Fast-Track**: Skip negotiable gates. Use for hotfixes and minor improvements.
 - **Ad-Hoc**: Warnings only. Use for prototyping and spikes (non-production).
 
-See [REFERENCE.md](REFERENCE.md) for full mode behaviors.
+See [REFERENCE.md](../../../skills/orchestrate-project/REFERENCE.md) for full mode behaviors.
 
 ## Verification
 
