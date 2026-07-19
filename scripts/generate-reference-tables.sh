@@ -32,10 +32,11 @@ BLOCK="<!-- AUTO-GENERATED-CATALOG: begin — do not edit manually; run scripts/
 for row in "${ROWS[@]}"; do
   skill="${row%% *}"
   model="${row##* }"
+  skill_rel="${skill#$REPO_ROOT/}"
   # capitalise first letter for display
   model_cap="$(echo "${model:0:1}" | tr '[:lower:]' '[:upper:]')${model:1}"
   BLOCK+="
-| \`$skill\` | **$model_cap** |"
+| \`$skill_rel\` | **$model_cap** |"
 done
 BLOCK+="
 

@@ -135,7 +135,7 @@ description: Brief description of capability. Use when [specific triggers].
 
 ## Advanced features
 
-[Link to separate files: See [REFERENCE.md](../../../skills/craft-skill/REFERENCE.md)]
+[Link to separate files: See [REFERENCE.md](REFERENCE.md)]
 ```
 
 ## Description Requirements
