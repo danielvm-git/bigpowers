@@ -1,3 +1,10 @@
+## [2.77.2](https://github.com/danielvm-git/bigpowers/compare/v2.77.1...v2.77.2) (2026-07-19)
+
+
+### Bug Fixes
+
+* **scripts:** fall back to simple_yaml when PyYAML is absent during setup ([#81](https://github.com/danielvm-git/bigpowers/issues/81)) ([2608c64](https://github.com/danielvm-git/bigpowers/commit/2608c645e1143f1bbf96c3174341b107c672ae8e))
+
 ## [2.77.1](https://github.com/danielvm-git/bigpowers/compare/v2.77.0...v2.77.1) (2026-07-19)
 
 
