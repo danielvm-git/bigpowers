@@ -131,6 +131,11 @@
       "sha256": "bb2bf81b5f948e10",
       "path": "skills/extract-designSKILL.md"
     },
+    "find-way": {
+      "description": "Plan a large effort as a shared map of decision tickets on an issue tracker, resolving them one at a time until the way is clear. Use when an idea is too big for one session, needs structured exploration before implementation, or requires mapping decisions before building.",
+      "sha256": "a32e23bfbc768fc4",
+      "path": "skills/find-waySKILL.md"
+    },
     "fix-bug": {
       "description": "Bug fix orchestrator — active_flow fix_bug; reads specs/bugs/BUG-*.md; chains investigate-bug, develop-tdd, validate-fix. Use when user reports a defect.",
       "sha256": "8e9e5922211b7e3b",
