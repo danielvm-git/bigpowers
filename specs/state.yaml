@@ -2,7 +2,7 @@ active_flow: null
 active_epic: e37
 active_story: null
 bug_id: null
-bigpowers_version: 2.77.0
+bigpowers_version: 2.77.1
 bug_cycle: null
 handoff:
   context: fix-bug complete — Co-authored-by ban now enforced in 3 layers (git hook, land-branch.sh, CI).

@@ -1,3 +1,10 @@
+## [2.77.1](https://github.com/danielvm-git/bigpowers/compare/v2.77.0...v2.77.1) (2026-07-19)
+
+
+### Bug Fixes
+
+* **scripts:** address PR [#79](https://github.com/danielvm-git/bigpowers/issues/79) dual-blind review findings ([#80](https://github.com/danielvm-git/bigpowers/issues/80)) ([a03ada9](https://github.com/danielvm-git/bigpowers/commit/a03ada962b3c6ccb9721563664c5e424c145083b)), closes [#78](https://github.com/danielvm-git/bigpowers/issues/78) [#78](https://github.com/danielvm-git/bigpowers/issues/78)
+
 # [2.77.0](https://github.com/danielvm-git/bigpowers/compare/v2.76.3...v2.77.0) (2026-07-13)
 
 
