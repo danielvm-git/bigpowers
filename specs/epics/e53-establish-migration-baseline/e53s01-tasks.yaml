@@ -1,0 +1,17 @@
+story_id: e53s01
+title: "Commit the untracked GOLDEN baseline"
+status: todo
+bcps: 1
+tasks:
+  - id: 1
+    description: "Confirm specs/benchmarks/reports/GOLDEN-2026-07-18.yaml is untracked and no other uncommitted changes would be swept up with it"
+    verify: "git status --short specs/benchmarks/reports/GOLDEN-2026-07-18.yaml | grep -q '^??' && echo OK"
+    status: todo
+  - id: 2
+    description: "git add and commit the GOLDEN baseline file on its own, Conventional Commits format (chore: track GOLDEN-2026-07-18 baseline)"
+    verify: "git log -1 --format=%s -- specs/benchmarks/reports/GOLDEN-2026-07-18.yaml | grep -qE '^(chore|fix)' && echo OK"
+    status: todo
+  - id: 3
+    description: "Confirm the file is now tracked and GOLDEN suite gates still resolve it correctly"
+    verify: "git ls-files --error-unmatch specs/benchmarks/reports/GOLDEN-2026-07-18.yaml >/dev/null 2>&1 && echo OK"
+    status: todo

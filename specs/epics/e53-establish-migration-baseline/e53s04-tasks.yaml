@@ -1,0 +1,21 @@
+story_id: e53s04
+title: "Adopt docs/TARGET-ARCHITECTURE.md as the migration's north-star reference"
+status: todo
+bcps: 3
+tasks:
+  - id: 1
+    description: "Summarize bigspec's constitution.md (B0-B10 + Capstone) and architecture.md into docs/TARGET-ARCHITECTURE.md as the overall methodology target, with clear provenance (source repo, commit, date) — link to the sources, do not copy them in full (constitution.md + architecture.md total 465 lines; task 4's <400-line ceiling on the whole doc requires this to be a summary, not a copy)"
+    verify: "test -f docs/TARGET-ARCHITECTURE.md && grep -q 'B0' docs/TARGET-ARCHITECTURE.md && echo OK"
+    status: todo
+  - id: 2
+    description: "Add a Documentation Architecture section incorporating big-docs' 3-wave model (Wave 1 GitHub-native, Wave 2 GoodDocs docs/, Wave 3 Specs) and the specs/->docs/ dissolution decision from the wayfinder session's T6 amendment"
+    verify: "grep -qi 'wave 1\\|wave 2\\|wave 3' docs/TARGET-ARCHITECTURE.md && echo OK"
+    status: todo
+  - id: 3
+    description: "Add a pointer to the already-produced template/schema artifacts at specs/wayfinder/doc-templates/templates/ as the adopted target shape for every document type — do not re-derive or duplicate their content, reference and summarize only, and do not hardcode the artifact count (it drifts as new templates are added)"
+    verify: "grep -q 'wayfinder/doc-templates/templates' docs/TARGET-ARCHITECTURE.md && echo OK"
+    status: todo
+  - id: 4
+    description: "Confirm no content is duplicated verbatim from bigspec or the wayfinder templates beyond what's needed for a reader to navigate to the source — this doc is a router, not a restatement, per the same discipline established throughout the wayfinder session"
+    verify: "test $(wc -l < docs/TARGET-ARCHITECTURE.md) -lt 400 && echo OK"
+    status: todo

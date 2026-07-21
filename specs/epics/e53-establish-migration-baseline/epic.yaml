@@ -1,0 +1,91 @@
+id: e53
+title: "Establish Migration Baseline — bigpowers-to-bigspec Readiness"
+wsjf: 8.0
+bcps: 9
+capsule_dir: epics/e53-establish-migration-baseline
+mode: capsule
+status: in_progress
+depends_on: []
+source: |
+  Fable wayfinding session (assess-and-recommend, 2026-07-18) proposed a 5-phase
+  bigpowers-to-bigspec migration. A red-teamed /audit-plan run against that proposal
+  returned NOT READY — 3 blocking gaps: (1) demoting the 94% compliance gate could
+  silently hollow GOLDEN's hard-gate wiring (scripts/lib/golden-suite-gates.sh:9
+  hardcodes compliance as non-optional; cited as "Hard Stop" in 5 docs); (2) the
+  "every skill rename ships a tombstone alias" invariant depends on tooling that
+  doesn't exist anywhere in scripts/ or CONVENTIONS.md; (3) the GOLDEN baseline
+  file itself (specs/benchmarks/reports/GOLDEN-2026-07-18.yaml) is untracked in git.
+  This epic exists solely to close those 3 gaps — converting the plan from
+  NOT READY to READY — before Phase 0 (catalog-drift-freeze, formerly e53, now e54)
+  can start. A prior scratch numbering used "e52" for this epic; e52 collided with
+  a retired historical planning name ("Integration Registry," merged into e37
+  2026-07-06) — the whole migration sequence shifted +1 (this epic is e53; later
+  phases renumber to e54-e59 when their turn comes).
+note: >
+  WSJF 8.0 = (6 value + 9 urgency + 9 risk-reduction) / 3 job-size — highest in the
+  migration sequence by design: nothing else in the plan can safely start until
+  this closes. Story 4 (target-architecture doc) is richer than originally scoped —
+  a separate wayfinder session (23 tickets, 25 template/schema artifacts, closed)
+  produced a concrete, evidence-grounded documentation architecture (big-docs'
+  3-wave model, the specs/->docs/ dissolution decision, 25 adopted template
+  shapes) that story 4 now incorporates alongside bigspec's constitution as the
+  north-star reference every later migration epic will cite.
+stories:
+  - id: e53s01
+    bcp: 1
+    status: todo
+    title: "Commit the untracked GOLDEN baseline"
+    spec: e53s01-commit-golden-baseline.md
+    tasks: e53s01-tasks.yaml
+    ac: |
+      GIVEN specs/benchmarks/reports/GOLDEN-2026-07-18.yaml exists on disk but is
+        untracked (confirmed via git status)
+      WHEN this story lands
+      THEN the file is committed, and the migration's own "GOLDEN stays green"
+        invariant references an artifact that actually exists in git history.
+  - id: e53s02
+    bcp: 3
+    status: todo
+    title: "Build the tombstone-alias mechanism"
+    spec: e53s02-tombstone-alias-mechanism.md
+    tasks: e53s02-tasks.yaml
+    ac: |
+      GIVEN the migration invariant "every skill rename ships a tombstone alias
+        for one release" has zero supporting tooling today (confirmed: no hits
+        for tombstone/alias across scripts/, CONVENTIONS.md, CLAUDE.md)
+      WHEN this story lands
+      THEN a documented, scripted mechanism exists that lets a later epic (e56,
+        formerly e55, skill reclassification/merges) rename or merge a skill
+        while a stub under the old name still resolves for one release.
+  - id: e53s03
+    bcp: 2
+    status: todo
+    title: "Gate-trace the compliance-to-GOLDEN hard-gate coupling"
+    spec: e53s03-gate-trace-compliance-golden.md
+    tasks: e53s03-tasks.yaml
+    ac: |
+      GIVEN scripts/lib/golden-suite-gates.sh:9 hardcodes compliance as
+        non-optional in the GOLDEN gate chain, and the 94% threshold is cited
+        as a "Hard Stop" in 5 separate docs
+      WHEN this story lands
+      THEN a mapped dependency report exists (via gate-trace) showing exactly
+        what breaks if compliance is demoted to advisory, so a later epic
+        (e58, formerly e57, evals-over-compliance) can flip the gate without
+        silently hollowing out what GOLDEN verifies. This story maps the
+        dependency; it does not flip the gate.
+  - id: e53s04
+    bcp: 3
+    status: todo
+    title: "Adopt docs/TARGET-ARCHITECTURE.md as the migration's north-star reference"
+    spec: e53s04-target-architecture-doc.md
+    tasks: e53s04-tasks.yaml
+    ac: |
+      GIVEN bigspec's constitution.md + architecture.md (the overall methodology
+        target) and the wayfinder session's outputs (big-docs' 3-wave model, the
+        specs/->docs/ dissolution decision, and 25 already-produced template/
+        schema artifacts under specs/wayfinder/doc-templates/templates/) all
+        exist but nothing ties them together as a single cited reference
+      WHEN this story lands
+      THEN docs/TARGET-ARCHITECTURE.md exists, incorporates both sources, and
+        every later migration epic (e54-e59) can cite it instead of re-deriving
+        the target shape from scratch.

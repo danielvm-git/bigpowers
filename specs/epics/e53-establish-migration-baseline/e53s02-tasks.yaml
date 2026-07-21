@@ -1,0 +1,21 @@
+story_id: e53s02
+title: "Build the tombstone-alias mechanism"
+status: todo
+bcps: 3
+tasks:
+  - id: 1
+    description: "Design the tombstone convention: when a skill is renamed or merged, the old skills/<old-name>/SKILL.md is replaced with a stub that states the new name/location and, where the harness allows it, forwards invocation"
+    verify: "test -f scripts/lib/tombstone.sh || test -f scripts/tombstone-skill.sh"
+    status: todo
+  - id: 2
+    description: "Write scripts/tombstone-skill.sh <old-name> <new-name-or-merge-target> — generates the stub SKILL.md, preserves the old name's story tags for traceability, and registers the mapping in a machine-readable ledger (e.g. specs/tombstones.yaml)"
+    verify: "bash scripts/tombstone-skill.sh --help >/dev/null 2>&1 && echo OK"
+    status: todo
+  - id: 3
+    description: "Add a compliance check that a tombstoned skill's stub actually resolves (grep/sync-skills.sh doesn't silently drop it) and expires after one release per the invariant"
+    verify: "bash scripts/validate-tombstones.sh 2>&1 | grep -qi 'OK\\|no tombstones' && echo OK"
+    status: todo
+  - id: 4
+    description: "Document the mechanism in CONVENTIONS.md under a new Tombstone Aliases section, referencing this story. Must explicitly require: the first real use of tombstone-skill.sh (a future story, e.g. e56) also updates docs/references/model-profiles.md's skill-count annotations, since a new stub increments the live skill count the same as any other skills/*/SKILL.md — this story builds the mechanism but creates no stub itself, so the count doesn't move yet"
+    verify: "grep -qi 'tombstone' CONVENTIONS.md && grep -qi 'model-profiles' CONVENTIONS.md && echo OK"
+    status: todo
