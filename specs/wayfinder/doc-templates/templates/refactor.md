@@ -14,6 +14,10 @@ generated_at: {YYYY-MM-DDTHH:MM:SSZ}
 
 # Refactor Plan — {Title}
 
+**Author:** {name}
+**Date:** {YYYY-MM-DD}
+**Status:** {Draft | In progress | Complete}
+
 ## Problem Statement
 
 {The problem, from the developer's perspective — what's wrong with the current state and why

@@ -8,6 +8,13 @@
      table — expresses relationships, aliases-to-avoid, and a worked dialogue) + TGDP glossary/
      pack's {source} and cross-reference field, kept from GLOSSARY_LATEST.yaml's `related_terms`. -->
 
+---
+okf_kind: glossary
+okf_version: "1.0"
+generated_by: "skill:define-language"
+generated_at: {YYYY-MM-DDTHH:MM:SSZ}
+---
+
 # Glossary — {Project Name}
 
 {One-line intro: what domain this glossary covers and who it's for.}

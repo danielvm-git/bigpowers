@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-21T21:41:11.710112+00:00",
+  "generated_at": "2026-07-21T21:50:38.662430+00:00",
   "matrix_version": "1.0",
   "stories": [
     {
@@ -4092,6 +4092,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260721-184837.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-170909.md",
           "line": 0,
           "confidence": "medium",
@@ -5844,7 +5850,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 467
+      "link_count": 468
     },
     {
       "id": "e45s19",
@@ -7620,6 +7626,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260721-184837.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-170909.md",
           "line": 0,
           "confidence": "medium",
@@ -9354,7 +9366,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 464
+      "link_count": 465
     },
     {
       "id": "e45s32",
@@ -14526,6 +14538,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260721-184837.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-170909.md",
           "line": 0,
           "confidence": "medium",
@@ -16488,7 +16506,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 511
+      "link_count": 512
     },
     {
       "id": "e51s05",
@@ -17133,7 +17151,7 @@
     "stale_count": 67,
     "oracle_stats": {
       "high": 296,
-      "medium": 2302,
+      "medium": 2305,
       "low": 58
     }
   }

@@ -5,9 +5,16 @@
      — confirms constitution B9's "task-level [BCP N] is prohibited" rule is already followed,
      not violated. `bcps:` correctly lives at the story level (top of file) only. -->
 <!-- HARD GATE, load-bearing, do not weaken: every task MUST have a runnable `verify:` command.
-     No verify: = not a task (CONVENTIONS.md, plan-release skill). -->
+     No verify: = not a task (skills/plan-release/SKILL.md:55,126). -->
 <!-- Narrative-OKF (T5's pattern) — authored collaboratively via plan-work during planning, not
      machine-derived; `description` fields are prose, not data records. -->
+<!-- STRUCTURAL NOTE: unlike adr.md/story.md/scope.md, this template's body is a single fenced
+     YAML block with no H1/H2 prose sections — intentional, not an oversight. A task list is a
+     flat record (id/description/verify/status per row), not a document organized into
+     narrative sections. The narrative-OKF classification here tracks *authorship*
+     (human/agent-collaborative during planning) rather than body shape — unlike the data-OKF
+     cockpit files, which are machine-written by a script after the fact. -->
+
 
 ---
 okf_kind: tasks

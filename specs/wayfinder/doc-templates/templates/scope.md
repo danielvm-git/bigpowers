@@ -18,6 +18,10 @@ generated_at: {YYYY-MM-DDTHH:MM:SSZ}
 
 # Scope — {Project Name} {round/initiative name, if refining}
 
+**Author:** {name}
+**Date:** {YYYY-MM-DD}
+**Round:** {round/initiative name, or "initial"}
+
 ## Core value
 
 {One sentence value proposition.}

@@ -35,7 +35,7 @@ of each "merge") graduate from the fog into per-document template tickets.
 | Architecture (tech-stack, TEST_PLAN, *_PLAN, ADR) | **KEEP**, drop `_LATEST`; ADR is T5's exemplar |
 | Quality (BUG, registry, audit reports, .feature, security REVIEW, UAT checklists, waivers) | **KEEP**, drop `_LATEST` where present |
 | Analysis (IMPACT, REFACTOR, TRACEABILITY, SPIKE) | **KEEP**, drop `_LATEST` |
-| `adr-wiki/`, `epics-wiki/`, `codebase-wiki/`, `conventions-wiki/` | **DROP as folders** — content merges into the single Wave-3 source (T6 Invariant #4) |
+| `adr-wiki/`, `epics-wiki/`, `codebase-wiki/` | **DROP as folders** — content merges into the single Wave-3 source (T6 Invariant #4) |
 | `skills-wiki/`, `SKILL-SEARCH-INDEX`, `skills/*/SKILL.md` catalog | **DROP** — bigpowers-internal only (ruling #1) |
 | `visual-dashboard` skill + local `dashboard/` app | **DROP** — superseded by generated site dashboards (T6) |
 | `receipts.json` | **KEEP (tentative)**, generalized; shape TBD at its own ticket (ruling #2) |

@@ -6,6 +6,11 @@
      `specs/WORKFLOW-<name>.md` markdown predecessor — nothing to reconcile, already settled. -->
 <!-- Narrative-OKF (T5's pattern) — authored via an interview (goal, phases, skills, gates),
      human-collaborative, not machine-derived. Per-recipe naming, already correct. -->
+<!-- STRUCTURAL NOTE: like tasks.md, this template's body is a single fenced YAML block with
+     no H1/H2 prose sections — intentional. A workflow recipe is a flat record (name/command/
+     skills/verify), not a document with sections to organize. Narrative-OKF here tracks
+     *authorship* (collaborative interview, same as tasks.md), not body shape. -->
+
 
 ---
 okf_kind: workflow-recipe

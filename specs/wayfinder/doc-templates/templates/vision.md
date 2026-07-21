@@ -1,8 +1,8 @@
 <!-- wayfinder resolution artifact — T17 (scope-and-vision), closed -->
-<!-- Narrative-OKF (T5's pattern), YAML-serialized rather than markdown-bodied — the north_star
-     and success_criteria fields are genuinely narrative content, just structured. Typically
-     human-authored once, early, and changed rarely (a project's durable north star), distinct
-     from SCOPE below which is refined per planning round. -->
+<!-- Narrative-OKF (T5's pattern), markdown-bodied like its siblings — the North star and
+     Success criteria sections are genuinely narrative content. Typically human-authored once,
+     early, and changed rarely (a project's durable north star), distinct from SCOPE below
+     which is refined per planning round. -->
 <!-- OUT-OF-SCOPE BOUNDARY RULE: this file's out_of_scope is PERMANENT — "we will never build
      this, as a matter of product identity." It is NOT the same list as scope.md's out_of_scope,
      which is tactical/per-round and may be revisited in a future round. If something might be

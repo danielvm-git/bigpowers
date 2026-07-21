@@ -26,10 +26,12 @@ It proves three things bigpowers' own live CLAUDE.md (hundreds of lines) got wro
    sections** (`<!-- BEGIN/END bigpowers:learned-preferences -->`) — dynamic content templated
    in place (the `e45s21` "self-installing fenced markers" story), not hand-mixed prose.
 
-**Real overlap found and cut:** bigpowers' live CLAUDE.md carries a full duplicate **"Pre-Merge
-Checklist"** section, restating CONVENTIONS.md's **"Pre-Merge Verification Gates"** — the same
-restatement pattern this session keeps catching (S6, the wiki family, T10's glossary). The real
-template's answer: one `Preflight` row in the Commands table, nothing more. Same fix applied to
+**Real overlap found, ruled to cut:** bigpowers' live CLAUDE.md carries a full duplicate
+**"Pre-Merge Checklist"** section, restating CONVENTIONS.md's **"Pre-Merge Verification
+Gates"** — the same restatement pattern this session keeps catching (S6, the wiki family, T10's
+glossary). The real template's answer: one `Preflight` row in the Commands table, nothing more.
+(Ruling, not yet applied to CLAUDE.md itself as of this ticket's closing — its live Pre-Merge
+Checklist section still exists in full; collapsing it is a follow-up action.) Same fix ruled for
 CLAUDE.md's "Never" list overlapping CONVENTIONS.md's "Risk Tiers P0" / "Banned dismissive
 phrases" — kept as a short, project-specific "Never" list in AGENTS.md; the deep rule taxonomy
 stays CONVENTIONS.md's alone.

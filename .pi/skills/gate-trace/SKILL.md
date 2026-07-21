@@ -70,7 +70,9 @@ gate_trace:
 ## Integration Points
 
 - **release-branch SKILL.md** — pre-PR gate (FAIL blocks merge).
-- **sync-skills.yml** — CI gate (FAIL blocks pipeline).
+- **sync-skills.yml** — runs `trace-stories.sh --strict` as its "Traceability gate" step (FAIL
+  blocks pipeline), which shares this skill's coverage data (`traceability-matrix.json`) but
+  does not invoke a gate-trace PASS/CONCERNS/FAIL/WAIVED verdict directly.
 - **verify-work SKILL.md** — runs blind-spot checks; gate-trace consumes the result.
 
 ## References

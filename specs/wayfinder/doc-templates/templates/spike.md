@@ -19,6 +19,10 @@ timebox: {e.g. "1 hour"}
 
 # Spike: {name}
 
+**Author:** {name}
+**Date:** {YYYY-MM-DD}
+**Timebox:** {matches the timebox field in the frontmatter above}
+
 ## Question
 
 {The specific question this spike was answering. Pattern: "Can we [thing] using [approach]

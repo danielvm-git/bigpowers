@@ -23,7 +23,8 @@ No public-facing companion warranted — pure internal execution tracking (task 
 `verify:` commands), no reader value, same reasoning as T15's test-plan.
 
 **Preserved as a hard, load-bearing gate:** every task MUST have a runnable `verify:` command —
-"no verify: = not a task" (CONVENTIONS.md, `plan-release`). Baked into the artifact as an
+"no verify: = not a task" (`skills/plan-release/SKILL.md:55,126` — CONVENTIONS.md's own wording
+is weaker and story-scoped, `CONVENTIONS.md:117,286`). Baked into the artifact as an
 explicit guardrail comment, matching T12's SIZE/BCP distinction and T15's SC-ID preservation.
 
 **Artifact:** [`templates/tasks.md`](../templates/tasks.md) — OKF envelope wrapping the existing

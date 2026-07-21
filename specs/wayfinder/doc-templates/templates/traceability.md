@@ -41,6 +41,10 @@ generated_at: {YYYY-MM-DDTHH:MM:SSZ}
 |-------|-------|------|-----|------|--------|-------|
 | {eNNsYY} | {title} | {eNN} | {n} | {n} | {status} | {link count} |
 
-## Orphan Code (no story tag)
+## Orphan Tags (tag in code, no matching story)
 
-- {file}: {contains untagged implementation}
+- `{story-id}`
+
+## Stale Tags (story done, tag still in code)
+
+- `{story-id}`

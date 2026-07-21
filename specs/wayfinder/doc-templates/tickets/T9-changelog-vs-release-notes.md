@@ -18,7 +18,7 @@ bigpowers has no curation practice.** Verified against both TGDP templates + liv
   Git commits, this is added automatically." Mechanical, commit-linked. This is exactly what
   semantic-release already produces. bigpowers' `CHANGELOG.md` fulfills this template's job today,
   verbatim, machine-owned — confirmed already documented as "never hand-edited"
-  ([CONVENTIONS.md:230](../../../../CONVENTIONS.md)).
+  ([CONVENTIONS.md:209](../../../../CONVENTIONS.md)).
 - **`release-notes/template_release-notes.md`** — no such generation language anywhere. Pure
   curated prose, with two sections a commit scraper can never produce: **"Known issues"** and
   **"features requiring configuration updates."**

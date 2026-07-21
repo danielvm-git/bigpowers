@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "diagram_type": "dataflow",
+  "meta": {
+    "title": "bigpowers Documentation Architecture",
+    "subtitle": "ONE docs/ root (specs/ dissolved) → build → published Astro/Starlight site",
+    "output": "bigpowers-doc-architecture.html",
+    "viewBox": [1100, 780]
+  },
+  "stages": [
+    { "label": "docs/ — the one root" },
+    { "label": "Build & Aggregate" },
+    { "label": "Published Destinations" }
+  ],
+  "nodes": [
+    { "id": "wave1", "type": "external", "label": "Wave 1", "sublabel": "GitHub-native — root + .github/", "stage": 0, "row": 0, "tag": "outside docs/" },
+    { "id": "wave2", "type": "frontend", "label": "docs/*", "sublabel": "GoodDocs packs\n(12, minus 6 collisions)", "stage": 0, "row": 2, "tag": "human prose" },
+    { "id": "wave3", "type": "backend", "label": "docs/project/*", "sublabel": "ex specs/ — SDD content", "stage": 0, "row": 4, "tag": "OKF source" },
+
+    { "id": "render", "type": "cloud", "label": "Direct Render", "sublabel": "Starlight — narrative, 1:1", "stage": 1, "row": 1, "tag": "zero transform" },
+    { "id": "aggregate", "type": "messagebus", "label": "Aggregator", "sublabel": "dashboards from data-OKF", "stage": 1, "row": 3, "tag": "few generic views" },
+
+    { "id": "site_pages", "type": "frontend", "label": "Content Pages", "sublabel": "Guides, Reference, Architecture,\nRequirements, Quality, Community", "stage": 2, "row": 0, "tag": "browsable" },
+    { "id": "site_dash", "type": "database", "label": "Dashboard Views", "sublabel": "Epic Board, Bug Registry, Metrics", "stage": 2, "row": 2, "tag": "generated" },
+    { "id": "github_ui", "type": "external", "label": "GitHub UI", "sublabel": "repo home, Security tab,\nIssue/PR forms", "stage": 2, "row": 4, "tag": "not the site" }
+  ],
+  "flows": [
+    { "from": "wave1", "to": "github_ui", "label": "GitHub-native", "classification": "not on site", "variant": "dashed", "fromSide": "left", "toSide": "left", "via": [[20, 157], [20, 613]], "labelAt": [20, 428] },
+    { "from": "wave1", "to": "render", "label": "4 files mirrored", "classification": "build-time embed", "variant": "default", "fromSide": "right", "toSide": "top" },
+
+    { "from": "wave2", "to": "render", "label": "12 packs", "classification": "direct render, zero transform", "variant": "emphasis", "fromSide": "right", "toSide": "left", "labelAt": [208, 320] },
+
+    { "from": "wave3", "to": "render", "label": "ADRs, stories, bugs, audit", "classification": "narrative OKF = the page", "variant": "emphasis", "fromSide": "right", "toSide": "bottom", "labelAt": [235, 440] },
+    { "from": "wave3", "to": "aggregate", "label": "metrics, status, plan", "classification": "data OKF", "variant": "default", "fromSide": "right", "toSide": "left", "labelAt": [208, 656] },
+
+    { "from": "render", "to": "site_pages", "label": "build", "classification": "static pages", "variant": "emphasis", "fromSide": "right", "toSide": "left" },
+    { "from": "aggregate", "to": "site_dash", "label": "aggregate render", "classification": "few views, not one per file", "variant": "default", "fromSide": "right", "toSide": "left", "labelAt": [423, 542] }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "docs/ — the single root (specs/ dissolved)",
+      "items": [
+        "docs/{concept, how-to, reference, tutorial, style-guide, user-personas, images}/ + 4 resolved collisions (readme, changelog+release-notes, glossary, troubleshooting) + AGENTS.md (CLAUDE.md/GEMINI.md symlinks)",
+        "docs/project/{architecture, epics, bugs, audit, metrics, status}/ — the ex specs/ tree; status/ holds runtime state (state.yaml, execution-status.yaml)",
+        "Wave 1 stays OUTSIDE docs/ at repo root + .github/ — GitHub's own rendering surface, not this build"
+      ]
+    },
+    {
+      "dot": "violet",
+      "title": "T7 — folder collision list (26 candidates → 4 real collisions)",
+      "items": [
+        "6 are sub-templates already nested in a parent (api-reference/api-getting-started/sdk-overview→reference/; installation-guide→how-to/; quickstart→tutorial/; terminology-system→glossary/) — no decision needed",
+        "8 are Wave-1 root files, not docs/ content (bug-report, code-of-conduct+3 records, contributing-guide, our-team, contact-support)",
+        "4 genuine collisions, working one-by-one in priority order: README (active — T8), changelog vs release-notes, glossary vs GLOSSARY.yaml, troubleshooting vs bug RCA"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Published Site Sections",
+      "items": [
+        "Content pages: Start/Landing, Community, Guides, Reference, Architecture & Decisions, Requirements, Quality & Risk",
+        "Dashboard views: Epic Status Board, Bug Registry, Metrics (BCP burndown, cycle-time, compliance %)",
+        "GitHub Native UI stays a separate surface — repo homepage, Security tab, Issue/PR forms are not part of the docs site"
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Design Invariants",
+      "items": [
+        "No parallel *-wiki/ mirror folders — docs/project/ is the single source (specs/ dissolved into it)",
+        "Narrative content IS the render — no separate per-document view template",
+        "Data content (docs/project/status/) feeds a handful of generic dashboard views, never one page per file",
+        "Only 4 of 9 Wave 1 files are mirrored onto the site; SECURITY.md and LICENSE stay GitHub-native-only",
+        "llm-wiki is a file layout (index.md + log.md), not GitHub's Wiki feature — lives inside docs/, rendered by Pages"
+      ]
+    }
+  ]
+}

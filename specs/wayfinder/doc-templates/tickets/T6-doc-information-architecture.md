@@ -91,8 +91,9 @@ real `DESIGN.md` and folder tree:
   `okf_kind` — **replacing the `visual-dashboard` skill and local `dashboard/` app entirely** (flagged
   for T4's drop list).
 
-**Diagram (the resolution artifact):** `/private/tmp/claude-501/-Users-danielvm-Developer-bigpowers/26f84c14-325c-4223-841c-bcb35a25af33/scratchpad/bigpowers-doc-architecture.dataflow.json`
-rendered to `bigpowers-doc-architecture.html`, published as a Claude Artifact — 3 waves → build (Direct
+**Diagram (the resolution artifact):** [`specs/architecture-diagrams/09-dataflow-doc-architecture.dataflow.json`](../../../architecture-diagrams/09-dataflow-doc-architecture.dataflow.json),
+rendered to [`09-dataflow-doc-architecture.html`](../../../architecture-diagrams/09-dataflow-doc-architecture.html) (originally published as a Claude Artifact, relocated here from the
+session's ephemeral scratchpad during audit follow-up) — 3 waves → build (Direct
 Render / Aggregator) → 2 site destinations + GitHub UI, all layout checks passing (`orthogonal_arrows`,
 `legend_clearance`, `finite_svg`, `single_svg` all green). User-confirmed as matching intent.
 
