@@ -323,9 +323,22 @@ development_status:
   e51s03: done
   e51s04: done
   e51s05: done
+  e53: backlog
+  e53s01: backlog
+  e53s02: backlog
+  e53s03: backlog
+  e53s04: backlog
+  e54: backlog
+  e54s01: backlog
+  e54s02: backlog
+  e54s03: backlog
+  e55: backlog
+  e56: backlog
+  e57: backlog
+  e58: backlog
+  e59: backlog
   generated_at: "2026-07-07T04:00:00Z"
   heuristic_ratio: 0.80
-  rationale: "Gate-trace PASS: 83.1% coverage (59/71 tagged), 0 dark stories after tag fix, 0 BLOCKER from completeness-critic, adversarial refute survived. Heuristic ratio 80.2% at 2-level threshold but from legacy/generated artifacts, not active gaps."
   verdict: PASS
 
 epics:
@@ -529,6 +542,41 @@ epics:
     title: 'Always Green — Shift Left, Preflight Hard Block & Fix-or-Log Doctrine'
     wsjf: 7.0
     total_bcps: 12
+  e53:
+    status: backlog
+    title: 'Establish Migration Baseline — bigpowers-to-bigspec Readiness'
+    wsjf: 8.0
+    total_bcps: 9
+  e54:
+    status: backlog
+    title: Freeze Catalog Drift — Stable Baseline Before Skill Reclassification
+    wsjf: 6.7
+    total_bcps: 6
+  e55:
+    status: backlog
+    title: Extract Constitution — Consolidate Doctrine into One File
+    wsjf: 6.0
+    total_bcps: 0
+  e56:
+    status: backlog
+    title: Reclassify Catalog — Purify Skill to Mean Only Procedure
+    wsjf: 3.8
+    total_bcps: 0
+  e57:
+    status: backlog
+    title: Adopt OKF Envelope — Apply the Wayfinder Templates Across the Live Repo
+    wsjf: 5.0
+    total_bcps: 0
+  e58:
+    status: backlog
+    title: 'Evals Over Compliance — Replace the 94% Gate with Outcome Proof'
+    wsjf: 5.3
+    total_bcps: 0
+  e59:
+    status: backlog
+    title: 'Absorb Fresh References — Stay in Sync with bigspec''s Ongoing Evolution'
+    wsjf: 3.7
+    total_bcps: 0
 
 stories:
   e01s01:
@@ -2775,3 +2823,59 @@ stories:
     tasks_passing: 4
     tasks_failing: 0
     risk_max: P1
+  e53s01:
+    status: backlog
+    title: Commit the untracked GOLDEN baseline
+    bcps: 1
+    epic: e53
+    tasks_total: 3
+    tasks_passing: 0
+    tasks_failing: 0
+  e53s02:
+    status: backlog
+    title: 'Build the tombstone-alias mechanism'
+    bcps: 3
+    epic: e53
+    tasks_total: 4
+    tasks_passing: 0
+    tasks_failing: 0
+  e53s03:
+    status: backlog
+    title: 'Gate-trace the compliance-to-GOLDEN hard-gate coupling'
+    bcps: 2
+    epic: e53
+    tasks_total: 3
+    tasks_passing: 0
+    tasks_failing: 0
+  e53s04:
+    status: backlog
+    title: 'Adopt docs/TARGET-ARCHITECTURE.md as the migration''s north-star reference'
+    bcps: 3
+    epic: e53
+    tasks_total: 4
+    tasks_passing: 0
+    tasks_failing: 0
+  e54s01:
+    status: backlog
+    title: Snapshot the current skill catalog as an immutable baseline
+    bcps: 2
+    epic: e54
+    tasks_total: 3
+    tasks_passing: 0
+    tasks_failing: 0
+  e54s02:
+    status: backlog
+    title: 'Add a soft drift-detection gate for the freeze window'
+    bcps: 3
+    epic: e54
+    tasks_total: 4
+    tasks_passing: 0
+    tasks_failing: 0
+  e54s03:
+    status: backlog
+    title: 'Document the freeze''s scope, exit criteria, and exception process'
+    bcps: 1
+    epic: e54
+    tasks_total: 2
+    tasks_passing: 0
+    tasks_failing: 0

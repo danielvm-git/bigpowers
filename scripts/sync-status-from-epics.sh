@@ -46,8 +46,9 @@ keys: dict[str, str] = {}
 existing_path = epics_dir.parent / "execution-status.yaml"
 if existing_path.exists():
     existing = existing_path.read_text(encoding="utf-8")
-    for m in re.finditer(r"^  ([a-z0-9._-]+):\s*(\S+)", existing, re.M):
-        keys[m.group(1)] = m.group(2)
+    for m in re.finditer(r"^  ([a-z0-9._-]+):[ \t]*(\S+)?[ \t]*$", existing, re.M):
+        if m.group(2):
+            keys[m.group(1)] = m.group(2)
 
 # --- Parse release-plan.yaml for wsjf/tier per epic ---
 rp_epics: dict[str, dict[str, object]] = {}
