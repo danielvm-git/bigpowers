@@ -1,21 +1,48 @@
 story_id: e54s02
 title: "Add a soft drift-detection gate for the freeze window"
 status: todo
+risk: P1
 bcps: 3
+spec: e54s02-drift-detection-gate.md
 tasks:
   - id: 1
-    description: "Write scripts/check-catalog-drift.sh — diff live skills/*/SKILL.md against the newest specs/tech-architecture/CATALOG-BASELINE-*.yaml, classify addition/removal/structural-change, print WARNING lines, always exit 0"
-    verify: "bash scripts/check-catalog-drift.sh >/dev/null 2>&1; echo OK"
-    status: todo
+    description: "Write scripts/check-catalog-drift.sh (source scripts/lib/skill-common.sh + python-env.sh) — diff the live skills/*/SKILL.md enumeration against the newest specs/tech-architecture/CATALOG-BASELINE-*.yaml, classifying each finding as addition / removal / structural-change (name/phase/effort/model). Print each as a 'WARNING:' line. ALWAYS exit 0 — this is a Confirm-gate (user-reviewed), never a Risk/Quality gate."
+    verify: "bash scripts/check-catalog-drift.sh >/dev/null 2>&1; test $? -eq 0 && echo OK"
+    risk: P1
+    status: failing   # flip to passing only after verify exits 0 (e45s06)
+    allure:
+      severity: high
+      categories:
+        - "Migration"
+        - "Catalog Freeze"
+        - "unit"
   - id: 2
-    description: "Handle the no-baseline case gracefully per e54s02 §6c: print 'no baseline found, skipping' and exit 0 rather than erroring"
-    verify: "mkdir -p /tmp/no-baseline-test && (cd /tmp/no-baseline-test && bash /Users/danielvm/Developer/bigpowers/scripts/check-catalog-drift.sh 2>&1 | grep -qi 'no baseline' ) && echo OK"
-    status: todo
+    description: "Handle the no-baseline case per spec §6c — with no CATALOG-BASELINE-*.yaml present, print 'no baseline found, skipping drift check' and exit 0, so the check degrades gracefully instead of erroring or blocking unrelated work."
+    verify: "root=$(pwd); d=$(mktemp -d); (cd \"$d\" && bash \"$root/scripts/check-catalog-drift.sh\" 2>&1 | grep -qi 'no baseline'); rc=$?; rm -rf \"$d\"; test $rc -eq 0 && echo OK"
+    risk: P1
+    status: failing
+    allure:
+      severity: high
+      categories:
+        - "Catalog Freeze"
+        - "unit"
   - id: 3
-    description: "Wire the check into scripts/run-verification-gates.sh or Preflight as an informational step — visible every run, never affecting the gate's own exit code"
-    verify: "grep -q 'check-catalog-drift' scripts/run-verification-gates.sh CLAUDE.md 2>/dev/null && echo OK"
-    status: todo
+    description: "Recognize the exception marker documented in e54s03 (a freeze-exception comment in the affected SKILL.md) and suppress the matching warning, so legitimately-unrelated work isn't nagged every run."
+    verify: "grep -qi 'freeze-exception\\|exception' scripts/check-catalog-drift.sh && echo OK"
+    risk: P1
+    status: failing
+    allure:
+      severity: high
+      categories:
+        - "Catalog Freeze"
+        - "unit"
   - id: 4
-    description: "Recognize the exception marker documented in e54s03 and suppress matching warnings"
-    verify: "grep -qi 'exception' scripts/check-catalog-drift.sh && echo OK"
-    status: todo
+    description: "Wire the check into the CLAUDE.md Preflight chain as a trailing advisory step. Because the script always exits 0, it is visible on every Preflight run WITHOUT gating (it can never break the && chain). Do NOT add it to golden-suite-gates.sh's GOLDEN_GATES array — a gate that runs and exits non-zero counts as FAIL there, which would violate the never-gating contract."
+    verify: "grep -q 'check-catalog-drift' CLAUDE.md && echo OK"
+    risk: P1
+    status: failing
+    allure:
+      severity: high
+      categories:
+        - "Catalog Freeze"
+        - "integration"

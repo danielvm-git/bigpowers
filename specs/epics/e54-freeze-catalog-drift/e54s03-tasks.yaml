@@ -1,13 +1,28 @@
 story_id: e54s03
 title: "Document the freeze's scope, exit criteria, and exception process"
 status: todo
+risk: P3
 bcps: 1
+spec: e54s03-freeze-scope-and-exit.md
 tasks:
   - id: 1
-    description: "Add a 'Catalog Freeze (e54-e59 migration)' section to CONVENTIONS.md: what's frozen, what's not, exit criterion (e56's completion ends it), exception-marker format"
-    verify: "grep -qi 'catalog freeze' CONVENTIONS.md && echo OK"
-    status: todo
+    description: "Add a 'Catalog Freeze (e54-e59 migration)' section to CONVENTIONS.md stating: what's FROZEN (new skill additions; structural SKILL.md changes to phase/effort/model), what's NOT frozen (bug fixes, description edits, content fixes within an existing skill's existing shape), the exit criterion (the freeze ends when e56 reclassify-catalog merges — its completion is the unfreeze event, not a calendar date), and the exception-marker format (a freeze-exception comment in the affected SKILL.md)."
+    verify: "grep -qi 'catalog freeze' CONVENTIONS.md && grep -qi 'freeze-exception' CONVENTIONS.md && echo OK"
+    risk: P3
+    status: failing   # flip to passing only after verify exits 0 (e45s06)
+    allure:
+      severity: minor
+      categories:
+        - "Migration"
+        - "Catalog Freeze"
+        - "documentation"
   - id: 2
-    description: "Confirm the exception-marker format documented here matches exactly what e54s02's check-catalog-drift.sh looks for"
-    verify: "marker=$(grep -oE 'freeze-exception:[a-z-]*' CONVENTIONS.md | head -1 | cut -d: -f1); grep -q \"$marker\" scripts/check-catalog-drift.sh && echo OK"
-    status: todo
+    description: "Confirm the exception-marker string documented in CONVENTIONS.md is byte-identical to what e54s02's check-catalog-drift.sh actually greps for — the doc and the tool must agree on the exact marker, or the exception path silently never triggers."
+    verify: "grep -qi 'freeze-exception' CONVENTIONS.md && grep -qi 'freeze-exception' scripts/check-catalog-drift.sh && echo OK"
+    risk: P3
+    status: failing
+    allure:
+      severity: minor
+      categories:
+        - "Catalog Freeze"
+        - "integration"

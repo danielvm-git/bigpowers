@@ -133,3 +133,14 @@ Not applicable.
 
 - `epic.yaml` (`specs/epics/e54-freeze-catalog-drift/epic.yaml`) — e54s03 AC block.
 - `e54s02-drift-detection-gate.md` — the gate whose exception marker this story documents.
+
+---
+
+## Requirement deltas (plan-work, e45s29)
+
+#### ADDED: a documented Catalog Freeze section in CONVENTIONS.md
+A new "Catalog Freeze (e54-e59 migration)" section states what is frozen, what is not, the exit
+criterion (e56's completion), and the exception-marker format. Purely additive documentation —
+no existing CONVENTIONS.md rule is changed, so there is no before/after behavior to record. The
+only cross-artifact contract is that the exception-marker string here must match byte-for-byte
+what e54s02's `check-catalog-drift.sh` greps for (enforced by this story's task 2).

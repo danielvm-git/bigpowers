@@ -2860,9 +2860,10 @@ stories:
     title: Snapshot the current skill catalog as an immutable baseline
     bcps: 2
     epic: e54
-    tasks_total: 3
+    tasks_total: 4
     tasks_passing: 0
-    tasks_failing: 0
+    tasks_failing: 4
+    risk_max: P2
   e54s02:
     status: backlog
     title: 'Add a soft drift-detection gate for the freeze window'
@@ -2870,7 +2871,8 @@ stories:
     epic: e54
     tasks_total: 4
     tasks_passing: 0
-    tasks_failing: 0
+    tasks_failing: 4
+    risk_max: P1
   e54s03:
     status: backlog
     title: 'Document the freeze''s scope, exit criteria, and exception process'
@@ -2878,4 +2880,5 @@ stories:
     epic: e54
     tasks_total: 2
     tasks_passing: 0
-    tasks_failing: 0
+    tasks_failing: 2
+    risk_max: P3

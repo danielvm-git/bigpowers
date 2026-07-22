@@ -160,3 +160,22 @@ Not applicable.
 - `/Users/danielvm/Developer/bigspec/constitution.md` Part IV (gate types) and
   `/Users/danielvm/Developer/bigspec/docs/architecture.md` §10 (red-team: "ship risk-tiered
   gates advisory-first").
+
+---
+
+## Requirement deltas (plan-work, e45s29)
+
+#### ADDED: catalog drift is reported on every Preflight run
+`scripts/check-catalog-drift.sh` diffs the live catalog against the frozen baseline and prints
+WARNING lines for any addition, removal, or structural change during the freeze window. New
+capability; nothing like it exists today.
+
+#### MODIFIED: the Preflight chain gains a trailing advisory step
+**Before:** Preflight is `npm run compliance && bash scripts/run-verification-gates.sh && bash
+scripts/sync-skills.sh && bash scripts/trace-stories.sh --strict` (CLAUDE.md § Commands) — four
+gating steps, each of which must exit 0.
+**After:** the same four steps, plus a trailing `bash scripts/check-catalog-drift.sh` advisory
+step. Because the drift check always exits 0 by construction, it is visible on every Preflight
+run but can never break the `&&` chain — the "Preflight passes iff healthy" contract is
+preserved. This is the one deliberate change to an existing module in e54; the gate is a
+Confirm-type (user-reviewed), not a Risk/Quality (blocking) gate.
