@@ -265,6 +265,7 @@ Start: Task assigned
 | `skills/evolve-skill` | **Opus** |
 | `skills/execute-plan` | **Haiku** |
 | `skills/extract-design` | **Sonnet** |
+| `skills/find-way` | **Sonnet** |
 | `skills/fix-bug` | **Sonnet** |
 | `skills/gate-trace` | **Haiku** |
 | `skills/generate-allure-report` | **Sonnet** |
