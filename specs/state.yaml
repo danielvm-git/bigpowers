@@ -1,21 +1,29 @@
-active_flow: null
-active_epic: e37
-active_story: null
+active_flow: planning
+active_epic: e53
+active_story: e53s01
 bug_id: null
 bigpowers_version: 2.77.2
 bug_cycle: null
 handoff:
-  context: fix-bug complete — Co-authored-by ban now enforced in 3 layers (git hook, land-branch.sh, CI).
-    Regex matches only "Co-authored-by:" footer syntax (with colon), not mentions in prose. Synced to
-    both bigpowers and .github repos.
-  next_skill: survey-context
-  epic: e37
+  context: >
+    Full bigpowers-to-bigspec migration arc now planned and committed. e53
+    (establish-migration-baseline) has epic.yaml + 4 story specs + 4 tasks.yaml, repaired
+    and green. e54 (freeze-catalog-drift) is plan-worked to build-ready — 3 stories with
+    risk-tiered, allure-tagged, failing-ledger tasks and requirement-delta tags. e55-e59
+    (extract-constitution, reclassify-catalog, adopt-okf-envelope, evals-over-compliance,
+    absorb-fresh-references) are scoped via elaborate-spec — each has a planning-context.yaml;
+    e59's intent was user-confirmed as "stay synced with bigspec." Next action is BUILD,
+    respecting dependencies — e54 depends_on e53, so e53 builds first. kickoff-branch e53,
+    then build-epic or develop-tdd per story, starting with e53s01 (commit the untracked
+    GOLDEN baseline). e55-e59 still need plan-work per story before they build.
+  next_skill: kickoff-branch
+  epic: e53
 epic_cycle:
-  step: 8
+  step: 2
   fast_mode: false
-  story_bcps: 45
-  audit_result: pass
-  completed_steps: 0,1,2,3,4,5,6,7
+  story_bcps: 1
+  audit_result: null
+  completed_steps: 0,1
 metrics:
   story_start: '2026-07-07T21:58:00Z'
   story_end: '2026-07-07T22:30:00Z'
@@ -25,9 +33,9 @@ metrics:
       total_seconds: 5076.0
       avg_seconds: 725.1428571428571
     plan-work:
-      calls: 1
-      total_seconds: 343.0
-      avg_seconds: 343.0
+      calls: 2
+      total_seconds: 598.0
+      avg_seconds: 299.0
 release:
   ci_verified: true
   last_commit: 5a7f4070
