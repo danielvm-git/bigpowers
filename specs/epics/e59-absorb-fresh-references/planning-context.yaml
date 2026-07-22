@@ -1,22 +1,22 @@
 # planning-context.yaml — written by elaborate-spec (yolo mode, 2026-07-22); consumed by plan-work
-# Epic e59 — Absorb Fresh References. LOWEST-CONFIDENCE of the five: this epic's intent is only
-# named (one line in state.yaml), never defined in any bigpowers text, unlike e54-e58 which are
-# grounded in bigspec's constitution/architecture. The interpretation below was chosen by the
-# driver under yolo mode and is flagged for user confirmation BEFORE plan-work slices real stories.
-feature_name: "Absorb Fresh References — keep bigpowers aligned with its north-star sources as they evolve"
+# Epic e59 — Absorb Fresh References. Intent USER-CONFIRMED 2026-07-22: this epic means "stay
+# synced with bigspec as it evolves" (reading A), NOT a periodic external prior-art refresh
+# (reading C). Its intent was only named (one line in state.yaml), never defined in bigpowers
+# text; the driver proposed reading A under yolo mode and the user confirmed it directly.
+feature_name: "Absorb Fresh References — keep bigpowers synced with bigspec as it evolves"
 
-confidence: low
+confidence: confirmed
 
 problem_statement: |
   e54-e58 close the gap between bigpowers and bigspec once. But bigspec is a living,
   separately-evolving repository (its own architecture.md §8 lays out an M0-M5 build sequence
   that continues after bigpowers' migration lands: new ADRs, a bumped constitution_version,
-  new skills, new prior-art absorbed as bigspec itself matures). Without an ongoing mechanism,
-  bigpowers drifts away from the target again the moment bigspec moves. This epic is the
-  standing capability that detects and absorbs relevant changes from the reference sources that
-  define the target — primarily bigspec (constitution.md, architecture.md, okf-spine.md), and
-  secondarily the external prior-art bigspec itself cites — so alignment is maintained, not
-  re-earned. Unlike its siblings this is ongoing maintenance, not a one-time transformation.
+  new skills as bigspec itself matures). Without an ongoing mechanism, bigpowers drifts away
+  from bigspec again the moment bigspec moves. This epic is the standing capability that
+  detects and absorbs relevant changes from bigspec's own reference docs (constitution.md,
+  architecture.md, okf-spine.md) — the sources that define the migration target — so alignment
+  with bigspec is maintained, not re-earned. Unlike its siblings this is ongoing maintenance,
+  not a one-time transformation.
 
 actors:
   - who: "repo maintainer"
@@ -65,29 +65,26 @@ out_of_scope:
   - "Making bigpowers a build-time dependency of bigspec or vice versa — the two stay independent repos."
 
 key_decisions:
-  - decision: "Interpreted as an ONGOING sync-and-absorb mechanism against the north-star sources (primarily bigspec), covering both 'track bigspec as it evolves' and 'fold in the fresh external prior-art bigspec cites.'"
+  - decision: "USER-CONFIRMED (2026-07-22): e59 is an ONGOING mechanism to keep bigpowers synced with bigspec as bigspec evolves (reading A) — not a periodic external prior-art refresh (reading C)."
     rationale: |
-      This is the genuinely ambiguous epic. 'Absorb fresh references' admits at least three
-      readings: (A) an ongoing mechanism that keeps bigpowers synced with bigspec as bigspec
-      evolves; (B) a one-time absorption of a specific set of already-known 'fresh references';
-      (C) a periodic external prior-art refresh (re-run research-first against the current
-      landscape). Chose a synthesis anchored on (A) because: it is the LAST phase (a one-time
-      absorption would logically sit earlier), 'keep aligned going forward' is the only reading
-      that makes it a permanent capability rather than a one-off, and the phase belongs to a
-      MIGRATION whose entire endpoint is convergence on bigspec — so 'the references that
-      define the target' are primarily bigspec's own docs. The synthesis also absorbs (C) as a
-      secondary source (the external prior-art bigspec cites), covering the 'references' wording
-      without committing to a pure prior-art-refresh reading.
-  - decision: "Flag this epic for explicit user confirmation before plan-work slices real stories."
+      'Absorb fresh references' admitted three readings: (A) an ongoing mechanism that keeps
+      bigpowers synced with bigspec as bigspec evolves; (B) a one-time absorption of a specific
+      set of already-known references; (C) a periodic external prior-art refresh (re-run
+      research-first against the current landscape). The driver proposed (A) under yolo mode —
+      it is the LAST phase (a one-time absorption would sit earlier), it is the only reading
+      that makes e59 a permanent capability, and the phase belongs to a migration whose endpoint
+      is convergence on bigspec. The user confirmed (A) directly on 2026-07-22. Reading (C) is
+      dropped: this epic is about bigspec sync, not general external prior-art.
+  - decision: "RESOLVED: held at low confidence until user confirmation; confirmed 2026-07-22, now cleared for plan-work slicing like its siblings."
     rationale: |
-      Every other epic (e54-e58) is grounded in concrete bigspec text; this one is inferred from
-      a one-line name plus in-context reasoning. Integrity requires marking it as the lowest-
-      confidence call in the sequence rather than presenting the inference as settled. The
-      planned_stories and this context are a defensible starting hypothesis, not a confirmed spec.
+      Every other epic (e54-e58) is grounded in concrete bigspec text; e59 was inferred from a
+      one-line name, so it was correctly held at low confidence rather than presented as
+      settled. With the user's confirmation of reading (A) it is no longer a hypothesis and can
+      proceed to plan-work when its dependencies (e55, e57) land.
 
-open_questions:
+resolved_questions:
   - question: "Is e59 primarily (A) 'stay synced with bigspec as it evolves', (C) 'periodically refresh external prior-art', or a genuine mix?"
-    needed_before: "plan-work slicing real stories for e59"
+    answer: "(A) stay synced with bigspec as it evolves — user-confirmed 2026-07-22."
     owner: "user"
 
 next_skill: plan-work

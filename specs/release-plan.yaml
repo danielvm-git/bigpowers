@@ -198,13 +198,13 @@ epics:
   bcps: 0
   capsule_dir: epics/e59-absorb-fresh-references
   mode: capsule
-  status: scoped_low_confidence
+  status: scoped
   wsjf_rationale: >
     BV 4 + TC 3 + RR 4 / Job 3 ≈ 3.7. Lowest in the sequence — an ongoing maintenance
     capability, not a one-time blocking transformation. Provisional — zero real stories sliced
-    yet, so bcps is 0 (epic.yaml carries a bcps_projected estimate of 6). Confidence warning —
-    the most speculative of the six migration epics, its content is inferred, not derived from
-    existing bigpowers text the way e54-e58 are.
+    yet, so bcps is 0 (epic.yaml carries a bcps_projected estimate of 6). Intent user-confirmed
+    2026-07-22 (stay synced with bigspec) — was held at low confidence until then since its
+    content was inferred, not derived from existing bigpowers text the way e54-e58 are.
   source: >
     state.yaml's 6-phase migration list names this phase but does not define its content.
     bigspec is a living, separately-evolving repo (architecture.md §8's own M0-M5 sequence) —

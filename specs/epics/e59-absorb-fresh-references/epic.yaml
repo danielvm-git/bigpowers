@@ -5,32 +5,31 @@ bcps: 0
 bcps_projected: 6
 capsule_dir: epics/e59-absorb-fresh-references
 mode: capsule
-status: scoped_low_confidence
+status: scoped
 elaborated: 2026-07-22
 elaboration: planning-context.yaml
 depends_on: [e55, e57]
 source: |
   Sixth and final named phase of the bigpowers-to-bigspec migration sequence
-  (state.yaml's 6-phase list). The most speculative of the six by a wide margin: unlike
-  e54-e58, nothing in bigspec's constitution.md or architecture.md, nor in e53's own text,
-  defines this phase's content beyond its one-line name. What's clear from bigspec's own
-  architecture.md §8 (its M0-M5 build sequence) is that bigspec is a living, separately-
-  evolving repo — it will keep changing after bigpowers' migration lands (new ADRs, a bumped
-  constitution_version, new skills as bigspec itself reaches its own M2-M5 milestones). This
-  epic is the ongoing mechanism that keeps bigpowers from drifting away from that target
-  again after e54-e58 close it — ongoing maintenance, not a one-time transformation like its
-  siblings.
+  (state.yaml's 6-phase list). Unlike e54-e58, nothing in bigspec's constitution.md or
+  architecture.md, nor in e53's own text, defined this phase's content beyond its one-line
+  name — so its intent was flagged for user confirmation. INTENT USER-CONFIRMED 2026-07-22:
+  e59 means "stay synced with bigspec as it evolves" (reading A), not a periodic external
+  prior-art refresh (reading C). bigspec is a living, separately-evolving repo (its own
+  architecture.md §8 M0-M5 build sequence) — it will keep changing after bigpowers' migration
+  lands (new ADRs, a bumped constitution_version, new skills as bigspec reaches its own M2-M5
+  milestones). This epic is the ongoing mechanism that keeps bigpowers from drifting away from
+  bigspec again after e54-e58 close the gap — ongoing maintenance, not a one-time
+  transformation like its siblings.
 note: >
   WSJF 3.7 = (4 value + 3 urgency + 4 risk-reduction) / 3 job-size — lowest in the sequence,
   appropriately: this is a maintenance capability, not a blocking transformation.
   depends_on e55 (constitution.md must exist locally before you can diff against bigspec's)
-  and e57 (OKF envelope adoption, since staying in sync likely means comparing OKF-kind
-  artifacts on both sides).
-  CONFIDENCE WARNING: this epic's planned_stories below are my best inference from bigspec's
-  own framing, not derived from any existing bigpowers text the way e54-e58 are — treat this
-  one as the most provisional of the six, and confirm the actual intent before running
-  elaborate-spec on it.
-  Provisional epic — NOT YET SCOPED. bcps: 0 / bcps_projected: 6 per B9 discipline.
+  and e57 (OKF envelope adoption, since staying in sync means comparing OKF-kind artifacts on
+  both sides).
+  Interpretation user-confirmed 2026-07-22 (stay synced with bigspec) — was correctly held at
+  low confidence until then, now cleared for plan-work like its siblings. bcps: 0 /
+  bcps_projected: 6 per B9 discipline (no real stories sliced yet).
 stories: []
 planned_stories:
   - working_title: "Track bigspec's constitution_version and establish an absorb cadence"
