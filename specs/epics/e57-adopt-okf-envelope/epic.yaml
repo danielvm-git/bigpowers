@@ -1,0 +1,63 @@
+id: e57
+title: "Adopt OKF Envelope — Apply the Wayfinder Templates Across the Live Repo"
+wsjf: 5.0
+bcps: 0
+bcps_projected: 8
+capsule_dir: epics/e57-adopt-okf-envelope
+mode: capsule
+status: not_yet_scoped
+depends_on: [e54]
+source: |
+  Fifth phase of the bigpowers-to-bigspec migration sequence. bigspec's constitution B8:
+  "Every generated file — spec, story, epic, cockpit, report, metric — is an OKF bundle.
+  Not a subset; all of them. One envelope, one validator." This is the one migration phase
+  that already has its target shape fully designed: the wayfinder session (23 tickets, 25
+  template artifacts, closed same day as e53's kickoff; a 24th ticket/26th template — T24,
+  epic.md — closed during this session's audit follow-up) produced exactly this blueprint,
+  grounded in real live files, not invented. This epic's job is different from what the
+  wayfinder session did: that session DESIGNED the templates; this epic APPLIES them —
+  wraps or converts the actual live docs and data files in specs/ to match.
+note: >
+  WSJF 5.0 = (6 value + 4 urgency + 5 risk-reduction) / 3 job-size. Only depends on e54
+  (needs a frozen baseline so this epic isn't chasing catalog changes while it works, same
+  reasoning as e56/e58) — notably does NOT depend on e55 or e56, since document-envelope
+  adoption is largely orthogonal to doctrine consolidation or skill reclassification. That's
+  also why its WSJF can legitimately outrank e56 despite e56 being numerically earlier in
+  the phase list — the two are not on each other's critical path.
+  Provisional epic — NOT YET SCOPED. bcps: 0 / bcps_projected: 8 per B9 discipline (see e55's
+  note for the full reasoning). Run elaborate-spec before slicing real stories.
+stories: []
+planned_stories:
+  - working_title: "Gap-audit: which live specs/ docs already carry an OKF envelope"
+    bcp_estimate: 2
+    description: >
+      Grep every specs/**/*.yaml and specs/**/*.md for okf_kind — cross-reference against
+      the 26 templates in specs/wayfinder/doc-templates/templates/ to produce a per-doc-type
+      gap table (already-enveloped / needs-envelope / no-template-yet). T16's own finding
+      (state.yaml, release-plan.yaml, execution-status.yaml, cycle-times.yaml all have zero
+      OKF envelope today) is the starting known gap, not the full picture.
+    backward_compat: >
+      Read-only audit. Zero risk to current users.
+  - working_title: "Apply narrative-OKF envelopes to docs that don't have one yet"
+    bcp_estimate: 3
+    description: >
+      For each narrative-OKF template (adr, story, scope, vision, glossary, impact,
+      refactor, traceability, test-plan, epic, etc.) with real un-enveloped instances found
+      in the gap audit, add the frontmatter block per the template — additive only, body
+      content unchanged. Lowest-risk story in the epic since it's pure frontmatter addition.
+    backward_compat: >
+      Purely additive (frontmatter only, no body rewrites) — any tooling or human reading
+      these files today keeps working exactly as before; the envelope is new metadata, not
+      a restructuring.
+  - working_title: "Verify the 5 data-OKF field contracts against their real live files"
+    bcp_estimate: 3
+    description: >
+      For cockpit-state, release-plan, execution-status, cycle-times, and receipts (T16/T21's
+      5 data-OKF templates), confirm the live specs/state.yaml, specs/release-plan.yaml,
+      specs/execution-status.yaml, specs/metrics/cycle-times.yaml, and specs/receipts.json
+      actually satisfy the field contract each template defines — schema conformance, not a
+      rewrite (per T16's own doctrine: "tool-owned data kinds are never hand-templated").
+    backward_compat: >
+      Schema verification only, no field renames or structural changes to files every skill
+      already reads/writes — any drift found becomes its own follow-up story, not silently
+      fixed as a side effect of this one.

@@ -1,0 +1,60 @@
+id: e59
+title: "Absorb Fresh References — Stay in Sync with bigspec's Ongoing Evolution"
+wsjf: 3.7
+bcps: 0
+bcps_projected: 6
+capsule_dir: epics/e59-absorb-fresh-references
+mode: capsule
+status: not_yet_scoped
+depends_on: [e55, e57]
+source: |
+  Sixth and final named phase of the bigpowers-to-bigspec migration sequence
+  (state.yaml's 6-phase list). The most speculative of the six by a wide margin: unlike
+  e54-e58, nothing in bigspec's constitution.md or architecture.md, nor in e53's own text,
+  defines this phase's content beyond its one-line name. What's clear from bigspec's own
+  architecture.md §8 (its M0-M5 build sequence) is that bigspec is a living, separately-
+  evolving repo — it will keep changing after bigpowers' migration lands (new ADRs, a bumped
+  constitution_version, new skills as bigspec itself reaches its own M2-M5 milestones). This
+  epic is the ongoing mechanism that keeps bigpowers from drifting away from that target
+  again after e54-e58 close it — ongoing maintenance, not a one-time transformation like its
+  siblings.
+note: >
+  WSJF 3.7 = (4 value + 3 urgency + 4 risk-reduction) / 3 job-size — lowest in the sequence,
+  appropriately: this is a maintenance capability, not a blocking transformation.
+  depends_on e55 (constitution.md must exist locally before you can diff against bigspec's)
+  and e57 (OKF envelope adoption, since staying in sync likely means comparing OKF-kind
+  artifacts on both sides).
+  CONFIDENCE WARNING: this epic's planned_stories below are my best inference from bigspec's
+  own framing, not derived from any existing bigpowers text the way e54-e58 are — treat this
+  one as the most provisional of the six, and confirm the actual intent before running
+  elaborate-spec on it.
+  Provisional epic — NOT YET SCOPED. bcps: 0 / bcps_projected: 6 per B9 discipline.
+stories: []
+planned_stories:
+  - working_title: "Track bigspec's constitution_version and establish an absorb cadence"
+    bcp_estimate: 2
+    description: >
+      bigspec's constitution.md declares a SemVer constitution_version (currently 1.1.0,
+      bumped by ADR). Record the version bigpowers last synced against, and define how often
+      (or on what trigger — a new bigspec release, a manual check) bigpowers checks for
+      drift. Constitution says "every skill declares constitution_version in its frontmatter
+      to declare compatibility" — bigpowers-side skills would need this field too.
+    backward_compat: >
+      Read-only tracking mechanism. Zero risk to current users.
+  - working_title: "Build a diff-and-flag script against bigspec's live constitution/architecture"
+    bcp_estimate: 3
+    description: >
+      A script that fetches or reads bigspec's current constitution.md/architecture.md,
+      diffs against the version bigpowers last absorbed, and surfaces what changed — new
+      blocks, amended rules, ADR references — as a report, not an automatic merge.
+    backward_compat: >
+      Report-only, no automatic changes to bigpowers' own files. A human decides what to
+      absorb and when.
+  - working_title: "Document the absorb process and decision criteria"
+    bcp_estimate: 1
+    description: >
+      Similar in spirit to e54s03's freeze documentation: what triggers an absorb review,
+      who decides what gets pulled in vs deliberately left un-absorbed (bigpowers may
+      diverge from bigspec on purpose in places), and where that decision gets recorded.
+    backward_compat: >
+      Documentation only.

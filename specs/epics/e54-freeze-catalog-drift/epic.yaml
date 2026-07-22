@@ -1,0 +1,64 @@
+id: e54
+title: "Freeze Catalog Drift — Stable Baseline Before Skill Reclassification"
+wsjf: 6.7
+bcps: 6
+capsule_dir: epics/e54-freeze-catalog-drift
+mode: capsule
+status: todo
+depends_on: [e53]
+source: |
+  Phase 0 of the bigpowers-to-bigspec migration sequence (Fable wayfinding session,
+  2026-07-18; state.yaml's 6-phase list: freeze-catalog-drift, extract-constitution,
+  reclassify-catalog, adopt-okf-envelope, evals-over-compliance, absorb-fresh-references).
+  bigspec's architecture.md §1 ("Primitives on trial") verdicts the current 80-skill
+  catalog DROP as a feature — target is ~28 procedures once rules move into a constitution
+  and deterministic tools move into a kernel (e56, reclassify-catalog). That reclassification
+  needs a stable starting point: a new skill landing mid-migration, or unrelated SKILL.md
+  restructuring, would make e56 chase a moving target. This epic freezes the catalog's
+  current shape as an immutable baseline and puts a soft drift-detection gate in place for
+  the freeze window.
+note: >
+  WSJF 6.7 = (5 value + 8 urgency + 7 risk-reduction) / 3 job-size — second-highest in the
+  sequence after e53, since every later phase (e55-e59) assumes a stable catalog to work
+  against. The gate this epic adds is advisory (WARNING), not a hard block — per bigspec's
+  constitution.md Part IV and architecture.md §10's own red-team note ("ship risk-tiered
+  gates advisory-first, promote to BLOCKER only after calibration data"), avoiding the
+  gate-fatigue failure mode the same source explicitly warns against.
+stories:
+  - id: e54s01
+    bcp: 2
+    status: todo
+    title: "Snapshot the current skill catalog as an immutable baseline"
+    spec: e54s01-catalog-baseline-snapshot.md
+    tasks: e54s01-tasks.yaml
+    ac: |
+      GIVEN the live skill catalog is 80 skills as of e53's completion, with no prior
+        point-in-time snapshot committed anywhere
+      WHEN this story lands
+      THEN a dated, git-tagged baseline snapshot exists (skill name, path, phase, effort,
+        model, one-line role) that e56's reclassification work can diff itself against
+  - id: e54s02
+    bcp: 3
+    status: todo
+    title: "Add a soft drift-detection gate for the freeze window"
+    spec: e54s02-drift-detection-gate.md
+    tasks: e54s02-tasks.yaml
+    ac: |
+      GIVEN no mechanism currently flags a new skill addition or a structural SKILL.md
+        change during the freeze window
+      WHEN this story lands
+      THEN a Preflight-adjacent check compares the live catalog against the e54s01 baseline
+        and emits a WARNING (not a hard block) listing any addition, removal, or structural
+        change, with a documented exception path for genuinely unrelated work
+  - id: e54s03
+    bcp: 1
+    status: todo
+    title: "Document the freeze's scope, exit criteria, and exception process"
+    spec: e54s03-freeze-scope-and-exit.md
+    tasks: e54s03-tasks.yaml
+    ac: |
+      GIVEN the freeze has no documented start/end condition or exception process today
+      WHEN this story lands
+      THEN CONVENTIONS.md states what the freeze covers, what ends it (e56's completion),
+        and how a genuinely unrelated skill change gets an explicit, logged exception during
+        the freeze window

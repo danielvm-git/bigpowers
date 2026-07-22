@@ -1,0 +1,64 @@
+id: e58
+title: "Evals Over Compliance — Replace the 94% Gate with Outcome Proof"
+wsjf: 5.3
+bcps: 0
+bcps_projected: 9
+capsule_dir: epics/e58-evals-over-compliance
+mode: capsule
+status: not_yet_scoped
+depends_on: [e53]
+source: |
+  Sixth phase of the bigpowers-to-bigspec migration sequence. bigspec's constitution
+  Capstone: "the headline proof is a positive with-skill vs without-skill delta (pass@k +
+  token cost) on real tasks... self-compliance is not the quality gate... replaces the
+  legacy 94% Gherkin self-compliance gate." architecture.md §1 verdicts the current gate
+  REPLACE, and §11's own empirical projection shows the reborn eval-based gate would pass
+  cleanly against the same feature set the current compliance gate checks. bigpowers already
+  has a run-evals skill and a benchmark harness (specs/benchmarks/) — this epic extends that
+  existing capability into the actual gate replacement, using e53s03's dependency map
+  (specs/tech-architecture/GOLDEN-COMPLIANCE-DEPENDENCY.md) as the precondition for safely
+  flipping scripts/lib/golden-suite-gates.sh:9's is_optional flag — the exact action e53s03
+  explicitly scoped itself OUT of and left for this epic.
+note: >
+  WSJF 5.3 = (6 value + 4 urgency + 6 risk-reduction) / 3 job-size. depends_on e53 alone
+  (not e54/e55/e56/e57) because its precondition — the dependency map — is already built;
+  this epic doesn't strictly need the catalog reclassified or OKF adopted everywhere first,
+  though running it after e56 means evaluating a cleaner, smaller catalog.
+  Provisional epic — NOT YET SCOPED. bcps: 0 / bcps_projected: 9 per B9 discipline (see e55's
+  note). Run elaborate-spec before slicing real stories.
+stories: []
+planned_stories:
+  - working_title: "Extend run-evals to cover a meaningful skill subset with real with/without-skill deltas"
+    bcp_estimate: 3
+    description: >
+      bigpowers' existing run-evals skill and specs/benchmarks/ harness already do
+      with/without-skill delta grading (pass@k + token cost) for individual skill evolution
+      (evolve-skill's own gate). This story extends coverage to a broad enough slice of the
+      catalog that a genuine aggregate signal exists to compare against the 94% compliance
+      number — not full 100% coverage on day one, a real representative sample.
+    backward_compat: >
+      Purely additive (new eval runs, new data) — the existing compliance gate keeps running
+      unchanged and unblocked throughout this story. No published behavior changes.
+  - working_title: "Run evals alongside compliance for a calibration period, collect false-positive data"
+    bcp_estimate: 3
+    description: >
+      Per architecture.md §10's own explicit red-team guidance ("ship risk-tiered gates
+      advisory-first, promote to BLOCKER only after calibration data") — do NOT flip
+      golden-suite-gates.sh:9 yet. Run both gates in parallel for a defined period, log
+      where they agree/disagree, and only then decide the eval threshold that replaces "94%."
+    backward_compat: >
+      Compliance stays the active, blocking gate throughout — evals run alongside as pure
+      observation. Zero risk to CI or to what currently gets merged.
+  - working_title: "Demote compliance to advisory once calibration data supports it"
+    bcp_estimate: 3
+    description: >
+      Using e53s03's GOLDEN-COMPLIANCE-DEPENDENCY.md dependency map, flip
+      scripts/lib/golden-suite-gates.sh:9's is_optional flag and update every one of the 5
+      docs that cite the 94% threshold as a Hard Stop, per what that map already found needs
+      to change. This is the single action e53s03 explicitly scoped itself out of — this
+      story is where it actually happens, once — and only once — the prior story's
+      calibration data justifies it.
+    backward_compat: >
+      This is the one genuinely gate-behavior-changing story in the epic — mitigated by
+      being the last story, gated on real calibration data (prior story), and grounded in
+      an exhaustive pre-built dependency map (e53s03) rather than a guess at what breaks.

@@ -1,0 +1,72 @@
+id: e56
+title: "Reclassify Catalog — Purify Skill to Mean Only Procedure"
+wsjf: 3.8
+bcps: 0
+bcps_projected: 13
+capsule_dir: epics/e56-reclassify-catalog
+mode: capsule
+status: not_yet_scoped
+depends_on: [e53, e54, e55]
+source: |
+  Fourth phase of the bigpowers-to-bigspec migration sequence. bigspec's architecture.md §1
+  verdicts: '"Skill" as the unit — KEEP but purify. The error was encoding three different
+  things as "skills": procedures, rules, and tools. Reborn: a skill is only a procedure —
+  rules move to the constitution, deterministic tools move to the kernel. Cuts the corpus by
+  ~half before any merging.' Target is ~28-29 procedures (architecture.md §5), down from
+  bigpowers' current 80. This is the headline transformation of the whole migration and the
+  epic e53's tombstone-alias mechanism (e53s02) and e54's frozen baseline (e54s01) both exist
+  specifically to de-risk.
+note: >
+  WSJF 3.8 = (8 value + 5 urgency + 6 risk-reduction) / 5 job-size. Highest business value in
+  the sequence (this IS the transformation people will notice) but the largest job size —
+  reclassifying and safely renaming/merging dozens of skills is real, careful work, not a
+  quick pass. That size is exactly why it WSJF-ranks below e55/e57/e58 despite mattering
+  most: a large denominator earns its place later in a WSJF-sorted queue, same principle
+  that put e53 first despite being the newest addition. depends_on includes e53 explicitly
+  (not just transitively via e54/e55) because this epic's safety mechanism — the
+  tombstone-alias script — is e53s02's direct deliverable, used here for the first time.
+  Provisional epic — NOT YET SCOPED. bcps: 0 / bcps_projected: 13 per the same B9 discipline
+  as e55. Run elaborate-spec before slicing real stories.
+stories: []
+planned_stories:
+  - working_title: "Classify all 80 skills as procedure, rule, or tool"
+    bcp_estimate: 3
+    description: >
+      Read every skills/*/SKILL.md against bigspec's B3 definition ("a skill is a procedure —
+      a repeatable, verb-noun workflow"). Produce a classification table: KEEP-as-procedure,
+      MOVE-to-constitution (rule), MOVE-to-kernel (deterministic tool, e.g. guard-git,
+      hook-commits — architecture.md §5 names these explicitly as the kind of thing that
+      isn't a skill). Read-only audit against e54s01's frozen baseline; no renames yet.
+    backward_compat: >
+      Read-only audit. Zero risk to current users — nothing changes on disk.
+  - working_title: "Migrate rule-classified content into constitution.md (e55)"
+    bcp_estimate: 3
+    description: >
+      For each skill classified as a rule in the prior story, extract its actual rule content
+      into the matching B0-B10 block of e55's constitution.md, then tombstone the old skill
+      name via e53s02's scripts/tombstone-skill.sh, pointing at the constitution section
+      instead of a replacement skill.
+    backward_compat: >
+      Every tombstoned skill name still resolves for one release (e53s02's own guarantee) —
+      a follower invoking a skill that became a pure rule sees a stub explaining where the
+      rule now lives, not a broken reference.
+  - working_title: "Migrate tool-classified content into scripts/ kernel"
+    bcp_estimate: 3
+    description: >
+      For each skill classified as a deterministic tool, confirm equivalent scripts/
+      tooling exists or write it, then tombstone the old skill name pointing at the script.
+    backward_compat: >
+      Same tombstone guarantee as above — one release of resolution before the old name
+      is expected to fully retire.
+  - working_title: "Merge/rename remaining procedures toward the ~28-29 target"
+    bcp_estimate: 4
+    description: >
+      For skills that stay skills but overlap or should merge (per architecture.md §5's
+      movement groupings: meta/bootstrap, frame, specify, plan, build, prove, sustain), use
+      tombstone-skill.sh for each rename/merge. This is the largest single story in the
+      epic — likely worth its own further slicing via plan-work once e56 is actually
+      elaborated, given the number of individual renames involved.
+    backward_compat: >
+      Every single rename/merge goes through the tombstone mechanism, no exceptions — this
+      is the story where "users should be able to keep using bigpowers as we go" is tested
+      hardest, since it's the highest-volume set of renames in the whole migration.

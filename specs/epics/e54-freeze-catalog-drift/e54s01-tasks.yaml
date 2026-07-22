@@ -1,0 +1,17 @@
+story_id: e54s01
+title: "Snapshot the current skill catalog as an immutable baseline"
+status: todo
+bcps: 2
+tasks:
+  - id: 1
+    description: "Write scripts/snapshot-catalog-baseline.sh — enumerate skills/*/SKILL.md, extract name/phase/effort/model/description from frontmatter, handle missing fields per e54s01 §6a (record null, add to warnings list, do not abort)"
+    verify: "bash scripts/snapshot-catalog-baseline.sh --dry-run >/dev/null 2>&1 && echo OK"
+    status: todo
+  - id: 2
+    description: "Run the script for real, writing specs/tech-architecture/CATALOG-BASELINE-<date>.yaml with a header block (date, commit hash, total count, 'frozen for e54-e59 migration' statement)"
+    verify: "ls specs/tech-architecture/CATALOG-BASELINE-*.yaml >/dev/null 2>&1 && echo OK"
+    status: todo
+  - id: 3
+    description: "Commit the baseline snapshot file on its own, Conventional Commits format (chore: freeze skill catalog baseline for e54-e59 migration)"
+    verify: "git log -1 --format=%s -- specs/tech-architecture/CATALOG-BASELINE-*.yaml | grep -qE '^(chore|feat)' && echo OK"
+    status: todo

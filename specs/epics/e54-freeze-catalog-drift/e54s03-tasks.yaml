@@ -1,0 +1,13 @@
+story_id: e54s03
+title: "Document the freeze's scope, exit criteria, and exception process"
+status: todo
+bcps: 1
+tasks:
+  - id: 1
+    description: "Add a 'Catalog Freeze (e54-e59 migration)' section to CONVENTIONS.md: what's frozen, what's not, exit criterion (e56's completion ends it), exception-marker format"
+    verify: "grep -qi 'catalog freeze' CONVENTIONS.md && echo OK"
+    status: todo
+  - id: 2
+    description: "Confirm the exception-marker format documented here matches exactly what e54s02's check-catalog-drift.sh looks for"
+    verify: "marker=$(grep -oE 'freeze-exception:[a-z-]*' CONVENTIONS.md | head -1 | cut -d: -f1); grep -q \"$marker\" scripts/check-catalog-drift.sh && echo OK"
+    status: todo
