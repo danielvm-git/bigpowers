@@ -5,7 +5,9 @@ bcps: 0
 bcps_projected: 6
 capsule_dir: epics/e59-absorb-fresh-references
 mode: capsule
-status: not_yet_scoped
+status: scoped_low_confidence
+elaborated: 2026-07-22
+elaboration: planning-context.yaml
 depends_on: [e55, e57]
 source: |
   Sixth and final named phase of the bigpowers-to-bigspec migration sequence

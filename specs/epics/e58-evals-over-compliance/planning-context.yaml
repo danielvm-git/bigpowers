@@ -1,0 +1,80 @@
+# planning-context.yaml — written by elaborate-spec (yolo mode, 2026-07-22); consumed by plan-work
+# Epic e58 — Evals Over Compliance. Provisional epic elaborated autonomously; interpretations
+# resolved by the driver and recorded under key_decisions (no interactive dialogue occurred).
+feature_name: "Evals Over Compliance — replace the 94% self-compliance gate with outcome proof"
+
+problem_statement: |
+  bigpowers gates its quality on a 94% Gherkin self-compliance number — it tests whether the
+  framework obeys its own philosophy. bigspec's Capstone rejects this as self-referential: the
+  headline proof should be a positive with-skill vs without-skill delta (pass@k + token cost)
+  on real tasks, i.e. does each skill actually help. A thin structural lint stays; the magic
+  number goes. The precondition is already built: e53s03 produced
+  specs/tech-architecture/GOLDEN-COMPLIANCE-DEPENDENCY.md mapping exactly what breaks if the
+  compliance gate is demoted, and bigpowers already has a run-evals skill plus a
+  specs/benchmarks/ harness that grades with/without-skill deltas for individual skill evolution.
+
+actors:
+  - who: "run-evals skill + specs/benchmarks/ harness"
+    role: "the existing capability this epic scales up from per-skill evolution to a catalog-wide quality signal"
+  - who: "the GOLDEN gate (scripts/lib/golden-suite-gates.sh:9)"
+    role: "where compliance is hardcoded non-optional today; the is_optional flag this epic eventually flips"
+  - who: "CI + contributors"
+    role: "whose merges the gate currently blocks on the 94% number"
+  - who: "the 5 docs citing the 94% threshold as a Hard Stop"
+    role: "must be updated in the same breath the gate is demoted, per e53s03's dependency map"
+
+main_flow: |
+  1. Extend run-evals to cover a representative subset of the catalog with real with/without-skill
+     deltas — enough for a genuine aggregate signal to compare against the 94% number, not 100%
+     coverage on day one.
+  2. Run evals ALONGSIDE compliance for a defined calibration window; log where the two gates
+     agree and disagree; collect false-positive/false-negative data. Do NOT flip the gate yet.
+  3. Once calibration data supports a threshold, flip golden-suite-gates.sh:9's is_optional flag
+     using e53s03's GOLDEN-COMPLIANCE-DEPENDENCY.md, and update each of the 5 Hard-Stop docs per
+     exactly what that map already found needs to change. This is the single action e53s03
+     explicitly scoped ITSELF out of.
+
+success_criteria:
+  - |
+    GIVEN quality is gated on a 94% self-compliance number today
+    WHEN this epic completes
+    THEN a representative skill subset has real with/without-skill eval deltas, and those deltas
+      (not self-compliance) are the quality signal
+  - |
+    GIVEN the compliance-to-GOLDEN coupling e53s03 mapped
+    WHEN compliance is demoted to advisory
+    THEN nothing GOLDEN actually verifies is silently hollowed out, and all 5 Hard-Stop docs are
+      updated consistently with the flip
+  - |
+    GIVEN the risk of flipping a gate blind
+    WHEN the gate is demoted
+    THEN it happens ONLY after a parallel calibration window produced data justifying the eval
+      threshold that replaces 94%
+
+constraints:
+  - "Depends on e53 alone — e53s03's dependency map is the precondition. Does not require e54/e55/e56/e57 first, though running after e56 means evaluating a cleaner, smaller catalog."
+  - "Do NOT flip golden-suite-gates.sh:9 until calibration data justifies it (architecture.md §10's own red-team: 'ship advisory-first, promote only after calibration data')."
+  - "bigspec architecture.md §11's empirical projection (reborn ≈100% on principle steps) is the sanity check the eval-based gate should roughly reproduce."
+
+out_of_scope:
+  - "Deleting the compliance / Gherkin harness entirely. It is DEMOTED to advisory, not removed — the structural lint stays."
+  - "100% eval coverage of the catalog on day one — a representative sample is the target for the calibration signal."
+  - "Flipping the gate before the calibration window produces supporting data (that ordering is the whole safety mechanism)."
+
+key_decisions:
+  - decision: "Parallel calibration window first; flip the gate LAST, only on data — never flip blind."
+    rationale: |
+      'Evals over compliance' could mean (A) flip the gate to evals now, or (B) run evals in
+      parallel first, calibrate a threshold, then flip. Chose B, and it is non-negotiable:
+      architecture.md §10's OWN red-team says ship risk-tiered gates advisory-first and promote
+      to BLOCKER only after calibration data. Flipping blind would recreate the exact
+      'silently hollow out what GOLDEN verifies' risk that e53s03 was written to prevent — and
+      would waste e53s03's dependency map entirely.
+  - decision: "The gate is demoted to advisory, not deleted; the structural constitution-lint survives."
+    rationale: |
+      bigspec keeps a thin structural lint even as it drops the 94% self-compliance gate
+      (Capstone: 'a thin constitution-lint keeps structural invariants'). Removing all
+      structural checking would trade one problem (self-referential gate) for another (no
+      structural floor at all). Demote the number; keep the lint.
+
+next_skill: plan-work

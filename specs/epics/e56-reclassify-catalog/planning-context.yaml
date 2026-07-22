@@ -1,0 +1,92 @@
+# planning-context.yaml — written by elaborate-spec (yolo mode, 2026-07-22); consumed by plan-work
+# Epic e56 — Reclassify Catalog. Provisional epic elaborated autonomously; interpretations
+# resolved by the driver and recorded under key_decisions (no interactive dialogue occurred).
+feature_name: "Reclassify Catalog — purify 'skill' to mean only 'procedure'"
+
+problem_statement: |
+  bigpowers ships 80 things it calls "skills," but they are three different kinds of thing wearing
+  one label: procedures (repeatable verb-noun workflows), rules (doctrine that belongs in a
+  constitution), and tools (deterministic scripts). bigspec's B3 is strict: a skill is ONLY a
+  procedure — rules live in the constitution, deterministic tools live in the kernel. That single
+  reclassification, per bigspec's own architecture.md, "cuts the corpus by ~half before any
+  merging," toward a target of roughly 28-29 procedures. This is the headline transformation of
+  the whole migration and the one users will most notice — which is exactly why e53 (tombstone
+  aliases) and e54 (frozen baseline) exist first: to make it safe.
+
+actors:
+  - who: "the agent / skill authors"
+    role: "invoke procedures; a rule or tool that used to be a 'skill' must now be found where it really lives"
+  - who: "existing bigpowers users (GitHub followers, installed consumers)"
+    role: "may invoke a skill by its old name — the old name MUST still resolve for one release via e53's tombstone stub"
+  - who: "e55's constitution.md"
+    role: "destination for rule-classified content"
+  - who: "scripts/ (the de-facto kernel)"
+    role: "destination for tool-classified content"
+
+main_flow: |
+  1. Classify all 80 skills against bigspec's B3 definition, diffing against e54s01's frozen
+     baseline: KEEP-as-procedure, MOVE-to-constitution (rule), MOVE-to-kernel (deterministic
+     tool — architecture.md §5 names guard-git, hook-commits, index/lock/compliance, sync,
+     deploy, dashboard, migrate as the kind of thing that is NOT a skill). Read-only audit; no
+     renames yet.
+  2. For each rule-classified skill, extract its actual rule content into the matching B0-B10
+     block of e55's constitution.md, then tombstone the old skill name (e53s02's
+     tombstone-skill.sh) pointing at the constitution section.
+  3. For each tool-classified skill, confirm or write the equivalent scripts/ tooling, then
+     tombstone the old name pointing at the script.
+  4. Merge/rename the surviving procedures toward the ~28-29 target using bigspec's movement
+     groupings (frame/specify/plan/build/prove/sustain + meta) — every rename/merge via
+     tombstone-skill.sh. This is the highest-volume story and likely needs its own further
+     slicing at plan-work time.
+
+success_criteria:
+  - |
+    GIVEN 80 skills conflating procedures, rules, and tools today
+    WHEN this epic completes
+    THEN every skill is classified, rule content lives in constitution.md (not skills/), tool
+      content lives in scripts/ (not skills/), and the surviving procedure count trends toward
+      the ~28-29 target
+  - |
+    GIVEN an existing user invokes a skill whose name was renamed, merged, or reclassified
+    WHEN they invoke the old name
+    THEN a tombstone stub still resolves it for one release, pointing at the new location —
+      no user-facing invocation breaks
+  - |
+    GIVEN a surviving procedure
+    WHEN it is reclassified or relocated
+    THEN what it DOES is unchanged — this epic moves and merges, it does not alter behavior
+
+constraints:
+  - "Depends on e53 (tombstone-alias mechanism), e54 (frozen baseline to diff against), e55 (constitution to move rules into)."
+  - "Every rename, merge, or removal goes through scripts/tombstone-skill.sh — no exceptions. This is where 'users keep using bigpowers as we migrate' is tested hardest."
+  - "Governed by e54's freeze window and its exception process."
+  - "Skill-count annotations (docs/references/model-profiles.md) must be updated as skills are removed/renamed — the exact drift class this session already fixed once."
+
+out_of_scope:
+  - "Hitting an exact count of 28. The target is directional (~28-29); bigspec's own constitution lists 'not a skill count' as a non-goal. Classify honestly and let the number fall out."
+  - "Changing the behavior of any surviving procedure — pure reclassification and relocation only."
+  - "Replacing the compliance gate with evals — that is e58."
+  - "Adopting the OKF envelope across the surviving skills' docs — that is e57."
+
+key_decisions:
+  - decision: "This epic classifies AND migrates (rename/merge/tombstone), not merely produces a classification table."
+    rationale: |
+      'Reclassify catalog' could mean (A) classify-and-migrate in this epic, or (B) only emit
+      the classification and defer all migration. Chose A. Deferring migration would make e56 a
+      paper exercise while the whole migration's headline value (a real ~28-procedure catalog)
+      slips to an unscheduled later epic. The migration is made SAFE — not avoided — by routing
+      every single change through e53's tombstone mechanism.
+  - decision: "The ~28-29 target is directional, not a hard gate."
+    rationale: |
+      bigspec's architecture.md says '≈28' / 'target ≈29 (28 + count-bcp)', and its
+      constitution explicitly rejects skill-count as a metric ('coverage of the loop is the
+      metric, not headcount'). Forcing an exact number would incentivize bad merges to hit a
+      figure. Classify by what each thing actually is; report the resulting count as an outcome.
+  - decision: "Split the merge/rename work (main_flow step 4) into its own finer slices at plan-work time rather than one mega-story."
+    rationale: |
+      Reclassifying and safely renaming dozens of individual skills is the largest, highest-risk
+      body of work in the whole migration (why e56's WSJF job-size is 5, ranking it later despite
+      top business value). Each rename is independently verifiable and independently tombstoned,
+      so it slices naturally — do not attempt it as a single unstoppable story.
+
+next_skill: plan-work

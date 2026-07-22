@@ -123,7 +123,7 @@ epics:
   bcps: 0
   capsule_dir: epics/e55-extract-constitution
   mode: capsule
-  status: not_yet_scoped
+  status: scoped
   wsjf_rationale: >
     BV 6 (single source of rules) + TC 6 (e56 needs a target to move rules into) + RR 6
     (removes 27-doc restatement drift) / Job 3 ≈ 6.0. Provisional — zero real stories sliced
@@ -140,7 +140,7 @@ epics:
   bcps: 0
   capsule_dir: epics/e58-evals-over-compliance
   mode: capsule
-  status: not_yet_scoped
+  status: scoped
   wsjf_rationale: >
     BV 6 (proof by outcome, not self-compliance) + TC 4 + RR 6 (removes reliance on a
     magic-number gate) / Job 3 ≈ 5.3. Provisional — zero real stories sliced yet, so bcps is 0
@@ -165,7 +165,7 @@ epics:
   bcps: 0
   capsule_dir: epics/e57-adopt-okf-envelope
   mode: capsule
-  status: not_yet_scoped
+  status: scoped
   wsjf_rationale: >
     BV 6 (universal envelope per constitution B8) + TC 4 + RR 5 / Job 3 ≈ 5.0. Provisional —
     zero real stories sliced yet, so bcps is 0 (epic.yaml carries a bcps_projected estimate of
@@ -182,7 +182,7 @@ epics:
   bcps: 0
   capsule_dir: epics/e56-reclassify-catalog
   mode: capsule
-  status: not_yet_scoped
+  status: scoped
   wsjf_rationale: >
     BV 8 (the headline transformation) + TC 5 + RR 6 / Job 5 ≈ 3.8. Highest value in the
     sequence but the largest job size — reclassifying and safely renaming/merging dozens of
@@ -198,7 +198,7 @@ epics:
   bcps: 0
   capsule_dir: epics/e59-absorb-fresh-references
   mode: capsule
-  status: not_yet_scoped
+  status: scoped_low_confidence
   wsjf_rationale: >
     BV 4 + TC 3 + RR 4 / Job 3 ≈ 3.7. Lowest in the sequence — an ongoing maintenance
     capability, not a one-time blocking transformation. Provisional — zero real stories sliced

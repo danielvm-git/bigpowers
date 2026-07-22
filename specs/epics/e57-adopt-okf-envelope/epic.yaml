@@ -5,7 +5,9 @@ bcps: 0
 bcps_projected: 8
 capsule_dir: epics/e57-adopt-okf-envelope
 mode: capsule
-status: not_yet_scoped
+status: scoped
+elaborated: 2026-07-22
+elaboration: planning-context.yaml
 depends_on: [e54]
 source: |
   Fifth phase of the bigpowers-to-bigspec migration sequence. bigspec's constitution B8:

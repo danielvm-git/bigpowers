@@ -1,0 +1,86 @@
+# planning-context.yaml — written by elaborate-spec (yolo mode, 2026-07-22); consumed by plan-work
+# Epic e57 — Adopt OKF Envelope. Provisional epic elaborated autonomously; interpretations
+# resolved by the driver and recorded under key_decisions (no interactive dialogue occurred).
+feature_name: "Adopt OKF Envelope — apply the wayfinder templates to the live repo"
+
+problem_statement: |
+  bigpowers' document layer runs three overlapping conventions at once — the countable-story
+  20-section contract (stories only), the _LATEST filename pointer (tech-arch only), and OKF
+  frontmatter (metrics/migrations/reports only, added last). The best idea (OKF) governs a
+  fraction of the surface while older conventions cover the rest. bigspec's B8 makes it
+  universal: every generated file — spec, story, epic, cockpit, report, metric — is an OKF
+  bundle; one envelope, one validator. The design work is already done: the wayfinder session
+  (24 tickets, 26 templates, closed and audited this month) produced exactly this blueprint,
+  grounded in real live files. e57's job is different from that session's — that session
+  DESIGNED the templates; this epic APPLIES them to the actual live files in specs/.
+
+actors:
+  - who: "skills that read/write specs/ files"
+    role: "must keep working — an added envelope is new metadata, not a restructuring of what they read"
+  - who: "validate-okf (the kind-aware gate, if/where wired)"
+    role: "gains coverage as more live files carry a real okf_kind"
+  - who: "human readers of rendered doc pages"
+    role: "narrative-OKF docs render 1:1 as pages; the envelope is invisible in the rendered body"
+
+main_flow: |
+  1. Gap-audit: grep every specs/**/*.yaml and specs/**/*.md for okf_kind, cross-referenced
+     against the 26 templates in specs/wayfinder/doc-templates/templates/, producing a
+     per-doc-type gap table (already-enveloped / needs-envelope / no-live-instances).
+  2. For each narrative-OKF template with real un-enveloped live instances (adr, story, scope,
+     vision, glossary, impact, refactor, traceability, test-plan, epic, ...), add the
+     frontmatter block per the template — additive only, body content untouched.
+  3. Verify the 5 data-OKF field contracts (cockpit-state, release-plan, execution-status,
+     cycle-times, receipts) against their real live files — schema conformance, NOT a rewrite,
+     because per T16/B8 tool-owned data kinds are never hand-templated.
+
+success_criteria:
+  - |
+    GIVEN the doc layer runs three overlapping conventions today
+    WHEN this epic completes
+    THEN every generated file type has an OKF envelope defined and applied to its live
+      instances, and validate-okf (where wired) passes over the enveloped set
+  - |
+    GIVEN a narrative doc gets its envelope
+    WHEN the change lands
+    THEN only frontmatter was added — no body content was rewritten, and any tool or human
+      reading the file keeps working exactly as before
+  - |
+    GIVEN the 5 data-OKF files (state, release-plan, execution-status, cycle-times, receipts)
+    WHEN they are checked against their field contracts
+    THEN conformance is verified in place — no field renamed, no structure a skill already
+      reads/writes changed as a side effect
+
+constraints:
+  - "Depends on e54 (stable baseline) so envelope adoption isn't chasing catalog/file churn."
+  - "Additive only for narrative docs — frontmatter, never body rewrites."
+  - "Data files are verified, not rewritten (tool-owned per B8); any drift found becomes its own follow-up story, not a silent fix."
+
+out_of_scope:
+  - "Abolishing _LATEST. B8 says '_LATEST is abolished', but renaming every *_LATEST.md / *_LATEST.yaml touches every consumer script and is high-risk and orthogonal to envelope adoption. Adopting the envelope is NOT the same action as renaming files. Flagged as an explicit, separate follow-up."
+  - "Rewriting or restructuring any document body."
+  - "Building validate-okf from scratch if it does not already exist — this epic assesses coverage and flags the gap; standing up the validator would be its own epic."
+
+key_decisions:
+  - decision: "Gap-audit then targeted conversion, not a big-bang rewrite of every file."
+    rationale: |
+      'Adopt OKF envelope' could mean (A) wrap/convert every live specs/ file at once, or (B)
+      audit first, then convert the doc types that actually have live instances, additively.
+      Chose B. Much of the surface is already partially enveloped; a big-bang pass over
+      everything is high-risk for little marginal gain and would fight the 'additive, no body
+      rewrite' constraint. Audit reveals the real gap; conversion targets it.
+  - decision: "_LATEST abolition is explicitly OUT of scope for e57, deferred to its own follow-up."
+    rationale: |
+      B8 bundles '_LATEST is abolished' with the OKF-envelope rule, so it's tempting to do both
+      here. But adding an envelope (new frontmatter) and renaming a file (breaking every path a
+      script hardcodes) are entirely different risk classes. This session's own audit already
+      catalogued how many scripts hardcode *_LATEST paths. Keeping them separate protects the
+      'additive only, users keep working' guarantee; the rename gets its own risk-tiered epic.
+  - decision: "Data-OKF files get schema-verification, narrative-OKF files get additive frontmatter — two different treatments, per the wayfinder doctrine."
+    rationale: |
+      The wayfinder session's own T16 split narrative-OKF (frontmatter + prose body, renders as
+      a page) from data-OKF (a field contract for a tool-owned file, never hand-templated).
+      Applying one uniform treatment would violate that split — you cannot hand-add frontmatter
+      to a file a script rewrites every run without the script clobbering it. Verify data files
+      conform; additively envelope narrative files.
+
+next_skill: plan-work

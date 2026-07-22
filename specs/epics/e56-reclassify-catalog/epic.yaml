@@ -5,7 +5,9 @@ bcps: 0
 bcps_projected: 13
 capsule_dir: epics/e56-reclassify-catalog
 mode: capsule
-status: not_yet_scoped
+status: scoped
+elaborated: 2026-07-22
+elaboration: planning-context.yaml
 depends_on: [e53, e54, e55]
 source: |
   Fourth phase of the bigpowers-to-bigspec migration sequence. bigspec's architecture.md §1

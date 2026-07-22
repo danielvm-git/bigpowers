@@ -1,0 +1,93 @@
+# planning-context.yaml — written by elaborate-spec (yolo mode, 2026-07-22); consumed by plan-work
+# Epic e59 — Absorb Fresh References. LOWEST-CONFIDENCE of the five: this epic's intent is only
+# named (one line in state.yaml), never defined in any bigpowers text, unlike e54-e58 which are
+# grounded in bigspec's constitution/architecture. The interpretation below was chosen by the
+# driver under yolo mode and is flagged for user confirmation BEFORE plan-work slices real stories.
+feature_name: "Absorb Fresh References — keep bigpowers aligned with its north-star sources as they evolve"
+
+confidence: low
+
+problem_statement: |
+  e54-e58 close the gap between bigpowers and bigspec once. But bigspec is a living,
+  separately-evolving repository (its own architecture.md §8 lays out an M0-M5 build sequence
+  that continues after bigpowers' migration lands: new ADRs, a bumped constitution_version,
+  new skills, new prior-art absorbed as bigspec itself matures). Without an ongoing mechanism,
+  bigpowers drifts away from the target again the moment bigspec moves. This epic is the
+  standing capability that detects and absorbs relevant changes from the reference sources that
+  define the target — primarily bigspec (constitution.md, architecture.md, okf-spine.md), and
+  secondarily the external prior-art bigspec itself cites — so alignment is maintained, not
+  re-earned. Unlike its siblings this is ongoing maintenance, not a one-time transformation.
+
+actors:
+  - who: "repo maintainer"
+    role: "decides what gets absorbed vs deliberately left un-absorbed (bigpowers may diverge from bigspec on purpose in places)"
+  - who: "the agent"
+    role: "runs the diff-and-flag mechanism, surfaces what changed as a report"
+  - who: "bigspec (the north-star repo)"
+    role: "the primary reference source whose constitution_version and doc changes are tracked"
+
+main_flow: |
+  1. Record the bigspec constitution_version bigpowers last synced against (bigspec's
+     constitution.md declares a SemVer version, bumped by ADR), and define the absorb cadence —
+     on a new bigspec release, or a manual trigger. bigspec's own rule 'every skill declares
+     constitution_version to declare compatibility' implies bigpowers-side skills gain this field.
+  2. Build a diff-and-flag script: read bigspec's current constitution.md / architecture.md /
+     okf-spine.md, diff against the last-absorbed version, surface what changed (new blocks,
+     amended rules, new ADR references) as a report — never an automatic merge.
+  3. Document the absorb decision process: what triggers a review, who decides what is pulled in
+     vs intentionally diverged, and where that decision is recorded (spiritually similar to
+     e54s03's freeze documentation).
+
+success_criteria:
+  - |
+    GIVEN bigspec keeps evolving after e54-e58 land
+    WHEN bigspec's constitution or architecture changes
+    THEN bigpowers has a mechanism that detects the change and surfaces it as a review report,
+      rather than silently drifting out of alignment
+  - |
+    GIVEN a surfaced change
+    WHEN the maintainer reviews it
+    THEN there is a documented process for deciding absorb-vs-diverge, and the decision is
+      recorded — nothing is auto-merged
+  - |
+    GIVEN bigpowers last synced against a specific bigspec constitution_version
+    WHEN a sync check runs
+    THEN the version delta is known and reportable
+
+constraints:
+  - "Depends on e55 (a local constitution.md must exist before you can diff it against bigspec's) and e57 (staying in sync likely means comparing OKF-kind artifacts on both sides)."
+  - "Report-only, human-in-the-loop: no automatic changes to bigpowers' own files. A human decides what to absorb and when."
+  - "bigpowers may intentionally diverge from bigspec in places — the mechanism flags, it does not enforce convergence."
+
+out_of_scope:
+  - "Automatically merging bigspec changes into bigpowers (report + human decision only)."
+  - "Forcing full convergence — intentional divergence is allowed and recorded, not overwritten."
+  - "Making bigpowers a build-time dependency of bigspec or vice versa — the two stay independent repos."
+
+key_decisions:
+  - decision: "Interpreted as an ONGOING sync-and-absorb mechanism against the north-star sources (primarily bigspec), covering both 'track bigspec as it evolves' and 'fold in the fresh external prior-art bigspec cites.'"
+    rationale: |
+      This is the genuinely ambiguous epic. 'Absorb fresh references' admits at least three
+      readings: (A) an ongoing mechanism that keeps bigpowers synced with bigspec as bigspec
+      evolves; (B) a one-time absorption of a specific set of already-known 'fresh references';
+      (C) a periodic external prior-art refresh (re-run research-first against the current
+      landscape). Chose a synthesis anchored on (A) because: it is the LAST phase (a one-time
+      absorption would logically sit earlier), 'keep aligned going forward' is the only reading
+      that makes it a permanent capability rather than a one-off, and the phase belongs to a
+      MIGRATION whose entire endpoint is convergence on bigspec — so 'the references that
+      define the target' are primarily bigspec's own docs. The synthesis also absorbs (C) as a
+      secondary source (the external prior-art bigspec cites), covering the 'references' wording
+      without committing to a pure prior-art-refresh reading.
+  - decision: "Flag this epic for explicit user confirmation before plan-work slices real stories."
+    rationale: |
+      Every other epic (e54-e58) is grounded in concrete bigspec text; this one is inferred from
+      a one-line name plus in-context reasoning. Integrity requires marking it as the lowest-
+      confidence call in the sequence rather than presenting the inference as settled. The
+      planned_stories and this context are a defensible starting hypothesis, not a confirmed spec.
+
+open_questions:
+  - question: "Is e59 primarily (A) 'stay synced with bigspec as it evolves', (C) 'periodically refresh external prior-art', or a genuine mix?"
+    needed_before: "plan-work slicing real stories for e59"
+    owner: "user"
+
+next_skill: plan-work
