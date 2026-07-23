@@ -45,7 +45,7 @@ stories:
         invariant references an artifact that actually exists in git history.
   - id: e53s02
     bcp: 3
-    status: todo
+    status: done
     title: "Build the tombstone-alias mechanism"
     spec: e53s02-tombstone-alias-mechanism.md
     tasks: e53s02-tasks.yaml
