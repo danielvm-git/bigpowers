@@ -1,6 +1,7 @@
+# story: e53s03
 story_id: e53s03
 title: "Gate-trace the compliance-to-GOLDEN hard-gate coupling"
-status: todo
+status: passing
 bcps: 2
 tasks:
   - id: 1

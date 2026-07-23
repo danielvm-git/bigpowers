@@ -1,5 +1,7 @@
 # GOLDEN Compliance Gate — Dependency Map
 
+<!-- story: e53s03 -->
+
 **Story:** e53s03 (Gate-trace the compliance-to-GOLDEN hard-gate coupling)
 **Purpose:** map every consumer of the `compliance` gate's pass/fail signal and every
 doc citing the 94% threshold as a Hard Stop, so a later epic (e58,
