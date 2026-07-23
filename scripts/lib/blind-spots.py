@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# story: e53s01
 """story: e38s04 — TEA-inspired heuristic blind-spot detector (Python engine).
 
 Reads execution-status.yaml + traceability-matrix.json, runs 7 structural

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# story: e53s01
 # golden-g11-gitignore-venv.sh — Python venv gitignore gate (G-11)
 #
 # Prevents recurrence of BUG-2026-07-03-venv-not-gitignored: a root .venv/

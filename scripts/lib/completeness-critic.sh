@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# story: e45s05
+# story: e45s05 e53s01
 # Adversarial gap-finding completeness critic — post gate-trace.
 # Classifications: BLOCKER | WARNING | FILLED
 set -euo pipefail
