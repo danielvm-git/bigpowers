@@ -358,3 +358,11 @@ bugs:
     file: bugs/BUG-2026-07-23-golden-g11-worktree-venv.md
     risk_level: "low"
     commit_message: "fix(ci): make G-11 venv-ignore check independent of .venv's on-disk existence"
+  - id: BUG-2026-07-23-completeness-critic-code-tags-schema-drift
+    status: fixed
+    severity: high
+    scope: ci
+    title: "completeness-critic.sh checks a nonexistent .code_tags field and scans beyond the active story"
+    file: bugs/BUG-2026-07-23-completeness-critic-code-tags-schema-drift.md
+    risk_level: "low"
+    commit_message: "fix(scripts): repair completeness-critic's story-tag check (schema drift + repo-wide scope)"
