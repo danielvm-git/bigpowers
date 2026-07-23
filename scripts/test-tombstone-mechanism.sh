@@ -102,6 +102,48 @@ else
   tt_fail "expired tombstone was not flagged"
 fi
 
+# --- Scenario: rejects path-traversal / invalid skill names (threat model CWE-22) ---
+# tombstone-skill.sh exits non-zero on rejection, and this script runs under
+# `set -o pipefail` — capture output via `|| true` first so the pipe's exit
+# status doesn't mask the grep check below.
+output=$(bash scripts/tombstone-skill.sh "../../etc/passwd" "target" 2>&1 || true)
+if echo "$output" | grep -qi "not a valid skill name"; then
+  tt_pass "tombstone-skill.sh rejects a path-traversal old-name"
+else
+  tt_fail "tombstone-skill.sh did not reject a path-traversal old-name"
+fi
+
+output=$(bash scripts/tombstone-skill.sh "$FIXTURE_OLD" "../../etc/passwd" 2>&1 || true)
+if echo "$output" | grep -qi "not a valid skill name"; then
+  tt_pass "tombstone-skill.sh rejects a path-traversal new-name"
+else
+  tt_fail "tombstone-skill.sh did not reject a path-traversal new-name"
+fi
+
+# --- Scenario: validate-tombstones.sh rejects an invalid name read back from the ledger ---
+python3 -c "
+import yaml
+d = yaml.safe_load(open('$TOMBSTONES_FILE')) or {'tombstones': []}
+d.setdefault('tombstones', []).append({
+    'old_name': '../../etc/passwd',
+    'new_name_or_merge_target': 'target',
+    'created_at_version': '0.0.0',
+})
+yaml.dump(d, open('$TOMBSTONES_FILE', 'w'), default_flow_style=False)
+"
+output=$(bash scripts/validate-tombstones.sh 2>&1 | strip_ansi || true)
+if echo "$output" | grep -qi "FAIL.*not a valid skill name"; then
+  tt_pass "validate-tombstones.sh rejects a path-traversal name read from the ledger"
+else
+  tt_fail "validate-tombstones.sh did not reject a path-traversal name read from the ledger"
+fi
+python3 -c "
+import yaml
+d = yaml.safe_load(open('$TOMBSTONES_FILE')) or {'tombstones': []}
+d['tombstones'] = [t for t in d.get('tombstones', []) if t.get('old_name') != '../../etc/passwd']
+yaml.dump(d, open('$TOMBSTONES_FILE', 'w'), default_flow_style=False)
+"
+
 echo "---"
 if [[ "$FAILURES" -eq 0 ]]; then
   echo -e "${GREEN}test-tombstone-mechanism: ALL PASS${NC}"

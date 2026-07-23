@@ -109,7 +109,7 @@ epics:
   bcps: 6
   capsule_dir: epics/e54-freeze-catalog-drift
   mode: capsule
-  status: todo
+  status: in_progress
   wsjf_rationale: 'BV 5 (precondition, not direct value) + TC 8 (blocks every later migration phase) +
     RR 7 (prevents drift-during-migration risk) / Job 3 ≈ 6.7. Phase 0 of the migration sequence.
 
