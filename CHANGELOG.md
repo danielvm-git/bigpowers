@@ -1,3 +1,10 @@
+# [2.81.0](https://github.com/danielvm-git/bigpowers/compare/v2.80.0...v2.81.0) (2026-07-23)
+
+
+### Features
+
+* **e54s02:** advisory catalog drift-detection gate ([7761f75](https://github.com/danielvm-git/bigpowers/commit/7761f75ed2312d419f3e28f192385304e36e83f2))
+
 # [2.80.0](https://github.com/danielvm-git/bigpowers/compare/v2.79.1...v2.80.0) (2026-07-23)
 
 

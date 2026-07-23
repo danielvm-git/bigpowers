@@ -2,23 +2,23 @@ active_flow: build_epic
 active_epic: e54
 active_story: e54s02
 bug_id: null
-bigpowers_version: 2.80.0
+bigpowers_version: 2.81.0
 bug_cycle: null
 handoff:
-  context: >
-    e54s01 (Snapshot catalog baseline) is done and landed to main (commit 0df0fff8):
-    scripts/snapshot-catalog-baseline.sh + specs/tech-architecture/CATALOG-BASELINE-2026-07-23.yaml
-    (80 skills, 0 warnings). Risk tier P2 — UAT/security-review skipped per verify-work's own
-    risk rules, not an override. Audit-code gate PASS on first pass; self-audit caught and fixed
-    a real subshell-variable-scoping bug (warnings written inside a command substitution never
-    reached the caller) before landing. Now building e54s02 (soft drift-detection gate, risk P1
-    — full UAT gate applies per verify-work but is being auto-passed per explicit user instruction
-    for this "yolo" multi-story run; final consolidated review promised after all 3 stories land).
-    e54s03 (P3) remains after that. e55-e59 still need plan-work per story before they build.
-    Known non-blocking issues carried from prior sessions: generate-epics-wiki.sh path-embedding
+  context: 'e54s01 (Snapshot catalog baseline) is done and landed to main (commit 0df0fff8): scripts/snapshot-catalog-baseline.sh
+    + specs/tech-architecture/CATALOG-BASELINE-2026-07-23.yaml (80 skills, 0 warnings). Risk tier P2 —
+    UAT/security-review skipped per verify-work''s own risk rules, not an override. Audit-code gate PASS
+    on first pass; self-audit caught and fixed a real subshell-variable-scoping bug (warnings written
+    inside a command substitution never reached the caller) before landing. Now building e54s02 (soft
+    drift-detection gate, risk P1 — full UAT gate applies per verify-work but is being auto-passed per
+    explicit user instruction for this "yolo" multi-story run; final consolidated review promised after
+    all 3 stories land). e54s03 (P3) remains after that. e55-e59 still need plan-work per story before
+    they build. Known non-blocking issues carried from prior sessions: generate-epics-wiki.sh path-embedding
     in worktrees (n/a this run — plain branch checkout used, not a worktree); sync-status-from-epics.sh
-    strips started_at/completed_at from execution-status.yaml on every run — restore by hand after
-    running it.
+    strips started_at/completed_at from execution-status.yaml on every run — restore by hand after running
+    it.
+
+    '
   next_skill: build-epic
   epic: e54
 epic_cycle:
