@@ -2,7 +2,7 @@ active_flow: build_epic
 active_epic: e53
 active_story: e53s01
 bug_id: null
-bigpowers_version: 2.78.0
+bigpowers_version: 2.78.1
 bug_cycle: null
 handoff:
   context: 'Full bigpowers-to-bigspec migration arc now planned and committed. e53 (establish-migration-baseline)

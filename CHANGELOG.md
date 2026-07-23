@@ -1,3 +1,10 @@
+## [2.78.1](https://github.com/danielvm-git/bigpowers/compare/v2.78.0...v2.78.1) (2026-07-23)
+
+
+### Bug Fixes
+
+* **scripts:** skip epics-wiki generation for epics with zero stories ([78d3985](https://github.com/danielvm-git/bigpowers/commit/78d3985a780dcd9903989b6001ca5c72594d5ba8))
+
 # [2.78.0](https://github.com/danielvm-git/bigpowers/compare/v2.77.2...v2.78.0) (2026-07-23)
 
 
