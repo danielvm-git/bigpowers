@@ -1,3 +1,24 @@
+# [2.78.0](https://github.com/danielvm-git/bigpowers/compare/v2.77.2...v2.78.0) (2026-07-23)
+
+
+### Bug Fixes
+
+* **ci:** make G-11 venv-ignore check independent of .venv's on-disk existence ([91f550d](https://github.com/danielvm-git/bigpowers/commit/91f550d79e408e5734820fb896e8c942fabbf41d))
+* **scripts:** defer type-hint evaluation in blind-spots.py for Python 3.9 ([6356b87](https://github.com/danielvm-git/bigpowers/commit/6356b87167d59422ed75eea0e933229a13b78c12))
+* **scripts:** repair completeness-critic's story-tag check ([5e336ea](https://github.com/danielvm-git/bigpowers/commit/5e336eadc260cb6752cc260f58946b1eddf2c1ee))
+* **scripts:** stop sync-status-from-epics.sh corrupting status on multi-line epic entries ([e23a3be](https://github.com/danielvm-git/bigpowers/commit/e23a3be1a1338ebb2f4393801fb3c74fbdae49ca))
+* **scripts:** unblock compliance gate and repair silently-passing capsule validator ([608d76a](https://github.com/danielvm-git/bigpowers/commit/608d76a428dc3d1d9015236577905a446d8155b8))
+* **skills:** add missing model: frontmatter to find-way, resolving skill-count divergence ([ddb7655](https://github.com/danielvm-git/bigpowers/commit/ddb76556e56c269fca6380e0b94d7d53d90c1ccf))
+
+
+### Features
+
+* **e53:** kick off establish-migration-baseline epic ([e74aeca](https://github.com/danielvm-git/bigpowers/commit/e74aecad771284841a59f226fd6c2eb827922553))
+* **planning:** elaborate e55-e59 migration epics into scoped planning-context ([25fb6ff](https://github.com/danielvm-git/bigpowers/commit/25fb6ff5e5cbb1d83acc0341be679666fd57adbd))
+* **release-plan:** sequence e54-e59, the remaining bigspec migration epics ([b6af03d](https://github.com/danielvm-git/bigpowers/commit/b6af03dbc7d19f9ac56b0abf2fa9997c83bacddc))
+* **skills:** add find-way skill for large effort planning ([6b7d27e](https://github.com/danielvm-git/bigpowers/commit/6b7d27e9d007b45b5dba4db688cfd3b135ca72d5))
+* **skills:** add find-way skill with complete reference documentation ([7aa9e0d](https://github.com/danielvm-git/bigpowers/commit/7aa9e0d769aca621071e2a719a0dc12db5a9c28f))
+
 ## [2.77.2](https://github.com/danielvm-git/bigpowers/compare/v2.77.1...v2.77.2) (2026-07-19)
 
 
