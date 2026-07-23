@@ -329,7 +329,7 @@ development_status:
   e53s03: done
   e53s04: done
   e54: backlog
-  e54s01: backlog
+  e54s01: done
   e54s02: backlog
   e54s03: backlog
   e55: backlog
@@ -2889,12 +2889,14 @@ stories:
       downgrade_applied: false
     tasks_failing: 0
   e54s01:
-    status: backlog
+    status: done
     title: Snapshot the current skill catalog as an immutable baseline
     bcps: 2
     epic: e54
     tasks_total: 4
-    tasks_passing: 0
+    tasks_passing: 4
+    started_at: "2026-07-23T13:10:00Z"
+    completed_at: "2026-07-23T13:45:00Z"
     tasks_failing: 4
     risk_max: P2
   e54s02:
