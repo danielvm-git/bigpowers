@@ -1,28 +1,33 @@
 active_flow: build_epic
 active_epic: e53
-active_story: e53s02
+active_story: e53s03
 bug_id: null
 bigpowers_version: 2.79.0
 bug_cycle: null
 handoff:
-  context: 'e53s01 (commit the untracked GOLDEN baseline) is done, audited PASS, and released — landed
-    on main as 12 commits (preserved, not squashed) and CI-verified green at ad512e00. Along the way 4
-    discovered defects were found and fixed, each its own commit: g11-gitignore-venv false-failing in
-    fresh worktrees, blind-spots.py Python 3.9 incompatibility, completeness-critic''s code_tags schema
-    drift + wrong scope (now correctly scoped to active_story), and generate-epics-wiki.sh emitting invalid
-    OKF bundles for unsliced epics (e55-e59). Next action: build-epic e53s02 (build the tombstone-alias
-    mechanism) — kickoff-branch first, then develop-tdd per its tasks. e53s03 and e53s04 follow after.
-    e55-e59 still need plan-work per story before they build.
-
-    '
+  context: >
+    e53s01 and e53s02 are both done, audited PASS, and released — landed on main
+    (e53s01: 12 commits at ad512e00; e53s02: 7 commits at ada2e377, CI green on the
+    first push thanks to local OKF pre-checks learned from e53s01's two-round CI
+    fix). e53s02 built scripts/tombstone-skill.sh and scripts/validate-tombstones.sh
+    with a real TDD red/green cycle (scripts/test-tombstone-mechanism.sh), plus the
+    CONVENTIONS.md Tombstone Aliases section. No discovered defects this story —
+    e53s01's fixes already made the fresh worktree clean from the start. Next
+    action: build-epic e53s03 (gate-trace the compliance-to-GOLDEN hard-gate
+    coupling) — kickoff-branch first, then develop-tdd. e53s04 follows after.
+    Known non-blocking issue: generate-epics-wiki.sh embeds the checkout's absolute
+    path in every regenerated bundle, so running it from a worktree always dirties
+    specs/epics-wiki/*.okf.md with the worktree's own path — flagged as a separate
+    task, safe to discard each time (verified: does not affect CI, which runs from
+    its own canonical checkout).
   next_skill: build-epic
   epic: e53
 epic_cycle:
-  step: 8
+  step: 0
   fast_mode: true
-  story_bcps: 3
-  audit_result: pass
-  completed_steps: 0,1,2,3,4,5,6,7
+  story_bcps: null
+  audit_result: null
+  completed_steps: ""
 metrics:
   story_start: '2026-07-07T21:58:00Z'
   story_end: '2026-07-07T22:30:00Z'
@@ -37,5 +42,5 @@ metrics:
       avg_seconds: 299.0
 release:
   ci_verified: true
-  last_commit: ad512e00
+  last_commit: a2234909
   last_epic: e37

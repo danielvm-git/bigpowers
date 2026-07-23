@@ -2831,6 +2831,14 @@ stories:
     tasks_total: 3
     tasks_passing: 3
     tasks_failing: 0
+    started_at: "2026-07-23T05:00:43Z"
+    completed_at: "2026-07-23T05:24:06Z"
+    gate_trace:
+      verdict: PASS
+      generated_at: "2026-07-23T05:30:23Z"
+      rationale: "6 explicit-tag links (state.yaml, BUG file, tasks.yaml, 3 implementing scripts), heuristic ratio 40% (no downgrade), verify evidence present, 0 HIGH blind-spot findings, 0 drift suspects, completeness-critic BLOCKER=0"
+      heuristic_ratio: 0.4
+      downgrade_applied: false
   e53s02:
     status: done
     title: 'Build the tombstone-alias mechanism'
