@@ -1,35 +1,39 @@
 active_flow: build_epic
-active_epic: e53
-active_story: e53s04
+active_epic: e54
+active_story: e54s01
 bug_id: null
 bigpowers_version: 2.79.0
 bug_cycle: null
 handoff:
   context: >
-    e53s01, e53s02, and e53s03 are all done, audited PASS, and released — landed on
-    main (e53s01: 12 commits at ad512e00; e53s02: 7 commits at ada2e377; e53s03: 6
-    commits at ffb905d7, CI green on first push both times since e53s02, thanks to
-    local OKF/sync-skills pre-checks learned from e53s01's two-round CI fix). e53s03
-    produced specs/tech-architecture/GOLDEN-COMPLIANCE-DEPENDENCY.md, mapping every
-    consumer of the compliance gate signal and all 5 Hard Stop doc citations for
-    e58's future use — no code changed, no discovered defects. Next action:
-    build-epic e53s04 (adopt docs/TARGET-ARCHITECTURE.md as the migration's
-    north-star reference) — kickoff-branch first. This is the last story in e53;
-    once done, archive the epic capsule (specs/epics/e53-establish-migration-baseline
-    -> specs/epics/archive/) and e54 (already plan-worked-to-build-ready) unblocks.
+    e53 (Establish Migration Baseline) is fully done — all 4 stories built, audited
+    PASS, released, and CI-verified: e53s01 (12 commits, GOLDEN baseline + 3
+    discovered-defect fixes), e53s02 (7 commits, real TDD red/green cycle building
+    the tombstone-alias mechanism), e53s03 (6 commits, GOLDEN-COMPLIANCE-DEPENDENCY.md
+    mapping the compliance gate chain for e58), e53s04 (3 commits,
+    docs/TARGET-ARCHITECTURE.md routing to bigspec's constitution + the wayfinder
+    session's doc-architecture resolution). Epic capsule archived to
+    specs/epics/archive/e53-establish-migration-baseline/. e54 (freeze-catalog-drift)
+    was already plan-worked to build-ready before this session and now unblocks
+    (depends_on: [e53]) — 3 stories with risk-tiered tasks. Next action: build-epic
+    e54s01 (snapshot the current skill catalog as an immutable baseline) —
+    kickoff-branch first. e55-e59 still need plan-work per story before they build.
     Known non-blocking issue: generate-epics-wiki.sh embeds the checkout's absolute
     path in every regenerated bundle, so running it from a worktree always dirties
-    specs/epics-wiki/*.okf.md with the worktree's own path — flagged as a separate
-    task, safe to discard each time (verified: does not affect CI, which runs from
-    its own canonical checkout).
+    specs/epics-wiki/*.okf.md with the worktree's own path — safe to discard each
+    time (verified: does not affect CI, which runs from its own canonical checkout).
+    Also known: sync-status-from-epics.sh strips started_at/completed_at/gate_trace
+    fields from execution-status.yaml on every run — restore them by hand after
+    running it, or skip it and hand-edit status fields directly. Both flagged as
+    spawn_task suggestions for later, separate fixes.
   next_skill: build-epic
-  epic: e53
+  epic: e54
 epic_cycle:
-  step: 8
+  step: 0
   fast_mode: true
-  story_bcps: 3
-  audit_result: pass
-  completed_steps: "0,1,2,3,4,5,6,7"
+  story_bcps: null
+  audit_result: null
+  completed_steps: ""
 metrics:
   story_start: '2026-07-07T21:58:00Z'
   story_end: '2026-07-07T22:30:00Z'
