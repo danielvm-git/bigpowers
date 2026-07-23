@@ -1,6 +1,6 @@
 story_id: e54s01
 title: "Snapshot the current skill catalog as an immutable baseline"
-status: todo
+status: done
 risk: P2
 bcps: 2
 spec: e54s01-catalog-baseline-snapshot.md
@@ -9,7 +9,7 @@ tasks:
     description: "Write scripts/snapshot-catalog-baseline.sh following the sibling pattern (source scripts/lib/skill-common.sh + python-env.sh, resolve_repo_root) — enumerate skills/*/SKILL.md, extract name/phase/effort/model/description from frontmatter. Support a --dry-run flag that prints the row count and warnings to stdout without writing a file."
     verify: "bash scripts/snapshot-catalog-baseline.sh --dry-run 2>&1 | grep -qiE '[0-9]+ skills' && echo OK"
     risk: P2
-    status: failing   # flip to passing only after verify exits 0 (e45s06)
+    status: passing
     allure:
       severity: normal
       categories:
@@ -20,7 +20,7 @@ tasks:
     description: "Handle missing frontmatter fields per spec §6a — a skill with no model: (or any missing field) records null for that field and appends the skill to a warnings: list at the top of the output rather than aborting the whole snapshot."
     verify: "bash scripts/snapshot-catalog-baseline.sh --dry-run 2>&1 | grep -qi 'warning\\|0 warnings\\|warnings:' && echo OK"
     risk: P2
-    status: failing
+    status: passing
     allure:
       severity: normal
       categories:
@@ -30,7 +30,7 @@ tasks:
     description: "Run the script for real, writing specs/tech-architecture/CATALOG-BASELINE-<date>.yaml with a header block (snapshot date, git commit hash, total skill count, and the literal statement 'frozen for e54-e59 migration; do not hand-edit')."
     verify: "f=$(ls specs/tech-architecture/CATALOG-BASELINE-*.yaml 2>/dev/null | head -1); test -n \"$f\" && grep -qi 'frozen for e54' \"$f\" && python3 -c \"import yaml,sys; yaml.safe_load(open(sys.argv[1]))\" \"$f\" && echo OK"
     risk: P2
-    status: failing
+    status: passing
     allure:
       severity: normal
       categories:
@@ -40,7 +40,7 @@ tasks:
     description: "Commit the baseline snapshot file on its own, Conventional Commits format (chore: freeze skill catalog baseline for e54-e59 migration). Immutability comes from git history + the header commit hash, not a lock file."
     verify: "git log -1 --format=%s -- specs/tech-architecture/CATALOG-BASELINE-*.yaml | grep -qE '^(chore|feat)' && echo OK"
     risk: P2
-    status: failing
+    status: passing
     allure:
       severity: normal
       categories:
