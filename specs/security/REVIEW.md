@@ -1,38 +1,35 @@
-# Security Review — e53s01 (Commit the untracked GOLDEN baseline)
+# Security Review — e53s02 (Build the tombstone-alias mechanism)
 
 ## Scope Resolution
-Scanned changes: `e53s01-commit-golden-baseline` vs `main` (9 commits)
+Scanned changes: `e53s02-tombstone-alias-mechanism` vs `main` (5 commits)
 Files changed:
-- `specs/benchmarks/reports/GOLDEN-2026-07-18.yaml` (data commit, story's own task)
-- `scripts/golden-g11-gitignore-venv.sh` (discovered-defect fix)
-- `scripts/lib/blind-spots.py` (discovered-defect fix)
-- `scripts/lib/completeness-critic.sh` (discovered-defect fix)
-- `specs/bugs/*.md`, `specs/bugs/registry.yaml`, `specs/verifications/*`,
-  `specs/traceability-matrix.json`, `specs/TRACEABILITY_LATEST.md`,
-  `specs/codebase-wiki/*`, `specs/blind-spots.json` (bookkeeping/evidence, no logic)
+- `scripts/tombstone-skill.sh` (new)
+- `scripts/validate-tombstones.sh` (new)
+- `scripts/test-tombstone-mechanism.sh` (new)
+- `CONVENTIONS.md` (docs)
+- `specs/epics/e53-establish-migration-baseline/{epic.yaml,e53s02-tasks.yaml}` (bookkeeping)
 
-Languages: Bash, Python, YAML/Markdown data.
+Languages: Bash, Python (inline via `python3 -c`).
 
 ## Vulnerability Assessment
 
 | Category | Finding | Severity | Mitigation |
 |----------|---------|----------|------------|
-| Path Traversal | None | NONE | `golden-g11-gitignore-venv.sh` operates only on the literal path `.venv` (not attacker-influenced input); no user-supplied path segments |
-| Command Injection | None | NONE | No shell execution of untrusted input in any of the 3 fixed scripts |
-| Secrets Exposure | None | NONE | Diff scanned for `sk-`, `ghp_`, `AKIA` patterns — none found; no credentials touched |
-| Unsafe Deserialization | None | NONE | `blind-spots.py`'s `json.loads` reads only repo-local, git-tracked JSON, not external/user input |
-| Type-confusion regression | None | NONE | `from __future__ import annotations` only defers annotation evaluation; no runtime behavior change |
+| Path Traversal (CWE-22) | None | NONE | Both `<old-name>` and `<new-name>` args are validated against `^[a-z][a-z0-9-]*$` before any path construction — verified: `../../etc/passwd` is rejected before touching the filesystem |
+| Command Injection | None | NONE | No `eval`/dynamic execution of tombstone-mapping content; `specs/tombstones.yaml` is read only via `yaml.safe_load` |
+| Python string-interpolation into `python3 -c` | LOW — informational | LOW | `$OLD_NAME`/`$NEW_NAME` are pre-validated against the kebab-case pattern (no quotes/special chars possible); `$CREATED_AT`/`$CURRENT_VERSION` are program-generated (from `date`/`package.json`, not user input). No exploitable injection path, but noted for future hardening if these scripts ever take less-trusted input. |
+| Secrets Exposure | None | NONE | Diff scanned for `sk-`, `ghp_`, `AKIA` — none found |
+| Unsafe Deserialization | None | NONE | `yaml.safe_load` used throughout, never `yaml.load` |
 
-Also covered by the epic-level threat model (`specs/security/epics/e53/THREAT_MODEL.md`,
-step 0 of this story's build-epic cycle): e53s01 has no attacker-reachable input, risk
-rated LOW.
+Also covered by the epic-level threat model (`specs/security/epics/e53/THREAT_MODEL.md`),
+which specifically called out this exact path-traversal risk ahead of implementation.
 
 ## Blind-spot cross-check
 
-`scripts/check-blind-spots.sh` re-run after all fixes: 0 HIGH findings (545 MEDIUM /
-67 LOW — pre-existing structural findings across the whole repo, unrelated to this diff).
+0 HIGH findings (548 MEDIUM / 67 LOW — pre-existing repo-wide, unrelated to this diff).
 
 ## Verdict
-**PASS** — No security vulnerabilities introduced. All changes are either a plain data
-commit (the GOLDEN baseline) or local logic fixes to CI gate scripts, with no
-attacker-reachable input anywhere in the diff.
+**PASS** — No security vulnerabilities introduced. The one LOW/informational note
+(string interpolation into `python3 -c`) has no exploitable path given the existing
+input validation, and is recorded for future reference rather than as a blocking
+finding.

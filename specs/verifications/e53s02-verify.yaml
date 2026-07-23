@@ -1,0 +1,71 @@
+story_id: e53s02
+verified_at: "2026-07-23T13:08:18Z"
+verifier: verify-work
+risk: P1
+phases:
+  preflight:
+    passed: true
+    command: "npm run compliance && bash scripts/run-verification-gates.sh"
+    note: "compliance PASS; GOLDEN suite 11/11 gates PASS"
+  smoke:
+    passed: true
+    note: "N/A — no server/app process; CLI tooling only"
+  build:
+    passed: true
+    note: "N/A — no build step"
+  typecheck:
+    passed: true
+    note: "N/A — bash/python, no static type system"
+  lint:
+    passed: true
+    note: "covered by scripts/validate-doctrine.sh within npm run compliance"
+  tests:
+    passed: true
+    note: "scripts/test-tombstone-mechanism.sh — end-to-end fixture test, red before implementation existed, green after"
+  terminal_verdict:
+    command: "bash scripts/test-tombstone-mechanism.sh"
+    exit_code: 0
+    captured_at: "2026-07-23T13:05:00Z"
+    note: "Single contiguous run — 6/6 scenario assertions PASS"
+  security:
+    passed: true
+    note: "specs/security/REVIEW.md — PASS, path-traversal mitigation verified (../../etc/passwd rejected), 1 LOW informational note (no exploitable path)"
+  blind_spots:
+    passed: true
+    high_findings: 0
+    medium_findings: 548
+    low_findings: 67
+    note: "0 HIGH — non-blocking. MEDIUM/LOW are pre-existing repo-wide findings unrelated to this diff"
+  completeness_critic:
+    passed: true
+    blockers: 0
+    warnings: 0
+  manual:
+    steps:
+      - step: "Run tombstone-skill.sh against a throwaway fixture skill"
+        expected: "skills/<old>/SKILL.md becomes a TOMBSTONE stub; story tags preserved; specs/tombstones.yaml records the mapping"
+        actual: "Confirmed — matched expected"
+        passed: true
+      - step: "Run validate-tombstones.sh with zero tombstones registered"
+        expected: "Reports 'no tombstones' and exits 0 (AC scenario 6a)"
+        actual: "Confirmed — matched expected"
+        passed: true
+      - step: "Run validate-tombstones.sh against a fresh tombstone"
+        expected: "Reports OK, resolves cleanly"
+        actual: "Confirmed — matched expected"
+        passed: true
+      - step: "Run validate-tombstones.sh against a tombstone with a stale created_at_version"
+        expected: "Flags it as EXPIRED (AC scenario 6b)"
+        actual: "Confirmed — matched expected"
+        passed: true
+      - step: "Run tombstone-skill.sh with a path-traversal argument (../../etc/passwd)"
+        expected: "Rejected before any filesystem write"
+        actual: "Confirmed — 'ERROR: not a valid skill name', exit 1, nothing written"
+        passed: true
+      - step: "Read CONVENTIONS.md's new Tombstone Aliases section"
+        expected: "Documents the mechanism and the required model-profiles.md skill-count update step"
+        actual: "Confirmed — both present"
+        passed: true
+  gaps:
+    closed: true
+    note: "No open gaps. All 4 tasks passing; no discovered defects this story (unlike e53s01, this worktree's Preflight was green from the start thanks to e53s01's fixes)."
