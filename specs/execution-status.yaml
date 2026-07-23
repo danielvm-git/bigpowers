@@ -2841,6 +2841,12 @@ stories:
     tasks_failing: 0
     started_at: "2026-07-23T12:56:55Z"
     completed_at: "2026-07-23T13:08:18Z"
+    gate_trace:
+      verdict: PASS
+      generated_at: "2026-07-23T13:11:16Z"
+      rationale: "6 links (4 explicit-tag), heuristic ratio 33% (no downgrade), verify + audit evidence present, 0 HIGH blind-spot findings, 0 drift suspects, completeness-critic BLOCKER=0"
+      heuristic_ratio: 0.33
+      downgrade_applied: false
   e53s03:
     status: backlog
     title: 'Gate-trace the compliance-to-GOLDEN hard-gate coupling'
