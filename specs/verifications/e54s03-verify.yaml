@@ -1,0 +1,55 @@
+story_id: e54s03
+verified_at: "2026-07-23T18:47:02Z"
+verifier: e54-reverify (backfill)
+backfilled: true
+backfill_note: >-
+  verify-work's evidence-persistence HARD GATE ("No evidence = not verified")
+  was not honored when e54s03 originally shipped — no eNNsYY-verify.yaml was
+  written at the time, only an audit-code AUDIT-e54-e54s03.md. This file is a
+  retroactive backfill produced by the e54 re-verification pass, built from
+  task verify: commands re-run fresh against current HEAD (not from the
+  original 2026 shipping session). This backfill also follows a separate fix
+  applied in the same pass: e54s03 had zero `story: e54s03` traceability tags
+  anywhere in the repo (CONVENTIONS.md cited "(e54s01)"/"(e54s02)" inline but
+  never "(e54s03)"); a `# story: e54s03` tag was added to CONVENTIONS.md's
+  header block to close that gap.
+risk: P3
+phases:
+  smoke:
+    passed: true
+    note: "N/A — P3 skips smoke per verify-work's own risk-scaling rules"
+  build:
+    passed: true
+    note: "N/A — no build step; documentation-only story"
+  typecheck:
+    passed: true
+    note: "covered by scripts/validate-doctrine.sh and scripts/trace-stories.sh --strict within npm run compliance / Preflight"
+  lint:
+    passed: true
+    note: "covered by scripts/validate-doctrine.sh within npm run compliance"
+  tests:
+    passed: true
+    note: "P3 story — the story's own task-level verify: commands (below) are the tests"
+  manual:
+    passed: true
+    note: "N/A — P3 skips step-by-step UAT per verify-work's own risk-scaling rules"
+  security:
+    passed: true
+    note: "not independently re-run in this backfill; P3 documentation-only change with no attacker-reachable surface; AUDIT-e54-e54s03.md already recorded Supply Chain & Security as N/A/PASS"
+task_verify_commands:
+  - task: 1
+    command: "grep -qi 'catalog freeze' CONVENTIONS.md && grep -qi 'freeze-exception' CONVENTIONS.md"
+    result: OK
+  - task: 2
+    command: "grep -qi 'freeze-exception' CONVENTIONS.md && grep -qi 'freeze-exception' scripts/check-catalog-drift.sh"
+    result: OK
+terminal_verdict:
+  command: "bash scripts/trace-stories.sh --strict"
+  exit_code: 0
+  captured_at: "2026-07-23T18:46:00Z"
+  note: "Single contiguous run, after adding the story: e54s03 tag to CONVENTIONS.md — still exits 0"
+gaps:
+  closed: true
+  note: >-
+    Traceability gap closed in this pass (see backfill_note above). Both
+    task-level verify commands pass against current HEAD.

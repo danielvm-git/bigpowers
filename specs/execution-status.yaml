@@ -328,7 +328,7 @@ development_status:
   e53s02: done
   e53s03: done
   e53s04: done
-  e54: backlog
+  e54: done
   e54s01: done
   e54s02: done
   e54s03: done
@@ -548,7 +548,7 @@ epics:
     wsjf: 8.0
     total_bcps: 9
   e54:
-    status: backlog
+    status: done
     title: Freeze Catalog Drift — Stable Baseline Before Skill Reclassification
     wsjf: 6.7
     total_bcps: 6
