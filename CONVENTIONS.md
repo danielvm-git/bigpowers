@@ -353,6 +353,35 @@ name must return < 5 results across the repo.
 
 Any new exception requires an entry in this table before the skill is published.
 
+## Tombstone Aliases (e53s02)
+
+Every skill rename or merge ships a tombstone alias for one release, so consumers
+referencing the old name don't break immediately.
+
+**Mechanism:**
+
+1. Run `bash scripts/tombstone-skill.sh <old-name> <new-name-or-merge-target>` when
+   renaming or merging a skill. It replaces `skills/<old-name>/SKILL.md` with a stub
+   pointing at the new name/location, preserves the old skill's `# story: eNNsNN` tags
+   for traceability, and registers the mapping in `specs/tombstones.yaml` (old name,
+   new name/target, creation timestamp, and the `bigpowers_version` at creation time).
+2. Run `bash scripts/validate-tombstones.sh` to confirm every registered tombstone's
+   stub still resolves, and to flag any tombstone whose `created_at_version` differs
+   from the current release — that stub has served its one-release transition window
+   and should be removed.
+3. **Required alongside the first real use of `tombstone-skill.sh`:** update
+   `docs/references/model-profiles.md`'s skill-count annotations. A tombstone stub is
+   still a `skills/*/SKILL.md` file — it increments the live skill count the same as
+   any other skill, and the count doc must reflect that.
+
+**Rejected names:** both the old and new name must be a bare kebab-case skill name
+(`^[a-z][a-z0-9-]*$`) — `tombstone-skill.sh` refuses anything else before touching the
+filesystem (path segments, absolute paths, etc.).
+
+This story (e53s02) builds the mechanism only; it creates no real tombstone stub
+itself, so the live skill count doesn't move yet. The first real use is expected in
+e56 (skill reclassification/merges).
+
 ## File-Size Exceptions
 
 The 300-line file cap exists to ensure files fit in a single agent context
