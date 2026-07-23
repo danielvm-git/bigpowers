@@ -40,7 +40,7 @@ stories:
     tasks: e55s01-tasks.yaml
   - id: e55s02
     title: "Write constitution.md from the mapping, CLAUDE.md/CONVENTIONS.md unchanged"
-    status: failing
+    status: passing
     risk: P2
     bcps: 3
     spec: e55s02-write-constitution.md

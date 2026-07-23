@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-23T19:14:48.569150+00:00",
+  "generated_at": "2026-07-23T19:37:41.859372+00:00",
   "matrix_version": "1.0",
   "stories": [
     {
@@ -3744,6 +3744,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-162400.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260723-110426.md",
           "line": 0,
           "confidence": "medium",
@@ -4680,6 +4686,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-162439.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260629-130939.md",
           "line": 0,
           "confidence": "medium",
@@ -4842,6 +4854,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-161502.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-170255.md",
           "line": 0,
           "confidence": "medium",
@@ -4909,6 +4927,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-202348.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-161543.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5179,6 +5203,18 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-193756.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-163218.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-163309.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -6156,7 +6192,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 515
+      "link_count": 521
     },
     {
       "id": "e45s19",
@@ -7560,6 +7596,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-162400.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260723-110426.md",
           "line": 0,
           "confidence": "medium",
@@ -8496,6 +8538,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-162439.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260629-130939.md",
           "line": 0,
           "confidence": "medium",
@@ -8658,6 +8706,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-161502.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-170255.md",
           "line": 0,
           "confidence": "medium",
@@ -8725,6 +8779,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-202348.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-161543.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8995,6 +9055,18 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-193756.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-163218.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-163309.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -9954,7 +10026,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 512
+      "link_count": 518
     },
     {
       "id": "e45s32",
@@ -14832,6 +14904,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-162400.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260723-110426.md",
           "line": 0,
           "confidence": "medium",
@@ -15768,6 +15846,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-162439.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260629-130939.md",
           "line": 0,
           "confidence": "medium",
@@ -15930,6 +16014,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-161502.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-170255.md",
           "line": 0,
           "confidence": "medium",
@@ -15997,6 +16087,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-202348.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-161543.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -16267,6 +16363,18 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-193756.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-163218.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-163309.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -17460,7 +17568,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 560
+      "link_count": 566
     },
     {
       "id": "e51s05",
@@ -17967,11 +18075,11 @@
       "epic_title": "Extract Constitution \u2014 Consolidate Doctrine into One File",
       "bcp": 0,
       "wsjf": 6.0,
-      "status": "backlog",
+      "status": "done",
       "links": [
         {
-          "file": "specs/state.yaml",
-          "line": 3,
+          "file": "specs/verifications/e55s01-verify.yaml",
+          "line": 65,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -18001,11 +18109,41 @@
         }
       ],
       "link_count": 5
+    },
+    {
+      "id": "e55s02",
+      "title": "Write constitution.md from the mapping, CLAUDE.md/CONVENTIONS.md unchanged",
+      "epic_id": "e55",
+      "epic_title": "Extract Constitution \u2014 Consolidate Doctrine into One File",
+      "bcp": 0,
+      "wsjf": 6.0,
+      "status": "backlog",
+      "links": [
+        {
+          "file": "constitution.md",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/verifications/steps/and-i-should-not-write-code-before-the-design-is-approved.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e55-extract-constitution/e55s02-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        }
+      ],
+      "link_count": 3
     }
   ],
   "summary": {
-    "total_stories": 81,
-    "tagged_stories": 71,
+    "total_stories": 82,
+    "tagged_stories": 72,
     "dark_stories": [],
     "dark_count": 0,
     "orphan_tags": [
@@ -18230,13 +18368,14 @@
       "e51s05",
       "e54s01",
       "e54s02",
-      "e54s03"
+      "e54s03",
+      "e55s01"
     ],
-    "stale_count": 70,
+    "stale_count": 71,
     "oracle_stats": {
-      "high": 307,
-      "medium": 2471,
-      "low": 60
+      "high": 308,
+      "medium": 2490,
+      "low": 61
     }
   }
 }
