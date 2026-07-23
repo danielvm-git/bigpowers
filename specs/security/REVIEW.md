@@ -1,10 +1,10 @@
-# Security Review — e53s03 (Gate-trace the compliance-to-GOLDEN hard-gate coupling)
+# Security Review — e53s04 (Adopt docs/TARGET-ARCHITECTURE.md as the migration's north-star reference)
 
 ## Scope Resolution
-Scanned changes: `e53s03-gate-trace-compliance-golden` vs `main` (3 commits)
+Scanned changes: `e53s04-target-architecture-doc` vs `main` (3 commits)
 Files changed:
-- `specs/tech-architecture/GOLDEN-COMPLIANCE-DEPENDENCY.md` (new — read-only analysis report)
-- `specs/epics/e53-establish-migration-baseline/{epic.yaml,e53s03-tasks.yaml}` (bookkeeping)
+- `docs/TARGET-ARCHITECTURE.md` (new — router document, links only)
+- `specs/epics/e53-establish-migration-baseline/{epic.yaml,e53s04-tasks.yaml}` (bookkeeping)
 
 Languages: Markdown only. No code changes.
 
@@ -12,7 +12,7 @@ Languages: Markdown only. No code changes.
 
 | Category | Finding | Severity | Mitigation |
 |----------|---------|----------|------------|
-| All categories | N/A | NONE | This story is a hand-authored read-only analysis document. It does not modify `golden-suite-gates.sh`, any CI workflow, or any of the 5 cited docs — it only describes them. No executable code, no data flow, no attacker-reachable surface of any kind. |
+| All categories | N/A | NONE | Pure documentation — a router with external links to `bigspec` (a sibling repo the same user owns) and internal links to existing repo files. No executable code, no data flow, no attacker-reachable surface. |
 
 Also covered by the epic-level threat model (`specs/security/epics/e53/THREAT_MODEL.md`).
 
