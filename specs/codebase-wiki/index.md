@@ -1,6 +1,6 @@
 ---
 type: Index
-generated_at: 2026-07-23T13:10:31.120215+00:00
+generated_at: 2026-07-23T13:32:04.055175+00:00
 total_concepts: 84
 ---
 
@@ -88,8 +88,8 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e51s04](./e51s04.md) | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | high | 316 |
 | [e51s05](./e51s05.md) | CLAUDE.md — solo-default agent rules + bigpowers Preflight c | high | 7 |
 | [e53s01](./e53s01.md) | Commit the untracked GOLDEN baseline | high | 9 |
-| [e53s02](./e53s02.md) | Build the tombstone-alias mechanism | high | 6 |
-| [e53s03](./e53s03.md) | Gate-trace the compliance-to-GOLDEN hard-gate coupling | medium | 44 |
+| [e53s02](./e53s02.md) | Build the tombstone-alias mechanism | high | 5 |
+| [e53s03](./e53s03.md) | Gate-trace the compliance-to-GOLDEN hard-gate coupling | high | 46 |
 | [e53s04](./e53s04.md) | Adopt docs/TARGET-ARCHITECTURE.md as the migration's north-s | medium | 2 |
 | [e54s01](./e54s01.md) | Snapshot the current skill catalog as an immutable baseline | medium | 7 |
 | [e54s02](./e54s02.md) | Add a soft drift-detection gate for the freeze window | medium | 13 |

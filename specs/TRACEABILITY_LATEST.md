@@ -1,17 +1,17 @@
 # Traceability Matrix
 
-**Generated:** 2026-07-23 13:10:31 UTC
+**Generated:** 2026-07-23 13:32:04 UTC
 **Total stories:** 84
-**Tagged stories:** 69
+**Tagged stories:** 70
 **Dark stories:** 0
 **Orphan tags:** 141
-**Stale tags:** 68
+**Stale tags:** 69
 
 ## Oracle Stats
 
-- **High** (explicit tag): 304
+- **High** (explicit tag): 306
 - **Medium** (file heuristic): 1752
-- **Low** (task reference): 65
+- **Low** (task reference): 64
 
 ## Story Coverage
 
@@ -95,8 +95,8 @@
 | e51s04 | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | e51 | 2 | 7.0 | done | 316 |
 | e51s05 | CLAUDE.md — solo-default agent rules + bigpowers Preflight c | e51 | 2 | 7.0 | done | 7 |
 | e53s01 | Commit the untracked GOLDEN baseline | e53 | 1 | 8.0 | done | 9 |
-| e53s02 | Build the tombstone-alias mechanism | e53 | 3 | 8.0 | in_progress | 6 |
-| e53s03 | Gate-trace the compliance-to-GOLDEN hard-gate coupling | e53 | 2 | 8.0 | backlog | 44 |
+| e53s02 | Build the tombstone-alias mechanism | e53 | 3 | 8.0 | done | 5 |
+| e53s03 | Gate-trace the compliance-to-GOLDEN hard-gate coupling | e53 | 2 | 8.0 | in_progress | 46 |
 | e53s04 | Adopt docs/TARGET-ARCHITECTURE.md as the migration's north-s | e53 | 3 | 8.0 | backlog | 2 |
 | e54s01 | Snapshot the current skill catalog as an immutable baseline | e54 | 2 | 6.7 | backlog | 7 |
 | e54s02 | Add a soft drift-detection gate for the freeze window | e54 | 3 | 6.7 | backlog | 13 |
@@ -316,3 +316,4 @@
 - `e51s04`
 - `e51s05`
 - `e53s01`
+- `e53s02`
