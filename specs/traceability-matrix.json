@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-23T16:19:28.252461+00:00",
+  "generated_at": "2026-07-23T16:28:25.353110+00:00",
   "matrix_version": "1.0",
   "stories": [
     {
@@ -1560,19 +1560,13 @@
           "method": "explicit_tag"
         },
         {
-          "file": "specs/epics/e54-freeze-catalog-drift/e54s02-tasks.yaml",
-          "line": 0,
-          "confidence": "low",
-          "method": "task_reference"
-        },
-        {
           "file": "specs/epics/e54-freeze-catalog-drift/e54s03-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         }
       ],
-      "link_count": 4
+      "link_count": 3
     },
     {
       "id": "e45s07",
@@ -3270,6 +3264,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-132651.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260706-212830.md",
           "line": 0,
           "confidence": "medium",
@@ -3595,6 +3595,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-164251.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-132615.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4999,6 +5005,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260707-084719.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-132017.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -6048,7 +6060,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 495
+      "link_count": 498
     },
     {
       "id": "e45s19",
@@ -6966,6 +6978,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-132651.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260706-212830.md",
           "line": 0,
           "confidence": "medium",
@@ -7291,6 +7309,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-164251.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-132615.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8700,6 +8724,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-132017.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260704-171157.md",
           "line": 0,
           "confidence": "medium",
@@ -9726,7 +9756,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 492
+      "link_count": 495
     },
     {
       "id": "e45s32",
@@ -14112,6 +14142,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-132651.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260706-212830.md",
           "line": 0,
           "confidence": "medium",
@@ -14437,6 +14473,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-164251.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-132615.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -15846,6 +15888,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-132017.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260704-171157.md",
           "line": 0,
           "confidence": "medium",
@@ -17106,7 +17154,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 540
+      "link_count": 543
     },
     {
       "id": "e51s05",
@@ -17169,14 +17217,8 @@
       "epic_title": "Freeze Catalog Drift \u2014 Stable Baseline Before Skill Reclassification",
       "bcp": 2,
       "wsjf": 6.7,
-      "status": "backlog",
+      "status": "done",
       "links": [
-        {
-          "file": "specs/state.yaml",
-          "line": 3,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
         {
           "file": "scripts/snapshot-catalog-baseline.sh",
           "line": 2,
@@ -17232,7 +17274,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 10
+      "link_count": 9
     },
     {
       "id": "e54s02",
@@ -17243,6 +17285,18 @@
       "wsjf": 6.7,
       "status": "backlog",
       "links": [
+        {
+          "file": "specs/state.yaml",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/check-catalog-drift.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "specs/verifications/steps/and-i-should-enforce-a-two-stage-review-gate.sh",
           "line": 0,
@@ -17322,7 +17376,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 13
+      "link_count": 15
     },
     {
       "id": "e54s03",
@@ -17567,7 +17621,7 @@
   ],
   "summary": {
     "total_stories": 80,
-    "tagged_stories": 68,
+    "tagged_stories": 69,
     "dark_stories": [],
     "dark_count": 0,
     "orphan_tags": [
@@ -17789,13 +17843,14 @@
       "e51s02",
       "e51s03",
       "e51s04",
-      "e51s05"
+      "e51s05",
+      "e54s01"
     ],
-    "stale_count": 67,
+    "stale_count": 68,
     "oracle_stats": {
-      "high": 298,
-      "medium": 2408,
-      "low": 61
+      "high": 299,
+      "medium": 2417,
+      "low": 60
     }
   }
 }

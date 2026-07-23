@@ -65,7 +65,7 @@ Stack: Markdown / Bash (documentation-based; skills integrate with Claude Code, 
 | Compliance | `npm run compliance` |
 | Verification Gates | `bash scripts/run-verification-gates.sh` |
 | Traceability | `bash scripts/trace-stories.sh --strict` | grep for story tags (traceability check) |
-| Preflight | `npm run compliance && bash scripts/run-verification-gates.sh && bash scripts/sync-skills.sh && bash scripts/trace-stories.sh --strict` | Full local green stack before forward work |
+| Preflight | `npm run compliance && bash scripts/run-verification-gates.sh && bash scripts/sync-skills.sh && bash scripts/trace-stories.sh --strict && bash scripts/check-catalog-drift.sh` | Full local green stack before forward work. Trailing step is advisory only (e54s02 catalog-freeze drift check) — it always exits 0 and can never break this chain. |
 | CI | `gh pr checks` | Remote CI green when a PR is open |
 
 ### Pre-Merge Checklist

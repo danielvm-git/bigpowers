@@ -1,6 +1,6 @@
 story_id: e54s02
 title: "Add a soft drift-detection gate for the freeze window"
-status: todo
+status: done
 risk: P1
 bcps: 3
 spec: e54s02-drift-detection-gate.md
@@ -9,7 +9,7 @@ tasks:
     description: "Write scripts/check-catalog-drift.sh (source scripts/lib/skill-common.sh + python-env.sh) — diff the live skills/*/SKILL.md enumeration against the newest specs/tech-architecture/CATALOG-BASELINE-*.yaml, classifying each finding as addition / removal / structural-change (name/phase/effort/model). Print each as a 'WARNING:' line. ALWAYS exit 0 — this is a Confirm-gate (user-reviewed), never a Risk/Quality gate."
     verify: "bash scripts/check-catalog-drift.sh >/dev/null 2>&1; test $? -eq 0 && echo OK"
     risk: P1
-    status: failing   # flip to passing only after verify exits 0 (e45s06)
+    status: passing
     allure:
       severity: high
       categories:
@@ -20,7 +20,7 @@ tasks:
     description: "Handle the no-baseline case per spec §6c — with no CATALOG-BASELINE-*.yaml present, print 'no baseline found, skipping drift check' and exit 0, so the check degrades gracefully instead of erroring or blocking unrelated work."
     verify: "root=$(pwd); d=$(mktemp -d); (cd \"$d\" && bash \"$root/scripts/check-catalog-drift.sh\" 2>&1 | grep -qi 'no baseline'); rc=$?; rm -rf \"$d\"; test $rc -eq 0 && echo OK"
     risk: P1
-    status: failing
+    status: passing
     allure:
       severity: high
       categories:
@@ -30,7 +30,7 @@ tasks:
     description: "Recognize the exception marker documented in e54s03 (a freeze-exception comment in the affected SKILL.md) and suppress the matching warning, so legitimately-unrelated work isn't nagged every run."
     verify: "grep -qi 'freeze-exception\\|exception' scripts/check-catalog-drift.sh && echo OK"
     risk: P1
-    status: failing
+    status: passing
     allure:
       severity: high
       categories:
@@ -40,7 +40,7 @@ tasks:
     description: "Wire the check into the CLAUDE.md Preflight chain as a trailing advisory step. Because the script always exits 0, it is visible on every Preflight run WITHOUT gating (it can never break the && chain). Do NOT add it to golden-suite-gates.sh's GOLDEN_GATES array — a gate that runs and exits non-zero counts as FAIL there, which would violate the never-gating contract."
     verify: "grep -q 'check-catalog-drift' CLAUDE.md && echo OK"
     risk: P1
-    status: failing
+    status: passing
     allure:
       severity: high
       categories:
