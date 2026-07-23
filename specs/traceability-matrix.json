@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-23T05:16:06.230462+00:00",
+  "generated_at": "2026-07-23T05:29:47.192384+00:00",
   "matrix_version": "1.0",
   "stories": [
     {
@@ -1428,6 +1428,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-07-23-completeness-critic-code-tags-schema-drift.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-03-trace-engine-vacuous-gate.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -1518,7 +1524,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 28
+      "link_count": 29
     },
     {
       "id": "e45s06",
@@ -4104,6 +4110,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-022309.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260626-204755.md",
           "line": 0,
           "confidence": "medium",
@@ -4434,6 +4446,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-022252.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-172425.md",
           "line": 0,
           "confidence": "medium",
@@ -4674,7 +4692,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 272
+      "link_count": 274
     },
     {
       "id": "e45s19",
@@ -6462,6 +6480,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-022309.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260626-204755.md",
           "line": 0,
           "confidence": "medium",
@@ -6792,6 +6816,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-022252.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-172425.md",
           "line": 0,
           "confidence": "medium",
@@ -7014,7 +7044,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 269
+      "link_count": 271
     },
     {
       "id": "e45s32",
@@ -8382,6 +8412,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-07-23-completeness-critic-code-tags-schema-drift.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-23-golden-g11-worktree-venv.md",
           "line": 0,
           "confidence": "medium",
@@ -8766,7 +8802,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 124
+      "link_count": 125
     },
     {
       "id": "e48s04",
@@ -12072,6 +12108,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-022309.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260626-204755.md",
           "line": 0,
           "confidence": "medium",
@@ -12402,6 +12444,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-022252.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-172425.md",
           "line": 0,
           "confidence": "medium",
@@ -12642,6 +12690,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-07-23-completeness-critic-code-tags-schema-drift.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-03-trace-engine-vacuous-gate.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -12852,7 +12906,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 316
+      "link_count": 319
     },
     {
       "id": "e51s05",
@@ -12924,6 +12978,36 @@
           "method": "explicit_tag"
         },
         {
+          "file": "specs/bugs/BUG-2026-07-23-completeness-critic-code-tags-schema-drift.md",
+          "line": 46,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-23-completeness-critic-code-tags-schema-drift.md",
+          "line": 93,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e53-establish-migration-baseline/e53s01-tasks.yaml",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/golden-g11-gitignore-venv.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/lib/blind-spots.py",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "specs/verifications/steps/then-it-must-mandate-conventional-commits-1-0-0-and-semver-2-0-0.sh",
           "line": 0,
           "confidence": "medium",
@@ -12946,15 +13030,9 @@
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
-        },
-        {
-          "file": "specs/epics/e53-establish-migration-baseline/e53s01-tasks.yaml",
-          "line": 0,
-          "confidence": "low",
-          "method": "task_reference"
         }
       ],
-      "link_count": 6
+      "link_count": 10
     },
     {
       "id": "e53s02",
@@ -13884,9 +13962,9 @@
     ],
     "stale_count": 67,
     "oracle_stats": {
-      "high": 296,
-      "medium": 1747,
-      "low": 66
+      "high": 301,
+      "medium": 1756,
+      "low": 65
     }
   }
 }

@@ -1,6 +1,6 @@
 # Traceability Matrix
 
-**Generated:** 2026-07-23 05:16:06 UTC
+**Generated:** 2026-07-23 05:29:47 UTC
 **Total stories:** 84
 **Tagged stories:** 68
 **Dark stories:** 0
@@ -9,9 +9,9 @@
 
 ## Oracle Stats
 
-- **High** (explicit tag): 296
-- **Medium** (file heuristic): 1747
-- **Low** (task reference): 66
+- **High** (explicit tag): 301
+- **Medium** (file heuristic): 1756
+- **Low** (task reference): 65
 
 ## Story Coverage
 
@@ -37,7 +37,7 @@
 | e45s02 | craft-skill: CSO description discipline + completion-honesty | e45 | 2 | 5.0 | done | 13 |
 | e45s03 | CLAUDE.md token mgmt: mechanical PreToolUse hook backstop | e45 | 3 | 5.0 | done | 4 |
 | e45s04 | slice-tasks / plan-work: pre-build cross-artifact consistenc | e45 | 3 | 5.0 | done | 15 |
-| e45s05 | verify-work / gate-trace: adversarial gap-finding completene | e45 | 4 | 5.0 | done | 28 |
+| e45s05 | verify-work / gate-trace: adversarial gap-finding completene | e45 | 4 | 5.0 | done | 29 |
 | e45s06 | tasks.yaml: literal failing→passing task ledger | e45 | 2 | 5.0 | done | 5 |
 | e45s07 | request-review: dual-blind AND-gate review (Santa Method) | e45 | 2 | 5.0 | done | 31 |
 | e45s08 | develop-tdd / validate-fix: two-commit red/green regression  | e45 | 2 | 5.0 | done | 11 |
@@ -50,7 +50,7 @@
 | e45s15 | release-branch / deploy: three-independent-facts verificatio | e45 | 2 | 5.0 | done | 13 |
 | e45s16 | CLAUDE.md rtk mandate: wire rtk-ai/rtk PreToolUse hook | e45 | 2 | 5.0 | done | 4 |
 | e45s17 | request-review: fan-out to parallel review subagents | e45 | 2 | 5.0 | done | 23 |
-| e45s18 | audit-code / security-review: worktree-isolated parallel che | e45 | 2 | 5.0 | done | 272 |
+| e45s18 | audit-code / security-review: worktree-isolated parallel che | e45 | 2 | 5.0 | done | 274 |
 | e45s19 | Context7: bounded retry cap and explicit fallback block | e45 | 2 | 5.0 | done | 8 |
 | e45s20 | Context7 / bts docs: wrap in ETag-revalidated fetch cache | e45 | 2 | 5.0 | done | 1 |
 | e45s21 | seed-conventions / AGENTS.md: self-installing fenced markers | e45 | 2 | 5.0 | done | 15 |
@@ -63,7 +63,7 @@
 | e45s28 | request-review: hard max-iteration cap | e45 | 2 | 5.0 | done | 10 |
 | e45s29 | requirements: ADDED/MODIFIED/REMOVED/RENAMED tags | e45 | 2 | 5.0 | done | 15 |
 | e45s30 | subagent depth: formalize depth tiers | e45 | 2 | 5.0 | done | 10 |
-| e45s31 | audit-code / deepen-architecture: churn-based look-here-firs | e45 | 2 | 5.0 | done | 269 |
+| e45s31 | audit-code / deepen-architecture: churn-based look-here-firs | e45 | 2 | 5.0 | done | 271 |
 | e45s32 | gate-trace / release-branch: adversarial-review refute frami | e45 | 2 | 5.0 | done | 26 |
 | e45s33 | requirements: per-section approval state | e45 | 2 | 5.0 | done | 3 |
 | e45s34 | develop-tdd: snapshot-before-transition hardening | e45 | 2 | 5.0 | done | 6 |
@@ -76,7 +76,7 @@
 | e45s41 | security-review: proven authorship SQL-safety doctrine | e45 | 2 | 5.0 | done | 10 |
 | e48s01 | Generate epics-wiki and adr-wiki as OKF concept bundles from | e48 | 2 | 2.5 | done | 27 |
 | e48s02 | Emit verification reports as OKF bundles from run-golden-sui | e48 | 2 | 2.5 | done | 27 |
-| e48s03 | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | e48 | 1 | 2.5 | done | 124 |
+| e48s03 | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | e48 | 1 | 2.5 | done | 125 |
 | e48s04 | Create viz.html — interactive force-layout graph companion f | e48 | 2 | 2.5 | done | 10 |
 | e48s05 | Wire OKF validation into CI (sync-skills.yml) and document i | e48 | 1 | 2.5 | done | 143 |
 | e48s06 | Add tier: field (core/extended/specialized) to OKF wiki inde | e48 | 2 | 2.5 | done | 9 |
@@ -92,9 +92,9 @@
 | e51s01 | CONVENTIONS — Always Green, Shift Left, Discovered Defects,  | e51 | 3 | 7.0 | done | 8 |
 | e51s02 | seed-conventions — Preflight default, solo-git default, embe | e51 | 3 | 7.0 | done | 22 |
 | e51s03 | kickoff-branch + verify-work — Preflight hard block and CI g | e51 | 2 | 7.0 | done | 46 |
-| e51s04 | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | e51 | 2 | 7.0 | done | 316 |
+| e51s04 | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | e51 | 2 | 7.0 | done | 319 |
 | e51s05 | CLAUDE.md — solo-default agent rules + bigpowers Preflight c | e51 | 2 | 7.0 | done | 7 |
-| e53s01 | Commit the untracked GOLDEN baseline | e53 | 1 | 8.0 | backlog | 6 |
+| e53s01 | Commit the untracked GOLDEN baseline | e53 | 1 | 8.0 | backlog | 10 |
 | e53s02 | Build the tombstone-alias mechanism | e53 | 3 | 8.0 | backlog | 2 |
 | e53s03 | Gate-trace the compliance-to-GOLDEN hard-gate coupling | e53 | 2 | 8.0 | backlog | 44 |
 | e53s04 | Adopt docs/TARGET-ARCHITECTURE.md as the migration's north-s | e53 | 3 | 8.0 | backlog | 2 |
