@@ -38,6 +38,13 @@ stories:
     bcps: 2
     spec: e55s01-doctrine-mapping-audit.md
     tasks: e55s01-tasks.yaml
+  - id: e55s02
+    title: "Write constitution.md from the mapping, CLAUDE.md/CONVENTIONS.md unchanged"
+    status: failing
+    risk: P2
+    bcps: 3
+    spec: e55s02-write-constitution.md
+    tasks: e55s02-tasks.yaml
 planned_stories:
   - working_title: "Map every current doctrine source to a B0-B10 + Capstone block"
     bcp_estimate: 2

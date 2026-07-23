@@ -1,39 +1,39 @@
 active_flow: build_epic
 active_epic: e55
-active_story: e55s01
+active_story: null
 bug_id: null
 bigpowers_version: 2.81.0
 bug_cycle: null
 handoff:
   context: >
-    e54 (Freeze Catalog Drift) is fully done — all 3 stories built, audited PASS, and landed
-    to main via solo-git land-branch.sh: e54s01 (P2, commit 0df0fff8) froze the skill catalog
-    into specs/tech-architecture/CATALOG-BASELINE-2026-07-23.yaml (80 skills, 0 warnings);
-    e54s02 (P1, commit 7761f75e) wired scripts/check-catalog-drift.sh into CLAUDE.md's Preflight
-    chain as a trailing always-exit-0 advisory step; e54s03 (P3, commit 9d7114f3) documented
-    the freeze's scope/exit/exception-marker convention in CONVENTIONS.md. Epic capsule archived
-    to specs/epics/archive/e54-freeze-catalog-drift/. This was a "yolo mode" multi-story run per
-    explicit user instruction: e54s01 and e54s03 are P2/P3 so verify-work's own risk rules
-    already skip UAT for them (not an override); e54s02 is P1 so its UAT was genuinely
-    auto-passed without a live walkthrough — flagged in specs/verifications/AUDIT-e54-e54s02.md
-    for the user's retroactive review. Two real bugs were caught and fixed during self-audit,
-    not left for review to find: e54s01's subshell-variable-scoping bug (warnings written inside
-    a command substitution never reached the caller) and e54s02's missing re.MULTILINE regex
-    flag (broke frontmatter parsing for any SKILL.md with leading `# story:` comment lines).
-    Next: e55 (Extract Constitution) is next in the migration sequence but has 0 real stories
-    sliced yet (bcps: 0, provisional) — needs plan-work before it can build. e56-e59 remain
-    scoped-only after that. Known non-blocking issue spawned as a follow-up task
-    (task_b8b7e802): trace-stories.sh appends stale tasks_failing/risk_max fields to
-    execution-status.yaml story blocks instead of recalculating from live tasks.yaml state —
-    hand-corrected for all 3 e54 stories in this session.
+    e54 done and archived (see prior handoff history). e55 (Extract Constitution)
+    build started in full-auto ("yolo") mode per explicit user instruction, covering
+    all 3 planned stories end-to-end. e55s01 (P3, doctrine-mapping audit, commit
+    67126b37) is done and landed to main: mapped CLAUDE.md/CONVENTIONS.md/
+    docs/PRINCIPLES.md/46 docs/references/*.md files to bigspec's B0-B10+Capstone
+    blocks in specs/epics/e55-extract-constitution/e55s01-doctrine-mapping.md,
+    using specs/reborn-constitution.md's block definitions as a structural
+    reference only (not a content source, per user decision — that draft targets a
+    hypothetical rewrite and already contains e57/e58/e59 concepts). Surfaced
+    duplication findings (F.I.R.S.T stated in 6 files, 94% threshold in 4, etc.) and
+    flagged 2 open questions for e55s02: whether the migration-scoped Catalog
+    Freeze section belongs in a permanent constitution, and how to describe the
+    current Gherkin self-compliance gate under Capstone without presenting e58's
+    not-yet-built outcome-eval mechanism as already true. Next: e55s02 (write
+    constitution.md from the mapping) — plan-work not yet run for this story.
+    NOTE: land-branch.sh auto-pushes to origin when a remote exists; this repo has
+    a real GitHub remote, so pushes were intentionally withheld pending explicit
+    user confirmation (matches repo's own observed practice of staying ahead of
+    origin without pushing) — local main is currently 3+ commits ahead of
+    origin/main.
   next_skill: plan-work
   epic: e55
 epic_cycle:
-  step: 8
+  step: 1
   fast_mode: true
-  story_bcps: 2
-  audit_result: pass
-  completed_steps: '0,1,2,3,4,5,6,7'
+  story_bcps: null
+  audit_result: null
+  completed_steps: ''
 metrics:
   story_start: '2026-07-07T21:58:00Z'
   story_end: '2026-07-07T22:30:00Z'

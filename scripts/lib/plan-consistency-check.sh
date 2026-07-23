@@ -51,26 +51,29 @@ shopt -u nullglob
 (( ${#SPECS[@]} > 0 )) || report CRITICAL "No story spec .md files in capsule (run slice-tasks first)"
 (( ${#TASKS[@]} > 0 )) || report CRITICAL "No *-tasks.yaml files in capsule (run plan-work first)"
 
+# A story's real spec is whatever its own tasks.yaml declares via `spec:` —
+# not every e*s*.md file, which also matches non-spec deliverables a story
+# produces (e.g. an audit story's own eNNsYY-<slug>.md output document).
 SPEC_IDS=()
-for spec in "${SPECS[@]+"${SPECS[@]}"}"; do
-  base="$(basename "$spec" .md)"
-  sid="$(echo "$base" | grep -oE 'e[0-9]+s[0-9]+' | head -1)"
-  [[ -n "$sid" ]] || continue
-  SPEC_IDS+=("$sid")
-  in_array "$sid" "${EPIC_STORIES[@]+"${EPIC_STORIES[@]}"}" \
-    || report HIGH "Story $sid in spec file but missing from epic.yaml manifest"
-  grep -qE '^#{2,3} (17\.|Acceptance|Verification Script)' "$spec" \
-    || report HIGH "Story $sid spec missing §17 acceptance criteria or Verification Script"
-  grep -qiE 'ambiguous|TBD|TODO|FIXME' "$spec" \
-    && report MED "Story $sid spec contains ambiguous/TBD markers"
-done
-
 for tasks in "${TASKS[@]+"${TASKS[@]}"}"; do
   base="$(basename "$tasks" -tasks.yaml)"
   sid="$(echo "$base" | grep -oE 'e[0-9]+s[0-9]+' | head -1)"
   [[ -n "$sid" ]] || continue
-  in_array "$sid" "${SPEC_IDS[@]+"${SPEC_IDS[@]}"}" \
-    || report CRITICAL "tasks.yaml for $sid without matching story spec .md"
+
+  spec_name="$(grep -E '^spec:' "$tasks" | head -1 | sed -E 's/^spec:[[:space:]]*//; s/^"(.*)"$/\1/')"
+  spec="$CAPSULE/$spec_name"
+  if [[ -z "$spec_name" || ! -f "$spec" ]]; then
+    report CRITICAL "Story $sid tasks.yaml declares no valid spec: file"
+  else
+    SPEC_IDS+=("$sid")
+    in_array "$sid" "${EPIC_STORIES[@]+"${EPIC_STORIES[@]}"}" \
+      || report HIGH "Story $sid in spec file but missing from epic.yaml manifest"
+    grep -qE '^#{2,3} (17\.|Acceptance|Verification Script)' "$spec" \
+      || report HIGH "Story $sid spec missing §17 acceptance criteria or Verification Script"
+    grep -qiE 'ambiguous|TBD|TODO|FIXME' "$spec" \
+      && report MED "Story $sid spec contains ambiguous/TBD markers"
+  fi
+
   grep -qE '^[[:space:]]*verify:' "$tasks" \
     || report CRITICAL "Story $sid tasks.yaml missing runnable verify: commands"
   grep -qE '^status:[[:space:]]*(failing|todo|passing)' "$tasks" \

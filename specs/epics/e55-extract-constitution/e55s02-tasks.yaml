@@ -1,0 +1,58 @@
+story_id: e55s02
+title: "Write constitution.md from the mapping, CLAUDE.md/CONVENTIONS.md unchanged"
+status: failing
+risk: P2
+bcps: 3
+spec: e55s02-write-constitution.md
+tasks:
+  - id: 1
+    description: "Write constitution.md at the repo root with a header (authority statement, no constitution_version/SemVer scheme) and one section per block (B0-B10, Capstone), each citing at least one real source file."
+    verify: "m=constitution.md; test -f \"$m\" || exit 1; ok=1; for b in 'B0' 'B1' 'B2' 'B3' 'B4' 'B5' 'B6' 'B7' 'B8' 'B9' 'B10' 'Capstone'; do grep -q \"$b\" \"$m\" || ok=0; done; test $ok -eq 1 && echo OK"
+    risk: P2
+    status: failing
+    allure:
+      severity: normal
+      categories:
+        - "Migration"
+        - "Constitution"
+        - "documentation"
+  - id: 2
+    description: "Confirm the Catalog Freeze section is deliberately excluded from constitution.md (open question 1, resolved: stays only in CONVENTIONS.md as transitional state)."
+    verify: "grep -qi 'catalog freeze' constitution.md && echo FAIL || echo OK"
+    risk: P2
+    status: failing
+    allure:
+      severity: normal
+      categories:
+        - "Constitution"
+        - "scope-guard"
+  - id: 3
+    description: "Confirm the current 94% Gherkin compliance gate is described honestly, with an explicit note that e58 is expected to eventually replace it — not presented as already replaced."
+    verify: "grep -q '94%' constitution.md && grep -q 'e58' constitution.md && echo OK"
+    risk: P2
+    status: failing
+    allure:
+      severity: normal
+      categories:
+        - "Constitution"
+        - "scope-guard"
+  - id: 4
+    description: "Confirm no forward-dated e57/e58/e59 concepts (constitution_version scheme, count-bcp skill, universal 'every generated file is an OKF bundle' claim) are presented as already-true content."
+    verify: "grep -qiE 'constitution_version|count-bcp skill|every generated file.*(is an|is a) okf bundle' constitution.md && echo FAIL || echo OK"
+    risk: P2
+    status: failing
+    allure:
+      severity: normal
+      categories:
+        - "Constitution"
+        - "scope-guard"
+  - id: 5
+    description: "Confirm CLAUDE.md and CONVENTIONS.md are byte-for-byte untouched by this story (additive-only)."
+    verify: "test -z \"$(git status --porcelain -- CLAUDE.md CONVENTIONS.md)\" && echo OK"
+    risk: P2
+    status: failing
+    allure:
+      severity: normal
+      categories:
+        - "Constitution"
+        - "integration"
