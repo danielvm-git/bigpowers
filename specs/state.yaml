@@ -2,7 +2,7 @@ active_flow: build_epic
 active_epic: e54
 active_story: e54s01
 bug_id: null
-bigpowers_version: 2.79.1
+bigpowers_version: 2.80.0
 bug_cycle: null
 handoff:
   context: 'e53 (Establish Migration Baseline) is fully done — all 4 stories built, audited PASS, released,
@@ -29,7 +29,7 @@ epic_cycle:
   fast_mode: true
   story_bcps: 2
   audit_result: pass
-  completed_steps: '1,2,3,4,5,6'
+  completed_steps: 1,2,3,4,5,6
 metrics:
   story_start: '2026-07-07T21:58:00Z'
   story_end: '2026-07-07T22:30:00Z'

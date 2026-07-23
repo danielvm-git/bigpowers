@@ -1,3 +1,10 @@
+# [2.80.0](https://github.com/danielvm-git/bigpowers/compare/v2.79.1...v2.80.0) (2026-07-23)
+
+
+### Features
+
+* **e54s01:** freeze skill catalog baseline snapshot ([0df0fff](https://github.com/danielvm-git/bigpowers/commit/0df0fff86fc48794a2343ae4b2c421835bc5c58c))
+
 ## [2.79.1](https://github.com/danielvm-git/bigpowers/compare/v2.79.0...v2.79.1) (2026-07-23)
 
 

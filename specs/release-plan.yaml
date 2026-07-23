@@ -1,5 +1,5 @@
 release:
-  version: 2.79.1
+  version: 2.80.0
   codename: Foundation
   status: released
   next_release: Reach
