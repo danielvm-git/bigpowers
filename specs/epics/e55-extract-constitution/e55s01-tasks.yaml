@@ -1,6 +1,6 @@
 story_id: e55s01
 title: "Map every current doctrine source to a B0-B10 + Capstone block"
-status: failing
+status: passing
 risk: P3
 bcps: 2
 spec: e55s01-doctrine-mapping-audit.md
@@ -9,7 +9,7 @@ tasks:
     description: "Enumerate every doctrine source file (CLAUDE.md, CONVENTIONS.md, docs/PRINCIPLES.md, all 46 docs/references/*.md) into a manifest at the top of specs/epics/e55-extract-constitution/e55s01-doctrine-mapping.md."
     verify: "m=specs/epics/e55-extract-constitution/e55s01-doctrine-mapping.md; ok=1; grep -q 'CLAUDE.md' \"$m\" || ok=0; grep -q 'CONVENTIONS.md' \"$m\" || ok=0; grep -q 'docs/PRINCIPLES.md' \"$m\" || ok=0; for f in docs/references/*.md; do grep -q \"$(basename \"$f\")\" \"$m\" || ok=0; done; test $ok -eq 1 && echo OK"
     risk: P3
-    status: failing
+    status: passing
     allure:
       severity: minor
       categories:
@@ -20,7 +20,7 @@ tasks:
     description: "Assign every extracted rule to exactly one of bigspec's 11 blocks (B0-B10) or Capstone, producing one section per block in the mapping doc (using reborn-constitution.md's block definitions as the taxonomy reference only)."
     verify: "m=specs/epics/e55-extract-constitution/e55s01-doctrine-mapping.md; ok=1; for b in 'B0' 'B1' 'B2' 'B3' 'B4' 'B5' 'B6' 'B7' 'B8' 'B9' 'B10' 'Capstone'; do grep -q \"$b\" \"$m\" || ok=0; done; test $ok -eq 1 && echo OK"
     risk: P3
-    status: failing
+    status: passing
     allure:
       severity: minor
       categories:
@@ -30,7 +30,7 @@ tasks:
     description: "Confirm no forward-dated e57/e58/e59 concepts (constitution_version scheme, universal 'every file is an OKF bundle' claim, count-bcp skill) are presented as already-true content in the mapping doc."
     verify: "m=specs/epics/e55-extract-constitution/e55s01-doctrine-mapping.md; grep -qiE 'constitution_version|count-bcp skill' \"$m\" && echo FAIL || echo OK"
     risk: P3
-    status: failing
+    status: passing
     allure:
       severity: minor
       categories:
@@ -40,7 +40,7 @@ tasks:
     description: "Confirm this story makes zero changes to the audited source files themselves (read-only audit) — only the new mapping doc is added."
     verify: "test -z \"$(git status --porcelain -- CLAUDE.md CONVENTIONS.md docs/PRINCIPLES.md docs/references/)\" && echo OK"
     risk: P3
-    status: failing
+    status: passing
     allure:
       severity: minor
       categories:

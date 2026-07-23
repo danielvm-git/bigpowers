@@ -332,7 +332,8 @@ development_status:
   e54s01: done
   e54s02: done
   e54s03: done
-  e55: backlog
+  e55: in_progress
+  e55s01: done
   e56: backlog
   e57: backlog
   e58: backlog
@@ -553,10 +554,10 @@ epics:
     wsjf: 6.7
     total_bcps: 6
   e55:
-    status: backlog
+    status: in_progress
     title: Extract Constitution — Consolidate Doctrine into One File
     wsjf: 6.0
-    total_bcps: 0
+    total_bcps: 2
   e56:
     status: backlog
     title: Reclassify Catalog — Purify Skill to Mean Only Procedure
@@ -2921,3 +2922,14 @@ stories:
     risk_max: P3
     started_at: "2026-07-23T15:00:00Z"
     completed_at: "2026-07-23T15:20:00Z"
+  e55s01:
+    status: done
+    title: "Map every current doctrine source to a B0-B10 + Capstone block"
+    bcps: 2
+    epic: e55
+    tasks_total: 4
+    tasks_passing: 4
+    tasks_failing: 0
+    risk_max: P3
+    started_at: "2026-07-23T19:03:00Z"
+    completed_at: "2026-07-23T19:16:46Z"

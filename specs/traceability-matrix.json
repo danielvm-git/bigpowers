@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-23T18:49:29.946942+00:00",
+  "generated_at": "2026-07-23T19:14:48.569150+00:00",
   "matrix_version": "1.0",
   "stories": [
     {
@@ -3342,6 +3342,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-160627.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260702-165137.md",
           "line": 0,
           "confidence": "medium",
@@ -3565,6 +3571,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-173408.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-160550.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -3931,6 +3943,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-165619.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-154936.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -6138,7 +6156,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 512
+      "link_count": 515
     },
     {
       "id": "e45s19",
@@ -7140,6 +7158,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-160627.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260702-165137.md",
           "line": 0,
           "confidence": "medium",
@@ -7363,6 +7387,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-173408.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-160550.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -7729,6 +7759,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-165619.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-154936.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -9918,7 +9954,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 509
+      "link_count": 512
     },
     {
       "id": "e45s32",
@@ -12660,6 +12696,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/epics-wiki/e55.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/epics-wiki/e28.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -12810,7 +12852,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 156
+      "link_count": 157
     },
     {
       "id": "e48s06",
@@ -14388,6 +14430,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-160627.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260702-165137.md",
           "line": 0,
           "confidence": "medium",
@@ -14611,6 +14659,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-173408.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-160550.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -14977,6 +15031,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-165619.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-154936.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -17400,7 +17460,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 557
+      "link_count": 560
     },
     {
       "id": "e51s05",
@@ -17652,6 +17712,24 @@
           "method": "explicit_tag"
         },
         {
+          "file": "specs/verifications/e54-reverify.md",
+          "line": 62,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/verifications/e54-reverify.md",
+          "line": 72,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/verifications/e54-reverify.md",
+          "line": 111,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "specs/conventions-wiki/semantic-release-the-real-version-is-never-hand-tracked.md",
           "line": 0,
           "confidence": "medium",
@@ -17880,12 +17958,54 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 42
+      "link_count": 45
+    },
+    {
+      "id": "e55s01",
+      "title": "Map every current doctrine source to a B0-B10 + Capstone block",
+      "epic_id": "e55",
+      "epic_title": "Extract Constitution \u2014 Consolidate Doctrine into One File",
+      "bcp": 0,
+      "wsjf": 6.0,
+      "status": "backlog",
+      "links": [
+        {
+          "file": "specs/state.yaml",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e55-extract-constitution/e55s01-doctrine-mapping.md",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e55-extract-constitution/e55s01-doctrine-mapping-audit.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/archive/e33-docs-website/e33s02-source-mapping.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e55-extract-constitution/e55s01-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        }
+      ],
+      "link_count": 5
     }
   ],
   "summary": {
-    "total_stories": 80,
-    "tagged_stories": 70,
+    "total_stories": 81,
+    "tagged_stories": 71,
     "dark_stories": [],
     "dark_count": 0,
     "orphan_tags": [
@@ -18114,9 +18234,9 @@
     ],
     "stale_count": 70,
     "oracle_stats": {
-      "high": 302,
-      "medium": 2459,
-      "low": 59
+      "high": 307,
+      "medium": 2471,
+      "low": 60
     }
   }
 }

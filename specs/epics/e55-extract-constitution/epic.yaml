@@ -33,7 +33,7 @@ note: >
 stories:
   - id: e55s01
     title: "Map every current doctrine source to a B0-B10 + Capstone block"
-    status: failing
+    status: passing
     risk: P3
     bcps: 2
     spec: e55s01-doctrine-mapping-audit.md

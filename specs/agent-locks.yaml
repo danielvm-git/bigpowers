@@ -1,16 +1,1 @@
-# Agent Locks — Multi-Agent Coordination Protocol
-# story: e39s02
-#
-# Schema:
-#   locks:
-#     - story_id: string       # e.g. e30s01
-#       locked_by: string      # agent identifier (session-abc123)
-#       locked_at: string      # ISO 8601 timestamp
-#       files_touched: [string] # list of file paths
-#
-# Protocol:
-#   Acquire — kickoff-branch reads locks, adds entry if story unlocked
-#   Release — release-branch removes entry on completion
-#   Stale   — CI validates no lock >24h old
-
 locks: []

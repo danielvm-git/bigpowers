@@ -1,0 +1,65 @@
+story_id: e55s01
+verified_at: "2026-07-23T19:16:46Z"
+verifier: verify-work
+risk: P3
+phases:
+  preflight:
+    passed: true
+    command: "npm run compliance && bash scripts/run-verification-gates.sh"
+    note: "compliance PASS (95%, threshold 94%, same 4 pre-existing false-positive
+      failures unrelated to this story); GOLDEN suite 11/11 gates PASS"
+  smoke:
+    passed: true
+    note: "N/A — P3 skips smoke per verify-work's own risk-scaling rules; no
+      server/app process, documentation-only story"
+  build:
+    passed: true
+    note: "N/A — no build step"
+  typecheck:
+    passed: true
+    note: "N/A — markdown deliverable, no static type system"
+  lint:
+    passed: true
+    note: "covered by scripts/validate-doctrine.sh and scripts/trace-stories.sh
+      --strict within npm run compliance / Preflight"
+  tests:
+    passed: true
+    note: "P3 story — the 4 task-level verify: commands (below) are the tests"
+  manual:
+    passed: true
+    note: "N/A — P3 skips step-by-step UAT per verify-work's own risk-scaling
+      rules"
+  blind_spots:
+    passed: true
+    high_findings: 0
+    medium_findings: 799
+    low_findings: 70
+    note: "check-blind-spots.sh run against full repo — all MEDIUM/LOW findings
+      are pre-existing double-tag/stale-tag items from prior epics, none
+      introduced by this story's single new file"
+  completeness_critic:
+    passed: true
+    blockers: 0
+    warnings: 0
+task_verify_commands:
+  - task: 1
+    command: "grep manifest coverage for CLAUDE.md, CONVENTIONS.md, docs/PRINCIPLES.md, and all 46 docs/references/*.md in e55s01-doctrine-mapping.md"
+    result: OK
+  - task: 2
+    command: "grep for B0..B10 and Capstone section headers in e55s01-doctrine-mapping.md"
+    result: OK
+  - task: 3
+    command: "grep -qiE 'constitution_version|count-bcp skill' e55s01-doctrine-mapping.md (must NOT match)"
+    result: OK
+  - task: 4
+    command: "git status --porcelain -- CLAUDE.md CONVENTIONS.md docs/PRINCIPLES.md docs/references/ (must be empty)"
+    result: OK
+terminal_verdict:
+  command: "bash scripts/run-verification-gates.sh"
+  exit_code: 0
+  captured_at: "2026-07-23T19:14:00Z"
+  note: "Single contiguous run — Combined verdict: PASS, 11/11 deterministic gates"
+gaps:
+  closed: true
+  note: "No open gaps. All 4 task-level verify commands pass; traceability tag
+    (# story: e55s01) present and trace-stories.sh --strict exits 0."
