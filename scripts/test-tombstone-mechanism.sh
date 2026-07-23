@@ -17,9 +17,10 @@ NC='\033[0m'
 FAILURES=0
 tt_pass() { echo -e "${GREEN}PASS${NC} $1"; }
 tt_fail() { echo -e "${RED}FAIL${NC} $1"; FAILURES=$((FAILURES + 1)); }
+strip_ansi() { sed -E 's/\x1b\[[0-9;]*m//g'; }
 
-FIXTURE_OLD="_test-tombstone-fixture"
-FIXTURE_NEW="_test-tombstone-target"
+FIXTURE_OLD="test-tombstone-fixture"
+FIXTURE_NEW="test-tombstone-target"
 FIXTURE_DIR="skills/${FIXTURE_OLD}"
 TOMBSTONES_FILE="specs/tombstones.yaml"
 TOMBSTONES_BACKUP=""
@@ -52,7 +53,7 @@ mkdir -p "$FIXTURE_DIR"
 cat > "${FIXTURE_DIR}/SKILL.md" <<'FIXTUREEOF'
 # story: e00s00
 ---
-name: _test-tombstone-fixture
+name: test-tombstone-fixture
 description: throwaway fixture for test-tombstone-mechanism.sh
 ---
 Fixture body.
@@ -79,7 +80,7 @@ else
 fi
 
 # --- Scenario: fresh tombstone resolves cleanly ---
-if bash scripts/validate-tombstones.sh 2>&1 | grep -q "OK: ${FIXTURE_OLD}"; then
+if bash scripts/validate-tombstones.sh 2>&1 | strip_ansi | grep -q "OK: ${FIXTURE_OLD}"; then
   tt_pass "validate-tombstones.sh confirms the fresh stub resolves"
 else
   tt_fail "validate-tombstones.sh did not confirm the fresh stub"
@@ -95,7 +96,7 @@ for t in d['tombstones']:
 yaml.dump(d, open('$TOMBSTONES_FILE', 'w'), default_flow_style=False)
 "
 
-if bash scripts/validate-tombstones.sh 2>&1 | grep -qi "EXPIRED: ${FIXTURE_OLD}"; then
+if bash scripts/validate-tombstones.sh 2>&1 | strip_ansi | grep -qi "EXPIRED: ${FIXTURE_OLD}"; then
   tt_pass "validate-tombstones.sh flags a tombstone whose expiry window has passed"
 else
   tt_fail "expired tombstone was not flagged"
