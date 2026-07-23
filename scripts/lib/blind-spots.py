@@ -9,6 +9,8 @@ Usage: called by scripts/check-blind-spots.sh with positional args:
       <exec_status_yaml> <matrix_json> <verifications_dir> <epics_dir>
 """
 
+from __future__ import annotations
+
 import json, os, re, sys
 from pathlib import Path
 from datetime import datetime, timezone
