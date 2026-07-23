@@ -4,7 +4,7 @@ wsjf: 8.0
 bcps: 9
 capsule_dir: epics/e53-establish-migration-baseline
 mode: capsule
-status: in_progress
+status: done
 depends_on: []
 source: |
   Fable wayfinding session (assess-and-recommend, 2026-07-18) proposed a 5-phase
