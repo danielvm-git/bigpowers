@@ -38,11 +38,24 @@ for pattern in "${required_patterns[@]}"; do
   fi
 done
 
+# git check-ignore on a directory-only pattern (.venv/) only matches when the
+# path is confirmed to be a directory — a nonexistent .venv (e.g. a fresh
+# kickoff-branch worktree, before setup-environment runs) reports as "not
+# ignored" even when the pattern is correct. Create it if absent so the check
+# is independent of prior local setup; remove it again only if we created it.
+CREATED_VENV=0
+if [ ! -e .venv ]; then
+  mkdir .venv
+  CREATED_VENV=1
+fi
+
 if git check-ignore -q .venv 2>/dev/null; then
   g11_pass "git check-ignore .venv"
 else
   g11_fail "git check-ignore .venv (path not ignored)"
 fi
+
+[ "$CREATED_VENV" -eq 1 ] && rmdir .venv 2>/dev/null || true
 
 echo ""
 echo "G-11 summary: $PASS passed, $FAIL failed"
