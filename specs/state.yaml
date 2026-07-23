@@ -1,4 +1,4 @@
-active_flow: planning
+active_flow: build_epic
 active_epic: e53
 active_story: e53s01
 bug_id: null
@@ -19,11 +19,11 @@ handoff:
   next_skill: kickoff-branch
   epic: e53
 epic_cycle:
-  step: 2
-  fast_mode: false
+  step: 3
+  fast_mode: true
   story_bcps: 1
   audit_result: null
-  completed_steps: 0,1
+  completed_steps: "0,1,2"
 metrics:
   story_start: '2026-07-07T21:58:00Z'
   story_end: '2026-07-07T22:30:00Z'

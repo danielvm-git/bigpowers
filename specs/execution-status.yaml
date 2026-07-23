@@ -2824,12 +2824,13 @@ stories:
     tasks_failing: 0
     risk_max: P1
   e53s01:
-    status: backlog
+    status: in_progress
     title: Commit the untracked GOLDEN baseline
     bcps: 1
     epic: e53
     tasks_total: 3
     tasks_passing: 0
+    started_at: "2026-07-23T05:00:43Z"
     tasks_failing: 0
   e53s02:
     status: backlog
