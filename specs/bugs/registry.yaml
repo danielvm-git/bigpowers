@@ -350,3 +350,11 @@ bugs:
     file: bugs/BUG-2026-07-09T033939-golden-g01-submodule-checkout.md
     risk_level: "low"
     commit_message: "fix(ci): remove embedded git repo tests/fixtures/.tmp-v1.x causing submodule checkout failures"
+  - id: BUG-2026-07-23-golden-g11-worktree-venv
+    status: fixed
+    severity: medium
+    scope: ci
+    title: "G-11 gitignore-venv gate false-fails in fresh git worktrees before .venv exists"
+    file: bugs/BUG-2026-07-23-golden-g11-worktree-venv.md
+    risk_level: "low"
+    commit_message: "fix(ci): make G-11 venv-ignore check independent of .venv's on-disk existence"
