@@ -1,96 +1,19 @@
 {
-  "generated_at": "2026-07-23T05:14:40.114609+00:00",
+  "generated_at": "2026-07-23T05:23:44.210254+00:00",
   "version": "1.0",
   "summary": {
-    "total_findings": 797,
+    "total_findings": 612,
     "high": 0,
-    "medium": 730,
+    "medium": 545,
     "low": 67
   },
   "findings": [
     {
       "check": "stale-tag",
-      "story_id": "e45s37",
+      "story_id": "e51s04",
       "severity": "LOW",
-      "description": "Story e45s37 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s37` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e48s13",
-      "severity": "LOW",
-      "description": "Story e48s13 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e48s13` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e37s05",
-      "severity": "LOW",
-      "description": "Story e37s05 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e37s05` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s31",
-      "severity": "LOW",
-      "description": "Story e45s31 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s31` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s32",
-      "severity": "LOW",
-      "description": "Story e45s32 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s32` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s36",
-      "severity": "LOW",
-      "description": "Story e45s36 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s36` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e37s06",
-      "severity": "LOW",
-      "description": "Story e37s06 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e37s06` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s08",
-      "severity": "LOW",
-      "description": "Story e45s08 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s08` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s03",
-      "severity": "LOW",
-      "description": "Story e45s03 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s03` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s12",
-      "severity": "LOW",
-      "description": "Story e45s12 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s12` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s16",
-      "severity": "LOW",
-      "description": "Story e45s16 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s16` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s34",
-      "severity": "LOW",
-      "description": "Story e45s34 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s34` tags from files or confirm the story should remain done"
+      "description": "Story e51s04 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e51s04` tags from files or confirm the story should remain done"
     },
     {
       "check": "stale-tag",
@@ -101,311 +24,10 @@
     },
     {
       "check": "stale-tag",
-      "story_id": "e37s08",
-      "severity": "LOW",
-      "description": "Story e37s08 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e37s08` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s18",
-      "severity": "LOW",
-      "description": "Story e45s18 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s18` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e48s12",
-      "severity": "LOW",
-      "description": "Story e48s12 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e48s12` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s11",
-      "severity": "LOW",
-      "description": "Story e45s11 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s11` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s26",
-      "severity": "LOW",
-      "description": "Story e45s26 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s26` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s14",
-      "severity": "LOW",
-      "description": "Story e45s14 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s14` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s10",
-      "severity": "LOW",
-      "description": "Story e45s10 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s10` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s07",
-      "severity": "LOW",
-      "description": "Story e45s07 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s07` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e48s08",
-      "severity": "LOW",
-      "description": "Story e48s08 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e48s08` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e37s07",
-      "severity": "LOW",
-      "description": "Story e37s07 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e37s07` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e37s04",
-      "severity": "LOW",
-      "description": "Story e37s04 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e37s04` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s21",
-      "severity": "LOW",
-      "description": "Story e45s21 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s21` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e37s03",
-      "severity": "LOW",
-      "description": "Story e37s03 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e37s03` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s29",
-      "severity": "LOW",
-      "description": "Story e45s29 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s29` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s25",
-      "severity": "LOW",
-      "description": "Story e45s25 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s25` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e48s07",
-      "severity": "LOW",
-      "description": "Story e48s07 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e48s07` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e51s05",
-      "severity": "LOW",
-      "description": "Story e51s05 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e51s05` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s06",
-      "severity": "LOW",
-      "description": "Story e45s06 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s06` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e48s14",
-      "severity": "LOW",
-      "description": "Story e48s14 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e48s14` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e37s15",
-      "severity": "LOW",
-      "description": "Story e37s15 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e37s15` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s23",
-      "severity": "LOW",
-      "description": "Story e45s23 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s23` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s27",
-      "severity": "LOW",
-      "description": "Story e45s27 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s27` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e37s09",
-      "severity": "LOW",
-      "description": "Story e37s09 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e37s09` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s01",
-      "severity": "LOW",
-      "description": "Story e45s01 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s01` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
       "story_id": "e48s03",
       "severity": "LOW",
       "description": "Story e48s03 is marked done but still has story tags in code",
       "remediation": "Remove `// story: e48s03` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s39",
-      "severity": "LOW",
-      "description": "Story e45s39 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s39` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s35",
-      "severity": "LOW",
-      "description": "Story e45s35 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s35` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s13",
-      "severity": "LOW",
-      "description": "Story e45s13 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s13` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e51s04",
-      "severity": "LOW",
-      "description": "Story e51s04 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e51s04` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s02",
-      "severity": "LOW",
-      "description": "Story e45s02 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s02` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e51s01",
-      "severity": "LOW",
-      "description": "Story e51s01 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e51s01` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e48s01",
-      "severity": "LOW",
-      "description": "Story e48s01 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e48s01` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e37s10",
-      "severity": "LOW",
-      "description": "Story e37s10 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e37s10` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s17",
-      "severity": "LOW",
-      "description": "Story e45s17 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s17` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s41",
-      "severity": "LOW",
-      "description": "Story e45s41 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s41` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s05",
-      "severity": "LOW",
-      "description": "Story e45s05 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s05` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s22",
-      "severity": "LOW",
-      "description": "Story e45s22 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s22` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s38",
-      "severity": "LOW",
-      "description": "Story e45s38 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s38` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e37s01",
-      "severity": "LOW",
-      "description": "Story e37s01 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e37s01` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s30",
-      "severity": "LOW",
-      "description": "Story e45s30 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s30` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s15",
-      "severity": "LOW",
-      "description": "Story e45s15 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s15` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e51s02",
-      "severity": "LOW",
-      "description": "Story e51s02 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e51s02` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e37s02",
-      "severity": "LOW",
-      "description": "Story e37s02 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e37s02` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s33",
-      "severity": "LOW",
-      "description": "Story e45s33 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s33` tags from files or confirm the story should remain done"
     },
     {
       "check": "stale-tag",
@@ -416,45 +38,17 @@
     },
     {
       "check": "stale-tag",
-      "story_id": "e37s13",
+      "story_id": "e45s37",
       "severity": "LOW",
-      "description": "Story e37s13 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e37s13` tags from files or confirm the story should remain done"
+      "description": "Story e45s37 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s37` tags from files or confirm the story should remain done"
     },
     {
       "check": "stale-tag",
-      "story_id": "e45s40",
+      "story_id": "e37s15",
       "severity": "LOW",
-      "description": "Story e45s40 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s40` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e51s03",
-      "severity": "LOW",
-      "description": "Story e51s03 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e51s03` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e37s12",
-      "severity": "LOW",
-      "description": "Story e37s12 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e37s12` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e45s28",
-      "severity": "LOW",
-      "description": "Story e45s28 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s28` tags from files or confirm the story should remain done"
-    },
-    {
-      "check": "stale-tag",
-      "story_id": "e48s15",
-      "severity": "LOW",
-      "description": "Story e48s15 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e48s15` tags from files or confirm the story should remain done"
+      "description": "Story e37s15 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e37s15` tags from files or confirm the story should remain done"
     },
     {
       "check": "stale-tag",
@@ -465,6 +59,90 @@
     },
     {
       "check": "stale-tag",
+      "story_id": "e45s20",
+      "severity": "LOW",
+      "description": "Story e45s20 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s20` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e37s07",
+      "severity": "LOW",
+      "description": "Story e37s07 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e37s07` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s23",
+      "severity": "LOW",
+      "description": "Story e45s23 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s23` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e48s07",
+      "severity": "LOW",
+      "description": "Story e48s07 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e48s07` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e48s08",
+      "severity": "LOW",
+      "description": "Story e48s08 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e48s08` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s35",
+      "severity": "LOW",
+      "description": "Story e45s35 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s35` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e37s06",
+      "severity": "LOW",
+      "description": "Story e37s06 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e37s06` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s32",
+      "severity": "LOW",
+      "description": "Story e45s32 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s32` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s02",
+      "severity": "LOW",
+      "description": "Story e45s02 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s02` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e37s12",
+      "severity": "LOW",
+      "description": "Story e37s12 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e37s12` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s11",
+      "severity": "LOW",
+      "description": "Story e45s11 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s11` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s34",
+      "severity": "LOW",
+      "description": "Story e45s34 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s34` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
       "story_id": "e37s11",
       "severity": "LOW",
       "description": "Story e37s11 is marked done but still has story tags in code",
@@ -472,10 +150,332 @@
     },
     {
       "check": "stale-tag",
-      "story_id": "e45s20",
+      "story_id": "e37s01",
       "severity": "LOW",
-      "description": "Story e45s20 is marked done but still has story tags in code",
-      "remediation": "Remove `// story: e45s20` tags from files or confirm the story should remain done"
+      "description": "Story e37s01 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e37s01` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s41",
+      "severity": "LOW",
+      "description": "Story e45s41 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s41` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s16",
+      "severity": "LOW",
+      "description": "Story e45s16 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s16` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s01",
+      "severity": "LOW",
+      "description": "Story e45s01 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s01` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s30",
+      "severity": "LOW",
+      "description": "Story e45s30 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s30` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s36",
+      "severity": "LOW",
+      "description": "Story e45s36 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s36` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e51s05",
+      "severity": "LOW",
+      "description": "Story e51s05 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e51s05` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s12",
+      "severity": "LOW",
+      "description": "Story e45s12 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s12` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e51s03",
+      "severity": "LOW",
+      "description": "Story e51s03 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e51s03` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e51s02",
+      "severity": "LOW",
+      "description": "Story e51s02 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e51s02` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s22",
+      "severity": "LOW",
+      "description": "Story e45s22 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s22` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s06",
+      "severity": "LOW",
+      "description": "Story e45s06 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s06` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s29",
+      "severity": "LOW",
+      "description": "Story e45s29 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s29` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s40",
+      "severity": "LOW",
+      "description": "Story e45s40 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s40` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e48s12",
+      "severity": "LOW",
+      "description": "Story e48s12 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e48s12` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s25",
+      "severity": "LOW",
+      "description": "Story e45s25 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s25` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s15",
+      "severity": "LOW",
+      "description": "Story e45s15 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s15` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s33",
+      "severity": "LOW",
+      "description": "Story e45s33 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s33` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e37s05",
+      "severity": "LOW",
+      "description": "Story e37s05 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e37s05` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e48s13",
+      "severity": "LOW",
+      "description": "Story e48s13 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e48s13` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s08",
+      "severity": "LOW",
+      "description": "Story e45s08 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s08` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e48s14",
+      "severity": "LOW",
+      "description": "Story e48s14 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e48s14` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s26",
+      "severity": "LOW",
+      "description": "Story e45s26 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s26` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e37s09",
+      "severity": "LOW",
+      "description": "Story e37s09 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e37s09` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s21",
+      "severity": "LOW",
+      "description": "Story e45s21 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s21` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s03",
+      "severity": "LOW",
+      "description": "Story e45s03 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s03` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s14",
+      "severity": "LOW",
+      "description": "Story e45s14 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s14` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s17",
+      "severity": "LOW",
+      "description": "Story e45s17 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s17` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s07",
+      "severity": "LOW",
+      "description": "Story e45s07 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s07` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s10",
+      "severity": "LOW",
+      "description": "Story e45s10 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s10` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s31",
+      "severity": "LOW",
+      "description": "Story e45s31 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s31` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s27",
+      "severity": "LOW",
+      "description": "Story e45s27 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s27` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s39",
+      "severity": "LOW",
+      "description": "Story e45s39 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s39` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e37s08",
+      "severity": "LOW",
+      "description": "Story e37s08 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e37s08` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e37s13",
+      "severity": "LOW",
+      "description": "Story e37s13 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e37s13` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s18",
+      "severity": "LOW",
+      "description": "Story e45s18 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s18` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e48s01",
+      "severity": "LOW",
+      "description": "Story e48s01 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e48s01` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e37s04",
+      "severity": "LOW",
+      "description": "Story e37s04 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e37s04` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s38",
+      "severity": "LOW",
+      "description": "Story e45s38 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s38` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s05",
+      "severity": "LOW",
+      "description": "Story e45s05 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s05` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e51s01",
+      "severity": "LOW",
+      "description": "Story e51s01 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e51s01` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s13",
+      "severity": "LOW",
+      "description": "Story e45s13 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s13` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e37s10",
+      "severity": "LOW",
+      "description": "Story e37s10 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e37s10` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e45s28",
+      "severity": "LOW",
+      "description": "Story e45s28 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e45s28` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e37s02",
+      "severity": "LOW",
+      "description": "Story e37s02 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e37s02` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e37s03",
+      "severity": "LOW",
+      "description": "Story e37s03 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e37s03` tags from files or confirm the story should remain done"
+    },
+    {
+      "check": "stale-tag",
+      "story_id": "e48s15",
+      "severity": "LOW",
+      "description": "Story e48s15 is marked done but still has story tags in code",
+      "remediation": "Remove `// story: e48s15` tags from files or confirm the story should remain done"
     },
     {
       "check": "double-tag",
@@ -608,6 +608,13 @@
       "file": "scripts/adapters/gemini.sh",
       "severity": "MEDIUM",
       "description": "File 'scripts/adapters/gemini.sh' is tagged with multiple stories: e37s05, e48s15",
+      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
+    },
+    {
+      "check": "double-tag",
+      "file": "specs/verifications/steps/and-i-should-explain-the-code-s-purpose-and-callers-before-modifying-zoom-out.sh",
+      "severity": "MEDIUM",
+      "description": "File 'specs/verifications/steps/and-i-should-explain-the-code-s-purpose-and-callers-before-modifying-zoom-out.sh' is tagged with multiple stories: e37s05, e54s02, e54s03",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -761,7 +768,7 @@
       "check": "double-tag",
       "file": "specs/verifications/steps/then-skills-should-include-bold-hard-gate-callout-blocks.sh",
       "severity": "MEDIUM",
-      "description": "File 'specs/verifications/steps/then-skills-should-include-bold-hard-gate-callout-blocks.sh' is tagged with multiple stories: e45s02, e45s12, e48s05, e48s08, e51s03, e53s03",
+      "description": "File 'specs/verifications/steps/then-skills-should-include-bold-hard-gate-callout-blocks.sh' is tagged with multiple stories: e45s02, e45s12, e48s05, e48s08, e51s03, e53s03, e54s01, e54s02",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -1060,6 +1067,27 @@
     },
     {
       "check": "double-tag",
+      "file": "specs/epics/e54-freeze-catalog-drift/e54s02-tasks.yaml",
+      "severity": "MEDIUM",
+      "description": "File 'specs/epics/e54-freeze-catalog-drift/e54s02-tasks.yaml' is tagged with multiple stories: e45s06, e54s02, e54s03",
+      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
+    },
+    {
+      "check": "double-tag",
+      "file": "specs/epics/e54-freeze-catalog-drift/e54s01-tasks.yaml",
+      "severity": "MEDIUM",
+      "description": "File 'specs/epics/e54-freeze-catalog-drift/e54s01-tasks.yaml' is tagged with multiple stories: e45s06, e54s01",
+      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
+    },
+    {
+      "check": "double-tag",
+      "file": "specs/epics/e54-freeze-catalog-drift/e54s03-tasks.yaml",
+      "severity": "MEDIUM",
+      "description": "File 'specs/epics/e54-freeze-catalog-drift/e54s03-tasks.yaml' is tagged with multiple stories: e45s06, e54s02, e54s03",
+      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
+    },
+    {
+      "check": "double-tag",
       "file": "skills/request-review/SKILL.md",
       "severity": "MEDIUM",
       "description": "File 'skills/request-review/SKILL.md' is tagged with multiple stories: e45s07, e45s17, e45s28",
@@ -1125,7 +1153,7 @@
       "check": "double-tag",
       "file": "specs/verifications/steps/and-i-should-enforce-a-two-stage-review-gate.sh",
       "severity": "MEDIUM",
-      "description": "File 'specs/verifications/steps/and-i-should-enforce-a-two-stage-review-gate.sh' is tagged with multiple stories: e45s07, e45s17, e45s32, e48s04, e48s05, e48s08, e48s13, e51s03, e53s03",
+      "description": "File 'specs/verifications/steps/and-i-should-enforce-a-two-stage-review-gate.sh' is tagged with multiple stories: e45s07, e45s17, e45s32, e48s04, e48s05, e48s08, e48s13, e51s03, e53s03, e54s02",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -1361,16 +1389,30 @@
     },
     {
       "check": "double-tag",
+      "file": "specs/verifications/steps/and-exceptions-should-be-preferred-over-error-codes.sh",
+      "severity": "MEDIUM",
+      "description": "File 'specs/verifications/steps/and-exceptions-should-be-preferred-over-error-codes.sh' is tagged with multiple stories: e45s09, e54s03",
+      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
+    },
+    {
+      "check": "double-tag",
+      "file": "specs/verifications/steps/and-i-should-prioritize-the-minimum-viable-implementation.sh",
+      "severity": "MEDIUM",
+      "description": "File 'specs/verifications/steps/and-i-should-prioritize-the-minimum-viable-implementation.sh' is tagged with multiple stories: e45s09, e54s03",
+      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
+    },
+    {
+      "check": "double-tag",
       "file": "specs/verifications/steps/and-the-plan-contains-a-risk-matrix.sh",
       "severity": "MEDIUM",
-      "description": "File 'specs/verifications/steps/and-the-plan-contains-a-risk-matrix.sh' is tagged with multiple stories: e45s09, e45s25",
+      "description": "File 'specs/verifications/steps/and-the-plan-contains-a-risk-matrix.sh' is tagged with multiple stories: e45s09, e45s25, e54s03",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
       "check": "double-tag",
       "file": "specs/verifications/steps/and-the-plan-specifies-test-levels-and-fixture-architectures.sh",
       "severity": "MEDIUM",
-      "description": "File 'specs/verifications/steps/and-the-plan-specifies-test-levels-and-fixture-architectures.sh' is tagged with multiple stories: e45s09, e48s11, e51s04",
+      "description": "File 'specs/verifications/steps/and-the-plan-specifies-test-levels-and-fixture-architectures.sh' is tagged with multiple stories: e45s09, e48s11, e51s04, e54s03",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -1382,6 +1424,20 @@
     },
     {
       "check": "double-tag",
+      "file": "specs/verifications/steps/and-the-directory-structure-should-be-predictable.sh",
+      "severity": "MEDIUM",
+      "description": "File 'specs/verifications/steps/and-the-directory-structure-should-be-predictable.sh' is tagged with multiple stories: e45s09, e54s03",
+      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
+    },
+    {
+      "check": "double-tag",
+      "file": "specs/verifications/steps/and-the-plan-contains-scenario-ids-in-the-format-sc-ennsyy-p-0-1-2-3-nn.sh",
+      "severity": "MEDIUM",
+      "description": "File 'specs/verifications/steps/and-the-plan-contains-scenario-ids-in-the-format-sc-ennsyy-p-0-1-2-3-nn.sh' is tagged with multiple stories: e45s09, e54s02, e54s03",
+      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
+    },
+    {
+      "check": "double-tag",
       "file": "specs/verifications/steps/and-it-must-prohibit-direct-work-on-main-master-branches.sh",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/steps/and-it-must-prohibit-direct-work-on-main-master-branches.sh' is tagged with multiple stories: e45s09, e51s03",
@@ -1389,9 +1445,16 @@
     },
     {
       "check": "double-tag",
+      "file": "specs/bugs/BUG-2026-07-23-golden-g11-worktree-venv.md",
+      "severity": "MEDIUM",
+      "description": "File 'specs/bugs/BUG-2026-07-23-golden-g11-worktree-venv.md' is tagged with multiple stories: e45s09, e48s03",
+      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
+    },
+    {
+      "check": "double-tag",
       "file": "specs/tech-architecture/PLAN-add-hard-gates.md",
       "severity": "MEDIUM",
-      "description": "File 'specs/tech-architecture/PLAN-add-hard-gates.md' is tagged with multiple stories: e45s09, e48s05, e48s08, e51s03, e53s03",
+      "description": "File 'specs/tech-architecture/PLAN-add-hard-gates.md' is tagged with multiple stories: e45s09, e48s05, e48s08, e51s03, e53s03, e54s02",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -1455,6 +1518,13 @@
       "file": ".pi/skills/dispatch-agents/SKILL.md",
       "severity": "MEDIUM",
       "description": "File '.pi/skills/dispatch-agents/SKILL.md' is tagged with multiple stories: e45s11, e45s30, e45s38",
+      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
+    },
+    {
+      "check": "double-tag",
+      "file": "scripts/validate-skill-catalog.sh",
+      "severity": "MEDIUM",
+      "description": "File 'scripts/validate-skill-catalog.sh' is tagged with multiple stories: e45s12, e54s01",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -1655,20 +1725,6 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-190334.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-190334.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260713-144556.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260713-144556.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260703-175346.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260703-175346.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
@@ -1683,37 +1739,9 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-102313.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-102313.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260703-163934.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260703-163934.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260705-202335.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260705-202335.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-145222.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-145222.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-165427.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-165427.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -1732,37 +1760,9 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-155647.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-155647.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-181947.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-181947.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-212931.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-212931.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260703-160106.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260703-160106.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-180858.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-180858.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -1777,41 +1777,6 @@
       "file": "specs/verifications/reports/audit-cleancode-20260704-143153.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260704-143153.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-215320.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-215320.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-172717.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-172717.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-174039.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-174039.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-212830.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-212830.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260705-182718.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260705-182718.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -1833,13 +1798,6 @@
       "file": "specs/verifications/reports/audit-cleancode-20260703-122420.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260703-122420.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-183547.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-183547.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -1900,34 +1858,6 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260718-205519.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260718-205519.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-101228.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-101228.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-102150.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-102150.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-214411.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-214411.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260622-001710.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260622-001710.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
@@ -1945,20 +1875,6 @@
       "file": "specs/verifications/reports/audit-cleancode-20260704-000102.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260704-000102.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-001605.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-001605.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-105239.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-105239.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -1984,27 +1900,6 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-101847.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-101847.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-173628.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-173628.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260705-182629.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260705-182629.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260703-165703.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260703-165703.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
@@ -2012,23 +1907,9 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260713-143839.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260713-143839.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260703-163159.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260703-163159.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260711-001225.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260711-001225.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -2047,37 +1928,9 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-185319.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-185319.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-183644.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-183644.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-215759.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-215759.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260629-132810.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260629-132810.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-001328.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-001328.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -2096,30 +1949,9 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-202226.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-202226.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260705-164609.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260705-164609.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-192340.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-192340.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-165651.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-165651.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -2138,30 +1970,9 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260713-134603.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260713-134603.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260703-163954.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260703-163954.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260718-210053.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260718-210053.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-190002.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-190002.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -2176,13 +1987,6 @@
       "file": "specs/verifications/reports/audit-cleancode-20260705-164251.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260705-164251.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260713-140513.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260713-140513.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -2229,13 +2033,6 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-101730.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-101730.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260705-170710.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260705-170710.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
@@ -2250,48 +2047,6 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-205711.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-205711.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-182236.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-182236.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-135136.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-135136.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-213042.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-213042.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-134029.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-134029.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-164826.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-164826.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260702-223023.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260702-223023.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
@@ -2299,23 +2054,9 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-134126.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-134126.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260703-162245.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260703-162245.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-114127.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-114127.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -2348,13 +2089,6 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-181604.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-181604.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260705-163821.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260705-163821.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
@@ -2376,20 +2110,6 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-110149.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-110149.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-105711.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-105711.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260703-181656.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260703-181656.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
@@ -2397,9 +2117,9 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-174414.md",
+      "file": "specs/verifications/reports/audit-cleancode-20260723-020214.md",
       "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-174414.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
+      "description": "File 'specs/verifications/reports/audit-cleancode-20260723-020214.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -2411,23 +2131,9 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-192541.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-192541.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260703-233740.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260703-233740.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-173515.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-173515.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -2439,37 +2145,9 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-190415.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-190415.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-192435.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-192435.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260703-125910.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260703-125910.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-215656.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-215656.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260713-135950.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260713-135950.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -2495,13 +2173,6 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-132530.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-132530.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260703-174045.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260703-174045.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
@@ -2523,23 +2194,9 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-133945.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-133945.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260703-174055.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260703-174055.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-001312.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-001312.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -2607,34 +2264,6 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-105145.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-105145.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-184319.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-184319.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-193609.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-193609.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-174351.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-174351.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260703-154353.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260703-154353.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
@@ -2642,30 +2271,9 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-131211.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-131211.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260703-130715.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260703-130715.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260705-182555.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260705-182555.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-124641.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-124641.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -2684,23 +2292,9 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-120114.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-120114.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260703-234357.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260703-234357.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-235505.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-235505.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -2740,13 +2334,6 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-001100.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-001100.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260704-150417.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260704-150417.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
@@ -2775,13 +2362,6 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-185913.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-185913.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260702-154427.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260702-154427.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
@@ -2789,30 +2369,9 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260713-140559.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260713-140559.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260703-163136.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260703-163136.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-001518.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-001518.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260721-184837.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260721-184837.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -2838,20 +2397,6 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-154541.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-154541.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-111510.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-111510.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260705-180901.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260705-180901.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
@@ -2862,20 +2407,6 @@
       "file": "specs/verifications/reports/audit-cleancode-20260702-133532.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260702-133532.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-145423.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-145423.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-141624.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-141624.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -2901,9 +2432,9 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-181236.md",
+      "file": "specs/verifications/reports/audit-cleancode-20260723-021137.md",
       "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-181236.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
+      "description": "File 'specs/verifications/reports/audit-cleancode-20260723-021137.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -2922,37 +2453,9 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-145349.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-145349.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260718-205433.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260718-205433.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-132944.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-132944.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260704-091141.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260704-091141.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-184856.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-184856.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -2971,44 +2474,16 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-182836.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-182836.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260705-202450.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260705-202450.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260705-194130.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260705-194130.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-213831.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-213831.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-174245.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-174245.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260703-005800.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260703-005800.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
+      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
+    },
+    {
+      "check": "double-tag",
+      "file": "specs/verifications/reports/audit-cleancode-20260723-020915.md",
+      "severity": "MEDIUM",
+      "description": "File 'specs/verifications/reports/audit-cleancode-20260723-020915.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -3034,30 +2509,9 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260709-005225.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260709-005225.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260703-143007.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260703-143007.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-171058.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-171058.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-150742.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-150742.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -3125,37 +2579,9 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-154637.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-154637.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-001919.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-001919.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260703-220941.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260703-220941.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-174117.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-174117.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-120150.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-120150.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -3181,37 +2607,9 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260705-182807.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260705-182807.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-173917.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-173917.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-185210.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-185210.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260705-165256.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260705-165256.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-192433.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-192433.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -3223,30 +2621,9 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-105013.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-105013.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260702-200110.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260702-200110.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-114242.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-114242.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260709-001233.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260709-001233.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -3258,13 +2635,6 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260709-002229.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260709-002229.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260704-144202.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260704-144202.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
@@ -3272,30 +2642,9 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-183102.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-183102.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-133837.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-133837.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260703-233707.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260703-233707.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-212919.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-212919.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -3321,30 +2670,9 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-164345.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-164345.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-120250.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-120250.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260705-165035.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260705-165035.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-112952.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-112952.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -3363,41 +2691,6 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260705-194053.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260705-194053.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260709-001439.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260709-001439.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260705-202651.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260705-202651.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260713-143840.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260713-143840.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-000955.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-000955.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260703-144557.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260703-144557.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
@@ -3408,20 +2701,6 @@
       "file": "specs/verifications/reports/audit-cleancode-20260703-174133.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260703-174133.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-115538.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-115538.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-113034.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-113034.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -3454,20 +2733,6 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-132813.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-132813.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-120815.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-120815.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260705-165959.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260705-165959.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
@@ -3482,13 +2747,6 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-164759.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-164759.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260703-155747.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260703-155747.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
@@ -3496,23 +2754,9 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-173218.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-173218.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260626-204822.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260626-204822.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260705-202348.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260705-202348.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -3531,13 +2775,6 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-113257.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-113257.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260705-181044.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260705-181044.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
@@ -3552,37 +2789,9 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-133458.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-133458.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260705-164823.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260705-164823.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-180900.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-180900.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-120136.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-120136.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-104009.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-104009.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -3604,13 +2813,6 @@
       "file": "specs/verifications/reports/audit-cleancode-20260704-081735.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260704-081735.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-154818.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-154818.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -3643,13 +2845,6 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-173837.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-173837.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260705-170738.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260705-170738.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
@@ -3674,13 +2869,6 @@
       "file": "specs/verifications/reports/audit-cleancode-20260703-153801.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260703-153801.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260705-194215.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260705-194215.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -3713,30 +2901,9 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-084719.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-084719.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260704-171157.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260704-171157.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-183350.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-183350.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-150937.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-150937.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -3762,20 +2929,6 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-110050.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-110050.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260709-001337.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260709-001337.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260627-133613.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260627-133613.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
@@ -3797,13 +2950,6 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-220404.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-220404.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260704-085740.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260704-085740.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
@@ -3814,13 +2960,6 @@
       "file": "specs/verifications/reports/audit-cleancode-20260702-223359.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260702-223359.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260705-193756.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260705-193756.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -3846,23 +2985,9 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260705-202442.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260705-202442.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260705-164319.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260705-164319.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-164036.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-164036.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -3888,20 +3013,6 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-214125.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-214125.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-132604.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-132604.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260703-142359.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260703-142359.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
@@ -3909,23 +3020,9 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-132933.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-132933.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260705-175550.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260705-175550.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-174408.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-174408.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -3944,13 +3041,6 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260705-182339.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260705-182339.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260705-165418.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260705-165418.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
@@ -3965,13 +3055,6 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-155114.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-155114.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260703-005655.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260703-005655.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
@@ -3982,13 +3065,6 @@
       "file": "specs/verifications/reports/audit-cleancode-20260705-165222.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260705-165222.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-131140.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-131140.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -4010,6 +3086,13 @@
       "file": "specs/verifications/reports/audit-cleancode-20260703-181546.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260703-181546.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
+      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
+    },
+    {
+      "check": "double-tag",
+      "file": "specs/verifications/reports/audit-cleancode-20260723-020155.md",
+      "severity": "MEDIUM",
+      "description": "File 'specs/verifications/reports/audit-cleancode-20260723-020155.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -4056,13 +3139,6 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260705-202558.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260705-202558.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260705-170940.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260705-170940.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
@@ -4070,44 +3146,9 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-163657.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-163657.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-215213.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-215213.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-204345.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-204345.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-212711.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-212711.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260703-153739.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260703-153739.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-175227.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-175227.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -4122,48 +3163,6 @@
       "file": "specs/verifications/reports/audit-cleancode-20260621-225313.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260621-225313.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260721-093336.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260721-093336.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-132207.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-132207.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-105058.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-105058.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-084617.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-084617.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-084805.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-084805.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-174631.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-174631.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -4189,37 +3188,9 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260709-002322.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260709-002322.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260705-164429.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260705-164429.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260713-135838.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260713-135838.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260713-152233.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260713-152233.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-181159.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-181159.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -4252,13 +3223,6 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-115557.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-115557.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260703-221847.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260703-221847.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
@@ -4273,65 +3237,9 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-212552.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-212552.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-181706.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-181706.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-001702.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-001702.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-132130.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-132130.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260705-182429.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260705-182429.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260705-163956.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260705-163956.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260709-001902.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260709-001902.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260721-093246.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260721-093246.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-204300.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-204300.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -4357,20 +3265,6 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-132858.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-132858.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-174710.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-174710.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260705-165902.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260705-165902.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
@@ -4385,30 +3279,9 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-001029.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-001029.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260703-172425.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260703-172425.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-145255.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-145255.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-133730.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-133730.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -4420,13 +3293,6 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-175929.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-175929.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260703-172525.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260703-172525.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
@@ -4434,30 +3300,9 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-184658.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-184658.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260705-194009.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260705-194009.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260629-130359.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260629-130359.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-190539.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-190539.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -4476,44 +3321,9 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-163613.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-163613.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-173429.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-173429.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260703-142458.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260703-142458.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260709-005318.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260709-005318.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-235409.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-235409.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260709-001952.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260709-001952.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -4532,37 +3342,9 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260709-002154.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260709-002154.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-171134.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-171134.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260621-182630.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260621-182630.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-165733.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-165733.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-084911.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-084911.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -4588,44 +3370,9 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260705-182346.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260705-182346.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-115503.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-115503.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260621-231038.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260621-231038.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-123626.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-123626.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-184355.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-184355.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-172751.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-172751.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -4637,37 +3384,9 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-101633.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-101633.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-103924.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-103924.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260707-101425.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260707-101425.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260705-163837.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260705-163837.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-175105.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-175105.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -4686,16 +3405,16 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260705-175152.md",
+      "file": "specs/verifications/reports/audit-cleancode-20260723-020859.md",
       "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260705-175152.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
+      "description": "File 'specs/verifications/reports/audit-cleancode-20260723-020859.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-234704.md",
+      "file": "specs/verifications/reports/audit-cleancode-20260705-175152.md",
       "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-234704.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
+      "description": "File 'specs/verifications/reports/audit-cleancode-20260705-175152.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -4714,30 +3433,9 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-214329.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-214329.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
       "file": "specs/verifications/reports/audit-cleancode-20260704-144506.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-cleancode-20260704-144506.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260718-210010.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260718-210010.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-cleancode-20260706-173306.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-cleancode-20260706-173306.md' is tagged with multiple stories: e45s18, e45s31, e51s04",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -4821,7 +3519,7 @@
       "check": "double-tag",
       "file": "specs/verifications/steps/and-there-should-be-no-ignored-tests-without-an-explicit-ambiguity-note-t4.sh",
       "severity": "MEDIUM",
-      "description": "File 'specs/verifications/steps/and-there-should-be-no-ignored-tests-without-an-explicit-ambiguity-note-t4.sh' is tagged with multiple stories: e45s19, e48s10, e48s11",
+      "description": "File 'specs/verifications/steps/and-there-should-be-no-ignored-tests-without-an-explicit-ambiguity-note-t4.sh' is tagged with multiple stories: e45s19, e48s10, e48s11, e54s03",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -4885,6 +3583,34 @@
       "file": "CLAUDE.md",
       "severity": "MEDIUM",
       "description": "File 'CLAUDE.md' is tagged with multiple stories: e45s22, e45s23, e51s05",
+      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
+    },
+    {
+      "check": "double-tag",
+      "file": "specs/verifications/steps/and-there-should-be-no-code-duplication-dry.sh",
+      "severity": "MEDIUM",
+      "description": "File 'specs/verifications/steps/and-there-should-be-no-code-duplication-dry.sh' is tagged with multiple stories: e45s31, e54s03",
+      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
+    },
+    {
+      "check": "double-tag",
+      "file": "specs/verifications/steps/and-there-should-be-no-commented-out-code-c5.sh",
+      "severity": "MEDIUM",
+      "description": "File 'specs/verifications/steps/and-there-should-be-no-commented-out-code-c5.sh' is tagged with multiple stories: e45s31, e54s03",
+      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
+    },
+    {
+      "check": "double-tag",
+      "file": "specs/verifications/steps/and-there-should-be-no-code-duplication-dry-g5.sh",
+      "severity": "MEDIUM",
+      "description": "File 'specs/verifications/steps/and-there-should-be-no-code-duplication-dry-g5.sh' is tagged with multiple stories: e45s31, e54s03",
+      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
+    },
+    {
+      "check": "double-tag",
+      "file": "specs/verifications/steps/and-there-should-be-no-redundant-comments-that-restate-code.sh",
+      "severity": "MEDIUM",
+      "description": "File 'specs/verifications/steps/and-there-should-be-no-redundant-comments-that-restate-code.sh' is tagged with multiple stories: e45s31, e54s03",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -5003,21 +3729,7 @@
       "check": "double-tag",
       "file": "specs/verifications/steps/and-the-skill-packaging-pipeline-round-trips-a-golden-fixture-without-data-loss.sh",
       "severity": "MEDIUM",
-      "description": "File 'specs/verifications/steps/and-the-skill-packaging-pipeline-round-trips-a-golden-fixture-without-data-loss.sh' is tagged with multiple stories: e48s02, e48s10, e51s04, e53s01, e53s03",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/GOLDEN-2026-07-09.okf.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/GOLDEN-2026-07-09.okf.md' is tagged with multiple stories: e48s02, e48s05",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-2026-07-18.okf.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-2026-07-18.okf.md' is tagged with multiple stories: e48s02, e48s05",
+      "description": "File 'specs/verifications/steps/and-the-skill-packaging-pipeline-round-trips-a-golden-fixture-without-data-loss.sh' is tagged with multiple stories: e48s02, e48s10, e51s04, e53s01, e53s03, e54s01, e54s03",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -5029,51 +3741,16 @@
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/audit-2026-07-06.okf.md",
+      "file": "specs/verifications/reports/GOLDEN-2026-07-23.okf.md",
       "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-2026-07-06.okf.md' is tagged with multiple stories: e48s02, e48s05",
+      "description": "File 'specs/verifications/reports/GOLDEN-2026-07-23.okf.md' is tagged with multiple stories: e48s02, e48s05",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
       "check": "double-tag",
-      "file": "specs/verifications/reports/GOLDEN-2026-07-07.okf.md",
+      "file": "specs/verifications/reports/audit-2026-07-23.okf.md",
       "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/GOLDEN-2026-07-07.okf.md' is tagged with multiple stories: e48s02, e48s05",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/GOLDEN-2026-07-13.okf.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/GOLDEN-2026-07-13.okf.md' is tagged with multiple stories: e48s02, e48s05",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-2026-07-07.okf.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-2026-07-07.okf.md' is tagged with multiple stories: e48s02, e48s05",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-2026-07-21.okf.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-2026-07-21.okf.md' is tagged with multiple stories: e48s02, e48s05",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/GOLDEN-2026-07-06.okf.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/GOLDEN-2026-07-06.okf.md' is tagged with multiple stories: e48s02, e48s05",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/GOLDEN-2026-07-18.okf.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/GOLDEN-2026-07-18.okf.md' is tagged with multiple stories: e48s02, e48s05",
+      "description": "File 'specs/verifications/reports/audit-2026-07-23.okf.md' is tagged with multiple stories: e48s02, e48s05",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -5081,27 +3758,6 @@
       "file": "specs/verifications/reports/audit-2026-07-05.okf.md",
       "severity": "MEDIUM",
       "description": "File 'specs/verifications/reports/audit-2026-07-05.okf.md' is tagged with multiple stories: e48s02, e48s05",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-2026-07-09.okf.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-2026-07-09.okf.md' is tagged with multiple stories: e48s02, e48s05",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-2026-07-13.okf.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-2026-07-13.okf.md' is tagged with multiple stories: e48s02, e48s05",
-      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
-    },
-    {
-      "check": "double-tag",
-      "file": "specs/verifications/reports/audit-2026-07-11.okf.md",
-      "severity": "MEDIUM",
-      "description": "File 'specs/verifications/reports/audit-2026-07-11.okf.md' is tagged with multiple stories: e48s02, e48s05",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -5178,7 +3834,7 @@
       "check": "double-tag",
       "file": "specs/bugs/BUG-2026-07-07-compliance-skill-catalog-n7.okf.md",
       "severity": "MEDIUM",
-      "description": "File 'specs/bugs/BUG-2026-07-07-compliance-skill-catalog-n7.okf.md' is tagged with multiple stories: e48s03, e48s05, e51s04",
+      "description": "File 'specs/bugs/BUG-2026-07-07-compliance-skill-catalog-n7.okf.md' is tagged with multiple stories: e48s03, e48s05, e51s04, e54s01",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -5423,7 +4079,7 @@
       "check": "double-tag",
       "file": "specs/bugs/BUG-2026-07-07-compliance-skill-catalog-n7.md",
       "severity": "MEDIUM",
-      "description": "File 'specs/bugs/BUG-2026-07-07-compliance-skill-catalog-n7.md' is tagged with multiple stories: e48s03, e51s04",
+      "description": "File 'specs/bugs/BUG-2026-07-07-compliance-skill-catalog-n7.md' is tagged with multiple stories: e48s03, e51s04, e54s01",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     },
     {
@@ -5540,6 +4196,34 @@
     },
     {
       "check": "double-tag",
+      "file": "specs/verifications/steps/and-error-messages-should-include-a-remediation-hint-for-the-agent.sh",
+      "severity": "MEDIUM",
+      "description": "File 'specs/verifications/steps/and-error-messages-should-include-a-remediation-hint-for-the-agent.sh' is tagged with multiple stories: e48s06, e54s02, e54s03",
+      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
+    },
+    {
+      "check": "double-tag",
+      "file": "specs/verifications/steps/and-there-should-be-clear-seams-for-testing-and-extension.sh",
+      "severity": "MEDIUM",
+      "description": "File 'specs/verifications/steps/and-there-should-be-clear-seams-for-testing-and-extension.sh' is tagged with multiple stories: e48s11, e54s02, e54s03",
+      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
+    },
+    {
+      "check": "double-tag",
+      "file": "specs/verifications/steps/and-it-must-mandate-the-f-i-r-s-t-rubric-for-tests.sh",
+      "severity": "MEDIUM",
+      "description": "File 'specs/verifications/steps/and-it-must-mandate-the-f-i-r-s-t-rubric-for-tests.sh' is tagged with multiple stories: e48s11, e54s02, e54s03",
+      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
+    },
+    {
+      "check": "double-tag",
+      "file": "specs/verifications/steps/then-names-should-be-intention-revealing-and-unambiguous-n1-n4.sh",
+      "severity": "MEDIUM",
+      "description": "File 'specs/verifications/steps/then-names-should-be-intention-revealing-and-unambiguous-n1-n4.sh' is tagged with multiple stories: e48s11, e54s03",
+      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
+    },
+    {
+      "check": "double-tag",
       "file": "specs/epics/archive/e48-foundation/e48s12-bcp-plus-s02.md",
       "severity": "MEDIUM",
       "description": "File 'specs/epics/archive/e48-foundation/e48s12-bcp-plus-s02.md' is tagged with multiple stories: e48s11, e48s12, e48s14",
@@ -5585,6 +4269,27 @@
       "file": "specs/conventions-wiki/always-green-shift-left.md",
       "severity": "MEDIUM",
       "description": "File 'specs/conventions-wiki/always-green-shift-left.md' is tagged with multiple stories: e51s01, e51s02",
+      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
+    },
+    {
+      "check": "double-tag",
+      "file": "specs/verifications/steps/then-it-must-mandate-conventional-commits-1-0-0-and-semver-2-0-0.sh",
+      "severity": "MEDIUM",
+      "description": "File 'specs/verifications/steps/then-it-must-mandate-conventional-commits-1-0-0-and-semver-2-0-0.sh' is tagged with multiple stories: e53s01, e54s03",
+      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
+    },
+    {
+      "check": "double-tag",
+      "file": "specs/epics/e54-freeze-catalog-drift/e54s02-drift-detection-gate.md",
+      "severity": "MEDIUM",
+      "description": "File 'specs/epics/e54-freeze-catalog-drift/e54s02-drift-detection-gate.md' is tagged with multiple stories: e53s03, e54s02",
+      "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
+    },
+    {
+      "check": "double-tag",
+      "file": "specs/verifications/steps/and-i-should-not-write-code-before-the-design-is-approved.sh",
+      "severity": "MEDIUM",
+      "description": "File 'specs/verifications/steps/and-i-should-not-write-code-before-the-design-is-approved.sh' is tagged with multiple stories: e54s02, e54s03",
       "remediation": "Review whether this file genuinely implements multiple stories. If it's a shared utility, this is acceptable."
     }
   ]
