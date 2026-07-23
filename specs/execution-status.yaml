@@ -325,7 +325,7 @@ development_status:
   e51s05: done
   e53: in_progress
   e53s01: done
-  e53s02: backlog
+  e53s02: in_progress
   e53s03: backlog
   e53s04: backlog
   e54: backlog
@@ -2832,13 +2832,14 @@ stories:
     tasks_passing: 3
     tasks_failing: 0
   e53s02:
-    status: backlog
+    status: in_progress
     title: 'Build the tombstone-alias mechanism'
     bcps: 3
     epic: e53
     tasks_total: 4
     tasks_passing: 0
     tasks_failing: 0
+    started_at: "2026-07-23T12:56:55Z"
   e53s03:
     status: backlog
     title: 'Gate-trace the compliance-to-GOLDEN hard-gate coupling'
