@@ -1,52 +1,34 @@
 active_flow: build_epic
-active_epic: e55
-active_story: e55s03
+active_epic: e56
+active_story: null
 bug_id: null
 bigpowers_version: 2.81.0
 bug_cycle: null
 handoff:
   context: >
-    e54 done/archived. e55 (Extract Constitution) building in full-auto ("yolo")
-    mode. e55s01 (P3, doctrine-mapping audit, commit 67126b37) and e55s02 (P2,
-    write constitution.md, commit f7a1bba3) both done and landed to main.
-    constitution.md now exists at repo root with all 12 blocks (B0-B10+Capstone)
-    synthesized from current doctrine, citing real sources rather than
-    duplicating full text; both open questions from e55s01 resolved in it
-    (Catalog Freeze excluded as migration-scoped; today's 94% Gherkin gate
-    described honestly with an e58 forward-reference, not as already replaced).
-    Also fixed a real blocking bug in scripts/lib/plan-consistency-check.sh
-    (commit 8d9814a5) — its SPECS glob matched non-spec deliverable files a
-    story produces under its own eNNsYY- prefix, not just the real spec.
-    Next: e55s03 (point CLAUDE.md/CONVENTIONS.md at constitution.md via
-    cross-reference pointers, don't delete anything) — plan-work not yet run.
-    This is the LAST story in e55; once it lands, release-branch's own hard
-    gate archives the epic capsule to specs/epics/archive/. NOTE: land-branch.sh
-    auto-pushes to origin when a remote exists; this repo has a real GitHub
-    remote, so pushes were intentionally withheld pending explicit user
-    confirmation (matches repo's own observed practice of staying ahead of
-    origin without pushing) — local main is currently 5+ commits ahead of
-    origin/main.
+    e55 (Extract Constitution) fully done and archived. All 3 stories landed:
+    e55s01 (doctrine-mapping audit), e55s02 (write constitution.md), e55s03
+    (cross-reference pointers in CLAUDE.md/CONVENTIONS.md). constitution.md
+    exists at repo root with all 12 blocks (B0-B10+Capstone) synthesized from
+    current doctrine. Local main is 8 commits ahead of origin/main (pushes
+    withheld pending explicit user confirmation, matching repo's observed
+    practice). Next epic is e56 (Reclassify Catalog — Purify Skill to Mean
+    Only Procedure), which depends on e53/e54/e55 (all done). e56 has a
+    planning-context.yaml from elaborate-spec but needs plan-work to slice
+    real stories. Run elaborate-spec or plan-work per e56's own next_skill.
   next_skill: plan-work
-  epic: e55
+  epic: e56
 epic_cycle:
-  step: 7
-  fast_mode: true
-  story_bcps: 2
-  audit_result: pass
-  completed_steps: '1,2,3,4,5,6'
+  step: null
+  fast_mode: false
+  story_bcps: null
+  audit_result: null
+  completed_steps: null
 metrics:
-  story_start: '2026-07-07T21:58:00Z'
-  story_end: '2026-07-07T22:30:00Z'
-  skill_timings:
-    release-branch:
-      calls: 7
-      total_seconds: 5076.0
-      avg_seconds: 725.1428571428571
-    plan-work:
-      calls: 2
-      total_seconds: 598.0
-      avg_seconds: 299.0
+  story_start: null
+  story_end: null
+  skill_timings: {}
 release:
   ci_verified: true
-  last_commit: ffb905d7
-  last_epic: e37
+  last_commit: 21e54c08
+  last_epic: e55

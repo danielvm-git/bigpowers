@@ -5,7 +5,7 @@ bcps: 0
 bcps_projected: 7
 capsule_dir: epics/e55-extract-constitution
 mode: capsule
-status: done
+status: scoped
 elaborated: 2026-07-22
 elaboration: planning-context.yaml
 depends_on: [e54]
