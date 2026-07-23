@@ -327,7 +327,7 @@ development_status:
   e53s01: done
   e53s02: done
   e53s03: done
-  e53s04: in_progress
+  e53s04: done
   e54: backlog
   e54s01: backlog
   e54s02: backlog
@@ -2873,13 +2873,14 @@ stories:
     started_at: "2026-07-23T13:22:11Z"
     tasks_failing: 0
   e53s04:
-    status: in_progress
+    status: done
     title: 'Adopt docs/TARGET-ARCHITECTURE.md as the migration''s north-star reference'
     bcps: 3
     epic: e53
     tasks_total: 4
-    tasks_passing: 0
+    tasks_passing: 4
     started_at: "2026-07-23T13:45:27Z"
+    completed_at: "2026-07-23T13:52:09Z"
     tasks_failing: 0
   e54s01:
     status: backlog
