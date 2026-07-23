@@ -16,6 +16,7 @@ YELLOW='\033[1;33m'
 NC='\033[0m'
 
 TOMBSTONES_FILE="specs/tombstones.yaml"
+NAME_PATTERN='^[a-z][a-z0-9-]*$'
 FAIL=0
 
 if [[ ! -f "$TOMBSTONES_FILE" ]]; then
@@ -23,7 +24,14 @@ if [[ ! -f "$TOMBSTONES_FILE" ]]; then
   exit 0
 fi
 
-CURRENT_VERSION=$(grep '"version"' package.json 2>/dev/null | head -1 | sed 's/.*: *"\(.*\)".*/\1/')
+CURRENT_VERSION=$(jq -r '.version' package.json 2>/dev/null)
+
+# A "release" for tombstone-expiry purposes is a minor/major version bump.
+# This repo ships via semantic-release on every merge to main (multiple
+# patch releases per day) — comparing full semver strings would expire
+# every tombstone within minutes instead of giving consumers the one-release
+# migration window CONVENTIONS.md promises.
+release_train() { echo "$1" | cut -d. -f1-2; }
 
 ROWS=$(python3 -c "
 import yaml
@@ -39,6 +47,17 @@ fi
 
 while IFS=$'\t' read -r old_name new_name created_version; do
   [[ -z "$old_name" ]] && continue
+
+  # Threat-model mitigation (specs/security/epics/e53/THREAT_MODEL.md): apply
+  # the same kebab-case validation tombstone-skill.sh applies before writing
+  # entries, since these names come back out of specs/tombstones.yaml here
+  # and are used to construct a filesystem path.
+  if [[ ! "$old_name" =~ $NAME_PATTERN || ! "$new_name" =~ $NAME_PATTERN ]]; then
+    echo -e "${RED}FAIL${NC}: '${old_name}' -> '${new_name}' — not a valid skill name (must match ${NAME_PATTERN})"
+    FAIL=1
+    continue
+  fi
+
   stub="skills/${old_name}/SKILL.md"
 
   if [[ ! -f "$stub" ]]; then
@@ -52,7 +71,7 @@ while IFS=$'\t' read -r old_name new_name created_version; do
     continue
   fi
 
-  if [[ -n "$created_version" && "$created_version" != "$CURRENT_VERSION" ]]; then
+  if [[ -n "$created_version" && "$(release_train "$created_version")" != "$(release_train "$CURRENT_VERSION")" ]]; then
     echo -e "${YELLOW}EXPIRED${NC}: ${old_name} -> ${new_name} — created at ${created_version}, now ${CURRENT_VERSION}; remove the stub"
     continue
   fi

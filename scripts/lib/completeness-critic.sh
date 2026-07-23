@@ -33,12 +33,25 @@ if [[ -f specs/traceability-matrix.json ]]; then
   # not-yet-built siblings (which have no code tags by definition until their
   # own turn) and not unrelated epics (which may be plan-worked-to-build-ready
   # but not yet kicked off).
-  ACTIVE_STORY="$(grep '^active_story:' specs/state.yaml 2>/dev/null | awk '{print $2}')"
-  if [[ -n "$ACTIVE_STORY" ]]; then
-    UNDONE="$(jq --arg s "$ACTIVE_STORY" \
-      '[.stories[]? | select(.id == $s and .status != "done" and ((.links // []) | map(select(.method == "explicit_tag")) | length) == 0)] | length' \
+  # `|| true` guards the whole pipe under `set -o pipefail`: a state.yaml
+  # with no active_story line makes grep exit 1, which would otherwise kill
+  # this script outright (no WARNING, no summary line) instead of falling
+  # through to the empty-ACTIVE_STORY branch below.
+  ACTIVE_STORY="$(grep '^active_story:' specs/state.yaml 2>/dev/null | awk '{print $2}' || true)"
+  if [[ -z "$ACTIVE_STORY" ]]; then
+    classify WARNING "specs/state.yaml has no active_story set — zero-tag check skipped, not a pass"
+  else
+    STORY_EXISTS="$(jq --arg s "$ACTIVE_STORY" \
+      '[.stories[]? | select(.id == $s)] | length' \
       specs/traceability-matrix.json 2>/dev/null || echo 0)"
-    (( UNDONE > 0 )) && classify BLOCKER "active story $ACTIVE_STORY has zero explicit story-tag links"
+    if [[ "$STORY_EXISTS" -eq 0 ]]; then
+      classify WARNING "active_story $ACTIVE_STORY not found in specs/traceability-matrix.json — zero-tag check skipped, not a pass"
+    else
+      UNDONE="$(jq --arg s "$ACTIVE_STORY" \
+        '[.stories[]? | select(.id == $s and .status != "done" and ((.links // []) | map(select(.method == "explicit_tag")) | length) == 0)] | length' \
+        specs/traceability-matrix.json 2>/dev/null || echo 0)"
+      (( UNDONE > 0 )) && classify BLOCKER "active story $ACTIVE_STORY has zero explicit story-tag links"
+    fi
   fi
   COVERAGE="$(jq -r '.summary.coverage_percent // .coverage_percent // empty' specs/traceability-matrix.json 2>/dev/null)"
   if [[ -n "$COVERAGE" && "$COVERAGE" != "null" ]]; then

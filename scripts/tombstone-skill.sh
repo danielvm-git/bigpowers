@@ -51,7 +51,7 @@ if [[ ! -f "$OLD_SKILL_MD" ]]; then
 fi
 
 STORY_TAGS=$(grep -E '^#\s*story:' "$OLD_SKILL_MD" || true)
-CURRENT_VERSION=$(grep '"version"' package.json 2>/dev/null | head -1 | sed 's/.*: *"\(.*\)".*/\1/')
+CURRENT_VERSION=$(jq -r '.version' package.json 2>/dev/null)
 CREATED_AT=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 
 cat > "$OLD_SKILL_MD" <<STUBEOF
@@ -73,16 +73,27 @@ STUBEOF
 TOMBSTONES_FILE="specs/tombstones.yaml"
 [[ -f "$TOMBSTONES_FILE" ]] || echo "tombstones: []" > "$TOMBSTONES_FILE"
 
+# Values flow through the environment, never interpolated into the python
+# source string — string-interpolating shell variables into `python3 -c`
+# turns any unvalidated field (e.g. CURRENT_VERSION, sourced from
+# package.json) into a code-injection vector.
+TOMBSTONE_FILE="$TOMBSTONES_FILE" \
+TOMBSTONE_OLD_NAME="$OLD_NAME" \
+TOMBSTONE_NEW_NAME="$NEW_NAME" \
+TOMBSTONE_CREATED_AT="$CREATED_AT" \
+TOMBSTONE_VERSION="$CURRENT_VERSION" \
 python3 -c "
+import os
 import yaml
-d = yaml.safe_load(open('$TOMBSTONES_FILE')) or {'tombstones': []}
+path = os.environ['TOMBSTONE_FILE']
+d = yaml.safe_load(open(path)) or {'tombstones': []}
 d.setdefault('tombstones', []).append({
-    'old_name': '$OLD_NAME',
-    'new_name_or_merge_target': '$NEW_NAME',
-    'created_at': '$CREATED_AT',
-    'created_at_version': '$CURRENT_VERSION',
+    'old_name': os.environ['TOMBSTONE_OLD_NAME'],
+    'new_name_or_merge_target': os.environ['TOMBSTONE_NEW_NAME'],
+    'created_at': os.environ['TOMBSTONE_CREATED_AT'],
+    'created_at_version': os.environ['TOMBSTONE_VERSION'],
 })
-yaml.dump(d, open('$TOMBSTONES_FILE', 'w'), default_flow_style=False)
+yaml.dump(d, open(path, 'w'), default_flow_style=False)
 "
 
 echo "Tombstoned: ${OLD_NAME} -> ${NEW_NAME}"

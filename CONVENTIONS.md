@@ -364,11 +364,15 @@ referencing the old name don't break immediately.
    renaming or merging a skill. It replaces `skills/<old-name>/SKILL.md` with a stub
    pointing at the new name/location, preserves the old skill's `# story: eNNsNN` tags
    for traceability, and registers the mapping in `specs/tombstones.yaml` (old name,
-   new name/target, creation timestamp, and the `bigpowers_version` at creation time).
+   new name/target, creation timestamp, and the `created_at_version` at creation time).
 2. Run `bash scripts/validate-tombstones.sh` to confirm every registered tombstone's
-   stub still resolves, and to flag any tombstone whose `created_at_version` differs
-   from the current release — that stub has served its one-release transition window
-   and should be removed.
+   stub still resolves, and to flag any tombstone whose `created_at_version` is in a
+   different minor/major release train (major.minor) than the current version — that
+   stub has served its one-release transition window and should be removed. Patch-only
+   bumps within the same minor version don't count as a new release: this repo ships
+   via semantic-release on every merge to main, so comparing full semver strings would
+   expire a tombstone within minutes of creation instead of giving consumers a real
+   migration window.
 3. **Required alongside the first real use of `tombstone-skill.sh`:** update
    `docs/references/model-profiles.md`'s skill-count annotations. A tombstone stub is
    still a `skills/*/SKILL.md` file — it increments the live skill count the same as
