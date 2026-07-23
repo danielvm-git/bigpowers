@@ -324,7 +324,7 @@ development_status:
   e51s04: done
   e51s05: done
   e53: backlog
-  e53s01: backlog
+  e53s01: done
   e53s02: backlog
   e53s03: backlog
   e53s04: backlog
@@ -2824,13 +2824,14 @@ stories:
     tasks_failing: 0
     risk_max: P1
   e53s01:
-    status: in_progress
+    status: done
     title: Commit the untracked GOLDEN baseline
     bcps: 1
     epic: e53
     tasks_total: 3
-    tasks_passing: 0
+    tasks_passing: 3
     started_at: "2026-07-23T05:00:43Z"
+    completed_at: "2026-07-23T05:24:06Z"
     tasks_failing: 0
   e53s02:
     status: backlog
