@@ -326,7 +326,7 @@ development_status:
   e53: in_progress
   e53s01: done
   e53s02: done
-  e53s03: in_progress
+  e53s03: done
   e53s04: backlog
   e54: backlog
   e54s01: backlog
@@ -2856,12 +2856,13 @@ stories:
       heuristic_ratio: 0.33
       downgrade_applied: false
   e53s03:
-    status: in_progress
+    status: done
     title: 'Gate-trace the compliance-to-GOLDEN hard-gate coupling'
     bcps: 2
     epic: e53
     tasks_total: 3
-    tasks_passing: 0
+    tasks_passing: 3
+    completed_at: "2026-07-23T13:32:45Z"
     started_at: "2026-07-23T13:22:11Z"
     tasks_failing: 0
   e53s04:
