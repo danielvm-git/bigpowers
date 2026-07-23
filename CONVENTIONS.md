@@ -11,8 +11,15 @@
 # story: e27s01
 # story: e29s03
 # story: e54s03
+# story: e55s03
 
 # Conventions
+
+[`constitution.md`](constitution.md) is a consolidated entry point synthesizing
+this project's doctrine (this file, CLAUDE.md, docs/PRINCIPLES.md,
+docs/references/*.md) into bigspec's B0-B10 + Capstone blocks, with citations
+back to the fuller text below. It's a starting point for a reader, not a
+replacement — this file remains fully authoritative for its own content today.
 
 ## Conventional Commits & Semantic Versioning
 

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-23T19:37:41.859372+00:00",
+  "generated_at": "2026-07-23T19:49:58.705198+00:00",
   "matrix_version": "1.0",
   "stories": [
     {
@@ -3810,6 +3810,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-164801.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260723-131809.md",
           "line": 0,
           "confidence": "medium",
@@ -4344,6 +4350,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-163830.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260723-092533.md",
           "line": 0,
           "confidence": "medium",
@@ -4375,6 +4387,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260706-132944.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-163746.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4873,6 +4891,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260706-132813.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-164342.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5484,6 +5508,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-164721.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260721-093336.md",
           "line": 0,
           "confidence": "medium",
@@ -5797,6 +5827,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260706-184658.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-164258.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -6192,7 +6228,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 521
+      "link_count": 527
     },
     {
       "id": "e45s19",
@@ -7662,6 +7698,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-164801.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260723-131809.md",
           "line": 0,
           "confidence": "medium",
@@ -8196,6 +8238,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-163830.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260723-092533.md",
           "line": 0,
           "confidence": "medium",
@@ -8227,6 +8275,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260706-132944.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-163746.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8725,6 +8779,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260706-132813.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-164342.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -9336,6 +9396,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-164721.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260721-093336.md",
           "line": 0,
           "confidence": "medium",
@@ -9649,6 +9715,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260706-184658.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-164258.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -10026,7 +10098,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 518
+      "link_count": 524
     },
     {
       "id": "e45s32",
@@ -14970,6 +15042,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-164801.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260723-131809.md",
           "line": 0,
           "confidence": "medium",
@@ -15504,6 +15582,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-163830.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260723-092533.md",
           "line": 0,
           "confidence": "medium",
@@ -15535,6 +15619,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260706-132944.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-163746.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -16033,6 +16123,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260706-132813.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-164342.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -16644,6 +16740,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-164721.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260721-093336.md",
           "line": 0,
           "confidence": "medium",
@@ -16957,6 +17059,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260706-184658.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-164258.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -17568,7 +17676,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 566
+      "link_count": 572
     },
     {
       "id": "e51s05",
@@ -18117,11 +18225,17 @@
       "epic_title": "Extract Constitution \u2014 Consolidate Doctrine into One File",
       "bcp": 0,
       "wsjf": 6.0,
-      "status": "backlog",
+      "status": "done",
       "links": [
         {
           "file": "constitution.md",
           "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/verifications/e55s02-verify.yaml",
+          "line": 69,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -18138,12 +18252,54 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 3
+      "link_count": 4
+    },
+    {
+      "id": "e55s03",
+      "title": "Point CLAUDE.md/CONVENTIONS.md at constitution.md, don't delete them yet",
+      "epic_id": "e55",
+      "epic_title": "Extract Constitution \u2014 Consolidate Doctrine into One File",
+      "bcp": 0,
+      "wsjf": 6.0,
+      "status": "backlog",
+      "links": [
+        {
+          "file": "CONVENTIONS.md",
+          "line": 14,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e55-extract-constitution/e55s03-tasks.yaml",
+          "line": 40,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e55-extract-constitution/e55s03-tasks.yaml",
+          "line": 41,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e55-extract-constitution/e55s03-cross-reference-pointers.md",
+          "line": 88,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "CLAUDE.md",
+          "line": 5,
+          "confidence": "high",
+          "method": "explicit_tag"
+        }
+      ],
+      "link_count": 5
     }
   ],
   "summary": {
-    "total_stories": 82,
-    "tagged_stories": 72,
+    "total_stories": 83,
+    "tagged_stories": 73,
     "dark_stories": [],
     "dark_count": 0,
     "orphan_tags": [
@@ -18369,12 +18525,13 @@
       "e54s01",
       "e54s02",
       "e54s03",
-      "e55s01"
+      "e55s01",
+      "e55s02"
     ],
-    "stale_count": 71,
+    "stale_count": 72,
     "oracle_stats": {
-      "high": 308,
-      "medium": 2490,
+      "high": 314,
+      "medium": 2508,
       "low": 61
     }
   }

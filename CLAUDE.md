@@ -2,10 +2,17 @@
 # story: e51s05
 # story: e45s22
 # story: e45s23
+# story: e55s03
 
 # bigpowers — Claude Code
 
 Read CONVENTIONS.md before any GitHub or git operation.
+
+[`constitution.md`](constitution.md) is a consolidated entry point synthesizing
+this project's doctrine (this file, CONVENTIONS.md, docs/PRINCIPLES.md,
+docs/references/*.md) into bigspec's B0-B10 + Capstone blocks, with citations
+back to the fuller text. It's a starting point for a reader, not a
+replacement — this file remains fully authoritative for its own content today.
 
 <!-- BEGIN bigpowers:context-routing -->
 ## Context Routing

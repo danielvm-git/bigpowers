@@ -332,9 +332,10 @@ development_status:
   e54s01: done
   e54s02: done
   e54s03: done
-  e55: in_progress
+  e55: done
   e55s01: done
   e55s02: done
+  e55s03: done
   e56: backlog
   e57: backlog
   e58: backlog
@@ -555,10 +556,10 @@ epics:
     wsjf: 6.7
     total_bcps: 6
   e55:
-    status: in_progress
+    status: done
     title: Extract Constitution — Consolidate Doctrine into One File
     wsjf: 6.0
-    total_bcps: 5
+    total_bcps: 7
   e56:
     status: backlog
     title: Reclassify Catalog — Purify Skill to Mean Only Procedure
@@ -2945,3 +2946,14 @@ stories:
     risk_max: P2
     started_at: "2026-07-23T19:26:00Z"
     completed_at: "2026-07-23T19:39:42Z"
+  e55s03:
+    status: done
+    title: "Point CLAUDE.md/CONVENTIONS.md at constitution.md, don't delete them yet"
+    bcps: 2
+    epic: e55
+    tasks_total: 5
+    tasks_passing: 5
+    tasks_failing: 0
+    risk_max: P2
+    started_at: "2026-07-23T19:45:00Z"
+    completed_at: "2026-07-23T19:51:43Z"
