@@ -30,7 +30,14 @@ note: >
   story has been sliced yet, so there is nothing real to sum). bcps_projected is a rough
   planning estimate only, not a BCP count. Run elaborate-spec on this epic before slicing
   real stories with plan-work.
-stories: []
+stories:
+  - id: e55s01
+    title: "Map every current doctrine source to a B0-B10 + Capstone block"
+    status: failing
+    risk: P3
+    bcps: 2
+    spec: e55s01-doctrine-mapping-audit.md
+    tasks: e55s01-tasks.yaml
 planned_stories:
   - working_title: "Map every current doctrine source to a B0-B10 + Capstone block"
     bcp_estimate: 2
