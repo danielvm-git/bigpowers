@@ -2862,6 +2862,13 @@ stories:
     epic: e53
     tasks_total: 3
     tasks_passing: 3
+    gate_trace:
+      verdict: PASS
+      generated_at: "2026-07-23T13:34:48Z"
+      rationale: "3 explicit-tag links (state.yaml, report, tasks.yaml); raw heuristic ratio ~93% is a false signal from ~40 unrelated files matching the common word 'gate', reviewed and discounted; verify + audit evidence present, 0 HIGH blind-spot findings, 0 drift suspects, completeness-critic BLOCKER=0"
+      heuristic_ratio_raw: 0.93
+      heuristic_ratio_reviewed_as_noise: true
+      downgrade_applied: false
     completed_at: "2026-07-23T13:32:45Z"
     started_at: "2026-07-23T13:22:11Z"
     tasks_failing: 0
