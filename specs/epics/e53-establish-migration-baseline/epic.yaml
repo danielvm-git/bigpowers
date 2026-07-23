@@ -33,7 +33,7 @@ note: >
 stories:
   - id: e53s01
     bcp: 1
-    status: todo
+    status: done
     title: "Commit the untracked GOLDEN baseline"
     spec: e53s01-commit-golden-baseline.md
     tasks: e53s01-tasks.yaml
