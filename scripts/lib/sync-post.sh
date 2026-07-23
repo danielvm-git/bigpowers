@@ -24,7 +24,16 @@ sync_post_run() {
   jq -n --arg name "bigpowers" \
         --arg version "$pkg_version" \
         --arg desc "${skill_count} skills — ${pkg_desc}" \
-        '{name: $name, version: $version, description: $desc}' > "$GEMINI_MANIFEST"
+        '{
+          name: $name,
+          version: $version,
+          description: $desc,
+          keywords: ["gemini-extension"],
+          gemini: {
+            skills: ["./skills"],
+            commands: ["./commands"]
+          }
+        }' > "$GEMINI_MANIFEST"
 
   jq -n --arg version "$pkg_version" \
         --arg desc "${skill_count} skills — ${pkg_desc}" \
