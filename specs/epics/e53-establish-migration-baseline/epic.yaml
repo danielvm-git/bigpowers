@@ -75,7 +75,7 @@ stories:
         dependency; it does not flip the gate.
   - id: e53s04
     bcp: 3
-    status: todo
+    status: done
     title: "Adopt docs/TARGET-ARCHITECTURE.md as the migration's north-star reference"
     spec: e53s04-target-architecture-doc.md
     tasks: e53s04-tasks.yaml

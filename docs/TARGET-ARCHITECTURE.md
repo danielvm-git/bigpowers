@@ -1,5 +1,7 @@
 # Target Architecture — the migration's north-star reference
 
+<!-- story: e53s04 -->
+
 **Story:** e53s04. This document routes to two sources so every later migration epic
 (e54–e59) can cite one place instead of re-deriving the target shape from scratch. It
 is a **router, not a restatement** — the same discipline established throughout the
