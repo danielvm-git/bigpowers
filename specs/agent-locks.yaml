@@ -13,8 +13,4 @@
 #   Release — release-branch removes entry on completion
 #   Stale   — CI validates no lock >24h old
 
-locks:
-  - story_id: e54s03
-    locked_by: "agent: build-epic"
-    locked_at: "2026-07-23T15:00:00Z"
-    files_touched: []
+locks: []

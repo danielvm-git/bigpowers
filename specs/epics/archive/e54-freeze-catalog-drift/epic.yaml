@@ -2,9 +2,9 @@ id: e54
 title: "Freeze Catalog Drift — Stable Baseline Before Skill Reclassification"
 wsjf: 6.7
 bcps: 6
-capsule_dir: epics/e54-freeze-catalog-drift
+capsule_dir: epics/archive/e54-freeze-catalog-drift
 mode: capsule
-status: todo
+status: done
 depends_on: [e53]
 source: |
   Phase 0 of the bigpowers-to-bigspec migration sequence (Fable wayfinding session,
@@ -27,7 +27,7 @@ note: >
 stories:
   - id: e54s01
     bcp: 2
-    status: todo
+    status: done
     title: "Snapshot the current skill catalog as an immutable baseline"
     spec: e54s01-catalog-baseline-snapshot.md
     tasks: e54s01-tasks.yaml
@@ -39,7 +39,7 @@ stories:
         model, one-line role) that e56's reclassification work can diff itself against
   - id: e54s02
     bcp: 3
-    status: todo
+    status: done
     title: "Add a soft drift-detection gate for the freeze window"
     spec: e54s02-drift-detection-gate.md
     tasks: e54s02-tasks.yaml
@@ -52,7 +52,7 @@ stories:
         change, with a documented exception path for genuinely unrelated work
   - id: e54s03
     bcp: 1
-    status: todo
+    status: done
     title: "Document the freeze's scope, exit criteria, and exception process"
     spec: e54s03-freeze-scope-and-exit.md
     tasks: e54s03-tasks.yaml

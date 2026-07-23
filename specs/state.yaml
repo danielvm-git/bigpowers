@@ -1,32 +1,35 @@
-active_flow: build_epic
-active_epic: e54
-active_story: e54s03
+active_flow: plan_work
+active_epic: e55
+active_story: null
 bug_id: null
 bigpowers_version: 2.81.0
 bug_cycle: null
 handoff:
   context: >
-    e54s01 (Snapshot catalog baseline, P2) and e54s02 (drift-detection gate, P1) are both
-    done and landed to main (commits 0df0fff8, 7761f75e). e54s01: scripts/snapshot-catalog-baseline.sh
-    + specs/tech-architecture/CATALOG-BASELINE-2026-07-23.yaml (80 skills, 0 warnings) — caught
-    and fixed a real subshell-variable-scoping bug during self-audit. e54s02: scripts/check-catalog-drift.sh
-    wired into CLAUDE.md's Preflight chain as a trailing always-exit-0 advisory step — caught
-    and fixed a real regex bug (missing re.MULTILINE broke frontmatter parsing for SKILL.md files
-    with leading comment lines) during self-audit; genuinely exercised all 4 Gherkin scenarios
-    (addition/removal/structural-change/exception-suppression/no-baseline) in isolated sandboxes.
-    e54s02's UAT was auto-passed without a live walkthrough per the user's explicit instruction
-    for this "yolo" multi-story run — flagged in specs/verifications/AUDIT-e54-e54s02.md for
-    retroactive review. Now building e54s03 (document freeze scope/exit, P3, docs-only —
-    CONVENTIONS.md section on the freeze). After e54s03 lands, e54 is complete: run Preflight,
-    confirm CI green, mark epic done, archive capsule, advance to e55 (needs plan-work — 0 real
-    stories sliced yet). Known non-blocking issue spawned as a follow-up task: trace-stories.sh
-    appends stale tasks_failing/risk_max fields to execution-status.yaml story blocks instead of
-    recalculating from live tasks.yaml state — hand-corrected for e54s01/e54s02, will recur for
-    e54s03 unless fixed upstream.
-  next_skill: build-epic
-  epic: e54
+    e54 (Freeze Catalog Drift) is fully done — all 3 stories built, audited PASS, and landed
+    to main via solo-git land-branch.sh: e54s01 (P2, commit 0df0fff8) froze the skill catalog
+    into specs/tech-architecture/CATALOG-BASELINE-2026-07-23.yaml (80 skills, 0 warnings);
+    e54s02 (P1, commit 7761f75e) wired scripts/check-catalog-drift.sh into CLAUDE.md's Preflight
+    chain as a trailing always-exit-0 advisory step; e54s03 (P3, commit 9d7114f3) documented
+    the freeze's scope/exit/exception-marker convention in CONVENTIONS.md. Epic capsule archived
+    to specs/epics/archive/e54-freeze-catalog-drift/. This was a "yolo mode" multi-story run per
+    explicit user instruction: e54s01 and e54s03 are P2/P3 so verify-work's own risk rules
+    already skip UAT for them (not an override); e54s02 is P1 so its UAT was genuinely
+    auto-passed without a live walkthrough — flagged in specs/verifications/AUDIT-e54-e54s02.md
+    for the user's retroactive review. Two real bugs were caught and fixed during self-audit,
+    not left for review to find: e54s01's subshell-variable-scoping bug (warnings written inside
+    a command substitution never reached the caller) and e54s02's missing re.MULTILINE regex
+    flag (broke frontmatter parsing for any SKILL.md with leading `# story:` comment lines).
+    Next: e55 (Extract Constitution) is next in the migration sequence but has 0 real stories
+    sliced yet (bcps: 0, provisional) — needs plan-work before it can build. e56-e59 remain
+    scoped-only after that. Known non-blocking issue spawned as a follow-up task
+    (task_b8b7e802): trace-stories.sh appends stale tasks_failing/risk_max fields to
+    execution-status.yaml story blocks instead of recalculating from live tasks.yaml state —
+    hand-corrected for all 3 e54 stories in this session.
+  next_skill: plan-work
+  epic: e55
 epic_cycle:
-  step: 1
+  step: 0
   fast_mode: true
   story_bcps: null
   audit_result: null
