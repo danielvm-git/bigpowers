@@ -47,6 +47,12 @@ for epic_yaml in "$ROOT"/specs/epics/*/epic.yaml "$ROOT"/specs/epics/archive/*/e
 
   # Build references array from story list
   story_count=$(grep -c '^\s*- id:' "$epic_yaml" 2>/dev/null || true)
+
+  # A scoped-but-unsliced epic (elaborate-spec ran, plan-work hasn't) has zero
+  # stories, so references[] would always be empty — no valid OKF bundle can be
+  # emitted until it has at least one story. Skip rather than commit an invalid stub.
+  [[ "$story_count" -eq 0 ]] && continue
+
   refs=$(grep '^\s*- id:' "$epic_yaml" 2>/dev/null | sed 's/.*- id: */    - /' || true)
 
   bundle="$WIKI/${epic_id}.okf.md"

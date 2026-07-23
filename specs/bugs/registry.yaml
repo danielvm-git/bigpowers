@@ -366,3 +366,11 @@ bugs:
     file: bugs/BUG-2026-07-23-completeness-critic-code-tags-schema-drift.md
     risk_level: "low"
     commit_message: "fix(scripts): repair completeness-critic's story-tag check (schema drift + repo-wide scope)"
+  - id: BUG-2026-07-23-epics-wiki-empty-references
+    status: fixed
+    severity: high
+    scope: ci
+    title: "generate-epics-wiki.sh emits an invalid OKF bundle for epics with zero sliced stories"
+    file: bugs/BUG-2026-07-23-epics-wiki-empty-references.md
+    risk_level: "low"
+    commit_message: "fix(scripts): skip epics-wiki generation for epics with zero stories"
