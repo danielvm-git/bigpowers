@@ -1,3 +1,10 @@
+## [2.79.1](https://github.com/danielvm-git/bigpowers/compare/v2.79.0...v2.79.1) (2026-07-23)
+
+
+### Bug Fixes
+
+* **e53:** close migration-readiness gaps — code-injection, expiry semantics, fail-open gate ([4042c62](https://github.com/danielvm-git/bigpowers/commit/4042c62f5ccac9790596f81aac5aaebd1235c763))
+
 # [2.79.0](https://github.com/danielvm-git/bigpowers/compare/v2.78.1...v2.79.0) (2026-07-23)
 
 
