@@ -1,39 +1,39 @@
 active_flow: build_epic
 active_epic: e55
-active_story: e55s02
+active_story: null
 bug_id: null
 bigpowers_version: 2.81.0
 bug_cycle: null
 handoff:
   context: >
-    e54 done and archived (see prior handoff history). e55 (Extract Constitution)
-    build started in full-auto ("yolo") mode per explicit user instruction, covering
-    all 3 planned stories end-to-end. e55s01 (P3, doctrine-mapping audit, commit
-    67126b37) is done and landed to main: mapped CLAUDE.md/CONVENTIONS.md/
-    docs/PRINCIPLES.md/46 docs/references/*.md files to bigspec's B0-B10+Capstone
-    blocks in specs/epics/e55-extract-constitution/e55s01-doctrine-mapping.md,
-    using specs/reborn-constitution.md's block definitions as a structural
-    reference only (not a content source, per user decision — that draft targets a
-    hypothetical rewrite and already contains e57/e58/e59 concepts). Surfaced
-    duplication findings (F.I.R.S.T stated in 6 files, 94% threshold in 4, etc.) and
-    flagged 2 open questions for e55s02: whether the migration-scoped Catalog
-    Freeze section belongs in a permanent constitution, and how to describe the
-    current Gherkin self-compliance gate under Capstone without presenting e58's
-    not-yet-built outcome-eval mechanism as already true. Next: e55s02 (write
-    constitution.md from the mapping) — plan-work not yet run for this story.
-    NOTE: land-branch.sh auto-pushes to origin when a remote exists; this repo has
-    a real GitHub remote, so pushes were intentionally withheld pending explicit
-    user confirmation (matches repo's own observed practice of staying ahead of
-    origin without pushing) — local main is currently 3+ commits ahead of
+    e54 done/archived. e55 (Extract Constitution) building in full-auto ("yolo")
+    mode. e55s01 (P3, doctrine-mapping audit, commit 67126b37) and e55s02 (P2,
+    write constitution.md, commit f7a1bba3) both done and landed to main.
+    constitution.md now exists at repo root with all 12 blocks (B0-B10+Capstone)
+    synthesized from current doctrine, citing real sources rather than
+    duplicating full text; both open questions from e55s01 resolved in it
+    (Catalog Freeze excluded as migration-scoped; today's 94% Gherkin gate
+    described honestly with an e58 forward-reference, not as already replaced).
+    Also fixed a real blocking bug in scripts/lib/plan-consistency-check.sh
+    (commit 8d9814a5) — its SPECS glob matched non-spec deliverable files a
+    story produces under its own eNNsYY- prefix, not just the real spec.
+    Next: e55s03 (point CLAUDE.md/CONVENTIONS.md at constitution.md via
+    cross-reference pointers, don't delete anything) — plan-work not yet run.
+    This is the LAST story in e55; once it lands, release-branch's own hard
+    gate archives the epic capsule to specs/epics/archive/. NOTE: land-branch.sh
+    auto-pushes to origin when a remote exists; this repo has a real GitHub
+    remote, so pushes were intentionally withheld pending explicit user
+    confirmation (matches repo's own observed practice of staying ahead of
+    origin without pushing) — local main is currently 5+ commits ahead of
     origin/main.
   next_skill: plan-work
   epic: e55
 epic_cycle:
-  step: 7
+  step: 1
   fast_mode: true
-  story_bcps: 3
-  audit_result: pass
-  completed_steps: '1,2,3,4,5,6'
+  story_bcps: null
+  audit_result: null
+  completed_steps: ''
 metrics:
   story_start: '2026-07-07T21:58:00Z'
   story_end: '2026-07-07T22:30:00Z'

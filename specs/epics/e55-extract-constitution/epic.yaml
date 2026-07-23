@@ -45,6 +45,13 @@ stories:
     bcps: 3
     spec: e55s02-write-constitution.md
     tasks: e55s02-tasks.yaml
+  - id: e55s03
+    title: "Point CLAUDE.md/CONVENTIONS.md at constitution.md, don't delete them yet"
+    status: failing
+    risk: P2
+    bcps: 2
+    spec: e55s03-cross-reference-pointers.md
+    tasks: e55s03-tasks.yaml
 planned_stories:
   - working_title: "Map every current doctrine source to a B0-B10 + Capstone block"
     bcp_estimate: 2
