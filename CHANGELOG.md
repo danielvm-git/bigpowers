@@ -1,3 +1,10 @@
+# [2.79.0](https://github.com/danielvm-git/bigpowers/compare/v2.78.1...v2.79.0) (2026-07-23)
+
+
+### Features
+
+* **scripts:** implement tombstone-skill.sh and validate-tombstones.sh ([c81a451](https://github.com/danielvm-git/bigpowers/commit/c81a451598d8338188fb9e18b4486e20e6c177f8))
+
 ## [2.78.1](https://github.com/danielvm-git/bigpowers/compare/v2.78.0...v2.78.1) (2026-07-23)
 
 

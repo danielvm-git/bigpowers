@@ -2,20 +2,19 @@ active_flow: build_epic
 active_epic: e53
 active_story: e53s02
 bug_id: null
-bigpowers_version: 2.78.1
+bigpowers_version: 2.79.0
 bug_cycle: null
 handoff:
-  context: >
-    e53s01 (commit the untracked GOLDEN baseline) is done, audited PASS, and released —
-    landed on main as 12 commits (preserved, not squashed) and CI-verified green at
-    ad512e00. Along the way 4 discovered defects were found and fixed, each its own
-    commit: g11-gitignore-venv false-failing in fresh worktrees, blind-spots.py Python
-    3.9 incompatibility, completeness-critic's code_tags schema drift + wrong scope
-    (now correctly scoped to active_story), and generate-epics-wiki.sh emitting invalid
-    OKF bundles for unsliced epics (e55-e59). Next action: build-epic e53s02 (build the
-    tombstone-alias mechanism) — kickoff-branch first, then develop-tdd per its tasks.
-    e53s03 and e53s04 follow after. e55-e59 still need plan-work per story before they
-    build.
+  context: 'e53s01 (commit the untracked GOLDEN baseline) is done, audited PASS, and released — landed
+    on main as 12 commits (preserved, not squashed) and CI-verified green at ad512e00. Along the way 4
+    discovered defects were found and fixed, each its own commit: g11-gitignore-venv false-failing in
+    fresh worktrees, blind-spots.py Python 3.9 incompatibility, completeness-critic''s code_tags schema
+    drift + wrong scope (now correctly scoped to active_story), and generate-epics-wiki.sh emitting invalid
+    OKF bundles for unsliced epics (e55-e59). Next action: build-epic e53s02 (build the tombstone-alias
+    mechanism) — kickoff-branch first, then develop-tdd per its tasks. e53s03 and e53s04 follow after.
+    e55-e59 still need plan-work per story before they build.
+
+    '
   next_skill: build-epic
   epic: e53
 epic_cycle:
@@ -23,7 +22,7 @@ epic_cycle:
   fast_mode: true
   story_bcps: 3
   audit_result: pass
-  completed_steps: "0,1,2,3,4,5,6,7"
+  completed_steps: 0,1,2,3,4,5,6,7
 metrics:
   story_start: '2026-07-07T21:58:00Z'
   story_end: '2026-07-07T22:30:00Z'
