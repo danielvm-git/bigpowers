@@ -330,7 +330,7 @@ development_status:
   e53s04: done
   e54: backlog
   e54s01: done
-  e54s02: backlog
+  e54s02: done
   e54s03: backlog
   e55: backlog
   e56: backlog
@@ -2895,19 +2895,21 @@ stories:
     epic: e54
     tasks_total: 4
     tasks_passing: 4
+    tasks_failing: 0
+    risk_max: P2
     started_at: "2026-07-23T13:10:00Z"
     completed_at: "2026-07-23T13:45:00Z"
-    tasks_failing: 4
-    risk_max: P2
   e54s02:
-    status: backlog
+    status: done
     title: 'Add a soft drift-detection gate for the freeze window'
     bcps: 3
     epic: e54
     tasks_total: 4
-    tasks_passing: 0
-    tasks_failing: 4
+    tasks_passing: 4
+    tasks_failing: 0
     risk_max: P1
+    started_at: "2026-07-23T14:00:00Z"
+    completed_at: "2026-07-23T14:35:00Z"
   e54s03:
     status: backlog
     title: 'Document the freeze''s scope, exit criteria, and exception process'
