@@ -6,12 +6,12 @@ tasks:
   - id: 1
     description: "Hand-author a dependency analysis (not the gate-trace skill — that tool covers story-traceability coverage, not shell-script gate consumers): read scripts/lib/golden-suite-gates.sh and scripts/run-verification-gates.sh in full and enumerate every consumer of the compliance gate's pass/fail signal (GOLDEN suite, run-verification-gates.sh, CI workflows)"
     verify: "test -f specs/tech-architecture/GOLDEN-COMPLIANCE-DEPENDENCY.md && echo OK"
-    status: todo
+    status: passing
   - id: 2
     description: "For each of the 5 docs citing the 94% threshold as a Hard Stop (PRINCIPLES.md, RELEASE-HISTORY.md, WORKFLOW-SOP-v2.md x2, using-bigpowers.md), record the exact line and whether demoting the gate requires that doc to change too"
     verify: "test -f specs/tech-architecture/GOLDEN-COMPLIANCE-DEPENDENCY.md && [ \"$(grep -c '^|' specs/tech-architecture/GOLDEN-COMPLIANCE-DEPENDENCY.md)\" -ge 7 ] && echo OK"
-    status: todo
+    status: passing
   - id: 3
     description: "State explicitly in the report: this story maps the dependency only — it does not flip golden-suite-gates.sh:9's is_optional flag. That flip belongs to e58 (evals-over-compliance)"
     verify: "grep -qi 'does not flip\\|out of scope' specs/tech-architecture/GOLDEN-COMPLIANCE-DEPENDENCY.md && echo OK"
-    status: todo
+    status: passing

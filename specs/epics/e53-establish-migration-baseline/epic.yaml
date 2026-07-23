@@ -59,7 +59,7 @@ stories:
         while a stub under the old name still resolves for one release.
   - id: e53s03
     bcp: 2
-    status: todo
+    status: done
     title: "Gate-trace the compliance-to-GOLDEN hard-gate coupling"
     spec: e53s03-gate-trace-compliance-golden.md
     tasks: e53s03-tasks.yaml
