@@ -1,3 +1,10 @@
+## [2.82.4](https://github.com/danielvm-git/bigpowers/compare/v2.82.3...v2.82.4) (2026-07-24)
+
+
+### Bug Fixes
+
+* **scripts:** use portable [0-9] instead of \d in grep patterns ([e76bb21](https://github.com/danielvm-git/bigpowers/commit/e76bb210b37a2c1d7bf3ab43fb1d89a947d3a52b))
+
 ## [2.82.3](https://github.com/danielvm-git/bigpowers/compare/v2.82.2...v2.82.3) (2026-07-24)
 
 

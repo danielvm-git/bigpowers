@@ -2,7 +2,7 @@ active_flow: build_epic
 active_epic: e56
 active_story: null
 bug_id: null
-bigpowers_version: 2.82.3
+bigpowers_version: 2.82.4
 bug_cycle: null
 handoff:
   next_skill: release-branch
