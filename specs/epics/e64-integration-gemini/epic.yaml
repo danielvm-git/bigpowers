@@ -29,3 +29,9 @@ stories:
     bcps: 3
     status: done
     wave: A
+  - id: e64s02
+    title: Install hub wiring (Wave B)
+    bcps: 2
+    status: in_progress
+    wave: B
+    depends_on: [e64s01]

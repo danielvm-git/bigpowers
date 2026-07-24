@@ -5,18 +5,18 @@ bug_id: null
 bigpowers_version: 2.82.4
 bug_cycle: null
 handoff:
-  next_skill: develop-tdd
-  context: Wave A complete — executing Wave B hub wiring (install.sh, install-helpers, verify-install)
+  next_skill: release-branch
+  context: Wave B e64s02 hub wiring complete; audit PASS; open PR
   epic: e64
 epic_cycle:
-  step: '1'
+  step: '7'
   fast_mode: true
   story_bcps: 2
-  audit_result: null
-  completed_steps: ''
+  audit_result: pass
+  completed_steps: '0,1,2,3,4,5,6'
 metrics:
   story_start: '2026-07-24T11:13:00-03:00'
-  story_end: null
+  story_end: '2026-07-24T11:25:00-03:00'
   skill_timings: {}
 release:
   ci_verified: true

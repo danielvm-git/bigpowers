@@ -42,6 +42,16 @@ assert_gemini_ext_exists() {
   return 1
 }
 
+assert_gemini_hooks_manifest() {
+  local id="$1"
+  if GEMINI_EXT_DIR=".gemini/extensions/bigpowers" bash scripts/adapters/gemini.sh --validate-hooks >/dev/null 2>&1; then
+    echo "PASS $id:gemini_hooks_manifest"
+    return 0
+  fi
+  echo "FAIL $id:gemini_hooks_manifest — hook templates invalid"
+  return 1
+}
+
 assert_pi_skills_nonempty() {
   local id="$1"
   if [[ -d .pi/skills ]] && [[ -n "$(ls -A .pi/skills 2>/dev/null)" ]]; then
@@ -70,6 +80,7 @@ run_contract() {
     symlink_claude_md) assert_symlink_claude_md "$id" ;;
     cursor_rules_nonempty) assert_cursor_rules_nonempty "$id" ;;
     gemini_ext_exists) assert_gemini_ext_exists "$id" ;;
+    gemini_hooks_manifest) assert_gemini_hooks_manifest "$id" ;;
     pi_skills_nonempty) assert_pi_skills_nonempty "$id" ;;
     aider_bridge) assert_aider_bridge "$id" ;;
     *) echo "SKIP $id:$contract — unknown contract"; return 0 ;;

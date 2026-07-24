@@ -32,9 +32,9 @@
 
 See `settings.json.example` for wiring snippets. Machine-readable list: `hooks-manifest.json`.
 
-## Wave B (not in Wave A)
+## Wave B (install hub)
 
-Hub install (`scripts/install.sh` → `install_gemini()`) symlinks these scripts to `~/.gemini/hooks/` and merges hook entries into `~/.gemini/settings.json`. Do not edit hub files during Wave A.
+Hub install (`scripts/install.sh` → `install_gemini()`) symlinks these scripts to `~/.gemini/hooks/` and merges hook entries into `~/.gemini/settings.json`. See `scripts/test-gemini-hub.sh` for regression checks.
 
 ## Verify locally
 

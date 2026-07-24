@@ -29,6 +29,7 @@ targets:
       file: GEMINI.md
     contracts:
       - gemini_ext_exists
+      - gemini_hooks_manifest
 
   - id: pi
     name: pi Agent
