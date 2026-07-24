@@ -342,29 +342,30 @@ development_status:
   e59: backlog
   e60: done
   e60s01: done
-  e61: in_progress
+  e61: done
   e61s01: done
   e61s02: done
   e62: backlog
   e63: done
-  e64: backlog
+  e64: done
+  e64s01: done
+  e64s02: done
   e65: backlog
   e66: backlog
   e67: backlog
   e68: backlog
-  e69: in_progress
+  e69: done
   e69s01: done
   e69s02: done
   e70: backlog
   e71: backlog
   e72: backlog
   e73: backlog
-  e74: in_progress
+  e74: done
   e74s01: done
   e74s02: done
-  e74s01: done
   e75: backlog
-  e76: in_progress
+  e76: done
   e76s01: done
   e76s02: done
   e77: done
@@ -615,10 +616,10 @@ epics:
     wsjf: 9.0
     total_bcps: 3
   e61:
-    status: in_progress
+    status: done
     title: 'Integration: Hermes Agent — Skills + 3 Hook Systems'
     wsjf: 5.0
-    total_bcps: 3
+    total_bcps: 5
   e62:
     status: backlog
     title: 'Integration: OpenCode — Skills + No Hooks'
@@ -630,10 +631,10 @@ epics:
     wsjf: 9.0
     total_bcps: 0
   e64:
-    status: backlog
+    status: done
     title: 'Integration: Gemini CLI — Extensions + Hooks'
     wsjf: 6.0
-    total_bcps: 0
+    total_bcps: 5
   e65:
     status: backlog
     title: 'Integration: Codex CLI — AGENTS.md + Hooks'
@@ -655,10 +656,10 @@ epics:
     wsjf: 6.0
     total_bcps: 0
   e69:
-    status: backlog
+    status: done
     title: 'Integration: MiMo Code — Skills + Plugins (No Hooks)'
     wsjf: 5.0
-    total_bcps: 0
+    total_bcps: 4
   e70:
     status: backlog
     title: 'Integration: Trae — Skills + Hooks'
@@ -680,7 +681,7 @@ epics:
     wsjf: 5.0
     total_bcps: 0
   e74:
-    status: in_progress
+    status: done
     title: 'Integration: Antigravity CLI — Google''s New CLI'
     wsjf: 4.0
     total_bcps: 4
@@ -690,10 +691,10 @@ epics:
     wsjf: 3.0
     total_bcps: 0
   e76:
-    status: in_progress
+    status: done
     title: 'Integration: ZCode — Skills + Plugin Hooks'
     wsjf: 5.0
-    total_bcps: 3
+    total_bcps: 5
   e77:
     status: done
     title: 'Integration: pi — Skills (No Hooks)'
@@ -3046,22 +3047,38 @@ stories:
     tasks_failing: 0
   e61s01:
     status: done
-    title: "Hermes adapter + hook templates (Wave A)"
+    title: Hermes adapter + hook templates (Wave A)
     bcps: 3
     epic: e61
-    started_at: "2026-07-24T10:53:00-03:00"
-    completed_at: "2026-07-24T10:58:00-03:00"
     tasks_total: 7
     tasks_passing: 7
     tasks_failing: 0
     risk_max: P2
+    security_max: medium
   e61s02:
     status: done
-    title: "Install hub wiring (Wave B)"
+    title: Install hub wiring (Wave B)
     bcps: 2
     epic: e61
-    started_at: "2026-07-24T11:00:00-03:00"
-    completed_at: "2026-07-24T11:05:00-03:00"
+    tasks_total: 6
+    tasks_passing: 6
+    tasks_failing: 0
+    risk_max: P1
+  e64s01:
+    status: backlog
+    title: 'Gemini hooks adapter — event docs, templates, adapter completeness (Wave A)'
+    bcps: 3
+    epic: e64
+    tasks_total: 5
+    tasks_passing: 5
+    tasks_failing: 0
+    risk_max: P1
+    security_max: low
+  e64s02:
+    status: backlog
+    title: Install hub wiring (Wave B)
+    bcps: 2
+    epic: e64
     tasks_total: 6
     tasks_passing: 6
     tasks_failing: 0
@@ -3078,45 +3095,45 @@ stories:
     security_max: low
   e69s02:
     status: done
-    title: "Install hub wiring (Wave B)"
+    title: Install hub wiring (Wave B)
     bcps: 2
     epic: e69
-    started_at: "2026-07-24T11:25:00-03:00"
-    completed_at: "2026-07-24T11:35:00-03:00"
-    tasks_total: 7
-    tasks_passing: 7
+    tasks_total: 0
+    tasks_passing: 0
     tasks_failing: 0
-    risk_max: P1
-  e76s01:
-    status: done
-    title: ZCode adapter — Wave A greenfield skills-dir
-    bcps: 3
-    epic: e76
-    started_at: "2026-07-24T10:53:00-03:00"
-    completed_at: "2026-07-24T11:05:00-03:00"
-    tasks_total: 4
-    tasks_passing: 4
-    tasks_failing: 0
-  e76s02:
-    status: done
-    title: "Install hub wiring (Wave B)"
-    bcps: 2
-    epic: e76
-    started_at: "2026-07-24T11:10:00-03:00"
-    completed_at: "2026-07-24T11:20:00-03:00"
-    tasks_total: 7
-    tasks_passing: 7
-    tasks_failing: 0
-    risk_max: P1
   e74s01:
     status: done
     title: Wave A — Antigravity CLI adapter research and agy.sh stub
     bcps: 2
     epic: e74
-    started_at: "2026-07-24T10:50:00-03:00"
-    completed_at: "2026-07-24T11:00:00-03:00"
     tasks_total: 5
     tasks_passing: 5
     tasks_failing: 0
     risk_max: P2
     security_max: low
+  e74s02:
+    status: done
+    title: Install hub wiring (Wave B)
+    bcps: 2
+    epic: e74
+    tasks_total: 0
+    tasks_passing: 0
+    tasks_failing: 0
+  e76s01:
+    status: done
+    title: 'ZCode adapter — Wave A greenfield skills-dir'
+    bcps: 3
+    epic: e76
+    tasks_total: 4
+    tasks_passing: 4
+    tasks_failing: 0
+    risk_max: P2
+    security_max: low
+  e76s02:
+    status: done
+    title: Install hub wiring (Wave B)
+    bcps: 2
+    epic: e76
+    tasks_total: 0
+    tasks_passing: 0
+    tasks_failing: 0

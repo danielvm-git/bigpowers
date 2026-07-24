@@ -1,16 +1,15 @@
-active_flow: orchestrator
+active_flow: null
 active_epic: null
 active_story: null
 bug_id: null
 bigpowers_version: 2.82.4
 bug_cycle: null
 handoff:
-  next_skill: null
+  next_skill: survey-context
   context: >
-    Parallel build-epic fleet complete. Wave 0 closeout (e60/e63/e77/e78) done.
-    Wave A adapters landed on feature branches. Wave B hub PRs #84-#89 merged to main.
-    Worktrees ../bp-e{61,64,69,74,76} remain for cleanup.
-  epic: fleet-e61-e76
+    Parallel build-epic fleet complete (e61/e64/e69/e74/e76 + Wave 0 #90 merged).
+    Primary main at bd2c7360. Local SoT updates uncommitted — commit when ready.
+  epic: null
 epic_cycle: null
 metrics:
   story_start: null
@@ -18,5 +17,5 @@ metrics:
   skill_timings: {}
 release:
   ci_verified: true
-  last_commit: merged-pr-89
-  last_epic: e74
+  last_commit: 9e18e044
+  last_epic: fleet-wave-b

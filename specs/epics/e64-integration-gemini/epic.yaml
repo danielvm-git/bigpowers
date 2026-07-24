@@ -1,6 +1,6 @@
 id: e64
 title: "Integration: Gemini CLI — Extensions + Hooks"
-status: scoped
+status: done
 wsjf: 6.0
 bcps: 0
 mode: capsule
@@ -32,6 +32,6 @@ stories:
   - id: e64s02
     title: Install hub wiring (Wave B)
     bcps: 2
-    status: in_progress
+    status: done
     wave: B
     depends_on: [e64s01]
