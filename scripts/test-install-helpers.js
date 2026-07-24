@@ -27,6 +27,12 @@ try {
     /Hook source missing/
   );
 
+  const { linkDir, uninstallTool } = require('../scripts/lib/install-helpers.js');
+  assert.throws(
+    () => linkDir(path.join(tmpHome, 'missing-dir'), path.join(tmpHome, 'dst-dir')),
+    /Link source missing/
+  );
+
   const setupSrc = fs.readFileSync(path.join(ROOT, 'bin/setup.js'), 'utf8');
   assert.ok(/id:\s*'pi'/.test(setupSrc), 'bin/setup.js TOOLS must include pi');
   assert.ok(!/const ALL_ID/.test(setupSrc), 'dead ALL_ID constant must be removed');
@@ -65,6 +71,21 @@ try {
     fs.readlinkSync(path.join(piSkill, sample)).includes(path.join('skills', sample)),
     'pi skill symlink must point into repo skills/'
   );
+
+  uninstallTool('pi', ROOT);
+  assert.ok(
+    !fs.existsSync(path.join(piSkill, sample)),
+    'uninstallTool(pi) must remove repo-rooted skill symlinks'
+  );
+
+  const rulesSrc = path.join(ROOT, '.cursor', 'rules');
+  assert.ok(fs.existsSync(rulesSrc), '.cursor/rules must exist (run sync-skills)');
+  installGlobal({ id: 'cursor', name: 'Cursor' }, ROOT);
+  const rulesDst = path.join(tmpHome, '.cursor', 'rules');
+  assert.ok(fs.lstatSync(rulesDst).isSymbolicLink(), 'cursor rules must be symlinked');
+  assert.strictEqual(fs.readlinkSync(rulesDst), rulesSrc, 'cursor rules symlink must point at repo .cursor/rules');
+  uninstallTool('cursor', ROOT);
+  assert.ok(!fs.existsSync(rulesDst), 'uninstallTool(cursor) must remove rules symlink');
 
   const installSh = fs.readFileSync(path.join(ROOT, 'scripts/install.sh'), 'utf8');
   assert.ok(
