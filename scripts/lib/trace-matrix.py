@@ -103,7 +103,7 @@ import subprocess
 result = subprocess.run(
     ["grep", "-rn", "--include=*.md", "--include=*.sh", "--include=*.py",
      "--include=*.js", "--include=*.ts", "--include=*.yaml", "--include=*.yml",
-     "-E", r"story:\s*e\d{2}s\d{2}", str(ROOT)],
+     "-E", r"story:\s*e[0-9]{2}s[0-9]{2}", str(ROOT)],
     capture_output=True, text=True, cwd=str(ROOT)
 )
 
