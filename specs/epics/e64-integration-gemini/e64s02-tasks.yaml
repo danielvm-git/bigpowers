@@ -1,0 +1,35 @@
+# story: e64s02
+title: "Install hub wiring (Wave B)"
+status: passing
+risk: P1
+spec: e64s02-hub-wiring.md
+depends_on: [e64s01]
+tasks:
+  - id: t1
+    title: Add scripts/test-gemini-hub.sh regression harness
+    status: passing
+    verify: bash scripts/test-gemini-hub.sh
+  - id: t2
+    title: Wire install_gemini/uninstall_gemini with Wave A hook templates in scripts/install.sh
+    status: passing
+    verify: bash -n scripts/install.sh && bash scripts/install.sh --dry-run 2>&1 | grep -q 'before-tool-git-guard.sh'
+  - id: t3
+    title: Add gemini hook cases to scripts/lib/install-helpers.js
+    status: passing
+    verify: node --check scripts/lib/install-helpers.js && grep -q 'before-tool-git-guard.sh' scripts/lib/install-helpers.js
+  - id: t4
+    title: Verify gemini in SUPPORTED_IDS in bin/setup.js
+    status: passing
+    verify: node --check bin/setup.js && grep -q "'gemini'" bin/setup.js
+  - id: t5
+    title: Add gemini_hooks_manifest contract to targets.yaml and verify-install.sh
+    status: passing
+    verify: grep -q gemini_hooks_manifest scripts/targets.yaml && bash scripts/verify-install.sh
+  - id: t6
+    title: Story gate — hub harness + adapter + verify-install green
+    status: passing
+    verify: >-
+      bash scripts/test-gemini-hub.sh &&
+      bash scripts/test-gemini-adapter.sh &&
+      bash scripts/verify-install.sh &&
+      echo OK

@@ -1,0 +1,90 @@
+story_id: e64s01
+title: "Gemini hooks adapter — event docs, templates, adapter completeness (Wave A)"
+spec: e64s01-gemini-hooks-adapter.md
+status: passing
+bcps: 3
+risk: P2
+depends_on: []
+tasks:
+  - id: 1
+    description: >-
+      Write specs/security/epics/e64/THREAT_MODEL.md for Wave A adapter scope
+      (hooks templates, gemini.sh helpers; no hub install).
+    verify: test -f specs/security/epics/e64/THREAT_MODEL.md && grep -q 'LOW' specs/security/epics/e64/THREAT_MODEL.md && echo OK
+    risk: P2
+    security: low
+    status: passing
+    allure:
+      severity: normal
+      categories:
+        - Security Review
+        - Wave A
+
+  - id: 2
+    description: >-
+      Add hook event docs and templates under .gemini/extensions/bigpowers/hooks/:
+      HOOKS.md, hooks-manifest.json, settings.json.example, before-tool-git-guard.sh,
+      before-tool-rtk.sh, before-tool-token-mgmt.sh.
+    verify: >-
+      test -f .gemini/extensions/bigpowers/hooks/HOOKS.md &&
+      test -f .gemini/extensions/bigpowers/hooks/hooks-manifest.json &&
+      test -f .gemini/extensions/bigpowers/hooks/settings.json.example &&
+      test -f .gemini/extensions/bigpowers/hooks/before-tool-git-guard.sh && echo OK
+    risk: P2
+    security: low
+    status: passing
+    allure:
+      severity: normal
+      categories:
+        - Wave A
+
+  - id: 3
+    description: >-
+      Extend scripts/adapters/gemini.sh with list_hook_events, validate_hook_templates,
+      render_hooks_manifest; add render_gemini_hooks_manifest to sync-render.sh.
+    verify: >-
+      bash -n scripts/adapters/gemini.sh &&
+      bash -n scripts/lib/sync-render.sh &&
+      grep -q 'list_hook_events' scripts/adapters/gemini.sh &&
+      grep -q 'render_gemini_hooks_manifest' scripts/lib/sync-render.sh && echo OK
+    risk: P1
+    security: none
+    status: passing
+    allure:
+      severity: high
+      categories:
+        - Wave A
+
+  - id: 4
+    description: >-
+      Add scripts/test-gemini-adapter.sh — validates hook templates, event count (11),
+      and gemini adapter stdin render smoke test.
+    verify: bash scripts/test-gemini-adapter.sh
+    risk: P2
+    security: none
+    status: passing
+    allure:
+      severity: normal
+      categories:
+        - Wave A
+
+  - id: 5
+    description: >-
+      Update epic.yaml with e64s01 story entry; run plan-consistency-check on capsule.
+    verify: >-
+      grep -q 'e64s01' specs/epics/e64-integration-gemini/epic.yaml &&
+      bash scripts/lib/plan-consistency-check.sh specs/epics/e64-integration-gemini/ 2>&1 | grep -qv CRITICAL && echo OK
+    risk: P3
+    security: none
+    status: passing
+    allure:
+      severity: minor
+      categories:
+        - Wave A
+
+out_of_scope:
+  - scripts/install.sh install_gemini wiring
+  - scripts/lib/install-helpers.js gemini cases
+  - bin/setup.js SUPPORTED_IDS
+  - scripts/targets.yaml hook contracts
+  - scripts/verify-install.sh gemini hook matrix

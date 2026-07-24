@@ -144,6 +144,12 @@ grep -q 'uninstall_mimo()' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: u
 grep -q 'MIMO_SKILLS_DIR=' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: targets ~/.mimocode/skills/" || ta_fail "source: wrong mimo target"
 grep -q "'mimo'" "$REPO_ROOT/bin/setup.js" && grep -q 'SUPPORTED_IDS' "$REPO_ROOT/bin/setup.js" && ta_pass "setup.js: mimo supported" || ta_fail "setup.js: mimo not in SUPPORTED_IDS"
 grep -q "case 'mimo'" "$REPO_ROOT/scripts/lib/install-helpers.js" && ta_pass "install-helpers: mimo case" || ta_fail "install-helpers: missing mimo case"
+grep -q 'install_gemini()' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: install_gemini()" || ta_fail "source: missing install_gemini()"
+grep -q 'uninstall_gemini()' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: uninstall_gemini()" || ta_fail "source: missing uninstall_gemini()"
+grep -q 'before-tool-git-guard.sh' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: gemini Wave A hook templates" || ta_fail "source: missing gemini hook templates"
+grep -q "'gemini'" "$REPO_ROOT/bin/setup.js" && grep -q 'SUPPORTED_IDS' "$REPO_ROOT/bin/setup.js" && ta_pass "setup.js: gemini supported" || ta_fail "setup.js: gemini not in SUPPORTED_IDS"
+grep -q "case 'gemini'" "$REPO_ROOT/scripts/lib/install-helpers.js" && ta_pass "install-helpers: gemini case" || ta_fail "install-helpers: missing gemini case"
+grep -q 'gemini_hooks_manifest' "$REPO_ROOT/scripts/targets.yaml" && ta_pass "targets.yaml: gemini_hooks_manifest" || ta_fail "targets.yaml: missing gemini_hooks_manifest"
 ! grep -q 'install_opencode\|print_opencode_instructions' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: no opencode functions" || ta_fail "source: opencode functions remain"
 
 echo ""

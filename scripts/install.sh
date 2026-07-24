@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # story: e45s16
+# story: e64s02
 # install.sh — global symlink install for bigpowers skills
 #
 # Supported tools:
@@ -128,11 +129,12 @@ uninstall_claude() {
   fi
 }
 
-# ── Gemini CLI ────────────────────────────────────────────────────────────────
+# ── Gemini CLI (e64s02) ───────────────────────────────────────────────────────
 
 GEMINI_CONFIG_DIR="$HOME/.gemini"
 GEMINI_EXT_SRC="$REPO_ROOT/.gemini/extensions/bigpowers"
 GEMINI_EXT_DST="$GEMINI_CONFIG_DIR/config/plugins/bigpowers"
+GEMINI_HOOKS_SRC="$GEMINI_EXT_SRC/hooks"
 GEMINI_HOOKS_DIR="$GEMINI_CONFIG_DIR/hooks"
 GEMINI_SETTINGS="$GEMINI_CONFIG_DIR/settings.json"
 
@@ -146,10 +148,14 @@ install_gemini() {
   link "$GEMINI_EXT_SRC" "$GEMINI_EXT_DST"
 
   echo "Gemini CLI Hooks → $GEMINI_HOOKS_DIR/"
-  link "$REPO_ROOT/.gemini/extensions/bigpowers/hooks/session-start" "$GEMINI_HOOKS_DIR/session-start"
-  link "$REPO_ROOT/.gemini/extensions/bigpowers/hooks/run-hook.cmd" "$GEMINI_HOOKS_DIR/run-hook.cmd"
-  link "$REPO_ROOT/guard-git/scripts/block-dangerous-git.sh" "$GEMINI_HOOKS_DIR/block-dangerous-git.sh"
-  link "$REPO_ROOT/guard-git/scripts/lib" "$GEMINI_HOOKS_DIR/lib"
+  link "$GEMINI_HOOKS_SRC/session-start" "$GEMINI_HOOKS_DIR/session-start"
+  link "$GEMINI_HOOKS_SRC/run-hook.cmd" "$GEMINI_HOOKS_DIR/run-hook.cmd"
+  link "$GEMINI_HOOKS_SRC/before-tool-git-guard.sh" "$GEMINI_HOOKS_DIR/before-tool-git-guard.sh"
+  link "$GEMINI_HOOKS_SRC/before-tool-rtk.sh" "$GEMINI_HOOKS_DIR/before-tool-rtk.sh"
+  link "$GEMINI_HOOKS_SRC/before-tool-token-mgmt.sh" "$GEMINI_HOOKS_DIR/before-tool-token-mgmt.sh"
+  chmod +x "$GEMINI_HOOKS_SRC/before-tool-git-guard.sh" \
+    "$GEMINI_HOOKS_SRC/before-tool-rtk.sh" \
+    "$GEMINI_HOOKS_SRC/before-tool-token-mgmt.sh" 2>/dev/null || true
 
   if [[ -f "$GEMINI_SETTINGS" ]]; then
     echo "  Configuring global hooks in $GEMINI_SETTINGS..."
@@ -157,14 +163,17 @@ install_gemini() {
       local tmp; tmp=$(mktemp)
       cat "$GEMINI_SETTINGS" | jq '
         .hooks.SessionStart += [{"matcher":"startup|clear|compact","hooks":[{"type":"command","command":"\"'"$GEMINI_HOOKS_DIR/run-hook.cmd"'\" session-start","async":false}]}] |
-        .hooks.BeforeTool += [{"matcher":"run_shell_command","hooks":[{"name":"git-guardrails","type":"command","command":"GIT_GUARDRAILS_MODE=gemini \"'"$GEMINI_HOOKS_DIR/block-dangerous-git.sh"'\""}]}] |
-        # deduplicate
+        .hooks.BeforeTool += [{"matcher":"run_shell_command","hooks":[{"name":"git-guardrails","type":"command","command":"GIT_GUARDRAILS_MODE=gemini \"'"$GEMINI_HOOKS_DIR/before-tool-git-guard.sh"'\"","timeout":5000}]}] |
+        .hooks.BeforeTool += [{"matcher":"run_shell_command","hooks":[{"name":"rtk-rewrite","type":"command","command":"\"'"$GEMINI_HOOKS_DIR/before-tool-rtk.sh"'\"","timeout":3000}]}] |
         .hooks.SessionStart |= unique |
         .hooks.BeforeTool |= unique
       ' > "$tmp" && run mv "$tmp" "$GEMINI_SETTINGS"
     else
       echo "  WARNING: jq not found. Manual setup required in $GEMINI_SETTINGS"
+      echo "  See $GEMINI_HOOKS_SRC/settings.json.example"
     fi
+  else
+    echo "  NOTE: $GEMINI_SETTINGS not found — copy $GEMINI_HOOKS_SRC/settings.json.example after first Gemini run"
   fi
 }
 
@@ -175,8 +184,9 @@ uninstall_gemini() {
   if [[ -d "$GEMINI_HOOKS_DIR" ]]; then
     unlink_if_managed "$GEMINI_HOOKS_DIR/session-start" "$REPO_ROOT/"
     unlink_if_managed "$GEMINI_HOOKS_DIR/run-hook.cmd" "$REPO_ROOT/"
-    unlink_if_managed "$GEMINI_HOOKS_DIR/block-dangerous-git.sh" "$REPO_ROOT/"
-    unlink_if_managed "$GEMINI_HOOKS_DIR/lib" "$REPO_ROOT/"
+    unlink_if_managed "$GEMINI_HOOKS_DIR/before-tool-git-guard.sh" "$REPO_ROOT/"
+    unlink_if_managed "$GEMINI_HOOKS_DIR/before-tool-rtk.sh" "$REPO_ROOT/"
+    unlink_if_managed "$GEMINI_HOOKS_DIR/before-tool-token-mgmt.sh" "$REPO_ROOT/"
   fi
 }
 

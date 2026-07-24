@@ -6,8 +6,9 @@ render_skill() {
     render_mimo_skill
     return
   fi
-  mkdir -p "${MIMO_SKILLS:-.mimocode/skills}/$IR_NAME"
-  cp "${SKILL_MD_PATH:-}" "${MIMO_SKILLS}/$IR_NAME/SKILL.md" 2>/dev/null || {
+  local out="${MIMO_SKILLS:-.mimocode/skills}/$IR_NAME"
+  mkdir -p "$out"
+  cp "${SKILL_MD_PATH:-}" "$out/SKILL.md" 2>/dev/null || {
     {
       echo "---"
       echo "name: $IR_NAME"
@@ -16,7 +17,7 @@ render_skill() {
       echo "---"
       echo ""
       echo "${IR_BODY_SKILL:-$IR_BODY}"
-    } > "${MIMO_SKILLS}/$IR_NAME/SKILL.md"
+    } > "$out/SKILL.md"
   }
 }
 
