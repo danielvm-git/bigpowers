@@ -5,6 +5,7 @@
 // story: e76s02
 // story: e69s02
 // story: e74s02
+// story: e71s02
 // story: e62s02
 // story: e73s02
 // story: e70s02
@@ -293,6 +294,15 @@ function installGlobal(tool, repoRoot) {
         linkFile(agentsSrc, agentsDst);
       }
       break; // story: e62s02
+    case 'copilot':
+      linkRenderedSkills(path.join(repoRoot, '.copilot/skills'), path.join(homeDir, '.copilot', 'skills'));
+      {
+        const agentsSrc = path.join(repoRoot, 'AGENTS.md');
+        const agentsDst = path.join(homeDir, '.copilot', 'AGENTS.md');
+        fs.mkdirSync(path.dirname(agentsDst), { recursive: true });
+        if (fs.existsSync(agentsSrc)) fs.copyFileSync(agentsSrc, agentsDst);
+      }
+      break; // story: e71s02
     case 'cursor': {
       const rulesSrc = path.join(repoRoot, '.cursor', 'rules');
       const rulesDst = path.join(homeDir, '.cursor', 'rules');

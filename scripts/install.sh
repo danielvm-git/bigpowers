@@ -4,6 +4,7 @@
 # story: e63
 # story: e64s02
 # story: e74s02
+# story: e71s02
 # story: e62s02
 # story: e73s02
 # story: e70s02
@@ -793,6 +794,47 @@ uninstall_opencode() {
   fi
   unlink_if_managed "$OPENCODE_CONTEXT" "$REPO_ROOT/"
 }
+# ── Copilot CLI (e71s02) ───────────────────────────────────────────────────────
+
+COPILOT_CONFIG_DIR="$HOME/.copilot"
+COPILOT_SKILLS_DIR="$COPILOT_CONFIG_DIR/skills"
+COPILOT_RENDERED="$REPO_ROOT/.copilot/skills"
+COPILOT_CONTEXT="$COPILOT_CONFIG_DIR/AGENTS.md"
+
+install_copilot() {
+  echo ""
+  echo "Copilot CLI → $COPILOT_SKILLS_DIR/"
+  if [[ ! -d "$COPILOT_RENDERED" ]]; then
+    echo "  WARNING: $COPILOT_RENDERED not found — run sync-skills.sh first"
+    return
+  fi
+  local count=0
+  for skill_dir in "$COPILOT_RENDERED"/*/; do
+    [[ -f "${skill_dir}SKILL.md" ]] || continue
+    local name; name="$(basename "$skill_dir")"
+    link "$skill_dir" "$COPILOT_SKILLS_DIR/$name"
+    count=$((count + 1))
+  done
+  echo "  $count skills installed"
+  echo "Copilot CLI → context copy $COPILOT_CONTEXT"
+  source "$REPO_ROOT/scripts/lib/context-wire.sh"
+  local agents_src="$REPO_ROOT/AGENTS.md"
+  [[ -f "$agents_src" ]] || agents_src="$REPO_ROOT/docs/templates/AGENTS.md"
+  run mkdir -p "$(dirname "$COPILOT_CONTEXT")"
+  run cp "$agents_src" "$COPILOT_CONTEXT"
+}
+
+uninstall_copilot() {
+  echo ""
+  echo "Copilot CLI → removing management from $COPILOT_CONFIG_DIR/"
+  if [[ -d "$COPILOT_SKILLS_DIR" ]]; then
+    for dst in "$COPILOT_SKILLS_DIR"/*/; do
+      [[ -L "${dst%/}" ]] || continue
+      unlink_if_managed "${dst%/}" "$REPO_ROOT/"
+    done
+  fi
+  unlink_if_managed "$COPILOT_CONTEXT" "$REPO_ROOT/"
+}
 # ── main ──────────────────────────────────────────────────────────────────────
 
 echo "bigpowers install.sh — REPO: $REPO_ROOT"
@@ -816,6 +858,7 @@ if $UNINSTALL; then
   uninstall_trae
   uninstall_windsurf
   uninstall_opencode
+  uninstall_copilot
   echo ""
   echo "bigpowers uninstalled."
 else
@@ -835,6 +878,7 @@ else
   install_trae
   install_windsurf
   install_opencode
+  install_copilot
   echo ""
   echo "bigpowers installed. Future updates:"
   if [[ -d "$REPO_ROOT/.git" ]]; then

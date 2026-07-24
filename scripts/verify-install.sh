@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # story: e47s04 e37s02 e37s04 e37s08
 # story: e74s02
+# story: e71s02
 # story: e62s02
 # story: e73s02
 # story: e70s02
@@ -209,6 +210,11 @@ grep -q 'uninstall_opencode()' "$REPO_ROOT/scripts/install.sh" && ta_pass "sourc
 grep -q 'OPENCODE_SKILLS_DIR=' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: opencode skills dir" || ta_fail "source: missing opencode skills dir"
 grep -q "'opencode'" "$REPO_ROOT/bin/setup.js" && grep -q 'SUPPORTED_IDS' "$REPO_ROOT/bin/setup.js" && ta_pass "setup.js: opencode supported" || ta_fail "setup.js: opencode not in SUPPORTED_IDS"
 grep -q "case 'opencode'" "$REPO_ROOT/scripts/lib/install-helpers.js" && ta_pass "install-helpers: opencode case" || ta_fail "install-helpers: missing opencode case"
+grep -q 'install_copilot()' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: install_copilot()" || ta_fail "source: missing install_copilot()"
+grep -q 'uninstall_copilot()' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: uninstall_copilot()" || ta_fail "source: missing uninstall_copilot()"
+grep -q 'COPILOT_SKILLS_DIR=' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: copilot skills dir" || ta_fail "source: missing copilot skills dir"
+grep -q "'copilot'" "$REPO_ROOT/bin/setup.js" && grep -q 'SUPPORTED_IDS' "$REPO_ROOT/bin/setup.js" && ta_pass "setup.js: copilot supported" || ta_fail "setup.js: copilot not in SUPPORTED_IDS"
+grep -q "case 'copilot'" "$REPO_ROOT/scripts/lib/install-helpers.js" && ta_pass "install-helpers: copilot case" || ta_fail "install-helpers: missing copilot case"
 echo ""
 echo "──────────────────────────────────────────"
 echo "verify-install: $TA_PASS passed, $TA_FAIL failed"
