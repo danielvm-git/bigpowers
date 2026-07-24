@@ -50,12 +50,12 @@ const TOOLS = [
   { id: 'hermes', name: 'Hermes Agent', globalPath: '~/.hermes', localPath: '.hermes' },
   { id: 'kilo', name: 'Kilo', globalPath: '~/.config/kilo', localPath: '.config/kilo' },
   { id: 'opencode', name: 'OpenCode', globalPath: '~/.config/opencode', localPath: '.config/opencode' },
+  { id: 'pi', name: 'pi', globalPath: '~/.pi/agent/skills', localPath: '.pi/agent/skills' },
   { id: 'qwen', name: 'Qwen Code', globalPath: '~/.qwen', localPath: '.qwen' },
   { id: 'trae', name: 'Trae', globalPath: '~/.trae', localPath: '.trae' },
   { id: 'windsurf', name: 'Windsurf', globalPath: '~/.codeium/windsurf', localPath: '.codeium/windsurf' },
   { id: 'zcode', name: 'ZCode', globalPath: '~/.zcode', localPath: '.zcode' },
 ];
-const ALL_ID = '__all__';
 const SUPPORTED_IDS = new Set(['claude', 'gemini', 'pi', 'hermes', 'zcode', 'cursor', 'codex']);
 const UNSUPPORTED_HINT = '(TODO)';
 
@@ -160,7 +160,7 @@ async function main() {
   }
 
   if (mode === 'uninstall') {
-    await handleUninstall(clack);
+    await handleUninstall();
     return;
   }
 

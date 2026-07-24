@@ -26,6 +26,9 @@ stories:
     files:
       - bin/setup.js
       - scripts/lib/install-helpers.js
+      - scripts/test-install-helpers.js
+      - scripts/test-install-helpers.sh
+      - scripts/lib/golden-suite-gates.sh
       - package.json (dependencies + bin + scripts)
     verify: node bin/bigpowers.js setup (interactive in TTY)
     tags:
