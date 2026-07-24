@@ -1,3 +1,10 @@
+## [2.82.2](https://github.com/danielvm-git/bigpowers/compare/v2.82.1...v2.82.2) (2026-07-24)
+
+
+### Bug Fixes
+
+* **specs:** add story tag e60s01 to implementation files ([c9faef7](https://github.com/danielvm-git/bigpowers/commit/c9faef748800d587616ef98ff64dfbbd10e0bd4c))
+
 ## [2.82.1](https://github.com/danielvm-git/bigpowers/compare/v2.82.0...v2.82.1) (2026-07-24)
 
 
