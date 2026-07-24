@@ -3063,6 +3063,16 @@ stories:
     tasks_passing: 6
     tasks_failing: 0
     risk_max: P1
+  e69s01:
+    status: done
+    title: 'MiMo Code adapter — Wave A skills-dir (.mimocode/skills/)'
+    bcps: 2
+    epic: e69
+    tasks_total: 4
+    tasks_passing: 4
+    tasks_failing: 0
+    risk_max: P2
+    security_max: low
   e69s02:
     status: done
     title: "Install hub wiring (Wave B)"
