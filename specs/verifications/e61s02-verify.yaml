@@ -1,0 +1,17 @@
+story: e61s02
+epic: e61
+title: Install hub wiring (Wave B)
+terminal_verdict:
+  command: bash scripts/test-hermes-hub.sh && bash scripts/verify-install.sh
+  exit_code: 0
+  excerpt: |
+    test-hermes-hub: 18 passed, 0 failed
+    verify-install: 36 passed, 0 failed
+    Overall: pass
+commands:
+  - cmd: bash scripts/test-hermes-hub.sh
+    result: PASS
+  - cmd: bash scripts/verify-install.sh
+    result: PASS
+  - cmd: bash -n scripts/install.sh && node --check scripts/lib/install-helpers.js
+    result: PASS

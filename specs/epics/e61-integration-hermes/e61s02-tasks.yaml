@@ -1,0 +1,33 @@
+# story: e61s02
+title: "Install hub wiring (Wave B)"
+status: passing
+risk: P1
+spec: e61s02-hub-wiring.md
+tasks:
+  - id: t1
+    title: Add scripts/test-hermes-hub.sh regression harness
+    status: passing
+    verify: bash scripts/test-hermes-hub.sh
+  - id: t2
+    title: Wire install_hermes/uninstall_hermes in scripts/install.sh
+    status: passing
+    verify: bash -n scripts/install.sh && bash scripts/install.sh --dry-run 2>&1 | grep -q 'Hermes Agent →'
+  - id: t3
+    title: Add hermes cases to scripts/lib/install-helpers.js
+    status: passing
+    verify: node --check scripts/lib/install-helpers.js
+  - id: t4
+    title: Add hermes to SUPPORTED_IDS in bin/setup.js
+    status: passing
+    verify: node --check bin/setup.js && grep -q "'hermes'" bin/setup.js
+  - id: t5
+    title: Extend scripts/verify-install.sh with hermes contract assertions
+    status: passing
+    verify: bash scripts/verify-install.sh
+  - id: t6
+    title: Story gate — hub harness + verify-install green
+    status: passing
+    verify: >-
+      bash scripts/test-hermes-hub.sh &&
+      bash scripts/verify-install.sh &&
+      echo OK

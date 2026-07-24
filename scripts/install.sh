@@ -6,6 +6,7 @@
 #   Claude Code  → ~/.claude/skills/<name>/ (one symlink per skill)
 #   Gemini CLI   → ~/.gemini/config/plugins/bigpowers/ (one dir symlink)
 #   pi           → ~/.pi/agent/skills/<name>/ (one symlink per skill)
+#   Hermes Agent → ~/.hermes/skills/<name>/ (symlink rendered .hermes/skills/)
 #   Cursor       → ~/.cursor/rules/ (one dir symlink; per-project note printed)
 #
 # Usage:
@@ -231,6 +232,52 @@ uninstall_pi() {
   fi
 }
 
+# ── Hermes Agent (e61s02) ─────────────────────────────────────────────────────
+
+HERMES_CONFIG_DIR="$HOME/.hermes"
+HERMES_SKILLS_DIR="$HERMES_CONFIG_DIR/skills"
+HERMES_RENDERED="$REPO_ROOT/.hermes/skills"
+HERMES_CONFIG="$HERMES_CONFIG_DIR/config.yaml"
+HERMES_HOOKS_DIR="$HERMES_CONFIG_DIR/hooks"
+
+install_hermes() {
+  echo ""
+  echo "Hermes Agent → $HERMES_SKILLS_DIR/"
+  if [[ ! -d "$HERMES_RENDERED" ]]; then
+    echo "  WARNING: $HERMES_RENDERED not found — run sync-skills.sh first"
+    return
+  fi
+  local count=0
+  for skill_dir in "$HERMES_RENDERED"/*/; do
+    [[ -f "${skill_dir}SKILL.md" ]] || continue
+    local name; name="$(basename "$skill_dir")"
+    link "$skill_dir" "$HERMES_SKILLS_DIR/$name"
+    count=$((count + 1))
+  done
+  echo "  $count skills installed"
+
+  echo "Hermes Agent → context bridge $HERMES_CONFIG"
+  source "$REPO_ROOT/scripts/lib/context-wire.sh"
+  wire_context_mode config-bridge "$HERMES_CONFIG" "instructions" "AGENTS.md"
+
+  if [[ -d "$REPO_ROOT/scripts/hooks/hermes/gateway/session-log" ]]; then
+    echo "Hermes Agent hook templates → $HERMES_HOOKS_DIR/ (copy paths into config to enable)"
+    link "$REPO_ROOT/scripts/hooks/hermes/gateway/session-log" "$HERMES_HOOKS_DIR/session-log"
+  fi
+}
+
+uninstall_hermes() {
+  echo ""
+  echo "Hermes Agent → removing management from $HERMES_CONFIG_DIR/"
+  if [[ -d "$HERMES_SKILLS_DIR" ]]; then
+    for dst in "$HERMES_SKILLS_DIR"/*/; do
+      [[ -L "${dst%/}" ]] || continue
+      unlink_if_managed "${dst%/}" "$REPO_ROOT/"
+    done
+  fi
+  unlink_if_managed "$HERMES_HOOKS_DIR/session-log" "$REPO_ROOT/"
+}
+
 # ── Codex CLI (e37s15) ───────────────────────────────────────────────────────
 
 CODEX_DIR="$HOME/.codex"
@@ -260,6 +307,7 @@ if $UNINSTALL; then
   uninstall_claude
   uninstall_gemini
   uninstall_pi
+  uninstall_hermes
   uninstall_cursor
   uninstall_codex
   echo ""
@@ -268,6 +316,7 @@ else
   install_claude
   install_gemini
   install_pi
+  install_hermes
   install_cursor
   install_codex
   echo ""

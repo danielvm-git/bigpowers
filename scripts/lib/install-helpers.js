@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 // story: e60s01
+// story: e61s02
 // install-helpers.js — symlink helpers for bigpowers setup
 
 const fs = require('fs');
@@ -36,6 +37,25 @@ function linkFile(src, dst) {
     if (stat.isSymbolicLink()) fs.unlinkSync(dst);
   } catch {}
   fs.symlinkSync(src, dst);
+}
+
+function linkRenderedSkills(renderedDir, targetDir) {
+  if (!fs.existsSync(renderedDir)) return;
+  fs.mkdirSync(targetDir, { recursive: true });
+  for (const entry of fs.readdirSync(renderedDir, { withFileTypes: true })) {
+    if (!entry.isDirectory()) continue;
+    if (!fs.existsSync(path.join(renderedDir, entry.name, 'SKILL.md'))) continue;
+    linkDir(path.join(renderedDir, entry.name), path.join(targetDir, entry.name));
+  }
+}
+
+function bridgeHermesConfig(configPath) {
+  fs.mkdirSync(path.dirname(configPath), { recursive: true });
+  if (fs.existsSync(configPath)) {
+    const existing = fs.readFileSync(configPath, 'utf8');
+    if (/^instructions:/m.test(existing)) return;
+  }
+  fs.writeFileSync(configPath, 'instructions: AGENTS.md\n');
 }
 
 function linkHook(src, dst) {
@@ -85,6 +105,19 @@ function installGlobal(tool, repoRoot) {
       linkSkills(skillsDir, targetDir);
       break;
     }
+    case 'hermes': {
+      const renderedDir = path.join(repoRoot, '.hermes', 'skills');
+      const targetDir = path.join(homeDir, '.hermes', 'skills');
+      linkRenderedSkills(renderedDir, targetDir);
+      bridgeHermesConfig(path.join(homeDir, '.hermes', 'config.yaml'));
+      const hookSrc = path.join(repoRoot, 'scripts', 'hooks', 'hermes', 'gateway', 'session-log');
+      const hookDst = path.join(homeDir, '.hermes', 'hooks', 'session-log');
+      if (fs.existsSync(hookSrc)) {
+        fs.mkdirSync(path.dirname(hookDst), { recursive: true });
+        linkDir(hookSrc, hookDst);
+      }
+      break;
+    }
     case 'cursor': {
       const rulesSrc = path.join(repoRoot, '.cursor', 'rules');
       const rulesDst = path.join(homeDir, '.cursor', 'rules');
@@ -124,6 +157,13 @@ function installLocal(tool, repoRoot) {
       const targetDir = path.join(cwd, '.pi', 'agent', 'skills');
       fs.mkdirSync(targetDir, { recursive: true });
       linkSkills(skillsDir, targetDir);
+      break;
+    }
+    case 'hermes': {
+      const renderedDir = path.join(repoRoot, '.hermes', 'skills');
+      const targetDir = path.join(cwd, '.hermes', 'skills');
+      linkRenderedSkills(renderedDir, targetDir);
+      bridgeHermesConfig(path.join(cwd, '.hermes', 'config.yaml'));
       break;
     }
     case 'cursor': {
@@ -179,6 +219,20 @@ function uninstallTool(toolId, repoRoot) {
           }
         }
       }
+      break;
+    }
+    case 'hermes': {
+      const skillsDir = path.join(homeDir, '.hermes', 'skills');
+      if (fs.existsSync(skillsDir)) {
+        for (const entry of fs.readdirSync(skillsDir, { withFileTypes: true })) {
+          if (!entry.isSymbolicLink()) continue;
+          const target = fs.readlinkSync(path.join(skillsDir, entry.name));
+          if (target.includes('bigpowers') || target.includes('.hermes/skills')) {
+            removeSymlink(path.join(skillsDir, entry.name));
+          }
+        }
+      }
+      removeSymlink(path.join(homeDir, '.hermes', 'hooks', 'session-log'));
       break;
     }
     case 'cursor':

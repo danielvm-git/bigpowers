@@ -344,6 +344,7 @@ development_status:
   e60s01: done
   e61: in_progress
   e61s01: done
+  e61s02: done
   e62: backlog
   e63: done
   e64: backlog
@@ -3103,3 +3104,14 @@ stories:
     tasks_passing: 7
     tasks_failing: 0
     risk_max: P2
+  e61s02:
+    status: done
+    title: "Install hub wiring (Wave B)"
+    bcps: 2
+    epic: e61
+    started_at: "2026-07-24T11:00:00-03:00"
+    completed_at: "2026-07-24T11:05:00-03:00"
+    tasks_total: 6
+    tasks_passing: 6
+    tasks_failing: 0
+    risk_max: P1

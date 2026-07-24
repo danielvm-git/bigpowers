@@ -1,19 +1,19 @@
 active_flow: build_epic
 active_epic: e61
-active_story: e61s01
+active_story: e61s02
 bug_id: null
 bigpowers_version: 2.82.3
 bug_cycle: null
 handoff:
-  next_skill: commit-message
-  context: Wave A e61s01 complete; audit PASS; Wave B hub wiring next
+  next_skill: release-branch
+  context: Wave B e61s02 hub wiring complete; audit PASS; open PR
   epic: e61
 epic_cycle:
-  step: '7'
+  step: '8'
   fast_mode: true
-  story_bcps: 3
+  story_bcps: 2
   audit_result: pass
-  completed_steps: '0,1+2,3,4,5,6'
+  completed_steps: '0,1+2,3,4,5,6,7'
 metrics:
   story_start: "2026-07-24T10:53:00-03:00"
   story_end: "2026-07-24T10:58:00-03:00"
