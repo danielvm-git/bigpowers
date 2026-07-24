@@ -1,0 +1,22 @@
+id: e77
+title: "Integration: pi — Skills (No Hooks)"
+status: done
+wsjf: 8.0
+bcps: 0
+mode: capsule
+wsjf_rationale: >
+  BV 8 + TC 4 + RR 4 / Job 1 ≈ 16.0. Earendil's tool, already supported.
+  Skills at ~/.pi/agent/skills/. Hooks unknown.
+github_stars: null
+repo: earendil-works/pi
+source: >
+  Research session 2026-07-23. pi has skills at ~/.pi/agent/skills/.
+  Hooks system unknown. Config at ~/.pi/. Already supported by bigpowers.
+  Skills are SKILL.md files.
+integration_details:
+  skills_path: ~/.pi/agent/skills/
+  config_path: ~/.pi/
+  hooks: unknown
+  hook_events: []
+  hook_events_count: 0
+stories: []

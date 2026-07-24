@@ -1,0 +1,24 @@
+id: e66
+title: "Integration: Cline — Plugins + Plugin Hooks"
+status: scoped
+wsjf: 5.0
+bcps: 0
+mode: capsule
+wsjf_rationale: >
+  BV 6 + TC 3 + RR 4 / Job 3 ≈ 4.3. Popular VS Code extension (65K stars)
+  with TypeScript plugin system. Hooks are plugin-scoped, not standalone.
+github_stars: 64978
+repo: Cline/Cline
+source: >
+  Research session 2026-07-23. Cline has a TypeScript plugin system.
+  Plugins can hook into tool.execute.before, tool.execute.after, session/message/permission events.
+  Plugins are .ts files in plugin/ directory. No standalone hooks.json config.
+  Skills via .cline/ or plugin directory.
+integration_details:
+  skills_path: .cline/
+  config_path: Plugin directory
+  hooks: true (plugin-scoped)
+  hook_events: [tool.execute.before, tool.execute.after, session, message, permission]
+  hook_format: TypeScript (Plugin API)
+  hook_events_count: 5+
+stories: []

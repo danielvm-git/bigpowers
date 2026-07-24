@@ -1,0 +1,29 @@
+id: e72
+title: "Integration: CodeBuddy — Skills + 27+ Hook Events"
+status: scoped
+wsjf: 6.0
+bcps: 0
+mode: capsule
+wsjf_rationale: >
+  BV 6 + TC 4 + RR 5 / Job 2 ≈ 7.5. Full hooks support with 27+ events.
+  Claude-compatible naming. Skills + plugins support.
+github_stars: null
+repo: codebuddy-ai/codebuddy
+source: >
+  Research session 2026-07-23. CodeBuddy has full hooks support with 27+ events.
+  Config at ~/.codebuddy/settings.json. Events: PreToolUse, PostToolUse,
+  PostToolUseFailure, SessionStart, SessionEnd, Stop, SubagentStart,
+  SubagentStop, UserPromptSubmit, Notification, PermissionRequest,
+  PreCompact, PostCompact, InstructionsLoaded, ConfigChange, TaskCreated,
+  TaskCompleted, TeammateIdle, FileChanged, CwdChanged, WorktreeCreate,
+  WorktreeRemove, Setup, + more. Also supports prompt-based hooks.
+  Skills + plugins support.
+integration_details:
+  skills_path: ~/.codebuddy/skills/
+  config_path: ~/.codebuddy/settings.json
+  hooks: true
+  hook_events: [PreToolUse, PostToolUse, PostToolUseFailure, SessionStart, SessionEnd, Stop, SubagentStart, SubagentStop, UserPromptSubmit, Notification, PermissionRequest, PreCompact, PostCompact, InstructionsLoaded, ConfigChange, TaskCreated, TaskCompleted, TeammateIdle, FileChanged, CwdChanged, WorktreeCreate, WorktreeRemove, Setup]
+  hook_format: JSON (settings.json) + Prompt
+  hook_events_count: 27+
+  naming_convention: Same as Claude Code (PreToolUse/PostToolUse)
+stories: []

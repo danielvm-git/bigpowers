@@ -1,0 +1,26 @@
+id: e70
+title: "Integration: Trae — Skills + Hooks"
+status: scoped
+wsjf: 5.0
+bcps: 0
+mode: capsule
+wsjf_rationale: >
+  BV 5 + TC 3 + RR 4 / Job 2 ≈ 6.0. ByteDance's tool (12K stars) with
+  hooks support. Claude-compatible event names.
+github_stars: 11873
+repo: bytedance/trae-agent
+source: >
+  Research session 2026-07-23. Trae has skills support and hooks.
+  Config at ~/.trae-cn/hooks.json (global) or .trae/hooks.json (project).
+  Events: SessionStart, UserPromptSubmit, PreToolUse, PostToolUse, Stop,
+  Notification. Claude-compatible naming convention. Also reads Claude Code
+  hooks from ~/.claude/settings.json.
+integration_details:
+  skills_path: ~/.trae/skills/
+  config_path: ~/.trae-cn/hooks.json
+  hooks: true
+  hook_events: [SessionStart, UserPromptSubmit, PreToolUse, PostToolUse, Stop, Notification]
+  hook_format: JSON (hooks.json)
+  hook_events_count: 6
+  naming_convention: Same as Claude Code (PreToolUse/PostToolUse)
+stories: []

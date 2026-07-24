@@ -1,0 +1,26 @@
+id: e65
+title: "Integration: Codex CLI — AGENTS.md + Hooks"
+status: scoped
+wsjf: 6.0
+bcps: 0
+mode: capsule
+wsjf_rationale: >
+  BV 8 + TC 4 + RR 5 / Job 2 ≈ 8.5. High-star tool (101K) with hooks
+  compatible with Claude Code naming convention.
+github_stars: 100975
+repo: openai/codex
+source: >
+  Research session 2026-07-23. Codex CLI supports AGENTS.md and hooks.
+  Config at ~/.codex/config.toml or ~/.codex/hooks.json.
+  Events use same naming as Claude Code: PreToolUse, PostToolUse, SessionStart
+  + PermissionRequest, PreCompact, PostCompact, UserPromptSubmit,
+  SubagentStart, SubagentStop, Stop. Hooks-compatible with Claude Code scripts.
+integration_details:
+  skills_path: ~/.codex/AGENTS.md
+  config_path: ~/.codex/config.toml
+  hooks: true
+  hook_events: [PreToolUse, PostToolUse, SessionStart, PermissionRequest, PreCompact, PostCompact, UserPromptSubmit, SubagentStart, SubagentStop, Stop]
+  hook_format: TOML (config.toml) or JSON (hooks.json)
+  hook_events_count: 10
+  naming_convention: Same as Claude Code (PreToolUse/PostToolUse)
+stories: []

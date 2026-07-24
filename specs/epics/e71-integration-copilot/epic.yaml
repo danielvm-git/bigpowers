@@ -1,0 +1,21 @@
+id: e71
+title: "Integration: Copilot — Instructions (No Hooks)"
+status: scoped
+wsjf: 4.0
+bcps: 0
+mode: capsule
+wsjf_rationale: >
+  BV 4 + TC 3 + RR 3 / Job 2 ≈ 5.0. GitHub's tool (11K stars) with
+  instructions support. Hooks unknown.
+github_stars: 11008
+repo: github/copilot-cli
+source: >
+  Research session 2026-07-23. Copilot CLI has instructions at .copilot/.
+  Hooks system unknown. Config at .copilot/. Skills via instructions files.
+integration_details:
+  skills_path: .copilot/
+  config_path: .copilot/
+  hooks: unknown
+  hook_events: []
+  hook_events_count: 0
+stories: []

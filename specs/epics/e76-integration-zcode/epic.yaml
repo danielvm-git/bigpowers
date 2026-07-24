@@ -1,0 +1,24 @@
+id: e76
+title: "Integration: ZCode — Skills + Plugin Hooks"
+status: scoped
+wsjf: 5.0
+bcps: 0
+mode: capsule
+wsjf_rationale: >
+  BV 5 + TC 3 + RR 4 / Job 2 ≈ 6.0. Zhipu's tool with skills and
+  plugin-based hooks. No public GitHub repo found.
+github_stars: null
+repo: zai-org/zcode
+source: >
+  Research session 2026-07-23. ZCode has skills at ~/.zcode/skills/
+  with SKILL.md files. Plugins bundle hooks, MCP, agents. Config at
+  ~/.zcode/AGENTS.md. Hooks are plugin-scoped (unknown event names).
+  Skills can be imported from Claude Code, Codex, OpenClaw, Augment, Windsurf.
+integration_details:
+  skills_path: ~/.zcode/skills/
+  config_path: ~/.zcode/AGENTS.md
+  hooks: true (plugin-scoped)
+  hook_events: [unknown - plugin-scoped]
+  hook_format: Plugin directory
+  hook_events_count: unknown
+stories: []

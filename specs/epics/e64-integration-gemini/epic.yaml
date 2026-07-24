@@ -1,0 +1,26 @@
+id: e64
+title: "Integration: Gemini CLI — Extensions + Hooks"
+status: scoped
+wsjf: 6.0
+bcps: 0
+mode: capsule
+wsjf_rationale: >
+  BV 8 + TC 4 + RR 5 / Job 2 ≈ 8.5. High-star tool (106K) with full
+  extension + hooks support. Different event naming convention (BeforeTool/AfterTool).
+github_stars: 106146
+repo: google-gemini/gemini-cli
+source: >
+  Research session 2026-07-23. Gemini CLI has extensions (MCP, commands,
+  context, skills) and hooks. Config at ~/.gemini/settings.json.
+  Events use BeforeTool/AfterTool naming (not PreToolUse/PostToolUse).
+  Also supports BeforeAgent, AfterAgent, BeforeModel, BeforeToolSelection,
+  AfterModel, SessionStart, SessionEnd, Notification, PreCompress.
+integration_details:
+  skills_path: ~/.gemini/extensions/
+  config_path: ~/.gemini/settings.json
+  hooks: true
+  hook_events: [BeforeTool, AfterTool, BeforeAgent, AfterAgent, BeforeModel, BeforeToolSelection, AfterModel, SessionStart, SessionEnd, Notification, PreCompress]
+  hook_format: JSON (settings.json)
+  hook_events_count: 11
+  naming_convention: BeforeTool/AfterTool (not PreToolUse/PostToolUse)
+stories: []

@@ -1,0 +1,25 @@
+id: e67
+title: "Integration: Kilo — Skills + Plugin Hooks"
+status: scoped
+wsjf: 5.0
+bcps: 0
+mode: capsule
+wsjf_rationale: >
+  BV 5 + TC 3 + RR 4 / Job 3 ≈ 4.0. Growing tool (26K stars) with
+  TypeScript plugin system and skills support.
+github_stars: 26483
+repo: Kilo-Org/kilocode
+source: >
+  Research session 2026-07-23. Kilo has skills at ~/.config/kilo/skills/
+  and .kilo/skills/. Plugin system with hooks: tool.execute.before,
+  tool.execute.after, chat.message, permission.ask, event bus.
+  Plugins are TypeScript modules in ~/.config/kilo/plugin/ or .kilo/plugin/.
+  Config at ~/.config/kilo/kilo.json or .kilo/kilo.json.
+integration_details:
+  skills_path: ~/.config/kilo/skills/
+  config_path: ~/.config/kilo/kilo.json
+  hooks: true (plugin-scoped)
+  hook_events: [tool.execute.before, tool.execute.after, chat.message, permission.ask, event]
+  hook_format: TypeScript (Plugin API)
+  hook_events_count: 5+
+stories: []

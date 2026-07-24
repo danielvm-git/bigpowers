@@ -1,0 +1,32 @@
+id: e60
+title: Interactive Installer — BMAD-Polished Setup for bigpowers
+status: done
+wsjf: 9.0
+bcps: 3
+mode: capsule
+wsjf_rationale: >
+  BV 8 (major UX improvement — removes friction for new users, matches
+  competitor polish) + TC 5 (active pain — current setup is a wall of
+  symlink output) + RR 5 (reduces installation errors, improves first-run
+  experience) / Job 2 (work already done) ≈ 9.0
+source: >
+  Competitive analysis of OpenSpec, BMAD Method, Spec Kit, and Get Shit Done
+  installation processes. User requested GSD's simplicity of options with
+  BMAD's visual polish. Implemented in conversation 2026-07-23.
+stories:
+  - id: e60s01
+    title: Interactive installer with ASCII banner, global/local, tool selection
+    status: done
+    bcps: 3
+    description: >
+      Add an interactive installer that combines GSD's numbered-menu simplicity
+      with BMAD's @clack/prompts visual polish. Features: ASCII banner,
+      global vs local install choice, 15-runtime tool selection with paths,
+      GSD-style progress output, auto-configured hooks.
+    files:
+      - bin/setup.js
+      - scripts/lib/install-helpers.js
+      - package.json (dependencies + bin + scripts)
+    verify: node bin/bigpowers.js setup (interactive in TTY)
+    tags:
+      - "story: e60s01"

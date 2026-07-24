@@ -1,0 +1,20 @@
+id: e62
+title: "Integration: OpenCode — Skills + No Hooks"
+status: scoped
+wsjf: 4.0
+bcps: 0
+mode: capsule
+wsjf_rationale: >
+  BV 4 + TC 3 + RR 3 / Job 2 ≈ 5.0. High-star tool (189K) with skills support
+  but no hooks. Simple integration (skills only).
+github_stars: 189014
+repo: anomalyco/opencode
+source: >
+  Research session 2026-07-23. OpenCode supports skills at .opencode/skills/.
+  No hooks system found. Config at .opencode/. Skills are SKILL.md files.
+integration_details:
+  skills_path: .opencode/skills/
+  config_path: .opencode/
+  hooks: null
+  hook_events_count: 0
+stories: []

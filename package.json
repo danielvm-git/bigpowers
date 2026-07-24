@@ -4,6 +4,7 @@
   "description": "73 agent skills synthesizing 17 years of software engineering discipline into a prescriptive methodology for solo developers",
   "main": "index.js",
   "scripts": {
+    "setup": "node bin/setup.js",
     "compliance": "bash scripts/audit-compliance.sh specs/verifications/features && bash scripts/validate-doctrine.sh && python3 scripts/check-skill-links.py",
     "doctrine": "bash scripts/validate-doctrine.sh",
     "sync": "bash scripts/sync-skills.sh",
@@ -47,10 +48,15 @@
   },
   "bin": {
     "bigpowers": "./bin/bigpowers.js",
+    "bigpowers-setup": "./bin/setup.js",
     "bigpowers-dashboard": "./dashboard/bin/dashboard.js"
   },
   "engines": {
     "node": ">=14.0.0"
+  },
+  "dependencies": {
+    "@clack/prompts": "^0.10.0",
+    "picocolors": "^1.1.1"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.3",

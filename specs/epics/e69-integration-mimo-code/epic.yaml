@@ -1,0 +1,23 @@
+id: e69
+title: "Integration: MiMo Code — Skills + Plugins (No Hooks)"
+status: scoped
+wsjf: 5.0
+bcps: 0
+mode: capsule
+wsjf_rationale: >
+  BV 5 + TC 3 + RR 4 / Job 2 ≈ 6.0. Xiaomi's tool (12K stars) with
+  skills and plugins but no hooks system found.
+github_stars: 12377
+repo: XiaomiMiMo/MiMo-Code
+source: >
+  Research session 2026-07-23. MiMo Code has skills at .mimocode/skills/
+  and plugins at .mimocode/plugins/. MCP server support. Config at
+  .mimocode/mimocode.jsonc. No hooks system found in source code.
+  Skills are SKILL.md files. Plugins are TypeScript modules.
+integration_details:
+  skills_path: .mimocode/skills/
+  config_path: .mimocode/mimocode.jsonc
+  hooks: false
+  hook_events: []
+  hook_events_count: 0
+stories: []

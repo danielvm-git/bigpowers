@@ -1,0 +1,22 @@
+id: e78
+title: "Integration: Cursor — Rules (No Hooks)"
+status: done
+wsjf: 7.0
+bcps: 0
+mode: capsule
+wsjf_rationale: >
+  BV 7 + TC 4 + RR 4 / Job 1 ≈ 15.0. Cursor's tool, already supported.
+  Rules at ~/.cursor/rules/. No hooks (file-based only).
+github_stars: null
+repo: cursor/cursor
+source: >
+  Research session 2026-07-23. Cursor has rules at ~/.cursor/rules/.
+  No hooks system (file-based rules only). Already supported by bigpowers.
+  Rules are .mdc files.
+integration_details:
+  skills_path: ~/.cursor/rules/
+  config_path: ~/.cursor/
+  hooks: false
+  hook_events: []
+  hook_events_count: 0
+stories: []

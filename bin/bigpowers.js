@@ -32,21 +32,17 @@ function run(cmd, cwd = ROOT) {
 const cmd = process.argv[2];
 
 if (cmd === 'setup' || cmd === 'install') {
-  console.log(`🚀 bigpowers v${pkg.version} — setting up...\n`);
-  run('bash scripts/sync-skills.sh');
-  run('bash scripts/install.sh');
-  console.log(`\n✅ bigpowers v${pkg.version} setup complete!`);
-  console.log('   Skills installed in ~/.claude/skills/');
-  console.log('   Run again anytime to update: bigpowers setup\n');
-  process.exit(0);
+  // Delegate to interactive installer
+  const setupScript = path.join(ROOT, 'bin', 'setup.js');
+  require(setupScript);
+  return;
 }
 
 if (cmd === 'update') {
-  console.log(`🔄 Updating bigpowers v${pkg.version}...\n`);
-  run('bash scripts/sync-skills.sh');
-  run('bash scripts/install.sh');
-  console.log(`\n✅ bigpowers v${pkg.version} updated!\n`);
-  process.exit(0);
+  // Delegate to interactive installer (same as setup)
+  const setupScript = path.join(ROOT, 'bin', 'setup.js');
+  require(setupScript);
+  return;
 }
 
 if (cmd === 'status') {

@@ -5,25 +5,15 @@ bug_id: null
 bigpowers_version: 2.81.0
 bug_cycle: null
 handoff:
-  context: >
-    e55 (Extract Constitution) fully done and archived. All 3 stories landed:
-    e55s01 (doctrine-mapping audit), e55s02 (write constitution.md), e55s03
-    (cross-reference pointers in CLAUDE.md/CONVENTIONS.md). constitution.md
-    exists at repo root with all 12 blocks (B0-B10+Capstone) synthesized from
-    current doctrine. Local main is 8 commits ahead of origin/main (pushes
-    withheld pending explicit user confirmation, matching repo's observed
-    practice). Next epic is e56 (Reclassify Catalog — Purify Skill to Mean
-    Only Procedure), which depends on e53/e54/e55 (all done). e56 has a
-    planning-context.yaml from elaborate-spec but needs plan-work to slice
-    real stories. Run elaborate-spec or plan-work per e56's own next_skill.
-  next_skill: plan-work
-  epic: e56
+  next_skill: commit-message
+  context: e60s01 audit passed. Proceed to commit-message.
+  epic: e60
 epic_cycle:
-  step: null
+  step: '6'
   fast_mode: false
-  story_bcps: null
-  audit_result: null
-  completed_steps: null
+  story_bcps: 3
+  audit_result: pass
+  completed_steps: 1,2,3,4,5,6
 metrics:
   story_start: null
   story_end: null

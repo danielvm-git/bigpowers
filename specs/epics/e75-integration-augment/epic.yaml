@@ -1,0 +1,21 @@
+id: e75
+title: "Integration: Augment — Unknown Capabilities"
+status: scoped
+wsjf: 3.0
+bcps: 0
+mode: capsule
+wsjf_rationale: >
+  BV 3 + TC 2 + RR 2 / Job 3 ≈ 2.3. Small tool (859 stars) with
+  unknown capabilities.
+github_stars: 859
+repo: aaditmshah/augment
+source: >
+  Research session 2026-07-23. Augment has minimal documentation.
+  Hooks/extensions/skills capabilities unknown. Config location unknown.
+integration_details:
+  skills_path: unknown
+  config_path: unknown
+  hooks: unknown
+  hook_events: []
+  hook_events_count: 0
+stories: []

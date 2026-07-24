@@ -1,0 +1,24 @@
+id: e63
+title: "Integration: Claude Code — Skills + Hooks (Primary)"
+status: done
+wsjf: 9.0
+bcps: 0
+mode: capsule
+wsjf_rationale: >
+  BV 10 + TC 5 + RR 5 / Job 1 ≈ 20.0. Primary integration, already fully
+  supported. Skills + hooks both working.
+github_stars: 138851
+repo: anthropics/claude-code
+source: >
+  Research session 2026-07-23. Claude Code is the primary integration.
+  Skills at ~/.claude/skills/. Hooks in ~/.claude/settings.json.
+  Events: PreToolUse, PostToolUse, SessionStart. Git guard + RTK hooks
+  auto-configured by install.sh.
+integration_details:
+  skills_path: ~/.claude/skills/
+  config_path: ~/.claude/settings.json
+  hooks: true
+  hook_events: [PreToolUse, PostToolUse, SessionStart]
+  hook_format: JSON (settings.json)
+  hook_events_count: 3
+stories: []

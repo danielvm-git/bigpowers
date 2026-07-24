@@ -1,0 +1,22 @@
+id: e74
+title: "Integration: Antigravity CLI — Google's New CLI"
+status: scoped
+wsjf: 4.0
+bcps: 0
+mode: capsule
+wsjf_rationale: >
+  BV 4 + TC 3 + RR 3 / Job 3 ≈ 3.3. Google's new CLI (1.7K stars).
+  Minimal docs, unknown hooks/extensions support.
+github_stars: 1710
+repo: google-antigravity/antigravity-cli
+source: >
+  Research session 2026-07-23. Antigravity CLI is Google's new terminal
+  coding assistant. Minimal documentation. Hooks/extensions unknown.
+  Config location unknown. Shares agent engine with Antigravity 2.0.
+integration_details:
+  skills_path: unknown
+  config_path: unknown
+  hooks: unknown
+  hook_events: []
+  hook_events_count: 0
+stories: []
