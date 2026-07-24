@@ -42,12 +42,15 @@ if [[ ! -f "$TMP_SKILL/SKILL.md" ]] || [[ ! -f "$TMP_CMD" ]]; then
 fi
 rm -rf "$TMP_SKILL" "$TMP_CMD"
 
-# Test 5: render_gemini_hooks_manifest via sync-render
-echo "Test 5: render_gemini_hooks_manifest"
-source "$REPO_ROOT/scripts/lib/skill-common.sh" 2>/dev/null || true
-source "$REPO_ROOT/scripts/lib/sync-render.sh"
-GEMINI_EXT_DIR="$GEMINI_EXT"
-render_gemini_hooks_manifest
+# Test 5: render_hooks_manifest delegates to render_gemini_hooks_manifest override
+# (subshell invocation — adapters are subprocess-invoked, not sourced, per Tests 1-4 above)
+echo "Test 5: render_hooks_manifest"
+GEMINI_EXT_DIR="$GEMINI_EXT" bash -c "
+  source '$REPO_ROOT/scripts/lib/skill-common.sh' 2>/dev/null || true
+  source '$REPO_ROOT/scripts/lib/sync-render.sh'
+  source '$REPO_ROOT/scripts/adapters/gemini.sh'
+  render_hooks_manifest
+"
 grep -q '"events_total": 11' "$GEMINI_EXT/hooks/hooks-manifest.json" || {
   echo "FAIL: hooks-manifest.json invalid after render"
   exit 1

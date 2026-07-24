@@ -20,6 +20,7 @@ TARGETS_YAML="$REPO_ROOT/scripts/targets.yaml"
 grep -q 'install_agy()' "$INSTALL_SH" && pass 'install.sh: install_agy()' || fail 'install.sh: missing install_agy()'
 grep -q 'install_antigravity()' "$INSTALL_SH" && pass 'install.sh: install_antigravity alias' || fail 'install.sh: missing install_antigravity()'
 grep -q 'uninstall_agy()' "$INSTALL_SH" && pass 'install.sh: uninstall_agy()' || fail 'install.sh: missing uninstall_agy()'
+grep -q 'uninstall_antigravity()' "$INSTALL_SH" && pass 'install.sh: uninstall_antigravity alias' || fail 'install.sh: missing uninstall_antigravity()'
 grep -q 'AGY_SKILLS_DIR=' "$INSTALL_SH" && pass 'install.sh: AGY_SKILLS_DIR' || fail 'install.sh: missing AGY_SKILLS_DIR'
 grep -q 'antigravity-cli/skills' "$INSTALL_SH" && pass 'install.sh: antigravity-cli path' || fail 'install.sh: missing antigravity-cli path'
 grep -q 'install_agy' "$INSTALL_SH" && grep -q 'uninstall_agy' "$INSTALL_SH" && pass 'install.sh: dispatch wired' || fail 'install.sh: dispatch missing agy'

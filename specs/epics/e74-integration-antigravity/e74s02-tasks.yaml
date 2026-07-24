@@ -23,7 +23,7 @@ tasks:
   - id: t5
     title: Expand agy row in scripts/targets.yaml
     status: passing
-    verify: grep -q 'output: .agents/skills' scripts/targets.yaml && grep -q 'adapter: agy' scripts/targets.yaml
+    verify: "grep -q 'output: .agents/skills' scripts/targets.yaml && grep -q 'adapter: agy' scripts/targets.yaml"
   - id: t6
     title: Extend scripts/verify-install.sh with agy contract assertions
     status: passing

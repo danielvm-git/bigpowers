@@ -3,9 +3,14 @@
 # story: e61s01
 # Hermes Agent skill adapter — renders .hermes/skills/<name>/SKILL.md from SkillIR.
 
+hermes_is_unsafe_skill_name() {
+  local name="$1"
+  [[ -z "$name" || "$name" == "null" || "$name" == *"/"* || "$name" == *".."* ]]
+}
+
 hermes_sanitize_name() {
   local name="$1"
-  if [[ -z "$name" || "$name" == "null" || "$name" == *"/"* || "$name" == *".."* ]]; then
+  if hermes_is_unsafe_skill_name "$name"; then
     echo "hermes: invalid skill name: ${name:-<empty>}" >&2
     return 1
   fi

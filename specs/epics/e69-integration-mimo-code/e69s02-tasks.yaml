@@ -23,7 +23,7 @@ tasks:
   - id: t5
     title: Add mimo row to scripts/targets.yaml
     status: passing
-    verify: grep -q 'id: mimo' scripts/targets.yaml && grep -q 'adapter: mimo' scripts/targets.yaml
+    verify: "grep -q 'id: mimo' scripts/targets.yaml && grep -q 'adapter: mimo' scripts/targets.yaml"
   - id: t6
     title: Extend scripts/verify-install.sh with mimo contract assertions
     status: passing
