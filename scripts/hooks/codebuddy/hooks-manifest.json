@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "target": "codebuddy",
+  "events_total": 13,
+  "events": [
+    "PreToolUse",
+    "PostToolUse",
+    "PostToolUseFailure",
+    "SessionStart",
+    "SessionEnd",
+    "Stop",
+    "SubagentStart",
+    "SubagentStop",
+    "UserPromptSubmit",
+    "Notification",
+    "PermissionRequest",
+    "PreCompact",
+    "PostCompact"
+  ]
+}
