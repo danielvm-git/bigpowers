@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // story: e60s01
 // story: e61s02
+// story: e64s02
 // story: e76s02
 // story: e69s02
 // story: e74s02
@@ -100,6 +101,18 @@ function installGlobal(tool, repoRoot) {
       const extDst = path.join(homeDir, '.gemini', 'config', 'plugins', 'bigpowers');
       fs.mkdirSync(path.dirname(extDst), { recursive: true });
       linkDir(extSrc, extDst);
+      const hooksSrc = path.join(extSrc, 'hooks');
+      const hooksDst = path.join(homeDir, '.gemini', 'hooks');
+      fs.mkdirSync(hooksDst, { recursive: true });
+      for (const hookFile of [
+        'session-start',
+        'run-hook.cmd',
+        'before-tool-git-guard.sh',
+        'before-tool-rtk.sh',
+        'before-tool-token-mgmt.sh',
+      ]) {
+        linkHook(path.join(hooksSrc, hookFile), path.join(hooksDst, hookFile));
+      }
       break;
     }
     case 'pi': {
@@ -269,6 +282,15 @@ function uninstallTool(toolId, repoRoot) {
     }
     case 'gemini':
       removeSymlink(path.join(homeDir, '.gemini', 'config', 'plugins', 'bigpowers'));
+      for (const hookFile of [
+        'session-start',
+        'run-hook.cmd',
+        'before-tool-git-guard.sh',
+        'before-tool-rtk.sh',
+        'before-tool-token-mgmt.sh',
+      ]) {
+        removeSymlink(path.join(homeDir, '.gemini', 'hooks', hookFile));
+      }
       break;
     case 'pi': {
       const skillsDir = path.join(homeDir, '.pi', 'agent', 'skills');

@@ -6,7 +6,7 @@ bigpowers_version: 2.82.4
 bug_cycle: null
 handoff:
   next_skill: release-branch
-  context: Wave B e74s02 hub wiring complete; audit PASS; open PR (rebase after e64 ideally)
+  context: Wave B e74s02 merged with main after e64; PR #89 ready
   epic: e74
 epic_cycle:
   step: '8'
@@ -15,8 +15,8 @@ epic_cycle:
   audit_result: pass
   completed_steps: '0,1,2,3,4,5,6,7'
 metrics:
-  story_start: "2026-07-24T11:15:00-03:00"
-  story_end: "2026-07-24T11:45:00-03:00"
+  story_start: '2026-07-24T11:15:00-03:00'
+  story_end: '2026-07-24T11:45:00-03:00'
   skill_timings: {}
 release:
   ci_verified: true
