@@ -274,6 +274,12 @@ async function main() {
     const detail = r.ok ? c.dim(r.path) : c.red(r.error);
     console.log(`  ${icon} ${r.name} — ${detail}`);
   }
+  if (selectedTools.includes('cursor') && results.some((r) => r.name === 'Cursor' && r.ok)) {
+    console.log(
+      `  ${c.dim('NOTE: Cursor does not scan ~/.cursor/rules globally — also symlink into each project:')}`
+    );
+    console.log(`  ${c.dim('  ln -sfn ' + path.join(ROOT, '.cursor', 'rules') + ' .cursor/rules')}`);
+  }
   console.log('');
 
   const allOk = results.every((r) => r.ok);

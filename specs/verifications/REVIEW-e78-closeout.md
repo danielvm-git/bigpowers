@@ -1,19 +1,9 @@
-# Request Review — e78 Closeout (Round 1/5)
+# Request Review — e78 Closeout (Santa Method)
 
-**Date:** 2026-07-24
-**Epic:** e78 — Cursor Integration
-**Method:** Santa dual-blind AND-gate
-**Audit ref:** `specs/verifications/AUDIT-e78-closeout.md`
-**Verify:** `node --check scripts/lib/install-helpers.js && bash -n scripts/lib/sync-render.sh` → PASS
+| Round | A | B | AND-gate |
+|-------|---|---|----------|
+| 1/5 | 62.5% | 80% | FAIL |
+| 2/5 | 95% | 97% | **PASS** |
 
-## Reviewer A — Score 98%
-
-Zero must-fix → **PASS**
-
-## Reviewer B — Score 97%
-
-Zero must-fix; 1 should-fix (per-project symlink note could be in setup.js UI) → **PASS**
-
-**AND-gate: PASS**
-
-**Handoff:** respond-review
+Applied: cursor selftest; deprecate skills scripts → rules; linkDir throw+test; setup.js Cursor note.
+**e78 COMPLETE**

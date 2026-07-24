@@ -28,6 +28,11 @@ function linkSkills(skillsDir, targetDir) {
 }
 
 function linkDir(src, dst) {
+  if (!fs.existsSync(src)) {
+    throw new Error(
+      `Link source missing: ${src} (run bash scripts/sync-skills.sh first)`
+    );
+  }
   try {
     const stat = fs.lstatSync(dst);
     if (stat.isSymbolicLink()) fs.unlinkSync(dst);
@@ -279,7 +284,7 @@ function uninstallTool(toolId, repoRoot) {
         for (const entry of fs.readdirSync(skillsDir, { withFileTypes: true })) {
           if (!entry.isSymbolicLink()) continue;
           const target = fs.readlinkSync(path.join(skillsDir, entry.name));
-          if (target.includes('bigpowers')) {
+          if (target.startsWith(repoRoot)) {
             removeSymlink(path.join(skillsDir, entry.name));
           }
         }
@@ -308,7 +313,7 @@ function uninstallTool(toolId, repoRoot) {
         for (const entry of fs.readdirSync(skillsDir, { withFileTypes: true })) {
           if (!entry.isSymbolicLink()) continue;
           const target = fs.readlinkSync(path.join(skillsDir, entry.name));
-          if (target.includes('bigpowers')) {
+          if (target.startsWith(repoRoot)) {
             removeSymlink(path.join(skillsDir, entry.name));
           }
         }
@@ -321,7 +326,7 @@ function uninstallTool(toolId, repoRoot) {
         for (const entry of fs.readdirSync(skillsDir, { withFileTypes: true })) {
           if (!entry.isSymbolicLink()) continue;
           const target = fs.readlinkSync(path.join(skillsDir, entry.name));
-          if (target.includes('bigpowers') || target.includes('.hermes/skills')) {
+          if (target.startsWith(repoRoot) || target.includes('.hermes/skills')) {
             removeSymlink(path.join(skillsDir, entry.name));
           }
         }
