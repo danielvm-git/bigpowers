@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-23T19:49:58.705198+00:00",
+  "generated_at": "2026-07-24T01:14:25.592421+00:00",
   "matrix_version": "1.0",
   "stories": [
     {
@@ -3390,6 +3390,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-165047.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-165920.md",
           "line": 0,
           "confidence": "medium",
@@ -3630,6 +3636,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-172212.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260713-140513.md",
           "line": 0,
           "confidence": "medium",
@@ -3697,6 +3709,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260626-205844.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-165007.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -6090,6 +6108,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-172133.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-180948.md",
           "line": 0,
           "confidence": "medium",
@@ -6228,7 +6252,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 527
+      "link_count": 531
     },
     {
       "id": "e45s19",
@@ -7278,6 +7302,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-165047.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-165920.md",
           "line": 0,
           "confidence": "medium",
@@ -7518,6 +7548,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-172212.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260713-140513.md",
           "line": 0,
           "confidence": "medium",
@@ -7585,6 +7621,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260626-205844.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-165007.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -9978,6 +10020,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-172133.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-180948.md",
           "line": 0,
           "confidence": "medium",
@@ -10098,7 +10146,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 524
+      "link_count": 528
     },
     {
       "id": "e45s32",
@@ -12666,6 +12714,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/epics-wiki/e60.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/epics-wiki/e46.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -12996,7 +13050,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 157
+      "link_count": 158
     },
     {
       "id": "e48s06",
@@ -14622,6 +14676,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-165047.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-165920.md",
           "line": 0,
           "confidence": "medium",
@@ -14862,6 +14922,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-172212.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260713-140513.md",
           "line": 0,
           "confidence": "medium",
@@ -14929,6 +14995,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260626-205844.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-165007.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -17322,6 +17394,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260723-172133.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-180948.md",
           "line": 0,
           "confidence": "medium",
@@ -17676,7 +17754,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 572
+      "link_count": 576
     },
     {
       "id": "e51s05",
@@ -18198,7 +18276,19 @@
           "method": "explicit_tag"
         },
         {
+          "file": "specs/epics/archive/e55-extract-constitution/e55s01-doctrine-mapping.md",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "specs/epics/e55-extract-constitution/e55s01-doctrine-mapping-audit.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/archive/e55-extract-constitution/e55s01-doctrine-mapping-audit.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -18214,9 +18304,15 @@
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e55-extract-constitution/e55s01-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
         }
       ],
-      "link_count": 5
+      "link_count": 8
     },
     {
       "id": "e55s02",
@@ -18250,9 +18346,15 @@
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
+        },
+        {
+          "file": "specs/epics/archive/e55-extract-constitution/e55s02-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
         }
       ],
-      "link_count": 4
+      "link_count": 5
     },
     {
       "id": "e55s03",
@@ -18261,11 +18363,17 @@
       "epic_title": "Extract Constitution \u2014 Consolidate Doctrine into One File",
       "bcp": 0,
       "wsjf": 6.0,
-      "status": "backlog",
+      "status": "done",
       "links": [
         {
           "file": "CONVENTIONS.md",
           "line": 14,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/verifications/e55s03-verify.yaml",
+          "line": 53,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -18288,18 +18396,66 @@
           "method": "explicit_tag"
         },
         {
+          "file": "specs/epics/archive/e55-extract-constitution/e55s03-tasks.yaml",
+          "line": 40,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/archive/e55-extract-constitution/e55s03-tasks.yaml",
+          "line": 41,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/archive/e55-extract-constitution/e55s03-cross-reference-pointers.md",
+          "line": 88,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "CLAUDE.md",
           "line": 5,
           "confidence": "high",
           "method": "explicit_tag"
         }
       ],
-      "link_count": 5
+      "link_count": 9
+    },
+    {
+      "id": "e60s01",
+      "title": "Interactive installer with ASCII banner, global/local, tool selection",
+      "epic_id": "e60",
+      "epic_title": "Interactive Installer \u2014 BMAD-Polished Setup for bigpowers",
+      "bcp": 0,
+      "wsjf": 9.0,
+      "status": "done",
+      "links": [
+        {
+          "file": "bin/setup.js",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e60-interactive-installer/epic.yaml",
+          "line": 32,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/lib/install-helpers.js",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        }
+      ],
+      "link_count": 3
     }
   ],
   "summary": {
-    "total_stories": 83,
-    "tagged_stories": 73,
+    "total_stories": 84,
+    "tagged_stories": 74,
     "dark_stories": [],
     "dark_count": 0,
     "orphan_tags": [
@@ -18526,13 +18682,15 @@
       "e54s02",
       "e54s03",
       "e55s01",
-      "e55s02"
+      "e55s02",
+      "e55s03",
+      "e60s01"
     ],
-    "stale_count": 72,
+    "stale_count": 74,
     "oracle_stats": {
-      "high": 314,
-      "medium": 2508,
-      "low": 61
+      "high": 322,
+      "medium": 2522,
+      "low": 63
     }
   }
 }

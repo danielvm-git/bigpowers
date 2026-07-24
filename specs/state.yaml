@@ -5,8 +5,8 @@ bug_id: null
 bigpowers_version: 2.82.2
 bug_cycle: null
 handoff:
-  next_skill: commit-message
-  context: e60s01 audit passed. Proceed to commit-message.
+  next_skill: release-branch
+  context: e60s01 committed. Ready to push or create PR.
   epic: e60
 epic_cycle:
   step: '6'
