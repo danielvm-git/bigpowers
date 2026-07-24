@@ -21,4 +21,16 @@ integration_details:
   hook_events: [unknown - plugin-scoped]
   hook_format: Plugin directory
   hook_events_count: unknown
-stories: []
+stories:
+  - id: e76s01
+    title: ZCode adapter — Wave A greenfield skills-dir
+    status: done
+    bcps: 3
+    description: >
+      Greenfield scripts/adapters/zcode.sh for ZCode skills at ~/.zcode/skills/
+      and context at ~/.zcode/AGENTS.md. Hub wiring deferred to Wave B.
+    files:
+      - scripts/adapters/zcode.sh
+    verify: test -f scripts/adapters/zcode.sh && bash -n scripts/adapters/zcode.sh
+    tags:
+      - "story: e76s01"

@@ -359,7 +359,8 @@ development_status:
   e73: backlog
   e74: backlog
   e75: backlog
-  e76: backlog
+  e76: in_progress
+  e76s01: done
   e77: done
   e78: done
   generated_at: '2026-07-07T04:00:00Z'
@@ -682,10 +683,10 @@ epics:
     wsjf: 3.0
     total_bcps: 0
   e76:
-    status: backlog
+    status: in_progress
     title: 'Integration: ZCode — Skills + Plugin Hooks'
     wsjf: 5.0
-    total_bcps: 0
+    total_bcps: 3
   e77:
     status: done
     title: 'Integration: pi — Skills (No Hooks)'
@@ -3115,3 +3116,13 @@ stories:
     tasks_passing: 6
     tasks_failing: 0
     risk_max: P1
+  e76s01:
+    status: done
+    title: ZCode adapter — Wave A greenfield skills-dir
+    bcps: 3
+    epic: e76
+    started_at: "2026-07-24T10:53:00-03:00"
+    completed_at: "2026-07-24T11:05:00-03:00"
+    tasks_total: 4
+    tasks_passing: 4
+    tasks_failing: 0
