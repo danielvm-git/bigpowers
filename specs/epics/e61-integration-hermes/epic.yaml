@@ -25,7 +25,7 @@ integration_details:
       config: ctx.register_hook() in Python plugins
       events: [pre_tool_call, post_tool_call, pre_llm_call, post_llm_call, on_session_start, on_session_end, pre_verify, subagent_start, subagent_stop]
     - system: Shell
-      config: hooks: block in ~/.hermes/config.yaml
+      config: "hooks: block in ~/.hermes/config.yaml"
       events: [shell script triggers]
   hook_format: Python (async def handle)
   hook_events_count: 12+
