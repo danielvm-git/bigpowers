@@ -246,3 +246,17 @@ targets:
       bridge_key: instructions
     contracts:
       - codex_hooks_manifest
+
+  # Fleet Wave B
+  - id: codebuddy
+    name: CodeBuddy
+    tier: opt_in
+    skill:
+      adapter: codebuddy
+      output: .codebuddy/skills
+    context:
+      adapter: codebuddy
+      mode: symlink
+      file: AGENTS.md
+    contracts:
+      - codebuddy_hooks_manifest

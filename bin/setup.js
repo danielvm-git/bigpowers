@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // story: e60s01
 // story: e74s02
+// story: e72s02
 // story: e68s02
 // bigpowers setup — interactive installer
 // Combines GSD simplicity with BMAD visual polish.
@@ -59,7 +60,7 @@ const TOOLS = [
   { id: 'windsurf', name: 'Windsurf', globalPath: '~/.codeium/windsurf', localPath: '.codeium/windsurf' },
   { id: 'zcode', name: 'ZCode', globalPath: '~/.zcode', localPath: '.zcode' },
 ];
-const SUPPORTED_IDS = new Set(['claude', 'gemini', 'pi', 'hermes', 'mimo', 'zcode', 'cursor', 'codex', 'antigravity', 'agy', 'qwen']);
+const SUPPORTED_IDS = new Set(['claude', 'gemini', 'pi', 'hermes', 'mimo', 'zcode', 'cursor', 'codex', 'antigravity', 'agy', 'qwen', 'codebuddy']);
 const UNSUPPORTED_HINT = '(TODO)';
 
 // ── clack helpers (lazy ESM import from CJS) ─────────────────────────────────

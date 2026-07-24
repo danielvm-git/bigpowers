@@ -4,6 +4,7 @@
 # story: e63
 # story: e64s02
 # story: e74s02
+# story: e72s02
 # story: e68s02
 # story: e65s02
 # install.sh — global symlink install for bigpowers skills
@@ -521,6 +522,55 @@ uninstall_qwen() {
   unlink_if_managed "$QWEN_CONTEXT" "$REPO_ROOT/"
   unlink_if_managed "$QWEN_HOOKS_DIR/pre-tool-git-guard.sh" "$REPO_ROOT/"
 }
+# ── CodeBuddy (e72s02) ───────────────────────────────────────────────────────
+
+CODEBUDDY_CONFIG_DIR="$HOME/.codebuddy"
+CODEBUDDY_SKILLS_DIR="$CODEBUDDY_CONFIG_DIR/skills"
+CODEBUDDY_RENDERED="$REPO_ROOT/.codebuddy/skills"
+CODEBUDDY_CONTEXT="$CODEBUDDY_CONFIG_DIR/AGENTS.md"
+CODEBUDDY_HOOKS_DIR="$CODEBUDDY_CONFIG_DIR/hooks"
+CODEBUDDY_HOOK_SRC="$REPO_ROOT/scripts/hooks/codebuddy/pre-tool-git-guard.sh"
+
+install_codebuddy() {
+  echo ""
+  echo "CodeBuddy → $CODEBUDDY_SKILLS_DIR/"
+  if [[ ! -d "$CODEBUDDY_RENDERED" ]]; then
+    echo "  WARNING: $CODEBUDDY_RENDERED not found — run sync-skills.sh first"
+    return
+  fi
+  local count=0
+  for skill_dir in "$CODEBUDDY_RENDERED"/*/; do
+    [[ -f "${skill_dir}SKILL.md" ]] || continue
+    local name; name="$(basename "$skill_dir")"
+    link "$skill_dir" "$CODEBUDDY_SKILLS_DIR/$name"
+    count=$((count + 1))
+  done
+  echo "  $count skills installed"
+  echo "CodeBuddy → context symlink $CODEBUDDY_CONTEXT"
+  source "$REPO_ROOT/scripts/lib/context-wire.sh"
+  local agents_src="$REPO_ROOT/AGENTS.md"
+  [[ -f "$agents_src" ]] || agents_src="$REPO_ROOT/docs/templates/AGENTS.md"
+  wire_context_mode symlink "$CODEBUDDY_CONTEXT" "" read "$agents_src"
+  if [[ -f "$CODEBUDDY_HOOK_SRC" ]]; then
+    echo "CodeBuddy Hooks → $CODEBUDDY_HOOKS_DIR/"
+    link "$CODEBUDDY_HOOK_SRC" "$CODEBUDDY_HOOKS_DIR/pre-tool-git-guard.sh"
+    chmod +x "$CODEBUDDY_HOOK_SRC" 2>/dev/null || true
+    echo "  NOTE: copy $REPO_ROOT/scripts/hooks/codebuddy/settings.example.json into tool config"
+  fi
+}
+
+uninstall_codebuddy() {
+  echo ""
+  echo "CodeBuddy → removing management from $CODEBUDDY_CONFIG_DIR/"
+  if [[ -d "$CODEBUDDY_SKILLS_DIR" ]]; then
+    for dst in "$CODEBUDDY_SKILLS_DIR"/*/; do
+      [[ -L "${dst%/}" ]] || continue
+      unlink_if_managed "${dst%/}" "$REPO_ROOT/"
+    done
+  fi
+  unlink_if_managed "$CODEBUDDY_CONTEXT" "$REPO_ROOT/"
+  unlink_if_managed "$CODEBUDDY_HOOKS_DIR/pre-tool-git-guard.sh" "$REPO_ROOT/"
+}
 # ── main ──────────────────────────────────────────────────────────────────────
 
 echo "bigpowers install.sh — REPO: $REPO_ROOT"
@@ -538,6 +588,7 @@ if $UNINSTALL; then
   uninstall_cursor
   uninstall_codex
   uninstall_qwen
+  uninstall_codebuddy
   echo ""
   echo "bigpowers uninstalled."
 else
@@ -551,6 +602,7 @@ else
   install_cursor
   install_codex
   install_qwen
+  install_codebuddy
   echo ""
   echo "bigpowers installed. Future updates:"
   if [[ -d "$REPO_ROOT/.git" ]]; then

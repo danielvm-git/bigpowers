@@ -476,9 +476,9 @@ grep -q '{p}_SKILLS_DIR=' "$INSTALL_SH" && pass 'install.sh: skills dir var' || 
 grep -q 'install_{fn}' "$INSTALL_SH" && grep -q 'uninstall_{fn}' "$INSTALL_SH" && pass 'install.sh: dispatch wired' || fail 'install.sh: dispatch missing {fn}'
 
 DRY_OUT="$(bash "$INSTALL_SH" --dry-run 2>&1)"
-echo "$DRY_OUT" | grep -q '{label} →' && pass 'dry-run: {label} section' || fail 'dry-run: missing {label} section'
+grep -q '{label} →' <<< "$DRY_OUT" && pass 'dry-run: {label} section' || fail 'dry-run: missing {label} section'
 DRY_UNINSTALL="$(bash "$INSTALL_SH" --dry-run --uninstall 2>&1)"
-echo "$DRY_UNINSTALL" | grep -q '{label} →' && pass 'dry-run uninstall: {label} section' || fail 'dry-run uninstall: missing {label} section'
+grep -q '{label} →' <<< "$DRY_UNINSTALL" && pass 'dry-run uninstall: {label} section' || fail 'dry-run uninstall: missing {label} section'
 
 grep -q "case '{setup_id}'" "$HELPERS_JS" && pass 'install-helpers: {setup_id} case' || fail 'install-helpers: missing {setup_id} case'
 {hook_checks}
@@ -549,20 +549,19 @@ def patch_install_sh(cfg: dict, content: str) -> str:
     content = content.replace(marker, block + marker)
 
     # Ensure dispatch — chain after previous epic in WSJF order (or cursor for e65)
+    main_part = content.split(marker, 1)[1]
     fn_inst = f"install_{fn}"
     fn_uninst = f"uninstall_{fn}"
-    epic_idx = HUB_ORDER.index(cfg.get("_epic_id", "e65")) if "_epic_id" in cfg else -1
-    anchor_fn = "cursor"
-    if epic_idx > 0:
-        anchor_fn = HUB_EPICS[HUB_ORDER[epic_idx - 1]]["fn"]
-    if fn_inst not in content:
+    epic_idx = HUB_ORDER.index(cfg.get("_epic_id", "e65"))
+    anchor_fn = "cursor" if epic_idx == 0 else HUB_EPICS[HUB_ORDER[epic_idx - 1]]["fn"]
+    if f"  {fn_inst}\n" not in main_part:
         content = re.sub(
             rf"(  install_{anchor_fn}\n)",
             rf"\1  {fn_inst}\n",
             content,
             count=1,
         )
-    if fn_uninst not in content:
+    if f"  {fn_uninst}\n" not in main_part:
         content = re.sub(
             rf"(  uninstall_{anchor_fn}\n)",
             rf"\1  {fn_uninst}\n",
