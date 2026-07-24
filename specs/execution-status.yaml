@@ -342,6 +342,7 @@ development_status:
   e59: backlog
   e60: done
   e60s01: done
+  e61: backlog
   e62: backlog
   e63: done
   e64: backlog
@@ -603,13 +604,18 @@ epics:
     title: Interactive Installer — BMAD-Polished Setup for bigpowers
     wsjf: 9.0
     total_bcps: 3
+  e61:
+    status: backlog
+    title: 'Integration: Hermes Agent — Skills + 3 Hook Systems'
+    wsjf: 5.0
+    total_bcps: 0
   e62:
     status: backlog
     title: 'Integration: OpenCode — Skills + No Hooks'
     wsjf: 4.0
     total_bcps: 0
   e63:
-    status: backlog
+    status: done
     title: 'Integration: Claude Code — Skills + Hooks (Primary)'
     wsjf: 9.0
     total_bcps: 0
@@ -679,12 +685,12 @@ epics:
     wsjf: 5.0
     total_bcps: 0
   e77:
-    status: backlog
+    status: done
     title: 'Integration: pi — Skills (No Hooks)'
     wsjf: 8.0
     total_bcps: 0
   e78:
-    status: backlog
+    status: done
     title: 'Integration: Cursor — Rules (No Hooks)'
     wsjf: 7.0
     total_bcps: 0
