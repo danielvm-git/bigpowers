@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 // story: e60s01
+// story: e74s02
 // bigpowers setup — interactive installer
 // Combines GSD simplicity with BMAD visual polish.
 
@@ -39,7 +40,7 @@ ${c.cyan('╚══════════════════════�
 // ── Tool definitions ─────────────────────────────────────────────────────────
 const TOOLS = [
   { id: 'claude', name: 'Claude Code', globalPath: '~/.claude', localPath: '.claude' },
-  { id: 'antigravity', name: 'Antigravity', globalPath: '~/.gemini/antigravity', localPath: '.gemini/antigravity' },
+  { id: 'antigravity', name: 'Antigravity', globalPath: '~/.gemini/antigravity-cli/skills', localPath: '.agents/skills' },
   { id: 'augment', name: 'Augment', globalPath: '~/.augment', localPath: '.augment' },
   { id: 'cline', name: 'Cline', globalPath: '.clinerules', localPath: '.clinerules' },
   { id: 'codebuddy', name: 'CodeBuddy', globalPath: '~/.codebuddy', localPath: '.codebuddy' },
@@ -57,7 +58,7 @@ const TOOLS = [
   { id: 'zcode', name: 'ZCode', globalPath: '~/.zcode', localPath: '.zcode' },
 ];
 const ALL_ID = '__all__';
-const SUPPORTED_IDS = new Set(['claude', 'gemini', 'pi', 'hermes', 'mimo', 'zcode', 'cursor', 'codex']);
+const SUPPORTED_IDS = new Set(['claude', 'gemini', 'pi', 'hermes', 'mimo', 'zcode', 'cursor', 'codex', 'antigravity', 'agy']);
 const UNSUPPORTED_HINT = '(TODO)';
 
 // ── clack helpers (lazy ESM import from CJS) ─────────────────────────────────

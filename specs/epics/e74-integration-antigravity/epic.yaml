@@ -1,8 +1,8 @@
 id: e74
 title: "Integration: Antigravity CLI — Google's New CLI"
-status: scoped
+status: in_progress
 wsjf: 4.0
-bcps: 0
+bcps: 2
 mode: capsule
 wsjf_rationale: >
   BV 4 + TC 3 + RR 3 / Job 3 ≈ 3.3. Google's new CLI (1.7K stars).
@@ -14,9 +14,43 @@ source: >
   coding assistant. Minimal documentation. Hooks/extensions unknown.
   Config location unknown. Shares agent engine with Antigravity 2.0.
 integration_details:
-  skills_path: unknown
-  config_path: unknown
-  hooks: unknown
-  hook_events: []
-  hook_events_count: 0
-stories: []
+  skills_path: ".agents/skills/ (workspace); ~/.gemini/antigravity-cli/skills/ (global)"
+  config_path: "~/.gemini/antigravity-cli/settings.json; ~/.gemini/config/hooks.json"
+  hooks: Claude-Code-like hooks.json with matcher
+  hook_events:
+    - PreToolUse
+    - PostToolUse
+    - PreInvocation
+    - PostInvocation
+    - Stop
+  hook_events_count: 5
+stories:
+  - id: e74s01
+    title: "Wave A — Antigravity CLI adapter research and agy.sh stub"
+    status: done
+    bcps: 2
+    spec: e74s01-wave-a-adapter-research.md
+    files:
+      - scripts/adapters/agy.sh
+      - specs/epics/e74-integration-antigravity/RESEARCH-ANTIGRAVITY.md
+      - specs/security/epics/e74/THREAT_MODEL.md
+    verify: bash scripts/test-adapters.sh agy
+    tags:
+      - "story: e74s01"
+  - id: e74s02
+    title: "Install hub wiring (Wave B)"
+    status: done
+    bcps: 2
+    spec: e74s02-hub-wiring.md
+    files:
+      - scripts/install.sh
+      - scripts/lib/install-helpers.js
+      - bin/setup.js
+      - scripts/targets.yaml
+      - scripts/verify-install.sh
+      - scripts/test-agy-hub.sh
+      - scripts/adapters/agy.sh
+      - scripts/lib/target-contracts.sh
+    verify: bash scripts/test-agy-hub.sh && bash scripts/verify-install.sh
+    tags:
+      - "story: e74s02"

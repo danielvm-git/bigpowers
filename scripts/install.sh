@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # story: e45s16
 # story: e64s02
+# story: e74s02
 # install.sh — global symlink install for bigpowers skills
 #
 # Supported tools:
@@ -10,6 +11,7 @@
 #   Hermes Agent → ~/.hermes/skills/<name>/ (symlink rendered .hermes/skills/)
 #   ZCode        → ~/.zcode/skills/<name>/ (symlink rendered .zcode/skills/)
 #   MiMo Code    → ~/.mimocode/skills/<name>/ (symlink rendered .mimocode/skills/)
+#   Antigravity  → ~/.gemini/antigravity-cli/skills/ (NOT .gemini/extensions/ — e64 Gemini)
 #   Cursor       → ~/.cursor/rules/ (one dir symlink; per-project note printed)
 #
 # Usage:
@@ -315,7 +317,9 @@ install_zcode() {
 
   echo "ZCode → context symlink $ZCODE_AGENTS"
   source "$REPO_ROOT/scripts/lib/context-wire.sh"
-  wire_context_mode symlink "$ZCODE_AGENTS" "" "" "" "$REPO_ROOT/AGENTS.md"
+  local zcode_agents_src="$REPO_ROOT/AGENTS.md"
+  [[ -f "$zcode_agents_src" ]] || zcode_agents_src="$REPO_ROOT/docs/templates/AGENTS.md"
+  wire_context_mode symlink "$ZCODE_AGENTS" "" read "$zcode_agents_src"
 }
 
 uninstall_zcode() {
@@ -355,7 +359,9 @@ install_mimo() {
 
   echo "MiMo Code → context symlink $MIMO_AGENTS"
   source "$REPO_ROOT/scripts/lib/context-wire.sh"
-  wire_context_mode symlink "$MIMO_AGENTS" "" "" "" "$REPO_ROOT/AGENTS.md"
+  local mimo_agents_src="$REPO_ROOT/AGENTS.md"
+  [[ -f "$mimo_agents_src" ]] || mimo_agents_src="$REPO_ROOT/docs/templates/AGENTS.md"
+  wire_context_mode symlink "$MIMO_AGENTS" "" read "$mimo_agents_src"
 }
 
 uninstall_mimo() {
@@ -368,6 +374,50 @@ uninstall_mimo() {
     done
   fi
   unlink_if_managed "$MIMO_AGENTS" "$REPO_ROOT/"
+}
+
+# ── Antigravity CLI / agy (e74s02) ────────────────────────────────────────────
+# Global skills: ~/.gemini/antigravity-cli/skills/ (separate from e64 Gemini extension)
+
+AGY_CONFIG_DIR="$HOME/.gemini/antigravity-cli"
+AGY_SKILLS_DIR="$AGY_CONFIG_DIR/skills"
+AGY_RENDERED="$REPO_ROOT/.agents/skills"
+
+install_agy() {
+  echo ""
+  echo "Antigravity CLI → $AGY_SKILLS_DIR/"
+  if [[ ! -d "$AGY_RENDERED" ]]; then
+    echo "  WARNING: $AGY_RENDERED not found — run sync-skills.sh first"
+    return
+  fi
+  local count=0
+  for skill_dir in "$AGY_RENDERED"/*/; do
+    [[ -f "${skill_dir}SKILL.md" ]] || continue
+    local name; name="$(basename "$skill_dir")"
+    link "$skill_dir" "$AGY_SKILLS_DIR/$name"
+    count=$((count + 1))
+  done
+  echo "  $count skills installed"
+  echo "  NOTE: Antigravity uses ~/.gemini/antigravity-cli/skills/ — not .gemini/extensions/ (Gemini CLI)"
+}
+
+install_antigravity() {
+  install_agy
+}
+
+uninstall_agy() {
+  echo ""
+  echo "Antigravity CLI → removing management from $AGY_CONFIG_DIR/"
+  if [[ -d "$AGY_SKILLS_DIR" ]]; then
+    for dst in "$AGY_SKILLS_DIR"/*/; do
+      [[ -L "${dst%/}" ]] || continue
+      unlink_if_managed "${dst%/}" "$REPO_ROOT/"
+    done
+  fi
+}
+
+uninstall_antigravity() {
+  uninstall_agy
 }
 
 # ── Codex CLI (e37s15) ───────────────────────────────────────────────────────
@@ -402,6 +452,7 @@ if $UNINSTALL; then
   uninstall_hermes
   uninstall_zcode
   uninstall_mimo
+  uninstall_agy
   uninstall_cursor
   uninstall_codex
   echo ""
@@ -413,6 +464,7 @@ else
   install_hermes
   install_zcode
   install_mimo
+  install_agy
   install_cursor
   install_codex
   echo ""

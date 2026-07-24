@@ -1,24 +1,24 @@
 active_flow: build_epic
-active_epic: e64
-active_story: e64s02
+active_epic: e74
+active_story: e74s02
 bug_id: null
 bigpowers_version: 2.82.4
 bug_cycle: null
 handoff:
   next_skill: release-branch
-  context: Wave B e64s02 hub wiring complete; audit PASS; open PR
-  epic: e64
+  context: Wave B e74s02 merged with main after e64; PR #89 ready
+  epic: e74
 epic_cycle:
-  step: '7'
+  step: '8'
   fast_mode: true
   story_bcps: 2
   audit_result: pass
-  completed_steps: '0,1,2,3,4,5,6'
+  completed_steps: '0,1,2,3,4,5,6,7'
 metrics:
-  story_start: '2026-07-24T11:13:00-03:00'
-  story_end: '2026-07-24T11:25:00-03:00'
+  story_start: '2026-07-24T11:15:00-03:00'
+  story_end: '2026-07-24T11:45:00-03:00'
   skill_timings: {}
 release:
   ci_verified: true
-  last_commit: ff351d29
-  last_epic: e64
+  last_commit: null
+  last_epic: e74

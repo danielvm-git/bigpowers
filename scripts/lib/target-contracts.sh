@@ -72,6 +72,16 @@ assert_aider_bridge() {
   return 0
 }
 
+assert_agy_skills_nonempty() {
+  local id="$1"
+  if [[ -d .agents/skills ]] && [[ -n "$(ls -A .agents/skills 2>/dev/null)" ]]; then
+    echo "PASS $id:agy_skills_nonempty"
+    return 0
+  fi
+  echo "FAIL $id:agy_skills_nonempty — .agents/skills empty"
+  return 1
+}
+
 run_contract() {
   local id="$1"
   local contract="$2"
@@ -82,6 +92,7 @@ run_contract() {
     gemini_ext_exists) assert_gemini_ext_exists "$id" ;;
     gemini_hooks_manifest) assert_gemini_hooks_manifest "$id" ;;
     pi_skills_nonempty) assert_pi_skills_nonempty "$id" ;;
+    agy_skills_nonempty) assert_agy_skills_nonempty "$id" ;;
     aider_bridge) assert_aider_bridge "$id" ;;
     *) echo "SKIP $id:$contract — unknown contract"; return 0 ;;
   esac

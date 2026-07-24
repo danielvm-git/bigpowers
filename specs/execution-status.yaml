@@ -359,7 +359,10 @@ development_status:
   e71: backlog
   e72: backlog
   e73: backlog
-  e74: backlog
+  e74: in_progress
+  e74s01: done
+  e74s02: done
+  e74s01: done
   e75: backlog
   e76: in_progress
   e76s01: done
@@ -677,10 +680,10 @@ epics:
     wsjf: 5.0
     total_bcps: 0
   e74:
-    status: backlog
+    status: in_progress
     title: 'Integration: Antigravity CLI — Google''s New CLI'
     wsjf: 4.0
-    total_bcps: 0
+    total_bcps: 4
   e75:
     status: backlog
     title: 'Integration: Augment — Unknown Capabilities'
@@ -3105,3 +3108,15 @@ stories:
     tasks_passing: 7
     tasks_failing: 0
     risk_max: P1
+  e74s01:
+    status: done
+    title: Wave A — Antigravity CLI adapter research and agy.sh stub
+    bcps: 2
+    epic: e74
+    started_at: "2026-07-24T10:50:00-03:00"
+    completed_at: "2026-07-24T11:00:00-03:00"
+    tasks_total: 5
+    tasks_passing: 5
+    tasks_failing: 0
+    risk_max: P2
+    security_max: low

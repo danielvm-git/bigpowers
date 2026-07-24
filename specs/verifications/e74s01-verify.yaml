@@ -1,0 +1,33 @@
+story_id: e74s01
+epic: e74
+risk: P2
+verified_at: "2026-07-24T10:55:00-03:00"
+branch: feat/e74-integration-antigravity
+terminal_verdict:
+  command: bash scripts/test-adapters.sh agy
+  exit_code: 0
+  output: |
+    PASS agy: exists
+    PASS agy: sourceable
+    PASS agy: wire_context defined
+    PASS agy: idempotent wire_context
+    test-adapters: 4 passed, 0 failed
+task_results:
+  - id: 1
+    verify: PASS
+  - id: 2
+    verify: PASS
+  - id: 3
+    verify: PASS
+  - id: 4
+    verify: PASS
+  - id: 5
+    verify: PASS
+scope_guard:
+  forbidden_files_clean: true
+  forbidden_paths:
+    - install.sh
+    - scripts/lib/install-helpers.js
+    - bin/setup.js
+    - scripts/targets.yaml
+    - scripts/verify-install.sh

@@ -4,6 +4,7 @@
 // story: e64s02
 // story: e76s02
 // story: e69s02
+// story: e74s02
 // install-helpers.js — symlink helpers for bigpowers setup
 
 const fs = require('fs');
@@ -153,6 +154,13 @@ function installGlobal(tool, repoRoot) {
       linkFile(agentsSrc, agentsDst);
       break;
     }
+    case 'antigravity':
+    case 'agy': {
+      const renderedDir = path.join(repoRoot, '.agents', 'skills');
+      const targetDir = path.join(homeDir, '.gemini', 'antigravity-cli', 'skills');
+      linkRenderedSkills(renderedDir, targetDir);
+      break;
+    }
     case 'cursor': {
       const rulesSrc = path.join(repoRoot, '.cursor', 'rules');
       const rulesDst = path.join(homeDir, '.cursor', 'rules');
@@ -219,6 +227,18 @@ function installLocal(tool, repoRoot) {
       const agentsDst = path.join(cwd, '.mimocode', 'AGENTS.md');
       fs.mkdirSync(path.dirname(agentsDst), { recursive: true });
       linkFile(agentsSrc, agentsDst);
+      break;
+    }
+    case 'antigravity':
+    case 'agy': {
+      const renderedDir = path.join(repoRoot, '.agents', 'skills');
+      const targetDir = path.join(cwd, '.agents', 'skills');
+      linkRenderedSkills(renderedDir, targetDir);
+      const agentsSrc = path.join(repoRoot, 'AGENTS.md');
+      const agentsDst = path.join(cwd, 'AGENTS.md');
+      if (!fs.existsSync(agentsDst)) {
+        linkFile(agentsSrc, agentsDst);
+      }
       break;
     }
     case 'cursor': {
@@ -325,6 +345,20 @@ function uninstallTool(toolId, repoRoot) {
         }
       }
       removeSymlink(path.join(homeDir, '.mimocode', 'AGENTS.md'));
+      break;
+    }
+    case 'antigravity':
+    case 'agy': {
+      const skillsDir = path.join(homeDir, '.gemini', 'antigravity-cli', 'skills');
+      if (fs.existsSync(skillsDir)) {
+        for (const entry of fs.readdirSync(skillsDir, { withFileTypes: true })) {
+          if (!entry.isSymbolicLink()) continue;
+          const target = fs.readlinkSync(path.join(skillsDir, entry.name));
+          if (target.includes('bigpowers') || target.includes('.agents/skills')) {
+            removeSymlink(path.join(skillsDir, entry.name));
+          }
+        }
+      }
       break;
     }
     case 'cursor':

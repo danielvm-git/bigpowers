@@ -1,0 +1,105 @@
+story_id: e74s01
+title: "Wave A — Antigravity CLI adapter research and agy.sh stub"
+status: passing
+bcps: 2
+risk: P2
+spec: e74s01-wave-a-adapter-research.md
+depends_on: []
+tasks:
+  - id: 1
+    description: >-
+      Write RESEARCH-ANTIGRAVITY.md with global/workspace paths for skills, hooks,
+      rules, MCP, and permissions. Cite at least one external URL. Tag # story: e74s01.
+    verify: >-
+      test -f specs/epics/e74-integration-antigravity/RESEARCH-ANTIGRAVITY.md &&
+      grep -q 'hooks.json' specs/epics/e74-integration-antigravity/RESEARCH-ANTIGRAVITY.md &&
+      grep -q 'https://' specs/epics/e74-integration-antigravity/RESEARCH-ANTIGRAVITY.md &&
+      echo OK
+    risk: P2
+    security: low
+    status: passing
+    allure:
+      severity: normal
+      categories:
+        - "Wave A"
+        - "Research"
+
+  - id: 2
+    description: >-
+      Expand scripts/adapters/agy.sh: document AGY_* path constants from research,
+      add render_skill stub (mkdir under AGY_SKILLS default .agents/skills),
+      keep wire_context symlink via context-wire.sh. Tag # story: e74s01.
+    verify: >-
+      grep -q 'render_skill' scripts/adapters/agy.sh &&
+      grep -q 'wire_context' scripts/adapters/agy.sh &&
+      grep -q 'e74s01' scripts/adapters/agy.sh &&
+      echo OK
+    risk: P2
+    security: low
+    status: passing
+    allure:
+      severity: normal
+      categories:
+        - "Wave A"
+        - "Adapter"
+
+  - id: 3
+    description: >-
+      Update epic.yaml integration_details (skills_path, config_path, hook_events)
+      from research. Run plan-consistency-check on capsule.
+    verify: >-
+      grep -q 'skills_path' specs/epics/e74-integration-antigravity/epic.yaml &&
+      bash scripts/lib/plan-consistency-check.sh specs/epics/e74-integration-antigravity/ 2>&1 |
+      grep -qv CRITICAL &&
+      bash scripts/lib/plan-consistency-check.sh specs/epics/e74-integration-antigravity/ 2>&1 |
+      grep -qv HIGH &&
+      echo OK
+    risk: P2
+    security: none
+    status: passing
+    allure:
+      severity: normal
+      categories:
+        - "Wave A"
+        - "Planning"
+
+  - id: 4
+    description: >-
+      Run bash scripts/test-adapters.sh agy — adapter sourceable, wire_context
+      idempotent. Confirm Wave A scope: no forbidden hub files modified.
+    verify: >-
+      bash scripts/test-adapters.sh agy 2>&1 | grep -q 'agy: idempotent wire_context' &&
+      test -z "$(git status --porcelain -- install.sh scripts/lib/install-helpers.js bin/setup.js scripts/targets.yaml scripts/verify-install.sh)" &&
+      echo OK
+    risk: P2
+    security: low
+    status: passing
+    allure:
+      severity: normal
+      categories:
+        - "Wave A"
+        - "integration"
+
+  - id: 5
+    description: >-
+      Story verify: research doc + expanded adapter + threat model present.
+    verify: >-
+      test -f specs/security/epics/e74/THREAT_MODEL.md &&
+      test -f specs/epics/e74-integration-antigravity/RESEARCH-ANTIGRAVITY.md &&
+      grep -q 'render_skill' scripts/adapters/agy.sh &&
+      bash scripts/test-adapters.sh agy 2>&1 | grep -q 'wire_context defined' &&
+      echo OK
+    risk: P2
+    security: low
+    status: passing
+    allure:
+      severity: normal
+      categories:
+        - "Wave A"
+
+out_of_scope:
+  - "install.sh / setup.js / install-helpers.js wiring"
+  - "targets.yaml registry changes"
+  - "verify-install.sh matrix rows"
+  - ".gemini/** generated install artifacts"
+  - "Runtime agy binary verification"
