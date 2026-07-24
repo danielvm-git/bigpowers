@@ -230,3 +230,19 @@ targets:
       file: AGENTS.md
     contracts:
       - agents_md_exists
+
+  # Fleet Wave B
+  - id: codex
+    name: Codex CLI
+    tier: opt_in
+    skill:
+      adapter: codex
+      output: .codex/skills
+    context:
+      adapter: codex
+      mode: config-bridge
+      file: AGENTS.md
+      bridge_file: config.toml
+      bridge_key: instructions
+    contracts:
+      - codex_hooks_manifest

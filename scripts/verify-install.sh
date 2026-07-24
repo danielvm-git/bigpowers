@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # story: e47s04 e37s02 e37s04 e37s08
 # story: e74s02
+# story: e65s02
 # verify-install.sh — manual assertion harness for install + seed wiring + Reach matrix
 set -euo pipefail
 source "$(dirname "${BASH_SOURCE[0]}")/lib/skill-common.sh"
@@ -161,6 +162,11 @@ grep -q "case 'agy'" "$REPO_ROOT/scripts/lib/install-helpers.js" && ta_pass "ins
 ! grep -q '\.gemini/extensions/bigpowers' <<< "$(sed -n '/install_agy/,/^}/p' "$REPO_ROOT/scripts/install.sh")" && ta_pass "source: agy avoids gemini extension path" || ta_fail "source: agy touches gemini extension path"
 ! grep -q 'install_opencode\|print_opencode_instructions' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: no opencode functions" || ta_fail "source: opencode functions remain"
 
+grep -q 'install_codex()' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: install_codex()" || ta_fail "source: missing install_codex()"
+grep -q 'uninstall_codex()' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: uninstall_codex()" || ta_fail "source: missing uninstall_codex()"
+grep -q 'CODEX_SKILLS_DIR=' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: codex skills dir" || ta_fail "source: missing codex skills dir"
+grep -q "'codex'" "$REPO_ROOT/bin/setup.js" && grep -q 'SUPPORTED_IDS' "$REPO_ROOT/bin/setup.js" && ta_pass "setup.js: codex supported" || ta_fail "setup.js: codex not in SUPPORTED_IDS"
+grep -q "case 'codex'" "$REPO_ROOT/scripts/lib/install-helpers.js" && ta_pass "install-helpers: codex case" || ta_fail "install-helpers: missing codex case"
 echo ""
 echo "──────────────────────────────────────────"
 echo "verify-install: $TA_PASS passed, $TA_FAIL failed"

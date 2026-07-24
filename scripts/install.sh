@@ -4,6 +4,7 @@
 # story: e63
 # story: e64s02
 # story: e74s02
+# story: e65s02
 # install.sh — global symlink install for bigpowers skills
 #
 # Supported tools:
@@ -421,25 +422,55 @@ uninstall_antigravity() {
   uninstall_agy
 }
 
-# ── Codex CLI (e37s15) ───────────────────────────────────────────────────────
+# ── Codex CLI (e65s02) ───────────────────────────────────────────────────────
 
-CODEX_DIR="$HOME/.codex"
-CODEX_AGENTS="$CODEX_DIR/AGENTS.md"
-CODEX_TEMPLATE="$REPO_ROOT/templates/codex/AGENTS.md"
+CODEX_CONFIG_DIR="$HOME/.codex"
+CODEX_SKILLS_DIR="$CODEX_CONFIG_DIR/skills"
+CODEX_RENDERED="$REPO_ROOT/.codex/skills"
+CODEX_CONFIG_FILE="$CODEX_CONFIG_DIR/config.toml"
+CODEX_HOOKS_DIR="$CODEX_CONFIG_DIR/hooks"
+CODEX_HOOK_SRC="$REPO_ROOT/scripts/hooks/codex/pre-tool-git-guard.sh"
 
 install_codex() {
   echo ""
-  echo "Codex CLI → $CODEX_AGENTS"
-  [[ -f "$CODEX_TEMPLATE" ]] || { echo "  skip: template missing $CODEX_TEMPLATE" >&2; return 0; }
-  link "$CODEX_TEMPLATE" "$CODEX_AGENTS"
+  echo "Codex CLI → $CODEX_SKILLS_DIR/"
+  if [[ ! -d "$CODEX_RENDERED" ]]; then
+    echo "  WARNING: $CODEX_RENDERED not found — run sync-skills.sh first"
+    return
+  fi
+  local count=0
+  for skill_dir in "$CODEX_RENDERED"/*/; do
+    [[ -f "${skill_dir}SKILL.md" ]] || continue
+    local name; name="$(basename "$skill_dir")"
+    link "$skill_dir" "$CODEX_SKILLS_DIR/$name"
+    count=$((count + 1))
+  done
+  echo "  $count skills installed"
+  echo "Codex CLI → context config-bridge $CODEX_CONFIG_FILE"
+  source "$REPO_ROOT/scripts/lib/context-wire.sh"
+  local agents_src="$REPO_ROOT/AGENTS.md"
+  [[ -f "$agents_src" ]] || agents_src="$REPO_ROOT/docs/templates/AGENTS.md"
+  wire_context_mode config-bridge "$CODEX_CONFIG_FILE" "instructions" "AGENTS.md"
+  if [[ -f "$CODEX_HOOK_SRC" ]]; then
+    echo "Codex CLI Hooks → $CODEX_HOOKS_DIR/"
+    link "$CODEX_HOOK_SRC" "$CODEX_HOOKS_DIR/pre-tool-git-guard.sh"
+    chmod +x "$CODEX_HOOK_SRC" 2>/dev/null || true
+    echo "  NOTE: copy $REPO_ROOT/scripts/hooks/codex/settings.example.json into tool config"
+  fi
 }
 
 uninstall_codex() {
   echo ""
-  echo "Codex CLI → removing $CODEX_AGENTS"
-  unlink_if_managed "$CODEX_AGENTS" "$REPO_ROOT/"
+  echo "Codex CLI → removing management from $CODEX_CONFIG_DIR/"
+  if [[ -d "$CODEX_SKILLS_DIR" ]]; then
+    for dst in "$CODEX_SKILLS_DIR"/*/; do
+      [[ -L "${dst%/}" ]] || continue
+      unlink_if_managed "${dst%/}" "$REPO_ROOT/"
+    done
+  fi
+  # config-bridge file $CODEX_CONFIG_FILE left for user
+  unlink_if_managed "$CODEX_HOOKS_DIR/pre-tool-git-guard.sh" "$REPO_ROOT/"
 }
-
 # ── main ──────────────────────────────────────────────────────────────────────
 
 echo "bigpowers install.sh — REPO: $REPO_ROOT"
@@ -455,6 +486,8 @@ if $UNINSTALL; then
   uninstall_mimo
   uninstall_agy
   uninstall_cursor
+  uninstall_codex
+  install_codex
   uninstall_codex
   echo ""
   echo "bigpowers uninstalled."

@@ -5,6 +5,7 @@
 // story: e76s02
 // story: e69s02
 // story: e74s02
+// story: e65s02
 // install-helpers.js — symlink helpers for bigpowers setup
 
 const fs = require('fs');
@@ -380,8 +381,17 @@ function uninstallTool(toolId, repoRoot) {
       removeSymlink(path.join(homeDir, '.cursor', 'rules'));
       break;
     case 'codex':
-      removeSymlink(path.join(homeDir, '.codex', 'AGENTS.md'));
-      break;
+      {
+        const skillsDir = path.join(homeDir, '.codex', 'skills');
+        if (fs.existsSync(skillsDir)) {
+          for (const entry of fs.readdirSync(skillsDir, { withFileTypes: true })) {
+            if (!entry.isSymbolicLink()) continue;
+            removeSymlink(path.join(skillsDir, entry.name));
+          }
+        }
+      }
+      removeSymlink(path.join(homeDir, '.codex', 'hooks', 'pre-tool-git-guard.sh'));
+      break; // story: e65s02
   }
 }
 
