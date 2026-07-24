@@ -70,6 +70,7 @@ echo "$DRY_OUT" | grep -qi 'opencode' && ta_fail "install references opencode" |
 echo "$DRY_OUT" | grep -q 'Claude Code →' && ta_pass "install includes Claude Code" || ta_fail "install missing Claude Code"
 echo "$DRY_OUT" | grep -q 'Gemini CLI →' && ta_pass "install includes Gemini CLI" || ta_fail "install missing Gemini CLI"
 echo "$DRY_OUT" | grep -q 'Cursor →' && ta_pass "install includes Cursor" || ta_fail "install missing Cursor"
+echo "$DRY_OUT" | grep -q 'Hermes Agent →' && ta_pass "install includes Hermes Agent" || ta_fail "install missing Hermes Agent"
 
 for tool in "Claude Code" "pi"; do
   section=$(echo "$DRY_OUT" | sed -n "/${tool} →/,/^$/p")
@@ -128,6 +129,11 @@ echo "=== install.sh source ==="
 grep -q 'install_pi()' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: install_pi()" || ta_fail "source: missing install_pi()"
 grep -q 'uninstall_pi()' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: uninstall_pi()" || ta_fail "source: missing uninstall_pi()"
 grep -q 'PI_SKILLS_DIR="$PI_CONFIG_DIR/agent/skills"' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: targets ~/.pi/agent/skills/" || ta_fail "source: wrong pi target"
+grep -q 'install_hermes()' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: install_hermes()" || ta_fail "source: missing install_hermes()"
+grep -q 'uninstall_hermes()' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: uninstall_hermes()" || ta_fail "source: missing uninstall_hermes()"
+grep -q 'HERMES_SKILLS_DIR=' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: targets ~/.hermes/skills/" || ta_fail "source: wrong hermes target"
+grep -q "'hermes'" "$REPO_ROOT/bin/setup.js" && grep -q 'SUPPORTED_IDS' "$REPO_ROOT/bin/setup.js" && ta_pass "setup.js: hermes supported" || ta_fail "setup.js: hermes not in SUPPORTED_IDS"
+grep -q "case 'hermes'" "$REPO_ROOT/scripts/lib/install-helpers.js" && ta_pass "install-helpers: hermes case" || ta_fail "install-helpers: missing hermes case"
 ! grep -q 'install_opencode\|print_opencode_instructions' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: no opencode functions" || ta_fail "source: opencode functions remain"
 
 echo ""

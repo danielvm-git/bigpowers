@@ -1,0 +1,5 @@
+name: session-log
+description: Observe agent lifecycle events (bigpowers template — copy to ~/.hermes/hooks/)
+events:
+  - agent:start
+  - agent:end

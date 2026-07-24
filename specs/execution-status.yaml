@@ -342,6 +342,9 @@ development_status:
   e59: backlog
   e60: done
   e60s01: done
+  e61: in_progress
+  e61s01: done
+  e61s02: done
   e62: backlog
   e63: done
   e64: backlog
@@ -603,13 +606,18 @@ epics:
     title: Interactive Installer — BMAD-Polished Setup for bigpowers
     wsjf: 9.0
     total_bcps: 3
+  e61:
+    status: in_progress
+    title: 'Integration: Hermes Agent — Skills + 3 Hook Systems'
+    wsjf: 5.0
+    total_bcps: 3
   e62:
     status: backlog
     title: 'Integration: OpenCode — Skills + No Hooks'
     wsjf: 4.0
     total_bcps: 0
   e63:
-    status: backlog
+    status: done
     title: 'Integration: Claude Code — Skills + Hooks (Primary)'
     wsjf: 9.0
     total_bcps: 0
@@ -679,12 +687,12 @@ epics:
     wsjf: 5.0
     total_bcps: 0
   e77:
-    status: backlog
+    status: done
     title: 'Integration: pi — Skills (No Hooks)'
     wsjf: 8.0
     total_bcps: 0
   e78:
-    status: backlog
+    status: done
     title: 'Integration: Cursor — Rules (No Hooks)'
     wsjf: 7.0
     total_bcps: 0
@@ -3085,3 +3093,25 @@ stories:
     tasks_total: 0
     tasks_passing: 0
     tasks_failing: 0
+  e61s01:
+    status: done
+    title: "Hermes adapter + hook templates (Wave A)"
+    bcps: 3
+    epic: e61
+    started_at: "2026-07-24T10:53:00-03:00"
+    completed_at: "2026-07-24T10:58:00-03:00"
+    tasks_total: 7
+    tasks_passing: 7
+    tasks_failing: 0
+    risk_max: P2
+  e61s02:
+    status: done
+    title: "Install hub wiring (Wave B)"
+    bcps: 2
+    epic: e61
+    started_at: "2026-07-24T11:00:00-03:00"
+    completed_at: "2026-07-24T11:05:00-03:00"
+    tasks_total: 6
+    tasks_passing: 6
+    tasks_failing: 0
+    risk_max: P1

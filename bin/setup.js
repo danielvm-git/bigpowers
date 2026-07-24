@@ -55,7 +55,7 @@ const TOOLS = [
   { id: 'windsurf', name: 'Windsurf', globalPath: '~/.codeium/windsurf', localPath: '.codeium/windsurf' },
 ];
 const ALL_ID = '__all__';
-const SUPPORTED_IDS = new Set(['claude', 'gemini', 'pi', 'cursor', 'codex']);
+const SUPPORTED_IDS = new Set(['claude', 'gemini', 'pi', 'hermes', 'cursor', 'codex']);
 const UNSUPPORTED_HINT = '(TODO)';
 
 // ── clack helpers (lazy ESM import from CJS) ─────────────────────────────────

@@ -1,0 +1,142 @@
+story_id: e61s01
+title: "Hermes adapter + hook templates (Wave A)"
+status: passing
+bcps: 3
+risk: P2
+depends_on:
+  - e37s10
+spec: e61s01-hermes-adapter-hooks.md
+tasks:
+  - id: 1
+    description: >-
+      Expand scripts/adapters/hermes.sh render_skill to write
+      .hermes/skills/<name>/SKILL.md from SkillIR globals (name, model,
+      description, body) matching pi/cursor frontmatter. Tag # story: e61s01.
+    verify: >-
+      tmp=$(mktemp -d); echo '{"name":"test-skill","description":"test desc","body":"test body"}'
+      | HERMES_SKILLS="$tmp/skills" bash scripts/adapters/hermes.sh &&
+      grep -q 'name: test-skill' "$tmp/skills/test-skill/SKILL.md" &&
+      grep -q 'test body' "$tmp/skills/test-skill/SKILL.md" && echo OK
+    risk: P2
+    security: low
+    status: passing
+    allure:
+      severity: normal
+      categories:
+        - "Integration"
+        - "Hermes"
+        - "Wave A"
+
+  - id: 2
+    description: >-
+      Add SkillIR stdin dispatch block to hermes.sh (jq parse on non-tty stdin),
+      consistent with cursor.sh and pi.sh.
+    verify: >-
+      tmp=$(mktemp -d);
+      echo '{"name":"stdin-skill","description":"d","body":"b"}'
+      | HERMES_SKILLS="$tmp/skills" bash scripts/adapters/hermes.sh &&
+      test -f "$tmp/skills/stdin-skill/SKILL.md" && echo OK
+    risk: P2
+    security: low
+    status: passing
+    allure:
+      severity: normal
+      categories:
+        - "Integration"
+        - "Hermes"
+
+  - id: 3
+    description: >-
+      Create scripts/hooks/hermes/gateway/session-log/ with HOOK.yaml and
+      handler.py gateway hook template (agent:start, agent:end observer).
+    verify: >-
+      test -f scripts/hooks/hermes/gateway/session-log/HOOK.yaml &&
+      test -f scripts/hooks/hermes/gateway/session-log/handler.py &&
+      grep -q 'agent:start' scripts/hooks/hermes/gateway/session-log/HOOK.yaml &&
+      grep -q 'async def handle' scripts/hooks/hermes/gateway/session-log/handler.py &&
+      echo OK
+    risk: P2
+    security: medium
+    status: passing
+    allure:
+      severity: normal
+      categories:
+        - "Security Review"
+        - "Hermes"
+        - "Gateway hooks"
+
+  - id: 4
+    description: >-
+      Create scripts/hooks/hermes/shell/block-dangerous-terminal.sh and
+      hooks-config.example.yaml demonstrating pre_tool_call matcher wiring.
+    verify: >-
+      test -f scripts/hooks/hermes/shell/block-dangerous-terminal.sh &&
+      test -f scripts/hooks/hermes/shell/hooks-config.example.yaml &&
+      grep -q 'pre_tool_call' scripts/hooks/hermes/shell/hooks-config.example.yaml &&
+      grep -q 'decision.*block' scripts/hooks/hermes/shell/block-dangerous-terminal.sh &&
+      echo OK
+    risk: P2
+    security: medium
+    status: passing
+    allure:
+      severity: normal
+      categories:
+        - "Security Review"
+        - "Hermes"
+        - "Shell hooks"
+
+  - id: 5
+    description: >-
+      Create scripts/hooks/hermes/plugin/guard-git-plugin.py with register(ctx)
+      stub registering pre_tool_call observer.
+    verify: >-
+      test -f scripts/hooks/hermes/plugin/guard-git-plugin.py &&
+      grep -q 'register_hook' scripts/hooks/hermes/plugin/guard-git-plugin.py &&
+      grep -q 'pre_tool_call' scripts/hooks/hermes/plugin/guard-git-plugin.py &&
+      echo OK
+    risk: P2
+    security: medium
+    status: passing
+    allure:
+      severity: normal
+      categories:
+        - "Security Review"
+        - "Hermes"
+        - "Plugin hooks"
+
+  - id: 6
+    description: >-
+      Add scripts/test-hermes-adapter.sh regression harness covering stdin
+      render, IR_NAME sanitization, hook template presence, and test-adapters
+      hermes smoke.
+    verify: bash scripts/test-hermes-adapter.sh
+    risk: P2
+    security: low
+    status: passing
+    allure:
+      severity: normal
+      categories:
+        - "Integration"
+        - "Hermes"
+
+  - id: 7
+    description: >-
+      Story gate: test-hermes-adapter.sh and test-adapters.sh hermes both PASS;
+      no edits to forbidden Wave B hub files.
+    verify: >-
+      bash scripts/test-hermes-adapter.sh &&
+      bash scripts/test-adapters.sh hermes 2>&1 | tee /dev/stderr | grep -q '0 failed' &&
+      echo OK
+    risk: P2
+    security: low
+    status: passing
+    allure:
+      severity: normal
+      categories:
+        - "Integration"
+        - "Wave A"
+
+out_of_scope:
+  - "Hub install wiring (install.sh, setup.js, install-helpers.js)"
+  - "targets.yaml / verify-install.sh changes"
+  - "Live Hermes gateway UAT"
