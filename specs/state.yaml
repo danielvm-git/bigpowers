@@ -6,9 +6,10 @@ bigpowers_version: 2.83.3
 bug_cycle: null
 handoff:
   next_skill: survey-context
-  context: 'fix_bug complete: BUG-2026-07-24-installer-runs-dev-maintenance-pipeline fixed — sync-skills.sh
-    --distribute-only, wired into bin/setup.js, regression test added, verified against a real packed
-    tarball.
+  context: 'fix_bug complete: BUG-2026-07-24-installer-spinner-freezes-during-sync
+    fixed — sync-skills.sh invocation converted to async spawn, spinner now
+    animates continuously through the sync step, verified via event-loop-tick
+    proof and a real success/failure run.
 
     '
   epic: null

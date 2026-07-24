@@ -20,6 +20,9 @@ grep -q -- '--distribute-only' "$SYNC_SH" && pass 'sync-skills.sh: --distribute-
   || fail 'sync-skills.sh: missing --distribute-only flag'
 grep -q "sync-skills.sh --distribute-only" "$SETUP_JS" && pass 'setup.js: invokes sync-skills.sh with --distribute-only' \
   || fail 'setup.js: does not pass --distribute-only'
+grep -q "runInheritedAsync('bash scripts/sync-skills.sh --distribute-only')" "$SETUP_JS" \
+  && pass 'setup.js: sync-skills call is async (spinner can animate)' \
+  || fail 'setup.js: sync-skills call reverted to blocking runInherited (spinner would freeze)'
 
 hash_of() { [[ -f "$1" ]] && shasum -a 256 "$1" | awk '{print $1}' || echo "absent"; }
 listing_of() { [[ -d "$1" ]] && (find "$1" -maxdepth 1 -type f | sort) || echo "absent"; }

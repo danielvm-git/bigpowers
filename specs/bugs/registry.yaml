@@ -394,3 +394,9 @@ bugs:
     scope: install
     title: "bigpowers setup runs the full contributor dev-maintenance pipeline on end-user installs"
     file: bugs/BUG-2026-07-24-installer-runs-dev-maintenance-pipeline.md
+  - id: BUG-2026-07-24-installer-spinner-freezes-during-sync
+    status: open
+    severity: low
+    scope: install
+    title: "bigpowers setup spinner freezes during sync-skills.sh instead of animating"
+    file: bugs/BUG-2026-07-24-installer-spinner-freezes-during-sync.md

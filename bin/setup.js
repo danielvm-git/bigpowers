@@ -4,7 +4,7 @@
 // bigpowers setup — interactive installer
 // Combines GSD simplicity with BMAD visual polish.
 
-const { execSync } = require('child_process');
+const { execSync, spawn } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 const { installGlobal, installLocal, uninstallTool, detectExistingInstall } = require('../scripts/lib/install-helpers');
@@ -74,6 +74,23 @@ function sleep(ms) {
 
 function runInherited(cmd) {
   execSync(cmd, { cwd: ROOT, stdio: 'inherit' });
+}
+
+// Async counterpart of runInherited: keeps the event loop free so a clack
+// spinner's setInterval can keep animating while the child process runs.
+// Output is captured (not inherited) so it can't collide with the spinner's
+// own redraw; on failure the caller gets it back to show the user.
+function runInheritedAsync(cmd) {
+  return new Promise((resolve, reject) => {
+    const child = spawn(cmd, { cwd: ROOT, shell: true });
+    let output = '';
+    child.stdout.on('data', (d) => (output += d));
+    child.stderr.on('data', (d) => (output += d));
+    child.on('close', (code) => {
+      if (code === 0) resolve(output);
+      else reject(new Error(output || `${cmd} exited with code ${code}`));
+    });
+  });
 }
 
 
@@ -250,14 +267,17 @@ async function main() {
     await sleep(100);
   }
 
-  s.stop('Syncing skills...');
+  s.message('Syncing skills...');
   try {
-    runInherited('bash scripts/sync-skills.sh --distribute-only');
-  } catch {
-    console.error(c.red('Sync failed.'));
+    const output = await runInheritedAsync('bash scripts/sync-skills.sh --distribute-only');
+    const summary = output.trim().split('\n').find((l) => l.includes('skills synced'));
+    if (summary) s.message(summary.trim());
+  } catch (err) {
+    s.stop('Sync failed.', 1);
+    console.error(err.message);
     process.exit(1);
   }
-  s.start('Installing to selected tools...');
+  s.message('Installing to selected tools...');
 
   const results = [];
   for (const toolId of selectedTools) {
