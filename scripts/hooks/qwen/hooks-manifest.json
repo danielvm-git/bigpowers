@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "target": "qwen",
+  "events_total": 16,
+  "events": [
+    "PreToolUse",
+    "PostToolUse",
+    "PostToolUseFailure",
+    "UserPromptSubmit",
+    "SessionStart",
+    "SessionEnd",
+    "Stop",
+    "SubagentStart",
+    "SubagentStop",
+    "PreCompact",
+    "PostCompact",
+    "Notification",
+    "PermissionRequest",
+    "TodoCreated",
+    "TodoCompleted",
+    "StopFailure"
+  ]
+}
