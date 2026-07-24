@@ -1,5 +1,5 @@
 release:
-  version: 2.81.0
+  version: 2.82.0
   codename: Foundation
   status: released
   next_release: Reach
@@ -109,167 +109,167 @@ done_epics_summary:
   - e78
 epics:
 - id: e78
-  title: "Integration: Cursor — Rules (No Hooks)"
+  title: 'Integration: Cursor — Rules (No Hooks)'
   wsjf: 7.0
   bcps: 0
   capsule_dir: epics/e78-integration-cursor
   mode: capsule
   status: done
-  wsjf_rationale: 'BV 7 + TC 4 + RR 4 / Job 1 ≈ 15.0. Already supported.'
-  source: 'Research session 2026-07-23. Rules at ~/.cursor/rules/. No hooks.'
+  wsjf_rationale: BV 7 + TC 4 + RR 4 / Job 1 ≈ 15.0. Already supported.
+  source: Research session 2026-07-23. Rules at ~/.cursor/rules/. No hooks.
 - id: e77
-  title: "Integration: pi — Skills (No Hooks)"
+  title: 'Integration: pi — Skills (No Hooks)'
   wsjf: 8.0
   bcps: 0
   capsule_dir: epics/e77-integration-pi
   mode: capsule
   status: done
-  wsjf_rationale: 'BV 8 + TC 4 + RR 4 / Job 1 ≈ 16.0. Already supported.'
-  source: 'Research session 2026-07-23. Skills at ~/.pi/agent/skills/.'
+  wsjf_rationale: BV 8 + TC 4 + RR 4 / Job 1 ≈ 16.0. Already supported.
+  source: Research session 2026-07-23. Skills at ~/.pi/agent/skills/.
 - id: e76
-  title: "Integration: ZCode — Skills + Plugin Hooks"
+  title: 'Integration: ZCode — Skills + Plugin Hooks'
   wsjf: 5.0
   bcps: 0
   capsule_dir: epics/e76-integration-zcode
   mode: capsule
   status: scoped
-  wsjf_rationale: 'BV 5 + TC 3 + RR 4 / Job 2 ≈ 6.0. Skills + plugin hooks.'
-  source: 'Research session 2026-07-23. Skills at ~/.zcode/skills/. Plugin-scoped hooks.'
+  wsjf_rationale: BV 5 + TC 3 + RR 4 / Job 2 ≈ 6.0. Skills + plugin hooks.
+  source: Research session 2026-07-23. Skills at ~/.zcode/skills/. Plugin-scoped hooks.
 - id: e75
-  title: "Integration: Augment — Unknown Capabilities"
+  title: 'Integration: Augment — Unknown Capabilities'
   wsjf: 3.0
   bcps: 0
   capsule_dir: epics/e75-integration-augment
   mode: capsule
   status: scoped
-  wsjf_rationale: 'BV 3 + TC 2 + RR 2 / Job 3 ≈ 2.3. Unknown capabilities.'
-  source: 'Research session 2026-07-23. Minimal documentation.'
+  wsjf_rationale: BV 3 + TC 2 + RR 2 / Job 3 ≈ 2.3. Unknown capabilities.
+  source: Research session 2026-07-23. Minimal documentation.
 - id: e74
-  title: "Integration: Antigravity CLI — Google's New CLI"
+  title: 'Integration: Antigravity CLI — Google''s New CLI'
   wsjf: 4.0
   bcps: 0
   capsule_dir: epics/e74-integration-antigravity
   mode: capsule
   status: scoped
-  wsjf_rationale: 'BV 4 + TC 3 + RR 3 / Job 3 ≈ 3.3. Minimal docs.'
-  source: 'Research session 2026-07-23. Google new CLI. 1.7K stars.'
+  wsjf_rationale: BV 4 + TC 3 + RR 3 / Job 3 ≈ 3.3. Minimal docs.
+  source: Research session 2026-07-23. Google new CLI. 1.7K stars.
 - id: e73
-  title: "Integration: Windsurf — Skills + Cascade Hooks"
+  title: 'Integration: Windsurf — Skills + Cascade Hooks'
   wsjf: 5.0
   bcps: 0
   capsule_dir: epics/e73-integration-windsurf
   mode: capsule
   status: scoped
-  wsjf_rationale: 'BV 5 + TC 3 + RR 4 / Job 3 ≈ 4.0. Different naming convention.'
-  source: 'Research session 2026-07-23. 12 events with different naming.'
+  wsjf_rationale: BV 5 + TC 3 + RR 4 / Job 3 ≈ 4.0. Different naming convention.
+  source: Research session 2026-07-23. 12 events with different naming.
 - id: e72
-  title: "Integration: CodeBuddy — Skills + 27+ Hook Events"
+  title: 'Integration: CodeBuddy — Skills + 27+ Hook Events'
   wsjf: 6.0
   bcps: 0
   capsule_dir: epics/e72-integration-codebuddy
   mode: capsule
   status: scoped
-  wsjf_rationale: 'BV 6 + TC 4 + RR 5 / Job 2 ≈ 7.5. 27+ events.'
-  source: 'Research session 2026-07-23. Full hooks support.'
+  wsjf_rationale: BV 6 + TC 4 + RR 5 / Job 2 ≈ 7.5. 27+ events.
+  source: Research session 2026-07-23. Full hooks support.
 - id: e71
-  title: "Integration: Copilot — Instructions (No Hooks)"
+  title: 'Integration: Copilot — Instructions (No Hooks)'
   wsjf: 4.0
   bcps: 0
   capsule_dir: epics/e71-integration-copilot
   mode: capsule
   status: scoped
-  wsjf_rationale: 'BV 4 + TC 3 + RR 3 / Job 2 ≈ 5.0. Hooks unknown.'
-  source: 'Research session 2026-07-23. Instructions at .copilot/.'
+  wsjf_rationale: BV 4 + TC 3 + RR 3 / Job 2 ≈ 5.0. Hooks unknown.
+  source: Research session 2026-07-23. Instructions at .copilot/.
 - id: e70
-  title: "Integration: Trae — Skills + Hooks"
+  title: 'Integration: Trae — Skills + Hooks'
   wsjf: 5.0
   bcps: 0
   capsule_dir: epics/e70-integration-trae
   mode: capsule
   status: scoped
-  wsjf_rationale: 'BV 5 + TC 3 + RR 4 / Job 2 ≈ 6.0. Claude-compatible.'
-  source: 'Research session 2026-07-23. ByteDance tool. 12K stars.'
+  wsjf_rationale: BV 5 + TC 3 + RR 4 / Job 2 ≈ 6.0. Claude-compatible.
+  source: Research session 2026-07-23. ByteDance tool. 12K stars.
 - id: e69
-  title: "Integration: MiMo Code — Skills + Plugins (No Hooks)"
+  title: 'Integration: MiMo Code — Skills + Plugins (No Hooks)'
   wsjf: 5.0
   bcps: 0
   capsule_dir: epics/e69-integration-mimo-code
   mode: capsule
   status: scoped
-  wsjf_rationale: 'BV 5 + TC 3 + RR 4 / Job 2 ≈ 6.0. No hooks found.'
-  source: 'Research session 2026-07-23. Xiaomi tool. 12K stars.'
+  wsjf_rationale: BV 5 + TC 3 + RR 4 / Job 2 ≈ 6.0. No hooks found.
+  source: Research session 2026-07-23. Xiaomi tool. 12K stars.
 - id: e68
-  title: "Integration: Qwen Code — Skills + Full Hooks"
+  title: 'Integration: Qwen Code — Skills + Full Hooks'
   wsjf: 6.0
   bcps: 0
   capsule_dir: epics/e68-integration-qwen-code
   mode: capsule
   status: scoped
-  wsjf_rationale: 'BV 6 + TC 4 + RR 5 / Job 2 ≈ 7.5. 16 events.'
-  source: 'Research session 2026-07-23. Claude-compatible. 26K stars.'
+  wsjf_rationale: BV 6 + TC 4 + RR 5 / Job 2 ≈ 7.5. 16 events.
+  source: Research session 2026-07-23. Claude-compatible. 26K stars.
 - id: e67
-  title: "Integration: Kilo — Skills + Plugin Hooks"
+  title: 'Integration: Kilo — Skills + Plugin Hooks'
   wsjf: 5.0
   bcps: 0
   capsule_dir: epics/e67-integration-kilo
   mode: capsule
   status: scoped
-  wsjf_rationale: 'BV 5 + TC 3 + RR 4 / Job 3 ≈ 4.0. TypeScript plugins.'
-  source: 'Research session 2026-07-23. 26K stars.'
+  wsjf_rationale: BV 5 + TC 3 + RR 4 / Job 3 ≈ 4.0. TypeScript plugins.
+  source: Research session 2026-07-23. 26K stars.
 - id: e66
-  title: "Integration: Cline — Plugins + Plugin Hooks"
+  title: 'Integration: Cline — Plugins + Plugin Hooks'
   wsjf: 5.0
   bcps: 0
   capsule_dir: epics/e66-integration-cline
   mode: capsule
   status: scoped
-  wsjf_rationale: 'BV 6 + TC 3 + RR 4 / Job 3 ≈ 4.3. VS Code extension.'
-  source: 'Research session 2026-07-23. 65K stars.'
+  wsjf_rationale: BV 6 + TC 3 + RR 4 / Job 3 ≈ 4.3. VS Code extension.
+  source: Research session 2026-07-23. 65K stars.
 - id: e65
-  title: "Integration: Codex CLI — AGENTS.md + Hooks"
+  title: 'Integration: Codex CLI — AGENTS.md + Hooks'
   wsjf: 6.0
   bcps: 0
   capsule_dir: epics/e65-integration-codex
   mode: capsule
   status: scoped
-  wsjf_rationale: 'BV 8 + TC 4 + RR 5 / Job 2 ≈ 8.5. Claude-compatible.'
-  source: 'Research session 2026-07-23. 101K stars.'
+  wsjf_rationale: BV 8 + TC 4 + RR 5 / Job 2 ≈ 8.5. Claude-compatible.
+  source: Research session 2026-07-23. 101K stars.
 - id: e64
-  title: "Integration: Gemini CLI — Extensions + Hooks"
+  title: 'Integration: Gemini CLI — Extensions + Hooks'
   wsjf: 6.0
   bcps: 0
   capsule_dir: epics/e64-integration-gemini
   mode: capsule
   status: scoped
-  wsjf_rationale: 'BV 8 + TC 4 + RR 5 / Job 2 ≈ 8.5. Different naming.'
-  source: 'Research session 2026-07-23. 106K stars.'
+  wsjf_rationale: BV 8 + TC 4 + RR 5 / Job 2 ≈ 8.5. Different naming.
+  source: Research session 2026-07-23. 106K stars.
 - id: e63
-  title: "Integration: Claude Code — Skills + Hooks (Primary)"
+  title: 'Integration: Claude Code — Skills + Hooks (Primary)'
   wsjf: 9.0
   bcps: 0
   capsule_dir: epics/e63-integration-claude-code
   mode: capsule
   status: done
-  wsjf_rationale: 'BV 10 + TC 5 + RR 5 / Job 1 ≈ 20.0. Primary integration.'
-  source: 'Research session 2026-07-23. 139K stars.'
+  wsjf_rationale: BV 10 + TC 5 + RR 5 / Job 1 ≈ 20.0. Primary integration.
+  source: Research session 2026-07-23. 139K stars.
 - id: e62
-  title: "Integration: OpenCode — Skills + No Hooks"
+  title: 'Integration: OpenCode — Skills + No Hooks'
   wsjf: 4.0
   bcps: 0
   capsule_dir: epics/e62-integration-opencode
   mode: capsule
   status: scoped
-  wsjf_rationale: 'BV 4 + TC 3 + RR 3 / Job 2 ≈ 5.0. Skills only.'
-  source: 'Research session 2026-07-23. 189K stars.'
+  wsjf_rationale: BV 4 + TC 3 + RR 3 / Job 2 ≈ 5.0. Skills only.
+  source: Research session 2026-07-23. 189K stars.
 - id: e61
-  title: "Integration: Hermes Agent — Skills + 3 Hook Systems"
+  title: 'Integration: Hermes Agent — Skills + 3 Hook Systems'
   wsjf: 5.0
   bcps: 0
   capsule_dir: epics/e61-integration-hermes
   mode: capsule
   status: scoped
-  wsjf_rationale: 'BV 5 + TC 3 + RR 4 / Job 3 ≈ 4.0. Python plugins.'
-  source: 'Research session 2026-07-23. 219K stars.'
+  wsjf_rationale: BV 5 + TC 3 + RR 4 / Job 3 ≈ 4.0. Python plugins.
+  source: Research session 2026-07-23. 219K stars.
 - id: e60
   title: Interactive Installer — BMAD-Polished Setup for bigpowers
   wsjf: 9.0
@@ -277,8 +277,10 @@ epics:
   capsule_dir: epics/e60-interactive-installer
   mode: capsule
   status: done
-  wsjf_rationale: 'BV 8 (major UX improvement) + TC 5 (active pain) + RR 5 (reduces install errors) / Job 2 (done) ≈ 9.0'
-  source: 'Competitive analysis of OpenSpec, BMAD, Spec Kit, GSD. User requested GSD simplicity + BMAD polish. Implemented 2026-07-23.'
+  wsjf_rationale: BV 8 (major UX improvement) + TC 5 (active pain) + RR 5 (reduces install errors) / Job
+    2 (done) ≈ 9.0
+  source: Competitive analysis of OpenSpec, BMAD, Spec Kit, GSD. User requested GSD simplicity + BMAD
+    polish. Implemented 2026-07-23.
 - id: e53
   title: Establish Migration Baseline — bigpowers-to-bigspec Readiness
   wsjf: 8.0

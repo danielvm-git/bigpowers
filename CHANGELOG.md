@@ -1,3 +1,16 @@
+# [2.82.0](https://github.com/danielvm-git/bigpowers/compare/v2.81.0...v2.82.0) (2026-07-24)
+
+
+### Bug Fixes
+
+* **e55:** add gemini configuration to extension manifest for AGY CLI discovery ([8c717db](https://github.com/danielvm-git/bigpowers/commit/8c717db2bb85126adcab02354f5ca45da8482b4c))
+* **plan-consistency-check:** stop treating story deliverables as specs ([8d9814a](https://github.com/danielvm-git/bigpowers/commit/8d9814a5ce09e8b8ce563accb785f109dc55b56e))
+
+
+### Features
+
+* **installer:** add interactive setup with BMAD-polished UI ([5ba8da8](https://github.com/danielvm-git/bigpowers/commit/5ba8da851987ac6e856a6efee6e2729d0fab3ec7))
+
 # [2.81.0](https://github.com/danielvm-git/bigpowers/compare/v2.80.0...v2.81.0) (2026-07-23)
 
 
