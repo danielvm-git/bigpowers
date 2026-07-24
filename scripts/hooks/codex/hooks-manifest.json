@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "target": "codex",
+  "events_total": 10,
+  "events": [
+    "PreToolUse",
+    "PostToolUse",
+    "SessionStart",
+    "PermissionRequest",
+    "PreCompact",
+    "PostCompact",
+    "UserPromptSubmit",
+    "SubagentStart",
+    "SubagentStop",
+    "Stop"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "type": "command",
+        "command": "bash scripts/hooks/codex/pre-tool-git-guard.sh"
+      }
+    ],
+    "PostToolUse": [
+      {
+        "type": "command",
+        "command": "bash scripts/hooks/codex/pre-tool-git-guard.sh"
+      }
+    ]
+  }
+}
