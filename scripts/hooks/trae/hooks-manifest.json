@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "target": "trae",
+  "events_total": 6,
+  "events": [
+    "SessionStart",
+    "UserPromptSubmit",
+    "PreToolUse",
+    "PostToolUse",
+    "Stop",
+    "Notification"
+  ]
+}

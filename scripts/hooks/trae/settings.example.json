@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "type": "command",
+        "command": "bash scripts/hooks/trae/pre-tool-git-guard.sh"
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "type": "command",
+        "command": "bash scripts/hooks/trae/pre-tool-git-guard.sh"
+      }
+    ]
+  }
+}
