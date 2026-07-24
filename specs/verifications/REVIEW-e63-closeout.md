@@ -1,30 +1,31 @@
-# Request Review — e63 Closeout (Round 1/5)
+# Request Review — e63 Closeout (Santa Method)
 
 **Date:** 2026-07-24
 **Epic:** e63 — Claude Code Integration
-**Method:** Santa dual-blind AND-gate
-**Audit ref:** `specs/verifications/AUDIT-e63-closeout.md`
-**security-sensitive:** true (hooks mutate ~/.claude/settings.json)
-**Verify:** `bash -n scripts/install.sh && node --check scripts/lib/install-helpers.js` → PASS
+**Branch:** `feat/wave0-closeout`
+**Audit:** `specs/verifications/AUDIT-e63-closeout.md`
+**security-sensitive:** true (hooks / settings.json)
+**Verify:** `bash -n scripts/install.sh && node --check scripts/lib/install-helpers.js && bash scripts/test-install-helpers.sh` → PASS
 
-## Reviewer A — Score 95%
+## Iteration log
 
-| # | Finding | Category |
-|---|---------|----------|
-| 1 | jq-absent path only warns; could fail silently on hook config | should-fix |
-| 2 | Hook dedup via jq unique — correct | (positive) |
+| Round | A | B | AND-gate |
+|-------|---|---|----------|
+| 1/5 | 75% (M1: missing lib symlink in JS install) | 88% | FAIL |
+| 2/5 | 94% | 96% | **PASS** |
 
-Zero must-fix → **PASS**
+## Round 2 AND-gate: PASS
 
-## Reviewer B — Score 96%
+Both ≥94%, zero must-fix.
 
-| # | Finding | Category |
-|---|---------|----------|
-| 1 | No regression test for settings.json merge | should-fix |
-| 2 | guard-git + rtk hooks wired correctly | (positive) |
+## respond-review
 
-Zero must-fix → **PASS**
+| Item | Action |
+|------|--------|
+| install.sh skills/guard-git path | Applied |
+| installGlobal lib symlink + selftest | Applied (must-fix) |
+| uninstall removes hooks/lib | Applied (cheap) |
+| Duplicate resolve_repo_root | Applied |
+| JS settings.json jq merge / create-if-missing / jq unit test | Deferred (should-fix; documented) |
 
-**AND-gate: PASS**
-
-**Handoff:** respond-review
+**e63 closeout: COMPLETE**

@@ -37,6 +37,15 @@ try {
   assert.ok(fs.lstatSync(linked).isSymbolicLink(), 'block-dangerous-git.sh must be symlinked');
   assert.strictEqual(fs.readlinkSync(linked), hookSrc, 'symlink must point at skills/guard-git path');
 
+  const libLinked = path.join(tmpHome, '.claude', 'hooks', 'lib');
+  const libSrc = path.join(ROOT, 'skills', 'guard-git', 'scripts', 'lib');
+  assert.ok(fs.lstatSync(libLinked).isSymbolicLink(), 'guard-git lib/ must be symlinked for hook runtime');
+  assert.strictEqual(fs.readlinkSync(libLinked), libSrc, 'lib symlink must point at skills/guard-git/scripts/lib');
+  assert.ok(
+    fs.existsSync(path.join(libSrc, 'git-guardrails-core.sh')),
+    'git-guardrails-core.sh must exist under linked lib'
+  );
+
   const rtkLinked = path.join(tmpHome, '.claude', 'hooks', 'rtk-rewrite.sh');
   assert.ok(fs.lstatSync(rtkLinked).isSymbolicLink(), 'rtk-rewrite.sh must be symlinked');
   assert.strictEqual(fs.readlinkSync(rtkLinked), rtkSrc, 'rtk-rewrite symlink must point at scripts/hooks source');
@@ -55,6 +64,16 @@ try {
   assert.ok(
     fs.readlinkSync(path.join(piSkill, sample)).includes(path.join('skills', sample)),
     'pi skill symlink must point into repo skills/'
+  );
+
+  const installSh = fs.readFileSync(path.join(ROOT, 'scripts/install.sh'), 'utf8');
+  assert.ok(
+    installSh.includes('skills/guard-git/scripts/block-dangerous-git.sh'),
+    'install.sh must use skills/guard-git hook path'
+  );
+  assert.ok(
+    !/REPO_ROOT\/guard-git\//.test(installSh),
+    'install.sh must not reference bare guard-git/ path'
   );
 
   console.log('test-install-helpers: ALL PASS');

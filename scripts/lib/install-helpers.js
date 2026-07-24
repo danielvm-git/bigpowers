@@ -91,6 +91,11 @@ function installGlobal(tool, repoRoot) {
         path.join(repoRoot, 'skills', 'guard-git', 'scripts', 'block-dangerous-git.sh'),
         path.join(hooksDir, 'block-dangerous-git.sh')
       );
+      // story: e63 — hook sources SCRIPT_DIR/lib/git-guardrails-core.sh
+      linkDir(
+        path.join(repoRoot, 'skills', 'guard-git', 'scripts', 'lib'),
+        path.join(hooksDir, 'lib')
+      );
       linkHook(
         path.join(repoRoot, 'scripts', 'hooks', 'rtk-rewrite.sh'),
         path.join(hooksDir, 'rtk-rewrite.sh')
@@ -228,6 +233,7 @@ function uninstallTool(toolId, repoRoot) {
       const hooksDir = path.join(homeDir, '.claude', 'hooks');
       removeSymlink(path.join(hooksDir, 'block-dangerous-git.sh'));
       removeSymlink(path.join(hooksDir, 'rtk-rewrite.sh'));
+      removeSymlink(path.join(hooksDir, 'lib'));
       break;
     }
     case 'gemini':

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# story: e45s16
+# story: e45s16 e60s01 e63
 # install.sh — global symlink install for bigpowers skills
 #
 # Supported tools:
@@ -15,8 +15,6 @@
 #   ./scripts/install.sh --dry-run   # show what would be linked
 #   ./scripts/install.sh --uninstall # remove all managed symlinks
 set -euo pipefail
-source "$(dirname "${BASH_SOURCE[0]}")/lib/skill-common.sh"
-resolve_repo_root
 
 # SKILLS_ROOT: use skills/ subdirectory when it exists, fall back to repo root
 source "$(dirname "${BASH_SOURCE[0]}")/lib/skill-common.sh"
@@ -84,8 +82,9 @@ install_claude() {
   echo "Claude Code Hooks → $CLAUDE_HOOKS_DIR/"
   link "$REPO_ROOT/.gemini/extensions/bigpowers/hooks/session-start" "$CLAUDE_HOOKS_DIR/session-start"
   link "$REPO_ROOT/.gemini/extensions/bigpowers/hooks/run-hook.cmd" "$CLAUDE_HOOKS_DIR/run-hook.cmd"
-  link "$REPO_ROOT/guard-git/scripts/block-dangerous-git.sh" "$CLAUDE_HOOKS_DIR/block-dangerous-git.sh"
-  link "$REPO_ROOT/guard-git/scripts/lib" "$CLAUDE_HOOKS_DIR/lib"
+  # story: e60s01 e63 — canonical path is skills/guard-git (not bare guard-git/)
+  link "$REPO_ROOT/skills/guard-git/scripts/block-dangerous-git.sh" "$CLAUDE_HOOKS_DIR/block-dangerous-git.sh"
+  link "$REPO_ROOT/skills/guard-git/scripts/lib" "$CLAUDE_HOOKS_DIR/lib"
   link "$REPO_ROOT/scripts/hooks/rtk-rewrite.sh" "$CLAUDE_HOOKS_DIR/rtk-rewrite.sh"
   # story: e45s16
   chmod +x "$REPO_ROOT/scripts/hooks/rtk-rewrite.sh" 2>/dev/null || true
@@ -147,8 +146,9 @@ install_gemini() {
   echo "Gemini CLI Hooks → $GEMINI_HOOKS_DIR/"
   link "$REPO_ROOT/.gemini/extensions/bigpowers/hooks/session-start" "$GEMINI_HOOKS_DIR/session-start"
   link "$REPO_ROOT/.gemini/extensions/bigpowers/hooks/run-hook.cmd" "$GEMINI_HOOKS_DIR/run-hook.cmd"
-  link "$REPO_ROOT/guard-git/scripts/block-dangerous-git.sh" "$GEMINI_HOOKS_DIR/block-dangerous-git.sh"
-  link "$REPO_ROOT/guard-git/scripts/lib" "$GEMINI_HOOKS_DIR/lib"
+  # story: e60s01 e63 — keep Gemini hook source path aligned with Claude
+  link "$REPO_ROOT/skills/guard-git/scripts/block-dangerous-git.sh" "$GEMINI_HOOKS_DIR/block-dangerous-git.sh"
+  link "$REPO_ROOT/skills/guard-git/scripts/lib" "$GEMINI_HOOKS_DIR/lib"
 
   if [[ -f "$GEMINI_SETTINGS" ]]; then
     echo "  Configuring global hooks in $GEMINI_SETTINGS..."
