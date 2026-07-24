@@ -48,6 +48,7 @@ All changes to this repository MUST follow the [Conventional Commits 1.0.0](http
 - **State Commit Policy:** To minimize git history noise, intermediate `chore(state):` commits (e.g., tracking build-epic step transitions) should either be squashed locally using the `--squash-state` flag on `release-branch` before merging, or kept out-of-band using local cycle-state files.
 - Never call GitHub REST API directly (curl, fetch, etc.)
 - Never create GitHub issues from automated workflows — produce local .md files in specs/ instead
+- **Post-land branch cleanup:** `land-branch.sh` squash-merges the feature branch, so `git branch -d <branch>` afterward always fails ("not fully merged" — expected, since a squash doesn't create an ancestor relationship). `git branch -D <branch>` is the correct next step, but `guard-git`'s hook blocks agents from running `-D` directly. Leave the orphaned local branch for the human to delete, or fix `land-branch.sh` to delete its own branch under the `GIT_BIGPOWERS_LAND=1` exemption it already sets — don't spend a turn fighting the hook.
 
 ### Pre-Merge Verification Gates
 
@@ -265,6 +266,26 @@ Skill content is edited in `skills/*/SKILL.md` and auto-propagated to these targ
 
 **Never edit any of these targets directly.** Edit the SKILL.md sources and run rebuild scripts (`bash scripts/sync-skills.sh`, `npm run site:build`).
 
+### Packaging boundary — dev-repo tooling vs. end-user CLI
+
+bigpowers ships itself as an npm package (`bin/setup.js`) while also being a
+self-hosting monorepo that dogfoods its own skills. `.npmignore` excludes
+`specs/`, `docs/`, and `.git` from the published tarball — a real end-user
+install has none of them.
+
+**Any script invoked from `bin/*.js` (the end-user CLI surface) must not
+assume dev-only files exist.** `scripts/sync-skills.sh` conflates two
+concerns — skill distribution (render into `.cursor/rules/` etc., relevant
+to every user) and dev-repo maintenance (`sync_post_run`: regenerate
+`skills-lock.json`, `SKILL-INDEX.md`, `docs/references/model-profiles.md`,
+`specs/epics-wiki/`, `specs/adr-wiki/` — relevant only to bigpowers
+contributors). `bin/setup.js` calls it with `--distribute-only`, which skips
+`sync_post_run` entirely; the no-flag form remains the contributor
+dev-workflow. Before wiring any dev-maintenance script into an installer
+path, verify with `command npm pack --pack-destination <dir>` + extract
+what a real install actually contains, rather than assuming `specs/`/`docs/`
+are present (see `BUG-2026-07-24-installer-runs-dev-maintenance-pipeline`).
+
 ### Legacy paths (migrate away)
 
 | Old | New |
@@ -294,6 +315,7 @@ Skill content is edited in `skills/*/SKILL.md` and auto-propagated to these targ
 - **Verification mandate:** Every story must include runnable `verify:` commands (in epic shards or story files). No story is done until `verify-work` confirms it (or user explicitly waives with documented reason in `specs/state.yaml` handoff).
 - Exception messages must include the offending value, expected shape, and an actionable remediation hint for the agent.
 - SOLID beyond SRP: favor interfaces over concrete types (DIP) when injecting dependencies.
+- **`grep -E` portability:** never use `\d` or `\D` in a `grep -E` pattern — they are PCRE-only escapes, not GNU grep extensions (unlike `\s`/`\S`/`\w`/`\W`, which GNU grep does support). Real GNU grep on Linux CI treats `\d` as a literal `d`, silently matching nothing; this only "works" on macOS if the local `grep` happens to be a permissive BSD/GNU-compatible variant. Use `[0-9]` instead. This exact defect broke the traceability gate codebase-wide (`scripts/lib/trace-stories.py`, `scripts/lib/trace-matrix.py`) while passing every local check.
 
 ## Comments
 

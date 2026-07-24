@@ -388,6 +388,12 @@ bugs:
     file: bugs/BUG-2026-07-23-golden-g11-worktree-venv.md
     risk_level: "low"
     commit_message: "fix(ci): make G-11 venv-ignore check independent of .venv's on-disk existence"
+  - id: BUG-2026-07-24-bp-yaml-set-repo-root-unbound
+    status: fixed
+    severity: medium
+    scope: scripts
+    title: "bp-yaml-set.sh: REPO_ROOT unbound variable — every invocation fails"
+    file: bugs/BUG-2026-07-24-bp-yaml-set-repo-root-unbound.md
   - id: BUG-2026-07-24-installer-runs-dev-maintenance-pipeline
     status: open
     severity: medium

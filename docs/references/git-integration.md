@@ -121,6 +121,12 @@ git rebase origin/main  # Bring in hotfix
 git worktree remove .claude/worktrees/orchestrate
 ```
 
+**Note:** `land-branch.sh` squash-merges the feature branch, so `git branch -d`
+afterward always fails ("not fully merged" — expected for a squash). Use
+`-D`, but `guard-git`'s hook blocks agents from running it directly — leave
+the orphaned local branch for the human to delete rather than fighting the
+hook.
+
 ---
 
 ## Pre-Commit Hooks

@@ -3,6 +3,8 @@
 # Usage: bp-yaml-set.sh <file> <dotted.key> <value>
 set -euo pipefail
 source "$(dirname "${BASH_SOURCE[0]}")/lib/python-env.sh"
+source "$(dirname "${BASH_SOURCE[0]}")/lib/skill-common.sh"
+resolve_repo_root
 FILE="${1:?file}"
 KEY="${2:?dotted.key}"
 VAL="${3:?value}"
