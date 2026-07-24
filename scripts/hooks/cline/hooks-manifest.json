@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "target": "cline",
+  "events_total": 5,
+  "events": [
+    "tool.execute.before",
+    "tool.execute.after",
+    "session",
+    "message",
+    "permission"
+  ]
+}
