@@ -250,13 +250,14 @@ async function main() {
     await sleep(100);
   }
 
-  s.message('Syncing skills...');
+  s.stop('Syncing skills...');
   try {
     runInherited('bash scripts/sync-skills.sh --distribute-only');
   } catch {
-    s.error('Sync failed.');
+    console.error(c.red('Sync failed.'));
     process.exit(1);
   }
+  s.start('Installing to selected tools...');
 
   const results = [];
   for (const toolId of selectedTools) {
