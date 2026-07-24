@@ -52,6 +52,8 @@ npx bigpowers setup
 
 Both commands sync skill artifacts and link them to Claude Code, Gemini CLI, and Cursor (see [Prerequisites](#-prerequisites)).
 
+![Interactive Installer](docs/images/interactive-installer.png)
+
 ### From source (contributors)
 
 ```bash
