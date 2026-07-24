@@ -1,24 +1,22 @@
-active_flow: build_epic
-active_epic: e74
-active_story: e74s02
+active_flow: orchestrator
+active_epic: null
+active_story: null
 bug_id: null
 bigpowers_version: 2.82.4
 bug_cycle: null
 handoff:
-  next_skill: release-branch
-  context: Wave B e74s02 merged with main after e64; PR #89 ready
-  epic: e74
-epic_cycle:
-  step: '8'
-  fast_mode: true
-  story_bcps: 2
-  audit_result: pass
-  completed_steps: '0,1,2,3,4,5,6,7'
+  next_skill: null
+  context: >
+    Parallel build-epic fleet complete. Wave 0 closeout (e60/e63/e77/e78) done.
+    Wave A adapters landed on feature branches. Wave B hub PRs #84-#89 merged to main.
+    Worktrees ../bp-e{61,64,69,74,76} remain for cleanup.
+  epic: fleet-e61-e76
+epic_cycle: null
 metrics:
-  story_start: '2026-07-24T11:15:00-03:00'
-  story_end: '2026-07-24T11:45:00-03:00'
+  story_start: null
+  story_end: null
   skill_timings: {}
 release:
   ci_verified: true
-  last_commit: null
+  last_commit: merged-pr-89
   last_epic: e74
