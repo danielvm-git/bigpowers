@@ -232,10 +232,23 @@ async function main() {
     process.exit(0);
   }
 
-  // ── Step 4: Install ───────────────────────────────────────────────────
+  // ── Step 4: Clean old symlinks ─────────────────────────────────────────
   const s = await spinner();
   s.start('Preparing installation...');
   await sleep(200);
+
+  // Uninstall existing symlinks for selected tools before reinstalling
+  if (hasExisting) {
+    s.message('Cleaning old symlinks...');
+    for (const toolId of selectedTools) {
+      try {
+        uninstallTool(toolId, ROOT);
+      } catch {
+        // Ignore errors during cleanup — tool might not be installed yet
+      }
+    }
+    await sleep(100);
+  }
 
   s.message('Syncing skills...');
   try {

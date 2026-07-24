@@ -18,9 +18,9 @@ function linkSkills(skillsDir, targetDir) {
     const src = path.join(skillsDir, entry.name);
     const dst = path.join(targetDir, entry.name);
 
+    // Remove existing symlink or directory
     try {
-      const stat = fs.lstatSync(dst);
-      if (stat.isSymbolicLink()) fs.unlinkSync(dst);
+      fs.rmSync(dst, { force: true, recursive: true });
     } catch {}
 
     fs.symlinkSync(src, dst);
@@ -33,17 +33,17 @@ function linkDir(src, dst) {
       `Link source missing: ${src} (run bash scripts/sync-skills.sh first)`
     );
   }
+  // Remove existing symlink or directory
   try {
-    const stat = fs.lstatSync(dst);
-    if (stat.isSymbolicLink()) fs.unlinkSync(dst);
+    fs.rmSync(dst, { force: true, recursive: true });
   } catch {}
   fs.symlinkSync(src, dst);
 }
 
 function linkFile(src, dst) {
+  // Remove existing symlink or file
   try {
-    const stat = fs.lstatSync(dst);
-    if (stat.isSymbolicLink()) fs.unlinkSync(dst);
+    fs.rmSync(dst, { force: true });
   } catch {}
   fs.symlinkSync(src, dst);
 }
@@ -73,9 +73,9 @@ function linkHook(src, dst) {
       `Hook source missing: ${src} (expected under repo skills/ or scripts/hooks/; fix path or restore file)`
     );
   }
+  // Remove existing symlink or file
   try {
-    const stat = fs.lstatSync(dst);
-    if (stat.isSymbolicLink()) fs.unlinkSync(dst);
+    fs.rmSync(dst, { force: true });
   } catch {}
   fs.symlinkSync(src, dst);
   try { fs.chmodSync(src, 0o755); } catch {}
