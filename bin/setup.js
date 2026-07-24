@@ -252,7 +252,7 @@ async function main() {
 
   s.message('Syncing skills...');
   try {
-    runInherited('bash scripts/sync-skills.sh');
+    runInherited('bash scripts/sync-skills.sh --distribute-only');
   } catch {
     s.error('Sync failed.');
     process.exit(1);

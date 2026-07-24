@@ -17,25 +17,33 @@
 # Run this after adding or updating any skill. Symlinks carry changes through automatically.
 #
 # Flags:
-#   --okf          Generate specs/skills-wiki/ OKF concept bundle from SKILL.md frontmatter
-#   --opencode <p> Sync to bigpowers-opencode repo
+#   --okf              Generate specs/skills-wiki/ OKF concept bundle from SKILL.md frontmatter
+#   --opencode <p>     Sync to bigpowers-opencode repo
+#   --distribute-only  Render skills to target tool directories only — skip
+#                       lockfile/index/README/reference-table/OKF-wiki regen.
+#                       Used by bin/setup.js: end-user installs never carry
+#                       specs/ or docs/ (see .npmignore), so that dev-only
+#                       maintenance step has nothing to operate on.
 set -euo pipefail
 source "$(dirname "${BASH_SOURCE[0]}")/lib/python-env.sh"
 
 OKF_MODE=0
 OPN_TARGET=""
+DISTRIBUTE_ONLY=0
 
 for arg in "$@"; do
   case "$arg" in
     --okf) OKF_MODE=1 ;;
     --opencode=*) OPN_TARGET="${arg#*=}" ;;
     --opencode) shift; OPN_TARGET="$1" ;;
+    --distribute-only) DISTRIBUTE_ONLY=1 ;;
     --help|-h)
-      echo "Usage: sync-skills.sh [--okf] [--opencode <path>]"
+      echo "Usage: sync-skills.sh [--okf] [--opencode <path>] [--distribute-only]"
       echo ""
-      echo "  --okf        Generate specs/skills-wiki/ OKF concept bundle"
-      echo "  --opencode   Sync skills to bigpowers-opencode repo"
-      echo "  --help       Show this message"
+      echo "  --okf              Generate specs/skills-wiki/ OKF concept bundle"
+      echo "  --opencode         Sync skills to bigpowers-opencode repo"
+      echo "  --distribute-only  Render skills only — skip dev-maintenance regen"
+      echo "  --help             Show this message"
       exit 0
       ;;
     *) echo "sync-skills: unknown flag: $arg" >&2; exit 2 ;;
@@ -94,6 +102,11 @@ if [[ "$OKF_MODE" -eq 1 ]]; then
   echo ""
   echo "--- OKF skills-wiki post-sync ---"
   bash "$REPO_ROOT/scripts/okf-post-sync.sh"
+fi
+
+if [[ "$DISTRIBUTE_ONLY" -eq 1 ]]; then
+  echo "sync-skills: $skill_count skills synced (--distribute-only: dev-maintenance regen skipped)"
+  exit 0
 fi
 
 sync_post_run "$skill_count" "$opencode_count"
