@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+// story: e60s01
 // bigpowers setup — interactive installer
 // Combines GSD simplicity with BMAD visual polish.
 

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+// story: e60s01
 // install-helpers.js — symlink helpers for bigpowers setup
 
 const fs = require('fs');
