@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# story: e42s04 e45s02 e45s14
+# story: e42s04 e45s02 e45s14 e60s01
 # Deterministic gate runner for golden suite — sourced by golden-suite-run.sh
 
 if [ -n "${GOLDEN_GATES_LOADED:-}" ]; then return 0; fi
@@ -14,6 +14,7 @@ GOLDEN_GATES=(
   "g09-yaml-roundtrip:bash scripts/golden-g09-yaml-roundtrip.sh:false"
   "g10-trace-anti-vacuity:bash scripts/golden-g10-trace-anti-vacuity.sh:false"
   "g11-gitignore-venv:bash scripts/golden-g11-gitignore-venv.sh:false"
+  "install-helpers:bash scripts/test-install-helpers.sh:false"
   "import-boundaries:bash scripts/check-import-boundaries.sh:false"
   "skill-catalog:bash scripts/validate-skill-catalog.sh:false"
   "specs-parse:bash scripts/validate-specs-yaml.sh:false"

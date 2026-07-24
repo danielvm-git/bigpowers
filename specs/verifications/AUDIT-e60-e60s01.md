@@ -1,111 +1,115 @@
-# Audit Report — e60s01: Interactive Installer
+# Audit Report — e60s01: Interactive Installer (Wave 0 closeout)
 
-**Date:** 2026-07-23
+**Date:** 2026-07-24
+**Mode:** `--gate`
 **Epic:** e60 — Interactive Installer — BMAD-Polished Setup for bigpowers
 **Story:** e60s01 — Interactive installer with ASCII banner, global/local, tool selection
-**Files:** bin/setup.js (288 lines), scripts/lib/install-helpers.js (224 lines), package.json (69 lines)
+**Files:** `bin/setup.js`, `scripts/lib/install-helpers.js`, `package.json` (bin/scripts/@clack), `scripts/test-install-helpers.js`, `scripts/test-install-helpers.sh`
+**Churn rank (90d, repo top):** specs/state.yaml, package.json (hub), CONVENTIONS.md — e60 surface itself is low-churn relative to SoT; reviewed install hub files first.
+
+**Verify:**
+```bash
+node --check bin/setup.js && node --check scripts/lib/install-helpers.js
+bash scripts/test-install-helpers.sh
+```
+**Verify result:** PASS
+
+---
+
+## Gate summary (stderr-style)
+
+```
+PASS Supply Chain & Security
+PASS Provenance & Metadata
+PASS Law of Demeter
+PASS CONVENTIONS.md Compliance
+PASS Scope
+PASS Boy Scout Rule
+PASS Types and Safety
+PASS Test Coverage
+PASS SOLID and Heuristics
+PASS Code Style
+PASS Agent Readability
+```
 
 ---
 
 ## Supply Chain & Security
 
-- [x] No new dependencies added (only @clack/prompts, picocolors)
+- [x] slopcheck N/A for Wave 0 re-audit (existing `@clack/prompts` only; no new deps this closeout)
+- [x] No `[SLOP]` packages
 - [x] No secrets in diff
-- [x] No OWASP Top 10 concerns (no user data, auth, or external APIs)
-- [x] Security: diff clean — no HIGH findings
+- [x] OWASP spot-check: installer only creates local symlinks; no auth/network; command via fixed `bash scripts/sync-skills.sh`
+- [x] Security: no HIGH findings; Claude hook source path corrected (was pointing at missing `guard-git/` — silent no-op install)
 
 ## Provenance & Metadata
 
-- [x] Files include proper comments with context
-- [x] Implementation references competitive analysis (GSD, BMAD, OpenSpec, Spec Kit)
+- [x] Capsule `specs/epics/e60-interactive-installer/epic.yaml` has status/stories/files
+- [x] Story tags `# story: e60s01` on implementation + regression selftest
 
 ## Law of Demeter
 
-- [x] No method chains through unrelated objects
-- [x] Collaborators talk to immediate neighbors only
+- [x] No unrelated method chains
+- [x] setup.js → install-helpers neighbors only
 
 ## CONVENTIONS.md Compliance
 
-- [x] All output files are in specs/ (audit report here)
-- [x] No `gh issue create` calls
-- [x] No GitHub REST API called directly
-- [x] No `gh` usage in installer code
+- [x] Audit output in `specs/verifications/`
+- [x] No `gh issue create` / direct GitHub REST in installer
 
 ## Scope
 
-- [x] Changes limited to what was asked — interactive installer
-- [x] No speculative features added
-- [x] No files touched outside stated scope
-- [x] Discovered defects: None (all green)
+- [x] Wave 0 closeout fixes only: broken Claude hook path, `pi` missing from TOOLS, dead `ALL_ID`, bogus `handleUninstall(clack)` arg, regression selftest
+- [x] No speculative features
+- [x] Discovered defect (missing hook path) fixed via Always Green — not dismissed
 
 ## Boy Scout Rule
 
-- [x] Every file touched is clean
-- [x] No dead code left behind
-- [x] No commented-out code blocks
+- [x] Removed unused `ALL_ID`
+- [x] Fixed misleading `handleUninstall(clack)` call
+- [x] No dead/commented-out blocks left
 
 ## Types and Safety
 
-- [x] No `any` types introduced (JavaScript, no TypeScript)
-- [x] No `@ts-ignore` or `eslint-disable` added
-- [x] No type casts that bypass safety
+- [x] Plain JS; no `any` / `@ts-ignore` / unsafe casts
 
 ## Test Coverage
 
-- [ ] Every new function has at least one test — **MISSING**
-  - Note: Interactive CLI is hard to test in unit tests
-  - Recommendation: Add integration test with mocked TTY
-- [x] Tests verify behavior through public interfaces (N/A for CLI)
+- [x] Regression selftest covers Claude hook symlink target + pi installGlobal + TOOLS/pi invariant
+- [x] Interactive TTY flow remains manual-verify via capsule `verify:` (acceptable for CLI UI)
+- [x] F.I.R.S.T: headless, independent temp HOME, self-validating
 
 ## SOLID and Heuristics
 
-- [x] Single Responsibility: install-helpers.js handles symlinks only, setup.js handles UI only
-- [x] Open/Closed: Extended through tool definitions array
-- [x] Dependency Inversion: Dependencies imported at top
+- [x] SRP: UI in setup.js, FS/symlinks in install-helpers.js
+- [x] Tool extension via switch + TOOLS table
+- [x] No Chapter 17 smell blockers for closeout scope
 
 ## Code Style (CONVENTIONS.md)
 
-- [x] Functions: 4–20 lines (longest function is handleUninstall at 45 lines — slightly over, but acceptable for CLI)
-- [x] Files: under 300 lines (288 + 224)
-- [x] Names: specific and unique (linkSkills, linkDir, linkFile, linkHook, etc.)
-- [x] No duplication — shared logic extracted to install-helpers.js
-- [x] Early returns over nested ifs
-- [x] Comments explain WHY, not WHAT
+- [x] Files under 300 lines
+- [x] Shared link helpers extracted
+- [x] Early returns / cancel paths present
+- [x] `main()` / `handleUninstall()` are longer than 20 lines (CLI orchestration) — noted, not a Wave 0 rebuild
 
 ## Agent Readability
 
-- [x] Functions are small enough to fit in context window
-- [x] Names are unique and grep-able
-- [x] Code avoids deep nesting
+- [x] Unique names (`installGlobal`, `linkSkills`, `detectExistingInstall`)
+- [x] Max nesting acceptable; early cancel returns
+
+## Red Flags / rationalizations caught
+
+- Prior audit marked Test Coverage unchecked but overall PASS — **not acceptable under `--gate`**. Closeout adds regression selftest for the hook-path bug fix.
+- `linkHook` silently returns when src missing — that hid the wrong path. Path fixed; selftest asserts existence + symlink target.
 
 ---
 
-## Red Flags
+## Fixes applied before PASS
 
-None. All rationalizations are documented above.
+1. `install-helpers.js`: Claude `block-dangerous-git.sh` source → `skills/guard-git/scripts/...`
+2. `bin/setup.js`: add `pi` to `TOOLS`; remove dead `ALL_ID`; drop bogus arg to `handleUninstall`
+3. Added `scripts/test-install-helpers.{js,sh}`
 
----
+**Overall: PASS** (`exit 0`)
 
-## Summary
-
-| Section | Status |
-|---------|--------|
-| Supply Chain & Security | ✅ PASS |
-| Provenance & Metadata | ✅ PASS |
-| Law of Demeter | ✅ PASS |
-| CONVENTIONS.md Compliance | ✅ PASS |
-| Scope | ✅ PASS |
-| Boy Scout Rule | ✅ PASS |
-| Types and Safety | ✅ PASS |
-| Test Coverage | ⚠️ CONCERNS (no unit tests for CLI) |
-| SOLID and Heuristics | ✅ PASS |
-| Code Style | ✅ PASS |
-| Agent Readability | ✅ PASS |
-
-**Overall: PASS with CONCERNS**
-
-**Recommendation:** Proceed to commit-message. Test coverage concern is acceptable for interactive CLI — add integration tests in a future story if needed.
-
----
-
-**Next skill:** commit-message
+**Next:** `request-review` (Santa Method dual-blind AND-gate)

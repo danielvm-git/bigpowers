@@ -63,7 +63,11 @@ function bridgeHermesConfig(configPath) {
 }
 
 function linkHook(src, dst) {
-  if (!fs.existsSync(src)) return;
+  if (!fs.existsSync(src)) {
+    throw new Error(
+      `Hook source missing: ${src} (expected under repo skills/ or scripts/hooks/; fix path or restore file)`
+    );
+  }
   try {
     const stat = fs.lstatSync(dst);
     if (stat.isSymbolicLink()) fs.unlinkSync(dst);
@@ -87,7 +91,7 @@ function installGlobal(tool, repoRoot) {
       const hooksDir = path.join(homeDir, '.claude', 'hooks');
       fs.mkdirSync(hooksDir, { recursive: true });
       linkHook(
-        path.join(repoRoot, 'guard-git', 'scripts', 'block-dangerous-git.sh'),
+        path.join(repoRoot, 'skills', 'guard-git', 'scripts', 'block-dangerous-git.sh'),
         path.join(hooksDir, 'block-dangerous-git.sh')
       );
       linkHook(
