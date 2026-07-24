@@ -359,7 +359,9 @@ development_status:
   e71: backlog
   e72: backlog
   e73: backlog
-  e74: backlog
+  e74: in_progress
+  e74s01: done
+  e74s02: done
   e74s01: done
   e75: backlog
   e76: in_progress
@@ -681,7 +683,7 @@ epics:
     status: in_progress
     title: 'Integration: Antigravity CLI — Google''s New CLI'
     wsjf: 4.0
-    total_bcps: 2
+    total_bcps: 4
   e75:
     status: backlog
     title: 'Integration: Augment — Unknown Capabilities'

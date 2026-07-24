@@ -37,3 +37,20 @@ stories:
     verify: bash scripts/test-adapters.sh agy
     tags:
       - "story: e74s01"
+  - id: e74s02
+    title: "Install hub wiring (Wave B)"
+    status: done
+    bcps: 2
+    spec: e74s02-hub-wiring.md
+    files:
+      - scripts/install.sh
+      - scripts/lib/install-helpers.js
+      - bin/setup.js
+      - scripts/targets.yaml
+      - scripts/verify-install.sh
+      - scripts/test-agy-hub.sh
+      - scripts/adapters/agy.sh
+      - scripts/lib/target-contracts.sh
+    verify: bash scripts/test-agy-hub.sh && bash scripts/verify-install.sh
+    tags:
+      - "story: e74s02"

@@ -1,0 +1,37 @@
+# story: e74s02
+title: "Install hub wiring (Wave B)"
+status: passing
+risk: P1
+spec: e74s02-hub-wiring.md
+tasks:
+  - id: t1
+    title: Add scripts/test-agy-hub.sh regression harness
+    status: passing
+    verify: bash scripts/test-agy-hub.sh
+  - id: t2
+    title: Wire install_agy/uninstall_agy in scripts/install.sh
+    status: passing
+    verify: bash -n scripts/install.sh && bash scripts/install.sh --dry-run 2>&1 | grep -q 'Antigravity CLI →'
+  - id: t3
+    title: Add antigravity/agy cases to scripts/lib/install-helpers.js
+    status: passing
+    verify: node --check scripts/lib/install-helpers.js
+  - id: t4
+    title: Add antigravity/agy to SUPPORTED_IDS in bin/setup.js
+    status: passing
+    verify: node --check bin/setup.js && grep -q "'antigravity'" bin/setup.js && grep -q "'agy'" bin/setup.js
+  - id: t5
+    title: Expand agy row in scripts/targets.yaml
+    status: passing
+    verify: grep -q 'output: .agents/skills' scripts/targets.yaml && grep -q 'adapter: agy' scripts/targets.yaml
+  - id: t6
+    title: Extend scripts/verify-install.sh with agy contract assertions
+    status: passing
+    verify: bash scripts/verify-install.sh
+  - id: t7
+    title: Story gate — hub harness + verify-install green
+    status: passing
+    verify: >-
+      bash scripts/test-agy-hub.sh &&
+      bash scripts/verify-install.sh &&
+      echo OK

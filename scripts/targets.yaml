@@ -79,12 +79,15 @@ targets:
   - id: agy
     name: Antigravity agy (proprietary beta)
     tier: opt_in
-    skill: null
+    skill:
+      adapter: agy
+      output: .agents/skills
     context:
       adapter: agy
       mode: symlink
       file: CLAUDE.md
     contracts:
+      - agy_skills_nonempty
       - symlink_claude_md
 
   # Wave B (e37s10) — skills-dir adapters
