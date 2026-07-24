@@ -1,3 +1,10 @@
+## [2.82.3](https://github.com/danielvm-git/bigpowers/compare/v2.82.2...v2.82.3) (2026-07-24)
+
+
+### Bug Fixes
+
+* **ci:** add debug output to trace-stories grep ([1b34766](https://github.com/danielvm-git/bigpowers/commit/1b3476652247d33a428ecc9846c2f118d1b7870f))
+
 ## [2.82.2](https://github.com/danielvm-git/bigpowers/compare/v2.82.1...v2.82.2) (2026-07-24)
 
 
