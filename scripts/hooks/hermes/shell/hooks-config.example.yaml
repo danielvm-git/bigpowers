@@ -1,0 +1,7 @@
+# story: e61s01
+# Example hooks: block for ~/.hermes/config.yaml — copy paths to your install location.
+hooks:
+  pre_tool_call:
+    - matcher: "terminal"
+      command: "scripts/hooks/hermes/shell/block-dangerous-terminal.sh"
+      timeout: 5

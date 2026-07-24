@@ -1,0 +1,30 @@
+story_id: e61s01
+epic_id: e61
+verified_at: "2026-07-24T10:58:00-03:00"
+risk: P2
+mode: scoped
+terminal_verdict:
+  command: bash scripts/test-hermes-adapter.sh
+  exit_code: 0
+  stdout: |
+    === test-hermes-adapter.sh ===
+    PASS: render_skill emits SKILL.md from stdin SkillIR
+    PASS: rejects path traversal in skill name
+    PASS: gateway hook template present
+    PASS: shell hook template present
+    PASS: plugin hook template present
+    PASS: shell hook blocks dangerous terminal command
+    PASS: test-adapters.sh hermes
+    test-hermes-adapter: 7 passed, 0 failed
+commands:
+  - cmd: bash scripts/lib/plan-consistency-check.sh specs/epics/e61-integration-hermes/
+    result: PASS
+  - cmd: bash scripts/test-hermes-adapter.sh
+    result: PASS
+  - cmd: bash scripts/test-adapters.sh hermes 2>&1 | grep -q '0 failed'
+    result: PASS
+  - cmd: bash scripts/validate-targets-yaml.sh
+    result: PASS
+scope_guard:
+  forbidden_files_untouched: true
+  note: "Wave A — no edits to install.sh, setup.js, install-helpers.js, targets.yaml, verify-install.sh"

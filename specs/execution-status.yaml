@@ -342,7 +342,8 @@ development_status:
   e59: backlog
   e60: done
   e60s01: done
-  e61: backlog
+  e61: in_progress
+  e61s01: done
   e62: backlog
   e63: done
   e64: backlog
@@ -605,10 +606,10 @@ epics:
     wsjf: 9.0
     total_bcps: 3
   e61:
-    status: backlog
+    status: in_progress
     title: 'Integration: Hermes Agent — Skills + 3 Hook Systems'
     wsjf: 5.0
-    total_bcps: 0
+    total_bcps: 3
   e62:
     status: backlog
     title: 'Integration: OpenCode — Skills + No Hooks'
@@ -3091,3 +3092,14 @@ stories:
     tasks_total: 0
     tasks_passing: 0
     tasks_failing: 0
+  e61s01:
+    status: done
+    title: "Hermes adapter + hook templates (Wave A)"
+    bcps: 3
+    epic: e61
+    started_at: "2026-07-24T10:53:00-03:00"
+    completed_at: "2026-07-24T10:58:00-03:00"
+    tasks_total: 7
+    tasks_passing: 7
+    tasks_failing: 0
+    risk_max: P2

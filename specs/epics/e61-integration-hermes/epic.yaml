@@ -29,4 +29,16 @@ integration_details:
       events: [shell script triggers]
   hook_format: Python (async def handle)
   hook_events_count: 12+
-stories: []
+stories:
+  - id: e61s01
+    title: "Hermes adapter + hook templates (Wave A)"
+    status: done
+    bcps: 3
+    files:
+      - scripts/adapters/hermes.sh
+      - scripts/hooks/hermes/
+      - scripts/test-hermes-adapter.sh
+    verify: >-
+      bash scripts/test-hermes-adapter.sh &&
+      bash scripts/test-adapters.sh hermes &&
+      echo OK
