@@ -3,7 +3,7 @@
 # ZCode skill adapter — renders SKILL.md to ~/.zcode/skills/<name>/.
 
 render_skill() {
-  local skills_dir="${ZCODE_SKILLS:-${HOME}/.zcode/skills}"
+  local skills_dir="${ZCODE_SKILLS:-.zcode/skills}"
   mkdir -p "${skills_dir}/${IR_NAME}"
   {
     echo "---"
@@ -18,7 +18,7 @@ render_skill() {
 
 wire_context() {
   source "$(dirname "${BASH_SOURCE[0]}")/../lib/context-wire.sh"
-  local dest="${ZCODE_AGENTS:-${HOME}/.zcode/AGENTS.md}"
+  local dest="${ZCODE_AGENTS:-.zcode/AGENTS.md}"
   mkdir -p "$(dirname "$dest")"
   wire_context_mode symlink "$dest" "" "" "" "${1:-AGENTS.md}"
 }

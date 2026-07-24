@@ -34,3 +34,20 @@ stories:
     verify: test -f scripts/adapters/zcode.sh && bash -n scripts/adapters/zcode.sh
     tags:
       - "story: e76s01"
+  - id: e76s02
+    title: Install hub wiring (Wave B)
+    status: done
+    bcps: 2
+    description: >
+      Wire ZCode into install.sh, install-helpers.js, setup.js, targets.yaml,
+      and verify-install.sh. Regression via test-zcode-hub.sh.
+    files:
+      - scripts/install.sh
+      - scripts/lib/install-helpers.js
+      - bin/setup.js
+      - scripts/targets.yaml
+      - scripts/verify-install.sh
+      - scripts/test-zcode-hub.sh
+    verify: bash scripts/test-zcode-hub.sh && bash scripts/verify-install.sh
+    tags:
+      - "story: e76s02"

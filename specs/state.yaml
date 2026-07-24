@@ -6,17 +6,17 @@ bigpowers_version: 2.82.4
 bug_cycle: null
 handoff:
   next_skill: release-branch
-  context: Wave B e76s02 hub wiring in progress
+  context: Wave B e76s02 hub wiring complete; audit PASS; open PR
   epic: e76
 epic_cycle:
-  step: '6'
+  step: '8'
   fast_mode: true
   story_bcps: 2
-  audit_result: pending
-  completed_steps: '0,1,2,3,4,5'
+  audit_result: pass
+  completed_steps: '0,1+2,3,4,5,6,7'
 metrics:
   story_start: "2026-07-24T11:10:00-03:00"
-  story_end: null
+  story_end: "2026-07-24T11:20:00-03:00"
   skill_timings: {}
 release:
   ci_verified: true

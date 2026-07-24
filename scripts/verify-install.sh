@@ -134,6 +134,11 @@ grep -q 'uninstall_hermes()' "$REPO_ROOT/scripts/install.sh" && ta_pass "source:
 grep -q 'HERMES_SKILLS_DIR=' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: targets ~/.hermes/skills/" || ta_fail "source: wrong hermes target"
 grep -q "'hermes'" "$REPO_ROOT/bin/setup.js" && grep -q 'SUPPORTED_IDS' "$REPO_ROOT/bin/setup.js" && ta_pass "setup.js: hermes supported" || ta_fail "setup.js: hermes not in SUPPORTED_IDS"
 grep -q "case 'hermes'" "$REPO_ROOT/scripts/lib/install-helpers.js" && ta_pass "install-helpers: hermes case" || ta_fail "install-helpers: missing hermes case"
+grep -q 'install_zcode()' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: install_zcode()" || ta_fail "source: missing install_zcode()"
+grep -q 'uninstall_zcode()' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: uninstall_zcode()" || ta_fail "source: missing uninstall_zcode()"
+grep -q 'ZCODE_SKILLS_DIR=' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: targets ~/.zcode/skills/" || ta_fail "source: wrong zcode target"
+grep -q "'zcode'" "$REPO_ROOT/bin/setup.js" && grep -q 'SUPPORTED_IDS' "$REPO_ROOT/bin/setup.js" && ta_pass "setup.js: zcode supported" || ta_fail "setup.js: zcode not in SUPPORTED_IDS"
+grep -q "case 'zcode'" "$REPO_ROOT/scripts/lib/install-helpers.js" && ta_pass "install-helpers: zcode case" || ta_fail "install-helpers: missing zcode case"
 ! grep -q 'install_opencode\|print_opencode_instructions' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: no opencode functions" || ta_fail "source: opencode functions remain"
 
 echo ""

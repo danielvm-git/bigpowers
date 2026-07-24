@@ -7,6 +7,7 @@
 #   Gemini CLI   → ~/.gemini/config/plugins/bigpowers/ (one dir symlink)
 #   pi           → ~/.pi/agent/skills/<name>/ (one symlink per skill)
 #   Hermes Agent → ~/.hermes/skills/<name>/ (symlink rendered .hermes/skills/)
+#   ZCode        → ~/.zcode/skills/<name>/ (symlink rendered .zcode/skills/)
 #   Cursor       → ~/.cursor/rules/ (one dir symlink; per-project note printed)
 #
 # Usage:
@@ -278,6 +279,46 @@ uninstall_hermes() {
   unlink_if_managed "$HERMES_HOOKS_DIR/session-log" "$REPO_ROOT/"
 }
 
+# ── ZCode (e76s02) ────────────────────────────────────────────────────────────
+
+ZCODE_CONFIG_DIR="$HOME/.zcode"
+ZCODE_SKILLS_DIR="$ZCODE_CONFIG_DIR/skills"
+ZCODE_RENDERED="$REPO_ROOT/.zcode/skills"
+ZCODE_AGENTS="$ZCODE_CONFIG_DIR/AGENTS.md"
+
+install_zcode() {
+  echo ""
+  echo "ZCode → $ZCODE_SKILLS_DIR/"
+  if [[ ! -d "$ZCODE_RENDERED" ]]; then
+    echo "  WARNING: $ZCODE_RENDERED not found — run sync-skills.sh first"
+    return
+  fi
+  local count=0
+  for skill_dir in "$ZCODE_RENDERED"/*/; do
+    [[ -f "${skill_dir}SKILL.md" ]] || continue
+    local name; name="$(basename "$skill_dir")"
+    link "$skill_dir" "$ZCODE_SKILLS_DIR/$name"
+    count=$((count + 1))
+  done
+  echo "  $count skills installed"
+
+  echo "ZCode → context symlink $ZCODE_AGENTS"
+  source "$REPO_ROOT/scripts/lib/context-wire.sh"
+  wire_context_mode symlink "$ZCODE_AGENTS" "" "" "" "$REPO_ROOT/AGENTS.md"
+}
+
+uninstall_zcode() {
+  echo ""
+  echo "ZCode → removing management from $ZCODE_CONFIG_DIR/"
+  if [[ -d "$ZCODE_SKILLS_DIR" ]]; then
+    for dst in "$ZCODE_SKILLS_DIR"/*/; do
+      [[ -L "${dst%/}" ]] || continue
+      unlink_if_managed "${dst%/}" "$REPO_ROOT/"
+    done
+  fi
+  unlink_if_managed "$ZCODE_AGENTS" "$REPO_ROOT/"
+}
+
 # ── Codex CLI (e37s15) ───────────────────────────────────────────────────────
 
 CODEX_DIR="$HOME/.codex"
@@ -308,6 +349,7 @@ if $UNINSTALL; then
   uninstall_gemini
   uninstall_pi
   uninstall_hermes
+  uninstall_zcode
   uninstall_cursor
   uninstall_codex
   echo ""
@@ -317,6 +359,7 @@ else
   install_gemini
   install_pi
   install_hermes
+  install_zcode
   install_cursor
   install_codex
   echo ""
