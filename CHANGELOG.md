@@ -1,3 +1,10 @@
+## [2.83.1](https://github.com/danielvm-git/bigpowers/compare/v2.83.0...v2.83.1) (2026-07-24)
+
+
+### Bug Fixes
+
+* **install:** resolve EEXIST errors during update by cleaning old symlinks first ([8a9a81f](https://github.com/danielvm-git/bigpowers/commit/8a9a81fa949489c594c2078d847d0e4d8e3e8b12))
+
 # [2.83.0](https://github.com/danielvm-git/bigpowers/compare/v2.82.4...v2.83.0) (2026-07-24)
 
 
