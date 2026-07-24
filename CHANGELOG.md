@@ -1,3 +1,33 @@
+# [2.84.0](https://github.com/danielvm-git/bigpowers/compare/v2.83.4...v2.84.0) (2026-07-24)
+
+
+### Bug Fixes
+
+* **install:** hub test dry-run grep SIGPIPE + OpenCode verify ([dd9ca99](https://github.com/danielvm-git/bigpowers/commit/dd9ca994534905efa1ec24a2afad5bbda5432d1b))
+
+
+### Features
+
+* **62:** OpenCode install hub wiring (Wave B) ([b768546](https://github.com/danielvm-git/bigpowers/commit/b76854632549912389b1ef575d2058c4482919f4))
+* **70:** Trae install hub wiring (Wave B) ([8183f3a](https://github.com/danielvm-git/bigpowers/commit/8183f3ab430941a3482caa1547c017dd02e781e1))
+* **71:** Copilot CLI install hub wiring (Wave B) ([d7d21f4](https://github.com/danielvm-git/bigpowers/commit/d7d21f4141b14eff18aebd9dc383ad0e719f93d9))
+* **73:** Windsurf install hub wiring (Wave B) ([9d5c758](https://github.com/danielvm-git/bigpowers/commit/9d5c75878215d8038df6de7f0d54ca7d32308248))
+* **e62:** OpenCode adapter (Wave A) ([7b508a9](https://github.com/danielvm-git/bigpowers/commit/7b508a9382c3ca00c3f24203da3a19ba70c38f33))
+* **e65:** Codex CLI adapter (Wave A) ([3475197](https://github.com/danielvm-git/bigpowers/commit/34751977adceb1765f1c30798d41f14730777143))
+* **e65:** Codex CLI install hub wiring (Wave B) ([4773ea3](https://github.com/danielvm-git/bigpowers/commit/4773ea303e82b963318ce2644d6c235e3cc7e9ad))
+* **e66:** Cline adapter (Wave A) ([908e5ac](https://github.com/danielvm-git/bigpowers/commit/908e5ac0cc21db1429ae0bbdb05c6d21a2366b7f))
+* **e66:** Cline install hub wiring (Wave B) ([d1bb38c](https://github.com/danielvm-git/bigpowers/commit/d1bb38c5112d8adeff2a04aec50d5130f272d8ce))
+* **e67:** Kilo adapter (Wave A) ([814cc01](https://github.com/danielvm-git/bigpowers/commit/814cc010143fcb7926e40b7c5cbd968996c7cd84))
+* **e67:** Kilo install hub wiring (Wave B) ([5cd40f2](https://github.com/danielvm-git/bigpowers/commit/5cd40f286e4bf6b8abedb0cc16584ded9cea09f9))
+* **e68:** Qwen Code adapter (Wave A) ([bdcd197](https://github.com/danielvm-git/bigpowers/commit/bdcd19791811b1c2a9853820aaf41cb7e2a4c6e8))
+* **e68:** Qwen Code install hub wiring (Wave B) ([96374ea](https://github.com/danielvm-git/bigpowers/commit/96374eaeeb61215b57a25143c99d323d8614980d))
+* **e70:** Trae adapter (Wave A) ([87d1350](https://github.com/danielvm-git/bigpowers/commit/87d1350696db421f3bf162bc0dc6cfb1eb780723))
+* **e71:** Copilot CLI adapter (Wave A) ([4b23263](https://github.com/danielvm-git/bigpowers/commit/4b23263fe585681957ebc022295566585865f7bf))
+* **e72:** CodeBuddy adapter (Wave A) ([73f69cd](https://github.com/danielvm-git/bigpowers/commit/73f69cd68bd0fd5e0f3b5388dfc19871df7b92c2))
+* **e72:** CodeBuddy install hub wiring (Wave B) ([f0d5304](https://github.com/danielvm-git/bigpowers/commit/f0d53044ae94ed5ee9d2322661f96e4121847622))
+* **e73:** Windsurf adapter (Wave A) ([beb47d7](https://github.com/danielvm-git/bigpowers/commit/beb47d71d093c7d429a58113a3ad7a18903258de))
+* **fleet:** complete 9 integration epics (e62, e65-e68, e70-e73) ([a34bfc9](https://github.com/danielvm-git/bigpowers/commit/a34bfc943babd399db9275e20455d195519e2510))
+
 ## [2.83.4](https://github.com/danielvm-git/bigpowers/compare/v2.83.3...v2.83.4) (2026-07-24)
 
 

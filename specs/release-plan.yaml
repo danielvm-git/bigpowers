@@ -1,5 +1,5 @@
 release:
-  version: 2.83.4
+  version: 2.84.0
   codename: Foundation
   status: released
   next_release: Reach
@@ -32,13 +32,12 @@ build_order:
 - e78
 done_epics_summary:
   count: 67
-  source: specs/execution-status.yaml (development_status) — authoritative for completed
-    epics; not re-listed here
-  audit: '2026-07-06 plan-release redo — code evidence verified: e33 (website/ deployed),
-    e41 (receipts.astro + receipts.json), e43 (bigpowers-showcase/), e44 (skills/migrate-spec/),
-    e47 (install_pi in install.sh), e28 (Parse→IR→Render in sync-skills.sh), e36 (verification
-    audits), e39 (build-skill-graph.sh etc), e42 (golden YAMLs + run-golden-suite.sh
-    --agent), e46 (plan-tests skill + NFR gate).'
+  source: specs/execution-status.yaml (development_status) — authoritative for completed epics; not re-listed
+    here
+  audit: '2026-07-06 plan-release redo — code evidence verified: e33 (website/ deployed), e41 (receipts.astro
+    + receipts.json), e43 (bigpowers-showcase/), e44 (skills/migrate-spec/), e47 (install_pi in install.sh),
+    e28 (Parse→IR→Render in sync-skills.sh), e36 (verification audits), e39 (build-skill-graph.sh etc),
+    e42 (golden YAMLs + run-golden-suite.sh --agent), e46 (plan-tests skill + NFR gate).'
   ids:
   - e01
   - e02
@@ -277,10 +276,10 @@ epics:
   capsule_dir: epics/e60-interactive-installer
   mode: capsule
   status: done
-  wsjf_rationale: BV 8 (major UX improvement) + TC 5 (active pain) + RR 5 (reduces
-    install errors) / Job 2 (done) ≈ 9.0
-  source: Competitive analysis of OpenSpec, BMAD, Spec Kit, GSD. User requested GSD
-    simplicity + BMAD polish. Implemented 2026-07-23.
+  wsjf_rationale: BV 8 (major UX improvement) + TC 5 (active pain) + RR 5 (reduces install errors) / Job
+    2 (done) ≈ 9.0
+  source: Competitive analysis of OpenSpec, BMAD, Spec Kit, GSD. User requested GSD simplicity + BMAD
+    polish. Implemented 2026-07-23.
 - id: e53
   title: Establish Migration Baseline — bigpowers-to-bigspec Readiness
   wsjf: 8.0
@@ -288,13 +287,12 @@ epics:
   capsule_dir: epics/e53-establish-migration-baseline
   mode: capsule
   status: in_progress
-  wsjf_rationale: BV 6 (unblocks the whole migration) + TC 9 (nothing else can safely
-    start) + RR 9 (closes 3 red-teamed NOT READY gaps) / Job 3 ≈ 8.0
-  source: Fable wayfinding session (2026-07-18) + red-teamed /audit-plan (NOT READY,
-    3 blocking gaps) + wayfinder doc-templates session (23 tickets, 25 artifacts,
-    closed). Formerly numbered e52; renumbered to e53 after e52 was found to collide
-    with a retired historical planning name ("Integration Registry," merged into e37
-    2026-07-06).
+  wsjf_rationale: BV 6 (unblocks the whole migration) + TC 9 (nothing else can safely start) + RR 9 (closes
+    3 red-teamed NOT READY gaps) / Job 3 ≈ 8.0
+  source: Fable wayfinding session (2026-07-18) + red-teamed /audit-plan (NOT READY, 3 blocking gaps)
+    + wayfinder doc-templates session (23 tickets, 25 artifacts, closed). Formerly numbered e52; renumbered
+    to e53 after e52 was found to collide with a retired historical planning name ("Integration Registry,"
+    merged into e37 2026-07-06).
 - id: e51
   title: Always Green — Shift Left, Preflight Hard Block & Fix-or-Log Doctrine
   wsjf: 7.0
@@ -302,8 +300,8 @@ epics:
   capsule_dir: epics/archive/e51-always-green-shift-left
   mode: capsule
   status: done
-  wsjf_rationale: BV 8 (solo-dev trust — agents dismiss defects as pre-existing) +
-    TC 5 (active pain) + RR 8 (Shift Left across all seeded projects) / Job 3 ≈ 7.0
+  wsjf_rationale: BV 8 (solo-dev trust — agents dismiss defects as pre-existing) + TC 5 (active pain)
+    + RR 8 (Shift Left across all seeded projects) / Job 3 ≈ 7.0
   source: grill-me session 2026-07-06 — Preflight hard block, fix-or-log, banned phrases
 - id: e37
   title: Reach — Universal Agent Portability
@@ -313,10 +311,9 @@ epics:
   mode: capsule
   status: done
   source_issue: https://github.com/danielvm-git/bigpowers/issues/52
-  wsjf_rationale: 'BV 8 (AGENTS.md spine + registry unblocks OSS reach) + TC 5 (active)
-    + RR 8 (always-green across runtimes) / Job 3 ≈ 7.0. Merges former e50+e52 into
-    one arc: spine s01–s04 → registry s05–s08 → OSS waves s09–s13 → optional Codex
-    s14–s16.'
+  wsjf_rationale: 'BV 8 (AGENTS.md spine + registry unblocks OSS reach) + TC 5 (active) + RR 8 (always-green
+    across runtimes) / Job 3 ≈ 7.0. Merges former e50+e52 into one arc: spine s01–s04 → registry s05–s08
+    → OSS waves s09–s13 → optional Codex s14–s16.'
 - id: e54
   title: Freeze Catalog Drift — Stable Baseline Before Skill Reclassification
   wsjf: 6.7
@@ -324,15 +321,13 @@ epics:
   capsule_dir: epics/archive/e54-freeze-catalog-drift
   mode: capsule
   status: done
-  wsjf_rationale: 'BV 5 (precondition, not direct value) + TC 8 (blocks every later
-    migration phase) + RR 7 (prevents drift-during-migration risk) / Job 3 ≈ 6.7.
-    Phase 0 of the migration sequence.
+  wsjf_rationale: 'BV 5 (precondition, not direct value) + TC 8 (blocks every later migration phase) +
+    RR 7 (prevents drift-during-migration risk) / Job 3 ≈ 6.7. Phase 0 of the migration sequence.
 
     '
-  source: 'bigspec architecture.md §1 verdicts the 80-skill catalog DROP as a feature
-    (target ~28 procedures, e56) — that reclassification needs a stable baseline to
-    diff against, not a moving target. Second phase of the bigpowers-to-bigspec migration
-    sequence.
+  source: 'bigspec architecture.md §1 verdicts the 80-skill catalog DROP as a feature (target ~28 procedures,
+    e56) — that reclassification needs a stable baseline to diff against, not a moving target. Second
+    phase of the bigpowers-to-bigspec migration sequence.
 
     '
 - id: e55
@@ -342,16 +337,14 @@ epics:
   capsule_dir: epics/e55-extract-constitution
   mode: capsule
   status: scoped
-  wsjf_rationale: 'BV 6 (single source of rules) + TC 6 (e56 needs a target to move
-    rules into) + RR 6 (removes 27-doc restatement drift) / Job 3 ≈ 6.0. Provisional
-    — zero real stories sliced yet, so bcps is 0 (epic.yaml carries a bcps_projected
-    estimate of 7, not a real count, per B9).
+  wsjf_rationale: 'BV 6 (single source of rules) + TC 6 (e56 needs a target to move rules into) + RR 6
+    (removes 27-doc restatement drift) / Job 3 ≈ 6.0. Provisional — zero real stories sliced yet, so bcps
+    is 0 (epic.yaml carries a bcps_projected estimate of 7, not a real count, per B9).
 
     '
-  source: 'bigspec constitution.md — "this file is the only place principles are stated...
-    if a rule appears in two files, this one wins and the other is a bug." architecture.md
-    §1 verdicts bigpowers'' ~27 reference docs DROP in favor of one constitution.md.
-    Third phase of the sequence.
+  source: 'bigspec constitution.md — "this file is the only place principles are stated... if a rule appears
+    in two files, this one wins and the other is a bug." architecture.md §1 verdicts bigpowers'' ~27 reference
+    docs DROP in favor of one constitution.md. Third phase of the sequence.
 
     '
 - id: e58
@@ -361,16 +354,15 @@ epics:
   capsule_dir: epics/e58-evals-over-compliance
   mode: capsule
   status: scoped
-  wsjf_rationale: 'BV 6 (proof by outcome, not self-compliance) + TC 4 + RR 6 (removes
-    reliance on a magic-number gate) / Job 3 ≈ 5.3. Provisional — zero real stories
-    sliced yet, so bcps is 0 (epic.yaml carries a bcps_projected estimate of 9).
+  wsjf_rationale: 'BV 6 (proof by outcome, not self-compliance) + TC 4 + RR 6 (removes reliance on a magic-number
+    gate) / Job 3 ≈ 5.3. Provisional — zero real stories sliced yet, so bcps is 0 (epic.yaml carries a
+    bcps_projected estimate of 9).
 
     '
-  source: 'bigspec constitution Capstone — "self-compliance is not the quality gate...
-    replaces the legacy 94% Gherkin self-compliance gate." Depends only on e53 (its
-    own dependency map, e53s03, is the precondition for safely flipping the gate).
-    Sixth phase of the sequence, WSJF-promoted ahead of e56/e57/e59 since its precondition
-    is already built.
+  source: 'bigspec constitution Capstone — "self-compliance is not the quality gate... replaces the legacy
+    94% Gherkin self-compliance gate." Depends only on e53 (its own dependency map, e53s03, is the precondition
+    for safely flipping the gate). Sixth phase of the sequence, WSJF-promoted ahead of e56/e57/e59 since
+    its precondition is already built.
 
     '
 - id: e45
@@ -380,9 +372,8 @@ epics:
   capsule_dir: epics/archive/e45-quality-core
   mode: capsule
   status: done
-  wsjf_rationale: BV 7 (skill quality compounds) + TC 4 (OSS pattern debt) + RR 6
-    (benchmark/evidence parity) / Job 4 ≈ 5.0. Curated P1 from former e48; P2 optional
-    wave.
+  wsjf_rationale: BV 7 (skill quality compounds) + TC 4 (OSS pattern debt) + RR 6 (benchmark/evidence
+    parity) / Job 4 ≈ 5.0. Curated P1 from former e48; P2 optional wave.
 - id: e57
   title: Adopt OKF Envelope — Apply the Wayfinder Templates Across the Live Repo
   wsjf: 5.0
@@ -390,16 +381,15 @@ epics:
   capsule_dir: epics/e57-adopt-okf-envelope
   mode: capsule
   status: scoped
-  wsjf_rationale: 'BV 6 (universal envelope per constitution B8) + TC 4 + RR 5 / Job
-    3 ≈ 5.0. Provisional — zero real stories sliced yet, so bcps is 0 (epic.yaml carries
-    a bcps_projected estimate of 8). Only depends on e54, not e55/e56 — document-envelope
-    adoption is largely orthogonal to doctrine consolidation or skill reclassification.
+  wsjf_rationale: 'BV 6 (universal envelope per constitution B8) + TC 4 + RR 5 / Job 3 ≈ 5.0. Provisional
+    — zero real stories sliced yet, so bcps is 0 (epic.yaml carries a bcps_projected estimate of 8). Only
+    depends on e54, not e55/e56 — document-envelope adoption is largely orthogonal to doctrine consolidation
+    or skill reclassification.
 
     '
-  source: 'bigspec constitution B8 — "every generated file is an OKF bundle... one
-    envelope, one validator." Already has its target shape fully designed — the wayfinder
-    session (24 tickets, 26 templates) produced the blueprint this epic applies. Fifth
-    phase of the sequence.
+  source: 'bigspec constitution B8 — "every generated file is an OKF bundle... one envelope, one validator."
+    Already has its target shape fully designed — the wayfinder session (24 tickets, 26 templates) produced
+    the blueprint this epic applies. Fifth phase of the sequence.
 
     '
 - id: e56
@@ -409,17 +399,15 @@ epics:
   capsule_dir: epics/e56-reclassify-catalog
   mode: capsule
   status: scoped
-  wsjf_rationale: 'BV 8 (the headline transformation) + TC 5 + RR 6 / Job 5 ≈ 3.8.
-    Highest value in the sequence but the largest job size — reclassifying and safely
-    renaming/merging dozens of skills is real work, not a quick pass. Provisional
-    — zero real stories sliced yet, so bcps is 0 (epic.yaml carries a bcps_projected
-    estimate of 13).
+  wsjf_rationale: 'BV 8 (the headline transformation) + TC 5 + RR 6 / Job 5 ≈ 3.8. Highest value in the
+    sequence but the largest job size — reclassifying and safely renaming/merging dozens of skills is
+    real work, not a quick pass. Provisional — zero real stories sliced yet, so bcps is 0 (epic.yaml carries
+    a bcps_projected estimate of 13).
 
     '
-  source: 'bigspec architecture.md §1 — "a skill is only a procedure — rules move
-    to the constitution, tools move to the kernel... target ≈28 procedures," down
-    from 80. Uses e53s02''s tombstone-alias mechanism for every rename/merge. Fourth
-    phase of the sequence.
+  source: 'bigspec architecture.md §1 — "a skill is only a procedure — rules move to the constitution,
+    tools move to the kernel... target ≈28 procedures," down from 80. Uses e53s02''s tombstone-alias mechanism
+    for every rename/merge. Fourth phase of the sequence.
 
     '
 - id: e59
@@ -429,19 +417,17 @@ epics:
   capsule_dir: epics/e59-absorb-fresh-references
   mode: capsule
   status: scoped
-  wsjf_rationale: 'BV 4 + TC 3 + RR 4 / Job 3 ≈ 3.7. Lowest in the sequence — an ongoing
-    maintenance capability, not a one-time blocking transformation. Provisional —
-    zero real stories sliced yet, so bcps is 0 (epic.yaml carries a bcps_projected
-    estimate of 6). Intent user-confirmed 2026-07-22 (stay synced with bigspec) —
-    was held at low confidence until then since its content was inferred, not derived
-    from existing bigpowers text the way e54-e58 are.
+  wsjf_rationale: 'BV 4 + TC 3 + RR 4 / Job 3 ≈ 3.7. Lowest in the sequence — an ongoing maintenance capability,
+    not a one-time blocking transformation. Provisional — zero real stories sliced yet, so bcps is 0 (epic.yaml
+    carries a bcps_projected estimate of 6). Intent user-confirmed 2026-07-22 (stay synced with bigspec)
+    — was held at low confidence until then since its content was inferred, not derived from existing
+    bigpowers text the way e54-e58 are.
 
     '
-  source: 'state.yaml''s 6-phase migration list names this phase but does not define
-    its content. bigspec is a living, separately-evolving repo (architecture.md §8''s
-    own M0-M5 sequence) — this epic is inferred as the ongoing mechanism that keeps
-    bigpowers from drifting away from that target again after e54-e58 close it. Sixth
-    and final named phase of the sequence.
+  source: 'state.yaml''s 6-phase migration list names this phase but does not define its content. bigspec
+    is a living, separately-evolving repo (architecture.md §8''s own M0-M5 sequence) — this epic is inferred
+    as the ongoing mechanism that keeps bigpowers from drifting away from that target again after e54-e58
+    close it. Sixth and final named phase of the sequence.
 
     '
 - id: e48
@@ -451,6 +437,5 @@ epics:
   capsule_dir: epics/archive/e48-foundation
   mode: capsule
   status: done
-  wsjf_rationale: BV 5 (discoverability + honest sizing) + TC 3 (internal tooling)
-    + RR 4 (OKF/wiki parity) / Job 5 ≈ 2.5. Merges former e45 OKF, e49 wiki, e37 BCP
-    Plus.
+  wsjf_rationale: BV 5 (discoverability + honest sizing) + TC 3 (internal tooling) + RR 4 (OKF/wiki parity)
+    / Job 5 ≈ 2.5. Merges former e45 OKF, e49 wiki, e37 BCP Plus.
