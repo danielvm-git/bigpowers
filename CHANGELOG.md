@@ -1,3 +1,10 @@
+## [2.83.4](https://github.com/danielvm-git/bigpowers/compare/v2.83.3...v2.83.4) (2026-07-24)
+
+
+### Bug Fixes
+
+* **install:** keep spinner animating via async sync-skills call ([a4c2193](https://github.com/danielvm-git/bigpowers/commit/a4c21937b0caa4602177c2a5c186d96510ec15f3))
+
 ## [2.83.3](https://github.com/danielvm-git/bigpowers/compare/v2.83.2...v2.83.3) (2026-07-24)
 
 
