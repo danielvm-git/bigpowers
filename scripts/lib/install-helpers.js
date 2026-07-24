@@ -5,6 +5,7 @@
 // story: e76s02
 // story: e69s02
 // story: e74s02
+// story: e67s02
 // story: e66s02
 // story: e72s02
 // story: e68s02
@@ -216,6 +217,26 @@ function installGlobal(tool, repoRoot) {
     case 'cline':
       linkRenderedSkills(path.join(repoRoot, '.cline/skills'), path.join(homeDir, '.cline', 'skills'));
       break; // story: e66s02
+    case 'kilo':
+    case 'kilocode':
+      {
+        const renderedDir = path.join(repoRoot, '.kilocode/rules');
+        const targetDir = path.join(homeDir, '.kilocode', 'rules');
+        fs.mkdirSync(targetDir, { recursive: true });
+        if (fs.existsSync(renderedDir)) {
+          for (const f of fs.readdirSync(renderedDir)) {
+            if (!f.endsWith('.md')) continue;
+            linkFile(path.join(renderedDir, f), path.join(targetDir, f));
+          }
+        }
+      }
+      {
+        const agentsSrc = path.join(repoRoot, 'AGENTS.md');
+        const agentsDst = path.join(homeDir, '.kilocode', 'AGENTS.md');
+        fs.mkdirSync(path.dirname(agentsDst), { recursive: true });
+        if (fs.existsSync(agentsSrc)) fs.copyFileSync(agentsSrc, agentsDst);
+      }
+      break; // story: e67s02
     case 'cursor': {
       const rulesSrc = path.join(repoRoot, '.cursor', 'rules');
       const rulesDst = path.join(homeDir, '.cursor', 'rules');

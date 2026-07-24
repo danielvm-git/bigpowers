@@ -4,6 +4,7 @@
 # story: e63
 # story: e64s02
 # story: e74s02
+# story: e67s02
 # story: e66s02
 # story: e72s02
 # story: e68s02
@@ -608,6 +609,49 @@ uninstall_cline() {
     done
   fi
 }
+# ── Kilo (e67s02) ───────────────────────────────────────────────────────
+
+KILOCODE_CONFIG_DIR="$HOME/.kilocode"
+KILOCODE_SKILLS_DIR="$KILOCODE_CONFIG_DIR/rules"
+KILOCODE_RENDERED="$REPO_ROOT/.kilocode/rules"
+KILOCODE_CONTEXT="$KILOCODE_CONFIG_DIR/AGENTS.md"
+
+install_kilocode() {
+  echo ""
+  echo "Kilo → $KILOCODE_SKILLS_DIR/"
+  if [[ ! -d "$KILOCODE_RENDERED" ]]; then
+    echo "  WARNING: $KILOCODE_RENDERED not found — run sync-skills.sh first"
+    return
+  fi
+  local count=0
+  for rule in "$KILOCODE_RENDERED"/*.md; do
+    [[ -f "$rule" ]] || continue
+    link "$rule" "$KILOCODE_SKILLS_DIR/$(basename "$rule")"
+    count=$((count + 1))
+  done
+  echo "  $count rules installed"
+  echo "Kilo → context copy $KILOCODE_CONTEXT"
+  source "$REPO_ROOT/scripts/lib/context-wire.sh"
+  local agents_src="$REPO_ROOT/AGENTS.md"
+  [[ -f "$agents_src" ]] || agents_src="$REPO_ROOT/docs/templates/AGENTS.md"
+  run mkdir -p "$(dirname "$KILOCODE_CONTEXT")"
+  run cp "$agents_src" "$KILOCODE_CONTEXT"
+  if [[ -d "$REPO_ROOT/scripts/hooks/kilocode/plugin" ]]; then
+    echo "Kilo → hook plugin template at scripts/hooks/kilocode/plugin/ (manual install)"
+  fi
+}
+
+uninstall_kilocode() {
+  echo ""
+  echo "Kilo → removing management from $KILOCODE_CONFIG_DIR/"
+  if [[ -d "$KILOCODE_SKILLS_DIR" ]]; then
+    for dst in "$KILOCODE_SKILLS_DIR"/*.md; do
+      [[ -L "$dst" ]] || continue
+      unlink_if_managed "$dst" "$REPO_ROOT/"
+    done
+  fi
+  unlink_if_managed "$KILOCODE_CONTEXT" "$REPO_ROOT/"
+}
 # ── main ──────────────────────────────────────────────────────────────────────
 
 echo "bigpowers install.sh — REPO: $REPO_ROOT"
@@ -627,6 +671,7 @@ if $UNINSTALL; then
   uninstall_qwen
   uninstall_codebuddy
   uninstall_cline
+  uninstall_kilocode
   echo ""
   echo "bigpowers uninstalled."
 else
@@ -642,6 +687,7 @@ else
   install_qwen
   install_codebuddy
   install_cline
+  install_kilocode
   echo ""
   echo "bigpowers installed. Future updates:"
   if [[ -d "$REPO_ROOT/.git" ]]; then

@@ -214,7 +214,8 @@ def install_sh_block(cfg: dict) -> str:
         elif mode == "symlink":
             lines.append(f'  wire_context_mode symlink "${p}_CONTEXT" "" read "$agents_src"')
         elif mode == "copy":
-            lines.append(f'  cp "$agents_src" "${p}_CONTEXT"')
+            lines.append(f'  run mkdir -p "$(dirname "${p}_CONTEXT")"')
+            lines.append(f'  run cp "$agents_src" "${p}_CONTEXT"')
 
     if hooks is True:
         lines.extend([

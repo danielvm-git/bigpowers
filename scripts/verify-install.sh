@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # story: e47s04 e37s02 e37s04 e37s08
 # story: e74s02
+# story: e67s02
 # story: e66s02
 # story: e72s02
 # story: e68s02
@@ -185,6 +186,11 @@ grep -q 'uninstall_cline()' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: 
 grep -q 'CLINE_SKILLS_DIR=' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: cline skills dir" || ta_fail "source: missing cline skills dir"
 grep -q "'cline'" "$REPO_ROOT/bin/setup.js" && grep -q 'SUPPORTED_IDS' "$REPO_ROOT/bin/setup.js" && ta_pass "setup.js: cline supported" || ta_fail "setup.js: cline not in SUPPORTED_IDS"
 grep -q "case 'cline'" "$REPO_ROOT/scripts/lib/install-helpers.js" && ta_pass "install-helpers: cline case" || ta_fail "install-helpers: missing cline case"
+grep -q 'install_kilocode()' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: install_kilocode()" || ta_fail "source: missing install_kilocode()"
+grep -q 'uninstall_kilocode()' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: uninstall_kilocode()" || ta_fail "source: missing uninstall_kilocode()"
+grep -q 'KILOCODE_SKILLS_DIR=' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: kilocode skills dir" || ta_fail "source: missing kilocode skills dir"
+grep -q "'kilo'" "$REPO_ROOT/bin/setup.js" && grep -q 'SUPPORTED_IDS' "$REPO_ROOT/bin/setup.js" && ta_pass "setup.js: kilo supported" || ta_fail "setup.js: kilo not in SUPPORTED_IDS"
+grep -q "case 'kilo'" "$REPO_ROOT/scripts/lib/install-helpers.js" && ta_pass "install-helpers: kilo case" || ta_fail "install-helpers: missing kilo case"
 echo ""
 echo "──────────────────────────────────────────"
 echo "verify-install: $TA_PASS passed, $TA_FAIL failed"

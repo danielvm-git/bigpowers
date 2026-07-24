@@ -261,3 +261,17 @@ targets:
       file: AGENTS.md
     contracts:
       - codebuddy_hooks_manifest
+
+  # Fleet Wave B
+  - id: kilocode
+    name: Kilo
+    tier: opt_in
+    skill:
+      adapter: kilocode
+      output: .kilocode/rules
+    context:
+      adapter: kilocode
+      mode: copy
+      file: AGENTS.md
+    contracts:
+      - kilocode_hooks_manifest
