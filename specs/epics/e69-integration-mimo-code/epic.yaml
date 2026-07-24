@@ -20,4 +20,10 @@ integration_details:
   hooks: false
   hook_events: []
   hook_events_count: 0
-stories: []
+stories:
+  - id: e69s01
+    title: "MiMo Code adapter — Wave A skills-dir (.mimocode/skills/)"
+    bcps: 2
+    status: done
+    spec: e69s01-mimo-adapter.md
+    tasks: e69s01-tasks.yaml
