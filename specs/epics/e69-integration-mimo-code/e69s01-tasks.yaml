@@ -1,0 +1,93 @@
+story_id: e69s01
+title: "MiMo Code adapter — Wave A skills-dir (.mimocode/skills/)"
+spec: e69s01-mimo-adapter.md
+status: passing
+bcps: 2
+risk: P2
+depends_on: []
+tasks:
+  - id: 1
+    description: >-
+      Create scripts/adapters/mimo.sh: skills-dir adapter targeting
+      .mimocode/skills/<name>/SKILL.md per XiaomiMiMo/MiMo-Code layout.
+      Follow pi.sh/cursor.sh SkillIR pattern (render_skill + wire_context +
+      JSON stdin). Tag # story: e69s01. Wave A — no targets.yaml row.
+    verify: >-
+      test -f scripts/adapters/mimo.sh &&
+      bash -c 'source scripts/adapters/mimo.sh && declare -f render_skill wire_context >/dev/null' &&
+      echo OK
+    risk: P2
+    security: low
+    status: passing
+    allure:
+      severity: normal
+      categories:
+        - "Wave A"
+        - "Integration"
+
+  - id: 2
+    description: >-
+      Smoke-test render_skill writes .mimocode/skills/<name>/SKILL.md with
+      frontmatter from IR globals in an isolated temp directory.
+    verify: >-
+      REPO="$(git rev-parse --show-toplevel)" &&
+      TMP="$(mktemp -d)" &&
+      cd "$TMP" &&
+      export IR_NAME=smoke IR_DESC_ESCAPED=Smoke IR_BODY='# Smoke' MIMO_SKILLS=.mimocode/skills &&
+      source "$REPO/scripts/adapters/mimo.sh" &&
+      render_skill &&
+      test -f .mimocode/skills/smoke/SKILL.md &&
+      grep -q smoke .mimocode/skills/smoke/SKILL.md &&
+      echo OK
+    risk: P2
+    security: low
+    status: passing
+    allure:
+      severity: normal
+      categories:
+        - "Wave A"
+        - "Integration"
+
+  - id: 3
+    description: >-
+      Smoke-test JSON stdin path renders SKILL.md (pi.sh contract).
+    verify: >-
+      REPO="$(git rev-parse --show-toplevel)" &&
+      TMP="$(mktemp -d)" &&
+      cd "$TMP" &&
+      export MIMO_SKILLS=.mimocode/skills &&
+      echo '{"name":"json-smoke","description":"JSON smoke","body":"# JSON body"}' |
+      bash "$REPO/scripts/adapters/mimo.sh" &&
+      test -f .mimocode/skills/json-smoke/SKILL.md &&
+      grep -q 'JSON body' .mimocode/skills/json-smoke/SKILL.md &&
+      echo OK
+    risk: P2
+    security: low
+    status: passing
+    allure:
+      severity: normal
+      categories:
+        - "Wave A"
+        - "Integration"
+
+  - id: 4
+    description: >-
+      Story verify: adapter exists, functions defined, render smoke passes.
+      No forbidden hub files modified.
+    verify: >-
+      test -f scripts/adapters/mimo.sh &&
+      ! git diff --name-only HEAD | grep -E '^(scripts/install\.sh|scripts/lib/install-helpers\.js|bin/setup\.js|scripts/targets\.yaml|scripts/verify-install\.sh)$' &&
+      echo OK
+    risk: P2
+    security: low
+    status: passing
+    allure:
+      severity: normal
+      categories:
+        - "Wave A"
+
+out_of_scope:
+  - "targets.yaml mimo row (Wave B)"
+  - "install.sh / setup.js / verify-install.sh hub wiring"
+  - "MiMo plugin adapter (.mimocode/plugins/)"
+  - "E2E with MiMo Code CLI"

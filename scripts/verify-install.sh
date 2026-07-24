@@ -139,6 +139,11 @@ grep -q 'uninstall_zcode()' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: 
 grep -q 'ZCODE_SKILLS_DIR=' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: targets ~/.zcode/skills/" || ta_fail "source: wrong zcode target"
 grep -q "'zcode'" "$REPO_ROOT/bin/setup.js" && grep -q 'SUPPORTED_IDS' "$REPO_ROOT/bin/setup.js" && ta_pass "setup.js: zcode supported" || ta_fail "setup.js: zcode not in SUPPORTED_IDS"
 grep -q "case 'zcode'" "$REPO_ROOT/scripts/lib/install-helpers.js" && ta_pass "install-helpers: zcode case" || ta_fail "install-helpers: missing zcode case"
+grep -q 'install_mimo()' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: install_mimo()" || ta_fail "source: missing install_mimo()"
+grep -q 'uninstall_mimo()' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: uninstall_mimo()" || ta_fail "source: missing uninstall_mimo()"
+grep -q 'MIMO_SKILLS_DIR=' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: targets ~/.mimocode/skills/" || ta_fail "source: wrong mimo target"
+grep -q "'mimo'" "$REPO_ROOT/bin/setup.js" && grep -q 'SUPPORTED_IDS' "$REPO_ROOT/bin/setup.js" && ta_pass "setup.js: mimo supported" || ta_fail "setup.js: mimo not in SUPPORTED_IDS"
+grep -q "case 'mimo'" "$REPO_ROOT/scripts/lib/install-helpers.js" && ta_pass "install-helpers: mimo case" || ta_fail "install-helpers: missing mimo case"
 ! grep -q 'install_opencode\|print_opencode_instructions' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: no opencode functions" || ta_fail "source: opencode functions remain"
 
 echo ""

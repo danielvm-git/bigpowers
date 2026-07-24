@@ -141,6 +141,19 @@ targets:
     contracts:
       - agents_md_exists
 
+  - id: mimo
+    name: MiMo Code
+    tier: opt_in
+    skill:
+      adapter: mimo
+      output: .mimocode/skills
+    context:
+      adapter: mimo
+      mode: symlink
+      file: AGENTS.md
+    contracts:
+      - agents_md_exists
+
   # Wave C (e37s11)
   - id: qwen
     name: Qwen (Alibaba)
