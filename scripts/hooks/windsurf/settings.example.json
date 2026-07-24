@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "pre_read_code": [
+      {
+        "type": "command",
+        "command": "bash scripts/hooks/windsurf/pre-tool-git-guard.sh"
+      }
+    ],
+    "post_read_code": [
+      {
+        "type": "command",
+        "command": "bash scripts/hooks/windsurf/pre-tool-git-guard.sh"
+      }
+    ]
+  }
+}
