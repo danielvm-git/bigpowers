@@ -1,3 +1,10 @@
+## [2.82.1](https://github.com/danielvm-git/bigpowers/compare/v2.82.0...v2.82.1) (2026-07-24)
+
+
+### Bug Fixes
+
+* **specs:** quote YAML string with colon in e61 epic ([25fddd8](https://github.com/danielvm-git/bigpowers/commit/25fddd8942eef67ab5c26793f3276d32e67305be))
+
 # [2.82.0](https://github.com/danielvm-git/bigpowers/compare/v2.81.0...v2.82.0) (2026-07-24)
 
 
