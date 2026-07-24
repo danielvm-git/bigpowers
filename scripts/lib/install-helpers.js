@@ -5,6 +5,7 @@
 // story: e76s02
 // story: e69s02
 // story: e74s02
+// story: e62s02
 // story: e73s02
 // story: e70s02
 // story: e67s02
@@ -283,6 +284,15 @@ function installGlobal(tool, repoRoot) {
         }
       }
       break; // story: e73s02
+    case 'opencode':
+      linkRenderedSkills(path.join(repoRoot, '.opencode/skills'), path.join(homeDir, '.config/opencode', 'skills'));
+      {
+        const agentsSrc = path.join(repoRoot, 'AGENTS.md');
+        const agentsDst = path.join(homeDir, '.config/opencode', 'AGENTS.md');
+        fs.mkdirSync(path.dirname(agentsDst), { recursive: true });
+        linkFile(agentsSrc, agentsDst);
+      }
+      break; // story: e62s02
     case 'cursor': {
       const rulesSrc = path.join(repoRoot, '.cursor', 'rules');
       const rulesDst = path.join(homeDir, '.cursor', 'rules');

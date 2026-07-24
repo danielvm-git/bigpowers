@@ -4,6 +4,7 @@
 # story: e63
 # story: e64s02
 # story: e74s02
+# story: e62s02
 # story: e73s02
 # story: e70s02
 # story: e67s02
@@ -752,6 +753,46 @@ uninstall_windsurf() {
   unlink_if_managed "$WINDSURF_CONTEXT" "$REPO_ROOT/"
   unlink_if_managed "$WINDSURF_HOOKS_DIR/pre-tool-git-guard.sh" "$REPO_ROOT/"
 }
+# ── OpenCode (e62s02) ───────────────────────────────────────────────────────
+
+OPENCODE_CONFIG_DIR="$HOME/.config/opencode"
+OPENCODE_SKILLS_DIR="$OPENCODE_CONFIG_DIR/skills"
+OPENCODE_RENDERED="$REPO_ROOT/.opencode/skills"
+OPENCODE_CONTEXT="$OPENCODE_CONFIG_DIR/AGENTS.md"
+
+install_opencode() {
+  echo ""
+  echo "OpenCode → $OPENCODE_SKILLS_DIR/"
+  if [[ ! -d "$OPENCODE_RENDERED" ]]; then
+    echo "  WARNING: $OPENCODE_RENDERED not found — run sync-skills.sh first"
+    return
+  fi
+  local count=0
+  for skill_dir in "$OPENCODE_RENDERED"/*/; do
+    [[ -f "${skill_dir}SKILL.md" ]] || continue
+    local name; name="$(basename "$skill_dir")"
+    link "$skill_dir" "$OPENCODE_SKILLS_DIR/$name"
+    count=$((count + 1))
+  done
+  echo "  $count skills installed"
+  echo "OpenCode → context symlink $OPENCODE_CONTEXT"
+  source "$REPO_ROOT/scripts/lib/context-wire.sh"
+  local agents_src="$REPO_ROOT/AGENTS.md"
+  [[ -f "$agents_src" ]] || agents_src="$REPO_ROOT/docs/templates/AGENTS.md"
+  wire_context_mode symlink "$OPENCODE_CONTEXT" "" read "$agents_src"
+}
+
+uninstall_opencode() {
+  echo ""
+  echo "OpenCode → removing management from $OPENCODE_CONFIG_DIR/"
+  if [[ -d "$OPENCODE_SKILLS_DIR" ]]; then
+    for dst in "$OPENCODE_SKILLS_DIR"/*/; do
+      [[ -L "${dst%/}" ]] || continue
+      unlink_if_managed "${dst%/}" "$REPO_ROOT/"
+    done
+  fi
+  unlink_if_managed "$OPENCODE_CONTEXT" "$REPO_ROOT/"
+}
 # ── main ──────────────────────────────────────────────────────────────────────
 
 echo "bigpowers install.sh — REPO: $REPO_ROOT"
@@ -774,6 +815,7 @@ if $UNINSTALL; then
   uninstall_kilocode
   uninstall_trae
   uninstall_windsurf
+  uninstall_opencode
   echo ""
   echo "bigpowers uninstalled."
 else
@@ -792,6 +834,7 @@ else
   install_kilocode
   install_trae
   install_windsurf
+  install_opencode
   echo ""
   echo "bigpowers installed. Future updates:"
   if [[ -d "$REPO_ROOT/.git" ]]; then

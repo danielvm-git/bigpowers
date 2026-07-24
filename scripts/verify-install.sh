@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # story: e47s04 e37s02 e37s04 e37s08
 # story: e74s02
+# story: e62s02
 # story: e73s02
 # story: e70s02
 # story: e67s02
@@ -166,7 +167,7 @@ grep -q "'agy'" "$REPO_ROOT/bin/setup.js" && ta_pass "setup.js: agy supported" |
 grep -q "case 'antigravity'" "$REPO_ROOT/scripts/lib/install-helpers.js" && ta_pass "install-helpers: antigravity case" || ta_fail "install-helpers: missing antigravity case"
 grep -q "case 'agy'" "$REPO_ROOT/scripts/lib/install-helpers.js" && ta_pass "install-helpers: agy case" || ta_fail "install-helpers: missing agy case"
 ! grep -q '\.gemini/extensions/bigpowers' <<< "$(sed -n '/install_agy/,/^}/p' "$REPO_ROOT/scripts/install.sh")" && ta_pass "source: agy avoids gemini extension path" || ta_fail "source: agy touches gemini extension path"
-! grep -q 'install_opencode\|print_opencode_instructions' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: no opencode functions" || ta_fail "source: opencode functions remain"
+grep -q 'install_opencode()' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: install_opencode()" || ta_fail "source: missing install_opencode()"
 
 grep -q 'install_codex()' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: install_codex()" || ta_fail "source: missing install_codex()"
 grep -q 'uninstall_codex()' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: uninstall_codex()" || ta_fail "source: missing uninstall_codex()"
@@ -203,6 +204,11 @@ grep -q 'uninstall_windsurf()' "$REPO_ROOT/scripts/install.sh" && ta_pass "sourc
 grep -q 'WINDSURF_SKILLS_DIR=' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: windsurf skills dir" || ta_fail "source: missing windsurf skills dir"
 grep -q "'windsurf'" "$REPO_ROOT/bin/setup.js" && grep -q 'SUPPORTED_IDS' "$REPO_ROOT/bin/setup.js" && ta_pass "setup.js: windsurf supported" || ta_fail "setup.js: windsurf not in SUPPORTED_IDS"
 grep -q "case 'windsurf'" "$REPO_ROOT/scripts/lib/install-helpers.js" && ta_pass "install-helpers: windsurf case" || ta_fail "install-helpers: missing windsurf case"
+grep -q 'install_opencode()' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: install_opencode()" || ta_fail "source: missing install_opencode()"
+grep -q 'uninstall_opencode()' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: uninstall_opencode()" || ta_fail "source: missing uninstall_opencode()"
+grep -q 'OPENCODE_SKILLS_DIR=' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: opencode skills dir" || ta_fail "source: missing opencode skills dir"
+grep -q "'opencode'" "$REPO_ROOT/bin/setup.js" && grep -q 'SUPPORTED_IDS' "$REPO_ROOT/bin/setup.js" && ta_pass "setup.js: opencode supported" || ta_fail "setup.js: opencode not in SUPPORTED_IDS"
+grep -q "case 'opencode'" "$REPO_ROOT/scripts/lib/install-helpers.js" && ta_pass "install-helpers: opencode case" || ta_fail "install-helpers: missing opencode case"
 echo ""
 echo "──────────────────────────────────────────"
 echo "verify-install: $TA_PASS passed, $TA_FAIL failed"
