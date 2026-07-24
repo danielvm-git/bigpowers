@@ -87,14 +87,20 @@ try {
   uninstallTool('cursor', ROOT);
   assert.ok(!fs.existsSync(rulesDst), 'uninstallTool(cursor) must remove rules symlink');
 
-  const installSh = fs.readFileSync(path.join(ROOT, 'scripts/install.sh'), 'utf8');
+  const installPaths = [
+    path.join(ROOT, 'scripts', 'install.sh'),
+    ...fs.readdirSync(path.join(ROOT, 'scripts', 'lib'))
+      .filter((n) => n.startsWith('install-targets-') && n.endsWith('.sh'))
+      .map((n) => path.join(ROOT, 'scripts', 'lib', n)),
+  ];
+  const installSh = installPaths.map((p) => fs.readFileSync(p, 'utf8')).join('\n');
   assert.ok(
     installSh.includes('skills/guard-git/scripts/block-dangerous-git.sh'),
-    'install.sh must use skills/guard-git hook path'
+    'install surface must use skills/guard-git hook path'
   );
   assert.ok(
     !/REPO_ROOT\/guard-git\//.test(installSh),
-    'install.sh must not reference bare guard-git/ path'
+    'install surface must not reference bare guard-git/ path'
   );
 
   console.log('test-install-helpers: ALL PASS');

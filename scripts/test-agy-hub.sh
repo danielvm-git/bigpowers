@@ -13,17 +13,18 @@ fail() { echo "FAIL: $1" >&2; FAIL=$((FAIL + 1)); }
 echo "=== test-agy-hub.sh ==="
 
 INSTALL_SH="$REPO_ROOT/scripts/install.sh"
+source "$REPO_ROOT/scripts/lib/install-grep.sh"
 HELPERS_JS="$REPO_ROOT/scripts/lib/install-helpers.js"
 SETUP_JS="$REPO_ROOT/bin/setup.js"
 TARGETS_YAML="$REPO_ROOT/scripts/targets.yaml"
 
-grep -q 'install_agy()' "$INSTALL_SH" && pass 'install.sh: install_agy()' || fail 'install.sh: missing install_agy()'
-grep -q 'install_antigravity()' "$INSTALL_SH" && pass 'install.sh: install_antigravity alias' || fail 'install.sh: missing install_antigravity()'
-grep -q 'uninstall_agy()' "$INSTALL_SH" && pass 'install.sh: uninstall_agy()' || fail 'install.sh: missing uninstall_agy()'
-grep -q 'uninstall_antigravity()' "$INSTALL_SH" && pass 'install.sh: uninstall_antigravity alias' || fail 'install.sh: missing uninstall_antigravity()'
-grep -q 'AGY_SKILLS_DIR=' "$INSTALL_SH" && pass 'install.sh: AGY_SKILLS_DIR' || fail 'install.sh: missing AGY_SKILLS_DIR'
-grep -q 'antigravity-cli/skills' "$INSTALL_SH" && pass 'install.sh: antigravity-cli path' || fail 'install.sh: missing antigravity-cli path'
-grep -q 'install_agy' "$INSTALL_SH" && grep -q 'uninstall_agy' "$INSTALL_SH" && pass 'install.sh: dispatch wired' || fail 'install.sh: dispatch missing agy'
+install_grep -q 'install_agy()' && pass 'install.sh: install_agy()' || fail 'install.sh: missing install_agy()'
+install_grep -q 'install_antigravity()' && pass 'install.sh: install_antigravity alias' || fail 'install.sh: missing install_antigravity()'
+install_grep -q 'uninstall_agy()' && pass 'install.sh: uninstall_agy()' || fail 'install.sh: missing uninstall_agy()'
+install_grep -q 'uninstall_antigravity()' && pass 'install.sh: uninstall_antigravity alias' || fail 'install.sh: missing uninstall_antigravity()'
+install_grep -q 'AGY_SKILLS_DIR=' && pass 'install.sh: AGY_SKILLS_DIR' || fail 'install.sh: missing AGY_SKILLS_DIR'
+install_grep -q 'antigravity-cli/skills' && pass 'install.sh: antigravity-cli path' || fail 'install.sh: missing antigravity-cli path'
+install_grep -q 'install_agy' && install_grep -q 'uninstall_agy' && pass 'install.sh: dispatch wired' || fail 'install.sh: dispatch missing agy'
 ! grep -q '\.gemini/extensions/bigpowers' <<< "$(sed -n '/install_agy/,/^}/p' "$INSTALL_SH")" \
   && pass 'install.sh: no gemini extension path' || fail 'install.sh: touches gemini extension path'
 

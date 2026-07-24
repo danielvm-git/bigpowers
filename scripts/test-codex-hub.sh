@@ -13,14 +13,15 @@ fail() { echo "FAIL: $1" >&2; FAIL=$((FAIL + 1)); }
 echo "=== test-codex-hub.sh ==="
 
 INSTALL_SH="$REPO_ROOT/scripts/install.sh"
+source "$REPO_ROOT/scripts/lib/install-grep.sh"
 HELPERS_JS="$REPO_ROOT/scripts/lib/install-helpers.js"
 SETUP_JS="$REPO_ROOT/bin/setup.js"
 TARGETS_YAML="$REPO_ROOT/scripts/targets.yaml"
 
-grep -q 'install_codex()' "$INSTALL_SH" && pass 'install.sh: install_codex()' || fail 'install.sh: missing install_codex()'
-grep -q 'uninstall_codex()' "$INSTALL_SH" && pass 'install.sh: uninstall_codex()' || fail 'install.sh: missing uninstall_codex()'
-grep -q 'CODEX_SKILLS_DIR=' "$INSTALL_SH" && pass 'install.sh: skills dir var' || fail 'install.sh: missing skills dir var'
-grep -q 'install_codex' "$INSTALL_SH" && grep -q 'uninstall_codex' "$INSTALL_SH" && pass 'install.sh: dispatch wired' || fail 'install.sh: dispatch missing codex'
+install_grep -q 'install_codex()' && pass 'install.sh: install_codex()' || fail 'install.sh: missing install_codex()'
+install_grep -q 'uninstall_codex()' && pass 'install.sh: uninstall_codex()' || fail 'install.sh: missing uninstall_codex()'
+install_grep -q 'CODEX_SKILLS_DIR=' && pass 'install.sh: skills dir var' || fail 'install.sh: missing skills dir var'
+install_grep -q 'install_codex' && install_grep -q 'uninstall_codex' && pass 'install.sh: dispatch wired' || fail 'install.sh: dispatch missing codex'
 
 DRY_OUT="$(bash "$INSTALL_SH" --dry-run 2>&1)"
 grep -q 'Codex CLI →' <<< "$DRY_OUT" && pass 'dry-run: Codex CLI section' || fail 'dry-run: missing Codex CLI section'
@@ -28,8 +29,8 @@ DRY_UNINSTALL="$(bash "$INSTALL_SH" --dry-run --uninstall 2>&1)"
 grep -q 'Codex CLI →' <<< "$DRY_UNINSTALL" && pass 'dry-run uninstall: Codex CLI section' || fail 'dry-run uninstall: missing Codex CLI section'
 
 grep -q "case 'codex'" "$HELPERS_JS" && pass 'install-helpers: codex case' || fail 'install-helpers: missing codex case'
-grep -q 'CODEX_HOOK_SRC=' "$INSTALL_SH" && pass 'install.sh: hook src' || fail 'install.sh: missing hook src'
-grep -q 'pre-tool-git-guard.sh' "$INSTALL_SH" && pass 'install.sh: git-guard hook' || fail 'install.sh: missing git-guard hook'
+install_grep -q 'CODEX_HOOK_SRC=' && pass 'install.sh: hook src' || fail 'install.sh: missing hook src'
+install_grep -q 'pre-tool-git-guard.sh' && pass 'install.sh: git-guard hook' || fail 'install.sh: missing git-guard hook'
 
 SETUP_SRC="$(cat "$SETUP_JS")"
 echo "$SETUP_SRC" | grep -q "SUPPORTED_IDS = new Set" && pass 'setup.js: SUPPORTED_IDS set' || fail 'setup.js: missing SUPPORTED_IDS'

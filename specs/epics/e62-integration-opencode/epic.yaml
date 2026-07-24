@@ -1,20 +1,44 @@
 id: e62
-title: "Integration: OpenCode — Skills + No Hooks"
-status: scoped
+title: 'Integration: OpenCode — Skills + No Hooks'
+status: done
 wsjf: 4.0
-bcps: 0
+bcps: 4
 mode: capsule
-wsjf_rationale: >
-  BV 4 + TC 3 + RR 3 / Job 2 ≈ 5.0. High-star tool (189K) with skills support
-  but no hooks. Simple integration (skills only).
+wsjf_rationale: 'BV 4 + TC 3 + RR 3 / Job 2 ≈ 5.0. High-star tool (189K) with skills
+  support but no hooks. Simple integration (skills only).
+
+  '
 github_stars: 189014
 repo: anomalyco/opencode
-source: >
-  Research session 2026-07-23. OpenCode supports skills at .opencode/skills/.
+source: 'Research session 2026-07-23. OpenCode supports skills at .opencode/skills/.
   No hooks system found. Config at .opencode/. Skills are SKILL.md files.
+
+  '
 integration_details:
   skills_path: .opencode/skills/
   config_path: .opencode/
   hooks: null
   hook_events_count: 0
-stories: []
+stories:
+- id: e62s01
+  title: 'Integration: OpenCode adapter (Wave A)'
+  status: done
+  bcps: 2
+  files:
+  - scripts/adapters/opencode.sh
+  - scripts/test-opencode-adapter.sh
+  verify: bash scripts/test-opencode-adapter.sh && bash scripts/test-adapters.sh opencode
+    && echo OK
+- id: e62s02
+  title: Install hub wiring (Wave B)
+  status: done
+  bcps: 2
+  files:
+  - scripts/install.sh
+  - scripts/lib/install-targets-*.sh
+  - scripts/lib/install-helpers.js
+  - bin/setup.js
+  - scripts/verify-install.sh
+  - scripts/test-opencode-hub.sh
+  verify: bash scripts/test-opencode-hub.sh && bash scripts/verify-install.sh && echo
+    OK

@@ -1,26 +1,61 @@
 id: e65
-title: "Integration: Codex CLI — AGENTS.md + Hooks"
-status: scoped
+title: 'Integration: Codex CLI — AGENTS.md + Hooks'
+status: done
 wsjf: 6.0
-bcps: 0
+bcps: 5
 mode: capsule
-wsjf_rationale: >
-  BV 8 + TC 4 + RR 5 / Job 2 ≈ 8.5. High-star tool (101K) with hooks
+wsjf_rationale: 'BV 8 + TC 4 + RR 5 / Job 2 ≈ 8.5. High-star tool (101K) with hooks
   compatible with Claude Code naming convention.
+
+  '
 github_stars: 100975
 repo: openai/codex
-source: >
-  Research session 2026-07-23. Codex CLI supports AGENTS.md and hooks.
-  Config at ~/.codex/config.toml or ~/.codex/hooks.json.
-  Events use same naming as Claude Code: PreToolUse, PostToolUse, SessionStart
-  + PermissionRequest, PreCompact, PostCompact, UserPromptSubmit,
-  SubagentStart, SubagentStop, Stop. Hooks-compatible with Claude Code scripts.
+source: 'Research session 2026-07-23. Codex CLI supports AGENTS.md and hooks. Config
+  at ~/.codex/config.toml or ~/.codex/hooks.json. Events use same naming as Claude
+  Code: PreToolUse, PostToolUse, SessionStart + PermissionRequest, PreCompact, PostCompact,
+  UserPromptSubmit, SubagentStart, SubagentStop, Stop. Hooks-compatible with Claude
+  Code scripts.
+
+  '
 integration_details:
   skills_path: ~/.codex/AGENTS.md
   config_path: ~/.codex/config.toml
   hooks: true
-  hook_events: [PreToolUse, PostToolUse, SessionStart, PermissionRequest, PreCompact, PostCompact, UserPromptSubmit, SubagentStart, SubagentStop, Stop]
+  hook_events:
+  - PreToolUse
+  - PostToolUse
+  - SessionStart
+  - PermissionRequest
+  - PreCompact
+  - PostCompact
+  - UserPromptSubmit
+  - SubagentStart
+  - SubagentStop
+  - Stop
   hook_format: TOML (config.toml) or JSON (hooks.json)
   hook_events_count: 10
   naming_convention: Same as Claude Code (PreToolUse/PostToolUse)
-stories: []
+stories:
+- id: e65s01
+  title: 'Integration: Codex CLI adapter (Wave A)'
+  status: done
+  bcps: 3
+  files:
+  - scripts/adapters/codex.sh
+  - scripts/test-codex-adapter.sh
+  - scripts/hooks/codex/
+  verify: bash scripts/test-codex-adapter.sh && bash scripts/test-adapters.sh codex
+    && echo OK
+- id: e65s02
+  title: Install hub wiring (Wave B)
+  status: done
+  bcps: 2
+  files:
+  - scripts/install.sh
+  - scripts/lib/install-targets-*.sh
+  - scripts/lib/install-helpers.js
+  - bin/setup.js
+  - scripts/verify-install.sh
+  - scripts/test-codex-hub.sh
+  verify: bash scripts/test-codex-hub.sh && bash scripts/verify-install.sh && echo
+    OK

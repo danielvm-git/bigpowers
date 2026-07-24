@@ -35,6 +35,7 @@ context: conventions
 - [Guardrails and other artifacts](guardrails-and-other-artifacts.md)
 - [Documentation Responsibilities (e45s36)](documentation-responsibilities-e45s36.md)
 - [Generated artifact targets](generated-artifact-targets.md)
+- [Packaging boundary — dev-repo tooling vs. end-user CLI](packaging-boundary-dev-repo-tooling-vs-end-user-cli.md)
 - [Legacy paths (migrate away)](legacy-paths-migrate-away.md)
 - [Code Style](code-style.md)
 - [Comments](comments.md)

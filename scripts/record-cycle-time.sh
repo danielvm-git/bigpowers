@@ -14,20 +14,9 @@
 #   lead_time_minutes  NON-ADDITIVE. Calendar latency, first-commit → merge.
 #                      Aggregate by median/p75 over many stories. NEVER sum.
 #
-# Effort model (git-hours, kimmobrunfeldt/git-hours src/index.js:15,18):
-#   * commits sorted by author-date across the WHOLE range;
-#   * gap < IDLE (120 min)  -> real elapsed time, credited to the *later*
-#                              commit's story (the work that produced it);
-#   * gap >= IDLE           -> session boundary: credit a flat PAD (120 min)
-#                              to the later commit's story, drop the idle time;
-#   * the very first commit of the stream is never padded (no left neighbour).
-#
-# Why not run git-hours per story and sum? Because it doesn't sum: each
-# per-story run re-pads its own first commit and drops its own leading gap,
-# so the sum leaks both ways. The global partition above is additive by
-# construction. Attribution of a shared <120-min window to "the later commit's
-# story" is a documented CONVENTION, not a physical truth — it is the only way
-# to keep the numbers summable without double-counting.
+# Effort model (git-hours): commits sorted by author-date; gap < IDLE (120 min)
+# credits elapsed time to the later commit's story; gap >= IDLE starts a new
+# session with a flat PAD (120 min). Global partition keeps Σ effort additive.
 #
 # Story attribution: a `Story: <id>` trailer in the commit message. Commits
 # with no trailer land in the `unattributed` bucket (surfaced, never dropped).

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-24T14:22:33.717575+00:00",
+  "generated_at": "2026-07-24T19:53:42.385968+00:00",
   "matrix_version": "1.0",
   "stories": [
     {
@@ -22,6 +22,12 @@
           "line": 1,
           "confidence": "high",
           "method": "explicit_tag"
+        },
+        {
+          "file": ".windsurf/rules/seed-conventions.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
         },
         {
           "file": "specs/skills-wiki/skills/seed-conventions.md",
@@ -108,7 +114,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 16
+      "link_count": 17
     },
     {
       "id": "e37s02",
@@ -174,6 +180,12 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".windsurf/rules/seed-conventions.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/skills-wiki/skills/seed-conventions.md",
           "line": 0,
           "confidence": "medium",
@@ -210,7 +222,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 8
+      "link_count": 9
     },
     {
       "id": "e37s04",
@@ -288,12 +300,6 @@
           "method": "explicit_tag"
         },
         {
-          "file": "scripts/adapters/cline.sh",
-          "line": 2,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": "scripts/adapters/cursor.sh",
           "line": 3,
           "confidence": "high",
@@ -331,6 +337,30 @@
         },
         {
           "file": "specs/verifications/steps/and-i-should-explain-the-code-s-purpose-and-callers-before-modifying-zoom-out.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/install-targets-a.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/install-targets-d.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/install-targets-c.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/install-targets-b.sh",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -408,7 +438,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 25
+      "link_count": 28
     },
     {
       "id": "e37s06",
@@ -772,21 +802,9 @@
           "line": 16,
           "confidence": "high",
           "method": "explicit_tag"
-        },
-        {
-          "file": "scripts/adapters/qwen.sh",
-          "line": 2,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": "scripts/adapters/kilocode.sh",
-          "line": 2,
-          "confidence": "high",
-          "method": "explicit_tag"
         }
       ],
-      "link_count": 4
+      "link_count": 2
     },
     {
       "id": "e37s12",
@@ -888,6 +906,12 @@
       "status": "done",
       "links": [
         {
+          "file": ".windsurf/rules/seed-conventions.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/skills-wiki/skills/seed-conventions.md",
           "line": 0,
           "confidence": "medium",
@@ -936,7 +960,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 8
+      "link_count": 9
     },
     {
       "id": "e37s15",
@@ -983,6 +1007,12 @@
       "wsjf": 7.0,
       "status": "done",
       "links": [
+        {
+          "file": ".windsurf/rules/using-bigpowers.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
         {
           "file": "specs/skills-wiki/skills/using-bigpowers.md",
           "line": 0,
@@ -1038,7 +1068,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 9
+      "link_count": 10
     },
     {
       "id": "e45s01",
@@ -1078,6 +1108,12 @@
           "line": 3,
           "confidence": "high",
           "method": "explicit_tag"
+        },
+        {
+          "file": ".windsurf/rules/run-benchmark.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
         },
         {
           "file": "specs/skills-wiki/skills/run-benchmark.md",
@@ -1128,7 +1164,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 13
+      "link_count": 14
     },
     {
       "id": "e45s02",
@@ -1168,6 +1204,12 @@
           "line": 1,
           "confidence": "high",
           "method": "explicit_tag"
+        },
+        {
+          "file": ".windsurf/rules/craft-skill.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
         },
         {
           "file": "specs/skills-wiki/skills/craft-skill.md",
@@ -1218,7 +1260,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 13
+      "link_count": 14
     },
     {
       "id": "e45s03",
@@ -1282,6 +1324,18 @@
           "line": 1,
           "confidence": "high",
           "method": "explicit_tag"
+        },
+        {
+          "file": ".windsurf/rules/slice-tasks.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".windsurf/rules/plan-work.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
         },
         {
           "file": "specs/skills-wiki/skills/slice-tasks.md",
@@ -1356,7 +1410,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 15
+      "link_count": 17
     },
     {
       "id": "e45s05",
@@ -1380,6 +1434,36 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".trae/skills/verify-work/SKILL.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".windsurf/rules/verify-work.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".agents/skills/verify-work/SKILL.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".kilocode/rules/verify-work.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codex/skills/verify-work/SKILL.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "scripts/lib/completeness-critic.sh",
           "line": 2,
           "confidence": "high",
@@ -1398,6 +1482,30 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".codebuddy/skills/verify-work/SKILL.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".zcode/skills/verify-work/SKILL.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".mimocode/skills/verify-work/SKILL.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".hermes/skills/verify-work/SKILL.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": ".pi/prompts/verify-work.md",
           "line": 8,
           "confidence": "high",
@@ -1408,6 +1516,12 @@
           "line": 9,
           "confidence": "high",
           "method": "explicit_tag"
+        },
+        {
+          "file": ".windsurf/rules/gate-trace.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
         },
         {
           "file": "specs/skills-wiki/skills/gate-trace.md",
@@ -1435,6 +1549,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-06-verify-work-runner-scripts-oversized.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-23-completeness-critic-code-tags-schema-drift.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -1536,19 +1656,13 @@
           "method": "file_heuristic"
         },
         {
-          "file": ".kilocode/rules/verify-work.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
           "file": "scripts/test-completeness-critic-scope.sh",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         }
       ],
-      "link_count": 30
+      "link_count": 40
     },
     {
       "id": "e45s06",
@@ -1594,6 +1708,24 @@
           "line": 2,
           "confidence": "high",
           "method": "explicit_tag"
+        },
+        {
+          "file": ".windsurf/rules/security-review.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".windsurf/rules/request-review.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".windsurf/rules/respond-review.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
         },
         {
           "file": "specs/DEEPEN-ARCHITECTURE-REVIEW.md",
@@ -1794,7 +1926,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 35
+      "link_count": 38
     },
     {
       "id": "e45s08",
@@ -1816,6 +1948,18 @@
           "line": 3,
           "confidence": "high",
           "method": "explicit_tag"
+        },
+        {
+          "file": ".windsurf/rules/develop-tdd.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".windsurf/rules/validate-fix.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
         },
         {
           "file": "specs/skills-wiki/skills/develop-tdd.md",
@@ -1872,7 +2016,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 11
+      "link_count": 13
     },
     {
       "id": "e45s09",
@@ -1896,6 +2040,36 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".trae/skills/verify-work/SKILL.md",
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".windsurf/rules/verify-work.md",
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".agents/skills/verify-work/SKILL.md",
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".kilocode/rules/verify-work.md",
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codex/skills/verify-work/SKILL.md",
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "skills/plan-work/SKILL.md",
           "line": 3,
           "confidence": "high",
@@ -1904,6 +2078,30 @@
         {
           "file": "skills/verify-work/SKILL.md",
           "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codebuddy/skills/verify-work/SKILL.md",
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".zcode/skills/verify-work/SKILL.md",
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".mimocode/skills/verify-work/SKILL.md",
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".hermes/skills/verify-work/SKILL.md",
+          "line": 10,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -1918,6 +2116,30 @@
           "line": 10,
           "confidence": "high",
           "method": "explicit_tag"
+        },
+        {
+          "file": ".windsurf/rules/scope-work.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".windsurf/rules/plan-work.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".windsurf/rules/compose-workflow.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".windsurf/rules/organize-workspace.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
         },
         {
           "file": "specs/WORKFLOW-solo-git.md",
@@ -2089,6 +2311,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-23-golden-g11-worktree-venv.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-23-golden-g11-worktree-venv.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -2280,12 +2508,6 @@
           "method": "file_heuristic"
         },
         {
-          "file": ".kilocode/rules/verify-work.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
           "file": ".kilocode/rules/compose-workflow.md",
           "line": 0,
           "confidence": "medium",
@@ -2316,7 +2538,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 72
+      "link_count": 85
     },
     {
       "id": "e45s10",
@@ -2394,8 +2616,62 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".trae/skills/dispatch-agents/SKILL.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".windsurf/rules/dispatch-agents.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".agents/skills/dispatch-agents/SKILL.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".kilocode/rules/dispatch-agents.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codex/skills/dispatch-agents/SKILL.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "skills/dispatch-agents/SKILL.md",
           "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codebuddy/skills/dispatch-agents/SKILL.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".zcode/skills/dispatch-agents/SKILL.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".mimocode/skills/dispatch-agents/SKILL.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".hermes/skills/dispatch-agents/SKILL.md",
+          "line": 9,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -2428,15 +2704,9 @@
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
-        },
-        {
-          "file": ".kilocode/rules/dispatch-agents.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
         }
       ],
-      "link_count": 9
+      "link_count": 17
     },
     {
       "id": "e45s12",
@@ -2460,6 +2730,36 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".trae/skills/stocktake-skills/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".windsurf/rules/stocktake-skills.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".agents/skills/stocktake-skills/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".kilocode/rules/stocktake-skills.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codex/skills/stocktake-skills/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "scripts/validate-skill-catalog.sh",
           "line": 2,
           "confidence": "high",
@@ -2478,6 +2778,30 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".codebuddy/skills/stocktake-skills/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".zcode/skills/stocktake-skills/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".mimocode/skills/stocktake-skills/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".hermes/skills/stocktake-skills/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": ".pi/prompts/stocktake-skills.md",
           "line": 7,
           "confidence": "high",
@@ -2491,6 +2815,18 @@
         },
         {
           "file": "skills-lock.json",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".windsurf/rules/search-skills.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".windsurf/rules/craft-skill.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -2604,12 +2940,6 @@
           "method": "file_heuristic"
         },
         {
-          "file": ".kilocode/rules/stocktake-skills.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
           "file": ".kilocode/rules/search-skills.md",
           "line": 0,
           "confidence": "medium",
@@ -2646,7 +2976,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 33
+      "link_count": 43
     },
     {
       "id": "e45s13",
@@ -2670,8 +3000,62 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".trae/skills/verify-work/SKILL.md",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".windsurf/rules/verify-work.md",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".agents/skills/verify-work/SKILL.md",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".kilocode/rules/verify-work.md",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codex/skills/verify-work/SKILL.md",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "skills/verify-work/SKILL.md",
           "line": 12,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codebuddy/skills/verify-work/SKILL.md",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".zcode/skills/verify-work/SKILL.md",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".mimocode/skills/verify-work/SKILL.md",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".hermes/skills/verify-work/SKILL.md",
+          "line": 11,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -2742,12 +3126,6 @@
           "method": "file_heuristic"
         },
         {
-          "file": ".kilocode/rules/verify-work.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
           "file": "scripts/test-tombstone-mechanism.sh",
           "line": 0,
           "confidence": "medium",
@@ -2760,7 +3138,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 17
+      "link_count": 25
     },
     {
       "id": "e45s14",
@@ -2782,6 +3160,12 @@
           "line": 2,
           "confidence": "high",
           "method": "explicit_tag"
+        },
+        {
+          "file": ".windsurf/rules/deepen-architecture.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
         },
         {
           "file": "specs/DEEPEN-ARCHITECTURE-REVIEW.md",
@@ -2814,7 +3198,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 7
+      "link_count": 8
     },
     {
       "id": "e45s15",
@@ -2838,6 +3222,36 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".trae/skills/release-branch/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".windsurf/rules/release-branch.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".agents/skills/release-branch/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".kilocode/rules/release-branch.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codex/skills/release-branch/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "skills/deploy/SKILL.md",
           "line": 1,
           "confidence": "high",
@@ -2846,6 +3260,30 @@
         {
           "file": "skills/release-branch/SKILL.md",
           "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codebuddy/skills/release-branch/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".zcode/skills/release-branch/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".mimocode/skills/release-branch/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".hermes/skills/release-branch/SKILL.md",
+          "line": 8,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -2896,15 +3334,9 @@
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
-        },
-        {
-          "file": ".kilocode/rules/release-branch.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
         }
       ],
-      "link_count": 13
+      "link_count": 21
     },
     {
       "id": "e45s16",
@@ -2922,14 +3354,14 @@
           "method": "explicit_tag"
         },
         {
-          "file": "scripts/install.sh",
-          "line": 94,
+          "file": "scripts/hooks/rtk-rewrite.sh",
+          "line": 2,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
-          "file": "scripts/hooks/rtk-rewrite.sh",
-          "line": 2,
+          "file": "scripts/lib/install-targets-a.sh",
+          "line": 27,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -2956,6 +3388,24 @@
           "line": 3,
           "confidence": "high",
           "method": "explicit_tag"
+        },
+        {
+          "file": ".windsurf/rules/security-review.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".windsurf/rules/request-review.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".windsurf/rules/respond-review.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
         },
         {
           "file": "specs/DEEPEN-ARCHITECTURE-REVIEW.md",
@@ -3114,7 +3564,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 27
+      "link_count": 30
     },
     {
       "id": "e45s18",
@@ -3138,6 +3588,36 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".trae/skills/security-review/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".windsurf/rules/security-review.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".agents/skills/security-review/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".kilocode/rules/security-review.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codex/skills/security-review/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "scripts/lib/parallel-review-worktrees.sh",
           "line": 2,
           "confidence": "high",
@@ -3156,6 +3636,30 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".codebuddy/skills/security-review/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".zcode/skills/security-review/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".mimocode/skills/security-review/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".hermes/skills/security-review/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": ".pi/prompts/security-review.md",
           "line": 7,
           "confidence": "high",
@@ -3166,6 +3670,12 @@
           "line": 8,
           "confidence": "high",
           "method": "explicit_tag"
+        },
+        {
+          "file": ".windsurf/rules/audit-code.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
         },
         {
           "file": "specs/skills-wiki/skills/security-review.md",
@@ -3246,6 +3756,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-151538.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260723-132836.md",
           "line": 0,
           "confidence": "medium",
@@ -3312,6 +3828,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-132011.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260706-172717.md",
           "line": 0,
           "confidence": "medium",
@@ -3355,6 +3877,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-122420.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-154721.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -3426,6 +3954,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-131516.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260707-101228.md",
           "line": 0,
           "confidence": "medium",
@@ -3463,6 +3997,18 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260704-000102.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-131912.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-132538.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -3517,6 +4063,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-182629.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-161434.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -3876,6 +4428,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-164053.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260723-154055.md",
           "line": 0,
           "confidence": "medium",
@@ -3948,6 +4506,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-131715.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-133750.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260707-105711.md",
           "line": 0,
           "confidence": "medium",
@@ -4009,6 +4579,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260724-094025.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-161022.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4278,6 +4854,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-145214.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-161026.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-164627.md",
           "line": 0,
           "confidence": "medium",
@@ -4315,6 +4903,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-164603.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-151437.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4482,6 +5076,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-164643.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260718-205433.md",
           "line": 0,
           "confidence": "medium",
@@ -4584,6 +5184,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-165006.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-005515.md",
           "line": 0,
           "confidence": "medium",
@@ -4627,6 +5233,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-165618.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-130546.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4681,6 +5293,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260707-001919.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-144757.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4806,6 +5424,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-130623.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260723-162439.md",
           "line": 0,
           "confidence": "medium",
@@ -4926,6 +5550,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-165120.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260713-143840.md",
           "line": 0,
           "confidence": "medium",
@@ -5004,7 +5634,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-154344.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260707-120815.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-164833.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5119,6 +5761,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260707-104009.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-163929.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5352,6 +6000,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-160906.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260724-094142.md",
           "line": 0,
           "confidence": "medium",
@@ -5412,6 +6066,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-164249.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260706-132604.md",
           "line": 0,
           "confidence": "medium",
@@ -5419,6 +6079,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-142359.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-163353.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5437,6 +6103,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260706-174408.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-163120.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5503,6 +6175,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-165111.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-144700.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5580,6 +6258,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-160919.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260706-204345.md",
           "line": 0,
           "confidence": "medium",
@@ -5641,6 +6325,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260707-105058.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-163457.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5718,6 +6408,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-131617.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260706-181159.md",
           "line": 0,
           "confidence": "medium",
@@ -5778,6 +6474,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-154451.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260704-004226.md",
           "line": 0,
           "confidence": "medium",
@@ -5785,6 +6487,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260706-212552.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-161624.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5953,6 +6661,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260723-164258.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-164418.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -6348,19 +7062,13 @@
           "method": "file_heuristic"
         },
         {
-          "file": ".kilocode/rules/security-review.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
           "file": ".kilocode/rules/audit-code.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         }
       ],
-      "link_count": 539
+      "link_count": 582
     },
     {
       "id": "e45s19",
@@ -6474,8 +7182,68 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".trae/skills/seed-conventions/SKILL.md",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".trae/skills/seed-conventions/SKILL.md",
+          "line": 107,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".windsurf/rules/seed-conventions.md",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".windsurf/rules/seed-conventions.md",
+          "line": 107,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".agents/skills/seed-conventions/SKILL.md",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".agents/skills/seed-conventions/SKILL.md",
+          "line": 107,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "docs/templates/AGENTS.md",
           "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".kilocode/rules/seed-conventions.md",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".kilocode/rules/seed-conventions.md",
+          "line": 107,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codex/skills/seed-conventions/SKILL.md",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codex/skills/seed-conventions/SKILL.md",
+          "line": 107,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -6488,6 +7256,54 @@
         {
           "file": "skills/seed-conventions/SKILL.md",
           "line": 12,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codebuddy/skills/seed-conventions/SKILL.md",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codebuddy/skills/seed-conventions/SKILL.md",
+          "line": 107,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".zcode/skills/seed-conventions/SKILL.md",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".zcode/skills/seed-conventions/SKILL.md",
+          "line": 107,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".mimocode/skills/seed-conventions/SKILL.md",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".mimocode/skills/seed-conventions/SKILL.md",
+          "line": 107,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".hermes/skills/seed-conventions/SKILL.md",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".hermes/skills/seed-conventions/SKILL.md",
+          "line": 107,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -6532,15 +7348,9 @@
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
-        },
-        {
-          "file": ".kilocode/rules/seed-conventions.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
         }
       ],
-      "link_count": 15
+      "link_count": 32
     },
     {
       "id": "e45s22",
@@ -6551,6 +7361,12 @@
       "wsjf": 5.0,
       "status": "done",
       "links": [
+        {
+          "file": "scripts/generate-wave-b-hub.py",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "CLAUDE.md",
           "line": 3,
@@ -6564,7 +7380,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 2
+      "link_count": 3
     },
     {
       "id": "e45s23",
@@ -6588,14 +7404,68 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".trae/skills/session-state/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".windsurf/rules/session-state.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".agents/skills/session-state/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".kilocode/rules/session-state.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codex/skills/session-state/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "skills/session-state/SKILL.md",
           "line": 8,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
+          "file": ".codebuddy/skills/session-state/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".zcode/skills/session-state/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "CLAUDE.md",
           "line": 4,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".mimocode/skills/session-state/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".hermes/skills/session-state/SKILL.md",
+          "line": 7,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -6624,7 +7494,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 8
+      "link_count": 17
     },
     {
       "id": "e45s24",
@@ -6714,6 +7584,36 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".trae/skills/security-review/SKILL.md",
+          "line": 16,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".windsurf/rules/security-review.md",
+          "line": 16,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".agents/skills/security-review/SKILL.md",
+          "line": 16,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".kilocode/rules/security-review.md",
+          "line": 16,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codex/skills/security-review/SKILL.md",
+          "line": 16,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "skills/security-review/SKILL.md",
           "line": 22,
           "confidence": "high",
@@ -6740,6 +7640,30 @@
         {
           "file": "skills/security-review/fixtures/CWE-79-xss-negative.js",
           "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codebuddy/skills/security-review/SKILL.md",
+          "line": 16,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".zcode/skills/security-review/SKILL.md",
+          "line": 16,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".mimocode/skills/security-review/SKILL.md",
+          "line": 16,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".hermes/skills/security-review/SKILL.md",
+          "line": 16,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -6778,15 +7702,9 @@
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
-        },
-        {
-          "file": ".kilocode/rules/security-review.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
         }
       ],
-      "link_count": 14
+      "link_count": 22
     },
     {
       "id": "e45s27",
@@ -6810,8 +7728,62 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".trae/skills/compose-workflow/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".windsurf/rules/compose-workflow.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".agents/skills/compose-workflow/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".kilocode/rules/compose-workflow.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codex/skills/compose-workflow/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "skills/compose-workflow/SKILL.md",
           "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codebuddy/skills/compose-workflow/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".zcode/skills/compose-workflow/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".mimocode/skills/compose-workflow/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".hermes/skills/compose-workflow/SKILL.md",
+          "line": 8,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -6828,7 +7800,7 @@
           "method": "explicit_tag"
         }
       ],
-      "link_count": 5
+      "link_count": 14
     },
     {
       "id": "e45s28",
@@ -6852,8 +7824,62 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".trae/skills/request-review/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".windsurf/rules/request-review.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".agents/skills/request-review/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".kilocode/rules/request-review.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codex/skills/request-review/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "skills/request-review/SKILL.md",
           "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codebuddy/skills/request-review/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".zcode/skills/request-review/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".mimocode/skills/request-review/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".hermes/skills/request-review/SKILL.md",
+          "line": 7,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -6892,15 +7918,9 @@
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
-        },
-        {
-          "file": ".kilocode/rules/request-review.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
         }
       ],
-      "link_count": 10
+      "link_count": 18
     },
     {
       "id": "e45s29",
@@ -6948,6 +7968,96 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".trae/skills/plan-work/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".trae/skills/change-request/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".trae/skills/slice-tasks/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".windsurf/rules/slice-tasks.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".windsurf/rules/plan-work.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".windsurf/rules/change-request.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".agents/skills/plan-work/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".agents/skills/change-request/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".agents/skills/slice-tasks/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".kilocode/rules/slice-tasks.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".kilocode/rules/plan-work.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".kilocode/rules/change-request.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codex/skills/plan-work/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codex/skills/change-request/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codex/skills/slice-tasks/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "skills/plan-work/SKILL.md",
           "line": 13,
           "confidence": "high",
@@ -6962,6 +8072,78 @@
         {
           "file": "skills/slice-tasks/SKILL.md",
           "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codebuddy/skills/plan-work/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codebuddy/skills/change-request/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codebuddy/skills/slice-tasks/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".zcode/skills/plan-work/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".zcode/skills/change-request/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".zcode/skills/slice-tasks/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".mimocode/skills/plan-work/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".mimocode/skills/change-request/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".mimocode/skills/slice-tasks/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".hermes/skills/plan-work/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".hermes/skills/change-request/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".hermes/skills/slice-tasks/SKILL.md",
+          "line": 7,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -7002,7 +8184,7 @@
           "method": "explicit_tag"
         }
       ],
-      "link_count": 15
+      "link_count": 42
     },
     {
       "id": "e45s30",
@@ -7038,6 +8220,66 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".trae/skills/delegate-task/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".trae/skills/dispatch-agents/SKILL.md",
+          "line": 12,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".windsurf/rules/dispatch-agents.md",
+          "line": 12,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".windsurf/rules/delegate-task.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".agents/skills/delegate-task/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".agents/skills/dispatch-agents/SKILL.md",
+          "line": 12,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".kilocode/rules/dispatch-agents.md",
+          "line": 12,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".kilocode/rules/delegate-task.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codex/skills/delegate-task/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codex/skills/dispatch-agents/SKILL.md",
+          "line": 12,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "skills/delegate-task/SKILL.md",
           "line": 8,
           "confidence": "high",
@@ -7046,6 +8288,54 @@
         {
           "file": "skills/dispatch-agents/SKILL.md",
           "line": 13,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codebuddy/skills/delegate-task/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codebuddy/skills/dispatch-agents/SKILL.md",
+          "line": 12,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".zcode/skills/delegate-task/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".zcode/skills/dispatch-agents/SKILL.md",
+          "line": 12,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".mimocode/skills/delegate-task/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".mimocode/skills/dispatch-agents/SKILL.md",
+          "line": 12,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".hermes/skills/delegate-task/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".hermes/skills/dispatch-agents/SKILL.md",
+          "line": 12,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -7074,7 +8364,7 @@
           "method": "explicit_tag"
         }
       ],
-      "link_count": 10
+      "link_count": 28
     },
     {
       "id": "e45s31",
@@ -7102,6 +8392,18 @@
           "line": 3,
           "confidence": "high",
           "method": "explicit_tag"
+        },
+        {
+          "file": ".windsurf/rules/audit-code.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".windsurf/rules/deepen-architecture.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
         },
         {
           "file": "specs/DEEPEN-ARCHITECTURE-REVIEW.md",
@@ -7206,6 +8508,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-151538.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260723-132836.md",
           "line": 0,
           "confidence": "medium",
@@ -7272,6 +8580,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-132011.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260706-172717.md",
           "line": 0,
           "confidence": "medium",
@@ -7315,6 +8629,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-122420.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-154721.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -7386,6 +8706,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-131516.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260707-101228.md",
           "line": 0,
           "confidence": "medium",
@@ -7423,6 +8749,18 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260704-000102.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-131912.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-132538.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -7477,6 +8815,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-182629.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-161434.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -7836,6 +9180,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-164053.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260723-154055.md",
           "line": 0,
           "confidence": "medium",
@@ -7908,6 +9258,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-131715.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-133750.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260707-105711.md",
           "line": 0,
           "confidence": "medium",
@@ -7969,6 +9331,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260724-094025.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-161022.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8238,6 +9606,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-145214.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-161026.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-164627.md",
           "line": 0,
           "confidence": "medium",
@@ -8275,6 +9655,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-164603.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-151437.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8442,6 +9828,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-164643.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260718-205433.md",
           "line": 0,
           "confidence": "medium",
@@ -8544,6 +9936,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-165006.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-005515.md",
           "line": 0,
           "confidence": "medium",
@@ -8587,6 +9985,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-165618.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-130546.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8641,6 +10045,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260707-001919.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-144757.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8766,6 +10176,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-130623.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260723-162439.md",
           "line": 0,
           "confidence": "medium",
@@ -8886,6 +10302,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-165120.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260713-143840.md",
           "line": 0,
           "confidence": "medium",
@@ -8964,7 +10386,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-154344.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260707-120815.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-164833.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -9079,6 +10513,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260707-104009.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-163929.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -9312,6 +10752,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-160906.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260724-094142.md",
           "line": 0,
           "confidence": "medium",
@@ -9372,6 +10818,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-164249.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260706-132604.md",
           "line": 0,
           "confidence": "medium",
@@ -9379,6 +10831,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-142359.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-163353.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -9397,6 +10855,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260706-174408.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-163120.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -9463,6 +10927,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-165111.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-144700.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -9540,6 +11010,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-160919.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260706-204345.md",
           "line": 0,
           "confidence": "medium",
@@ -9601,6 +11077,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260707-105058.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-163457.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -9678,6 +11160,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-131617.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260706-181159.md",
           "line": 0,
           "confidence": "medium",
@@ -9738,6 +11226,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-154451.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260704-004226.md",
           "line": 0,
           "confidence": "medium",
@@ -9745,6 +11239,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260706-212552.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-161624.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -9913,6 +11413,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260723-164258.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-164418.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -10302,7 +11808,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 536
+      "link_count": 572
     },
     {
       "id": "e45s32",
@@ -10326,8 +11832,38 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".trae/skills/release-branch/SKILL.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".windsurf/rules/release-branch.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "specs/tech-architecture/CATALOG-BASELINE-2026-07-23.yaml",
           "line": 182,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".agents/skills/release-branch/SKILL.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".kilocode/rules/release-branch.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codex/skills/release-branch/SKILL.md",
+          "line": 9,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -10344,6 +11880,30 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".codebuddy/skills/release-branch/SKILL.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".zcode/skills/release-branch/SKILL.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".mimocode/skills/release-branch/SKILL.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".hermes/skills/release-branch/SKILL.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": ".pi/prompts/release-branch.md",
           "line": 8,
           "confidence": "high",
@@ -10354,6 +11914,12 @@
           "line": 9,
           "confidence": "high",
           "method": "explicit_tag"
+        },
+        {
+          "file": ".windsurf/rules/gate-trace.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
         },
         {
           "file": "specs/skills-wiki/skills/gate-trace.md",
@@ -10468,15 +12034,9 @@
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
-        },
-        {
-          "file": ".kilocode/rules/release-branch.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
         }
       ],
-      "link_count": 27
+      "link_count": 36
     },
     {
       "id": "e45s33",
@@ -10524,6 +12084,12 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".windsurf/rules/develop-tdd.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/skills-wiki/skills/develop-tdd.md",
           "line": 0,
           "confidence": "medium",
@@ -10554,7 +12120,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 6
+      "link_count": 7
     },
     {
       "id": "e45s35",
@@ -10570,6 +12136,12 @@
           "line": 5,
           "confidence": "high",
           "method": "explicit_tag"
+        },
+        {
+          "file": ".windsurf/rules/plan-work.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
         },
         {
           "file": "specs/skills-wiki/skills/plan-work.md",
@@ -10602,7 +12174,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 6
+      "link_count": 7
     },
     {
       "id": "e45s36",
@@ -10644,6 +12216,12 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".windsurf/rules/run-evals.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/skills-wiki/skills/run-evals.md",
           "line": 0,
           "confidence": "medium",
@@ -10680,7 +12258,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 7
+      "link_count": 8
     },
     {
       "id": "e45s38",
@@ -10704,6 +12282,36 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".trae/skills/dispatch-agents/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".windsurf/rules/dispatch-agents.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".agents/skills/dispatch-agents/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".kilocode/rules/dispatch-agents.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codex/skills/dispatch-agents/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "skills/diagnose-stall/SKILL.md",
           "line": 1,
           "confidence": "high",
@@ -10712,6 +12320,30 @@
         {
           "file": "skills/dispatch-agents/SKILL.md",
           "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codebuddy/skills/dispatch-agents/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".zcode/skills/dispatch-agents/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".mimocode/skills/dispatch-agents/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".hermes/skills/dispatch-agents/SKILL.md",
+          "line": 8,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -10740,7 +12372,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 8
+      "link_count": 17
     },
     {
       "id": "e45s39",
@@ -10764,8 +12396,62 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".trae/skills/release-branch/SKILL.md",
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".windsurf/rules/release-branch.md",
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".agents/skills/release-branch/SKILL.md",
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".kilocode/rules/release-branch.md",
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codex/skills/release-branch/SKILL.md",
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "skills/release-branch/SKILL.md",
           "line": 12,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codebuddy/skills/release-branch/SKILL.md",
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".zcode/skills/release-branch/SKILL.md",
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".mimocode/skills/release-branch/SKILL.md",
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".hermes/skills/release-branch/SKILL.md",
+          "line": 10,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -10782,7 +12468,7 @@
           "method": "explicit_tag"
         }
       ],
-      "link_count": 5
+      "link_count": 14
     },
     {
       "id": "e45s40",
@@ -10806,8 +12492,62 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".trae/skills/verify-work/SKILL.md",
+          "line": 12,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".windsurf/rules/verify-work.md",
+          "line": 12,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".agents/skills/verify-work/SKILL.md",
+          "line": 12,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".kilocode/rules/verify-work.md",
+          "line": 12,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codex/skills/verify-work/SKILL.md",
+          "line": 12,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "skills/verify-work/SKILL.md",
           "line": 13,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codebuddy/skills/verify-work/SKILL.md",
+          "line": 12,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".zcode/skills/verify-work/SKILL.md",
+          "line": 12,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".mimocode/skills/verify-work/SKILL.md",
+          "line": 12,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".hermes/skills/verify-work/SKILL.md",
+          "line": 12,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -10876,15 +12616,9 @@
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
-        },
-        {
-          "file": ".kilocode/rules/verify-work.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
         }
       ],
-      "link_count": 15
+      "link_count": 23
     },
     {
       "id": "e45s41",
@@ -10908,8 +12642,62 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".trae/skills/security-review/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".windsurf/rules/security-review.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".agents/skills/security-review/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".kilocode/rules/security-review.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codex/skills/security-review/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "skills/security-review/SKILL.md",
           "line": 13,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codebuddy/skills/security-review/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".zcode/skills/security-review/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".mimocode/skills/security-review/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".hermes/skills/security-review/SKILL.md",
+          "line": 7,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -10948,15 +12736,9 @@
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
-        },
-        {
-          "file": ".kilocode/rules/security-review.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
         }
       ],
-      "link_count": 10
+      "link_count": 18
     },
     {
       "id": "e48s01",
@@ -11022,6 +12804,12 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".windsurf/rules/maintain-wiki.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/steps/and-complex-logic-should-include-provenance-links-adrs-jira-or-commits.sh",
           "line": 0,
           "confidence": "medium",
@@ -11029,6 +12817,18 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-06-evolve-skill-sync-oversized.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-23-epics-wiki-empty-references.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-24-installer-spinner-freezes-during-sync.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -11148,7 +12948,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 30
+      "link_count": 33
     },
     {
       "id": "e48s02",
@@ -11334,6 +13134,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-07-24-installer-runs-dev-maintenance-pipeline.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-23-golden-g11-worktree-venv.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-06-run-evals-golden-suite-oversized.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -11406,7 +13218,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 41
+      "link_count": 43
     },
     {
       "id": "e48s03",
@@ -11422,6 +13234,18 @@
           "line": 3,
           "confidence": "high",
           "method": "explicit_tag"
+        },
+        {
+          "file": ".windsurf/rules/fix-bug.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".windsurf/rules/investigate-bug.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
         },
         {
           "file": "specs/skills-wiki/skills/fix-bug.md",
@@ -11479,6 +13303,12 @@
         },
         {
           "file": "specs/bugs/BUG-001.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-24-bp-yaml-set-repo-root-unbound.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -11610,6 +13440,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-07-24-installer-spinner-freezes-during-sync.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-23-epics-wiki-empty-references.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-06-11T183000.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -11635,6 +13477,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-03-golden-lock-stale-e37-ids.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-24-installer-spinner-freezes-during-sync.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -11700,6 +13548,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-07-18-skill-index-phase-table-drift.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-06-18T100000.md",
           "line": 0,
           "confidence": "medium",
@@ -11707,6 +13561,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-03-trace-stories-613-line.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-23-completeness-critic-code-tags-schema-drift.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -11838,6 +13698,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-07-24-bp-yaml-set-repo-root-unbound.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-04-python-interpreter-fragility.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -11880,6 +13746,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-07-24-installer-runs-dev-maintenance-pipeline.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-23-epics-wiki-empty-references.md",
           "line": 0,
           "confidence": "medium",
@@ -11887,6 +13759,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-06-24T045323.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-23-golden-g11-worktree-venv.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -11935,6 +13813,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-03T020000.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-18-setup-pyyaml-missing.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -12013,6 +13897,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-06-11T120000.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-24-installer-runs-dev-maintenance-pipeline.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -12186,7 +14076,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 128
+      "link_count": 141
     },
     {
       "id": "e48s04",
@@ -12197,6 +14087,18 @@
       "wsjf": 2.5,
       "status": "done",
       "links": [
+        {
+          "file": ".windsurf/rules/enforce-first.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".windsurf/rules/visual-dashboard.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
         {
           "file": "specs/skills-wiki/skills/enforce-first.md",
           "line": 0,
@@ -12258,7 +14160,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 10
+      "link_count": 12
     },
     {
       "id": "e48s05",
@@ -12462,6 +14364,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-07-24-bp-yaml-set-repo-root-unbound.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-06-02T164500.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -12516,6 +14424,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-07-23-epics-wiki-empty-references.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-06-11T183000.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -12523,6 +14437,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-02-skill-verify-false-fails.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-24-installer-spinner-freezes-during-sync.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -12559,6 +14479,18 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-03-install-docs-stale.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-18-skill-index-phase-table-drift.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-23-completeness-critic-code-tags-schema-drift.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -12648,7 +14580,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-07-24-installer-runs-dev-maintenance-pipeline.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-06-24T045323.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-23-golden-g11-worktree-venv.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -12685,6 +14629,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-06T134600.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-18-setup-pyyaml-missing.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -12888,6 +14838,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/epics-wiki/e72.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/epics-wiki/e03.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -12930,7 +14886,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/epics-wiki/e62.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/epics-wiki/e01.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics-wiki/e70.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -12955,6 +14923,12 @@
         },
         {
           "file": "specs/epics-wiki/e17.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics-wiki/e66.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -12990,13 +14964,31 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/epics-wiki/e64.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/epics-wiki/e19.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         },
         {
+          "file": "specs/epics-wiki/e68.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/epics-wiki/e15.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics-wiki/e76.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -13020,7 +15012,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/epics-wiki/e73.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/epics-wiki/e10.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics-wiki/e61.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -13057,6 +15061,12 @@
         },
         {
           "file": "specs/epics-wiki/e12.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics-wiki/e71.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -13134,6 +15144,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/epics-wiki/e67.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/epics-wiki/e41.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -13159,6 +15175,12 @@
         },
         {
           "file": "specs/epics-wiki/e18.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics-wiki/e65.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -13242,7 +15264,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 162
+      "link_count": 182
     },
     {
       "id": "e48s06",
@@ -13261,6 +15283,12 @@
         },
         {
           "file": "specs/verifications/steps/and-error-messages-should-include-a-remediation-hint-for-the-agent.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-23-epics-wiki-empty-references.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -13308,7 +15336,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 9
+      "link_count": 10
     },
     {
       "id": "e48s07",
@@ -13428,6 +15456,12 @@
       "status": "done",
       "links": [
         {
+          "file": ".windsurf/rules/grill-with-docs.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/skills-wiki/skills/grill-with-docs.md",
           "line": 0,
           "confidence": "medium",
@@ -13506,7 +15540,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 13
+      "link_count": 14
     },
     {
       "id": "e48s11",
@@ -13517,6 +15551,12 @@
       "wsjf": 2.5,
       "status": "done",
       "links": [
+        {
+          "file": ".windsurf/rules/smoke-test.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
         {
           "file": "specs/skills-wiki/skills/smoke-test.md",
           "line": 0,
@@ -13660,9 +15700,27 @@
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/test-install-helpers.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/test-install-helpers.js",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/test-install-distribute-only.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
         }
       ],
-      "link_count": 24
+      "link_count": 28
     },
     {
       "id": "e48s12",
@@ -13744,6 +15802,18 @@
           "line": 1,
           "confidence": "high",
           "method": "explicit_tag"
+        },
+        {
+          "file": ".windsurf/rules/security-review.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".windsurf/rules/wire-observability.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
         },
         {
           "file": "specs/skills-wiki/skills/security-review.md",
@@ -13842,7 +15912,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 17
+      "link_count": 19
     },
     {
       "id": "e48s14",
@@ -13858,6 +15928,12 @@
           "line": 1,
           "confidence": "high",
           "method": "explicit_tag"
+        },
+        {
+          "file": ".windsurf/rules/build-epic.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
         },
         {
           "file": "specs/skills-wiki/skills/build-epic.md",
@@ -13932,7 +16008,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 13
+      "link_count": 14
     },
     {
       "id": "e48s15",
@@ -14082,6 +16158,30 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".trae/skills/seed-conventions/SKILL.md",
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".trae/skills/seed-conventions/SKILL.md",
+          "line": 106,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".windsurf/rules/seed-conventions.md",
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".windsurf/rules/seed-conventions.md",
+          "line": 106,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "specs/epics/archive/e51-always-green-shift-left/e51s02-seed-preflight-default.md",
           "line": 1,
           "confidence": "high",
@@ -14100,6 +16200,42 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".agents/skills/seed-conventions/SKILL.md",
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".agents/skills/seed-conventions/SKILL.md",
+          "line": 106,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".kilocode/rules/seed-conventions.md",
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".kilocode/rules/seed-conventions.md",
+          "line": 106,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codex/skills/seed-conventions/SKILL.md",
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codex/skills/seed-conventions/SKILL.md",
+          "line": 106,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "skills/seed-conventions/REFERENCE.md",
           "line": 1,
           "confidence": "high",
@@ -14108,6 +16244,54 @@
         {
           "file": "skills/seed-conventions/SKILL.md",
           "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codebuddy/skills/seed-conventions/SKILL.md",
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codebuddy/skills/seed-conventions/SKILL.md",
+          "line": 106,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".zcode/skills/seed-conventions/SKILL.md",
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".zcode/skills/seed-conventions/SKILL.md",
+          "line": 106,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".mimocode/skills/seed-conventions/SKILL.md",
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".mimocode/skills/seed-conventions/SKILL.md",
+          "line": 106,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".hermes/skills/seed-conventions/SKILL.md",
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".hermes/skills/seed-conventions/SKILL.md",
+          "line": 106,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -14178,19 +16362,13 @@
           "method": "file_heuristic"
         },
         {
-          "file": ".kilocode/rules/seed-conventions.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
           "file": "profiles/solo-git.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         }
       ],
-      "link_count": 22
+      "link_count": 39
     },
     {
       "id": "e51s03",
@@ -14226,6 +16404,30 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".trae/skills/verify-work/SKILL.md",
+          "line": 13,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".trae/skills/kickoff-branch/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".windsurf/rules/kickoff-branch.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".windsurf/rules/verify-work.md",
+          "line": 13,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "specs/epics/archive/e51-always-green-shift-left/e51s03-tasks.yaml",
           "line": 28,
           "confidence": "high",
@@ -14244,6 +16446,42 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".agents/skills/verify-work/SKILL.md",
+          "line": 13,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".agents/skills/kickoff-branch/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".kilocode/rules/kickoff-branch.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".kilocode/rules/verify-work.md",
+          "line": 13,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codex/skills/verify-work/SKILL.md",
+          "line": 13,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codex/skills/kickoff-branch/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "skills/verify-work/SKILL.md",
           "line": 14,
           "confidence": "high",
@@ -14252,6 +16490,54 @@
         {
           "file": "skills/kickoff-branch/SKILL.md",
           "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codebuddy/skills/verify-work/SKILL.md",
+          "line": 13,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codebuddy/skills/kickoff-branch/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".zcode/skills/verify-work/SKILL.md",
+          "line": 13,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".zcode/skills/kickoff-branch/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".mimocode/skills/verify-work/SKILL.md",
+          "line": 13,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".mimocode/skills/kickoff-branch/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".hermes/skills/verify-work/SKILL.md",
+          "line": 13,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".hermes/skills/kickoff-branch/SKILL.md",
+          "line": 7,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -14460,25 +16746,13 @@
           "method": "file_heuristic"
         },
         {
-          "file": ".kilocode/rules/kickoff-branch.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": ".kilocode/rules/verify-work.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
           "file": "scripts/land-branch.sh",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         }
       ],
-      "link_count": 46
+      "link_count": 62
     },
     {
       "id": "e51s04",
@@ -14545,6 +16819,42 @@
         },
         {
           "file": ".hermes-verify-sed-fix.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".windsurf/rules/develop-tdd.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".windsurf/rules/quick-fix.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".windsurf/rules/validate-fix.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".windsurf/rules/fix-bug.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".windsurf/rules/audit-code.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".windsurf/rules/investigate-bug.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -14664,6 +16974,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-151538.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260723-132836.md",
           "line": 0,
           "confidence": "medium",
@@ -14730,6 +17046,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-132011.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260706-172717.md",
           "line": 0,
           "confidence": "medium",
@@ -14773,6 +17095,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-122420.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-154721.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -14844,6 +17172,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-131516.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260707-101228.md",
           "line": 0,
           "confidence": "medium",
@@ -14881,6 +17215,18 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260704-000102.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-131912.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-132538.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -14935,6 +17281,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-182629.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-161434.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -15294,6 +17646,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-164053.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260723-154055.md",
           "line": 0,
           "confidence": "medium",
@@ -15366,6 +17724,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-131715.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-133750.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260707-105711.md",
           "line": 0,
           "confidence": "medium",
@@ -15427,6 +17797,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260724-094025.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-161022.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -15696,6 +18072,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-145214.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-161026.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-164627.md",
           "line": 0,
           "confidence": "medium",
@@ -15733,6 +18121,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-164603.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-151437.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -15900,6 +18294,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-164643.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260718-205433.md",
           "line": 0,
           "confidence": "medium",
@@ -16002,6 +18402,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-165006.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-005515.md",
           "line": 0,
           "confidence": "medium",
@@ -16045,6 +18451,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-165618.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-130546.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -16099,6 +18511,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260707-001919.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-144757.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -16224,6 +18642,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-130623.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260723-162439.md",
           "line": 0,
           "confidence": "medium",
@@ -16344,6 +18768,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-165120.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260713-143840.md",
           "line": 0,
           "confidence": "medium",
@@ -16422,7 +18852,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-154344.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260707-120815.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-164833.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -16537,6 +18979,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260707-104009.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-163929.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -16770,6 +19218,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-160906.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260724-094142.md",
           "line": 0,
           "confidence": "medium",
@@ -16830,6 +19284,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-164249.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260706-132604.md",
           "line": 0,
           "confidence": "medium",
@@ -16837,6 +19297,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-142359.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-163353.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -16855,6 +19321,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260706-174408.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-163120.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -16921,6 +19393,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-165111.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-144700.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -16998,6 +19476,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-160919.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260706-204345.md",
           "line": 0,
           "confidence": "medium",
@@ -17059,6 +19543,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260707-105058.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-163457.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -17136,6 +19626,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-131617.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260706-181159.md",
           "line": 0,
           "confidence": "medium",
@@ -17196,6 +19692,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-154451.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260704-004226.md",
           "line": 0,
           "confidence": "medium",
@@ -17203,6 +19705,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260706-212552.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-161624.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -17371,6 +19879,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260723-164258.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260724-164418.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -17755,6 +20269,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-04-tautological-verify.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-23-completeness-critic-code-tags-schema-drift.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -17994,7 +20514,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 584
+      "link_count": 625
     },
     {
       "id": "e51s05",
@@ -18678,8 +21198,38 @@
           "method": "explicit_tag"
         },
         {
+          "file": "specs/verifications/AUDIT-e60-e60s01.md",
+          "line": 48,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "specs/epics/e60-interactive-installer/epic.yaml",
-          "line": 32,
+          "line": 35,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/install.sh",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/test-install-helpers.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/test-install-helpers.js",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/lib/install-targets-a.sh",
+          "line": 23,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -18690,7 +21240,7 @@
           "method": "explicit_tag"
         }
       ],
-      "link_count": 3
+      "link_count": 8
     },
     {
       "id": "e61s01",
@@ -18838,9 +21388,177 @@
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/generate-wave-b-hub.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_patch.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_config.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_codegen_install.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_codegen_helpers.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
         }
       ],
-      "link_count": 10
+      "link_count": 15
+    },
+    {
+      "id": "e62s01",
+      "title": "Integration: OpenCode adapter (Wave A)",
+      "epic_id": "e62",
+      "epic_title": "Integration: OpenCode \u2014 Skills + No Hooks",
+      "bcp": 0,
+      "wsjf": 4.0,
+      "status": "done",
+      "links": [
+        {
+          "file": "scripts/adapters/opencode.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/test-opencode-adapter.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e74-integration-antigravity/e74s01-wave-a-adapter-research.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        }
+      ],
+      "link_count": 3
+    },
+    {
+      "id": "e62s02",
+      "title": "Install hub wiring (Wave B)",
+      "epic_id": "e62",
+      "epic_title": "Integration: OpenCode \u2014 Skills + No Hooks",
+      "bcp": 0,
+      "wsjf": 4.0,
+      "status": "done",
+      "links": [
+        {
+          "file": "bin/setup.js",
+          "line": 5,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/install.sh",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/verify-install.sh",
+          "line": 5,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/lib/install-helpers.js",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/lib/install-helpers.js",
+          "line": 296,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/test-opencode-hub.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e74-integration-antigravity/e74s02-hub-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e64-integration-gemini/e64s02-hub-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e69-integration-mimo-code/e69s02-hub-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e76-integration-zcode/e76s02-hub-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e61-integration-hermes/e61s02-hub-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/generate-wave-b-hub.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_patch.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_config.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_codegen_install.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_codegen_helpers.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        }
+      ],
+      "link_count": 16
     },
     {
       "id": "e64s01",
@@ -18849,7 +21567,7 @@
       "epic_title": "Integration: Gemini CLI \u2014 Extensions + Hooks",
       "bcp": 0,
       "wsjf": 6.0,
-      "status": "backlog",
+      "status": "done",
       "links": [
         {
           "file": ".gemini/extensions/bigpowers/hooks/before-tool-git-guard.sh",
@@ -18924,13 +21642,67 @@
           "method": "file_heuristic"
         },
         {
+          "file": "scripts/test-cline-adapter.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/test-windsurf-adapter.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/test-kilocode-adapter.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/test-codex-adapter.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "scripts/test-hermes-adapter.sh",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         },
         {
+          "file": "scripts/test-qwen-adapter.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/test-opencode-adapter.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "scripts/test-adapters.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/test-copilot-adapter.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/test-trae-adapter.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/test-codebuddy-adapter.sh",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -18948,7 +21720,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 16
+      "link_count": 25
     },
     {
       "id": "e64s02",
@@ -18957,7 +21729,7 @@
       "epic_title": "Integration: Gemini CLI \u2014 Extensions + Hooks",
       "bcp": 0,
       "wsjf": 6.0,
-      "status": "backlog",
+      "status": "done",
       "links": [
         {
           "file": "specs/verifications/AUDIT-e64-e64s02.md",
@@ -18973,7 +21745,7 @@
         },
         {
           "file": "scripts/install.sh",
-          "line": 3,
+          "line": 5,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -19018,9 +21790,669 @@
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/generate-wave-b-hub.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_patch.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_config.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_codegen_install.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_codegen_helpers.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
         }
       ],
-      "link_count": 10
+      "link_count": 15
+    },
+    {
+      "id": "e65s01",
+      "title": "Integration: Codex CLI adapter (Wave A)",
+      "epic_id": "e65",
+      "epic_title": "Integration: Codex CLI \u2014 AGENTS.md + Hooks",
+      "bcp": 0,
+      "wsjf": 6.0,
+      "status": "done",
+      "links": [
+        {
+          "file": "scripts/test-codex-adapter.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/adapters/codex.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/hooks/codex/pre-tool-git-guard.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e74-integration-antigravity/e74s01-wave-a-adapter-research.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/test-cline-adapter.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        }
+      ],
+      "link_count": 5
+    },
+    {
+      "id": "e65s02",
+      "title": "Install hub wiring (Wave B)",
+      "epic_id": "e65",
+      "epic_title": "Integration: Codex CLI \u2014 AGENTS.md + Hooks",
+      "bcp": 0,
+      "wsjf": 6.0,
+      "status": "done",
+      "links": [
+        {
+          "file": "scripts/install.sh",
+          "line": 15,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/verify-install.sh",
+          "line": 12,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/lib/install-helpers.js",
+          "line": 16,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/lib/install-helpers.js",
+          "line": 521,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/lib/install-grep.sh",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/test-codex-hub.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e74-integration-antigravity/e74s02-hub-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e64-integration-gemini/e64s02-hub-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e69-integration-mimo-code/e69s02-hub-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e76-integration-zcode/e76s02-hub-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e61-integration-hermes/e61s02-hub-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/generate-wave-b-hub.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_patch.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_config.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_codegen_install.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_codegen_helpers.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        }
+      ],
+      "link_count": 16
+    },
+    {
+      "id": "e66s01",
+      "title": "Integration: Cline adapter (Wave A)",
+      "epic_id": "e66",
+      "epic_title": "Integration: Cline \u2014 Plugins + Plugin Hooks",
+      "bcp": 0,
+      "wsjf": 5.0,
+      "status": "done",
+      "links": [
+        {
+          "file": "scripts/test-cline-adapter.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/adapters/cline.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/hooks/cline/plugin/guard-git-plugin.ts",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e74-integration-antigravity/e74s01-wave-a-adapter-research.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        }
+      ],
+      "link_count": 4
+    },
+    {
+      "id": "e66s02",
+      "title": "Install hub wiring (Wave B)",
+      "epic_id": "e66",
+      "epic_title": "Integration: Cline \u2014 Plugins + Plugin Hooks",
+      "bcp": 0,
+      "wsjf": 5.0,
+      "status": "done",
+      "links": [
+        {
+          "file": "bin/setup.js",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/install.sh",
+          "line": 12,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/verify-install.sh",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/lib/install-helpers.js",
+          "line": 13,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/lib/install-helpers.js",
+          "line": 223,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/test-cline-hub.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e74-integration-antigravity/e74s02-hub-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e64-integration-gemini/e64s02-hub-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e69-integration-mimo-code/e69s02-hub-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e76-integration-zcode/e76s02-hub-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e61-integration-hermes/e61s02-hub-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/generate-wave-b-hub.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_patch.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_config.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_codegen_install.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_codegen_helpers.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        }
+      ],
+      "link_count": 16
+    },
+    {
+      "id": "e67s01",
+      "title": "Integration: Kilo adapter (Wave A)",
+      "epic_id": "e67",
+      "epic_title": "Integration: Kilo \u2014 Skills + Plugin Hooks",
+      "bcp": 0,
+      "wsjf": 5.0,
+      "status": "done",
+      "links": [
+        {
+          "file": "scripts/test-kilocode-adapter.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/adapters/kilocode.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/hooks/kilocode/plugin/guard-git-plugin.ts",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e74-integration-antigravity/e74s01-wave-a-adapter-research.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        }
+      ],
+      "link_count": 4
+    },
+    {
+      "id": "e67s02",
+      "title": "Install hub wiring (Wave B)",
+      "epic_id": "e67",
+      "epic_title": "Integration: Kilo \u2014 Skills + Plugin Hooks",
+      "bcp": 0,
+      "wsjf": 5.0,
+      "status": "done",
+      "links": [
+        {
+          "file": "bin/setup.js",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/install.sh",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/verify-install.sh",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/test-kilocode-hub.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/lib/install-helpers.js",
+          "line": 12,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/lib/install-helpers.js",
+          "line": 243,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e74-integration-antigravity/e74s02-hub-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e64-integration-gemini/e64s02-hub-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e69-integration-mimo-code/e69s02-hub-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e76-integration-zcode/e76s02-hub-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e61-integration-hermes/e61s02-hub-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/generate-wave-b-hub.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_patch.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_config.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_codegen_install.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_codegen_helpers.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        }
+      ],
+      "link_count": 16
+    },
+    {
+      "id": "e68s01",
+      "title": "Integration: Qwen Code adapter (Wave A)",
+      "epic_id": "e68",
+      "epic_title": "Integration: Qwen Code \u2014 Skills + Full Hooks",
+      "bcp": 0,
+      "wsjf": 6.0,
+      "status": "done",
+      "links": [
+        {
+          "file": "scripts/adapters/qwen.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/hooks/qwen/pre-tool-git-guard.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/test-qwen-adapter.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e74-integration-antigravity/e74s01-wave-a-adapter-research.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e76-integration-zcode/e76s01-zcode-adapter.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/test-kilocode-adapter.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/test-codex-adapter.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/test-opencode-adapter.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/test-codebuddy-adapter.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_codegen_install.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_codegen_helpers.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        }
+      ],
+      "link_count": 11
+    },
+    {
+      "id": "e68s02",
+      "title": "Install hub wiring (Wave B)",
+      "epic_id": "e68",
+      "epic_title": "Integration: Qwen Code \u2014 Skills + Full Hooks",
+      "bcp": 0,
+      "wsjf": 6.0,
+      "status": "done",
+      "links": [
+        {
+          "file": "bin/setup.js",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/install.sh",
+          "line": 14,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/targets.yaml",
+          "line": 164,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/verify-install.sh",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/test-qwen-hub.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/lib/install-helpers.js",
+          "line": 15,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/lib/install-helpers.js",
+          "line": 203,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e74-integration-antigravity/e74s02-hub-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e64-integration-gemini/e64s02-hub-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e69-integration-mimo-code/e69s02-hub-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e76-integration-zcode/e76s02-hub-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e61-integration-hermes/e61s02-hub-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/generate-wave-b-hub.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_patch.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_config.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_codegen_install.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_codegen_helpers.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        }
+      ],
+      "link_count": 17
     },
     {
       "id": "e69s01",
@@ -19078,9 +22510,45 @@
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/test-kilocode-adapter.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/test-codex-adapter.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/test-opencode-adapter.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/test-codebuddy-adapter.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_codegen_install.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_codegen_helpers.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
         }
       ],
-      "link_count": 8
+      "link_count": 14
     },
     {
       "id": "e69s02",
@@ -19144,9 +22612,609 @@
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/generate-wave-b-hub.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_patch.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_config.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_codegen_install.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_codegen_helpers.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
         }
       ],
-      "link_count": 9
+      "link_count": 14
+    },
+    {
+      "id": "e70s01",
+      "title": "Integration: Trae adapter (Wave A)",
+      "epic_id": "e70",
+      "epic_title": "Integration: Trae \u2014 Skills + Hooks",
+      "bcp": 0,
+      "wsjf": 5.0,
+      "status": "done",
+      "links": [
+        {
+          "file": "scripts/adapters/trae.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/hooks/trae/pre-tool-git-guard.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/test-trae-adapter.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e74-integration-antigravity/e74s01-wave-a-adapter-research.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        }
+      ],
+      "link_count": 4
+    },
+    {
+      "id": "e70s02",
+      "title": "Install hub wiring (Wave B)",
+      "epic_id": "e70",
+      "epic_title": "Integration: Trae \u2014 Skills + Hooks",
+      "bcp": 0,
+      "wsjf": 5.0,
+      "status": "done",
+      "links": [
+        {
+          "file": "bin/setup.js",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/test-trae-hub.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/install.sh",
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/verify-install.sh",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/lib/install-helpers.js",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/lib/install-helpers.js",
+          "line": 260,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e74-integration-antigravity/e74s02-hub-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e64-integration-gemini/e64s02-hub-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e69-integration-mimo-code/e69s02-hub-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e76-integration-zcode/e76s02-hub-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e61-integration-hermes/e61s02-hub-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/generate-wave-b-hub.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_patch.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_config.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_codegen_install.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_codegen_helpers.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        }
+      ],
+      "link_count": 16
+    },
+    {
+      "id": "e71s01",
+      "title": "Integration: Copilot adapter (Wave A)",
+      "epic_id": "e71",
+      "epic_title": "Integration: Copilot \u2014 Instructions (No Hooks)",
+      "bcp": 0,
+      "wsjf": 4.0,
+      "status": "done",
+      "links": [
+        {
+          "file": "scripts/adapters/copilot.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/test-copilot-adapter.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e74-integration-antigravity/e74s01-wave-a-adapter-research.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        }
+      ],
+      "link_count": 3
+    },
+    {
+      "id": "e71s02",
+      "title": "Install hub wiring (Wave B)",
+      "epic_id": "e71",
+      "epic_title": "Integration: Copilot \u2014 Instructions (No Hooks)",
+      "bcp": 0,
+      "wsjf": 4.0,
+      "status": "done",
+      "links": [
+        {
+          "file": "bin/setup.js",
+          "line": 4,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/test-copilot-hub.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/install.sh",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/verify-install.sh",
+          "line": 4,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/lib/install-helpers.js",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/lib/install-helpers.js",
+          "line": 305,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e74-integration-antigravity/e74s02-hub-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e64-integration-gemini/e64s02-hub-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e69-integration-mimo-code/e69s02-hub-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e76-integration-zcode/e76s02-hub-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e61-integration-hermes/e61s02-hub-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/generate-wave-b-hub.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_patch.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_config.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_codegen_install.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_codegen_helpers.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        }
+      ],
+      "link_count": 16
+    },
+    {
+      "id": "e72s01",
+      "title": "Integration: CodeBuddy adapter (Wave A)",
+      "epic_id": "e72",
+      "epic_title": "Integration: CodeBuddy \u2014 Skills + 27+ Hook Events",
+      "bcp": 0,
+      "wsjf": 6.0,
+      "status": "done",
+      "links": [
+        {
+          "file": "scripts/adapters/codebuddy.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/hooks/codebuddy/pre-tool-git-guard.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/test-codebuddy-adapter.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e74-integration-antigravity/e74s01-wave-a-adapter-research.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        }
+      ],
+      "link_count": 4
+    },
+    {
+      "id": "e72s02",
+      "title": "Install hub wiring (Wave B)",
+      "epic_id": "e72",
+      "epic_title": "Integration: CodeBuddy \u2014 Skills + 27+ Hook Events",
+      "bcp": 0,
+      "wsjf": 6.0,
+      "status": "done",
+      "links": [
+        {
+          "file": "bin/setup.js",
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/install.sh",
+          "line": 13,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/verify-install.sh",
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/test-codebuddy-hub.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/lib/install-helpers.js",
+          "line": 14,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/lib/install-helpers.js",
+          "line": 220,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e74-integration-antigravity/e74s02-hub-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e64-integration-gemini/e64s02-hub-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e69-integration-mimo-code/e69s02-hub-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e76-integration-zcode/e76s02-hub-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e61-integration-hermes/e61s02-hub-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/generate-wave-b-hub.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_patch.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_config.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_codegen_install.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_codegen_helpers.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        }
+      ],
+      "link_count": 16
+    },
+    {
+      "id": "e73s01",
+      "title": "Integration: Windsurf adapter (Wave A)",
+      "epic_id": "e73",
+      "epic_title": "Integration: Windsurf \u2014 Skills + Cascade Hooks",
+      "bcp": 0,
+      "wsjf": 5.0,
+      "status": "done",
+      "links": [
+        {
+          "file": "scripts/test-windsurf-adapter.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/adapters/windsurf.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/hooks/windsurf/pre-tool-git-guard.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e74-integration-antigravity/e74s01-wave-a-adapter-research.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        }
+      ],
+      "link_count": 4
+    },
+    {
+      "id": "e73s02",
+      "title": "Install hub wiring (Wave B)",
+      "epic_id": "e73",
+      "epic_title": "Integration: Windsurf \u2014 Skills + Cascade Hooks",
+      "bcp": 0,
+      "wsjf": 5.0,
+      "status": "done",
+      "links": [
+        {
+          "file": "bin/setup.js",
+          "line": 6,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/install.sh",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/verify-install.sh",
+          "line": 6,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/lib/install-helpers.js",
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/lib/install-helpers.js",
+          "line": 287,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/test-windsurf-hub.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e74-integration-antigravity/e74s02-hub-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e64-integration-gemini/e64s02-hub-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e69-integration-mimo-code/e69s02-hub-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e76-integration-zcode/e76s02-hub-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e61-integration-hermes/e61s02-hub-wiring.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/generate-wave-b-hub.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_patch.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_config.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_codegen_install.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_codegen_helpers.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        }
+      ],
+      "link_count": 16
     },
     {
       "id": "e74s01",
@@ -19198,9 +23266,15 @@
           "line": 3,
           "confidence": "high",
           "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/test-cline-adapter.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
         }
       ],
-      "link_count": 7
+      "link_count": 8
     },
     {
       "id": "e74s02",
@@ -19243,7 +23317,7 @@
         },
         {
           "file": "scripts/install.sh",
-          "line": 4,
+          "line": 6,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -19256,6 +23330,54 @@
         {
           "file": "scripts/adapters/agy.sh",
           "line": 4,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_patch.py",
+          "line": 58,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_patch.py",
+          "line": 59,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_patch.py",
+          "line": 80,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_patch.py",
+          "line": 81,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_patch.py",
+          "line": 130,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_patch.py",
+          "line": 131,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_patch.py",
+          "line": 160,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_patch.py",
+          "line": 161,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -19294,9 +23416,33 @@
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/generate-wave-b-hub.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_config.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_codegen_install.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_codegen_helpers.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
         }
       ],
-      "link_count": 14
+      "link_count": 26
     },
     {
       "id": "e76s01",
@@ -19432,14 +23578,44 @@
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/generate-wave-b-hub.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_patch.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_config.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_codegen_install.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/wave_b_hub_codegen_helpers.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
         }
       ],
-      "link_count": 11
+      "link_count": 16
     }
   ],
   "summary": {
-    "total_stories": 94,
-    "tagged_stories": 84,
+    "total_stories": 112,
+    "tagged_stories": 102,
     "dark_stories": [],
     "dark_count": 0,
     "orphan_tags": [
@@ -19671,17 +23847,37 @@
       "e60s01",
       "e61s01",
       "e61s02",
+      "e62s01",
+      "e62s02",
+      "e64s01",
+      "e64s02",
+      "e65s01",
+      "e65s02",
+      "e66s01",
+      "e66s02",
+      "e67s01",
+      "e67s02",
+      "e68s01",
+      "e68s02",
       "e69s01",
       "e69s02",
+      "e70s01",
+      "e70s02",
+      "e71s01",
+      "e71s02",
+      "e72s01",
+      "e72s02",
+      "e73s01",
+      "e73s02",
       "e74s01",
       "e74s02",
       "e76s01",
       "e76s02"
     ],
-    "stale_count": 82,
+    "stale_count": 102,
     "oracle_stats": {
-      "high": 386,
-      "medium": 2599,
+      "high": 720,
+      "medium": 2925,
       "low": 66
     }
   }

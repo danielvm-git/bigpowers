@@ -13,14 +13,15 @@ fail() { echo "FAIL: $1" >&2; FAIL=$((FAIL + 1)); }
 echo "=== test-hermes-hub.sh ==="
 
 INSTALL_SH="$REPO_ROOT/scripts/install.sh"
+source "$REPO_ROOT/scripts/lib/install-grep.sh"
 HELPERS_JS="$REPO_ROOT/scripts/lib/install-helpers.js"
 SETUP_JS="$REPO_ROOT/bin/setup.js"
 TARGETS_YAML="$REPO_ROOT/scripts/targets.yaml"
 
-grep -q 'install_hermes()' "$INSTALL_SH" && pass 'install.sh: install_hermes()' || fail 'install.sh: missing install_hermes()'
-grep -q 'uninstall_hermes()' "$INSTALL_SH" && pass 'install.sh: uninstall_hermes()' || fail 'install.sh: missing uninstall_hermes()'
-grep -q 'HERMES_SKILLS_DIR=' "$INSTALL_SH" && pass 'install.sh: HERMES_SKILLS_DIR' || fail 'install.sh: missing HERMES_SKILLS_DIR'
-grep -q 'install_hermes' "$INSTALL_SH" && grep -q 'uninstall_hermes' "$INSTALL_SH" && pass 'install.sh: dispatch wired' || fail 'install.sh: dispatch missing hermes'
+install_grep -q 'install_hermes()' && pass 'install.sh: install_hermes()' || fail 'install.sh: missing install_hermes()'
+install_grep -q 'uninstall_hermes()' && pass 'install.sh: uninstall_hermes()' || fail 'install.sh: missing uninstall_hermes()'
+install_grep -q 'HERMES_SKILLS_DIR=' && pass 'install.sh: HERMES_SKILLS_DIR' || fail 'install.sh: missing HERMES_SKILLS_DIR'
+install_grep -q 'install_hermes' && install_grep -q 'uninstall_hermes' && pass 'install.sh: dispatch wired' || fail 'install.sh: dispatch missing hermes'
 
 DRY_OUT="$(bash "$INSTALL_SH" --dry-run 2>&1)"
 grep -q 'Hermes Agent →' <<< "$DRY_OUT" && pass 'dry-run: Hermes Agent section' || fail 'dry-run: missing Hermes Agent section'

@@ -13,14 +13,15 @@ fail() { echo "FAIL: $1" >&2; FAIL=$((FAIL + 1)); }
 echo "=== test-zcode-hub.sh ==="
 
 INSTALL_SH="$REPO_ROOT/scripts/install.sh"
+source "$REPO_ROOT/scripts/lib/install-grep.sh"
 HELPERS_JS="$REPO_ROOT/scripts/lib/install-helpers.js"
 SETUP_JS="$REPO_ROOT/bin/setup.js"
 TARGETS_YAML="$REPO_ROOT/scripts/targets.yaml"
 
-grep -q 'install_zcode()' "$INSTALL_SH" && pass 'install.sh: install_zcode()' || fail 'install.sh: missing install_zcode()'
-grep -q 'uninstall_zcode()' "$INSTALL_SH" && pass 'install.sh: uninstall_zcode()' || fail 'install.sh: missing uninstall_zcode()'
-grep -q 'ZCODE_SKILLS_DIR=' "$INSTALL_SH" && pass 'install.sh: ZCODE_SKILLS_DIR' || fail 'install.sh: missing ZCODE_SKILLS_DIR'
-grep -q 'install_zcode' "$INSTALL_SH" && grep -q 'uninstall_zcode' "$INSTALL_SH" && pass 'install.sh: dispatch wired' || fail 'install.sh: dispatch missing zcode'
+install_grep -q 'install_zcode()' && pass 'install.sh: install_zcode()' || fail 'install.sh: missing install_zcode()'
+install_grep -q 'uninstall_zcode()' && pass 'install.sh: uninstall_zcode()' || fail 'install.sh: missing uninstall_zcode()'
+install_grep -q 'ZCODE_SKILLS_DIR=' && pass 'install.sh: ZCODE_SKILLS_DIR' || fail 'install.sh: missing ZCODE_SKILLS_DIR'
+install_grep -q 'install_zcode' && install_grep -q 'uninstall_zcode' && pass 'install.sh: dispatch wired' || fail 'install.sh: dispatch missing zcode'
 
 DRY_OUT="$(bash "$INSTALL_SH" --dry-run 2>&1)"
 grep -q 'ZCode →' <<< "$DRY_OUT" && pass 'dry-run: ZCode section' || fail 'dry-run: missing ZCode section'

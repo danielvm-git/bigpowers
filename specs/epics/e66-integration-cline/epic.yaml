@@ -1,24 +1,54 @@
 id: e66
-title: "Integration: Cline — Plugins + Plugin Hooks"
-status: scoped
+title: 'Integration: Cline — Plugins + Plugin Hooks'
+status: done
 wsjf: 5.0
-bcps: 0
+bcps: 5
 mode: capsule
-wsjf_rationale: >
-  BV 6 + TC 3 + RR 4 / Job 3 ≈ 4.3. Popular VS Code extension (65K stars)
-  with TypeScript plugin system. Hooks are plugin-scoped, not standalone.
+wsjf_rationale: 'BV 6 + TC 3 + RR 4 / Job 3 ≈ 4.3. Popular VS Code extension (65K
+  stars) with TypeScript plugin system. Hooks are plugin-scoped, not standalone.
+
+  '
 github_stars: 64978
 repo: Cline/Cline
-source: >
-  Research session 2026-07-23. Cline has a TypeScript plugin system.
-  Plugins can hook into tool.execute.before, tool.execute.after, session/message/permission events.
-  Plugins are .ts files in plugin/ directory. No standalone hooks.json config.
+source: 'Research session 2026-07-23. Cline has a TypeScript plugin system. Plugins
+  can hook into tool.execute.before, tool.execute.after, session/message/permission
+  events. Plugins are .ts files in plugin/ directory. No standalone hooks.json config.
   Skills via .cline/ or plugin directory.
+
+  '
 integration_details:
   skills_path: .cline/
   config_path: Plugin directory
   hooks: true (plugin-scoped)
-  hook_events: [tool.execute.before, tool.execute.after, session, message, permission]
+  hook_events:
+  - tool.execute.before
+  - tool.execute.after
+  - session
+  - message
+  - permission
   hook_format: TypeScript (Plugin API)
   hook_events_count: 5+
-stories: []
+stories:
+- id: e66s01
+  title: 'Integration: Cline adapter (Wave A)'
+  status: done
+  bcps: 3
+  files:
+  - scripts/adapters/cline.sh
+  - scripts/test-cline-adapter.sh
+  - scripts/hooks/cline/plugin/
+  verify: bash scripts/test-cline-adapter.sh && bash scripts/test-adapters.sh cline
+    && echo OK
+- id: e66s02
+  title: Install hub wiring (Wave B)
+  status: done
+  bcps: 2
+  files:
+  - scripts/install.sh
+  - scripts/lib/install-targets-*.sh
+  - scripts/lib/install-helpers.js
+  - bin/setup.js
+  - scripts/verify-install.sh
+  - scripts/test-cline-hub.sh
+  verify: bash scripts/test-cline-hub.sh && bash scripts/verify-install.sh && echo
+    OK

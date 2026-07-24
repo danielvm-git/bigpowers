@@ -345,22 +345,40 @@ development_status:
   e61: done
   e61s01: done
   e61s02: done
-  e62: backlog
+  e62: done
+  e62s01: done
+  e62s02: done
   e63: done
   e64: done
   e64s01: done
   e64s02: done
-  e65: backlog
-  e66: backlog
-  e67: backlog
-  e68: backlog
+  e65: done
+  e65s01: done
+  e65s02: done
+  e66: done
+  e66s01: done
+  e66s02: done
+  e67: done
+  e67s01: done
+  e67s02: done
+  e68: done
+  e68s01: done
+  e68s02: done
   e69: done
   e69s01: done
   e69s02: done
-  e70: backlog
-  e71: backlog
-  e72: backlog
-  e73: backlog
+  e70: done
+  e70s01: done
+  e70s02: done
+  e71: done
+  e71s01: done
+  e71s02: done
+  e72: done
+  e72s01: done
+  e72s02: done
+  e73: done
+  e73s01: done
+  e73s02: done
   e74: done
   e74s01: done
   e74s02: done
@@ -619,12 +637,12 @@ epics:
     status: done
     title: 'Integration: Hermes Agent — Skills + 3 Hook Systems'
     wsjf: 5.0
-    total_bcps: 5
+    total_bcps: 0
   e62:
-    status: backlog
+    status: done
     title: 'Integration: OpenCode — Skills + No Hooks'
     wsjf: 4.0
-    total_bcps: 0
+    total_bcps: 4
   e63:
     status: done
     title: 'Integration: Claude Code — Skills + Hooks (Primary)'
@@ -634,57 +652,57 @@ epics:
     status: done
     title: 'Integration: Gemini CLI — Extensions + Hooks'
     wsjf: 6.0
-    total_bcps: 5
+    total_bcps: 0
   e65:
-    status: backlog
+    status: done
     title: 'Integration: Codex CLI — AGENTS.md + Hooks'
     wsjf: 6.0
-    total_bcps: 0
+    total_bcps: 5
   e66:
-    status: backlog
+    status: done
     title: 'Integration: Cline — Plugins + Plugin Hooks'
     wsjf: 5.0
-    total_bcps: 0
+    total_bcps: 5
   e67:
-    status: backlog
+    status: done
     title: 'Integration: Kilo — Skills + Plugin Hooks'
     wsjf: 5.0
-    total_bcps: 0
+    total_bcps: 5
   e68:
-    status: backlog
+    status: done
     title: 'Integration: Qwen Code — Skills + Full Hooks'
     wsjf: 6.0
-    total_bcps: 0
+    total_bcps: 5
   e69:
     status: done
     title: 'Integration: MiMo Code — Skills + Plugins (No Hooks)'
     wsjf: 5.0
-    total_bcps: 4
+    total_bcps: 0
   e70:
-    status: backlog
+    status: done
     title: 'Integration: Trae — Skills + Hooks'
     wsjf: 5.0
-    total_bcps: 0
+    total_bcps: 5
   e71:
-    status: backlog
+    status: done
     title: 'Integration: Copilot — Instructions (No Hooks)'
     wsjf: 4.0
-    total_bcps: 0
+    total_bcps: 4
   e72:
-    status: backlog
+    status: done
     title: 'Integration: CodeBuddy — Skills + 27+ Hook Events'
     wsjf: 6.0
-    total_bcps: 0
+    total_bcps: 5
   e73:
-    status: backlog
+    status: done
     title: 'Integration: Windsurf — Skills + Cascade Hooks'
     wsjf: 5.0
-    total_bcps: 0
+    total_bcps: 5
   e74:
     status: done
     title: 'Integration: Antigravity CLI — Google''s New CLI'
     wsjf: 4.0
-    total_bcps: 4
+    total_bcps: 2
   e75:
     status: backlog
     title: 'Integration: Augment — Unknown Capabilities'
@@ -694,7 +712,7 @@ epics:
     status: done
     title: 'Integration: ZCode — Skills + Plugin Hooks'
     wsjf: 5.0
-    total_bcps: 5
+    total_bcps: 0
   e77:
     status: done
     title: 'Integration: pi — Skills (No Hooks)'
@@ -3064,8 +3082,28 @@ stories:
     tasks_passing: 6
     tasks_failing: 0
     risk_max: P1
+  e62s01:
+    status: done
+    title: 'Integration: OpenCode adapter (Wave A)'
+    bcps: 2
+    epic: e62
+    tasks_total: 0
+    tasks_passing: 0
+    tasks_failing: 0
+    started_at: "2026-07-24T10:00:00-03:00"
+    completed_at: "2026-07-24T16:30:00-03:00"
+  e62s02:
+    status: done
+    title: Install hub wiring (Wave B)
+    bcps: 2
+    epic: e62
+    tasks_total: 0
+    tasks_passing: 0
+    tasks_failing: 0
+    started_at: "2026-07-24T10:00:00-03:00"
+    completed_at: "2026-07-24T16:30:00-03:00"
   e64s01:
-    status: backlog
+    status: done
     title: 'Gemini hooks adapter — event docs, templates, adapter completeness (Wave A)'
     bcps: 3
     epic: e64
@@ -3075,7 +3113,7 @@ stories:
     risk_max: P1
     security_max: low
   e64s02:
-    status: backlog
+    status: done
     title: Install hub wiring (Wave B)
     bcps: 2
     epic: e64
@@ -3083,6 +3121,86 @@ stories:
     tasks_passing: 6
     tasks_failing: 0
     risk_max: P1
+  e65s01:
+    status: done
+    title: 'Integration: Codex CLI adapter (Wave A)'
+    bcps: 3
+    epic: e65
+    tasks_total: 0
+    tasks_passing: 0
+    tasks_failing: 0
+    started_at: "2026-07-24T10:00:00-03:00"
+    completed_at: "2026-07-24T16:30:00-03:00"
+  e65s02:
+    status: done
+    title: Install hub wiring (Wave B)
+    bcps: 2
+    epic: e65
+    tasks_total: 0
+    tasks_passing: 0
+    tasks_failing: 0
+    started_at: "2026-07-24T10:00:00-03:00"
+    completed_at: "2026-07-24T16:30:00-03:00"
+  e66s01:
+    status: done
+    title: 'Integration: Cline adapter (Wave A)'
+    bcps: 3
+    epic: e66
+    tasks_total: 0
+    tasks_passing: 0
+    tasks_failing: 0
+    started_at: "2026-07-24T10:00:00-03:00"
+    completed_at: "2026-07-24T16:30:00-03:00"
+  e66s02:
+    status: done
+    title: Install hub wiring (Wave B)
+    bcps: 2
+    epic: e66
+    tasks_total: 0
+    tasks_passing: 0
+    tasks_failing: 0
+    started_at: "2026-07-24T10:00:00-03:00"
+    completed_at: "2026-07-24T16:30:00-03:00"
+  e67s01:
+    status: done
+    title: 'Integration: Kilo adapter (Wave A)'
+    bcps: 3
+    epic: e67
+    tasks_total: 0
+    tasks_passing: 0
+    tasks_failing: 0
+    started_at: "2026-07-24T10:00:00-03:00"
+    completed_at: "2026-07-24T16:30:00-03:00"
+  e67s02:
+    status: done
+    title: Install hub wiring (Wave B)
+    bcps: 2
+    epic: e67
+    tasks_total: 0
+    tasks_passing: 0
+    tasks_failing: 0
+    started_at: "2026-07-24T10:00:00-03:00"
+    completed_at: "2026-07-24T16:30:00-03:00"
+  e68s01:
+    status: done
+    title: 'Integration: Qwen Code adapter (Wave A)'
+    bcps: 3
+    epic: e68
+    tasks_total: 0
+    tasks_passing: 0
+    tasks_failing: 0
+    started_at: "2026-07-24T10:00:00-03:00"
+    completed_at: "2026-07-24T16:30:00-03:00"
+  e68s02:
+    status: done
+    title: Install hub wiring (Wave B)
+    bcps: 2
+    epic: e68
+    tasks_total: 0
+    tasks_passing: 0
+    tasks_failing: 0
+    started_at: "2026-07-24T10:00:00-03:00"
+    completed_at: "2026-07-24T16:30:00-03:00"
   e69s01:
     status: done
     title: 'MiMo Code adapter — Wave A skills-dir (.mimocode/skills/)'
@@ -3098,9 +3216,90 @@ stories:
     title: Install hub wiring (Wave B)
     bcps: 2
     epic: e69
+    tasks_total: 7
+    tasks_passing: 7
+    tasks_failing: 0
+    risk_max: P1
+  e70s01:
+    status: done
+    title: 'Integration: Trae adapter (Wave A)'
+    bcps: 3
+    epic: e70
     tasks_total: 0
     tasks_passing: 0
     tasks_failing: 0
+    started_at: "2026-07-24T10:00:00-03:00"
+    completed_at: "2026-07-24T16:30:00-03:00"
+  e70s02:
+    status: done
+    title: Install hub wiring (Wave B)
+    bcps: 2
+    epic: e70
+    tasks_total: 0
+    tasks_passing: 0
+    tasks_failing: 0
+    started_at: "2026-07-24T10:00:00-03:00"
+    completed_at: "2026-07-24T16:30:00-03:00"
+  e71s01:
+    status: done
+    title: 'Integration: Copilot adapter (Wave A)'
+    bcps: 2
+    epic: e71
+    tasks_total: 0
+    tasks_passing: 0
+    tasks_failing: 0
+    started_at: "2026-07-24T10:00:00-03:00"
+    completed_at: "2026-07-24T16:30:00-03:00"
+  e71s02:
+    status: done
+    title: Install hub wiring (Wave B)
+    bcps: 2
+    epic: e71
+    tasks_total: 0
+    tasks_passing: 0
+    tasks_failing: 0
+    started_at: "2026-07-24T10:00:00-03:00"
+    completed_at: "2026-07-24T16:30:00-03:00"
+  e72s01:
+    status: done
+    title: 'Integration: CodeBuddy adapter (Wave A)'
+    bcps: 3
+    epic: e72
+    tasks_total: 0
+    tasks_passing: 0
+    tasks_failing: 0
+    started_at: "2026-07-24T10:00:00-03:00"
+    completed_at: "2026-07-24T16:30:00-03:00"
+  e72s02:
+    status: done
+    title: Install hub wiring (Wave B)
+    bcps: 2
+    epic: e72
+    tasks_total: 0
+    tasks_passing: 0
+    tasks_failing: 0
+    started_at: "2026-07-24T10:00:00-03:00"
+    completed_at: "2026-07-24T16:30:00-03:00"
+  e73s01:
+    status: done
+    title: 'Integration: Windsurf adapter (Wave A)'
+    bcps: 3
+    epic: e73
+    tasks_total: 0
+    tasks_passing: 0
+    tasks_failing: 0
+    started_at: "2026-07-24T10:00:00-03:00"
+    completed_at: "2026-07-24T16:30:00-03:00"
+  e73s02:
+    status: done
+    title: Install hub wiring (Wave B)
+    bcps: 2
+    epic: e73
+    tasks_total: 0
+    tasks_passing: 0
+    tasks_failing: 0
+    started_at: "2026-07-24T10:00:00-03:00"
+    completed_at: "2026-07-24T16:30:00-03:00"
   e74s01:
     status: done
     title: Wave A — Antigravity CLI adapter research and agy.sh stub
@@ -3116,9 +3315,10 @@ stories:
     title: Install hub wiring (Wave B)
     bcps: 2
     epic: e74
-    tasks_total: 0
-    tasks_passing: 0
+    tasks_total: 7
+    tasks_passing: 7
     tasks_failing: 0
+    risk_max: P1
   e76s01:
     status: done
     title: 'ZCode adapter — Wave A greenfield skills-dir'
@@ -3134,6 +3334,7 @@ stories:
     title: Install hub wiring (Wave B)
     bcps: 2
     epic: e76
-    tasks_total: 0
-    tasks_passing: 0
+    tasks_total: 7
+    tasks_passing: 7
     tasks_failing: 0
+    risk_max: P1

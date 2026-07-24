@@ -6,11 +6,10 @@ bigpowers_version: 2.83.4
 bug_cycle: null
 handoff:
   next_skill: survey-context
-  context: 'fix_bug complete: BUG-2026-07-24-installer-spinner-freezes-during-sync fixed — sync-skills.sh
-    invocation converted to async spawn, spinner now animates continuously through the sync step, verified
-    via event-loop-tick proof and a real success/failure run.
-
-    '
+  context: >
+    Fleet Wave A+B complete for 9 integration epics (e62, e65, e66, e67, e68, e70, e71, e72, e73).
+    Hub wiring on main; install-targets split for file-size compliance. e75 Augment spike promoted
+    but build deferred — backlog/research only.
   epic: null
 epic_cycle: null
 metrics:
@@ -19,5 +18,5 @@ metrics:
   skill_timings: {}
 release:
   ci_verified: true
-  last_commit: bd2c7360
-  last_epic: fleet-wave-b
+  last_commit: fleet-wave-b
+  last_epic: fleet-close

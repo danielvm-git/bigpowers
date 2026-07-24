@@ -1,25 +1,54 @@
 id: e67
-title: "Integration: Kilo — Skills + Plugin Hooks"
-status: scoped
+title: 'Integration: Kilo — Skills + Plugin Hooks'
+status: done
 wsjf: 5.0
-bcps: 0
+bcps: 5
 mode: capsule
-wsjf_rationale: >
-  BV 5 + TC 3 + RR 4 / Job 3 ≈ 4.0. Growing tool (26K stars) with
-  TypeScript plugin system and skills support.
+wsjf_rationale: 'BV 5 + TC 3 + RR 4 / Job 3 ≈ 4.0. Growing tool (26K stars) with TypeScript
+  plugin system and skills support.
+
+  '
 github_stars: 26483
 repo: Kilo-Org/kilocode
-source: >
-  Research session 2026-07-23. Kilo has skills at ~/.config/kilo/skills/
-  and .kilo/skills/. Plugin system with hooks: tool.execute.before,
-  tool.execute.after, chat.message, permission.ask, event bus.
-  Plugins are TypeScript modules in ~/.config/kilo/plugin/ or .kilo/plugin/.
-  Config at ~/.config/kilo/kilo.json or .kilo/kilo.json.
+source: 'Research session 2026-07-23. Kilo has skills at ~/.config/kilo/skills/ and
+  .kilo/skills/. Plugin system with hooks: tool.execute.before, tool.execute.after,
+  chat.message, permission.ask, event bus. Plugins are TypeScript modules in ~/.config/kilo/plugin/
+  or .kilo/plugin/. Config at ~/.config/kilo/kilo.json or .kilo/kilo.json.
+
+  '
 integration_details:
   skills_path: ~/.config/kilo/skills/
   config_path: ~/.config/kilo/kilo.json
   hooks: true (plugin-scoped)
-  hook_events: [tool.execute.before, tool.execute.after, chat.message, permission.ask, event]
+  hook_events:
+  - tool.execute.before
+  - tool.execute.after
+  - chat.message
+  - permission.ask
+  - event
   hook_format: TypeScript (Plugin API)
   hook_events_count: 5+
-stories: []
+stories:
+- id: e67s01
+  title: 'Integration: Kilo adapter (Wave A)'
+  status: done
+  bcps: 3
+  files:
+  - scripts/adapters/kilocode.sh
+  - scripts/test-kilocode-adapter.sh
+  - scripts/hooks/kilocode/
+  verify: bash scripts/test-kilocode-adapter.sh && bash scripts/test-adapters.sh kilocode
+    && echo OK
+- id: e67s02
+  title: Install hub wiring (Wave B)
+  status: done
+  bcps: 2
+  files:
+  - scripts/install.sh
+  - scripts/lib/install-targets-*.sh
+  - scripts/lib/install-helpers.js
+  - bin/setup.js
+  - scripts/verify-install.sh
+  - scripts/test-kilocode-hub.sh
+  verify: bash scripts/test-kilocode-hub.sh && bash scripts/verify-install.sh && echo
+    OK

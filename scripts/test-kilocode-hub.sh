@@ -13,14 +13,15 @@ fail() { echo "FAIL: $1" >&2; FAIL=$((FAIL + 1)); }
 echo "=== test-kilocode-hub.sh ==="
 
 INSTALL_SH="$REPO_ROOT/scripts/install.sh"
+source "$REPO_ROOT/scripts/lib/install-grep.sh"
 HELPERS_JS="$REPO_ROOT/scripts/lib/install-helpers.js"
 SETUP_JS="$REPO_ROOT/bin/setup.js"
 TARGETS_YAML="$REPO_ROOT/scripts/targets.yaml"
 
-grep -q 'install_kilocode()' "$INSTALL_SH" && pass 'install.sh: install_kilocode()' || fail 'install.sh: missing install_kilocode()'
-grep -q 'uninstall_kilocode()' "$INSTALL_SH" && pass 'install.sh: uninstall_kilocode()' || fail 'install.sh: missing uninstall_kilocode()'
-grep -q 'KILOCODE_SKILLS_DIR=' "$INSTALL_SH" && pass 'install.sh: skills dir var' || fail 'install.sh: missing skills dir var'
-grep -q 'install_kilocode' "$INSTALL_SH" && grep -q 'uninstall_kilocode' "$INSTALL_SH" && pass 'install.sh: dispatch wired' || fail 'install.sh: dispatch missing kilocode'
+install_grep -q 'install_kilocode()' && pass 'install.sh: install_kilocode()' || fail 'install.sh: missing install_kilocode()'
+install_grep -q 'uninstall_kilocode()' && pass 'install.sh: uninstall_kilocode()' || fail 'install.sh: missing uninstall_kilocode()'
+install_grep -q 'KILOCODE_SKILLS_DIR=' && pass 'install.sh: skills dir var' || fail 'install.sh: missing skills dir var'
+install_grep -q 'install_kilocode' && install_grep -q 'uninstall_kilocode' && pass 'install.sh: dispatch wired' || fail 'install.sh: dispatch missing kilocode'
 
 DRY_OUT="$(bash "$INSTALL_SH" --dry-run 2>&1)"
 grep -q 'Kilo →' <<< "$DRY_OUT" && pass 'dry-run: Kilo section' || fail 'dry-run: missing Kilo section'
@@ -28,7 +29,7 @@ DRY_UNINSTALL="$(bash "$INSTALL_SH" --dry-run --uninstall 2>&1)"
 grep -q 'Kilo →' <<< "$DRY_UNINSTALL" && pass 'dry-run uninstall: Kilo section' || fail 'dry-run uninstall: missing Kilo section'
 
 grep -q "case 'kilo'" "$HELPERS_JS" && pass 'install-helpers: kilo case' || fail 'install-helpers: missing kilo case'
-grep -q 'scripts/hooks/kilocode/plugin' "$INSTALL_SH" && pass 'install.sh: plugin hook template' || fail 'install.sh: missing plugin template'
+install_grep -q 'scripts/hooks/kilocode/plugin' && pass 'install.sh: plugin hook template' || fail 'install.sh: missing plugin template'
 
 SETUP_SRC="$(cat "$SETUP_JS")"
 echo "$SETUP_SRC" | grep -q "SUPPORTED_IDS = new Set" && pass 'setup.js: SUPPORTED_IDS set' || fail 'setup.js: missing SUPPORTED_IDS'

@@ -44,6 +44,11 @@ wire_context_mode() {
   local bridge_key="${4:-read}"
   local src="${5:-AGENTS.md}"
 
+  if [[ "${DRY_RUN:-false}" == "true" ]]; then
+    echo "  [dry-run] context-wire: mode=$mode file=${file:-$bridge_file}"
+    return 0
+  fi
+
   case "$mode" in
     native) return 0 ;;
     symlink|copy)

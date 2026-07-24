@@ -13,14 +13,15 @@ fail() { echo "FAIL: $1" >&2; FAIL=$((FAIL + 1)); }
 echo "=== test-cline-hub.sh ==="
 
 INSTALL_SH="$REPO_ROOT/scripts/install.sh"
+source "$REPO_ROOT/scripts/lib/install-grep.sh"
 HELPERS_JS="$REPO_ROOT/scripts/lib/install-helpers.js"
 SETUP_JS="$REPO_ROOT/bin/setup.js"
 TARGETS_YAML="$REPO_ROOT/scripts/targets.yaml"
 
-grep -q 'install_cline()' "$INSTALL_SH" && pass 'install.sh: install_cline()' || fail 'install.sh: missing install_cline()'
-grep -q 'uninstall_cline()' "$INSTALL_SH" && pass 'install.sh: uninstall_cline()' || fail 'install.sh: missing uninstall_cline()'
-grep -q 'CLINE_SKILLS_DIR=' "$INSTALL_SH" && pass 'install.sh: skills dir var' || fail 'install.sh: missing skills dir var'
-grep -q 'install_cline' "$INSTALL_SH" && grep -q 'uninstall_cline' "$INSTALL_SH" && pass 'install.sh: dispatch wired' || fail 'install.sh: dispatch missing cline'
+install_grep -q 'install_cline()' && pass 'install.sh: install_cline()' || fail 'install.sh: missing install_cline()'
+install_grep -q 'uninstall_cline()' && pass 'install.sh: uninstall_cline()' || fail 'install.sh: missing uninstall_cline()'
+install_grep -q 'CLINE_SKILLS_DIR=' && pass 'install.sh: skills dir var' || fail 'install.sh: missing skills dir var'
+install_grep -q 'install_cline' && install_grep -q 'uninstall_cline' && pass 'install.sh: dispatch wired' || fail 'install.sh: dispatch missing cline'
 
 DRY_OUT="$(bash "$INSTALL_SH" --dry-run 2>&1)"
 grep -q 'Cline →' <<< "$DRY_OUT" && pass 'dry-run: Cline section' || fail 'dry-run: missing Cline section'
@@ -28,7 +29,7 @@ DRY_UNINSTALL="$(bash "$INSTALL_SH" --dry-run --uninstall 2>&1)"
 grep -q 'Cline →' <<< "$DRY_UNINSTALL" && pass 'dry-run uninstall: Cline section' || fail 'dry-run uninstall: missing Cline section'
 
 grep -q "case 'cline'" "$HELPERS_JS" && pass 'install-helpers: cline case' || fail 'install-helpers: missing cline case'
-grep -q 'scripts/hooks/cline/plugin' "$INSTALL_SH" && pass 'install.sh: plugin hook template' || fail 'install.sh: missing plugin template'
+install_grep -q 'scripts/hooks/cline/plugin' && pass 'install.sh: plugin hook template' || fail 'install.sh: missing plugin template'
 
 SETUP_SRC="$(cat "$SETUP_JS")"
 echo "$SETUP_SRC" | grep -q "SUPPORTED_IDS = new Set" && pass 'setup.js: SUPPORTED_IDS set' || fail 'setup.js: missing SUPPORTED_IDS'

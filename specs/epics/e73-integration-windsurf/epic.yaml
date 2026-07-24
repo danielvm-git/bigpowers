@@ -1,28 +1,64 @@
 id: e73
-title: "Integration: Windsurf — Skills + Cascade Hooks"
-status: scoped
+title: 'Integration: Windsurf — Skills + Cascade Hooks'
+status: done
 wsjf: 5.0
-bcps: 0
+bcps: 5
 mode: capsule
-wsjf_rationale: >
-  BV 5 + TC 3 + RR 4 / Job 3 ≈ 4.0. Devin/Cognition tool with full
+wsjf_rationale: 'BV 5 + TC 3 + RR 4 / Job 3 ≈ 4.0. Devin/Cognition tool with full
   hooks support but different naming convention.
+
+  '
 github_stars: null
 repo: cognition-ai/windsurf
-source: >
-  Research session 2026-07-23. Windsurf (Devin Desktop) has Cascade hooks.
-  Config at ~/.codeium/windsurf/hooks.json (user) or .windsurf/hooks.json
-  (workspace). Events use different naming: pre_read_code, post_read_code,
-  pre_write_code, post_write_code, pre_run_command, post_run_command,
-  pre_mcp_tool_use, post_mcp_tool_use, pre_user_prompt, post_cascade_response,
-  post_cascade_response_with_transcript, post_setup_worktree. 12 events total.
-  Skills at .windsurf/rules/.
+source: 'Research session 2026-07-23. Windsurf (Devin Desktop) has Cascade hooks.
+  Config at ~/.codeium/windsurf/hooks.json (user) or .windsurf/hooks.json (workspace).
+  Events use different naming: pre_read_code, post_read_code, pre_write_code, post_write_code,
+  pre_run_command, post_run_command, pre_mcp_tool_use, post_mcp_tool_use, pre_user_prompt,
+  post_cascade_response, post_cascade_response_with_transcript, post_setup_worktree.
+  12 events total. Skills at .windsurf/rules/.
+
+  '
 integration_details:
   skills_path: .windsurf/rules/
   config_path: ~/.codeium/windsurf/hooks.json
   hooks: true
-  hook_events: [pre_read_code, post_read_code, pre_write_code, post_write_code, pre_run_command, post_run_command, pre_mcp_tool_use, post_mcp_tool_use, pre_user_prompt, post_cascade_response, post_cascade_response_with_transcript, post_setup_worktree]
+  hook_events:
+  - pre_read_code
+  - post_read_code
+  - pre_write_code
+  - post_write_code
+  - pre_run_command
+  - post_run_command
+  - pre_mcp_tool_use
+  - post_mcp_tool_use
+  - pre_user_prompt
+  - post_cascade_response
+  - post_cascade_response_with_transcript
+  - post_setup_worktree
   hook_format: JSON (hooks.json)
   hook_events_count: 12
   naming_convention: Different (pre_read_code, pre_write_code, pre_run_command)
-stories: []
+stories:
+- id: e73s01
+  title: 'Integration: Windsurf adapter (Wave A)'
+  status: done
+  bcps: 3
+  files:
+  - scripts/adapters/windsurf.sh
+  - scripts/test-windsurf-adapter.sh
+  - scripts/hooks/windsurf/
+  verify: bash scripts/test-windsurf-adapter.sh && bash scripts/test-adapters.sh windsurf
+    && echo OK
+- id: e73s02
+  title: Install hub wiring (Wave B)
+  status: done
+  bcps: 2
+  files:
+  - scripts/install.sh
+  - scripts/lib/install-targets-*.sh
+  - scripts/lib/install-helpers.js
+  - bin/setup.js
+  - scripts/verify-install.sh
+  - scripts/test-windsurf-hub.sh
+  verify: bash scripts/test-windsurf-hub.sh && bash scripts/verify-install.sh && echo
+    OK

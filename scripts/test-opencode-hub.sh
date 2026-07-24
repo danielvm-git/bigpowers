@@ -13,14 +13,15 @@ fail() { echo "FAIL: $1" >&2; FAIL=$((FAIL + 1)); }
 echo "=== test-opencode-hub.sh ==="
 
 INSTALL_SH="$REPO_ROOT/scripts/install.sh"
+source "$REPO_ROOT/scripts/lib/install-grep.sh"
 HELPERS_JS="$REPO_ROOT/scripts/lib/install-helpers.js"
 SETUP_JS="$REPO_ROOT/bin/setup.js"
 TARGETS_YAML="$REPO_ROOT/scripts/targets.yaml"
 
-grep -q 'install_opencode()' "$INSTALL_SH" && pass 'install.sh: install_opencode()' || fail 'install.sh: missing install_opencode()'
-grep -q 'uninstall_opencode()' "$INSTALL_SH" && pass 'install.sh: uninstall_opencode()' || fail 'install.sh: missing uninstall_opencode()'
-grep -q 'OPENCODE_SKILLS_DIR=' "$INSTALL_SH" && pass 'install.sh: skills dir var' || fail 'install.sh: missing skills dir var'
-grep -q 'install_opencode' "$INSTALL_SH" && grep -q 'uninstall_opencode' "$INSTALL_SH" && pass 'install.sh: dispatch wired' || fail 'install.sh: dispatch missing opencode'
+install_grep -q 'install_opencode()' && pass 'install.sh: install_opencode()' || fail 'install.sh: missing install_opencode()'
+install_grep -q 'uninstall_opencode()' && pass 'install.sh: uninstall_opencode()' || fail 'install.sh: missing uninstall_opencode()'
+install_grep -q 'OPENCODE_SKILLS_DIR=' && pass 'install.sh: skills dir var' || fail 'install.sh: missing skills dir var'
+install_grep -q 'install_opencode' && install_grep -q 'uninstall_opencode' && pass 'install.sh: dispatch wired' || fail 'install.sh: dispatch missing opencode'
 
 DRY_OUT="$(bash "$INSTALL_SH" --dry-run 2>&1)"
 grep -q 'OpenCode →' <<< "$DRY_OUT" && pass 'dry-run: OpenCode section' || fail 'dry-run: missing OpenCode section'

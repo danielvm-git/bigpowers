@@ -13,16 +13,17 @@ fail() { echo "FAIL: $1" >&2; FAIL=$((FAIL + 1)); }
 echo "=== test-gemini-hub.sh ==="
 
 INSTALL_SH="$REPO_ROOT/scripts/install.sh"
+source "$REPO_ROOT/scripts/lib/install-grep.sh"
 HELPERS_JS="$REPO_ROOT/scripts/lib/install-helpers.js"
 SETUP_JS="$REPO_ROOT/bin/setup.js"
 TARGETS_YAML="$REPO_ROOT/scripts/targets.yaml"
 
-grep -q 'install_gemini()' "$INSTALL_SH" && pass 'install.sh: install_gemini()' || fail 'install.sh: missing install_gemini()'
-grep -q 'uninstall_gemini()' "$INSTALL_SH" && pass 'install.sh: uninstall_gemini()' || fail 'install.sh: missing uninstall_gemini()'
-grep -q 'GEMINI_HOOKS_SRC=' "$INSTALL_SH" && pass 'install.sh: GEMINI_HOOKS_SRC' || fail 'install.sh: missing GEMINI_HOOKS_SRC'
-grep -q 'before-tool-git-guard.sh' "$INSTALL_SH" && pass 'install.sh: Wave A git-guard hook' || fail 'install.sh: missing before-tool-git-guard.sh'
-grep -q 'before-tool-rtk.sh' "$INSTALL_SH" && pass 'install.sh: Wave A rtk hook' || fail 'install.sh: missing before-tool-rtk.sh'
-grep -q 'install_gemini' "$INSTALL_SH" && grep -q 'uninstall_gemini' "$INSTALL_SH" && pass 'install.sh: dispatch wired' || fail 'install.sh: dispatch missing gemini'
+install_grep -q 'install_gemini()' && pass 'install.sh: install_gemini()' || fail 'install.sh: missing install_gemini()'
+install_grep -q 'uninstall_gemini()' && pass 'install.sh: uninstall_gemini()' || fail 'install.sh: missing uninstall_gemini()'
+install_grep -q 'GEMINI_HOOKS_SRC=' && pass 'install.sh: GEMINI_HOOKS_SRC' || fail 'install.sh: missing GEMINI_HOOKS_SRC'
+install_grep -q 'before-tool-git-guard.sh' && pass 'install.sh: Wave A git-guard hook' || fail 'install.sh: missing before-tool-git-guard.sh'
+install_grep -q 'before-tool-rtk.sh' && pass 'install.sh: Wave A rtk hook' || fail 'install.sh: missing before-tool-rtk.sh'
+install_grep -q 'install_gemini' && install_grep -q 'uninstall_gemini' && pass 'install.sh: dispatch wired' || fail 'install.sh: dispatch missing gemini'
 
 DRY_OUT="$(bash "$INSTALL_SH" --dry-run 2>&1)"
 grep -q 'Gemini CLI →' <<< "$DRY_OUT" && pass 'dry-run: Gemini CLI section' || fail 'dry-run: missing Gemini CLI section'

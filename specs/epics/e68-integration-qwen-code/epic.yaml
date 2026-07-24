@@ -1,28 +1,68 @@
 id: e68
-title: "Integration: Qwen Code — Skills + Full Hooks"
-status: scoped
+title: 'Integration: Qwen Code — Skills + Full Hooks'
+status: done
 wsjf: 6.0
-bcps: 0
+bcps: 5
 mode: capsule
-wsjf_rationale: >
-  BV 6 + TC 4 + RR 5 / Job 2 ≈ 7.5. Strong tool (26K stars) with full
+wsjf_rationale: 'BV 6 + TC 4 + RR 5 / Job 2 ≈ 7.5. Strong tool (26K stars) with full
   hooks support including Claude-compatible event names.
+
+  '
 github_stars: 26266
 repo: QwenLM/qwen-code
-source: >
-  Research session 2026-07-23. Qwen Code has full hooks support with
-  Claude-compatible event names (PreToolUse, PostToolUse, SessionStart).
-  Also supports HTTP hooks, function hooks, and prompt hooks.
-  Config at ~/.qwen/settings.json. Events: PreToolUse, PostToolUse,
-  PostToolUseFailure, UserPromptSubmit, SessionStart, SessionEnd, Stop,
-  SubagentStart, SubagentStop, PreCompact, PostCompact, Notification,
-  PermissionRequest, TodoCreated, TodoCompleted, StopFailure.
+source: 'Research session 2026-07-23. Qwen Code has full hooks support with Claude-compatible
+  event names (PreToolUse, PostToolUse, SessionStart). Also supports HTTP hooks, function
+  hooks, and prompt hooks. Config at ~/.qwen/settings.json. Events: PreToolUse, PostToolUse,
+  PostToolUseFailure, UserPromptSubmit, SessionStart, SessionEnd, Stop, SubagentStart,
+  SubagentStop, PreCompact, PostCompact, Notification, PermissionRequest, TodoCreated,
+  TodoCompleted, StopFailure.
+
+  '
 integration_details:
   skills_path: ~/.qwen/skills/
   config_path: ~/.qwen/settings.json
   hooks: true
-  hook_events: [PreToolUse, PostToolUse, PostToolUseFailure, UserPromptSubmit, SessionStart, SessionEnd, Stop, SubagentStart, SubagentStop, PreCompact, PostCompact, Notification, PermissionRequest, TodoCreated, TodoCompleted, StopFailure]
+  hook_events:
+  - PreToolUse
+  - PostToolUse
+  - PostToolUseFailure
+  - UserPromptSubmit
+  - SessionStart
+  - SessionEnd
+  - Stop
+  - SubagentStart
+  - SubagentStop
+  - PreCompact
+  - PostCompact
+  - Notification
+  - PermissionRequest
+  - TodoCreated
+  - TodoCompleted
+  - StopFailure
   hook_format: JSON (settings.json) + HTTP + Function + Prompt
   hook_events_count: 16
   naming_convention: Same as Claude Code (PreToolUse/PostToolUse)
-stories: []
+stories:
+- id: e68s01
+  title: 'Integration: Qwen Code adapter (Wave A)'
+  status: done
+  bcps: 3
+  files:
+  - scripts/adapters/qwen.sh
+  - scripts/test-qwen-adapter.sh
+  - scripts/hooks/qwen/
+  verify: bash scripts/test-qwen-adapter.sh && bash scripts/test-adapters.sh qwen
+    && echo OK
+- id: e68s02
+  title: Install hub wiring (Wave B)
+  status: done
+  bcps: 2
+  files:
+  - scripts/install.sh
+  - scripts/lib/install-targets-*.sh
+  - scripts/lib/install-helpers.js
+  - bin/setup.js
+  - scripts/verify-install.sh
+  - scripts/test-qwen-hub.sh
+  verify: bash scripts/test-qwen-hub.sh && bash scripts/verify-install.sh && echo
+    OK

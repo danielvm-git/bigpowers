@@ -13,14 +13,15 @@ fail() { echo "FAIL: $1" >&2; FAIL=$((FAIL + 1)); }
 echo "=== test-copilot-hub.sh ==="
 
 INSTALL_SH="$REPO_ROOT/scripts/install.sh"
+source "$REPO_ROOT/scripts/lib/install-grep.sh"
 HELPERS_JS="$REPO_ROOT/scripts/lib/install-helpers.js"
 SETUP_JS="$REPO_ROOT/bin/setup.js"
 TARGETS_YAML="$REPO_ROOT/scripts/targets.yaml"
 
-grep -q 'install_copilot()' "$INSTALL_SH" && pass 'install.sh: install_copilot()' || fail 'install.sh: missing install_copilot()'
-grep -q 'uninstall_copilot()' "$INSTALL_SH" && pass 'install.sh: uninstall_copilot()' || fail 'install.sh: missing uninstall_copilot()'
-grep -q 'COPILOT_SKILLS_DIR=' "$INSTALL_SH" && pass 'install.sh: skills dir var' || fail 'install.sh: missing skills dir var'
-grep -q 'install_copilot' "$INSTALL_SH" && grep -q 'uninstall_copilot' "$INSTALL_SH" && pass 'install.sh: dispatch wired' || fail 'install.sh: dispatch missing copilot'
+install_grep -q 'install_copilot()' && pass 'install.sh: install_copilot()' || fail 'install.sh: missing install_copilot()'
+install_grep -q 'uninstall_copilot()' && pass 'install.sh: uninstall_copilot()' || fail 'install.sh: missing uninstall_copilot()'
+install_grep -q 'COPILOT_SKILLS_DIR=' && pass 'install.sh: skills dir var' || fail 'install.sh: missing skills dir var'
+install_grep -q 'install_copilot' && install_grep -q 'uninstall_copilot' && pass 'install.sh: dispatch wired' || fail 'install.sh: dispatch missing copilot'
 
 DRY_OUT="$(bash "$INSTALL_SH" --dry-run 2>&1)"
 grep -q 'Copilot CLI →' <<< "$DRY_OUT" && pass 'dry-run: Copilot CLI section' || fail 'dry-run: missing Copilot CLI section'
