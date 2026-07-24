@@ -8,7 +8,7 @@ handoff:
   next_skill: survey-context
   context: >
     Parallel build-epic fleet complete (e61/e64/e69/e74/e76 + Wave 0 #90 merged).
-    Primary main at bd2c7360. Local SoT updates uncommitted — commit when ready.
+    Wave C SoT synced locally. Worktrees ../bp-e{61,64,69,74,76} remain for cleanup.
   epic: null
 epic_cycle: null
 metrics:
@@ -17,5 +17,5 @@ metrics:
   skill_timings: {}
 release:
   ci_verified: true
-  last_commit: 9e18e044
+  last_commit: bd2c7360
   last_epic: fleet-wave-b
