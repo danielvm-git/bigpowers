@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # story: e47s04 e37s02 e37s04 e37s08
 # story: e74s02
+# story: e68s02
 # story: e65s02
 # verify-install.sh — manual assertion harness for install + seed wiring + Reach matrix
 set -euo pipefail
@@ -65,14 +66,14 @@ trap ta_cleanup EXIT
 echo "=== install.sh --dry-run ==="
 DRY_OUT="$("$REPO_ROOT/scripts/install.sh" --dry-run 2>&1)"
 
-echo "$DRY_OUT" | grep -q 'pi →' && ta_pass "install --dry-run includes pi" || ta_fail "install --dry-run missing pi"
+grep -q 'pi →' <<< "$DRY_OUT" && ta_pass "install --dry-run includes pi" || ta_fail "install --dry-run missing pi"
 DRY_UNINSTALL="$("$REPO_ROOT/scripts/install.sh" --dry-run --uninstall 2>&1)"
-echo "$DRY_UNINSTALL" | grep -q 'pi →' && ta_pass "uninstall --dry-run includes pi" || ta_fail "uninstall --dry-run missing pi"
-echo "$DRY_OUT" | grep -qi 'opencode' && ta_fail "install references opencode" || ta_pass "install has no opencode reference"
-echo "$DRY_OUT" | grep -q 'Claude Code →' && ta_pass "install includes Claude Code" || ta_fail "install missing Claude Code"
-echo "$DRY_OUT" | grep -q 'Gemini CLI →' && ta_pass "install includes Gemini CLI" || ta_fail "install missing Gemini CLI"
-echo "$DRY_OUT" | grep -q 'Cursor →' && ta_pass "install includes Cursor" || ta_fail "install missing Cursor"
-echo "$DRY_OUT" | grep -q 'Hermes Agent →' && ta_pass "install includes Hermes Agent" || ta_fail "install missing Hermes Agent"
+grep -q 'pi →' <<< "$DRY_UNINSTALL" && ta_pass "uninstall --dry-run includes pi" || ta_fail "uninstall --dry-run missing pi"
+grep -qi 'opencode' <<< "$DRY_OUT" && ta_fail "install references opencode" || ta_pass "install has no opencode reference"
+grep -q 'Claude Code →' <<< "$DRY_OUT" && ta_pass "install includes Claude Code" || ta_fail "install missing Claude Code"
+grep -q 'Gemini CLI →' <<< "$DRY_OUT" && ta_pass "install includes Gemini CLI" || ta_fail "install missing Gemini CLI"
+grep -q 'Cursor →' <<< "$DRY_OUT" && ta_pass "install includes Cursor" || ta_fail "install missing Cursor"
+grep -q 'Hermes Agent →' <<< "$DRY_OUT" && ta_pass "install includes Hermes Agent" || ta_fail "install missing Hermes Agent"
 
 for tool in "Claude Code" "pi"; do
   section=$(echo "$DRY_OUT" | sed -n "/${tool} →/,/^$/p")
@@ -103,7 +104,7 @@ echo ""
 echo "=== Optional Codex wave (e37s04) ==="
 if grep -qi 'codex' "$REPO_ROOT/skills/seed-conventions/SKILL.md" 2>/dev/null; then
   grep -qi 'config.toml' "$REPO_ROOT/skills/seed-conventions/REFERENCE.md" && ta_pass "Codex: REFERENCE config.toml" || ta_fail "Codex: missing config.toml"
-  echo "$DRY_OUT" | grep -qi 'codex' && ta_pass "Codex: install --dry-run mentions codex" || ta_fail "Codex: install missing codex"
+  grep -qi 'codex' <<< "$DRY_OUT" && ta_pass "Codex: install --dry-run mentions codex" || ta_fail "Codex: install missing codex"
 else
   ta_pass "Codex: wave absent — assertions skipped"
 fi
@@ -167,6 +168,11 @@ grep -q 'uninstall_codex()' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: 
 grep -q 'CODEX_SKILLS_DIR=' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: codex skills dir" || ta_fail "source: missing codex skills dir"
 grep -q "'codex'" "$REPO_ROOT/bin/setup.js" && grep -q 'SUPPORTED_IDS' "$REPO_ROOT/bin/setup.js" && ta_pass "setup.js: codex supported" || ta_fail "setup.js: codex not in SUPPORTED_IDS"
 grep -q "case 'codex'" "$REPO_ROOT/scripts/lib/install-helpers.js" && ta_pass "install-helpers: codex case" || ta_fail "install-helpers: missing codex case"
+grep -q 'install_qwen()' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: install_qwen()" || ta_fail "source: missing install_qwen()"
+grep -q 'uninstall_qwen()' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: uninstall_qwen()" || ta_fail "source: missing uninstall_qwen()"
+grep -q 'QWEN_SKILLS_DIR=' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: qwen skills dir" || ta_fail "source: missing qwen skills dir"
+grep -q "'qwen'" "$REPO_ROOT/bin/setup.js" && grep -q 'SUPPORTED_IDS' "$REPO_ROOT/bin/setup.js" && ta_pass "setup.js: qwen supported" || ta_fail "setup.js: qwen not in SUPPORTED_IDS"
+grep -q "case 'qwen'" "$REPO_ROOT/scripts/lib/install-helpers.js" && ta_pass "install-helpers: qwen case" || ta_fail "install-helpers: missing qwen case"
 echo ""
 echo "──────────────────────────────────────────"
 echo "verify-install: $TA_PASS passed, $TA_FAIL failed"

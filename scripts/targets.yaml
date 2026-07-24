@@ -160,6 +160,7 @@ targets:
 
   # Wave C (e37s11)
   - id: qwen
+    # story: e68s02
     name: Qwen (Alibaba)
     tier: opt_in
     skill: null
@@ -169,8 +170,7 @@ targets:
       file: QWEN.md
     contracts:
       - agents_md_exists
-
-  - id: kilocode
+      - qwen_hooks_manifest
     name: Kilocode
     tier: opt_in
     skill:

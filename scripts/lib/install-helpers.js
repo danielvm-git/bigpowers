@@ -5,6 +5,7 @@
 // story: e76s02
 // story: e69s02
 // story: e74s02
+// story: e68s02
 // story: e65s02
 // install-helpers.js — symlink helpers for bigpowers setup
 
@@ -176,6 +177,23 @@ function installGlobal(tool, repoRoot) {
       linkRenderedSkills(renderedDir, targetDir);
       break;
     }
+    case 'qwen':
+      linkRenderedSkills(path.join(repoRoot, '.qwen/skills'), path.join(homeDir, '.qwen', 'skills'));
+      {
+        const agentsSrc = path.join(repoRoot, 'AGENTS.md');
+        const agentsDst = path.join(homeDir, '.qwen', 'QWEN.md');
+        fs.mkdirSync(path.dirname(agentsDst), { recursive: true });
+        linkFile(agentsSrc, agentsDst);
+      }
+      {
+        const hookSrc = path.join(repoRoot, 'scripts', 'hooks', 'qwen', 'pre-tool-git-guard.sh');
+        const hookDst = path.join(homeDir, '.qwen', 'hooks', 'pre-tool-git-guard.sh');
+        if (fs.existsSync(hookSrc)) {
+          fs.mkdirSync(path.dirname(hookDst), { recursive: true });
+          linkHook(hookSrc, hookDst);
+        }
+      }
+      break; // story: e68s02
     case 'cursor': {
       const rulesSrc = path.join(repoRoot, '.cursor', 'rules');
       const rulesDst = path.join(homeDir, '.cursor', 'rules');

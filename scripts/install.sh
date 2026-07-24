@@ -4,6 +4,7 @@
 # story: e63
 # story: e64s02
 # story: e74s02
+# story: e68s02
 # story: e65s02
 # install.sh — global symlink install for bigpowers skills
 #
@@ -471,6 +472,55 @@ uninstall_codex() {
   # config-bridge file $CODEX_CONFIG_FILE left for user
   unlink_if_managed "$CODEX_HOOKS_DIR/pre-tool-git-guard.sh" "$REPO_ROOT/"
 }
+# ── Qwen Code (e68s02) ───────────────────────────────────────────────────────
+
+QWEN_CONFIG_DIR="$HOME/.qwen"
+QWEN_SKILLS_DIR="$QWEN_CONFIG_DIR/skills"
+QWEN_RENDERED="$REPO_ROOT/.qwen/skills"
+QWEN_CONTEXT="$QWEN_CONFIG_DIR/QWEN.md"
+QWEN_HOOKS_DIR="$QWEN_CONFIG_DIR/hooks"
+QWEN_HOOK_SRC="$REPO_ROOT/scripts/hooks/qwen/pre-tool-git-guard.sh"
+
+install_qwen() {
+  echo ""
+  echo "Qwen Code → $QWEN_SKILLS_DIR/"
+  if [[ ! -d "$QWEN_RENDERED" ]]; then
+    echo "  WARNING: $QWEN_RENDERED not found — run sync-skills.sh first"
+    return
+  fi
+  local count=0
+  for skill_dir in "$QWEN_RENDERED"/*/; do
+    [[ -f "${skill_dir}SKILL.md" ]] || continue
+    local name; name="$(basename "$skill_dir")"
+    link "$skill_dir" "$QWEN_SKILLS_DIR/$name"
+    count=$((count + 1))
+  done
+  echo "  $count skills installed"
+  echo "Qwen Code → context symlink $QWEN_CONTEXT"
+  source "$REPO_ROOT/scripts/lib/context-wire.sh"
+  local agents_src="$REPO_ROOT/AGENTS.md"
+  [[ -f "$agents_src" ]] || agents_src="$REPO_ROOT/docs/templates/AGENTS.md"
+  wire_context_mode symlink "$QWEN_CONTEXT" "" read "$agents_src"
+  if [[ -f "$QWEN_HOOK_SRC" ]]; then
+    echo "Qwen Code Hooks → $QWEN_HOOKS_DIR/"
+    link "$QWEN_HOOK_SRC" "$QWEN_HOOKS_DIR/pre-tool-git-guard.sh"
+    chmod +x "$QWEN_HOOK_SRC" 2>/dev/null || true
+    echo "  NOTE: copy $REPO_ROOT/scripts/hooks/qwen/settings.example.json into tool config"
+  fi
+}
+
+uninstall_qwen() {
+  echo ""
+  echo "Qwen Code → removing management from $QWEN_CONFIG_DIR/"
+  if [[ -d "$QWEN_SKILLS_DIR" ]]; then
+    for dst in "$QWEN_SKILLS_DIR"/*/; do
+      [[ -L "${dst%/}" ]] || continue
+      unlink_if_managed "${dst%/}" "$REPO_ROOT/"
+    done
+  fi
+  unlink_if_managed "$QWEN_CONTEXT" "$REPO_ROOT/"
+  unlink_if_managed "$QWEN_HOOKS_DIR/pre-tool-git-guard.sh" "$REPO_ROOT/"
+}
 # ── main ──────────────────────────────────────────────────────────────────────
 
 echo "bigpowers install.sh — REPO: $REPO_ROOT"
@@ -487,8 +537,7 @@ if $UNINSTALL; then
   uninstall_agy
   uninstall_cursor
   uninstall_codex
-  install_codex
-  uninstall_codex
+  uninstall_qwen
   echo ""
   echo "bigpowers uninstalled."
 else
@@ -501,6 +550,7 @@ else
   install_agy
   install_cursor
   install_codex
+  install_qwen
   echo ""
   echo "bigpowers installed. Future updates:"
   if [[ -d "$REPO_ROOT/.git" ]]; then

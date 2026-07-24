@@ -9,7 +9,9 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[1]
 
-# WSJF order
+# WSJF order — previous fn is dispatch anchor for next epic
+HUB_ORDER = ["e65", "e68", "e72", "e66", "e67", "e70", "e73", "e62", "e71"]
+
 HUB_EPICS: dict[str, dict] = {
     "e65": {
         "story": "e65s02",
@@ -546,15 +548,27 @@ def patch_install_sh(cfg: dict, content: str) -> str:
         raise SystemExit("install.sh: main marker not found")
     content = content.replace(marker, block + marker)
 
-    # Ensure dispatch in main block
-    main_section = content.split(marker)[1]
-    for mode in ("install", "uninstall"):
-        fn_call = f"  {mode}_{fn}()"
-        if fn_call not in main_section:
-            # Insert before the blank line + echo after last tool call
-            insert_pat = r"(  (?:install|uninstall)_\w+\n)(  echo \"\")"
-            repl = rf"\1  {mode}_{fn}\n\2"
-            content = re.sub(insert_pat, repl, content, count=1)
+    # Ensure dispatch — chain after previous epic in WSJF order (or cursor for e65)
+    fn_inst = f"install_{fn}"
+    fn_uninst = f"uninstall_{fn}"
+    epic_idx = HUB_ORDER.index(cfg.get("_epic_id", "e65")) if "_epic_id" in cfg else -1
+    anchor_fn = "cursor"
+    if epic_idx > 0:
+        anchor_fn = HUB_EPICS[HUB_ORDER[epic_idx - 1]]["fn"]
+    if fn_inst not in content:
+        content = re.sub(
+            rf"(  install_{anchor_fn}\n)",
+            rf"\1  {fn_inst}\n",
+            content,
+            count=1,
+        )
+    if fn_uninst not in content:
+        content = re.sub(
+            rf"(  uninstall_{anchor_fn}\n)",
+            rf"\1  {fn_uninst}\n",
+            content,
+            count=1,
+        )
 
     if f"# story: {cfg['story']}" not in content.split("\n")[0:5]:
         content = content.replace(
@@ -567,11 +581,14 @@ def patch_install_sh(cfg: dict, content: str) -> str:
 
 def patch_setup_js(cfg: dict, content: str) -> str:
     sid = cfg["setup_id"]
-    if f"'{sid}'" in re.search(r"SUPPORTED_IDS = new Set\(\[(.*?)\]\)", content, re.DOTALL).group(1):
+    m = re.search(r"const SUPPORTED_IDS = new Set\(\[(.*?)\]\);", content, re.DOTALL)
+    if not m:
+        raise SystemExit("setup.js: SUPPORTED_IDS not found")
+    if f"'{sid}'" in m.group(1):
         return content
     content = re.sub(
-        r"(const SUPPORTED_IDS = new Set\(\[[^\]]+)\]",
-        rf"\1, '{sid}'])",
+        r"(const SUPPORTED_IDS = new Set\(\[[^\]]+)\]\);",
+        rf"\1, '{sid}']);",
         content,
         count=1,
     )
@@ -670,17 +687,18 @@ grep -q "case '{setup_id}'" "$REPO_ROOT/scripts/lib/install-helpers.js" && ta_pa
 
 def patch_targets(cfg: dict, content: str) -> str:
     fn = cfg["fn"]
-    if f"id: {fn}" in content and cfg.get("manifest") and cfg["manifest"] in content:
-        return content
-    if f"\n  - id: {fn}\n" in content or content.strip().endswith(f"id: {fn}"):
-        # add manifest to existing row if needed
-        manifest = cfg.get("manifest")
-        if manifest and manifest not in content:
-            content = content.replace(
-                f"  - id: {fn}",
-                f"  - id: {fn}\n    # story: {cfg['story']}",
-                1,
+    manifest = cfg.get("manifest")
+    if manifest and f"id: {fn}" in content:
+        # augment existing row with manifest contract
+        if manifest not in content:
+            content = re.sub(
+                rf"(  - id: {fn}\n(?:    .*\n)*?    contracts:\n(?:      - .*\n)*?)((?:      - .*\n)*?)(  - id: |  # Fleet|$)",
+                rf"\1      - {manifest}\n\3",
+                content,
+                count=1,
             )
+        return content
+    if f"\n  - id: {fn}\n" in content:
         return content
     row = targets_row(cfg)
     content = content.rstrip() + "\n\n  # Fleet Wave B\n" + row
@@ -688,7 +706,8 @@ def patch_targets(cfg: dict, content: str) -> str:
 
 
 def apply_epic(epic_id: str) -> None:
-    cfg = HUB_EPICS[epic_id]
+    cfg = dict(HUB_EPICS[epic_id])
+    cfg["_epic_id"] = epic_id
     fn = cfg["fn"]
     print(f"Applying Wave B hub for {epic_id} ({fn})...")
 
