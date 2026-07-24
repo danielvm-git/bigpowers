@@ -1,3 +1,23 @@
+# [2.83.0](https://github.com/danielvm-git/bigpowers/compare/v2.82.4...v2.83.0) (2026-07-24)
+
+
+### Bug Fixes
+
+* **ci:** resolve compliance and YAML gates from run 30100865008 ([2d9298b](https://github.com/danielvm-git/bigpowers/commit/2d9298b6feedf1c974b993338b5a3bfeb167583a))
+* **installer:** correct Claude hook path and gate install-helpers ([6a359e8](https://github.com/danielvm-git/bigpowers/commit/6a359e8ca30dab804eb471ea20a50dadd7e2c807))
+* **install:** finish Wave 0 closeout for e77/e78 ([a78faab](https://github.com/danielvm-git/bigpowers/commit/a78faab56c3c1b5573ba1584e0ed7c06dae2462f))
+* **install:** land e77/e78 Wave 0 code closeout ([6abcb7b](https://github.com/danielvm-git/bigpowers/commit/6abcb7be9a7cbe0a0a16765a98bb9b5c243f67c7))
+* **install:** restore Claude guard-git lib symlink path ([402abb3](https://github.com/danielvm-git/bigpowers/commit/402abb3d7c42b7442574e4f5657007c917878470))
+
+
+### Features
+
+* **e61:** Hermes Agent integration — adapter + install hub ([#84](https://github.com/danielvm-git/bigpowers/issues/84)) ([2028854](https://github.com/danielvm-git/bigpowers/commit/20288540ff5fb5488e3863e34b8f52da43cb2c85))
+* **e64:** Gemini CLI integration — adapter + install hub ([#88](https://github.com/danielvm-git/bigpowers/issues/88)) ([d5a7715](https://github.com/danielvm-git/bigpowers/commit/d5a77156b407e5d5722dd3799ff194bd28d47a03))
+* **e69:** MiMo Code integration — adapter + install hub ([#87](https://github.com/danielvm-git/bigpowers/issues/87)) ([c0a759a](https://github.com/danielvm-git/bigpowers/commit/c0a759ad269ecc031c6496ee2c22574061cec13f))
+* **e74:** Antigravity CLI integration — Wave A + B ([#89](https://github.com/danielvm-git/bigpowers/issues/89)) ([9e18e04](https://github.com/danielvm-git/bigpowers/commit/9e18e044c9441354b5ed7b717ce77ddf62ea46b7))
+* **e76:** ZCode integration — adapter + install hub ([#85](https://github.com/danielvm-git/bigpowers/issues/85)) ([0bb09b3](https://github.com/danielvm-git/bigpowers/commit/0bb09b307c58112a19933d8a81783a5a7df9ecf6))
+
 ## [2.82.4](https://github.com/danielvm-git/bigpowers/compare/v2.82.3...v2.82.4) (2026-07-24)
 
 
