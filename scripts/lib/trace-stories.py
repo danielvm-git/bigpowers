@@ -85,6 +85,10 @@ result = subprocess.run(
 tag_inventory: list[dict] = []
 tagged_sids: set[str] = set()
 tag_index: dict[str, list] = {}
+if result.returncode != 0 and result.stderr:
+    print(f"trace-stories.py: grep stderr: {result.stderr[:200]}", file=sys.stderr)
+if not result.stdout.strip():
+    print(f"trace-stories.py: grep returned no matches (ROOT={ROOT}, returncode={result.returncode})", file=sys.stderr)
 for line in result.stdout.splitlines():
     m = re.match(r"^(.+?):(\d+):(.*story:\s*(e\d{2}s\d{2}).*)$", line)
     if m:
