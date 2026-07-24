@@ -1,3 +1,10 @@
+## [2.83.2](https://github.com/danielvm-git/bigpowers/compare/v2.83.1...v2.83.2) (2026-07-24)
+
+
+### Bug Fixes
+
+* **install:** stop setup from running dev-maintenance regen ([2d89ee2](https://github.com/danielvm-git/bigpowers/commit/2d89ee26a71b9004cf69ad25ce55a9f5b0699018))
+
 ## [2.83.1](https://github.com/danielvm-git/bigpowers/compare/v2.83.0...v2.83.1) (2026-07-24)
 
 
