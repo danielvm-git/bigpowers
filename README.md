@@ -52,6 +52,17 @@ npx bigpowers setup
 
 Both commands sync skill artifacts and link them to Claude Code, Gemini CLI, and Cursor (see [Prerequisites](#-prerequisites)).
 
+### Interactive Installer
+
+The `bigpowers setup` command launches an interactive menu where you can:
+
+1. **Choose install mode**: Setup/Update or Uninstall
+2. **Select location**: Global (available everywhere) or Local (current project only)
+3. **Pick tools**: Select which AI tools to install skills for (Claude Code, Cursor, Gemini, pi, etc.)
+4. **Confirm**: Review and confirm the installation
+
+Use **arrow keys** to navigate, **space** to select, and **Enter** to confirm.
+
 ![Interactive Installer](docs/images/interactive-installer.png)
 
 ### From source (contributors)
