@@ -4,6 +4,7 @@
 # story: e63
 # story: e64s02
 # story: e74s02
+# story: e70s02
 # story: e67s02
 # story: e66s02
 # story: e72s02
@@ -652,6 +653,55 @@ uninstall_kilocode() {
   fi
   unlink_if_managed "$KILOCODE_CONTEXT" "$REPO_ROOT/"
 }
+# ── Trae (e70s02) ───────────────────────────────────────────────────────
+
+TRAE_CONFIG_DIR="$HOME/.trae"
+TRAE_SKILLS_DIR="$TRAE_CONFIG_DIR/skills"
+TRAE_RENDERED="$REPO_ROOT/.trae/skills"
+TRAE_CONTEXT="$TRAE_CONFIG_DIR/AGENTS.md"
+TRAE_HOOKS_DIR="$TRAE_CONFIG_DIR/hooks"
+TRAE_HOOK_SRC="$REPO_ROOT/scripts/hooks/trae/pre-tool-git-guard.sh"
+
+install_trae() {
+  echo ""
+  echo "Trae → $TRAE_SKILLS_DIR/"
+  if [[ ! -d "$TRAE_RENDERED" ]]; then
+    echo "  WARNING: $TRAE_RENDERED not found — run sync-skills.sh first"
+    return
+  fi
+  local count=0
+  for skill_dir in "$TRAE_RENDERED"/*/; do
+    [[ -f "${skill_dir}SKILL.md" ]] || continue
+    local name; name="$(basename "$skill_dir")"
+    link "$skill_dir" "$TRAE_SKILLS_DIR/$name"
+    count=$((count + 1))
+  done
+  echo "  $count skills installed"
+  echo "Trae → context symlink $TRAE_CONTEXT"
+  source "$REPO_ROOT/scripts/lib/context-wire.sh"
+  local agents_src="$REPO_ROOT/AGENTS.md"
+  [[ -f "$agents_src" ]] || agents_src="$REPO_ROOT/docs/templates/AGENTS.md"
+  wire_context_mode symlink "$TRAE_CONTEXT" "" read "$agents_src"
+  if [[ -f "$TRAE_HOOK_SRC" ]]; then
+    echo "Trae Hooks → $TRAE_HOOKS_DIR/"
+    link "$TRAE_HOOK_SRC" "$TRAE_HOOKS_DIR/pre-tool-git-guard.sh"
+    chmod +x "$TRAE_HOOK_SRC" 2>/dev/null || true
+    echo "  NOTE: copy $REPO_ROOT/scripts/hooks/trae/settings.example.json into tool config"
+  fi
+}
+
+uninstall_trae() {
+  echo ""
+  echo "Trae → removing management from $TRAE_CONFIG_DIR/"
+  if [[ -d "$TRAE_SKILLS_DIR" ]]; then
+    for dst in "$TRAE_SKILLS_DIR"/*/; do
+      [[ -L "${dst%/}" ]] || continue
+      unlink_if_managed "${dst%/}" "$REPO_ROOT/"
+    done
+  fi
+  unlink_if_managed "$TRAE_CONTEXT" "$REPO_ROOT/"
+  unlink_if_managed "$TRAE_HOOKS_DIR/pre-tool-git-guard.sh" "$REPO_ROOT/"
+}
 # ── main ──────────────────────────────────────────────────────────────────────
 
 echo "bigpowers install.sh — REPO: $REPO_ROOT"
@@ -672,6 +722,7 @@ if $UNINSTALL; then
   uninstall_codebuddy
   uninstall_cline
   uninstall_kilocode
+  uninstall_trae
   echo ""
   echo "bigpowers uninstalled."
 else
@@ -688,6 +739,7 @@ else
   install_codebuddy
   install_cline
   install_kilocode
+  install_trae
   echo ""
   echo "bigpowers installed. Future updates:"
   if [[ -d "$REPO_ROOT/.git" ]]; then

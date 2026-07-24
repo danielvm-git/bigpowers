@@ -275,3 +275,17 @@ targets:
       file: AGENTS.md
     contracts:
       - kilocode_hooks_manifest
+
+  # Fleet Wave B
+  - id: trae
+    name: Trae
+    tier: opt_in
+    skill:
+      adapter: trae
+      output: .trae/skills
+    context:
+      adapter: trae
+      mode: symlink
+      file: AGENTS.md
+    contracts:
+      - trae_hooks_manifest

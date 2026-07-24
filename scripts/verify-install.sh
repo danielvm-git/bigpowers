@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # story: e47s04 e37s02 e37s04 e37s08
 # story: e74s02
+# story: e70s02
 # story: e67s02
 # story: e66s02
 # story: e72s02
@@ -191,6 +192,11 @@ grep -q 'uninstall_kilocode()' "$REPO_ROOT/scripts/install.sh" && ta_pass "sourc
 grep -q 'KILOCODE_SKILLS_DIR=' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: kilocode skills dir" || ta_fail "source: missing kilocode skills dir"
 grep -q "'kilo'" "$REPO_ROOT/bin/setup.js" && grep -q 'SUPPORTED_IDS' "$REPO_ROOT/bin/setup.js" && ta_pass "setup.js: kilo supported" || ta_fail "setup.js: kilo not in SUPPORTED_IDS"
 grep -q "case 'kilo'" "$REPO_ROOT/scripts/lib/install-helpers.js" && ta_pass "install-helpers: kilo case" || ta_fail "install-helpers: missing kilo case"
+grep -q 'install_trae()' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: install_trae()" || ta_fail "source: missing install_trae()"
+grep -q 'uninstall_trae()' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: uninstall_trae()" || ta_fail "source: missing uninstall_trae()"
+grep -q 'TRAE_SKILLS_DIR=' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: trae skills dir" || ta_fail "source: missing trae skills dir"
+grep -q "'trae'" "$REPO_ROOT/bin/setup.js" && grep -q 'SUPPORTED_IDS' "$REPO_ROOT/bin/setup.js" && ta_pass "setup.js: trae supported" || ta_fail "setup.js: trae not in SUPPORTED_IDS"
+grep -q "case 'trae'" "$REPO_ROOT/scripts/lib/install-helpers.js" && ta_pass "install-helpers: trae case" || ta_fail "install-helpers: missing trae case"
 echo ""
 echo "──────────────────────────────────────────"
 echo "verify-install: $TA_PASS passed, $TA_FAIL failed"

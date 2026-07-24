@@ -5,6 +5,7 @@
 // story: e76s02
 // story: e69s02
 // story: e74s02
+// story: e70s02
 // story: e67s02
 // story: e66s02
 // story: e72s02
@@ -237,6 +238,23 @@ function installGlobal(tool, repoRoot) {
         if (fs.existsSync(agentsSrc)) fs.copyFileSync(agentsSrc, agentsDst);
       }
       break; // story: e67s02
+    case 'trae':
+      linkRenderedSkills(path.join(repoRoot, '.trae/skills'), path.join(homeDir, '.trae', 'skills'));
+      {
+        const agentsSrc = path.join(repoRoot, 'AGENTS.md');
+        const agentsDst = path.join(homeDir, '.trae', 'AGENTS.md');
+        fs.mkdirSync(path.dirname(agentsDst), { recursive: true });
+        linkFile(agentsSrc, agentsDst);
+      }
+      {
+        const hookSrc = path.join(repoRoot, 'scripts', 'hooks', 'trae', 'pre-tool-git-guard.sh');
+        const hookDst = path.join(homeDir, '.trae', 'hooks', 'pre-tool-git-guard.sh');
+        if (fs.existsSync(hookSrc)) {
+          fs.mkdirSync(path.dirname(hookDst), { recursive: true });
+          linkHook(hookSrc, hookDst);
+        }
+      }
+      break; // story: e70s02
     case 'cursor': {
       const rulesSrc = path.join(repoRoot, '.cursor', 'rules');
       const rulesDst = path.join(homeDir, '.cursor', 'rules');
