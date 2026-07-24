@@ -109,7 +109,10 @@ PASS Agent Readability
 1. `install-helpers.js`: Claude `block-dangerous-git.sh` source → `skills/guard-git/scripts/...`
 2. `bin/setup.js`: add `pi` to `TOOLS`; remove dead `ALL_ID`; drop bogus arg to `handleUninstall`
 3. Added `scripts/test-install-helpers.{js,sh}`
+4. **Review respond (iter 1–2):** `linkHook` throws on missing source; selftest negative path + stronger symlink asserts; wired `install-helpers` into `GOLDEN_GATES`; epic files list updated
 
 **Overall: PASS** (`exit 0`)
 
-**Next:** `request-review` (Santa Method dual-blind AND-gate)
+**Santa review status:** Round 2 AND-gate FAIL (untracked tests + missing throw assert). Round 3 pending after commit `c4c81f22`.
+
+**Next:** `request-review` iteration 3 (Santa Method dual-blind AND-gate)
