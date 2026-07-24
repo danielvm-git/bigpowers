@@ -4,6 +4,7 @@
 # story: e63
 # story: e64s02
 # story: e74s02
+# story: e73s02
 # story: e70s02
 # story: e67s02
 # story: e66s02
@@ -702,6 +703,55 @@ uninstall_trae() {
   unlink_if_managed "$TRAE_CONTEXT" "$REPO_ROOT/"
   unlink_if_managed "$TRAE_HOOKS_DIR/pre-tool-git-guard.sh" "$REPO_ROOT/"
 }
+# ── Windsurf (e73s02) ───────────────────────────────────────────────────────
+
+WINDSURF_CONFIG_DIR="$HOME/.codeium/windsurf"
+WINDSURF_SKILLS_DIR="$WINDSURF_CONFIG_DIR/rules"
+WINDSURF_RENDERED="$REPO_ROOT/.windsurf/rules"
+WINDSURF_CONTEXT="$WINDSURF_CONFIG_DIR/AGENTS.md"
+WINDSURF_HOOKS_DIR="$WINDSURF_CONFIG_DIR/hooks"
+WINDSURF_HOOK_SRC="$REPO_ROOT/scripts/hooks/windsurf/pre-tool-git-guard.sh"
+
+install_windsurf() {
+  echo ""
+  echo "Windsurf → $WINDSURF_SKILLS_DIR/"
+  if [[ ! -d "$WINDSURF_RENDERED" ]]; then
+    echo "  WARNING: $WINDSURF_RENDERED not found — run sync-skills.sh first"
+    return
+  fi
+  local count=0
+  for rule in "$WINDSURF_RENDERED"/*.md; do
+    [[ -f "$rule" ]] || continue
+    link "$rule" "$WINDSURF_SKILLS_DIR/$(basename "$rule")"
+    count=$((count + 1))
+  done
+  echo "  $count rules installed"
+  echo "Windsurf → context copy $WINDSURF_CONTEXT"
+  source "$REPO_ROOT/scripts/lib/context-wire.sh"
+  local agents_src="$REPO_ROOT/AGENTS.md"
+  [[ -f "$agents_src" ]] || agents_src="$REPO_ROOT/docs/templates/AGENTS.md"
+  run mkdir -p "$(dirname "$WINDSURF_CONTEXT")"
+  run cp "$agents_src" "$WINDSURF_CONTEXT"
+  if [[ -f "$WINDSURF_HOOK_SRC" ]]; then
+    echo "Windsurf Hooks → $WINDSURF_HOOKS_DIR/"
+    link "$WINDSURF_HOOK_SRC" "$WINDSURF_HOOKS_DIR/pre-tool-git-guard.sh"
+    chmod +x "$WINDSURF_HOOK_SRC" 2>/dev/null || true
+    echo "  NOTE: copy $REPO_ROOT/scripts/hooks/windsurf/settings.example.json into tool config"
+  fi
+}
+
+uninstall_windsurf() {
+  echo ""
+  echo "Windsurf → removing management from $WINDSURF_CONFIG_DIR/"
+  if [[ -d "$WINDSURF_SKILLS_DIR" ]]; then
+    for dst in "$WINDSURF_SKILLS_DIR"/*.md; do
+      [[ -L "$dst" ]] || continue
+      unlink_if_managed "$dst" "$REPO_ROOT/"
+    done
+  fi
+  unlink_if_managed "$WINDSURF_CONTEXT" "$REPO_ROOT/"
+  unlink_if_managed "$WINDSURF_HOOKS_DIR/pre-tool-git-guard.sh" "$REPO_ROOT/"
+}
 # ── main ──────────────────────────────────────────────────────────────────────
 
 echo "bigpowers install.sh — REPO: $REPO_ROOT"
@@ -723,6 +773,7 @@ if $UNINSTALL; then
   uninstall_cline
   uninstall_kilocode
   uninstall_trae
+  uninstall_windsurf
   echo ""
   echo "bigpowers uninstalled."
 else
@@ -740,6 +791,7 @@ else
   install_cline
   install_kilocode
   install_trae
+  install_windsurf
   echo ""
   echo "bigpowers installed. Future updates:"
   if [[ -d "$REPO_ROOT/.git" ]]; then

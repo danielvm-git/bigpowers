@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # story: e47s04 e37s02 e37s04 e37s08
 # story: e74s02
+# story: e73s02
 # story: e70s02
 # story: e67s02
 # story: e66s02
@@ -197,6 +198,11 @@ grep -q 'uninstall_trae()' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: u
 grep -q 'TRAE_SKILLS_DIR=' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: trae skills dir" || ta_fail "source: missing trae skills dir"
 grep -q "'trae'" "$REPO_ROOT/bin/setup.js" && grep -q 'SUPPORTED_IDS' "$REPO_ROOT/bin/setup.js" && ta_pass "setup.js: trae supported" || ta_fail "setup.js: trae not in SUPPORTED_IDS"
 grep -q "case 'trae'" "$REPO_ROOT/scripts/lib/install-helpers.js" && ta_pass "install-helpers: trae case" || ta_fail "install-helpers: missing trae case"
+grep -q 'install_windsurf()' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: install_windsurf()" || ta_fail "source: missing install_windsurf()"
+grep -q 'uninstall_windsurf()' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: uninstall_windsurf()" || ta_fail "source: missing uninstall_windsurf()"
+grep -q 'WINDSURF_SKILLS_DIR=' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: windsurf skills dir" || ta_fail "source: missing windsurf skills dir"
+grep -q "'windsurf'" "$REPO_ROOT/bin/setup.js" && grep -q 'SUPPORTED_IDS' "$REPO_ROOT/bin/setup.js" && ta_pass "setup.js: windsurf supported" || ta_fail "setup.js: windsurf not in SUPPORTED_IDS"
+grep -q "case 'windsurf'" "$REPO_ROOT/scripts/lib/install-helpers.js" && ta_pass "install-helpers: windsurf case" || ta_fail "install-helpers: missing windsurf case"
 echo ""
 echo "──────────────────────────────────────────"
 echo "verify-install: $TA_PASS passed, $TA_FAIL failed"

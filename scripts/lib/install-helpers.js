@@ -5,6 +5,7 @@
 // story: e76s02
 // story: e69s02
 // story: e74s02
+// story: e73s02
 // story: e70s02
 // story: e67s02
 // story: e66s02
@@ -255,6 +256,33 @@ function installGlobal(tool, repoRoot) {
         }
       }
       break; // story: e70s02
+    case 'windsurf':
+      {
+        const renderedDir = path.join(repoRoot, '.windsurf/rules');
+        const targetDir = path.join(homeDir, '.codeium/windsurf', 'rules');
+        fs.mkdirSync(targetDir, { recursive: true });
+        if (fs.existsSync(renderedDir)) {
+          for (const f of fs.readdirSync(renderedDir)) {
+            if (!f.endsWith('.md')) continue;
+            linkFile(path.join(renderedDir, f), path.join(targetDir, f));
+          }
+        }
+      }
+      {
+        const agentsSrc = path.join(repoRoot, 'AGENTS.md');
+        const agentsDst = path.join(homeDir, '.codeium/windsurf', 'AGENTS.md');
+        fs.mkdirSync(path.dirname(agentsDst), { recursive: true });
+        if (fs.existsSync(agentsSrc)) fs.copyFileSync(agentsSrc, agentsDst);
+      }
+      {
+        const hookSrc = path.join(repoRoot, 'scripts', 'hooks', 'windsurf', 'pre-tool-git-guard.sh');
+        const hookDst = path.join(homeDir, '.codeium/windsurf', 'hooks', 'pre-tool-git-guard.sh');
+        if (fs.existsSync(hookSrc)) {
+          fs.mkdirSync(path.dirname(hookDst), { recursive: true });
+          linkHook(hookSrc, hookDst);
+        }
+      }
+      break; // story: e73s02
     case 'cursor': {
       const rulesSrc = path.join(repoRoot, '.cursor', 'rules');
       const rulesDst = path.join(homeDir, '.cursor', 'rules');

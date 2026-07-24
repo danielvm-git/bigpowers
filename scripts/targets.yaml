@@ -289,3 +289,17 @@ targets:
       file: AGENTS.md
     contracts:
       - trae_hooks_manifest
+
+  # Fleet Wave B
+  - id: windsurf
+    name: Windsurf
+    tier: opt_in
+    skill:
+      adapter: windsurf
+      output: .windsurf/rules
+    context:
+      adapter: windsurf
+      mode: copy
+      file: AGENTS.md
+    contracts:
+      - windsurf_hooks_manifest

@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // story: e60s01
 // story: e74s02
+// story: e73s02
 // story: e70s02
 // story: e67s02
 // story: e66s02
@@ -63,7 +64,7 @@ const TOOLS = [
   { id: 'windsurf', name: 'Windsurf', globalPath: '~/.codeium/windsurf', localPath: '.codeium/windsurf' },
   { id: 'zcode', name: 'ZCode', globalPath: '~/.zcode', localPath: '.zcode' },
 ];
-const SUPPORTED_IDS = new Set(['claude', 'gemini', 'pi', 'hermes', 'mimo', 'zcode', 'cursor', 'codex', 'antigravity', 'agy', 'qwen', 'codebuddy', 'cline', 'kilo', 'trae']);
+const SUPPORTED_IDS = new Set(['claude', 'gemini', 'pi', 'hermes', 'mimo', 'zcode', 'cursor', 'codex', 'antigravity', 'agy', 'qwen', 'codebuddy', 'cline', 'kilo', 'trae', 'windsurf']);
 const UNSUPPORTED_HINT = '(TODO)';
 
 // ── clack helpers (lazy ESM import from CJS) ─────────────────────────────────
