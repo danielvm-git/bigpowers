@@ -53,6 +53,7 @@ targets:
       mode: native
     contracts:
       - agents_md_exists
+      - cline_hooks_manifest
 
   - id: aider
     name: Aider

@@ -687,15 +687,13 @@ grep -q "case '{setup_id}'" "$REPO_ROOT/scripts/lib/install-helpers.js" && ta_pa
 def patch_targets(cfg: dict, content: str) -> str:
     fn = cfg["fn"]
     manifest = cfg.get("manifest")
-    if manifest and f"id: {fn}" in content:
-        # augment existing row with manifest contract
-        if manifest not in content:
-            content = re.sub(
-                rf"(  - id: {fn}\n(?:    .*\n)*?    contracts:\n(?:      - .*\n)*?)((?:      - .*\n)*?)(  - id: |  # Fleet|$)",
-                rf"\1      - {manifest}\n\3",
-                content,
-                count=1,
-            )
+    if manifest and manifest not in content and f"id: {fn}" in content:
+        content = re.sub(
+            rf"(  - id: {fn}\n(?:    .*\n)*?    contracts:\n(?:      - [^\n]+\n)+)",
+            rf"\1      - {manifest}\n",
+            content,
+            count=1,
+        )
         return content
     if f"\n  - id: {fn}\n" in content:
         return content

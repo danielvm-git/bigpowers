@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # story: e47s04 e37s02 e37s04 e37s08
 # story: e74s02
+# story: e66s02
 # story: e72s02
 # story: e68s02
 # story: e65s02
@@ -179,6 +180,11 @@ grep -q 'uninstall_codebuddy()' "$REPO_ROOT/scripts/install.sh" && ta_pass "sour
 grep -q 'CODEBUDDY_SKILLS_DIR=' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: codebuddy skills dir" || ta_fail "source: missing codebuddy skills dir"
 grep -q "'codebuddy'" "$REPO_ROOT/bin/setup.js" && grep -q 'SUPPORTED_IDS' "$REPO_ROOT/bin/setup.js" && ta_pass "setup.js: codebuddy supported" || ta_fail "setup.js: codebuddy not in SUPPORTED_IDS"
 grep -q "case 'codebuddy'" "$REPO_ROOT/scripts/lib/install-helpers.js" && ta_pass "install-helpers: codebuddy case" || ta_fail "install-helpers: missing codebuddy case"
+grep -q 'install_cline()' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: install_cline()" || ta_fail "source: missing install_cline()"
+grep -q 'uninstall_cline()' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: uninstall_cline()" || ta_fail "source: missing uninstall_cline()"
+grep -q 'CLINE_SKILLS_DIR=' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: cline skills dir" || ta_fail "source: missing cline skills dir"
+grep -q "'cline'" "$REPO_ROOT/bin/setup.js" && grep -q 'SUPPORTED_IDS' "$REPO_ROOT/bin/setup.js" && ta_pass "setup.js: cline supported" || ta_fail "setup.js: cline not in SUPPORTED_IDS"
+grep -q "case 'cline'" "$REPO_ROOT/scripts/lib/install-helpers.js" && ta_pass "install-helpers: cline case" || ta_fail "install-helpers: missing cline case"
 echo ""
 echo "──────────────────────────────────────────"
 echo "verify-install: $TA_PASS passed, $TA_FAIL failed"

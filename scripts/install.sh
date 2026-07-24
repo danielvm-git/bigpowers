@@ -4,6 +4,7 @@
 # story: e63
 # story: e64s02
 # story: e74s02
+# story: e66s02
 # story: e72s02
 # story: e68s02
 # story: e65s02
@@ -571,6 +572,42 @@ uninstall_codebuddy() {
   unlink_if_managed "$CODEBUDDY_CONTEXT" "$REPO_ROOT/"
   unlink_if_managed "$CODEBUDDY_HOOKS_DIR/pre-tool-git-guard.sh" "$REPO_ROOT/"
 }
+# ── Cline (e66s02) ───────────────────────────────────────────────────────
+
+CLINE_CONFIG_DIR="$HOME/.cline"
+CLINE_SKILLS_DIR="$CLINE_CONFIG_DIR/skills"
+CLINE_RENDERED="$REPO_ROOT/.cline/skills"
+
+install_cline() {
+  echo ""
+  echo "Cline → $CLINE_SKILLS_DIR/"
+  if [[ ! -d "$CLINE_RENDERED" ]]; then
+    echo "  WARNING: $CLINE_RENDERED not found — run sync-skills.sh first"
+    return
+  fi
+  local count=0
+  for skill_dir in "$CLINE_RENDERED"/*/; do
+    [[ -f "${skill_dir}SKILL.md" ]] || continue
+    local name; name="$(basename "$skill_dir")"
+    link "$skill_dir" "$CLINE_SKILLS_DIR/$name"
+    count=$((count + 1))
+  done
+  echo "  $count skills installed"
+  if [[ -d "$REPO_ROOT/scripts/hooks/cline/plugin" ]]; then
+    echo "Cline → hook plugin template at scripts/hooks/cline/plugin/ (manual install)"
+  fi
+}
+
+uninstall_cline() {
+  echo ""
+  echo "Cline → removing management from $CLINE_CONFIG_DIR/"
+  if [[ -d "$CLINE_SKILLS_DIR" ]]; then
+    for dst in "$CLINE_SKILLS_DIR"/*/; do
+      [[ -L "${dst%/}" ]] || continue
+      unlink_if_managed "${dst%/}" "$REPO_ROOT/"
+    done
+  fi
+}
 # ── main ──────────────────────────────────────────────────────────────────────
 
 echo "bigpowers install.sh — REPO: $REPO_ROOT"
@@ -589,6 +626,7 @@ if $UNINSTALL; then
   uninstall_codex
   uninstall_qwen
   uninstall_codebuddy
+  uninstall_cline
   echo ""
   echo "bigpowers uninstalled."
 else
@@ -603,6 +641,7 @@ else
   install_codex
   install_qwen
   install_codebuddy
+  install_cline
   echo ""
   echo "bigpowers installed. Future updates:"
   if [[ -d "$REPO_ROOT/.git" ]]; then

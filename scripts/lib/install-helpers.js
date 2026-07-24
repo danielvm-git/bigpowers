@@ -5,6 +5,7 @@
 // story: e76s02
 // story: e69s02
 // story: e74s02
+// story: e66s02
 // story: e72s02
 // story: e68s02
 // story: e65s02
@@ -212,6 +213,9 @@ function installGlobal(tool, repoRoot) {
         }
       }
       break; // story: e72s02
+    case 'cline':
+      linkRenderedSkills(path.join(repoRoot, '.cline/skills'), path.join(homeDir, '.cline', 'skills'));
+      break; // story: e66s02
     case 'cursor': {
       const rulesSrc = path.join(repoRoot, '.cursor', 'rules');
       const rulesDst = path.join(homeDir, '.cursor', 'rules');
