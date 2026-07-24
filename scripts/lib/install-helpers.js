@@ -28,6 +28,11 @@ function linkSkills(skillsDir, targetDir) {
 }
 
 function linkDir(src, dst) {
+  if (!fs.existsSync(src)) {
+    throw new Error(
+      `Link source missing: ${src} (run bash scripts/sync-skills.sh first)`
+    );
+  }
   try {
     const stat = fs.lstatSync(dst);
     if (stat.isSymbolicLink()) fs.unlinkSync(dst);
@@ -63,7 +68,11 @@ function bridgeHermesConfig(configPath) {
 }
 
 function linkHook(src, dst) {
-  if (!fs.existsSync(src)) return;
+  if (!fs.existsSync(src)) {
+    throw new Error(
+      `Hook source missing: ${src} (expected under repo skills/ or scripts/hooks/; fix path or restore file)`
+    );
+  }
   try {
     const stat = fs.lstatSync(dst);
     if (stat.isSymbolicLink()) fs.unlinkSync(dst);
@@ -87,8 +96,13 @@ function installGlobal(tool, repoRoot) {
       const hooksDir = path.join(homeDir, '.claude', 'hooks');
       fs.mkdirSync(hooksDir, { recursive: true });
       linkHook(
-        path.join(repoRoot, 'guard-git', 'scripts', 'block-dangerous-git.sh'),
+        path.join(repoRoot, 'skills', 'guard-git', 'scripts', 'block-dangerous-git.sh'),
         path.join(hooksDir, 'block-dangerous-git.sh')
+      );
+      // story: e63 — hook sources SCRIPT_DIR/lib/git-guardrails-core.sh
+      linkDir(
+        path.join(repoRoot, 'skills', 'guard-git', 'scripts', 'lib'),
+        path.join(hooksDir, 'lib')
       );
       linkHook(
         path.join(repoRoot, 'scripts', 'hooks', 'rtk-rewrite.sh'),
@@ -270,7 +284,7 @@ function uninstallTool(toolId, repoRoot) {
         for (const entry of fs.readdirSync(skillsDir, { withFileTypes: true })) {
           if (!entry.isSymbolicLink()) continue;
           const target = fs.readlinkSync(path.join(skillsDir, entry.name));
-          if (target.includes('bigpowers')) {
+          if (target.startsWith(repoRoot)) {
             removeSymlink(path.join(skillsDir, entry.name));
           }
         }
@@ -278,6 +292,7 @@ function uninstallTool(toolId, repoRoot) {
       const hooksDir = path.join(homeDir, '.claude', 'hooks');
       removeSymlink(path.join(hooksDir, 'block-dangerous-git.sh'));
       removeSymlink(path.join(hooksDir, 'rtk-rewrite.sh'));
+      removeSymlink(path.join(hooksDir, 'lib'));
       break;
     }
     case 'gemini':
@@ -298,7 +313,7 @@ function uninstallTool(toolId, repoRoot) {
         for (const entry of fs.readdirSync(skillsDir, { withFileTypes: true })) {
           if (!entry.isSymbolicLink()) continue;
           const target = fs.readlinkSync(path.join(skillsDir, entry.name));
-          if (target.includes('bigpowers')) {
+          if (target.startsWith(repoRoot)) {
             removeSymlink(path.join(skillsDir, entry.name));
           }
         }
@@ -311,7 +326,7 @@ function uninstallTool(toolId, repoRoot) {
         for (const entry of fs.readdirSync(skillsDir, { withFileTypes: true })) {
           if (!entry.isSymbolicLink()) continue;
           const target = fs.readlinkSync(path.join(skillsDir, entry.name));
-          if (target.includes('bigpowers') || target.includes('.hermes/skills')) {
+          if (target.startsWith(repoRoot) || target.includes('.hermes/skills')) {
             removeSymlink(path.join(skillsDir, entry.name));
           }
         }
