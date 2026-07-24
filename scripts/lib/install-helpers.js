@@ -2,6 +2,7 @@
 // story: e60s01
 // story: e61s02
 // story: e76s02
+// story: e69s02
 // install-helpers.js — symlink helpers for bigpowers setup
 
 const fs = require('fs');
@@ -129,6 +130,16 @@ function installGlobal(tool, repoRoot) {
       linkFile(agentsSrc, agentsDst);
       break;
     }
+    case 'mimo': {
+      const renderedDir = path.join(repoRoot, '.mimocode', 'skills');
+      const targetDir = path.join(homeDir, '.mimocode', 'skills');
+      linkRenderedSkills(renderedDir, targetDir);
+      const agentsSrc = path.join(repoRoot, 'AGENTS.md');
+      const agentsDst = path.join(homeDir, '.mimocode', 'AGENTS.md');
+      fs.mkdirSync(path.dirname(agentsDst), { recursive: true });
+      linkFile(agentsSrc, agentsDst);
+      break;
+    }
     case 'cursor': {
       const rulesSrc = path.join(repoRoot, '.cursor', 'rules');
       const rulesDst = path.join(homeDir, '.cursor', 'rules');
@@ -183,6 +194,16 @@ function installLocal(tool, repoRoot) {
       linkRenderedSkills(renderedDir, targetDir);
       const agentsSrc = path.join(repoRoot, 'AGENTS.md');
       const agentsDst = path.join(cwd, '.zcode', 'AGENTS.md');
+      fs.mkdirSync(path.dirname(agentsDst), { recursive: true });
+      linkFile(agentsSrc, agentsDst);
+      break;
+    }
+    case 'mimo': {
+      const renderedDir = path.join(repoRoot, '.mimocode', 'skills');
+      const targetDir = path.join(cwd, '.mimocode', 'skills');
+      linkRenderedSkills(renderedDir, targetDir);
+      const agentsSrc = path.join(repoRoot, 'AGENTS.md');
+      const agentsDst = path.join(cwd, '.mimocode', 'AGENTS.md');
       fs.mkdirSync(path.dirname(agentsDst), { recursive: true });
       linkFile(agentsSrc, agentsDst);
       break;
@@ -268,6 +289,20 @@ function uninstallTool(toolId, repoRoot) {
         }
       }
       removeSymlink(path.join(homeDir, '.zcode', 'AGENTS.md'));
+      break;
+    }
+    case 'mimo': {
+      const skillsDir = path.join(homeDir, '.mimocode', 'skills');
+      if (fs.existsSync(skillsDir)) {
+        for (const entry of fs.readdirSync(skillsDir, { withFileTypes: true })) {
+          if (!entry.isSymbolicLink()) continue;
+          const target = fs.readlinkSync(path.join(skillsDir, entry.name));
+          if (target.includes('bigpowers') || target.includes('.mimocode/skills')) {
+            removeSymlink(path.join(skillsDir, entry.name));
+          }
+        }
+      }
+      removeSymlink(path.join(homeDir, '.mimocode', 'AGENTS.md'));
       break;
     }
     case 'cursor':

@@ -352,8 +352,9 @@ development_status:
   e66: backlog
   e67: backlog
   e68: backlog
-  e69: backlog
-  e69s01: backlog
+  e69: in_progress
+  e69s01: done
+  e69s02: done
   e70: backlog
   e71: backlog
   e72: backlog
@@ -3062,16 +3063,17 @@ stories:
     tasks_passing: 6
     tasks_failing: 0
     risk_max: P1
-  e69s01:
+  e69s02:
     status: done
-    title: 'MiMo Code adapter — Wave A skills-dir (.mimocode/skills/)'
+    title: "Install hub wiring (Wave B)"
     bcps: 2
     epic: e69
-    tasks_total: 4
-    tasks_passing: 4
+    started_at: "2026-07-24T11:25:00-03:00"
+    completed_at: "2026-07-24T11:35:00-03:00"
+    tasks_total: 7
+    tasks_passing: 7
     tasks_failing: 0
-    risk_max: P2
-    security_max: low
+    risk_max: P1
   e76s01:
     status: done
     title: ZCode adapter — Wave A greenfield skills-dir

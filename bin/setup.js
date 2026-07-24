@@ -48,6 +48,7 @@ const TOOLS = [
   { id: 'cursor', name: 'Cursor', globalPath: '~/.cursor', localPath: '.cursor' },
   { id: 'gemini', name: 'Gemini', globalPath: '~/.gemini', localPath: '.gemini' },
   { id: 'hermes', name: 'Hermes Agent', globalPath: '~/.hermes', localPath: '.hermes' },
+  { id: 'mimo', name: 'MiMo Code', globalPath: '~/.mimocode', localPath: '.mimocode' },
   { id: 'kilo', name: 'Kilo', globalPath: '~/.config/kilo', localPath: '.config/kilo' },
   { id: 'opencode', name: 'OpenCode', globalPath: '~/.config/opencode', localPath: '.config/opencode' },
   { id: 'qwen', name: 'Qwen Code', globalPath: '~/.qwen', localPath: '.qwen' },
@@ -56,7 +57,7 @@ const TOOLS = [
   { id: 'zcode', name: 'ZCode', globalPath: '~/.zcode', localPath: '.zcode' },
 ];
 const ALL_ID = '__all__';
-const SUPPORTED_IDS = new Set(['claude', 'gemini', 'pi', 'hermes', 'zcode', 'cursor', 'codex']);
+const SUPPORTED_IDS = new Set(['claude', 'gemini', 'pi', 'hermes', 'mimo', 'zcode', 'cursor', 'codex']);
 const UNSUPPORTED_HINT = '(TODO)';
 
 // ── clack helpers (lazy ESM import from CJS) ─────────────────────────────────

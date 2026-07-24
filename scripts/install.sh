@@ -8,6 +8,7 @@
 #   pi           → ~/.pi/agent/skills/<name>/ (one symlink per skill)
 #   Hermes Agent → ~/.hermes/skills/<name>/ (symlink rendered .hermes/skills/)
 #   ZCode        → ~/.zcode/skills/<name>/ (symlink rendered .zcode/skills/)
+#   MiMo Code    → ~/.mimocode/skills/<name>/ (symlink rendered .mimocode/skills/)
 #   Cursor       → ~/.cursor/rules/ (one dir symlink; per-project note printed)
 #
 # Usage:
@@ -319,6 +320,46 @@ uninstall_zcode() {
   unlink_if_managed "$ZCODE_AGENTS" "$REPO_ROOT/"
 }
 
+# ── MiMo Code (e69s02) ────────────────────────────────────────────────────────
+
+MIMO_CONFIG_DIR="$HOME/.mimocode"
+MIMO_SKILLS_DIR="$MIMO_CONFIG_DIR/skills"
+MIMO_RENDERED="$REPO_ROOT/.mimocode/skills"
+MIMO_AGENTS="$MIMO_CONFIG_DIR/AGENTS.md"
+
+install_mimo() {
+  echo ""
+  echo "MiMo Code → $MIMO_SKILLS_DIR/"
+  if [[ ! -d "$MIMO_RENDERED" ]]; then
+    echo "  WARNING: $MIMO_RENDERED not found — run sync-skills.sh first"
+    return
+  fi
+  local count=0
+  for skill_dir in "$MIMO_RENDERED"/*/; do
+    [[ -f "${skill_dir}SKILL.md" ]] || continue
+    local name; name="$(basename "$skill_dir")"
+    link "$skill_dir" "$MIMO_SKILLS_DIR/$name"
+    count=$((count + 1))
+  done
+  echo "  $count skills installed"
+
+  echo "MiMo Code → context symlink $MIMO_AGENTS"
+  source "$REPO_ROOT/scripts/lib/context-wire.sh"
+  wire_context_mode symlink "$MIMO_AGENTS" "" "" "" "$REPO_ROOT/AGENTS.md"
+}
+
+uninstall_mimo() {
+  echo ""
+  echo "MiMo Code → removing management from $MIMO_CONFIG_DIR/"
+  if [[ -d "$MIMO_SKILLS_DIR" ]]; then
+    for dst in "$MIMO_SKILLS_DIR"/*/; do
+      [[ -L "${dst%/}" ]] || continue
+      unlink_if_managed "${dst%/}" "$REPO_ROOT/"
+    done
+  fi
+  unlink_if_managed "$MIMO_AGENTS" "$REPO_ROOT/"
+}
+
 # ── Codex CLI (e37s15) ───────────────────────────────────────────────────────
 
 CODEX_DIR="$HOME/.codex"
@@ -350,6 +391,7 @@ if $UNINSTALL; then
   uninstall_pi
   uninstall_hermes
   uninstall_zcode
+  uninstall_mimo
   uninstall_cursor
   uninstall_codex
   echo ""
@@ -360,6 +402,7 @@ else
   install_pi
   install_hermes
   install_zcode
+  install_mimo
   install_cursor
   install_codex
   echo ""
