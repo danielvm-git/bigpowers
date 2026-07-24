@@ -1,3 +1,10 @@
+## [2.83.3](https://github.com/danielvm-git/bigpowers/compare/v2.83.2...v2.83.3) (2026-07-24)
+
+
+### Bug Fixes
+
+* **install:** stop spinner cleanly instead of freezing on sync ([f3589d9](https://github.com/danielvm-git/bigpowers/commit/f3589d9d97f843211f147b30223cdfa3b85483ae))
+
 ## [2.83.2](https://github.com/danielvm-git/bigpowers/compare/v2.83.1...v2.83.2) (2026-07-24)
 
 
