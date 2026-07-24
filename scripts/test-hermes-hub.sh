@@ -23,9 +23,9 @@ grep -q 'HERMES_SKILLS_DIR=' "$INSTALL_SH" && pass 'install.sh: HERMES_SKILLS_DI
 grep -q 'install_hermes' "$INSTALL_SH" && grep -q 'uninstall_hermes' "$INSTALL_SH" && pass 'install.sh: dispatch wired' || fail 'install.sh: dispatch missing hermes'
 
 DRY_OUT="$(bash "$INSTALL_SH" --dry-run 2>&1)"
-echo "$DRY_OUT" | grep -q 'Hermes Agent →' && pass 'dry-run: Hermes Agent section' || fail 'dry-run: missing Hermes Agent section'
+grep -q 'Hermes Agent →' <<< "$DRY_OUT" && pass 'dry-run: Hermes Agent section' || fail 'dry-run: missing Hermes Agent section'
 DRY_UNINSTALL="$(bash "$INSTALL_SH" --dry-run --uninstall 2>&1)"
-echo "$DRY_UNINSTALL" | grep -q 'Hermes Agent →' && pass 'dry-run uninstall: Hermes Agent section' || fail 'dry-run uninstall: missing Hermes Agent section'
+grep -q 'Hermes Agent →' <<< "$DRY_UNINSTALL" && pass 'dry-run uninstall: Hermes Agent section' || fail 'dry-run uninstall: missing Hermes Agent section'
 
 grep -q "case 'hermes'" "$HELPERS_JS" && pass 'install-helpers: hermes global case' || fail 'install-helpers: missing hermes global case'
 grep -q "case 'hermes'" "$HELPERS_JS" && pass 'install-helpers: hermes cases present' || fail 'install-helpers: missing hermes cases'

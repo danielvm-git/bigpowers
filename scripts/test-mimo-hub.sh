@@ -23,9 +23,9 @@ grep -q 'MIMO_SKILLS_DIR=' "$INSTALL_SH" && pass 'install.sh: MIMO_SKILLS_DIR' |
 grep -q 'install_mimo' "$INSTALL_SH" && grep -q 'uninstall_mimo' "$INSTALL_SH" && pass 'install.sh: dispatch wired' || fail 'install.sh: dispatch missing mimo'
 
 DRY_OUT="$(bash "$INSTALL_SH" --dry-run 2>&1)"
-echo "$DRY_OUT" | grep -q 'MiMo Code →' && pass 'dry-run: MiMo Code section' || fail 'dry-run: missing MiMo Code section'
+grep -q 'MiMo Code →' <<< "$DRY_OUT" && pass 'dry-run: MiMo Code section' || fail 'dry-run: missing MiMo Code section'
 DRY_UNINSTALL="$(bash "$INSTALL_SH" --dry-run --uninstall 2>&1)"
-echo "$DRY_UNINSTALL" | grep -q 'MiMo Code →' && pass 'dry-run uninstall: MiMo Code section' || fail 'dry-run uninstall: missing MiMo Code section'
+grep -q 'MiMo Code →' <<< "$DRY_UNINSTALL" && pass 'dry-run uninstall: MiMo Code section' || fail 'dry-run uninstall: missing MiMo Code section'
 
 grep -q "case 'mimo'" "$HELPERS_JS" && pass 'install-helpers: mimo global case' || fail 'install-helpers: missing mimo global case'
 grep -q "case 'mimo'" "$HELPERS_JS" && pass 'install-helpers: mimo cases present' || fail 'install-helpers: missing mimo cases'

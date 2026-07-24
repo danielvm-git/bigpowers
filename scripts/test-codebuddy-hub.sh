@@ -23,9 +23,9 @@ grep -q 'CODEBUDDY_SKILLS_DIR=' "$INSTALL_SH" && pass 'install.sh: skills dir va
 grep -q 'install_codebuddy' "$INSTALL_SH" && grep -q 'uninstall_codebuddy' "$INSTALL_SH" && pass 'install.sh: dispatch wired' || fail 'install.sh: dispatch missing codebuddy'
 
 DRY_OUT="$(bash "$INSTALL_SH" --dry-run 2>&1)"
-echo "$DRY_OUT" | grep -q 'CodeBuddy →' && pass 'dry-run: CodeBuddy section' || fail 'dry-run: missing CodeBuddy section'
+grep -q 'CodeBuddy →' <<< "$DRY_OUT" && pass 'dry-run: CodeBuddy section' || fail 'dry-run: missing CodeBuddy section'
 DRY_UNINSTALL="$(bash "$INSTALL_SH" --dry-run --uninstall 2>&1)"
-echo "$DRY_UNINSTALL" | grep -q 'CodeBuddy →' && pass 'dry-run uninstall: CodeBuddy section' || fail 'dry-run uninstall: missing CodeBuddy section'
+grep -q 'CodeBuddy →' <<< "$DRY_UNINSTALL" && pass 'dry-run uninstall: CodeBuddy section' || fail 'dry-run uninstall: missing CodeBuddy section'
 
 grep -q "case 'codebuddy'" "$HELPERS_JS" && pass 'install-helpers: codebuddy case' || fail 'install-helpers: missing codebuddy case'
 grep -q 'CODEBUDDY_HOOK_SRC=' "$INSTALL_SH" && pass 'install.sh: hook src' || fail 'install.sh: missing hook src'

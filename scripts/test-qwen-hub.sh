@@ -23,9 +23,9 @@ grep -q 'QWEN_SKILLS_DIR=' "$INSTALL_SH" && pass 'install.sh: skills dir var' ||
 grep -q 'install_qwen' "$INSTALL_SH" && grep -q 'uninstall_qwen' "$INSTALL_SH" && pass 'install.sh: dispatch wired' || fail 'install.sh: dispatch missing qwen'
 
 DRY_OUT="$(bash "$INSTALL_SH" --dry-run 2>&1)"
-echo "$DRY_OUT" | grep -q 'Qwen Code →' && pass 'dry-run: Qwen Code section' || fail 'dry-run: missing Qwen Code section'
+grep -q 'Qwen Code →' <<< "$DRY_OUT" && pass 'dry-run: Qwen Code section' || fail 'dry-run: missing Qwen Code section'
 DRY_UNINSTALL="$(bash "$INSTALL_SH" --dry-run --uninstall 2>&1)"
-echo "$DRY_UNINSTALL" | grep -q 'Qwen Code →' && pass 'dry-run uninstall: Qwen Code section' || fail 'dry-run uninstall: missing Qwen Code section'
+grep -q 'Qwen Code →' <<< "$DRY_UNINSTALL" && pass 'dry-run uninstall: Qwen Code section' || fail 'dry-run uninstall: missing Qwen Code section'
 
 grep -q "case 'qwen'" "$HELPERS_JS" && pass 'install-helpers: qwen case' || fail 'install-helpers: missing qwen case'
 grep -q 'QWEN_HOOK_SRC=' "$INSTALL_SH" && pass 'install.sh: hook src' || fail 'install.sh: missing hook src'

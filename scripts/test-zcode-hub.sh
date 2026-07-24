@@ -23,9 +23,9 @@ grep -q 'ZCODE_SKILLS_DIR=' "$INSTALL_SH" && pass 'install.sh: ZCODE_SKILLS_DIR'
 grep -q 'install_zcode' "$INSTALL_SH" && grep -q 'uninstall_zcode' "$INSTALL_SH" && pass 'install.sh: dispatch wired' || fail 'install.sh: dispatch missing zcode'
 
 DRY_OUT="$(bash "$INSTALL_SH" --dry-run 2>&1)"
-echo "$DRY_OUT" | grep -q 'ZCode →' && pass 'dry-run: ZCode section' || fail 'dry-run: missing ZCode section'
+grep -q 'ZCode →' <<< "$DRY_OUT" && pass 'dry-run: ZCode section' || fail 'dry-run: missing ZCode section'
 DRY_UNINSTALL="$(bash "$INSTALL_SH" --dry-run --uninstall 2>&1)"
-echo "$DRY_UNINSTALL" | grep -q 'ZCode →' && pass 'dry-run uninstall: ZCode section' || fail 'dry-run uninstall: missing ZCode section'
+grep -q 'ZCode →' <<< "$DRY_UNINSTALL" && pass 'dry-run uninstall: ZCode section' || fail 'dry-run uninstall: missing ZCode section'
 
 grep -q "case 'zcode'" "$HELPERS_JS" && pass 'install-helpers: zcode global case' || fail 'install-helpers: missing zcode global case'
 grep -q "case 'zcode'" "$HELPERS_JS" && pass 'install-helpers: zcode cases present' || fail 'install-helpers: missing zcode cases'

@@ -23,9 +23,9 @@ grep -q 'CODEX_SKILLS_DIR=' "$INSTALL_SH" && pass 'install.sh: skills dir var' |
 grep -q 'install_codex' "$INSTALL_SH" && grep -q 'uninstall_codex' "$INSTALL_SH" && pass 'install.sh: dispatch wired' || fail 'install.sh: dispatch missing codex'
 
 DRY_OUT="$(bash "$INSTALL_SH" --dry-run 2>&1)"
-echo "$DRY_OUT" | grep -q 'Codex CLI →' && pass 'dry-run: Codex CLI section' || fail 'dry-run: missing Codex CLI section'
+grep -q 'Codex CLI →' <<< "$DRY_OUT" && pass 'dry-run: Codex CLI section' || fail 'dry-run: missing Codex CLI section'
 DRY_UNINSTALL="$(bash "$INSTALL_SH" --dry-run --uninstall 2>&1)"
-echo "$DRY_UNINSTALL" | grep -q 'Codex CLI →' && pass 'dry-run uninstall: Codex CLI section' || fail 'dry-run uninstall: missing Codex CLI section'
+grep -q 'Codex CLI →' <<< "$DRY_UNINSTALL" && pass 'dry-run uninstall: Codex CLI section' || fail 'dry-run uninstall: missing Codex CLI section'
 
 grep -q "case 'codex'" "$HELPERS_JS" && pass 'install-helpers: codex case' || fail 'install-helpers: missing codex case'
 grep -q 'CODEX_HOOK_SRC=' "$INSTALL_SH" && pass 'install.sh: hook src' || fail 'install.sh: missing hook src'

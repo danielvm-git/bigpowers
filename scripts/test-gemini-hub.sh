@@ -25,10 +25,10 @@ grep -q 'before-tool-rtk.sh' "$INSTALL_SH" && pass 'install.sh: Wave A rtk hook'
 grep -q 'install_gemini' "$INSTALL_SH" && grep -q 'uninstall_gemini' "$INSTALL_SH" && pass 'install.sh: dispatch wired' || fail 'install.sh: dispatch missing gemini'
 
 DRY_OUT="$(bash "$INSTALL_SH" --dry-run 2>&1)"
-echo "$DRY_OUT" | grep -q 'Gemini CLI →' && pass 'dry-run: Gemini CLI section' || fail 'dry-run: missing Gemini CLI section'
-echo "$DRY_OUT" | grep -q 'before-tool-git-guard.sh' && pass 'dry-run: git-guard hook symlink' || fail 'dry-run: missing git-guard hook'
+grep -q 'Gemini CLI →' <<< "$DRY_OUT" && pass 'dry-run: Gemini CLI section' || fail 'dry-run: missing Gemini CLI section'
+grep -q 'before-tool-git-guard.sh' <<< "$DRY_OUT" && pass 'dry-run: git-guard hook symlink' || fail 'dry-run: missing git-guard hook'
 DRY_UNINSTALL="$(bash "$INSTALL_SH" --dry-run --uninstall 2>&1)"
-echo "$DRY_UNINSTALL" | grep -q 'Gemini CLI →' && pass 'dry-run uninstall: Gemini CLI section' || fail 'dry-run uninstall: missing Gemini CLI section'
+grep -q 'Gemini CLI →' <<< "$DRY_UNINSTALL" && pass 'dry-run uninstall: Gemini CLI section' || fail 'dry-run uninstall: missing Gemini CLI section'
 
 grep -q "case 'gemini'" "$HELPERS_JS" && pass 'install-helpers: gemini global case' || fail 'install-helpers: missing gemini global case'
 grep -q 'before-tool-git-guard.sh' "$HELPERS_JS" && pass 'install-helpers: gemini hook wiring' || fail 'install-helpers: missing gemini hook wiring'

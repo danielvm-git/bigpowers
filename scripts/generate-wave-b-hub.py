@@ -661,12 +661,8 @@ def patch_verify_install(cfg: dict, content: str) -> str:
 
     if fn == "opencode":
         content = content.replace(
-            'echo "$DRY_OUT" | grep -qi \'opencode\' && ta_fail "install references opencode" || ta_pass "install has no opencode reference"',
-            'echo "$DRY_OUT" | grep -qi \'OpenCode →\' && ta_pass "install includes OpenCode" || ta_fail "install missing OpenCode"',
-        )
-        content = content.replace(
-            '! grep -q \'install_opencode\\|print_opencode_instructions\' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: no opencode functions" || ta_fail "source: opencode functions remain"',
-            'grep -q \'install_opencode()\' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: install_opencode()" || ta_fail "source: missing install_opencode()"',
+            'grep -qi \'opencode\' <<< "$DRY_OUT" && ta_fail "install references opencode" || ta_pass "install has no opencode reference"',
+            'grep -q \'OpenCode →\' <<< "$DRY_OUT" && ta_pass "install includes OpenCode" || ta_fail "install missing OpenCode"',
         )
 
     block = f"""grep -q 'install_{fn}()' "$REPO_ROOT/scripts/install.sh" && ta_pass "source: install_{fn}()" || ta_fail "source: missing install_{fn}()"

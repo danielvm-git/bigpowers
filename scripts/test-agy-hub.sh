@@ -28,9 +28,9 @@ grep -q 'install_agy' "$INSTALL_SH" && grep -q 'uninstall_agy' "$INSTALL_SH" && 
   && pass 'install.sh: no gemini extension path' || fail 'install.sh: touches gemini extension path'
 
 DRY_OUT="$(bash "$INSTALL_SH" --dry-run 2>&1)"
-echo "$DRY_OUT" | grep -q 'Antigravity CLI →' && pass 'dry-run: Antigravity CLI section' || fail 'dry-run: missing Antigravity CLI section'
+grep -q 'Antigravity CLI →' <<< "$DRY_OUT" && pass 'dry-run: Antigravity CLI section' || fail 'dry-run: missing Antigravity CLI section'
 DRY_UNINSTALL="$(bash "$INSTALL_SH" --dry-run --uninstall 2>&1)"
-echo "$DRY_UNINSTALL" | grep -q 'Antigravity CLI →' && pass 'dry-run uninstall: Antigravity CLI section' || fail 'dry-run uninstall: missing Antigravity CLI section'
+grep -q 'Antigravity CLI →' <<< "$DRY_UNINSTALL" && pass 'dry-run uninstall: Antigravity CLI section' || fail 'dry-run uninstall: missing Antigravity CLI section'
 
 grep -q "case 'antigravity'" "$HELPERS_JS" && pass 'install-helpers: antigravity case' || fail 'install-helpers: missing antigravity case'
 grep -q "case 'agy'" "$HELPERS_JS" && pass 'install-helpers: agy case' || fail 'install-helpers: missing agy case'
@@ -41,7 +41,7 @@ SETUP_SRC="$(cat "$SETUP_JS")"
 echo "$SETUP_SRC" | grep -q "SUPPORTED_IDS = new Set" && pass 'setup.js: SUPPORTED_IDS set' || fail 'setup.js: missing SUPPORTED_IDS'
 echo "$SETUP_SRC" | grep -q "'antigravity'" && pass 'setup.js: antigravity in TOOLS/SUPPORTED_IDS' || fail 'setup.js: antigravity missing'
 echo "$SETUP_SRC" | grep -q "'agy'" && pass 'setup.js: agy in SUPPORTED_IDS' || fail 'setup.js: agy missing from SUPPORTED_IDS'
-echo "$SETUP_SRC" | grep -q 'antigravity-cli/skills' && pass 'setup.js: antigravity-cli global path' || fail 'setup.js: wrong antigravity global path'
+echo "$SETUP_SRC" | grep -q 'antigravity-cli/skills' <<< "$DRY_OUT" && pass 'setup.js: antigravity-cli global path' || fail 'setup.js: wrong antigravity global path'
 echo "$SETUP_SRC" | grep -q "'\\.agents/skills'" && pass 'setup.js: .agents/skills local path' || fail 'setup.js: wrong antigravity local path'
 
 grep -q 'id: agy' "$TARGETS_YAML" && pass 'targets.yaml: agy row' || fail 'targets.yaml: missing agy row'
