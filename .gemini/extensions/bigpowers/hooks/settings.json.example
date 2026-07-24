@@ -1,0 +1,41 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|clear|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$HOME/.gemini/hooks/run-hook.cmd\" session-start",
+            "async": false
+          }
+        ]
+      }
+    ],
+    "BeforeTool": [
+      {
+        "matcher": "run_shell_command",
+        "hooks": [
+          {
+            "name": "git-guardrails",
+            "type": "command",
+            "command": "GIT_GUARDRAILS_MODE=gemini \"$HOME/.gemini/hooks/before-tool-git-guard.sh\"",
+            "timeout": 5000
+          }
+        ]
+      },
+      {
+        "matcher": "run_shell_command",
+        "hooks": [
+          {
+            "name": "rtk-rewrite",
+            "type": "command",
+            "command": "\"$HOME/.gemini/hooks/before-tool-rtk.sh\"",
+            "timeout": 3000
+          }
+        ]
+      }
+    ]
+  },
+  "_comment": "Example only — Wave B install_gemini() merges into ~/.gemini/settings.json. Copy paths after install.sh symlinks hooks."
+}

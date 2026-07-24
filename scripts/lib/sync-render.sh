@@ -54,6 +54,49 @@ render_gemini_command() {
   } > "$GEMINI_COMMANDS/$IR_NAME.toml"
 }
 
+render_gemini_hooks_manifest() {
+  local hookdir="${GEMINI_HOOKS_DIR:-$GEMINI_EXT_DIR/hooks}"
+  mkdir -p "$hookdir"
+  cat > "$hookdir/hooks-manifest.json" <<'JSON'
+{
+  "schema_version": 1,
+  "target": "gemini",
+  "config_path": "~/.gemini/settings.json",
+  "events_total": 11,
+  "events": [
+    "BeforeTool",
+    "AfterTool",
+    "BeforeAgent",
+    "AfterAgent",
+    "BeforeModel",
+    "BeforeToolSelection",
+    "AfterModel",
+    "SessionStart",
+    "SessionEnd",
+    "Notification",
+    "PreCompress"
+  ],
+  "shipped_hooks": [
+    {
+      "event": "SessionStart",
+      "script": "session-start",
+      "matcher": "startup|clear|compact",
+      "wave": "a",
+      "status": "shipped"
+    },
+    {
+      "event": "BeforeTool",
+      "script": "before-tool-git-guard.sh",
+      "matcher": "run_shell_command",
+      "wave": "a",
+      "status": "template"
+    }
+  ],
+  "polyglot_launcher": "run-hook.cmd"
+}
+JSON
+}
+
 render_pi_skill() {
   mkdir -p "$PI_SKILLS/$IR_NAME"
   {
