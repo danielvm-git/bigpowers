@@ -1,0 +1,37 @@
+# story: e76s02
+title: "Install hub wiring (Wave B)"
+status: passing
+risk: P1
+spec: e76s02-hub-wiring.md
+tasks:
+  - id: t1
+    title: Add scripts/test-zcode-hub.sh regression harness
+    status: passing
+    verify: bash scripts/test-zcode-hub.sh
+  - id: t2
+    title: Wire install_zcode/uninstall_zcode in scripts/install.sh
+    status: passing
+    verify: bash -n scripts/install.sh && bash scripts/install.sh --dry-run 2>&1 | grep -q 'ZCode →'
+  - id: t3
+    title: Add zcode cases to scripts/lib/install-helpers.js
+    status: passing
+    verify: node --check scripts/lib/install-helpers.js
+  - id: t4
+    title: Add zcode to SUPPORTED_IDS in bin/setup.js
+    status: passing
+    verify: node --check bin/setup.js && grep -q "'zcode'" bin/setup.js
+  - id: t5
+    title: Add zcode row to scripts/targets.yaml
+    status: passing
+    verify: grep -q 'id: zcode' scripts/targets.yaml && grep -q 'adapter: zcode' scripts/targets.yaml
+  - id: t6
+    title: Extend scripts/verify-install.sh with zcode contract assertions
+    status: passing
+    verify: bash scripts/verify-install.sh
+  - id: t7
+    title: Story gate — hub harness + verify-install green
+    status: passing
+    verify: >-
+      bash scripts/test-zcode-hub.sh &&
+      bash scripts/verify-install.sh &&
+      echo OK

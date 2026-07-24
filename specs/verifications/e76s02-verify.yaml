@@ -1,0 +1,17 @@
+story: e76s02
+title: ZCode install hub wiring (Wave B)
+command: bash scripts/test-zcode-hub.sh && bash scripts/verify-install.sh
+expected_output: |
+  test-zcode-hub: 18 passed, 0 failed
+  Overall: pass
+checks:
+  - cmd: bash scripts/test-zcode-hub.sh
+    expect_exit: 0
+  - cmd: bash scripts/verify-install.sh
+    expect_exit: 0
+  - cmd: bash -n scripts/install.sh
+    expect_exit: 0
+  - cmd: node --check scripts/lib/install-helpers.js
+    expect_exit: 0
+  - cmd: node --check bin/setup.js
+    expect_exit: 0

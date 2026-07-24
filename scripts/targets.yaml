@@ -128,6 +128,19 @@ targets:
     contracts:
       - agents_md_exists
 
+  - id: zcode
+    name: ZCode
+    tier: opt_in
+    skill:
+      adapter: zcode
+      output: .zcode/skills
+    context:
+      adapter: zcode
+      mode: symlink
+      file: AGENTS.md
+    contracts:
+      - agents_md_exists
+
   # Wave C (e37s11)
   - id: qwen
     name: Qwen (Alibaba)

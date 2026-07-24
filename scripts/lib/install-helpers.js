@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // story: e60s01
 // story: e61s02
+// story: e76s02
 // install-helpers.js — symlink helpers for bigpowers setup
 
 const fs = require('fs');
@@ -118,6 +119,16 @@ function installGlobal(tool, repoRoot) {
       }
       break;
     }
+    case 'zcode': {
+      const renderedDir = path.join(repoRoot, '.zcode', 'skills');
+      const targetDir = path.join(homeDir, '.zcode', 'skills');
+      linkRenderedSkills(renderedDir, targetDir);
+      const agentsSrc = path.join(repoRoot, 'AGENTS.md');
+      const agentsDst = path.join(homeDir, '.zcode', 'AGENTS.md');
+      fs.mkdirSync(path.dirname(agentsDst), { recursive: true });
+      linkFile(agentsSrc, agentsDst);
+      break;
+    }
     case 'cursor': {
       const rulesSrc = path.join(repoRoot, '.cursor', 'rules');
       const rulesDst = path.join(homeDir, '.cursor', 'rules');
@@ -164,6 +175,16 @@ function installLocal(tool, repoRoot) {
       const targetDir = path.join(cwd, '.hermes', 'skills');
       linkRenderedSkills(renderedDir, targetDir);
       bridgeHermesConfig(path.join(cwd, '.hermes', 'config.yaml'));
+      break;
+    }
+    case 'zcode': {
+      const renderedDir = path.join(repoRoot, '.zcode', 'skills');
+      const targetDir = path.join(cwd, '.zcode', 'skills');
+      linkRenderedSkills(renderedDir, targetDir);
+      const agentsSrc = path.join(repoRoot, 'AGENTS.md');
+      const agentsDst = path.join(cwd, '.zcode', 'AGENTS.md');
+      fs.mkdirSync(path.dirname(agentsDst), { recursive: true });
+      linkFile(agentsSrc, agentsDst);
       break;
     }
     case 'cursor': {
@@ -233,6 +254,20 @@ function uninstallTool(toolId, repoRoot) {
         }
       }
       removeSymlink(path.join(homeDir, '.hermes', 'hooks', 'session-log'));
+      break;
+    }
+    case 'zcode': {
+      const skillsDir = path.join(homeDir, '.zcode', 'skills');
+      if (fs.existsSync(skillsDir)) {
+        for (const entry of fs.readdirSync(skillsDir, { withFileTypes: true })) {
+          if (!entry.isSymbolicLink()) continue;
+          const target = fs.readlinkSync(path.join(skillsDir, entry.name));
+          if (target.includes('bigpowers') || target.includes('.zcode/skills')) {
+            removeSymlink(path.join(skillsDir, entry.name));
+          }
+        }
+      }
+      removeSymlink(path.join(homeDir, '.zcode', 'AGENTS.md'));
       break;
     }
     case 'cursor':

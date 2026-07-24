@@ -1,0 +1,87 @@
+story_id: e76s01
+title: "ZCode adapter — Wave A greenfield skills-dir"
+spec: e76s01-zcode-adapter.md
+status: passing
+bcps: 3
+risk: P2
+depends_on: []
+tasks:
+  - id: 1
+    description: >-
+      Create scripts/adapters/zcode.sh with render_skill writing SKILL.md to
+      ${ZCODE_SKILLS:-~/.zcode/skills}/<name>/ and wire_context symlinking
+      AGENTS.md to ${ZCODE_AGENTS:-~/.zcode/AGENTS.md}. Tag # story: e76s01.
+    verify: >-
+      test -f scripts/adapters/zcode.sh &&
+      bash -n scripts/adapters/zcode.sh &&
+      grep -q 'story: e76s01' scripts/adapters/zcode.sh &&
+      echo OK
+    risk: P2
+    security: low
+    status: passing
+    allure:
+      severity: normal
+      categories:
+        - "Wave A"
+        - "Integration"
+
+  - id: 2
+    description: >-
+      Verify render_skill creates SKILL.md under ZCODE_SKILLS override in a
+      temp directory (no writes to live ~/.zcode/).
+    verify: >-
+      tmpdir=$(mktemp -d) &&
+      export ZCODE_SKILLS="$tmpdir/skills" &&
+      IR_NAME=zcode-test IR_DESC_ESCAPED=test IR_BODY="# test" &&
+      source scripts/adapters/zcode.sh &&
+      render_skill &&
+      test -f "$tmpdir/skills/zcode-test/SKILL.md" &&
+      rm -rf "$tmpdir" &&
+      echo OK
+    risk: P2
+    security: low
+    status: passing
+    allure:
+      severity: normal
+      categories:
+        - "Wave A"
+
+  - id: 3
+    description: >-
+      Verify adapter exports render_skill and wire_context when sourced.
+    verify: >-
+      source scripts/adapters/zcode.sh &&
+      declare -f render_skill >/dev/null &&
+      declare -f wire_context >/dev/null &&
+      echo OK
+    risk: P2
+    security: none
+    status: passing
+    allure:
+      severity: normal
+      categories:
+        - "Wave A"
+
+  - id: 4
+    description: >-
+      Story verify: adapter file present, bash -n clean, skills path documented
+      in capsule-aligned default.
+    verify: >-
+      test -f scripts/adapters/zcode.sh &&
+      bash -n scripts/adapters/zcode.sh &&
+      grep -q '\.zcode/skills' scripts/adapters/zcode.sh &&
+      grep -q 'wire_context' scripts/adapters/zcode.sh &&
+      echo OK
+    risk: P2
+    security: none
+    status: passing
+    allure:
+      severity: normal
+      categories:
+        - "Wave A"
+
+out_of_scope:
+  - "targets.yaml row (blocked_until: wave-b)"
+  - "install.sh / install-helpers.js / setup.js hub wiring"
+  - "verify-install.sh contract"
+  - "ZCode plugin hooks"
