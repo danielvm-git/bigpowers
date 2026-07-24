@@ -337,11 +337,12 @@ bugs:
     title: "install.sh uses legacy .gemini/extensions/ directory instead of config/plugins/"
     file: bugs/BUG-2026-07-07-install-gemini-plugins.md
   - id: BUG-2026-07-09-dead-function-build-skill-graph
-    status: open
+    status: fixed
     severity: low
     scope: scripts
     title: "Dead function `skill_graph_show_help` in build-skill-graph.sh"
     file: bugs/BUG-2026-07-09-dead-function-build-skill-graph.md
+    commit_message: "fix(scripts): remove dead function skill_graph_show_help"
   - id: BUG-2026-07-09T033939-golden-g01-submodule-checkout
     status: fixed
     severity: high

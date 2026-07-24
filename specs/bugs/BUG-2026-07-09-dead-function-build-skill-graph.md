@@ -1,6 +1,6 @@
 ---
 bug_id: BUG-2026-07-09-dead-function-build-skill-graph
-status: open
+status: fixed
 severity: low
 scope: scripts
 title: Dead function `skill_graph_show_help` in build-skill-graph.sh
