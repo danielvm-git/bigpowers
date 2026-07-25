@@ -1,3 +1,5 @@
+# story: e80s01
+# story: e80s04
 # story: e45s08
 ---
 name: validate-fix
@@ -7,7 +9,7 @@ description: Prove a fix works before declaring done — re-run the failing test
 ---
 
 # Validate Fix
-> **HARD GATE** — **HARD GATE** — Fix must not regress. Run full test suite and manual UAT before declaring success. A fix that passes tests but breaks something else is a failure.
+> **HARD GATE** — Fix must not regress. Run full test suite and manual UAT before declaring success.
 
 
 Prove the fix works. "I think it works" is not evidence. Run the suite, show the output, then harden against recurrence.
@@ -65,10 +67,13 @@ For every bug fixed, add at least one prevention layer:
 - [ ] At least one hardening mechanism added
 - [ ] Hardening mechanism is tested
 
-> **Security recurrence hardening** — If the bug's security-impact assessment (from investigate-bug) was MEDIUM or higher, additionally check:
-> - [ ] Security regression test added (covers the exploit path)
-> - [ ] False-positive exclusion rule added (if applicable)
-> - [ ] Threat model updated (if impact was HIGH+)
+### 5b. Generalize-fix (HARD GATE — e80s04 / GH #98)
+
+Sweep the **defect class** across the codebase after local hardening — see [REFERENCE-generalize-fix.md](REFERENCE-generalize-fix.md).
+
+- [ ] Defect class documented (not just the one-line root cause)
+- [ ] Grep sweep run and `match_count` recorded
+- [ ] `verify-generalize-sweep.sh` passes on the artifact
 
 ### 6. Update the bug file and registry.yaml
 
@@ -106,4 +111,8 @@ Mechanical verification (tests passing) is only half the fix. You must prove **b
 - **The verify command from specs/bugs/BUG-*.md or the active epic task `verify` field must pass**
 
 Suggest next skill: `audit-code` → `commit-message`.
+
+## Verify
+
+→ verify: `grep -q 'generalize-fix' skills/validate-fix/SKILL.md && test -x scripts/verify-generalize-sweep.sh && bash scripts/verify-generalize-sweep.sh --self-test && echo OK`
 

@@ -83,7 +83,7 @@
     },
     "develop-tdd": {
       "description": "Test-driven development with red-green-refactor loop using vertical slices. Use for features (epic tasks) or bugs (specs/bugs/BUG-*.md).",
-      "sha256": "91928da1d9757094",
+      "sha256": "8b3934e2291b863d",
       "path": "skills/develop-tddSKILL.md"
     },
     "diagnose-root": {
@@ -113,7 +113,7 @@
     },
     "enforce-first": {
       "description": "Apply the F.I.R.S.T test quality rubric (per CONVENTIONS.md §Tests) to a test suite or individual tests. Use when develop-tdd is writing tests, when test quality needs to be checked, or when user mentions F.I.R.S.T or \"test quality\".",
-      "sha256": "64cde2c5f741c77f",
+      "sha256": "1ec1183ee6377917",
       "path": "skills/enforce-firstSKILL.md"
     },
     "evolve-skill": {
@@ -143,7 +143,7 @@
     },
     "gate-trace": {
       "description": "\"Deterministic traceability quality gate — reads coverage matrix + blind-spot data, applies decision rules with oracle confidence downgrade, emits PASS/CONCERNS/FAIL/WAIVED verdict. Use before release-branch to gate merges on traceability.\"",
-      "sha256": "dd52baa85ff939e8",
+      "sha256": "87e0c49ff90ec34c",
       "path": "skills/gate-traceSKILL.md"
     },
     "generate-allure-report": {
@@ -333,7 +333,7 @@
     },
     "smoke-test": {
       "description": "\"Post-deploy health-check against a live URL. Validates HTTP status, response content, and critical endpoints. Runnable standalone OR as the final step of the deploy skill.\"",
-      "sha256": "664c11f36df51da8",
+      "sha256": "f75e9e57d4003209",
       "path": "skills/smoke-testSKILL.md"
     },
     "spike-prototype": {
@@ -368,12 +368,12 @@
     },
     "validate-contracts": {
       "description": "\"Assert data shape consistency across system boundaries — live API responses against JSON Schema, key-set comparison across layers, data shape validation for migrations and exports. Catches silent data corruption before deploy.\"",
-      "sha256": "7d944527859c3c14",
+      "sha256": "d93c9ae2953ac457",
       "path": "skills/validate-contractsSKILL.md"
     },
     "validate-fix": {
       "description": "Prove a fix works before declaring done — re-run the failing test, run the full suite, typecheck, lint, and harden against recurrence. Use after implementing a bug fix, when user says \"is this fixed?\", or before closing an investigation.",
-      "sha256": "e3a38b117a7f3b2d",
+      "sha256": "f94972af3fd48e3e",
       "path": "skills/validate-fixSKILL.md"
     },
     "verify-work": {

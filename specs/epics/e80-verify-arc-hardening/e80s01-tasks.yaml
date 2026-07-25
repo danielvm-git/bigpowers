@@ -1,0 +1,14 @@
+story_id: e80s01
+title: "Core verify skills → verify directives"
+spec: e80s01-core-verify-directives.md
+status: done
+bcps: 2
+risk: P1
+depends_on: []
+tasks:
+  - id: 1
+    description: Add → verify to develop-tdd, validate-fix, enforce-first, gate-trace with real artifact checks.
+    verify: bash scripts/run-skill-verify.sh develop-tdd && bash scripts/run-skill-verify.sh validate-fix && bash scripts/run-skill-verify.sh enforce-first && bash scripts/run-skill-verify.sh gate-trace
+    risk: P1
+    security: low
+    status: done

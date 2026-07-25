@@ -1,0 +1,4 @@
+sources:
+  reference: specs/verifications/fixtures/contracts-selftest/ref.json
+  target: specs/verifications/fixtures/contracts-selftest/target.json
+mode: subset

@@ -56,7 +56,13 @@ GREEN:  Write minimal code to pass → test passes → commit: feat(<scope>): ..
 REFACTOR (optional): clean up → commit: refactor(<scope>): ...
 ```
 
-> **Two-commit red/green policy (HARD GATE — e45s08)** — Each behavior cycle requires **two separate commits**: (1) test-only commit that fails in CI (RED), then (2) implementation commit that makes it pass (GREEN). Never combine test + fix in one commit. Show `git log -2 --oneline` as evidence before proceeding to the next behavior.
+> **Two-commit red/green policy (HARD GATE — e45s08)** — Each behavior cycle requires **two separate commits**: (1) test-only commit that fails in CI (RED), then (2) implementation commit that makes it pass (GREEN). Never combine test + fix in one commit. Before proceeding, run the mechanical RED isolation check:
+
+```bash
+bash scripts/verify-tdd-red-commit.sh
+```
+
+Show `git log -2 --oneline` **and** the script output as evidence. If the test-only commit passes in isolation, the RED gate is violated — stop and fix before GREEN.
 
 > **tasks.yaml ledger (e45s06)** — After each task's `verify:` exits 0, update `eNNsYY-tasks.yaml`: set that task's `status: passing`. Story-level `status: passing` only when all tasks pass.
 
@@ -119,6 +125,10 @@ Writes: state.yaml handoff.next_skill = verify-work
 ## BCP Plus Integration
 
 At story completion, if the story was sized with BCP Plus (13-dimension breakdown), log the `bcp_plus.total` alongside the standard `bcps:` count in the story's tasks.yaml. The breakdown is available from the epic capsule's `bcp_plus_breakdown` field. See `docs/references/bcp-plus.md` for the full methodology and NFR Gate pattern.
+
+## Verify
+
+→ verify: `test -x scripts/verify-tdd-red-commit.sh && bash scripts/verify-tdd-red-commit.sh --self-test && grep -q 'verify-tdd-red-commit' skills/develop-tdd/SKILL.md && echo OK`
 
 
 <!-- story: e02s04 -->

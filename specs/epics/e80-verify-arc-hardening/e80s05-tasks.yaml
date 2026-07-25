@@ -1,0 +1,14 @@
+story_id: e80s05
+title: "security-review fixture table growth"
+spec: e80s05-security-fixtures.md
+status: done
+bcps: 2
+risk: P1
+depends_on: [e80s04]
+tasks:
+  - id: 1
+    description: fail-open-verify CWE row + positive/negative fixtures in security-review.
+    verify: test -f skills/security-review/fixtures/CWE-fail-open-verify-positive.sh && grep -q 'fail-open-verify' skills/security-review/SKILL.md
+    risk: P1
+    security: high
+    status: done

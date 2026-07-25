@@ -10,60 +10,75 @@ description: "Post-deploy health-check against a live URL. Validates HTTP status
 >
 > **HARD GATE** — A failed smoke test means the deployment is broken. Do NOT mark a deploy as successful until all smoke checks pass.
 
-Validate a deployed application is healthy by running a configurable set of HTTP checks against live URLs. Each check asserts:
-- HTTP status code (e.g., 200 for success, 404 for expected-not-found)
-- Response body content signal (regex or jq expression)
-- Response time threshold (optional)
-
-Can be run standalone for quick health checks or chained as the final step of the `deploy` skill.
+Validate a deployed application is healthy by running HTTP checks against live URLs. Each check asserts HTTP status, optional body signal (regex), and optional response-time threshold.
 
 ## Configuration
 
-Smoke checks are defined in `smoke-checks.yaml` at the project root:
+Smoke checks live in `smoke-checks.yaml` at the project root:
 
-See [REFERENCE.md](REFERENCE.md)
-
-Checks can also be specified inline via environment variables or CLI arguments for ad-hoc use.
-
-### Check Schema
+```yaml
+base_url: "https://example.com"
+checks:
+  - name: "Homepage"
+    path: "/"
+    expected_status: 200
+    content_signal: "welcome|ok"
+    max_response_time_ms: 3000
+```
 
 | Field | Required | Default | Description |
 |-------|----------|---------|-------------|
-| `name` | Yes | — | Human-readable check name (used in report) |
+| `name` | Yes | — | Human-readable check name |
 | `path` | Yes | `/` | URL path relative to base_url |
 | `method` | No | `GET` | HTTP method |
 | `expected_status` | No | `200` | Expected HTTP status code |
-| `content_signal` | No | — | Regex or string to find in response body |
-| `max_response_time_ms` | No | — | Fail if response slower than this threshold (ms) |
+| `content_signal` | No | — | Regex or string in response body |
+| `max_response_time_ms` | No | — | Fail if slower than threshold (ms) |
+
+Ad-hoc single-URL mode: `DEPLOY_URL=https://host bash scripts/run-smoke.sh`
 
 ## Process
 
-### 1. Load smoke checks
+### 1. Load checks
 
-See [REFERENCE.md](REFERENCE.md)
+```bash
+SMOKE_CHECKS_FILE="${SMOKE_CHECKS_FILE:-smoke-checks.yaml}"
+BASE_URL="${DEPLOY_URL:-$BASE_URL}"
+test -f "$SMOKE_CHECKS_FILE" || test -n "$BASE_URL" || { echo "ERROR: no checks file or URL"; exit 1; }
+```
 
 ### 2. Run each check
 
-For each check in the configuration, perform an HTTP request:
+```bash
+bash scripts/run-smoke.sh "${DEPLOY_URL:-}" "${SMOKE_CHECKS_FILE:-smoke-checks.yaml}"
+```
 
-See [REFERENCE.md](REFERENCE.md)
+The runner performs curl requests per check, records pass/fail per assertion, and prints a summary.
 
 ### 3. Assert results
 
-See [REFERENCE.md](REFERENCE.md)
+- Any HTTP status mismatch → FAIL
+- Missing `content_signal` when configured → FAIL
+- Response time over `max_response_time_ms` → FAIL
+- Exit code non-zero → deployment not healthy
 
 ### 4. Generate report
 
-See [REFERENCE.md](REFERENCE.md)
+Capture stdout from `run-smoke.sh` as evidence. Persist to `specs/verifications/smoke-<date>.log` for release-branch.
 
 ## Integration with deploy skill
 
-The `deploy` skill references `smoke-test` as its final verification step:
-
 ```bash
-# In deploy workflow — after successful deploy
 DEPLOY_URL="$DEPLOY_URL" bash scripts/run-smoke.sh
 ```
+
+## Verify arc
+
+Part of **★ VERIFY ★**: `verify-work` → `validate-contracts` → `smoke-test` → `run-evals` → `audit-code`
+
+## Verify
+
+→ verify: `test -x scripts/run-smoke.sh && grep -q 'run-smoke.sh' skills/smoke-test/SKILL.md && grep -qv 'See \[REFERENCE.md\]' skills/smoke-test/SKILL.md && echo OK`
 
 ---
 

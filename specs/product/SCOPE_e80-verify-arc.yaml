@@ -1,0 +1,20 @@
+# story: e80s01
+title: "Verify arc hardening (#97 + #98)"
+in_scope:
+  - Real → verify: directives for core verification skills (develop-tdd, validate-fix, enforce-first, gate-trace)
+  - Real skill bodies for smoke-test and validate-contracts; move both to Verify phase
+  - Mechanical develop-tdd RED commit isolation check
+  - generalize-fix mandatory phase in validate-fix with sweep artifact requirement
+  - security-review fixture table growth for fail-open-verify class
+out_of_scope:
+  - Rewriting all 80 skills' verify directives (Wave 1 #96 scope)
+  - CI golden suite wiring (Wave 1 #99 scope)
+  - New generalize-fix standalone skill (phase lives in validate-fix)
+github_issues:
+  - 97
+  - 98
+acceptance:
+  - Six core verify skills have executable → verify: that checks artifacts
+  - smoke-test and validate-contracts in Verify phase with non-stub bodies
+  - validate-fix documents generalize-fix with verifiable sweep artifact
+  - security-review CWE table includes fail-open-verify fixtures

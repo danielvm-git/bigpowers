@@ -1,3 +1,4 @@
+# story: e80s01
 ---
 name: enforce-first
 model: haiku
@@ -22,6 +23,15 @@ This skill is typically invoked internally by `develop-tdd` during the test-writ
 
 See CONVENTIONS.md §Tests for the canonical F.I.R.S.T rubric definition, checklists, and fix patterns.
 
+Mechanical self-check (runs before reporting audit complete):
+
+```bash
+grep -q '## Tests (F.I.R.S.T' CONVENTIONS.md
+grep -qE 'Fast|Independent|Repeatable|Self-Validating|Timely' CONVENTIONS.md
+```
+
+Each criterion must be explicitly addressed in the audit report with pass/fail per test file reviewed.
+
 ## Applying the rubric
 
 For each failing criterion:
@@ -31,4 +41,8 @@ For each failing criterion:
 4. Re-run the suite to confirm it still passes
 
 Report: "F.I.R.S.T audit complete. X criteria passed, Y fixed."
+
+## Verify
+
+→ verify: `grep -q '## Tests (F.I.R.S.T' CONVENTIONS.md && grep -qE 'Self-Validating|Repeatable' skills/enforce-first/SKILL.md && echo OK`
 

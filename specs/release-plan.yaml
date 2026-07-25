@@ -109,6 +109,18 @@ done_epics_summary:
   - e78
   - e79
 epics:
+- id: e80
+  title: Verify arc hardening (#97 + #98)
+  wsjf: 7.5
+  bcps: 10
+  capsule_dir: epics/e80-verify-arc-hardening
+  mode: capsule
+  status: in_progress
+  wsjf_rationale: BV 8 + TC 6 + RR 7 / Job 3 ≈ 7.5. Core verify skills + generalize-fix; GH #97 #98.
+  source: GH #97 core verify skills lack verify; GH #98 no generalize-fix sweep.
+  github_issues:
+  - 97
+  - 98
 - id: e79
   title: Agentic Controlled English (STE-style instruction precision)
   wsjf: 6.0
