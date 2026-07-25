@@ -1,3 +1,10 @@
+## [2.84.1](https://github.com/danielvm-git/bigpowers/compare/v2.84.0...v2.84.1) (2026-07-25)
+
+
+### Bug Fixes
+
+* close all open bugs and issues — consolidated fix session ([b02c7b9](https://github.com/danielvm-git/bigpowers/commit/b02c7b995b7baf8662a515f47350412a1add598b))
+
 # [2.84.0](https://github.com/danielvm-git/bigpowers/compare/v2.83.4...v2.84.0) (2026-07-24)
 
 

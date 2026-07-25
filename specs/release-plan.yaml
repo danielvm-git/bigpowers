@@ -1,5 +1,5 @@
 release:
-  version: 2.84.0
+  version: 2.84.1
   codename: Foundation
   status: released
   next_release: Reach
@@ -110,14 +110,14 @@ done_epics_summary:
   - e79
 epics:
 - id: e79
-  title: 'Agentic Controlled English (STE-style instruction precision)'
+  title: Agentic Controlled English (STE-style instruction precision)
   wsjf: 6.0
   bcps: 8
   capsule_dir: epics/e79-agentic-ste
   mode: capsule
   status: scoped
   wsjf_rationale: BV 6 + TC 4 + RR 5 / Job 2 ≈ 7.5. Reduces agent misparse loops.
-  source: GH #91 — controlled vocabulary and grammar for instructional prose.
+  source: GH
 - id: e78
   title: 'Integration: Cursor — Rules (No Hooks)'
   wsjf: 7.0
