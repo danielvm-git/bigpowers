@@ -5,14 +5,14 @@ bug_id: null
 bigpowers_version: 2.84.0
 bug_cycle: null
 handoff:
-  next_skill: kickoff-branch
+  next_skill: dispatch-agents
   context: |
-    Phase 1 intake complete for open issues #92 and #91 (specs only).
-    Next Phase 2: parallel worktrees (not created yet) —
-      A=../fix-land-branch-protected (fix/land-branch-protected, #92 / BUG-2026-07-25-land-branch-protected)
-      B=../feat-agentic-ste (feat/agentic-ste, #91 / e79s01–s04)
-    Disjoint file ownership; merge #92 before #91. active_flow remains null
-    during parallel tracks (parent owns state.yaml).
+    Parallel: A=../fix-land-branch-protected (#92 BUG-2026-07-25-land-branch-protected),
+    B=../feat-agentic-ste (#91 e79 agentic-ste).
+    Absolute paths: /Users/danielvm/Developer/fix-land-branch-protected,
+    /Users/danielvm/Developer/feat-agentic-ste.
+    Branches: fix/land-branch-protected, feat/agentic-ste.
+    Disjoint writes; merge #92 before #91. active_flow remains null.
   epic: null
 epic_cycle: null
 metrics:
