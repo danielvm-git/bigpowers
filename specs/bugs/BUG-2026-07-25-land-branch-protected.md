@@ -50,5 +50,5 @@ No pre-flight `gh api .../protection` check in v1 (out of scope).
 - [x] Protected-branch push rejection triggers Option A fallback automatically
 - [x] Fallback failure prints exact recovery commands
 - [x] `tests/test-land-branch-protected.sh` green with `# story:` tag
-- [ ] Preflight green in fix worktree
-- [ ] Closes GH #92
+- [x] Preflight green in fix worktree
+- [x] Closes GH #92 (PR #93)
