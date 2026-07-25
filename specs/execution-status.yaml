@@ -388,6 +388,11 @@ development_status:
   e76s02: done
   e77: done
   e78: done
+  e79: backlog
+  e79s01: backlog
+  e79s02: backlog
+  e79s03: backlog
+  e79s04: backlog
   generated_at: '2026-07-07T04:00:00Z'
   heuristic_ratio: 0.8
   verdict: PASS
@@ -724,6 +729,11 @@ epics:
     wsjf: 7.0
     total_bcps: 0
 
+  e79:
+    status: backlog
+    title: 'Agentic Controlled English (STE-style instruction precision)'
+    wsjf: 6.0
+    total_bcps: 8
 stories:
   e01s01:
     status: done
@@ -3338,3 +3348,43 @@ stories:
     tasks_passing: 7
     tasks_failing: 0
     risk_max: P1
+  e79s01:
+    status: backlog
+    title: 'AGENTIC-STE ruleset document'
+    bcps: 2
+    epic: e79
+    tasks_total: 1
+    tasks_passing: 0
+    tasks_failing: 0
+    risk_max: P2
+    security_max: none
+  e79s02:
+    status: backlog
+    title: 'Validator script + craft-skill HARD GATE'
+    bcps: 3
+    epic: e79
+    tasks_total: 1
+    tasks_passing: 0
+    tasks_failing: 0
+    risk_max: P2
+    security_max: none
+  e79s03:
+    status: backlog
+    title: 'seed-conventions applies ruleset'
+    bcps: 2
+    epic: e79
+    tasks_total: 1
+    tasks_passing: 0
+    tasks_failing: 0
+    risk_max: P2
+    security_max: none
+  e79s04:
+    status: backlog
+    title: 'stocktake-skills violation scanner'
+    bcps: 1
+    epic: e79
+    tasks_total: 1
+    tasks_passing: 0
+    tasks_failing: 0
+    risk_max: P2
+    security_max: none
