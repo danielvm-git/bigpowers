@@ -29,13 +29,13 @@ grep -rn "[symbol-name]" . --include="*.ts" | grep -v node_modules
 git log --oneline -10 -- [file-path]
 ```
 
-→ verify: `grep -rn "[target]" . | wc -l`
+→ verify: `test -f specs/IMPACT_LATEST.md || test -d specs/bugs`
 
 ### 3. Map to release plan stories
 
 Read `specs/release-plan.yaml + epic capsule directories` (if it exists). For each dependent found in Step 2, identify which story owns that module. List stories that will be affected by the change.
 
-→ verify: `grep -c "Story" specs/release-plan.yaml + epic capsule directories 2>/dev/null || echo "no release plan"`
+→ verify: `grep -c "Story" specs/release-plan.yaml 2>/dev/null || echo "no release plan"`
 
 ### 4. List test coverage
 
@@ -45,7 +45,7 @@ Find tests that exercise the target:
 grep -rn "[symbol-name]" . --include="*.test.*" --include="*.spec.*"
 ```
 
-→ verify: `grep -rn "[target]" . --include="*.test.*" | wc -l`
+→ verify: `test -d specs/epics || test -d skills`
 
 ### 5. Classify risk
 
