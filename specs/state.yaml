@@ -1,20 +1,19 @@
-active_flow: build_epic
-active_epic: e80
-active_story: e80s05
+active_flow: null
+active_epic: null
+active_story: null
 bug_id: null
 bigpowers_version: 2.85.0
 bug_cycle: null
 handoff:
-  next_skill: release-branch
+  next_skill: survey-context
   context: |
-    Wave 2 build-epic e80-verify-arc-hardening complete (GH #97 #98).
-    Stories e80s01–e80s05 implemented on feat/e80-verify-arc-hardening.
-  epic: e80
-epic_cycle:
-  step: 8
-  story_bcps: 10
-  fast_mode: false
-  audit_result: pass
+    Issues #96–#99 plan complete (2026-07-25). Open PRs — merge in order:
+    1. #100 (closes #96) fix/fail-open-skill-verify-96
+    2. #101 (closes #99) fix/anti-vacuity-ci-99 — then drop continue-on-error on skill-verify
+    3. #102 (closes #97 #98) feat/e80-verify-arc-hardening
+    Run full Preflight after Wave 1 merges.
+  epic: null
+epic_cycle: null
 metrics:
   story_start: "2026-07-25T17:55:00-03:00"
   story_end: "2026-07-25T18:30:00-03:00"
