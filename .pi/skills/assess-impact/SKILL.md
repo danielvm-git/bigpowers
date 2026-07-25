@@ -34,7 +34,7 @@ git log --oneline -10 -- [file-path]
 
 Read `specs/release-plan.yaml + epic capsule directories` (if it exists). For each dependent found in Step 2, identify which story owns that module. List stories that will be affected by the change.
 
-→ verify: `grep -c "Story" specs/release-plan.yaml 2>/dev/null || echo "no release plan"`
+→ verify: `test -f specs/release-plan.yaml && grep -ci "stor" specs/release-plan.yaml`
 
 ### 4. List test coverage
 
