@@ -1,3 +1,10 @@
+## [2.85.2](https://github.com/danielvm-git/bigpowers/compare/v2.85.1...v2.85.2) (2026-07-25)
+
+
+### Bug Fixes
+
+* **verify:** fix assess-impact verify line case sensitivity ([3a51a28](https://github.com/danielvm-git/bigpowers/commit/3a51a28aaad1dfd19bb256d8e10e09da6514be76))
+
 ## [2.85.1](https://github.com/danielvm-git/bigpowers/compare/v2.85.0...v2.85.1) (2026-07-25)
 
 
