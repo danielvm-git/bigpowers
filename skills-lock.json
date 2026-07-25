@@ -303,7 +303,7 @@
     },
     "security-review": {
       "description": ">",
-      "sha256": "c222327c4cf477ce",
+      "sha256": "0265010d9bd22e27",
       "path": "skills/security-reviewSKILL.md"
     },
     "seed-conventions": {

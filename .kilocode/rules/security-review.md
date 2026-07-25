@@ -101,8 +101,6 @@ Each finding: **`File:Line` — Severity — Category**
 - Exploit scenario: concrete attack path
 - Recommendation: fix with code example
 
-→ verify: `test -d specs/security && test -f scripts/lib/parallel-review-worktrees.sh && git rev-parse HEAD >/dev/null 2>&1`
-
 ## Reference files
 
 - [Vuln categories](REFERENCE-vuln-categories.md) — detection guidance per vuln type
@@ -111,9 +109,7 @@ Each finding: **`File:Line` — Severity — Category**
 
 ## Verify
 
-```bash
-test -d specs/security && echo "OK: specs/security/ exists" || mkdir -p specs/security; grep -q "Merge-base\|merge.base\|git diff" SKILL.md && echo "OK: git context verified"
-```
+→ verify: `test -d specs/security && test -f scripts/lib/parallel-review-worktrees.sh && git rev-parse HEAD >/dev/null 2>&1`
 
 ---
 

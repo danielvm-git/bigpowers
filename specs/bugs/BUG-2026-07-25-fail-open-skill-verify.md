@@ -53,3 +53,12 @@ Post-fix: `bash scripts/run-skill-verify.sh` → **56 PASS, 0 FAIL, 38 SKIP**, e
 - [x] Negative-path fixture self-test passes when runner is healthy
 - [x] skill-health blocking on main (no continue-on-error)
 - [x] `bash scripts/run-skill-verify.sh` → 0 FAIL on repo HEAD
+
+## Resolution
+
+**Fixed:** 2026-07-25 — runner harden + corpus rewrite in one PR (issue #96).
+
+- `scripts/run-skill-verify.sh`: reject `|| echo` / `| awk`; run every `→ verify:`; negative fixture self-test (no `|| true` swallow).
+- Rewrote fail-open + self-grep verifies across `skills/*/SKILL.md` to exit-code artifact checks.
+- Dropped `continue-on-error: true` on `skill-health` in `.github/workflows/publish.yml`.
+- Fixture: `specs/verifications/fixtures/skill-verify-fail-open/SKILL.md`.

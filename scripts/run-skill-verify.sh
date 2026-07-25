@@ -152,7 +152,7 @@ else
   for skill_md in "$SKILLS_ROOT"/*/SKILL.md; do
     run_skill "$skill_md"
   done
-  run_negative_fixture_self_test || true
+  run_negative_fixture_self_test
 fi
 
 echo ""

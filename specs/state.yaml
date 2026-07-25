@@ -1,15 +1,18 @@
-active_flow: null
+active_flow: fix_bug
 active_epic: null
 active_story: null
-bug_id: null
+bug_id: BUG-2026-07-25-fail-open-skill-verify
 bigpowers_version: 2.85.0
-bug_cycle: null
+bug_cycle:
+  current_step: 5
+  completed_steps: [1, 2, 3, 4]
+  bug_file: specs/bugs/BUG-2026-07-25-fail-open-skill-verify.md
 handoff:
-  next_skill: survey-context
+  next_skill: release-branch
   context: |
-    Parallel tracks complete (2026-07-25). GitHub #92 closed via PR #93 squash
-    d7f14d4372c133547429ed79fe665e87bf069095; #91 closed via PR #94 squash
-    79fca7feb77485ec29214ebccd889b4ee0d6db60. active_flow null.
+    Track B (#96) in worktree fix-fail-open-skill-verify-96. Runner hardened,
+    corpus rewritten (0 fail-open), negative fixture present, publish skill-health
+    blocking. Ready for release-branch / PR. Do not fight Track A (#99) state on main.
   epic: null
 epic_cycle: null
 metrics:
