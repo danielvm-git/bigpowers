@@ -18,5 +18,5 @@ metrics:
   skill_timings: {}
 release:
   ci_verified: true
-  last_commit: fleet-wave-b
-  last_epic: fleet-close
+  last_commit: parallel-tracks-92-91
+  last_epic: e79-agentic-ste
