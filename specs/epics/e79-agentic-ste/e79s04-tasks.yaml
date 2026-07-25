@@ -1,0 +1,20 @@
+story_id: e79s04
+title: "stocktake-skills violation scanner"
+spec: e79s04-stocktake-scanner.md
+status: todo
+bcps: 1
+risk: P2
+depends_on:
+  - e79s01
+  - e79s02
+tasks:
+  - id: 1
+    description: >-
+      Extend stocktake-skills batch audit to flag hedge words and oversized
+      sentences. Flag debt only; no full-catalog rewrite. Tag # story: e79s04.
+    verify: >-
+      grep -qE 'AGENTIC-STE|hedge' skills/stocktake-skills/SKILL.md &&
+      echo OK
+    risk: P2
+    security: none
+    status: todo

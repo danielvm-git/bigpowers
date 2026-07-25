@@ -1,0 +1,19 @@
+story_id: e79s01
+title: "AGENTIC-STE ruleset document"
+spec: e79s01-agentic-ste-doc.md
+status: todo
+bcps: 2
+risk: P2
+depends_on: []
+tasks:
+  - id: 1
+    description: >-
+      Write docs/AGENTIC-STE.md with controlled vocabulary, banned modals,
+      sentence caps, and explicit terse-mode exclusion. Tag # story: e79s01.
+    verify: >-
+      test -f docs/AGENTIC-STE.md &&
+      grep -q 'terse-mode' docs/AGENTIC-STE.md &&
+      echo OK
+    risk: P2
+    security: none
+    status: todo

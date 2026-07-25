@@ -1,0 +1,19 @@
+story_id: e79s03
+title: "seed-conventions applies ruleset"
+spec: e79s03-seed-conventions.md
+status: todo
+bcps: 2
+risk: P2
+depends_on:
+  - e79s01
+tasks:
+  - id: 1
+    description: >-
+      Extend seed-conventions SKILL.md to apply AGENTIC-STE when generating
+      CLAUDE.md and CONVENTIONS.md. Tag # story: e79s03.
+    verify: >-
+      grep -q 'AGENTIC-STE' skills/seed-conventions/SKILL.md &&
+      echo OK
+    risk: P2
+    security: none
+    status: todo

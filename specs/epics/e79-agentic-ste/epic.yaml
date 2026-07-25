@@ -1,0 +1,66 @@
+id: e79
+title: "Agentic Controlled English (STE-style instruction precision)"
+status: scoped
+wsjf: 6.0
+bcps: 8
+mode: capsule
+wsjf_rationale: >
+  BV 6 + TC 4 + RR 5 / Job 2 ≈ 7.5. Reduces agent misparse and clarification
+  loops across skills, CLAUDE.md, and CONVENTIONS.md. Distinct from terse-mode
+  (output compression).
+github_issue: 91
+source: >
+  GH #91 — adopt ASD-STE100-inspired controlled vocabulary and grammar for
+  instructional prose. Write ruleset once, enforce at write time (craft-skill,
+  seed-conventions), audit at rest (stocktake-skills).
+stories:
+  - id: e79s01
+    title: AGENTIC-STE ruleset document
+    status: todo
+    bcps: 2
+    description: >
+      Commit docs/AGENTIC-STE.md with concrete numeric rules — word/sentence caps,
+      banned hedge modals, approved directive vocabulary. Explicit terse-mode exclusion.
+    files:
+      - docs/AGENTIC-STE.md
+    verify: test -f docs/AGENTIC-STE.md && grep -q 'terse-mode' docs/AGENTIC-STE.md
+    tags:
+      - "story: e79s01"
+  - id: e79s02
+    title: Validator script + craft-skill HARD GATE
+    status: todo
+    bcps: 3
+    description: >
+      Add scripts/validate-agentic-ste.sh and extend craft-skill HARD GATE table
+      to gate skill-body style, not just the YAML description field.
+    files:
+      - docs/AGENTIC-STE.md
+      - scripts/validate-agentic-ste.sh
+      - skills/craft-skill/SKILL.md
+    verify: bash scripts/validate-agentic-ste.sh && grep -q 'AGENTIC-STE' skills/craft-skill/SKILL.md
+    tags:
+      - "story: e79s02"
+  - id: e79s03
+    title: seed-conventions applies ruleset
+    status: todo
+    bcps: 2
+    description: >
+      Extend seed-conventions to apply AGENTIC-STE rules when generating
+      CLAUDE.md and CONVENTIONS.md for new projects.
+    files:
+      - skills/seed-conventions/SKILL.md
+    verify: grep -q 'AGENTIC-STE' skills/seed-conventions/SKILL.md
+    tags:
+      - "story: e79s03"
+  - id: e79s04
+    title: stocktake-skills violation scanner
+    status: todo
+    bcps: 1
+    description: >
+      Extend stocktake-skills batch audit to flag hedge words and oversized
+      sentences across the skill catalog. Flag existing debt; do not rewrite catalog.
+    files:
+      - skills/stocktake-skills/SKILL.md
+    verify: grep -q 'AGENTIC-STE\|hedge' skills/stocktake-skills/SKILL.md
+    tags:
+      - "story: e79s04"

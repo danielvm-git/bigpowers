@@ -357,7 +357,7 @@ bugs:
     title: "bigpowers setup crashes when python3 lacks PyYAML (Issue #77)"
     file: bugs/BUG-2026-07-18-setup-pyyaml-missing.md
   - id: BUG-2026-07-18-skill-index-phase-table-drift
-    status: open
+    status: fixed
     severity: high
     scope: scripts
     title: "SKILL-INDEX.md phase table silently drops 7 skills (TOTAL 72 vs header 79) — no CI guard catches it"
@@ -395,14 +395,23 @@ bugs:
     title: "bp-yaml-set.sh: REPO_ROOT unbound variable — every invocation fails"
     file: bugs/BUG-2026-07-24-bp-yaml-set-repo-root-unbound.md
   - id: BUG-2026-07-24-installer-runs-dev-maintenance-pipeline
-    status: open
+    status: fixed
     severity: medium
     scope: install
     title: "bigpowers setup runs the full contributor dev-maintenance pipeline on end-user installs"
     file: bugs/BUG-2026-07-24-installer-runs-dev-maintenance-pipeline.md
   - id: BUG-2026-07-24-installer-spinner-freezes-during-sync
-    status: open
+    status: fixed
     severity: low
     scope: install
     title: "bigpowers setup spinner freezes during sync-skills.sh instead of animating"
     file: bugs/BUG-2026-07-24-installer-spinner-freezes-during-sync.md
+  - id: BUG-2026-07-25-land-branch-protected
+    status: open
+    severity: high
+    scope: scripts
+    title: "solo-git land-branch.sh fails ungracefully against protected-branch repos, leaving a stranded local commit"
+    file: bugs/BUG-2026-07-25-land-branch-protected.md
+    files_changed: "scripts/land-branch.sh, scripts/lib/land-branch-push.sh, tests/test-land-branch-protected.sh"
+    approach: "Option A — auto-fallback to recovery branch + gh pr create on protected-branch rejection"
+    risk_level: "medium"

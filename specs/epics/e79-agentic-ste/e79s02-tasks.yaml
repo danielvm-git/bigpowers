@@ -1,0 +1,20 @@
+story_id: e79s02
+title: "Validator script + craft-skill HARD GATE"
+spec: e79s02-validator-craft-skill.md
+status: todo
+bcps: 3
+risk: P2
+depends_on:
+  - e79s01
+tasks:
+  - id: 1
+    description: >-
+      Add scripts/validate-agentic-ste.sh and extend craft-skill HARD GATE
+      for skill-body style. Tag # story: e79s02.
+    verify: >-
+      bash scripts/validate-agentic-ste.sh &&
+      grep -q 'AGENTIC-STE' skills/craft-skill/SKILL.md &&
+      echo OK
+    risk: P2
+    security: none
+    status: todo
