@@ -1,3 +1,16 @@
+# [2.86.0](https://github.com/danielvm-git/bigpowers/compare/v2.85.2...v2.86.0) (2026-07-25)
+
+
+### Bug Fixes
+
+* **e80:** pass skill size caps and specs YAML validation ([48b06c3](https://github.com/danielvm-git/bigpowers/commit/48b06c3e2e450914035d8ee562e17365d55130dd))
+* **verify:** replace placeholder verify directives with CI-safe checks ([80d0c8d](https://github.com/danielvm-git/bigpowers/commit/80d0c8d3f96375c0b1daeead228bf04ce16a5e6a))
+
+
+### Features
+
+* **e80:** verify arc hardening for [#97](https://github.com/danielvm-git/bigpowers/issues/97) and [#98](https://github.com/danielvm-git/bigpowers/issues/98) ([45f05cf](https://github.com/danielvm-git/bigpowers/commit/45f05cfedbf8be42f4967b8804fe12a81e2b53ef))
+
 ## [2.85.2](https://github.com/danielvm-git/bigpowers/compare/v2.85.1...v2.85.2) (2026-07-25)
 
 
