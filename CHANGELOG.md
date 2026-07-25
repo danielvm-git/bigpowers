@@ -1,3 +1,15 @@
+# [2.85.0](https://github.com/danielvm-git/bigpowers/compare/v2.84.1...v2.85.0) (2026-07-25)
+
+
+### Bug Fixes
+
+* **land-branch:** fallback to PR when default branch push is protected ([#93](https://github.com/danielvm-git/bigpowers/issues/93)) ([d7f14d4](https://github.com/danielvm-git/bigpowers/commit/d7f14d4372c133547429ed79fe665e87bf069095)), closes [#92](https://github.com/danielvm-git/bigpowers/issues/92)
+
+
+### Features
+
+* **skills:** adopt Agentic STE controlled English for instructional prose ([#94](https://github.com/danielvm-git/bigpowers/issues/94)) ([79fca7f](https://github.com/danielvm-git/bigpowers/commit/79fca7feb77485ec29214ebccd889b4ee0d6db60))
+
 ## [2.84.1](https://github.com/danielvm-git/bigpowers/compare/v2.84.0...v2.84.1) (2026-07-25)
 
 
