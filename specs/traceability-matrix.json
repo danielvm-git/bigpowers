@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-25T18:10:20.635997+00:00",
+  "generated_at": "2026-07-25T18:59:36.561715+00:00",
   "matrix_version": "1.0",
   "stories": [
     {
@@ -6840,6 +6840,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260725-155924.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260629-130359.md",
           "line": 0,
           "confidence": "medium",
@@ -7254,7 +7260,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 606
+      "link_count": 607
     },
     {
       "id": "e45s19",
@@ -11748,6 +11754,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260725-155924.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260629-130359.md",
           "line": 0,
           "confidence": "medium",
@@ -12150,7 +12162,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 596
+      "link_count": 597
     },
     {
       "id": "e45s32",
@@ -20472,6 +20484,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260725-155924.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260629-130359.md",
           "line": 0,
           "confidence": "medium",
@@ -21120,7 +21138,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 650
+      "link_count": 651
     },
     {
       "id": "e51s05",
@@ -26031,7 +26049,7 @@
     "stale_count": 102,
     "oracle_stats": {
       "high": 794,
-      "medium": 3179,
+      "medium": 3182,
       "low": 79
     }
   }
