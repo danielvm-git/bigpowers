@@ -1,3 +1,14 @@
+## [2.85.1](https://github.com/danielvm-git/bigpowers/compare/v2.85.0...v2.85.1) (2026-07-25)
+
+
+### Bug Fixes
+
+* **ci:** finish [#96](https://github.com/danielvm-git/bigpowers/issues/96) skill-verify harden — size cap and self-test gate ([49cb457](https://github.com/danielvm-git/bigpowers/commit/49cb4571192c7e4c4f42084b17252979e5b61e25))
+* **ci:** harden skill-verify runner and rewrite fail-open directives ([#96](https://github.com/danielvm-git/bigpowers/issues/96)) ([d821e3d](https://github.com/danielvm-git/bigpowers/commit/d821e3d727961d6cf36ad0480e13a17f374a8f8d))
+* **ci:** wire golden anti-vacuity suite into CI ([5fd9d5c](https://github.com/danielvm-git/bigpowers/commit/5fd9d5c464e212f39b674237b731e3244c1d5425)), closes [#99](https://github.com/danielvm-git/bigpowers/issues/99)
+* **verify:** replace placeholder verify directives with CI-safe checks ([49c6c2e](https://github.com/danielvm-git/bigpowers/commit/49c6c2ef7c339e6781a2f6a787ba0b0d38d1f7ae))
+* **verify:** replace placeholder verify directives with CI-safe checks ([d372c79](https://github.com/danielvm-git/bigpowers/commit/d372c79baa9edc7e67030d67e33df11ddfd471dc))
+
 # [2.85.0](https://github.com/danielvm-git/bigpowers/compare/v2.84.1...v2.85.0) (2026-07-25)
 
 
