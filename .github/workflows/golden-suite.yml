@@ -1,0 +1,53 @@
+# story: e51s04
+# GitHub issue: #99 — wire anti-vacuity golden suite into CI
+name: Golden Anti-Vacuity Suite
+
+concurrency:
+  group: golden-suite-${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  schedule:
+    - cron: "0 3 * * *"  # Daily 03:00 UTC — fleet-wide anti-vacuity drift check
+  pull_request:
+    branches: [main, develop]
+    paths:
+      - 'skills/**'
+      - 'scripts/**'
+      - '.github/workflows/golden-suite.yml'
+  workflow_dispatch:
+
+jobs:
+  verification-gates:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install Python deps
+        run: python3 -m pip install --user -r requirements.txt
+
+      - name: Run verification gates (G-08/G-10 anti-vacuity)
+        run: bash scripts/run-verification-gates.sh
+
+  skill-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    # Advisory until #96 merges (fail-open corpus + runner harden).
+    # Follow-up on this branch: drop continue-on-error after #96 is on main.
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Run skill verify (advisory)
+        run: bash scripts/run-skill-verify.sh
