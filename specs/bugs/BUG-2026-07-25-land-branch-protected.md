@@ -1,6 +1,6 @@
 ---
 bug_id: BUG-2026-07-25-land-branch-protected
-status: open
+status: fixed
 severity: high
 scope: scripts
 title: "solo-git land-branch.sh fails ungracefully against protected-branch repos, leaving a stranded local commit"
@@ -47,8 +47,8 @@ No pre-flight `gh api .../protection` check in v1 (out of scope).
 
 ## Acceptance Criteria
 
-- [ ] Protected-branch push rejection triggers Option A fallback automatically
-- [ ] Fallback failure prints exact recovery commands
-- [ ] `tests/test-land-branch-protected.sh` green with `# story:` tag
+- [x] Protected-branch push rejection triggers Option A fallback automatically
+- [x] Fallback failure prints exact recovery commands
+- [x] `tests/test-land-branch-protected.sh` green with `# story:` tag
 - [ ] Preflight green in fix worktree
 - [ ] Closes GH #92
