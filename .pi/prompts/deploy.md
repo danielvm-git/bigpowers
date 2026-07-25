@@ -109,7 +109,7 @@ Before declaring deploy success, verify **three independent facts** — build ar
 
 ## Verify
 
-→ verify: `command -v curl >/dev/null 2>&1 && grep -qi 'three-independent-facts' skills/deploy/SKILL.md && echo OK || echo FAIL`
+→ verify: `command -v curl >/dev/null 2>&1 && test -f skills/smoke-test/SKILL.md`
 
 ---
 

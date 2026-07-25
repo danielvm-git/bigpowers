@@ -22,4 +22,4 @@ Four phases — do not skip. Update the active `specs/bugs/BUG-*.md` file at eac
 
 ## Verify
 
-→ verify: `BUG_FILE=$(ls -t specs/bugs/BUG-*.md 2>/dev/null | head -1); test -n "$BUG_FILE" && grep -cE "Reproduce|Isolate|Hypothesize|Verify" "$BUG_FILE" | awk '{if($1>=4) print "OK"; else print "INCOMPLETE"}' || echo "MISSING"`
+→ verify: `BUG_FILE=$(ls -t specs/bugs/BUG-*.md 2>/dev/null | head -1); test -n "$BUG_FILE" && [ "$(grep -cE 'Reproduce|Isolate|Hypothesize|Verify' "$BUG_FILE")" -ge 4 ]`

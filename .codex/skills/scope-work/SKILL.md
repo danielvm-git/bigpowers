@@ -60,4 +60,4 @@ Turn the current conversation into a bounded PRD at `specs/product/SCOPE_LATEST.
 
 ## Verify
 
-→ verify: `test -f specs/product/SCOPE_LATEST.yaml && grep -c 'out_of_scope' specs/product/SCOPE_LATEST.yaml | awk '{if($1>0) print "OK"; else print "MISSING"}'`
+→ verify: `test -f specs/product/SCOPE_LATEST.yaml && grep -q out_of_scope specs/product/SCOPE_LATEST.yaml`

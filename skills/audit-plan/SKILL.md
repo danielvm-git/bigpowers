@@ -87,4 +87,4 @@ NOT READY — N gaps remain; close before proceeding
 
 ## Verify
 
-→ verify: `test -f specs/PLAN-AUDIT_LATEST.md && grep -q 'Verdict' specs/PLAN-AUDIT_LATEST.md && echo OK || echo FAIL`
+→ verify: `test -f specs/PLAN-AUDIT_LATEST.md && grep -q Verdict specs/PLAN-AUDIT_LATEST.md`

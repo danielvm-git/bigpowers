@@ -19,7 +19,7 @@ description: "AI-powered security analysis of code changes — traces data flow,
 
 > **HARD GATE** — Requires git context (branch with merge-base or diff). Never
 > writes files outside `specs/security/`. Findings below confidence 8/10 are
-> suppressed. **→ verify:** `git rev-parse HEAD >/dev/null 2>&1 && echo "ok" || echo "BLOCKED"`
+> suppressed. Pre-flight: `git rev-parse HEAD >/dev/null 2>&1`
 
 ## Parallel worktree mode (e45s18)
 
@@ -100,6 +100,8 @@ Each finding: **`File:Line` — Severity — Category**
 - Description: how the vulnerability manifests
 - Exploit scenario: concrete attack path
 - Recommendation: fix with code example
+
+→ verify: `test -d specs/security && test -f scripts/lib/parallel-review-worktrees.sh && git rev-parse HEAD >/dev/null 2>&1`
 
 ## Reference files
 

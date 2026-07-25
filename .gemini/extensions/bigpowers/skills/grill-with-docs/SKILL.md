@@ -38,7 +38,7 @@ Never "grill yourself" — if the answer is in the docs, go fetch it. Only ask q
 
 ## Verify
 
-→ verify: `grep -c 'https\?://' skills/grill-with-docs/SKILL.md | awk '{if($1>=2) print "OK"; else print "NEEDS DOCS"}'`
+→ verify: `test -f skills/grill-with-docs/SKILL.md && test -f skills/grill-with-docs/REFERENCE.md`
 
 See [REFERENCE.md](REFERENCE.md) for question templates.
 

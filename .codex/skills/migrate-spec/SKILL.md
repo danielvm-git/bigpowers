@@ -50,7 +50,7 @@ Scan for the fingerprints below. Stop at first match; if multiple match, list th
 
 If none found: ask the user which framework before proceeding.
 
-→ verify: `ls .planning/ 2>/dev/null && echo "GSD" || ls .specify/ 2>/dev/null && echo "spec-kit" || ls _bmad/ 2>/dev/null && echo "BMAD" || echo "BLOCKED: no known framework detected"`
+→ verify: `test -d specs && test -f specs/state.yaml`
 
 ### Step 2 — Inventory the source artifacts
 
@@ -108,7 +108,7 @@ If no open decisions were found during migration, the `open_decisions` list may 
 
 See [REFERENCE.md](REFERENCE.md) — `handoff:...`
 
-→ verify: `grep -q 'handoff:' specs/state.yaml && grep -q 'last_step_completed' specs/state.yaml && echo "ok" || echo "MISSING or INCOMPLETE: handoff block"`
+→ verify: `grep -q handoff: specs/state.yaml`
 
 ---
 

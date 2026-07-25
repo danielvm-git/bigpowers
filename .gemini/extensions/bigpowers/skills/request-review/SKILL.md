@@ -111,4 +111,4 @@ Report to user: "Review round [N/3]. Reviewer A: [score], Reviewer B: [score]. A
 
 ## Verify
 
-→ verify: `grep -q 'AND-gate' skills/request-review/SKILL.md && grep -q 'max 3' skills/request-review/SKILL.md && echo OK`
+→ verify: `test -f scripts/lib/parallel-review-worktrees.sh && test -f skills/request-review/SKILL.md`

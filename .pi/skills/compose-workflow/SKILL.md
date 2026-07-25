@@ -61,7 +61,7 @@ Add to `AGENTS.md`:
 
 ## Verify
 
-→ verify: `ls specs/workflows/*.yaml 2>/dev/null | wc -l | awk '{if($1>=8) print "OK: " $1 " recipes"; else print "FAIL"}'`
+→ verify: `[ "$(ls specs/workflows/*.yaml 2>/dev/null | wc -l | tr -d ' ')" -ge 8 ]`
 
 See [REFERENCE.md](../../../skills/compose-workflow/REFERENCE.md) for template.
 

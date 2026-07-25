@@ -103,7 +103,7 @@ After drafting, verify:
 
 ## Verify
 
-→ verify: `bash scripts/validate-skill-catalog.sh --strict --skill craft-skill && bash scripts/validate-skill-description.sh skills/craft-skill/SKILL.md && echo OK || echo FAIL`
+→ verify: `bash scripts/validate-skill-catalog.sh --strict --skill craft-skill && bash scripts/validate-skill-description.sh skills/craft-skill/SKILL.md`
 
 ---
 

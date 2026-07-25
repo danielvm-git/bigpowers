@@ -124,7 +124,7 @@ In `--gate` mode, print one summary line per checklist section (`PASS Supply Cha
 
 ## Verify
 
-→ verify: `test -f CONVENTIONS.md && test -d skills/enforce-first && test -d skills/request-review && echo "OK: audit-code dependencies present" || echo "FAIL"`
+→ verify: `test -f CONVENTIONS.md && test -d skills/enforce-first && test -d skills/request-review`
 
 ## Handoff
 

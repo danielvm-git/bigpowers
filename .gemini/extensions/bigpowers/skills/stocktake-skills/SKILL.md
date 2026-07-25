@@ -59,7 +59,7 @@ Timing data is populated by `scripts/bp-timing.sh start|end <skill>` calls withi
 
 ## Verify
 
-→ verify: `test -f specs/STOCKTAKE-*.md && bash scripts/validate-skill-catalog.sh && echo OK || echo MISSING`
+→ verify: `compgen -G 'specs/STOCKTAKE-*.md' >/dev/null && bash scripts/validate-skill-catalog.sh`
 
 See [REFERENCE.md](REFERENCE.md) for checklist.
 
