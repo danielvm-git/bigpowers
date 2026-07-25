@@ -1,0 +1,7 @@
+{
+  "defect_class": "fail-open-verify",
+  "grep_pattern": "|| echo",
+  "match_count": 0,
+  "sweep_scope": "skills/*/SKILL.md",
+  "notes": "self-test fixture for verify-generalize-sweep.sh"
+}

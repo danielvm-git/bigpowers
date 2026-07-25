@@ -1,0 +1,14 @@
+story_id: e80s02
+title: "smoke-test and validate-contracts real bodies"
+spec: e80s02-smoke-contracts-bodies.md
+status: pending
+bcps: 2
+risk: P1
+depends_on: [e80s01]
+tasks:
+  - id: 1
+    description: Inline process bodies, phase verify, validate-contracts.sh, SKILL-INDEX verify arc.
+    verify: grep -q 'phase: verify' skills/smoke-test/SKILL.md && bash scripts/run-skill-verify.sh smoke-test && bash scripts/run-skill-verify.sh validate-contracts
+    risk: P1
+    security: none
+    status: pending

@@ -1,22 +1,25 @@
-active_flow: null
-active_epic: null
-active_story: null
+active_flow: build_epic
+active_epic: e80
+active_story: e80s05
 bug_id: null
 bigpowers_version: 2.85.0
 bug_cycle: null
 handoff:
-  next_skill: survey-context
+  next_skill: release-branch
   context: |
-    Parallel tracks complete (2026-07-25). GitHub #92 closed via PR #93 squash
-    d7f14d4372c133547429ed79fe665e87bf069095; #91 closed via PR #94 squash
-    79fca7feb77485ec29214ebccd889b4ee0d6db60. active_flow null.
-  epic: null
-epic_cycle: null
+    Wave 2 build-epic e80-verify-arc-hardening complete (GH #97 #98).
+    Stories e80s01–e80s05 implemented on feat/e80-verify-arc-hardening.
+  epic: e80
+epic_cycle:
+  step: 8
+  story_bcps: 10
+  fast_mode: false
+  audit_result: pass
 metrics:
-  story_start: null
-  story_end: null
+  story_start: "2026-07-25T17:55:00-03:00"
+  story_end: "2026-07-25T18:30:00-03:00"
   skill_timings: {}
 release:
   ci_verified: true
-  last_commit: parallel-tracks-92-91
-  last_epic: e79-agentic-ste
+  last_commit: wave2-e80-verify-arc
+  last_epic: e80-verify-arc-hardening

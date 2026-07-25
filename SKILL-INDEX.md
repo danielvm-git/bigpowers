@@ -14,8 +14,8 @@
 | Discover | 8 | `audit-plan, elaborate-spec, find-way, map-codebase, research-first, search-skills, survey-context, using-bigpowers` |
 | Design | 7 | `deepen-architecture, define-language, define-success, design-interface, grill-me, grill-with-docs, model-domain` |
 | Plan | 9 | `assess-impact, change-request, plan-refactor, plan-release, plan-work, run-planning, scope-work, seed-conventions, slice-tasks` |
-| Build | 19 | `align-grid, build-epic, craft-skill, deploy, develop-tdd, execute-plan, extract-design, guard-git, hook-commits, kickoff-branch, orchestrate-project, publish-package, quick-fix, setup-environment, smoke-test, spike-prototype, validate-contracts, wire-ci, wire-observability` |
-| Verify | 18 | `audit-code, context7-mcp, diagnose-root, diagnose-stall, enforce-first, fix-bug, gate-trace, generate-allure-report, inspect-quality, investigate-bug, plan-tests, request-review, respond-review, run-evals, security-review, trace-requirement, validate-fix, verify-work` |
+| Build | 17 | `align-grid, build-epic, craft-skill, deploy, develop-tdd, execute-plan, extract-design, guard-git, hook-commits, kickoff-branch, orchestrate-project, publish-package, quick-fix, setup-environment, spike-prototype, wire-ci, wire-observability` |
+| Verify | 20 | `audit-code, context7-mcp, diagnose-root, diagnose-stall, enforce-first, fix-bug, gate-trace, generate-allure-report, inspect-quality, investigate-bug, plan-tests, request-review, respond-review, run-evals, security-review, smoke-test, trace-requirement, validate-contracts, validate-fix, verify-work` |
 | Release | 2 | `commit-message, release-branch` |
 | Sustain | 17 | `compose-workflow, delegate-task, dispatch-agents, edit-document, evolve-skill, harden-vps, maintain-wiki, migrate-spec, organize-workspace, reset-baseline, run-benchmark, session-state, simulate-agents, stocktake-skills, terse-mode, visual-dashboard, write-document` |
 | **TOTAL** | **80** | |
@@ -64,27 +64,27 @@
 | 36 | Build | `publish-package` | "Package registry publishing for npm, crates.io, PyPI, and Homebrew. Verifies pr | ✅ Active |
 | 37 | Build | `quick-fix` | "Streamlined fast-path for trivial data-only fixes — no TDD, no branching cere | ✅ Active |
 | 38 | Build | `setup-environment` | Pre-install dependencies and configure tools before development work begins. Use | ✅ Active |
-| 39 | Build | `smoke-test` | "Post-deploy health-check against a live URL. Validates HTTP status, response co | ✅ Active |
-| 40 | Build | `spike-prototype` | Throw-away prototype for unknown problem spaces. Output is learning notes in spe | ✅ Active |
-| 41 | Build | `validate-contracts` | "Assert data shape consistency across system boundaries — live API responses a | ✅ Active |
-| 42 | Build | `wire-ci` | "CI pipeline setup with pre-built templates and local validation. Generates GitH | ✅ Active |
-| 43 | Build | `wire-observability` | Add structured JSON logging, observability commands, and idempotent setup script | ✅ Active |
-| 44 | Verify | `audit-code` | Self-review checklist for the coding agent to run before dispatching a reviewer. | ✅ Active |
-| 45 | Verify | `context7-mcp` | Fetch current library docs via Context7 MCP instead of training data. Use when u | ✅ Active |
-| 46 | Verify | `diagnose-root` | Run 4-phase root cause analysis — reproduce, isolate, hypothesize, verify. Use | ✅ Active |
-| 47 | Verify | `diagnose-stall` | Diagnose why agent orchestration stopped producing progress — silent stalls in | ✅ Active |
-| 48 | Verify | `enforce-first` | Apply the F.I.R.S.T test quality rubric (per CONVENTIONS.md §Tests) to a test s | ✅ Active |
-| 49 | Verify | `fix-bug` | Bug fix orchestrator — active_flow fix_bug; reads specs/bugs/BUG-*.md; chains  | ✅ Active |
-| 50 | Verify | `gate-trace` | "Deterministic traceability quality gate — reads coverage matrix + blind-spot  | ✅ Active |
-| 51 | Verify | `generate-allure-report` | "Generate Allure-ready reports from bigpowers YAML metadata. Reads execution-sta | ✅ Active |
-| 52 | Verify | `inspect-quality` | Interactive QA session where user reports bugs or issues conversationally, and t | ✅ Active |
-| 53 | Verify | `investigate-bug` | Investigate a bug or issue by exploring the codebase to find root cause, then wr | ✅ Active |
-| 54 | Verify | `plan-tests` | "Design a risk-scaled test architecture for an epic before implementation begins | ✅ Active |
-| 55 | Verify | `request-review` | Dispatch a fresh reviewer agent with a clean context to critique the code after  | ✅ Active |
-| 56 | Verify | `respond-review` | Act on a reviewer agent's feedback systematically — categorize findings, apply | ✅ Active |
-| 57 | Verify | `run-evals` | Eval-Driven Development — define capability and regression evals before buildi | ✅ Active |
-| 58 | Verify | `security-review` | > | ✅ Active |
-| 59 | Verify | `trace-requirement` | Link story IDs from specs/release-plan.yaml + epic capsule directories to the im | ✅ Active |
+| 39 | Build | `spike-prototype` | Throw-away prototype for unknown problem spaces. Output is learning notes in spe | ✅ Active |
+| 40 | Build | `wire-ci` | "CI pipeline setup with pre-built templates and local validation. Generates GitH | ✅ Active |
+| 41 | Build | `wire-observability` | Add structured JSON logging, observability commands, and idempotent setup script | ✅ Active |
+| 42 | Verify | `audit-code` | Self-review checklist for the coding agent to run before dispatching a reviewer. | ✅ Active |
+| 43 | Verify | `context7-mcp` | Fetch current library docs via Context7 MCP instead of training data. Use when u | ✅ Active |
+| 44 | Verify | `diagnose-root` | Run 4-phase root cause analysis — reproduce, isolate, hypothesize, verify. Use | ✅ Active |
+| 45 | Verify | `diagnose-stall` | Diagnose why agent orchestration stopped producing progress — silent stalls in | ✅ Active |
+| 46 | Verify | `enforce-first` | Apply the F.I.R.S.T test quality rubric (per CONVENTIONS.md §Tests) to a test s | ✅ Active |
+| 47 | Verify | `fix-bug` | Bug fix orchestrator — active_flow fix_bug; reads specs/bugs/BUG-*.md; chains  | ✅ Active |
+| 48 | Verify | `gate-trace` | "Deterministic traceability quality gate — reads coverage matrix + blind-spot  | ✅ Active |
+| 49 | Verify | `generate-allure-report` | "Generate Allure-ready reports from bigpowers YAML metadata. Reads execution-sta | ✅ Active |
+| 50 | Verify | `inspect-quality` | Interactive QA session where user reports bugs or issues conversationally, and t | ✅ Active |
+| 51 | Verify | `investigate-bug` | Investigate a bug or issue by exploring the codebase to find root cause, then wr | ✅ Active |
+| 52 | Verify | `plan-tests` | "Design a risk-scaled test architecture for an epic before implementation begins | ✅ Active |
+| 53 | Verify | `request-review` | Dispatch a fresh reviewer agent with a clean context to critique the code after  | ✅ Active |
+| 54 | Verify | `respond-review` | Act on a reviewer agent's feedback systematically — categorize findings, apply | ✅ Active |
+| 55 | Verify | `run-evals` | Eval-Driven Development — define capability and regression evals before buildi | ✅ Active |
+| 56 | Verify | `security-review` | > | ✅ Active |
+| 57 | Verify | `smoke-test` | "Post-deploy health-check against a live URL. Validates HTTP status, response co | ✅ Active |
+| 58 | Verify | `trace-requirement` | Link story IDs from specs/release-plan.yaml + epic capsule directories to the im | ✅ Active |
+| 59 | Verify | `validate-contracts` | "Assert data shape consistency across system boundaries — live API responses a | ✅ Active |
 | 60 | Verify | `validate-fix` | Prove a fix works before declaring done — re-run the failing test, run the ful | ✅ Active |
 | 61 | Verify | `verify-work` | Multi-phase UAT gate — cold-start smoke, build, typecheck, lint, tests, step-b | ✅ Active |
 | 62 | Release | `commit-message` | Reviews working-tree changes, then drafts a Conventional Commits title/body and  | ✅ Active |
@@ -132,7 +132,7 @@ survey-context → research-first → elaborate-spec → map-codebase
   develop-tdd (+ enforce-first) ←→ delegate-task / dispatch-agents
   execute-plan / build-epic / craft-skill / align-grid
                          ↓
-              ★ VERIFY ★  verify-work → run-evals → audit-code
+              ★ VERIFY ★  verify-work → validate-contracts → smoke-test → run-evals → audit-code
                          ↓
     fix-bug → investigate-bug → diagnose-root → validate-fix
                          ↓

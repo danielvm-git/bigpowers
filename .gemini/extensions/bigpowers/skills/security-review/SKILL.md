@@ -5,6 +5,7 @@ description: "AI-powered security analysis of code changes — traces data flow,
 disable-model-invocation: true
 ---
 
+# story: e80s05
 # story: e45s41
 <!-- story: e45s18 -->
 # story: e26s01
@@ -59,6 +60,7 @@ Every **new detection rule** added to this skill MUST:
 |------|-----|------------------|------------------|
 | SQL injection | CWE-89 | `fixtures/CWE-89-sqli-positive.py` | `fixtures/CWE-89-sqli-negative.py` |
 | XSS (DOM) | CWE-79 | `fixtures/CWE-79-xss-positive.js` | `fixtures/CWE-79-xss-negative.js` |
+| Fail-open verify directive | CWE-710 | `fixtures/CWE-fail-open-verify-positive.sh` | `fixtures/CWE-fail-open-verify-negative.sh` |
 
 Before merging a new category, run both fixtures through the detection guidance and confirm positive flags / negative passes.
 
@@ -109,6 +111,8 @@ Each finding: **`File:Line` — Severity — Category**
 - [Confidence rubric](REFERENCE-confidence-rubric.md) — scoring methodology (0–10)
 
 ## Verify
+
+→ verify: `test -f skills/security-review/fixtures/CWE-fail-open-verify-positive.sh && test -f skills/security-review/fixtures/CWE-fail-open-verify-negative.sh && grep -q 'fail-open-verify' skills/security-review/SKILL.md && test -d specs/security && echo OK`
 
 ```bash
 test -d specs/security && echo "OK: specs/security/ exists" || mkdir -p specs/security; grep -q "Merge-base\|merge.base\|git diff" SKILL.md && echo "OK: git context verified"

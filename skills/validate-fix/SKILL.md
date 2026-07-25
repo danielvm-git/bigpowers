@@ -1,3 +1,5 @@
+# story: e80s01
+# story: e80s04
 # story: e45s08
 ---
 name: validate-fix
@@ -65,6 +67,36 @@ For every bug fixed, add at least one prevention layer:
 - [ ] At least one hardening mechanism added
 - [ ] Hardening mechanism is tested
 
+### 5b. Generalize-fix (HARD GATE — e80s04 / GH #98)
+
+After local hardening, sweep the **defect class** across the codebase — not just the single call site:
+
+1. **Classify** — name the pattern (e.g. `unscoped org query`, `fail-open verify`, `hardcoded package manager`).
+2. **Sweep** — grep for sibling instances; record `match_count` and `grep_pattern`.
+3. **Resolve** — patch all matches in this PR **or** file one tracking issue listing every remaining instance.
+4. **Artifact** — write sweep evidence before declaring done:
+
+```bash
+# Example artifact path (adjust bug id):
+cat > specs/verifications/generalize-sweep-BUG-YYYY-MM-DD-slug.json <<EOF
+{
+  "defect_class": "fail-open-verify",
+  "grep_pattern": "\\\\|\\\\| echo",
+  "match_count": 0,
+  "sweep_scope": "skills/*/SKILL.md",
+  "patched_in_pr": [],
+  "tracked_issues": []
+}
+EOF
+bash scripts/verify-generalize-sweep.sh specs/verifications/generalize-sweep-*.json
+```
+
+- [ ] Defect class documented (not just the one-line root cause)
+- [ ] Grep sweep run and `match_count` recorded
+- [ ] `verify-generalize-sweep.sh` passes on the artifact
+
+> **Security classes** — when the defect class is security- or gate-relevant, add a row to `security-review` CWE fixture table (see `skills/security-review/SKILL.md` § CWE mapping mandate).
+
 > **Security recurrence hardening** — If the bug's security-impact assessment (from investigate-bug) was MEDIUM or higher, additionally check:
 > - [ ] Security regression test added (covers the exploit path)
 > - [ ] False-positive exclusion rule added (if applicable)
@@ -106,4 +138,8 @@ Mechanical verification (tests passing) is only half the fix. You must prove **b
 - **The verify command from specs/bugs/BUG-*.md or the active epic task `verify` field must pass**
 
 Suggest next skill: `audit-code` → `commit-message`.
+
+## Verify
+
+→ verify: `grep -q 'generalize-fix' skills/validate-fix/SKILL.md && test -x scripts/verify-generalize-sweep.sh && bash scripts/verify-generalize-sweep.sh --self-test && echo OK`
 

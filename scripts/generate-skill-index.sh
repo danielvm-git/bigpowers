@@ -139,7 +139,7 @@ DESC_COL_WIDTH=56
   echo '  develop-tdd (+ enforce-first) ←→ delegate-task / dispatch-agents'
   echo '  execute-plan / build-epic / craft-skill / align-grid'
   echo '                         ↓'
-  echo '              ★ VERIFY ★  verify-work → run-evals → audit-code'
+  echo '              ★ VERIFY ★  verify-work → validate-contracts → smoke-test → run-evals → audit-code'
   echo '                         ↓'
   echo '    fix-bug → investigate-bug → diagnose-root → validate-fix'
   echo '                         ↓'

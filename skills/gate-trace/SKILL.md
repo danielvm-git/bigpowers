@@ -1,3 +1,4 @@
+# story: e80s01
 # story: e45s05
 ---
 name: gate-trace
@@ -90,3 +91,7 @@ gate_trace:
 
 Gate: READY → next: release-branch (final step before merge)
 Writes: state.yaml handoff.next_skill = release-branch
+
+## Verify
+
+→ verify: `test -x scripts/run-gate-trace-verify.sh && bash scripts/run-gate-trace-verify.sh --self-test && echo OK`

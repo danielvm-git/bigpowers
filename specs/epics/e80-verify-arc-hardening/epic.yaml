@@ -1,0 +1,99 @@
+# story: e80s01
+id: e80
+title: "Verify arc hardening (#97 + #98)"
+status: done
+wsjf: 7.5
+bcps: 10
+mode: capsule
+wsjf_rationale: >
+  BV 8 (closes verification theater on core skills) + TC 6 + RR 7 / Job 3 ≈ 7.5.
+  Depends on Wave 1 #96 runner hardening; combines #97 skill bodies with #98 generalize-fix.
+github_issues:
+  - 97
+  - 98
+source: >
+  GH #97 — core verify skills lack → verify:; smoke-test/validate-contracts are REFERENCE stubs.
+  GH #98 — validate-fix has no cross-codebase generalize step; security-review fixture table thin.
+stories:
+  - id: e80s01
+    title: Core verify skills → verify directives
+    status: done
+    bcps: 2
+    description: >
+      Add executable → verify: with real artifact checks for develop-tdd, validate-fix,
+      enforce-first, and gate-trace (not prose pointers or self-grep only).
+    files:
+      - skills/develop-tdd/SKILL.md
+      - skills/validate-fix/SKILL.md
+      - skills/enforce-first/SKILL.md
+      - skills/gate-trace/SKILL.md
+      - scripts/run-gate-trace-verify.sh
+    verify: >-
+      bash scripts/run-skill-verify.sh skills/develop-tdd &&
+      bash scripts/run-skill-verify.sh skills/validate-fix &&
+      bash scripts/run-skill-verify.sh skills/enforce-first &&
+      bash scripts/run-skill-verify.sh skills/gate-trace
+    tags:
+      - "story: e80s01"
+  - id: e80s02
+    title: smoke-test and validate-contracts real bodies
+    status: done
+    bcps: 2
+    description: >
+      Replace REFERENCE.md stub steps with inline process; add phase verify frontmatter;
+      add validate-contracts runner; move both into Verify arc (SKILL-INDEX sources).
+    files:
+      - skills/smoke-test/SKILL.md
+      - skills/validate-contracts/SKILL.md
+      - scripts/validate-contracts.sh
+      - scripts/generate-skill-index.sh
+    verify: >-
+      grep -q 'phase: verify' skills/smoke-test/SKILL.md &&
+      grep -q 'phase: verify' skills/validate-contracts/SKILL.md &&
+      bash scripts/run-skill-verify.sh skills/smoke-test &&
+      bash scripts/run-skill-verify.sh skills/validate-contracts
+    tags:
+      - "story: e80s02"
+  - id: e80s03
+    title: develop-tdd RED commit isolation check
+    status: done
+    bcps: 2
+    description: >
+      Mechanical script verifies test-only commit fails in isolation before green commit;
+      develop-tdd HARD GATE references the script instead of git log evidence alone.
+    files:
+      - skills/develop-tdd/SKILL.md
+      - scripts/verify-tdd-red-commit.sh
+    verify: bash scripts/verify-tdd-red-commit.sh --self-test
+    tags:
+      - "story: e80s03"
+  - id: e80s04
+    title: generalize-fix phase in validate-fix
+    status: done
+    bcps: 2
+    description: >
+      Mandatory generalize-fix phase after local hardening: classify defect, grep sweep,
+      attach grep-count artifact; → verify: requires sweep artifact on disk.
+    files:
+      - skills/validate-fix/SKILL.md
+      - scripts/verify-generalize-sweep.sh
+    verify: bash scripts/verify-generalize-sweep.sh --self-test
+    tags:
+      - "story: e80s04"
+  - id: e80s05
+    title: security-review fixture table growth
+    status: done
+    bcps: 2
+    description: >
+      Add fail-open-verify vuln class row to CWE fixture table; ship positive/negative
+      fixtures seeded from #96 defect class.
+    files:
+      - skills/security-review/SKILL.md
+      - skills/security-review/fixtures/CWE-fail-open-verify-positive.sh
+      - skills/security-review/fixtures/CWE-fail-open-verify-negative.sh
+    verify: >-
+      test -f skills/security-review/fixtures/CWE-fail-open-verify-positive.sh &&
+      test -f skills/security-review/fixtures/CWE-fail-open-verify-negative.sh &&
+      grep -q fail-open-verify skills/security-review/SKILL.md
+    tags:
+      - "story: e80s05"
