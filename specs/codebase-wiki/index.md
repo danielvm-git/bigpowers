@@ -1,6 +1,6 @@
 ---
 type: Index
-generated_at: 2026-07-25T05:28:09.657214+00:00
+generated_at: 2026-07-25T18:02:28.386734+00:00
 total_concepts: 116
 ---
 
@@ -43,7 +43,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e45s15](./e45s15.md) | release-branch / deploy: three-independent-facts verificatio | high | 21 |
 | [e45s16](./e45s16.md) | CLAUDE.md rtk mandate: wire rtk-ai/rtk PreToolUse hook | high | 4 |
 | [e45s17](./e45s17.md) | request-review: fan-out to parallel review subagents | high | 30 |
-| [e45s18](./e45s18.md) | audit-code / security-review: worktree-isolated parallel che | high | 278 |
+| [e45s18](./e45s18.md) | audit-code / security-review: worktree-isolated parallel che | high | 277 |
 | [e45s19](./e45s19.md) | Context7: bounded retry cap and explicit fallback block | high | 8 |
 | [e45s20](./e45s20.md) | Context7 / bts docs: wrap in ETag-revalidated fetch cache | high | 1 |
 | [e45s21](./e45s21.md) | seed-conventions / AGENTS.md: self-installing fenced markers | high | 33 |
@@ -56,7 +56,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e45s28](./e45s28.md) | request-review: hard max-iteration cap | high | 18 |
 | [e45s29](./e45s29.md) | requirements: ADDED/MODIFIED/REMOVED/RENAMED tags | high | 42 |
 | [e45s30](./e45s30.md) | subagent depth: formalize depth tiers | high | 28 |
-| [e45s31](./e45s31.md) | audit-code / deepen-architecture: churn-based look-here-firs | high | 268 |
+| [e45s31](./e45s31.md) | audit-code / deepen-architecture: churn-based look-here-firs | high | 267 |
 | [e45s32](./e45s32.md) | gate-trace / release-branch: adversarial-review refute frami | high | 36 |
 | [e45s33](./e45s33.md) | requirements: per-section approval state | high | 3 |
 | [e45s34](./e45s34.md) | develop-tdd: snapshot-before-transition hardening | high | 7 |
@@ -68,24 +68,24 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e45s40](./e45s40.md) | verify-work: mandatory real-browser verification | high | 23 |
 | [e45s41](./e45s41.md) | security-review: proven authorship SQL-safety doctrine | high | 18 |
 | [e48s01](./e48s01.md) | Generate epics-wiki and adr-wiki as OKF concept bundles from | high | 33 |
-| [e48s02](./e48s02.md) | Emit verification reports as OKF bundles from run-golden-sui | medium | 30 |
-| [e48s03](./e48s03.md) | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | high | 142 |
+| [e48s02](./e48s02.md) | Emit verification reports as OKF bundles from run-golden-sui | medium | 29 |
+| [e48s03](./e48s03.md) | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | high | 143 |
 | [e48s04](./e48s04.md) | Create viz.html — interactive force-layout graph companion f | medium | 12 |
-| [e48s05](./e48s05.md) | Wire OKF validation into CI (sync-skills.yml) and document i | medium | 170 |
+| [e48s05](./e48s05.md) | Wire OKF validation into CI (sync-skills.yml) and document i | medium | 169 |
 | [e48s06](./e48s06.md) | Add tier: field (core/extended/specialized) to OKF wiki inde | medium | 10 |
 | [e48s07](./e48s07.md) | Create publish-to-wiki kernel tool | high | 2 |
 | [e48s08](./e48s08.md) | Add GitHub Action Template for publish-wiki.yml [HARD GATE] | high | 8 |
 | [e48s09](./e48s09.md) | Create Wiki Scaffold Templates and provenance header injecti | medium | 2 |
 | [e48s10](./e48s10.md) | Extend bigspec init with --with-wiki flag | medium | 14 |
-| [e48s11](./e48s11.md) | BCP Plus counter integration — install and smoke-test big-co | medium | 28 |
+| [e48s11](./e48s11.md) | BCP Plus counter integration — install and smoke-test big-co | medium | 29 |
 | [e48s12](./e48s12.md) | BCP Plus template — 13-dimension breakdown in story specs | high | 9 |
 | [e48s13](./e48s13.md) | NFR Gate integration — security-review and wire-observabilit | high | 19 |
 | [e48s14](./e48s14.md) | Build-epic integration — BCP Plus in story sizing workflow | high | 14 |
 | [e48s15](./e48s15.md) | Refactor Skills Render Pipeline to Hybrid JSON Seam | high | 7 |
 | [e51s01](./e51s01.md) | CONVENTIONS — Always Green, Shift Left, Discovered Defects,  | high | 8 |
 | [e51s02](./e51s02.md) | seed-conventions — Preflight default, solo-git default, embe | high | 40 |
-| [e51s03](./e51s03.md) | kickoff-branch + verify-work — Preflight hard block and CI g | high | 64 |
-| [e51s04](./e51s04.md) | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | high | 321 |
+| [e51s03](./e51s03.md) | kickoff-branch + verify-work — Preflight hard block and CI g | high | 66 |
+| [e51s04](./e51s04.md) | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | high | 320 |
 | [e51s05](./e51s05.md) | CLAUDE.md — solo-default agent rules + bigpowers Preflight c | high | 7 |
 | [e54s01](./e54s01.md) | Snapshot the current skill catalog as an immutable baseline | high | 9 |
 | [e54s02](./e54s02.md) | Add a soft drift-detection gate for the freeze window | high | 14 |

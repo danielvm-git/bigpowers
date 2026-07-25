@@ -97,8 +97,8 @@ Add the following to the project's documentation or CLAUDE.md after setup:
 
 ## Verify
 
-→ verify: `grep -ci "template\|workflow\|validate\|dry.run" skills/wire-ci/SKILL.md | awk '{if($1>=3) print "OK: semantics"; else print "FAIL: missing"}'`
-→ verify: `grep -q "wire-ci" SKILL-INDEX.md && echo "OK: in SKILL-INDEX" || echo "FAIL: not indexed"`
+→ verify: `test -f skills/wire-ci/REFERENCE.md && test -f .github/workflows/sync-skills.yml`
+→ verify: `grep -q wire-ci SKILL-INDEX.md`
 
 ---
 

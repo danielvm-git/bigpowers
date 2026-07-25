@@ -13,22 +13,22 @@
     },
     "audit-code": {
       "description": "Self-review checklist for the coding agent to run before dispatching a reviewer. Checks CONVENTIONS.md compliance, Boy Scout Rule, test coverage, types, and SOLID. Produces a pass/fail checklist. Use before request-review, before committing, or when user asks for a code quality check.",
-      "sha256": "431377cef4a845a9",
+      "sha256": "b0342883680fee6c",
       "path": "skills/audit-codeSKILL.md"
     },
     "audit-plan": {
       "description": "Evaluate an incoming project plan against bigpowers principles and conventions, surface gaps, and produce a READY/NOT READY verdict before engagement begins. Use when a new project arrives, when adapting a foreign plan, or before running seed-conventions on an unfamiliar codebase.",
-      "sha256": "b0552e316d0e8024",
+      "sha256": "df080669a1ef7c36",
       "path": "skills/audit-planSKILL.md"
     },
     "build-epic": {
       "description": "Eight-step epic build cycle — reads state.yaml, execution-status.yaml, and one epic capsule; updates status via bp-yaml-set or direct edit. Resume mode runs one step per invocation. Use instead of ad-hoc execute-plan for release work.",
-      "sha256": "11fe35d1dcdec25a",
+      "sha256": "a647425c700b9020",
       "path": "skills/build-epicSKILL.md"
     },
     "change-request": {
       "description": "Add a new requirement or reorder epics by WSJF against specs/release-plan.yaml and epic capsule directories. Modes Add and Reorder. Use when a new requirement arrives mid-release or the plan needs prioritization.",
-      "sha256": "51804487e854d6c0",
+      "sha256": "dcccccbdd17e3e46",
       "path": "skills/change-requestSKILL.md"
     },
     "commit-message": {
@@ -38,22 +38,22 @@
     },
     "compose-workflow": {
       "description": "Chain multiple bigpowers skills into a custom workflow recipe saved in specs/. Use when a project repeats a non-standard skill sequence, or user wants a documented playbook beyond orchestrate-project modes.",
-      "sha256": "2ea1448c65074036",
+      "sha256": "73ebf35fbdcd732b",
       "path": "skills/compose-workflowSKILL.md"
     },
     "context7-mcp": {
       "description": "Fetch current library docs via Context7 MCP instead of training data. Use when user asks about frameworks, APIs, setup, or code examples for React, Next.js, Prisma, etc.",
-      "sha256": "31c47bbfcbc38b95",
+      "sha256": "6edac4093ab1c250",
       "path": "skills/context7-mcpSKILL.md"
     },
     "craft-skill": {
       "description": "Create new bigpowers skills with proper structure, progressive disclosure, and bundled resources. Use when user wants to create, write, or build a new skill for the bigpowers lifecycle.",
-      "sha256": "07d1cc8eddca50c5",
+      "sha256": "cc2d3a6c70693114",
       "path": "skills/craft-skillSKILL.md"
     },
     "deepen-architecture": {
       "description": "Find deepening opportunities in a codebase, informed by the domain language in specs/tech-architecture/tech-stack.md and the decisions in specs/adr/. Use when the user wants to improve architecture, find refactoring opportunities, consolidate tightly-coupled modules, or make a codebase more testable and AI-navigable.",
-      "sha256": "a31de1fbd4800060",
+      "sha256": "da2760c0cb49a3e4",
       "path": "skills/deepen-architectureSKILL.md"
     },
     "define-language": {
@@ -73,7 +73,7 @@
     },
     "deploy": {
       "description": "\"Build → verify artifact → deploy → wait → smoke deployment pipeline. Platform-agnostic (MCP or CLI), with configurable timeout, retry with exponential backoff, and integrated health-check. The deploy half of CI/CD: run after build to push to production.\"",
-      "sha256": "38b542713906d451",
+      "sha256": "09d24b7e5d2e759c",
       "path": "skills/deploySKILL.md"
     },
     "design-interface": {
@@ -88,17 +88,17 @@
     },
     "diagnose-root": {
       "description": "Run 4-phase root cause analysis — reproduce, isolate, hypothesize, verify. Use when a bug is confirmed but root cause is unclear, after investigate-bug, or when user mentions root cause analysis.",
-      "sha256": "fe7b35833cf548d1",
+      "sha256": "fe1be0325dca7c89",
       "path": "skills/diagnose-rootSKILL.md"
     },
     "diagnose-stall": {
       "description": "Diagnose why agent orchestration stopped producing progress — silent stalls in /loop, dispatch-agents, or execute-plan. Use when work appears hung, no output for several minutes, or a subagent never returned.",
-      "sha256": "7bf260ea295aef62",
+      "sha256": "c0fe87349399c112",
       "path": "skills/diagnose-stallSKILL.md"
     },
     "dispatch-agents": {
       "description": "Dispatch multiple subagents in parallel on independent tasks. No waiting between them — all run concurrently. Use when tasks are truly decoupled and speed matters. Distinct from delegate-task (concurrent here, no inter-task review gate).",
-      "sha256": "296a7e548e0b5567",
+      "sha256": "d54dbf26d36f951a",
       "path": "skills/dispatch-agentsSKILL.md"
     },
     "edit-document": {
@@ -118,7 +118,7 @@
     },
     "evolve-skill": {
       "description": "Benchmark-gated skill evolution — consume bigpowers-benchmark report, propose plan-work change, edit skill via craft-skill, re-run benchmark, record ADR. Use when a skill underperforms on benchmark or stocktake finds systemic gap.",
-      "sha256": "ac463a2a725271a2",
+      "sha256": "57be98121d18c6ae",
       "path": "skills/evolve-skillSKILL.md"
     },
     "execute-plan": {
@@ -158,7 +158,7 @@
     },
     "grill-with-docs": {
       "description": "Doc-grounded variant of grill-me — stress-tests plan assumptions by fetching and citing real library or API documentation. Every challenge must cite a real URL. Use when the plan depends on a specific library or external API.",
-      "sha256": "b8e085ecf44a7711",
+      "sha256": "b1a27ba4d40ba9f7",
       "path": "skills/grill-with-docsSKILL.md"
     },
     "guard-git": {
@@ -193,7 +193,7 @@
     },
     "maintain-wiki": {
       "description": "\"Agent-maintained OKF wiki — INGEST source docs, LINT for issues, QUERY across concept pages. Run as part of build-epic Step 8 and verify-work Phase 3.\"",
-      "sha256": "c54c6170db6fe3f9",
+      "sha256": "3b3c90c761a44c9f",
       "path": "skills/maintain-wikiSKILL.md"
     },
     "map-codebase": {
@@ -203,7 +203,7 @@
     },
     "migrate-spec": {
       "description": "Detect GSD, spec-kit, or BMAD spec artifacts and transform them into bigpowers YAML layout (state.yaml, release-plan.yaml, epics/, requirements/, plans/, ADRs). Use when migrating foreign spec docs.",
-      "sha256": "2f33c843e0c1f85a",
+      "sha256": "a9d4bfb518421b13",
       "path": "skills/migrate-specSKILL.md"
     },
     "model-domain": {
@@ -233,7 +233,7 @@
     },
     "plan-tests": {
       "description": "\"Design a risk-scaled test architecture for an epic before implementation begins. Produces prioritized scenarios, test level distribution, and fixture plans based on TEA and bigpowers principles.\"",
-      "sha256": "ed22b3feb985eabb",
+      "sha256": "157d0c1dd7368478",
       "path": "skills/plan-testsSKILL.md"
     },
     "plan-work": {
@@ -243,7 +243,7 @@
     },
     "publish-package": {
       "description": "\"Package registry publishing for npm, crates.io, PyPI, and Homebrew. Verifies prerequisites, runs the publish command, confirms success, and surfaces actionable error hints on failure.\"",
-      "sha256": "3c1b82a417a7f170",
+      "sha256": "9672eb453f8735b0",
       "path": "skills/publish-packageSKILL.md"
     },
     "quick-fix": {
@@ -253,22 +253,22 @@
     },
     "release-branch": {
       "description": "Make the merge/PR/keep/discard decision for a feature branch, verify coverage gates, create the PR with gh, and clean up the worktree. Use when a feature is done and ready to ship, or when user says \"release\", \"merge\", or \"open a PR\".",
-      "sha256": "7e94a540b1dc75c1",
+      "sha256": "4479807337f84915",
       "path": "skills/release-branchSKILL.md"
     },
     "request-review": {
       "description": "Dispatch a fresh reviewer agent with a clean context to critique the code after audit-code passes. The reviewer has no shared state with the coding agent and gives a genuine second opinion. Use after audit-code passes, before committing, or when user wants an independent code review.",
-      "sha256": "d52a30509e54f7c8",
+      "sha256": "f362641a467c3000",
       "path": "skills/request-reviewSKILL.md"
     },
     "research-first": {
       "description": "Look-before-build — search registries, repo, existing skills, and web for prior art before implementing. Appends Prior Art to the spec. Use after survey-context and before elaborate-spec, when adding dependencies, or when the task may already be solved.",
-      "sha256": "22d8daca5171d683",
+      "sha256": "21a75da1909f8c09",
       "path": "skills/research-firstSKILL.md"
     },
     "reset-baseline": {
       "description": "Restore the project to a known clean state between agent runs or experiments. Use between benchmark runs, after a failed spike, or when user wants a clean working tree.",
-      "sha256": "d53ec283a693ba2a",
+      "sha256": "2b25a0b37872166f",
       "path": "skills/reset-baselineSKILL.md"
     },
     "respond-review": {
@@ -283,27 +283,27 @@
     },
     "run-evals": {
       "description": "Eval-Driven Development — define capability and regression evals before building; code graders use verify commands, model graders use explicit rubrics; log pass@k. Use before develop-tdd on new features, or when measuring agent capability over runs.",
-      "sha256": "928eb6bcc1176a40",
+      "sha256": "d20ba2bece1b1c72",
       "path": "skills/run-evalsSKILL.md"
     },
     "run-planning": {
       "description": "\"DISCOVER-PHASE ADVANCER — Drive the discover-phase checklist (specs/planning-status.yaml) through survey-context → scope-work → research-first → elaborate-spec → plan-release → slice-tasks. NOT a duplicate of plan-work or the planning spine; it orchestrates the pre-coding discover phase only.\"",
-      "sha256": "8db3e4ed9334a3a3",
+      "sha256": "6e64c5f04925fc3e",
       "path": "skills/run-planningSKILL.md"
     },
     "scope-work": {
       "description": "\"PLANNING SPINE STEP 1 of 3 — Scope the work: define what is in and out of scope and save as specs/product/SCOPE_LATEST.yaml. Use before slice-tasks or plan-release on any new initiative. Not a substitute for slice-tasks (step 2) or plan-work (step 3).\"",
-      "sha256": "549cb6605f4b9256",
+      "sha256": "e36e2cf5f31a5d83",
       "path": "skills/scope-workSKILL.md"
     },
     "search-skills": {
       "description": "Find the right bigpowers skill from natural-language intent using a local lexical index over SKILL.md frontmatter. Use when unsure which skill to invoke, or at start of research-first.",
-      "sha256": "c8600e446b2fd8c5",
+      "sha256": "9bb0a5ce7dc6fa68",
       "path": "skills/search-skillsSKILL.md"
     },
     "security-review": {
       "description": ">",
-      "sha256": "7734fc00b0cf34f6",
+      "sha256": "0265010d9bd22e27",
       "path": "skills/security-reviewSKILL.md"
     },
     "seed-conventions": {
@@ -318,17 +318,17 @@
     },
     "setup-environment": {
       "description": "Pre-install dependencies and configure tools before development work begins. Use at session start on a fresh clone, before kickoff-branch, or when user says setup environment or install deps.",
-      "sha256": "1ec955e0adda57e0",
+      "sha256": "33bc4ecbd63cc9ca",
       "path": "skills/setup-environmentSKILL.md"
     },
     "simulate-agents": {
       "description": "Run Mock User and Auditor agents against a feature in fresh contexts before human review. Use after verify-work, before request-review, when user wants pre-review simulation.",
-      "sha256": "0c67b6be32007e65",
+      "sha256": "499159f692b09b27",
       "path": "skills/simulate-agentsSKILL.md"
     },
     "slice-tasks": {
       "description": "\"PLANNING SPINE STEP 2 of 3 — Slice the work: break a scoped PRD into vertical-slice stories in specs/epics/. Use after scope-work (step 1), before plan-work (step 3). Not a substitute for scope-work or plan-work.\"",
-      "sha256": "b60f861b88387e4d",
+      "sha256": "556bb99c28828501",
       "path": "skills/slice-tasksSKILL.md"
     },
     "smoke-test": {
@@ -343,12 +343,12 @@
     },
     "stocktake-skills": {
       "description": "Sequential subagent batch audit of the bigpowers skill catalog — Quick Scan (changed only) or Full (all skills). Use during sustain phase, before a major release, or when catalog drift is suspected.",
-      "sha256": "9595b954341217d7",
+      "sha256": "f3de9c9a9abacf14",
       "path": "skills/stocktake-skillsSKILL.md"
     },
     "survey-context": {
       "description": "Per-task context bootstrap — reads existing specs/ and tech-architecture docs to map the current lifecycle phase and suggest the next skill. Use at the start of any task, when returning after a break, or when unsure what to do next. For deriving a tech-stack doc from scratch, use map-codebase first.",
-      "sha256": "8beae3b8b7eab0f7",
+      "sha256": "ef837ae3e822e9a3",
       "path": "skills/survey-contextSKILL.md"
     },
     "terse-mode": {
@@ -358,7 +358,7 @@
     },
     "trace-requirement": {
       "description": "Link story IDs from specs/release-plan.yaml + epic capsule directories to the implementing code and tests. Produces specs/TRACEABILITY_LATEST.md. Use when you want to verify coverage of a release plan, audit which stories are implemented, or find \"dark\" stories with no code.",
-      "sha256": "456c7f898d607c5c",
+      "sha256": "1e77081b27b86cf3",
       "path": "skills/trace-requirementSKILL.md"
     },
     "using-bigpowers": {
@@ -378,7 +378,7 @@
     },
     "verify-work": {
       "description": "Multi-phase UAT gate — cold-start smoke, build, typecheck, lint, tests, step-by-step manual verification, gaps-closure loop. Use after execute-plan or develop-tdd, before audit-code.",
-      "sha256": "1fbd5eedbf6e341f",
+      "sha256": "518ffc602775b589",
       "path": "skills/verify-workSKILL.md"
     },
     "visual-dashboard": {
@@ -388,7 +388,7 @@
     },
     "wire-ci": {
       "description": "\"CI pipeline setup with pre-built templates and local validation. Generates GitHub Actions workflows, validates YAML syntax and permissions, supports dry-run via act/gh. The CI equivalent of wire-observability.\"",
-      "sha256": "f87372acb009f582",
+      "sha256": "7d661e394662e35c",
       "path": "skills/wire-ciSKILL.md"
     },
     "wire-observability": {
@@ -398,7 +398,7 @@
     },
     "write-document": {
       "description": "Write, organize, and sync high-integrity technical documents using the BMAD methodology. Ensures every document is Bold, Minimal, Actionable, and Durable. Use when creating architectural docs, technical guides, or organizing the specs/ directory.",
-      "sha256": "1ad5fd9c625f16f6",
+      "sha256": "445a7d0359fcbedf",
       "path": "skills/write-documentSKILL.md"
     }
   }

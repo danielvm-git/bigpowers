@@ -51,7 +51,7 @@ Write the document focusing on "Expert Collaboration":
 3. Fill gaps from `CLAUDE.md` commands if available; use `TODO` markers otherwise.
 4. Output and suggest `edit-document` for polish.
 
-→ verify: `grep -c "^## " README.md | awk '{if($1>=7) print "OK"}'`
+→ verify: `test -f README.md && [ "$(grep -c '^## ' README.md)" -ge 7 ]`
 
 ### 3. Apply the 94% Quality Gate
 

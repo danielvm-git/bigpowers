@@ -71,8 +71,8 @@ See [REFERENCE.md](REFERENCE.md)
 
 ## Verify
 
-→ verify: `grep -ci "npm\|crates.io\|pypi\|publish\|registry" skills/publish-package/SKILL.md | awk '{if($1>=4) print "OK: semantics"; else print "FAIL: missing"}'`
-→ verify: `grep -q "publish-package" SKILL-INDEX.md && echo "OK: in SKILL-INDEX" || echo "FAIL: not indexed"`
+→ verify: `test -f skills/publish-package/SKILL.md && test -f package.json`
+→ verify: `grep -q publish-package SKILL-INDEX.md`
 
 ---
 

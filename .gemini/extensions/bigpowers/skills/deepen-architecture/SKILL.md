@@ -111,7 +111,7 @@ Run the check before proposing cross-module `source` edges. Convention docs alon
 
 ## Verify
 
-→ verify: `test -f specs/import-boundaries.json && bash scripts/check-import-boundaries.sh && echo OK || echo FAIL`
+→ verify: `test -f specs/import-boundaries.json && bash scripts/check-import-boundaries.sh`
 
 
 

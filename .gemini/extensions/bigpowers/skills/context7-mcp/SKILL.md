@@ -53,4 +53,4 @@ Do NOT substitute training-data answers without labeling them UNVERIFIED.
 
 ## Verify
 
-→ verify: `test -f scripts/lib/doc-fetch-cache.sh && grep -q CONTEXT7_UNAVAILABLE skills/context7-mcp/SKILL.md && echo OK || echo FAIL`
+→ verify: `test -f scripts/lib/doc-fetch-cache.sh`

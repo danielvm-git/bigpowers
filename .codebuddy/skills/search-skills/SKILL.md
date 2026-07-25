@@ -70,4 +70,4 @@ Lexical search only — no embedding service (ADR: zero external dependency). Th
 
 ## Verify
 
-→ verify: `test -f specs/SKILL-SEARCH-INDEX_LATEST.md && echo OK || (bash scripts/build-skill-index.sh && test -f specs/SKILL-SEARCH-INDEX_LATEST.md && echo OK)`
+→ verify: `test -f specs/SKILL-SEARCH-INDEX_LATEST.md || (bash scripts/build-skill-index.sh && test -f specs/SKILL-SEARCH-INDEX_LATEST.md)`

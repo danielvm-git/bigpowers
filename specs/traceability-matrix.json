@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-25T05:28:09.653424+00:00",
+  "generated_at": "2026-07-25T18:02:28.383365+00:00",
   "matrix_version": "1.0",
   "stories": [
     {
@@ -3780,6 +3780,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260725-150011.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260626-205129.md",
           "line": 0,
           "confidence": "medium",
@@ -4836,12 +4842,6 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/reports/audit-cleancode-20260725-021918.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-005655.md",
           "line": 0,
           "confidence": "medium",
@@ -4903,12 +4903,6 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-163338.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/reports/audit-cleancode-20260725-022131.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5262,7 +5256,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 278
+      "link_count": 277
     },
     {
       "id": "e45s19",
@@ -6714,6 +6708,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260725-150011.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260626-205129.md",
           "line": 0,
           "confidence": "medium",
@@ -7770,12 +7770,6 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/reports/audit-cleancode-20260725-021918.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-005655.md",
           "line": 0,
           "confidence": "medium",
@@ -7837,12 +7831,6 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-163338.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/reports/audit-cleancode-20260725-022131.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8184,7 +8172,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 268
+      "link_count": 267
     },
     {
       "id": "e45s32",
@@ -9384,12 +9372,6 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/reports/GOLDEN-2026-07-25.okf.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
           "file": "specs/verifications/reports/audit-2026-07-05.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -9516,7 +9498,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 30
+      "link_count": 29
     },
     {
       "id": "e48s03",
@@ -10068,6 +10050,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-07-25-fail-open-skill-verify.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-23-golden-g11-worktree-venv.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -10380,7 +10368,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 142
+      "link_count": 143
     },
     {
       "id": "e48s04",
@@ -10537,12 +10525,6 @@
         },
         {
           "file": "specs/verifications/reports/GOLDEN-2026-07-05.okf.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/reports/GOLDEN-2026-07-25.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -11496,7 +11478,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 170
+      "link_count": 169
     },
     {
       "id": "e48s06",
@@ -11916,6 +11898,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "tests/test-land-branch-protected.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "docs/references/bcp-plus.md",
           "line": 0,
           "confidence": "medium",
@@ -11952,7 +11940,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 28
+      "link_count": 29
     },
     {
       "id": "e48s12",
@@ -12996,13 +12984,25 @@
           "method": "file_heuristic"
         },
         {
+          "file": "tests/test-land-branch-protected.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "scripts/land-branch.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/land-branch-push.sh",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         }
       ],
-      "link_count": 64
+      "link_count": 66
     },
     {
       "id": "e51s04",
@@ -13225,6 +13225,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-122420.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260725-150011.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -14286,12 +14292,6 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/reports/audit-cleancode-20260725-021918.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-005655.md",
           "line": 0,
           "confidence": "medium",
@@ -14353,12 +14353,6 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-163338.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/reports/audit-cleancode-20260725-022131.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -14940,7 +14934,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 321
+      "link_count": 320
     },
     {
       "id": "e51s05",
@@ -18769,7 +18763,7 @@
     "stale_count": 102,
     "oracle_stats": {
       "high": 759,
-      "medium": 2023,
+      "medium": 2022,
       "low": 70
     }
   }

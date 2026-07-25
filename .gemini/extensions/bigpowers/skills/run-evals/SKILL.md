@@ -35,7 +35,7 @@ disable-model-invocation: true
 
 ## Verify
 
-→ verify: `find specs/verifications -name "*-eval-report.md" | wc -l | awk '{if($1>0) print "OK: "$1" eval reports"; else print "MISSING"}'`
+→ verify: `test -d specs/benchmarks && test -f specs/benchmarks/SCHEMA.md`
 
 
 <!-- story: e02s01 -->

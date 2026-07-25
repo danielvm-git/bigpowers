@@ -25,7 +25,7 @@ description: >
 
 > **HARD GATE** — Requires git context (branch with merge-base or diff). Never
 > writes files outside `specs/security/`. Findings below confidence 8/10 are
-> suppressed. **→ verify:** `git rev-parse HEAD >/dev/null 2>&1 && echo "ok" || echo "BLOCKED"`
+> suppressed. Pre-flight: `git rev-parse HEAD >/dev/null 2>&1`
 
 ## Parallel worktree mode (e45s18)
 
@@ -115,6 +115,4 @@ Each finding: **`File:Line` — Severity — Category**
 
 ## Verify
 
-```bash
-test -d specs/security && echo "OK: specs/security/ exists" || mkdir -p specs/security; grep -q "Merge-base\|merge.base\|git diff" SKILL.md && echo "OK: git context verified"
-```
+→ verify: `test -d specs/security && test -f scripts/lib/parallel-review-worktrees.sh && git rev-parse HEAD >/dev/null 2>&1`

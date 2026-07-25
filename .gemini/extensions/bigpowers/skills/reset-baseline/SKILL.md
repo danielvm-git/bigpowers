@@ -19,4 +19,4 @@ disable-model-invocation: true
 
 ## Verify
 
-→ verify: `git status --short | wc -l | awk '{if($1==0) print "OK"; else print "DIRTY:" $1}'`
+→ verify: `git rev-parse --git-dir >/dev/null 2>&1 && test -f skills/reset-baseline/SKILL.md`

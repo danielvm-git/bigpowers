@@ -45,7 +45,7 @@ Explicit handler for silent stalls in long-running agent workflows (`/loop`, `di
 
 ## Verify
 
-→ verify: `test -f specs/state.yaml && echo "OK: diagnose-stall can read session state" || echo "WARN: no state.yaml — diagnostic limited"`
+→ verify: `test -f specs/state.yaml`
 
 ## Handoff
 

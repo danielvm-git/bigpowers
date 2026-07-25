@@ -142,7 +142,7 @@ CLI tools: use `--cli` when no server process. Binary detect + checklist: [REFER
 
 ## Verify
 
-→ verify: `find specs/verifications -maxdepth 1 -name '*-verify.yaml' 2>/dev/null | head -1 | grep -q . && echo "Evidence persisted" || echo "No evidence yet"`
+→ verify: `find specs/verifications -maxdepth 1 -name '*-verify.yaml' 2>/dev/null | grep -q .`
 
 ## Handoff
 READY -> next: audit-code

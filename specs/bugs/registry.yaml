@@ -422,3 +422,13 @@ bugs:
     files_changed: "scripts/land-branch.sh, scripts/lib/land-branch-push.sh, tests/test-land-branch-protected.sh"
     approach: "Option A — auto-fallback to recovery branch + gh pr create on protected-branch rejection"
     risk_level: "medium"
+  - id: BUG-2026-07-25-fail-open-skill-verify
+    status: fixed
+    severity: high
+    scope: ci
+    title: "67% of skill verify: directives are fail-open — runner treats exit 0 as PASS"
+    file: bugs/BUG-2026-07-25-fail-open-skill-verify.md
+    github_issue: 96
+    files_changed: "scripts/run-skill-verify.sh, skills/*/SKILL.md, .github/workflows/publish.yml, specs/verifications/fixtures/skill-verify-fail-open/"
+    approach: "Harden runner (reject fail-open, run all verify lines, negative fixture) + rewrite corpus in one PR"
+    risk_level: "medium"

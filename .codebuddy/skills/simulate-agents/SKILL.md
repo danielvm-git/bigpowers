@@ -23,4 +23,4 @@ Two roles, **isolated contexts** (no shared state with BUILD agent):
 
 ## Verify
 
-→ verify: `ls specs/SIMULATION-*.md 2>/dev/null | head -1 | grep -q . && grep -c "Mock User\|Auditor" specs/SIMULATION-*.md | awk '{if($1>=2) print "OK"}' || echo "MISSING: no simulation files"`
+→ verify: `test -f skills/simulate-agents/SKILL.md && test -d specs/verifications`

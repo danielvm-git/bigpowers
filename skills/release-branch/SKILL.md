@@ -139,4 +139,4 @@ Report: "Branch released."
 
 ## Verify
 
-→ verify: `command -v gh >/dev/null 2>&1 && test -f specs/state.yaml && test -d skills/verify-work && echo "OK: release-branch dependencies available" || echo "FAIL"`
+→ verify: `command -v gh >/dev/null 2>&1 && test -f specs/state.yaml && test -d skills/verify-work`

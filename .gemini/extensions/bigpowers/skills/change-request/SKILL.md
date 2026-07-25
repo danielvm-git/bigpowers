@@ -12,7 +12,7 @@ disable-model-invocation: true
 
 > **HARD GATE** — `specs/release-plan.yaml` must exist before running either mode. If it doesn't, run `plan-release` first.
 >
-> → verify: `[ -f specs/release-plan.yaml ] && echo "ready" || echo "BLOCKED: run plan-release first"`
+> → verify: `test -f specs/release-plan.yaml`
 
 Two modes. State which one you want or the skill will ask.
 

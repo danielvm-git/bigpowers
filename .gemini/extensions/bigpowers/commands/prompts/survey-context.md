@@ -44,7 +44,7 @@ For each YAML file found, note: exists? keys populated? `handoff.next_skill`?
 
 Legacy markdown (`specs/archive/STATE.md`, `RELEASE-PLAN.md`) is **not** SoT if YAML exists.
 
-→ verify: `bash scripts/validate-specs-yaml.sh 2>/dev/null || echo "YAML layout incomplete"`
+→ verify: `bash scripts/validate-specs-yaml.sh`
 
 ### 3. Read CLAUDE.md
 
