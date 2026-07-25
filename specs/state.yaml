@@ -1,18 +1,15 @@
-active_flow: fix_bug
+active_flow: null
 active_epic: null
 active_story: null
-bug_id: BUG-2026-07-25-fail-open-skill-verify
+bug_id: null
 bigpowers_version: 2.85.0
-bug_cycle:
-  current_step: 5
-  completed_steps: [1, 2, 3, 4]
-  bug_file: specs/bugs/BUG-2026-07-25-fail-open-skill-verify.md
+bug_cycle: null
 handoff:
-  next_skill: release-branch
+  next_skill: survey-context
   context: |
-    Track B (#96) in worktree fix-fail-open-skill-verify-96. Runner hardened,
-    corpus rewritten (0 fail-open), negative fixture present, publish skill-health
-    blocking. Ready for release-branch / PR. Do not fight Track A (#99) state on main.
+    Track B #96 PR opened: https://github.com/danielvm-git/bigpowers/pull/100
+    Worktree: ../fix-fail-open-skill-verify-96 (branch fix/fail-open-skill-verify-96).
+    Merge before Track A (#99) requires skill-verify on PRs.
   epic: null
 epic_cycle: null
 metrics:
@@ -20,6 +17,6 @@ metrics:
   story_end: null
   skill_timings: {}
 release:
-  ci_verified: true
-  last_commit: parallel-tracks-92-91
+  ci_verified: false
+  last_commit: fix-fail-open-skill-verify-96
   last_epic: e79-agentic-ste
