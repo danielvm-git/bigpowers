@@ -1,6 +1,6 @@
 # e79s02 — Validator script + craft-skill HARD GATE
 
-**Epic:** e79 | **Story:** e79s02 | **Status:** todo | **BCPs:** 3
+**Epic:** e79 | **Story:** e79s02 | **Status:** done | **BCPs:** 3
 
 ## Goal
 

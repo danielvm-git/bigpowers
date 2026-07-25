@@ -16,7 +16,7 @@ source: >
 stories:
   - id: e79s01
     title: AGENTIC-STE ruleset document
-    status: todo
+    status: done
     bcps: 2
     description: >
       Commit docs/AGENTIC-STE.md with concrete numeric rules — word/sentence caps,
@@ -28,7 +28,7 @@ stories:
       - "story: e79s01"
   - id: e79s02
     title: Validator script + craft-skill HARD GATE
-    status: todo
+    status: done
     bcps: 3
     description: >
       Add scripts/validate-agentic-ste.sh and extend craft-skill HARD GATE table
@@ -42,7 +42,7 @@ stories:
       - "story: e79s02"
   - id: e79s03
     title: seed-conventions applies ruleset
-    status: todo
+    status: done
     bcps: 2
     description: >
       Extend seed-conventions to apply AGENTIC-STE rules when generating
@@ -54,7 +54,7 @@ stories:
       - "story: e79s03"
   - id: e79s04
     title: stocktake-skills violation scanner
-    status: todo
+    status: done
     bcps: 1
     description: >
       Extend stocktake-skills batch audit to flag hedge words and oversized

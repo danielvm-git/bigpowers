@@ -48,7 +48,7 @@
     },
     "craft-skill": {
       "description": "Create new bigpowers skills with proper structure, progressive disclosure, and bundled resources. Use when user wants to create, write, or build a new skill for the bigpowers lifecycle.",
-      "sha256": "2caa9d8ae9298b4b",
+      "sha256": "07d1cc8eddca50c5",
       "path": "skills/craft-skillSKILL.md"
     },
     "deepen-architecture": {
@@ -308,7 +308,7 @@
     },
     "seed-conventions": {
       "description": "Generate CLAUDE.md and CONVENTIONS.md for a brand-new project through a brief interview, and create the specs/ directory with evolved bigpowers structure (product/, tech-architecture/, verifications/, epics/archive/). Entry point for greenfield projects. Use when starting a new project from scratch, when user asks to set up AI agent conventions, or when there is no CLAUDE.md yet.",
-      "sha256": "35c335385c4ad48b",
+      "sha256": "6cb91bf0b5cdd9b3",
       "path": "skills/seed-conventionsSKILL.md"
     },
     "session-state": {
@@ -343,7 +343,7 @@
     },
     "stocktake-skills": {
       "description": "Sequential subagent batch audit of the bigpowers skill catalog — Quick Scan (changed only) or Full (all skills). Use during sustain phase, before a major release, or when catalog drift is suspected.",
-      "sha256": "6833c900df48a98a",
+      "sha256": "9595b954341217d7",
       "path": "skills/stocktake-skillsSKILL.md"
     },
     "survey-context": {

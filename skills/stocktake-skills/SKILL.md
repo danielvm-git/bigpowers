@@ -9,6 +9,7 @@ effort: standard
 
 # story: e09s01
 <!-- story: e45s12 -->
+<!-- story: e79s04 -->
 
 
 # Stocktake Skills
@@ -28,6 +29,7 @@ Audit SKILL.md catalog for drift, stale triggers, missing HARD GATEs, and INDEX 
 ## Process
 
 0. **Catalog validator (code-enforced)** — run `bash scripts/validate-skill-catalog.sh`. Any FAIL is a critical finding before manual review. Add `--archive` to list zero-usage skills from `metrics.skill_timings` for auto-archiving candidates (move to `specs/epics/archive/` or delete after user confirms).
+0b. **Agentic STE audit (e79s04)** — run `bash scripts/validate-agentic-ste.sh --audit skills/`. Flag hedge words and sentences over 20 words per [AGENTIC-STE.md](../../docs/AGENTIC-STE.md). Record WARN lines in the stocktake report as **STE debt** — do NOT rewrite the full catalog in one pass. Route critical repeat offenders to `evolve-skill`.
 1. Run `bash scripts/audit-catalog.sh` to verify pi/skills ↔ source SKILL.md sync. Mismatch is a critical finding.
 2. Run mode; for each skill check: exists, verb-noun, &lt;300 lines total, HARD GATE present, INDEX row matches.
 3. Write `specs/STOCKTAKE-<date>.md` with findings table (skill, issue, severity).
