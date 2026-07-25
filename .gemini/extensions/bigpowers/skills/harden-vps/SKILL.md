@@ -104,7 +104,7 @@ crontab -l|grep -q healthcheck&&crontab -l|grep -q bigbase.db&&crontab -l|grep -
 echo ALL 8 GATES PASSED
 ```
 
-→ verify: run the 8-gate one-liner on the VPS.
+→ verify: # requires VPS SSH — run the 8-gate one-liner on the VPS manually
 
 ---
 
