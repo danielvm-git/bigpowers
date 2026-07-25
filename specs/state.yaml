@@ -5,20 +5,11 @@ bug_id: null
 bigpowers_version: 2.85.0
 bug_cycle: null
 handoff:
-  next_skill: dispatch-agents
-  context: 'Parallel: A=../fix-land-branch-protected (#92 BUG-2026-07-25-land-branch-protected),
-
-    B=../feat-agentic-ste (#91 e79 agentic-ste).
-
-    Absolute paths: /Users/danielvm/Developer/fix-land-branch-protected,
-
-    /Users/danielvm/Developer/feat-agentic-ste.
-
-    Branches: fix/land-branch-protected, feat/agentic-ste.
-
-    Disjoint writes; merge #92 before #91. active_flow remains null.
-
-    '
+  next_skill: survey-context
+  context: |
+    Parallel tracks complete (2026-07-25). GitHub #92 closed via PR #93 squash
+    d7f14d4372c133547429ed79fe665e87bf069095; #91 closed via PR #94 squash
+    79fca7feb77485ec29214ebccd889b4ee0d6db60. active_flow null.
   epic: null
 epic_cycle: null
 metrics:
