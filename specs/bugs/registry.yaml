@@ -406,6 +406,13 @@ bugs:
     scope: install
     title: "bigpowers setup spinner freezes during sync-skills.sh instead of animating"
     file: bugs/BUG-2026-07-24-installer-spinner-freezes-during-sync.md
+  - id: BUG-2026-07-25-anti-vacuity-ci
+    status: open
+    severity: high
+    scope: ci
+    title: "Anti-vacuity golden suite (G-08/G-10) not wired into CI; Preflight ends on always-exit-0 step"
+    file: bugs/BUG-2026-07-25-anti-vacuity-ci.md
+    risk_level: "high"
   - id: BUG-2026-07-25-land-branch-protected
     status: fixed
     severity: high

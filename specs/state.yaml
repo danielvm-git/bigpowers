@@ -7,9 +7,9 @@ bug_cycle: null
 handoff:
   next_skill: survey-context
   context: |
-    Parallel tracks complete (2026-07-25). GitHub #92 closed via PR #93 squash
-    d7f14d4372c133547429ed79fe665e87bf069095; #91 closed via PR #94 squash
-    79fca7feb77485ec29214ebccd889b4ee0d6db60. active_flow null.
+    Track A (#99) PR #101 open (fix/anti-vacuity-ci-99). Golden suite
+    required; skill-verify advisory until #96 PR #100 merges — then flip
+    continue-on-error off. Bug file: specs/bugs/BUG-2026-07-25-anti-vacuity-ci.md.
   epic: null
 epic_cycle: null
 metrics:
