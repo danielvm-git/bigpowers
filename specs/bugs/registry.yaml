@@ -407,7 +407,7 @@ bugs:
     title: "bigpowers setup spinner freezes during sync-skills.sh instead of animating"
     file: bugs/BUG-2026-07-24-installer-spinner-freezes-during-sync.md
   - id: BUG-2026-07-25-land-branch-protected
-    status: open
+    status: fixed
     severity: high
     scope: scripts
     title: "solo-git land-branch.sh fails ungracefully against protected-branch repos, leaving a stranded local commit"

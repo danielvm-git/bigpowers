@@ -5,6 +5,9 @@
 # Run from the primary repository root (not a linked worktree).
 set -euo pipefail
 
+# shellcheck source=lib/land-branch-push.sh
+source "$(dirname "${BASH_SOURCE[0]}")/lib/land-branch-push.sh"
+
 CONVENTIONAL_REGEX='^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\(.+\))?!?: .+'
 
 usage_land() {
@@ -150,7 +153,9 @@ echo "==> Land commit: $LAND_SHA"
 
 if git remote get-url origin >/dev/null 2>&1; then
   echo "==> Pushing $DEFAULT_BRANCH to origin"
-  git push origin "$DEFAULT_BRANCH"
+  if ! land_push_default_branch "$DEFAULT_BRANCH" "$LAND_SHA" "$FEATURE_BRANCH" "$COMMIT_MSG"; then
+    land_branch_deny "git push origin $DEFAULT_BRANCH failed"
+  fi
 fi
 
 # Epic capsule archival (evolved bigpowers v4.0.0+)
@@ -198,11 +203,19 @@ fi
 git checkout "$DEFAULT_BRANCH"
 
 echo ""
-echo "Land complete."
-echo "  Branch:   $FEATURE_BRANCH (removed)"
-echo "  Commit:   $LAND_SHA on $DEFAULT_BRANCH"
-echo "  Message:  $COMMIT_MSG"
-echo "  cwd:      $(pwd)"
-echo "  current:  $(git branch --show-current)"
-echo ""
-echo "semantic-release will pick up the push to $DEFAULT_BRANCH when configured."
+if [ "${LAND_PR_FALLBACK:-0}" = "1" ]; then
+  echo "Land complete (protected-branch fallback — PR opened)."
+  echo "  Branch:   $FEATURE_BRANCH (local cleanup below)"
+  echo "  Recovery: $(land_recovery_branch_name "$FEATURE_BRANCH") @ $LAND_SHA"
+  echo "  Message:  $COMMIT_MSG"
+  echo "  Note:     local $DEFAULT_BRANCH reset to origin; merge via PR"
+else
+  echo "Land complete."
+  echo "  Branch:   $FEATURE_BRANCH (removed)"
+  echo "  Commit:   $LAND_SHA on $DEFAULT_BRANCH"
+  echo "  Message:  $COMMIT_MSG"
+  echo "  cwd:      $(pwd)"
+  echo "  current:  $(git branch --show-current)"
+  echo ""
+  echo "semantic-release will pick up the push to $DEFAULT_BRANCH when configured."
+fi
