@@ -6,6 +6,7 @@
 set -euo pipefail
 
 source "$(dirname "${BASH_SOURCE[0]}")/lib/skill-common.sh"
+resolve_repo_root
 
 LOCKFILE="$REPO_ROOT/skills-lock.json"
 INDEX_FILE="$REPO_ROOT/SKILL-INDEX.md"
@@ -16,9 +17,24 @@ if [[ ! -f "$LOCKFILE" ]]; then
 fi
 
 # Phase categorization — maps each skill to a lifecycle phase
-# Uses a case statement for bash 3.2 compatibility (macOS default bash lacks declare -A)
+# Primary: reads phase: from SKILL.md frontmatter (self-maintaining)
+# Fallback: hardcoded case statement for bash 3.2 compatibility
 phase_of() {
-  case "$1" in
+  local skill_name="$1"
+  local skill_file="$REPO_ROOT/skills/$skill_name/SKILL.md"
+
+  # Try frontmatter first (self-maintaining path)
+  if [[ -f "$skill_file" ]]; then
+    local phase
+    phase=$(awk '/^---$/{n++; next} n==1 && /^phase:/{gsub(/^phase:[[:space:]]*/, ""); gsub(/[[:space:]]*$/, ""); print; exit}' "$skill_file" 2>/dev/null | awk '{print toupper(substr($0,1,1)) tolower(substr($0,2))}')
+    if [[ -n "$phase" ]]; then
+      echo "$phase"
+      return
+    fi
+  fi
+
+  # Fallback: hardcoded case statement
+  case "$skill_name" in
     # Discover
     survey-context|research-first|search-skills|using-bigpowers|map-codebase|elaborate-spec|audit-plan) echo "Discover" ;;
     # Design
@@ -28,11 +44,11 @@ phase_of() {
     # Build
     develop-tdd|kickoff-branch|execute-plan|build-epic|spike-prototype|craft-skill|quick-fix|setup-environment|wire-observability|wire-ci|publish-package|align-grid|orchestrate-project|guard-git|hook-commits|deploy|smoke-test|validate-contracts|extract-design) echo "Build" ;;
     # Verify
-    verify-work|validate-fix|audit-code|enforce-first|run-evals|investigate-bug|diagnose-root|fix-bug|inspect-quality|request-review|respond-review|trace-requirement|security-review) echo "Verify" ;;
+    verify-work|validate-fix|audit-code|enforce-first|run-evals|investigate-bug|diagnose-root|fix-bug|inspect-quality|request-review|respond-review|trace-requirement|security-review|context7-mcp|diagnose-stall|gate-trace|generate-allure-report|plan-tests) echo "Verify" ;;
     # Release
     release-branch|commit-message) echo "Release" ;;
     # Sustain
-    session-state|edit-document|write-document|organize-workspace|reset-baseline|stocktake-skills|evolve-skill|run-benchmark|terse-mode|delegate-task|dispatch-agents|simulate-agents|compose-workflow|migrate-spec|visual-dashboard) echo "Sustain" ;;
+    session-state|edit-document|write-document|organize-workspace|reset-baseline|stocktake-skills|evolve-skill|run-benchmark|terse-mode|delegate-task|dispatch-agents|simulate-agents|compose-workflow|migrate-spec|visual-dashboard|harden-vps|maintain-wiki) echo "Sustain" ;;
   esac
 }
 

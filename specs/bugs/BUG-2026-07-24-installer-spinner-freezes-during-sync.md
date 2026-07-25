@@ -1,6 +1,6 @@
 ---
 bug_id: BUG-2026-07-24-installer-spinner-freezes-during-sync
-status: open
+status: fixed
 severity: low
 scope: install
 title: "bigpowers setup spinner freezes during sync-skills.sh instead of animating"

@@ -13,26 +13,24 @@
 
 ## Examples
 
-### Create CI for a Rust project
+### Create CI for a Go project (TBR + optional deploy)
 
 ```bash
-# Detect from Cargo.toml, generate workflows
-wire-ci
+# Copy org templates
+cp ~/Developer/.github/workflow-templates/test-build-release-go.yml .github/workflows/test-build-release.yml
+cp ~/Developer/.github/workflow-templates/deploy-go.yml .github/workflows/deploy.yml
 
-# Validate generated workflows
 wire-ci --validate
-
-# Run locally with act
 wire-ci --dry-run
 ```
 
-### Create CI for a Node project with semantic-release
+### Create CI for a CLI tool (TBR only, no deploy)
 
 ```bash
-wire-ci
+cp ~/Developer/.github/workflow-templates/test-build-release-go.yml .github/workflows/test-build-release.yml
+# Edit release job to download build artifact — see big-release dogfood
+
 wire-ci --validate
-# Expect warning: "npm publish step found but no NPM_TOKEN in secrets"
-# Fix: add NPM_TOKEN to repo secrets
 ```
 
 ### Validate existing workflows (no generation)
@@ -40,7 +38,6 @@ wire-ci --validate
 ```bash
 wire-ci --validate --check-only
 ```
-
 
 ---
 
@@ -53,8 +50,7 @@ wire-ci --validate --check-only
 | `--check-only` | Only validate, do not generate new files |
 | `--type <type>` | Force project type (skip auto-detection) |
 | `--force` | Overwrite existing workflow files |
-| `--no-release` | Skip release workflow generation even if semantic-release detected |
-
+| `--no-deploy` | Skip deploy.yml even for hosted stacks |
 
 ---
 
@@ -67,202 +63,191 @@ When `wire-ci` is used as part of `build-epic`:
 
 ---
 
-## Reference block 1
+## Reference block 1 — test-build-release.yml (Go, excerpt)
 
 ```yaml
-name: CI
-on: [push, pull_request]
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions-rust/toolchain@v1
-        with:
-          toolchain: stable
-          components: clippy, rustfmt
-      - run: cargo fmt --all -- --check
-      - run: cargo clippy -- -D warnings
-      - run: cargo test
-      - run: cargo build --release
-```
-
----
-
-## Reference block 2
-
-```yaml
-name: CI
-on: [push, pull_request]
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-      - run: npm ci
-      - run: npm test
-      - run: npm run lint 2>/dev/null || true
-      - run: npm run typecheck 2>/dev/null || true
-      - run: npm run build 2>/dev/null || true
-```
-
----
-
-## Reference block 3
-
-```yaml
-name: CI
-on: [push, pull_request]
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-          cache: pip
-      - run: pip install -e ".[dev]" || pip install -e .
-      - run: pip install pytest ruff mypy
-      - run: ruff check .
-      - run: mypy . 2>/dev/null || true
-      - run: pytest
-```
-
----
-
-## Reference block 4
-
-```yaml
-name: CI
-on: [push, pull_request]
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-go@v5
-        with:
-          go-version: stable
-          cache: true
-      - run: go vet ./...
-      - run: go test ./...
-      - run: go build ./...
-```
-
----
-
-## Reference block 5
-
-```yaml
-name: CI
-on: [push, pull_request]
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - run: cmake -B build
-      - run: cmake --build build
-      - run: ctest --test-dir build
-```
-
----
-
-## Reference block 6
-
-```yaml
-name: Release
+name: Test Build Release
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pipeline-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
+  lint:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0  # v7.0.0
+      - uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16  # v6.5.0
+        with:
+          go-version: '1.22'
+          cache: true
+      - uses: golangci/golangci-lint-action@55c2c1448f86e01eaae002a5a3a9624417608d84  # v6.5.2
+        with:
+          version: v1.64.8
+
+  test:
+    needs: [lint]
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0  # v7.0.0
+      - uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16  # v6.5.0
+        with:
+          go-version: '1.22'
+          cache: true
+      - run: go vet ./...
+      - run: go test ./... -count=1
+
+  build:
+    needs: [test]
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0  # v7.0.0
+      - uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16  # v6.5.0
+        with:
+          go-version: '1.22'
+          cache: true
+      - run: go build ./...
+      - run: jq -n --arg sha "${{ github.sha }}" '{sha: $sha}' > deploy-meta.json
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
+        with:
+          name: deploy-meta
+          path: deploy-meta.json
+
   release:
-    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    needs: [build]
     permissions:
       contents: write
-      issues: write
-      pull-requests: write
-      id-token: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0  # v7.0.0
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-      - run: npm ci
-      - run: npm run build 2>/dev/null || true
       - run: npx semantic-release
         env:
-          GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: \${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 ---
 
-## Reference block 7
+## Reference block 2 — deploy.yml (BigBase, excerpt)
+
+```yaml
+name: Deploy
+on:
+  workflow_run:
+    workflows: ["Test Build Release"]
+    types: [completed]
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+env:
+  SITE_URL: "https://CHANGE-ME.bigbase.click"
+
+jobs:
+  deploy:
+    if: >
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.head_branch == 'main'
+    runs-on: ubuntu-22.04
+    environment: production
+    steps:
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c  # v8.0.1
+        with:
+          name: deploy-meta
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: ${{ github.event.workflow_run.id }}
+          path: deploy-meta
+      - uses: danielvm-git/.github/actions/bigbase-deploy@9c56ac10c629f3baa110ddb19136579e3c90d690  # v1
+        with:
+          site_id: ${{ secrets.BIGBASE_SITE_ID }}
+          app_type: go
+          site_url: ${{ env.SITE_URL }}
+          deploy_token: ${{ secrets.BIGBASE_DEPLOY_TOKEN }}
+          ref: ${{ steps.meta.outputs.ref }}
+          skip_health_check: true
+      - name: Health check
+        run: |
+          curl -sf "${{ env.SITE_URL }}" || exit 1
+```
+
+---
+
+## Reference block 3 — CLI dogfood (big-release pattern)
+
+```yaml
+  build:
+    needs: [test]
+    steps:
+      - run: make build
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
+        with:
+          name: big-release-${{ github.sha }}
+          path: bin/big-release
+
+  release:
+    needs: [build]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    steps:
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c  # v8.0.1
+        with:
+          name: big-release-${{ github.sha }}
+          path: bin
+      - run: make release   # cross-compile assets only; host binary from artifact
+      - run: big-release release --verbose
+```
+
+No `deploy.yml` — CLI publishes via the release job.
+
+---
+
+## Reference block 4 — validate script
 
 ```bash
-# Validate YAML syntax
-for f in .github/workflows/*.yaml; do
+for f in .github/workflows/*.yml .github/workflows/*.yaml; do
+  [ -f "$f" ] || continue
   python3 -c "import yaml; yaml.safe_load(open('$f'))" || echo "FAIL: $f has YAML syntax errors"
 done
 
-# Check permissions block presence
-for f in .github/workflows/*.yaml; do
+for f in .github/workflows/test-build-release.yml; do
   if grep -q "permissions:" "$f"; then
     echo "OK: $f has permissions block"
   else
-    echo "WARNING: $f missing permissions block — add one for security"
+    echo "WARNING: $f missing permissions block"
   fi
 done
 
-# Check for npm publish without NPM_TOKEN
-for f in .github/workflows/*.yaml; do
-  if grep -q "npm publish\|npx semantic-release" "$f"; then
-    if ! grep -q "NPM_TOKEN" "$f"; then
-      echo "WARNING: $f has npm publish/semantic-release but no NPM_TOKEN secret"
-    fi
+if grep -q 'workflows: \["Test Build Release"\]' .github/workflows/deploy.yml 2>/dev/null; then
+  if ! grep -q 'name: Test Build Release' .github/workflows/test-build-release.yml; then
+    echo "WARNING: deploy.yml listens for Test Build Release but TBR name may differ"
   fi
-done
-
-# Check for hardcoded Node versions
-for f in .github/workflows/*.yaml; do
-  if grep -q "node-version: [0-9]" "$f" && grep -qv "node-version-file\|\.nvmrc" "$f"; then
-    echo "NOTE: $f has hardcoded Node version — consider using .nvmrc instead"
-  fi
-done
-
-# Check for common secrets reference errors
-for f in .github/workflows/*.yaml; do
-  # Secrets referencing something that doesn't exist in the workflow
-  grep -oP 'secrets\.\w+' "$f" | sort -u | while read -r secret; do
-    echo "REF: $f references $secret"
-  done
-done
+fi
 ```
 
 ---
 
-## Reference block 8
+## Reference block 5 — dry-run
 
 ```bash
-# Option A: Use act (recommended)
 if command -v act &>/dev/null; then
-  act push --dry-run
-  echo "OK: act dry-run completed"
+  act push --dry-run -W .github/workflows/test-build-release.yml
 elif command -v gh &>/dev/null; then
-  # Option B: Use gh workflow run (remote test, no local docker)
-  gh workflow run ci.yaml --ref "$(git branch --show-current)"
-  echo "OK: CI workflow dispatched. Check status: gh run list"
+  gh workflow run test-build-release.yml --ref "$(git branch --show-current)"
 else
-  echo "NOTE: Install act (https://github.com/nektos/act) for full local dry-run"
-  echo "      Install gh CLI for remote dry-run"
+  echo "Install act or gh for dry-run"
 fi
 ```

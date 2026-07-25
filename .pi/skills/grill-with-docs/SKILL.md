@@ -23,6 +23,18 @@ description: "Doc-grounded variant of grill-me — stress-tests plan assumptions
 - If docs contradict the plan, plan loses until updated.
 - Prefer official docs over blog posts.
 
+## Facts vs. Decisions Boundary
+
+Distinguish between **facts** and **decisions**:
+- **Facts** — things discoverable by reading docs, checking APIs, or exploring the codebase. Do not ask the user to confirm facts; find them yourself.
+- **Decisions** — choices that require user input (trade-offs, preferences, priorities). Always present options and ask the user to choose.
+
+Never "grill yourself" — if the answer is in the docs, go fetch it. Only ask questions where the user's judgment is needed.
+
+## Confirmation Gate
+
+> **HARD GATE** — Do NOT enact the plan or generate specifications until the user explicitly confirms shared understanding. Wait for explicit approval (e.g., "looks good", "confirmed", "proceed") before transitioning to any implementation, spec-writing, or task-slicing step.
+
 ## Verify
 
 → verify: `grep -c 'https\?://' skills/grill-with-docs/SKILL.md | awk '{if($1>=2) print "OK"; else print "NEEDS DOCS"}'`

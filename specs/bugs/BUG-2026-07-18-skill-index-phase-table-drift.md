@@ -1,6 +1,6 @@
 ---
 bug_id: BUG-2026-07-18-skill-index-phase-table-drift
-status: open
+status: fixed
 severity: high
 scope: scripts
 title: "SKILL-INDEX.md phase table silently drops 7 skills (TOTAL 72 vs header 79) — no CI guard catches it"

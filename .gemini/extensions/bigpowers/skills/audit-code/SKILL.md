@@ -96,6 +96,10 @@ bash scripts/lib/parallel-review-worktrees.sh audit-code
 - [ ] Dependency Inversion: dependencies injected, not imported globally where avoidable
 - [ ] **Chapter 17 Heuristics**: Code is free of smells documented in `audit-code/HEURISTICS.md` (G, N, C, T)
 
+### Refactoring Smells (Fowler)
+
+Explicitly name any detected smells: Mysterious Name, Duplicated Code, Feature Envy, Data Clumps, Primitive Obsession, Message Chains, Middle Man.
+
 ### Code Style (CONVENTIONS.md)
 
 - [ ] Functions: 4–20 lines; split if longer
@@ -106,13 +110,6 @@ bash scripts/lib/parallel-review-worktrees.sh audit-code
 - [ ] Early returns over nested ifs; max 2 levels of indentation
 - [ ] Conditionals: expressed as positives (G29)
 - [ ] Comments explain WHY, not WHAT
-
-### Agent Readability (Akita's Lens)
-
-- [ ] Functions are small enough to fit in a standard context window (4–20 lines)
-- [ ] Names are unique and specific enough to be `grep`-able (grep returns < 5 hits)
-- [ ] Types are explicit (no `any`, no inferred return types for public APIs)
-- [ ] Code avoids deep nesting (max 2 levels) and uses early returns
 
 ### Red Flags
 

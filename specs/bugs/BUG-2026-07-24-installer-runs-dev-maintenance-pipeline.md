@@ -1,6 +1,6 @@
 ---
 bug_id: BUG-2026-07-24-installer-runs-dev-maintenance-pipeline
-status: open
+status: fixed
 severity: medium
 scope: install
 title: "bigpowers setup runs the full contributor dev-maintenance pipeline on end-user installs"

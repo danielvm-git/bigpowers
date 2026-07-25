@@ -116,6 +116,25 @@ if [[ -n "${lock_count:-}" && -n "${index_count:-}" ]]; then
   fi
 fi
 
+# ── Task 4: Phase table TOTAL row vs lockfile count ──────────────────
+
+if [[ -f "$INDEXFILE" ]]; then
+  # Parse the TOTAL row from the phase table (e.g., "| **TOTAL** | **72** | |")
+  total_row=$(grep '| \*\*TOTAL\*\* |' "$INDEXFILE" 2>/dev/null | head -1) || true
+  if [[ -n "$total_row" ]]; then
+    total_count=$(echo "$total_row" | grep -oE '\*\*[0-9]+\*\*' | head -1 | tr -d '*') || true
+    if [[ -n "${total_count:-}" && -n "${lock_count:-}" ]]; then
+      if [[ "$total_count" -eq "$lock_count" ]]; then
+        g04_pass "phase table TOTAL ($total_count) matches lockfile ($lock_count)"
+      else
+        g04_fail "phase table TOTAL ($total_count) != lockfile ($lock_count) — skills missing from phase_of()"
+      fi
+    fi
+  else
+    g04_fail "no TOTAL row found in $INDEXFILE"
+  fi
+fi
+
 # ── Summary ───────────────────────────────────────────────────────────
 
 echo ""

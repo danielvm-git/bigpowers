@@ -54,7 +54,7 @@ Both commands sync skill artifacts and link them to Claude Code, Gemini CLI, and
 
 ### Interactive Installer
 
-The `bigpowers setup` command launches an interactive menu where you can:
+The `npx bigpowers setup` command launches an interactive menu where you can:
 
 1. **Choose install mode**: Setup/Update or Uninstall
 2. **Select location**: Global (available everywhere) or Local (current project only)
@@ -186,7 +186,7 @@ Run `npm run compliance` to audit all features. Score < 94% = hard stop.
 
 ## 📁 Project Structure
 
-- `skills/[skill-name]/`: Source files for each of the 72 skills.
+- `skills/[skill-name]/`: Source files for each of the 80 skills.
 - `scripts/`: Installation, syncing, and compliance tools.
 - `specs/`: YAML cockpit — `state.yaml`, `release-plan.yaml`, `epics/`, `execution-status.yaml`, `requirements/`.
 - `specs/metrics/`: Cycle-time ledger (`cycle-times.yaml`) — per-story BCPs, timestamps, BCP/hr (v2.0.0).

@@ -7,7 +7,7 @@ title: "bigpowers setup runs the full contributor dev-maintenance pipeline on en
 category: bug
 tier: extended
 severity: medium
-status: open
+status: fixed
 generator: scripts/sync-bugs-registry.sh
 references:
     - specs/bugs/BUG-2026-07-24-installer-runs-dev-maintenance-pipeline.md

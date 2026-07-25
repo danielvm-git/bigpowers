@@ -1,0 +1,68 @@
+timestamp: "2026-07-25T03:38:11Z"
+git_commit: "d1993d31437bfbdb5bda81e84650628215365754"
+suite: "golden-combined"
+mode: "daily"
+deterministic:
+  total: 12
+  passed: 12
+  failed: 0
+  skipped: 0
+  pass_rate: 1.00
+gates:
+  - name: compliance
+    exit_code: 0
+    duration_seconds: 80.16
+    status: pass
+  - name: g04-selftest
+    exit_code: 0
+    duration_seconds: .04
+    status: pass
+  - name: g06-migrate-version
+    exit_code: 0
+    duration_seconds: 9.07
+    status: pass
+  - name: g07-negative-path
+    exit_code: 0
+    duration_seconds: .06
+    status: pass
+  - name: g08-anti-vacuity
+    exit_code: 0
+    duration_seconds: .09
+    status: pass
+  - name: g09-yaml-roundtrip
+    exit_code: 0
+    duration_seconds: .13
+    status: pass
+  - name: g10-trace-anti-vacuity
+    exit_code: 0
+    duration_seconds: .11
+    status: pass
+  - name: g11-gitignore-venv
+    exit_code: 0
+    duration_seconds: .08
+    status: pass
+  - name: install-helpers
+    exit_code: 0
+    duration_seconds: .06
+    status: pass
+  - name: import-boundaries
+    exit_code: 0
+    duration_seconds: .25
+    status: pass
+  - name: skill-catalog
+    exit_code: 0
+    duration_seconds: 1.78
+    status: pass
+  - name: specs-parse
+    exit_code: 0
+    duration_seconds: .84
+    status: pass
+agent_stories:
+  total: 0
+  passed: 0
+  failed: 0
+  skipped: 0
+  flake_count: 0
+  pass_rate: n/a
+summary:
+  combined_verdict: "pass"

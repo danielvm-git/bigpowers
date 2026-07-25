@@ -19,6 +19,14 @@ Interview relentlessly about every aspect of this plan until reaching shared und
 
 If a question can be answered by exploring the codebase, explore it instead.
 
+### Facts vs. Decisions Boundary
+
+Distinguish between **facts** and **decisions**:
+- **Facts** — things discoverable by exploring the codebase, reading docs, or checking APIs. Do not ask the user to confirm facts; find them yourself.
+- **Decisions** — choices that require user input (trade-offs, preferences, priorities). Always present options and ask the user to choose.
+
+Never "grill yourself" — if the answer is in the code, go find it. Only ask questions where the user's judgment is needed.
+
 ## Docs mode
 
 Ground every challenge in real documentation — no assumption about a library's behavior goes unchecked. See [REFERENCE.md](REFERENCE.md) for the full process.
@@ -29,4 +37,8 @@ Short form:
 3. Challenge each plan assumption against the real docs: correct method signature? right version? deprecated?
 4. Report confirmed ✓, corrected ✗ (with the real behavior), and uncertain → `spike-prototype`.
 5. Update the plan for each confirmed discrepancy.
+
+## Confirmation Gate
+
+> **HARD GATE** — Do NOT enact the plan or generate specifications until the user explicitly confirms shared understanding. Wait for explicit approval (e.g., "looks good", "confirmed", "proceed") before transitioning to any implementation, spec-writing, or task-slicing step.
 

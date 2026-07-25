@@ -10,12 +10,12 @@ description: "CI pipeline setup with pre-built templates and local validation. G
 >
 > **HARD GATE** — CI that is untestable locally will break every cycle. Always run `--validate` after generating workflows and `--dry-run` before pushing.
 
-Generate, validate, and test CI workflows. Detects your project type, produces platform-appropriate GitHub Actions configurations, and provides local verification to catch auth, permissions, and syntax issues before they reach CI.
+Generate, validate, and test CI workflows. Detects your project type, copies org templates from `danielvm-git/.github/workflow-templates/`, and provides local verification to catch auth, permissions, and syntax issues before they reach CI.
 
 ## What this sets up
 
-1. **CI workflow** — `.github/workflows/ci.yaml` with test, lint, typecheck, build steps
-2. **Release workflow** — `.github/workflows/release.yaml` with semantic-release (if applicable)
+1. **Test Build Release workflow** — `.github/workflows/test-build-release.yml` with lint → test → build → release (single pipeline, `needs:` chain)
+2. **Deploy workflow** — `.github/workflows/deploy.yml` triggered via `workflow_run` (BigBase/Pages stacks only; CLI/library repos omit this)
 3. **`--validate` mode** — checks YAML syntax, workflow permissions, required secrets, and common pitfalls
 4. **`--dry-run` mode** — runs workflows locally via `act` or `gh workflow run` to prove correctness before push
 5. **Failure pattern documentation** — common CI failure categories and their fixes
@@ -24,45 +24,41 @@ Generate, validate, and test CI workflows. Detects your project type, produces p
 
 ### 1. Detect project type
 
-Read the project root for manifest files to determine which template to use:
+Read the project root for manifest files to determine which template pair to copy:
 
-| Manifest | Type | Template |
-|----------|------|----------|
-| `Cargo.toml` | Rust | Rust CI: test, clippy, fmt, build |
-| `package.json` | Node | Node CI: test, lint, typecheck, build |
-| `setup.py` / `pyproject.toml` | Python | Python CI: pytest, ruff/mypy/flake8, build |
-| `go.mod` | Go | Go CI: test, vet, staticcheck, build |
-| `CMakeLists.txt` | C/C++ | C/C++ CI: cmake build, ctest |
-| Multiple detected | Polyglot | Combined workflows or error if ambiguous |
+| Manifest | Type | Template pair (from `.github` repo) |
+|----------|------|-------------------------------------|
+| `Cargo.toml` | Rust | `test-build-release-monorepo.yml` + `deploy-monorepo.yml` (or monorepo subset) |
+| `package.json` | Node | `test-build-release-node.yml` + `deploy-node.yml` |
+| `setup.py` / `pyproject.toml` | Python | `test-build-release-python.yml` + `deploy-python.yml` |
+| `go.mod` | Go | `test-build-release-go.yml` + `deploy-go.yml` |
+| Static site (no server) | Static | `test-build-release-static.yml` + `deploy-static.yml` |
+| `Package.swift` | Swift | `test-build-release-swift.yml` only (no deploy yet) |
+| Multiple detected | Polyglot | `test-build-release-monorepo.yml` + `deploy-monorepo.yml` |
 
-If no manifest is found, prompt the user to specify the type or pass `--type <rust|node|python|go|cpp>`.
+**CLI/library repos** (no hosted target): copy only `test-build-release-<stack>.yml` → `test-build-release.yml`. The `release` job is terminal; skip `deploy.yml`. See `docs/how-to/migrate-ci-cd/migration-plan.md` § CLI and library repos.
 
-### 2. Generate CI workflow
+If no manifest is found, prompt the user to specify the type or pass `--type <rust|node|python|go|static|swift>`.
 
-Create `.github/workflows/ci.yaml` with standard steps derived from the project type and its manifest:
+### 2. Copy test-build-release template
 
-**Rust template (`Cargo.toml`):**
-See [REFERENCE.md](../../../skills/wire-ci/REFERENCE.md)
+Copy the matching template from `~/Developer/.github/workflow-templates/` to `.github/workflows/test-build-release.yml`. **Do not rename the workflow `name:` field** — deploy listens for `"Test Build Release"`.
 
-**Node template (`package.json`):**
-See [REFERENCE.md](../../../skills/wire-ci/REFERENCE.md)
+Edit placeholders: `APP_TYPE`, `SITE_URL`, language versions.
 
-**Python template (`setup.py` / `pyproject.toml`):**
-See [REFERENCE.md](../../../skills/wire-ci/REFERENCE.md)
+See [REFERENCE.md](../../../skills/wire-ci/REFERENCE.md) for stack-specific job shapes.
 
-**Go template (`go.mod`):**
-See [REFERENCE.md](../../../skills/wire-ci/REFERENCE.md)
+### 3. Copy deploy template (hosted stacks only)
 
-**C/C++ template (`CMakeLists.txt`):**
-See [REFERENCE.md](../../../skills/wire-ci/REFERENCE.md)
+If the project deploys to BigBase or GitHub Pages:
 
-### 3. Generate release workflow (if semantic-release detected)
+```bash
+cp ~/Developer/.github/workflow-templates/deploy-${STACK}.yml .github/workflows/deploy.yml
+```
 
-If the project has semantic-release configured (in `package.json`, `.releaserc`, or `release.config.js`), also generate `.github/workflows/release.yaml`:
+Configure `BIGBASE_SITE_ID`, `BIGBASE_DEPLOY_TOKEN`, and matching `SITE_URL`. Deploy runs via `workflow_run` after TBR succeeds on `main` with `cancel-in-progress: false`.
 
-See [REFERENCE.md](../../../skills/wire-ci/REFERENCE.md)
-
-> **NPM_TOKEN is required** for publishing to npm. Without it, semantic-release will fail at the publish step. See `--validate` to check this.
+Skip this step for CLI/library repos.
 
 ### 4. Validate workflows (`--validate`)
 
@@ -97,6 +93,8 @@ Add the following to the project's documentation or CLAUDE.md after setup:
 | `cargo clippy` errors | New lints in Rust nightly | `cargo clippy --fix` or allow specific lints |
 | `act` not found | Docker not running or act not installed | `brew install act` / `docker ps` to verify Docker |
 | Hardcoded Node version stale | `.nvmrc` exists but workflow uses hardcoded version | Use `node-version-file: .nvmrc` instead |
+| Deploy never runs | TBR workflow renamed | Keep `name: Test Build Release` in test-build-release.yml |
+| Release rebuilds binary | Artifact not downloaded | `release` job must `download-artifact` from `build` |
 
 ## Verify
 
@@ -120,26 +118,24 @@ Add the following to the project's documentation or CLAUDE.md after setup:
 
 ## Examples
 
-### Create CI for a Rust project
+### Create CI for a Go project (TBR + optional deploy)
 
 ```bash
-# Detect from Cargo.toml, generate workflows
-wire-ci
+# Copy org templates
+cp ~/Developer/.github/workflow-templates/test-build-release-go.yml .github/workflows/test-build-release.yml
+cp ~/Developer/.github/workflow-templates/deploy-go.yml .github/workflows/deploy.yml
 
-# Validate generated workflows
 wire-ci --validate
-
-# Run locally with act
 wire-ci --dry-run
 ```
 
-### Create CI for a Node project with semantic-release
+### Create CI for a CLI tool (TBR only, no deploy)
 
 ```bash
-wire-ci
+cp ~/Developer/.github/workflow-templates/test-build-release-go.yml .github/workflows/test-build-release.yml
+# Edit release job to download build artifact — see big-release dogfood
+
 wire-ci --validate
-# Expect warning: "npm publish step found but no NPM_TOKEN in secrets"
-# Fix: add NPM_TOKEN to repo secrets
 ```
 
 ### Validate existing workflows (no generation)
@@ -147,7 +143,6 @@ wire-ci --validate
 ```bash
 wire-ci --validate --check-only
 ```
-
 
 ---
 
@@ -160,8 +155,7 @@ wire-ci --validate --check-only
 | `--check-only` | Only validate, do not generate new files |
 | `--type <type>` | Force project type (skip auto-detection) |
 | `--force` | Overwrite existing workflow files |
-| `--no-release` | Skip release workflow generation even if semantic-release detected |
-
+| `--no-deploy` | Skip deploy.yml even for hosted stacks |
 
 ---
 
@@ -174,202 +168,191 @@ When `wire-ci` is used as part of `build-epic`:
 
 ---
 
-## Reference block 1
+## Reference block 1 — test-build-release.yml (Go, excerpt)
 
 ```yaml
-name: CI
-on: [push, pull_request]
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions-rust/toolchain@v1
-        with:
-          toolchain: stable
-          components: clippy, rustfmt
-      - run: cargo fmt --all -- --check
-      - run: cargo clippy -- -D warnings
-      - run: cargo test
-      - run: cargo build --release
-```
-
----
-
-## Reference block 2
-
-```yaml
-name: CI
-on: [push, pull_request]
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-      - run: npm ci
-      - run: npm test
-      - run: npm run lint 2>/dev/null || true
-      - run: npm run typecheck 2>/dev/null || true
-      - run: npm run build 2>/dev/null || true
-```
-
----
-
-## Reference block 3
-
-```yaml
-name: CI
-on: [push, pull_request]
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-          cache: pip
-      - run: pip install -e ".[dev]" || pip install -e .
-      - run: pip install pytest ruff mypy
-      - run: ruff check .
-      - run: mypy . 2>/dev/null || true
-      - run: pytest
-```
-
----
-
-## Reference block 4
-
-```yaml
-name: CI
-on: [push, pull_request]
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-go@v5
-        with:
-          go-version: stable
-          cache: true
-      - run: go vet ./...
-      - run: go test ./...
-      - run: go build ./...
-```
-
----
-
-## Reference block 5
-
-```yaml
-name: CI
-on: [push, pull_request]
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - run: cmake -B build
-      - run: cmake --build build
-      - run: ctest --test-dir build
-```
-
----
-
-## Reference block 6
-
-```yaml
-name: Release
+name: Test Build Release
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pipeline-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
+  lint:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0  # v7.0.0
+      - uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16  # v6.5.0
+        with:
+          go-version: '1.22'
+          cache: true
+      - uses: golangci/golangci-lint-action@55c2c1448f86e01eaae002a5a3a9624417608d84  # v6.5.2
+        with:
+          version: v1.64.8
+
+  test:
+    needs: [lint]
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0  # v7.0.0
+      - uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16  # v6.5.0
+        with:
+          go-version: '1.22'
+          cache: true
+      - run: go vet ./...
+      - run: go test ./... -count=1
+
+  build:
+    needs: [test]
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0  # v7.0.0
+      - uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16  # v6.5.0
+        with:
+          go-version: '1.22'
+          cache: true
+      - run: go build ./...
+      - run: jq -n --arg sha "${{ github.sha }}" '{sha: $sha}' > deploy-meta.json
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
+        with:
+          name: deploy-meta
+          path: deploy-meta.json
+
   release:
-    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    needs: [build]
     permissions:
       contents: write
-      issues: write
-      pull-requests: write
-      id-token: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0  # v7.0.0
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-      - run: npm ci
-      - run: npm run build 2>/dev/null || true
       - run: npx semantic-release
         env:
-          GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: \${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 ---
 
-## Reference block 7
+## Reference block 2 — deploy.yml (BigBase, excerpt)
+
+```yaml
+name: Deploy
+on:
+  workflow_run:
+    workflows: ["Test Build Release"]
+    types: [completed]
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+env:
+  SITE_URL: "https://CHANGE-ME.bigbase.click"
+
+jobs:
+  deploy:
+    if: >
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.head_branch == 'main'
+    runs-on: ubuntu-22.04
+    environment: production
+    steps:
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c  # v8.0.1
+        with:
+          name: deploy-meta
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: ${{ github.event.workflow_run.id }}
+          path: deploy-meta
+      - uses: danielvm-git/.github/actions/bigbase-deploy@9c56ac10c629f3baa110ddb19136579e3c90d690  # v1
+        with:
+          site_id: ${{ secrets.BIGBASE_SITE_ID }}
+          app_type: go
+          site_url: ${{ env.SITE_URL }}
+          deploy_token: ${{ secrets.BIGBASE_DEPLOY_TOKEN }}
+          ref: ${{ steps.meta.outputs.ref }}
+          skip_health_check: true
+      - name: Health check
+        run: |
+          curl -sf "${{ env.SITE_URL }}" || exit 1
+```
+
+---
+
+## Reference block 3 — CLI dogfood (big-release pattern)
+
+```yaml
+  build:
+    needs: [test]
+    steps:
+      - run: make build
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
+        with:
+          name: big-release-${{ github.sha }}
+          path: bin/big-release
+
+  release:
+    needs: [build]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    steps:
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c  # v8.0.1
+        with:
+          name: big-release-${{ github.sha }}
+          path: bin
+      - run: make release   # cross-compile assets only; host binary from artifact
+      - run: big-release release --verbose
+```
+
+No `deploy.yml` — CLI publishes via the release job.
+
+---
+
+## Reference block 4 — validate script
 
 ```bash
-# Validate YAML syntax
-for f in .github/workflows/*.yaml; do
+for f in .github/workflows/*.yml .github/workflows/*.yaml; do
+  [ -f "$f" ] || continue
   python3 -c "import yaml; yaml.safe_load(open('$f'))" || echo "FAIL: $f has YAML syntax errors"
 done
 
-# Check permissions block presence
-for f in .github/workflows/*.yaml; do
+for f in .github/workflows/test-build-release.yml; do
   if grep -q "permissions:" "$f"; then
     echo "OK: $f has permissions block"
   else
-    echo "WARNING: $f missing permissions block — add one for security"
+    echo "WARNING: $f missing permissions block"
   fi
 done
 
-# Check for npm publish without NPM_TOKEN
-for f in .github/workflows/*.yaml; do
-  if grep -q "npm publish\|npx semantic-release" "$f"; then
-    if ! grep -q "NPM_TOKEN" "$f"; then
-      echo "WARNING: $f has npm publish/semantic-release but no NPM_TOKEN secret"
-    fi
+if grep -q 'workflows: \["Test Build Release"\]' .github/workflows/deploy.yml 2>/dev/null; then
+  if ! grep -q 'name: Test Build Release' .github/workflows/test-build-release.yml; then
+    echo "WARNING: deploy.yml listens for Test Build Release but TBR name may differ"
   fi
-done
-
-# Check for hardcoded Node versions
-for f in .github/workflows/*.yaml; do
-  if grep -q "node-version: [0-9]" "$f" && grep -qv "node-version-file\|\.nvmrc" "$f"; then
-    echo "NOTE: $f has hardcoded Node version — consider using .nvmrc instead"
-  fi
-done
-
-# Check for common secrets reference errors
-for f in .github/workflows/*.yaml; do
-  # Secrets referencing something that doesn't exist in the workflow
-  grep -oP 'secrets\.\w+' "$f" | sort -u | while read -r secret; do
-    echo "REF: $f references $secret"
-  done
-done
+fi
 ```
 
 ---
 
-## Reference block 8
+## Reference block 5 — dry-run
 
 ```bash
-# Option A: Use act (recommended)
 if command -v act &>/dev/null; then
-  act push --dry-run
-  echo "OK: act dry-run completed"
+  act push --dry-run -W .github/workflows/test-build-release.yml
 elif command -v gh &>/dev/null; then
-  # Option B: Use gh workflow run (remote test, no local docker)
-  gh workflow run ci.yaml --ref "$(git branch --show-current)"
-  echo "OK: CI workflow dispatched. Check status: gh run list"
+  gh workflow run test-build-release.yml --ref "$(git branch --show-current)"
 else
-  echo "NOTE: Install act (https://github.com/nektos/act) for full local dry-run"
-  echo "      Install gh CLI for remote dry-run"
+  echo "Install act or gh for dry-run"
 fi
 ```

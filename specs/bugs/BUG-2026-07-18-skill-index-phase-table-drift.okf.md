@@ -7,7 +7,7 @@ title: "SKILL-INDEX.md phase table silently drops 7 skills (TOTAL 72 vs header 7
 category: bug
 tier: extended
 severity: high
-status: open
+status: fixed
 generator: scripts/sync-bugs-registry.sh
 references:
     - specs/bugs/BUG-2026-07-18-skill-index-phase-table-drift.md

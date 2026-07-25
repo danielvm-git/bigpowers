@@ -86,6 +86,7 @@ Review for:
 4. Design — are there simpler or more robust approaches?
 5. Edge cases — what inputs or states could cause failures?
 6. Security — any injection, auth, or data exposure risks?
+7. Refactoring smells — explicitly name any detected Fowler smells: Mysterious Name, Duplicated Code, Feature Envy, Data Clumps, Primitive Obsession, Message Chains, Middle Man
 
 For each finding, categorize as: must-fix / should-fix / consider.
 Run the verify command and report the result.

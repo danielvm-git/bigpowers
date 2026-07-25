@@ -13,7 +13,7 @@
     },
     "audit-code": {
       "description": "Self-review checklist for the coding agent to run before dispatching a reviewer. Checks CONVENTIONS.md compliance, Boy Scout Rule, test coverage, types, and SOLID. Produces a pass/fail checklist. Use before request-review, before committing, or when user asks for a code quality check.",
-      "sha256": "0636f1d9d6c591a3",
+      "sha256": "431377cef4a845a9",
       "path": "skills/audit-codeSKILL.md"
     },
     "audit-plan": {
@@ -153,12 +153,12 @@
     },
     "grill-me": {
       "description": "Interactive assumption-surfacing Q&A that stress-tests a plan through relentless questioning until every decision is resolved. Use when user wants to challenge a plan, validate decisions from conversation/context, or mentions \"grill me\". For doc-grounded variant, use grill-with-docs.",
-      "sha256": "8ef90da0f127f2fd",
+      "sha256": "fd2bf0223ed3d067",
       "path": "skills/grill-meSKILL.md"
     },
     "grill-with-docs": {
       "description": "Doc-grounded variant of grill-me — stress-tests plan assumptions by fetching and citing real library or API documentation. Every challenge must cite a real URL. Use when the plan depends on a specific library or external API.",
-      "sha256": "bd4267952e492f9c",
+      "sha256": "b8e085ecf44a7711",
       "path": "skills/grill-with-docsSKILL.md"
     },
     "guard-git": {
@@ -258,7 +258,7 @@
     },
     "request-review": {
       "description": "Dispatch a fresh reviewer agent with a clean context to critique the code after audit-code passes. The reviewer has no shared state with the coding agent and gives a genuine second opinion. Use after audit-code passes, before committing, or when user wants an independent code review.",
-      "sha256": "5a845fc8c2ba7acb",
+      "sha256": "d52a30509e54f7c8",
       "path": "skills/request-reviewSKILL.md"
     },
     "research-first": {
@@ -388,7 +388,7 @@
     },
     "wire-ci": {
       "description": "\"CI pipeline setup with pre-built templates and local validation. Generates GitHub Actions workflows, validates YAML syntax and permissions, supports dry-run via act/gh. The CI equivalent of wire-observability.\"",
-      "sha256": "732ab59251710ea1",
+      "sha256": "f87372acb009f582",
       "path": "skills/wire-ciSKILL.md"
     },
     "wire-observability": {

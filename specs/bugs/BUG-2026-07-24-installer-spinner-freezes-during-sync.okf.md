@@ -7,7 +7,7 @@ title: "bigpowers setup spinner freezes during sync-skills.sh instead of animati
 category: bug
 tier: extended
 severity: low
-status: open
+status: fixed
 generator: scripts/sync-bugs-registry.sh
 references:
     - specs/bugs/BUG-2026-07-24-installer-spinner-freezes-during-sync.md

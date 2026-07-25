@@ -11,12 +11,12 @@ effort: standard
 >
 > **HARD GATE** — CI that is untestable locally will break every cycle. Always run `--validate` after generating workflows and `--dry-run` before pushing.
 
-Generate, validate, and test CI workflows. Detects your project type, produces platform-appropriate GitHub Actions configurations, and provides local verification to catch auth, permissions, and syntax issues before they reach CI.
+Generate, validate, and test CI workflows. Detects your project type, copies org templates from `danielvm-git/.github/workflow-templates/`, and provides local verification to catch auth, permissions, and syntax issues before they reach CI.
 
 ## What this sets up
 
-1. **CI workflow** — `.github/workflows/ci.yaml` with test, lint, typecheck, build steps
-2. **Release workflow** — `.github/workflows/release.yaml` with semantic-release (if applicable)
+1. **Test Build Release workflow** — `.github/workflows/test-build-release.yml` with lint → test → build → release (single pipeline, `needs:` chain)
+2. **Deploy workflow** — `.github/workflows/deploy.yml` triggered via `workflow_run` (BigBase/Pages stacks only; CLI/library repos omit this)
 3. **`--validate` mode** — checks YAML syntax, workflow permissions, required secrets, and common pitfalls
 4. **`--dry-run` mode** — runs workflows locally via `act` or `gh workflow run` to prove correctness before push
 5. **Failure pattern documentation** — common CI failure categories and their fixes
@@ -25,45 +25,41 @@ Generate, validate, and test CI workflows. Detects your project type, produces p
 
 ### 1. Detect project type
 
-Read the project root for manifest files to determine which template to use:
+Read the project root for manifest files to determine which template pair to copy:
 
-| Manifest | Type | Template |
-|----------|------|----------|
-| `Cargo.toml` | Rust | Rust CI: test, clippy, fmt, build |
-| `package.json` | Node | Node CI: test, lint, typecheck, build |
-| `setup.py` / `pyproject.toml` | Python | Python CI: pytest, ruff/mypy/flake8, build |
-| `go.mod` | Go | Go CI: test, vet, staticcheck, build |
-| `CMakeLists.txt` | C/C++ | C/C++ CI: cmake build, ctest |
-| Multiple detected | Polyglot | Combined workflows or error if ambiguous |
+| Manifest | Type | Template pair (from `.github` repo) |
+|----------|------|-------------------------------------|
+| `Cargo.toml` | Rust | `test-build-release-monorepo.yml` + `deploy-monorepo.yml` (or monorepo subset) |
+| `package.json` | Node | `test-build-release-node.yml` + `deploy-node.yml` |
+| `setup.py` / `pyproject.toml` | Python | `test-build-release-python.yml` + `deploy-python.yml` |
+| `go.mod` | Go | `test-build-release-go.yml` + `deploy-go.yml` |
+| Static site (no server) | Static | `test-build-release-static.yml` + `deploy-static.yml` |
+| `Package.swift` | Swift | `test-build-release-swift.yml` only (no deploy yet) |
+| Multiple detected | Polyglot | `test-build-release-monorepo.yml` + `deploy-monorepo.yml` |
 
-If no manifest is found, prompt the user to specify the type or pass `--type <rust|node|python|go|cpp>`.
+**CLI/library repos** (no hosted target): copy only `test-build-release-<stack>.yml` → `test-build-release.yml`. The `release` job is terminal; skip `deploy.yml`. See `docs/how-to/migrate-ci-cd/migration-plan.md` § CLI and library repos.
 
-### 2. Generate CI workflow
+If no manifest is found, prompt the user to specify the type or pass `--type <rust|node|python|go|static|swift>`.
 
-Create `.github/workflows/ci.yaml` with standard steps derived from the project type and its manifest:
+### 2. Copy test-build-release template
 
-**Rust template (`Cargo.toml`):**
-See [REFERENCE.md](REFERENCE.md)
+Copy the matching template from `~/Developer/.github/workflow-templates/` to `.github/workflows/test-build-release.yml`. **Do not rename the workflow `name:` field** — deploy listens for `"Test Build Release"`.
 
-**Node template (`package.json`):**
-See [REFERENCE.md](REFERENCE.md)
+Edit placeholders: `APP_TYPE`, `SITE_URL`, language versions.
 
-**Python template (`setup.py` / `pyproject.toml`):**
-See [REFERENCE.md](REFERENCE.md)
+See [REFERENCE.md](REFERENCE.md) for stack-specific job shapes.
 
-**Go template (`go.mod`):**
-See [REFERENCE.md](REFERENCE.md)
+### 3. Copy deploy template (hosted stacks only)
 
-**C/C++ template (`CMakeLists.txt`):**
-See [REFERENCE.md](REFERENCE.md)
+If the project deploys to BigBase or GitHub Pages:
 
-### 3. Generate release workflow (if semantic-release detected)
+```bash
+cp ~/Developer/.github/workflow-templates/deploy-${STACK}.yml .github/workflows/deploy.yml
+```
 
-If the project has semantic-release configured (in `package.json`, `.releaserc`, or `release.config.js`), also generate `.github/workflows/release.yaml`:
+Configure `BIGBASE_SITE_ID`, `BIGBASE_DEPLOY_TOKEN`, and matching `SITE_URL`. Deploy runs via `workflow_run` after TBR succeeds on `main` with `cancel-in-progress: false`.
 
-See [REFERENCE.md](REFERENCE.md)
-
-> **NPM_TOKEN is required** for publishing to npm. Without it, semantic-release will fail at the publish step. See `--validate` to check this.
+Skip this step for CLI/library repos.
 
 ### 4. Validate workflows (`--validate`)
 
@@ -98,6 +94,8 @@ Add the following to the project's documentation or CLAUDE.md after setup:
 | `cargo clippy` errors | New lints in Rust nightly | `cargo clippy --fix` or allow specific lints |
 | `act` not found | Docker not running or act not installed | `brew install act` / `docker ps` to verify Docker |
 | Hardcoded Node version stale | `.nvmrc` exists but workflow uses hardcoded version | Use `node-version-file: .nvmrc` instead |
+| Deploy never runs | TBR workflow renamed | Keep `name: Test Build Release` in test-build-release.yml |
+| Release rebuilds binary | Artifact not downloaded | `release` job must `download-artifact` from `build` |
 
 ## Verify
 
