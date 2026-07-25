@@ -1,7 +1,7 @@
 story_id: e79s02
 title: "Validator script + craft-skill HARD GATE"
 spec: e79s02-validator-craft-skill.md
-status: todo
+status: done
 bcps: 3
 risk: P2
 depends_on:
@@ -17,4 +17,4 @@ tasks:
       echo OK
     risk: P2
     security: none
-    status: todo
+    status: done

@@ -1,5 +1,6 @@
 # story: e45s02
 <!-- story: e45s12 -->
+<!-- story: e79s02 -->
 ---
 name: craft-skill
 model: sonnet
@@ -9,7 +10,7 @@ description: Create new bigpowers skills with proper structure, progressive disc
 
 # Craft Skill
 
-> **HARD GATE** — Do NOT name a skill without a two-word verb-noun pair. Do NOT merge a new skill without running `sync-skills.sh` — the generated `.cursor/rules/` and `.gemini/` artifacts must match the source SKILL.md.
+> **HARD GATE** — Do NOT name a skill without a two-word verb-noun pair. Do NOT merge a new skill without running `sync-skills.sh`. Generated `.cursor/rules/` and `.gemini/` artifacts MUST match the source SKILL.md.
 
 ## CSO Description Discipline (e45s02)
 
@@ -24,11 +25,25 @@ The YAML `description` is the **Catalog Selection Object** — the only field ag
 
 Move process detail into the SKILL.md body or REFERENCE.md — never into `description`.
 
+## Agentic STE body discipline (e79s02)
+
+Skill-body instructional prose MUST follow [AGENTIC-STE.md](../../docs/AGENTIC-STE.md).
+
+| Rule | Limit |
+|------|-------|
+| Sentence length | ≤20 words per instruction sentence |
+| Voice | Imperative, active |
+| Directive terms | MUST, MUST NOT, NEVER, ALWAYS, DO, DO NOT |
+| Banned modals | should, might, could, may, consider, try, generally, typically |
+| Scope | SKILL.md body only — not YAML `description`, not `terse-mode` output |
+
+> **HARD GATE** — Do NOT merge a new or edited skill until `bash scripts/validate-agentic-ste.sh --strict skills/<name>/SKILL.md` exits 0. Fix violations before `sync-skills.sh`.
+
 ## Process
 
 1. **Gather requirements** — ask user about:
    - What task/domain does the skill cover?
-   - What specific use cases should it handle?
+   - Which use cases must the skill handle?
    - Does it need executable scripts or just instructions?
    - Any reference materials to include?
    - What specs/ output does it produce (if any)?
@@ -44,7 +59,8 @@ Move process detail into the SKILL.md body or REFERENCE.md — never into `descr
    - Additional reference files if content exceeds 100 lines
    - Utility scripts if deterministic operations needed
 
-   **Auto-skill from library README:** When user provides a library README or API docs URL, extract: triggers, HARD GATEs, verify commands, specs/ output — draft SKILL.md without inventing APIs not in the source.
+   **Auto-skill from library README:** When user provides a library README or API docs URL, extract triggers and HARD GATEs.
+   Draft verify commands and specs/ output into SKILL.md. Do NOT invent APIs not in the source.
 
 4. Add `model:` frontmatter (`haiku` | `sonnet` | `opus`) per [model-profiles.md](https://github.com/danielvm-git/bigpowers/blob/main/docs/references/model-profiles.md).
 
@@ -53,10 +69,11 @@ Move process detail into the SKILL.md body or REFERENCE.md — never into `descr
 5. **Review with user** — present draft and ask:
    - Does this cover your use cases?
    - Anything missing or unclear?
-   - Should any section be more/less detailed?
+   - Does any section need more or less detail?
 
 6. **Completion-honesty gate (HARD GATE — e45s02)** — Before declaring done:
    - Run `bash scripts/validate-skill-description.sh skills/<name>/SKILL.md` — must exit 0
+   - Run `bash scripts/validate-agentic-ste.sh --strict skills/<name>/SKILL.md` — must exit 0 (e79s02)
    - Run `bash scripts/sync-skills.sh` — must complete without error
    - Run `bash scripts/run-skill-verify.sh <name>` if the skill defines a verify command
    - Show terminal output for each — narration without evidence is rejected
@@ -81,6 +98,7 @@ After drafting, verify:
 - [ ] Consistent terminology with CONVENTIONS.md
 - [ ] specs/ output documented if applicable
 - [ ] `validate-skill-description.sh` exits 0
+- [ ] `validate-agentic-ste.sh --strict` exits 0 (e79s02)
 - [ ] `sync-skills.sh` run to propagate to Cursor/Gemini
 - [ ] `bash scripts/validate-skill-catalog.sh` passes for the new skill (HARD GATE — completion honesty)
 

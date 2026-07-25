@@ -1,6 +1,6 @@
 # e79s01 — AGENTIC-STE ruleset document
 
-**Epic:** e79 | **Story:** e79s01 | **Status:** todo | **BCPs:** 2
+**Epic:** e79 | **Story:** e79s01 | **Status:** done | **BCPs:** 2
 
 ## Goal
 

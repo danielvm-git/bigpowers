@@ -1,7 +1,7 @@
 story_id: e79s04
 title: "stocktake-skills violation scanner"
 spec: e79s04-stocktake-scanner.md
-status: todo
+status: done
 bcps: 1
 risk: P2
 depends_on:
@@ -17,4 +17,4 @@ tasks:
       echo OK
     risk: P2
     security: none
-    status: todo
+    status: done

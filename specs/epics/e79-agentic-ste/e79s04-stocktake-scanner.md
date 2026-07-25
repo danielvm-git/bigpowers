@@ -1,6 +1,6 @@
 # e79s04 — stocktake-skills STE scanner
 
-**Status:** stub (intake)  
+**Status:** done  
 **Epic:** e79  
 **GitHub:** https://github.com/danielvm-git/bigpowers/issues/91  
 **Requirement delta:** ADDED

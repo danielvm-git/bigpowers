@@ -1,7 +1,7 @@
 story_id: e79s03
 title: "seed-conventions applies ruleset"
 spec: e79s03-seed-conventions.md
-status: todo
+status: done
 bcps: 2
 risk: P2
 depends_on:
@@ -16,4 +16,4 @@ tasks:
       echo OK
     risk: P2
     security: none
-    status: todo
+    status: done
