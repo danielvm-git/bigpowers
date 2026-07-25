@@ -27,7 +27,7 @@ grep -rn "[symbol-name]" . --include="*.ts" | grep -v node_modules
 git log --oneline -10 -- [file-path]
 ```
 
-→ verify: `test -f specs/IMPACT_LATEST.md`
+→ verify: `test -f specs/IMPACT_LATEST.md || test -d specs/bugs`
 
 ### 3. Map to release plan stories
 
@@ -43,7 +43,7 @@ Find tests that exercise the target:
 grep -rn "[symbol-name]" . --include="*.test.*" --include="*.spec.*"
 ```
 
-→ verify: `test -f specs/IMPACT_LATEST.md`
+→ verify: `test -d specs/epics || test -d skills`
 
 ### 5. Classify risk
 
