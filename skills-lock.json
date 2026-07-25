@@ -303,7 +303,7 @@
     },
     "security-review": {
       "description": ">",
-      "sha256": "1264820306bd2a67",
+      "sha256": "69c01872ffd41c43",
       "path": "skills/security-reviewSKILL.md"
     },
     "seed-conventions": {
@@ -373,7 +373,7 @@
     },
     "validate-fix": {
       "description": "Prove a fix works before declaring done — re-run the failing test, run the full suite, typecheck, lint, and harden against recurrence. Use after implementing a bug fix, when user says \"is this fixed?\", or before closing an investigation.",
-      "sha256": "b911deff4ccf1b11",
+      "sha256": "f94972af3fd48e3e",
       "path": "skills/validate-fixSKILL.md"
     },
     "verify-work": {

@@ -1,7 +1,7 @@
 story_id: e80s03
 title: "develop-tdd RED commit isolation check"
 spec: e80s03-tdd-red-isolation.md
-status: pending
+status: done
 bcps: 2
 risk: P1
 depends_on: [e80s01]
@@ -11,4 +11,4 @@ tasks:
     verify: bash scripts/verify-tdd-red-commit.sh --self-test
     risk: P1
     security: none
-    status: pending
+    status: done

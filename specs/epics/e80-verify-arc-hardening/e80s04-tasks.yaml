@@ -1,7 +1,7 @@
 story_id: e80s04
 title: "generalize-fix phase in validate-fix"
 spec: e80s04-generalize-fix.md
-status: pending
+status: done
 bcps: 2
 risk: P1
 depends_on: [e80s01]
@@ -11,4 +11,4 @@ tasks:
     verify: bash scripts/verify-generalize-sweep.sh --self-test
     risk: P1
     security: medium
-    status: pending
+    status: done

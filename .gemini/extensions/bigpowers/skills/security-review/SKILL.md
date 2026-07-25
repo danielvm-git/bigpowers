@@ -81,7 +81,7 @@ Formal rule for SQL injection classification:
 
 ## BCP Plus Integration
 
-This skill maps to **BCP Plus dimension 12 (Security & Compliance)**. When BCP Plus sizing is active, the threat model categories above correspond to sub-elements within dimension 12. The NFR Gate rule applies: standard-expectation items (e.g., "use HTTPS", "hash passwords") score 0 with a one-line rationale; only above-standard security requirements contribute to the dimension 12 count. See `docs/references/bcp-plus.md` for the full 13-dimension framework and NFR Gate pattern.
+Maps to **BCP Plus dimension 12 (Security & Compliance)**; NFR Gate applies — see `docs/references/bcp-plus.md`.
 
 ## Integration points
 
@@ -113,10 +113,6 @@ Each finding: **`File:Line` — Severity — Category**
 ## Verify
 
 → verify: `test -f skills/security-review/fixtures/CWE-fail-open-verify-positive.sh && test -f skills/security-review/fixtures/CWE-fail-open-verify-negative.sh && grep -q 'fail-open-verify' skills/security-review/SKILL.md && test -d specs/security && echo OK`
-
-```bash
-test -d specs/security && echo "OK: specs/security/ exists" || mkdir -p specs/security; grep -q "Merge-base\|merge.base\|git diff" SKILL.md && echo "OK: git context verified"
-```
 
 ---
 

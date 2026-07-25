@@ -1,6 +1,6 @@
 ---
 type: Index
-generated_at: 2026-07-25T18:01:40.886862+00:00
+generated_at: 2026-07-25T18:09:47.595352+00:00
 total_concepts: 121
 ---
 
@@ -43,7 +43,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e45s15](./e45s15.md) | release-branch / deploy: three-independent-facts verificatio | high | 21 |
 | [e45s16](./e45s16.md) | CLAUDE.md rtk mandate: wire rtk-ai/rtk PreToolUse hook | high | 4 |
 | [e45s17](./e45s17.md) | request-review: fan-out to parallel review subagents | high | 30 |
-| [e45s18](./e45s18.md) | audit-code / security-review: worktree-isolated parallel che | high | 603 |
+| [e45s18](./e45s18.md) | audit-code / security-review: worktree-isolated parallel che | high | 606 |
 | [e45s19](./e45s19.md) | Context7: bounded retry cap and explicit fallback block | high | 8 |
 | [e45s20](./e45s20.md) | Context7 / bts docs: wrap in ETag-revalidated fetch cache | high | 1 |
 | [e45s21](./e45s21.md) | seed-conventions / AGENTS.md: self-installing fenced markers | high | 33 |
@@ -56,7 +56,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e45s28](./e45s28.md) | request-review: hard max-iteration cap | high | 18 |
 | [e45s29](./e45s29.md) | requirements: ADDED/MODIFIED/REMOVED/RENAMED tags | high | 42 |
 | [e45s30](./e45s30.md) | subagent depth: formalize depth tiers | high | 28 |
-| [e45s31](./e45s31.md) | audit-code / deepen-architecture: churn-based look-here-firs | high | 593 |
+| [e45s31](./e45s31.md) | audit-code / deepen-architecture: churn-based look-here-firs | high | 596 |
 | [e45s32](./e45s32.md) | gate-trace / release-branch: adversarial-review refute frami | high | 37 |
 | [e45s33](./e45s33.md) | requirements: per-section approval state | high | 3 |
 | [e45s34](./e45s34.md) | develop-tdd: snapshot-before-transition hardening | high | 7 |
@@ -85,7 +85,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e51s01](./e51s01.md) | CONVENTIONS — Always Green, Shift Left, Discovered Defects,  | high | 8 |
 | [e51s02](./e51s02.md) | seed-conventions — Preflight default, solo-git default, embe | high | 40 |
 | [e51s03](./e51s03.md) | kickoff-branch + verify-work — Preflight hard block and CI g | high | 67 |
-| [e51s04](./e51s04.md) | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | high | 646 |
+| [e51s04](./e51s04.md) | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | high | 650 |
 | [e51s05](./e51s05.md) | CLAUDE.md — solo-default agent rules + bigpowers Preflight c | high | 7 |
 | [e54s01](./e54s01.md) | Snapshot the current skill catalog as an immutable baseline | high | 9 |
 | [e54s02](./e54s02.md) | Add a soft drift-detection gate for the freeze window | high | 14 |
@@ -129,5 +129,5 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e80s01](./e80s01.md) | Core verify skills → verify directives | high | 74 |
 | [e80s02](./e80s02.md) | smoke-test and validate-contracts real bodies | high | 30 |
 | [e80s03](./e80s03.md) | develop-tdd RED commit isolation check | high | 10 |
-| [e80s04](./e80s04.md) | generalize-fix phase in validate-fix | high | 33 |
-| [e80s05](./e80s05.md) | security-review fixture table growth | high | 23 |
+| [e80s04](./e80s04.md) | generalize-fix phase in validate-fix | high | 34 |
+| [e80s05](./e80s05.md) | security-review fixture table growth | high | 22 |

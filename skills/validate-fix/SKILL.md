@@ -9,7 +9,7 @@ description: Prove a fix works before declaring done — re-run the failing test
 ---
 
 # Validate Fix
-> **HARD GATE** — **HARD GATE** — Fix must not regress. Run full test suite and manual UAT before declaring success. A fix that passes tests but breaks something else is a failure.
+> **HARD GATE** — Fix must not regress. Run full test suite and manual UAT before declaring success.
 
 
 Prove the fix works. "I think it works" is not evidence. Run the suite, show the output, then harden against recurrence.
@@ -69,38 +69,11 @@ For every bug fixed, add at least one prevention layer:
 
 ### 5b. Generalize-fix (HARD GATE — e80s04 / GH #98)
 
-After local hardening, sweep the **defect class** across the codebase — not just the single call site:
-
-1. **Classify** — name the pattern (e.g. `unscoped org query`, `fail-open verify`, `hardcoded package manager`).
-2. **Sweep** — grep for sibling instances; record `match_count` and `grep_pattern`.
-3. **Resolve** — patch all matches in this PR **or** file one tracking issue listing every remaining instance.
-4. **Artifact** — write sweep evidence before declaring done:
-
-```bash
-# Example artifact path (adjust bug id):
-cat > specs/verifications/generalize-sweep-BUG-YYYY-MM-DD-slug.json <<EOF
-{
-  "defect_class": "fail-open-verify",
-  "grep_pattern": "\\\\|\\\\| echo",
-  "match_count": 0,
-  "sweep_scope": "skills/*/SKILL.md",
-  "patched_in_pr": [],
-  "tracked_issues": []
-}
-EOF
-bash scripts/verify-generalize-sweep.sh specs/verifications/generalize-sweep-*.json
-```
+Sweep the **defect class** across the codebase after local hardening — see [REFERENCE-generalize-fix.md](REFERENCE-generalize-fix.md).
 
 - [ ] Defect class documented (not just the one-line root cause)
 - [ ] Grep sweep run and `match_count` recorded
 - [ ] `verify-generalize-sweep.sh` passes on the artifact
-
-> **Security classes** — when the defect class is security- or gate-relevant, add a row to `security-review` CWE fixture table (see `skills/security-review/SKILL.md` § CWE mapping mandate).
-
-> **Security recurrence hardening** — If the bug's security-impact assessment (from investigate-bug) was MEDIUM or higher, additionally check:
-> - [ ] Security regression test added (covers the exploit path)
-> - [ ] False-positive exclusion rule added (if applicable)
-> - [ ] Threat model updated (if impact was HIGH+)
 
 ### 6. Update the bug file and registry.yaml
 
