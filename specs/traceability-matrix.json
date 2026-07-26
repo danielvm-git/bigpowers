@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-26T12:31:33.228131+00:00",
+  "generated_at": "2026-07-26T12:50:10.871332+00:00",
   "matrix_version": "1.0",
   "stories": [
     {
@@ -4800,6 +4800,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-093156.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-174243.md",
           "line": 0,
           "confidence": "medium",
@@ -5137,6 +5143,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-164911.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-094535.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -7326,7 +7338,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 618
+      "link_count": 620
     },
     {
       "id": "e45s19",
@@ -9786,6 +9798,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-093156.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-174243.md",
           "line": 0,
           "confidence": "medium",
@@ -10123,6 +10141,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-164911.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-094535.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -12300,7 +12324,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 608
+      "link_count": 610
     },
     {
       "id": "e45s32",
@@ -18642,6 +18666,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-093156.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-174243.md",
           "line": 0,
           "confidence": "medium",
@@ -18979,6 +19009,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-164911.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-094535.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -21408,7 +21444,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 664
+      "link_count": 666
     },
     {
       "id": "e51s05",
@@ -26289,7 +26325,7 @@
     "stale_count": 102,
     "oracle_stats": {
       "high": 782,
-      "medium": 3234,
+      "medium": 3240,
       "low": 79
     }
   }
