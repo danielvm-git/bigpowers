@@ -1,3 +1,17 @@
+## [2.86.3](https://github.com/danielvm-git/bigpowers/compare/v2.86.2...v2.86.3) (2026-07-26)
+
+
+### Bug Fixes
+
+* **adapters:** make copy-mode context wiring idempotent ([2154e5f](https://github.com/danielvm-git/bigpowers/commit/2154e5f55140c8cb8f9c0ea22a7ea7bacf55f99e)), closes [#106](https://github.com/danielvm-git/bigpowers/issues/106)
+* **specs:** give e60s01 a runnable verify ([585f0aa](https://github.com/danielvm-git/bigpowers/commit/585f0aa78ecc25dba5c13fccd1090c1b626900af)), closes [#106](https://github.com/danielvm-git/bigpowers/issues/106)
+* **sync:** restore .pi and .gemini artifacts dropped by a concurrent sync ([b901340](https://github.com/danielvm-git/bigpowers/commit/b901340d08cbd74e34853beb8e9aad6fbec66698))
+* **test:** scope agy gemini-path assertion to install_agy body ([1ac37f0](https://github.com/danielvm-git/bigpowers/commit/1ac37f0c0673e031996b7d9dde8ba0304d2a6ca1)), closes [#106](https://github.com/danielvm-git/bigpowers/issues/106)
+* **test:** stop ta_cleanup EXIT trap forcing exit 1 ([cd409ef](https://github.com/danielvm-git/bigpowers/commit/cd409efcf2d8d92f8796114f50871cd55538067d)), closes [#106](https://github.com/danielvm-git/bigpowers/issues/106)
+* **verify:** execute story-level verify: commands ([#106](https://github.com/danielvm-git/bigpowers/issues/106)) ([9b3f82a](https://github.com/danielvm-git/bigpowers/commit/9b3f82a18c18014a70380e1062de81c268639ef9)), closes [#96](https://github.com/danielvm-git/bigpowers/issues/96)
+* **verify:** story-level verify and CI template fix ([#104](https://github.com/danielvm-git/bigpowers/issues/104), [#106](https://github.com/danielvm-git/bigpowers/issues/106)) ([049c7c9](https://github.com/danielvm-git/bigpowers/commit/049c7c9529fa0584b6823033e68e2fb7281ff750))
+* **wire-ci:** un-hardcode template source, skip unsupported forges ([#104](https://github.com/danielvm-git/bigpowers/issues/104)) ([31a6fac](https://github.com/danielvm-git/bigpowers/commit/31a6fac06f823b55a00b38637d06f01b555b25c8))
+
 ## [2.86.2](https://github.com/danielvm-git/bigpowers/compare/v2.86.1...v2.86.2) (2026-07-26)
 
 
