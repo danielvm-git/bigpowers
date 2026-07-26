@@ -54,6 +54,15 @@ wire_context_mode() {
     symlink|copy)
       [[ -n "$file" ]] || { echo "context-wire: file required for mode=$mode" >&2; return 1; }
       if [[ "$mode" == "copy" ]]; then
+        [[ -f "$src" ]] || { echo "context-wire: source missing: $src" >&2; return 1; }
+        # Already wired — nothing to do. kilocode and windsurf declare
+        # `mode: copy, file: AGENTS.md` in targets.yaml, and the source is also
+        # AGENTS.md, so a bare `cp` fails with "are identical" and made
+        # wire_context non-idempotent. wire_symlink_or_copy already guards this;
+        # the copy branch did not. (#106)
+        if [[ -f "$file" ]] && cmp -s "$src" "$file" 2>/dev/null; then
+          return 0
+        fi
         cp "$src" "$file"
       else
         wire_symlink_or_copy "$src" "$file"
