@@ -56,11 +56,39 @@ jobs:
       # is invisible here unless we assert POSIX-compatible constructs directly.
       - name: Assert runner is bash 3.2 compatible
         run: |
-          # Strip comment lines first — the script documents these constructs
-          # by name in its own comments, which must not trip the guard.
-          if grep -vE '^[[:space:]]*#' scripts/run-skill-verify.sh \
-             | grep -nE '(^|[;&|[:space:]])(mapfile|readarray)[[:space:]]|declare[[:space:]]+-A'; then
-            echo "::error::bash 4+ construct in run-skill-verify.sh — breaks macOS bash 3.2"
-            exit 1
-          fi
+          # Strip comment lines first — the scripts document these constructs
+          # by name in their own comments, which must not trip the guard.
+          for script in scripts/run-skill-verify.sh scripts/run-story-verify.sh \
+                        scripts/lib/fail-open-detect.sh; do
+            if grep -vE '^[[:space:]]*#' "$script" \
+               | grep -nE '(^|[;&|[:space:]])(mapfile|readarray)[[:space:]]|declare[[:space:]]+-A'; then
+              echo "::error::bash 4+ construct in $script — breaks macOS bash 3.2"
+              exit 1
+            fi
+          done
           echo "OK: no bash 4+ only constructs"
+
+  # Tier 2 of the verify arc (#106). Separate job so a story-gate failure is
+  # distinguishable from a skill-gate failure at a glance in the checks list.
+  story-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install Python deps
+        run: python3 -m pip install --user -r requirements.txt
+
+      # Anti-vacuity first: prove the gate can fail before trusting it to pass.
+      - name: Story verify self-test
+        run: bash scripts/run-story-verify.sh --self-test
+
+      - name: Run story verify
+        run: bash scripts/run-story-verify.sh

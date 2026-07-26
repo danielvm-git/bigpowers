@@ -10,6 +10,15 @@ if [[ -z "$CAPSULE" || ! -d "$CAPSULE" ]]; then
   exit 2
 fi
 
+SCRIPT_LIB_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_ROOT="$(cd "$SCRIPT_LIB_DIR/../.." && pwd)"
+# shellcheck source=fail-open-detect.sh
+source "$SCRIPT_LIB_DIR/fail-open-detect.sh"
+# shellcheck source=python-env.sh
+source "$SCRIPT_LIB_DIR/python-env.sh"
+resolve_python >/dev/null 2>&1 || true
+PYTHON_BIN="${PYTHON:-python3}"
+
 EPIC_YAML="$CAPSULE/epic.yaml"
 CRITICAL=0
 HIGH=0
@@ -74,8 +83,23 @@ for tasks in "${TASKS[@]+"${TASKS[@]}"}"; do
       && report MED "Story $sid spec contains ambiguous/TBD markers"
   fi
 
-  grep -qE '^[[:space:]]*verify:' "$tasks" \
-    || report CRITICAL "Story $sid tasks.yaml missing runnable verify: commands"
+  # Presence is necessary but not sufficient — the word "runnable" in the old
+  # message was aspirational: nothing checked shape, and nothing executed it.
+  # Execution happens later in scripts/run-story-verify.sh (#106), which gates
+  # only `done` stories. At plan time the code may not exist yet, so assert what
+  # can be asserted now: the directive parses as a command and can fail.
+  if ! grep -qE '^[[:space:]]*verify:' "$tasks"; then
+    report CRITICAL "Story $sid tasks.yaml missing runnable verify: commands"
+  else
+    verify_cmd="$("$PYTHON_BIN" "$SCRIPT_LIB_DIR/extract-story-verify.py" "$REPO_ROOT" 2>/dev/null \
+      | awk -F'\t' -v s="$sid" '$1 == s { print $4; exit }')"
+    if [[ -n "$verify_cmd" ]]; then
+      is_executable_verify "$verify_cmd" \
+        || report CRITICAL "Story $sid verify: is prose, not a runnable command: $verify_cmd"
+      is_fail_open_directive "$verify_cmd" \
+        && report CRITICAL "Story $sid verify: is fail-open (cannot exit non-zero): $verify_cmd"
+    fi
+  fi
   grep -qE '^status:[[:space:]]*(failing|todo|passing)' "$tasks" \
     || report MED "Story $sid tasks.yaml should use status: failing|passing ledger (e45s06)"
 done
