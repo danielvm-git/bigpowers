@@ -6,10 +6,11 @@ bigpowers_version: 2.86.5
 bug_cycle: null
 handoff:
   next_skill: survey-context
-  context: 'Phase 0 + audit sweep landed (11b03e17, v2.86.5). 17/17 gates, all CI
-    green, 0 open bugs. Next: Phase 1 — collapse 25 duplicated per-target tests into
-    the registry-driven test-adapters.sh runner, and wire the 33 orphaned test-*.sh
-    into the gate list.'
+  context: 'Phase 0 + audit sweep + Phase 1 collapse landed. 30/30 gates, compliance
+    94%, all CI green. Open follow-ups: (1) bash adapter layer is not the live sync
+    path — srp-engine.py --all renders; hooks-manifest.json now has no generator.
+    (2) specs/assets/bigpowers-workflow.svg drifted (7 defects). (3) three danielvm-git
+    URLs point at real external repos — user decision.'
   epic: null
 epic_cycle: null
 metrics:
@@ -23,7 +24,7 @@ metrics:
       _start: '2026-07-26T19:03:50Z'
 release:
   ci_verified: true
-  last_commit: 11b03e17
+  last_commit: 9ac4a795
   last_epic: e80-verify-arc-hardening
 git:
   branch: fix/sot-drift-phase0
