@@ -36,7 +36,7 @@
 | 8 | Discover | `using-bigpowers` | One-time bootstrap that introduces the bigpowers skills system, the PMBOK lifecy | ✅ Active |
 | 9 | Design | `deepen-architecture` | Find deepening opportunities in a codebase, informed by the domain language in s | ✅ Active |
 | 10 | Design | `define-language` | Extract a DDD-style ubiquitous language glossary from the current conversation,  | ✅ Active |
-| 11 | Design | `define-success` | 'Convert an imperative task statement into explicit "step → verify: <cmd>" pai | ✅ Active |
+| 11 | Design | `define-success` | "TOMBSTONE — renamed/merged to plan-work. This stub resolves for one release t | ✅ Active |
 | 12 | Design | `design-interface` | Generate multiple radically different interface designs for a module using paral | ✅ Active |
 | 13 | Design | `grill-me` | Interactive assumption-surfacing Q&A that stress-tests a plan through relentless | ✅ Active |
 | 14 | Design | `grill-with-docs` | Doc-grounded variant of grill-me — stress-tests plan assumptions by fetching a | ✅ Active |
@@ -94,7 +94,7 @@
 | 66 | Sustain | `dispatch-agents` | Dispatch multiple subagents in parallel on independent tasks. No waiting between | ✅ Active |
 | 67 | Sustain | `edit-document` | Edit and improve documents by restructuring sections, improving clarity, and tig | ✅ Active |
 | 68 | Sustain | `evolve-skill` | Benchmark-gated skill evolution — consume bigpowers-benchmark report, propose  | ✅ Active |
-| 69 | Sustain | `harden-vps` | "Harden a production Linux VPS for BigBase across three layers — BigBase app ( | ✅ Active |
+| 69 | Sustain | `harden-vps` | "Harden a production Linux VPS for your application across three layers — appl | ✅ Active |
 | 70 | Sustain | `maintain-wiki` | "Agent-maintained OKF wiki — INGEST source docs, LINT for issues, QUERY across | ✅ Active |
 | 71 | Sustain | `migrate-spec` | Detect GSD, spec-kit, or BMAD spec artifacts and transform them into bigpowers Y | ✅ Active |
 | 72 | Sustain | `organize-workspace` | Scans the active workspace for disposable artifacts—logs, caches, stale build  | ✅ Active |

@@ -9,7 +9,7 @@ description: One-time bootstrap that introduces the bigpowers skills system, the
 > **HARD GATE** — **HARD GATE** — This skill is the entry point. Do NOT skip it when onboarding new users or starting a new session. It establishes the bigpowers methodology, lifecycle phases, and conventions.
 
 
-Welcome to **bigpowers** — a lifecycle of **70** agent skills for production-ready, TDD-driven software by solo developers.
+Welcome to **bigpowers** — a lifecycle of agent skills for production-ready, TDD-driven software by solo developers. The live catalog and its count are generated in [`SKILL-INDEX.md`](../../SKILL-INDEX.md); never hardcode the number here.
 
 ## Install
 
@@ -38,7 +38,7 @@ DISCOVER    survey-context → research-first → elaborate-spec
               ↓
 DESIGN      model-domain / define-language / grill-me / deepen-architecture / design-interface
               ↓
-PLAN        scope-work → slice-tasks → define-success → plan-work / plan-refactor
+PLAN        scope-work → slice-tasks → plan-work / plan-refactor
               ↓
 INITIATE    kickoff-branch → guard-git / hook-commits / seed-conventions
               ↓

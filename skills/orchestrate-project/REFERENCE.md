@@ -19,7 +19,7 @@ Detailed documentation for the `orchestrate-project` meta-skill.
 ### PHASE 3: PLAN
 - **Goal**: Write a verifiable implementation plan with success criteria.
 - **Deliverables**: `release-plan.yaml`, `epics/eNN-*.yaml` with `verify:` per task.
-- **Skills**: `scope-work`, `slice-tasks`, `define-success`, `plan-work`.
+- **Skills**: `scope-work`, `slice-tasks`, `plan-work`.
 - **Gate**: Quality (request-review ≥94%) + slopcheck [SUS]/[SLOP].
 
 ### PHASE 4: BUILD

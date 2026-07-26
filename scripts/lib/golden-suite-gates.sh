@@ -19,6 +19,10 @@ GOLDEN_GATES=(
   # first so a vacuous gate is caught before its verdict is trusted.
   "g12-status-selftest:bash scripts/golden-g12-status-consistency.sh --self-test:false"
   "g12-status-consistency:bash scripts/golden-g12-status-consistency.sh:false"
+  # Anti-vacuity for the target-contract seam: every contract declared in
+  # targets.yaml must have a real assertion, and an unknown contract must FAIL
+  # rather than SKIP+exit 0 (seven contracts were fail-open before this).
+  "target-contracts:bash scripts/test-target-contracts.sh:false"
   "install-helpers:bash scripts/test-install-helpers.sh:false"
   "import-boundaries:bash scripts/check-import-boundaries.sh:false"
   "skill-catalog:bash scripts/validate-skill-catalog.sh:false"

@@ -71,7 +71,7 @@ Platform-agnostic — supports multiple deployment targets via environment varia
 |----------|---------|---------|
 | Vercel | `VERCEL_TOKEN`, `VERCEL_PROJECT_ID` | `vercel deploy --prod --token $VERCEL_TOKEN` |
 | Netlify | `NETLIFY_AUTH_TOKEN`, `NETLIFY_SITE_ID` | `netlify deploy --prod --auth $NETLIFY_AUTH_TOKEN --dir $ARTIFACT_DIR` |
-| BigBase MCP | MCP tool call | `mcp deploy` via BigBase server |
+| Platform MCP | MCP tool call | `mcp deploy` via your platform MCP server |
 | rsync/SSH | `DEPLOY_SSH_USER`, `DEPLOY_SSH_HOST`, `DEPLOY_SSH_PATH` | `rsync -avz $ARTIFACT_DIR/ $DEPLOY_SSH_USER@$DEPLOY_SSH_HOST:$DEPLOY_SSH_PATH` |
 | Custom | `DEPLOY_COMMAND` | Run any deploy command string |
 

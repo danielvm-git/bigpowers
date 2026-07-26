@@ -82,6 +82,33 @@ assert_agy_skills_nonempty() {
   return 1
 }
 
+# Generic hooks-manifest assertion for every target that ships one under
+# scripts/hooks/<target>/. Before this existed, cline/codebuddy/codex/kilocode/
+# qwen/trae/windsurf all declared <target>_hooks_manifest in targets.yaml and
+# every one of them fell through run_contract's default branch to SKIP + exit 0
+# — seven declared contracts that could never fail.
+assert_hooks_manifest() {
+  local id="$1"
+  local contract="$2"
+  local target="${contract%_hooks_manifest}"
+  local manifest="scripts/hooks/${target}/hooks-manifest.json"
+
+  if [[ ! -f "$manifest" ]]; then
+    echo "FAIL $id:$contract — $manifest missing"
+    return 1
+  fi
+  # verify-install.sh sources this file without lib/python-env.sh, so resolve an
+  # interpreter locally rather than relying on $PYTHON being set.
+  local py="${PYTHON:-}"
+  [[ -n "$py" ]] || py="$(command -v python3 || command -v python || true)"
+  if [[ -n "$py" ]] && ! "$py" -c "import json; json.load(open('$manifest'))" 2>/dev/null; then
+    echo "FAIL $id:$contract — $manifest is not valid JSON"
+    return 1
+  fi
+  echo "PASS $id:$contract"
+  return 0
+}
+
 run_contract() {
   local id="$1"
   local contract="$2"
@@ -90,10 +117,19 @@ run_contract() {
     symlink_claude_md) assert_symlink_claude_md "$id" ;;
     cursor_rules_nonempty) assert_cursor_rules_nonempty "$id" ;;
     gemini_ext_exists) assert_gemini_ext_exists "$id" ;;
+    # gemini has its own adapter-level validator; keep it ahead of the generic
+    # pattern below so the more specific check wins.
     gemini_hooks_manifest) assert_gemini_hooks_manifest "$id" ;;
+    *_hooks_manifest) assert_hooks_manifest "$id" "$contract" ;;
     pi_skills_nonempty) assert_pi_skills_nonempty "$id" ;;
     agy_skills_nonempty) assert_agy_skills_nonempty "$id" ;;
     aider_bridge) assert_aider_bridge "$id" ;;
-    *) echo "SKIP $id:$contract — unknown contract"; return 0 ;;
+    # A contract declared in targets.yaml with no assertion behind it is a
+    # broken contract, not a no-op. Failing here is what makes the registry an
+    # enforced interface rather than documentation.
+    *)
+      echo "FAIL $id:$contract — unknown contract (no assertion implemented)"
+      return 1
+      ;;
   esac
 }

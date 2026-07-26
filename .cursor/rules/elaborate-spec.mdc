@@ -62,7 +62,7 @@ Once the user has answered the main questions, probe for assumptions:
 
 ### 4. Synthesize and confirm
 
-Summarize your understanding in 3–5 bullet points aligned with [countable-story-format.md](https://github.com/danielvm-git/bigpowers/blob/main/docs/countable-story-format.md):
+Summarize your understanding in 3–5 bullet points aligned with [countable-story-format.md](../../docs/countable-story-format.md):
 - The problem (feeds into §1 Business narrative)
 - The solution and main flow (feeds into §5)
 - The key constraints and alternative flows (feeds into §6)

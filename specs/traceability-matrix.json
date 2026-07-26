@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-26T19:50:51.279054+00:00",
+  "generated_at": "2026-07-26T20:36:57.985224+00:00",
   "matrix_version": "1.0",
   "stories": [
     {
@@ -642,6 +642,12 @@
           "method": "explicit_tag"
         },
         {
+          "file": "scripts/test-target-contracts.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "scripts/lib/target-contracts.sh",
           "line": 2,
           "confidence": "high",
@@ -690,7 +696,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 10
+      "link_count": 11
     },
     {
       "id": "e37s09",
@@ -3744,6 +3750,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-172127.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260713-144556.md",
           "line": 0,
           "confidence": "medium",
@@ -5197,6 +5209,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260723-092533.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-173244.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -7386,7 +7404,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 628
+      "link_count": 630
     },
     {
       "id": "e45s19",
@@ -8785,6 +8803,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260707-190334.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-172127.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -10243,6 +10267,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260723-092533.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-173244.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -12420,7 +12450,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 618
+      "link_count": 620
     },
     {
       "id": "e45s32",
@@ -17640,24 +17670,6 @@
           "method": "explicit_tag"
         },
         {
-          "file": ".fix_regex.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "hermes-verify-sed-fix.py",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": ".hermes-verify-sed-fix.py",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
           "file": ".windsurf/rules/develop-tdd.md",
           "line": 0,
           "confidence": "medium",
@@ -17749,6 +17761,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260707-190334.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-172127.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -19207,6 +19225,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260723-092533.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-173244.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -21636,7 +21660,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 675
+      "link_count": 674
     },
     {
       "id": "e51s05",
@@ -25698,18 +25722,6 @@
           "method": "explicit_tag"
         },
         {
-          "file": "hermes-verify-sed-fix.py",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": ".hermes-verify-sed-fix.py",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
           "file": ".windsurf/rules/verify-work.md",
           "line": 0,
           "confidence": "medium",
@@ -26046,12 +26058,6 @@
           "method": "file_heuristic"
         },
         {
-          "file": "scripts/hermes-verify-e39s02.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
           "file": "scripts/verify-generalize-sweep.sh",
           "line": 0,
           "confidence": "medium",
@@ -26130,7 +26136,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 82
+      "link_count": 79
     },
     {
       "id": "e80s02",
@@ -26322,13 +26328,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "scripts/test-target-contracts.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/epics/e80-verify-arc-hardening/e80s02-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         }
       ],
-      "link_count": 31
+      "link_count": 32
     },
     {
       "id": "e80s03",
@@ -26428,24 +26440,6 @@
           "line": 2,
           "confidence": "high",
           "method": "explicit_tag"
-        },
-        {
-          "file": ".fix_regex.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "hermes-verify-sed-fix.py",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": ".hermes-verify-sed-fix.py",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
         },
         {
           "file": ".windsurf/rules/quick-fix.md",
@@ -26622,7 +26616,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 35
+      "link_count": 32
     },
     {
       "id": "e80s05",
@@ -26975,8 +26969,8 @@
     ],
     "stale_count": 115,
     "oracle_stats": {
-      "high": 796,
-      "medium": 3326,
+      "high": 797,
+      "medium": 3324,
       "low": 78
     }
   }

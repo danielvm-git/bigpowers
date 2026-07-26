@@ -16,11 +16,11 @@ discover -[gate]→ elaborate -[gate]→ plan -[gate]→ build -[gate]→ verify
 Quality gates:
   - request-review must be ≥94%
   - audit-code must pass all checks
-  - Compliance audit ≥93%
+  - Compliance audit ≥94% (authoritative value: scripts/lib/audit-compliance-report.sh)
 ```
 
-**Quality:** 93% success rate, 0.9 bugs/1000 LOC, -64% rework  
-**Speed:** Baseline (100%)  
+**Quality:** highest — every gate enforced  
+**Speed:** baseline  
 **Risk:** Minimal  
 **When to Use:** All production features and bug fixes.
 
@@ -40,8 +40,8 @@ Conditional skips:
   - Skip verify if: test coverage ≥95% + all tests PASS (skip audit)
 ```
 
-**Quality:** 90% success rate, 1.2 bugs/1000 LOC, -50% rework  
-**Speed:** 30% faster  
+**Quality:** slightly reduced — negotiable gates skipped  
+**Speed:** faster than standard  
 **Risk:** Medium (quality tradeoff)  
 **When to Use:** Hotfixes, minor improvements, refactors on well-tested code.
 
@@ -56,8 +56,8 @@ discover [warn] → elaborate [warn] → plan [warn] → build [warn] → verify
   ↓ optional       ↓ optional        ↓ optional    ↓ optional      ↓ optional      ↓ optional
 ```
 
-**Quality:** 78% success rate, 2.5 bugs/1000 LOC, +35% rework  
-**Speed:** 40% faster  
+**Quality:** lowest — no gate enforcement  
+**Speed:** fastest  
 **Risk:** High (no guardrails)  
 **When to Use:** Exploration, prototyping, spike projects only — never production code.
 
@@ -69,7 +69,13 @@ discover [warn] → elaborate [warn] → plan [warn] → build [warn] → verify
 |---|---|---|---|
 | Hard gates | Enforced | Enforced | Warned only |
 | Soft gates | Enforced | Skippable | Warned only |
-| Success rate | 93% | 90% | 78% |
-| Bug density | 0.9/1000 LOC | 1.2/1000 LOC | 2.5/1000 LOC |
-| Speed | Baseline | +30% | +40% |
+| Relative quality | Highest | Reduced | Lowest |
+| Relative speed | Baseline | Faster | Fastest |
 | Use for | Production | Hotfixes/refactors | Spikes only |
+
+> **On numbers:** this file previously carried precise-looking figures
+> (success rates, bugs/1000 LOC, rework percentages) with no cited study or
+> measurement behind them. They were removed rather than re-sourced —
+> quantifying mode quality is exactly what outcome evals (e58) are meant to
+> produce, from this repo's own runs. Until that exists, the ordering above
+> is a design intent, not a measurement.

@@ -48,7 +48,7 @@ Skill-body instructional prose MUST follow [AGENTIC-STE.md](../../docs/AGENTIC-S
    - Any reference materials to include?
    - What specs/ output does it produce (if any)?
 
-2. **Verify Principles** — Ensure the skill aligns with [PRINCIPLES.md](https://github.com/danielvm-git/bigpowers/blob/main/docs/PRINCIPLES.md):
+2. **Verify Principles** — Ensure the skill aligns with [PRINCIPLES.md](../../docs/PRINCIPLES.md):
    - Is it atomic (verb-noun)?
    - Is it "deep" (simple interface, complex internal logic)?
    - Does it include Hard Gates?
@@ -62,7 +62,7 @@ Skill-body instructional prose MUST follow [AGENTIC-STE.md](../../docs/AGENTIC-S
    **Auto-skill from library README:** When user provides a library README or API docs URL, extract triggers and HARD GATEs.
    Draft verify commands and specs/ output into SKILL.md. Do NOT invent APIs not in the source.
 
-4. Add `model:` frontmatter (`haiku` | `sonnet` | `opus`) per [model-profiles.md](https://github.com/danielvm-git/bigpowers/blob/main/docs/references/model-profiles.md).
+4. Add `model:` frontmatter (`haiku` | `sonnet` | `opus`) per [model-profiles.md](../../docs/references/model-profiles.md).
 
 > **STREAM CONTINUITY** — When writing file content, output in continuous chunks of ~200 lines. Do not pause. Continue immediately until complete. If you need time, emit a placeholder comment rather than going silent.
 

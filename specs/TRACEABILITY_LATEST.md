@@ -1,6 +1,6 @@
 # Traceability Matrix
 
-**Generated:** 2026-07-26 19:50:51 UTC
+**Generated:** 2026-07-26 20:36:57 UTC
 **Total stories:** 125
 **Tagged stories:** 115
 **Dark stories:** 0
@@ -9,8 +9,8 @@
 
 ## Oracle Stats
 
-- **High** (explicit tag): 796
-- **Medium** (file heuristic): 3326
+- **High** (explicit tag): 797
+- **Medium** (file heuristic): 3324
 - **Low** (task reference): 78
 
 ## Story Coverage
@@ -24,7 +24,7 @@
 | e37s05 | scripts/targets.yaml — declarative integration registry for  | e37 | 5 | 7.0 | done | 28 |
 | e37s06 | scripts/generate-context-bundle.sh — AGENTS.md single source | e37 | 3 | 7.0 | done | 12 |
 | e37s07 | sync-skills.sh — adapter dispatch from targets.yaml | e37 | 5 | 7.0 | done | 12 |
-| e37s08 | verify-install.sh — per-target contract matrix from targets. | e37 | 3 | 7.0 | done | 10 |
+| e37s08 | verify-install.sh — per-target contract matrix from targets. | e37 | 3 | 7.0 | done | 11 |
 | e37s09 | targets.yaml — Wave A: Goose (OSS) + Antigravity agy (propri | e37 | 3 | 7.0 | done | 5 |
 | e37s10 | targets.yaml — Wave B: zed, omp, hermes (skills-dir adapters | e37 | 4 | 7.0 | done | 8 |
 | e37s11 | targets.yaml — Wave C: qwen, kilocode (markdown commands + r | e37 | 3 | 7.0 | done | 2 |
@@ -50,7 +50,7 @@
 | e45s15 | release-branch / deploy: three-independent-facts verificatio | e45 | 2 | 5.0 | done | 21 |
 | e45s16 | CLAUDE.md rtk mandate: wire rtk-ai/rtk PreToolUse hook | e45 | 2 | 5.0 | done | 4 |
 | e45s17 | request-review: fan-out to parallel review subagents | e45 | 2 | 5.0 | done | 30 |
-| e45s18 | audit-code / security-review: worktree-isolated parallel che | e45 | 2 | 5.0 | done | 628 |
+| e45s18 | audit-code / security-review: worktree-isolated parallel che | e45 | 2 | 5.0 | done | 630 |
 | e45s19 | Context7: bounded retry cap and explicit fallback block | e45 | 2 | 5.0 | done | 8 |
 | e45s20 | Context7 / bts docs: wrap in ETag-revalidated fetch cache | e45 | 2 | 5.0 | done | 1 |
 | e45s21 | seed-conventions / AGENTS.md: self-installing fenced markers | e45 | 2 | 5.0 | done | 33 |
@@ -63,7 +63,7 @@
 | e45s28 | request-review: hard max-iteration cap | e45 | 2 | 5.0 | done | 18 |
 | e45s29 | requirements: ADDED/MODIFIED/REMOVED/RENAMED tags | e45 | 2 | 5.0 | done | 42 |
 | e45s30 | subagent depth: formalize depth tiers | e45 | 2 | 5.0 | done | 28 |
-| e45s31 | audit-code / deepen-architecture: churn-based look-here-firs | e45 | 2 | 5.0 | done | 618 |
+| e45s31 | audit-code / deepen-architecture: churn-based look-here-firs | e45 | 2 | 5.0 | done | 620 |
 | e45s32 | gate-trace / release-branch: adversarial-review refute frami | e45 | 2 | 5.0 | done | 37 |
 | e45s33 | requirements: per-section approval state | e45 | 2 | 5.0 | done | 3 |
 | e45s34 | develop-tdd: snapshot-before-transition hardening | e45 | 2 | 5.0 | done | 7 |
@@ -92,7 +92,7 @@
 | e51s01 | CONVENTIONS — Always Green, Shift Left, Discovered Defects,  | e51 | 3 | 7.0 | done | 8 |
 | e51s02 | seed-conventions — Preflight default, solo-git default, embe | e51 | 3 | 7.0 | done | 40 |
 | e51s03 | kickoff-branch + verify-work — Preflight hard block and CI g | e51 | 2 | 7.0 | done | 67 |
-| e51s04 | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | e51 | 2 | 7.0 | done | 675 |
+| e51s04 | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | e51 | 2 | 7.0 | done | 674 |
 | e51s05 | CLAUDE.md — solo-default agent rules + bigpowers Preflight c | e51 | 2 | 7.0 | done | 7 |
 | e53s01 | Commit the untracked GOLDEN baseline | e53 | 1 | 8.0 | done | 12 |
 | e53s02 | Build the tombstone-alias mechanism | e53 | 3 | 8.0 | done | 6 |
@@ -137,10 +137,10 @@
 | e79s02 | Validator script + craft-skill HARD GATE | e79 | 0 | 6.0 | done | 21 |
 | e79s03 | seed-conventions applies ruleset | e79 | 0 | 6.0 | done | 20 |
 | e79s04 | stocktake-skills violation scanner | e79 | 0 | 6.0 | done | 20 |
-| e80s01 | Core verify skills → verify directives | e80 | 0 | 7.5 | done | 82 |
-| e80s02 | smoke-test and validate-contracts real bodies | e80 | 0 | 7.5 | done | 31 |
+| e80s01 | Core verify skills → verify directives | e80 | 0 | 7.5 | done | 79 |
+| e80s02 | smoke-test and validate-contracts real bodies | e80 | 0 | 7.5 | done | 32 |
 | e80s03 | develop-tdd RED commit isolation check | e80 | 0 | 7.5 | done | 10 |
-| e80s04 | generalize-fix phase in validate-fix | e80 | 0 | 7.5 | done | 35 |
+| e80s04 | generalize-fix phase in validate-fix | e80 | 0 | 7.5 | done | 32 |
 | e80s05 | security-review fixture table growth | e80 | 0 | 7.5 | done | 11 |
 
 ## Orphan Tags (tag in code, no matching story)

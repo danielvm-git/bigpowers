@@ -1,77 +1,81 @@
-timestamp: "2026-07-26T19:28:30Z"
-git_commit: "9c20bb3a2593062da79dec458de7d10ff73bf076"
+timestamp: "2026-07-26T20:32:42Z"
+git_commit: "08ef0c3dd5691792e2bfa04d178ed59fd595fa21"
 suite: "golden-combined"
 mode: "daily"
 deterministic:
-  total: 16
-  passed: 16
+  total: 17
+  passed: 17
   failed: 0
   skipped: 0
   pass_rate: 1.00
 gates:
   - name: compliance
     exit_code: 0
-    duration_seconds: 466.98
+    duration_seconds: 85.98
     status: pass
   - name: g04-selftest
     exit_code: 0
-    duration_seconds: .13
+    duration_seconds: .04
     status: pass
   - name: g06-migrate-version
     exit_code: 0
-    duration_seconds: 35.56
+    duration_seconds: 8.12
     status: pass
   - name: g07-negative-path
     exit_code: 0
-    duration_seconds: .43
+    duration_seconds: .07
     status: pass
   - name: g08-anti-vacuity
     exit_code: 0
-    duration_seconds: .32
+    duration_seconds: .07
     status: pass
   - name: g09-yaml-roundtrip
     exit_code: 0
-    duration_seconds: .42
+    duration_seconds: .10
     status: pass
   - name: g10-trace-anti-vacuity
     exit_code: 0
-    duration_seconds: .37
+    duration_seconds: .09
     status: pass
   - name: g11-gitignore-venv
     exit_code: 0
-    duration_seconds: .26
+    duration_seconds: .08
     status: pass
   - name: g12-status-selftest
     exit_code: 0
-    duration_seconds: 2.84
+    duration_seconds: .50
     status: pass
   - name: g12-status-consistency
     exit_code: 0
-    duration_seconds: 1.11
+    duration_seconds: .17
+    status: pass
+  - name: target-contracts
+    exit_code: 0
+    duration_seconds: .17
     status: pass
   - name: install-helpers
     exit_code: 0
-    duration_seconds: .54
+    duration_seconds: .10
     status: pass
   - name: import-boundaries
     exit_code: 0
-    duration_seconds: 1.14
+    duration_seconds: .29
     status: pass
   - name: skill-catalog
     exit_code: 0
-    duration_seconds: 7.28
+    duration_seconds: 1.33
     status: pass
   - name: specs-parse
     exit_code: 0
-    duration_seconds: 3.38
+    duration_seconds: .74
     status: pass
   - name: story-verify-selftest
     exit_code: 0
-    duration_seconds: .88
+    duration_seconds: .15
     status: pass
   - name: story-verify
     exit_code: 0
-    duration_seconds: 744.44
+    duration_seconds: 144.23
     status: pass
 agent_stories:
   total: 0

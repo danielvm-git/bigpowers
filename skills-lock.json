@@ -48,7 +48,7 @@
     },
     "craft-skill": {
       "description": "Create new bigpowers skills with proper structure, progressive disclosure, and bundled resources. Use when user wants to create, write, or build a new skill for the bigpowers lifecycle.",
-      "sha256": "cc2d3a6c70693114",
+      "sha256": "f3b08c24979f1857",
       "path": "skills/craft-skillSKILL.md"
     },
     "deepen-architecture": {
@@ -62,8 +62,8 @@
       "path": "skills/define-languageSKILL.md"
     },
     "define-success": {
-      "description": "'Convert an imperative task statement into explicit \"step → verify: <cmd>\" pairs before implementation begins. Use before plan-work when success criteria are unclear, when a task lacks verifiable checkpoints, or when user says \"how will we know this is done?\".'",
-      "sha256": "458d06a29b0a5b67",
+      "description": "\"TOMBSTONE — renamed/merged to plan-work. This stub resolves for one release then is removed.\"",
+      "sha256": "b0aeb8c0d870fe2e",
       "path": "skills/define-successSKILL.md"
     },
     "delegate-task": {
@@ -73,7 +73,7 @@
     },
     "deploy": {
       "description": "\"Build → verify artifact → deploy → wait → smoke deployment pipeline. Platform-agnostic (MCP or CLI), with configurable timeout, retry with exponential backoff, and integrated health-check. The deploy half of CI/CD: run after build to push to production.\"",
-      "sha256": "09d24b7e5d2e759c",
+      "sha256": "ddfcbfbfc464c620",
       "path": "skills/deploySKILL.md"
     },
     "design-interface": {
@@ -108,7 +108,7 @@
     },
     "elaborate-spec": {
       "description": "Refine a rough idea into a clear, detailed specification through dialogue. Does not produce code. Use when user has a vague idea, wants to think through a feature before planning, or needs to turn \"I want X\" into a concrete spec.",
-      "sha256": "9307ab61c789a0a0",
+      "sha256": "67385bef84425f6d",
       "path": "skills/elaborate-specSKILL.md"
     },
     "enforce-first": {
@@ -167,8 +167,8 @@
       "path": "skills/guard-gitSKILL.md"
     },
     "harden-vps": {
-      "description": "\"Harden a production Linux VPS for BigBase across three layers — BigBase app (systemd hardening, monitoring alerts, backup automation), Ubuntu OS (UFW firewall, fail2ban SSH, unattended-upgrades, SSH hardening), and Contabo VPS (health checks, daily backups, monthly snapshots). Use when the user wants to secure a production server, harden a VPS, audit server security, or mentions production hardening, VPS security, or harden the server.\"",
-      "sha256": "5768af4f96e9a3b3",
+      "description": "\"Harden a production Linux VPS for your application across three layers — application (systemd hardening, monitoring alerts, backup automation), Ubuntu OS (UFW firewall, fail2ban SSH, unattended-upgrades, SSH hardening), and VPS provider (health checks, daily backups, monthly snapshots). Use when the user wants to secure a production server, harden a VPS, audit server security, or mentions production hardening, VPS security, or harden the server.\"",
+      "sha256": "38db97ca3c00d736",
       "path": "skills/harden-vpsSKILL.md"
     },
     "hook-commits": {
@@ -183,7 +183,7 @@
     },
     "investigate-bug": {
       "description": "Investigate a bug or issue by exploring the codebase to find root cause, then write a TDD-based fix plan to specs/bugs/BUG-*.md. Use when user reports a bug, wants to investigate a problem, mentions \"triage\", or wants to plan a fix.",
-      "sha256": "54f8c5417be34ef0",
+      "sha256": "b842fd329d1f7741",
       "path": "skills/investigate-bugSKILL.md"
     },
     "kickoff-branch": {
@@ -223,12 +223,12 @@
     },
     "plan-refactor": {
       "description": "Create a detailed refactor plan with tiny commits via user interview, then save it as specs/REFACTOR_LATEST.md. Use when user wants to plan a refactor, create a refactoring RFC, or break a refactor into safe incremental steps.",
-      "sha256": "2d18809da7cc9de8",
+      "sha256": "c418c850806e2f16",
       "path": "skills/plan-refactorSKILL.md"
     },
     "plan-release": {
       "description": "\"RELEASE-INDEX BUILDER — Sequence elaborated epics into specs/release-plan.yaml with WSJF ordering and BCP baselines. NOT a planning-spine substitute: it does not scope work (scope-work) or write story tasks (plan-work). Use after elaborate-spec when the user wants a versioned release index of epics.\"",
-      "sha256": "9334ff48e5b1fab3",
+      "sha256": "071acc0626c2a203",
       "path": "skills/plan-releaseSKILL.md"
     },
     "plan-tests": {
@@ -238,7 +238,7 @@
     },
     "plan-work": {
       "description": "\"PLANNING SPINE STEP 3 of 3 — Plan the work: write detailed implementation tasks into the active epic capsule (specs/epics/eNN-slug/). Produces countable-story-format .md specs and runnable -tasks.yaml files. Use after slice-tasks (step 2). Not a substitute for scope-work (step 1) or slice-tasks (step 2).\"",
-      "sha256": "e5d751ca5e928e2d",
+      "sha256": "32c2bcaf16cb4ad2",
       "path": "skills/plan-workSKILL.md"
     },
     "publish-package": {
@@ -363,7 +363,7 @@
     },
     "using-bigpowers": {
       "description": "One-time bootstrap that introduces the bigpowers skills system, the PMBOK lifecycle arc, and tells you which skill to call first for your situation. Use when starting with bigpowers for the first time, when user asks \"where do I start?\", or when the skills system needs to be explained.",
-      "sha256": "bad9ebe9bf303b36",
+      "sha256": "a6d780440a936929",
       "path": "skills/using-bigpowersSKILL.md"
     },
     "validate-contracts": {

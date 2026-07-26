@@ -1,6 +1,6 @@
 ---
 type: Index
-generated_at: 2026-07-26T19:50:51.334741+00:00
+generated_at: 2026-07-26T20:36:58.000429+00:00
 total_concepts: 125
 ---
 
@@ -17,7 +17,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e37s05](./e37s05.md) | scripts/targets.yaml — declarative integration registry for  | high | 28 |
 | [e37s06](./e37s06.md) | scripts/generate-context-bundle.sh — AGENTS.md single source | high | 12 |
 | [e37s07](./e37s07.md) | sync-skills.sh — adapter dispatch from targets.yaml | high | 12 |
-| [e37s08](./e37s08.md) | verify-install.sh — per-target contract matrix from targets. | high | 10 |
+| [e37s08](./e37s08.md) | verify-install.sh — per-target contract matrix from targets. | high | 11 |
 | [e37s09](./e37s09.md) | targets.yaml — Wave A: Goose (OSS) + Antigravity agy (propri | high | 5 |
 | [e37s10](./e37s10.md) | targets.yaml — Wave B: zed, omp, hermes (skills-dir adapters | high | 8 |
 | [e37s11](./e37s11.md) | targets.yaml — Wave C: qwen, kilocode (markdown commands + r | high | 2 |
@@ -43,7 +43,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e45s15](./e45s15.md) | release-branch / deploy: three-independent-facts verificatio | high | 21 |
 | [e45s16](./e45s16.md) | CLAUDE.md rtk mandate: wire rtk-ai/rtk PreToolUse hook | high | 4 |
 | [e45s17](./e45s17.md) | request-review: fan-out to parallel review subagents | high | 30 |
-| [e45s18](./e45s18.md) | audit-code / security-review: worktree-isolated parallel che | high | 628 |
+| [e45s18](./e45s18.md) | audit-code / security-review: worktree-isolated parallel che | high | 630 |
 | [e45s19](./e45s19.md) | Context7: bounded retry cap and explicit fallback block | high | 8 |
 | [e45s20](./e45s20.md) | Context7 / bts docs: wrap in ETag-revalidated fetch cache | high | 1 |
 | [e45s21](./e45s21.md) | seed-conventions / AGENTS.md: self-installing fenced markers | high | 33 |
@@ -56,7 +56,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e45s28](./e45s28.md) | request-review: hard max-iteration cap | high | 18 |
 | [e45s29](./e45s29.md) | requirements: ADDED/MODIFIED/REMOVED/RENAMED tags | high | 42 |
 | [e45s30](./e45s30.md) | subagent depth: formalize depth tiers | high | 28 |
-| [e45s31](./e45s31.md) | audit-code / deepen-architecture: churn-based look-here-firs | high | 618 |
+| [e45s31](./e45s31.md) | audit-code / deepen-architecture: churn-based look-here-firs | high | 620 |
 | [e45s32](./e45s32.md) | gate-trace / release-branch: adversarial-review refute frami | high | 37 |
 | [e45s33](./e45s33.md) | requirements: per-section approval state | high | 3 |
 | [e45s34](./e45s34.md) | develop-tdd: snapshot-before-transition hardening | high | 7 |
@@ -85,7 +85,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e51s01](./e51s01.md) | CONVENTIONS — Always Green, Shift Left, Discovered Defects,  | high | 8 |
 | [e51s02](./e51s02.md) | seed-conventions — Preflight default, solo-git default, embe | high | 40 |
 | [e51s03](./e51s03.md) | kickoff-branch + verify-work — Preflight hard block and CI g | high | 67 |
-| [e51s04](./e51s04.md) | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | high | 675 |
+| [e51s04](./e51s04.md) | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | high | 674 |
 | [e51s05](./e51s05.md) | CLAUDE.md — solo-default agent rules + bigpowers Preflight c | high | 7 |
 | [e53s01](./e53s01.md) | Commit the untracked GOLDEN baseline | high | 12 |
 | [e53s02](./e53s02.md) | Build the tombstone-alias mechanism | high | 6 |
@@ -130,8 +130,8 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e79s02](./e79s02.md) | Validator script + craft-skill HARD GATE | high | 21 |
 | [e79s03](./e79s03.md) | seed-conventions applies ruleset | high | 20 |
 | [e79s04](./e79s04.md) | stocktake-skills violation scanner | high | 20 |
-| [e80s01](./e80s01.md) | Core verify skills → verify directives | high | 82 |
-| [e80s02](./e80s02.md) | smoke-test and validate-contracts real bodies | high | 31 |
+| [e80s01](./e80s01.md) | Core verify skills → verify directives | high | 79 |
+| [e80s02](./e80s02.md) | smoke-test and validate-contracts real bodies | high | 32 |
 | [e80s03](./e80s03.md) | develop-tdd RED commit isolation check | high | 10 |
-| [e80s04](./e80s04.md) | generalize-fix phase in validate-fix | high | 35 |
+| [e80s04](./e80s04.md) | generalize-fix phase in validate-fix | high | 32 |
 | [e80s05](./e80s05.md) | security-review fixture table growth | high | 11 |

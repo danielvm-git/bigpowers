@@ -53,12 +53,47 @@ def check_file_links(smd: str, root: str) -> list[str]:
     return problems
 
 
+def check_machine_paths(path: str, root: str) -> list[str]:
+    """Machine-absolute path scan for non-Markdown sources (scripts, hooks)."""
+    rel = os.path.relpath(path, root)
+    problems = []
+    try:
+        with open(path, encoding="utf-8") as f:
+            text = f.read()
+    except (UnicodeDecodeError, OSError):
+        return problems
+    for i, line in enumerate(text.splitlines(), 1):
+        stripped = line.strip()
+        # The pattern definition in lib/link_utils.py names these prefixes; a
+        # regex describing them is not itself a violation.
+        if "MACHINE_PATH_RE" in line or stripped.startswith("#"):
+            continue
+        if MACHINE_PATH_RE.search(line):
+            problems.append(
+                f"{rel}:{i}: machine-absolute path: {stripped[:100]}"
+            )
+    return problems
+
+
 def check(root: str) -> list[str]:
     problems = []
     for tree in ("skills", os.path.join(".pi", "skills")):
         pattern = os.path.join(root, tree, "*", "SKILL.md")
         for smd in sorted(glob.glob(pattern)):
             problems.extend(check_file_links(smd, root))
+
+    # scripts/ was previously unscanned, which let a hardcoded
+    # /Users/<name>/Developer/... path ship in scripts/hermes-verify-e39s02.sh
+    # while this gate reported OK.
+    for pattern in (
+        "scripts/*.sh",
+        "scripts/lib/*.sh",
+        "scripts/adapters/*.sh",
+        "*.sh",
+        "*.py",
+    ):
+        for src in sorted(glob.glob(os.path.join(root, pattern))):
+            problems.extend(check_machine_paths(src, root))
     return problems
 
 

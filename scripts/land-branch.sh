@@ -36,12 +36,18 @@ COMMIT_MSG="${ARGS[1]:-}"
 
 [ -n "$FEATURE_BRANCH" ] && [ -n "$COMMIT_MSG" ] || usage_land
 
-if [[ ! "$COMMIT_MSG" =~ $CONVENTIONAL_REGEX ]]; then
+# Both checks below judge the subject line, not the whole message. The length
+# test used to read ${#COMMIT_MSG}, so any Conventional Commit carrying a body
+# was rejected no matter how short its subject — the error text said "subject
+# line" while the check measured the entire string.
+COMMIT_SUBJECT="${COMMIT_MSG%%$'\n'*}"
+
+if [[ ! "$COMMIT_SUBJECT" =~ $CONVENTIONAL_REGEX ]]; then
   land_branch_deny "Commit message must follow Conventional Commits: <type>(<scope>): <subject>"
 fi
 
-if [ ${#COMMIT_MSG} -gt 72 ]; then
-  land_branch_deny "Commit subject line must be 72 characters or less"
+if [ ${#COMMIT_SUBJECT} -gt 72 ]; then
+  land_branch_deny "Commit subject line must be 72 characters or less (got ${#COMMIT_SUBJECT})"
 fi
 
 # Block AI agent attribution (P1 — CONVENTIONS.md § Git Attribution)

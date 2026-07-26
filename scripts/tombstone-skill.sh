@@ -54,9 +54,15 @@ STORY_TAGS=$(grep -E '^#\s*story:' "$OLD_SKILL_MD" || true)
 CURRENT_VERSION=$(jq -r '.version' package.json 2>/dev/null)
 CREATED_AT=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 
+# A tombstone is still a live SKILL.md for its transition window, so it must
+# carry the same required frontmatter as any other skill. Omitting `model:`
+# made docs/references/model-profiles.md count one fewer skill than there are
+# skill directories, which fails validate-doctrine's skill-count check.
 cat > "$OLD_SKILL_MD" <<STUBEOF
 ---
 name: ${OLD_NAME}
+model: haiku
+effort: light
 description: "TOMBSTONE — renamed/merged to ${NEW_NAME}. This stub resolves for one release then is removed."
 ---
 

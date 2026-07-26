@@ -258,7 +258,7 @@ jobs:
 
 ---
 
-## Reference block 2 — deploy.yml (BigBase, excerpt)
+## Reference block 2 — deploy.yml (generic web app, excerpt)
 
 ```yaml
 name: Deploy
@@ -276,7 +276,7 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  SITE_URL: "https://CHANGE-ME.bigbase.click"
+  SITE_URL: "https://CHANGE-ME.example.com"
 
 jobs:
   deploy:
@@ -292,18 +292,15 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           run-id: ${{ github.event.workflow_run.id }}
           path: deploy-meta
-      # BigBase-specific composite action, not a bigpowers default: this deploy
-      # example targets the author's own hosting stack. Replace it with your
-      # platform's deploy step (or drop the deploy job entirely for CLI and
-      # library repos). bigpowers itself ships no deploy templates. (GH #104)
-      - uses: danielvm-git/.github/actions/bigbase-deploy@9c56ac10c629f3baa110ddb19136579e3c90d690  # v1
-        with:
-          site_id: ${{ secrets.BIGBASE_SITE_ID }}
-          app_type: go
-          site_url: ${{ env.SITE_URL }}
-          deploy_token: ${{ secrets.BIGBASE_DEPLOY_TOKEN }}
-          ref: ${{ steps.meta.outputs.ref }}
-          skip_health_check: true
+      # Placeholder deploy step — bigpowers ships no deploy templates and pins
+      # no third-party action. Substitute your platform's own step here, or drop
+      # the deploy job entirely for CLI and library repos. Pin whatever action
+      # you choose to a full commit SHA rather than a tag. (GH #104)
+      - name: Deploy
+        run: |
+          echo "Replace this step with your platform's deploy command."
+          echo "commit=$(jq -r .sha deploy-meta/deploy-meta.json)"
+          exit 1
       - name: Health check
         run: |
           curl -sf "${{ env.SITE_URL }}" || exit 1

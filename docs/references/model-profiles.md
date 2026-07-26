@@ -251,7 +251,7 @@ Start: Task assigned
 | `skills/craft-skill` | **Sonnet** |
 | `skills/deepen-architecture` | **Sonnet** |
 | `skills/define-language` | **Sonnet** |
-| `skills/define-success` | **Sonnet** |
+| `skills/define-success` | **Haiku** |
 | `skills/delegate-task` | **Sonnet** |
 | `skills/deploy` | **Sonnet** |
 | `skills/design-interface` | **Opus** |

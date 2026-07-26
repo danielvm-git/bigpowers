@@ -9,11 +9,27 @@ concurrency:
 on:
   schedule:
     - cron: "0 3 * * *"  # Daily 03:00 UTC — fleet-wide anti-vacuity drift check
+  # The solo-git profile lands via land-branch.sh, which squash-pushes straight
+  # to main with no PR. Without a push trigger the whole anti-vacuity suite was
+  # skipped on every solo landing and only ran on the nightly cron — a gate that
+  # existed but never ran in the workflow actually in use.
+  push:
+    branches: [main]
+    paths:
+      - 'skills/**'
+      - 'scripts/**'
+      - 'specs/epics/**'
+      - 'specs/execution-status.yaml'
+      - 'specs/release-plan.yaml'
+      - '.github/workflows/golden-suite.yml'
   pull_request:
     branches: [main, develop]
     paths:
       - 'skills/**'
       - 'scripts/**'
+      - 'specs/epics/**'
+      - 'specs/execution-status.yaml'
+      - 'specs/release-plan.yaml'
       - '.github/workflows/golden-suite.yml'
   workflow_dispatch:
 

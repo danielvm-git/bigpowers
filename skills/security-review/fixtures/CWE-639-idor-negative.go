@@ -5,7 +5,7 @@
 // is part of the WHERE clause. A caller from another organization gets zero
 // rows rather than someone else's site.
 //
-// Note the retrofit trap this deliberately avoids: bigbase's BUG-2026-07-24T184443
+// Note the retrofit trap this deliberately avoids: a real-world IDOR retrofit (BUG-2026-07-24T184443)
 // added `org_id INTEGER NOT NULL DEFAULT 0`, which passed tests on new rows and
 // hid 8 of 9 production sites whose legacy rows defaulted to org 0. Scope on a
 // real, backfilled org_id — never a placeholder default.

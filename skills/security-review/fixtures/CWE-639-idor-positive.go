@@ -1,7 +1,7 @@
 // story: e80s05
 // Positive fixture: IDOR / missing tenant scoping (must be flagged).
 //
-// Modelled on the bigbase family (BUG-129/130/133/135/136/140/143): the
+// Modelled on a real-world bug family (BUG-129/130/133/135/136/140/143): the
 // handler authenticates the caller, then trusts an ID from the request and
 // queries by that ID alone. Authentication is proven; authorization is not.
 // Nothing in the type system or a diff-scoped review makes this look wrong —
