@@ -1,6 +1,6 @@
 # Traceability Matrix
 
-**Generated:** 2026-07-26 11:43:01 UTC
+**Generated:** 2026-07-26 12:31:33 UTC
 **Total stories:** 121
 **Tagged stories:** 111
 **Dark stories:** 0
@@ -10,7 +10,7 @@
 ## Oracle Stats
 
 - **High** (explicit tag): 782
-- **Medium** (file heuristic): 3221
+- **Medium** (file heuristic): 3234
 - **Low** (task reference): 79
 
 ## Story Coverage
@@ -50,7 +50,7 @@
 | e45s15 | release-branch / deploy: three-independent-facts verificatio | e45 | 2 | 5.0 | done | 21 |
 | e45s16 | CLAUDE.md rtk mandate: wire rtk-ai/rtk PreToolUse hook | e45 | 2 | 5.0 | done | 4 |
 | e45s17 | request-review: fan-out to parallel review subagents | e45 | 2 | 5.0 | done | 30 |
-| e45s18 | audit-code / security-review: worktree-isolated parallel che | e45 | 2 | 5.0 | done | 615 |
+| e45s18 | audit-code / security-review: worktree-isolated parallel che | e45 | 2 | 5.0 | done | 618 |
 | e45s19 | Context7: bounded retry cap and explicit fallback block | e45 | 2 | 5.0 | done | 8 |
 | e45s20 | Context7 / bts docs: wrap in ETag-revalidated fetch cache | e45 | 2 | 5.0 | done | 1 |
 | e45s21 | seed-conventions / AGENTS.md: self-installing fenced markers | e45 | 2 | 5.0 | done | 33 |
@@ -63,7 +63,7 @@
 | e45s28 | request-review: hard max-iteration cap | e45 | 2 | 5.0 | done | 18 |
 | e45s29 | requirements: ADDED/MODIFIED/REMOVED/RENAMED tags | e45 | 2 | 5.0 | done | 42 |
 | e45s30 | subagent depth: formalize depth tiers | e45 | 2 | 5.0 | done | 28 |
-| e45s31 | audit-code / deepen-architecture: churn-based look-here-firs | e45 | 2 | 5.0 | done | 605 |
+| e45s31 | audit-code / deepen-architecture: churn-based look-here-firs | e45 | 2 | 5.0 | done | 608 |
 | e45s32 | gate-trace / release-branch: adversarial-review refute frami | e45 | 2 | 5.0 | done | 37 |
 | e45s33 | requirements: per-section approval state | e45 | 2 | 5.0 | done | 3 |
 | e45s34 | develop-tdd: snapshot-before-transition hardening | e45 | 2 | 5.0 | done | 7 |
@@ -76,7 +76,7 @@
 | e45s41 | security-review: proven authorship SQL-safety doctrine | e45 | 2 | 5.0 | done | 18 |
 | e48s01 | Generate epics-wiki and adr-wiki as OKF concept bundles from | e48 | 2 | 2.5 | done | 34 |
 | e48s02 | Emit verification reports as OKF bundles from run-golden-sui | e48 | 2 | 2.5 | done | 48 |
-| e48s03 | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | e48 | 1 | 2.5 | done | 146 |
+| e48s03 | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | e48 | 1 | 2.5 | done | 147 |
 | e48s04 | Create viz.html — interactive force-layout graph companion f | e48 | 2 | 2.5 | done | 12 |
 | e48s05 | Wire OKF validation into CI (sync-skills.yml) and document i | e48 | 1 | 2.5 | done | 190 |
 | e48s06 | Add tier: field (core/extended/specialized) to OKF wiki inde | e48 | 2 | 2.5 | done | 10 |
@@ -92,7 +92,7 @@
 | e51s01 | CONVENTIONS — Always Green, Shift Left, Discovered Defects,  | e51 | 3 | 7.0 | done | 8 |
 | e51s02 | seed-conventions — Preflight default, solo-git default, embe | e51 | 3 | 7.0 | done | 40 |
 | e51s03 | kickoff-branch + verify-work — Preflight hard block and CI g | e51 | 2 | 7.0 | done | 67 |
-| e51s04 | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | e51 | 2 | 7.0 | done | 661 |
+| e51s04 | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | e51 | 2 | 7.0 | done | 664 |
 | e51s05 | CLAUDE.md — solo-default agent rules + bigpowers Preflight c | e51 | 2 | 7.0 | done | 7 |
 | e54s01 | Snapshot the current skill catalog as an immutable baseline | e54 | 2 | 6.7 | done | 9 |
 | e54s02 | Add a soft drift-detection gate for the freeze window | e54 | 3 | 6.7 | done | 14 |
@@ -133,7 +133,7 @@
 | e79s02 | Validator script + craft-skill HARD GATE | e79 | 0 | 6.0 | backlog | 21 |
 | e79s03 | seed-conventions applies ruleset | e79 | 0 | 6.0 | backlog | 20 |
 | e79s04 | stocktake-skills violation scanner | e79 | 0 | 6.0 | backlog | 20 |
-| e80s01 | Core verify skills → verify directives | e80 | 0 | 7.5 | backlog | 76 |
+| e80s01 | Core verify skills → verify directives | e80 | 0 | 7.5 | backlog | 79 |
 | e80s02 | smoke-test and validate-contracts real bodies | e80 | 0 | 7.5 | backlog | 30 |
 | e80s03 | develop-tdd RED commit isolation check | e80 | 0 | 7.5 | backlog | 10 |
 | e80s04 | generalize-fix phase in validate-fix | e80 | 0 | 7.5 | backlog | 35 |

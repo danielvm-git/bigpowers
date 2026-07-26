@@ -387,8 +387,8 @@
       "path": "skills/visual-dashboardSKILL.md"
     },
     "wire-ci": {
-      "description": "\"CI pipeline setup with pre-built templates and local validation. Generates GitHub Actions workflows, validates YAML syntax and permissions, supports dry-run via act/gh. The CI equivalent of wire-observability.\"",
-      "sha256": "7d661e394662e35c",
+      "description": "\"CI pipeline setup with bundled, forge-neutral templates and local validation. Detects the forge from the git remote, generates workflows for supported forges, and skips honestly for the rest. The CI equivalent of wire-observability.\"",
+      "sha256": "4b37294c95eabdad",
       "path": "skills/wire-ciSKILL.md"
     },
     "wire-observability": {
