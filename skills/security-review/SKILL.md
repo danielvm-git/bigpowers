@@ -64,6 +64,8 @@ Every **new detection rule** added to this skill MUST:
 |------|-----|------------------|------------------|
 | SQL injection | CWE-89 | `fixtures/CWE-89-sqli-positive.py` | `fixtures/CWE-89-sqli-negative.py` |
 | XSS (DOM) | CWE-79 | `fixtures/CWE-79-xss-positive.js` | `fixtures/CWE-79-xss-negative.js` |
+| Missing tenant scoping (IDOR) | CWE-639 | `fixtures/CWE-639-idor-positive.go` | `fixtures/CWE-639-idor-negative.go` |
+| Fail-open verify directive | CWE-754 | `fixtures/CWE-fail-open-verify-positive.sh` | `fixtures/CWE-fail-open-verify-negative.sh` |
 
 Before merging a new category, run both fixtures through the detection guidance and confirm positive flags / negative passes.
 
@@ -115,4 +117,4 @@ Each finding: **`File:Line` — Severity — Category**
 
 ## Verify
 
-→ verify: `test -d specs/security && test -f scripts/lib/parallel-review-worktrees.sh && git rev-parse HEAD >/dev/null 2>&1`
+→ verify: `test -d specs/security && test -f scripts/lib/parallel-review-worktrees.sh && bash scripts/verify-cwe-fixture-sync.sh >/dev/null && git rev-parse HEAD >/dev/null 2>&1`
