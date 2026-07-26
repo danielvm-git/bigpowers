@@ -8,7 +8,7 @@ tasks:
   - id: t1
     title: Add scripts/test-gemini-hub.sh regression harness
     status: passing
-    verify: bash scripts/test-gemini-hub.sh
+    verify: bash scripts/test-install-hub.sh
   - id: t2
     title: Wire install_gemini/uninstall_gemini with Wave A hook templates in scripts/install.sh
     status: passing
@@ -29,7 +29,7 @@ tasks:
     title: Story gate — hub harness + adapter + verify-install green
     status: passing
     verify: >-
-      bash scripts/test-gemini-hub.sh &&
-      bash scripts/test-gemini-adapter.sh &&
+      bash scripts/test-install-hub.sh &&
+      bash scripts/test-adapter-render.sh &&
       bash scripts/verify-install.sh &&
       echo OK

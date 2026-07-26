@@ -3,13 +3,16 @@
 # story: e37s05 e37s07
 
 render_skill() {
+  # shellcheck source=../lib/adapter-guard.sh
+  source "$(dirname "${BASH_SOURCE[0]}")/../lib/adapter-guard.sh"
+  bp_assert_safe_skill_name "${IR_NAME-}" pi >/dev/null || return 1
   if declare -f render_pi_skill >/dev/null 2>&1; then
     render_pi_skill
     render_pi_prompt
     return
   fi
   mkdir -p "${PI_SKILLS:-.pi/skills}/$IR_NAME"
-  cp "${SKILL_MD_PATH:-}" "${PI_SKILLS}/$IR_NAME/SKILL.md" 2>/dev/null || {
+  cp "${SKILL_MD_PATH:-}" "${PI_SKILLS:-.pi/skills}/$IR_NAME/SKILL.md" 2>/dev/null || {
     {
       echo "---"
       echo "name: $IR_NAME"
@@ -18,7 +21,7 @@ render_skill() {
       echo "---"
       echo ""
       echo "${IR_BODY_SKILL:-$IR_BODY}"
-    } > "${PI_SKILLS}/$IR_NAME/SKILL.md"
+    } > "${PI_SKILLS:-.pi/skills}/$IR_NAME/SKILL.md"
   }
 
   mkdir -p "${PI_PROMPTS:-.pi/prompts}"
@@ -29,7 +32,7 @@ render_skill() {
     echo "---"
     echo ""
     echo "$IR_BODY"
-  } > "${PI_PROMPTS}/$IR_NAME.md"
+  } > "${PI_PROMPTS:-.pi/prompts}/$IR_NAME.md"
 }
 
 wire_context() {

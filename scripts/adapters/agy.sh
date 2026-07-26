@@ -10,6 +10,9 @@ AGY_HOOKS_GLOBAL="${AGY_HOOKS_GLOBAL:-$HOME/.gemini/config/hooks.json}"
 AGY_HOOKS_WORKSPACE="${AGY_HOOKS_WORKSPACE:-.agents/hooks.json}"
 
 render_skill() {
+  # shellcheck source=../lib/adapter-guard.sh
+  source "$(dirname "${BASH_SOURCE[0]}")/../lib/adapter-guard.sh"
+  bp_assert_safe_skill_name "${IR_NAME-}" agy >/dev/null || return 1
   if declare -f render_agy_skill >/dev/null 2>&1; then
     render_agy_skill
     return

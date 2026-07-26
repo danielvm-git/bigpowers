@@ -22,7 +22,24 @@ GOLDEN_GATES=(
   # Anti-vacuity for the target-contract seam: every contract declared in
   # targets.yaml must have a real assertion, and an unknown contract must FAIL
   # rather than SKIP+exit 0 (seven contracts were fail-open before this).
+  # Writing a test must be enough to make it run: G-13 fails if any
+  # scripts/test-*.sh is absent from this list.
+  "g13-test-orphans-selftest:bash scripts/golden-g13-test-orphans.sh --self-test:false"
+  "g13-test-orphans:bash scripts/golden-g13-test-orphans.sh:false"
   "target-contracts:bash scripts/test-target-contracts.sh:false"
+  # Registry-driven replacements for the 25 hand-written per-target scripts.
+  "install-hub:bash scripts/test-install-hub.sh:false"
+  "adapter-render:bash scripts/test-adapter-render.sh:false"
+  "adapters:bash scripts/test-adapters.sh:false"
+  # Previously orphaned: present in scripts/ but reachable from no gate.
+  "tombstone-mechanism:bash scripts/test-tombstone-mechanism.sh:false"
+  "trace-strict:bash scripts/test-trace-strict.sh:false"
+  "trace-matrix-size:bash scripts/test-trace-matrix-size.sh:false"
+  "setup-no-pyyaml:bash scripts/test-setup-no-pyyaml.sh:false"
+  "install-distribute-only:bash scripts/test-install-distribute-only.sh:false"
+  "completeness-critic-scope:bash scripts/test-completeness-critic-scope.sh:false"
+  "epics-wiki-zero-stories:bash scripts/test-generate-epics-wiki-zero-stories.sh:false"
+  "golden-g11-worktree-venv:bash scripts/test-golden-g11-worktree-venv.sh:false"
   "install-helpers:bash scripts/test-install-helpers.sh:false"
   "import-boundaries:bash scripts/check-import-boundaries.sh:false"
   "skill-catalog:bash scripts/validate-skill-catalog.sh:false"

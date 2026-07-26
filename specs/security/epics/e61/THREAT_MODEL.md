@@ -68,6 +68,6 @@
 
 1. Sanitize `IR_NAME` in `render_skill` before mkdir/write.
 2. Keep shell hook templates minimal; block decisions only via documented JSON shapes.
-3. Run `bash scripts/test-hermes-adapter.sh` and `bash scripts/test-adapters.sh hermes` after adapter edits.
+3. Run `bash scripts/test-adapter-render.sh` and `bash scripts/test-adapters.sh hermes` after adapter edits.
 4. Wave B: wire install to copy templates; never auto-enable hooks without user consent (`hooks_auto_accept: false` default).
 5. Treat `~/.hermes/config.yaml` `hooks:` block as privileged — review like CI config.

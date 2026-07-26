@@ -37,7 +37,7 @@ stories:
   - scripts/adapters/cline.sh
   - scripts/test-cline-adapter.sh
   - scripts/hooks/cline/plugin/
-  verify: bash scripts/test-cline-adapter.sh && bash scripts/test-adapters.sh cline
+  verify: bash scripts/test-adapter-render.sh && bash scripts/test-adapters.sh cline
     && echo OK
 - id: e66s02
   title: Install hub wiring (Wave B)
@@ -50,5 +50,5 @@ stories:
   - bin/setup.js
   - scripts/verify-install.sh
   - scripts/test-cline-hub.sh
-  verify: bash scripts/test-cline-hub.sh && bash scripts/verify-install.sh && echo
+  verify: bash scripts/test-install-hub.sh && bash scripts/verify-install.sh && echo
     OK

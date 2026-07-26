@@ -7,7 +7,7 @@ tasks:
   - id: t1
     title: Add scripts/test-zcode-hub.sh regression harness
     status: passing
-    verify: bash scripts/test-zcode-hub.sh
+    verify: bash scripts/test-install-hub.sh
   - id: t2
     title: Wire install_zcode/uninstall_zcode in scripts/install.sh
     status: passing
@@ -32,6 +32,6 @@ tasks:
     title: Story gate — hub harness + verify-install green
     status: passing
     verify: >-
-      bash scripts/test-zcode-hub.sh &&
+      bash scripts/test-install-hub.sh &&
       bash scripts/verify-install.sh &&
       echo OK

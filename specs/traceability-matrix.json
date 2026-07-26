@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-26T20:36:57.985224+00:00",
+  "generated_at": "2026-07-26T22:24:12.678311+00:00",
   "matrix_version": "1.0",
   "stories": [
     {
@@ -312,6 +312,12 @@
           "method": "explicit_tag"
         },
         {
+          "file": "scripts/test-adapter-render.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "scripts/adapters/cursor.sh",
           "line": 3,
           "confidence": "high",
@@ -336,6 +342,18 @@
           "method": "explicit_tag"
         },
         {
+          "file": "scripts/golden-g13-test-orphans.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/lib/adapter-guard.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "scripts/lib/context-wire.sh",
           "line": 2,
           "confidence": "high",
@@ -343,6 +361,12 @@
         },
         {
           "file": "scripts/test-adapters.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/test-install-hub.sh",
           "line": 2,
           "confidence": "high",
           "method": "explicit_tag"
@@ -450,7 +474,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 28
+      "link_count": 32
     },
     {
       "id": "e37s06",
@@ -4686,6 +4710,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-190520.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260707-192435.md",
           "line": 0,
           "confidence": "medium",
@@ -4927,6 +4957,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260725-201905.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-184010.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5449,6 +5485,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-164441.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-190414.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -6114,6 +6156,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-185805.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260626-204755.md",
           "line": 0,
           "confidence": "medium",
@@ -6324,6 +6372,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-190645.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260706-132604.md",
           "line": 0,
           "confidence": "medium",
@@ -6337,6 +6391,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-142359.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-191105.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -6744,6 +6804,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-190809.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260723-093128.md",
           "line": 0,
           "confidence": "medium",
@@ -6859,6 +6925,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-164050.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-190959.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -7200,6 +7272,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-191836.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260707-103924.md",
           "line": 0,
           "confidence": "medium",
@@ -7404,7 +7482,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 630
+      "link_count": 639
     },
     {
       "id": "e45s19",
@@ -9744,6 +9822,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-190520.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260707-192435.md",
           "line": 0,
           "confidence": "medium",
@@ -9985,6 +10069,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260725-201905.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-184010.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -10507,6 +10597,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-164441.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-190414.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -11172,6 +11268,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-185805.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260626-204755.md",
           "line": 0,
           "confidence": "medium",
@@ -11382,6 +11484,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-190645.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260706-132604.md",
           "line": 0,
           "confidence": "medium",
@@ -11395,6 +11503,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-142359.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-191105.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -11802,6 +11916,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-190809.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260723-093128.md",
           "line": 0,
           "confidence": "medium",
@@ -11917,6 +12037,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-164050.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-190959.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -12258,6 +12384,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-191836.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260707-103924.md",
           "line": 0,
           "confidence": "medium",
@@ -12450,7 +12582,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 620
+      "link_count": 629
     },
     {
       "id": "e45s32",
@@ -16534,9 +16666,15 @@
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/test-install-hub.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
         }
       ],
-      "link_count": 29
+      "link_count": 30
     },
     {
       "id": "e48s12",
@@ -18702,6 +18840,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-190520.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260707-192435.md",
           "line": 0,
           "confidence": "medium",
@@ -18943,6 +19087,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260725-201905.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-184010.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -19465,6 +19615,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-164441.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-190414.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -20130,6 +20286,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-185805.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260626-204755.md",
           "line": 0,
           "confidence": "medium",
@@ -20340,6 +20502,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-190645.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260706-132604.md",
           "line": 0,
           "confidence": "medium",
@@ -20353,6 +20521,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-142359.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-191105.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -20760,6 +20934,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-190809.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260723-093128.md",
           "line": 0,
           "confidence": "medium",
@@ -20875,6 +21055,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-164050.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-190959.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -21211,6 +21397,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260723-130900.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-191836.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -21660,7 +21852,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 674
+      "link_count": 683
     },
     {
       "id": "e51s05",
@@ -22848,12 +23040,6 @@
           "method": "explicit_tag"
         },
         {
-          "file": "scripts/test-hermes-adapter.sh",
-          "line": 2,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": "scripts/adapters/hermes.sh",
           "line": 3,
           "confidence": "high",
@@ -22896,7 +23082,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 11
+      "link_count": 10
     },
     {
       "id": "e61s02",
@@ -22922,12 +23108,6 @@
         {
           "file": "specs/epics/e61-integration-hermes/e61s02-tasks.yaml",
           "line": 1,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": "scripts/test-hermes-hub.sh",
-          "line": 2,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -22969,6 +23149,12 @@
         },
         {
           "file": "scripts/generate-wave-b-hub.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/test-install-hub.sh",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -23016,19 +23202,13 @@
           "method": "explicit_tag"
         },
         {
-          "file": "scripts/test-opencode-adapter.sh",
-          "line": 2,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": "specs/epics/e74-integration-antigravity/e74s01-wave-a-adapter-research.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         }
       ],
-      "link_count": 3
+      "link_count": 2
     },
     {
       "id": "e62s02",
@@ -23070,12 +23250,6 @@
           "method": "explicit_tag"
         },
         {
-          "file": "scripts/test-opencode-hub.sh",
-          "line": 2,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": "specs/epics/e74-integration-antigravity/e74s02-hub-wiring.md",
           "line": 0,
           "confidence": "medium",
@@ -23107,6 +23281,12 @@
         },
         {
           "file": "scripts/generate-wave-b-hub.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/test-install-hub.sh",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -23178,12 +23358,6 @@
           "method": "explicit_tag"
         },
         {
-          "file": "scripts/test-gemini-adapter.sh",
-          "line": 2,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": "scripts/adapters/gemini.sh",
           "line": 4,
           "confidence": "high",
@@ -23220,43 +23394,7 @@
           "method": "file_heuristic"
         },
         {
-          "file": "scripts/test-cline-adapter.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "scripts/test-windsurf-adapter.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "scripts/test-kilocode-adapter.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "scripts/test-codex-adapter.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "scripts/test-hermes-adapter.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "scripts/test-qwen-adapter.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "scripts/test-opencode-adapter.sh",
+          "file": "scripts/test-adapter-render.sh",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -23268,19 +23406,7 @@
           "method": "file_heuristic"
         },
         {
-          "file": "scripts/test-copilot-adapter.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "scripts/test-trae-adapter.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "scripts/test-codebuddy-adapter.sh",
+          "file": "scripts/lib/adapter-guard.sh",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -23298,7 +23424,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 25
+      "link_count": 16
     },
     {
       "id": "e64s02",
@@ -23334,12 +23460,6 @@
           "method": "explicit_tag"
         },
         {
-          "file": "scripts/test-gemini-hub.sh",
-          "line": 2,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": "specs/epics/e74-integration-antigravity/e74s02-hub-wiring.md",
           "line": 0,
           "confidence": "medium",
@@ -23371,6 +23491,12 @@
         },
         {
           "file": "scripts/generate-wave-b-hub.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/test-install-hub.sh",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -23412,12 +23538,6 @@
       "status": "done",
       "links": [
         {
-          "file": "scripts/test-codex-adapter.sh",
-          "line": 2,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": "scripts/adapters/codex.sh",
           "line": 2,
           "confidence": "high",
@@ -23434,15 +23554,9 @@
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
-        },
-        {
-          "file": "scripts/test-cline-adapter.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
         }
       ],
-      "link_count": 5
+      "link_count": 3
     },
     {
       "id": "e65s02",
@@ -23484,12 +23598,6 @@
           "method": "explicit_tag"
         },
         {
-          "file": "scripts/test-codex-hub.sh",
-          "line": 2,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": "specs/epics/e74-integration-antigravity/e74s02-hub-wiring.md",
           "line": 0,
           "confidence": "medium",
@@ -23521,6 +23629,12 @@
         },
         {
           "file": "scripts/generate-wave-b-hub.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/test-install-hub.sh",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -23562,12 +23676,6 @@
       "status": "done",
       "links": [
         {
-          "file": "scripts/test-cline-adapter.sh",
-          "line": 2,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": "scripts/adapters/cline.sh",
           "line": 2,
           "confidence": "high",
@@ -23586,7 +23694,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 4
+      "link_count": 3
     },
     {
       "id": "e66s02",
@@ -23628,12 +23736,6 @@
           "method": "explicit_tag"
         },
         {
-          "file": "scripts/test-cline-hub.sh",
-          "line": 2,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": "specs/epics/e74-integration-antigravity/e74s02-hub-wiring.md",
           "line": 0,
           "confidence": "medium",
@@ -23665,6 +23767,12 @@
         },
         {
           "file": "scripts/generate-wave-b-hub.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/test-install-hub.sh",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -23706,12 +23814,6 @@
       "status": "done",
       "links": [
         {
-          "file": "scripts/test-kilocode-adapter.sh",
-          "line": 2,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": "scripts/adapters/kilocode.sh",
           "line": 2,
           "confidence": "high",
@@ -23730,7 +23832,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 4
+      "link_count": 3
     },
     {
       "id": "e67s02",
@@ -23756,12 +23858,6 @@
         {
           "file": "scripts/verify-install.sh",
           "line": 8,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": "scripts/test-kilocode-hub.sh",
-          "line": 2,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -23809,6 +23905,12 @@
         },
         {
           "file": "scripts/generate-wave-b-hub.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/test-install-hub.sh",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -23862,12 +23964,6 @@
           "method": "explicit_tag"
         },
         {
-          "file": "scripts/test-qwen-adapter.sh",
-          "line": 2,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": "specs/epics/e74-integration-antigravity/e74s01-wave-a-adapter-research.md",
           "line": 0,
           "confidence": "medium",
@@ -23875,30 +23971,6 @@
         },
         {
           "file": "specs/epics/e76-integration-zcode/e76s01-zcode-adapter.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "scripts/test-kilocode-adapter.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "scripts/test-codex-adapter.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "scripts/test-opencode-adapter.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "scripts/test-codebuddy-adapter.sh",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -23916,7 +23988,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 11
+      "link_count": 6
     },
     {
       "id": "e68s02",
@@ -23948,12 +24020,6 @@
         {
           "file": "scripts/verify-install.sh",
           "line": 11,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": "scripts/test-qwen-hub.sh",
-          "line": 2,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -24001,6 +24067,12 @@
         },
         {
           "file": "scripts/generate-wave-b-hub.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/test-install-hub.sh",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -24090,30 +24162,6 @@
           "method": "file_heuristic"
         },
         {
-          "file": "scripts/test-kilocode-adapter.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "scripts/test-codex-adapter.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "scripts/test-opencode-adapter.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "scripts/test-codebuddy-adapter.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
           "file": "scripts/lib/wave_b_hub_codegen_install.py",
           "line": 0,
           "confidence": "medium",
@@ -24126,7 +24174,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 14
+      "link_count": 10
     },
     {
       "id": "e69s02",
@@ -24146,12 +24194,6 @@
         {
           "file": "specs/epics/e69-integration-mimo-code/e69s02-tasks.yaml",
           "line": 1,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": "scripts/test-mimo-hub.sh",
-          "line": 2,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -24193,6 +24235,12 @@
         },
         {
           "file": "scripts/generate-wave-b-hub.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/test-install-hub.sh",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -24246,19 +24294,13 @@
           "method": "explicit_tag"
         },
         {
-          "file": "scripts/test-trae-adapter.sh",
-          "line": 2,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": "specs/epics/e74-integration-antigravity/e74s01-wave-a-adapter-research.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         }
       ],
-      "link_count": 4
+      "link_count": 3
     },
     {
       "id": "e70s02",
@@ -24272,12 +24314,6 @@
         {
           "file": "bin/setup.js",
           "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": "scripts/test-trae-hub.sh",
-          "line": 2,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -24342,6 +24378,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "scripts/test-install-hub.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "scripts/lib/wave_b_hub_patch.py",
           "line": 0,
           "confidence": "medium",
@@ -24384,19 +24426,13 @@
           "method": "explicit_tag"
         },
         {
-          "file": "scripts/test-copilot-adapter.sh",
-          "line": 2,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": "specs/epics/e74-integration-antigravity/e74s01-wave-a-adapter-research.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         }
       ],
-      "link_count": 3
+      "link_count": 2
     },
     {
       "id": "e71s02",
@@ -24410,12 +24446,6 @@
         {
           "file": "bin/setup.js",
           "line": 4,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": "scripts/test-copilot-hub.sh",
-          "line": 2,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -24480,6 +24510,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "scripts/test-install-hub.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "scripts/lib/wave_b_hub_patch.py",
           "line": 0,
           "confidence": "medium",
@@ -24528,19 +24564,13 @@
           "method": "explicit_tag"
         },
         {
-          "file": "scripts/test-codebuddy-adapter.sh",
-          "line": 2,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": "specs/epics/e74-integration-antigravity/e74s01-wave-a-adapter-research.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         }
       ],
-      "link_count": 4
+      "link_count": 3
     },
     {
       "id": "e72s02",
@@ -24566,12 +24596,6 @@
         {
           "file": "scripts/verify-install.sh",
           "line": 10,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": "scripts/test-codebuddy-hub.sh",
-          "line": 2,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -24624,6 +24648,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "scripts/test-install-hub.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "scripts/lib/wave_b_hub_patch.py",
           "line": 0,
           "confidence": "medium",
@@ -24660,12 +24690,6 @@
       "status": "done",
       "links": [
         {
-          "file": "scripts/test-windsurf-adapter.sh",
-          "line": 2,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": "scripts/adapters/windsurf.sh",
           "line": 2,
           "confidence": "high",
@@ -24684,7 +24708,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 4
+      "link_count": 3
     },
     {
       "id": "e73s02",
@@ -24726,12 +24750,6 @@
           "method": "explicit_tag"
         },
         {
-          "file": "scripts/test-windsurf-hub.sh",
-          "line": 2,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": "specs/epics/e74-integration-antigravity/e74s02-hub-wiring.md",
           "line": 0,
           "confidence": "medium",
@@ -24763,6 +24781,12 @@
         },
         {
           "file": "scripts/generate-wave-b-hub.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/test-install-hub.sh",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -24844,15 +24868,9 @@
           "line": 3,
           "confidence": "high",
           "method": "explicit_tag"
-        },
-        {
-          "file": "scripts/test-cline-adapter.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
         }
       ],
-      "link_count": 8
+      "link_count": 7
     },
     {
       "id": "e74s02",
@@ -24966,12 +24984,6 @@
           "method": "explicit_tag"
         },
         {
-          "file": "scripts/test-agy-hub.sh",
-          "line": 2,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": "specs/epics/e64-integration-gemini/e64s02-hub-wiring.md",
           "line": 0,
           "confidence": "medium",
@@ -24997,6 +25009,12 @@
         },
         {
           "file": "scripts/generate-wave-b-hub.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/test-install-hub.sh",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -25116,12 +25134,6 @@
           "method": "explicit_tag"
         },
         {
-          "file": "scripts/test-zcode-hub.sh",
-          "line": 2,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": "scripts/lib/install-helpers.js",
           "line": 5,
           "confidence": "high",
@@ -25159,6 +25171,12 @@
         },
         {
           "file": "scripts/generate-wave-b-hub.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/test-install-hub.sh",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -26969,8 +26987,8 @@
     ],
     "stale_count": 115,
     "oracle_stats": {
-      "high": 797,
-      "medium": 3324,
+      "high": 776,
+      "medium": 3348,
       "low": 78
     }
   }

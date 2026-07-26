@@ -40,8 +40,13 @@ test_adapter() {
   [[ -f "$adapter_file" ]] || { ta_fail "$id: adapter missing"; return; }
   ta_pass "$id: exists"
 
+  # </dev/null is load-bearing. The caller feeds the target list into a
+  # `while read` loop, so a sourced adapter inherits it on fd 0 — and every
+  # adapter ends in a main block that reads stdin. agy.sh was consuming the
+  # remaining target list and running render_skill with an empty IR_NAME, so
+  # this "registry-driven" runner silently tested exactly one adapter.
   # shellcheck source=/dev/null
-  source "$adapter_file" 2>/dev/null && ta_pass "$id: sourceable" || { ta_fail "$id: source error"; return; }
+  source "$adapter_file" </dev/null 2>/dev/null && ta_pass "$id: sourceable" || { ta_fail "$id: source error"; return; }
 
   local has_skill has_context mode
   has_skill=$(yq -r ".targets[] | select(.id==\"$id\") | .skill != null" "$TARGETS_FILE")
@@ -62,11 +67,13 @@ test_adapter() {
     # to print 5 PASS lines and report 4. Capture the status, tally in-process.
     if (
       cd "$TA_TMPDIR"
+      # </dev/null for the same reason as above — this subshell also inherits
+      # the caller's target list on fd 0.
       # shellcheck source=/dev/null
-      source "$adapter_file"
+      source "$adapter_file" </dev/null
       wire_context >/dev/null 2>&1 || true
       wire_context >/dev/null 2>&1
-    ); then
+    ) </dev/null; then
       ta_pass "$id: idempotent wire_context"
     else
       ta_fail "$id: wire_context failed"

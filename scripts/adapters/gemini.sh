@@ -4,6 +4,9 @@
 # story: e64s01
 
 render_skill() {
+  # shellcheck source=../lib/adapter-guard.sh
+  source "$(dirname "${BASH_SOURCE[0]}")/../lib/adapter-guard.sh"
+  bp_assert_safe_skill_name "${IR_NAME-}" gemini >/dev/null || return 1
   if declare -f render_gemini_skill >/dev/null 2>&1; then
     render_gemini_skill
     render_gemini_command
@@ -19,7 +22,7 @@ render_skill() {
     echo "---"
     echo ""
     echo "$IR_BODY"
-  } > "${GEMINI_SKILLS}/$IR_NAME/SKILL.md"
+  } > "${GEMINI_SKILLS:-.gemini/skills}/$IR_NAME/SKILL.md"
 
   mkdir -p "${GEMINI_COMMANDS:-.gemini/extensions/bigpowers/commands}/prompts"
   {
@@ -29,7 +32,7 @@ render_skill() {
     echo "---"
     echo ""
     echo "$IR_BODY"
-  } > "${GEMINI_COMMANDS}/prompts/$IR_NAME.md"
+  } > "${GEMINI_COMMANDS:-.gemini/commands}/prompts/$IR_NAME.md"
 }
 
 wire_context() {
@@ -84,28 +87,6 @@ validate_hook_templates() {
     missing=1
   fi
   return "$missing"
-}
-
-render_hooks_manifest() {
-  if declare -f render_gemini_hooks_manifest >/dev/null 2>&1; then
-    render_gemini_hooks_manifest
-    return
-  fi
-  local hookdir
-  hookdir="$(gemini_hooks_dir)"
-  mkdir -p "$hookdir"
-  cat > "$hookdir/hooks-manifest.json" <<'JSON'
-{
-  "schema_version": 1,
-  "target": "gemini",
-  "events_total": 11,
-  "events": [
-    "BeforeTool", "AfterTool", "BeforeAgent", "AfterAgent", "BeforeModel",
-    "BeforeToolSelection", "AfterModel", "SessionStart", "SessionEnd",
-    "Notification", "PreCompress"
-  ]
-}
-JSON
 }
 
 # CLI: bash scripts/adapters/gemini.sh --validate-hooks

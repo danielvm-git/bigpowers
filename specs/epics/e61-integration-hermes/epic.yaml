@@ -39,7 +39,7 @@ stories:
       - scripts/hooks/hermes/
       - scripts/test-hermes-adapter.sh
     verify: >-
-      bash scripts/test-hermes-adapter.sh &&
+      bash scripts/test-adapter-render.sh &&
       bash scripts/test-adapters.sh hermes &&
       echo OK
   - id: e61s02
@@ -53,6 +53,6 @@ stories:
       - scripts/verify-install.sh
       - scripts/test-hermes-hub.sh
     verify: >-
-      bash scripts/test-hermes-hub.sh &&
+      bash scripts/test-install-hub.sh &&
       bash scripts/verify-install.sh &&
       echo OK

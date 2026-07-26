@@ -19,8 +19,8 @@ Wire Gemini CLI into the bigpowers install hub: `install.sh`, `install-helpers.j
 ## Verify
 
 ```bash
-bash scripts/test-gemini-hub.sh &&
-bash scripts/test-gemini-adapter.sh &&
+bash scripts/test-install-hub.sh &&
+bash scripts/test-adapter-render.sh &&
 bash scripts/verify-install.sh &&
 bash -n scripts/install.sh &&
 node --check scripts/lib/install-helpers.js &&

@@ -51,7 +51,7 @@ stories:
   - scripts/adapters/qwen.sh
   - scripts/test-qwen-adapter.sh
   - scripts/hooks/qwen/
-  verify: bash scripts/test-qwen-adapter.sh && bash scripts/test-adapters.sh qwen
+  verify: bash scripts/test-adapter-render.sh && bash scripts/test-adapters.sh qwen
     && echo OK
 - id: e68s02
   title: Install hub wiring (Wave B)
@@ -64,5 +64,5 @@ stories:
   - bin/setup.js
   - scripts/verify-install.sh
   - scripts/test-qwen-hub.sh
-  verify: bash scripts/test-qwen-hub.sh && bash scripts/verify-install.sh && echo
+  verify: bash scripts/test-install-hub.sh && bash scripts/verify-install.sh && echo
     OK

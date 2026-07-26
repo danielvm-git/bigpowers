@@ -58,7 +58,7 @@ stories:
   - scripts/adapters/codebuddy.sh
   - scripts/test-codebuddy-adapter.sh
   - scripts/hooks/codebuddy/
-  verify: bash scripts/test-codebuddy-adapter.sh && bash scripts/test-adapters.sh
+  verify: bash scripts/test-adapter-render.sh && bash scripts/test-adapters.sh
     codebuddy && echo OK
 - id: e72s02
   title: Install hub wiring (Wave B)
@@ -71,5 +71,5 @@ stories:
   - bin/setup.js
   - scripts/verify-install.sh
   - scripts/test-codebuddy-hub.sh
-  verify: bash scripts/test-codebuddy-hub.sh && bash scripts/verify-install.sh &&
+  verify: bash scripts/test-install-hub.sh && bash scripts/verify-install.sh &&
     echo OK

@@ -20,7 +20,7 @@ Wire MiMo Code into the bigpowers install hub: `install.sh`, `install-helpers.js
 ## Verify
 
 ```bash
-bash scripts/test-mimo-hub.sh &&
+bash scripts/test-install-hub.sh &&
 bash scripts/verify-install.sh &&
 bash -n scripts/install.sh &&
 node --check scripts/lib/install-helpers.js &&

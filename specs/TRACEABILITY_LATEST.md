@@ -1,6 +1,6 @@
 # Traceability Matrix
 
-**Generated:** 2026-07-26 20:36:57 UTC
+**Generated:** 2026-07-26 22:24:12 UTC
 **Total stories:** 125
 **Tagged stories:** 115
 **Dark stories:** 0
@@ -9,8 +9,8 @@
 
 ## Oracle Stats
 
-- **High** (explicit tag): 797
-- **Medium** (file heuristic): 3324
+- **High** (explicit tag): 776
+- **Medium** (file heuristic): 3348
 - **Low** (task reference): 78
 
 ## Story Coverage
@@ -21,7 +21,7 @@
 | e37s02 | verify-install.sh + docs — Cline native AGENTS.md verificati | e37 | 2 | 7.0 | done | 5 |
 | e37s03 | seed-conventions — .aider.conf.yml read:AGENTS.md bridge for | e37 | 1 | 7.0 | done | 10 |
 | e37s04 | verify-install.sh — AGENTS.md spine assertions (OSS P1 + opt | e37 | 2 | 7.0 | done | 4 |
-| e37s05 | scripts/targets.yaml — declarative integration registry for  | e37 | 5 | 7.0 | done | 28 |
+| e37s05 | scripts/targets.yaml — declarative integration registry for  | e37 | 5 | 7.0 | done | 32 |
 | e37s06 | scripts/generate-context-bundle.sh — AGENTS.md single source | e37 | 3 | 7.0 | done | 12 |
 | e37s07 | sync-skills.sh — adapter dispatch from targets.yaml | e37 | 5 | 7.0 | done | 12 |
 | e37s08 | verify-install.sh — per-target contract matrix from targets. | e37 | 3 | 7.0 | done | 11 |
@@ -50,7 +50,7 @@
 | e45s15 | release-branch / deploy: three-independent-facts verificatio | e45 | 2 | 5.0 | done | 21 |
 | e45s16 | CLAUDE.md rtk mandate: wire rtk-ai/rtk PreToolUse hook | e45 | 2 | 5.0 | done | 4 |
 | e45s17 | request-review: fan-out to parallel review subagents | e45 | 2 | 5.0 | done | 30 |
-| e45s18 | audit-code / security-review: worktree-isolated parallel che | e45 | 2 | 5.0 | done | 630 |
+| e45s18 | audit-code / security-review: worktree-isolated parallel che | e45 | 2 | 5.0 | done | 639 |
 | e45s19 | Context7: bounded retry cap and explicit fallback block | e45 | 2 | 5.0 | done | 8 |
 | e45s20 | Context7 / bts docs: wrap in ETag-revalidated fetch cache | e45 | 2 | 5.0 | done | 1 |
 | e45s21 | seed-conventions / AGENTS.md: self-installing fenced markers | e45 | 2 | 5.0 | done | 33 |
@@ -63,7 +63,7 @@
 | e45s28 | request-review: hard max-iteration cap | e45 | 2 | 5.0 | done | 18 |
 | e45s29 | requirements: ADDED/MODIFIED/REMOVED/RENAMED tags | e45 | 2 | 5.0 | done | 42 |
 | e45s30 | subagent depth: formalize depth tiers | e45 | 2 | 5.0 | done | 28 |
-| e45s31 | audit-code / deepen-architecture: churn-based look-here-firs | e45 | 2 | 5.0 | done | 620 |
+| e45s31 | audit-code / deepen-architecture: churn-based look-here-firs | e45 | 2 | 5.0 | done | 629 |
 | e45s32 | gate-trace / release-branch: adversarial-review refute frami | e45 | 2 | 5.0 | done | 37 |
 | e45s33 | requirements: per-section approval state | e45 | 2 | 5.0 | done | 3 |
 | e45s34 | develop-tdd: snapshot-before-transition hardening | e45 | 2 | 5.0 | done | 7 |
@@ -84,7 +84,7 @@
 | e48s08 | Add GitHub Action Template for publish-wiki.yml [HARD GATE] | e48 | 1 | 2.5 | done | 8 |
 | e48s09 | Create Wiki Scaffold Templates and provenance header injecti | e48 | 2 | 2.5 | done | 2 |
 | e48s10 | Extend bigspec init with --with-wiki flag | e48 | 2 | 2.5 | done | 14 |
-| e48s11 | BCP Plus counter integration — install and smoke-test big-co | e48 | 5 | 2.5 | done | 29 |
+| e48s11 | BCP Plus counter integration — install and smoke-test big-co | e48 | 5 | 2.5 | done | 30 |
 | e48s12 | BCP Plus template — 13-dimension breakdown in story specs | e48 | 5 | 2.5 | done | 9 |
 | e48s13 | NFR Gate integration — security-review and wire-observabilit | e48 | 4 | 2.5 | done | 19 |
 | e48s14 | Build-epic integration — BCP Plus in story sizing workflow | e48 | 4 | 2.5 | done | 14 |
@@ -92,7 +92,7 @@
 | e51s01 | CONVENTIONS — Always Green, Shift Left, Discovered Defects,  | e51 | 3 | 7.0 | done | 8 |
 | e51s02 | seed-conventions — Preflight default, solo-git default, embe | e51 | 3 | 7.0 | done | 40 |
 | e51s03 | kickoff-branch + verify-work — Preflight hard block and CI g | e51 | 2 | 7.0 | done | 67 |
-| e51s04 | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | e51 | 2 | 7.0 | done | 674 |
+| e51s04 | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | e51 | 2 | 7.0 | done | 683 |
 | e51s05 | CLAUDE.md — solo-default agent rules + bigpowers Preflight c | e51 | 2 | 7.0 | done | 7 |
 | e53s01 | Commit the untracked GOLDEN baseline | e53 | 1 | 8.0 | done | 12 |
 | e53s02 | Build the tombstone-alias mechanism | e53 | 3 | 8.0 | done | 6 |
@@ -105,31 +105,31 @@
 | e55s02 | Write constitution.md from the mapping, CLAUDE.md/CONVENTION | e55 | 0 | 6.0 | done | 4 |
 | e55s03 | Point CLAUDE.md/CONVENTIONS.md at constitution.md, don't del | e55 | 0 | 6.0 | done | 6 |
 | e60s01 | Interactive installer with ASCII banner, global/local, tool  | e60 | 0 | 9.0 | done | 9 |
-| e61s01 | Hermes adapter + hook templates (Wave A) | e61 | 0 | 5.0 | done | 11 |
+| e61s01 | Hermes adapter + hook templates (Wave A) | e61 | 0 | 5.0 | done | 10 |
 | e61s02 | Install hub wiring (Wave B) | e61 | 0 | 5.0 | done | 15 |
-| e62s01 | Integration: OpenCode adapter (Wave A) | e62 | 0 | 4.0 | done | 3 |
+| e62s01 | Integration: OpenCode adapter (Wave A) | e62 | 0 | 4.0 | done | 2 |
 | e62s02 | Install hub wiring (Wave B) | e62 | 0 | 4.0 | done | 16 |
-| e64s01 | Gemini hooks adapter — event docs, templates, adapter comple | e64 | 0 | 6.0 | done | 25 |
+| e64s01 | Gemini hooks adapter — event docs, templates, adapter comple | e64 | 0 | 6.0 | done | 16 |
 | e64s02 | Install hub wiring (Wave B) | e64 | 0 | 6.0 | done | 15 |
-| e65s01 | Integration: Codex CLI adapter (Wave A) | e65 | 0 | 6.0 | done | 5 |
+| e65s01 | Integration: Codex CLI adapter (Wave A) | e65 | 0 | 6.0 | done | 3 |
 | e65s02 | Install hub wiring (Wave B) | e65 | 0 | 6.0 | done | 16 |
-| e66s01 | Integration: Cline adapter (Wave A) | e66 | 0 | 5.0 | done | 4 |
+| e66s01 | Integration: Cline adapter (Wave A) | e66 | 0 | 5.0 | done | 3 |
 | e66s02 | Install hub wiring (Wave B) | e66 | 0 | 5.0 | done | 16 |
-| e67s01 | Integration: Kilo adapter (Wave A) | e67 | 0 | 5.0 | done | 4 |
+| e67s01 | Integration: Kilo adapter (Wave A) | e67 | 0 | 5.0 | done | 3 |
 | e67s02 | Install hub wiring (Wave B) | e67 | 0 | 5.0 | done | 16 |
-| e68s01 | Integration: Qwen Code adapter (Wave A) | e68 | 0 | 6.0 | done | 11 |
+| e68s01 | Integration: Qwen Code adapter (Wave A) | e68 | 0 | 6.0 | done | 6 |
 | e68s02 | Install hub wiring (Wave B) | e68 | 0 | 6.0 | done | 17 |
-| e69s01 | MiMo Code adapter — Wave A skills-dir (.mimocode/skills/) | e69 | 0 | 5.0 | done | 14 |
+| e69s01 | MiMo Code adapter — Wave A skills-dir (.mimocode/skills/) | e69 | 0 | 5.0 | done | 10 |
 | e69s02 | Install hub wiring (Wave B) | e69 | 0 | 5.0 | done | 14 |
-| e70s01 | Integration: Trae adapter (Wave A) | e70 | 0 | 5.0 | done | 4 |
+| e70s01 | Integration: Trae adapter (Wave A) | e70 | 0 | 5.0 | done | 3 |
 | e70s02 | Install hub wiring (Wave B) | e70 | 0 | 5.0 | done | 16 |
-| e71s01 | Integration: Copilot adapter (Wave A) | e71 | 0 | 4.0 | done | 3 |
+| e71s01 | Integration: Copilot adapter (Wave A) | e71 | 0 | 4.0 | done | 2 |
 | e71s02 | Install hub wiring (Wave B) | e71 | 0 | 4.0 | done | 16 |
-| e72s01 | Integration: CodeBuddy adapter (Wave A) | e72 | 0 | 6.0 | done | 4 |
+| e72s01 | Integration: CodeBuddy adapter (Wave A) | e72 | 0 | 6.0 | done | 3 |
 | e72s02 | Install hub wiring (Wave B) | e72 | 0 | 6.0 | done | 16 |
-| e73s01 | Integration: Windsurf adapter (Wave A) | e73 | 0 | 5.0 | done | 4 |
+| e73s01 | Integration: Windsurf adapter (Wave A) | e73 | 0 | 5.0 | done | 3 |
 | e73s02 | Install hub wiring (Wave B) | e73 | 0 | 5.0 | done | 16 |
-| e74s01 | Wave A — Antigravity CLI adapter research and agy.sh stub | e74 | 0 | 4.0 | done | 8 |
+| e74s01 | Wave A — Antigravity CLI adapter research and agy.sh stub | e74 | 0 | 4.0 | done | 7 |
 | e74s02 | Install hub wiring (Wave B) | e74 | 0 | 4.0 | done | 26 |
 | e76s01 | ZCode adapter — Wave A greenfield skills-dir | e76 | 0 | 5.0 | done | 8 |
 | e76s02 | Install hub wiring (Wave B) | e76 | 0 | 5.0 | done | 16 |

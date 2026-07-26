@@ -2,6 +2,9 @@
 # story: e69s01
 
 render_skill() {
+  # shellcheck source=../lib/adapter-guard.sh
+  source "$(dirname "${BASH_SOURCE[0]}")/../lib/adapter-guard.sh"
+  bp_assert_safe_skill_name "${IR_NAME-}" mimo >/dev/null || return 1
   if declare -f render_mimo_skill >/dev/null 2>&1; then
     render_mimo_skill
     return

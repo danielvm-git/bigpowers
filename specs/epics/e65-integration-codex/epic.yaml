@@ -44,7 +44,7 @@ stories:
   - scripts/adapters/codex.sh
   - scripts/test-codex-adapter.sh
   - scripts/hooks/codex/
-  verify: bash scripts/test-codex-adapter.sh && bash scripts/test-adapters.sh codex
+  verify: bash scripts/test-adapter-render.sh && bash scripts/test-adapters.sh codex
     && echo OK
 - id: e65s02
   title: Install hub wiring (Wave B)
@@ -57,5 +57,5 @@ stories:
   - bin/setup.js
   - scripts/verify-install.sh
   - scripts/test-codex-hub.sh
-  verify: bash scripts/test-codex-hub.sh && bash scripts/verify-install.sh && echo
+  verify: bash scripts/test-install-hub.sh && bash scripts/verify-install.sh && echo
     OK

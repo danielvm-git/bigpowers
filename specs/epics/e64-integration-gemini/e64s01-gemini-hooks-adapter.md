@@ -31,7 +31,7 @@ Functions to list events, validate template presence, and render hooks manifest;
 ## Acceptance Criteria
 
 ```bash
-bash scripts/test-gemini-adapter.sh && echo OK
+bash scripts/test-adapter-render.sh && echo OK
 ```
 
 ## Out of scope
@@ -49,6 +49,6 @@ bash scripts/test-gemini-adapter.sh && echo OK
 
 ## Verification Script
 
-1. Run `bash scripts/test-gemini-adapter.sh` — expect PASS.
+1. Run `bash scripts/test-adapter-render.sh` — expect PASS.
 2. Open `.gemini/extensions/bigpowers/hooks/HOOKS.md` — confirm 11 events listed.
 3. Run `bash scripts/adapters/gemini.sh` with `--validate-hooks` (via test script) — all required templates present.

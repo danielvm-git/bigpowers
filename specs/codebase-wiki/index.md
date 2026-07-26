@@ -1,6 +1,6 @@
 ---
 type: Index
-generated_at: 2026-07-26T20:36:58.000429+00:00
+generated_at: 2026-07-26T22:24:12.691337+00:00
 total_concepts: 125
 ---
 
@@ -14,7 +14,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e37s02](./e37s02.md) | verify-install.sh + docs — Cline native AGENTS.md verificati | high | 5 |
 | [e37s03](./e37s03.md) | seed-conventions — .aider.conf.yml read:AGENTS.md bridge for | high | 10 |
 | [e37s04](./e37s04.md) | verify-install.sh — AGENTS.md spine assertions (OSS P1 + opt | high | 4 |
-| [e37s05](./e37s05.md) | scripts/targets.yaml — declarative integration registry for  | high | 28 |
+| [e37s05](./e37s05.md) | scripts/targets.yaml — declarative integration registry for  | high | 32 |
 | [e37s06](./e37s06.md) | scripts/generate-context-bundle.sh — AGENTS.md single source | high | 12 |
 | [e37s07](./e37s07.md) | sync-skills.sh — adapter dispatch from targets.yaml | high | 12 |
 | [e37s08](./e37s08.md) | verify-install.sh — per-target contract matrix from targets. | high | 11 |
@@ -43,7 +43,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e45s15](./e45s15.md) | release-branch / deploy: three-independent-facts verificatio | high | 21 |
 | [e45s16](./e45s16.md) | CLAUDE.md rtk mandate: wire rtk-ai/rtk PreToolUse hook | high | 4 |
 | [e45s17](./e45s17.md) | request-review: fan-out to parallel review subagents | high | 30 |
-| [e45s18](./e45s18.md) | audit-code / security-review: worktree-isolated parallel che | high | 630 |
+| [e45s18](./e45s18.md) | audit-code / security-review: worktree-isolated parallel che | high | 639 |
 | [e45s19](./e45s19.md) | Context7: bounded retry cap and explicit fallback block | high | 8 |
 | [e45s20](./e45s20.md) | Context7 / bts docs: wrap in ETag-revalidated fetch cache | high | 1 |
 | [e45s21](./e45s21.md) | seed-conventions / AGENTS.md: self-installing fenced markers | high | 33 |
@@ -56,7 +56,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e45s28](./e45s28.md) | request-review: hard max-iteration cap | high | 18 |
 | [e45s29](./e45s29.md) | requirements: ADDED/MODIFIED/REMOVED/RENAMED tags | high | 42 |
 | [e45s30](./e45s30.md) | subagent depth: formalize depth tiers | high | 28 |
-| [e45s31](./e45s31.md) | audit-code / deepen-architecture: churn-based look-here-firs | high | 620 |
+| [e45s31](./e45s31.md) | audit-code / deepen-architecture: churn-based look-here-firs | high | 629 |
 | [e45s32](./e45s32.md) | gate-trace / release-branch: adversarial-review refute frami | high | 37 |
 | [e45s33](./e45s33.md) | requirements: per-section approval state | high | 3 |
 | [e45s34](./e45s34.md) | develop-tdd: snapshot-before-transition hardening | high | 7 |
@@ -77,7 +77,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e48s08](./e48s08.md) | Add GitHub Action Template for publish-wiki.yml [HARD GATE] | high | 8 |
 | [e48s09](./e48s09.md) | Create Wiki Scaffold Templates and provenance header injecti | medium | 2 |
 | [e48s10](./e48s10.md) | Extend bigspec init with --with-wiki flag | medium | 14 |
-| [e48s11](./e48s11.md) | BCP Plus counter integration — install and smoke-test big-co | medium | 29 |
+| [e48s11](./e48s11.md) | BCP Plus counter integration — install and smoke-test big-co | medium | 30 |
 | [e48s12](./e48s12.md) | BCP Plus template — 13-dimension breakdown in story specs | high | 9 |
 | [e48s13](./e48s13.md) | NFR Gate integration — security-review and wire-observabilit | high | 19 |
 | [e48s14](./e48s14.md) | Build-epic integration — BCP Plus in story sizing workflow | high | 14 |
@@ -85,7 +85,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e51s01](./e51s01.md) | CONVENTIONS — Always Green, Shift Left, Discovered Defects,  | high | 8 |
 | [e51s02](./e51s02.md) | seed-conventions — Preflight default, solo-git default, embe | high | 40 |
 | [e51s03](./e51s03.md) | kickoff-branch + verify-work — Preflight hard block and CI g | high | 67 |
-| [e51s04](./e51s04.md) | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | high | 674 |
+| [e51s04](./e51s04.md) | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | high | 683 |
 | [e51s05](./e51s05.md) | CLAUDE.md — solo-default agent rules + bigpowers Preflight c | high | 7 |
 | [e53s01](./e53s01.md) | Commit the untracked GOLDEN baseline | high | 12 |
 | [e53s02](./e53s02.md) | Build the tombstone-alias mechanism | high | 6 |
@@ -98,31 +98,31 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e55s02](./e55s02.md) | Write constitution.md from the mapping, CLAUDE.md/CONVENTION | high | 4 |
 | [e55s03](./e55s03.md) | Point CLAUDE.md/CONVENTIONS.md at constitution.md, don't del | high | 6 |
 | [e60s01](./e60s01.md) | Interactive installer with ASCII banner, global/local, tool  | high | 9 |
-| [e61s01](./e61s01.md) | Hermes adapter + hook templates (Wave A) | high | 11 |
+| [e61s01](./e61s01.md) | Hermes adapter + hook templates (Wave A) | high | 10 |
 | [e61s02](./e61s02.md) | Install hub wiring (Wave B) | high | 15 |
-| [e62s01](./e62s01.md) | Integration: OpenCode adapter (Wave A) | high | 3 |
+| [e62s01](./e62s01.md) | Integration: OpenCode adapter (Wave A) | high | 2 |
 | [e62s02](./e62s02.md) | Install hub wiring (Wave B) | high | 16 |
-| [e64s01](./e64s01.md) | Gemini hooks adapter — event docs, templates, adapter comple | high | 25 |
+| [e64s01](./e64s01.md) | Gemini hooks adapter — event docs, templates, adapter comple | high | 16 |
 | [e64s02](./e64s02.md) | Install hub wiring (Wave B) | high | 15 |
-| [e65s01](./e65s01.md) | Integration: Codex CLI adapter (Wave A) | high | 5 |
+| [e65s01](./e65s01.md) | Integration: Codex CLI adapter (Wave A) | high | 3 |
 | [e65s02](./e65s02.md) | Install hub wiring (Wave B) | high | 16 |
-| [e66s01](./e66s01.md) | Integration: Cline adapter (Wave A) | high | 4 |
+| [e66s01](./e66s01.md) | Integration: Cline adapter (Wave A) | high | 3 |
 | [e66s02](./e66s02.md) | Install hub wiring (Wave B) | high | 16 |
-| [e67s01](./e67s01.md) | Integration: Kilo adapter (Wave A) | high | 4 |
+| [e67s01](./e67s01.md) | Integration: Kilo adapter (Wave A) | high | 3 |
 | [e67s02](./e67s02.md) | Install hub wiring (Wave B) | high | 16 |
-| [e68s01](./e68s01.md) | Integration: Qwen Code adapter (Wave A) | high | 11 |
+| [e68s01](./e68s01.md) | Integration: Qwen Code adapter (Wave A) | high | 6 |
 | [e68s02](./e68s02.md) | Install hub wiring (Wave B) | high | 17 |
-| [e69s01](./e69s01.md) | MiMo Code adapter — Wave A skills-dir (.mimocode/skills/) | high | 14 |
+| [e69s01](./e69s01.md) | MiMo Code adapter — Wave A skills-dir (.mimocode/skills/) | high | 10 |
 | [e69s02](./e69s02.md) | Install hub wiring (Wave B) | high | 14 |
-| [e70s01](./e70s01.md) | Integration: Trae adapter (Wave A) | high | 4 |
+| [e70s01](./e70s01.md) | Integration: Trae adapter (Wave A) | high | 3 |
 | [e70s02](./e70s02.md) | Install hub wiring (Wave B) | high | 16 |
-| [e71s01](./e71s01.md) | Integration: Copilot adapter (Wave A) | high | 3 |
+| [e71s01](./e71s01.md) | Integration: Copilot adapter (Wave A) | high | 2 |
 | [e71s02](./e71s02.md) | Install hub wiring (Wave B) | high | 16 |
-| [e72s01](./e72s01.md) | Integration: CodeBuddy adapter (Wave A) | high | 4 |
+| [e72s01](./e72s01.md) | Integration: CodeBuddy adapter (Wave A) | high | 3 |
 | [e72s02](./e72s02.md) | Install hub wiring (Wave B) | high | 16 |
-| [e73s01](./e73s01.md) | Integration: Windsurf adapter (Wave A) | high | 4 |
+| [e73s01](./e73s01.md) | Integration: Windsurf adapter (Wave A) | high | 3 |
 | [e73s02](./e73s02.md) | Install hub wiring (Wave B) | high | 16 |
-| [e74s01](./e74s01.md) | Wave A — Antigravity CLI adapter research and agy.sh stub | high | 8 |
+| [e74s01](./e74s01.md) | Wave A — Antigravity CLI adapter research and agy.sh stub | high | 7 |
 | [e74s02](./e74s02.md) | Install hub wiring (Wave B) | high | 26 |
 | [e76s01](./e76s01.md) | ZCode adapter — Wave A greenfield skills-dir | high | 8 |
 | [e76s02](./e76s02.md) | Install hub wiring (Wave B) | high | 16 |

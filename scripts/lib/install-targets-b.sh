@@ -107,10 +107,6 @@ install_agy() {
   echo "  NOTE: Antigravity uses ~/.gemini/antigravity-cli/skills/ — not .gemini/extensions/ (Gemini CLI)"
 }
 
-install_antigravity() {
-  install_agy
-}
-
 uninstall_agy() {
   echo ""
   echo "Antigravity CLI → removing management from $AGY_CONFIG_DIR/"
@@ -120,10 +116,6 @@ uninstall_agy() {
       unlink_if_managed "${dst%/}" "$REPO_ROOT/"
     done
   fi
-}
-
-uninstall_antigravity() {
-  uninstall_agy
 }
 
 # ── Codex CLI (e65s02) ───────────────────────────────────────────────────────

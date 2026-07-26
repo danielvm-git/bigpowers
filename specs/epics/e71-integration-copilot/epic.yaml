@@ -28,7 +28,7 @@ stories:
   files:
   - scripts/adapters/copilot.sh
   - scripts/test-copilot-adapter.sh
-  verify: bash scripts/test-copilot-adapter.sh && bash scripts/test-adapters.sh copilot
+  verify: bash scripts/test-adapter-render.sh && bash scripts/test-adapters.sh copilot
     && echo OK
 - id: e71s02
   title: Install hub wiring (Wave B)
@@ -41,5 +41,5 @@ stories:
   - bin/setup.js
   - scripts/verify-install.sh
   - scripts/test-copilot-hub.sh
-  verify: bash scripts/test-copilot-hub.sh && bash scripts/verify-install.sh && echo
+  verify: bash scripts/test-install-hub.sh && bash scripts/verify-install.sh && echo
     OK

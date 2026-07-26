@@ -23,7 +23,7 @@ Expand the e37s10 Hermes adapter stub to render SkillIR into `.hermes/skills/<na
 ## Acceptance
 
 ```bash
-bash scripts/test-hermes-adapter.sh &&
+bash scripts/test-adapter-render.sh &&
 bash scripts/test-adapters.sh hermes &&
 echo OK
 ```

@@ -5,6 +5,9 @@
 # Cursor skill adapter — renders .cursor/rules/*.mdc from IR globals.
 
 render_skill() {
+  # shellcheck source=../lib/adapter-guard.sh
+  source "$(dirname "${BASH_SOURCE[0]}")/../lib/adapter-guard.sh"
+  bp_assert_safe_skill_name "${IR_NAME-}" cursor >/dev/null || return 1
   if declare -f render_cursor >/dev/null 2>&1; then
     render_cursor
     return

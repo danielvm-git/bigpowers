@@ -27,7 +27,7 @@ stories:
   files:
   - scripts/adapters/opencode.sh
   - scripts/test-opencode-adapter.sh
-  verify: bash scripts/test-opencode-adapter.sh && bash scripts/test-adapters.sh opencode
+  verify: bash scripts/test-adapter-render.sh && bash scripts/test-adapters.sh opencode
     && echo OK
 - id: e62s02
   title: Install hub wiring (Wave B)
@@ -40,5 +40,5 @@ stories:
   - bin/setup.js
   - scripts/verify-install.sh
   - scripts/test-opencode-hub.sh
-  verify: bash scripts/test-opencode-hub.sh && bash scripts/verify-install.sh && echo
+  verify: bash scripts/test-install-hub.sh && bash scripts/verify-install.sh && echo
     OK

@@ -3,6 +3,9 @@
 # ZCode skill adapter — renders SKILL.md to ~/.zcode/skills/<name>/.
 
 render_skill() {
+  # shellcheck source=../lib/adapter-guard.sh
+  source "$(dirname "${BASH_SOURCE[0]}")/../lib/adapter-guard.sh"
+  bp_assert_safe_skill_name "${IR_NAME-}" zcode >/dev/null || return 1
   local skills_dir="${ZCODE_SKILLS:-.zcode/skills}"
   mkdir -p "${skills_dir}/${IR_NAME}"
   {

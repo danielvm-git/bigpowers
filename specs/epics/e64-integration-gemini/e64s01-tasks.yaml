@@ -59,7 +59,7 @@ tasks:
     description: >-
       Add scripts/test-gemini-adapter.sh — validates hook templates, event count (11),
       and gemini adapter stdin render smoke test.
-    verify: bash scripts/test-gemini-adapter.sh
+    verify: bash scripts/test-adapter-render.sh
     risk: P2
     security: none
     status: passing

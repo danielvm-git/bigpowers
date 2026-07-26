@@ -39,7 +39,7 @@ stories:
   - scripts/adapters/trae.sh
   - scripts/test-trae-adapter.sh
   - scripts/hooks/trae/
-  verify: bash scripts/test-trae-adapter.sh && bash scripts/test-adapters.sh trae
+  verify: bash scripts/test-adapter-render.sh && bash scripts/test-adapters.sh trae
     && echo OK
 - id: e70s02
   title: Install hub wiring (Wave B)
@@ -52,5 +52,5 @@ stories:
   - bin/setup.js
   - scripts/verify-install.sh
   - scripts/test-trae-hub.sh
-  verify: bash scripts/test-trae-hub.sh && bash scripts/verify-install.sh && echo
+  verify: bash scripts/test-install-hub.sh && bash scripts/verify-install.sh && echo
     OK

@@ -109,7 +109,7 @@ tasks:
       Add scripts/test-hermes-adapter.sh regression harness covering stdin
       render, IR_NAME sanitization, hook template presence, and test-adapters
       hermes smoke.
-    verify: bash scripts/test-hermes-adapter.sh
+    verify: bash scripts/test-adapter-render.sh
     risk: P2
     security: low
     status: passing
@@ -124,7 +124,7 @@ tasks:
       Story gate: test-hermes-adapter.sh and test-adapters.sh hermes both PASS;
       no edits to forbidden Wave B hub files.
     verify: >-
-      bash scripts/test-hermes-adapter.sh &&
+      bash scripts/test-adapter-render.sh &&
       bash scripts/test-adapters.sh hermes 2>&1 | tee /dev/stderr | grep -q '0 failed' &&
       echo OK
     risk: P2

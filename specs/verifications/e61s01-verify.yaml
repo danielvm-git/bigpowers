@@ -4,7 +4,7 @@ verified_at: "2026-07-24T10:58:00-03:00"
 risk: P2
 mode: scoped
 terminal_verdict:
-  command: bash scripts/test-hermes-adapter.sh
+  command: bash scripts/test-adapter-render.sh
   exit_code: 0
   stdout: |
     === test-hermes-adapter.sh ===
@@ -19,7 +19,7 @@ terminal_verdict:
 commands:
   - cmd: bash scripts/lib/plan-consistency-check.sh specs/epics/e61-integration-hermes/
     result: PASS
-  - cmd: bash scripts/test-hermes-adapter.sh
+  - cmd: bash scripts/test-adapter-render.sh
     result: PASS
   - cmd: bash scripts/test-adapters.sh hermes 2>&1 | grep -q '0 failed'
     result: PASS

@@ -23,7 +23,7 @@ Wire Antigravity CLI into the bigpowers install hub: `install.sh`, `install-help
 ## Verify
 
 ```bash
-bash scripts/test-agy-hub.sh &&
+bash scripts/test-install-hub.sh &&
 bash scripts/verify-install.sh &&
 bash -n scripts/install.sh &&
 node --check scripts/lib/install-helpers.js &&

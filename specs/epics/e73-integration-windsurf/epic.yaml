@@ -47,7 +47,7 @@ stories:
   - scripts/adapters/windsurf.sh
   - scripts/test-windsurf-adapter.sh
   - scripts/hooks/windsurf/
-  verify: bash scripts/test-windsurf-adapter.sh && bash scripts/test-adapters.sh windsurf
+  verify: bash scripts/test-adapter-render.sh && bash scripts/test-adapters.sh windsurf
     && echo OK
 - id: e73s02
   title: Install hub wiring (Wave B)
@@ -60,5 +60,5 @@ stories:
   - bin/setup.js
   - scripts/verify-install.sh
   - scripts/test-windsurf-hub.sh
-  verify: bash scripts/test-windsurf-hub.sh && bash scripts/verify-install.sh && echo
+  verify: bash scripts/test-install-hub.sh && bash scripts/verify-install.sh && echo
     OK

@@ -48,6 +48,6 @@ stories:
       - scripts/targets.yaml
       - scripts/verify-install.sh
       - scripts/test-zcode-hub.sh
-    verify: bash scripts/test-zcode-hub.sh && bash scripts/verify-install.sh
+    verify: bash scripts/test-install-hub.sh && bash scripts/verify-install.sh
     tags:
       - "story: e76s02"
