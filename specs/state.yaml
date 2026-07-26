@@ -6,10 +6,10 @@ bigpowers_version: 2.86.6
 bug_cycle: null
 handoff:
   next_skill: survey-context
-  context: 'Phase 0 + audit sweep + Phase 1 collapse landed. 30/30 gates, compliance 94%, all CI green.
-    Open follow-ups: (1) bash adapter layer is not the live sync path — srp-engine.py --all renders; hooks-manifest.json
-    now has no generator. (2) specs/assets/bigpowers-workflow.svg drifted (7 defects). (3) three danielvm-git
-    URLs point at real external repos — user decision.'
+  context: 'All four cycles landed and CI-green: Phase 0 SoT (G-12), audit sweep,
+    Phase 1 test collapse (G-13), registry dispatch fix (G-14). 33/33 gates, compliance
+    94%, 0 open bugs. No known open defects. Next strategic step is e58 evals-over-compliance,
+    now that the suite measures execution rather than form.'
   epic: null
 epic_cycle: null
 metrics:
@@ -23,7 +23,7 @@ metrics:
       _start: '2026-07-26T19:03:50Z'
 release:
   ci_verified: true
-  last_commit: 9ac4a795
+  last_commit: 2ca3448b
   last_epic: e80-verify-arc-hardening
 git:
   branch: fix/sot-drift-phase0
