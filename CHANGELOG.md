@@ -1,3 +1,10 @@
+## [2.86.2](https://github.com/danielvm-git/bigpowers/compare/v2.86.1...v2.86.2) (2026-07-26)
+
+
+### Bug Fixes
+
+* **verify:** repair two gates that could not fail ([#97](https://github.com/danielvm-git/bigpowers/issues/97), [#98](https://github.com/danielvm-git/bigpowers/issues/98)) ([5f54699](https://github.com/danielvm-git/bigpowers/commit/5f54699f11875da2db1bae939f313d69c2fa7adf))
+
 ## [2.86.1](https://github.com/danielvm-git/bigpowers/compare/v2.86.0...v2.86.1) (2026-07-26)
 
 
