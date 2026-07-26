@@ -1,16 +1,24 @@
-active_flow: null
+active_flow: fix_bug
 active_epic: null
 active_story: null
-bug_id: null
-bigpowers_version: 2.86.1
-bug_cycle: null
+bug_id: BUG-2026-07-26-story-verify-never-executed
+bigpowers_version: 2.86.2
+bug_cycle:
+  current_step: 3
+  completed_steps:
+    - 1
+    - 2
 handoff:
-  next_skill: survey-context
-  context: 'Track A (#99) PR #101 open (fix/anti-vacuity-ci-99). Golden suite
+  next_skill: develop-tdd
+  context: 'Fixing #106 (story verify never executed) and #104 (forge lock-in),
 
-    required; skill-verify advisory until #96 PR #100 merges — then flip
+    branch fix/106-104-story-verify-and-forge-neutrality. Bug file:
 
-    continue-on-error off. Bug file: specs/bugs/BUG-2026-07-25-anti-vacuity-ci.md.
+    specs/bugs/BUG-2026-07-26-story-verify-never-executed.md. Track A (#99/#96)
+
+    handoff cleared: skill-verify is blocking in golden-suite.yml:41 — the
+
+    continue-on-error flip it described is already done.
 
     '
   epic: null
