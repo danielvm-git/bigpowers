@@ -2,7 +2,7 @@ active_flow: fix_bug
 active_epic: null
 active_story: null
 bug_id: BUG-2026-07-26-planning-sot-drift
-bigpowers_version: 2.86.4
+bigpowers_version: 2.86.5
 bug_cycle:
   current_step: 5
   completed_steps:

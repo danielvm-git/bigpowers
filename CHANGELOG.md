@@ -1,3 +1,10 @@
+## [2.86.5](https://github.com/danielvm-git/bigpowers/compare/v2.86.4...v2.86.5) (2026-07-26)
+
+
+### Bug Fixes
+
+* **gates:** close audit gaps in CI triggers, contracts and catalog ([11b03e1](https://github.com/danielvm-git/bigpowers/commit/11b03e17669c199a5fd6107d703c1572138d08c1))
+
 ## [2.86.4](https://github.com/danielvm-git/bigpowers/compare/v2.86.3...v2.86.4) (2026-07-26)
 
 
