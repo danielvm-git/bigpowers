@@ -1,3 +1,11 @@
+## [2.86.1](https://github.com/danielvm-git/bigpowers/compare/v2.86.0...v2.86.1) (2026-07-26)
+
+
+### Bug Fixes
+
+* **ci:** make skill-verify bash-3.2 safe and gate release on it ([a5fee16](https://github.com/danielvm-git/bigpowers/commit/a5fee16c70b29094bad0bd803a43797c9b4bd7b6)), closes [#96](https://github.com/danielvm-git/bigpowers/issues/96) [#96](https://github.com/danielvm-git/bigpowers/issues/96) [#99](https://github.com/danielvm-git/bigpowers/issues/99)
+* **ci:** restore truncated SKILL-INDEX and exempt comments from bash-4 guard ([c680896](https://github.com/danielvm-git/bigpowers/commit/c680896528732cff131161e2a1524730db15fd13))
+
 # [2.86.0](https://github.com/danielvm-git/bigpowers/compare/v2.85.2...v2.86.0) (2026-07-25)
 
 
