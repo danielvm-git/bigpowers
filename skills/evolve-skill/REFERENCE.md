@@ -9,4 +9,4 @@
 **Evidence:** path/to/benchmark-report.md
 ```
 
-Benchmark repo: `bigpowers-benchmark` — resolve the local clone on this machine (e.g. `gh repo clone danielvm-git/bigpowers-benchmark` if absent); never assume a hard-coded absolute path.
+Benchmark repo: `bigpowers-benchmark` — resolve the local clone on this machine; clone it from wherever your fork lives if absent. Never assume a hard-coded absolute path or a specific owner.

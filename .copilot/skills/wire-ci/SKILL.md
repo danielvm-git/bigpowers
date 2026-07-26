@@ -1,0 +1,374 @@
+---
+name: wire-ci
+model: sonnet
+description: "CI pipeline setup with bundled, forge-neutral templates and local validation. Detects the forge from the git remote, generates workflows for supported forges, and skips honestly for the rest. The CI equivalent of wire-observability."
+---
+
+# Wire CI
+
+> **HARD GATE (supported forges only)** — Do not ship a project without CI. Run this skill before first merge to main.
+>
+> On a forge bigpowers ships no templates for, this skill **is not a gate**: it reports the forge, explains what it cannot do, and exits 3. A gate that cannot run must not claim it did. See § Unsupported forges.
+>
+> **HARD GATE** — CI that is untestable locally will break every cycle. Always run `--validate` after generating workflows and `--dry-run` before pushing.
+
+Generate, validate, and test CI workflows. Detects the forge and project type, copies a **bundled** template, and verifies locally before anything reaches CI.
+
+## Forge resolution
+
+`scripts/lib/detect-forge.sh` resolves the forge, first match wins: `BIGPOWERS_FORGE` env var → `forge:` in `specs/forge.yaml` → the `origin` remote URL → `unknown`.
+
+```bash
+bash scripts/wire-ci.sh --detect     # report forge + stack, write nothing
+bash scripts/wire-ci.sh --plan       # show the template that would be used
+bash scripts/wire-ci.sh --apply      # write the workflow
+```
+
+GitHub ships templates (`.github/workflows/`). GitLab, Bitbucket, Codeberg, and Gitea are detected but **unsupported** — `--apply` writes nothing and exits 3.
+
+## Template source — configurable, bundled by default
+
+Templates live in `docs/templates/ci/<forge>/` **inside the bigpowers package**, so there is no network dependency on any third party's repository. Override with `BIGPOWERS_CI_TEMPLATES=/path/to/your/templates`, laid out as `<root>/<forge>/test-build-release-<stack>.yml`.
+
+## What this sets up
+
+1. **Test Build Release workflow** — lint → test → build → release in one `needs:` chain
+2. **`--validate` mode** — YAML syntax, workflow permissions, required secrets, common pitfalls
+3. **`--dry-run` mode** — runs workflows locally via `act` before push
+4. **Failure pattern documentation** — see the table below
+
+Deploy workflows are **not** bundled: they are platform-specific. See [REFERENCE.md](REFERENCE.md) for a worked example.
+
+## Process
+
+### 1. Detect forge and stack
+
+```bash
+bash scripts/wire-ci.sh --detect
+```
+
+Stack detection reads the project root:
+
+| Manifest | Stack | Bundled template |
+|----------|-------|------------------|
+| `Cargo.toml` | Rust | `test-build-release-rust.yml` |
+| `package.json` | Node | `test-build-release-node.yml` |
+| `pyproject.toml` / `setup.py` | Python | `test-build-release-python.yml` |
+| `go.mod` | Go | `test-build-release-go.yml` |
+
+No recognized manifest → exit 3 with the list of manifests it looked for. Do not guess.
+
+### 2. Apply the template
+
+```bash
+bash scripts/wire-ci.sh --apply
+```
+
+**Do not rename the workflow `name:` field** — deploy listens for `"Test Build Release"`.
+
+Edit placeholders after copying: language versions, `APP_TYPE`, `SITE_URL`.
+
+### 3. Unsupported forges
+
+`--apply` writes nothing and exits 3. Your options, in the order the runner prints them:
+
+- point `BIGPOWERS_CI_TEMPLATES` at templates for your forge
+- pin `forge: github` in `specs/forge.yaml` if the remote is misdetected
+- write the CI config by hand
+
+Contributing a `docs/templates/ci/gitlab/` set and adding `gitlab` to `FORGE_SUPPORTED_LIST` is the natural next slice — per-forge command mapping (`gh pr checks` → `glab ci status`) is not implemented yet.
+
+### 4. Validate workflows (`--validate`)
+
+See [REFERENCE.md](REFERENCE.md). Exit codes: `0` clean, `1` YAML syntax errors, `2` warnings only.
+
+### 5. Dry-run workflows (`--dry-run`)
+
+See [REFERENCE.md](REFERENCE.md).
+
+> **act** runs workflows in a local Docker environment — the most accurate pre-push validation.
+> **gh workflow run** sends the workflow to GitHub but does not execute locally.
+
+### 6. Document common CI failure patterns
+
+| Failure | Cause | Fix |
+|---------|-------|-----|
+| `npm publish` fails | `NPM_TOKEN` not set as repo secret | Add `NPM_TOKEN` to repo secrets |
+| `semantic-release` fails on push | Missing `permissions: contents: write` | Add it to the release job |
+| `cargo publish` auth fail | `CARGO_REGISTRY_TOKEN` not set | Add token to env or `~/.cargo/config.toml` |
+| `go vet` fails | Go version mismatch | Use `go-version-file: go.mod` |
+| `cargo clippy` errors | New nightly lints | Pin the toolchain; `cargo clippy --fix` |
+| `act` not found | Docker not running or act missing | `brew install act`; `docker ps` |
+| Hardcoded Node version stale | `.nvmrc` exists but workflow hardcodes | Use `node-version-file: .nvmrc` |
+| Deploy never runs | TBR workflow renamed | Keep `name: Test Build Release` |
+| Release rebuilds binary | Artifact not downloaded | `release` must `download-artifact` from `build` |
+
+## Verify
+
+→ verify: `bash scripts/wire-ci.sh --self-test`
+→ verify: `test -f docs/templates/ci/github/test-build-release-node.yml && test -f scripts/lib/detect-forge.sh`
+→ verify: `grep -q wire-ci SKILL-INDEX.md`
+
+---
+
+# Wire Ci — Reference
+
+## Navigation
+
+| Lines | Section |
+|-------|---------|
+| 1 | Title |
+| 3–14 | Navigation |
+| 16–38 | Examples |
+| 40–52 | Options |
+| 54–62 | Integration with build-epic |
+| 64–270 | Reference blocks 1–8 |
+
+## Examples
+
+### Create CI for a Go project (TBR + optional deploy)
+
+```bash
+# Resolve forge + stack, then apply the bundled template
+bash scripts/wire-ci.sh --detect
+bash scripts/wire-ci.sh --apply
+
+wire-ci --validate
+wire-ci --dry-run
+```
+
+To use your own org templates instead of the bundled ones:
+
+```bash
+BIGPOWERS_CI_TEMPLATES=/path/to/your/templates bash scripts/wire-ci.sh --apply
+```
+
+### Create CI for a CLI tool (TBR only, no deploy)
+
+```bash
+bash scripts/wire-ci.sh --apply
+# Edit release job to download build artifact — see big-release dogfood
+# CLI/library repos: delete deploy.yml; the release job is terminal.
+
+wire-ci --validate
+```
+
+### Validate existing workflows (no generation)
+
+```bash
+wire-ci --validate --check-only
+```
+
+---
+
+## Options
+
+| Flag | Description |
+|------|-------------|
+| `--validate` | Check YAML syntax, permissions, secrets, common pitfalls |
+| `--dry-run` | Run workflows locally via `act` or dispatch via `gh` |
+| `--check-only` | Only validate, do not generate new files |
+| `--type <type>` | Force project type (skip auto-detection) |
+| `--force` | Overwrite existing workflow files |
+| `--no-deploy` | Skip deploy.yml even for hosted stacks |
+
+---
+
+## Integration with build-epic
+
+When `wire-ci` is used as part of `build-epic`:
+
+1. **During develop-tdd**: If the task modifies `.github/workflows/`, run `wire-ci --validate` as a CI dry-run sub-step
+2. **During release-branch**: After push, run `gh run list --limit 1 --branch main --json status,conclusion` to verify CI passes
+
+---
+
+## Reference block 1 — test-build-release.yml (Go, excerpt)
+
+```yaml
+name: Test Build Release
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pipeline-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0  # v7.0.0
+      - uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16  # v6.5.0
+        with:
+          go-version: '1.22'
+          cache: true
+      - uses: golangci/golangci-lint-action@55c2c1448f86e01eaae002a5a3a9624417608d84  # v6.5.2
+        with:
+          version: v1.64.8
+
+  test:
+    needs: [lint]
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0  # v7.0.0
+      - uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16  # v6.5.0
+        with:
+          go-version: '1.22'
+          cache: true
+      - run: go vet ./...
+      - run: go test ./... -count=1
+
+  build:
+    needs: [test]
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0  # v7.0.0
+      - uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16  # v6.5.0
+        with:
+          go-version: '1.22'
+          cache: true
+      - run: go build ./...
+      - run: jq -n --arg sha "${{ github.sha }}" '{sha: $sha}' > deploy-meta.json
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
+        with:
+          name: deploy-meta
+          path: deploy-meta.json
+
+  release:
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    needs: [build]
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0  # v7.0.0
+        with:
+          fetch-depth: 0
+      - run: npx semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
+
+---
+
+## Reference block 2 — deploy.yml (generic web app, excerpt)
+
+```yaml
+name: Deploy
+on:
+  workflow_run:
+    workflows: ["Test Build Release"]
+    types: [completed]
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+env:
+  SITE_URL: "https://CHANGE-ME.example.com"
+
+jobs:
+  deploy:
+    if: >
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.head_branch == 'main'
+    runs-on: ubuntu-22.04
+    environment: production
+    steps:
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c  # v8.0.1
+        with:
+          name: deploy-meta
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: ${{ github.event.workflow_run.id }}
+          path: deploy-meta
+      # Placeholder deploy step — bigpowers ships no deploy templates and pins
+      # no third-party action. Substitute your platform's own step here, or drop
+      # the deploy job entirely for CLI and library repos. Pin whatever action
+      # you choose to a full commit SHA rather than a tag. (GH #104)
+      - name: Deploy
+        run: |
+          echo "Replace this step with your platform's deploy command."
+          echo "commit=$(jq -r .sha deploy-meta/deploy-meta.json)"
+          exit 1
+      - name: Health check
+        run: |
+          curl -sf "${{ env.SITE_URL }}" || exit 1
+```
+
+---
+
+## Reference block 3 — CLI dogfood (big-release pattern)
+
+```yaml
+  build:
+    needs: [test]
+    steps:
+      - run: make build
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
+        with:
+          name: big-release-${{ github.sha }}
+          path: bin/big-release
+
+  release:
+    needs: [build]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    steps:
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c  # v8.0.1
+        with:
+          name: big-release-${{ github.sha }}
+          path: bin
+      - run: make release   # cross-compile assets only; host binary from artifact
+      - run: big-release release --verbose
+```
+
+No `deploy.yml` — CLI publishes via the release job.
+
+---
+
+## Reference block 4 — validate script
+
+```bash
+for f in .github/workflows/*.yml .github/workflows/*.yaml; do
+  [ -f "$f" ] || continue
+  python3 -c "import yaml; yaml.safe_load(open('$f'))" || echo "FAIL: $f has YAML syntax errors"
+done
+
+for f in .github/workflows/test-build-release.yml; do
+  if grep -q "permissions:" "$f"; then
+    echo "OK: $f has permissions block"
+  else
+    echo "WARNING: $f missing permissions block"
+  fi
+done
+
+if grep -q 'workflows: \["Test Build Release"\]' .github/workflows/deploy.yml 2>/dev/null; then
+  if ! grep -q 'name: Test Build Release' .github/workflows/test-build-release.yml; then
+    echo "WARNING: deploy.yml listens for Test Build Release but TBR name may differ"
+  fi
+fi
+```
+
+---
+
+## Reference block 5 — dry-run
+
+```bash
+if command -v act &>/dev/null; then
+  act push --dry-run -W .github/workflows/test-build-release.yml
+elif command -v gh &>/dev/null; then
+  gh workflow run test-build-release.yml --ref "$(git branch --show-current)"
+else
+  echo "Install act or gh for dry-run"
+fi
+```

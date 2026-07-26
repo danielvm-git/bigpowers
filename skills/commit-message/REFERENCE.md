@@ -78,4 +78,4 @@ This table reflects the **out-of-the-box** behavior of `semantic-release` using 
 
 - [Conventional Commits — specification](https://www.conventionalcommits.org/en/v1.0.0/#specification)
 - [semantic-release — README (commit format & flow)](https://github.com/semantic-release/semantic-release#commit-message-format)
-- Fork pointer: [semantic-release-baby](https://github.com/danielvm-git/semantic-release-baby) (automation and docs align with upstream semantic-release)
+- Automation and docs align with [semantic-release](https://github.com/semantic-release/semantic-release) upstream; a fork may be substituted without changing this guidance.

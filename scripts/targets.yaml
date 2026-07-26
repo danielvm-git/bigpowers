@@ -47,7 +47,9 @@ targets:
   - id: cline
     name: Cline
     tier: default_on
-    skill: null
+    skill:
+      adapter: cline
+      output: .cline/skills
     context:
       adapter: cline
       mode: native
@@ -164,7 +166,9 @@ targets:
     # story: e68s02
     name: Qwen (Alibaba)
     tier: opt_in
-    skill: null
+    skill:
+      adapter: qwen
+      output: .qwen/skills
     context:
       adapter: qwen
       mode: symlink
@@ -172,17 +176,6 @@ targets:
     contracts:
       - agents_md_exists
       - qwen_hooks_manifest
-    name: Kilocode
-    tier: opt_in
-    skill:
-      adapter: kilocode
-      output: .kilocode/rules
-    context:
-      adapter: kilocode
-      mode: copy
-      file: AGENTS.md
-    contracts:
-      - agents_md_exists
 
   # Wave D (e37s12)
   - id: continue
@@ -303,3 +296,32 @@ targets:
       file: AGENTS.md
     contracts:
       - windsurf_hooks_manifest
+
+  # Registered by BUG-2026-07-26-null-skill-adapters-install-nothing: both ship
+  # a render_skill() adapter and an install function, but had no registry row,
+  # so srp-engine never rendered for them and install found nothing.
+  - id: opencode
+    name: OpenCode
+    tier: opt_in
+    skill:
+      adapter: opencode
+      output: .opencode/skills
+    context:
+      adapter: opencode
+      mode: symlink
+      file: AGENTS.md
+    contracts:
+      - agents_md_exists
+
+  - id: copilot
+    name: Copilot CLI
+    tier: opt_in
+    skill:
+      adapter: copilot
+      output: .copilot/skills
+    context:
+      adapter: copilot
+      mode: copy
+      file: AGENTS.md
+    contracts:
+      - agents_md_exists

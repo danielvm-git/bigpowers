@@ -26,6 +26,13 @@ GOLDEN_GATES=(
   # scripts/test-*.sh is absent from this list.
   "g13-test-orphans-selftest:bash scripts/golden-g13-test-orphans.sh --self-test:false"
   "g13-test-orphans:bash scripts/golden-g13-test-orphans.sh:false"
+  # An adapter that defines render_skill() must be dispatched by targets.yaml,
+  # or sync renders nothing for it while its install still claims success.
+  # docs/WORKFLOWS.md is generated from specs/workflows/*.yaml; a diagram nothing
+  # regenerates is a diagram that lies (see specs/archive/assets/README.md).
+  "workflow-diagrams-fresh:bash scripts/generate-workflow-diagrams.sh --check:false"
+  "g14-adapter-dispatch-selftest:bash scripts/golden-g14-adapter-dispatch.sh --self-test:false"
+  "g14-adapter-dispatch:bash scripts/golden-g14-adapter-dispatch.sh:false"
   "target-contracts:bash scripts/test-target-contracts.sh:false"
   # Registry-driven replacements for the 25 hand-written per-target scripts.
   "install-hub:bash scripts/test-install-hub.sh:false"

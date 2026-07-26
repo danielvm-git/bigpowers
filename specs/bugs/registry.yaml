@@ -428,6 +428,13 @@ bugs:
     files_changed: "scripts/land-branch.sh, scripts/lib/land-branch-push.sh, tests/test-land-branch-protected.sh"
     approach: "Option A — auto-fallback to recovery branch + gh pr create on protected-branch rejection"
     risk_level: "medium"
+  - id: BUG-2026-07-26-null-skill-adapters-install-nothing
+    status: fixed
+    severity: high
+    scope: install
+    title: "Qwen, Cline, OpenCode and Copilot install zero skills — skill: null means their adapters are never dispatched"
+    file: bugs/BUG-2026-07-26-null-skill-adapters-install-nothing.md
+    risk_level: "high"
   - id: BUG-2026-07-26-planning-sot-drift
     status: fixed
     severity: high

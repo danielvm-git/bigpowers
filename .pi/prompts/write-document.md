@@ -246,7 +246,7 @@ Detect from CLAUDE.md or project LICENSE file.
 ```markdown
 ## Credits
 
-Built with [bigpowers](https://github.com/danielvm-git/bigpowers).
+Built with [bigpowers](https://www.npmjs.com/package/bigpowers).
 ```
 
 ## Verify
