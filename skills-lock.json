@@ -303,7 +303,7 @@
     },
     "security-review": {
       "description": ">",
-      "sha256": "0265010d9bd22e27",
+      "sha256": "3d046f443689fc1e",
       "path": "skills/security-reviewSKILL.md"
     },
     "seed-conventions": {
@@ -333,7 +333,7 @@
     },
     "smoke-test": {
       "description": "\"Post-deploy health-check against a live URL. Validates HTTP status, response content, and critical endpoints. Runnable standalone OR as the final step of the deploy skill.\"",
-      "sha256": "f75e9e57d4003209",
+      "sha256": "050170d66ada581e",
       "path": "skills/smoke-testSKILL.md"
     },
     "spike-prototype": {

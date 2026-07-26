@@ -77,7 +77,7 @@ Part of **★ VERIFY ★**: `verify-work` → `validate-contracts` → `smoke-te
 
 ## Verify
 
-→ verify: `test -x scripts/run-smoke.sh && grep -q 'run-smoke.sh' skills/smoke-test/SKILL.md && grep -qv 'See \[REFERENCE.md\]' skills/smoke-test/SKILL.md && echo OK`
+→ verify: `test -x scripts/run-smoke.sh && grep -q 'run-smoke.sh' skills/smoke-test/SKILL.md && ! grep -q 'See \[REFERENCE.md\](REFERENCE.md)$' skills/smoke-test/SKILL.md && echo OK`
 
 ---
 
