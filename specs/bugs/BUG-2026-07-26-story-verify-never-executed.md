@@ -1,11 +1,16 @@
 ---
 bug_id: BUG-2026-07-26-story-verify-never-executed
-status: open
+status: fixed
 severity: critical
 scope: verification-gates
 title: Story-level verify: commands in epic.yaml are never executed
 github_issue: 106
 ---
+
+> **Resolved 2026-07-26.** `run-story-verify.sh` now executes every `done`
+> story's verify and gates CI. Result went from 24/34 failing to
+> **43 PASS, 0 FAIL**. Root causes 2–4 fixed in separate commits. Evidence
+> below is the state at diagnosis, kept for the record.
 
 # BUG: story-level `verify:` is presence-checked, never executed
 

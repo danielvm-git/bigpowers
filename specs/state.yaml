@@ -4,21 +4,25 @@ active_story: null
 bug_id: BUG-2026-07-26-story-verify-never-executed
 bigpowers_version: 2.86.2
 bug_cycle:
-  current_step: 3
+  current_step: 5
   completed_steps:
     - 1
     - 2
+    - 3
+    - 4
 handoff:
-  next_skill: develop-tdd
-  context: 'Fixing #106 (story verify never executed) and #104 (forge lock-in),
+  next_skill: release-branch
+  context: '#106 and #104 fixed on fix/106-104-story-verify-and-forge-neutrality;
 
-    branch fix/106-104-story-verify-and-forge-neutrality. Bug file:
+    Preflight green (14/14 gates, story-verify 43 PASS 0 FAIL). Ready to open a
 
-    specs/bugs/BUG-2026-07-26-story-verify-never-executed.md. Track A (#99/#96)
+    PR. #104 ships slice (2)+(4) only — per-forge command mapping and GitLab
 
-    handoff cleared: skill-verify is blocking in golden-suite.yml:41 — the
+    templates remain open, so keep #104 open after merge. Follow-up: make
 
-    continue-on-error flip it described is already done.
+    sync-skills.sh regeneration atomic (it rm -rf''s .pi/.gemini, so a
+
+    concurrent git add -A drops 288 tracked files).
 
     '
   epic: null
