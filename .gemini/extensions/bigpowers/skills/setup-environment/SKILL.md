@@ -1,0 +1,40 @@
+---
+name: setup-environment
+model: haiku
+description: "Pre-install dependencies and configure tools before development work begins. Use at session start on a fresh clone, before kickoff-branch, or when user says setup environment or install deps."
+disable-model-invocation: true
+---
+
+# Setup Environment
+> **HARD GATE** — **HARD GATE** — Environment setup must be idempotent and reproducible. If setup fails, provide clear error messages and remediation steps. Do NOT assume prior state.
+
+
+Idempotent prep so BUILD phase commands succeed on first run.
+
+## Checklist
+
+1. Read `CLAUDE.md` / `CONVENTIONS.md` for required runtimes and commands.
+2. Verify runtime versions (`node -v`, `swift --version`, etc.).
+3. Install dependencies (`npm ci`, `bundle install`, etc.) — prefer lockfile installs.
+4. Copy `.env.example` → `.env` if documented; never commit secrets.
+5. Run smoke: lint + one fast test or `--version` on key tools.
+6. Record versions in `specs/state.yaml` under Environment.
+
+## BCP Plus Counter (optional)
+
+The `big-counter` tool is an optional dependency for BCP Plus 13-dimension story sizing:
+
+```bash
+# Install from PyPI (recommended)
+pip install big-counter
+
+# Or from npm
+npm install -g big-counter
+```
+
+Verify the install: `big-counter --version`
+Skip if BCP Plus sizing is not needed for this project.
+
+## Verify
+
+→ verify: `test -f CLAUDE.md && grep -q Test CLAUDE.md`

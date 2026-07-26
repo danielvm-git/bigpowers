@@ -1,0 +1,54 @@
+---
+name: context7-mcp
+description: "Fetch current library docs via Context7 MCP instead of training data. Use when user asks about frameworks, APIs, setup, or code examples for React, Next.js, Prisma, etc."
+---
+
+# Context7 MCP
+
+> **HARD GATE** — Max **3** Context7 tool calls per user question (`resolve-library-id` + `query-docs` count toward the cap). On quota/rate-limit errors, emit an explicit **CONTEXT7_UNAVAILABLE** block — do NOT silently answer from training data.
+>
+> **HARD GATE** — Before HTTP fetch, check `bash scripts/lib/doc-fetch-cache.sh get "<libraryId>:<query>"`. Cache hit within TTL → use cached body (no round-trip). On ETag mismatch after conditional refresh, replace cache entry.
+
+## When to Use
+
+- Setup/configuration questions ("How do I configure Next.js middleware?")
+- Code involving libraries ("Write a Prisma query for…")
+- API references ("What are the Supabase auth methods?")
+- User mentions specific frameworks (React, Vue, Svelte, Express, Tailwind, etc.)
+
+## Bounded Retry (max 3x)
+
+| Attempt | Action |
+|---------|--------|
+| 1 | `resolve-library-id` → pick best match |
+| 2 | `query-docs` with selected `libraryId` |
+| 3 | Retry `query-docs` once with refined query (narrower scope) |
+
+After 3 failures, stop and print:
+
+```
+CONTEXT7_UNAVAILABLE
+Reason: <quota|rate-limit|no-match|timeout>
+Action: Ask user to retry later, paste official docs URL, or run `bts docs <lib>`.
+Do NOT substitute training-data answers without labeling them UNVERIFIED.
+```
+
+## Fetch Cache (ETag-revalidated)
+
+1. **Cache key:** `"<libraryId>:<normalized-query>"` (lowercase, trimmed).
+2. **Read:** `bash scripts/lib/doc-fetch-cache.sh get "<key>"` — exit 0 → use cached body.
+3. **Miss / stale:** call `query-docs`; store via `doc-fetch-cache.sh put`.
+4. **TTL:** 300s default (`DOC_CACHE_TTL`). Stale entries refresh on next fetch; honor `ETag` when MCP returns it.
+
+`bts docs <lib>` shares the same cache helper when invoked from this skill.
+
+## Process
+
+1. `resolve-library-id` with `libraryName` + full user `query`.
+2. Select match: name similarity, reputation, benchmark score; prefer version-specific IDs when user names a version.
+3. `query-docs` with `libraryId` + specific question (one concept per call).
+4. Answer using fetched docs; cite library/version when relevant.
+
+## Verify
+
+→ verify: `test -f scripts/lib/doc-fetch-cache.sh`
