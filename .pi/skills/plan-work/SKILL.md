@@ -108,11 +108,23 @@ Writes: state.yaml handoff.next_skill = kickoff-branch
 | Lines | Section |
 |-------|---------|
 | 1 | Title |
-| 3–14 | Navigation |
-| 16–38 | Output file formats |
-| 40–71 | Plan template |
-| 73–91 | Verify step format rules |
-| 93–131 | Sub-operations (risk, define-success, zoom-out, slopcheck, delta tags) |
+| 3–25 | Navigation |
+| 26–27 | Output file formats |
+| 28–31 | Story spec: `specs/epics/<capsule>/eNNsYY-<slug>.md` |
+| 32–61 | Task checklist: `specs/epics/<capsule>/eNNsYY-tasks.yaml` |
+| 62–64 | Plan template |
+| 65–71 | Story [X.Y]: [title] — Implementation Steps |
+| 72–77 | Steps |
+| 78–85 | Verification Script (Step-by-Step) |
+| 86–89 | Out of scope |
+| 90–94 | Risks |
+| 95–114 | Verify step format rules |
+| 115–116 | Sub-operations |
+| 117–127 | Risk Assignment Heuristics |
+| 128–143 | Requirement delta tags (e45s29) |
+| 144–152 | Define Success |
+| 153–161 | Zoom-Out Check |
+| 162–169 | Slopcheck |
 
 ## Output file formats
 

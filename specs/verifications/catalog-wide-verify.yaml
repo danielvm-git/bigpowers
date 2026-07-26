@@ -1,0 +1,113 @@
+# story: e37s05
+story_id: catalog-wide
+scope: whole skill set + all four cycles landed 2026-07-26
+verified_at: "2026-07-26T00:00:00Z"
+verifier: verify-work
+base_commit: e439c033
+branch: verify/whole-skillset
+
+phases:
+  preflight:
+    passed: true
+    note: "run twice — 33/33 before the reference-nav gate was added, 34/34 after"
+  build:
+    passed: true
+    command: "bash scripts/sync-skills.sh"
+  lint:
+    passed: true
+    command: "bash scripts/check-skill-size.sh"
+    result: "ALL within cap"
+  tests:
+    passed: true
+    command: "bash scripts/run-verification-gates.sh"
+    result: "34/34 deterministic gates"
+  terminal_verdict:
+    command: "bash scripts/run-verification-gates.sh && bash scripts/trace-stories.sh --strict"
+    exit_code: 0
+    result: "34/34 passed; Combined verdict PASS; TRACE_EXIT=0"
+    note: "single contiguous run — uat2.log"
+  security:
+    passed: true
+    note: >-
+      Path-traversal rejection asserted for all 19 rendering adapters
+      (test-adapter-render.sh: 63/63, 19 'rejects path traversal', 0 escapes).
+  blind_spots:
+    passed: true
+    high: 0
+    medium: 1144
+    low: 115
+    note: "HIGH blocks the gate; 0 found. MEDIUM are double-tags on files that legitimately implement two stories."
+  completeness_critic:
+    blocker: 0
+    warning: 1
+    filled: 1
+    note: "the single WARNING is active_story: null — expected for a catalog-wide pass, not a story cycle"
+
+# Every claim made across the four cycles, re-checked empirically rather than
+# taken from the earlier session summaries.
+claims_verified:
+  catalog_integrity:
+    skill_dirs: 80
+    with_skill_md: 80
+    with_model_frontmatter: 80
+    with_name_and_description: 80
+    size_caps: "all within cap"
+  gates:
+    g12_status_consistency: {present: true, wired: true, self_test: PASS}
+    g13_test_orphans: {present: true, wired: true, self_test: PASS}
+    g14_adapter_dispatch: {present: true, wired: true, self_test: PASS}
+  test_collapse:
+    per_target_hub_scripts_remaining: 0
+    per_target_adapter_scripts_remaining: 0
+    test_scripts_total: 13
+    test_scripts_orphaned: 0
+    test_adapters_assertions: 111
+    test_adapters_adapters_covered: 24
+    test_install_hub_assertions: 89
+    test_adapter_render_assertions: 63
+  registry:
+    targets: 24
+    duplicate_ids: none
+    qwen_identity: "Qwen (Alibaba) / adapter qwen — no longer parsing as Kilocode"
+    rendering_adapters_undispatched: 0
+  install_repair:
+    qwen_skills: 80
+    cline_skills: 80
+    opencode_skills: 80
+    copilot_skills: 80
+    install_dry_run_warnings: 0
+  agnosticism:
+    owner_refs_in_skills: 0
+    foreign_project_refs_in_skills: 0
+    machine_absolute_paths: 0
+  doctrine:
+    open_bugs: 0
+    hardcoded_skill_count_claims: 0
+    tombstone_resolves: true
+    workflows_doc_fresh: true
+    reference_nav_fresh: true
+
+# Found by this pass, not by the four cycles.
+gaps_found_and_closed:
+  - id: undocumented-naming-exceptions
+    finding: >-
+      context7-mcp and generate-allure-report deviate from the two-word verb-noun
+      rule with no row in CONVENTIONS.md § Skill Naming, which states "any new
+      exception requires an entry in this table before the skill is published".
+    fix: "both documented with rationale in CONVENTIONS.md"
+  - id: stale-reference-nav-tables
+    finding: >-
+      All 10 REFERENCE.md line-numbered nav tables were inaccurate; 4 cited a
+      line past end-of-file. Pre-existing at session start (verified against
+      049c7c95) — not introduced by this session's edits.
+    fix: >-
+      scripts/generate-reference-nav.sh regenerates them from the files' own
+      headings, iterating to a fixed point because rewriting the table shifts the
+      lines it reports. Wired as the reference-nav-fresh gate.
+
+gaps:
+  closed: true
+
+known_issues_not_defects:
+  - "skills/publish-package/REFERENCE.md and skills/smoke-test/REFERENCE.md have no trailing newline, so wc -l undercounts them by one. Nav tables are correct; only a naive line-count check disagrees."
+  - "specs/assets/ drifted diagrams are archived under specs/archive/assets/ with a written record; docs/WORKFLOWS.md is the generated replacement."

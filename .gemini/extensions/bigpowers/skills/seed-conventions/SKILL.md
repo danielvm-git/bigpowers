@@ -129,16 +129,26 @@ Emit these fences in `AGENTS.md` (and therefore `CLAUDE.md` symlink) from `docs/
 
 | Lines | Section |
 |-------|---------|
-| 1–4 | Title + story tags |
-| 6–22 | Navigation (this table) |
-| 24–35 | AGENTS.md spine |
-| 37–76 | Agent config template |
-| 78–85 | opencode.json template |
-| 87–96 | Aider bridge |
-| 98–108 | Codex CLI wiring |
-| 110–118 | CONVENTIONS.md |
-| 120–122 | Stack profile fragments |
-| 124–153 | Local tool wiring |
+| 1 | Title |
+| 5–29 | Navigation |
+| 30–53 | Fenced markers (e45s21) |
+| 54–65 | AGENTS.md spine (Reach Template — e37s01) |
+| 66–77 | Agent config template (legacy — prefer AGENTS.md spine) |
+| 78–81 | Project |
+| 82–91 | Commands |
+| 92–94 | Architecture |
+| 95–98 | Conventions |
+| 99–104 | Never |
+| 105–114 | Agent Rules |
+| 115–123 | opencode.json template |
+| 124–133 | Aider — `.aider.conf.yml` bridge (e37s03) |
+| 134–146 | Codex CLI — project-local `.codex/config.toml` + AGENTS.md (e37s14) |
+| 147–156 | CONVENTIONS.md |
+| 157–160 | Stack profile fragments |
+| 161–164 | Local tool wiring (optional interview step 8) |
+| 165–173 | Cursor — project-local `.cursor/rules` symlink |
+| 174–187 | OpenCode — project-local `opencode.json` + `AGENTS.md` |
+| 188–190 | When to offer |
 
 ## Fenced markers (e45s21)
 

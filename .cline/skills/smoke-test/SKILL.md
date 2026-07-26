@@ -89,11 +89,15 @@ Part of **★ VERIFY ★**: `verify-work` → `validate-contracts` → `smoke-te
 | Lines | Section |
 |-------|---------|
 | 1 | Title |
-| 3–12 | Navigation |
-| 14–31 | Runner script |
-| 33–42 | Configuration reference |
-| 44–53 | Verification |
-| 55–160 | Reference blocks 1–5 |
+| 3–17 | Navigation |
+| 18–34 | Runner script |
+| 35–46 | Configuration reference |
+| 47–55 | Verification |
+| 56–89 | Reference block 1 |
+| 90–107 | Reference block 2 |
+| 108–122 | Reference block 3 |
+| 123–159 | Reference block 4 |
+| 160–177 | Reference block 5 |
 
 ## Runner script
 

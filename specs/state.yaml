@@ -21,6 +21,10 @@ metrics:
       total_seconds: 0
       avg_seconds: 0
       _start: '2026-07-26T19:03:50Z'
+    verify-work:
+      calls: 1
+      total_seconds: 1052.0
+      avg_seconds: 1052.0
 release:
   ci_verified: true
   last_commit: 2ca3448b

@@ -5,11 +5,21 @@
 | Lines | Section |
 |-------|---------|
 | 1 | Title |
-| 3–18 | Navigation |
-| 20–28 | Options |
-| 30–60 | Examples |
-| 62–72 | Integration with release-branch |
-| 74–252 | Reference blocks 1–8 |
+| 3–23 | Navigation |
+| 24–35 | Options |
+| 36–37 | Examples |
+| 38–51 | Publish an npm package |
+| 52–59 | Publish a Rust crate |
+| 60–69 | Missing token scenario |
+| 70–80 | Integration with release-branch |
+| 81–121 | Reference block 1 |
+| 122–143 | Reference block 2 |
+| 144–162 | Reference block 3 |
+| 163–180 | Reference block 4 |
+| 181–195 | Reference block 5 |
+| 196–230 | Reference block 6 |
+| 231–248 | Reference block 7 |
+| 249–260 | Reference block 8 |
 
 ## Options
 
