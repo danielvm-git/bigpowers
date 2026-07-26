@@ -56,7 +56,10 @@ jobs:
       # is invisible here unless we assert POSIX-compatible constructs directly.
       - name: Assert runner is bash 3.2 compatible
         run: |
-          if grep -nE '^\s*(mapfile|readarray)\b|declare -A' scripts/run-skill-verify.sh; then
+          # Strip comment lines first — the script documents these constructs
+          # by name in its own comments, which must not trip the guard.
+          if grep -vE '^[[:space:]]*#' scripts/run-skill-verify.sh \
+             | grep -nE '(^|[;&|[:space:]])(mapfile|readarray)[[:space:]]|declare[[:space:]]+-A'; then
             echo "::error::bash 4+ construct in run-skill-verify.sh — breaks macOS bash 3.2"
             exit 1
           fi
