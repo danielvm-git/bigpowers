@@ -33,7 +33,7 @@ Look for `// story: X.Y` or `# story: X.Y` comments in source files and tests:
 grep -rn "story: " . --include="*.ts" --include="*.js" --include="*.py" --include="*.sh" | grep -v node_modules
 ```
 
-→ verify: `grep -rn "story: " . --include="*.ts" --include="*.sh" | wc -l`
+→ verify: `[ "$(grep -rl "story: " . --include="*.ts" --include="*.sh" --include="*.py" 2>/dev/null | wc -l | tr -d " ")" -gt 0 ]`
 
 ### 3. Build the matrix
 

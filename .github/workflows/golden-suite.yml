@@ -43,11 +43,21 @@ jobs:
     timeout-minutes: 20
     permissions:
       contents: read
-    # Advisory until #96 merges (fail-open corpus + runner harden).
-    # Follow-up on this branch: drop continue-on-error after #96 is on main.
-    continue-on-error: true
+    # Blocking as of #96 landing on main (was advisory during the parallel
+    # #96/#99 branches). This is the only place skill-verify gates a PR.
     steps:
       - uses: actions/checkout@v6
 
-      - name: Run skill verify (advisory)
+      - name: Run skill verify
         run: bash scripts/run-skill-verify.sh
+
+      # Regression guard for BUG-2026-07-02T103911 class: macOS ships bash 3.2,
+      # which lacks mapfile/declare -A. CI runs bash 5, so a 3.2-only breakage
+      # is invisible here unless we assert POSIX-compatible constructs directly.
+      - name: Assert runner is bash 3.2 compatible
+        run: |
+          if grep -nE '^\s*(mapfile|readarray)\b|declare -A' scripts/run-skill-verify.sh; then
+            echo "::error::bash 4+ construct in run-skill-verify.sh — breaks macOS bash 3.2"
+            exit 1
+          fi
+          echo "OK: no bash 4+ only constructs"

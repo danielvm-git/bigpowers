@@ -88,7 +88,7 @@
     },
     "diagnose-root": {
       "description": "Run 4-phase root cause analysis — reproduce, isolate, hypothesize, verify. Use when a bug is confirmed but root cause is unclear, after investigate-bug, or when user mentions root cause analysis.",
-      "sha256": "fe1be0325dca7c89",
+      "sha256": "29ae28bdaf599530",
       "path": "skills/diagnose-rootSKILL.md"
     },
     "diagnose-stall": {
@@ -203,7 +203,7 @@
     },
     "migrate-spec": {
       "description": "Detect GSD, spec-kit, or BMAD spec artifacts and transform them into bigpowers YAML layout (state.yaml, release-plan.yaml, epics/, requirements/, plans/, ADRs). Use when migrating foreign spec docs.",
-      "sha256": "a9d4bfb518421b13",
+      "sha256": "7eff81666ba5b9c0",
       "path": "skills/migrate-specSKILL.md"
     },
     "model-domain": {
@@ -238,7 +238,7 @@
     },
     "plan-work": {
       "description": "\"PLANNING SPINE STEP 3 of 3 — Plan the work: write detailed implementation tasks into the active epic capsule (specs/epics/eNN-slug/). Produces countable-story-format .md specs and runnable -tasks.yaml files. Use after slice-tasks (step 2). Not a substitute for scope-work (step 1) or slice-tasks (step 2).\"",
-      "sha256": "2cccc734ae9781ab",
+      "sha256": "e5d751ca5e928e2d",
       "path": "skills/plan-workSKILL.md"
     },
     "publish-package": {
@@ -358,7 +358,7 @@
     },
     "trace-requirement": {
       "description": "Link story IDs from specs/release-plan.yaml + epic capsule directories to the implementing code and tests. Produces specs/TRACEABILITY_LATEST.md. Use when you want to verify coverage of a release plan, audit which stories are implemented, or find \"dark\" stories with no code.",
-      "sha256": "1e77081b27b86cf3",
+      "sha256": "f825b8f5849b963c",
       "path": "skills/trace-requirementSKILL.md"
     },
     "using-bigpowers": {

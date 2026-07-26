@@ -58,7 +58,7 @@ List every artifact found matching the detected framework. Present the list to t
 
 See [REFERENCE.md](REFERENCE.md) — `Detected: GSD...`
 
-→ verify: `find . -maxdepth 4 \( -name "ROADMAP.md" -o -name "spec.md" -o -name "prd.md" -o -name "REQUIREMENTS.md" \) 2>/dev/null | grep -v ".git" | head -15`
+→ verify: `test -d specs && test -w specs`
 
 ### Step 3 — Transform (one artifact at a time, show diffs)
 
@@ -94,9 +94,9 @@ See [REFERENCE.md — REQUIREMENTS_TRACE.yaml format](./REFERENCE.md#requirement
 
 > **HARD GATE** — Never overwrite an existing `specs/` file without explicit user confirmation. Merge into it if it exists; don't clobber.
 >
-> → verify: `git diff --name-only HEAD -- specs/ 2>/dev/null | head -20`
+> → verify: `git rev-parse --git-dir >/dev/null 2>&1 && test -d specs`
 
-→ verify: `ls specs/*.md 2>/dev/null | head -15`
+→ verify: `test -d specs && [ "$(ls specs/*.md specs/*.yaml 2>/dev/null | wc -l | tr -d " ")" -gt 0 ]`
 
 ### Step 4 — Generate state.yaml
 

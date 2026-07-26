@@ -84,7 +84,7 @@ After writing capsule tasks, suggest `kickoff-branch` (if not already on a featu
 
 ## Verify
 
-→ verify: `test -f scripts/lib/plan-consistency-check.sh && bash scripts/lib/plan-consistency-check.sh specs/epics/e45-quality-core/ 2>&1 | head -5`
+→ verify: `test -f scripts/lib/plan-consistency-check.sh && EPIC=$(ls -d specs/epics/*/ 2>/dev/null | grep -v archive | sort | head -1) && test -n "$EPIC" && bash scripts/lib/plan-consistency-check.sh "$EPIC" >/dev/null 2>&1`
 
 
 
