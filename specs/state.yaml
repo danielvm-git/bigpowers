@@ -1,19 +1,15 @@
-active_flow: fix_bug
+active_flow: null
 active_epic: null
 active_story: null
-bug_id: BUG-2026-07-26-planning-sot-drift
+bug_id: null
 bigpowers_version: 2.86.5
-bug_cycle:
-  current_step: 5
-  completed_steps:
-  - 1
-  - 2
-  - 3
-  - 4
+bug_cycle: null
 handoff:
-  next_skill: release-branch
-  context: BUG-2026-07-26-planning-sot-drift fixed and validated. G-12 gate wired; 16/16 deterministic
-    gates PASS; trace --strict exit 0. Ready to land fix/sot-drift-phase0.
+  next_skill: survey-context
+  context: 'Phase 0 + audit sweep landed (11b03e17, v2.86.5). 17/17 gates, all CI
+    green, 0 open bugs. Next: Phase 1 — collapse 25 duplicated per-target tests into
+    the registry-driven test-adapters.sh runner, and wire the 33 orphaned test-*.sh
+    into the gate list.'
   epic: null
 epic_cycle: null
 metrics:
@@ -26,8 +22,8 @@ metrics:
       avg_seconds: 0
       _start: '2026-07-26T19:03:50Z'
 release:
-  ci_verified: false
-  last_commit: parallel-tracks-92-91
-  last_epic: e79-agentic-ste
+  ci_verified: true
+  last_commit: 11b03e17
+  last_epic: e80-verify-arc-hardening
 git:
   branch: fix/sot-drift-phase0
