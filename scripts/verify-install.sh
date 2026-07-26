@@ -168,7 +168,19 @@ grep -q "'antigravity'" "$REPO_ROOT/bin/setup.js" && grep -q 'SUPPORTED_IDS' "$R
 grep -q "'agy'" "$REPO_ROOT/bin/setup.js" && ta_pass "setup.js: agy supported" || ta_fail "setup.js: agy not in SUPPORTED_IDS"
 grep -q "case 'antigravity'" "$REPO_ROOT/scripts/lib/install-helpers.js" && ta_pass "install-helpers: antigravity case" || ta_fail "install-helpers: missing antigravity case"
 grep -q "case 'agy'" "$REPO_ROOT/scripts/lib/install-helpers.js" && ta_pass "install-helpers: agy case" || ta_fail "install-helpers: missing agy case"
-! install_grep -q '\.gemini/extensions/bigpowers' <<< "$(sed -n '/install_agy/,/^}/p')" && ta_pass "source: agy avoids gemini extension path" || ta_fail "source: agy touches gemini extension path"
+# Scope this to install_agy's OWN body. The previous form piped a herestring into
+# install_grep(), which is `grep "$@" $(install_grep_paths)` — it always greps the
+# install files and ignores stdin, so the assertion actually searched every target.
+# install_gemini/install_claude legitimately use .gemini/extensions/bigpowers
+# (install-targets-a.sh:21,22,70), so the check could never pass. (#106)
+AGY_BODY="$(sed -n '/^install_agy()/,/^}/p' $(install_grep_paths) 2>/dev/null)"
+if [[ -z "$AGY_BODY" ]]; then
+  ta_fail "source: install_agy() body not found — assertion would pass vacuously"
+elif printf '%s' "$AGY_BODY" | grep -q '\.gemini/extensions/bigpowers'; then
+  ta_fail "source: agy touches gemini extension path"
+else
+  ta_pass "source: agy avoids gemini extension path"
+fi
 
 install_grep -q 'install_codex()' && ta_pass "source: install_codex()" || ta_fail "source: missing install_codex()"
 install_grep -q 'uninstall_codex()' && ta_pass "source: uninstall_codex()" || ta_fail "source: missing uninstall_codex()"

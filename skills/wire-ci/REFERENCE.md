@@ -16,19 +16,26 @@
 ### Create CI for a Go project (TBR + optional deploy)
 
 ```bash
-# Copy org templates
-cp ~/Developer/.github/workflow-templates/test-build-release-go.yml .github/workflows/test-build-release.yml
-cp ~/Developer/.github/workflow-templates/deploy-go.yml .github/workflows/deploy.yml
+# Resolve forge + stack, then apply the bundled template
+bash scripts/wire-ci.sh --detect
+bash scripts/wire-ci.sh --apply
 
 wire-ci --validate
 wire-ci --dry-run
 ```
 
+To use your own org templates instead of the bundled ones:
+
+```bash
+BIGPOWERS_CI_TEMPLATES=/path/to/your/templates bash scripts/wire-ci.sh --apply
+```
+
 ### Create CI for a CLI tool (TBR only, no deploy)
 
 ```bash
-cp ~/Developer/.github/workflow-templates/test-build-release-go.yml .github/workflows/test-build-release.yml
+bash scripts/wire-ci.sh --apply
 # Edit release job to download build artifact — see big-release dogfood
+# CLI/library repos: delete deploy.yml; the release job is terminal.
 
 wire-ci --validate
 ```
@@ -172,6 +179,10 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           run-id: ${{ github.event.workflow_run.id }}
           path: deploy-meta
+      # BigBase-specific composite action, not a bigpowers default: this deploy
+      # example targets the author's own hosting stack. Replace it with your
+      # platform's deploy step (or drop the deploy job entirely for CLI and
+      # library repos). bigpowers itself ships no deploy templates. (GH #104)
       - uses: danielvm-git/.github/actions/bigbase-deploy@9c56ac10c629f3baa110ddb19136579e3c90d690  # v1
         with:
           site_id: ${{ secrets.BIGBASE_SITE_ID }}

@@ -25,58 +25,17 @@ SKILLS_ROOT="$REPO_ROOT"
 PASS=0; FAIL=0; SKIP=0
 TARGET="${1:-}"
 
-# A directive is fail-open when it cannot exit non-zero on a broken repo.
-# Two families, both checked syntactically because a pipeline's exit status
-# is the status of its LAST command:
-#   1. explicit swallow  — `|| echo ...`, `|| true`, `|| :`, `; true`, `; exit 0`
-#   2. non-asserting tail — pipeline ends in a filter that always exits 0
-#      (head/wc/cat/tee/sort/tr/sed/awk/echo/true/:). `grep x | wc -l` is the
-#      canonical offender: wc always succeeds, so the grep result is discarded.
-# Use an assertion instead, e.g. [ "$(... | wc -l)" -gt 0 ].
-FAIL_OPEN_TAIL_CMDS='head|wc|cat|tee|sort|tr|sed|awk|echo|true|:'
-
-is_fail_open_directive() {
-  local cmd="$1"
-
-  # Family 1: explicit exit-status swallowing.
-  if echo "$cmd" | grep -qE '\|\|[[:space:]]*(echo|true|:)|;[[:space:]]*(true|:|exit[[:space:]]+0)[[:space:]]*$'; then
-    return 0
-  fi
-
-  # Family 2: pipeline whose last stage never fails.
-  # Strip $(...) first — a pipe inside a command substitution feeds an
-  # assertion, e.g. [ "$(ls x | wc -l)" -gt 0 ], and is NOT fail-open.
-  local stripped="$cmd" prev=""
-  while [ "$stripped" != "$prev" ]; do
-    prev="$stripped"
-    stripped=$(printf '%s' "$stripped" | sed 's/\$([^()]*)/SUBST/g')
-  done
-
-  # Only inspect the segment after the final `|` that is not part of `||`.
-  local tail_seg
-  tail_seg=$(printf '%s' "$stripped" | sed 's/||/\
-/g' | tail -1)
-  case "$tail_seg" in
-    *\|*)
-      tail_seg=${tail_seg##*|}
-      tail_seg=$(printf '%s' "$tail_seg" | sed 's/^[[:space:]]*//')
-      echo "$tail_seg" | grep -qE "^($FAIL_OPEN_TAIL_CMDS)([[:space:]]|$)" && return 0
-      ;;
-  esac
-
-  return 1
-}
+# is_fail_open_directive / is_executable_verify now live in the shared detector,
+# so tier-1 (here) and tier-2 (run-story-verify.sh, #106) reject the same
+# idioms. A new evasion must be closed in one place, not two.
+# shellcheck source=lib/fail-open-detect.sh
+source "$REPO_ROOT/scripts/lib/fail-open-detect.sh"
 
 normalize_verify_cmd() {
   local raw="$1"
   raw=$(echo "$raw" | sed 's/^> // ; s/^→ verify: *//')
   raw=$(echo "$raw" | sed 's/^`//; s/`$//')
   echo "$raw"
-}
-
-is_executable_verify() {
-  local cmd="$1"
-  echo "$cmd" | grep -qE '^[a-zA-Z][a-zA-Z0-9_.-]*\b|^\['
 }
 
 run_verify_cmd() {

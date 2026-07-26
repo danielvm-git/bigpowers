@@ -1,103 +1,111 @@
 ---
 name: wire-ci
-description: "CI pipeline setup with pre-built templates and local validation. Generates GitHub Actions workflows, validates YAML syntax and permissions, supports dry-run via act/gh. The CI equivalent of wire-observability."
+description: "CI pipeline setup with bundled, forge-neutral templates and local validation. Detects the forge from the git remote, generates workflows for supported forges, and skips honestly for the rest. The CI equivalent of wire-observability."
 ---
 
 # Wire CI
 
-> **HARD GATE** — Do not ship a project without CI. Run this skill before first merge to main or when adding CI to an existing project.
+> **HARD GATE (supported forges only)** — Do not ship a project without CI. Run this skill before first merge to main.
+>
+> On a forge bigpowers ships no templates for, this skill **is not a gate**: it reports the forge, explains what it cannot do, and exits 3. A gate that cannot run must not claim it did. See § Unsupported forges.
 >
 > **HARD GATE** — CI that is untestable locally will break every cycle. Always run `--validate` after generating workflows and `--dry-run` before pushing.
 
-Generate, validate, and test CI workflows. Detects your project type, copies org templates from `danielvm-git/.github/workflow-templates/`, and provides local verification to catch auth, permissions, and syntax issues before they reach CI.
+Generate, validate, and test CI workflows. Detects the forge and project type, copies a **bundled** template, and verifies locally before anything reaches CI.
+
+## Forge resolution
+
+`scripts/lib/detect-forge.sh` resolves the forge, first match wins: `BIGPOWERS_FORGE` env var → `forge:` in `specs/forge.yaml` → the `origin` remote URL → `unknown`.
+
+```bash
+bash scripts/wire-ci.sh --detect     # report forge + stack, write nothing
+bash scripts/wire-ci.sh --plan       # show the template that would be used
+bash scripts/wire-ci.sh --apply      # write the workflow
+```
+
+GitHub ships templates (`.github/workflows/`). GitLab, Bitbucket, Codeberg, and Gitea are detected but **unsupported** — `--apply` writes nothing and exits 3.
+
+## Template source — configurable, bundled by default
+
+Templates live in `docs/templates/ci/<forge>/` **inside the bigpowers package**, so there is no network dependency on any third party's repository. Override with `BIGPOWERS_CI_TEMPLATES=/path/to/your/templates`, laid out as `<root>/<forge>/test-build-release-<stack>.yml`.
 
 ## What this sets up
 
-1. **Test Build Release workflow** — `.github/workflows/test-build-release.yml` with lint → test → build → release (single pipeline, `needs:` chain)
-2. **Deploy workflow** — `.github/workflows/deploy.yml` triggered via `workflow_run` (BigBase/Pages stacks only; CLI/library repos omit this)
-3. **`--validate` mode** — checks YAML syntax, workflow permissions, required secrets, and common pitfalls
-4. **`--dry-run` mode** — runs workflows locally via `act` or `gh workflow run` to prove correctness before push
-5. **Failure pattern documentation** — common CI failure categories and their fixes
+1. **Test Build Release workflow** — lint → test → build → release in one `needs:` chain
+2. **`--validate` mode** — YAML syntax, workflow permissions, required secrets, common pitfalls
+3. **`--dry-run` mode** — runs workflows locally via `act` before push
+4. **Failure pattern documentation** — see the table below
+
+Deploy workflows are **not** bundled: they are platform-specific. See [REFERENCE.md](REFERENCE.md) for a worked example.
 
 ## Process
 
-### 1. Detect project type
-
-Read the project root for manifest files to determine which template pair to copy:
-
-| Manifest | Type | Template pair (from `.github` repo) |
-|----------|------|-------------------------------------|
-| `Cargo.toml` | Rust | `test-build-release-monorepo.yml` + `deploy-monorepo.yml` (or monorepo subset) |
-| `package.json` | Node | `test-build-release-node.yml` + `deploy-node.yml` |
-| `setup.py` / `pyproject.toml` | Python | `test-build-release-python.yml` + `deploy-python.yml` |
-| `go.mod` | Go | `test-build-release-go.yml` + `deploy-go.yml` |
-| Static site (no server) | Static | `test-build-release-static.yml` + `deploy-static.yml` |
-| `Package.swift` | Swift | `test-build-release-swift.yml` only (no deploy yet) |
-| Multiple detected | Polyglot | `test-build-release-monorepo.yml` + `deploy-monorepo.yml` |
-
-**CLI/library repos** (no hosted target): copy only `test-build-release-<stack>.yml` → `test-build-release.yml`. The `release` job is terminal; skip `deploy.yml`. See `docs/how-to/migrate-ci-cd/migration-plan.md` § CLI and library repos.
-
-If no manifest is found, prompt the user to specify the type or pass `--type <rust|node|python|go|static|swift>`.
-
-### 2. Copy test-build-release template
-
-Copy the matching template from `~/Developer/.github/workflow-templates/` to `.github/workflows/test-build-release.yml`. **Do not rename the workflow `name:` field** — deploy listens for `"Test Build Release"`.
-
-Edit placeholders: `APP_TYPE`, `SITE_URL`, language versions.
-
-See [REFERENCE.md](REFERENCE.md) for stack-specific job shapes.
-
-### 3. Copy deploy template (hosted stacks only)
-
-If the project deploys to BigBase or GitHub Pages:
+### 1. Detect forge and stack
 
 ```bash
-cp ~/Developer/.github/workflow-templates/deploy-${STACK}.yml .github/workflows/deploy.yml
+bash scripts/wire-ci.sh --detect
 ```
 
-Configure `BIGBASE_SITE_ID`, `BIGBASE_DEPLOY_TOKEN`, and matching `SITE_URL`. Deploy runs via `workflow_run` after TBR succeeds on `main` with `cancel-in-progress: false`.
+Stack detection reads the project root:
 
-Skip this step for CLI/library repos.
+| Manifest | Stack | Bundled template |
+|----------|-------|------------------|
+| `Cargo.toml` | Rust | `test-build-release-rust.yml` |
+| `package.json` | Node | `test-build-release-node.yml` |
+| `pyproject.toml` / `setup.py` | Python | `test-build-release-python.yml` |
+| `go.mod` | Go | `test-build-release-go.yml` |
+
+No recognized manifest → exit 3 with the list of manifests it looked for. Do not guess.
+
+### 2. Apply the template
+
+```bash
+bash scripts/wire-ci.sh --apply
+```
+
+**Do not rename the workflow `name:` field** — deploy listens for `"Test Build Release"`.
+
+Edit placeholders after copying: language versions, `APP_TYPE`, `SITE_URL`.
+
+### 3. Unsupported forges
+
+`--apply` writes nothing and exits 3. Your options, in the order the runner prints them:
+
+- point `BIGPOWERS_CI_TEMPLATES` at templates for your forge
+- pin `forge: github` in `specs/forge.yaml` if the remote is misdetected
+- write the CI config by hand
+
+Contributing a `docs/templates/ci/gitlab/` set and adding `gitlab` to `FORGE_SUPPORTED_LIST` is the natural next slice — per-forge command mapping (`gh pr checks` → `glab ci status`) is not implemented yet.
 
 ### 4. Validate workflows (`--validate`)
 
-Run `wire-ci --validate` to check all generated workflow files:
-
-See [REFERENCE.md](REFERENCE.md)
-
-**Exit codes:**
-- `0` — all checks pass (no errors)
-- `1` — YAML syntax errors found
-- `2` — validation warnings only (missing permissions, secrets, etc.)
+See [REFERENCE.md](REFERENCE.md). Exit codes: `0` clean, `1` YAML syntax errors, `2` warnings only.
 
 ### 5. Dry-run workflows (`--dry-run`)
 
-Attempt to run the generated workflows locally to catch errors before push:
-
-See [REFERENCE.md](REFERENCE.md)
+See [REFERENCE.md](REFERENCE.md).
 
 > **act** runs workflows in a local Docker environment — the most accurate pre-push validation.
-> **gh workflow run** sends the workflow to GitHub but doesn't execute locally — useful for checking YAML parsing but not for testing the actual steps.
+> **gh workflow run** sends the workflow to GitHub but does not execute locally.
 
 ### 6. Document common CI failure patterns
 
-Add the following to the project's documentation or CLAUDE.md after setup:
-
 | Failure | Cause | Fix |
 |---------|-------|-----|
-| `npm publish` fails | `NPM_TOKEN` not set as repo secret | Add `NPM_TOKEN` to GitHub repo secrets |
-| `semantic-release` fails on push | Missing `permissions: contents: write` | Add `permissions: contents: write` to release job |
-| `cargo publish` auth fail | `CARGO_REGISTRY_TOKEN` not set | Add token to `~/.cargo/config.toml` or env |
-| `go vet` fails | Go version mismatch | Match `go.mod` `go` directive with setup-go version |
-| `cargo clippy` errors | New lints in Rust nightly | `cargo clippy --fix` or allow specific lints |
-| `act` not found | Docker not running or act not installed | `brew install act` / `docker ps` to verify Docker |
-| Hardcoded Node version stale | `.nvmrc` exists but workflow uses hardcoded version | Use `node-version-file: .nvmrc` instead |
-| Deploy never runs | TBR workflow renamed | Keep `name: Test Build Release` in test-build-release.yml |
-| Release rebuilds binary | Artifact not downloaded | `release` job must `download-artifact` from `build` |
+| `npm publish` fails | `NPM_TOKEN` not set as repo secret | Add `NPM_TOKEN` to repo secrets |
+| `semantic-release` fails on push | Missing `permissions: contents: write` | Add it to the release job |
+| `cargo publish` auth fail | `CARGO_REGISTRY_TOKEN` not set | Add token to env or `~/.cargo/config.toml` |
+| `go vet` fails | Go version mismatch | Use `go-version-file: go.mod` |
+| `cargo clippy` errors | New nightly lints | Pin the toolchain; `cargo clippy --fix` |
+| `act` not found | Docker not running or act missing | `brew install act`; `docker ps` |
+| Hardcoded Node version stale | `.nvmrc` exists but workflow hardcodes | Use `node-version-file: .nvmrc` |
+| Deploy never runs | TBR workflow renamed | Keep `name: Test Build Release` |
+| Release rebuilds binary | Artifact not downloaded | `release` must `download-artifact` from `build` |
 
 ## Verify
 
-→ verify: `test -f skills/wire-ci/REFERENCE.md && test -f .github/workflows/sync-skills.yml`
+→ verify: `bash scripts/wire-ci.sh --self-test`
+→ verify: `test -f docs/templates/ci/github/test-build-release-node.yml && test -f scripts/lib/detect-forge.sh`
 → verify: `grep -q wire-ci SKILL-INDEX.md`
 
 ---
@@ -120,19 +128,26 @@ Add the following to the project's documentation or CLAUDE.md after setup:
 ### Create CI for a Go project (TBR + optional deploy)
 
 ```bash
-# Copy org templates
-cp ~/Developer/.github/workflow-templates/test-build-release-go.yml .github/workflows/test-build-release.yml
-cp ~/Developer/.github/workflow-templates/deploy-go.yml .github/workflows/deploy.yml
+# Resolve forge + stack, then apply the bundled template
+bash scripts/wire-ci.sh --detect
+bash scripts/wire-ci.sh --apply
 
 wire-ci --validate
 wire-ci --dry-run
 ```
 
+To use your own org templates instead of the bundled ones:
+
+```bash
+BIGPOWERS_CI_TEMPLATES=/path/to/your/templates bash scripts/wire-ci.sh --apply
+```
+
 ### Create CI for a CLI tool (TBR only, no deploy)
 
 ```bash
-cp ~/Developer/.github/workflow-templates/test-build-release-go.yml .github/workflows/test-build-release.yml
+bash scripts/wire-ci.sh --apply
 # Edit release job to download build artifact — see big-release dogfood
+# CLI/library repos: delete deploy.yml; the release job is terminal.
 
 wire-ci --validate
 ```
@@ -276,6 +291,10 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           run-id: ${{ github.event.workflow_run.id }}
           path: deploy-meta
+      # BigBase-specific composite action, not a bigpowers default: this deploy
+      # example targets the author's own hosting stack. Replace it with your
+      # platform's deploy step (or drop the deploy job entirely for CLI and
+      # library repos). bigpowers itself ships no deploy templates. (GH #104)
       - uses: danielvm-git/.github/actions/bigbase-deploy@9c56ac10c629f3baa110ddb19136579e3c90d690  # v1
         with:
           site_id: ${{ secrets.BIGBASE_SITE_ID }}

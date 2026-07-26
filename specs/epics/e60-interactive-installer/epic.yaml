@@ -30,6 +30,12 @@ stories:
       - scripts/test-install-helpers.sh
       - scripts/lib/golden-suite-gates.sh
       - package.json (dependencies + bin + scripts)
-    verify: node bin/bigpowers.js setup (interactive in TTY)
+    # Was `node bin/bigpowers.js setup (interactive in TTY)` — prose, not a
+    # command, and unrunnable in CI by design. Assert the story's shipped
+    # artifacts instead: helper suite green, helpers loadable, prompts wired.
+    verify: >-
+      bash scripts/test-install-helpers.sh &&
+      node -e "require('./scripts/lib/install-helpers.js')" &&
+      grep -q '@clack/prompts' bin/setup.js
     tags:
       - "story: e60s01"

@@ -65,7 +65,7 @@
 | 37 | Build | `quick-fix` | "Streamlined fast-path for trivial data-only fixes — no TDD, no branching cere | ✅ Active |
 | 38 | Build | `setup-environment` | Pre-install dependencies and configure tools before development work begins. Use | ✅ Active |
 | 39 | Build | `spike-prototype` | Throw-away prototype for unknown problem spaces. Output is learning notes in spe | ✅ Active |
-| 40 | Build | `wire-ci` | "CI pipeline setup with pre-built templates and local validation. Generates GitH | ✅ Active |
+| 40 | Build | `wire-ci` | "CI pipeline setup with bundled, forge-neutral templates and local validation. D | ✅ Active |
 | 41 | Build | `wire-observability` | Add structured JSON logging, observability commands, and idempotent setup script | ✅ Active |
 | 42 | Verify | `audit-code` | Self-review checklist for the coding agent to run before dispatching a reviewer. | ✅ Active |
 | 43 | Verify | `context7-mcp` | Fetch current library docs via Context7 MCP instead of training data. Use when u | ✅ Active |

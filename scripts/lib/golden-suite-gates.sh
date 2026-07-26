@@ -18,6 +18,10 @@ GOLDEN_GATES=(
   "import-boundaries:bash scripts/check-import-boundaries.sh:false"
   "skill-catalog:bash scripts/validate-skill-catalog.sh:false"
   "specs-parse:bash scripts/validate-specs-yaml.sh:false"
+  # Tier 2 of the verify arc (#106): executes the verify: of every story marked
+  # done. Tier 1 (SKILL.md) is run-skill-verify.sh in golden-suite.yml.
+  "story-verify-selftest:bash scripts/run-story-verify.sh --self-test:false"
+  "story-verify:bash scripts/run-story-verify.sh:false"
 )
 
 GOLDEN_GREEN='\033[0;32m'

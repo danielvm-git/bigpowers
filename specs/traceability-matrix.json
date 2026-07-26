@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-26T11:27:33.968779+00:00",
+  "generated_at": "2026-07-26T12:50:10.871332+00:00",
   "matrix_version": "1.0",
   "stories": [
     {
@@ -1530,6 +1530,18 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".pi/prompts/verify-work.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/verify-work/SKILL.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": ".windsurf/rules/gate-trace.md",
           "line": 0,
           "confidence": "medium",
@@ -1680,7 +1692,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 39
+      "link_count": 41
     },
     {
       "id": "e45s06",
@@ -2130,6 +2142,18 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".pi/prompts/verify-work.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/verify-work/SKILL.md",
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": ".windsurf/rules/scope-work.md",
           "line": 0,
           "confidence": "medium",
@@ -2550,7 +2574,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 83
+      "link_count": 85
     },
     {
       "id": "e45s10",
@@ -2688,6 +2712,18 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".pi/prompts/dispatch-agents.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/dispatch-agents/SKILL.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "specs/skills-wiki/skills/dispatch-agents.md",
           "line": 0,
           "confidence": "medium",
@@ -2706,7 +2742,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 15
+      "link_count": 17
     },
     {
       "id": "e45s12",
@@ -2797,6 +2833,18 @@
         },
         {
           "file": ".hermes/skills/stocktake-skills/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/stocktake-skills.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/stocktake-skills/SKILL.md",
           "line": 8,
           "confidence": "high",
           "method": "explicit_tag"
@@ -2970,7 +3018,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 42
+      "link_count": 44
     },
     {
       "id": "e45s13",
@@ -3054,6 +3102,18 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".pi/prompts/verify-work.md",
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/verify-work/SKILL.md",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "specs/skills-wiki/skills/verify-work.md",
           "line": 0,
           "confidence": "medium",
@@ -3120,7 +3180,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 23
+      "link_count": 25
     },
     {
       "id": "e45s14",
@@ -3270,6 +3330,18 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".pi/prompts/release-branch.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/release-branch/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "specs/skills-wiki/skills/release-branch.md",
           "line": 0,
           "confidence": "medium",
@@ -3306,7 +3378,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 19
+      "link_count": 21
     },
     {
       "id": "e45s16",
@@ -3625,6 +3697,18 @@
         },
         {
           "file": ".hermes/skills/security-review/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/security-review.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/security-review/SKILL.md",
           "line": 8,
           "confidence": "high",
           "method": "explicit_tag"
@@ -4716,6 +4800,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-093156.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-174243.md",
           "line": 0,
           "confidence": "medium",
@@ -5016,6 +5106,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-083856.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-180901.md",
           "line": 0,
           "confidence": "medium",
@@ -5047,6 +5143,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-164911.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-094535.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5604,6 +5706,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-084023.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260725-210616.md",
           "line": 0,
           "confidence": "medium",
@@ -5934,6 +6042,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-092957.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-092605.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260626-204755.md",
           "line": 0,
           "confidence": "medium",
@@ -6055,6 +6175,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-130821.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-092730.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -7212,7 +7338,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 611
+      "link_count": 620
     },
     {
       "id": "e45s19",
@@ -7452,6 +7578,30 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".pi/prompts/seed-conventions.md",
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/seed-conventions.md",
+          "line": 123,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/seed-conventions/SKILL.md",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/seed-conventions/SKILL.md",
+          "line": 124,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "specs/skills-wiki/skills/seed-conventions.md",
           "line": 0,
           "confidence": "medium",
@@ -7476,7 +7626,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 29
+      "link_count": 33
     },
     {
       "id": "e45s22",
@@ -7596,6 +7746,18 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".pi/prompts/session-state.md",
+          "line": 6,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/session-state/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "specs/agent-guide/learned-user-preferences.md",
           "line": 0,
           "confidence": "medium",
@@ -7608,7 +7770,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 15
+      "link_count": 17
     },
     {
       "id": "e45s24",
@@ -7782,6 +7944,18 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".pi/prompts/security-review.md",
+          "line": 15,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/security-review/SKILL.md",
+          "line": 16,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "specs/skills-wiki/skills/security-review.md",
           "line": 0,
           "confidence": "medium",
@@ -7818,7 +7992,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 22
+      "link_count": 24
     },
     {
       "id": "e45s27",
@@ -7900,9 +8074,21 @@
           "line": 8,
           "confidence": "high",
           "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/compose-workflow.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/compose-workflow/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
         }
       ],
-      "link_count": 12
+      "link_count": 14
     },
     {
       "id": "e45s28",
@@ -7986,6 +8172,18 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".pi/prompts/request-review.md",
+          "line": 6,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/request-review/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "specs/skills-wiki/skills/request-review.md",
           "line": 0,
           "confidence": "medium",
@@ -8010,7 +8208,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 16
+      "link_count": 18
     },
     {
       "id": "e45s29",
@@ -8238,8 +8436,26 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".pi/prompts/slice-tasks.md",
+          "line": 6,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/plan-work.md",
+          "line": 6,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": ".pi/prompts/change-request.md",
           "line": 6,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/plan-work/SKILL.md",
+          "line": 7,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -8248,9 +8464,15 @@
           "line": 7,
           "confidence": "high",
           "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/slice-tasks/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
         }
       ],
-      "link_count": 38
+      "link_count": 42
     },
     {
       "id": "e45s30",
@@ -8404,9 +8626,33 @@
           "line": 12,
           "confidence": "high",
           "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/dispatch-agents.md",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/delegate-task.md",
+          "line": 6,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/delegate-task/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/dispatch-agents/SKILL.md",
+          "line": 12,
+          "confidence": "high",
+          "method": "explicit_tag"
         }
       ],
-      "link_count": 24
+      "link_count": 28
     },
     {
       "id": "e45s31",
@@ -9552,6 +9798,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-093156.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-174243.md",
           "line": 0,
           "confidence": "medium",
@@ -9852,6 +10104,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-083856.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-180901.md",
           "line": 0,
           "confidence": "medium",
@@ -9883,6 +10141,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-164911.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-094535.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -10440,6 +10704,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-084023.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260725-210616.md",
           "line": 0,
           "confidence": "medium",
@@ -10770,6 +11040,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-092957.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-092605.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260626-204755.md",
           "line": 0,
           "confidence": "medium",
@@ -10891,6 +11173,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-130821.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-092730.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -12036,7 +12324,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 603
+      "link_count": 610
     },
     {
       "id": "e45s32",
@@ -12127,6 +12415,18 @@
         },
         {
           "file": ".hermes/skills/release-branch/SKILL.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/release-branch.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/release-branch/SKILL.md",
           "line": 9,
           "confidence": "high",
           "method": "explicit_tag"
@@ -12258,7 +12558,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 35
+      "link_count": 37
     },
     {
       "id": "e45s33",
@@ -12570,6 +12870,18 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".pi/prompts/dispatch-agents.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/dispatch-agents/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "scripts/install-cursor-skills-local.sh",
           "line": 0,
           "confidence": "medium",
@@ -12582,7 +12894,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 15
+      "link_count": 17
     },
     {
       "id": "e45s39",
@@ -12664,9 +12976,21 @@
           "line": 10,
           "confidence": "high",
           "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/release-branch.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/release-branch/SKILL.md",
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
         }
       ],
-      "link_count": 12
+      "link_count": 14
     },
     {
       "id": "e45s40",
@@ -12750,6 +13074,18 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".pi/prompts/verify-work.md",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/verify-work/SKILL.md",
+          "line": 12,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "specs/skills-wiki/skills/verify-work.md",
           "line": 0,
           "confidence": "medium",
@@ -12804,7 +13140,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 21
+      "link_count": 23
     },
     {
       "id": "e45s41",
@@ -12888,6 +13224,18 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".pi/prompts/security-review.md",
+          "line": 6,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/security-review/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "specs/skills-wiki/skills/security-review.md",
           "line": 0,
           "confidence": "medium",
@@ -12912,7 +13260,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 16
+      "link_count": 18
     },
     {
       "id": "e48s01",
@@ -13722,6 +14070,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-07-26-story-verify-never-executed.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-07-compliance-duplicate-symbols.md",
           "line": 0,
           "confidence": "medium",
@@ -14316,7 +14670,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 146
+      "link_count": 147
     },
     {
       "id": "e48s04",
@@ -16590,6 +16944,30 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".pi/prompts/seed-conventions.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/seed-conventions.md",
+          "line": 122,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/seed-conventions/SKILL.md",
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/seed-conventions/SKILL.md",
+          "line": 123,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "specs/WORKFLOW-solo-git.md",
           "line": 0,
           "confidence": "medium",
@@ -16644,7 +17022,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 36
+      "link_count": 40
     },
     {
       "id": "e51s03",
@@ -16813,6 +17191,30 @@
         },
         {
           "file": ".hermes/skills/kickoff-branch/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/kickoff-branch.md",
+          "line": 6,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/verify-work.md",
+          "line": 12,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/verify-work/SKILL.md",
+          "line": 13,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/kickoff-branch/SKILL.md",
           "line": 7,
           "confidence": "high",
           "method": "explicit_tag"
@@ -17034,7 +17436,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 63
+      "link_count": 67
     },
     {
       "id": "e51s04",
@@ -18264,6 +18666,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-093156.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-174243.md",
           "line": 0,
           "confidence": "medium",
@@ -18564,6 +18972,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-083856.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-180901.md",
           "line": 0,
           "confidence": "medium",
@@ -18595,6 +19009,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-164911.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-094535.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -19152,6 +19572,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-084023.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260725-210616.md",
           "line": 0,
           "confidence": "medium",
@@ -19482,6 +19908,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-092957.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-092605.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260626-204755.md",
           "line": 0,
           "confidence": "medium",
@@ -19603,6 +20041,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-130821.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260726-092730.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -21000,7 +21444,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 659
+      "link_count": 666
     },
     {
       "id": "e51s05",
@@ -21691,7 +22135,7 @@
         },
         {
           "file": "specs/epics/e60-interactive-installer/epic.yaml",
-          "line": 35,
+          "line": 41,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -24396,6 +24840,18 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".pi/prompts/seed-conventions.md",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/seed-conventions/SKILL.md",
+          "line": 12,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "specs/skills-wiki/skills/seed-conventions.md",
           "line": 0,
           "confidence": "medium",
@@ -24420,7 +24876,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 18
+      "link_count": 20
     },
     {
       "id": "e79s04",
@@ -24516,6 +24972,18 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".pi/prompts/stocktake-skills.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/stocktake-skills/SKILL.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "specs/skills-wiki/skills/stocktake-skills.md",
           "line": 0,
           "confidence": "medium",
@@ -24540,7 +25008,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 18
+      "link_count": 20
     },
     {
       "id": "e80s01",
@@ -24834,6 +25302,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-07-26-story-verify-never-executed.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-04-tautological-verify.md",
           "line": 0,
           "confidence": "medium",
@@ -24966,6 +25440,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "scripts/run-story-verify.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/extract-story-verify.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "skills/align-grid/scripts/verify_grid.js",
           "line": 0,
           "confidence": "medium",
@@ -25008,7 +25494,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 76
+      "link_count": 79
     },
     {
       "id": "e80s02",
@@ -25838,8 +26324,8 @@
     ],
     "stale_count": 102,
     "oracle_stats": {
-      "high": 726,
-      "medium": 3215,
+      "high": 782,
+      "medium": 3240,
       "low": 79
     }
   }

@@ -21,7 +21,6 @@ bash "$SCRIPT_DIR/validate-targets-yaml.sh" >/dev/null
 
 PASS=0
 FAIL=0
-TMPDIR=""
 TA_PASS=0
 TA_FAIL=0
 TA_TMPDIR=""
@@ -56,15 +55,22 @@ test_adapter() {
   if [[ "$has_context" == "true" && "$mode" != "native" ]]; then
     declare -f wire_context >/dev/null 2>&1 && ta_pass "$id: wire_context defined" || ta_fail "$id: wire_context missing"
 
-    TMPDIR=$(mktemp -d)
-    cp "$SCRIPT_DIR/../docs/templates/AGENTS.md" "$TMPDIR/AGENTS.md" 2>/dev/null || echo "# test" > "$TMPDIR/AGENTS.md"
-    (
-      cd "$TMPDIR"
+    TA_TMPDIR=$(mktemp -d)
+    cp "$SCRIPT_DIR/../docs/templates/AGENTS.md" "$TA_TMPDIR/AGENTS.md" 2>/dev/null || echo "# test" > "$TA_TMPDIR/AGENTS.md"
+    # The idempotency probe runs in a subshell (it cd's away), so its ta_pass/
+    # ta_fail would increment counters in a child and be lost — the script used
+    # to print 5 PASS lines and report 4. Capture the status, tally in-process.
+    if (
+      cd "$TA_TMPDIR"
       # shellcheck source=/dev/null
       source "$adapter_file"
-      wire_context 2>/dev/null || true
-      wire_context 2>/dev/null && ta_pass "$id: idempotent wire_context" || ta_fail "$id: wire_context failed"
-    )
+      wire_context >/dev/null 2>&1 || true
+      wire_context >/dev/null 2>&1
+    ); then
+      ta_pass "$id: idempotent wire_context"
+    else
+      ta_fail "$id: wire_context failed"
+    fi
   fi
 }
 
