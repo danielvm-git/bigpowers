@@ -1,7 +1,7 @@
 ---
 type: Index
-generated_at: 2026-07-25T18:02:28.386734+00:00
-total_concepts: 116
+generated_at: 2026-07-26T00:06:29.937569+00:00
+total_concepts: 121
 ---
 
 # Codebase Wiki — Story Traceability
@@ -15,7 +15,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e37s03](./e37s03.md) | seed-conventions — .aider.conf.yml read:AGENTS.md bridge for | high | 10 |
 | [e37s04](./e37s04.md) | verify-install.sh — AGENTS.md spine assertions (OSS P1 + opt | high | 4 |
 | [e37s05](./e37s05.md) | scripts/targets.yaml — declarative integration registry for  | high | 28 |
-| [e37s06](./e37s06.md) | scripts/generate-context-bundle.sh — AGENTS.md single source | high | 11 |
+| [e37s06](./e37s06.md) | scripts/generate-context-bundle.sh — AGENTS.md single source | high | 12 |
 | [e37s07](./e37s07.md) | sync-skills.sh — adapter dispatch from targets.yaml | high | 12 |
 | [e37s08](./e37s08.md) | verify-install.sh — per-target contract matrix from targets. | high | 10 |
 | [e37s09](./e37s09.md) | targets.yaml — Wave A: Goose (OSS) + Antigravity agy (propri | high | 5 |
@@ -30,48 +30,48 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e45s02](./e45s02.md) | craft-skill: CSO description discipline + completion-honesty | high | 15 |
 | [e45s03](./e45s03.md) | CLAUDE.md token mgmt: mechanical PreToolUse hook backstop | high | 4 |
 | [e45s04](./e45s04.md) | slice-tasks / plan-work: pre-build cross-artifact consistenc | high | 17 |
-| [e45s05](./e45s05.md) | verify-work / gate-trace: adversarial gap-finding completene | high | 40 |
+| [e45s05](./e45s05.md) | verify-work / gate-trace: adversarial gap-finding completene | high | 39 |
 | [e45s06](./e45s06.md) | tasks.yaml: literal failing→passing task ledger | high | 2 |
 | [e45s07](./e45s07.md) | request-review: dual-blind AND-gate review (Santa Method) | high | 38 |
-| [e45s08](./e45s08.md) | develop-tdd / validate-fix: two-commit red/green regression  | high | 13 |
-| [e45s09](./e45s09.md) | verify-work / plan-work: Pre-Implementation and Validation g | high | 84 |
+| [e45s08](./e45s08.md) | develop-tdd / validate-fix: two-commit red/green regression  | high | 14 |
+| [e45s09](./e45s09.md) | verify-work / plan-work: Pre-Implementation and Validation g | high | 83 |
 | [e45s10](./e45s10.md) | docs/references: auto-regenerate from source-of-truth docs v | high | 7 |
-| [e45s11](./e45s11.md) | orchestration / dispatch-agents: typed message protocol + 3- | high | 17 |
-| [e45s12](./e45s12.md) | stocktake-skills / craft-skill: code-enforced validator + au | high | 44 |
-| [e45s13](./e45s13.md) | verify-work: one-test-minimum terminal-verdict rule | high | 25 |
+| [e45s11](./e45s11.md) | orchestration / dispatch-agents: typed message protocol + 3- | high | 15 |
+| [e45s12](./e45s12.md) | stocktake-skills / craft-skill: code-enforced validator + au | high | 42 |
+| [e45s13](./e45s13.md) | verify-work: one-test-minimum terminal-verdict rule | high | 23 |
 | [e45s14](./e45s14.md) | deepen-architecture: declared import-boundary allowlist enfo | high | 8 |
-| [e45s15](./e45s15.md) | release-branch / deploy: three-independent-facts verificatio | high | 21 |
+| [e45s15](./e45s15.md) | release-branch / deploy: three-independent-facts verificatio | high | 19 |
 | [e45s16](./e45s16.md) | CLAUDE.md rtk mandate: wire rtk-ai/rtk PreToolUse hook | high | 4 |
 | [e45s17](./e45s17.md) | request-review: fan-out to parallel review subagents | high | 30 |
-| [e45s18](./e45s18.md) | audit-code / security-review: worktree-isolated parallel che | high | 277 |
+| [e45s18](./e45s18.md) | audit-code / security-review: worktree-isolated parallel che | high | 609 |
 | [e45s19](./e45s19.md) | Context7: bounded retry cap and explicit fallback block | high | 8 |
 | [e45s20](./e45s20.md) | Context7 / bts docs: wrap in ETag-revalidated fetch cache | high | 1 |
-| [e45s21](./e45s21.md) | seed-conventions / AGENTS.md: self-installing fenced markers | high | 33 |
+| [e45s21](./e45s21.md) | seed-conventions / AGENTS.md: self-installing fenced markers | high | 29 |
 | [e45s22](./e45s22.md) | CLAUDE.md: context-aware directory routing | high | 3 |
-| [e45s23](./e45s23.md) | CLAUDE.md: live Learned User Preferences / Workspace Facts | high | 17 |
+| [e45s23](./e45s23.md) | CLAUDE.md: live Learned User Preferences / Workspace Facts | high | 15 |
 | [e45s24](./e45s24.md) | REFERENCE.md files: embedded line-range navigation guides | medium | 2 |
 | [e45s25](./e45s25.md) | CONVENTIONS.md risk tiers: compile to versioned, diffable ru | high | 5 |
-| [e45s26](./e45s26.md) | security-review: CWE mapping + 2 positive/2 negative fixture | high | 22 |
-| [e45s27](./e45s27.md) | loop / workflow: terminal-state taxonomy | high | 14 |
-| [e45s28](./e45s28.md) | request-review: hard max-iteration cap | high | 18 |
-| [e45s29](./e45s29.md) | requirements: ADDED/MODIFIED/REMOVED/RENAMED tags | high | 42 |
-| [e45s30](./e45s30.md) | subagent depth: formalize depth tiers | high | 28 |
-| [e45s31](./e45s31.md) | audit-code / deepen-architecture: churn-based look-here-firs | high | 267 |
-| [e45s32](./e45s32.md) | gate-trace / release-branch: adversarial-review refute frami | high | 36 |
+| [e45s26](./e45s26.md) | security-review: CWE mapping + 2 positive/2 negative fixture | high | 21 |
+| [e45s27](./e45s27.md) | loop / workflow: terminal-state taxonomy | high | 12 |
+| [e45s28](./e45s28.md) | request-review: hard max-iteration cap | high | 16 |
+| [e45s29](./e45s29.md) | requirements: ADDED/MODIFIED/REMOVED/RENAMED tags | high | 36 |
+| [e45s30](./e45s30.md) | subagent depth: formalize depth tiers | high | 24 |
+| [e45s31](./e45s31.md) | audit-code / deepen-architecture: churn-based look-here-firs | high | 601 |
+| [e45s32](./e45s32.md) | gate-trace / release-branch: adversarial-review refute frami | high | 35 |
 | [e45s33](./e45s33.md) | requirements: per-section approval state | high | 3 |
 | [e45s34](./e45s34.md) | develop-tdd: snapshot-before-transition hardening | high | 7 |
 | [e45s35](./e45s35.md) | plan-work: 5 fixed EARS sentence patterns | high | 7 |
 | [e45s36](./e45s36.md) | specs: Documentation Responsibilities table | high | 2 |
 | [e45s37](./e45s37.md) | run-evals: graduated eval-strictness tiers | high | 8 |
-| [e45s38](./e45s38.md) | orchestration: why-did-this-stall diagnostic skill | high | 17 |
-| [e45s39](./e45s39.md) | PR generation: literal provenance marker | high | 14 |
-| [e45s40](./e45s40.md) | verify-work: mandatory real-browser verification | high | 23 |
-| [e45s41](./e45s41.md) | security-review: proven authorship SQL-safety doctrine | high | 18 |
-| [e48s01](./e48s01.md) | Generate epics-wiki and adr-wiki as OKF concept bundles from | high | 33 |
-| [e48s02](./e48s02.md) | Emit verification reports as OKF bundles from run-golden-sui | medium | 29 |
-| [e48s03](./e48s03.md) | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | high | 143 |
+| [e45s38](./e45s38.md) | orchestration: why-did-this-stall diagnostic skill | high | 15 |
+| [e45s39](./e45s39.md) | PR generation: literal provenance marker | high | 12 |
+| [e45s40](./e45s40.md) | verify-work: mandatory real-browser verification | high | 21 |
+| [e45s41](./e45s41.md) | security-review: proven authorship SQL-safety doctrine | high | 16 |
+| [e48s01](./e48s01.md) | Generate epics-wiki and adr-wiki as OKF concept bundles from | high | 34 |
+| [e48s02](./e48s02.md) | Emit verification reports as OKF bundles from run-golden-sui | medium | 46 |
+| [e48s03](./e48s03.md) | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | high | 146 |
 | [e48s04](./e48s04.md) | Create viz.html — interactive force-layout graph companion f | medium | 12 |
-| [e48s05](./e48s05.md) | Wire OKF validation into CI (sync-skills.yml) and document i | medium | 169 |
+| [e48s05](./e48s05.md) | Wire OKF validation into CI (sync-skills.yml) and document i | medium | 188 |
 | [e48s06](./e48s06.md) | Add tier: field (core/extended/specialized) to OKF wiki inde | medium | 10 |
 | [e48s07](./e48s07.md) | Create publish-to-wiki kernel tool | high | 2 |
 | [e48s08](./e48s08.md) | Add GitHub Action Template for publish-wiki.yml [HARD GATE] | high | 8 |
@@ -83,9 +83,9 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e48s14](./e48s14.md) | Build-epic integration — BCP Plus in story sizing workflow | high | 14 |
 | [e48s15](./e48s15.md) | Refactor Skills Render Pipeline to Hybrid JSON Seam | high | 7 |
 | [e51s01](./e51s01.md) | CONVENTIONS — Always Green, Shift Left, Discovered Defects,  | high | 8 |
-| [e51s02](./e51s02.md) | seed-conventions — Preflight default, solo-git default, embe | high | 40 |
-| [e51s03](./e51s03.md) | kickoff-branch + verify-work — Preflight hard block and CI g | high | 66 |
-| [e51s04](./e51s04.md) | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | high | 320 |
+| [e51s02](./e51s02.md) | seed-conventions — Preflight default, solo-git default, embe | high | 36 |
+| [e51s03](./e51s03.md) | kickoff-branch + verify-work — Preflight hard block and CI g | high | 63 |
+| [e51s04](./e51s04.md) | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | high | 656 |
 | [e51s05](./e51s05.md) | CLAUDE.md — solo-default agent rules + bigpowers Preflight c | high | 7 |
 | [e54s01](./e54s01.md) | Snapshot the current skill catalog as an immutable baseline | high | 9 |
 | [e54s02](./e54s02.md) | Add a soft drift-detection gate for the freeze window | high | 14 |
@@ -124,5 +124,10 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e76s02](./e76s02.md) | Install hub wiring (Wave B) | high | 16 |
 | [e79s01](./e79s01.md) | AGENTIC-STE ruleset document | high | 8 |
 | [e79s02](./e79s02.md) | Validator script + craft-skill HARD GATE | high | 21 |
-| [e79s03](./e79s03.md) | seed-conventions applies ruleset | high | 20 |
-| [e79s04](./e79s04.md) | stocktake-skills violation scanner | high | 20 |
+| [e79s03](./e79s03.md) | seed-conventions applies ruleset | high | 18 |
+| [e79s04](./e79s04.md) | stocktake-skills violation scanner | high | 18 |
+| [e80s01](./e80s01.md) | Core verify skills → verify directives | high | 75 |
+| [e80s02](./e80s02.md) | smoke-test and validate-contracts real bodies | high | 30 |
+| [e80s03](./e80s03.md) | develop-tdd RED commit isolation check | high | 10 |
+| [e80s04](./e80s04.md) | generalize-fix phase in validate-fix | high | 34 |
+| [e80s05](./e80s05.md) | security-review fixture table growth | high | 10 |
