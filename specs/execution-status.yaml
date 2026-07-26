@@ -388,21 +388,20 @@ development_status:
   e76s02: done
   e77: done
   e78: done
-  e79: backlog
-  e79s01: backlog
-  e79s02: backlog
-  e79s03: backlog
-  e79s04: backlog
-  e80: backlog
-  e80s01: backlog
-  e80s02: backlog
-  e80s03: backlog
-  e80s04: backlog
-  e80s05: backlog
+  e79: done
+  e79s01: done
+  e79s02: done
+  e79s03: done
+  e79s04: done
+  e80: done
+  e80s01: done
+  e80s02: done
+  e80s03: done
+  e80s04: done
+  e80s05: done
   generated_at: '2026-07-07T04:00:00Z'
   heuristic_ratio: 0.8
   verdict: PASS
-
 epics:
   e01:
     status: done
@@ -410,11 +409,11 @@ epics:
     total_bcps: 4
   e02:
     status: done
-    title: 'Verification & Evals'
+    title: Verification & Evals
     total_bcps: 4
   e03:
     status: done
-    title: 'Discovery & Planning'
+    title: Discovery & Planning
     total_bcps: 2
   e04:
     status: done
@@ -426,7 +425,7 @@ epics:
     total_bcps: 3
   e06:
     status: done
-    title: 'Taxonomy & Provenance'
+    title: Taxonomy & Provenance
     total_bcps: 3
   e07:
     status: done
@@ -438,7 +437,7 @@ epics:
     total_bcps: 1
   e09:
     status: done
-    title: 'Self-Evolution'
+    title: Self-Evolution
     total_bcps: 11
   e10:
     status: done
@@ -454,15 +453,15 @@ epics:
     total_bcps: 8
   e13:
     status: done
-    title: 'Catalog Integrity & Index Automation'
+    title: Catalog Integrity & Index Automation
     total_bcps: 3
   e14:
     status: done
-    title: 'Release Hardening & Quality Metrics'
+    title: Release Hardening & Quality Metrics
     total_bcps: 3
   e15:
     status: done
-    title: 'CI/CD Pipeline & Package Publishing'
+    title: CI/CD Pipeline & Package Publishing
     total_bcps: 5
   e16:
     status: done
@@ -474,19 +473,19 @@ epics:
     total_bcps: 3
   e18:
     status: done
-    title: 'Quality Gates & Impact Analysis'
+    title: Quality Gates & Impact Analysis
     total_bcps: 5
   e19:
     status: done
-    title: 'Quick-Fix Fast-Path'
+    title: Quick-Fix Fast-Path
     total_bcps: 3
   e20:
     status: done
-    title: 'Build-Epic Ergonomics & Flow Polish'
+    title: Build-Epic Ergonomics & Flow Polish
     total_bcps: 5
   e21:
     status: done
-    title: 'MCP-Native Discovery & Tool Integration'
+    title: MCP-Native Discovery & Tool Integration
     total_bcps: 8
   e22:
     status: done
@@ -502,11 +501,11 @@ epics:
     total_bcps: 3
   e25:
     status: done
-    title: 'Migrate-Spec Methodology Enhancements'
+    title: Migrate-Spec Methodology Enhancements
     total_bcps: 10
   e26:
     status: done
-    title: 'Security-Review Lifecycle Integration'
+    title: Security-Review Lifecycle Integration
     total_bcps: 21
   e27:
     status: done
@@ -555,7 +554,7 @@ epics:
     total_bcps: 45
   e38:
     status: done
-    title: 'Spec-to-Code Traceability Gate'
+    title: Spec-to-Code Traceability Gate
     total_bcps: 13
   e39:
     status: done
@@ -563,7 +562,7 @@ epics:
     total_bcps: 20
   e40:
     status: done
-    title: 'Metrics Integrity — Honest, Additive, Benchmarkable'
+    title: Metrics Integrity — Honest, Additive, Benchmarkable
     total_bcps: 18
   e41:
     status: done
@@ -571,7 +570,7 @@ epics:
     total_bcps: 10
   e42:
     status: done
-    title: 'Golden Story Suite — Agent-Driven'
+    title: Golden Story Suite — Agent-Driven
     total_bcps: 10
   e43:
     status: done
@@ -579,20 +578,20 @@ epics:
     total_bcps: 11
   e44:
     status: done
-    title: 'Spec Version Migration — migrate-version Skill'
+    title: Spec Version Migration — migrate-version Skill
     total_bcps: 14
   e45:
     status: done
-    title: 'Quality Core — Skill Hardening & Verification Patterns'
+    title: Quality Core — Skill Hardening & Verification Patterns
     wsjf: 5.0
     total_bcps: 45
   e46:
     status: done
-    title: 'Risk-Based Verification — TEA-Informed Test Depth'
+    title: Risk-Based Verification — TEA-Informed Test Depth
     total_bcps: 16
   e47:
     status: done
-    title: 'Cross-Tool Skill Distribution — global install + per-project seed'
+    title: Cross-Tool Skill Distribution — global install + per-project seed
     total_bcps: 9
   e48:
     status: done
@@ -601,12 +600,12 @@ epics:
     total_bcps: 40
   e51:
     status: done
-    title: 'Always Green — Shift Left, Preflight Hard Block & Fix-or-Log Doctrine'
+    title: Always Green — Shift Left, Preflight Hard Block & Fix-or-Log Doctrine
     wsjf: 7.0
     total_bcps: 12
   e53:
     status: done
-    title: 'Establish Migration Baseline — bigpowers-to-bigspec Readiness'
+    title: Establish Migration Baseline — bigpowers-to-bigspec Readiness
     wsjf: 8.0
     total_bcps: 9
   e54:
@@ -631,17 +630,17 @@ epics:
     total_bcps: 0
   e58:
     status: backlog
-    title: 'Evals Over Compliance — Replace the 94% Gate with Outcome Proof'
+    title: Evals Over Compliance — Replace the 94% Gate with Outcome Proof
     wsjf: 5.3
     total_bcps: 0
   e59:
     status: backlog
-    title: 'Absorb Fresh References — Stay in Sync with bigspec''s Ongoing Evolution'
+    title: Absorb Fresh References — Stay in Sync with bigspec's Ongoing Evolution
     wsjf: 3.7
     total_bcps: 0
   e60:
     status: done
-    title: 'Interactive Installer — BMAD-Polished Setup for bigpowers'
+    title: Interactive Installer — BMAD-Polished Setup for bigpowers
     wsjf: 9.0
     total_bcps: 3
   e61:
@@ -736,7 +735,7 @@ epics:
     total_bcps: 0
   e79:
     status: backlog
-    title: 'Agentic Controlled English (STE-style instruction precision)'
+    title: Agentic Controlled English (STE-style instruction precision)
     wsjf: 6.0
     total_bcps: 8
   e80:
@@ -744,11 +743,10 @@ epics:
     title: 'Verify arc hardening (#97 + #98)'
     wsjf: 7.5
     total_bcps: 10
-
 stories:
   e01s01:
     status: done
-    title: 'slopcheck tags in `plan-work` ([OK]/[SUS]/[SLOP])'
+    title: slopcheck tags in `plan-work` ([OK]/[SUS]/[SLOP])
     bcps: 1
     epic: e01
     tasks_total: 0
@@ -756,7 +754,7 @@ stories:
     tasks_failing: 0
   e01s02:
     status: done
-    title: 'Supply-chain + OWASP in `audit-code`'
+    title: Supply-chain + OWASP in `audit-code`
     bcps: 1
     epic: e01
     tasks_total: 0
@@ -764,7 +762,7 @@ stories:
     tasks_failing: 0
   e01s03:
     status: done
-    title: 'Secret patterns documented in `guard-git`'
+    title: Secret patterns documented in `guard-git`
     bcps: 1
     epic: e01
     tasks_total: 0
@@ -788,7 +786,7 @@ stories:
     tasks_failing: 0
   e02s02:
     status: done
-    title: 'Verification Script template in `plan-work`'
+    title: Verification Script template in `plan-work`
     bcps: 1
     epic: e02
     tasks_total: 0
@@ -796,7 +794,7 @@ stories:
     tasks_failing: 0
   e02s03:
     status: done
-    title: 'UAT checkpoint in `execute-plan`'
+    title: UAT checkpoint in `execute-plan`
     bcps: 1
     epic: e02
     tasks_total: 0
@@ -804,7 +802,7 @@ stories:
     tasks_failing: 0
   e02s04:
     status: done
-    title: 'RED/GREEN/REFACTOR commits in `develop-tdd`'
+    title: RED/GREEN/REFACTOR commits in `develop-tdd`
     bcps: 1
     epic: e02
     tasks_total: 0
@@ -828,7 +826,7 @@ stories:
     tasks_failing: 0
   e03s03:
     status: done
-    title: 'Absorb 5 near-duplicate utility skills into session-state and survey-context'
+    title: Absorb 5 near-duplicate utility skills into session-state and survey-context
     bcps: 1
     epic: e03
     tasks_total: 0
@@ -836,7 +834,7 @@ stories:
     tasks_failing: 0
   e04s01:
     status: done
-    title: 'Handoff + compaction in `session-state`'
+    title: Handoff + compaction in `session-state`
     bcps: 1
     epic: e04
     tasks_total: 0
@@ -908,7 +906,7 @@ stories:
     tasks_failing: 0
   e07s01:
     status: done
-    title: 'Demeter in CONVENTIONS.md + audit-code'
+    title: Demeter in CONVENTIONS.md + audit-code
     bcps: 1
     epic: e07
     tasks_total: 0
@@ -916,7 +914,7 @@ stories:
     tasks_failing: 0
   e07s02:
     status: done
-    title: 'Module Depth score in deepen-architecture'
+    title: Module Depth score in deepen-architecture
     bcps: 1
     epic: e07
     tasks_total: 0
@@ -924,7 +922,7 @@ stories:
     tasks_failing: 0
   e07s03:
     status: done
-    title: 'Concurrency audit in model-domain'
+    title: Concurrency audit in model-domain
     bcps: 1
     epic: e07
     tasks_total: 0
@@ -940,7 +938,7 @@ stories:
     tasks_failing: 0
   e09s01:
     status: done
-    title: 'stocktake-skills, evolve-skill, search-skills, compose-workflow, simulate-agents'
+    title: stocktake-skills, evolve-skill, search-skills, compose-workflow, simulate-agents
     bcps: 1
     epic: e09
     tasks_total: 0
@@ -956,7 +954,7 @@ stories:
     tasks_failing: 0
   e09s03:
     status: done
-    title: 'craft-skill README generator'
+    title: craft-skill README generator
     bcps: 1
     epic: e09
     tasks_total: 0
@@ -964,7 +962,7 @@ stories:
     tasks_failing: 0
   e09s04:
     status: done
-    title: 'Iterative retrieval in dispatch-agents / delegate-task'
+    title: Iterative retrieval in dispatch-agents / delegate-task
     bcps: 1
     epic: e09
     tasks_total: 0
@@ -972,7 +970,8 @@ stories:
     tasks_failing: 0
   e09s05:
     status: done
-    title: 'evolve-skill benchmark path documented; run `bash scripts/score_run.sh` in bigpo'
+    title: evolve-skill benchmark path documented; run `bash scripts/score_run.sh`
+      in bigpo
     bcps: 1
     epic: e09
     tasks_total: 0
@@ -988,7 +987,7 @@ stories:
     tasks_failing: 0
   e10s01:
     status: done
-    title: 'profiles/swift.md, typescript-vue.md, node-service.md'
+    title: profiles/swift.md, typescript-vue.md, node-service.md
     bcps: 1
     epic: e10
     tasks_total: 0
@@ -996,7 +995,7 @@ stories:
     tasks_failing: 0
   e10s02:
     status: done
-    title: 'seed-conventions profile picker'
+    title: seed-conventions profile picker
     bcps: 1
     epic: e10
     tasks_total: 0
@@ -1020,7 +1019,7 @@ stories:
     tasks_failing: 0
   e11s03:
     status: done
-    title: 'BCP accounting + cycle-time ledger'
+    title: BCP accounting + cycle-time ledger
     bcps: 1
     epic: e11
     tasks_total: 0
@@ -1036,7 +1035,7 @@ stories:
     tasks_failing: 0
   e11s05:
     status: done
-    title: 'SKILL-INDEX fix + dead code removal'
+    title: SKILL-INDEX fix + dead code removal
     bcps: 1
     epic: e11
     tasks_total: 0
@@ -1044,7 +1043,7 @@ stories:
     tasks_failing: 0
   e12s01:
     status: done
-    title: 'Pi skill generation — .pi/skills/<name>/SKILL.md'
+    title: Pi skill generation — .pi/skills/<name>/SKILL.md
     bcps: 2
     epic: e12
     tasks_total: 4
@@ -1052,7 +1051,7 @@ stories:
     tasks_failing: 0
   e12s02:
     status: done
-    title: 'Pi prompt templates — .pi/prompts/<name>.md'
+    title: Pi prompt templates — .pi/prompts/<name>.md
     bcps: 1
     epic: e12
     tasks_total: 3
@@ -1068,7 +1067,7 @@ stories:
     tasks_failing: 0
   e12s04:
     status: done
-    title: 'sync-skills.sh pi target'
+    title: sync-skills.sh pi target
     bcps: 2
     epic: e12
     tasks_total: 6
@@ -1092,7 +1091,7 @@ stories:
     tasks_failing: 0
   e13s01:
     status: done
-    title: 'Regenerate skills-lock.json with all 62 skills'
+    title: Regenerate skills-lock.json with all 62 skills
     bcps: 1
     epic: e13
     tasks_total: 0
@@ -1100,7 +1099,7 @@ stories:
     tasks_failing: 0
   e13s02:
     status: done
-    title: 'Autogenerate SKILL-INDEX.md from lockfile + frontmatter'
+    title: Autogenerate SKILL-INDEX.md from lockfile + frontmatter
     bcps: 1
     epic: e13
     tasks_total: 0
@@ -1116,7 +1115,7 @@ stories:
     tasks_failing: 0
   e14s01:
     status: done
-    title: 'Harden release-branch solo-local fallback'
+    title: Harden release-branch solo-local fallback
     bcps: 1
     epic: e14
     tasks_total: 0
@@ -1124,7 +1123,7 @@ stories:
     tasks_failing: 0
   e14s02:
     status: done
-    title: 'Add fix-rate KPI to session-state tracking'
+    title: Add fix-rate KPI to session-state tracking
     bcps: 1
     epic: e14
     tasks_total: 0
@@ -1156,7 +1155,7 @@ stories:
     tasks_failing: 0
   e15s03:
     status: done
-    title: 'Add CI verification step to release-branch + CI dry-run to develop-tdd'
+    title: Add CI verification step to release-branch + CI dry-run to develop-tdd
     bcps: 1
     epic: e15
     tasks_total: 3
@@ -1180,7 +1179,8 @@ stories:
     tasks_failing: 0
   e17s01:
     status: done
-    title: 'craft-skill: validate-contracts — assert data shape consistency across system boundaries'
+    title: 'craft-skill: validate-contracts — assert data shape consistency across
+      system boundaries'
     bcps: 1
     epic: e17
     tasks_total: 5
@@ -1188,7 +1188,7 @@ stories:
     tasks_failing: 0
   e18s01:
     status: done
-    title: 'audit-code as hard gate in build-epic step 6'
+    title: audit-code as hard gate in build-epic step 6
     bcps: 2
     epic: e18
     tasks_total: 4
@@ -1196,7 +1196,7 @@ stories:
     tasks_failing: 0
   e18s02:
     status: done
-    title: 'Wire enforce-first (F.I.R.S.T) into build-epic gate chain'
+    title: Wire enforce-first (F.I.R.S.T) into build-epic gate chain
     bcps: 1
     epic: e18
     tasks_total: 2
@@ -1204,7 +1204,7 @@ stories:
     tasks_failing: 0
   e18s03:
     status: done
-    title: 'Wire assess-impact into build-epic step 2 (plan-work)'
+    title: Wire assess-impact into build-epic step 2 (plan-work)
     bcps: 1
     epic: e18
     tasks_total: 3
@@ -1212,7 +1212,7 @@ stories:
     tasks_failing: 0
   e18s04:
     status: done
-    title: 'Universalize resume/checkpoint pattern to fix-bug and orchestrate-project'
+    title: Universalize resume/checkpoint pattern to fix-bug and orchestrate-project
     bcps: 1
     epic: e18
     tasks_total: 3
@@ -1220,7 +1220,7 @@ stories:
     tasks_failing: 0
   e18s05:
     status: done
-    title: 'Add auto-timing to critical-path skills for stocktake effectiveness'
+    title: Add auto-timing to critical-path skills for stocktake effectiveness
     bcps: 1
     epic: e18
     tasks_total: 3
@@ -1236,7 +1236,7 @@ stories:
     tasks_failing: 0
   e20s01:
     status: done
-    title: 'change-request conversational intake — parse natural-language requests'
+    title: change-request conversational intake — parse natural-language requests
     bcps: 1
     epic: e20
     tasks_total: 2
@@ -1244,7 +1244,8 @@ stories:
     tasks_failing: 0
   e20s02:
     status: done
-    title: 'Reduce state.yaml commit noise — squash state: commits or out-of-band tracking'
+    title: 'Reduce state.yaml commit noise — squash state: commits or out-of-band
+      tracking'
     bcps: 1
     epic: e20
     tasks_total: 2
@@ -1252,7 +1253,7 @@ stories:
     tasks_failing: 0
   e20s03:
     status: done
-    title: 'kickoff-branch pre-commit for spec artifacts — fix dirty-tree conflicts'
+    title: kickoff-branch pre-commit for spec artifacts — fix dirty-tree conflicts
     bcps: 1
     epic: e20
     tasks_total: 2
@@ -1260,7 +1261,7 @@ stories:
     tasks_failing: 0
   e20s04:
     status: done
-    title: 'verify-work verify-command validation — detect mismatches before UAT'
+    title: verify-work verify-command validation — detect mismatches before UAT
     bcps: 1
     epic: e20
     tasks_total: 1
@@ -1268,7 +1269,7 @@ stories:
     tasks_failing: 0
   e20s05:
     status: done
-    title: 'develop-tdd --config mode + build-epic --fast mode'
+    title: develop-tdd --config mode + build-epic --fast mode
     bcps: 1
     epic: e20
     tasks_total: 2
@@ -1276,7 +1277,7 @@ stories:
     tasks_failing: 0
   e20s06:
     status: done
-    title: 'verify-work --cli mode for CLI tools'
+    title: verify-work --cli mode for CLI tools
     bcps: 1
     epic: e20
     tasks_total: 2
@@ -1284,7 +1285,7 @@ stories:
     tasks_failing: 0
   e21s01:
     status: done
-    title: 'MCP-native skill discovery — register skills as MCP tools'
+    title: MCP-native skill discovery — register skills as MCP tools
     bcps: 3
     epic: e21
     tasks_total: 6
@@ -1292,7 +1293,7 @@ stories:
     tasks_failing: 0
   e21s02:
     status: done
-    title: 'Wire opensrc into research-first for learn-before-build'
+    title: Wire opensrc into research-first for learn-before-build
     bcps: 2
     epic: e21
     tasks_total: 2
@@ -1300,7 +1301,7 @@ stories:
     tasks_failing: 0
   e21s03:
     status: done
-    title: 'CI-aware skills — read preflight commands from AGENTS.md'
+    title: CI-aware skills — read preflight commands from AGENTS.md
     bcps: 1
     epic: e21
     tasks_total: 2
@@ -1308,7 +1309,7 @@ stories:
     tasks_failing: 0
   e21s04:
     status: done
-    title: 'compose-workflow → AGENTS.md agentic stack mapping'
+    title: compose-workflow → AGENTS.md agentic stack mapping
     bcps: 2
     epic: e21
     tasks_total: 2
@@ -1316,7 +1317,7 @@ stories:
     tasks_failing: 0
   e22s01:
     status: done
-    title: 'scripts/run-skill-verify.sh — machine-runnable catalog health check'
+    title: scripts/run-skill-verify.sh — machine-runnable catalog health check
     bcps: 1
     epic: e22
     tasks_total: 2
@@ -1324,7 +1325,7 @@ stories:
     tasks_failing: 0
   e22s02:
     status: done
-    title: 'Wire skill-verify to CI and stocktake-skills --verify mode'
+    title: Wire skill-verify to CI and stocktake-skills --verify mode
     bcps: 1
     epic: e22
     tasks_total: 2
@@ -1340,7 +1341,7 @@ stories:
     tasks_failing: 0
   e23s02:
     status: done
-    title: 'Create run-benchmark skill'
+    title: Create run-benchmark skill
     bcps: 1
     epic: e23
     tasks_total: 2
@@ -1348,7 +1349,7 @@ stories:
     tasks_failing: 0
   e23s03:
     status: done
-    title: 'Wire evolve-skill to use run-benchmark output'
+    title: Wire evolve-skill to use run-benchmark output
     bcps: 1
     epic: e23
     tasks_total: 2
@@ -1356,7 +1357,7 @@ stories:
     tasks_failing: 0
   e24s01:
     status: done
-    title: 'elaborate-spec writes specs/planning-context.yaml'
+    title: elaborate-spec writes specs/planning-context.yaml
     bcps: 1
     epic: e24
     tasks_total: 2
@@ -1364,7 +1365,7 @@ stories:
     tasks_failing: 0
   e24s02:
     status: done
-    title: 'scope-work and slice-tasks read planning-context.yaml'
+    title: scope-work and slice-tasks read planning-context.yaml
     bcps: 1
     epic: e24
     tasks_total: 2
@@ -1372,7 +1373,7 @@ stories:
     tasks_failing: 0
   e24s03:
     status: done
-    title: 'run-planning tracks context lifecycle in planning-status.yaml'
+    title: run-planning tracks context lifecycle in planning-status.yaml
     bcps: 1
     epic: e24
     tasks_total: 2
@@ -1380,7 +1381,7 @@ stories:
     tasks_failing: 0
   e25s01:
     status: done
-    title: 'Promote ID tracking from YAML comments to first-class fields'
+    title: Promote ID tracking from YAML comments to first-class fields
     bcps: 2
     epic: e25
     tasks_total: 5
@@ -1388,7 +1389,7 @@ stories:
     tasks_failing: 0
   e25s02:
     status: done
-    title: 'Emit FR-XX / UJ-XX REQUIREMENTS_TRACE.yaml on migration'
+    title: Emit FR-XX / UJ-XX REQUIREMENTS_TRACE.yaml on migration
     bcps: 2
     epic: e25
     tasks_total: 4
@@ -1412,7 +1413,7 @@ stories:
     tasks_failing: 0
   e25s05:
     status: done
-    title: 'Add two-pass spec writing gate (spec-kit learning)'
+    title: Add two-pass spec writing gate (spec-kit learning)
     bcps: 2
     epic: e25
     tasks_total: 3
@@ -1428,7 +1429,7 @@ stories:
     tasks_failing: 0
   e26s01:
     status: done
-    title: 'Core security-review skill + reference files'
+    title: Core security-review skill + reference files
     bcps: 5
     epic: e26
     tasks_total: 5
@@ -1437,7 +1438,7 @@ stories:
     security_max: none
   e26s02:
     status: done
-    title: 'build-epic integration — threat model step'
+    title: build-epic integration — threat model step
     bcps: 3
     epic: e26
     tasks_total: 2
@@ -1446,7 +1447,7 @@ stories:
     security_max: low
   e26s03:
     status: done
-    title: 'plan-work / plan-release integration'
+    title: plan-work / plan-release integration
     bcps: 3
     epic: e26
     tasks_total: 2
@@ -1455,7 +1456,7 @@ stories:
     security_max: low
   e26s04:
     status: done
-    title: 'audit-code / request-review integration'
+    title: audit-code / request-review integration
     bcps: 3
     epic: e26
     tasks_total: 2
@@ -1464,7 +1465,7 @@ stories:
     security_max: low
   e26s05:
     status: done
-    title: 'verify-work integration — Phase 5 security scan'
+    title: verify-work integration — Phase 5 security scan
     bcps: 4
     epic: e26
     tasks_total: 3
@@ -1473,7 +1474,7 @@ stories:
     security_max: medium
   e26s06:
     status: done
-    title: 'release-branch hard gate'
+    title: release-branch hard gate
     bcps: 2
     epic: e26
     tasks_total: 2
@@ -1482,7 +1483,7 @@ stories:
     security_max: medium
   e26s07:
     status: done
-    title: 'fix-bug / validate-fix integration'
+    title: fix-bug / validate-fix integration
     bcps: 1
     epic: e26
     tasks_total: 2
@@ -1491,7 +1492,7 @@ stories:
     security_max: high
   e27s01:
     status: done
-    title: 'Rename generated specs-root files to _LATEST.md in all source skills'
+    title: Rename generated specs-root files to _LATEST.md in all source skills
     bcps: 7
     epic: e27
     tasks_total: 9
@@ -1499,7 +1500,8 @@ stories:
     tasks_failing: 0
   e28s01:
     status: done
-    title: 'Create scripts/lib/skill-common.sh with shared functions (resolve_repo_root, parse_frontmatter, iterate_skills)'
+    title: Create scripts/lib/skill-common.sh with shared functions (resolve_repo_root,
+      parse_frontmatter, iterate_skills)
     bcps: 3
     epic: e28
     tasks_total: 4
@@ -1507,7 +1509,7 @@ stories:
     tasks_failing: 0
   e28s02:
     status: done
-    title: 'Refactor 13 scripts to source skill-common.sh instead of duplicating boilerplate'
+    title: Refactor 13 scripts to source skill-common.sh instead of duplicating boilerplate
     bcps: 2
     epic: e28
     tasks_total: 3
@@ -1515,7 +1517,7 @@ stories:
     tasks_failing: 0
   e28s03:
     status: done
-    title: 'Refactor sync-skills.sh to use render-target functions (one per target)'
+    title: Refactor sync-skills.sh to use render-target functions (one per target)
     bcps: 5
     epic: e28
     tasks_total: 4
@@ -1523,7 +1525,8 @@ stories:
     tasks_failing: 0
   e28s04:
     status: done
-    title: 'Refactor regenerate-lockfile.sh, generate-skill-index.sh, build-skill-index.sh to source skill-common.sh'
+    title: Refactor regenerate-lockfile.sh, generate-skill-index.sh, build-skill-index.sh
+      to source skill-common.sh
     bcps: 3
     epic: e28
     tasks_total: 4
@@ -1531,7 +1534,7 @@ stories:
     tasks_failing: 0
   e29s01:
     status: done
-    title: 'Location-agnostic skill discovery in all consumer scripts'
+    title: Location-agnostic skill discovery in all consumer scripts
     bcps: 3
     epic: e29
     tasks_total: 4
@@ -1539,7 +1542,7 @@ stories:
     tasks_failing: 0
   e29s02:
     status: done
-    title: 'Relocate skill sources to skills/ and re-point CI'
+    title: Relocate skill sources to skills/ and re-point CI
     bcps: 3
     epic: e29
     tasks_total: 5
@@ -1555,7 +1558,7 @@ stories:
     tasks_failing: 0
   e30s01:
     status: done
-    title: 'Add 3 missing skills to get_phase() in generate-skill-index.sh'
+    title: Add 3 missing skills to get_phase() in generate-skill-index.sh
     bcps: 2
     epic: e30
     tasks_total: 0
@@ -1563,7 +1566,7 @@ stories:
     tasks_failing: 0
   e30s02:
     status: done
-    title: 'Fix 4 broken specs/tech-architecture/ references'
+    title: Fix 4 broken specs/tech-architecture/ references
     bcps: 2
     epic: e30
     tasks_total: 0
@@ -1579,7 +1582,7 @@ stories:
     tasks_failing: 0
   e30s04:
     status: done
-    title: 'Replace tautological verify commands with behavior-relevant checks'
+    title: Replace tautological verify commands with behavior-relevant checks
     bcps: 3
     epic: e30
     tasks_total: 0
@@ -1587,7 +1590,8 @@ stories:
     tasks_failing: 0
   e31s01:
     status: done
-    title: 'Create scripts/golden-g04-selftest.sh — sync-pipeline self-test (G-04): asserts 72 artifacts per target, skills-lock.json count, SKILL-INDEX total'
+    title: 'Create scripts/golden-g04-selftest.sh — sync-pipeline self-test (G-04):
+      asserts 72 artifacts per target, skills-lock.json count, SKILL-INDEX total'
     bcps: 2
     epic: e31
     tasks_total: 4
@@ -1595,7 +1599,8 @@ stories:
     tasks_failing: 0
   e31s02:
     status: done
-    title: 'Wire npm run compliance into CI (.github/workflows/publish.yml) as a gate before semantic-release'
+    title: Wire npm run compliance into CI (.github/workflows/publish.yml) as a gate
+      before semantic-release
     bcps: 2
     epic: e31
     tasks_total: 3
@@ -1603,7 +1608,9 @@ stories:
     tasks_failing: 0
   e31s03:
     status: done
-    title: 'Create scripts/run-golden-suite.sh (deterministic mode): compliance -> G-04 self-test -> size budget; writes specs/benchmarks/reports/GOLDEN-<date>.yaml; --baseline pins'
+    title: 'Create scripts/run-golden-suite.sh (deterministic mode): compliance ->
+      G-04 self-test -> size budget; writes specs/benchmarks/reports/GOLDEN-<date>.yaml;
+      --baseline pins'
     bcps: 3
     epic: e31
     tasks_total: 5
@@ -1611,7 +1618,8 @@ stories:
     tasks_failing: 0
   e31s04:
     status: done
-    title: 'Add static size budget to run-golden-suite.sh — per-skill and total SKILL.md bytes vs baseline (+20% warn, +50% fail)'
+    title: Add static size budget to run-golden-suite.sh — per-skill and total SKILL.md
+      bytes vs baseline (+20% warn, +50% fail)
     bcps: 1
     epic: e31
     tasks_total: 3
@@ -1619,7 +1627,7 @@ stories:
     tasks_failing: 0
   e31s05:
     status: done
-    title: 'Pin baseline via run-golden-suite.sh --baseline -> specs/benchmarks/reports/BASELINE-GOLDEN.yaml'
+    title: Pin baseline via run-golden-suite.sh --baseline -> specs/benchmarks/reports/BASELINE-GOLDEN.yaml
     bcps: 1
     epic: e31
     tasks_total: 2
@@ -1627,7 +1635,7 @@ stories:
     tasks_failing: 0
   e31s06:
     status: done
-    title: 'Mandate run-golden-suite.sh as pre-merge step in CLAUDE.md and CONVENTIONS.md'
+    title: Mandate run-golden-suite.sh as pre-merge step in CLAUDE.md and CONVENTIONS.md
     bcps: 1
     epic: e31
     tasks_total: 2
@@ -1635,7 +1643,8 @@ stories:
     tasks_failing: 0
   e31s07:
     status: done
-    title: 'Point evolve-skill SKILL.md at run-golden-suite.sh for regression checks (keeps per-skill run-benchmark for capability evals)'
+    title: Point evolve-skill SKILL.md at run-golden-suite.sh for regression checks
+      (keeps per-skill run-benchmark for capability evals)
     bcps: 1
     epic: e31
     tasks_total: 1
@@ -1643,7 +1652,8 @@ stories:
     tasks_failing: 0
   e32s01:
     status: done
-    title: 'Spike: build bigpowers-mcp with index_skills + read_skill, validate against all SKILL.md files'
+    title: 'Spike: build bigpowers-mcp with index_skills + read_skill, validate against
+      all SKILL.md files'
     bcps: 3
     epic: e32
     tasks_total: 5
@@ -1653,7 +1663,8 @@ stories:
     security_max: low
   e32s02:
     status: done
-    title: 'Add build_skill_graph tool — entity-relation model from parsed SKILL.md data'
+    title: Add build_skill_graph tool — entity-relation model from parsed SKILL.md
+      data
     bcps: 3
     epic: e32
     tasks_total: 0
@@ -1685,7 +1696,7 @@ stories:
     tasks_failing: 0
   e32s06:
     status: done
-    title: 'Register bigpowers-mcp in MCP client configs (Claude Code, Cursor, OpenCode)'
+    title: Register bigpowers-mcp in MCP client configs (Claude Code, Cursor, OpenCode)
     bcps: 1
     epic: e32
     tasks_total: 0
@@ -1693,7 +1704,7 @@ stories:
     tasks_failing: 0
   e32s07:
     status: done
-    title: 'Write docs/references/bigpowers-mcp.md — architecture and operator guide'
+    title: Write docs/references/bigpowers-mcp.md — architecture and operator guide
     bcps: 1
     epic: e32
     tasks_total: 0
@@ -1709,7 +1720,7 @@ stories:
     tasks_failing: 0
   e33s02:
     status: done
-    title: 'Source-mapping prebuild — pages generated from repo sources'
+    title: Source-mapping prebuild — pages generated from repo sources
     bcps: 5
     epic: e33
     tasks_total: 8
@@ -1733,7 +1744,7 @@ stories:
     tasks_failing: 0
   e33s05:
     status: done
-    title: 'Doctrine wiring — site content is generated, never edited'
+    title: Doctrine wiring — site content is generated, never edited
     bcps: 1
     epic: e33
     tasks_total: 5
@@ -1741,7 +1752,8 @@ stories:
     tasks_failing: 0
   e34s01:
     status: done
-    title: 'Create docs/references/context-engineering.md (write/select/compress/isolate framework)'
+    title: Create docs/references/context-engineering.md (write/select/compress/isolate
+      framework)
     bcps: 2
     epic: e34
     tasks_total: 3
@@ -1757,7 +1769,7 @@ stories:
     tasks_failing: 0
   e34s03:
     status: done
-    title: 'Update CLAUDE.md Token Management to use context-engineering vocabulary'
+    title: Update CLAUDE.md Token Management to use context-engineering vocabulary
     bcps: 2
     epic: e34
     tasks_total: 2
@@ -1765,7 +1777,7 @@ stories:
     tasks_failing: 0
   e34s04:
     status: done
-    title: 'Update session-state SKILL.md to name the four context-engineering strategies'
+    title: Update session-state SKILL.md to name the four context-engineering strategies
     bcps: 3
     epic: e34
     tasks_total: 3
@@ -1773,7 +1785,7 @@ stories:
     tasks_failing: 0
   e35s01:
     status: done
-    title: 'Create docs/references/kent-beck.md (XP, TDD origins, Tidy First?)'
+    title: Create docs/references/kent-beck.md (XP, TDD origins, Tidy First?)
     bcps: 2
     epic: e35
     tasks_total: 4
@@ -1781,7 +1793,7 @@ stories:
     tasks_failing: 0
   e35s02:
     status: done
-    title: 'Create docs/references/fowler.md (refactoring catalog, code smells)'
+    title: Create docs/references/fowler.md (refactoring catalog, code smells)
     bcps: 2
     epic: e35
     tasks_total: 4
@@ -1789,7 +1801,7 @@ stories:
     tasks_failing: 0
   e35s03:
     status: done
-    title: 'Create docs/references/feathers.md (seams, characterization tests)'
+    title: Create docs/references/feathers.md (seams, characterization tests)
     bcps: 2
     epic: e35
     tasks_total: 4
@@ -1797,7 +1809,8 @@ stories:
     tasks_failing: 0
   e35s04:
     status: done
-    title: 'Create docs/references/pragmatic-programmer.md (DRY, broken windows, tracer bullets)'
+    title: Create docs/references/pragmatic-programmer.md (DRY, broken windows, tracer
+      bullets)
     bcps: 2
     epic: e35
     tasks_total: 2
@@ -1805,7 +1818,7 @@ stories:
     tasks_failing: 0
   e35s05:
     status: done
-    title: 'Create docs/references/rich-hickey.md (simple vs easy, complecting)'
+    title: Create docs/references/rich-hickey.md (simple vs easy, complecting)
     bcps: 2
     epic: e35
     tasks_total: 2
@@ -1813,7 +1826,8 @@ stories:
     tasks_failing: 0
   e35s06:
     status: done
-    title: 'Create docs/references/sandi-metz.md (SOLID in practice, message-level testing)'
+    title: Create docs/references/sandi-metz.md (SOLID in practice, message-level
+      testing)
     bcps: 2
     epic: e35
     tasks_total: 2
@@ -1821,7 +1835,7 @@ stories:
     tasks_failing: 0
   e35s07:
     status: done
-    title: 'Create docs/references/ddd.md (bounded contexts, context mapping)'
+    title: Create docs/references/ddd.md (bounded contexts, context mapping)
     bcps: 2
     epic: e35
     tasks_total: 2
@@ -1837,7 +1851,7 @@ stories:
     tasks_failing: 0
   e35s09:
     status: done
-    title: 'Update PRINCIPLES.md to credit Beck, Fowler, Feathers, Hunt & Thomas'
+    title: Update PRINCIPLES.md to credit Beck, Fowler, Feathers, Hunt & Thomas
     bcps: 2
     epic: e35
     tasks_total: 2
@@ -1845,7 +1859,7 @@ stories:
     tasks_failing: 0
   e35s10:
     status: done
-    title: 'Cross-reference new docs from SKILL.md bodies'
+    title: Cross-reference new docs from SKILL.md bodies
     bcps: 2
     epic: e35
     tasks_total: 3
@@ -1853,7 +1867,7 @@ stories:
     tasks_failing: 0
   e36s01:
     status: done
-    title: 'Slim docs/references/uncle-bob.md to provenance pointer'
+    title: Slim docs/references/uncle-bob.md to provenance pointer
     bcps: 3
     epic: e36
     tasks_total: 3
@@ -1862,7 +1876,8 @@ stories:
     risk_max: P2
   e36s02:
     status: done
-    title: 'Slim docs/references/akita.md, ousterhout.md, karpathy.md, wasowski.md to provenance pointers'
+    title: Slim docs/references/akita.md, ousterhout.md, karpathy.md, wasowski.md
+      to provenance pointers
     bcps: 3
     epic: e36
     tasks_total: 4
@@ -1871,7 +1886,8 @@ stories:
     risk_max: P2
   e36s03:
     status: done
-    title: 'Remove F.I.R.S.T rubric restatement from enforce-first and audit-code SKILL.md; replace with CONVENTIONS.md pointer'
+    title: Remove F.I.R.S.T rubric restatement from enforce-first and audit-code SKILL.md;
+      replace with CONVENTIONS.md pointer
     bcps: 2
     epic: e36
     tasks_total: 3
@@ -1880,7 +1896,8 @@ stories:
     risk_max: P2
   e36s04:
     status: done
-    title: 'Update docs/references/spec-kit.md to cover full SDD tool landscape (Kiro, Tessl, BMAD, GSD)'
+    title: Update docs/references/spec-kit.md to cover full SDD tool landscape (Kiro,
+      Tessl, BMAD, GSD)
     bcps: 2
     epic: e36
     tasks_total: 4
@@ -1889,7 +1906,8 @@ stories:
     risk_max: P2
   e36s05:
     status: done
-    title: Refresh docs/references/bmad.md from BMAD v6/TEA — currently covers only Document Lifecycle
+    title: Refresh docs/references/bmad.md from BMAD v6/TEA — currently covers only
+      Document Lifecycle
     bcps: 2
     epic: e36
     tasks_total: 0
@@ -1897,7 +1915,8 @@ stories:
     tasks_failing: 0
   e37s01:
     status: done
-    title: 'seed-conventions — unified AGENTS.md template with e51 Preflight + multi-agent header'
+    title: seed-conventions — unified AGENTS.md template with e51 Preflight + multi-agent
+      header
     bcps: 3
     epic: e37
     tasks_total: 5
@@ -1906,7 +1925,7 @@ stories:
     risk_max: P1
   e37s02:
     status: done
-    title: 'verify-install.sh + docs — Cline native AGENTS.md verification'
+    title: verify-install.sh + docs — Cline native AGENTS.md verification
     bcps: 2
     epic: e37
     tasks_total: 4
@@ -1916,7 +1935,7 @@ stories:
     security_max: none
   e37s03:
     status: done
-    title: 'seed-conventions — .aider.conf.yml read:AGENTS.md bridge for Aider users'
+    title: seed-conventions — .aider.conf.yml read:AGENTS.md bridge for Aider users
     bcps: 1
     epic: e37
     tasks_total: 4
@@ -1926,7 +1945,7 @@ stories:
     security_max: none
   e37s04:
     status: done
-    title: 'verify-install.sh — AGENTS.md spine assertions (OSS P1 + optional Codex)'
+    title: verify-install.sh — AGENTS.md spine assertions (OSS P1 + optional Codex)
     bcps: 2
     epic: e37
     tasks_total: 6
@@ -1945,7 +1964,7 @@ stories:
     risk_max: P1
   e37s06:
     status: done
-    title: 'scripts/generate-context-bundle.sh — AGENTS.md single source + all derivatives'
+    title: scripts/generate-context-bundle.sh — AGENTS.md single source + all derivatives
     bcps: 3
     epic: e37
     tasks_total: 4
@@ -1955,7 +1974,7 @@ stories:
     security_max: none
   e37s07:
     status: done
-    title: 'sync-skills.sh — adapter dispatch from targets.yaml'
+    title: sync-skills.sh — adapter dispatch from targets.yaml
     bcps: 5
     epic: e37
     tasks_total: 5
@@ -1964,7 +1983,7 @@ stories:
     risk_max: P0
   e37s08:
     status: done
-    title: 'verify-install.sh — per-target contract matrix from targets.yaml'
+    title: verify-install.sh — per-target contract matrix from targets.yaml
     bcps: 3
     epic: e37
     tasks_total: 4
@@ -2024,7 +2043,7 @@ stories:
     security_max: none
   e37s14:
     status: done
-    title: 'seed-conventions — optional Codex wiring step (AGENTS.md + .codex/config.toml)'
+    title: seed-conventions — optional Codex wiring step (AGENTS.md + .codex/config.toml)
     bcps: 3
     epic: e37
     tasks_total: 6
@@ -2044,7 +2063,7 @@ stories:
     security_max: low
   e37s16:
     status: done
-    title: 'using-bigpowers — Codex CLI onboarding section'
+    title: using-bigpowers — Codex CLI onboarding section
     bcps: 2
     epic: e37
     tasks_total: 4
@@ -2054,7 +2073,7 @@ stories:
     security_max: none
   e38s01:
     status: done
-    title: 'Create scripts/trace-stories.sh — deterministic coverage matrix builder'
+    title: Create scripts/trace-stories.sh — deterministic coverage matrix builder
     bcps: 3
     epic: e38
     tasks_total: 5
@@ -2062,7 +2081,7 @@ stories:
     tasks_failing: 0
   e38s02:
     status: done
-    title: 'Integrate trace-stories.sh into build-epic Step 8 (verify phase)'
+    title: Integrate trace-stories.sh into build-epic Step 8 (verify phase)
     bcps: 1
     epic: e38
     tasks_total: 2
@@ -2070,7 +2089,7 @@ stories:
     tasks_failing: 0
   e38s03:
     status: done
-    title: 'Add trace-stories.sh --strict to CI gate (sync-skills.yml)'
+    title: Add trace-stories.sh --strict to CI gate (sync-skills.yml)
     bcps: 1
     epic: e38
     tasks_total: 2
@@ -2078,7 +2097,7 @@ stories:
     tasks_failing: 0
   e38s04:
     status: done
-    title: 'Create scripts/check-blind-spots.sh — heuristic quality detector'
+    title: Create scripts/check-blind-spots.sh — heuristic quality detector
     bcps: 2
     epic: e38
     tasks_total: 3
@@ -2086,7 +2105,7 @@ stories:
     tasks_failing: 0
   e38s05:
     status: done
-    title: 'Integrate check-blind-spots.sh into verify-work Phase 3'
+    title: Integrate check-blind-spots.sh into verify-work Phase 3
     bcps: 1
     epic: e38
     tasks_total: 2
@@ -2094,7 +2113,7 @@ stories:
     tasks_failing: 0
   e38s06:
     status: done
-    title: 'Create gate-trace skill — deterministic quality gate before release'
+    title: Create gate-trace skill — deterministic quality gate before release
     bcps: 2
     epic: e38
     tasks_total: 3
@@ -2102,7 +2121,7 @@ stories:
     tasks_failing: 0
   e38s07:
     status: done
-    title: 'Wire gate-trace into release-branch pre-PR gate'
+    title: Wire gate-trace into release-branch pre-PR gate
     bcps: 1
     epic: e38
     tasks_total: 2
@@ -2118,7 +2137,7 @@ stories:
     tasks_failing: 0
   e38s09:
     status: done
-    title: 'Write docs/references/traceability-gate.md — architecture & operator guide'
+    title: Write docs/references/traceability-gate.md — architecture & operator guide
     bcps: 1
     epic: e38
     tasks_total: 2
@@ -2126,7 +2145,8 @@ stories:
     tasks_failing: 0
   e39s01:
     status: done
-    title: 'Consume e32 build_skill_graph MCP tool for skill graph artifact (replaces standalone build-skill-graph.sh)'
+    title: Consume e32 build_skill_graph MCP tool for skill graph artifact (replaces
+      standalone build-skill-graph.sh)
     bcps: 3
     epic: e39
     tasks_total: 5
@@ -2134,7 +2154,7 @@ stories:
     tasks_failing: 0
   e39s02:
     status: done
-    title: 'Create specs/agent-locks.yaml — multi-agent coordination protocol'
+    title: Create specs/agent-locks.yaml — multi-agent coordination protocol
     bcps: 2
     epic: e39
     tasks_total: 4
@@ -2142,7 +2162,8 @@ stories:
     tasks_failing: 0
   e39s03:
     status: done
-    title: 'Create scripts/check-spec-drift.sh — requirement change → suspect trace links'
+    title: Create scripts/check-spec-drift.sh — requirement change → suspect trace
+      links
     bcps: 2
     epic: e39
     tasks_total: 4
@@ -2150,7 +2171,8 @@ stories:
     tasks_failing: 0
   e39s04:
     status: done
-    title: 'OKF Phase 2 — sync-skills.sh generates specs/skills-wiki/ from all SKILL.md files'
+    title: OKF Phase 2 — sync-skills.sh generates specs/skills-wiki/ from all SKILL.md
+      files
     bcps: 3
     epic: e39
     tasks_total: 4
@@ -2158,7 +2180,7 @@ stories:
     tasks_failing: 0
   e39s05:
     status: done
-    title: 'OKF Phase 3a — decompose CONVENTIONS.md into specs/conventions-wiki/'
+    title: OKF Phase 3a — decompose CONVENTIONS.md into specs/conventions-wiki/
     bcps: 2
     epic: e39
     tasks_total: 3
@@ -2166,7 +2188,8 @@ stories:
     tasks_failing: 0
   e39s06:
     status: done
-    title: 'OKF Phase 3b — decompose CLAUDE.md into specs/agent-guide/ for progressive disclosure'
+    title: OKF Phase 3b — decompose CLAUDE.md into specs/agent-guide/ for progressive
+      disclosure
     bcps: 1
     epic: e39
     tasks_total: 3
@@ -2174,7 +2197,7 @@ stories:
     tasks_failing: 0
   e39s07:
     status: done
-    title: 'Create maintain-wiki skill — agent-maintained OKF ingest, lint, and query'
+    title: Create maintain-wiki skill — agent-maintained OKF ingest, lint, and query
     bcps: 3
     epic: e39
     tasks_total: 4
@@ -2182,7 +2205,7 @@ stories:
     tasks_failing: 0
   e39s08:
     status: done
-    title: 'Integrate maintain-wiki into build-epic Step 8 and verify-work Phase 3'
+    title: Integrate maintain-wiki into build-epic Step 8 and verify-work Phase 3
     bcps: 2
     epic: e39
     tasks_total: 2
@@ -2190,7 +2213,8 @@ stories:
     tasks_failing: 0
   e39s09:
     status: done
-    title: 'Write docs/references/semantic-context-bridge.md — architecture and operator guide'
+    title: Write docs/references/semantic-context-bridge.md — architecture and operator
+      guide
     bcps: 1
     epic: e39
     tasks_total: 2
@@ -2198,7 +2222,8 @@ stories:
     tasks_failing: 0
   e39s10:
     status: done
-    title: 'Extend scripts/validate-okf.sh (created by e40s06) with OKF v0.1 frontmatter conformance checks'
+    title: Extend scripts/validate-okf.sh (created by e40s06) with OKF v0.1 frontmatter
+      conformance checks
     bcps: 1
     epic: e39
     tasks_total: 2
@@ -2206,7 +2231,8 @@ stories:
     tasks_failing: 0
   e40s01:
     status: done
-    title: 'Land record-cycle-time.sh — git-derived additive effort + lead_time (report/append + additivity self-check)'
+    title: Land record-cycle-time.sh — git-derived additive effort + lead_time (report/append
+      + additivity self-check)
     bcps: 1
     epic: e40
     tasks_total: 3
@@ -2214,7 +2240,8 @@ stories:
     tasks_failing: 0
   e40s02:
     status: done
-    title: 'Wire record-cycle-time.sh append into release-branch; deprecate story_start/story_end hand-arithmetic in survey-context + release-branch'
+    title: Wire record-cycle-time.sh append into release-branch; deprecate story_start/story_end
+      hand-arithmetic in survey-context + release-branch
     bcps: 3
     epic: e40
     tasks_total: 3
@@ -2222,7 +2249,8 @@ stories:
     tasks_failing: 0
   e40s03:
     status: done
-    title: 'Adopt OKF story-metrics bundle format (specs/templates/story-metrics.okf.md); emit one bundle per merged story'
+    title: Adopt OKF story-metrics bundle format (specs/templates/story-metrics.okf.md);
+      emit one bundle per merged story
     bcps: 3
     epic: e40
     tasks_total: 3
@@ -2230,7 +2258,8 @@ stories:
     tasks_failing: 0
   e40s04:
     status: done
-    title: 'Agent code-gen telemetry capture where harness exposes usage (pi, Claude Code): cost, tokens, cache_hit, tier, tool_calls'
+    title: 'Agent code-gen telemetry capture where harness exposes usage (pi, Claude
+      Code): cost, tokens, cache_hit, tier, tool_calls'
     bcps: 3
     epic: e40
     tasks_total: 3
@@ -2238,7 +2267,8 @@ stories:
     tasks_failing: 0
   e40s05:
     status: done
-    title: 'DORA four keys per story, computed from git/deploy events (lead time, deploy frequency, change failure, restore time) — median/rate aggregation only'
+    title: DORA four keys per story, computed from git/deploy events (lead time, deploy
+      frequency, change failure, restore time) — median/rate aggregation only
     bcps: 3
     epic: e40
     tasks_total: 3
@@ -2246,7 +2276,8 @@ stories:
     tasks_failing: 0
   e40s06:
     status: done
-    title: 'validate-okf.sh + provenance gate (e31-style): bundle valid iff generator ran and commit_range resolves; wire into compliance CI'
+    title: 'validate-okf.sh + provenance gate (e31-style): bundle valid iff generator
+      ran and commit_range resolves; wire into compliance CI'
     bcps: 2
     epic: e40
     tasks_total: 4
@@ -2254,7 +2285,8 @@ stories:
     tasks_failing: 0
   e40s07:
     status: done
-    title: 'Quarantine fabricated cycle-times.yaml rows (tag source: backfilled) and exclude from aggregates'
+    title: 'Quarantine fabricated cycle-times.yaml rows (tag source: backfilled) and
+      exclude from aggregates'
     bcps: 2
     epic: e40
     tasks_total: 3
@@ -2262,7 +2294,8 @@ stories:
     tasks_failing: 0
   e40s08:
     status: done
-    title: 'Benchmark axes scaffold in specs/benchmarks using OKF bundles (delivery, reliability, cost, routing, quality)'
+    title: Benchmark axes scaffold in specs/benchmarks using OKF bundles (delivery,
+      reliability, cost, routing, quality)
     bcps: 1
     epic: e40
     tasks_total: 2
@@ -2270,7 +2303,8 @@ stories:
     tasks_failing: 0
   e41s01:
     status: done
-    title: 'Create scripts/build-receipts.sh — aggregate all quality evidence into specs/receipts.json'
+    title: Create scripts/build-receipts.sh — aggregate all quality evidence into
+      specs/receipts.json
     bcps: 3
     epic: e41
     tasks_total: 2
@@ -2286,7 +2320,7 @@ stories:
     tasks_failing: 0
   e41s03:
     status: done
-    title: 'CI wiring — regenerate receipts on every main push; provenance gate, e40-style'
+    title: CI wiring — regenerate receipts on every main push; provenance gate, e40-style
     bcps: 2
     epic: e41
     tasks_total: 2
@@ -2294,7 +2328,8 @@ stories:
     tasks_failing: 0
   e41s04:
     status: done
-    title: 'Honesty guardrails codified — validate-okf checks receipts.json source tags'
+    title: Honesty guardrails codified — validate-okf checks receipts.json source
+      tags
     bcps: 1
     epic: e41
     tasks_total: 2
@@ -2310,7 +2345,8 @@ stories:
     tasks_failing: 0
   e42s01:
     status: done
-    title: 'Spike: headless golden-chain harness — gh-aw + DeepSeek v4 prototype confirmed viable'
+    title: 'Spike: headless golden-chain harness — gh-aw + DeepSeek v4 prototype confirmed
+      viable'
     bcps: 3
     epic: e42
     tasks_total: 0
@@ -2318,7 +2354,8 @@ stories:
     tasks_failing: 0
   e42s02:
     status: done
-    title: 'Create specs/benchmarks/fixtures/minimal-api/ fixture repo (createUser + failing-ready test harness)'
+    title: Create specs/benchmarks/fixtures/minimal-api/ fixture repo (createUser
+      + failing-ready test harness)
     bcps: 3
     epic: e42
     tasks_total: 4
@@ -2326,7 +2363,8 @@ stories:
     tasks_failing: 0
   e42s03:
     status: done
-    title: 'Author 4 golden story YAMLs (g-01, g-02, g-03, g-05) with code graders and pass@k 2-of-3 flake policy'
+    title: Author 4 golden story YAMLs (g-01, g-02, g-03, g-05) with code graders
+      and pass@k 2-of-3 flake policy
     bcps: 3
     epic: e42
     tasks_total: 5
@@ -2334,7 +2372,8 @@ stories:
     tasks_failing: 0
   e42s04:
     status: done
-    title: 'Add --agent mode to run-golden-suite.sh: headless chain execution per golden story, per-epic cadence, report merged with deterministic gates'
+    title: 'Add --agent mode to run-golden-suite.sh: headless chain execution per
+      golden story, per-epic cadence, report merged with deterministic gates'
     bcps: 4
     epic: e42
     tasks_total: 5
@@ -2342,7 +2381,7 @@ stories:
     tasks_failing: 0
   e43s01:
     status: done
-    title: 'Scaffold the showcase app in a separate public repo via seed-conventions'
+    title: Scaffold the showcase app in a separate public repo via seed-conventions
     bcps: 3
     epic: e43
     tasks_total: 2
@@ -2350,7 +2389,7 @@ stories:
     tasks_failing: 0
   e43s02:
     status: done
-    title: 'Build one feature epic end-to-end via the 8-step build-epic cycle'
+    title: Build one feature epic end-to-end via the 8-step build-epic cycle
     bcps: 3
     epic: e43
     tasks_total: 2
@@ -2358,7 +2397,7 @@ stories:
     tasks_failing: 0
   e43s03:
     status: done
-    title: 'Fix one real bug via the investigate-bug → develop-tdd → validate-fix trail'
+    title: Fix one real bug via the investigate-bug → develop-tdd → validate-fix trail
     bcps: 2
     epic: e43
     tasks_total: 2
@@ -2366,7 +2405,8 @@ stories:
     tasks_failing: 0
   e43s04:
     status: done
-    title: 'Link the showcase from README + docs site; register as e37 golden-story fixture candidate'
+    title: Link the showcase from README + docs site; register as e37 golden-story
+      fixture candidate
     bcps: 2
     epic: e43
     tasks_total: 1
@@ -2374,7 +2414,8 @@ stories:
     tasks_failing: 0
   e43s05:
     status: done
-    title: 'Add offline-tolerant fallbacks for e43 verify commands that depend on gh api/gh search'
+    title: Add offline-tolerant fallbacks for e43 verify commands that depend on gh
+      api/gh search
     bcps: 1
     epic: e43
     tasks_total: 0
@@ -2382,7 +2423,8 @@ stories:
     tasks_failing: 0
   e44s01:
     status: done
-    title: 'Define OKF schema for spec-migration and migration-registry; create initial registry with m1-m2'
+    title: Define OKF schema for spec-migration and migration-registry; create initial
+      registry with m1-m2
     bcps: 3
     epic: e44
     tasks_total: 7
@@ -2390,7 +2432,8 @@ stories:
     tasks_failing: 0
   e44s02:
     status: done
-    title: 'Create scripts/check-spec-version-gap.sh — fingerprint + stamp-based version detection'
+    title: Create scripts/check-spec-version-gap.sh — fingerprint + stamp-based version
+      detection
     bcps: 2
     epic: e44
     tasks_total: 6
@@ -2398,7 +2441,8 @@ stories:
     tasks_failing: 0
   e44s03:
     status: done
-    title: 'Create scripts/migrate-version.sh — one-shot ordered migration engine with triple safety net'
+    title: Create scripts/migrate-version.sh — one-shot ordered migration engine with
+      triple safety net
     bcps: 4
     epic: e44
     tasks_total: 12
@@ -2406,7 +2450,8 @@ stories:
     tasks_failing: 0
   e44s04:
     status: done
-    title: Verification gates + migration report generation + CLAUDE.md/CONVENTIONS.md staleness check
+    title: Verification gates + migration report generation + CLAUDE.md/CONVENTIONS.md
+      staleness check
     bcps: 2
     epic: e44
     tasks_total: 7
@@ -2414,7 +2459,7 @@ stories:
     tasks_failing: 0
   e44s05:
     status: done
-    title: 'Integrate check_spec_version_gap into survey-context; wire handoff signal'
+    title: Integrate check_spec_version_gap into survey-context; wire handoff signal
     bcps: 1
     epic: e44
     tasks_total: 4
@@ -2422,7 +2467,8 @@ stories:
     tasks_failing: 0
   e44s06:
     status: done
-    title: 'Golden test fixtures (v1.x, v2.0.0, v2.20) + roundtrip validation; wire as G-06 golden story'
+    title: Golden test fixtures (v1.x, v2.0.0, v2.20) + roundtrip validation; wire
+      as G-06 golden story
     bcps: 2
     epic: e44
     tasks_total: 7
@@ -2502,7 +2548,8 @@ stories:
     tasks_failing: 0
   e45s10:
     status: done
-    title: 'docs/references: auto-regenerate from source-of-truth docs via scheduled sync'
+    title: 'docs/references: auto-regenerate from source-of-truth docs via scheduled
+      sync'
     bcps: 2
     epic: e45
     tasks_total: 0
@@ -2510,7 +2557,8 @@ stories:
     tasks_failing: 0
   e45s11:
     status: done
-    title: 'orchestration / dispatch-agents: typed message protocol + 3-failure circuit breaker'
+    title: 'orchestration / dispatch-agents: typed message protocol + 3-failure circuit
+      breaker'
     bcps: 2
     epic: e45
     tasks_total: 0
@@ -2774,7 +2822,7 @@ stories:
     tasks_failing: 0
   e46s03:
     status: done
-    title: 'NFR evidence gate — performance/reliability/operability with go/no-go output'
+    title: NFR evidence gate — performance/reliability/operability with go/no-go output
     bcps: 4
     epic: e46
     tasks_total: 0
@@ -2782,7 +2830,8 @@ stories:
     tasks_failing: 0
   e46s04:
     status: done
-    title: 'Upstream test-design artifact — plan-tests skill, registered output path, scenario ID traceability'
+    title: Upstream test-design artifact — plan-tests skill, registered output path,
+      scenario ID traceability
     bcps: 6
     epic: e46
     tasks_total: 0
@@ -2790,7 +2839,8 @@ stories:
     tasks_failing: 0
   e47s01:
     status: done
-    title: install.sh — global pi coverage (install_pi/uninstall_pi) + remove broken OpenCode step
+    title: install.sh — global pi coverage (install_pi/uninstall_pi) + remove broken
+      OpenCode step
     bcps: 3
     epic: e47
     tasks_total: 6
@@ -2799,7 +2849,7 @@ stories:
     risk_max: P2
   e47s02:
     status: done
-    title: 'seed-conventions — optional per-project local wiring for Cursor + OpenCode'
+    title: seed-conventions — optional per-project local wiring for Cursor + OpenCode
     bcps: 3
     epic: e47
     tasks_total: 0
@@ -2807,7 +2857,7 @@ stories:
     tasks_failing: 0
   e47s03:
     status: done
-    title: 'docs — skill-catalog vs instruction-only distinction in agent-config reference'
+    title: docs — skill-catalog vs instruction-only distinction in agent-config reference
     bcps: 1
     epic: e47
     tasks_total: 0
@@ -2815,7 +2865,7 @@ stories:
     tasks_failing: 0
   e47s04:
     status: done
-    title: 'verify-install.sh — manual verification harness for install + seed wiring'
+    title: verify-install.sh — manual verification harness for install + seed wiring
     bcps: 2
     epic: e47
     tasks_total: 0
@@ -2823,7 +2873,7 @@ stories:
     tasks_failing: 0
   e48s01:
     status: done
-    title: 'Generate epics-wiki and adr-wiki as OKF concept bundles from sync-skills.sh'
+    title: Generate epics-wiki and adr-wiki as OKF concept bundles from sync-skills.sh
     bcps: 2
     epic: e48
     tasks_total: 0
@@ -2831,7 +2881,7 @@ stories:
     tasks_failing: 0
   e48s02:
     status: done
-    title: 'Emit verification reports as OKF bundles from run-golden-suite.sh and audit-compliance.sh'
+    title: Emit verification reports as OKF bundles from run-golden-suite.sh and audit-compliance.sh
     bcps: 2
     epic: e48
     tasks_total: 0
@@ -2839,7 +2889,8 @@ stories:
     tasks_failing: 0
   e48s03:
     status: done
-    title: 'OKF-ify bug-registry: specs/bugs/registry.yaml emits concept bundles per bug'
+    title: 'OKF-ify bug-registry: specs/bugs/registry.yaml emits concept bundles per
+      bug'
     bcps: 1
     epic: e48
     tasks_total: 0
@@ -2847,7 +2898,7 @@ stories:
     tasks_failing: 0
   e48s04:
     status: done
-    title: 'Create viz.html — interactive force-layout graph companion for visual-dashboard'
+    title: Create viz.html — interactive force-layout graph companion for visual-dashboard
     bcps: 2
     epic: e48
     tasks_total: 0
@@ -2855,7 +2906,8 @@ stories:
     tasks_failing: 0
   e48s05:
     status: done
-    title: 'Wire OKF validation into CI (sync-skills.yml) and document in OKF authority [HARD GATE]'
+    title: Wire OKF validation into CI (sync-skills.yml) and document in OKF authority
+      [HARD GATE]
     bcps: 1
     epic: e48
     tasks_total: 0
@@ -2863,7 +2915,8 @@ stories:
     tasks_failing: 0
   e48s06:
     status: done
-    title: 'Add tier: field (core/extended/specialized) to OKF wiki indexes for conditional agent loading'
+    title: 'Add tier: field (core/extended/specialized) to OKF wiki indexes for conditional
+      agent loading'
     bcps: 2
     epic: e48
     tasks_total: 0
@@ -2871,7 +2924,7 @@ stories:
     tasks_failing: 0
   e48s07:
     status: done
-    title: 'Create publish-to-wiki kernel tool'
+    title: Create publish-to-wiki kernel tool
     bcps: 3
     epic: e48
     tasks_total: 0
@@ -2879,7 +2932,7 @@ stories:
     tasks_failing: 0
   e48s08:
     status: done
-    title: 'Add GitHub Action Template for publish-wiki.yml [HARD GATE]'
+    title: Add GitHub Action Template for publish-wiki.yml [HARD GATE]
     bcps: 1
     epic: e48
     tasks_total: 0
@@ -2895,7 +2948,7 @@ stories:
     tasks_failing: 0
   e48s10:
     status: done
-    title: 'Extend bigspec init with --with-wiki flag'
+    title: Extend bigspec init with --with-wiki flag
     bcps: 2
     epic: e48
     tasks_total: 0
@@ -2903,7 +2956,8 @@ stories:
     tasks_failing: 0
   e48s11:
     status: done
-    title: 'BCP Plus counter integration — install and smoke-test big-counter as optional tool'
+    title: BCP Plus counter integration — install and smoke-test big-counter as optional
+      tool
     bcps: 5
     epic: e48
     tasks_total: 4
@@ -2912,7 +2966,7 @@ stories:
     risk_max: P1
   e48s12:
     status: done
-    title: 'BCP Plus template — 13-dimension breakdown in story specs'
+    title: BCP Plus template — 13-dimension breakdown in story specs
     bcps: 5
     epic: e48
     tasks_total: 3
@@ -2921,7 +2975,7 @@ stories:
     risk_max: P2
   e48s13:
     status: done
-    title: 'NFR Gate integration — security-review and wire-observability sizing'
+    title: NFR Gate integration — security-review and wire-observability sizing
     bcps: 4
     epic: e48
     tasks_total: 4
@@ -2930,7 +2984,7 @@ stories:
     risk_max: P2
   e48s14:
     status: done
-    title: 'Build-epic integration — BCP Plus in story sizing workflow'
+    title: Build-epic integration — BCP Plus in story sizing workflow
     bcps: 4
     epic: e48
     tasks_total: 0
@@ -2947,7 +3001,7 @@ stories:
     risk_max: P0
   e51s01:
     status: done
-    title: 'CONVENTIONS — Always Green, Shift Left, Discovered Defects, banned phrases'
+    title: CONVENTIONS — Always Green, Shift Left, Discovered Defects, banned phrases
     bcps: 3
     epic: e51
     tasks_total: 5
@@ -2956,7 +3010,8 @@ stories:
     risk_max: P1
   e51s02:
     status: done
-    title: 'seed-conventions — Preflight default, solo-git default, embed Always Green template'
+    title: seed-conventions — Preflight default, solo-git default, embed Always Green
+      template
     bcps: 3
     epic: e51
     tasks_total: 5
@@ -2965,7 +3020,7 @@ stories:
     risk_max: P1
   e51s03:
     status: done
-    title: 'kickoff-branch + verify-work — Preflight hard block and CI green gate'
+    title: kickoff-branch + verify-work — Preflight hard block and CI green gate
     bcps: 2
     epic: e51
     tasks_total: 4
@@ -2974,7 +3029,8 @@ stories:
     risk_max: P0
   e51s04:
     status: done
-    title: 'audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log routing on gate failure'
+    title: audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log routing on gate
+      failure
     bcps: 2
     epic: e51
     tasks_total: 5
@@ -2983,7 +3039,7 @@ stories:
     risk_max: P1
   e51s05:
     status: done
-    title: 'CLAUDE.md — solo-default agent rules + bigpowers Preflight command row'
+    title: CLAUDE.md — solo-default agent rules + bigpowers Preflight command row
     bcps: 2
     epic: e51
     tasks_total: 4
@@ -3000,7 +3056,7 @@ stories:
     tasks_failing: 0
   e53s02:
     status: done
-    title: 'Build the tombstone-alias mechanism'
+    title: Build the tombstone-alias mechanism
     bcps: 3
     epic: e53
     tasks_total: 4
@@ -3008,7 +3064,7 @@ stories:
     tasks_failing: 0
   e53s03:
     status: done
-    title: 'Gate-trace the compliance-to-GOLDEN hard-gate coupling'
+    title: Gate-trace the compliance-to-GOLDEN hard-gate coupling
     bcps: 2
     epic: e53
     tasks_total: 3
@@ -3016,7 +3072,7 @@ stories:
     tasks_failing: 0
   e53s04:
     status: done
-    title: 'Adopt docs/TARGET-ARCHITECTURE.md as the migration''s north-star reference'
+    title: Adopt docs/TARGET-ARCHITECTURE.md as the migration's north-star reference
     bcps: 3
     epic: e53
     tasks_total: 4
@@ -3033,7 +3089,7 @@ stories:
     risk_max: P2
   e54s02:
     status: done
-    title: 'Add a soft drift-detection gate for the freeze window'
+    title: Add a soft drift-detection gate for the freeze window
     bcps: 3
     epic: e54
     tasks_total: 4
@@ -3042,7 +3098,7 @@ stories:
     risk_max: P1
   e54s03:
     status: done
-    title: 'Document the freeze''s scope, exit criteria, and exception process'
+    title: Document the freeze's scope, exit criteria, and exception process
     bcps: 1
     epic: e54
     tasks_total: 2
@@ -3051,7 +3107,7 @@ stories:
     risk_max: P3
   e55s01:
     status: done
-    title: 'Map every current doctrine source to a B0-B10 + Capstone block'
+    title: Map every current doctrine source to a B0-B10 + Capstone block
     bcps: 2
     epic: e55
     tasks_total: 4
@@ -3060,7 +3116,7 @@ stories:
     risk_max: P3
   e55s02:
     status: done
-    title: 'Write constitution.md from the mapping, CLAUDE.md/CONVENTIONS.md unchanged'
+    title: Write constitution.md from the mapping, CLAUDE.md/CONVENTIONS.md unchanged
     bcps: 3
     epic: e55
     tasks_total: 5
@@ -3069,7 +3125,7 @@ stories:
     risk_max: P2
   e55s03:
     status: done
-    title: 'Point CLAUDE.md/CONVENTIONS.md at constitution.md, don''t delete them yet'
+    title: Point CLAUDE.md/CONVENTIONS.md at constitution.md, don't delete them yet
     bcps: 2
     epic: e55
     tasks_total: 5
@@ -3078,7 +3134,7 @@ stories:
     risk_max: P2
   e60s01:
     status: done
-    title: 'Interactive installer with ASCII banner, global/local, tool selection'
+    title: Interactive installer with ASCII banner, global/local, tool selection
     bcps: 3
     epic: e60
     tasks_total: 0
@@ -3121,7 +3177,8 @@ stories:
     tasks_failing: 0
   e64s01:
     status: done
-    title: 'Gemini hooks adapter — event docs, templates, adapter completeness (Wave A)'
+    title: Gemini hooks adapter — event docs, templates, adapter completeness (Wave
+      A)
     bcps: 3
     epic: e64
     tasks_total: 5
@@ -3204,7 +3261,7 @@ stories:
     tasks_failing: 0
   e69s01:
     status: done
-    title: 'MiMo Code adapter — Wave A skills-dir (.mimocode/skills/)'
+    title: MiMo Code adapter — Wave A skills-dir (.mimocode/skills/)
     bcps: 2
     epic: e69
     tasks_total: 4
@@ -3306,7 +3363,7 @@ stories:
     risk_max: P1
   e76s01:
     status: done
-    title: 'ZCode adapter — Wave A greenfield skills-dir'
+    title: ZCode adapter — Wave A greenfield skills-dir
     bcps: 3
     epic: e76
     tasks_total: 4
@@ -3324,8 +3381,8 @@ stories:
     tasks_failing: 0
     risk_max: P1
   e79s01:
-    status: backlog
-    title: 'AGENTIC-STE ruleset document'
+    status: done
+    title: AGENTIC-STE ruleset document
     bcps: 2
     epic: e79
     tasks_total: 1
@@ -3334,8 +3391,8 @@ stories:
     risk_max: P2
     security_max: none
   e79s02:
-    status: backlog
-    title: 'Validator script + craft-skill HARD GATE'
+    status: done
+    title: Validator script + craft-skill HARD GATE
     bcps: 3
     epic: e79
     tasks_total: 1
@@ -3344,8 +3401,8 @@ stories:
     risk_max: P2
     security_max: none
   e79s03:
-    status: backlog
-    title: 'seed-conventions applies ruleset'
+    status: done
+    title: seed-conventions applies ruleset
     bcps: 2
     epic: e79
     tasks_total: 1
@@ -3354,8 +3411,8 @@ stories:
     risk_max: P2
     security_max: none
   e79s04:
-    status: backlog
-    title: 'stocktake-skills violation scanner'
+    status: done
+    title: stocktake-skills violation scanner
     bcps: 1
     epic: e79
     tasks_total: 1
@@ -3364,50 +3421,52 @@ stories:
     risk_max: P2
     security_max: none
   e80s01:
-    status: backlog
+    status: done
     title: Core verify skills → verify directives
     bcps: 2
     epic: e80
     tasks_total: 1
-    tasks_passing: 0
+    tasks_passing: 1
     tasks_failing: 0
     risk_max: P1
     security_max: low
   e80s02:
-    status: backlog
-    title: 'smoke-test and validate-contracts real bodies'
-    bcps: 2
-    epic: e80
-    tasks_total: 0
-    tasks_passing: 0
-    tasks_failing: 0
-  e80s03:
-    status: backlog
-    title: 'develop-tdd RED commit isolation check'
+    status: done
+    title: smoke-test and validate-contracts real bodies
     bcps: 2
     epic: e80
     tasks_total: 1
-    tasks_passing: 0
+    tasks_passing: 1
+    tasks_failing: 0
+    risk_max: P1
+    security_max: none
+  e80s03:
+    status: done
+    title: develop-tdd RED commit isolation check
+    bcps: 2
+    epic: e80
+    tasks_total: 1
+    tasks_passing: 1
     tasks_failing: 0
     risk_max: P1
     security_max: none
   e80s04:
-    status: backlog
-    title: 'generalize-fix phase in validate-fix'
+    status: done
+    title: generalize-fix phase in validate-fix
     bcps: 2
     epic: e80
     tasks_total: 1
-    tasks_passing: 0
+    tasks_passing: 1
     tasks_failing: 0
     risk_max: P1
     security_max: medium
   e80s05:
-    status: backlog
-    title: 'security-review fixture table growth'
+    status: done
+    title: security-review fixture table growth
     bcps: 2
     epic: e80
     tasks_total: 1
-    tasks_passing: 0
+    tasks_passing: 1
     tasks_failing: 0
     risk_max: P1
     security_max: high

@@ -15,7 +15,7 @@ references:
 
 # bigpowers setup runs the full contributor dev-maintenance pipeline on end-user installs
 
-**Bug:** BUG-2026-07-24-installer-runs-dev-maintenance-pipeline | **Severity:** medium | **Status:** open | **Scope:** install
+**Bug:** BUG-2026-07-24-installer-runs-dev-maintenance-pipeline | **Severity:** medium | **Status:** fixed | **Scope:** install
 **Tier:** extended
 
 See `specs/bugs/BUG-2026-07-24-installer-runs-dev-maintenance-pipeline.md` for full investigation and fix details.

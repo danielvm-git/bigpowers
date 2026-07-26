@@ -7,7 +7,7 @@ title: "Anti-vacuity golden suite (G-08/G-10) not wired into CI; Preflight ends 
 category: bug
 tier: extended
 severity: high
-status: open
+status: fixed
 generator: scripts/sync-bugs-registry.sh
 references:
     - specs/bugs/BUG-2026-07-25-anti-vacuity-ci.md
@@ -15,7 +15,7 @@ references:
 
 # Anti-vacuity golden suite (G-08/G-10) not wired into CI; Preflight ends on always-exit-0 step
 
-**Bug:** BUG-2026-07-25-anti-vacuity-ci | **Severity:** high | **Status:** open | **Scope:** ci
+**Bug:** BUG-2026-07-25-anti-vacuity-ci | **Severity:** high | **Status:** fixed | **Scope:** ci
 **Tier:** extended
 
 See `specs/bugs/BUG-2026-07-25-anti-vacuity-ci.md` for full investigation and fix details.

@@ -1,17 +1,17 @@
 # Traceability Matrix
 
-**Generated:** 2026-07-26 12:50:10 UTC
-**Total stories:** 121
-**Tagged stories:** 111
+**Generated:** 2026-07-26 19:50:51 UTC
+**Total stories:** 125
+**Tagged stories:** 115
 **Dark stories:** 0
-**Orphan tags:** 149
-**Stale tags:** 102
+**Orphan tags:** 145
+**Stale tags:** 115
 
 ## Oracle Stats
 
-- **High** (explicit tag): 782
-- **Medium** (file heuristic): 3240
-- **Low** (task reference): 79
+- **High** (explicit tag): 796
+- **Medium** (file heuristic): 3326
+- **Low** (task reference): 78
 
 ## Story Coverage
 
@@ -50,7 +50,7 @@
 | e45s15 | release-branch / deploy: three-independent-facts verificatio | e45 | 2 | 5.0 | done | 21 |
 | e45s16 | CLAUDE.md rtk mandate: wire rtk-ai/rtk PreToolUse hook | e45 | 2 | 5.0 | done | 4 |
 | e45s17 | request-review: fan-out to parallel review subagents | e45 | 2 | 5.0 | done | 30 |
-| e45s18 | audit-code / security-review: worktree-isolated parallel che | e45 | 2 | 5.0 | done | 620 |
+| e45s18 | audit-code / security-review: worktree-isolated parallel che | e45 | 2 | 5.0 | done | 628 |
 | e45s19 | Context7: bounded retry cap and explicit fallback block | e45 | 2 | 5.0 | done | 8 |
 | e45s20 | Context7 / bts docs: wrap in ETag-revalidated fetch cache | e45 | 2 | 5.0 | done | 1 |
 | e45s21 | seed-conventions / AGENTS.md: self-installing fenced markers | e45 | 2 | 5.0 | done | 33 |
@@ -63,7 +63,7 @@
 | e45s28 | request-review: hard max-iteration cap | e45 | 2 | 5.0 | done | 18 |
 | e45s29 | requirements: ADDED/MODIFIED/REMOVED/RENAMED tags | e45 | 2 | 5.0 | done | 42 |
 | e45s30 | subagent depth: formalize depth tiers | e45 | 2 | 5.0 | done | 28 |
-| e45s31 | audit-code / deepen-architecture: churn-based look-here-firs | e45 | 2 | 5.0 | done | 610 |
+| e45s31 | audit-code / deepen-architecture: churn-based look-here-firs | e45 | 2 | 5.0 | done | 618 |
 | e45s32 | gate-trace / release-branch: adversarial-review refute frami | e45 | 2 | 5.0 | done | 37 |
 | e45s33 | requirements: per-section approval state | e45 | 2 | 5.0 | done | 3 |
 | e45s34 | develop-tdd: snapshot-before-transition hardening | e45 | 2 | 5.0 | done | 7 |
@@ -76,9 +76,9 @@
 | e45s41 | security-review: proven authorship SQL-safety doctrine | e45 | 2 | 5.0 | done | 18 |
 | e48s01 | Generate epics-wiki and adr-wiki as OKF concept bundles from | e48 | 2 | 2.5 | done | 34 |
 | e48s02 | Emit verification reports as OKF bundles from run-golden-sui | e48 | 2 | 2.5 | done | 48 |
-| e48s03 | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | e48 | 1 | 2.5 | done | 147 |
+| e48s03 | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | e48 | 1 | 2.5 | done | 151 |
 | e48s04 | Create viz.html — interactive force-layout graph companion f | e48 | 2 | 2.5 | done | 12 |
-| e48s05 | Wire OKF validation into CI (sync-skills.yml) and document i | e48 | 1 | 2.5 | done | 190 |
+| e48s05 | Wire OKF validation into CI (sync-skills.yml) and document i | e48 | 1 | 2.5 | done | 193 |
 | e48s06 | Add tier: field (core/extended/specialized) to OKF wiki inde | e48 | 2 | 2.5 | done | 10 |
 | e48s07 | Create publish-to-wiki kernel tool | e48 | 3 | 2.5 | done | 2 |
 | e48s08 | Add GitHub Action Template for publish-wiki.yml [HARD GATE] | e48 | 1 | 2.5 | done | 8 |
@@ -92,14 +92,18 @@
 | e51s01 | CONVENTIONS — Always Green, Shift Left, Discovered Defects,  | e51 | 3 | 7.0 | done | 8 |
 | e51s02 | seed-conventions — Preflight default, solo-git default, embe | e51 | 3 | 7.0 | done | 40 |
 | e51s03 | kickoff-branch + verify-work — Preflight hard block and CI g | e51 | 2 | 7.0 | done | 67 |
-| e51s04 | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | e51 | 2 | 7.0 | done | 666 |
+| e51s04 | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | e51 | 2 | 7.0 | done | 675 |
 | e51s05 | CLAUDE.md — solo-default agent rules + bigpowers Preflight c | e51 | 2 | 7.0 | done | 7 |
+| e53s01 | Commit the untracked GOLDEN baseline | e53 | 1 | 8.0 | done | 12 |
+| e53s02 | Build the tombstone-alias mechanism | e53 | 3 | 8.0 | done | 6 |
+| e53s03 | Gate-trace the compliance-to-GOLDEN hard-gate coupling | e53 | 2 | 8.0 | done | 49 |
+| e53s04 | Adopt docs/TARGET-ARCHITECTURE.md as the migration's north-s | e53 | 3 | 8.0 | done | 3 |
 | e54s01 | Snapshot the current skill catalog as an immutable baseline | e54 | 2 | 6.7 | done | 9 |
 | e54s02 | Add a soft drift-detection gate for the freeze window | e54 | 3 | 6.7 | done | 14 |
 | e54s03 | Document the freeze's scope, exit criteria, and exception pr | e54 | 1 | 6.7 | done | 45 |
-| e55s01 | Map every current doctrine source to a B0-B10 + Capstone blo | e55 | 0 | 6.0 | done | 8 |
-| e55s02 | Write constitution.md from the mapping, CLAUDE.md/CONVENTION | e55 | 0 | 6.0 | done | 5 |
-| e55s03 | Point CLAUDE.md/CONVENTIONS.md at constitution.md, don't del | e55 | 0 | 6.0 | done | 9 |
+| e55s01 | Map every current doctrine source to a B0-B10 + Capstone blo | e55 | 0 | 6.0 | done | 5 |
+| e55s02 | Write constitution.md from the mapping, CLAUDE.md/CONVENTION | e55 | 0 | 6.0 | done | 4 |
+| e55s03 | Point CLAUDE.md/CONVENTIONS.md at constitution.md, don't del | e55 | 0 | 6.0 | done | 6 |
 | e60s01 | Interactive installer with ASCII banner, global/local, tool  | e60 | 0 | 9.0 | done | 9 |
 | e61s01 | Hermes adapter + hook templates (Wave A) | e61 | 0 | 5.0 | done | 11 |
 | e61s02 | Install hub wiring (Wave B) | e61 | 0 | 5.0 | done | 15 |
@@ -129,15 +133,15 @@
 | e74s02 | Install hub wiring (Wave B) | e74 | 0 | 4.0 | done | 26 |
 | e76s01 | ZCode adapter — Wave A greenfield skills-dir | e76 | 0 | 5.0 | done | 8 |
 | e76s02 | Install hub wiring (Wave B) | e76 | 0 | 5.0 | done | 16 |
-| e79s01 | AGENTIC-STE ruleset document | e79 | 0 | 6.0 | backlog | 8 |
-| e79s02 | Validator script + craft-skill HARD GATE | e79 | 0 | 6.0 | backlog | 21 |
-| e79s03 | seed-conventions applies ruleset | e79 | 0 | 6.0 | backlog | 20 |
-| e79s04 | stocktake-skills violation scanner | e79 | 0 | 6.0 | backlog | 20 |
-| e80s01 | Core verify skills → verify directives | e80 | 0 | 7.5 | backlog | 79 |
-| e80s02 | smoke-test and validate-contracts real bodies | e80 | 0 | 7.5 | backlog | 30 |
-| e80s03 | develop-tdd RED commit isolation check | e80 | 0 | 7.5 | backlog | 10 |
-| e80s04 | generalize-fix phase in validate-fix | e80 | 0 | 7.5 | backlog | 35 |
-| e80s05 | security-review fixture table growth | e80 | 0 | 7.5 | backlog | 11 |
+| e79s01 | AGENTIC-STE ruleset document | e79 | 0 | 6.0 | done | 8 |
+| e79s02 | Validator script + craft-skill HARD GATE | e79 | 0 | 6.0 | done | 21 |
+| e79s03 | seed-conventions applies ruleset | e79 | 0 | 6.0 | done | 20 |
+| e79s04 | stocktake-skills violation scanner | e79 | 0 | 6.0 | done | 20 |
+| e80s01 | Core verify skills → verify directives | e80 | 0 | 7.5 | done | 82 |
+| e80s02 | smoke-test and validate-contracts real bodies | e80 | 0 | 7.5 | done | 31 |
+| e80s03 | develop-tdd RED commit isolation check | e80 | 0 | 7.5 | done | 10 |
+| e80s04 | generalize-fix phase in validate-fix | e80 | 0 | 7.5 | done | 35 |
+| e80s05 | security-review fixture table growth | e80 | 0 | 7.5 | done | 11 |
 
 ## Orphan Tags (tag in code, no matching story)
 
@@ -284,10 +288,6 @@
 - `e46s01`
 - `e47s02`
 - `e47s04`
-- `e53s01`
-- `e53s02`
-- `e53s03`
-- `e53s04`
 - `e99s01`
 - `e99s99`
 
@@ -360,6 +360,10 @@
 - `e51s03`
 - `e51s04`
 - `e51s05`
+- `e53s01`
+- `e53s02`
+- `e53s03`
+- `e53s04`
 - `e54s01`
 - `e54s02`
 - `e54s03`
@@ -395,3 +399,12 @@
 - `e74s02`
 - `e76s01`
 - `e76s02`
+- `e79s01`
+- `e79s02`
+- `e79s03`
+- `e79s04`
+- `e80s01`
+- `e80s02`
+- `e80s03`
+- `e80s04`
+- `e80s05`

@@ -1,25 +1,33 @@
-active_flow: null
+active_flow: fix_bug
 active_epic: null
 active_story: null
-bug_id: null
+bug_id: BUG-2026-07-26-planning-sot-drift
 bigpowers_version: 2.86.3
-bug_cycle: null
+bug_cycle:
+  current_step: 5
+  completed_steps:
+  - 1
+  - 2
+  - 3
+  - 4
 handoff:
-  next_skill: survey-context
-  context: 'Track A (#99) PR #101 open (fix/anti-vacuity-ci-99). Golden suite
-
-    required; skill-verify advisory until #96 PR #100 merges — then flip
-
-    continue-on-error off. Bug file: specs/bugs/BUG-2026-07-25-anti-vacuity-ci.md.
-
-    '
+  next_skill: release-branch
+  context: BUG-2026-07-26-planning-sot-drift fixed and validated. G-12 gate wired;
+    16/16 deterministic gates PASS; trace --strict exit 0. Ready to land fix/sot-drift-phase0.
   epic: null
 epic_cycle: null
 metrics:
   story_start: null
   story_end: null
-  skill_timings: {}
+  skill_timings:
+    survey-context:
+      calls: 0
+      total_seconds: 0
+      avg_seconds: 0
+      _start: '2026-07-26T19:03:50Z'
 release:
-  ci_verified: true
+  ci_verified: false
   last_commit: parallel-tracks-92-91
   last_epic: e79-agentic-ste
+git:
+  branch: fix/sot-drift-phase0

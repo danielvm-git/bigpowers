@@ -14,6 +14,11 @@ GOLDEN_GATES=(
   "g09-yaml-roundtrip:bash scripts/golden-g09-yaml-roundtrip.sh:false"
   "g10-trace-anti-vacuity:bash scripts/golden-g10-trace-anti-vacuity.sh:false"
   "g11-gitignore-venv:bash scripts/golden-g11-gitignore-venv.sh:false"
+  # Planning SoT consistency (BUG-2026-07-26-planning-sot-drift): live epic
+  # shards, execution-status.yaml and release-plan.yaml must agree. Self-test
+  # first so a vacuous gate is caught before its verdict is trusted.
+  "g12-status-selftest:bash scripts/golden-g12-status-consistency.sh --self-test:false"
+  "g12-status-consistency:bash scripts/golden-g12-status-consistency.sh:false"
   "install-helpers:bash scripts/test-install-helpers.sh:false"
   "import-boundaries:bash scripts/check-import-boundaries.sh:false"
   "skill-catalog:bash scripts/validate-skill-catalog.sh:false"

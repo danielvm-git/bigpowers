@@ -1,5 +1,13 @@
 #!/usr/bin/env bash
 # sync-status-from-epics.sh — seed execution-status.yaml keys from epic shards
+#
+# SEEDER, NOT A RECONCILER. `keys` is preloaded from execution-status.yaml
+# itself and applied with setdefault(), so an already-present key keeps its
+# existing value; epic.yaml's stories[].status is never read. Running this does
+# NOT pull a capsule's status into the SoT — it only adds missing keys and
+# refreshes task counters. Drift between a capsule and the SoT is detected by
+# scripts/golden-g12-status-consistency.sh (G-12), not corrected here.
+# See specs/bugs/BUG-2026-07-26-planning-sot-drift.md.
 set -euo pipefail
 source "$(dirname "${BASH_SOURCE[0]}")/lib/python-env.sh"
 source "$(dirname "${BASH_SOURCE[0]}")/lib/skill-common.sh"

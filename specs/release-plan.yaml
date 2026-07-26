@@ -115,7 +115,7 @@ epics:
   bcps: 10
   capsule_dir: epics/e80-verify-arc-hardening
   mode: capsule
-  status: in_progress
+  status: done
   wsjf_rationale: BV 8 + TC 6 + RR 7 / Job 3 ≈ 7.5. Core verify skills + generalize-fix; GH
   source: GH
   github_issues:
@@ -127,7 +127,7 @@ epics:
   bcps: 8
   capsule_dir: epics/e79-agentic-ste
   mode: capsule
-  status: scoped
+  status: done
   wsjf_rationale: BV 6 + TC 4 + RR 5 / Job 2 ≈ 7.5. Reduces agent misparse loops.
   source: GH
 - id: e78
@@ -307,9 +307,9 @@ epics:
   title: Establish Migration Baseline — bigpowers-to-bigspec Readiness
   wsjf: 8.0
   bcps: 9
-  capsule_dir: epics/e53-establish-migration-baseline
+  capsule_dir: epics/archive/e53-establish-migration-baseline
   mode: capsule
-  status: in_progress
+  status: done
   wsjf_rationale: BV 6 (unblocks the whole migration) + TC 9 (nothing else can safely start) + RR 9 (closes
     3 red-teamed NOT READY gaps) / Job 3 ≈ 8.0
   source: Fable wayfinding session (2026-07-18) + red-teamed /audit-plan (NOT READY, 3 blocking gaps)
@@ -359,7 +359,7 @@ epics:
   bcps: 0
   capsule_dir: epics/e55-extract-constitution
   mode: capsule
-  status: scoped
+  status: done
   wsjf_rationale: 'BV 6 (single source of rules) + TC 6 (e56 needs a target to move rules into) + RR 6
     (removes 27-doc restatement drift) / Job 3 ≈ 6.0. Provisional — zero real stories sliced yet, so bcps
     is 0 (epic.yaml carries a bcps_projected estimate of 7, not a real count, per B9).

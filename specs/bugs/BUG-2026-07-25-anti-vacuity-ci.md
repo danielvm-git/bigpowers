@@ -1,6 +1,6 @@
 ---
 bug_id: BUG-2026-07-25-anti-vacuity-ci
-status: open
+status: fixed
 severity: high
 scope: ci
 title: "Anti-vacuity golden suite (G-08/G-10) not wired into CI; Preflight ends on always-exit-0 step"
