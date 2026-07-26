@@ -1,3 +1,10 @@
+## [2.86.6](https://github.com/danielvm-git/bigpowers/compare/v2.86.5...v2.86.6) (2026-07-26)
+
+
+### Bug Fixes
+
+* **registry:** dispatch four adapters that installed nothing ([2ca3448](https://github.com/danielvm-git/bigpowers/commit/2ca3448b3a7846771645d7fbacf33861a016db0f))
+
 ## [2.86.5](https://github.com/danielvm-git/bigpowers/compare/v2.86.4...v2.86.5) (2026-07-26)
 
 
