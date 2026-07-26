@@ -2,7 +2,7 @@ active_flow: fix_bug
 active_epic: null
 active_story: null
 bug_id: BUG-2026-07-26-planning-sot-drift
-bigpowers_version: 2.86.3
+bigpowers_version: 2.86.4
 bug_cycle:
   current_step: 5
   completed_steps:
@@ -12,8 +12,8 @@ bug_cycle:
   - 4
 handoff:
   next_skill: release-branch
-  context: BUG-2026-07-26-planning-sot-drift fixed and validated. G-12 gate wired;
-    16/16 deterministic gates PASS; trace --strict exit 0. Ready to land fix/sot-drift-phase0.
+  context: BUG-2026-07-26-planning-sot-drift fixed and validated. G-12 gate wired; 16/16 deterministic
+    gates PASS; trace --strict exit 0. Ready to land fix/sot-drift-phase0.
   epic: null
 epic_cycle: null
 metrics:

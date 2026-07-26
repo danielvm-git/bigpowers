@@ -1,3 +1,10 @@
+## [2.86.4](https://github.com/danielvm-git/bigpowers/compare/v2.86.3...v2.86.4) (2026-07-26)
+
+
+### Bug Fixes
+
+* **specs:** reconcile planning SoT drift and gate it with G-12 ([d8553a7](https://github.com/danielvm-git/bigpowers/commit/d8553a748d4cdc81fa612564f84600a62c4789ce))
+
 ## [2.86.3](https://github.com/danielvm-git/bigpowers/compare/v2.86.2...v2.86.3) (2026-07-26)
 
 
