@@ -147,15 +147,19 @@ Report: "Branch released."
 
 | Lines | Section |
 |-------|---------|
-| 1–3 | Title |
-| 5–16 | Navigation |
-| 18–41 | PR body template |
-| 43–54 | Worktree cleanup |
-| 56–96 | Cycle-time recording |
-| 98–119 | CI verification |
-| 121–126 | Solo-local fallback |
+| 1 | Title |
+| 3–22 | Navigation |
+| 23–31 | PR body template (team-pr mode) |
+| 32–35 | Summary |
+| 36–41 | Verify |
+| 42–47 | specs/ artifacts |
+| 48–58 | Worktree cleanup details |
+| 59–81 | Cycle-time recording |
+| 82–100 | Why not story_start minus story_end? |
+| 101–121 | CI verification |
+| 122–127 | Solo-local fallback detail |
 | 128–134 | Handoff |
-| 136–155 | Reference block 1 (manual squash) |
+| 135–159 | Reference block 1 |
 
 # Release Branch — Reference
 

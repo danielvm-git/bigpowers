@@ -254,12 +254,58 @@ These GSD artifacts are not migrated — they are execution records, not plannin
 | Lines | Section |
 |-------|---------|
 | 1 | Title |
-| 3–22 | Navigation |
-| 24–62 | spec-kit → bigpowers Mapping |
-| 64–130 | BMAD → bigpowers Mapping |
-| 132–154 | Learnings to Adopt |
-| 156–350 | Output Formats + state.yaml template |
-| 352–620 | Reference blocks 1–2 + extended mappings |
+| 3–68 | Navigation |
+| 69–70 | spec-kit → bigpowers Mapping |
+| 71–84 | Artifact Locations |
+| 85–94 | `spec.md` → `specs/product/SCOPE_LATEST.yaml` + `specs/tech-architecture/TECH_STACK_LATEST.md` |
+| 95–105 | `plan.md` → `specs/tech-architecture/TECH_STACK_LATEST.md` + `specs/release-plan.yaml` + `specs/epics/` |
+| 106–114 | `tasks.md` → `specs/epics/` (via slice-tasks) |
+| 115–120 | `.specify/` state |
+| 121–122 | BMAD → bigpowers Mapping |
+| 123–141 | Artifact Locations |
+| 142–148 | `product-brief.md` / `prfaq-{project}.md` → `specs/product/VISION_LATEST.yaml` |
+| 149–160 | `prd.md` → `specs/product/SCOPE_LATEST.yaml` + `GLOSSARY_LATEST.yaml` |
+| 161–167 | `addendum.md` + `decision-log.md` → `specs/adr/` + `specs/DECISION-LOG_LATEST.md` |
+| 168–174 | `architecture.md` → `specs/tech-architecture/TECH_STACK_LATEST.md` + `specs/adr/` |
+| 175–178 | `epic-*.md` → `specs/release-plan.yaml` + `specs/epics/eNN-*.yaml` |
+| 179–182 | `story-*.md` → `specs/epics/` stories |
+| 183–188 | `project-context.md` → `CLAUDE.md` |
+| 189–192 | Learnings to Adopt |
+| 193–198 | From GSD |
+| 199–204 | From spec-kit |
+| 205–212 | From BMAD |
+| 213–214 | Output Formats |
+| 215–224 | ADR format (bigpowers) |
+| 225–227 | Context |
+| 228–230 | Decision |
+| 231–234 | Consequences |
+| 235–246 | DECISION-LOG.md format |
+| 247–257 | MIGRATION-AUDIT.md format |
+| 258–264 | Summary |
+| 265–274 | High Priority Findings |
+| 275–278 | Information |
+| 279–285 | Next Steps |
+| 286–306 | in_scope format with ID tracking |
+| 307–341 | REQUIREMENTS_TRACE.yaml format |
+| 342–397 | `specs/state.yaml` template format |
+| 398–416 | Reference block 1 |
+| 417–432 | Reference block 2 |
+| 433–451 | Reference block 3 |
+| 452–474 | Reference block 4 |
+| 475–482 | Reference block 5 |
+| 483–484 | Findings |
+| 485–489 | High Priority |
+| 490–495 | Information |
+| 496–509 | Reference block 6 |
+| 510–542 | Step 7 — Post-migration: Optional two-pass spec writing gate |
+| 543–574 | Step 8 — Post-migration: Optional methodology doc template |
+| 575–600 | Artifact Mapping Summary |
+| 601–610 | Rules |
+| 611–621 | Step 5 — Surface learnings (optional) |
+| 622–644 | Step 6 — Adversarial review (optional) |
+| 645–646 | Findings |
+| 647–651 | High Priority |
+| 652–660 | Information |
 
 # migrate-spec Reference — spec-kit, BMAD, Learnings
 

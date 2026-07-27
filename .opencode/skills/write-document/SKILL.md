@@ -86,10 +86,36 @@ Combined from dbader/readme-template and jehna/readme-best-practices. No TOC.
 | Lines | Section |
 |-------|---------|
 | 1 | Title |
-| 5–16 | Navigation |
-| 18–24 | Sections intro |
-| 26–178 | README section templates (1–15) |
-| 180–183 | Verify |
+| 5–40 | Navigation |
+| 41–42 | Sections |
+| 43–54 | 1. Title + Badges |
+| 55–60 | 2. Tagline |
+| 61–64 | 3. Description |
+| 65–67 | 4. Prerequisites |
+| 68–75 | Prerequisites |
+| 76–78 | 5. Installation |
+| 79–89 | Installation |
+| 90–92 | 6. Usage |
+| 93–102 | Usage |
+| 103–105 | 7. Features |
+| 106–113 | Features |
+| 114–116 | 8. Configuration |
+| 117–125 | Configuration |
+| 126–128 | 9. Development Setup |
+| 129–139 | Development |
+| 140–142 | 10. Running Tests |
+| 143–152 | Tests |
+| 153–155 | 11. Contributing |
+| 156–164 | Contributing |
+| 165–167 | 12. Changelog |
+| 168–172 | Changelog |
+| 173–175 | 13. Links |
+| 176–181 | Links |
+| 182–184 | 14. License |
+| 185–191 | License |
+| 192–194 | 15. Credits (optional) |
+| 195–199 | Credits |
+| 200–202 | Verify |
 
 ## Sections
 

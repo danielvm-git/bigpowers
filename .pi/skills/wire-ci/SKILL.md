@@ -118,11 +118,18 @@ See [REFERENCE.md](../../../skills/wire-ci/REFERENCE.md).
 | Lines | Section |
 |-------|---------|
 | 1 | Title |
-| 3–14 | Navigation |
-| 16–38 | Examples |
-| 40–52 | Options |
-| 54–62 | Integration with build-epic |
-| 64–270 | Reference blocks 1–8 |
+| 3–20 | Navigation |
+| 21–22 | Examples |
+| 23–39 | Create CI for a Go project (TBR + optional deploy) |
+| 40–49 | Create CI for a CLI tool (TBR only, no deploy) |
+| 50–57 | Validate existing workflows (no generation) |
+| 58–70 | Options |
+| 71–79 | Integration with build-epic |
+| 80–154 | Reference block 1 — test-build-release.yml (Go, excerpt) |
+| 155–204 | Reference block 2 — deploy.yml (generic web app, excerpt) |
+| 205–232 | Reference block 3 — CLI dogfood (big-release pattern) |
+| 233–257 | Reference block 4 — validate script |
+| 258–268 | Reference block 5 — dry-run |
 
 ## Examples
 

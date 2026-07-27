@@ -86,12 +86,21 @@ Part of **★ VERIFY ★**: `verify-work` → `validate-contracts` → `smoke-te
 | Lines | Section |
 |-------|---------|
 | 1 | Title |
-| 3–14 | Navigation |
-| 16–24 | Integration |
-| 26–35 | Configuration |
-| 37–46 | Verification |
-| 48–170 | Reference blocks + Examples 1–6 |
-| 172–190 | Integration (duplicate) + Configuration + Verification |
+| 3–23 | Navigation |
+| 24–32 | Integration |
+| 33–44 | Configuration |
+| 45–54 | Verification |
+| 55–71 | Reference block 1 |
+| 72–92 | Reference block 2 |
+| 93–104 | Example 1 |
+| 105–121 | Example 2 |
+| 122–133 | Example 3 |
+| 134–144 | Example 4 |
+| 145–165 | Example 5 |
+| 166–176 | Example 6 |
+| 177–185 | Integration |
+| 186–197 | Configuration |
+| 198–204 | Verification |
 
 ## Integration
 

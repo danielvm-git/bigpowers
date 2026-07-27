@@ -31,6 +31,9 @@ GOLDEN_GATES=(
   # docs/WORKFLOWS.md is generated from specs/workflows/*.yaml; a diagram nothing
   # regenerates is a diagram that lies (see specs/archive/assets/README.md).
   "workflow-diagrams-fresh:bash scripts/generate-workflow-diagrams.sh --check:false"
+  # REFERENCE.md nav tables are line-number indexes; hand-maintained they drift
+  # the moment a section grows (all 10 were stale when this gate was added).
+  "reference-nav-fresh:bash scripts/generate-reference-nav.sh --check:false"
   "g14-adapter-dispatch-selftest:bash scripts/golden-g14-adapter-dispatch.sh --self-test:false"
   "g14-adapter-dispatch:bash scripts/golden-g14-adapter-dispatch.sh:false"
   "target-contracts:bash scripts/test-target-contracts.sh:false"
