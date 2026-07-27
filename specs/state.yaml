@@ -6,10 +6,10 @@ bigpowers_version: 2.86.6
 bug_cycle: null
 handoff:
   next_skill: survey-context
-  context: 'All four cycles landed and CI-green: Phase 0 SoT (G-12), audit sweep,
-    Phase 1 test collapse (G-13), registry dispatch fix (G-14). 33/33 gates, compliance
-    94%, 0 open bugs. No known open defects. Next strategic step is e58 evals-over-compliance,
-    now that the suite measures execution rather than form.'
+  context: 'Catalog-wide verify-work PASS at 8efdce74: 34/34 gates, trace --strict
+    0, blind-spots HIGH=0, completeness-critic BLOCKER=0. Evidence in specs/verifications/catalog-wide-verify.yaml.
+    Five gates now self-tested (G-08/G-10/G-12/G-13/G-14) plus two freshness gates
+    (workflow-diagrams, reference-nav). No known open defects. Next: e58 evals-over-compliance.'
   epic: null
 epic_cycle: null
 metrics:
@@ -27,7 +27,7 @@ metrics:
       avg_seconds: 1052.0
 release:
   ci_verified: true
-  last_commit: 2ca3448b
+  last_commit: 8efdce74
   last_epic: e80-verify-arc-hardening
 git:
   branch: fix/sot-drift-phase0
