@@ -1,3 +1,10 @@
+## [2.86.7](https://github.com/danielvm-git/bigpowers/compare/v2.86.6...v2.86.7) (2026-07-28)
+
+
+### Bug Fixes
+
+* **verify:** close the compliance margin and orphan-script risk ([e95c86a](https://github.com/danielvm-git/bigpowers/commit/e95c86aeb5808642c4fb94d280b4fd4777c0d6db))
+
 ## [2.86.6](https://github.com/danielvm-git/bigpowers/compare/v2.86.5...v2.86.6) (2026-07-26)
 
 

@@ -2,16 +2,15 @@ active_flow: null
 active_epic: null
 active_story: null
 bug_id: null
-bigpowers_version: 2.86.6
+bigpowers_version: 2.86.7
 bug_cycle: null
 handoff:
   next_skill: survey-context
   context: 'Compliance margin closed and orphan-script risk resolved (branch fix/compliance-margin-and-orphans,
-    4 commits: 78baf921 runner bugs, 9a5cd114 five checker fixes, e5994158 9 orphan
-    scripts + G-13/G-16, ea2ce5f6 G-15). 90/5/94%(zero margin) -> 98/0/100%. 38/38
-    gates, trace --strict exit 0. Evidence in specs/verifications/compliance-margin-and-orphans-verify.yaml.
-    Now 9 self-tested gates (G-08/G-10/G-12/G-13/G-14/G-15/G-16) plus 2 freshness
-    gates. No known open defects. Next: e58 evals-over-compliance.'
+    4 commits: 78baf921 runner bugs, 9a5cd114 five checker fixes, e5994158 9 orphan scripts + G-13/G-16,
+    ea2ce5f6 G-15). 90/5/94%(zero margin) -> 98/0/100%. 38/38 gates, trace --strict exit 0. Evidence in
+    specs/verifications/compliance-margin-and-orphans-verify.yaml. Now 9 self-tested gates (G-08/G-10/G-12/G-13/G-14/G-15/G-16)
+    plus 2 freshness gates. No known open defects. Next: e58 evals-over-compliance.'
   epic: null
 epic_cycle: null
 metrics:
