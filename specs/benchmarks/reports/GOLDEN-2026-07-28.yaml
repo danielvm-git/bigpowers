@@ -1,5 +1,5 @@
-timestamp: "2026-07-28T15:54:35Z"
-git_commit: "ea2ce5f6b479631478f237785f6c39c23fd8a987"
+timestamp: "2026-07-28T17:02:32Z"
+git_commit: "8e44d4d6c9810589d06166665a68f11d65311997"
 suite: "golden-combined"
 mode: "daily"
 deterministic:
@@ -11,7 +11,7 @@ deterministic:
 gates:
   - name: compliance
     exit_code: 0
-    duration_seconds: 132.87
+    duration_seconds: 87.90
     status: pass
   - name: g04-selftest
     exit_code: 0
@@ -19,31 +19,31 @@ gates:
     status: pass
   - name: g06-migrate-version
     exit_code: 0
-    duration_seconds: 9.18
+    duration_seconds: 8.79
     status: pass
   - name: g07-negative-path
     exit_code: 0
-    duration_seconds: .07
+    duration_seconds: .06
     status: pass
   - name: g08-anti-vacuity
     exit_code: 0
-    duration_seconds: .08
+    duration_seconds: .07
     status: pass
   - name: g09-yaml-roundtrip
     exit_code: 0
-    duration_seconds: .12
+    duration_seconds: .10
     status: pass
   - name: g10-trace-anti-vacuity
     exit_code: 0
-    duration_seconds: .10
+    duration_seconds: .09
     status: pass
   - name: g11-gitignore-venv
     exit_code: 0
-    duration_seconds: .09
+    duration_seconds: .08
     status: pass
   - name: g12-status-selftest
     exit_code: 0
-    duration_seconds: .50
+    duration_seconds: .58
     status: pass
   - name: g12-status-consistency
     exit_code: 0
@@ -55,35 +55,35 @@ gates:
     status: pass
   - name: g15-compliance-runner
     exit_code: 0
-    duration_seconds: .11
+    duration_seconds: .10
     status: pass
   - name: g13-script-orphans-selftest
     exit_code: 0
-    duration_seconds: 44.81
+    duration_seconds: 47.08
     status: pass
   - name: g13-script-orphans
     exit_code: 0
-    duration_seconds: 42.70
+    duration_seconds: 44.80
     status: pass
   - name: workflow-diagrams-fresh
     exit_code: 0
-    duration_seconds: .07
+    duration_seconds: .08
     status: pass
   - name: reference-nav-fresh
     exit_code: 0
-    duration_seconds: .06
+    duration_seconds: .07
     status: pass
   - name: g14-adapter-dispatch-selftest
     exit_code: 0
-    duration_seconds: .10
+    duration_seconds: .11
     status: pass
   - name: g14-adapter-dispatch
     exit_code: 0
-    duration_seconds: .07
+    duration_seconds: .06
     status: pass
   - name: g16-spec-version-gap-selftest
     exit_code: 0
-    duration_seconds: .17
+    duration_seconds: .15
     status: pass
   - name: g16-spec-version-gap
     exit_code: 0
@@ -95,63 +95,63 @@ gates:
     status: pass
   - name: install-hub
     exit_code: 0
-    duration_seconds: 6.94
+    duration_seconds: 6.52
     status: pass
   - name: adapter-render
     exit_code: 0
-    duration_seconds: 3.70
+    duration_seconds: 3.36
     status: pass
   - name: adapters
     exit_code: 0
-    duration_seconds: 2.38
+    duration_seconds: 2.99
     status: pass
   - name: tombstone-mechanism
     exit_code: 0
-    duration_seconds: 2.23
+    duration_seconds: 1.76
     status: pass
   - name: trace-strict
     exit_code: 0
-    duration_seconds: 12.26
+    duration_seconds: 13.73
     status: pass
   - name: trace-matrix-size
     exit_code: 0
-    duration_seconds: .02
+    duration_seconds: .04
     status: pass
   - name: setup-no-pyyaml
     exit_code: 0
-    duration_seconds: 2.39
+    duration_seconds: 2.16
     status: pass
   - name: install-distribute-only
     exit_code: 0
-    duration_seconds: 51.92
+    duration_seconds: 43.76
     status: pass
   - name: completeness-critic-scope
     exit_code: 0
-    duration_seconds: .19
+    duration_seconds: .15
     status: pass
   - name: epics-wiki-zero-stories
     exit_code: 0
-    duration_seconds: 2.90
+    duration_seconds: 2.44
     status: pass
   - name: golden-g11-worktree-venv
     exit_code: 0
-    duration_seconds: .11
+    duration_seconds: .09
     status: pass
   - name: install-helpers
     exit_code: 0
-    duration_seconds: .09
+    duration_seconds: .08
     status: pass
   - name: import-boundaries
     exit_code: 0
-    duration_seconds: .31
+    duration_seconds: .21
     status: pass
   - name: skill-catalog
     exit_code: 0
-    duration_seconds: 1.65
+    duration_seconds: 1.32
     status: pass
   - name: specs-parse
     exit_code: 0
-    duration_seconds: .88
+    duration_seconds: .93
     status: pass
   - name: story-verify-selftest
     exit_code: 0
@@ -159,7 +159,7 @@ gates:
     status: pass
   - name: story-verify
     exit_code: 0
-    duration_seconds: 300.16
+    duration_seconds: 236.50
     status: pass
 agent_stories:
   total: 0

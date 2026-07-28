@@ -48,7 +48,7 @@ Write the document focusing on "Expert Collaboration":
 
 1. Ask: "Project name? One-sentence description?"
 2. Generate `README.md` at project root using the template in [REFERENCE.md](REFERENCE.md) — no TOC, no second interview round.
-3. Fill gaps from `CLAUDE.md` commands if available; use `TODO` markers otherwise.
+3. Fill gaps from `CLAUDE.md` / `AGENTS.md` commands if available (prefer `AGENTS.md`); use `TODO` markers otherwise.
 4. Output and suggest `edit-document` for polish.
 
 → verify: `test -f README.md && [ "$(grep -c '^## ' README.md)" -ge 7 ]`
