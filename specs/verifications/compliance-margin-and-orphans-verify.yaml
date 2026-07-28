@@ -1,0 +1,126 @@
+# story: e45s02
+story_id: compliance-margin-and-orphans
+scope: >-
+  Close the 6% compliance margin found by the catalog-wide verify-work pass
+  (8efdce74) and resolve the orphan-script risk it also flagged. Discovered-
+  defect work, no active epic/story (state.yaml active_flow was null).
+verified_at: "2026-07-28T00:00:00Z"
+verifier: plan-then-execute (approved plan, direct implementation)
+branch: fix/compliance-margin-and-orphans
+base_commit: 59d1c29f
+
+phases:
+  preflight:
+    passed: true
+    note: "38/38 deterministic gates, run three times across the work as new gates were added (30 -> 33 -> 36 -> 38)"
+  build:
+    passed: true
+    command: "bash scripts/sync-skills.sh"
+  tests:
+    passed: true
+    command: "bash scripts/run-verification-gates.sh"
+    result: "38/38 gates PASS"
+  terminal_verdict:
+    command: "bash scripts/audit-compliance.sh specs/verifications/features && bash scripts/trace-stories.sh --strict"
+    exit_code: 0
+    result: "98 PASS / 0 FAIL / 0 WAIVED, SCORE 100% (threshold 94%), GATE PASS; trace --strict exit 0"
+    note: "single contiguous run — final3.log"
+
+# Real defects found beyond the two masked steps the plan already named,
+# each verified with a reproduction before being fixed.
+gaps_found_and_closed:
+  - id: n1n4-pycache-false-positive
+    finding: >-
+      Fixing the runner's Background/EOF bugs surfaced a third, unplanned
+      failure: N1/N4 (intention-revealing names) newly failed against a
+      gitignored, untracked __pycache__/handler.cpython-313.pyc — a compiled
+      artifact tripping a filename check that already exempted the source
+      handler.py but not its compiled variants.
+    fix: "excluded __pycache__/ from the N1/N4 scan"
+  - id: g25-indented-comment-gap
+    finding: >-
+      The G25 comment-exclusion regex only matched column-0 '#', missing
+      indented comments — flagged a comment in check-skill-links.py that
+      names this session's own prior /Users/ path bug fix.
+    fix: "comment-exclusion regex now tolerates leading whitespace"
+  - id: n7-echo-filter-overreach
+    finding: >-
+      My own first N7 rewrite added an echo/printf exclusion meant to avoid
+      prose false-positives, but it also excluded 'echo ... >> file' — the
+      single most common real write in this codebase — which would have
+      blinded the check to the exact violation it exists to catch. Caught by
+      its own required self-test before commit.
+    fix: "removed the echo/printf exclusion; comment-only exclusion is sufficient"
+  - id: find-violations-name-collision
+    finding: >-
+      Naming three rewritten check scripts' helper function find_violations()
+      the same thing tripped the grep-uniqueness check this work was fixing.
+    fix: "renamed to n7_/c5_/infohide_find_violations"
+  - id: bsd-sed-word-boundary-noop
+    finding: >-
+      `sed -i '' 's/\bfind_violations\b/.../'` silently did nothing — BSD/
+      macOS sed does not support \b word boundaries, so the substitution
+      never matched and the rename appeared to run but didn't. Caught by
+      re-verifying grep output, not by trusting the sed exit code.
+    fix: "renamed via python3 re.sub with real \\b support instead"
+  - id: infohide-nesting-regression
+    finding: >-
+      The information-hiding check's rewrite introduced 8-space-deep nesting,
+      tripping the unrelated 'nesting should be shallow (max 2 levels)' check.
+    fix: "flattened via an early-return helper (infohide_resolves_to_lib)"
+  - id: infohide-lib-to-lib-regression
+    finding: >-
+      The information-hiding rewrite (correctly) stopped exempting
+      scripts/lib/*.sh files sourcing scripts/lib/*.sh peers by accident (the
+      original grep -v '/lib/' matched the FILE PATH, not just the target),
+      surfacing 11 new false positives across 4 files doing legitimate
+      lib-to-lib composition already governed by import-boundaries.json.
+    fix: "explicit exemption for a sourcing file that itself lives under scripts/lib/"
+  - id: c5-self-test-self-match
+    finding: >-
+      The C5 self-test's fixture heredoc was itself scanned as commented-out
+      code, because the step script's own source lives under
+      specs/verifications/steps/, which C5 also scans.
+    fix: "fixture built via printf instead of a literal heredoc"
+  - id: infohide-field-splitting-bug
+    finding: >-
+      The information-hiding rewrite's field-splitting assumed a 3-field
+      grep -rn format when the actual per-file call used single-file grep -n's
+      2-field format, silently emptying the content field and reporting every
+      matched line as a violation.
+    fix: "read into 2 vars (lineno, content) matching the real grep -n output"
+  - id: install-cursor-skills-orphaned-by-deletion
+    finding: >-
+      Deleting install-cursor-skills-local.sh (a planned delete) removed the
+      only live caller of install-cursor-skills.sh, which the plan's orphan
+      list did not include — caught by re-running the broadened G-13 scan
+      after the first three deletes, not by trusting the plan's list as final.
+    fix: "deleted install-cursor-skills.sh as a consequence"
+  - id: g16-set-e-hazard
+    finding: >-
+      `out=$(cmd)` under set -e aborts the script when cmd exits non-zero —
+      exactly the case the G-16 self-test and real-check FAIL branches needed
+      to reach. Both silently exited before printing anything.
+    fix: "set +e/set -e bracketing around both call sites"
+  - id: g16-json-format-mismatch
+    finding: >-
+      The G-16 self-test's grep expected '\"gap\":true' (no space) but the
+      stamp detection path emits json.dumps-formatted JSON ('\"gap\": true',
+      with a space) — only the fingerprint path uses hand-concatenated JSON.
+    fix: "grep pattern tolerates optional whitespace"
+  - id: g13-self-test-self-match
+    finding: >-
+      G-13's self-test literal fixture name 'test-definitely-not-wired.sh'
+      appeared in the checking script's own source, which the broadened
+      scripts/** scan then matched against its own self-test line.
+    fix: "fixture name built from $$ (PID) instead of a literal string"
+  - id: g15-grep-off-by-one
+    finding: >-
+      G-15's failing-step assertion used grep -A1, one line short of
+      'Result: FAIL' — audit_process_step always prints an intervening
+      '[EXEC] Gathering evidence:' line between [STEP] and Result.
+    fix: "grep -A2"
+
+result: "90 PASS / 5 FAIL / 94% (zero margin) -> 98 PASS / 0 FAIL / 100%"
+gaps:
+  closed: true

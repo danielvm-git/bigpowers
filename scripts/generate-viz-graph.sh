@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 # story: e45s04
 # generate-viz-graph.sh — build specs/viz.html from bigpowers-mcp/graph.jsonl
+# bp-manual-utility: on-demand report generator; nothing else depends on
+# viz.html's freshness the way generate-workflow-diagrams.sh/
+# generate-reference-nav.sh are --check-gated. Run manually after graph.jsonl
+# changes: bash scripts/generate-viz-graph.sh
 set -euo pipefail
 source "$(dirname "${BASH_SOURCE[0]}")/lib/python-env.sh"
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"

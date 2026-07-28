@@ -19,13 +19,21 @@ GOLDEN_GATES=(
   # first so a vacuous gate is caught before its verdict is trusted.
   "g12-status-selftest:bash scripts/golden-g12-status-consistency.sh --self-test:false"
   "g12-status-consistency:bash scripts/golden-g12-status-consistency.sh:false"
-  # Anti-vacuity for the target-contract seam: every contract declared in
-  # targets.yaml must have a real assertion, and an unknown contract must FAIL
-  # rather than SKIP+exit 0 (seven contracts were fail-open before this).
-  # Writing a test must be enough to make it run: G-13 fails if any
-  # scripts/test-*.sh is absent from this list.
-  "g13-test-orphans-selftest:bash scripts/golden-g13-test-orphans.sh --self-test:false"
-  "g13-test-orphans:bash scripts/golden-g13-test-orphans.sh:false"
+  # audit-compliance-runner.sh silently dropped a Background: step and a
+  # feature file's last line when it had no trailing newline — a step exists,
+  # is correct, and never runs is exactly this session's recurring defect
+  # class. Fixture-based regression guard for both, plus a check that a fix
+  # to "make steps execute" doesn't also make a genuinely failing step report
+  # as PASS.
+  "g15-compliance-runner-selftest:bash scripts/golden-g15-compliance-runner-selftest.sh --self-test:false"
+  "g15-compliance-runner:bash scripts/golden-g15-compliance-runner-selftest.sh:false"
+  # Writing a script must be enough to make it run: G-13 fails if any
+  # scripts/*.sh is absent, unreferenced, and untagged bp-manual-utility.
+  # Broadened from scripts/test-*.sh only after a catalog-wide review found 9
+  # more orphans among non-test scripts; renamed to match (golden-g13-test-
+  # orphans.sh -> golden-g13-script-orphans.sh).
+  "g13-script-orphans-selftest:bash scripts/golden-g13-script-orphans.sh --self-test:false"
+  "g13-script-orphans:bash scripts/golden-g13-script-orphans.sh:false"
   # An adapter that defines render_skill() must be dispatched by targets.yaml,
   # or sync renders nothing for it while its install still claims success.
   # docs/WORKFLOWS.md is generated from specs/workflows/*.yaml; a diagram nothing
@@ -36,6 +44,11 @@ GOLDEN_GATES=(
   "reference-nav-fresh:bash scripts/generate-reference-nav.sh --check:false"
   "g14-adapter-dispatch-selftest:bash scripts/golden-g14-adapter-dispatch.sh --self-test:false"
   "g14-adapter-dispatch:bash scripts/golden-g14-adapter-dispatch.sh:false"
+  # check-spec-version-gap.sh is a fully-formed SoT-drift detector for
+  # consuming projects but had no gate of its own (G-13 orphan). Self-checking
+  # bigpowers' own repo against its own package.json is the natural gate.
+  "g16-spec-version-gap-selftest:bash scripts/golden-g16-spec-version-gap.sh --self-test:false"
+  "g16-spec-version-gap:bash scripts/golden-g16-spec-version-gap.sh:false"
   "target-contracts:bash scripts/test-target-contracts.sh:false"
   # Registry-driven replacements for the 25 hand-written per-target scripts.
   "install-hub:bash scripts/test-install-hub.sh:false"

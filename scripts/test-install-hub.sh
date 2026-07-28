@@ -19,10 +19,12 @@ source "$(dirname "${BASH_SOURCE[0]}")/lib/skill-common.sh"
 resolve_repo_root
 cd "$REPO_ROOT"
 
-PASS=0
-FAIL=0
-pass() { echo "PASS: $1"; PASS=$((PASS + 1)); }
-fail() { echo "FAIL: $1" >&2; FAIL=$((FAIL + 1)); }
+TA_PASS=0
+TA_FAIL=0
+TA_TMPDIR=""
+
+source "$(dirname "${BASH_SOURCE[0]}")/lib/test-assertions.sh"
+trap ta_cleanup EXIT
 
 INSTALL_SH="scripts/install.sh"
 HELPERS_JS="scripts/lib/install-helpers.js"
@@ -82,7 +84,7 @@ alias_target_for() {
 echo "=== test-install-hub.sh ==="
 
 TARGETS=$(discover_targets)
-[[ -n "$TARGETS" ]] || { fail "no install_<id>() functions discovered"; echo "test-install-hub: $PASS passed, $FAIL failed"; exit 1; }
+[[ -n "$TARGETS" ]] || { ta_fail "no install_<id>() functions discovered"; echo "test-install-hub: $TA_PASS passed, $TA_FAIL failed"; exit 1; }
 echo "Discovered $(wc -w <<<"$TARGETS" | tr -d ' ') install targets"
 
 DRY_OUT="$(bash "$INSTALL_SH" --dry-run 2>&1 || true)"
@@ -92,41 +94,41 @@ SETUP_IDS="$(sed -n '/SUPPORTED_IDS = new Set/,/);/p' "$SETUP_JS")"
 for id in $TARGETS; do
   # shellcheck disable=SC2086
   grep -qE "^uninstall_${id}\(\)" $INSTALL_SRC \
-    && pass "$id: uninstall_${id}() defined" \
-    || fail "$id: uninstall_${id}() missing"
+    && ta_pass "$id: uninstall_${id}() defined" \
+    || ta_fail "$id: uninstall_${id}() missing"
 
   # Some targets are pure aliases (install_antigravity just calls install_agy).
   # They own no label; the delegate's label is asserted on its own pass.
   alias_of="$(alias_target_for "$id")"
   label="$(label_for "$id")"
   if [[ -z "$label" && -n "$alias_of" ]]; then
-    pass "$id: alias of $alias_of (label asserted there)"
+    ta_pass "$id: alias of $alias_of (label asserted there)"
   elif [[ -z "$label" ]]; then
-    fail "$id: no 'Label →' line found inside install_${id}()"
+    ta_fail "$id: no 'Label →' line found inside install_${id}()"
   else
     grep -qF "$label →" <<<"$DRY_OUT" \
-      && pass "$id: dry-run shows '$label'" \
-      || fail "$id: dry-run missing '$label' section"
+      && ta_pass "$id: dry-run shows '$label'" \
+      || ta_fail "$id: dry-run missing '$label' section"
     grep -qF "$label →" <<<"$DRY_UNINSTALL" \
-      && pass "$id: dry-run --uninstall shows '$label'" \
-      || fail "$id: dry-run --uninstall missing '$label' section"
+      && ta_pass "$id: dry-run --uninstall shows '$label'" \
+      || ta_fail "$id: dry-run --uninstall missing '$label' section"
   fi
 
   grep -q "case '${id}'" "$HELPERS_JS" \
-    && pass "$id: install-helpers case" \
-    || fail "$id: install-helpers missing case '${id}'"
+    && ta_pass "$id: install-helpers case" \
+    || ta_fail "$id: install-helpers missing case '${id}'"
 
   sid="$(setup_id_for "$id")"
   grep -q "'${sid}'" <<<"$SETUP_IDS" \
-    && pass "$id: setup.js SUPPORTED_IDS carries '${sid}'" \
-    || fail "$id: setup.js SUPPORTED_IDS missing '${sid}'"
+    && ta_pass "$id: setup.js SUPPORTED_IDS carries '${sid}'" \
+    || ta_fail "$id: setup.js SUPPORTED_IDS missing '${sid}'"
 done
 
 # Global syntax gates — previously repeated in all 14 scripts.
-bash -n "$INSTALL_SH" && pass "bash -n install.sh" || fail "bash -n install.sh"
-node --check "$HELPERS_JS" >/dev/null 2>&1 && pass "node --check install-helpers.js" || fail "node --check install-helpers.js"
-node --check "$SETUP_JS" >/dev/null 2>&1 && pass "node --check setup.js" || fail "node --check setup.js"
-grep -q "SUPPORTED_IDS = new Set" "$SETUP_JS" && pass "setup.js defines SUPPORTED_IDS" || fail "setup.js missing SUPPORTED_IDS"
+bash -n "$INSTALL_SH" && ta_pass "bash -n install.sh" || ta_fail "bash -n install.sh"
+node --check "$HELPERS_JS" >/dev/null 2>&1 && ta_pass "node --check install-helpers.js" || ta_fail "node --check install-helpers.js"
+node --check "$SETUP_JS" >/dev/null 2>&1 && ta_pass "node --check setup.js" || ta_fail "node --check setup.js"
+grep -q "SUPPORTED_IDS = new Set" "$SETUP_JS" && ta_pass "setup.js defines SUPPORTED_IDS" || ta_fail "setup.js missing SUPPORTED_IDS"
 
 # Registry coverage is reported, not enforced: copilot, opencode, claude and
 # antigravity ship install functions but have no targets.yaml row today.
@@ -135,5 +137,5 @@ for id in $TARGETS; do
   grep -q "id: ${id}$" "$TARGETS_YAML" || echo "  note: $id installs but has no targets.yaml row"
 done
 
-echo "test-install-hub: $PASS passed, $FAIL failed"
-[[ "$FAIL" -eq 0 ]] || exit 1
+echo "test-install-hub: $TA_PASS passed, $TA_FAIL failed"
+[[ "$TA_FAIL" -eq 0 ]] || exit 1

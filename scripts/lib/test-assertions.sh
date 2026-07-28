@@ -19,3 +19,7 @@ ta_cleanup() {
 ta_pass() { echo "  PASS $1"; TA_PASS=$((TA_PASS + 1)); }
 
 ta_fail() { echo "  FAIL $1"; TA_FAIL=$((TA_FAIL + 1)); }
+
+# Strip ANSI color codes — used by scripts that grep the colored output of a
+# gate/skill they're testing, where the escape codes would break the match.
+ta_strip_ansi() { sed -E 's/\x1b\[[0-9;]*m//g'; }

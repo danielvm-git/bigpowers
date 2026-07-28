@@ -6,6 +6,7 @@
 BAD_NAMES=$(find . -type f \
   | grep -v '.git' | grep -v 'node_modules' | grep -v 'specs/epics' \
   | grep -vE '\.(git|venv|worktrees)/' \
+  | grep -vE '__pycache__/' \
   | grep -vE '(without-data-loss|test-data|example-data)' \
   | grep -vE 'scripts/hooks/hermes/gateway/session-log/handler\.py' \
   | grep -E '(^|[-_./])data([-_./]|$)|(^|[-_./])manager([-_./]|$)|(^|[-_./])handler([-_./]|$)' \

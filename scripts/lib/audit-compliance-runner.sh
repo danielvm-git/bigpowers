@@ -84,13 +84,26 @@ audit_run_file() {
   TOTAL_PASS=0
   TOTAL_FAIL=0
 
-  while IFS= read -r line; do
+  # `|| [[ -n "$line" ]]` is required: read returns non-zero on a final line
+  # with no trailing newline, so without this a feature file not ending in \n
+  # silently drops its last step — confirmed on karpathy.feature, whose last
+  # line ("And I should push back on unnecessary complexity") never appeared
+  # in [STEP] output at all.
+  while IFS= read -r line || [[ -n "$line" ]]; do
     line=$(echo "$line" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
 
     if [[ "$line" =~ ^Feature: ]]; then
       CURRENT_FEATURE="${line#Feature: }"
       echo "FEATURE: $CURRENT_FEATURE"
       echo "## Feature: $CURRENT_FEATURE" >> "$REPORT_FILE"
+    elif [[ "$line" =~ ^Background: ]]; then
+      # A Background's Given/And lines must execute the same as a Scenario's —
+      # without this branch IN_SCENARIO never goes true here, so every step
+      # under Background is silently skipped (not FAILed, not counted at all).
+      # Runs once per file, matching how every other line here executes once
+      # as encountered — not true per-scenario Gherkin re-execution semantics.
+      IN_SCENARIO=true
+      CURRENT_SCENARIO="Background"
     elif [[ "$line" =~ ^Scenario: ]]; then
       CURRENT_SCENARIO="${line#Scenario: }"
       if [[ -n "$SCENARIO_FILTER" && "$CURRENT_SCENARIO" != "$SCENARIO_FILTER" ]]; then

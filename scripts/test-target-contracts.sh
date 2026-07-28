@@ -15,10 +15,12 @@ source "$(dirname "${BASH_SOURCE[0]}")/lib/skill-common.sh"
 resolve_repo_root
 cd "$REPO_ROOT"
 
-PASS=0
-FAIL=0
-pass() { echo "PASS: $1"; PASS=$((PASS + 1)); }
-fail() { echo "FAIL: $1" >&2; FAIL=$((FAIL + 1)); }
+TA_PASS=0
+TA_FAIL=0
+TA_TMPDIR=""
+
+source "$REPO_ROOT/scripts/lib/test-assertions.sh"
+trap ta_cleanup EXIT
 
 echo "=== test-target-contracts.sh ==="
 
@@ -31,9 +33,9 @@ out=$(run_contract "faketarget" "definitely_not_a_real_contract" 2>&1)
 rc=$?
 set -e
 if [[ $rc -ne 0 ]]; then
-  pass "unknown contract fails (exit $rc)"
+  ta_pass "unknown contract fails (exit $rc)"
 else
-  fail "unknown contract returned 0 — run_contract is fail-open again: $out"
+  ta_fail "unknown contract returned 0 — run_contract is fail-open again: $out"
 fi
 
 # 2. Every contract declared in targets.yaml must resolve to an assertion.
@@ -41,16 +43,16 @@ fi
 #    a FAIL line, while a missing implementation hits the default branch and
 #    reports "unknown contract".
 declared=$(grep -E "^      - [a-z0-9_]+$" scripts/targets.yaml | sed 's/^      - //' | sort -u)
-[[ -n "$declared" ]] || fail "no contracts parsed from targets.yaml"
+[[ -n "$declared" ]] || ta_fail "no contracts parsed from targets.yaml"
 
 for c in $declared; do
   set +e
   out=$(run_contract "__probe__" "$c" 2>&1)
   set -e
   if grep -q "unknown contract" <<<"$out"; then
-    fail "$c declared in targets.yaml but no assertion implements it"
+    ta_fail "$c declared in targets.yaml but no assertion implements it"
   else
-    pass "$c has an implementation"
+    ta_pass "$c has an implementation"
   fi
 done
 
@@ -61,13 +63,13 @@ for c in $declared; do
     *_hooks_manifest)
       t="${c%_hooks_manifest}"
       if [[ -f "scripts/hooks/${t}/hooks-manifest.json" ]]; then
-        pass "$t ships hooks-manifest.json"
+        ta_pass "$t ships hooks-manifest.json"
       else
-        fail "$t declares $c but scripts/hooks/${t}/hooks-manifest.json is missing"
+        ta_fail "$t declares $c but scripts/hooks/${t}/hooks-manifest.json is missing"
       fi
       ;;
   esac
 done
 
-echo "test-target-contracts: $PASS passed, $FAIL failed"
-[[ "$FAIL" -eq 0 ]] || exit 1
+echo "test-target-contracts: $TA_PASS passed, $TA_FAIL failed"
+[[ "$TA_FAIL" -eq 0 ]] || exit 1

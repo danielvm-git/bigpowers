@@ -5,6 +5,23 @@
 if [ -n "${AUDIT_COMPLIANCE_REPORT_LOADED:-}" ]; then return 0; fi
 AUDIT_COMPLIANCE_REPORT_LOADED=1
 
+# A score sitting exactly on the 94% threshold has zero margin: one more
+# failing scenario (the suite grows over time) blocks all forward work under
+# this repo's own Always-Green doctrine — it already happened once mid-session.
+# pass-warn surfaces a thinning margin before it goes red; it still exits 0,
+# it does not block, it only makes the OKF report and terminal output loud
+# about a score close enough to the threshold to be worth attention.
+audit_gate_status() {
+  local score="$1"
+  if [[ "$score" -lt 94 ]]; then
+    echo "fail"
+  elif [[ "$score" -lt 97 ]]; then
+    echo "pass-warn"
+  else
+    echo "pass"
+  fi
+}
+
 audit_write_okf_report() {
   local OKF_DIR OKF_FILE TIMESTAMP GIT_COMMIT GATE TOTAL_GLOBAL_ALL
 
@@ -20,7 +37,7 @@ audit_write_okf_report() {
   OKF_FILE="$OKF_DIR/audit-$(date +%Y-%m-%d).okf.md"
   TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
   GIT_COMMIT=$(git rev-parse HEAD 2>/dev/null || echo "unknown")
-  GATE=$(if [[ $SCORE -ge 94 ]]; then echo "pass"; else echo "fail"; fi)
+  GATE=$(audit_gate_status "$SCORE")
 
   cat > "$OKF_FILE" << OKF_EOF
 ---
@@ -67,10 +84,18 @@ audit_print_summary_and_exit() {
     echo "  SCORE: ${SCORE}% (threshold 94%)"
   fi
 
-  if [[ $SCORE -ge 94 ]]; then
-    echo "  GATE: PASS"
-    exit 0
-  fi
-  echo "  GATE: FAIL (below 94%)"
-  exit 1
+  case "$(audit_gate_status "$SCORE")" in
+    pass)
+      echo "  GATE: PASS"
+      exit 0
+      ;;
+    pass-warn)
+      echo "  GATE: PASS (WARNING: ${SCORE}% is within 3 points of the 94% threshold — margin is thin)"
+      exit 0
+      ;;
+    *)
+      echo "  GATE: FAIL (below 94%)"
+      exit 1
+      ;;
+  esac
 }

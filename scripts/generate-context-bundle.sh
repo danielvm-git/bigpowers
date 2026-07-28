@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 # story: e37s06
 # scenario: SC-e37s06-P1-01
+# bp-manual-utility: ADR-0007/tech-stack.md document this as the post-seed
+# context-wiring step, but seed-conventions never invokes it — a real
+# "documented, never executed" gap. Not fixed here: wiring it into
+# seed-conventions changes that skill's actual output, which needs its own
+# investigate-bug pass and verification, not a silent bundle into a
+# compliance-margin PR. Run manually: bash scripts/generate-context-bundle.sh
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"

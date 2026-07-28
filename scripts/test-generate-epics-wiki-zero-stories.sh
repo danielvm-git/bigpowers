@@ -16,19 +16,22 @@ RED='\033[0;31m'
 GREEN='\033[0;32m'
 NC='\033[0m'
 
-FAILURES=0
-tt_pass() { echo -e "${GREEN}PASS${NC} $1"; }
-tt_fail() { echo -e "${RED}FAIL${NC} $1"; FAILURES=$((FAILURES + 1)); }
+TA_PASS=0
+TA_FAIL=0
+TA_TMPDIR=""
+source "$(dirname "${BASH_SOURCE[0]}")/lib/test-assertions.sh"
+# NOT `trap ta_cleanup EXIT` — this script's cleanup removes a named fixture
+# epic dir and its OKF bundle, not a TA_TMPDIR.
 
 FIXTURE_ID="e00"
 FIXTURE_DIR="specs/epics/e00-zero-story-fixture"
 FIXTURE_BUNDLE="specs/epics-wiki/${FIXTURE_ID}.okf.md"
 
-cleanup() {
+epics_wiki_test_cleanup() {
   rm -rf "$FIXTURE_DIR"
   rm -f "$FIXTURE_BUNDLE"
 }
-trap cleanup EXIT
+trap epics_wiki_test_cleanup EXIT
 
 mkdir -p "$FIXTURE_DIR"
 cat > "${FIXTURE_DIR}/epic.yaml" <<'FIXTUREEOF'
@@ -50,15 +53,11 @@ FIXTUREEOF
 bash scripts/generate-epics-wiki.sh > /dev/null
 
 if [[ ! -f "$FIXTURE_BUNDLE" ]]; then
-  tt_pass "generate-epics-wiki.sh skips a zero-story epic (no bundle emitted)"
+  ta_pass "generate-epics-wiki.sh skips a zero-story epic (no bundle emitted)"
 else
-  tt_fail "generate-epics-wiki.sh emitted a bundle for a zero-story epic: $FIXTURE_BUNDLE"
+  ta_fail "generate-epics-wiki.sh emitted a bundle for a zero-story epic: $FIXTURE_BUNDLE"
 fi
 
 echo "---"
-if [[ "$FAILURES" -eq 0 ]]; then
-  echo -e "${GREEN}test-generate-epics-wiki-zero-stories: ALL PASS${NC}"
-else
-  echo -e "${RED}test-generate-epics-wiki-zero-stories: $FAILURES failure(s)${NC}"
-fi
-exit "$FAILURES"
+echo "test-generate-epics-wiki-zero-stories: $TA_PASS passed, $TA_FAIL failed"
+exit "$TA_FAIL"

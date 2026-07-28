@@ -21,6 +21,7 @@ on:
       - 'specs/epics/**'
       - 'specs/execution-status.yaml'
       - 'specs/release-plan.yaml'
+      - 'specs/verifications/**'
       - '.github/workflows/golden-suite.yml'
   pull_request:
     branches: [main, develop]
@@ -30,6 +31,7 @@ on:
       - 'specs/epics/**'
       - 'specs/execution-status.yaml'
       - 'specs/release-plan.yaml'
+      - 'specs/verifications/**'
       - '.github/workflows/golden-suite.yml'
   workflow_dispatch:
 

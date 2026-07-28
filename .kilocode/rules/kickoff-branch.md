@@ -81,7 +81,7 @@ git worktree list | grep "<task-slug>"
 **Handling Conflicts:**
 - **Directory exists:** If `../<task-slug>` already exists, ask the user if they want to use it or delete it.
 - **Branch exists:** If the branch exists but no worktree is attached, ask to use the existing branch (`git worktree add ../<task-slug> <task-slug>`) or delete it.
-- **Ghost worktree:** If `git worktree list` shows the path but the directory is missing, run `git worktree prune` to clear the stale metadata.
+- **Ghost worktree:** If `git worktree list` shows the path but the directory is missing, run `git worktree prune` to clear the stale metadata. `bash scripts/cleanup-worktrees.sh` does this plus reports any worktree whose branch is already merged or deleted — advisory only, it prints the `git worktree remove`/`git branch -d` commands rather than running them, so review before acting.
 
 ### 4. Create worktree + branch
 

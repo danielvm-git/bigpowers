@@ -15,9 +15,12 @@ RED='\033[0;31m'
 GREEN='\033[0;32m'
 NC='\033[0m'
 
-FAILURES=0
-tt_pass() { echo -e "${GREEN}PASS${NC} $1"; }
-tt_fail() { echo -e "${RED}FAIL${NC} $1"; FAILURES=$((FAILURES + 1)); }
+TA_PASS=0
+TA_FAIL=0
+TA_TMPDIR=""
+source "$REPO_ROOT/scripts/lib/test-assertions.sh"
+# NOT `trap ta_cleanup EXIT` — this script's cleanup restores backed-up
+# specs/state.yaml and specs/traceability-matrix.json, not a TA_TMPDIR.
 
 STATE_FILE="specs/state.yaml"
 MATRIX_FILE="specs/traceability-matrix.json"
@@ -26,12 +29,12 @@ MATRIX_BACKUP=$(mktemp)
 cp "$STATE_FILE" "$STATE_BACKUP"
 cp "$MATRIX_FILE" "$MATRIX_BACKUP"
 
-cleanup() {
+completeness_critic_test_cleanup() {
   cp "$STATE_BACKUP" "$STATE_FILE"
   cp "$MATRIX_BACKUP" "$MATRIX_FILE"
   rm -f "$STATE_BACKUP" "$MATRIX_BACKUP"
 }
-trap cleanup EXIT
+trap completeness_critic_test_cleanup EXIT
 
 run_critic() {
   bash scripts/lib/completeness-critic.sh 2>&1 || true
@@ -56,18 +59,18 @@ sed -i.bak '/^active_story:/d' "$STATE_FILE" && rm -f "${STATE_FILE}.bak"
 write_matrix '[]'
 output=$(run_critic)
 if echo "$output" | grep -q "\[WARNING\].*no active_story set"; then
-  tt_pass "unset active_story produces an explicit WARNING"
+  ta_pass "unset active_story produces an explicit WARNING"
 else
-  tt_fail "unset active_story did not produce the expected WARNING"
+  ta_fail "unset active_story did not produce the expected WARNING"
 fi
 
 # --- Scenario: active_story set but absent from the matrix → WARNING ---
 printf 'active_story: e99s99\n' >> "$STATE_FILE"
 output=$(run_critic)
 if echo "$output" | grep -q "\[WARNING\].*e99s99 not found"; then
-  tt_pass "unresolved active_story produces an explicit WARNING"
+  ta_pass "unresolved active_story produces an explicit WARNING"
 else
-  tt_fail "unresolved active_story did not produce the expected WARNING"
+  ta_fail "unresolved active_story did not produce the expected WARNING"
 fi
 sed -i.bak '/^active_story:/d' "$STATE_FILE" && rm -f "${STATE_FILE}.bak"
 
@@ -76,24 +79,20 @@ printf 'active_story: e00s01\n' >> "$STATE_FILE"
 write_matrix '[]'
 output=$(run_critic)
 if echo "$output" | grep -q "\[BLOCKER\] active story e00s01 has zero explicit story-tag links"; then
-  tt_pass "active story with zero tags is correctly flagged as BLOCKER"
+  ta_pass "active story with zero tags is correctly flagged as BLOCKER"
 else
-  tt_fail "active story with zero tags was not flagged as BLOCKER"
+  ta_fail "active story with zero tags was not flagged as BLOCKER"
 fi
 
 # --- Scenario: active story IS tagged → no BLOCKER, even though sibling e00s02 is untagged ---
 write_matrix '[{"method": "explicit_tag", "file": "scripts/fixture.sh", "line": 1, "confidence": 1.0}]'
 output=$(run_critic)
 if echo "$output" | grep -q "\[BLOCKER\] active story e00s01"; then
-  tt_fail "tagged active story incorrectly flagged as BLOCKER"
+  ta_fail "tagged active story incorrectly flagged as BLOCKER"
 else
-  tt_pass "tagged active story is not flagged, and untagged sibling e00s02 does not leak into the check"
+  ta_pass "tagged active story is not flagged, and untagged sibling e00s02 does not leak into the check"
 fi
 
 echo "---"
-if [[ "$FAILURES" -eq 0 ]]; then
-  echo -e "${GREEN}test-completeness-critic-scope: ALL PASS${NC}"
-else
-  echo -e "${RED}test-completeness-critic-scope: $FAILURES failure(s)${NC}"
-fi
-exit "$FAILURES"
+echo "test-completeness-critic-scope: $TA_PASS passed, $TA_FAIL failed"
+exit "$TA_FAIL"

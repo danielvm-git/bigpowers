@@ -29,6 +29,10 @@ note: >
   tombstone-alias script — is e53s02's direct deliverable, used here for the first time.
   Provisional epic — NOT YET SCOPED. bcps: 0 / bcps_projected: 13 per the same B9 discipline
   as e55. Run elaborate-spec before slicing real stories.
+# Tooling dependency: scripts/snapshot-catalog-baseline.sh freezes the live catalog into a
+# dated baseline for this epic's reclassification diff. Tagged `bp-manual-utility` and run
+# manually until this epic starts — promote it to a wired gate step when work here begins,
+# rather than letting the next stocktake rediscover it as an orphan.
 stories: []
 planned_stories:
   - working_title: "Classify all 80 skills as procedure, rule, or tool"

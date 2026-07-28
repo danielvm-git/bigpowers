@@ -16,15 +16,17 @@ source "$(dirname "${BASH_SOURCE[0]}")/lib/skill-common.sh"
 resolve_repo_root
 cd "$REPO_ROOT"
 
-GREEN='\033[0;32m'; RED='\033[0;31m'; NC='\033[0m'
-FAILURES=0
-pass() { echo -e "${GREEN}PASS${NC} $1"; }
-fail() { echo -e "${RED}FAIL${NC} $1"; FAILURES=$((FAILURES + 1)); }
+TA_PASS=0
+TA_FAIL=0
+TA_TMPDIR=""
+
+source "$(dirname "${BASH_SOURCE[0]}")/lib/test-assertions.sh"
+trap ta_cleanup EXIT
 
 # Build a throwaway PyYAML-free interpreter — a fresh venv has no PyYAML,
 # reproducing a stock macOS python3 without touching the caller's environment.
-NOYAML_DIR="$(mktemp -d)"
-trap 'rm -rf "$NOYAML_DIR"' EXIT
+TA_TMPDIR="$(mktemp -d)"
+NOYAML_DIR="$TA_TMPDIR"
 if ! python3 -m venv "$NOYAML_DIR/venv" >/dev/null 2>&1; then
   echo "test-setup-no-pyyaml: SKIP — cannot create venv"; exit 0
 fi
@@ -35,18 +37,18 @@ fi
 
 # 1. srp-engine.py must parse a skill's frontmatter without crashing.
 if "$NOPY" scripts/lib/srp-engine.py skills/fix-bug/SKILL.md >/dev/null 2>&1; then
-  pass "srp-engine.py parses frontmatter without PyYAML"
+  ta_pass "srp-engine.py parses frontmatter without PyYAML"
 else
-  fail "srp-engine.py crashed without PyYAML"
+  ta_fail "srp-engine.py crashed without PyYAML"
 fi
 
 # 2. validate-skill-yaml.py must not bail with exit 2 (the old PyYAML-required path).
 rc=0
 "$NOPY" scripts/validate-skill-yaml.py >/dev/null 2>&1 || rc=$?
 if [[ "$rc" -ne 2 ]]; then
-  pass "validate-skill-yaml.py runs without PyYAML (exit $rc)"
+  ta_pass "validate-skill-yaml.py runs without PyYAML (exit $rc)"
 else
-  fail "validate-skill-yaml.py bailed with exit 2 (PyYAML required)"
+  ta_fail "validate-skill-yaml.py bailed with exit 2 (PyYAML required)"
 fi
 
 # 3. Fallback fidelity: simple_yaml must equal PyYAML for every skill's
@@ -71,13 +73,10 @@ if bad:
     print("mismatch: " + ", ".join(bad)); sys.exit(1)
 sys.exit(0)
 PY
-  pass "simple_yaml matches PyYAML for all skill frontmatter"
+  ta_pass "simple_yaml matches PyYAML for all skill frontmatter"
 else
-  fail "simple_yaml diverged from PyYAML for some skill frontmatter"
+  ta_fail "simple_yaml diverged from PyYAML for some skill frontmatter"
 fi
 
-if [[ "$FAILURES" -gt 0 ]]; then
-  echo "test-setup-no-pyyaml: $FAILURES failure(s)" >&2
-  exit 1
-fi
-echo "test-setup-no-pyyaml: PASS"
+echo "test-setup-no-pyyaml: $TA_PASS passed, $TA_FAIL failed"
+[[ "$TA_FAIL" -eq 0 ]] || exit 1

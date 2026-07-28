@@ -2,6 +2,10 @@
 # story: e54s01
 # snapshot-catalog-baseline.sh — freeze the live skill catalog into a dated,
 # immutable YAML baseline for e56's reclassification diff.
+# bp-manual-utility: e56 (reclassify-catalog) is still `backlog` in
+# execution-status.yaml — its sole consumer hasn't started, so there is
+# nothing to wire this into yet. Promote to a gate when e56 kicks off; run
+# manually until then: bash scripts/snapshot-catalog-baseline.sh
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"

@@ -18,17 +18,15 @@ source "$(dirname "${BASH_SOURCE[0]}")/lib/skill-common.sh"
 resolve_repo_root
 cd "$REPO_ROOT"
 
-PASS=0
-FAIL=0
-pass() { echo "PASS: $1"; PASS=$((PASS + 1)); }
-fail() { echo "FAIL: $1" >&2; FAIL=$((FAIL + 1)); }
+TA_PASS=0
+TA_FAIL=0
+TA_TMPDIR=""
 
-TMP_ROOT=$(mktemp -d)
-trap 'rm -rf "$TMP_ROOT"' EXIT
+source "$(dirname "${BASH_SOURCE[0]}")/lib/test-assertions.sh"
+trap ta_cleanup EXIT
 
-
-
-
+TA_TMPDIR=$(mktemp -d)
+TMP_ROOT="$TA_TMPDIR"
 echo "=== test-adapter-render.sh ==="
 
 for adapter in scripts/adapters/*.sh; do
@@ -68,9 +66,9 @@ for adapter in scripts/adapters/*.sh; do
   dest="$TMP_ROOT/$id"
   mkdir -p "$dest"
   if render_into "$dest" "test-skill" && [[ -n "$(find "$dest" -mindepth 1 2>/dev/null)" ]]; then
-    pass "$id: render_skill writes an artifact from a SkillIR"
+    ta_pass "$id: render_skill writes an artifact from a SkillIR"
   else
-    fail "$id: render_skill produced no artifact (${outvars[*]})"
+    ta_fail "$id: render_skill produced no artifact (${outvars[*]})"
   fi
 
   # Path traversal must be refused — this is the security assertion the
@@ -82,14 +80,14 @@ for adapter in scripts/adapters/*.sh; do
   sandbox="$TMP_ROOT/sandbox-$id"
   mkdir -p "$sandbox/out"
   if render_into "$sandbox/out" "../escape"; then
-    fail "$id: accepted a path-traversal skill name"
+    ta_fail "$id: accepted a path-traversal skill name"
   else
-    pass "$id: rejects path traversal in skill name"
+    ta_pass "$id: rejects path traversal in skill name"
   fi
   if [[ -e "$sandbox/escape" ]]; then
-    fail "$id: path traversal escaped into $sandbox"
+    ta_fail "$id: path traversal escaped into $sandbox"
   else
-    pass "$id: traversal wrote nothing outside the destination"
+    ta_pass "$id: traversal wrote nothing outside the destination"
   fi
 
   # Hook bundle + guard behaviour, only where the target ships hooks.
@@ -99,18 +97,18 @@ for adapter in scripts/adapters/*.sh; do
     out="$(echo '{"tool_input":{"command":"git push --force origin main"}}' \
       | bash "$guard" 2>/dev/null || true)"
     grep -q 'block' <<<"$out" \
-      && pass "$id: pre-tool guard blocks a dangerous git command" \
-      || fail "$id: pre-tool guard did not block git push --force"
+      && ta_pass "$id: pre-tool guard blocks a dangerous git command" \
+      || ta_fail "$id: pre-tool guard did not block git push --force"
   fi
 done
 
 # The generic adapter-contract runner stays the source of truth for
 # render_skill/wire_context wiring; assert it is green rather than restating it.
 if bash scripts/test-adapters.sh 2>&1 | grep -q '0 failed'; then
-  pass "test-adapters.sh reports 0 failed across the registry"
+  ta_pass "test-adapters.sh reports 0 failed across the registry"
 else
-  fail "test-adapters.sh reported failures"
+  ta_fail "test-adapters.sh reported failures"
 fi
 
-echo "test-adapter-render: $PASS passed, $FAIL failed"
-[[ "$FAIL" -eq 0 ]] || exit 1
+echo "test-adapter-render: $TA_PASS passed, $TA_FAIL failed"
+[[ "$TA_FAIL" -eq 0 ]] || exit 1
