@@ -7,7 +7,8 @@
 # Those trees are auto-generated from SKILL.md sources via sync-skills.sh and
 # are not published to npm, so dangling links there are a rendering gap, not a
 # source defect. Enable once the sync pipeline gains link-rewriting support.
-# See: https://github.com/danielvm-git/bigpowers/issues/78
+# Placeholder — replace with the project's own issue tracker URL.
+# See: https://github.com/OWNER/REPO/issues/78
 import glob
 import os
 import sys
