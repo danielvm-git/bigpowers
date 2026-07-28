@@ -1,3 +1,11 @@
+## [2.86.8](https://github.com/danielvm-git/bigpowers/compare/v2.86.7...v2.86.8) (2026-07-28)
+
+
+### Bug Fixes
+
+* **scripts:** replace hardcoded owner URL in check-skill-links.py ([4cb8b35](https://github.com/danielvm-git/bigpowers/commit/4cb8b351e780a14aa522a7b3156a9e32477b0f4c))
+* **skills:** add AGENTS.md fallback to context-bootstrap skills ([8e44d4d](https://github.com/danielvm-git/bigpowers/commit/8e44d4d6c9810589d06166665a68f11d65311997))
+
 ## [2.86.7](https://github.com/danielvm-git/bigpowers/compare/v2.86.6...v2.86.7) (2026-07-28)
 
 
