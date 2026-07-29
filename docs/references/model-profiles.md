@@ -80,7 +80,7 @@
 | `grill-with-docs` | Opus | Doc-grounded grill |
 | `setup-environment` / `reset-baseline` | Haiku | Mechanical prep |
 
-Full list: every SKILL.md declares `model:` — verify with `grep -rl '^model:' */SKILL.md | wc -l` (expect 80).
+Full list: every SKILL.md declares `model:` — verify with `grep -rl '^model:' */SKILL.md | wc -l` (expect 81).
 
 ### Release Phase
 | Skill | Model | Budget | Rationale |
@@ -303,6 +303,7 @@ Start: Task assigned
 | `skills/seed-conventions` | **Sonnet** |
 | `skills/session-state` | **Haiku** |
 | `skills/setup-environment` | **Haiku** |
+| `skills/simple-english` | **Sonnet** |
 | `skills/simulate-agents` | **Sonnet** |
 | `skills/slice-tasks` | **Sonnet** |
 | `skills/smoke-test` | **Sonnet** |
@@ -320,5 +321,5 @@ Start: Task assigned
 | `skills/wire-observability` | **Sonnet** |
 | `skills/write-document` | **Sonnet** |
 
-Total: **80** skills — verify with `find . skills -maxdepth 2 -name SKILL.md 2>/dev/null | grep -v '.git\|.cursor\|.gemini\|.pi' | sort -u | wc -l`
+Total: **81** skills — verify with `find . skills -maxdepth 2 -name SKILL.md 2>/dev/null | grep -v '.git\|.cursor\|.gemini\|.pi' | sort -u | wc -l`
 <!-- AUTO-GENERATED-CATALOG: end -->
