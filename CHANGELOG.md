@@ -1,3 +1,10 @@
+# [2.87.0](https://github.com/danielvm-git/bigpowers/compare/v2.86.8...v2.87.0) (2026-07-29)
+
+
+### Features
+
+* **skills:** add simple-english skill (STE100 synthesis) ([3daf622](https://github.com/danielvm-git/bigpowers/commit/3daf6225e98b73467830ca9c9c236d799c51d094))
+
 ## [2.86.8](https://github.com/danielvm-git/bigpowers/compare/v2.86.7...v2.86.8) (2026-07-28)
 
 
