@@ -25,7 +25,7 @@ metrics:
       avg_seconds: 1052.0
 release:
   ci_verified: true
-  last_commit: 8e44d4d6
-  last_epic: e80-verify-arc-hardening
+  last_commit: 3daf6225
+  last_epic: e79-simple-english-skill
 git:
   branch: main
