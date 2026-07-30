@@ -43,14 +43,16 @@ After installing, ask your agent to run the `using-bigpowers` skill — it is th
 
 ```bash
 # Global install (no lifecycle scripts — npm v10+ safe)
-npm install -g bigpowers
+npm install -g bigpowers@latest
 bigpowers setup     # runs sync + install, links skills to your tools
 
-# Or one-shot with npx
-npx bigpowers setup
+# Or one-shot with npx (always fetches the newest release)
+npx bigpowers@latest setup
 ```
 
 Both commands sync skill artifacts and link them to Claude Code, Gemini CLI, and Cursor (see [Prerequisites](#-prerequisites)).
+
+> **Always pin `@latest`.** With bigpowers already installed globally, a bare `npx bigpowers setup` reuses the stale global binary and `npm update -g bigpowers` doesn't reliably cross to the newest release. `npm install -g bigpowers@latest` and `npx bigpowers@latest setup` force a registry fetch every time.
 
 ### Interactive Installer
 
@@ -269,9 +271,10 @@ Or add manually to `.claude/settings.json`:
 **npm install:**
 
 ```bash
-npm update -g bigpowers
-bigpowers update   # re-sync and refresh symlinks
+bigpowers update   # fetches bigpowers@latest (global installs), then re-syncs + refreshes symlinks
 ```
+
+`bigpowers update` now runs `npm install -g bigpowers@latest` for you when bigpowers is installed globally, so running it alone is enough to reach the newest release. Prefer to do it by hand? `npm install -g bigpowers@latest && bigpowers update`. (Avoid `npm update -g bigpowers` — it does not reliably cross to `@latest`.)
 
 **git clone:**
 
@@ -301,9 +304,9 @@ bash scripts/install.sh --uninstall
 ### Reinstall
 
 ```bash
-npx bigpowers setup
+npx bigpowers@latest setup
 # or, if installed globally:
-bigpowers setup
+bigpowers update
 ```
 
 ---
