@@ -1,3 +1,10 @@
+## [2.87.1](https://github.com/danielvm-git/bigpowers/compare/v2.87.0...v2.87.1) (2026-07-30)
+
+
+### Bug Fixes
+
+* **cli:** make bigpowers update self-update global package ([67f38f6](https://github.com/danielvm-git/bigpowers/commit/67f38f6e8dcf650732de01c87bf58aac0e20c52c))
+
 # [2.87.0](https://github.com/danielvm-git/bigpowers/compare/v2.86.8...v2.87.0) (2026-07-29)
 
 

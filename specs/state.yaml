@@ -2,11 +2,11 @@ active_flow: null
 active_epic: null
 active_story: null
 bug_id: null
-bigpowers_version: 2.87.0
+bigpowers_version: 2.87.1
 bug_cycle: null
 handoff:
   next_skill: survey-context
-  context: 'BUG-2026-07-30T000000 (update/install paths fetch latest version) resolved and verified.'
+  context: BUG-2026-07-30T000000 (update/install paths fetch latest version) resolved and verified.
   epic: null
 epic_cycle: null
 metrics:
