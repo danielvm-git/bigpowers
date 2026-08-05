@@ -1,3 +1,11 @@
+## [2.87.2](https://github.com/danielvm-git/bigpowers/compare/v2.87.1...v2.87.2) (2026-08-05)
+
+
+### Bug Fixes
+
+* **scripts:** AGENTIC-STE word count must not glob markdown bold (**) ([4da5750](https://github.com/danielvm-git/bigpowers/commit/4da575016771fe534931e05680b6444a6127a52e))
+* **scripts:** cycle-time toolchain — BSD awk FS + unbound agent token vars ([4819089](https://github.com/danielvm-git/bigpowers/commit/4819089956aae1b1239b74cfdce83be4fbedd111))
+
 ## [2.87.1](https://github.com/danielvm-git/bigpowers/compare/v2.87.0...v2.87.1) (2026-07-30)
 
 
