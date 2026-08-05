@@ -113,7 +113,7 @@ epics:
   title: Agent code economy — 8-rules knowledge distillation
   wsjf: 4.5
   bcps: 2
-  capsule_dir: epics/e81-agents-code-economy
+  capsule_dir: epics/archive/e81-agents-code-economy
   mode: capsule
   status: done
   wsjf_rationale: BV 5 + TC 3 + RR 4 / Job 2 ≈ 6. Ships the 60B-token lesson to every seeded project.
