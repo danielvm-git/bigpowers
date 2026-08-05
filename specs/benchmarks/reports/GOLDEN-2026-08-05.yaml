@@ -1,0 +1,172 @@
+timestamp: "2026-08-05T15:52:09Z"
+git_commit: "83d3c105f46e1d36066bd2bf08c2f97061c6e96b"
+suite: "golden-combined"
+mode: "daily"
+deterministic:
+  total: 38
+  passed: 38
+  failed: 0
+  skipped: 0
+  pass_rate: 1.00
+gates:
+  - name: compliance
+    exit_code: 0
+    duration_seconds: 84.47
+    status: pass
+  - name: g04-selftest
+    exit_code: 0
+    duration_seconds: .03
+    status: pass
+  - name: g06-migrate-version
+    exit_code: 0
+    duration_seconds: 7.88
+    status: pass
+  - name: g07-negative-path
+    exit_code: 0
+    duration_seconds: .06
+    status: pass
+  - name: g08-anti-vacuity
+    exit_code: 0
+    duration_seconds: .07
+    status: pass
+  - name: g09-yaml-roundtrip
+    exit_code: 0
+    duration_seconds: .10
+    status: pass
+  - name: g10-trace-anti-vacuity
+    exit_code: 0
+    duration_seconds: .09
+    status: pass
+  - name: g11-gitignore-venv
+    exit_code: 0
+    duration_seconds: .09
+    status: pass
+  - name: g12-status-selftest
+    exit_code: 0
+    duration_seconds: .52
+    status: pass
+  - name: g12-status-consistency
+    exit_code: 0
+    duration_seconds: .18
+    status: pass
+  - name: g15-compliance-runner-selftest
+    exit_code: 0
+    duration_seconds: .04
+    status: pass
+  - name: g15-compliance-runner
+    exit_code: 0
+    duration_seconds: .10
+    status: pass
+  - name: g13-script-orphans-selftest
+    exit_code: 0
+    duration_seconds: 49.56
+    status: pass
+  - name: g13-script-orphans
+    exit_code: 0
+    duration_seconds: 48.10
+    status: pass
+  - name: workflow-diagrams-fresh
+    exit_code: 0
+    duration_seconds: .07
+    status: pass
+  - name: reference-nav-fresh
+    exit_code: 0
+    duration_seconds: .05
+    status: pass
+  - name: g14-adapter-dispatch-selftest
+    exit_code: 0
+    duration_seconds: .11
+    status: pass
+  - name: g14-adapter-dispatch
+    exit_code: 0
+    duration_seconds: .07
+    status: pass
+  - name: g16-spec-version-gap-selftest
+    exit_code: 0
+    duration_seconds: .15
+    status: pass
+  - name: g16-spec-version-gap
+    exit_code: 0
+    duration_seconds: .09
+    status: pass
+  - name: target-contracts
+    exit_code: 0
+    duration_seconds: .18
+    status: pass
+  - name: install-hub
+    exit_code: 0
+    duration_seconds: 7.18
+    status: pass
+  - name: adapter-render
+    exit_code: 0
+    duration_seconds: 3.10
+    status: pass
+  - name: adapters
+    exit_code: 0
+    duration_seconds: 2.30
+    status: pass
+  - name: tombstone-mechanism
+    exit_code: 0
+    duration_seconds: 1.65
+    status: pass
+  - name: trace-strict
+    exit_code: 0
+    duration_seconds: 11.63
+    status: pass
+  - name: trace-matrix-size
+    exit_code: 0
+    duration_seconds: .02
+    status: pass
+  - name: setup-no-pyyaml
+    exit_code: 0
+    duration_seconds: 2.05
+    status: pass
+  - name: install-distribute-only
+    exit_code: 0
+    duration_seconds: 45.13
+    status: pass
+  - name: completeness-critic-scope
+    exit_code: 0
+    duration_seconds: .18
+    status: pass
+  - name: epics-wiki-zero-stories
+    exit_code: 0
+    duration_seconds: 2.79
+    status: pass
+  - name: golden-g11-worktree-venv
+    exit_code: 0
+    duration_seconds: .10
+    status: pass
+  - name: install-helpers
+    exit_code: 0
+    duration_seconds: .05
+    status: pass
+  - name: import-boundaries
+    exit_code: 0
+    duration_seconds: .22
+    status: pass
+  - name: skill-catalog
+    exit_code: 0
+    duration_seconds: 1.65
+    status: pass
+  - name: specs-parse
+    exit_code: 0
+    duration_seconds: .84
+    status: pass
+  - name: story-verify-selftest
+    exit_code: 0
+    duration_seconds: .16
+    status: pass
+  - name: story-verify
+    exit_code: 0
+    duration_seconds: 223.81
+    status: pass
+agent_stories:
+  total: 0
+  passed: 0
+  failed: 0
+  skipped: 0
+  flake_count: 0
+  pass_rate: n/a
+summary:
+  combined_verdict: "pass"

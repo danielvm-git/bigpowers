@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-28T17:11:35.493477+00:00",
+  "generated_at": "2026-08-05T15:55:47.042589+00:00",
   "matrix_version": "1.0",
   "stories": [
     {
@@ -4872,6 +4872,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260730-141554.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-163821.md",
           "line": 0,
           "confidence": "medium",
@@ -5089,6 +5095,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260723-110458.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260805-125210.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5700,6 +5712,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260805-124019.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-143007.md",
           "line": 0,
           "confidence": "medium",
@@ -5982,6 +6000,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260729-140536.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260706-183102.md",
           "line": 0,
           "confidence": "medium",
@@ -6043,6 +6067,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260727-131322.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260729-140229.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -7560,6 +7590,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260805-124203.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-182346.md",
           "line": 0,
           "confidence": "medium",
@@ -7812,6 +7848,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260730-142041.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-06-audit-code-auditor-oversized.md",
           "line": 0,
           "confidence": "medium",
@@ -7878,7 +7920,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 673
+      "link_count": 680
     },
     {
       "id": "e45s19",
@@ -10428,6 +10470,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260730-141554.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-163821.md",
           "line": 0,
           "confidence": "medium",
@@ -10645,6 +10693,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260723-110458.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260805-125210.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -11256,6 +11310,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260805-124019.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-143007.md",
           "line": 0,
           "confidence": "medium",
@@ -11538,6 +11598,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260729-140536.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260706-183102.md",
           "line": 0,
           "confidence": "medium",
@@ -11599,6 +11665,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260727-131322.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260729-140229.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -13116,6 +13188,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260805-124203.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-182346.md",
           "line": 0,
           "confidence": "medium",
@@ -13368,6 +13446,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260730-142041.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-06-audit-code-auditor-oversized.md",
           "line": 0,
           "confidence": "medium",
@@ -13422,7 +13506,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 659
+      "link_count": 666
     },
     {
       "id": "e45s32",
@@ -14772,7 +14856,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-2026-07-30.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/GOLDEN-2026-07-07.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-2026-08-05.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -14857,6 +14953,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-2026-07-13.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-2026-07-29.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -15018,7 +15120,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 52
+      "link_count": 55
     },
     {
       "id": "e48s03",
@@ -15654,6 +15756,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-07-30T000000.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-04-tautological-verify.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -15948,7 +16056,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 153
+      "link_count": 154
     },
     {
       "id": "e48s04",
@@ -16128,7 +16236,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-2026-07-30.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/GOLDEN-2026-07-07.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-2026-08-05.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -16213,6 +16333,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-2026-07-13.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-2026-07-29.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -16806,6 +16932,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/epics-wiki/e81.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/epics-wiki/e46.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -17226,7 +17358,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 197
+      "link_count": 201
     },
     {
       "id": "e48s06",
@@ -19902,6 +20034,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260730-141554.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-163821.md",
           "line": 0,
           "confidence": "medium",
@@ -20119,6 +20257,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260723-110458.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260805-125210.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -20730,6 +20874,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260805-124019.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-143007.md",
           "line": 0,
           "confidence": "medium",
@@ -21012,6 +21162,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260729-140536.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260706-183102.md",
           "line": 0,
           "confidence": "medium",
@@ -21073,6 +21229,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260727-131322.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260729-140229.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -22590,6 +22752,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260805-124203.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-182346.md",
           "line": 0,
           "confidence": "medium",
@@ -22837,6 +23005,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260621-185054.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20260730-142041.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -23148,7 +23322,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 713
+      "link_count": 720
     },
     {
       "id": "e51s05",
@@ -23328,13 +23502,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/epics/e81-agents-code-economy/e81s01-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        },
+        {
           "file": "specs/epics/archive/e53-establish-migration-baseline/e53s02-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         }
       ],
-      "link_count": 6
+      "link_count": 7
     },
     {
       "id": "e53s03",
@@ -28093,11 +28273,59 @@
         }
       ],
       "link_count": 11
+    },
+    {
+      "id": "e81s01",
+      "title": "AGENTS.md template Token Economy section + reference doc",
+      "epic_id": "e81",
+      "epic_title": "Agent code economy \u2014 8-rules knowledge distillation",
+      "bcp": 0,
+      "wsjf": 4.5,
+      "status": "backlog",
+      "links": [
+        {
+          "file": "specs/epics/e81-agents-code-economy/e81s01-tasks.yaml",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e81-agents-code-economy/e81s01-tasks.yaml",
+          "line": 25,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e81-agents-code-economy/epic.yaml",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e81-agents-code-economy/epic.yaml",
+          "line": 40,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/conventions-wiki/docs-references-ssot-sync-e45s10.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/wayfinder/doc-templates/tickets/T1-template-doctrine.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        }
+      ],
+      "link_count": 6
     }
   ],
   "summary": {
-    "total_stories": 125,
-    "tagged_stories": 115,
+    "total_stories": 126,
+    "tagged_stories": 116,
     "dark_stories": [],
     "dark_count": 0,
     "orphan_tags": [
@@ -28367,9 +28595,9 @@
     ],
     "stale_count": 115,
     "oracle_stats": {
-      "high": 901,
-      "medium": 3453,
-      "low": 78
+      "high": 905,
+      "medium": 3484,
+      "low": 79
     }
   }
 }
