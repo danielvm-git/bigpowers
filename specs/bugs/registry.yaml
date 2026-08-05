@@ -448,3 +448,19 @@ bugs:
     scope: verification-gates
     title: "Story-level verify: commands in epic.yaml are never executed"
     file: bugs/BUG-2026-07-26-story-verify-never-executed.md
+  - id: BUG-2026-07-30T000000
+    status: fixed
+    severity: high
+    scope: cli/docs
+    title: "README install/update paths never fetch the latest version; `bigpowers update` re-syncs the stale installed package"
+    file: bugs/BUG-2026-07-30T000000.md
+    files_changed: "bin/bigpowers.js, README.md"
+    approach: "Make `bigpowers update` run `npm install -g bigpowers@latest` before re-syncing when installed globally; add a best-effort version-behind warning to `status`; pin README install/update/reinstall commands to @latest."
+    risk_level: "low"
+    commit_message: "fix(cli): make `bigpowers update` self-update the global package; pin README to @latest"
+  - id: BUG-2026-08-05-ste-glob-wordcount
+    status: fixed
+    severity: medium
+    scope: validate-agentic-ste
+    title: "validate-agentic-ste.sh counts markdown bold (**) as every file in cwd — false FAIL on valid prose"
+    file: bugs/BUG-2026-08-05-ste-glob-wordcount.md

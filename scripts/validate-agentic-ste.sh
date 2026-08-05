@@ -79,7 +79,13 @@ ste_extract_prose() {
 
 ste_count_words() {
   # shellcheck disable=SC2207
-  local words=($1)
+  local words
+  # BUG-2026-08-05-ste-glob-wordcount: ($1) globs each word — a bare ** (markdown
+  # bold opener) expands to every file in cwd and inflates the count. Disable
+  # pathname expansion; safe here because this function only runs inside $( ).
+  set -f
+  words=($1)
+  set +f
   echo "${#words[@]}"
 }
 
@@ -170,6 +176,14 @@ description: Long sentence fixture.
 Run the full local green stack including compliance verification gates sync skills trace stories and catalog drift check before any forward implementation work on this repository.
 EOF
 
+  cat > "$tmp/good-bold.md" <<'EOF'
+---
+name: fixture-bold
+description: Bold markdown list fixture (BUG-2026-08-05-ste-glob-wordcount).
+---
+1. **Check dependencies first.** DO inspect what your current dependencies already do before writing your own code.
+EOF
+
   local saved_strict=$STRICT saved_audit=$AUDIT
   STRICT=true
   AUDIT=false
@@ -178,6 +192,13 @@ EOF
   ste_audit_file "$tmp/good-skill.md"
   if (( VIOLATIONS > 0 )); then
     echo "SELF-TEST FAIL: good fixture should pass" >&2
+    return 1
+  fi
+
+  VIOLATIONS=0
+  ste_audit_file "$tmp/good-bold.md"
+  if (( VIOLATIONS > 0 )); then
+    echo "SELF-TEST FAIL: bold-markdown fixture should pass (glob word-count bug, BUG-2026-08-05)" >&2
     return 1
   fi
 
