@@ -115,7 +115,7 @@ epics:
   bcps: 2
   capsule_dir: epics/e81-agents-code-economy
   mode: capsule
-  status: scoped
+  status: done
   wsjf_rationale: BV 5 + TC 3 + RR 4 / Job 2 ≈ 6. Ships the 60B-token lesson to every seeded project.
   source: X @ayi_ainotes/status/2084522269745820010 — Vercel engineer, 8-rule AGENTS.md; production warning on rule 1.
 - id: e80

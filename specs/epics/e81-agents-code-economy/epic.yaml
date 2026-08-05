@@ -1,7 +1,7 @@
 # story: e81s01
 id: e81
 title: "Agent code economy — 8-rules knowledge distillation"
-status: backlog
+status: done
 wsjf: 4.5
 bcps: 2
 mode: capsule
@@ -19,7 +19,7 @@ source: >
 stories:
   - id: e81s01
     title: AGENTS.md template Token Economy section + reference doc
-    status: backlog
+    status: done
     bcps: 2
     description: >
       Add the production-safe subset of the 8 rules (2/5/6/8) to

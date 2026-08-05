@@ -399,6 +399,8 @@ development_status:
   e80s03: done
   e80s04: done
   e80s05: done
+  e81: done
+  e81s01: done
   generated_at: '2026-07-07T04:00:00Z'
   heuristic_ratio: 0.8
   verdict: PASS
@@ -743,6 +745,11 @@ epics:
     title: 'Verify arc hardening (#97 + #98)'
     wsjf: 7.5
     total_bcps: 10
+  e81:
+    status: done
+    title: 'Agent code economy — 8-rules knowledge distillation'
+    wsjf: 4.5
+    total_bcps: 2
 stories:
   e01s01:
     status: done
@@ -3470,3 +3477,13 @@ stories:
     tasks_failing: 0
     risk_max: P1
     security_max: high
+  e81s01:
+    status: done
+    title: 'AGENTS.md template Token Economy section + reference doc'
+    bcps: 2
+    epic: e81
+    tasks_total: 2
+    tasks_passing: 2
+    tasks_failing: 0
+    risk_max: P2
+    security_max: none

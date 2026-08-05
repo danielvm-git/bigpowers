@@ -47,3 +47,14 @@ bash scripts/record-cycle-time.sh append --story e81s01 --bcps 2 --range HEAD
 ROOT=. IDLE_SECONDS=7200 PAD_SECONDS=7200 bash -c 'source scripts/lib/git-hours.sh; partition "<range>" "Story"' | grep -v unattributed
 bash scripts/record-cycle-time.sh append --story e81s01 --bcps 2 --range <range>
 ```
+
+## Follow-up finding (open — not fixed in this session)
+
+The append path also **emits an OKF bundle into `cycle-times.yaml` as a second
+YAML document**. `validate-specs-yaml.sh` parses every `specs/**/*.yaml` with
+single-doc `yaml.safe_load`, so the multi-doc ledger fails the Preflight gate;
+and CONVENTIONS.md describes the ledger as a flat `stories:` row list
+(BCPs, start, end, cycle minutes, BCP/hr). The e81s01 row was therefore
+recorded by hand in the list schema, and the OKF emission needs a follow-up
+story: either teach `validate-specs-yaml.sh` to tolerate multi-doc OKF ledgers
+(`yaml.safe_load_all`) or change the emit to append list rows.

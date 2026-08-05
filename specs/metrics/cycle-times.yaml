@@ -482,3 +482,12 @@ stories:
   started: '2026-07-06T21:11:00Z'
   merged: '2026-07-06T21:18:00Z'
 
+- id: e81s01
+  epic: e81
+  bcps: 2
+  start: '2026-08-05T13:18:35-03:00'
+  end: '2026-08-05T13:21:00-03:00'
+  cycle_minutes: 17
+  bcp_per_hour: 7.1
+  source: measured
+  note: 'Git-derived lead time (record-cycle-time.sh e40s04); sandbox clock compressed — treat as indicative.'
