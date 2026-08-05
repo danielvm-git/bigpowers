@@ -1,6 +1,6 @@
 # Traceability Matrix
 
-**Generated:** 2026-08-05 15:55:47 UTC
+**Generated:** 2026-08-05 16:05:56 UTC
 **Total stories:** 126
 **Tagged stories:** 116
 **Dark stories:** 0
@@ -9,8 +9,8 @@
 
 ## Oracle Stats
 
-- **High** (explicit tag): 905
-- **Medium** (file heuristic): 3484
+- **High** (explicit tag): 907
+- **Medium** (file heuristic): 3491
 - **Low** (task reference): 79
 
 ## Story Coverage
@@ -75,10 +75,10 @@
 | e45s40 | verify-work: mandatory real-browser verification | e45 | 2 | 5.0 | done | 27 |
 | e45s41 | security-review: proven authorship SQL-safety doctrine | e45 | 2 | 5.0 | done | 22 |
 | e48s01 | Generate epics-wiki and adr-wiki as OKF concept bundles from | e48 | 2 | 2.5 | done | 34 |
-| e48s02 | Emit verification reports as OKF bundles from run-golden-sui | e48 | 2 | 2.5 | done | 55 |
-| e48s03 | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | e48 | 1 | 2.5 | done | 154 |
+| e48s02 | Emit verification reports as OKF bundles from run-golden-sui | e48 | 2 | 2.5 | done | 56 |
+| e48s03 | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | e48 | 1 | 2.5 | done | 157 |
 | e48s04 | Create viz.html — interactive force-layout graph companion f | e48 | 2 | 2.5 | done | 12 |
-| e48s05 | Wire OKF validation into CI (sync-skills.yml) and document i | e48 | 1 | 2.5 | done | 201 |
+| e48s05 | Wire OKF validation into CI (sync-skills.yml) and document i | e48 | 1 | 2.5 | done | 204 |
 | e48s06 | Add tier: field (core/extended/specialized) to OKF wiki inde | e48 | 2 | 2.5 | done | 10 |
 | e48s07 | Create publish-to-wiki kernel tool | e48 | 3 | 2.5 | done | 2 |
 | e48s08 | Add GitHub Action Template for publish-wiki.yml [HARD GATE] | e48 | 1 | 2.5 | done | 8 |
@@ -142,7 +142,7 @@
 | e80s03 | develop-tdd RED commit isolation check | e80 | 0 | 7.5 | done | 10 |
 | e80s04 | generalize-fix phase in validate-fix | e80 | 0 | 7.5 | done | 32 |
 | e80s05 | security-review fixture table growth | e80 | 0 | 7.5 | done | 11 |
-| e81s01 | AGENTS.md template Token Economy section + reference doc | e81 | 0 | 4.5 | backlog | 6 |
+| e81s01 | AGENTS.md template Token Economy section + reference doc | e81 | 0 | 4.5 | backlog | 8 |
 
 ## Orphan Tags (tag in code, no matching story)
 

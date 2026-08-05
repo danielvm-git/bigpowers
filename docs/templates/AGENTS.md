@@ -1,5 +1,6 @@
 # story: e37s01
 # story: e45s21
+# story: e81s01
 # scenario: SC-e37s01-P1-01
 # [Project Name] — AI Agents
 
@@ -75,4 +76,14 @@ Stack: [language, framework, runtime]
 - Write the minimum code that solves the stated problem.
 - Run tests after every change. Show evidence before declaring done.
 - All planning output goes in specs/.
+
+## Token Economy — Minimal Footprint
+
+> Production-safe subset of the 8-rule AGENTS.md pattern (Vercel engineer, ~60B tokens).
+> Rule 1 ("no backward compatibility") is excluded deliberately: it risks data loss in production.
+
+1. **Check existing dependencies first.** DO inspect what your current dependencies already do before adding a package or writing your own code.
+2. **Prefer mature, maintained libraries.** DO NOT rewrite a capability a maintained library provides without a documented reason.
+3. **Copy validated patterns.** DO study how established products solve the same problem before inventing a new approach.
+4. **Keep the simplest working implementation.** DO write the least code that satisfies the stated requirement. NEVER add preventive abstraction or unused config layers.
 <!-- END bigpowers:project -->

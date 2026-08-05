@@ -1,7 +1,7 @@
 story_id: e81s01
 title: "AGENTS.md template Token Economy section + reference doc"
 spec: e81s01-agents-code-economy.md
-status: failing
+status: passing
 tasks:
   - id: 1
     description: >-
@@ -16,7 +16,7 @@ tasks:
       echo OK
     risk: P2
     security: none
-    status: failing
+    status: passing
   - id: 2
     description: >-
       Write docs/references/agents-code-economy.md — slim provenance-pointer
@@ -30,4 +30,4 @@ tasks:
       echo OK
     risk: P2
     security: none
-    status: failing
+    status: passing

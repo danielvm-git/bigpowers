@@ -1,6 +1,6 @@
 ---
 type: Index
-generated_at: 2026-08-05T15:55:47.055824+00:00
+generated_at: 2026-08-05T16:05:56.815479+00:00
 total_concepts: 126
 ---
 
@@ -68,10 +68,10 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e45s40](./e45s40.md) | verify-work: mandatory real-browser verification | high | 27 |
 | [e45s41](./e45s41.md) | security-review: proven authorship SQL-safety doctrine | high | 22 |
 | [e48s01](./e48s01.md) | Generate epics-wiki and adr-wiki as OKF concept bundles from | high | 34 |
-| [e48s02](./e48s02.md) | Emit verification reports as OKF bundles from run-golden-sui | medium | 55 |
-| [e48s03](./e48s03.md) | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | high | 154 |
+| [e48s02](./e48s02.md) | Emit verification reports as OKF bundles from run-golden-sui | medium | 56 |
+| [e48s03](./e48s03.md) | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | high | 157 |
 | [e48s04](./e48s04.md) | Create viz.html — interactive force-layout graph companion f | medium | 12 |
-| [e48s05](./e48s05.md) | Wire OKF validation into CI (sync-skills.yml) and document i | medium | 201 |
+| [e48s05](./e48s05.md) | Wire OKF validation into CI (sync-skills.yml) and document i | medium | 204 |
 | [e48s06](./e48s06.md) | Add tier: field (core/extended/specialized) to OKF wiki inde | medium | 10 |
 | [e48s07](./e48s07.md) | Create publish-to-wiki kernel tool | high | 2 |
 | [e48s08](./e48s08.md) | Add GitHub Action Template for publish-wiki.yml [HARD GATE] | high | 8 |
@@ -135,4 +135,4 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e80s03](./e80s03.md) | develop-tdd RED commit isolation check | high | 10 |
 | [e80s04](./e80s04.md) | generalize-fix phase in validate-fix | high | 32 |
 | [e80s05](./e80s05.md) | security-review fixture table growth | high | 11 |
-| [e81s01](./e81s01.md) | AGENTS.md template Token Economy section + reference doc | high | 6 |
+| [e81s01](./e81s01.md) | AGENTS.md template Token Economy section + reference doc | high | 8 |

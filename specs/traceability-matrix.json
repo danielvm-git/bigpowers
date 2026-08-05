@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-05T15:55:47.042589+00:00",
+  "generated_at": "2026-08-05T16:05:56.803369+00:00",
   "matrix_version": "1.0",
   "stories": [
     {
@@ -14916,6 +14916,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/GOLDEN-2026-08-05.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-2026-07-07.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -15120,7 +15126,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 55
+      "link_count": 56
     },
     {
       "id": "e48s03",
@@ -15283,6 +15289,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-06T205700.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-08-05-ste-glob-wordcount.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -15750,6 +15762,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-07-30T000000.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-06-trace-requirement-stories-oversized.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -15972,6 +15990,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-08-05-ste-glob-wordcount.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-07-compliance-cross-module-sourcing.md",
           "line": 0,
           "confidence": "medium",
@@ -16056,7 +16080,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 154
+      "link_count": 157
     },
     {
       "id": "e48s04",
@@ -16296,6 +16320,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/GOLDEN-2026-08-05.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-2026-07-07.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -16441,6 +16471,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-06T205700.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-08-05-ste-glob-wordcount.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -16675,6 +16711,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-03-yaml-roundtrip-corruption.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-30T000000.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -17358,7 +17400,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 201
+      "link_count": 204
     },
     {
       "id": "e48s06",
@@ -28308,6 +28350,18 @@
           "method": "explicit_tag"
         },
         {
+          "file": "docs/references/agents-code-economy.md",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "docs/templates/AGENTS.md",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "specs/conventions-wiki/docs-references-ssot-sync-e45s10.md",
           "line": 0,
           "confidence": "medium",
@@ -28320,7 +28374,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 6
+      "link_count": 8
     }
   ],
   "summary": {
@@ -28595,8 +28649,8 @@
     ],
     "stale_count": 115,
     "oracle_stats": {
-      "high": 905,
-      "medium": 3484,
+      "high": 907,
+      "medium": 3491,
       "low": 79
     }
   }
