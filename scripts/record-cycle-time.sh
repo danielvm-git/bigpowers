@@ -90,7 +90,7 @@ cmd_report() {
 }
 
 cmd_append() {
-  local range="HEAD" key="$STORY_KEY" story="" bcps="" merged_at="" file="$ROOT/specs/metrics/cycle-times.yaml"
+  local range="HEAD" key="$STORY_KEY" story="" bcps="" bcp_plus="" merged_at="" file="$ROOT/specs/metrics/cycle-times.yaml"
   local telemetry=""  # path to harness telemetry JSON (GSD-2/gsd-pi format, optional)
   while [ $# -gt 0 ]; do
     case "$1" in
@@ -143,6 +143,8 @@ cmd_append() {
   agent_compression="null"; agent_tool_calls="null"; agent_api_requests="null"
   agent_duration_ms="null"; agent_model="null"; agent_tier="null"
   agent_downgraded="null"; agent_skills="[]"
+  agent_tokens_in="null"; agent_tokens_out="null"
+  agent_tokens_cache_read="null"; agent_tokens_cache_write="null"
 
   if [ -n "$telemetry" ] && [ -f "$telemetry" ]; then
     # GSD-2/gsd-pi snapshotUnitMetrics JSON format:

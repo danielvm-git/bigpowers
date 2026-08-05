@@ -18,7 +18,7 @@ partition() {
   git -C "$ROOT" log --no-merges "$range" \
       --pretty=format:"%at%x1f%H%x1f%(trailers:key=${key},valueonly,separator=%x2C)" \
     | sort -n \
-    | awk -F '\x1f' -v IDLE="$IDLE_SECONDS" -v PAD="$PAD_SECONDS" '
+    | awk -v FS="$(printf '\037')" -v IDLE="$IDLE_SECONDS" -v PAD="$PAD_SECONDS" '
         {
           ts = $1 + 0; story = $3
           gsub(/[[:space:]]/, "", story)

@@ -458,6 +458,12 @@ bugs:
     approach: "Make `bigpowers update` run `npm install -g bigpowers@latest` before re-syncing when installed globally; add a best-effort version-behind warning to `status`; pin README install/update/reinstall commands to @latest."
     risk_level: "low"
     commit_message: "fix(cli): make `bigpowers update` self-update the global package; pin README to @latest"
+  - id: BUG-2026-08-05-cycle-time-toolchain
+    status: fixed
+    severity: medium
+    scope: record-cycle-time / git-hours
+    title: "record-cycle-time.sh append fails on macOS: BSD awk ignores -F '\\x1f'; agent token vars unbound"
+    file: bugs/BUG-2026-08-05-cycle-time-toolchain.md
   - id: BUG-2026-08-05-ste-glob-wordcount
     status: fixed
     severity: medium
