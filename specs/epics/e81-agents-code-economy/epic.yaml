@@ -1,0 +1,40 @@
+# story: e81s01
+id: e81
+title: "Agent code economy — 8-rules knowledge distillation"
+status: backlog
+wsjf: 4.5
+bcps: 2
+mode: capsule
+wsjf_rationale: >
+  BV 5 (ships the 60B-token lesson to every project seed-conventions creates) +
+  TC 3 + RR 4 / Job 2 ≈ 6. Small docs epic: AGENTS.md template section + reference
+  doc. Unfrozen under the e54-e59 catalog freeze — touches docs only, no skill
+  structure changes.
+source: >
+  X post @ayi_ainotes/status/2084522269745820010 — a Vercel Next.js engineer
+  distilled ~60B tokens (~six-figure USD) into an 8-rule AGENTS.md. Production
+  warning: rule 1 (no backward compatibility) once nearly deleted a production
+  DB table (~$2000 of data). bigpowers already encodes rules 2/3/4/7/8; this
+  epic closes gaps 5/6 and ships the production-safe subset to seeded projects.
+stories:
+  - id: e81s01
+    title: AGENTS.md template Token Economy section + reference doc
+    status: backlog
+    bcps: 2
+    description: >
+      Add the production-safe subset of the 8 rules (2/5/6/8) to
+      docs/templates/AGENTS.md inside the bigpowers:project fence; exclude
+      rule 1 with an explicit production-safety note. Write
+      docs/references/agents-code-economy.md as a slim provenance-pointer
+      reference: full 8 rules, codified-in-bigpowers mapping, production
+      warning mapped to bigpowers countermeasures.
+    files:
+      - docs/templates/AGENTS.md
+      - docs/references/agents-code-economy.md
+    verify: >-
+      grep -q 'Token Economy' docs/templates/AGENTS.md &&
+      bash scripts/validate-agentic-ste.sh --strict docs/templates/AGENTS.md &&
+      test -f docs/references/agents-code-economy.md &&
+      grep -q '8 rules' docs/references/agents-code-economy.md
+    tags:
+      - "story: e81s01"

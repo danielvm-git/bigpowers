@@ -1,0 +1,33 @@
+story_id: e81s01
+title: "AGENTS.md template Token Economy section + reference doc"
+spec: e81s01-agents-code-economy.md
+status: failing
+tasks:
+  - id: 1
+    description: >-
+      Add "Token Economy — Minimal Footprint" section to docs/templates/AGENTS.md
+      inside the BEGIN/END bigpowers:project fence. Directive lines for rules
+      2/5/6/8 (AGENTIC-STE compliant), rule 1 explicitly excluded with production
+      note. Tag # story: e81s01.
+    verify: >-
+      grep -q 'Token Economy' docs/templates/AGENTS.md &&
+      grep -q 'bigpowers:project' docs/templates/AGENTS.md &&
+      bash scripts/validate-agentic-ste.sh --strict docs/templates/AGENTS.md &&
+      echo OK
+    risk: P2
+    security: none
+    status: failing
+  - id: 2
+    description: >-
+      Write docs/references/agents-code-economy.md — slim provenance-pointer
+      reference: source tweet URL, all 8 rules, codified-in-bigpowers mapping
+      table, production warning with bigpowers countermeasures (tombstone
+      aliases e53s02, semantic-release, ADRs). Tag # story: e81s01.
+    verify: >-
+      test -f docs/references/agents-code-economy.md &&
+      grep -q '2084522269745820010' docs/references/agents-code-economy.md &&
+      grep -q '8 rules' docs/references/agents-code-economy.md &&
+      echo OK
+    risk: P2
+    security: none
+    status: failing
