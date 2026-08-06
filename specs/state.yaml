@@ -4,12 +4,12 @@ active_story: null
 bug_id: BUG-2026-08-06-pi-drops-skills-frontmatter
 bigpowers_version: 2.87.2
 bug_cycle:
-  current_step: 3
-  completed_steps: [1, 2]
+  current_step: 5
+  completed_steps: [1, 2, 3, 4]
   bug_file: specs/bugs/BUG-2026-08-06-pi-drops-skills-frontmatter.md
 handoff:
-  next_skill: develop-tdd
-  context: "BUG-2026-08-06-pi-drops-skills-frontmatter — RCA verified (pi startsWith('---') gate). Proceeding with fix: move story tags inside frontmatter in 16 skills, extend validate-skill-yaml.py to source scan + delimiter rule, remove stray .agents/skills/SKILL.md."
+  next_skill: release-branch
+  context: "BUG-2026-08-06-pi-drops-skills-frontmatter — fix landed on branch fix/pi-skills-frontmatter-delimiter, PR #109 open, CI pending. validate-fix green (validator 162/162, compliance 98/98, golden 38/38)."
   epic: null
 epic_cycle: null
 metrics:
