@@ -9,7 +9,7 @@ bug_cycle:
   bug_file: specs/bugs/BUG-2026-08-06-pi-drops-skills-frontmatter.md
 handoff:
   next_skill: develop-tdd
-  context: BUG-2026-08-06-pi-drops-skills-frontmatter — RCA verified (pi startsWith('---') gate). Proceeding with fix: move story tags inside frontmatter in 16 skills, extend validate-skill-yaml.py to source scan + delimiter rule, remove stray .agents/skills/SKILL.md.
+  context: "BUG-2026-08-06-pi-drops-skills-frontmatter — RCA verified (pi startsWith('---') gate). Proceeding with fix: move story tags inside frontmatter in 16 skills, extend validate-skill-yaml.py to source scan + delimiter rule, remove stray .agents/skills/SKILL.md."
   epic: null
 epic_cycle: null
 metrics:

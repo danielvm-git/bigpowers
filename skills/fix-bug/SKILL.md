@@ -1,5 +1,5 @@
-# story: e51s04
 ---
+# story: e51s04
 name: fix-bug
 model: sonnet
 effort: standard

@@ -1,5 +1,5 @@
-# story: e80s01
 ---
+# story: e80s01
 name: enforce-first
 model: haiku
 effort: standard

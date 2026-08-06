@@ -1,5 +1,5 @@
-# story: e45s38
 ---
+# story: e45s38
 name: diagnose-stall
 model: haiku
 effort: light

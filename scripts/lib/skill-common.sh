@@ -48,6 +48,9 @@ parse_frontmatter() {
     fi
     [ "$in_block" -ne 1 ] && continue
 
+    # Skip comment lines (e.g. # story: tags inside the frontmatter block)
+    [[ "$line" == \#* || "$line" == \<\!--* ]] && continue
+
     case "$line" in
       name:*)
         name="${line#name: }"
@@ -76,6 +79,8 @@ parse_frontmatter() {
       continue
     fi
     [ "$continued" -eq 0 ] && continue
+    # Skip comment lines (e.g. # story: tags inside the frontmatter block)
+    [[ "$line" == \#* || "$line" == \<\!--* ]] && continue
     # If next field starts (unindented key:), stop
     [[ "$line" =~ ^[a-zA-Z_]+: ]] && break
     desc="$desc $line"
@@ -103,7 +108,7 @@ parse_frontmatter_okf() {
   _PF_NAME=$(awk '/^---/{f++} f==1 && /^name:/{print; exit}' "$file" | sed 's/^name:[[:space:]]*//')
   _PF_MODEL=$(awk '/^---/{f++} f==1 && /^model:/{print; exit}' "$file" | sed 's/^model:[[:space:]]*//')
   _PF_EFFORT=$(awk '/^---/{f++} f==1 && /^effort:/{print; exit}' "$file" | sed 's/^effort:[[:space:]]*//')
-  _PF_DESCRIPTION=$(awk '/^---/{f++; next} f==1 && /^description:/{p=1; sub(/^description:[[:space:]]*/,""); print; next} f==1 && p && /^[a-z]+:/{exit} f==1 && p{print}' "$file" \
+  _PF_DESCRIPTION=$(awk '/^---/{f++; next} f==1 && /^description:/{p=1; sub(/^description:[[:space:]]*/,""); print; next} f==1 && p && /^[a-z]+:/{exit} f==1 && p && !/^[[:space:]]*#/ && !/^[[:space:]]*<!--/{print}' "$file" \
     | tr -d '\n' \
     | sed -E 's/[[:space:]]+/ /g')
 

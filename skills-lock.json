@@ -13,7 +13,7 @@
     },
     "audit-code": {
       "description": "Self-review checklist for the coding agent to run before dispatching a reviewer. Checks CONVENTIONS.md compliance, Boy Scout Rule, test coverage, types, and SOLID. Produces a pass/fail checklist. Use before request-review, before committing, or when user asks for a code quality check.",
-      "sha256": "b0342883680fee6c",
+      "sha256": "6c37decb8b323a18",
       "path": "skills/audit-codeSKILL.md"
     },
     "audit-plan": {
@@ -48,12 +48,12 @@
     },
     "craft-skill": {
       "description": "Create new bigpowers skills with proper structure, progressive disclosure, and bundled resources. Use when user wants to create, write, or build a new skill for the bigpowers lifecycle.",
-      "sha256": "f3b08c24979f1857",
+      "sha256": "b1d4efb0dcecb204",
       "path": "skills/craft-skillSKILL.md"
     },
     "deepen-architecture": {
       "description": "Find deepening opportunities in a codebase, informed by the domain language in specs/tech-architecture/tech-stack.md and the decisions in specs/adr/. Use when the user wants to improve architecture, find refactoring opportunities, consolidate tightly-coupled modules, or make a codebase more testable and AI-navigable.",
-      "sha256": "da2760c0cb49a3e4",
+      "sha256": "ee41e4524031fee3",
       "path": "skills/deepen-architectureSKILL.md"
     },
     "define-language": {
@@ -73,7 +73,7 @@
     },
     "deploy": {
       "description": "\"Build → verify artifact → deploy → wait → smoke deployment pipeline. Platform-agnostic (MCP or CLI), with configurable timeout, retry with exponential backoff, and integrated health-check. The deploy half of CI/CD: run after build to push to production.\"",
-      "sha256": "ddfcbfbfc464c620",
+      "sha256": "d355906aff894cfc",
       "path": "skills/deploySKILL.md"
     },
     "design-interface": {
@@ -83,7 +83,7 @@
     },
     "develop-tdd": {
       "description": "Test-driven development with red-green-refactor loop using vertical slices. Use for features (epic tasks) or bugs (specs/bugs/BUG-*.md).",
-      "sha256": "8b3934e2291b863d",
+      "sha256": "433c1315e6604899",
       "path": "skills/develop-tddSKILL.md"
     },
     "diagnose-root": {
@@ -93,7 +93,7 @@
     },
     "diagnose-stall": {
       "description": "Diagnose why agent orchestration stopped producing progress — silent stalls in /loop, dispatch-agents, or execute-plan. Use when work appears hung, no output for several minutes, or a subagent never returned.",
-      "sha256": "c0fe87349399c112",
+      "sha256": "983d5a3a922af07d",
       "path": "skills/diagnose-stallSKILL.md"
     },
     "dispatch-agents": {
@@ -113,7 +113,7 @@
     },
     "enforce-first": {
       "description": "Apply the F.I.R.S.T test quality rubric (per CONVENTIONS.md §Tests) to a test suite or individual tests. Use when develop-tdd is writing tests, when test quality needs to be checked, or when user mentions F.I.R.S.T or \"test quality\".",
-      "sha256": "1ec1183ee6377917",
+      "sha256": "567d0efaa59d1262",
       "path": "skills/enforce-firstSKILL.md"
     },
     "evolve-skill": {
@@ -138,12 +138,12 @@
     },
     "fix-bug": {
       "description": "Bug fix orchestrator — active_flow fix_bug; reads specs/bugs/BUG-*.md; chains investigate-bug, develop-tdd, validate-fix. Use when user reports a defect.",
-      "sha256": "8e9e5922211b7e3b",
+      "sha256": "575a3ce60745c5c3",
       "path": "skills/fix-bugSKILL.md"
     },
     "gate-trace": {
       "description": "\"Deterministic traceability quality gate — reads coverage matrix + blind-spot data, applies decision rules with oracle confidence downgrade, emits PASS/CONCERNS/FAIL/WAIVED verdict. Use before release-branch to gate merges on traceability.\"",
-      "sha256": "87e0c49ff90ec34c",
+      "sha256": "097c31ec960861ce",
       "path": "skills/gate-traceSKILL.md"
     },
     "generate-allure-report": {
@@ -238,7 +238,7 @@
     },
     "plan-work": {
       "description": "\"PLANNING SPINE STEP 3 of 3 — Plan the work: write detailed implementation tasks into the active epic capsule (specs/epics/eNN-slug/). Produces countable-story-format .md specs and runnable -tasks.yaml files. Use after slice-tasks (step 2). Not a substitute for scope-work (step 1) or slice-tasks (step 2).\"",
-      "sha256": "32c2bcaf16cb4ad2",
+      "sha256": "0558f03399e6b93f",
       "path": "skills/plan-workSKILL.md"
     },
     "publish-package": {
@@ -248,7 +248,7 @@
     },
     "quick-fix": {
       "description": "\"Streamlined fast-path for trivial data-only fixes — no TDD, no branching ceremony. Collapses 6 skills into 2 for changes that are purely data with no logic risk. Aborts with fallback to investigate-bug if guardrails trigger.\"",
-      "sha256": "6a1b70cb1530c428",
+      "sha256": "5631a3980b214748",
       "path": "skills/quick-fixSKILL.md"
     },
     "release-branch": {
@@ -258,7 +258,7 @@
     },
     "request-review": {
       "description": "Dispatch a fresh reviewer agent with a clean context to critique the code after audit-code passes. The reviewer has no shared state with the coding agent and gives a genuine second opinion. Use after audit-code passes, before committing, or when user wants an independent code review.",
-      "sha256": "f362641a467c3000",
+      "sha256": "f395a14585b78aaf",
       "path": "skills/request-reviewSKILL.md"
     },
     "research-first": {
@@ -283,7 +283,7 @@
     },
     "run-evals": {
       "description": "Eval-Driven Development — define capability and regression evals before building; code graders use verify commands, model graders use explicit rubrics; log pass@k. Use before develop-tdd on new features, or when measuring agent capability over runs.",
-      "sha256": "d20ba2bece1b1c72",
+      "sha256": "7bc7cfd24a41d9e3",
       "path": "skills/run-evalsSKILL.md"
     },
     "run-planning": {
@@ -338,7 +338,7 @@
     },
     "smoke-test": {
       "description": "\"Post-deploy health-check against a live URL. Validates HTTP status, response content, and critical endpoints. Runnable standalone OR as the final step of the deploy skill.\"",
-      "sha256": "050170d66ada581e",
+      "sha256": "407669c94dee6b53",
       "path": "skills/smoke-testSKILL.md"
     },
     "spike-prototype": {
@@ -373,12 +373,12 @@
     },
     "validate-contracts": {
       "description": "\"Assert data shape consistency across system boundaries — live API responses against JSON Schema, key-set comparison across layers, data shape validation for migrations and exports. Catches silent data corruption before deploy.\"",
-      "sha256": "d93c9ae2953ac457",
+      "sha256": "6541a7f72b3f0493",
       "path": "skills/validate-contractsSKILL.md"
     },
     "validate-fix": {
       "description": "Prove a fix works before declaring done — re-run the failing test, run the full suite, typecheck, lint, and harden against recurrence. Use after implementing a bug fix, when user says \"is this fixed?\", or before closing an investigation.",
-      "sha256": "f94972af3fd48e3e",
+      "sha256": "d7fac868ccbf5dbe",
       "path": "skills/validate-fixSKILL.md"
     },
     "verify-work": {
