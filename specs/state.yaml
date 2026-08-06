@@ -1,12 +1,15 @@
-active_flow: null
+active_flow: fix_bug
 active_epic: 'null'
 active_story: null
-bug_id: null
+bug_id: BUG-2026-08-06-pi-drops-skills-frontmatter
 bigpowers_version: 2.87.2
-bug_cycle: null
+bug_cycle:
+  current_step: 3
+  completed_steps: [1, 2]
+  bug_file: specs/bugs/BUG-2026-08-06-pi-drops-skills-frontmatter.md
 handoff:
-  next_skill: 'null'
-  context: BUG-2026-07-30T000000 (update/install paths fetch latest version) resolved and verified.
+  next_skill: develop-tdd
+  context: BUG-2026-08-06-pi-drops-skills-frontmatter — RCA verified (pi startsWith('---') gate). Proceeding with fix: move story tags inside frontmatter in 16 skills, extend validate-skill-yaml.py to source scan + delimiter rule, remove stray .agents/skills/SKILL.md.
   epic: null
 epic_cycle: null
 metrics:
