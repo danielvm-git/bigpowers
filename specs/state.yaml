@@ -1,12 +1,15 @@
-active_flow: null
+active_flow: fix_bug
 active_epic: 'null'
 active_story: null
-bug_id: null
+bug_id: BUG-2026-08-06-pi-drops-skills-frontmatter
 bigpowers_version: 2.87.2
-bug_cycle: null
+bug_cycle:
+  current_step: 5
+  completed_steps: [1, 2, 3, 4]
+  bug_file: specs/bugs/BUG-2026-08-06-pi-drops-skills-frontmatter.md
 handoff:
-  next_skill: 'null'
-  context: BUG-2026-07-30T000000 (update/install paths fetch latest version) resolved and verified.
+  next_skill: release-branch
+  context: "BUG-2026-08-06-pi-drops-skills-frontmatter — fix landed on branch fix/pi-skills-frontmatter-delimiter, PR #109 open, CI pending. validate-fix green (validator 162/162, compliance 98/98, golden 38/38)."
   epic: null
 epic_cycle: null
 metrics:

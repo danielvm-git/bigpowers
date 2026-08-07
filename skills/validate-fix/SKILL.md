@@ -1,7 +1,7 @@
+---
 # story: e80s01
 # story: e80s04
 # story: e45s08
----
 name: validate-fix
 model: haiku
 effort: standard

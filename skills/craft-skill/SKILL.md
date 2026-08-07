@@ -1,7 +1,7 @@
-# story: e45s02
-<!-- story: e45s12 -->
-<!-- story: e79s02 -->
 ---
+# story: e45s02
+# story: e45s12
+# story: e79s02
 name: craft-skill
 model: sonnet
 effort: standard
