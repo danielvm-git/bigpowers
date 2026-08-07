@@ -1,6 +1,6 @@
 ---
 bug_id: BUG-2026-08-06-pi-drops-skills-frontmatter
-status: open
+status: fixed
 severity: high
 scope: skills / install
 title: "pi drops 16 skills as 'description is required' — story tags before frontmatter delimiter break parsing"
@@ -76,4 +76,21 @@ Contributing factors:
 
 ## Resolution
 
-<!-- filled in by validate-fix -->
+**Fixed:** 2026-08-07, merged as `3d4f0cf3` (PR #109), released in v2.87.3.
+
+**Root cause confirmed:** pi's frontmatter extractor (`src/utils/frontmatter.ts` — `if (!normalized.startsWith("---")) return { yamlString: null }`) requires the opening `---` at byte 0. 16 source `skills/*/SKILL.md` files placed `# story:` / `<!-- story: -->` tags above the delimiter, so pi returned no frontmatter → no description → skill dropped as "description is required" (issue #108). In-repo the defect was masked because `srp-engine.py` strips the tags when generating `.pi/skills/`; every external install (symlinked sources) hit it.
+
+**Fix applied (3 files + 16 skills + 1 deletion):**
+- Moved leading story tags **inside** the frontmatter block as `# story:` YAML comments in the 16 affected SKILL.md sources (valid for pi, PyYAML, and bundled `simple_yaml.py`; `trace-stories.sh` greps the whole tree — traceability unaffected).
+- `scripts/validate-skill-yaml.py`: now scans **sources + generated copies** with a new R1 rule (file must start with `---` at byte 0); wired into the `sync-skills.sh` post-generation guard.
+- `scripts/lib/skill-common.sh`: `parse_frontmatter` / `parse_frontmatter_okf` skip comment lines (tags inside frontmatter no longer leak into `skills-lock.json` descriptions or the search index).
+- Removed stray `.agents/skills/SKILL.md` (empty name/description).
+
+**Hardening added:** the extended validator is part of the sync guard, so any future SKILL.md with tags above the `---` fails generation. Generated `.pi/`, `.cursor/`, `.gemini/` trees verified byte-identical after sync (no artifact churn).
+
+**Evidence:**
+- Validator: 162/162 (81 sources + 81 generated), RED→GREEN (16 failures → 0)
+- `npm run compliance`: 98/98 PASS
+- Golden suite: 38/38 PASS
+- `trace-stories.sh --strict`, `check-skill-links`, `check-skill-size`: all PASS
+- CI: PR #109 — checks failed only on GitHub Actions infrastructure (`Service Unavailable` at "Set up job", runner provisioning, snyk quota); no code-related CI failure. Locally green on all gates before merge.

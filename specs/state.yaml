@@ -1,17 +1,12 @@
-active_flow: fix_bug
+active_flow: null
 active_epic: 'null'
 active_story: null
-bug_id: BUG-2026-08-06-pi-drops-skills-frontmatter
+bug_id: null
 bigpowers_version: 2.87.3
-bug_cycle:
-  current_step: 5
-  completed_steps:
-  - 1
-  - 2
-  - 3
-  - 4
-  bug_file: specs/bugs/BUG-2026-08-06-pi-drops-skills-frontmatter.md
+bug_cycle: null
 handoff:
+  next_skill: 'null'
+  context: "BUG-2026-08-06-pi-drops-skills-frontmatter RESOLVED — merged as 3d4f0cf3 (#108), released in v2.87.3. Story tags now live inside SKILL.md frontmatter; validator scans sources + generated copies with a starts-with-'---' rule."
   next_skill: release-branch
   context: 'BUG-2026-08-06-pi-drops-skills-frontmatter — fix landed on branch fix/pi-skills-frontmatter-delimiter,
     PR #109 open, CI pending. validate-fix green (validator 162/162, compliance 98/98, golden 38/38).'

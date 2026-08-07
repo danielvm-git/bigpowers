@@ -471,7 +471,7 @@ bugs:
     title: "validate-agentic-ste.sh counts markdown bold (**) as every file in cwd — false FAIL on valid prose"
     file: bugs/BUG-2026-08-05-ste-glob-wordcount.md
   - id: BUG-2026-08-06-pi-drops-skills-frontmatter
-    status: open
+    status: fixed
     severity: high
     scope: skills / install
     title: "pi drops 16 skills as 'description is required' — story tags before frontmatter delimiter break parsing"
