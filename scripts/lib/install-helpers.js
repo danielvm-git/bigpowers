@@ -404,23 +404,23 @@ function installLocal(tool, repoRoot) {
 
 function uninstallTool(toolId, repoRoot) {
   const homeDir = require('os').homedir();
+  // installLocal() resolves its own targets from process.cwd() at call time
+  // (bin/setup.js never passes a mode/cwd into uninstallTool), so the
+  // interactive Uninstall menu — which offers no global/local choice — must
+  // clean whichever scope was actually installed into. Previously this
+  // function only ever touched homeDir: a local install (`bigpowers install`
+  // → Local) was reported as "removed" but every local symlink survived.
+  const cwd = process.cwd();
 
   switch (toolId) {
     case 'claude': {
-      const skillsDir = path.join(homeDir, '.claude', 'skills');
-      if (fs.existsSync(skillsDir)) {
-        for (const entry of fs.readdirSync(skillsDir, { withFileTypes: true })) {
-          if (!entry.isSymbolicLink()) continue;
-          const target = fs.readlinkSync(path.join(skillsDir, entry.name));
-          if (target.startsWith(repoRoot)) {
-            removeSymlink(path.join(skillsDir, entry.name));
-          }
-        }
-      }
+      removeRepoRootedSkillLinks(path.join(homeDir, '.claude', 'skills'), repoRoot);
       const hooksDir = path.join(homeDir, '.claude', 'hooks');
       removeSymlink(path.join(hooksDir, 'block-dangerous-git.sh'));
       removeSymlink(path.join(hooksDir, 'rtk-rewrite.sh'));
       removeSymlink(path.join(hooksDir, 'lib'));
+      // installLocal('claude') only links skills/ (no hooks) into cwd/.claude/skills
+      removeRepoRootedSkillLinks(path.join(cwd, '.claude', 'skills'), repoRoot);
       break;
     }
     case 'gemini':
@@ -434,18 +434,12 @@ function uninstallTool(toolId, repoRoot) {
       ]) {
         removeSymlink(path.join(homeDir, '.gemini', 'hooks', hookFile));
       }
+      // installLocal('gemini') links repoRoot/.gemini/extensions/bigpowers into cwd
+      removeSymlink(path.join(cwd, '.gemini', 'extensions', 'bigpowers'));
       break;
     case 'pi': {
-      const skillsDir = path.join(homeDir, '.pi', 'agent', 'skills');
-      if (fs.existsSync(skillsDir)) {
-        for (const entry of fs.readdirSync(skillsDir, { withFileTypes: true })) {
-          if (!entry.isSymbolicLink()) continue;
-          const target = fs.readlinkSync(path.join(skillsDir, entry.name));
-          if (target.startsWith(repoRoot)) {
-            removeSymlink(path.join(skillsDir, entry.name));
-          }
-        }
-      }
+      removeRepoRootedSkillLinks(path.join(homeDir, '.pi', 'agent', 'skills'), repoRoot);
+      removeRepoRootedSkillLinks(path.join(cwd, '.pi', 'agent', 'skills'), repoRoot);
       break;
     }
     case 'hermes': {
@@ -460,6 +454,17 @@ function uninstallTool(toolId, repoRoot) {
         }
       }
       removeSymlink(path.join(homeDir, '.hermes', 'hooks', 'session-log'));
+      // installLocal('hermes') renders skills into cwd/.hermes/skills (no hook locally)
+      const localSkillsDir = path.join(cwd, '.hermes', 'skills');
+      if (fs.existsSync(localSkillsDir)) {
+        for (const entry of fs.readdirSync(localSkillsDir, { withFileTypes: true })) {
+          if (!entry.isSymbolicLink()) continue;
+          const target = fs.readlinkSync(path.join(localSkillsDir, entry.name));
+          if (target.startsWith(repoRoot) || target.includes('.hermes/skills')) {
+            removeSymlink(path.join(localSkillsDir, entry.name));
+          }
+        }
+      }
       break;
     }
     case 'zcode': {
@@ -474,6 +479,8 @@ function uninstallTool(toolId, repoRoot) {
         }
       }
       removeSymlink(path.join(homeDir, '.zcode', 'AGENTS.md'));
+      removeManagedSkillLinks(path.join(cwd, '.zcode', 'skills'), repoRoot);
+      removeSymlink(path.join(cwd, '.zcode', 'AGENTS.md'));
       break;
     }
     case 'mimo': {
@@ -488,6 +495,8 @@ function uninstallTool(toolId, repoRoot) {
         }
       }
       removeSymlink(path.join(homeDir, '.mimocode', 'AGENTS.md'));
+      removeManagedSkillLinks(path.join(cwd, '.mimocode', 'skills'), repoRoot);
+      removeSymlink(path.join(cwd, '.mimocode', 'AGENTS.md'));
       break;
     }
     case 'antigravity':
@@ -502,10 +511,20 @@ function uninstallTool(toolId, repoRoot) {
           }
         }
       }
+      // installLocal('antigravity') renders into cwd/.agents/skills and — only
+      // if absent — symlinks cwd/AGENTS.md. Skip the local skills dir entirely
+      // when cwd === repoRoot: that's this repo's own tracked .agents/skills
+      // source tree (the installer's rendered-skill INPUT), not an install
+      // target, and must never be touched by uninstall.
+      if (cwd !== repoRoot) {
+        removeManagedSkillLinks(path.join(cwd, '.agents', 'skills'), repoRoot);
+      }
+      removeSymlink(path.join(cwd, 'AGENTS.md'));
       break;
     }
     case 'cursor':
       removeSymlink(path.join(homeDir, '.cursor', 'rules'));
+      removeSymlink(path.join(cwd, '.cursor', 'rules'));
       break;
     case 'codex':
       {
@@ -518,7 +537,60 @@ function uninstallTool(toolId, repoRoot) {
         }
       }
       removeSymlink(path.join(homeDir, '.codex', 'hooks', 'pre-tool-git-guard.sh'));
+      removeSymlink(path.join(homeDir, '.codex', 'AGENTS.md'));
+      // installLocal('codex') only symlinks cwd/.codex/AGENTS.md (no skills/hooks locally)
+      removeSymlink(path.join(cwd, '.codex', 'AGENTS.md'));
       break; // story: e65s02
+    case 'qwen':
+      removeManagedSkillLinks(path.join(homeDir, '.qwen', 'skills'), repoRoot);
+      removeSymlink(path.join(homeDir, '.qwen', 'QWEN.md'));
+      removeSymlink(path.join(homeDir, '.qwen', 'hooks', 'pre-tool-git-guard.sh'));
+      break; // story: e68s02
+    case 'codebuddy':
+      removeManagedSkillLinks(path.join(homeDir, '.codebuddy', 'skills'), repoRoot);
+      removeSymlink(path.join(homeDir, '.codebuddy', 'AGENTS.md'));
+      removeSymlink(path.join(homeDir, '.codebuddy', 'hooks', 'pre-tool-git-guard.sh'));
+      break; // story: e72s02
+    case 'cline':
+      removeManagedSkillLinks(path.join(homeDir, '.cline', 'skills'), repoRoot);
+      break; // story: e66s02
+    case 'kilo':
+    case 'kilocode': {
+      const rulesDir = path.join(homeDir, '.kilocode', 'rules');
+      if (fs.existsSync(rulesDir)) {
+        for (const f of fs.readdirSync(rulesDir)) {
+          if (!f.endsWith('.md')) continue;
+          removeSymlink(path.join(rulesDir, f));
+        }
+      }
+      removeManagedFile(path.join(homeDir, '.kilocode', 'AGENTS.md'));
+      break; // story: e67s02
+    }
+    case 'trae':
+      removeManagedSkillLinks(path.join(homeDir, '.trae', 'skills'), repoRoot);
+      removeSymlink(path.join(homeDir, '.trae', 'AGENTS.md'));
+      removeSymlink(path.join(homeDir, '.trae', 'hooks', 'pre-tool-git-guard.sh'));
+      break; // story: e70s02
+    case 'windsurf': {
+      const rulesDir = path.join(homeDir, '.codeium', 'windsurf', 'rules');
+      if (fs.existsSync(rulesDir)) {
+        for (const f of fs.readdirSync(rulesDir)) {
+          if (!f.endsWith('.md')) continue;
+          removeSymlink(path.join(rulesDir, f));
+        }
+      }
+      removeManagedFile(path.join(homeDir, '.codeium', 'windsurf', 'AGENTS.md'));
+      removeSymlink(path.join(homeDir, '.codeium', 'windsurf', 'hooks', 'pre-tool-git-guard.sh'));
+      break; // story: e73s02
+    }
+    case 'opencode':
+      removeManagedSkillLinks(path.join(homeDir, '.config', 'opencode', 'skills'), repoRoot);
+      removeSymlink(path.join(homeDir, '.config', 'opencode', 'AGENTS.md'));
+      break; // story: e62s02
+    case 'copilot':
+      removeManagedSkillLinks(path.join(homeDir, '.copilot', 'skills'), repoRoot);
+      removeManagedFile(path.join(homeDir, '.copilot', 'AGENTS.md'));
+      break; // story: e71s02
   }
 }
 
@@ -526,6 +598,61 @@ function removeSymlink(p) {
   try {
     const stat = fs.lstatSync(p);
     if (stat.isSymbolicLink()) {
+      fs.unlinkSync(p);
+      return true;
+    }
+  } catch {}
+  return false;
+}
+
+// Strict variant of removeManagedSkillLinks: only removes symlinks whose
+// target starts with THIS repoRoot exactly (no 'bigpowers' substring match).
+// Used for claude/pi, where a looser match could delete symlinks pointing at
+// an unrelated bigpowers checkout elsewhere on disk (e.g. a second clone).
+function removeRepoRootedSkillLinks(skillsDir, repoRoot) {
+  if (!fs.existsSync(skillsDir)) return;
+  for (const entry of fs.readdirSync(skillsDir, { withFileTypes: true })) {
+    if (!entry.isSymbolicLink()) continue;
+    const linkPath = path.join(skillsDir, entry.name);
+    let target;
+    try {
+      target = fs.readlinkSync(linkPath);
+    } catch {
+      continue;
+    }
+    if (target.startsWith(repoRoot)) {
+      removeSymlink(linkPath);
+    }
+  }
+}
+
+// Remove bigpowers-managed skill symlinks from a tool's skills dir. Only touches
+// symlinks that resolve back into the repo (installGlobal creates them via
+// linkRenderedSkills → linkDir), leaving any user-authored entries alone.
+function removeManagedSkillLinks(skillsDir, repoRoot) {
+  if (!fs.existsSync(skillsDir)) return;
+  for (const entry of fs.readdirSync(skillsDir, { withFileTypes: true })) {
+    if (!entry.isSymbolicLink()) continue;
+    const linkPath = path.join(skillsDir, entry.name);
+    let target;
+    try {
+      target = fs.readlinkSync(linkPath);
+    } catch {
+      continue;
+    }
+    if (target.startsWith(repoRoot) || target.includes('bigpowers')) {
+      removeSymlink(linkPath);
+    }
+  }
+}
+
+// Remove a file the installer placed as a plain copy (kilo/windsurf/copilot use
+// fs.copyFileSync for AGENTS.md, so removeSymlink would skip it). Also handles
+// the symlink case so it's safe on either install shape.
+function removeManagedFile(p) {
+  try {
+    const stat = fs.lstatSync(p);
+    if (stat.isSymbolicLink() || stat.isFile()) {
       fs.unlinkSync(p);
       return true;
     }

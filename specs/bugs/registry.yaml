@@ -476,3 +476,9 @@ bugs:
     scope: skills / install
     title: "pi drops 16 skills as 'description is required' — story tags before frontmatter delimiter break parsing"
     file: bugs/BUG-2026-08-06-pi-drops-skills-frontmatter.md
+  - id: BUG-2026-08-07-interactive-uninstall-silent-noop
+    status: fixed
+    severity: high
+    scope: installer
+    title: "Interactive menu Uninstall reports success while leaving symlinks in place"
+    file: bugs/BUG-2026-08-07-interactive-uninstall-silent-noop.md
