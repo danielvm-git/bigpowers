@@ -1,3 +1,10 @@
+## [2.87.3](https://github.com/danielvm-git/bigpowers/compare/v2.87.2...v2.87.3) (2026-08-07)
+
+
+### Bug Fixes
+
+* **skills:** pi no longer drops 16 skills — story tags moved inside frontmatter ([#108](https://github.com/danielvm-git/bigpowers/issues/108)) ([3d4f0cf](https://github.com/danielvm-git/bigpowers/commit/3d4f0cf33a0497a45bc525330fc048a5b2715e33))
+
 ## [2.87.2](https://github.com/danielvm-git/bigpowers/compare/v2.87.1...v2.87.2) (2026-08-05)
 
 
