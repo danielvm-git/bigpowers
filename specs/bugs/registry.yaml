@@ -482,3 +482,9 @@ bugs:
     scope: installer
     title: "Interactive menu Uninstall reports success while leaving symlinks in place"
     file: bugs/BUG-2026-08-07-interactive-uninstall-silent-noop.md
+  - id: BUG-2026-08-07-gemini-hooks-missing-npm-package
+    status: open
+    severity: high
+    scope: npm-package / install
+    title: "npm tarball excludes .gemini and .cursor — Gemini (and Cursor) install targets fail on global npm installs"
+    file: bugs/BUG-2026-08-07-gemini-hooks-missing-npm-package.md

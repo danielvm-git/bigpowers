@@ -213,6 +213,37 @@ try {
     'install surface must not reference bare guard-git/ path'
   );
 
+  // story: BUG-2026-08-07-gemini-hooks-missing-npm-package
+  // The npm tarball must ship every path the installer hard-links from the
+  // package root. .npmignore edits that strip installer-referenced paths are
+  // regressions (Gemini hooks "Hook source missing" on global npm installs).
+  {
+    const npmignore = fs
+      .readFileSync(path.join(ROOT, '.npmignore'), 'utf8')
+      .split(/\r?\n/)
+      .map((l) => l.trim())
+      .filter(Boolean);
+    const critical = [
+      '.gemini/extensions/bigpowers/hooks/session-start',
+      '.gemini/extensions/bigpowers/hooks/run-hook.cmd',
+      '.gemini/extensions/bigpowers/hooks/before-tool-git-guard.sh',
+      '.cursor/rules',
+      '.pi/skills',
+      'skills/audit-code/SKILL.md',
+    ];
+    const isIgnored = (p) =>
+      npmignore.some((pat) => {
+        const pp = pat.replace(/\/+$/, '');
+        return p === pp || p.startsWith(pp + '/') || p.split('/').includes(pp);
+      });
+    for (const p of critical) {
+      assert.ok(
+        !isIgnored(p),
+        `.npmignore must not exclude installer-referenced path: ${p} (BUG-2026-08-07)`
+      );
+    }
+  }
+
   console.log('test-install-helpers: ALL PASS');
 } finally {
   rmSync(tmpHome, { recursive: true, force: true });

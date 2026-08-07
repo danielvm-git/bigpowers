@@ -1,7 +1,5 @@
 .git
 .github
-.cursor
-.gemini
 node_modules
 *.test.js
 specs/
