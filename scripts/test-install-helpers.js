@@ -87,6 +87,116 @@ try {
   uninstallTool('cursor', ROOT);
   assert.ok(!fs.existsSync(rulesDst), 'uninstallTool(cursor) must remove rules symlink');
 
+  // Regression: every tool the uninstall menu offers must have a real uninstall
+  // path. Before this, qwen/codebuddy/cline/kilo/trae/windsurf/opencode/copilot
+  // had install cases but no uninstall case — uninstall reported success while
+  // leaving every symlink in place.
+  installGlobal({ id: 'qwen', name: 'Qwen Code' }, ROOT);
+  const qwenSkills = path.join(tmpHome, '.qwen', 'skills');
+  const qwenSample = fs.existsSync(qwenSkills)
+    && fs.readdirSync(qwenSkills).find((n) => {
+      try { return fs.lstatSync(path.join(qwenSkills, n)).isSymbolicLink(); } catch { return false; }
+    });
+  assert.ok(qwenSample, 'qwen install must create at least one skill symlink');
+  uninstallTool('qwen', ROOT);
+  assert.ok(
+    !fs.existsSync(path.join(qwenSkills, qwenSample)),
+    'uninstallTool(qwen) must remove repo-rooted skill symlinks'
+  );
+
+  // copilot writes AGENTS.md as a plain copy (not a symlink); uninstall must
+  // still remove it via removeManagedFile.
+  installGlobal({ id: 'copilot', name: 'Copilot' }, ROOT);
+  const copilotAgents = path.join(tmpHome, '.copilot', 'AGENTS.md');
+  const copilotHadAgents = fs.existsSync(copilotAgents);
+  uninstallTool('copilot', ROOT);
+  if (copilotHadAgents) {
+    assert.ok(!fs.existsSync(copilotAgents), 'uninstallTool(copilot) must remove copied AGENTS.md');
+  }
+  const copilotSkills = path.join(tmpHome, '.copilot', 'skills');
+  if (fs.existsSync(copilotSkills)) {
+    const leftover = fs.readdirSync(copilotSkills).find((n) => {
+      try { return fs.lstatSync(path.join(copilotSkills, n)).isSymbolicLink(); } catch { return false; }
+    });
+    assert.ok(!leftover, 'uninstallTool(copilot) must remove skill symlinks');
+  }
+
+  // Regression: uninstallTool() only ever touched homeDir. The interactive
+  // Uninstall menu (bin/setup.js handleUninstall) never asks global-vs-local
+  // and calls uninstallTool(toolId, ROOT) unconditionally — so a *local*
+  // install (`bigpowers install` → Local) was reported "removed" while every
+  // local symlink survived, for every tool. Verify local install/uninstall
+  // round-trips for tools spanning each install shape: skill-symlink dir
+  // (pi, claude), single linked dir (cursor, gemini), and a linked file
+  // (codex AGENTS.md).
+  const { installLocal } = require('../scripts/lib/install-helpers.js');
+  const savedCwd = process.cwd();
+  const tmpCwd = mkdtempSync(path.join(os.tmpdir(), 'bp-install-helpers-local-'));
+  try {
+    process.chdir(tmpCwd);
+
+    installLocal({ id: 'pi', name: 'pi' }, ROOT);
+    const localPiSkills = path.join(tmpCwd, '.pi', 'agent', 'skills');
+    const localPiSample = fs.readdirSync(localPiSkills).find((n) => {
+      try { return fs.lstatSync(path.join(localPiSkills, n)).isSymbolicLink(); } catch { return false; }
+    });
+    assert.ok(localPiSample, 'local pi install must create at least one skill symlink');
+    uninstallTool('pi', ROOT);
+    assert.ok(
+      !fs.existsSync(path.join(localPiSkills, localPiSample)),
+      'uninstallTool(pi) must also remove LOCAL (cwd) skill symlinks, not just global'
+    );
+
+    installLocal({ id: 'claude', name: 'Claude Code' }, ROOT);
+    const localClaudeSkills = path.join(tmpCwd, '.claude', 'skills');
+    const localClaudeSample = fs.readdirSync(localClaudeSkills).find((n) => {
+      try { return fs.lstatSync(path.join(localClaudeSkills, n)).isSymbolicLink(); } catch { return false; }
+    });
+    assert.ok(localClaudeSample, 'local claude install must create at least one skill symlink');
+    uninstallTool('claude', ROOT);
+    assert.ok(
+      !fs.existsSync(path.join(localClaudeSkills, localClaudeSample)),
+      'uninstallTool(claude) must also remove LOCAL (cwd) skill symlinks, not just global'
+    );
+
+    installLocal({ id: 'cursor', name: 'Cursor' }, ROOT);
+    const localCursorRules = path.join(tmpCwd, '.cursor', 'rules');
+    assert.ok(fs.lstatSync(localCursorRules).isSymbolicLink(), 'local cursor install must symlink .cursor/rules');
+    uninstallTool('cursor', ROOT);
+    assert.ok(!fs.existsSync(localCursorRules), 'uninstallTool(cursor) must remove LOCAL .cursor/rules symlink');
+
+    installLocal({ id: 'gemini', name: 'Gemini' }, ROOT);
+    const localGeminiExt = path.join(tmpCwd, '.gemini', 'extensions', 'bigpowers');
+    assert.ok(fs.lstatSync(localGeminiExt).isSymbolicLink(), 'local gemini install must symlink extensions/bigpowers');
+    uninstallTool('gemini', ROOT);
+    assert.ok(!fs.existsSync(localGeminiExt), 'uninstallTool(gemini) must remove LOCAL extensions/bigpowers symlink');
+
+    installLocal({ id: 'codex', name: 'Codex' }, ROOT);
+    const localCodexAgents = path.join(tmpCwd, '.codex', 'AGENTS.md');
+    assert.ok(fs.lstatSync(localCodexAgents).isSymbolicLink(), 'local codex install must symlink AGENTS.md');
+    uninstallTool('codex', ROOT);
+    assert.ok(!fs.existsSync(localCodexAgents), 'uninstallTool(codex) must remove LOCAL AGENTS.md symlink');
+  } finally {
+    process.chdir(savedCwd);
+    rmSync(tmpCwd, { recursive: true, force: true });
+  }
+
+  // Guard against future drift: assert the menu's supported set matches the
+  // uninstall switch. Any id in SUPPORTED_IDS with no uninstall case regresses
+  // this bug (silent no-op reported as success).
+  const helpersSrc = fs.readFileSync(path.join(ROOT, 'scripts', 'lib', 'install-helpers.js'), 'utf8');
+  const uninstallBody = helpersSrc.slice(helpersSrc.indexOf('function uninstallTool'));
+  const setupText = fs.readFileSync(path.join(ROOT, 'bin/setup.js'), 'utf8');
+  const supportedLine = setupText.match(/const SUPPORTED_IDS = new Set\(\[([^\]]*)\]\)/);
+  assert.ok(supportedLine, 'SUPPORTED_IDS must be declarable from bin/setup.js');
+  const supportedIds = supportedLine[1].match(/'([^']+)'/g).map((s) => s.replace(/'/g, ''));
+  for (const id of supportedIds) {
+    assert.ok(
+      new RegExp(`case '${id}':`).test(uninstallBody),
+      `uninstallTool must handle '${id}' (listed in SUPPORTED_IDS) — else uninstall silently no-ops`
+    );
+  }
+
   const installPaths = [
     path.join(ROOT, 'scripts', 'install.sh'),
     ...fs.readdirSync(path.join(ROOT, 'scripts', 'lib'))

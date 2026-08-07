@@ -1,15 +1,20 @@
-active_flow: null
+active_flow: fix_bug
 active_epic: 'null'
 active_story: null
-bug_id: null
+bug_id: BUG-2026-08-07-interactive-uninstall-silent-noop
 bigpowers_version: 2.87.3
-bug_cycle: null
+bug_cycle:
+  current_step: 5
+  completed_steps:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
 handoff:
-  next_skill: 'null'
-  context: "BUG-2026-08-06-pi-drops-skills-frontmatter RESOLVED — merged as 3d4f0cf3 (#108), released in v2.87.3. Story tags now live inside SKILL.md frontmatter; validator scans sources + generated copies with a starts-with-'---' rule."
-  next_skill: release-branch
-  context: 'BUG-2026-08-06-pi-drops-skills-frontmatter — fix landed on branch fix/pi-skills-frontmatter-delimiter,
-    PR #109 open, CI pending. validate-fix green (validator 162/162, compliance 98/98, golden 38/38).'
+  next_skill: null
+  context: 'BUG-2026-08-07-interactive-uninstall-silent-noop — released via PR on
+    danielvm-git/interactive-menu-uninstall-bug-0ea2f7'
   epic: null
 epic_cycle: null
 metrics:
@@ -25,6 +30,11 @@ metrics:
       calls: 1
       total_seconds: 1052.0
       avg_seconds: 1052.0
+    release-branch:
+      calls: 0
+      total_seconds: 0
+      avg_seconds: 0
+      _start: '2026-08-07T11:24:34Z'
 release:
   ci_verified: true
   last_commit: 3daf6225
