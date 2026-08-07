@@ -2,12 +2,13 @@ active_flow: null
 active_epic: 'null'
 active_story: null
 bug_id: null
-bigpowers_version: 2.87.4
+bigpowers_version: 2.87.5
 bug_cycle: null
 handoff:
   next_skill: 'null'
-  context: "BUG-2026-08-07-gemini-hooks-missing-npm-package RESOLVED — merged as ae174aae (PR #111); fix ships in next release (2.87.5). .npmignore no longer strips .gemini/.cursor; tarball carries Gemini hooks; regression check in test-install-helpers.js."
-  epic: null
+  context: 'BUG-2026-08-07-gemini-hooks-missing-npm-package RESOLVED — merged as ae174aae (PR #111); fix
+    ships in next release (2.87.5). .npmignore no longer strips .gemini/.cursor; tarball carries Gemini
+    hooks; regression check in test-install-helpers.js.'
   epic: null
 epic_cycle: null
 metrics:

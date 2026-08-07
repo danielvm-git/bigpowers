@@ -1,3 +1,10 @@
+## [2.87.5](https://github.com/danielvm-git/bigpowers/compare/v2.87.4...v2.87.5) (2026-08-07)
+
+
+### Bug Fixes
+
+* **packaging:** ship .gemini/.cursor in npm tarball — Gemini install works on global installs (BUG-2026-08-07) ([#111](https://github.com/danielvm-git/bigpowers/issues/111)) ([ae174aa](https://github.com/danielvm-git/bigpowers/commit/ae174aae75c0bc0aae4cf95570eb53cdd12670cb))
+
 ## [2.87.4](https://github.com/danielvm-git/bigpowers/compare/v2.87.3...v2.87.4) (2026-08-07)
 
 
