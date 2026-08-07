@@ -1,6 +1,6 @@
 ---
 bug_id: BUG-2026-08-07-gemini-hooks-missing-npm-package
-status: open
+status: fixed
 severity: high
 scope: npm-package / install
 title: "npm tarball excludes .gemini and .cursor — Gemini (and Cursor) install targets fail on global npm installs"
@@ -61,4 +61,16 @@ Removing `.gemini` (and `.cursor`) from `.npmignore` makes the tarball carry the
 
 ## Resolution
 
-<!-- filled in by validate-fix -->
+**Fixed:** 2026-08-07, merged as `ae174aae` (PR #111); ships in the next release.
+
+**Root cause confirmed:** `.npmignore` excluded `.cursor` and `.gemini` from the npm tarball. `bin/setup.js` re-runs `sync-skills.sh --distribute-only` at install time, which regenerates `.gemini/extensions/bigpowers/{skills,commands}` and `.cursor/rules` from sources — but `.gemini/extensions/bigpowers/hooks/` is a committed, non-regenerated artifact. On tarball installs the hooks never exist, so `install_gemini`'s `linkHook` existence check threw "Hook source missing".
+
+**Fix applied:**
+- `.npmignore`: removed the `.cursor` and `.gemini` exclusions — tarball now ships all 8 hook files + `.cursor/rules` (consistent with `.pi/skills`, already shipped).
+- `scripts/test-install-helpers.js`: regression check asserting installer-referenced paths (`.gemini/.../hooks/*`, `.cursor/rules`, `.pi/skills`, `skills/`) are never excluded by `.npmignore`. RED→GREEN proven (failed before, passes after).
+
+**Evidence:**
+- `npm pack --dry-run`: `.gemini/extensions/bigpowers/hooks` 8 files (incl. `session-start`), `.cursor/rules` 81 files
+- Tarball-extract integration test: Gemini target links all 5 hooks, `session-start` symlink resolves, no "Hook source missing"
+- `node scripts/test-install-helpers.js` → ALL PASS; `bash scripts/sync-skills.sh` guard green; `npm run compliance` 98/98
+- CI on PR #111: skill-verify, story-verify, sync, verification-gates — all PASS

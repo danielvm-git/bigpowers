@@ -1,15 +1,13 @@
-active_flow: fix_bug
+active_flow: null
 active_epic: 'null'
 active_story: null
-bug_id: BUG-2026-08-07-gemini-hooks-missing-npm-package
+bug_id: null
 bigpowers_version: 2.87.4
-bug_cycle:
-  current_step: 5
-  completed_steps: [1, 2, 3, 4]
-  bug_file: specs/bugs/BUG-2026-08-07-gemini-hooks-missing-npm-package.md
+bug_cycle: null
 handoff:
-  next_skill: release-branch
-  context: "BUG-2026-08-07-gemini-hooks-missing-npm-package — fix on branch fix/npm-package-gemini-hooks, PR #111 open. validate-fix green (npm pack ships hooks, tarball-install Gemini links 5 hooks, install-helpers ALL PASS, compliance 98/98)."
+  next_skill: 'null'
+  context: "BUG-2026-08-07-gemini-hooks-missing-npm-package RESOLVED — merged as ae174aae (PR #111); fix ships in next release (2.87.5). .npmignore no longer strips .gemini/.cursor; tarball carries Gemini hooks; regression check in test-install-helpers.js."
+  epic: null
   epic: null
 epic_cycle: null
 metrics:
