@@ -4,12 +4,12 @@ active_story: null
 bug_id: BUG-2026-08-07-gemini-hooks-missing-npm-package
 bigpowers_version: 2.87.4
 bug_cycle:
-  current_step: 3
-  completed_steps: [1, 2]
+  current_step: 5
+  completed_steps: [1, 2, 3, 4]
   bug_file: specs/bugs/BUG-2026-08-07-gemini-hooks-missing-npm-package.md
 handoff:
-  next_skill: develop-tdd
-  context: "BUG-2026-08-07-gemini-hooks-missing-npm-package — RCA verified: .npmignore strips .gemini/.cursor; sync regenerates skills/commands but not committed hooks/. Fix: unignore both, add tarball-content regression check."
+  next_skill: release-branch
+  context: "BUG-2026-08-07-gemini-hooks-missing-npm-package — fix on branch fix/npm-package-gemini-hooks, PR #111 open. validate-fix green (npm pack ships hooks, tarball-install Gemini links 5 hooks, install-helpers ALL PASS, compliance 98/98)."
   epic: null
 epic_cycle: null
 metrics:
