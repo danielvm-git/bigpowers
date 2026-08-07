@@ -1,19 +1,15 @@
 active_flow: fix_bug
 active_epic: 'null'
 active_story: null
-bug_id: BUG-2026-08-07-interactive-uninstall-silent-noop
+bug_id: BUG-2026-08-07-gemini-hooks-missing-npm-package
 bigpowers_version: 2.87.4
 bug_cycle:
-  current_step: 5
-  completed_steps:
-  - 1
-  - 2
-  - 3
-  - 4
-  - 5
+  current_step: 3
+  completed_steps: [1, 2]
+  bug_file: specs/bugs/BUG-2026-08-07-gemini-hooks-missing-npm-package.md
 handoff:
-  next_skill: null
-  context: BUG-2026-08-07-interactive-uninstall-silent-noop — released via PR on danielvm-git/interactive-menu-uninstall-bug-0ea2f7
+  next_skill: develop-tdd
+  context: "BUG-2026-08-07-gemini-hooks-missing-npm-package — RCA verified: .npmignore strips .gemini/.cursor; sync regenerates skills/commands but not committed hooks/. Fix: unignore both, add tarball-content regression check."
   epic: null
 epic_cycle: null
 metrics:
