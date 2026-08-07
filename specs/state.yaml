@@ -2,7 +2,7 @@ active_flow: fix_bug
 active_epic: 'null'
 active_story: null
 bug_id: BUG-2026-08-07-interactive-uninstall-silent-noop
-bigpowers_version: 2.87.3
+bigpowers_version: 2.87.4
 bug_cycle:
   current_step: 5
   completed_steps:
@@ -13,8 +13,7 @@ bug_cycle:
   - 5
 handoff:
   next_skill: null
-  context: 'BUG-2026-08-07-interactive-uninstall-silent-noop — released via PR on
-    danielvm-git/interactive-menu-uninstall-bug-0ea2f7'
+  context: BUG-2026-08-07-interactive-uninstall-silent-noop — released via PR on danielvm-git/interactive-menu-uninstall-bug-0ea2f7
   epic: null
 epic_cycle: null
 metrics:

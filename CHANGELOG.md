@@ -1,3 +1,10 @@
+## [2.87.4](https://github.com/danielvm-git/bigpowers/compare/v2.87.3...v2.87.4) (2026-08-07)
+
+
+### Bug Fixes
+
+* **install:** uninstall menu now removes symlinks for all 18 tools and local installs ([#110](https://github.com/danielvm-git/bigpowers/issues/110)) ([5e8ae1c](https://github.com/danielvm-git/bigpowers/commit/5e8ae1ccd6a127502edde2b0dfb93a28609e82a3))
+
 ## [2.87.3](https://github.com/danielvm-git/bigpowers/compare/v2.87.2...v2.87.3) (2026-08-07)
 
 
