@@ -1,3 +1,10 @@
+# [2.88.0](https://github.com/danielvm-git/bigpowers/compare/v2.87.8...v2.88.0) (2026-09-01)
+
+
+### Features
+
+* **e82:** upstream fork innovations — Jujutsu VCS, OMP plugin, community credit ([#118](https://github.com/danielvm-git/bigpowers/issues/118)) ([274894f](https://github.com/danielvm-git/bigpowers/commit/274894fe794fc4db380ba4d011e05ef5b8cbd3d0))
+
 ## [2.87.8](https://github.com/danielvm-git/bigpowers/compare/v2.87.7...v2.87.8) (2026-09-01)
 
 

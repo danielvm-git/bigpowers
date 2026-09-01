@@ -2,15 +2,14 @@ active_flow: null
 active_epic: null
 active_story: null
 bug_id: null
-bigpowers_version: 2.87.8
+bigpowers_version: 2.88.0
 bug_cycle: null
 handoff:
   next_skill: 'null'
-  context: 'BUG-2026-08-31-npm-token-invalid-release RESOLVED (token rotated; v2.87.6 published) and
-    BUG-2026-08-31-pi-scripts-provisioning RESOLVED — merged as 37bc0bf7 (PR #117, Closes #116);
-    bigpowers init provisions scripts/ + specs/ into consumer projects; assertReplaceable boundary
-    hardened. Known follow-up: pull_request CI triggers are dead repo-wide (workflow-file issue
-    — PR-time runs fail to start; push gates unaffected).'
+  context: 'BUG-2026-08-31-npm-token-invalid-release RESOLVED (token rotated; v2.87.6 published) and BUG-2026-08-31-pi-scripts-provisioning
+    RESOLVED — merged as 37bc0bf7 (PR #117, Closes #116); bigpowers init provisions scripts/ + specs/
+    into consumer projects; assertReplaceable boundary hardened. Known follow-up: pull_request CI triggers
+    are dead repo-wide (workflow-file issue — PR-time runs fail to start; push gates unaffected).'
   epic: null
 epic_cycle: null
 metrics:

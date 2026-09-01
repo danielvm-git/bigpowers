@@ -1,10 +1,12 @@
 {
   "name": "bigpowers",
-  "version": "2.87.8",
+  "version": "2.88.0",
   "description": "73 agent skills synthesizing 17 years of software engineering discipline into a prescriptive methodology for solo developers",
   "main": "index.js",
   "omp": {
-    "extensions": ["extensions/omp-hooks.ts"]
+    "extensions": [
+      "extensions/omp-hooks.ts"
+    ]
   },
   "scripts": {
     "setup": "node bin/setup.js",
