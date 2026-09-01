@@ -59,7 +59,7 @@
 | 31 | Build | `extract-design` | "Extract a Google DESIGN.md file from an HTML prototype (claude.ai/design or any | ✅ Active |
 | 32 | Build | `guard-git` | Block dangerous git commands (push, force push, reset --hard, clean, branch -D,  | ✅ Active |
 | 33 | Build | `hook-commits` | Set up pre-commit hooks with lint-staged (Prettier), type checking, and tests in | ✅ Active |
-| 34 | Build | `kickoff-branch` | Create a git worktree and feature branch, then verify a clean test baseline befo | ✅ Active |
+| 34 | Build | `kickoff-branch` | Create an isolated Git worktree/branch or Jujutsu workspace, then verify a clean | ✅ Active |
 | 35 | Build | `orchestrate-project` | Meta-skill that enforces the 6-phase core loop (discover → elaborate → plan  | ✅ Active |
 | 36 | Build | `publish-package` | "Package registry publishing for npm, crates.io, PyPI, and Homebrew. Verifies pr | ✅ Active |
 | 37 | Build | `quick-fix` | "Streamlined fast-path for trivial data-only fixes — no TDD, no branching cere | ✅ Active |

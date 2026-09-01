@@ -4,6 +4,8 @@ model: haiku
 description: "Per-task context bootstrap — reads existing specs/ and tech-architecture docs to map the current lifecycle phase and suggest the next skill. Use at the start of any task, when returning after a break, or when unsure what to do next. For deriving a tech-stack doc from scratch, use map-codebase first."
 ---
 
+# story: e82s02
+
 # Survey Context
 
 Read the project's current state and give a phase map + next-skill recommendation. This is the "where am I?" skill — run it at the start of every task.
@@ -51,15 +53,18 @@ Legacy markdown (`specs/archive/STATE.md`, `RELEASE-PLAN.md`) is **not** SoT if 
 
 If `CLAUDE.md` exists at the project root, read it for project context (stack, commands, architecture, conventions).
 
-### 4. Check git state
+### 4. Check VCS state
+
+Read `state.yaml` `vcs.kind` (or resolve `auto`). Use native identity:
 
 ```bash
-git status --short
-git log --oneline -5
-git branch --show-current
+# Git
+git status --short; git log --oneline -5; git branch --show-current
+# Jujutsu
+jj status; jj log -r 'mine() & ::@' -n 5
 ```
 
-Note: is there a feature branch active? Are there uncommitted changes? Do they match `specs/state.yaml` `git` block?
+For Jujutsu, compare stable change IDs and bookmarks with the `vcs` block; never interpret colocated Git's detached HEAD as branch state.
 
 ### 5. Map the lifecycle phase
 
@@ -124,7 +129,7 @@ Loop through all `specs/epics/*/epic.yaml` files and print a summary of story co
 
 ### check-gates (absorbed)
 
-Print the current `active_flow` from `specs/state.yaml`, run `bash scripts/validate-specs-yaml.sh` to verify YAML integrity, and show `git status` to report uncommitted changes and branch state. Use before handoffs or context transitions.
+Print `active_flow`, validate YAML, then show `git status` or `jj status` according to `vcs.kind`. Use before handoffs or context transitions.
 
 ## Handoff
 
