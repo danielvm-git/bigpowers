@@ -1,22 +1,16 @@
-active_flow: fix_bug
+active_flow: null
 active_epic: 'null'
 active_story: null
-bug_id: BUG-2026-08-31-pi-scripts-provisioning
+bug_id: null
 bigpowers_version: 2.87.8
-bug_cycle:
-  current_step: 5
-  completed_steps:
-  - 1
-  - 2
-  - 3
-  - 4
+bug_cycle: null
 handoff:
-  next_skill: develop-tdd
-  context: 'TWO open bug records filed 2026-08-31: (1) BUG-2026-08-31-npm-token-invalid-release — Release
-    workflow fails EINVALIDNPMTOKEN (run 33461454695, commit f866adca); remediation is NPM_TOKEN secret
-    rotation (maintainer action) + rerun; code unaffected. (2) BUG-2026-08-31-pi-scripts-provisioning
-    (#116) — package consumers get no project-local scripts/, verify gates fail; fix = bigpowers init.
-    Both land in the fix/pi-scripts-provisioning PR.'
+  next_skill: 'null'
+  context: 'BUG-2026-08-31-npm-token-invalid-release RESOLVED (token rotated; v2.87.6 published) and
+    BUG-2026-08-31-pi-scripts-provisioning RESOLVED — merged as 37bc0bf7 (PR #117, Closes #116);
+    bigpowers init provisions scripts/ + specs/ into consumer projects; assertReplaceable boundary
+    hardened. Known follow-up: pull_request CI triggers are dead repo-wide (workflow-file issue
+    — PR-time runs fail to start; push gates unaffected).'
   epic: null
 epic_cycle: null
 metrics:

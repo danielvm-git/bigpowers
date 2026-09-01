@@ -7,7 +7,7 @@ title: "Release workflow fails EINVALIDNPMTOKEN — npm publish credential expir
 category: bug
 tier: extended
 severity: high
-status: open
+status: fixed
 generator: scripts/sync-bugs-registry.sh
 references:
     - specs/bugs/BUG-2026-08-31-npm-token-invalid-release.md
@@ -15,7 +15,7 @@ references:
 
 # Release workflow fails EINVALIDNPMTOKEN — npm publish credential expired, v2.87.6 never published
 
-**Bug:** BUG-2026-08-31-npm-token-invalid-release | **Severity:** high | **Status:** open | **Scope:** ci / release
+**Bug:** BUG-2026-08-31-npm-token-invalid-release | **Severity:** high | **Status:** fixed | **Scope:** ci / release
 **Tier:** extended
 
 See `specs/bugs/BUG-2026-08-31-npm-token-invalid-release.md` for full investigation and fix details.

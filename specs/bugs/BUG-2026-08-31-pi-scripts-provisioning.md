@@ -64,4 +64,16 @@ Sandbox: fake package root + fake consumer cwd → run `initProject(repoRoot)` �
 
 ## Resolution
 
-**Pending** — fix lands via PR `fix/pi-scripts-provisioning` (Closes #116).
+**Fixed:** 2026-08-31, merged as `37bc0bf7` (PR #117); ships in v2.87.8.
+
+**Root cause confirmed:** SKILL.md bodies invoke `scripts/*.sh` project-relative and no install vector ever provisioned a project-local `scripts/` — pi's package contract cannot express project files and no lifecycle script exists (deliberately, per BUG-2026-06-24T045323). The dogfood flow (cwd == repo) masked the gap.
+
+**Fix applied:**
+- `scripts/lib/install-helpers.js`: `initProject` links the package `scripts/` into cwd + scaffolds `specs/{bugs,verifications}`; `initProjectRemove` removes only managed artifacts; both inherit `assertReplaceable` (never clobbers user files). `assertReplaceable` gained a path-separator boundary so prefix siblings of the package root are refused (PR #114 follow-up).
+- `bin/init.js` + `bigpowers init [--remove]` dispatch + help; README "pi Support" documents the per-project step.
+
+**Evidence:**
+- RED→GREEN: `test-install-helpers.js` additions failed pre-fix (`initProject is not a function`), pass post-fix; suite ALL PASS (including PR #115's tarball assertions post-rebase).
+- e2e temp project: `test -f scripts/run-skill-verify.sh && test -d specs/bugs` passes; idempotent re-init; `--remove` leaves tree CLEAN; user-owned `scripts/mine.sh` survives refusal; no-op inside the package.
+- `run-skill-verify.sh` → 63 PASS / 0 FAIL; compliance ALL PASS; story-verify self-test PASS; push gates green on `37bc0bf7`.
+- Issue #116 answered; `Closes #116` in PR body.

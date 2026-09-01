@@ -489,7 +489,7 @@ bugs:
     title: "Interactive menu Uninstall reports success while leaving symlinks in place"
     file: bugs/BUG-2026-08-07-interactive-uninstall-silent-noop.md
   - id: BUG-2026-08-31-npm-token-invalid-release
-    status: open
+    status: fixed
     severity: high
     scope: ci / release
     title: "Release workflow fails EINVALIDNPMTOKEN — npm publish credential expired, v2.87.6 never published"

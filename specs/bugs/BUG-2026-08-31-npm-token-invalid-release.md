@@ -1,6 +1,6 @@
 ---
 bug_id: BUG-2026-08-31-npm-token-invalid-release
-status: open
+status: fixed
 severity: high
 scope: ci / release
 title: "Release workflow fails EINVALIDNPMTOKEN — npm publish credential expired, v2.87.6 never published"
@@ -63,4 +63,4 @@ Not a code defect — no RED/GREEN cycle applies. Remediation is operational:
 
 ## Resolution
 
-**Pending** — awaiting NPM_TOKEN rotation (maintainer action). This record rides the fix/pi-scripts-provisioning PR so the release gap is documented in the registry.
+**Fixed:** 2026-08-31 — NPM_TOKEN secret rotated by the maintainer; failed run rerun green; **v2.87.6 published** (commit `f4dd6dac`, tag `v2.87.6`, `npm view bigpowers version` → 2.87.6, GitHub Release "Latest"). No code change required — root cause confirmed as the expired npm token. Subsequent release (v2.87.7 for PR #115) published normally, proving the fix holds.
