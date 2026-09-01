@@ -216,6 +216,25 @@ pi install .
 pi install npm:bigpowers
 ```
 
+### Provision a consumer project (`bigpowers init`)
+
+pi's package contract registers **skills and prompts only** — it has no resource
+type for arbitrary project files, and no lifecycle script runs on install. Skills
+reference the package's `scripts/*.sh` tooling project-relative (e.g.
+`bash scripts/run-skill-verify.sh`, verify gates like `test -f scripts/... &&
+test -d specs/bugs`), so after installing the package, run **one command per
+consumer project** to provision what the skills expect:
+
+```bash
+cd <your-project>
+npx bigpowers init        # or: bigpowers init
+```
+
+This symlinks `<project>/scripts` → the installed package's `scripts/` tree and
+scaffolds `specs/bugs/` + `specs/verifications/`. It refuses (never clobbers) a
+`scripts/` you already own; `bigpowers init --remove` undoes it. The same step
+applies to `npm i -g bigpowers` / `npx bigpowers setup` consumers.
+
 **What you get:**
 - **pi skills** in `.pi/skills/` (one per SKILL.md) — loaded automatically into pi's system prompt as `<available_skills>`
 - **pi prompt templates** in `.pi/prompts/` — slash commands like `/survey-context`, `/plan-work`
