@@ -1,3 +1,10 @@
+## [2.87.6](https://github.com/danielvm-git/bigpowers/compare/v2.87.5...v2.87.6) (2026-09-01)
+
+
+### Bug Fixes
+
+* **install:** refuse to replace non-managed files or dirs during setup ([#114](https://github.com/danielvm-git/bigpowers/issues/114)) ([f866adc](https://github.com/danielvm-git/bigpowers/commit/f866adca03901fc3a2797e968f866176cf604891)), closes [#112](https://github.com/danielvm-git/bigpowers/issues/112)
+
 ## [2.87.5](https://github.com/danielvm-git/bigpowers/compare/v2.87.4...v2.87.5) (2026-08-07)
 
 
