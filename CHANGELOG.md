@@ -1,3 +1,10 @@
+## [2.87.7](https://github.com/danielvm-git/bigpowers/compare/v2.87.6...v2.87.7) (2026-09-01)
+
+
+### Bug Fixes
+
+* **packaging:** ship wire-ci CI templates in the npm tarball ([#115](https://github.com/danielvm-git/bigpowers/issues/115)) ([26df32b](https://github.com/danielvm-git/bigpowers/commit/26df32bc88310950863715dc26ca9c97dcaa4601)), closes [#113](https://github.com/danielvm-git/bigpowers/issues/113)
+
 ## [2.87.6](https://github.com/danielvm-git/bigpowers/compare/v2.87.5...v2.87.6) (2026-09-01)
 
 
