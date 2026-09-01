@@ -1,3 +1,10 @@
+## [2.87.8](https://github.com/danielvm-git/bigpowers/compare/v2.87.7...v2.87.8) (2026-09-01)
+
+
+### Bug Fixes
+
+* **cli:** bigpowers init provisions scripts/ + specs/ into consumer projects ([#117](https://github.com/danielvm-git/bigpowers/issues/117)) ([37bc0bf](https://github.com/danielvm-git/bigpowers/commit/37bc0bf72875cd66898d35138870982c8af2d310)), closes [#116](https://github.com/danielvm-git/bigpowers/issues/116) [#116](https://github.com/danielvm-git/bigpowers/issues/116) [#114](https://github.com/danielvm-git/bigpowers/issues/114) [#116](https://github.com/danielvm-git/bigpowers/issues/116) [#114](https://github.com/danielvm-git/bigpowers/issues/114)
+
 ## [2.87.7](https://github.com/danielvm-git/bigpowers/compare/v2.87.6...v2.87.7) (2026-09-01)
 
 
