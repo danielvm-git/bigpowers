@@ -269,6 +269,94 @@ try {
     }
   }
 
+  // story: BUG-2026-08-31-pi-scripts-provisioning (#116)
+  // A package consumer project needs bigpowers' scripts/ + specs/ scaffolding
+  // so SKILL.md bodies ("bash scripts/run-skill-verify.sh") and verify gates
+  // ("test -f scripts/... && test -d specs/bugs") resolve outside a checkout.
+  {
+    const { initProject, initProjectRemove } = require('../scripts/lib/install-helpers.js');
+    const savedInitCwd = process.cwd();
+    const consumerDir = mkdtempSync(path.join(os.tmpdir(), 'bp-init-project-'));
+    try {
+      process.chdir(consumerDir);
+
+      // (a) init provisions scripts/ + specs/ scaffolding
+      initProject(ROOT);
+      assert.ok(
+        fs.lstatSync(path.join(consumerDir, 'scripts')).isSymbolicLink(),
+        'init must symlink scripts/ into the consumer project'
+      );
+      assert.strictEqual(
+        fs.readlinkSync(path.join(consumerDir, 'scripts')),
+        path.join(ROOT, 'scripts'),
+        'scripts symlink must point at the package scripts tree'
+      );
+      assert.ok(
+        fs.existsSync(path.join(consumerDir, 'scripts', 'run-skill-verify.sh')),
+        'scripts/run-skill-verify.sh must resolve through the link (skill verify gate)'
+      );
+      assert.ok(
+        fs.existsSync(path.join(consumerDir, 'specs', 'bugs')),
+        'init must scaffold specs/bugs (fix-bug verify gate probes it)'
+      );
+      assert.ok(
+        fs.existsSync(path.join(consumerDir, 'specs', 'verifications')),
+        'init must scaffold specs/verifications'
+      );
+
+      // (b) init --remove cleans managed artifacts only
+      initProjectRemove(ROOT);
+      assert.ok(
+        !fs.existsSync(path.join(consumerDir, 'scripts')),
+        'init --remove must remove the managed scripts symlink'
+      );
+      assert.ok(
+        !fs.existsSync(path.join(consumerDir, 'specs')),
+        'init --remove must remove the untouched scaffolded specs tree'
+      );
+
+      // (c) refuses a pre-existing non-managed scripts/ (never clobbers)
+      fs.mkdirSync(path.join(consumerDir, 'scripts'));
+      fs.writeFileSync(path.join(consumerDir, 'scripts', 'mine.sh'), 'echo mine\n');
+      assert.throws(
+        () => initProject(ROOT),
+        /Refusing to replace/,
+        'init must refuse a user-owned scripts/ dir'
+      );
+      assert.ok(
+        fs.existsSync(path.join(consumerDir, 'scripts', 'mine.sh')),
+        'user-owned scripts/ content must survive the refusal'
+      );
+    } finally {
+      process.chdir(savedInitCwd);
+      rmSync(consumerDir, { recursive: true, force: true });
+    }
+
+    // (d) CLI dispatch drift guard: `bigpowers init` must stay wired
+    const bigpowersSrc = fs.readFileSync(path.join(ROOT, 'bin', 'bigpowers.js'), 'utf8');
+    assert.ok(
+      /'init'/.test(bigpowersSrc),
+      "bin/bigpowers.js must dispatch the 'init' command"
+    );
+    assert.ok(
+      fs.existsSync(path.join(ROOT, 'bin', 'init.js')),
+      'bin/init.js must exist'
+    );
+  }
+
+  // story: BUG-2026-08-31-pi-scripts-provisioning (follow-up from PR #114 review)
+  // The managed-symlink check must not treat a string-prefix sibling of the
+  // package root (e.g. <ROOT>-evil) as managed — needs a path-separator boundary.
+  {
+    const dst = path.join(tmpHome, 'prefix-boundary-hook.sh');
+    fs.symlinkSync(path.join(`${ROOT}-evil`, 'x.sh'), dst); // dangling foreign link
+      assert.throws(
+        () => linkHook(rtkSrc, dst),
+        /Refusing to replace/,
+        'managed-symlink check must require a path-separator boundary (prefix sibling is NOT managed)'
+      );
+  }
+
   console.log('test-install-helpers: ALL PASS');
 } finally {
   rmSync(tmpHome, { recursive: true, force: true });
