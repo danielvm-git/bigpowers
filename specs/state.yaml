@@ -1,14 +1,22 @@
-active_flow: null
+active_flow: fix_bug
 active_epic: 'null'
 active_story: null
-bug_id: null
+bug_id: BUG-2026-08-31-pi-scripts-provisioning
 bigpowers_version: 2.87.7
-bug_cycle: null
+bug_cycle:
+  current_step: 5
+  completed_steps:
+  - 1
+  - 2
+  - 3
+  - 4
 handoff:
-  next_skill: 'null'
-  context: 'BUG-2026-08-07-gemini-hooks-missing-npm-package RESOLVED — merged as ae174aae (PR #111); fix
-    ships in next release (2.87.5). .npmignore no longer strips .gemini/.cursor; tarball carries Gemini
-    hooks; regression check in test-install-helpers.js.'
+  next_skill: 'develop-tdd'
+  context: 'TWO open bug records filed 2026-08-31: (1) BUG-2026-08-31-npm-token-invalid-release — Release
+    workflow fails EINVALIDNPMTOKEN (run 33461454695, commit f866adca); remediation is NPM_TOKEN secret
+    rotation (maintainer action) + rerun; code unaffected. (2) BUG-2026-08-31-pi-scripts-provisioning
+    (#116) — package consumers get no project-local scripts/, verify gates fail; fix = bigpowers init.
+    Both land in the fix/pi-scripts-provisioning PR.'
   epic: null
 epic_cycle: null
 metrics:

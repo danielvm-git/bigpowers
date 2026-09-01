@@ -36,7 +36,11 @@ function assertReplaceable(dst) {
   }
   if (st.isSymbolicLink()) {
     const target = fs.readlinkSync(dst);
-    if (target.startsWith(REPO_ROOT)) return; // managed by bigpowers — safe to re-link
+    // Path-separator boundary: a string-prefix sibling of the package root
+    // (e.g. <ROOT>-evil) is NOT managed by this package.
+    if (target === REPO_ROOT || target.startsWith(REPO_ROOT + path.sep)) {
+      return; // managed by bigpowers — safe to re-link
+    }
   }
   throw new Error(
     `Refusing to replace ${dst}: it exists and is not a bigpowers-managed symlink. ` +
@@ -416,6 +420,52 @@ function installLocal(tool, repoRoot) {
   }
 }
 
+// ── Project provisioning (bigpowers init) ────────────────────────────────────
+
+// Provision the CURRENT project (cwd) with the package's scripts/ tree and the
+// specs/ scaffolding skill bodies assume. Package installs (pi, npm -g, npx)
+// register skills but pi's package contract has no resource type for project
+// files and no lifecycle script runs — so `bash scripts/*.sh` invocations and
+// `→ verify:` gates in SKILL.md files fail outside a bigpowers checkout. (#116)
+function initProject(repoRoot) {
+  const cwd = process.cwd();
+  if (path.resolve(cwd) === path.resolve(repoRoot)) {
+    return { skipped: 'cwd-is-package' };
+  }
+  linkDir(path.join(repoRoot, 'scripts'), path.join(cwd, 'scripts'));
+  const created = [];
+  for (const rel of [path.join('specs', 'bugs'), path.join('specs', 'verifications')]) {
+    const dir = path.join(cwd, rel);
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir, { recursive: true });
+      created.push(rel);
+    }
+  }
+  return { skipped: null, scriptsLinked: true, created };
+}
+
+// Inverse of initProject: remove ONLY the managed scripts symlink and specs/
+// scaffolding dirs we created (and only while untouched — user content survives).
+function initProjectRemove(repoRoot) {
+  const cwd = process.cwd();
+  const scriptsLink = path.join(cwd, 'scripts');
+  try {
+    if (fs.lstatSync(scriptsLink).isSymbolicLink()
+      && fs.readlinkSync(scriptsLink) === path.join(repoRoot, 'scripts')) {
+      fs.unlinkSync(scriptsLink);
+    }
+  } catch {}
+  for (const rel of [path.join('specs', 'bugs'), path.join('specs', 'verifications'), 'specs']) {
+    const dir = path.join(cwd, rel);
+    try {
+      if (fs.existsSync(dir) && fs.statSync(dir).isDirectory()
+        && fs.readdirSync(dir).length === 0) {
+        fs.rmdirSync(dir);
+      }
+    } catch {}
+  }
+}
+
 // ── Uninstall per tool ───────────────────────────────────────────────────────
 
 function uninstallTool(toolId, repoRoot) {
@@ -694,6 +744,8 @@ module.exports = {
   linkHook,
   installGlobal,
   installLocal,
+  initProject,
+  initProjectRemove,
   uninstallTool,
   removeSymlink,
   detectExistingInstall,

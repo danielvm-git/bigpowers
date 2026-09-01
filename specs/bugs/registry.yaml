@@ -476,15 +476,27 @@ bugs:
     scope: skills / install
     title: "pi drops 16 skills as 'description is required' — story tags before frontmatter delimiter break parsing"
     file: bugs/BUG-2026-08-06-pi-drops-skills-frontmatter.md
-  - id: BUG-2026-08-07-interactive-uninstall-silent-noop
-    status: fixed
-    severity: high
-    scope: installer
-    title: "Interactive menu Uninstall reports success while leaving symlinks in place"
-    file: bugs/BUG-2026-08-07-interactive-uninstall-silent-noop.md
   - id: BUG-2026-08-07-gemini-hooks-missing-npm-package
     status: fixed
     severity: high
     scope: npm-package / install
     title: "npm tarball excludes .gemini and .cursor — Gemini (and Cursor) install targets fail on global npm installs"
     file: bugs/BUG-2026-08-07-gemini-hooks-missing-npm-package.md
+  - id: BUG-2026-08-07-interactive-uninstall-silent-noop
+    status: fixed
+    severity: high
+    scope: installer
+    title: "Interactive menu Uninstall reports success while leaving symlinks in place"
+    file: bugs/BUG-2026-08-07-interactive-uninstall-silent-noop.md
+  - id: BUG-2026-08-31-npm-token-invalid-release
+    status: open
+    severity: high
+    scope: ci / release
+    title: "Release workflow fails EINVALIDNPMTOKEN — npm publish credential expired, v2.87.6 never published"
+    file: bugs/BUG-2026-08-31-npm-token-invalid-release.md
+  - id: BUG-2026-08-31-pi-scripts-provisioning
+    status: open
+    severity: high
+    scope: cli / install
+    title: "Package installs provision skills but never scripts/ — lifecycle skills' script calls and verify gates fail in every consumer project (#116)"
+    file: bugs/BUG-2026-08-31-pi-scripts-provisioning.md

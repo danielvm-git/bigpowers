@@ -75,6 +75,13 @@ if (cmd === 'setup' || cmd === 'install') {
   return;
 }
 
+if (cmd === 'init') {
+  // Provision the CURRENT project (cwd): scripts/ link + specs/ scaffolding (#116)
+  const initScript = path.join(ROOT, 'bin', 'init.js');
+  require(initScript);
+  return;
+}
+
 if (cmd === 'update') {
   // Pull the newest release first (global installs), then re-sync + refresh symlinks.
   selfUpdateGlobalPackage();
@@ -106,6 +113,7 @@ bigpowers — agent skills for spec-driven, test-first development
 
 Commands:
   bigpowers setup    Install skills into ~/.claude/skills/
+  bigpowers init     Provision the CURRENT project: scripts/ link + specs/ scaffolding (run per project)
   bigpowers update   Fetch the latest release (global installs) + re-sync and refresh symlinks
   bigpowers status   Show installed version and skill count (warns if a newer release exists)
   bigpowers help     This message

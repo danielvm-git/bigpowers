@@ -1,1 +1,11 @@
-locks: []
+locks:
+- files_touched:
+  - scripts/lib/install-helpers.js
+  - scripts/test-install-helpers.js
+  - bin/bigpowers.js
+  - bin/init.js
+  - README.md
+  locked_at: '2026-08-31T23:30:00Z'
+  locked_by: 'agent: fix-bug'
+  story_id: bug-pi-scripts-provisioning
+
