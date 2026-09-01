@@ -19,6 +19,31 @@
 const fs = require('fs');
 const path = require('path');
 
+// Package root — every link the installer creates points back into this
+// directory, which is how "managed" is detected (see assertReplaceable).
+const REPO_ROOT = path.resolve(__dirname, '..', '..');
+
+// Refuse to replace a destination that is not already a bigpowers-managed
+// symlink. Prevents setup from silently destroying a user's own file or
+// directory (e.g. an existing ~/.claude/hooks/rtk-rewrite.sh installed by
+// RTK itself, or a user-authored skills dir with a colliding name). (#112)
+function assertReplaceable(dst) {
+  let st;
+  try {
+    st = fs.lstatSync(dst);
+  } catch {
+    return; // nothing there — safe to create
+  }
+  if (st.isSymbolicLink()) {
+    const target = fs.readlinkSync(dst);
+    if (target.startsWith(REPO_ROOT)) return; // managed by bigpowers — safe to re-link
+  }
+  throw new Error(
+    `Refusing to replace ${dst}: it exists and is not a bigpowers-managed symlink. ` +
+    `Back it up or remove it manually, then re-run setup.`
+  );
+}
+
 function linkSkills(skillsDir, targetDir) {
   for (const entry of fs.readdirSync(skillsDir, { withFileTypes: true })) {
     if (!entry.isDirectory()) continue;
@@ -27,11 +52,8 @@ function linkSkills(skillsDir, targetDir) {
     const src = path.join(skillsDir, entry.name);
     const dst = path.join(targetDir, entry.name);
 
-    // Remove existing symlink or directory
-    try {
-      fs.rmSync(dst, { force: true, recursive: true });
-    } catch {}
-
+    assertReplaceable(dst);
+    fs.rmSync(dst, { force: true });
     fs.symlinkSync(src, dst);
   }
 }
@@ -42,18 +64,14 @@ function linkDir(src, dst) {
       `Link source missing: ${src} (run bash scripts/sync-skills.sh first)`
     );
   }
-  // Remove existing symlink or directory
-  try {
-    fs.rmSync(dst, { force: true, recursive: true });
-  } catch {}
+  assertReplaceable(dst);
+  fs.rmSync(dst, { force: true });
   fs.symlinkSync(src, dst);
 }
 
 function linkFile(src, dst) {
-  // Remove existing symlink or file
-  try {
-    fs.rmSync(dst, { force: true });
-  } catch {}
+  assertReplaceable(dst);
+  fs.rmSync(dst, { force: true });
   fs.symlinkSync(src, dst);
 }
 
@@ -82,10 +100,8 @@ function linkHook(src, dst) {
       `Hook source missing: ${src} (expected under repo skills/ or scripts/hooks/; fix path or restore file)`
     );
   }
-  // Remove existing symlink or file
-  try {
-    fs.rmSync(dst, { force: true });
-  } catch {}
+  assertReplaceable(dst);
+  fs.rmSync(dst, { force: true });
   fs.symlinkSync(src, dst);
   try { fs.chmodSync(src, 0o755); } catch {}
 }
