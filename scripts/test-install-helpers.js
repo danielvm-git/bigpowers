@@ -230,6 +230,7 @@ try {
       '.cursor/rules',
       '.pi/skills',
       'skills/audit-code/SKILL.md',
+      'docs/templates/ci/github/test-build-release-node.yml',
     ];
     const isIgnored = (p) =>
       npmignore.some((pat) => {
@@ -240,6 +241,30 @@ try {
       assert.ok(
         !isIgnored(p),
         `.npmignore must not exclude installer-referenced path: ${p} (BUG-2026-08-07)`
+      );
+    }
+  }
+
+  // story: #113 — wire-ci templates must actually ship in the npm tarball.
+  // The .npmignore pattern check above is necessary but not sufficient (it
+  // cannot model gitignore negation); prove it with a real pack listing.
+  {
+    const { execSync } = require('child_process');
+    const packOut = execSync('npm pack --dry-run 2>&1', {
+      cwd: ROOT,
+      encoding: 'utf8',
+      maxBuffer: 16 * 1024 * 1024,
+    });
+    for (const tpl of [
+      'docs/templates/ci/github/test-build-release-node.yml',
+      'docs/templates/ci/github/test-build-release-rust.yml',
+      'docs/templates/ci/github/test-build-release-python.yml',
+      'docs/templates/ci/github/test-build-release-go.yml',
+      'docs/templates/AGENTS.md',
+    ]) {
+      assert.ok(
+        packOut.includes(tpl),
+        `npm tarball must include ${tpl} (wire-ci templates, #113)`
       );
     }
   }

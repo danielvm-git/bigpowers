@@ -3,7 +3,8 @@
 node_modules
 *.test.js
 specs/
-docs/
+docs/*
+!docs/templates/
 .DS_Store
 .env
 .env.local
