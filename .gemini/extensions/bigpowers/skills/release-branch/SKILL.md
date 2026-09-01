@@ -9,6 +9,7 @@ disable-model-invocation: true
 <!-- story: e45s15 -->
 <!-- story: e45s32 -->
 <!-- story: e45s39 -->
+<!-- story: e82s02 -->
 <!-- story: e20s02 -->
 
 
@@ -31,7 +32,7 @@ Read `specs/state.yaml` key `workflow_mode` (`team-pr` | `solo-git`). Fall back 
 | **solo-local** | `workflow_mode: solo-git` | Auto: `scripts/land-branch.sh` if present, else fallback (Step 5) |
 | **team-pr** | `workflow_mode: team-pr` (default) | `gh pr create` → `gh pr merge --squash` |
 
-If unsure, prefer **solo-local**.
+If unsure, prefer **solo-local**. Also read `state.yaml` `vcs.kind`: Git follows the procedures below; Jujutsu uses workspaces/bookmarks and must not call Git-only landing scripts.
 
 ## Process
 
@@ -74,15 +75,20 @@ Run `gate-trace` before merge. FAIL blocks merge; CONCERNS requires explicit ove
 
 Options: **Release (solo-local)** / **Open PR** / **Keep branch** / **Discard**
 
-### 5. Solo-local integrate
+### 5. Integrate
 
-Run `commit-message` for the squash subject, then land:
+Run `commit-message` first. Git solo-local uses `land-branch.sh`. Jujutsu team mode explicitly advances and pushes a bookmark; `-m` is mandatory for commit/describe operations:
 
 ```bash
-# Path A (preferred):
+# Git solo-local
 bash scripts/land-branch.sh <task-slug> "feat(scope): description"
-# Path B (fallback if land-branch.sh missing): see REFERENCE.md
+# Jujutsu team PR
+jj describe -m "feat(scope): description"
+jj bookmark set <task-slug> -r @
+jj git push -b <task-slug>
 ```
+
+Jujutsu solo-local landing is unsupported: run `bp_require_vcs_operation "$PWD" land-branch` and stop with its remediation instead of invoking the Git backend.
 
 ### 6. Create PR (team-pr only)
 
@@ -132,7 +138,7 @@ bash scripts/wait-for-ci.sh --timeout 600 --interval 30
 
 ### 8. Clean up & return
 
-Worktree prune, branch delete, `git checkout main`. Cycle-time: see [REFERENCE.md](REFERENCE.md#cycle-time).
+Git: prune worktree, delete branch, return to main. Jujutsu: `jj workspace forget <workspace>` only after integration; do not delete its bookmark implicitly. Cycle-time: see [REFERENCE.md](REFERENCE.md#cycle-time).
 
 Report: "Branch released."
 

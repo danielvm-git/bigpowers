@@ -109,6 +109,14 @@ done_epics_summary:
   - e78
   - e79
 epics:
+- id: e82
+  title: Fork Innovations — Jujutsu VCS Support + OMP Plugin + Community Credit
+  wsjf: 6.0
+  bcps: 0
+  capsule_dir: epics/e82-fork-innovations
+  status: scoped
+  wsjf_rationale: BV 7 (real capability gaps — Jujutsu growing, OMP emerging) + TC 5 (favilo built it because they needed it) + RR 6 (community health compounds) / Job 3 ≈ 6.0
+  source: Third-party fork audit 2026-09-01 — two forks (favilo/bigpowers by Kevin Oberlies; XcluEzy7/bigpowers) contained upstream-worthy innovations; nine others superseded or passive mirrors.
 - id: e81
   title: Agent code economy — 8-rules knowledge distillation
   wsjf: 4.5

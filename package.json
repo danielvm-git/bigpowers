@@ -3,6 +3,9 @@
   "version": "2.87.8",
   "description": "73 agent skills synthesizing 17 years of software engineering discipline into a prescriptive methodology for solo developers",
   "main": "index.js",
+  "omp": {
+    "extensions": ["extensions/omp-hooks.ts"]
+  },
   "scripts": {
     "setup": "node bin/setup.js",
     "compliance": "bash scripts/audit-compliance.sh specs/verifications/features && bash scripts/validate-doctrine.sh && python3 scripts/check-skill-links.py",

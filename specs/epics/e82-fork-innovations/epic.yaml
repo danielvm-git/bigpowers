@@ -1,0 +1,167 @@
+# story: e82s01
+# story: e82s02
+# story: e82s03
+# story: e82s04
+id: e82
+title: Fork Innovations — Jujutsu VCS Support + OMP Plugin + Community Credit
+slug: e82-fork-innovations
+status: scoped
+wsjf: 6.0
+bcps: 0
+bcps_projected: 8
+wsjf_rationale: >
+  BV 7 (real capability gaps — Jujutsu is growing fast, OMP is emerging) +
+  TC 5 (favilo built this because they needed it; active user pain) +
+  RR 6 (signals bigpowers is a platform; community health compounds over time) /
+  Job 3 (adaptation + rebase work, not net-new) ≈ 6.0.
+
+source: >
+  Third-party fork audit 2026-09-01 — reviewed all 11 forks of
+  danielvm-git/bigpowers. Two forks contained genuine upstream-worthy innovations
+  (favilo/bigpowers by Kevin Oberlies and XcluEzy7/bigpowers); the remaining nine
+  were either superseded by upstream or passive mirrors.
+
+  favilo: 42 commits on feat/e81s03-jujutsu-lifecycle (merged to their own main
+  as PR #1). Real changes: project-runtime.sh configurable settings library,
+  Jujutsu-aware skills (commit-message, survey-context, kickoff-branch,
+  release-branch), and configurable artifact/specs roots.
+
+  XcluEzy7: omp-executable-extension branch — self-contained OMP plugin
+  (extensions/omp-hooks.ts) that registers all bigpowers skills as slash commands
+  and a unified bigpowers_skill tool, and ports the git-safety hook into OMP's
+  tool_call API. Needs rebase onto current skills/ layout; the model-stripping and
+  AGENTS.md parts of that branch are skipped.
+
+contributors:
+  - handle: favilo
+    name: Kevin Oberlies
+    fork: https://github.com/favilo/bigpowers
+    attribution: Jujutsu VCS support + configurable project-runtime library (e82s01, e82s02)
+  - handle: XcluEzy7
+    fork: https://github.com/XcluEzy7/bigpowers
+    attribution: OMP plugin extension (e82s03)
+
+stories:
+  - id: e82s01
+    title: Add project-runtime.sh — configurable specs dir + VCS kind resolution
+    status: todo
+    wsjf: 7.5
+    size: 2
+    tags: [ADDED]
+    requirement_delta: ADDED
+    description: >
+      Introduce scripts/lib/project-runtime.sh with bp_specs_path() and
+      bp_vcs_kind() functions. Reads .bigpowers/config.yaml (specs_dir, vcs keys)
+      with fallback to BIGPOWERS_SPECS_DIR / BIGPOWERS_VCS env vars, then
+      hardcoded defaults (specs, auto). Auto-detects Jujutsu via .jj/ presence.
+      This is the foundation all Jujutsu-aware skills depend on.
+    source_fork: favilo/bigpowers
+    source_file: scripts/lib/project-runtime.sh
+    tasks:
+      - id: t01
+        description: Port scripts/lib/project-runtime.sh from favilo fork verbatim
+        verify: bash scripts/lib/project-runtime.sh --help 2>&1 | grep -q bp_specs_path || grep -q 'bp_specs_path' scripts/lib/project-runtime.sh
+      - id: t02
+        description: Add unit tests covering git/jj auto-detection, env-var override, config.yaml override
+        verify: bash scripts/test-project-runtime.sh
+      - id: t03
+        description: Wire bp_vcs_kind into survey-context step 4 (VCS state check)
+        verify: grep -q 'bp_vcs_kind\|vcs.kind' skills/survey-context/SKILL.md
+      - id: t04
+        description: Run bash scripts/sync-skills.sh and verify no regressions
+        verify: bash scripts/sync-skills.sh && bash scripts/run-verification-gates.sh
+
+  - id: e82s02
+    title: Jujutsu-aware lifecycle skills (commit-message, kickoff-branch, release-branch, survey-context)
+    status: todo
+    wsjf: 6.5
+    size: 2
+    tags: [MODIFIED]
+    requirement_delta: MODIFIED
+    description: >
+      Update four lifecycle skills to read state.yaml vcs.kind (via project-runtime.sh)
+      and branch on native commands: jj status / jj diff / jj log -r @ for Jujutsu,
+      git equivalents for Git. kickoff-branch gains jj workspace add support.
+      release-branch gains jj bookmark / change-id awareness. commit-message emits
+      jj commit -m instead of git commit -m. survey-context step 4 reads vcs.kind
+      and runs the appropriate status/log commands.
+    source_fork: favilo/bigpowers
+    depends_on: [e82s01]
+    tasks:
+      - id: t01
+        description: Update skills/commit-message/SKILL.md — read vcs.kind, branch on jj vs git commands
+        verify: grep -q 'vcs.kind\|jj commit\|jj status' skills/commit-message/SKILL.md
+      - id: t02
+        description: Update skills/kickoff-branch/SKILL.md — add jj workspace add isolation path
+        verify: grep -q 'jj workspace add\|vcs.kind' skills/kickoff-branch/SKILL.md
+      - id: t03
+        description: Update skills/release-branch/SKILL.md — add jj bookmark / change-id path
+        verify: grep -q 'jj bookmark\|vcs.kind' skills/release-branch/SKILL.md
+      - id: t04
+        description: Update skills/survey-context/SKILL.md — step 4 reads vcs.kind, runs jj log if jj
+        verify: grep -q 'jj log\|vcs.kind\|Jujutsu' skills/survey-context/SKILL.md
+      - id: t05
+        description: Sync artifacts and run verification gates
+        verify: bash scripts/sync-skills.sh && bash scripts/run-verification-gates.sh
+
+  - id: e82s03
+    title: OMP plugin extension — bigpowers as native oh-my-posh/OMP entry point
+    status: todo
+    wsjf: 5.5
+    size: 3
+    tags: [ADDED]
+    requirement_delta: ADDED
+    description: >
+      Add extensions/omp-hooks.ts: discovers skills/ at runtime, registers each as
+      a slash command and as a unified bigpowers_skill tool (list/get/run), and ports
+      the git-safety PreToolUse hook into OMP's tool_call hook API. Also add
+      scripts/validate-omp-extension.sh and scripts/omp-smoke.ts for CI integrity.
+      Rebase XcluEzy7's implementation against the current skills/ source layout
+      (their branch was cut from an older snapshot where skills/ didn't exist at root).
+      Skip the model-stripping and AGENTS.md parts of their branch.
+    source_fork: XcluEzy7/bigpowers
+    source_branch: omp-executable-extension
+    source_files:
+      - extensions/omp-hooks.ts
+      - hooks/pre/bash.sh
+      - scripts/validate-omp-extension.sh
+      - scripts/omp-smoke.ts
+      - package.json (omp.extensions manifest key)
+    tasks:
+      - id: t01
+        description: Read and understand extensions/omp-hooks.ts from XcluEzy7 fork in full
+        verify: "true  # research step"
+      - id: t02
+        description: >
+          Port extensions/omp-hooks.ts rebased to current skills/ layout — skill discovery
+          reads from skills/ root not from prompts/ or rules/
+        verify: npx tsc --noEmit extensions/omp-hooks.ts || node -e "require('./extensions/omp-hooks.ts')"
+      - id: t03
+        description: Port scripts/validate-omp-extension.sh and scripts/omp-smoke.ts
+        verify: bash scripts/validate-omp-extension.sh
+      - id: t04
+        description: Add omp.extensions key to package.json manifest
+        verify: node -e "const p=require('./package.json'); if(!p.omp?.extensions) throw new Error('missing')"
+      - id: t05
+        description: Verify no existing targets conflict; update targets.yaml if an OMP target adapter is warranted
+        verify: bash scripts/run-verification-gates.sh
+
+  - id: e82s04
+    title: Community attribution — CONTRIBUTORS.md + CHANGELOG credit entries
+    status: todo
+    wsjf: 4.0
+    size: 1
+    tags: [ADDED]
+    requirement_delta: ADDED
+    description: >
+      Create CONTRIBUTORS.md acknowledging favilo (Kevin Oberlies) and XcluEzy7
+      for their contributions adopted in e82. Add brief credit lines in CHANGELOG
+      or README under a "Community" section. This is the only documentation touch
+      in the epic — all other docs are generated artifacts.
+    tasks:
+      - id: t01
+        description: Create CONTRIBUTORS.md with favilo and XcluEzy7 entries, linking their forks and describing their contribution
+        verify: test -f CONTRIBUTORS.md && grep -q 'favilo\|Kevin Oberlies' CONTRIBUTORS.md && grep -q 'XcluEzy7' CONTRIBUTORS.md
+      - id: t02
+        description: Add "Community Contributors" section to README.md under Installation
+        verify: grep -q 'Contributors\|favilo\|XcluEzy7' README.md

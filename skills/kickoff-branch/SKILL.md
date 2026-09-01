@@ -2,20 +2,21 @@
 name: kickoff-branch
 model: haiku
 effort: standard
-description: Create a git worktree and feature branch, then verify a clean test baseline before any code is written. Use when starting a new feature or task, when user wants to work in isolation from main, or mentions "start a branch" or "new worktree".
+description: Create an isolated Git worktree/branch or Jujutsu workspace, then verify a clean test baseline before code. Use when starting a feature or task.
 ---
 
 # story: e51s03
 # story: e20s03
+# story: e82s02
 
 
 # Kickoff Branch
 
-> **HARD GATE** — Direct work on `main` or `master` is PROHIBITED. Every task MUST start with this skill to create a feature branch or worktree.
+> **HARD GATE** — Direct Git work on `main`/`master` or reuse of an unrelated Jujutsu change is prohibited. Create a feature branch/worktree or Jujutsu workspace/change.
 >
 > **HARD GATE** — Do NOT proceed with development until **Preflight** passes on the default branch. Red Preflight blocks branch creation and all forward work — invoke `quick-fix` or `fix-bug` per CONVENTIONS § Discovered Defects.
 
-Create an isolated working environment before touching any code. **Preflight must be green** before you write feature code — solo-default owns the whole tree, not just the current task diff.
+Create an isolated Git worktree or Jujutsu workspace before code. **Preflight must be green** first — solo-default owns the whole tree.
 
 ## Process
 
@@ -23,9 +24,13 @@ Create an isolated working environment before touching any code. **Preflight mus
 
 Ask if not already known: "What's the name of this feature or task?" Use it as the branch name slug (kebab-case, max 40 chars).
 
-### 2. Anchor on default branch (main or master)
+### 2. Select the VCS procedure
 
-> **HARD GATE** — Kickoff MUST start from an updated, clean default branch in the **primary** repository root (not a linked worktree).
+Read `state.yaml` `vcs.kind`. For `jj`, do not run the Git blocks below: verify with `jj status` and `jj log -r '::@' -n 5`, create isolation with `jj workspace add ../<task-slug> -r @`, then run `jj -R ../<task-slug> describe -m "feat: <task>"`. Record the new stable change ID. For `git`, continue below.
+
+### 2a. Anchor Git on the default branch (main or master)
+
+> **HARD GATE** — Git kickoff MUST start from an updated, clean default branch in the **primary** repository root (not a linked worktree).
 
 ```bash
 # Detect default branch
@@ -64,7 +69,7 @@ fi
 - **Non-spec dirty files** (src/, scripts/, SKILL.md, …) still enforce the full clean-tree gate.
 - If not on `$DEFAULT` after checkout, stop and fix before continuing.
 
-### 3. Pre-flight & Conflict Resolution
+### 3. Git pre-flight & conflict resolution
 
 Before creating the worktree, verify the target environment is clean:
 
@@ -84,7 +89,7 @@ git worktree list | grep "<task-slug>"
 - **Branch exists:** If the branch exists but no worktree is attached, ask to use the existing branch (`git worktree add ../<task-slug> <task-slug>`) or delete it.
 - **Ghost worktree:** If `git worktree list` shows the path but the directory is missing, run `git worktree prune` to clear the stale metadata. `bash scripts/cleanup-worktrees.sh` does this plus reports any worktree whose branch is already merged or deleted — advisory only, it prints the `git worktree remove`/`git branch -d` commands rather than running them, so review before acting.
 
-### 4. Create worktree + branch
+### 4. Create Git worktree + branch
 
 ```bash
 # From the main repo root (not another worktree)
