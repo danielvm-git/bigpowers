@@ -30,6 +30,11 @@ epics_wiki_assign_tier() {
 for epic_yaml in "$ROOT"/specs/epics/*/epic.yaml "$ROOT"/specs/epics/archive/*/epic.yaml; do
   [ -f "$epic_yaml" ] || continue
 
+  # Emit a repo-relative path — an absolute $ROOT path bakes the generating
+  # machine/worktree into the committed wiki, producing spurious diffs whenever
+  # a different checkout regenerates it (BUG-2026-09-05 follow-up).
+  epic_yaml_rel="${epic_yaml#"$ROOT"/}"
+
   epic_dir=$(dirname "$epic_yaml")
   epic_slug=$(basename "$epic_dir")
 
@@ -82,7 +87,7 @@ ${refs}
 **Epic:** ${epic_id} | **WSJF:** ${wsjf:-0} | **BCP:** ${bcps:-0} | **Status:** ${status:-proposed}
 **Release:** ${release:-unknown} | **Tier:** ${tier}
 
-${story_count} stories. See \`${epic_yaml}\` for full specifications.
+${story_count} stories. See \`${epic_yaml_rel}\` for full specifications.
 OKFEOF
 
   count=$((count + 1))
