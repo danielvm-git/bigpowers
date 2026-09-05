@@ -1,3 +1,10 @@
+## [2.88.1](https://github.com/danielvm-git/bigpowers/compare/v2.88.0...v2.88.1) (2026-09-05)
+
+
+### Bug Fixes
+
+* **extensions:** prevent omp-hooks from crashing pi at startup ([#119](https://github.com/danielvm-git/bigpowers/issues/119)) ([a487565](https://github.com/danielvm-git/bigpowers/commit/a487565160cbb20fae7ee8d85504898186fbe167))
+
 # [2.88.0](https://github.com/danielvm-git/bigpowers/compare/v2.87.8...v2.88.0) (2026-09-01)
 
 
