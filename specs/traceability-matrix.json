@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-01T03:56:04.946289+00:00",
+  "generated_at": "2026-09-05T13:31:55.144947+00:00",
   "matrix_version": "1.0",
   "stories": [
     {
@@ -4140,6 +4140,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260905-102635.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-165703.md",
           "line": 0,
           "confidence": "medium",
@@ -4285,12 +4291,6 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-173014.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/reports/audit-cleancode-20260901-003038.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4512,12 +4512,6 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/reports/audit-cleancode-20260901-002835.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
           "file": "specs/verifications/reports/audit-cleancode-20260704-150417.md",
           "line": 0,
           "confidence": "medium",
@@ -4572,6 +4566,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260905-102428.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-180901.md",
           "line": 0,
           "confidence": "medium",
@@ -4608,6 +4608,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260905-102236.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260626-204652.md",
           "line": 0,
           "confidence": "medium",
@@ -4633,12 +4639,6 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-005800.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/reports/audit-cleancode-20260901-003224.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5172,12 +5172,6 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/reports/audit-cleancode-20260901-002538.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-164918.md",
           "line": 0,
           "confidence": "medium",
@@ -5550,7 +5544,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 284
+      "link_count": 283
     },
     {
       "id": "e45s19",
@@ -7362,6 +7356,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260905-102635.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-165703.md",
           "line": 0,
           "confidence": "medium",
@@ -7507,12 +7507,6 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-173014.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/reports/audit-cleancode-20260901-003038.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -7734,12 +7728,6 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/reports/audit-cleancode-20260901-002835.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
           "file": "specs/verifications/reports/audit-cleancode-20260704-150417.md",
           "line": 0,
           "confidence": "medium",
@@ -7794,6 +7782,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260905-102428.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-180901.md",
           "line": 0,
           "confidence": "medium",
@@ -7830,6 +7824,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260905-102236.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260626-204652.md",
           "line": 0,
           "confidence": "medium",
@@ -7855,12 +7855,6 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-005800.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/reports/audit-cleancode-20260901-003224.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8394,12 +8388,6 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/reports/audit-cleancode-20260901-002538.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-164918.md",
           "line": 0,
           "confidence": "medium",
@@ -8760,7 +8748,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 270
+      "link_count": 269
     },
     {
       "id": "e45s32",
@@ -10080,13 +10068,13 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/reports/audit-2026-09-01.okf.md",
+          "file": "specs/verifications/reports/GOLDEN-2026-07-05.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/reports/GOLDEN-2026-07-05.okf.md",
+          "file": "specs/verifications/reports/audit-2026-09-05.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -11064,6 +11052,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-09-05-pi-omp-extension-load-crash.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-06-24T045323.md",
           "line": 0,
           "confidence": "medium",
@@ -11238,7 +11232,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 168
+      "link_count": 169
     },
     {
       "id": "e48s04",
@@ -11394,13 +11388,13 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/reports/audit-2026-09-01.okf.md",
+          "file": "specs/verifications/reports/GOLDEN-2026-07-05.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/reports/GOLDEN-2026-07-05.okf.md",
+          "file": "specs/verifications/reports/audit-2026-09-05.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -14382,6 +14376,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260905-102635.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-165703.md",
           "line": 0,
           "confidence": "medium",
@@ -14527,12 +14527,6 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-173014.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/reports/audit-cleancode-20260901-003038.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -14754,12 +14748,6 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/reports/audit-cleancode-20260901-002835.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
           "file": "specs/verifications/reports/audit-cleancode-20260704-150417.md",
           "line": 0,
           "confidence": "medium",
@@ -14814,6 +14802,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260905-102428.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-180901.md",
           "line": 0,
           "confidence": "medium",
@@ -14850,6 +14844,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20260905-102236.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260626-204652.md",
           "line": 0,
           "confidence": "medium",
@@ -14875,12 +14875,6 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-005800.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/reports/audit-cleancode-20260901-003224.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -15409,12 +15403,6 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260704-083236.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/reports/audit-cleancode-20260901-002538.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -16032,7 +16020,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 324
+      "link_count": 323
     },
     {
       "id": "e51s05",
@@ -21120,12 +21108,6 @@
       "status": "backlog",
       "links": [
         {
-          "file": "specs/state.yaml",
-          "line": 3,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": "specs/epics/e82-fork-innovations/epic.yaml",
           "line": 1,
           "confidence": "high",
@@ -21144,7 +21126,7 @@
           "method": "explicit_tag"
         }
       ],
-      "link_count": 4
+      "link_count": 3
     },
     {
       "id": "e82s02",
@@ -21814,9 +21796,15 @@
           "line": 1,
           "confidence": "high",
           "method": "explicit_tag"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-09-05-pi-omp-extension-load-crash.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
         }
       ],
-      "link_count": 5
+      "link_count": 6
     },
     {
       "id": "e82s04",
@@ -22114,8 +22102,8 @@
     ],
     "stale_count": 116,
     "oracle_stats": {
-      "high": 1000,
-      "medium": 2301,
+      "high": 999,
+      "medium": 2300,
       "low": 79
     }
   }

@@ -1,6 +1,6 @@
 ---
 type: Index
-generated_at: 2026-09-01T03:56:04.959868+00:00
+generated_at: 2026-09-05T13:31:55.148732+00:00
 total_concepts: 130
 ---
 
@@ -43,7 +43,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e45s15](./e45s15.md) | release-branch / deploy: three-independent-facts verificatio | high | 25 |
 | [e45s16](./e45s16.md) | CLAUDE.md rtk mandate: wire rtk-ai/rtk PreToolUse hook | high | 4 |
 | [e45s17](./e45s17.md) | request-review: fan-out to parallel review subagents | high | 30 |
-| [e45s18](./e45s18.md) | audit-code / security-review: worktree-isolated parallel che | high | 284 |
+| [e45s18](./e45s18.md) | audit-code / security-review: worktree-isolated parallel che | high | 283 |
 | [e45s19](./e45s19.md) | Context7: bounded retry cap and explicit fallback block | high | 8 |
 | [e45s20](./e45s20.md) | Context7 / bts docs: wrap in ETag-revalidated fetch cache | high | 1 |
 | [e45s21](./e45s21.md) | seed-conventions / AGENTS.md: self-installing fenced markers | high | 41 |
@@ -56,7 +56,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e45s28](./e45s28.md) | request-review: hard max-iteration cap | high | 22 |
 | [e45s29](./e45s29.md) | requirements: ADDED/MODIFIED/REMOVED/RENAMED tags | high | 54 |
 | [e45s30](./e45s30.md) | subagent depth: formalize depth tiers | high | 36 |
-| [e45s31](./e45s31.md) | audit-code / deepen-architecture: churn-based look-here-firs | high | 270 |
+| [e45s31](./e45s31.md) | audit-code / deepen-architecture: churn-based look-here-firs | high | 269 |
 | [e45s32](./e45s32.md) | gate-trace / release-branch: adversarial-review refute frami | high | 41 |
 | [e45s33](./e45s33.md) | requirements: per-section approval state | high | 3 |
 | [e45s34](./e45s34.md) | develop-tdd: snapshot-before-transition hardening | high | 7 |
@@ -69,7 +69,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e45s41](./e45s41.md) | security-review: proven authorship SQL-safety doctrine | high | 22 |
 | [e48s01](./e48s01.md) | Generate epics-wiki and adr-wiki as OKF concept bundles from | high | 33 |
 | [e48s02](./e48s02.md) | Emit verification reports as OKF bundles from run-golden-sui | medium | 30 |
-| [e48s03](./e48s03.md) | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | high | 168 |
+| [e48s03](./e48s03.md) | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | high | 169 |
 | [e48s04](./e48s04.md) | Create viz.html — interactive force-layout graph companion f | medium | 12 |
 | [e48s05](./e48s05.md) | Wire OKF validation into CI (sync-skills.yml) and document i | medium | 185 |
 | [e48s06](./e48s06.md) | Add tier: field (core/extended/specialized) to OKF wiki inde | medium | 10 |
@@ -85,7 +85,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e51s01](./e51s01.md) | CONVENTIONS — Always Green, Shift Left, Discovered Defects,  | high | 8 |
 | [e51s02](./e51s02.md) | seed-conventions — Preflight default, solo-git default, embe | high | 48 |
 | [e51s03](./e51s03.md) | kickoff-branch + verify-work — Preflight hard block and CI g | high | 74 |
-| [e51s04](./e51s04.md) | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | high | 324 |
+| [e51s04](./e51s04.md) | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | high | 323 |
 | [e51s05](./e51s05.md) | CLAUDE.md — solo-default agent rules + bigpowers Preflight c | high | 7 |
 | [e53s01](./e53s01.md) | Commit the untracked GOLDEN baseline | high | 12 |
 | [e53s02](./e53s02.md) | Build the tombstone-alias mechanism | high | 7 |
@@ -136,7 +136,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e80s04](./e80s04.md) | generalize-fix phase in validate-fix | high | 32 |
 | [e80s05](./e80s05.md) | security-review fixture table growth | high | 11 |
 | [e81s01](./e81s01.md) | AGENTS.md template Token Economy section + reference doc | high | 9 |
-| [e82s01](./e82s01.md) | Add project-runtime.sh — configurable specs dir + VCS kind r | high | 4 |
+| [e82s01](./e82s01.md) | Add project-runtime.sh — configurable specs dir + VCS kind r | high | 3 |
 | [e82s02](./e82s02.md) | Jujutsu-aware lifecycle skills (commit-message, kickoff-bran | high | 103 |
-| [e82s03](./e82s03.md) | OMP plugin extension — bigpowers as native oh-my-posh/OMP en | high | 5 |
+| [e82s03](./e82s03.md) | OMP plugin extension — bigpowers as native oh-my-posh/OMP en | high | 6 |
 | [e82s04](./e82s04.md) | Community attribution — CONTRIBUTORS.md + CHANGELOG credit e | high | 2 |

@@ -1,15 +1,21 @@
-active_flow: null
+active_flow: fix_bug
 active_epic: null
 active_story: null
-bug_id: null
+bug_id: BUG-2026-09-05-pi-omp-extension-load-crash
 bigpowers_version: 2.88.0
-bug_cycle: null
+bug_cycle:
+  current_step: 5
+  completed_steps: [1, 2, 3, 4]
+  bug_file: specs/bugs/BUG-2026-09-05-pi-omp-extension-load-crash.md
+  validation: 'All gates green (compliance, golden suite incl. omp-extension, trace --strict). Real pi
+    0.85.1 loads packed extension: 81 commands + bigpowers_skill tool + 2 handlers, 0 errors.'
 handoff:
-  next_skill: 'null'
-  context: 'BUG-2026-08-31-npm-token-invalid-release RESOLVED (token rotated; v2.87.6 published) and BUG-2026-08-31-pi-scripts-provisioning
-    RESOLVED — merged as 37bc0bf7 (PR #117, Closes #116); bigpowers init provisions scripts/ + specs/
-    into consumer projects; assertReplaceable boundary hardened. Known follow-up: pull_request CI triggers
-    are dead repo-wide (workflow-file issue — PR-time runs fail to start; push gates unaffected).'
+  next_skill: develop-tdd
+  context: 'BUG-2026-09-05 (#119): pi install npm:bigpowers crashes pi at startup — extensions/omp-hooks.ts
+    calls pi.setLabel() during load (action method → throws "runtime not initialized"). RCA complete
+    (verified against pi 0.85.1 source via opensrc + docs/extensions.md). Fix: remove line 241 setLabel
+    call; harden scripts/omp-smoke.ts to model load-phase guard; promote dead omp.extensions →
+    pi.extensions in package.json + validate-omp-extension.sh. Steps 1-2 done in bug file; at step 3 develop-tdd.'
   epic: null
 epic_cycle: null
 metrics:

@@ -1,6 +1,6 @@
 # Traceability Matrix
 
-**Generated:** 2026-09-01 03:56:04 UTC
+**Generated:** 2026-09-05 13:31:55 UTC
 **Total stories:** 130
 **Tagged stories:** 120
 **Dark stories:** 0
@@ -9,8 +9,8 @@
 
 ## Oracle Stats
 
-- **High** (explicit tag): 1000
-- **Medium** (file heuristic): 2301
+- **High** (explicit tag): 999
+- **Medium** (file heuristic): 2300
 - **Low** (task reference): 79
 
 ## Story Coverage
@@ -50,7 +50,7 @@
 | e45s15 | release-branch / deploy: three-independent-facts verificatio | e45 | 2 | 5.0 | done | 25 |
 | e45s16 | CLAUDE.md rtk mandate: wire rtk-ai/rtk PreToolUse hook | e45 | 2 | 5.0 | done | 4 |
 | e45s17 | request-review: fan-out to parallel review subagents | e45 | 2 | 5.0 | done | 30 |
-| e45s18 | audit-code / security-review: worktree-isolated parallel che | e45 | 2 | 5.0 | done | 284 |
+| e45s18 | audit-code / security-review: worktree-isolated parallel che | e45 | 2 | 5.0 | done | 283 |
 | e45s19 | Context7: bounded retry cap and explicit fallback block | e45 | 2 | 5.0 | done | 8 |
 | e45s20 | Context7 / bts docs: wrap in ETag-revalidated fetch cache | e45 | 2 | 5.0 | done | 1 |
 | e45s21 | seed-conventions / AGENTS.md: self-installing fenced markers | e45 | 2 | 5.0 | done | 41 |
@@ -63,7 +63,7 @@
 | e45s28 | request-review: hard max-iteration cap | e45 | 2 | 5.0 | done | 22 |
 | e45s29 | requirements: ADDED/MODIFIED/REMOVED/RENAMED tags | e45 | 2 | 5.0 | done | 54 |
 | e45s30 | subagent depth: formalize depth tiers | e45 | 2 | 5.0 | done | 36 |
-| e45s31 | audit-code / deepen-architecture: churn-based look-here-firs | e45 | 2 | 5.0 | done | 270 |
+| e45s31 | audit-code / deepen-architecture: churn-based look-here-firs | e45 | 2 | 5.0 | done | 269 |
 | e45s32 | gate-trace / release-branch: adversarial-review refute frami | e45 | 2 | 5.0 | done | 41 |
 | e45s33 | requirements: per-section approval state | e45 | 2 | 5.0 | done | 3 |
 | e45s34 | develop-tdd: snapshot-before-transition hardening | e45 | 2 | 5.0 | done | 7 |
@@ -76,7 +76,7 @@
 | e45s41 | security-review: proven authorship SQL-safety doctrine | e45 | 2 | 5.0 | done | 22 |
 | e48s01 | Generate epics-wiki and adr-wiki as OKF concept bundles from | e48 | 2 | 2.5 | done | 33 |
 | e48s02 | Emit verification reports as OKF bundles from run-golden-sui | e48 | 2 | 2.5 | done | 30 |
-| e48s03 | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | e48 | 1 | 2.5 | done | 168 |
+| e48s03 | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | e48 | 1 | 2.5 | done | 169 |
 | e48s04 | Create viz.html — interactive force-layout graph companion f | e48 | 2 | 2.5 | done | 12 |
 | e48s05 | Wire OKF validation into CI (sync-skills.yml) and document i | e48 | 1 | 2.5 | done | 185 |
 | e48s06 | Add tier: field (core/extended/specialized) to OKF wiki inde | e48 | 2 | 2.5 | done | 10 |
@@ -92,7 +92,7 @@
 | e51s01 | CONVENTIONS — Always Green, Shift Left, Discovered Defects,  | e51 | 3 | 7.0 | done | 8 |
 | e51s02 | seed-conventions — Preflight default, solo-git default, embe | e51 | 3 | 7.0 | done | 48 |
 | e51s03 | kickoff-branch + verify-work — Preflight hard block and CI g | e51 | 2 | 7.0 | done | 74 |
-| e51s04 | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | e51 | 2 | 7.0 | done | 324 |
+| e51s04 | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | e51 | 2 | 7.0 | done | 323 |
 | e51s05 | CLAUDE.md — solo-default agent rules + bigpowers Preflight c | e51 | 2 | 7.0 | done | 7 |
 | e53s01 | Commit the untracked GOLDEN baseline | e53 | 1 | 8.0 | done | 12 |
 | e53s02 | Build the tombstone-alias mechanism | e53 | 3 | 8.0 | done | 7 |
@@ -143,9 +143,9 @@
 | e80s04 | generalize-fix phase in validate-fix | e80 | 0 | 7.5 | done | 32 |
 | e80s05 | security-review fixture table growth | e80 | 0 | 7.5 | done | 11 |
 | e81s01 | AGENTS.md template Token Economy section + reference doc | e81 | 0 | 4.5 | done | 9 |
-| e82s01 | Add project-runtime.sh — configurable specs dir + VCS kind r | e82 | 0 | 6.0 | backlog | 4 |
+| e82s01 | Add project-runtime.sh — configurable specs dir + VCS kind r | e82 | 0 | 6.0 | backlog | 3 |
 | e82s02 | Jujutsu-aware lifecycle skills (commit-message, kickoff-bran | e82 | 0 | 6.0 | backlog | 103 |
-| e82s03 | OMP plugin extension — bigpowers as native oh-my-posh/OMP en | e82 | 0 | 6.0 | backlog | 5 |
+| e82s03 | OMP plugin extension — bigpowers as native oh-my-posh/OMP en | e82 | 0 | 6.0 | backlog | 6 |
 | e82s04 | Community attribution — CONTRIBUTORS.md + CHANGELOG credit e | e82 | 0 | 6.0 | backlog | 2 |
 
 ## Orphan Tags (tag in code, no matching story)

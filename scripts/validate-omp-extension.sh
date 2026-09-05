@@ -19,20 +19,22 @@ pass() {
   echo "ok  : $*"
 }
 
-# ── 1. Package has exactly one omp.extensions entry ────────────────────────
+# ── 1. Package has exactly one pi.extensions entry ─────────────────────────
+# pi reads extension paths from the `pi` manifest key (readPiManifest). The
+# legacy `omp.extensions` key was never consumed by pi — see BUG-2026-09-05.
 echo "--- [OMP] manifest: single extension entry ---"
-EXT_COUNT=$(node -e "const p = require('./package.json'); const exts = p.omp?.extensions; if (!exts) { console.log(0); } else { console.log(exts.length); }")
+EXT_COUNT=$(node -e "const p = require('./package.json'); const exts = p.pi?.extensions; if (!exts) { console.log(0); } else { console.log(exts.length); }")
 if [[ "$EXT_COUNT" -eq 1 ]]; then
-  pass "omp.extensions has exactly 1 entry"
+  pass "pi.extensions has exactly 1 entry"
 else
-  fail "omp.extensions has $EXT_COUNT entries (expected 1)"
+  fail "pi.extensions has $EXT_COUNT entries (expected 1)"
 fi
 
 # ── 2. Extension file exists ───────────────────────────────────────────────
 echo "--- [OMP] extension file exists ---"
-EXT_PATH=$(node -e "const p = require('./package.json'); console.log(p.omp?.extensions?.[0] || '')")
+EXT_PATH=$(node -e "const p = require('./package.json'); console.log(p.pi?.extensions?.[0] || '')")
 if [[ -z "$EXT_PATH" ]]; then
-  fail "No omp.extensions entry found"
+  fail "No pi.extensions entry found"
 else
   if [[ -f "$EXT_PATH" ]]; then
     pass "extension file '$EXT_PATH' exists"
@@ -91,6 +93,27 @@ if [[ -n "$EXT_PATH" && -f "$EXT_PATH" ]]; then
   else
     fail "extension does not target skills/ — check discoverSkills call in $EXT_PATH"
   fi
+fi
+
+# ── 6. Runtime load smoke (load-phase contract, BUG-2026-09-05) ────────────
+# Loads the extension through a fake ExtensionAPI that models pi's load-phase
+# guard: action methods (setLabel, sendUserMessage, …) throw during the factory
+# body, exactly as real pi does. Catches load-time action calls that abort pi
+# startup (#119). Requires a Node with TypeScript type-stripping (>=22.6).
+echo "--- [OMP] runtime load smoke (scripts/omp-smoke.ts) ---"
+SMOKE="$REPO_ROOT/scripts/omp-smoke.ts"
+if [[ ! -f "$SMOKE" ]]; then
+  fail "omp-smoke.ts not found at $SMOKE"
+elif ! command -v node >/dev/null 2>&1; then
+  echo "warn: node unavailable — skipping runtime load smoke"
+else
+  SMOKE_ERR=$(mktemp)
+  if node "$SMOKE" >/dev/null 2>"$SMOKE_ERR"; then
+    pass "extension loads without calling action methods during load"
+  else
+    fail "runtime load smoke failed — $(head -3 "$SMOKE_ERR" 2>/dev/null | tr '\n' ' ')"
+  fi
+  rm -f "$SMOKE_ERR"
 fi
 
 # ── Summary ────────────────────────────────────────────────────────────────

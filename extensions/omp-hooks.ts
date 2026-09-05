@@ -2,7 +2,8 @@
 // extensions/omp-hooks.ts
 // bigpowers — Single OMP extension entry exposing every source skill as a
 // slash command, a bigpowers_skill LLM tool, and safety policy guards.
-import type { ExtensionAPI } from "@oh-my-pi/pi-coding-agent";
+import type { ExtensionAPI } from "@earendil-works/pi-coding-agent";
+import { Type } from "typebox";
 import { execSync } from "node:child_process";
 import { readdirSync, readFileSync, statSync } from "node:fs";
 import { dirname, join } from "node:path";
@@ -236,9 +237,12 @@ async function injectSkillPrompt(
 // ---------------------------------------------------------------------------
 
 export default function bigpowers(pi: ExtensionAPI) {
-  const z = pi.zod;
-
-  pi.setLabel("bigpowers");
+  // NOTE: Do not call action methods (setLabel, sendUserMessage, setModel, …)
+  // in the factory body. pi installs throwing stubs for them during extension
+  // loading and only binds real implementations afterward — a load-time call
+  // aborts the whole pi startup (BUG-2026-09-05, #119). Only registration
+  // methods (registerCommand/registerTool/on/registerFlag) are valid here;
+  // perform actions inside event/command handlers via the runtime-bound `pi`.
 
   // Discover skills from skills/ in the installed plugin package root.
   const skills = discoverSkills(join(pluginRoot(), "skills"));
@@ -262,18 +266,24 @@ export default function bigpowers(pi: ExtensionAPI) {
     label: "Bigpowers Skill",
     description:
       "Interact with bigpowers source skills. Use 'list' to enumerate available skills, 'get' to retrieve a skill's full markdown, and 'run' to activate a skill with arguments.",
-    parameters: z.object({
-      action: z
-        .enum(["list", "get", "run"])
-        .describe("Operation: list all skills, get one skill, or run a skill with arguments"),
-      skill: z
-        .string()
-        .optional()
-        .describe("Skill name — required for 'get' and 'run' actions"),
-      args: z
-        .string()
-        .optional()
-        .describe("User arguments passed to the skill — only used with 'run'"),
+    parameters: Type.Object({
+      action: Type.Union(
+        [Type.Literal("list"), Type.Literal("get"), Type.Literal("run")],
+        {
+          description:
+            "Operation: list all skills, get one skill, or run a skill with arguments",
+        },
+      ),
+      skill: Type.Optional(
+        Type.String({
+          description: "Skill name — required for 'get' and 'run' actions",
+        }),
+      ),
+      args: Type.Optional(
+        Type.String({
+          description: "User arguments passed to the skill — only used with 'run'",
+        }),
+      ),
     }),
     async execute(_id, params, _signal, _onUpdate, _ctx) {
       const { action, skill: skillName, args } = params;
