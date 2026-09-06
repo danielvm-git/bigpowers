@@ -53,6 +53,13 @@ jobs:
       - name: Install Python deps
         run: python3 -m pip install --user -r requirements.txt
 
+      # The omp-extension gate executes scripts/omp-smoke.ts, which imports
+      # extensions/omp-hooks.ts -> typebox. Plain-node ESM resolution needs
+      # node_modules; without this the gate fails with ERR_MODULE_NOT_FOUND.
+      # Full install (no --omit=dev): typebox is a devDependency.
+      - name: Install Node deps
+        run: npm ci
+
       - name: Run verification gates (G-08/G-10 anti-vacuity)
         run: bash scripts/run-verification-gates.sh
 
