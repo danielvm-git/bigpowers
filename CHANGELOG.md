@@ -1,3 +1,10 @@
+## [2.88.2](https://github.com/danielvm-git/bigpowers/compare/v2.88.1...v2.88.2) (2026-09-06)
+
+
+### Bug Fixes
+
+* **ci:** run npm ci before verification gates so omp-extension smoke resolves typebox ([#120](https://github.com/danielvm-git/bigpowers/issues/120)) ([9a457e6](https://github.com/danielvm-git/bigpowers/commit/9a457e62959dd0d5cdf5139502adfbf1031179d4))
+
 ## [2.88.1](https://github.com/danielvm-git/bigpowers/compare/v2.88.0...v2.88.1) (2026-09-05)
 
 
