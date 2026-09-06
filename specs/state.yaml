@@ -1,23 +1,15 @@
-active_flow: fix_bug
+active_flow: null
 active_epic: null
 active_story: null
-bug_id: BUG-2026-09-05-golden-gate-missing-node-deps
+bug_id: null
 bigpowers_version: 2.88.2
-bug_cycle:
-  current_step: 1
-  completed_steps: []
-  bug_file: specs/bugs/BUG-2026-09-05-golden-gate-missing-node-deps.md
-  note: 'Predecessor BUG-2026-09-05-pi-omp-extension-load-crash RESOLVED — merged a4875651 (PR #119),
-    released 2.88.1.'
+bug_cycle: null
 handoff:
-  next_skill: investigate-bug
-  context: 'CI run 33981866073 red on main (9b8453ce): golden suite verification-gates 39/40 — [omp-extension]
-    FAIL: ERR_MODULE_NOT_FOUND typebox. The #119 fix added a runtime smoke gate (scripts/omp-smoke.ts
-    → imports extensions/omp-hooks.ts → import { Type } from "typebox") but golden-suite.yml never installs
-    node deps. RCA in specs/bugs/BUG-2026-09-05-golden-gate-missing-node-deps.md. Fix: add "npm ci" step
-    to verification-gates job (full install — typebox is a devDependency). Local repro: pre-npm-ci FAIL
-    / post-npm-ci PASS (validate-omp-extension.sh). Steps 1-2 evidence already captured in bug file; proceed
-    to develop-tdd (Step 3 green) → validate-fix → release-branch.'
+  next_skill: null
+  context: 'BUG-2026-09-05-golden-gate-missing-node-deps RESOLVED — merged 9a457e62 (PR #120). Golden suite
+    verification-gates 40/40 on the PR (run 34001321546) and on the push-triggered main run 34005859408
+    (success) — the omp-extension gate now runs after npm ci and resolves typebox. Preflight fully green
+    locally before merge (compliance, gates, sync-skills, trace --strict).'
   epic: null
 epic_cycle: null
 metrics:

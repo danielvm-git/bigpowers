@@ -1,6 +1,6 @@
 ---
 bug_id: BUG-2026-09-05-golden-gate-missing-node-deps
-status: open
+status: resolved
 severity: high
 scope: ci
 title: "golden-suite omp-extension gate fails: CI never installs node deps, so smoke's typebox import is unresolvable"
