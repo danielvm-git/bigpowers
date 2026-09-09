@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # story: e82s03
-# OMP extension integrity guard — validates the extension entry is wired
-# correctly and all source skills are discoverable via skills/<name>/SKILL.md.
+# OMP extension integrity guard — validates the extension entry is wired,
+# leaves slash commands to Pi prompt templates, and discovers all source skills.
 # Run before merging any branch that touches extensions/.
 set -euo pipefail
 
@@ -43,18 +43,30 @@ else
   fi
 fi
 
-# ── 3. Extension source contains required symbols ──────────────────────────
-echo "--- [OMP] required runtime symbols in extension ---"
+# ── 3. Extension owns tools/hooks; prompt templates own slash commands ─────
+echo "--- [OMP] separated runtime responsibilities ---"
 if [[ -n "$EXT_PATH" && -f "$EXT_PATH" ]]; then
-  for sym in "registerCommand" "registerTool" "tool_call"; do
+  for sym in "registerTool" "tool_call"; do
     if grep -q "$sym" "$EXT_PATH" 2>/dev/null; then
       pass "symbol '$sym' found in extension source"
     else
       fail "symbol '$sym' NOT found in extension source"
     fi
   done
+  if grep -q 'pi\.registerCommand' "$EXT_PATH" 2>/dev/null; then
+    fail "extension registers commands already supplied by Pi prompt templates"
+  else
+    pass "extension leaves slash-command registration to Pi prompt templates"
+  fi
 else
   fail "Cannot scan extension symbols — file not resolved"
+fi
+
+PROMPT_COUNT=$(node -e "const p = require('./package.json'); console.log(p.pi?.prompts?.length || 0)")
+if [[ "$PROMPT_COUNT" -eq 1 ]]; then
+  pass "pi.prompts has exactly 1 canonical prompt-template entry"
+else
+  fail "pi.prompts has $PROMPT_COUNT entries (expected 1)"
 fi
 
 # ── 4. Skill discovery root is skills/ ────────────────────────────────────

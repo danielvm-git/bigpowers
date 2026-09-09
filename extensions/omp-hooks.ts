@@ -1,7 +1,8 @@
 // story: e82s03
 // extensions/omp-hooks.ts
-// bigpowers — Single OMP extension entry exposing every source skill as a
-// slash command, a bigpowers_skill LLM tool, and safety policy guards.
+// bigpowers — Single OMP extension entry exposing source skills through the
+// bigpowers_skill LLM tool and enforcing safety policy guards. Pi prompt
+// templates own slash-command registration so each workflow appears once.
 import type { ExtensionAPI } from "@earendil-works/pi-coding-agent";
 import { Type } from "typebox";
 import { execSync } from "node:child_process";
@@ -246,18 +247,6 @@ export default function bigpowers(pi: ExtensionAPI) {
 
   // Discover skills from skills/ in the installed plugin package root.
   const skills = discoverSkills(join(pluginRoot(), "skills"));
-
-  // ----- Slash commands --------------------------------------------------
-
-  for (const skill of skills) {
-    pi.registerCommand(skill.name, {
-      description: skill.description,
-      handler: async (args, _ctx) => {
-        const prompt = buildSkillPrompt(skill, args);
-        await injectSkillPrompt(pi, prompt);
-      },
-    });
-  }
 
   // ----- bigpowers_skill tool --------------------------------------------
 

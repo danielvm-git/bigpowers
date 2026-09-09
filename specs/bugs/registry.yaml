@@ -500,3 +500,25 @@ bugs:
     scope: cli / install
     title: "Package installs provision skills but never scripts/ — lifecycle skills' script calls and verify gates fail in every consumer project (#116)"
     file: bugs/BUG-2026-08-31-pi-scripts-provisioning.md
+  - id: BUG-2026-09-05-golden-gate-missing-node-deps
+    status: resolved
+    severity: high
+    scope: ci
+    title: "golden-suite omp-extension gate fails: CI never installs node deps, so smoke's typebox import is unresolvable"
+    file: bugs/BUG-2026-09-05-golden-gate-missing-node-deps.md
+  - id: BUG-2026-09-05-pi-omp-extension-load-crash
+    status: open
+    severity: critical
+    scope: extensions / pi
+    title: "extensions/omp-hooks.ts calls pi.setLabel() during load → pi aborts at startup for every package consumer (#119)"
+    file: bugs/BUG-2026-09-05-pi-omp-extension-load-crash.md
+  - id: BUG-2026-09-09-pi-duplicate-slash-commands
+    status: resolved
+    severity: medium
+    scope: extensions / pi
+    title: "Pi shows every Bigpowers slash command twice (#121)"
+    file: bugs/BUG-2026-09-09-pi-duplicate-slash-commands.md
+    files_changed: "extensions/omp-hooks.ts, scripts/omp-smoke.ts, scripts/validate-omp-extension.sh, README.md, CONTRIBUTORS.md"
+    approach: "Keep Pi prompt templates as the canonical slash-command provider and remove redundant extension command registration"
+    risk_level: "low"
+    commit_message: "fix(pi): prevent duplicate Bigpowers slash commands"
