@@ -1,7 +1,7 @@
 // story: e82s03
 // Runtime smoke for extensions/omp-hooks.ts.
-// Imports the extension, registers a fake ExtensionAPI, calls registered hooks,
-// and asserts the slash-command handler awaits injection.
+// Imports the extension, registers a fake ExtensionAPI, and verifies the
+// extension leaves commands to prompt templates while skill-tool injection works.
 //
 // Load-phase contract (BUG-2026-09-05, #119): pi installs throwing stubs for
 // ACTION methods during extension loading and only binds real implementations
@@ -10,6 +10,7 @@
 // fails here exactly as it does in real pi, instead of silently passing.
 // See pi 0.85.1 src/core/extensions/loader.ts (createExtensionRuntime).
 
+import { readFileSync } from "node:fs";
 import bigpowers from "../extensions/omp-hooks.ts";
 
 type AnyObj = Record<string, unknown>;
@@ -82,22 +83,25 @@ await bigpowers(pi as unknown as never);
 // are callable from here on (handlers, tool executions).
 loading = false;
 
+const packageManifest = JSON.parse(
+  readFileSync(new URL("../package.json", import.meta.url), "utf8"),
+) as { pi?: { prompts?: string[] } };
+const promptTemplates = packageManifest.pi?.prompts ?? [];
+
+if (commands.size !== 0) {
+  throw new Error(`extension registered ${commands.size} duplicate workflow commands`);
+}
+if (!promptTemplates.includes("./.pi/prompts")) {
+  throw new Error("package does not declare the canonical Pi prompt templates");
+}
+
 console.log(JSON.stringify({
   commands: commands.size,
+  promptTemplates,
   tool: tools[0]?.name,
   events: [...events.keys()],
-  firstCommand: [...commands.keys()].slice(0, 5),
   sendUserMessageAwaitable: typeof pi.sendUserMessage === "function",
 }));
-
-// Exercise the /survey-context handler end-to-end.
-const handler = commands.get("survey-context")?.handler;
-if (!handler) throw new Error("survey-context command not registered");
-await handler("", {});
-
-// Verify a nonexistent command is not present.
-const fallback = commands.get("nonexistent-skill-for-test")?.handler;
-if (fallback) throw new Error("unexpected command registered");
 
 // Test bigpowers_skill run path.
 const skillTool = tools[0];
