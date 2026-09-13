@@ -391,7 +391,7 @@ bigpowers has been shaped by contributors who extended it in their own forks.
 See [CONTRIBUTORS.md](CONTRIBUTORS.md) for the full list.
 
 - **[Kevin Oberlies (favilo)](https://github.com/favilo/bigpowers)** — Jujutsu VCS support across lifecycle skills + `project-runtime.sh` configurable settings library.
-- **[XcluEzy7](https://github.com/XcluEzy7/bigpowers)** — OMP plugin extension (`extensions/omp-hooks.ts`): native skill discovery, slash commands, and git-safety hooks for the oh-my-pi runtime.
+- **[XcluEzy7](https://github.com/XcluEzy7/bigpowers)** — OMP plugin extension (`extensions/omp-hooks.ts`): native skill discovery, unified skill tooling, and git-safety hooks for the oh-my-pi runtime.
 
 ---
 
