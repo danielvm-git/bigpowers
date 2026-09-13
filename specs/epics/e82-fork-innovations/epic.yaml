@@ -27,10 +27,10 @@ source: >
   release-branch), and configurable artifact/specs roots.
 
   XcluEzy7: omp-executable-extension branch — self-contained OMP plugin
-  (extensions/omp-hooks.ts) that registers all bigpowers skills as slash commands
-  and a unified bigpowers_skill tool, and ports the git-safety hook into OMP's
-  tool_call API. Needs rebase onto current skills/ layout; the model-stripping and
-  AGENTS.md parts of that branch are skipped.
+  (extensions/omp-hooks.ts) that exposes all bigpowers skills through a unified
+  bigpowers_skill tool and ports the git-safety hook into OMP's tool_call API.
+  Generated Pi prompt templates remain the sole slash-command provider to avoid
+  duplicate entries. The model-stripping and AGENTS.md parts are skipped.
 
 contributors:
   - handle: favilo
@@ -112,9 +112,10 @@ stories:
     tags: [ADDED]
     requirement_delta: ADDED
     description: >
-      Add extensions/omp-hooks.ts: discovers skills/ at runtime, registers each as
-      a slash command and as a unified bigpowers_skill tool (list/get/run), and ports
-      the git-safety PreToolUse hook into OMP's tool_call hook API. Also add
+      Add extensions/omp-hooks.ts: discovers skills/ at runtime, exposes them through
+      a unified bigpowers_skill tool (list/get/run), and ports the git-safety PreToolUse
+      hook into OMP's tool_call hook API. Keep generated Pi prompt templates as the
+      sole slash-command provider to avoid duplicate autocomplete entries. Also add
       scripts/validate-omp-extension.sh and scripts/omp-smoke.ts for CI integrity.
       Rebase XcluEzy7's implementation against the current skills/ source layout
       (their branch was cut from an older snapshot where skills/ didn't exist at root).

@@ -36,7 +36,7 @@ Discovered via fork audit on 2026-09-01.
 
 XcluEzy7 built a native [oh-my-pi](https://github.com/oh-my-pi) OMP plugin that:
 
-- Discovers every skill in `skills/` at runtime and registers each as a slash command.
+- Discovers every skill in `skills/` at runtime for dynamic tool invocation.
 - Exposes a unified `bigpowers_skill` LLM tool with `list`/`get`/`run` operations.
 - Ports bigpowers' git-safety pre-tool-use hook into OMP's `tool_call` event API,
   blocking dangerous patterns and enforcing Conventional Commits.
