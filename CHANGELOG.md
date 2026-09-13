@@ -1,3 +1,10 @@
+## [2.88.4](https://github.com/danielvm-git/bigpowers/compare/v2.88.3...v2.88.4) (2026-09-13)
+
+
+### Bug Fixes
+
+* **mcp:** start bigpowers-mcp from OMP plugin installs ([#123](https://github.com/danielvm-git/bigpowers/issues/123)) ([#125](https://github.com/danielvm-git/bigpowers/issues/125)) ([1194dc1](https://github.com/danielvm-git/bigpowers/commit/1194dc158ab191ec3be32b55b8b4400a7ddcf277))
+
 ## [2.88.3](https://github.com/danielvm-git/bigpowers/compare/v2.88.2...v2.88.3) (2026-09-13)
 
 
