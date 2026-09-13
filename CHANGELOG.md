@@ -1,3 +1,10 @@
+## [2.88.5](https://github.com/danielvm-git/bigpowers/compare/v2.88.4...v2.88.5) (2026-09-13)
+
+
+### Bug Fixes
+
+* **docs:** prefix generated site links with base path ([#127](https://github.com/danielvm-git/bigpowers/issues/127)) ([c24ffd4](https://github.com/danielvm-git/bigpowers/commit/c24ffd43d7237d6e8be57f702389bce0e2bad690))
+
 ## [2.88.4](https://github.com/danielvm-git/bigpowers/compare/v2.88.3...v2.88.4) (2026-09-13)
 
 
