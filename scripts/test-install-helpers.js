@@ -229,6 +229,8 @@ try {
       '.gemini/extensions/bigpowers/hooks/before-tool-git-guard.sh',
       '.cursor/rules',
       '.pi/skills',
+      '.mcp.json',
+      'bigpowers-mcp/build/index.js',
       'skills/audit-code/SKILL.md',
       'docs/templates/ci/github/test-build-release-node.yml',
     ];
@@ -256,6 +258,8 @@ try {
       maxBuffer: 16 * 1024 * 1024,
     });
     for (const tpl of [
+      '.mcp.json',
+      'bigpowers-mcp/build/index.js',
       'docs/templates/ci/github/test-build-release-node.yml',
       'docs/templates/ci/github/test-build-release-rust.yml',
       'docs/templates/ci/github/test-build-release-python.yml',

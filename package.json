@@ -59,7 +59,13 @@
   },
   "dependencies": {
     "@clack/prompts": "^0.10.0",
-    "picocolors": "^1.1.1"
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "js-yaml": "^4.1.0",
+    "picocolors": "^1.1.1",
+    "remark-frontmatter": "^5.0.0",
+    "remark-parse": "^11.0.0",
+    "unified": "^11.0.5",
+    "zod": "^3.24.2"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.3",

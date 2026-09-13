@@ -2,8 +2,8 @@
   "mcpServers": {
     "bigpowers-mcp": {
       "command": "node",
-      "args": ["bigpowers-mcp/build/index.js"],
-      "cwd": "${workspaceFolder}"
+      "args": ["${OMP_PLUGIN_ROOT}/bigpowers-mcp/build/index.js"],
+      "cwd": "${OMP_PLUGIN_ROOT}"
     }
   }
 }

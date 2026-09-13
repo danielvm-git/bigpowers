@@ -19,8 +19,16 @@ export function getRepoRoot(): string {
 }
 
 function isRepoRoot(dir: string): boolean {
+  if (
+    fs.existsSync(path.join(dir, "skills")) &&
+    fs.existsSync(path.join(dir, "specs"))
+  ) {
+    return true;
+  }
+  // Published npm package ships skills/ but excludes specs/ (.npmignore).
   return (
-    fs.existsSync(path.join(dir, "skills")) && fs.existsSync(path.join(dir, "specs"))
+    fs.existsSync(path.join(dir, "skills")) &&
+    fs.existsSync(path.join(dir, "bigpowers-mcp", "build", "index.js"))
   );
 }
 

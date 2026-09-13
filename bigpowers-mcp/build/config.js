@@ -16,7 +16,13 @@ export function getRepoRoot() {
     return cwd;
 }
 function isRepoRoot(dir) {
-    return (fs.existsSync(path.join(dir, "skills")) && fs.existsSync(path.join(dir, "specs")));
+    if (fs.existsSync(path.join(dir, "skills")) &&
+        fs.existsSync(path.join(dir, "specs"))) {
+        return true;
+    }
+    // Published npm package ships skills/ but excludes specs/ (.npmignore).
+    return (fs.existsSync(path.join(dir, "skills")) &&
+        fs.existsSync(path.join(dir, "bigpowers-mcp", "build", "index.js")));
 }
 export function getSkillsDir(repoRoot) {
     return path.join(repoRoot, "skills");
