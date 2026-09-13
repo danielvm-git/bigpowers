@@ -510,6 +510,16 @@ bugs:
     approach: "Use OMP_PLUGIN_ROOT in shipped .mcp.json; hoist bigpowers-mcp runtime deps to root package.json"
     risk_level: low
     commit_message: "fix(mcp): start bigpowers-mcp from OMP plugin installs (#123)"
+  - id: BUG-2026-09-13-docs-base-path-gate-ci
+    status: fixed
+    severity: medium
+    scope: ci / website
+    title: "Golden suite docs-base-path gate fails in CI — website deps not installed"
+    file: bugs/BUG-2026-09-13-docs-base-path-gate-ci.md
+    files_changed: "scripts/validate-docs-base-path.sh, scripts/lib/golden-suite-gates.sh"
+    approach: "Install website/node_modules in gate when absent; wire docs-base-path golden gate"
+    risk_level: low
+    commit_message: "fix(ci): install website deps before docs-base-path gate"
   - id: BUG-2026-09-09-pi-duplicate-slash-commands
     status: resolved
     severity: medium
