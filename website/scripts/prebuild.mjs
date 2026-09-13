@@ -95,13 +95,27 @@ function stripTopHeading(markdown) {
 	return markdown.replace(/^#\s+[^\n]+\n+/, '');
 }
 
+/** Convert a docs/*.md link target into an extensionless Starlight guide slug. */
+function guideSlug(target) {
+	// Strip .md, keep any #anchor, lowercase the path segment (Starlight slugs are lowercase).
+	const [rawPath, anchor] = target.split('#');
+	const slug = rawPath.replace(/\.md$/i, '').toLowerCase();
+	return anchor ? `${slug}/#${anchor}` : `${slug}/`;
+}
+
 function rewriteLinks(markdown) {
 	return markdown
-		.replace(/\]\((\.\/)?docs\/([^)]+)\)/g, '](/guides/$2)')
-		.replace(/!\[([^\]]*)\]\((\.\/)?docs\/images\/([^)]+)\)/g, '![$1](/images/$3)')
-		.replace(/\]\((\.\/)?SKILL-INDEX\.md\)/g, '](/reference/skill-index/)')
-		.replace(/\]\((\.\/)?README\.md\)/g, '](/)')
-		.replace(/\]\((\.\/)?skills\/([^)]+)\)/g, '](/skills/$2/)');
+		.replace(
+			/\]\((\.\/)?docs\/images\/([^)]+)\)/g,
+			(_m, _dot, img) => `](${SITE_BASE}/images/${img})`,
+		)
+		.replace(
+			/\]\((\.\/)?docs\/([^)]+)\)/g,
+			(_m, _dot, target) => `](${SITE_BASE}/guides/${guideSlug(target)})`,
+		)
+		.replace(/\]\((\.\/)?SKILL-INDEX\.md\)/g, `](${SITE_BASE}/reference/skill-index/)`)
+		.replace(/\]\((\.\/)?README\.md\)/g, `](${SITE_BASE}/)`)
+		.replace(/\]\((\.\/)?skills\/([^)]+)\)/g, `](${SITE_BASE}/skills/$2/)`);
 }
 
 /** Prevent MDX from treating angle brackets as JSX (preserve fenced code blocks). */
@@ -151,7 +165,7 @@ hero:
   tagline: Agent skills for spec-driven, test-first development with AI agents.
   actions:
     - text: Browse skills
-      link: /skills/
+      link: ${SITE_BASE}/skills/
       icon: right-arrow
     - text: View on GitHub
       link: https://github.com/danielvm-git/bigpowers
@@ -215,7 +229,7 @@ ${escapeMdxBody(parsed.body.trim())}
 		indexLines.push(`## ${phase}`, '');
 		for (const item of items) {
 			const safeDescription = escapeMdxBody(item.description);
-			indexLines.push(`- [${item.name}](/skills/${item.name}/) — ${safeDescription}`);
+			indexLines.push(`- [${item.name}](${SITE_BASE}/skills/${item.name}/) — ${safeDescription}`);
 		}
 		indexLines.push('');
 	}
@@ -319,8 +333,9 @@ export const generatedSidebar = ${JSON.stringify(sidebar, null, '\t')};
 }
 
 function pageUrl(slug) {
+	// SITE_URL already includes SITE_BASE — do not append it again.
 	const normalized = slug.replace(/\/$/, '');
-	return normalized ? `${SITE_URL}${SITE_BASE}/${normalized}/` : `${SITE_URL}${SITE_BASE}/`;
+	return normalized ? `${SITE_URL}/${normalized}/` : `${SITE_URL}/`;
 }
 
 function generateLlmsTxt(byPhase, skillSources) {

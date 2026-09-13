@@ -6,7 +6,7 @@ hero:
   tagline: Agent skills for spec-driven, test-first development with AI agents.
   actions:
     - text: Browse skills
-      link: /skills/
+      link: /bigpowers/skills/
       icon: right-arrow
     - text: View on GitHub
       link: https://github.com/danielvm-git/bigpowers
@@ -16,7 +16,7 @@ hero:
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 ![npm version](https://img.shields.io/npm/v/bigpowers.svg)
-![Skills](https://img.shields.io/badge/skills-77-brightgreen.svg)
+![Skills](https://img.shields.io/badge/skills-81-brightgreen.svg)
 
 **Agent skills synthesizing 17 years of software engineering discipline — from Clean Code to AI-native architecture — into a single, prescriptive methodology for solo developers.**
 
@@ -24,7 +24,7 @@ hero:
 
 It is not a random collection of best practices. It is a chronological layer cake of ideas — each wave of thinking (Uncle Bob → Ousterhout → Karpathy → Wasowski → Akita) builds on and resolves tensions from the last, culminating in a 6-phase lifecycle with hard gates, a 94% quality threshold, and a YAML cockpit (`specs/state.yaml`) that keeps both human and agent aligned across sessions.
 
-Published on npm: [bigpowers](https://www.npmjs.com/package/bigpowers). The skill count in the badge above is stamped automatically by `sync-skills.sh`; the canonical catalog is [`SKILL-INDEX.md`](/reference/skill-index/).
+Published on npm: [bigpowers](https://www.npmjs.com/package/bigpowers). The skill count in the badge above is stamped automatically by `sync-skills.sh`; the canonical catalog is [`SKILL-INDEX.md`](/bigpowers/reference/skill-index/).
 
 Docs: [bigpowers docs site](https://danielvm-git.github.io/bigpowers/) — searchable, Google-discoverable reference for all skills, guides, and ADRs.
 
@@ -57,14 +57,29 @@ After installing, ask your agent to run the `using-bigpowers` skill — it is th
 
 ```bash
 # Global install (no lifecycle scripts — npm v10+ safe)
-npm install -g bigpowers
+npm install -g bigpowers@latest
 bigpowers setup     # runs sync + install, links skills to your tools
 
-# Or one-shot with npx
-npx bigpowers setup
+# Or one-shot with npx (always fetches the newest release)
+npx bigpowers@latest setup
 ```
 
 Both commands sync skill artifacts and link them to Claude Code, Gemini CLI, and Cursor (see [Prerequisites](#-prerequisites)).
+
+> **Always pin `@latest`.** With bigpowers already installed globally, a bare `npx bigpowers setup` reuses the stale global binary and `npm update -g bigpowers` doesn't reliably cross to the newest release. `npm install -g bigpowers@latest` and `npx bigpowers@latest setup` force a registry fetch every time.
+
+### Interactive Installer
+
+The `npx bigpowers setup` command launches an interactive menu where you can:
+
+1. **Choose install mode**: Setup/Update or Uninstall
+2. **Select location**: Global (available everywhere) or Local (current project only)
+3. **Pick tools**: Select which AI tools to install skills for (Claude Code, Cursor, Gemini, pi, etc.)
+4. **Confirm**: Review and confirm the installation
+
+Use **arrow keys** to navigate, **space** to select, and **Enter** to confirm.
+
+![Interactive Installer](/bigpowers/images/interactive-installer.png)
 
 ### From source (contributors)
 
@@ -91,7 +106,7 @@ bash scripts/install.sh
 
 ## ✨ Features
 
-- **Purpose-Built Skills**: From `survey-context` to `develop-tdd`, each skill is a targeted tool for a specific phase of development. See [`SKILL-INDEX.md`](/reference/skill-index/) for the full auto-generated catalog.
+- **Purpose-Built Skills**: From `survey-context` to `develop-tdd`, each skill is a targeted tool for a specific phase of development. See [`SKILL-INDEX.md`](/bigpowers/reference/skill-index/) for the full auto-generated catalog.
 - **Spec-Driven Cockpit**: Uses `specs/state.yaml` and `release-plan.yaml` to maintain state across agent sessions, preventing context drift.
 - **Native IDE Support**: Automatically generates configurations for Cursor (`.cursor/rules`), Gemini CLI, and pi.
 - **Model Context Protocol (MCP)**: Dynamic tool discovery and invocation via the included MCP server.
@@ -101,7 +116,7 @@ bash scripts/install.sh
 
 ## 🏗 The v2.0.0 Lifecycle
 
-Every project follows the **orchestrate-project 6-phase model** (full SOP: [`docs/WORKFLOW-SOP-v2.md`](/guides/WORKFLOW-SOP-v2.md)):
+Every project follows the **orchestrate-project 6-phase model** (full SOP: [`docs/WORKFLOW-SOP-v2.md`](/bigpowers/guides/workflow-sop-v2/)):
 
 ```
 ONE TIME    seed-conventions  (CLAUDE.md, .claude/, .gemini/, agents/, skill sync)
@@ -139,7 +154,7 @@ ONCE/PROJECT orchestrate-project
 
 `bigpowers` is not a flat list of influences. It is a **chronological layer cake** — each wave of thinking builds on and resolves tensions from the previous one. No layer replaces the last; each addresses a problem the prior one created.
 
-![Philosophy Diagram](/guides/images/philosophy_diagram.jpg)
+![Philosophy Diagram](/bigpowers/images/philosophy_diagram.jpg)
 
 | Era | Source | Contribution | Tension Resolved |
 |:---|:---|:---|:---|
@@ -187,7 +202,7 @@ Run `npm run compliance` to audit all features. Score &lt; 94% = hard stop.
 
 ## 📁 Project Structure
 
-- `skills/[skill-name]/`: Source files for each of the 72 skills.
+- `skills/[skill-name]/`: Source files for each of the 80 skills.
 - `scripts/`: Installation, syncing, and compliance tools.
 - `specs/`: YAML cockpit — `state.yaml`, `release-plan.yaml`, `epics/`, `execution-status.yaml`, `requirements/`.
 - `specs/metrics/`: Cycle-time ledger (`cycle-times.yaml`) — per-story BCPs, timestamps, BCP/hr (v2.0.0).
@@ -214,6 +229,25 @@ pi install .
 # Or install as a pi npm package (once published with pi-package keyword)
 pi install npm:bigpowers
 ```
+
+### Provision a consumer project (`bigpowers init`)
+
+pi's package contract registers **skills and prompts only** — it has no resource
+type for arbitrary project files, and no lifecycle script runs on install. Skills
+reference the package's `scripts/*.sh` tooling project-relative (e.g.
+`bash scripts/run-skill-verify.sh`, verify gates like `test -f scripts/... &&
+test -d specs/bugs`), so after installing the package, run **one command per
+consumer project** to provision what the skills expect:
+
+```bash
+cd <your-project>
+npx bigpowers init        # or: bigpowers init
+```
+
+This symlinks `&lt;project>/scripts` → the installed package's `scripts/` tree and
+scaffolds `specs/bugs/` + `specs/verifications/`. It refuses (never clobbers) a
+`scripts/` you already own; `bigpowers init --remove` undoes it. The same step
+applies to `npm i -g bigpowers` / `npx bigpowers setup` consumers.
 
 **What you get:**
 - **pi skills** in `.pi/skills/` (one per SKILL.md) — loaded automatically into pi's system prompt as `&lt;available_skills>`
@@ -270,9 +304,10 @@ Or add manually to `.claude/settings.json`:
 **npm install:**
 
 ```bash
-npm update -g bigpowers
-bigpowers update   # re-sync and refresh symlinks
+bigpowers update   # fetches bigpowers@latest (global installs), then re-syncs + refreshes symlinks
 ```
+
+`bigpowers update` now runs `npm install -g bigpowers@latest` for you when bigpowers is installed globally, so running it alone is enough to reach the newest release. Prefer to do it by hand? `npm install -g bigpowers@latest && bigpowers update`. (Avoid `npm update -g bigpowers` — it does not reliably cross to `@latest`.)
 
 **git clone:**
 
@@ -302,9 +337,9 @@ bash scripts/install.sh --uninstall
 ### Reinstall
 
 ```bash
-npx bigpowers setup
+npx bigpowers@latest setup
 # or, if installed globally:
-bigpowers setup
+bigpowers update
 ```
 
 ---
@@ -345,7 +380,7 @@ npm run validate-specs
 
 See [CHANGELOG.md](CHANGELOG.md) for the auto-generated commit history, or [Releases](https://github.com/danielvm-git/bigpowers/releases) for GitHub release notes.
 
-For an executive narrative of the project's history — 98 releases across 41 days, 4 phases, 19 epics delivered — read [RELEASE-HISTORY.md](/guides/RELEASE-HISTORY.md).
+For an executive narrative of the project's history — 98 releases across 41 days, 4 phases, 19 epics delivered — read [RELEASE-HISTORY.md](/bigpowers/guides/release-history/).
 
 ### Links
 
@@ -363,6 +398,14 @@ This project is a synthesis of decades of software engineering thought. It would
 - **Andrej Karpathy** and **Matt Pocock** for their pioneering work on agentic skills and structuring context for LLMs.
 - **Jarek Wasowski** for identifying Spec-Driven Development (SDD) as the missing link for AI agents.
 - **AkitaOnRails** for adapting classical clean code principles to the reality of the AI token economy.
+
+### Community Contributors
+
+bigpowers has been shaped by contributors who extended it in their own forks.
+See [CONTRIBUTORS.md](CONTRIBUTORS.md) for the full list.
+
+- **[Kevin Oberlies (favilo)](https://github.com/favilo/bigpowers)** — Jujutsu VCS support across lifecycle skills + `project-runtime.sh` configurable settings library.
+- **[XcluEzy7](https://github.com/XcluEzy7/bigpowers)** — OMP plugin extension (`extensions/omp-hooks.ts`): native skill discovery, unified skill tooling, and git-safety hooks for the oh-my-pi runtime.
 
 ---
 
