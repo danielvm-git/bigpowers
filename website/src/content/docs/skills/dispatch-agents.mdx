@@ -114,4 +114,4 @@ Merge accepted results. Resolve conflicts manually; note in summary.
 Report: which tasks succeeded, which need revision, overall verify status.
 
 ## Verify
-→ verify: `grep -q 'circuit_open' skills/dispatch-agents/SKILL.md && grep -q 'task_brief' skills/dispatch-agents/SKILL.md && echo OK || echo FAIL`
+→ verify: `test -f skills/dispatch-agents/SKILL.md && test -f scripts/lib/completeness-critic.sh`

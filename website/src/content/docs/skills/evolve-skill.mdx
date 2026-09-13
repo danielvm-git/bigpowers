@@ -31,7 +31,7 @@ description: "Benchmark-gated skill evolution — consume bigpowers-benchmark re
 
 ## Verify
 
-→ verify: `grep -c 'run-benchmark\|pass_at_k\|BASELINE-' skills/evolve-skill/SKILL.md | awk '{if($1>=2) print "OK"; else print "FAIL"}'`
+→ verify: `test -d specs/benchmarks && test -f skills/run-benchmark/SKILL.md`
 
 See [REFERENCE.md](REFERENCE.md) for ADR template.
 

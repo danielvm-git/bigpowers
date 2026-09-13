@@ -23,6 +23,10 @@ export const generatedSidebar = [
 						"slug": "skills/elaborate-spec"
 					},
 					{
+						"label": "find-way",
+						"slug": "skills/find-way"
+					},
+					{
 						"label": "map-codebase",
 						"slug": "skills/map-codebase"
 					},
@@ -97,10 +101,6 @@ export const generatedSidebar = [
 					{
 						"label": "plan-release",
 						"slug": "skills/plan-release"
-					},
-					{
-						"label": "plan-tests",
-						"slug": "skills/plan-tests"
 					},
 					{
 						"label": "plan-work",
@@ -185,16 +185,8 @@ export const generatedSidebar = [
 						"slug": "skills/setup-environment"
 					},
 					{
-						"label": "smoke-test",
-						"slug": "skills/smoke-test"
-					},
-					{
 						"label": "spike-prototype",
 						"slug": "skills/spike-prototype"
-					},
-					{
-						"label": "validate-contracts",
-						"slug": "skills/validate-contracts"
 					},
 					{
 						"label": "wire-ci",
@@ -215,8 +207,16 @@ export const generatedSidebar = [
 						"slug": "skills/audit-code"
 					},
 					{
+						"label": "context7-mcp",
+						"slug": "skills/context7-mcp"
+					},
+					{
 						"label": "diagnose-root",
 						"slug": "skills/diagnose-root"
+					},
+					{
+						"label": "diagnose-stall",
+						"slug": "skills/diagnose-stall"
 					},
 					{
 						"label": "enforce-first",
@@ -231,12 +231,20 @@ export const generatedSidebar = [
 						"slug": "skills/gate-trace"
 					},
 					{
+						"label": "generate-allure-report",
+						"slug": "skills/generate-allure-report"
+					},
+					{
 						"label": "inspect-quality",
 						"slug": "skills/inspect-quality"
 					},
 					{
 						"label": "investigate-bug",
 						"slug": "skills/investigate-bug"
+					},
+					{
+						"label": "plan-tests",
+						"slug": "skills/plan-tests"
 					},
 					{
 						"label": "request-review",
@@ -255,8 +263,16 @@ export const generatedSidebar = [
 						"slug": "skills/security-review"
 					},
 					{
+						"label": "smoke-test",
+						"slug": "skills/smoke-test"
+					},
+					{
 						"label": "trace-requirement",
 						"slug": "skills/trace-requirement"
+					},
+					{
+						"label": "validate-contracts",
+						"slug": "skills/validate-contracts"
 					},
 					{
 						"label": "validate-fix",
@@ -291,16 +307,8 @@ export const generatedSidebar = [
 						"slug": "skills/compose-workflow"
 					},
 					{
-						"label": "context7-mcp",
-						"slug": "skills/context7-mcp"
-					},
-					{
 						"label": "delegate-task",
 						"slug": "skills/delegate-task"
-					},
-					{
-						"label": "diagnose-stall",
-						"slug": "skills/diagnose-stall"
 					},
 					{
 						"label": "dispatch-agents",
@@ -313,6 +321,10 @@ export const generatedSidebar = [
 					{
 						"label": "evolve-skill",
 						"slug": "skills/evolve-skill"
+					},
+					{
+						"label": "harden-vps",
+						"slug": "skills/harden-vps"
 					},
 					{
 						"label": "maintain-wiki",
@@ -337,6 +349,10 @@ export const generatedSidebar = [
 					{
 						"label": "session-state",
 						"slug": "skills/session-state"
+					},
+					{
+						"label": "simple-english",
+						"slug": "skills/simple-english"
 					},
 					{
 						"label": "simulate-agents",

@@ -85,6 +85,7 @@ Review for:
 4. Design — are there simpler or more robust approaches?
 5. Edge cases — what inputs or states could cause failures?
 6. Security — any injection, auth, or data exposure risks?
+7. Refactoring smells — explicitly name any detected Fowler smells: Mysterious Name, Duplicated Code, Feature Envy, Data Clumps, Primitive Obsession, Message Chains, Middle Man
 
 For each finding, categorize as: must-fix / should-fix / consider.
 Run the verify command and report the result.
@@ -108,4 +109,4 @@ Report to user: "Review round [N/3]. Reviewer A: [score], Reviewer B: [score]. A
 
 ## Verify
 
-→ verify: `grep -q 'AND-gate' skills/request-review/SKILL.md && grep -q 'max 3' skills/request-review/SKILL.md && echo OK`
+→ verify: `test -f scripts/lib/parallel-review-worktrees.sh && test -f skills/request-review/SKILL.md`

@@ -35,4 +35,4 @@ Skip if BCP Plus sizing is not needed for this project.
 
 ## Verify
 
-→ verify: `test -f CLAUDE.md && grep -q 'Test' CLAUDE.md && echo "OK: CLAUDE.md has test table" || echo "MISSING: test commands"`
+→ verify: `test -f CLAUDE.md && grep -q Test CLAUDE.md`

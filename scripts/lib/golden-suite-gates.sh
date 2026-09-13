@@ -67,6 +67,7 @@ GOLDEN_GATES=(
   "project-runtime:bash scripts/test-project-runtime.sh:false"
   "omp-extension:bash scripts/validate-omp-extension.sh:false"
   "mcp-package:bash scripts/validate-mcp-package.sh:false"
+  "docs-base-path:bash scripts/validate-docs-base-path.sh:false"
   "import-boundaries:bash scripts/check-import-boundaries.sh:false"
   "skill-catalog:bash scripts/validate-skill-catalog.sh:false"
   "specs-parse:bash scripts/validate-specs-yaml.sh:false"

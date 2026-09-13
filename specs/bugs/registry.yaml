@@ -500,6 +500,16 @@ bugs:
     scope: cli / install
     title: "Package installs provision skills but never scripts/ — lifecycle skills' script calls and verify gates fail in every consumer project (#116)"
     file: bugs/BUG-2026-08-31-pi-scripts-provisioning.md
+  - id: BUG-2026-09-13-docs-browse-skills-base-path
+    status: open
+    severity: medium
+    scope: website / docs
+    title: "Browse skills hero button 404s — generated links missing /bigpowers base (#127)"
+    file: bugs/BUG-2026-09-13-docs-browse-skills-base-path.md
+    files_changed: "website/scripts/prebuild.mjs, scripts/validate-docs-base-path.sh"
+    approach: "Prefix generated site links with SITE_BASE; fix pageUrl double-base"
+    risk_level: low
+    commit_message: "fix(docs): prefix generated site links with base path (#127)"
   - id: BUG-2026-09-10-pi-mcp-omp-startup
     status: open
     severity: high

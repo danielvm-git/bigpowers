@@ -97,4 +97,4 @@ workflows:
 
 ## Verify
 
-→ verify: `test -f specs/planning-status.yaml && grep -c 'status: done' specs/planning-status.yaml | awk '{if($1>=3) print "OK"; else print "INCOMPLETE"}'`
+→ verify: `test -f specs/planning-status.yaml && [ "$(grep -c 'status: done' specs/planning-status.yaml)" -ge 3 ]`
