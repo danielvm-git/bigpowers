@@ -1,3 +1,10 @@
+## [2.88.3](https://github.com/danielvm-git/bigpowers/compare/v2.88.2...v2.88.3) (2026-09-13)
+
+
+### Bug Fixes
+
+* **pi:** prevent duplicate Bigpowers slash commands ([#121](https://github.com/danielvm-git/bigpowers/issues/121)) ([#124](https://github.com/danielvm-git/bigpowers/issues/124)) ([45870e2](https://github.com/danielvm-git/bigpowers/commit/45870e2e8e041ba3e21996fb98c96ec2a2484552))
+
 ## [2.88.2](https://github.com/danielvm-git/bigpowers/compare/v2.88.1...v2.88.2) (2026-09-06)
 
 
