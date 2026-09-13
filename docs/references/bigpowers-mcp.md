@@ -92,14 +92,20 @@ Project `.mcp.json` registers the server:
   "mcpServers": {
     "bigpowers-mcp": {
       "command": "node",
-      "args": ["bigpowers-mcp/build/index.js"],
-      "cwd": "${workspaceFolder}"
+      "args": ["${OMP_PLUGIN_ROOT}/bigpowers-mcp/build/index.js"],
+      "cwd": "${OMP_PLUGIN_ROOT}"
     }
   }
 }
 ```
 
-Agents discover tools on session start. Set `BIGPOWERS_ROOT` if cwd is not the repo root.
+OMP and Claude Code plugins expand `${OMP_PLUGIN_ROOT}` to the installed package
+directory ([OMP MCP config](https://github.com/can1357/oh-my-pi/blob/HEAD/docs/mcp-config.md)).
+Do **not** use `${workspaceFolder}` in the shipped manifest — OMP treats it as a
+literal env var name and spawn fails with a misleading `ENOENT` (#123).
+
+For a checkout used directly as the project cwd (no plugin wrapper), run from the
+repo root or set `BIGPOWERS_ROOT` to the workspace you want indexed.
 
 ## Performance
 
