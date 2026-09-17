@@ -1,3 +1,10 @@
+## [2.88.7](https://github.com/danielvm-git/bigpowers/compare/v2.88.6...v2.88.7) (2026-09-17)
+
+
+### Bug Fixes
+
+* **scripts:** resolve repo root in projects without skills/ ([093fef7](https://github.com/danielvm-git/bigpowers/commit/093fef72eb9f3be4c8cc61431df421752ed1ed44)), closes [#130](https://github.com/danielvm-git/bigpowers/issues/130)
+
 ## [2.88.6](https://github.com/danielvm-git/bigpowers/compare/v2.88.5...v2.88.6) (2026-09-13)
 
 
