@@ -1,3 +1,10 @@
+## [2.88.6](https://github.com/danielvm-git/bigpowers/compare/v2.88.5...v2.88.6) (2026-09-13)
+
+
+### Bug Fixes
+
+* **ci:** install website deps before docs-base-path gate ([4a94f72](https://github.com/danielvm-git/bigpowers/commit/4a94f720bb5ca1b158f1196b43c39a890812093a))
+
 ## [2.88.5](https://github.com/danielvm-git/bigpowers/compare/v2.88.4...v2.88.5) (2026-09-13)
 
 
