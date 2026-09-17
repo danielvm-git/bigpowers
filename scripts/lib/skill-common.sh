@@ -16,7 +16,9 @@ resolve_repo_root() {
   # Library is at REPO/scripts/lib/skill-common.sh → two levels up
   local repo_candidate
   repo_candidate="$(cd "$lib_dir/../.." 2>/dev/null && pwd)"
-  if [ -n "$repo_candidate" ] && [ -d "$repo_candidate/skills" ]; then
+  if [ -n "$repo_candidate" ] && {
+    [ -d "$repo_candidate/scripts/lib" ] || [ -d "$repo_candidate/skills" ]
+  }; then
     REPO_ROOT="$repo_candidate"
   else
     repo_candidate="$(cd "$lib_dir/.." 2>/dev/null && pwd)"

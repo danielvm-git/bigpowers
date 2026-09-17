@@ -31,7 +31,9 @@ def resolve_repo_root():
     lib_dir = os.path.dirname(os.path.abspath(__file__))
     # scripts/lib/srp-engine.py -> two levels up is REPO_ROOT
     repo_candidate = os.path.dirname(os.path.dirname(lib_dir))
-    if os.path.isdir(os.path.join(repo_candidate, "skills")):
+    if os.path.isdir(os.path.join(repo_candidate, "scripts", "lib")) or os.path.isdir(
+        os.path.join(repo_candidate, "skills")
+    ):
         return repo_candidate
     return os.path.dirname(lib_dir)
 
