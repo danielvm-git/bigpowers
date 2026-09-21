@@ -1,3 +1,10 @@
+## [2.88.8](https://github.com/danielvm-git/bigpowers/compare/v2.88.7...v2.88.8) (2026-09-21)
+
+
+### Bug Fixes
+
+* **mcp:** switch stdio transport to newline-delimited JSON per MCP spec ([#132](https://github.com/danielvm-git/bigpowers/issues/132)) ([2e07b81](https://github.com/danielvm-git/bigpowers/commit/2e07b81e6a19ee8cad12001114193e22cf224511)), closes [#131](https://github.com/danielvm-git/bigpowers/issues/131)
+
 ## [2.88.7](https://github.com/danielvm-git/bigpowers/compare/v2.88.6...v2.88.7) (2026-09-17)
 
 
