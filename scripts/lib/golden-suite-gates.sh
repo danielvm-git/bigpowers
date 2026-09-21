@@ -55,6 +55,7 @@ GOLDEN_GATES=(
   "adapter-render:bash scripts/test-adapter-render.sh:false"
   "adapters:bash scripts/test-adapters.sh:false"
   # Previously orphaned: present in scripts/ but reachable from no gate.
+  "resolve-repo-root:bash scripts/test-resolve-repo-root.sh:false"
   "tombstone-mechanism:bash scripts/test-tombstone-mechanism.sh:false"
   "trace-strict:bash scripts/test-trace-strict.sh:false"
   "trace-matrix-size:bash scripts/test-trace-matrix-size.sh:false"
