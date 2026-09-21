@@ -1,3 +1,10 @@
+## [2.88.9](https://github.com/danielvm-git/bigpowers/compare/v2.88.8...v2.88.9) (2026-09-21)
+
+
+### Bug Fixes
+
+* **gates:** wire test-resolve-repo-root.sh into golden suite (g13 orphan) ([#133](https://github.com/danielvm-git/bigpowers/issues/133)) ([de9a38e](https://github.com/danielvm-git/bigpowers/commit/de9a38ebda27fb964e9cfc6232d51458640d9a03)), closes [#131](https://github.com/danielvm-git/bigpowers/issues/131) [#130](https://github.com/danielvm-git/bigpowers/issues/130)
+
 ## [2.88.8](https://github.com/danielvm-git/bigpowers/compare/v2.88.7...v2.88.8) (2026-09-21)
 
 
