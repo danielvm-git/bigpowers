@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // bigpowers MCP server — exposes 68 skills as MCP tools via stdio transport
-// Zero dependencies — raw JSON-RPC over stdio with Content-Length framing
+// Zero dependencies — raw JSON-RPC over stdio (newline-delimited, per MCP spec)
 
 'use strict';
 
@@ -154,6 +154,7 @@ const TOOLS = {
 // ─── MCP stdio transport ──────────────────────────────────────────────────────
 
 let inputBuffer = Buffer.alloc(0);
+let useLspFraming = false;
 
 process.stdin.on('data', chunk => {
   inputBuffer = Buffer.concat([inputBuffer, chunk]);
@@ -163,28 +164,47 @@ process.stdin.on('data', chunk => {
 process.stdin.on('end', () => process.exit(0));
 
 function processBuffer() {
-  while (true) {
-    const headerEnd = inputBuffer.indexOf('\r\n\r\n');
-    if (headerEnd === -1) break;
+  while (inputBuffer.length) {
+    // Legacy: LSP-style Content-Length framing (kept for backwards compatibility)
+    if (/^\s*Content-Length:/i.test(inputBuffer.toString('utf8', 0, Math.min(inputBuffer.length, 20)))) {
+      const headerEnd = inputBuffer.indexOf('\r\n\r\n');
+      if (headerEnd === -1) break;
 
-    const header = inputBuffer.slice(0, headerEnd).toString();
-    const match = header.match(/Content-Length:\s*(\d+)/i);
-    if (!match) { inputBuffer = inputBuffer.slice(headerEnd + 4); continue; }
+      const header = inputBuffer.slice(0, headerEnd).toString();
+      const match = header.match(/Content-Length:\s*(\d+)/i);
+      if (!match) { inputBuffer = inputBuffer.slice(headerEnd + 4); continue; }
 
-    const contentLength = parseInt(match[1], 10);
-    const bodyStart = headerEnd + 4;
-    if (inputBuffer.length < bodyStart + contentLength) break;
+      const contentLength = parseInt(match[1], 10);
+      const bodyStart = headerEnd + 4;
+      if (inputBuffer.length < bodyStart + contentLength) break;
 
-    const body = inputBuffer.slice(bodyStart, bodyStart + contentLength).toString();
-    inputBuffer = inputBuffer.slice(bodyStart + contentLength);
+      const body = inputBuffer.slice(bodyStart, bodyStart + contentLength).toString();
+      inputBuffer = inputBuffer.slice(bodyStart + contentLength);
 
-    try { handleMessage(JSON.parse(body)); } catch (_) {}
+      useLspFraming = true;
+      try { handleMessage(JSON.parse(body)); } catch (_) {}
+      continue;
+    }
+
+    // MCP stdio standard: newline-delimited JSON
+    const nl = inputBuffer.indexOf('\n');
+    if (nl === -1) break;
+
+    const line = inputBuffer.slice(0, nl).toString().trim();
+    inputBuffer = inputBuffer.slice(nl + 1);
+
+    useLspFraming = false;
+    if (line) try { handleMessage(JSON.parse(line)); } catch (_) {}
   }
 }
 
 function send(msg) {
   const body = JSON.stringify(msg);
-  process.stdout.write(`Content-Length: ${Buffer.byteLength(body, 'utf8')}\r\n\r\n${body}`);
+  if (useLspFraming) {
+    process.stdout.write(`Content-Length: ${Buffer.byteLength(body, 'utf8')}\r\n\r\n${body}`);
+  } else {
+    process.stdout.write(body + '\n');
+  }
 }
 
 function handleInitialize(id) {
