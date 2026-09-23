@@ -14,6 +14,7 @@
 // story: e72s02
 // story: e68s02
 // story: e65s02
+// story: #134
 // install-helpers.js — symlink helpers for bigpowers setup
 
 const fs = require('fs');
@@ -22,6 +23,50 @@ const path = require('path');
 // Package root — every link the installer creates points back into this
 // directory, which is how "managed" is detected (see assertReplaceable).
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
+
+// Windows denies symlink creation unless the shell is elevated or Developer
+// Mode is on (EPERM). Directory *junctions* need no privilege, and Node reports
+// a junction through lstat/readlink exactly like a symlink — so install,
+// detectExistingInstall, and uninstall keep working. A file cannot be junctioned
+// (the result is a broken reparse point), so a file link on Windows becomes a
+// copy, tracked here so a reinstall replaces it and uninstall removes it.
+const copiesPath = () => path.join(require('os').homedir(), '.bigpowers', 'managed-copies.json');
+
+function managedCopies() {
+  try {
+    return new Set(JSON.parse(fs.readFileSync(copiesPath(), 'utf8')));
+  } catch {
+    return new Set();
+  }
+}
+
+function saveCopies(copies) {
+  fs.mkdirSync(path.dirname(copiesPath()), { recursive: true });
+  fs.writeFileSync(copiesPath(), JSON.stringify([...copies], null, 2));
+}
+
+// Symlink on POSIX; on Windows junction directories and copy (tracked) files.
+function createLink(src, dst) {
+  if (process.platform !== 'win32') {
+    fs.symlinkSync(src, dst);
+    return;
+  }
+  if (!fs.existsSync(src)) return; // source absent from this build (e.g. AGENTS.md)
+  if (fs.statSync(src).isDirectory()) {
+    fs.symlinkSync(src, dst, 'junction');
+    return;
+  }
+  try {
+    fs.symlinkSync(src, dst);
+    const copies = managedCopies();
+    if (copies.delete(dst)) saveCopies(copies); // was a copy; now a real link
+  } catch {
+    fs.copyFileSync(src, dst);
+    const copies = managedCopies();
+    copies.add(dst);
+    saveCopies(copies);
+  }
+}
 
 // Refuse to replace a destination that is not already a bigpowers-managed
 // symlink. Prevents setup from silently destroying a user's own file or
@@ -42,6 +87,9 @@ function assertReplaceable(dst) {
       return; // managed by bigpowers — safe to re-link
     }
   }
+  if (st.isFile() && managedCopies().has(dst)) {
+    return; // file copy placed by the Windows fallback — safe to re-link
+  }
   throw new Error(
     `Refusing to replace ${dst}: it exists and is not a bigpowers-managed symlink. ` +
     `Back it up or remove it manually, then re-run setup.`
@@ -58,7 +106,7 @@ function linkSkills(skillsDir, targetDir) {
 
     assertReplaceable(dst);
     fs.rmSync(dst, { force: true });
-    fs.symlinkSync(src, dst);
+    createLink(src, dst);
   }
 }
 
@@ -70,13 +118,13 @@ function linkDir(src, dst) {
   }
   assertReplaceable(dst);
   fs.rmSync(dst, { force: true });
-  fs.symlinkSync(src, dst);
+  createLink(src, dst);
 }
 
 function linkFile(src, dst) {
   assertReplaceable(dst);
   fs.rmSync(dst, { force: true });
-  fs.symlinkSync(src, dst);
+  createLink(src, dst);
 }
 
 function linkRenderedSkills(renderedDir, targetDir) {
@@ -106,7 +154,7 @@ function linkHook(src, dst) {
   }
   assertReplaceable(dst);
   fs.rmSync(dst, { force: true });
-  fs.symlinkSync(src, dst);
+  createLink(src, dst);
   try { fs.chmodSync(src, 0o755); } catch {}
 }
 
@@ -665,6 +713,13 @@ function removeSymlink(p) {
     const stat = fs.lstatSync(p);
     if (stat.isSymbolicLink()) {
       fs.unlinkSync(p);
+      return true;
+    }
+    const copies = managedCopies();
+    if (stat.isFile() && copies.has(p)) {
+      fs.unlinkSync(p);
+      copies.delete(p);
+      saveCopies(copies);
       return true;
     }
   } catch {}
