@@ -6,7 +6,9 @@ Run: python3 -m pytest tests/test_srp_engine.py -v
 """
 import os
 import sys
+import tempfile
 import unittest
+from unittest import mock
 
 # Make scripts/lib importable without installation.
 _REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -142,6 +144,67 @@ class TestRewriteLinksForPi(unittest.TestCase):
         result = self._rw(body)
         self.assertIn("[x](bad.md)", result)  # inline code preserved
         self.assertNotIn("](REFERENCE.md)", result)  # real link rewritten
+
+
+class TestResolveBash(unittest.TestCase):
+    """Regression: dispatch must not make subprocess resolve the bare name
+    'bash'. On Windows the Win32 CreateProcess search order finds the WSL
+    stub in System32 before Git Bash on PATH, so setup aborted with
+    'Windows Subsystem for Linux has no installed distributions'."""
+
+    def test_env_override_wins(self):
+        with mock.patch.dict(os.environ, {"BIGPOWERS_BASH": "/custom/bash"}):
+            self.assertEqual(_srp.resolve_bash(), "/custom/bash")
+
+    def test_uses_path_resolved_bash(self):
+        env = {k: v for k, v in os.environ.items() if k != "BIGPOWERS_BASH"}
+        with mock.patch.dict(os.environ, env, clear=True):
+            with mock.patch.object(_srp.shutil, "which", return_value="/usr/bin/bash"):
+                self.assertEqual(_srp.resolve_bash(), "/usr/bin/bash")
+
+    def test_falls_back_to_bare_bash(self):
+        env = {k: v for k, v in os.environ.items() if k != "BIGPOWERS_BASH"}
+        with mock.patch.dict(os.environ, env, clear=True):
+            with mock.patch.object(_srp.shutil, "which", return_value=None):
+                self.assertEqual(_srp.resolve_bash(), "bash")
+
+
+class TestDispatchUsesResolvedBash(unittest.TestCase):
+    """The adapter subprocess must receive the PATH-resolved bash path, not
+    the bare name that Windows resolves to the WSL stub."""
+
+    def setUp(self):
+        self._tmp = tempfile.TemporaryDirectory()
+        self.repo_root = self._tmp.name
+        adapter_dir = os.path.join(self.repo_root, "scripts", "adapters")
+        os.makedirs(adapter_dir)
+        self.adapter = os.path.join(adapter_dir, "fake.sh")
+        with open(self.adapter, "w", encoding="utf-8") as f:
+            f.write("#!/usr/bin/env bash\n")
+
+    def tearDown(self):
+        self._tmp.cleanup()
+
+    def test_dispatch_passes_resolved_bash_to_popen(self):
+        captured = {}
+
+        class _FakeProc:
+            returncode = 0
+
+            def communicate(self, input=None):
+                return ("", "")
+
+        def _fake_popen(cmd, **kwargs):
+            captured["cmd"] = cmd
+            return _FakeProc()
+
+        sentinel = os.path.join(self.repo_root, "git-bash")
+        with mock.patch.object(_srp, "resolve_bash", return_value=sentinel):
+            with mock.patch.object(_srp.subprocess, "Popen", side_effect=_fake_popen):
+                _srp.dispatch_to_adapter({"name": "x"}, "fake", self.repo_root)
+
+        self.assertEqual(captured["cmd"][0], sentinel)
+        self.assertEqual(captured["cmd"][1], self.adapter)
 
 
 if __name__ == "__main__":
