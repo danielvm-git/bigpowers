@@ -5,7 +5,9 @@ import os
 import sys
 import json
 import glob
+import shutil
 import subprocess
+import tempfile
 
 # Ensure scripts/lib is on the path so sibling modules (link_utils, and the
 # simple_yaml fallback below) resolve regardless of cwd.
@@ -216,6 +218,50 @@ def dispatch_to_adapter(skill_data, target, repo_root):
         print(f"Error: adapter {target} failed with exit code {proc.returncode}", file=sys.stderr)
         sys.exit(proc.returncode)
 
+def _write_ir_stream(records):
+    fd, stream_path = tempfile.mkstemp(prefix="bigpowers-ir-", suffix=".bin")
+    with os.fdopen(fd, "wb") as stream:
+        for data in records:
+            pi_body = rewrite_links_for_pi(data['body'], data['name'])
+            for field in (data['name'], data['description'], data['model'], data['body'], pi_body):
+                stream.write(field.encode("utf-8"))
+                stream.write(b"\x00")
+    return stream_path
+
+def render_all(records, adapters, repo_root):
+    """Render every skill through each adapter with one bash process per adapter.
+
+    The previous path spawned one bash (plus three jq) per skill×adapter — about
+    1,539 bash and 4,600 jq processes from a single Python process. On constrained
+    Windows sessions that exhausts process-creation resources, so the run dies
+    with STATUS_DLL_INIT_FAILED (0xC0000142) and then hangs on orphaned children.
+    Writing the IR once and letting a small bash driver source the adapter keeps
+    the same rendering code while dropping to one process per adapter.
+    """
+    if not records:
+        return
+
+    driver = os.path.join(repo_root, "scripts", "lib", "adapter-render-all.sh")
+    # Windows CreateProcess checks System32 before PATH, where the WSL launcher
+    # stub can shadow Git Bash; ask PATH for an explicit path first.
+    bash = os.environ.get("BIGPOWERS_BASH") or shutil.which("bash") or "bash"
+    stream_path = _write_ir_stream(records)
+    try:
+        for adapter in adapters:
+            adapter_path = os.path.join(repo_root, "scripts", "adapters", f"{adapter}.sh")
+            if not os.path.isfile(adapter_path):
+                print(f"Error: adapter not found: {adapter_path}", file=sys.stderr)
+                sys.exit(1)
+            proc = subprocess.run([bash, driver, adapter_path, stream_path])
+            if proc.returncode != 0:
+                print(f"Error: adapter {adapter} failed with exit code {proc.returncode}", file=sys.stderr)
+                sys.exit(1)
+    finally:
+        try:
+            os.unlink(stream_path)
+        except OSError:
+            pass
+
 def main():
     repo_root = resolve_repo_root()
 
@@ -226,19 +272,17 @@ def main():
 
         okf_wiki_skills = os.environ.get("OKF_WIKI_SKILLS", os.path.join(repo_root, "specs", "skills-wiki", "skills"))
 
+        records = []
         for skill_md in skills:
             skill_data = parse_skill(skill_md)
             if not skill_data['name']:
                 continue
+            records.append(skill_data)
 
-            for adapter in adapters:
-                data = skill_data
-                if adapter == "pi":
-                    data = dict(skill_data)
-                    data["body_pi_skill"] = rewrite_links_for_pi(skill_data['body'], skill_data['name'])
-                dispatch_to_adapter(data, adapter, repo_root)
+        render_all(records, adapters, repo_root)
 
-            if okf_mode:
+        if okf_mode:
+            for skill_data in records:
                 render_okf_concept(skill_data, okf_wiki_skills)
         return
 

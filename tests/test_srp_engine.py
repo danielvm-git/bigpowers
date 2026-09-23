@@ -7,6 +7,7 @@ Run: python3 -m pytest tests/test_srp_engine.py -v
 import os
 import sys
 import unittest
+from unittest import mock
 
 # Make scripts/lib importable without installation.
 _REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -142,6 +143,96 @@ class TestRewriteLinksForPi(unittest.TestCase):
         result = self._rw(body)
         self.assertIn("[x](bad.md)", result)  # inline code preserved
         self.assertNotIn("](REFERENCE.md)", result)  # real link rewritten
+
+
+class TestWriteIrStream(unittest.TestCase):
+    """#138: the whole run's IR is serialised once."""
+
+    def test_writes_nul_delimited_fields_in_order(self):
+        records = [{
+            'name': 'demo',
+            'description': 'a "demo"',
+            'model': 'gpt',
+            'body': 'line1\nline2',
+        }]
+        with mock.patch.object(_srp, 'rewrite_links_for_pi', return_value='PI-BODY'):
+            path = _srp._write_ir_stream(records)
+        try:
+            with open(path, 'rb') as f:
+                data = f.read()
+        finally:
+            os.unlink(path)
+        # name, description, model, body, pi body — each NUL-terminated, so a
+        # multi-line body survives intact.
+        self.assertEqual(data, b'demo\x00a "demo"\x00gpt\x00line1\nline2\x00PI-BODY\x00')
+
+
+class TestRenderAll(unittest.TestCase):
+    """#138: one bash process per adapter, not one per skill×adapter."""
+
+    @staticmethod
+    def _records(n):
+        return [{'name': f's{i}', 'description': 'd', 'model': '', 'body': 'b'} for i in range(n)]
+
+    def test_one_process_per_adapter_not_per_skill(self):
+        records = self._records(5)
+        with mock.patch.object(_srp, '_write_ir_stream', return_value='/tmp/ir.bin') as write, \
+                mock.patch.object(_srp.os, 'unlink') as unlink, \
+                mock.patch.object(_srp.subprocess, 'run') as run:
+            run.return_value = mock.Mock(returncode=0)
+            _srp.render_all(records, ['cursor', 'pi'], _REPO_ROOT)
+        self.assertEqual(write.call_count, 1)   # IR serialised once
+        self.assertEqual(run.call_count, 2)     # 2 adapters, not 5×2
+        unlink.assert_called_once_with('/tmp/ir.bin')
+
+    def test_nonzero_adapter_exits_nonzero(self):
+        with mock.patch.object(_srp, '_write_ir_stream', return_value='/tmp/ir.bin'), \
+                mock.patch.object(_srp.os, 'unlink'), \
+                mock.patch.object(_srp.subprocess, 'run') as run:
+            run.return_value = mock.Mock(returncode=3)
+            with self.assertRaises(SystemExit):
+                _srp.render_all(self._records(1), ['cursor'], _REPO_ROOT)
+
+    def test_empty_records_does_not_spawn(self):
+        with mock.patch.object(_srp.subprocess, 'run') as run:
+            _srp.render_all([], ['cursor'], _REPO_ROOT)
+        run.assert_not_called()
+
+    def test_missing_adapter_exits_without_spawning(self):
+        with mock.patch.object(_srp, '_write_ir_stream', return_value='/tmp/ir.bin'), \
+                mock.patch.object(_srp.os, 'unlink'), \
+                mock.patch.object(_srp.subprocess, 'run') as run:
+            with self.assertRaises(SystemExit):
+                _srp.render_all(self._records(1), ['not-a-real-adapter'], _REPO_ROOT)
+        run.assert_not_called()
+
+
+class TestAdapterRenderAllDriver(unittest.TestCase):
+    """#138: the bash driver sources one adapter and renders the stream."""
+
+    def test_driver_renders_stream_in_a_single_process(self):
+        import shutil
+        import subprocess
+        import tempfile
+
+        driver = os.path.join(_REPO_ROOT, 'scripts', 'lib', 'adapter-render-all.sh')
+        adapter = os.path.join(_REPO_ROOT, 'scripts', 'adapters', 'cursor.sh')
+        with tempfile.TemporaryDirectory() as tmp:
+            stream = os.path.join(tmp, 'ir.bin')
+            with open(stream, 'wb') as f:
+                for field in ('demo-skill', 'desc', '', 'body text', 'body text'):
+                    f.write(field.encode())
+                    f.write(b'\x00')
+            env = dict(os.environ)
+            env['CURSOR_RULES'] = tmp
+            proc = subprocess.run(
+                [shutil.which('bash') or 'bash', driver, adapter, stream],
+                env=env,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+            )
+            self.assertEqual(proc.returncode, 0, proc.stderr)
+            self.assertTrue(os.path.isfile(os.path.join(tmp, 'demo-skill.mdc')))
 
 
 if __name__ == "__main__":
