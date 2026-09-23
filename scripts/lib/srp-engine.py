@@ -5,6 +5,7 @@ import os
 import sys
 import json
 import glob
+import shutil
 import subprocess
 
 # Ensure scripts/lib is on the path so sibling modules (link_utils, and the
@@ -191,6 +192,20 @@ def render_okf_concept(skill_data, okf_wiki_skills):
     with open(okf_file, 'w', encoding='utf-8') as f:
         f.write('\n'.join(lines) + '\n')
 
+def resolve_bash():
+    """Return an explicit path to a usable bash interpreter.
+
+    On Windows, subprocess(['bash', ...]) goes through the Win32
+    CreateProcess search order, which checks C:\\Windows\\System32 before
+    PATH. That finds the WSL launcher stub (System32\\bash.exe) instead of
+    Git Bash and aborts with 'Windows Subsystem for Linux has no installed
+    distributions' on hosts without a WSL distro. shutil.which() honors PATH
+    order, so ask it for an explicit path first; fall back to the bare name
+    for minimal non-Windows environments where nothing is on PATH.
+    """
+    return os.environ.get("BIGPOWERS_BASH") or shutil.which("bash") or "bash"
+
+
 def dispatch_to_adapter(skill_data, target, repo_root):
     adapter_path = os.path.join(repo_root, "scripts", "adapters", f"{target}.sh")
     if not os.path.isfile(adapter_path):
@@ -199,7 +214,7 @@ def dispatch_to_adapter(skill_data, target, repo_root):
 
     # Pipe JSON to the adapter
     proc = subprocess.Popen(
-        ['bash', adapter_path],
+        [resolve_bash(), adapter_path],
         stdin=subprocess.PIPE,
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
