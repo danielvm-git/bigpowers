@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 // story: e60s01
+// story: #134
 // Regression selftest for scripts/lib/install-helpers.js (Wave 0 closeout).
 'use strict';
 
@@ -12,8 +13,24 @@ const { mkdtempSync, rmSync } = fs;
 const ROOT = path.resolve(__dirname, '..');
 const tmpHome = mkdtempSync(path.join(os.tmpdir(), 'bp-install-helpers-'));
 process.env.HOME = tmpHome;
+process.env.USERPROFILE = tmpHome; // os.homedir() prefers USERPROFILE on Windows
 
 const { installGlobal, linkHook } = require('../scripts/lib/install-helpers.js');
+
+const isWindows = process.platform === 'win32';
+
+// Directories become junctions on Windows, which lstat reports as symlinks.
+// Files cannot be symlinked without Developer Mode, so createLink copies them;
+// accept either shape and prove a copy matches the source byte-for-byte.
+function assertLinkedFile(dst, src, msg) {
+  const st = fs.lstatSync(dst);
+  if (st.isSymbolicLink()) {
+    assert.strictEqual(fs.readlinkSync(dst), src, msg);
+    return;
+  }
+  assert.ok(isWindows && st.isFile(), `${msg} (expected a symlink, or a Windows copy)`);
+  assert.strictEqual(fs.readFileSync(dst, 'utf8'), fs.readFileSync(src, 'utf8'), msg);
+}
 
 try {
   const hookSrc = path.join(ROOT, 'skills', 'guard-git', 'scripts', 'block-dangerous-git.sh');
@@ -40,8 +57,7 @@ try {
   installGlobal({ id: 'claude', name: 'Claude Code' }, ROOT);
 
   const linked = path.join(tmpHome, '.claude', 'hooks', 'block-dangerous-git.sh');
-  assert.ok(fs.lstatSync(linked).isSymbolicLink(), 'block-dangerous-git.sh must be symlinked');
-  assert.strictEqual(fs.readlinkSync(linked), hookSrc, 'symlink must point at skills/guard-git path');
+  assertLinkedFile(linked, hookSrc, 'block-dangerous-git.sh must link to skills/guard-git');
 
   const libLinked = path.join(tmpHome, '.claude', 'hooks', 'lib');
   const libSrc = path.join(ROOT, 'skills', 'guard-git', 'scripts', 'lib');
@@ -53,8 +69,29 @@ try {
   );
 
   const rtkLinked = path.join(tmpHome, '.claude', 'hooks', 'rtk-rewrite.sh');
-  assert.ok(fs.lstatSync(rtkLinked).isSymbolicLink(), 'rtk-rewrite.sh must be symlinked');
-  assert.strictEqual(fs.readlinkSync(rtkLinked), rtkSrc, 'rtk-rewrite symlink must point at scripts/hooks source');
+  assertLinkedFile(rtkLinked, rtkSrc, 'rtk-rewrite.sh must link to scripts/hooks source');
+
+  if (isWindows) {
+    // Windows EPERM regression: without Developer Mode the hooks above are
+    // copies. A reinstall must not trip the "Refusing to replace" guard, and
+    // uninstall must remove the copies and clear them from the manifest.
+    const manifest = path.join(tmpHome, '.bigpowers', 'managed-copies.json');
+    const tracked = () => (fs.existsSync(manifest) ? JSON.parse(fs.readFileSync(manifest, 'utf8')) : []);
+    for (const p of [linked, rtkLinked]) {
+      if (!fs.lstatSync(p).isSymbolicLink()) {
+        assert.ok(tracked().includes(p), `Windows copy must be tracked in the manifest: ${p}`);
+      }
+    }
+    installGlobal({ id: 'claude', name: 'Claude Code' }, ROOT); // idempotent reinstall
+    uninstallTool('claude', ROOT);
+    assert.ok(!fs.existsSync(linked), 'uninstall must remove the block-dangerous-git hook');
+    assert.ok(!fs.existsSync(rtkLinked), 'uninstall must remove the rtk-rewrite hook');
+    assert.deepStrictEqual(
+      tracked().filter((p) => p === linked || p === rtkLinked),
+      [],
+      'uninstall must clear removed copies from the manifest'
+    );
+  }
 
   installGlobal({ id: 'pi', name: 'pi' }, ROOT);
   const piSkill = path.join(tmpHome, '.pi', 'agent', 'skills');
@@ -173,9 +210,10 @@ try {
 
     installLocal({ id: 'codex', name: 'Codex' }, ROOT);
     const localCodexAgents = path.join(tmpCwd, '.codex', 'AGENTS.md');
-    assert.ok(fs.lstatSync(localCodexAgents).isSymbolicLink(), 'local codex install must symlink AGENTS.md');
+    assertLinkedFile(localCodexAgents, path.join(ROOT, 'templates', 'codex', 'AGENTS.md'),
+      'local codex install must link AGENTS.md');
     uninstallTool('codex', ROOT);
-    assert.ok(!fs.existsSync(localCodexAgents), 'uninstallTool(codex) must remove LOCAL AGENTS.md symlink');
+    assert.ok(!fs.existsSync(localCodexAgents), 'uninstallTool(codex) must remove LOCAL AGENTS.md');
   } finally {
     process.chdir(savedCwd);
     rmSync(tmpCwd, { recursive: true, force: true });
@@ -353,8 +391,12 @@ try {
   // package root (e.g. <ROOT>-evil) as managed — needs a path-separator boundary.
   {
     const dst = path.join(tmpHome, 'prefix-boundary-hook.sh');
-    fs.symlinkSync(path.join(`${ROOT}-evil`, 'x.sh'), dst); // dangling foreign link
-      assert.throws(
+    if (isWindows) {
+      fs.writeFileSync(dst, 'foreign\n'); // Windows cannot make this link unprivileged
+    } else {
+      fs.symlinkSync(path.join(`${ROOT}-evil`, 'x.sh'), dst); // dangling foreign link
+    }
+    assert.throws(
         () => linkHook(rtkSrc, dst),
         /Refusing to replace/,
         'managed-symlink check must require a path-separator boundary (prefix sibling is NOT managed)'
