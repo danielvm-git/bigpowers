@@ -162,6 +162,8 @@ function currentBranch(): string {
     return execSync("git rev-parse --abbrev-ref HEAD", {
       encoding: "utf-8",
       timeout: 3000,
+      // Keep failed Git lookups from writing over Pi's terminal editor.
+      stdio: ["ignore", "pipe", "pipe"],
     }).trim();
   } catch {
     return "unknown";

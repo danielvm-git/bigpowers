@@ -10,7 +10,12 @@
 // fails here exactly as it does in real pi, instead of silently passing.
 // See pi 0.85.1 src/core/extensions/loader.ts (createExtensionRuntime).
 
-import { readFileSync } from "node:fs";
+import assert from "node:assert/strict";
+import { spawnSync, execFileSync } from "node:child_process";
+import { mkdtempSync, readFileSync, rmSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+import { fileURLToPath } from "node:url";
 import bigpowers from "../extensions/omp-hooks.ts";
 
 type AnyObj = Record<string, unknown>;
@@ -82,6 +87,46 @@ await bigpowers(pi as unknown as never);
 // Factory returned successfully: the runtime is now "bound". Action methods
 // are callable from here on (handlers, tool executions).
 loading = false;
+
+// Exercise the registered hook in a child: inherited Git stderr must never
+// write over Pi's editor, including when the working directory is not a repo.
+if (process.env.BIGPOWERS_HOOK_SMOKE === "1") {
+  const hook = events.get("tool_call");
+  assert.ok(hook, "tool_call hook must be registered");
+  const allowed = hook({ toolName: "bash", input: { command: "echo hello" } });
+  assert.equal(allowed, undefined);
+  const push = hook({ toolName: "bash", input: { command: "git push" } });
+  if (process.env.BIGPOWERS_EXPECT_PROTECTED === "1") {
+    assert.equal((push as { block?: boolean })?.block, true);
+  } else {
+    assert.equal(push, undefined);
+  }
+  process.exit(0);
+}
+
+const hookWorkspace = mkdtempSync(join(tmpdir(), "bigpowers-hook-"));
+try {
+  for (const repository of [false, true]) {
+    if (repository) {
+      const git = (args: string[]) => execFileSync("git", args, {
+        cwd: hookWorkspace, stdio: "pipe",
+      });
+      git(["init", "--initial-branch=main"]);
+      git(["-c", "user.name=Smoke", "-c", "user.email=smoke@example.invalid",
+        "commit", "--allow-empty", "-m", "test"]);
+    }
+    const result = spawnSync(process.execPath, ["--disable-warning=MODULE_TYPELESS_PACKAGE_JSON", fileURLToPath(import.meta.url)], {
+      cwd: hookWorkspace,
+      env: { ...process.env, BIGPOWERS_HOOK_SMOKE: "1",
+        BIGPOWERS_EXPECT_PROTECTED: repository ? "1" : "0" },
+      encoding: "utf8",
+    });
+    assert.equal(result.status, 0, result.stderr);
+    assert.equal(result.stderr, "", "Git hook must not leak stderr into Pi's terminal");
+  }
+} finally {
+  rmSync(hookWorkspace, { recursive: true, force: true });
+}
 
 const packageManifest = JSON.parse(
   readFileSync(new URL("../package.json", import.meta.url), "utf8"),
