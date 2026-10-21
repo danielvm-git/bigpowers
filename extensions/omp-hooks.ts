@@ -7,7 +7,7 @@ import type { ExtensionAPI } from "@earendil-works/pi-coding-agent";
 import { Type } from "typebox";
 import { execSync } from "node:child_process";
 import { readdirSync, readFileSync, statSync } from "node:fs";
-import { dirname, join } from "node:path";
+import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 // ---------------------------------------------------------------------------
@@ -157,11 +157,43 @@ function pluginRoot(): string {
 // Git safety helpers
 // ---------------------------------------------------------------------------
 
-function currentBranch(): string {
+// Command-aware branch resolution: `git commit|push` in a bash command must
+// be judged against the repo it will actually run in, not the agent process
+// cwd (which is the session root — often a different repository).
+// Resolve the directory: the last `cd <path>` before it (within the command
+// prefix), overridden by the last `git -C <path>` anywhere in the command.
+// Fail-closed: unresolvable paths fall back to the process cwd — previous
+// behavior, over-blocks, never under-blocks.
+function commandGitCwd(command: string, upTo: number, fallback: string): string {
+  const head = command.slice(0, upTo);
+  const cdMatches = [
+    ...head.matchAll(/\bcd\s+(?:"([^"]+)"|'([^']+)'|([^&|;<(`$][^\s&|;<>]*))/g),
+  ];
+  const cMatches = [
+    ...command.matchAll(/\bgit\s+-C\s+(?:"([^"]+)"|'([^']+)'|([^&|;<(`$][^\s&|;<>]*))/g),
+  ];
+  const m = cMatches.length
+    ? cMatches[cMatches.length - 1]
+    : cdMatches.length
+      ? cdMatches[cdMatches.length - 1]
+      : null;
+  if (!m) return fallback;
+  const p = m[1] ?? m[2] ?? m[3];
+  if (!p || p.includes("$") || p.includes("`")) return fallback;
+  try {
+    const abs = resolve(fallback, p);
+    return statSync(abs).isDirectory() ? abs : fallback;
+  } catch {
+    return fallback;
+  }
+}
+
+function currentBranch(cwd: string): string {
   try {
     return execSync("git rev-parse --abbrev-ref HEAD", {
       encoding: "utf-8",
       timeout: 3000,
+      cwd,
     }).trim();
   } catch {
     return "unknown";
@@ -367,9 +399,10 @@ export default function bigpowers(pi: ExtensionAPI) {
       }
     }
 
-    const branch = currentBranch();
+    const sessionRoot = process.cwd();
+    const pushBranch = currentBranch(commandGitCwd(command, command.length, sessionRoot));
 
-    if (/git\s+push/.test(command) && protectedPushTarget(command, branch)) {
+    if (/git\s+push/.test(command) && protectedPushTarget(command, pushBranch)) {
       return {
         block: true,
         reason:
@@ -378,10 +411,16 @@ export default function bigpowers(pi: ExtensionAPI) {
     }
 
     if (/git\s+commit/.test(command)) {
-      if ((PROTECTED_BRANCHES as readonly string[]).includes(branch)) {
+      const commitBranches = [...command.matchAll(/\bgit\s+commit\b/g)].map((m) =>
+        currentBranch(commandGitCwd(command, m.index ?? 0, sessionRoot)),
+      );
+      const hit = commitBranches.find((b) =>
+        (PROTECTED_BRANCHES as readonly string[]).includes(b),
+      );
+      if (hit) {
         return {
           block: true,
-          reason: `BLOCKED: Direct commits to '${branch}' are forbidden. Use a feature branch.`,
+          reason: `BLOCKED: Direct commits to '${hit}' are forbidden. Use a feature branch.`,
         };
       }
       const msg = extractCommitMessage(command);
