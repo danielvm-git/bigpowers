@@ -47,4 +47,11 @@ commit_message: "fix(ci): gate release on every check in one test-build-release 
 
 ## Results
 
-_Filled in by validate-fix._
+Local, on `fix/ci-single-pipeline` over 2.88.13 (`5b091bda`):
+
+- `test-ci-pipeline-contract.sh` before the fix: 33 violations (pipeline missing, 3 retired workflows present, `ubuntu-latest` and tag-pinned actions in every non-agent workflow). After: `OK`.
+- Self-test: conforming fixture passes; release missing `needs`, `ubuntu-latest`, tag-pinned action, cancellable release and a retired workflow each fail (bash 5 and macOS `/bin/bash` 3.2).
+- `actionlint` clean on all changed workflows. Action SHAs resolved from each tag via the GitHub API and match the template's version list.
+- Preflight: compliance exit 0 (96 PASS / 2 FAIL, same as main), golden 46/46 PASS, sync-skills exit 0, trace `--strict` exit 0.
+
+_CI evidence (PR run, then main run with release waiting on all gates) recorded below after merge._
