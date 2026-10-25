@@ -4,8 +4,10 @@
 // Reads at build time; every section degrades to "not yet measured" for absent sources.
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 
-const REPO_ROOT = new URL('../..', import.meta.url).pathname;
-const receiptsPath = new URL('../../specs/receipts.json', import.meta.url).pathname;
+import path from 'node:path';
+
+const REPO_ROOT = path.resolve(process.cwd(), '..');
+const receiptsPath = path.join(REPO_ROOT, 'specs', 'receipts.json');
 
 let receipts: Record<string, any> = {};
 let parseError: string | null = null;
