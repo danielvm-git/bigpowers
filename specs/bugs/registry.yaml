@@ -541,7 +541,7 @@ bugs:
     risk_level: low
     commit_message: "fix(ci): cut golden suite critical path by removing duplicate gate work"
   - id: BUG-2026-10-25-release-not-gated
-    status: open
+    status: fixed
     severity: high
     scope: ci / release
     title: "Release publishes without waiting for the golden suite or sync gates — three workflows, no needs: edge"

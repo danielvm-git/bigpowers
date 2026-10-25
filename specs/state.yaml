@@ -1,21 +1,15 @@
-active_flow: fix_bug
+active_flow: null
 active_epic: null
 active_story: null
-bug_id: BUG-2026-10-25-release-not-gated
+bug_id: null
 bigpowers_version: 2.88.14
-bug_cycle:
-  current_step: 5
-  completed_steps:
-  - 1
-  - 2
-  - 3
-  - 4
+bug_cycle: null
 handoff:
-  next_skill: release-branch
-  context: 'BUG-2026-10-25-ci-critical-path RESOLVED — PR #161. Golden Suite 7m24s -> 1m25s (run 40192307998):
-    story-verify gate skipped in CI (runs in its own job), identical story verifies run once, G-13 single-pass
-    scan, failing gates print output, workflow timeouts and non-cancelling release/pages. Follow-up: consolidate
-    into one test-build-release pipeline.'
+  next_skill: null
+  context: 'BUG-2026-10-25-release-not-gated RESOLVED — PR #162 (14250d84). One test-build-release pipeline: sync,
+    verification-gates, skill-verify, story-verify -> release (needs: all four, push to main only). First main run
+    40195964858: release started 13:06:05, 3s after the last gate, and published 2.88.14. Follows #161 (Golden
+    Suite 7m24s -> ~1.5-2m). Pages deploy (docs-site.yml) is still its own workflow, not gated on the pipeline.'
   epic: null
 epic_cycle: null
 metrics:

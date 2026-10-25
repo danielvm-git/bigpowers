@@ -1,6 +1,6 @@
 ---
 bug_id: BUG-2026-10-25-release-not-gated
-status: open
+status: fixed
 severity: high
 scope: ci / release
 title: "Release publishes without waiting for the golden suite or sync gates — three workflows, no needs: edge"
@@ -54,4 +54,18 @@ Local, on `fix/ci-single-pipeline` over 2.88.13 (`5b091bda`):
 - `actionlint` clean on all changed workflows. Action SHAs resolved from each tag via the GitHub API and match the template's version list.
 - Preflight: compliance exit 0 (96 PASS / 2 FAIL, same as main), golden 46/46 PASS, sync-skills exit 0, trace `--strict` exit 0.
 
-_CI evidence (PR run, then main run with release waiting on all gates) recorded below after merge._
+### CI measured
+
+**PR #162** (head `20eaa8d1`): `verification-gates` 2m28s, `sync` 1m3s, `story-verify` 41s, `skill-verify` 19s — all pass; `release` skipped (pull_request).
+
+**main** — squash `14250d84`, [Test Build Release run 40195964858](https://github.com/danielvm-git/bigpowers/actions/runs/40195964858), 2m53s total:
+
+| Job | Start (UTC) | End (UTC) |
+|---|---|---|
+| `skill-verify` | 13:04:40 | 13:04:59 |
+| `story-verify` | 13:04:40 | 13:05:34 |
+| `verification-gates` | 13:04:40 | 13:05:54 |
+| `sync` | 13:04:40 | 13:06:02 |
+| **`release`** | **13:06:05** | 13:07:30 |
+
+`release` started 3s after the last gate job (`sync`) finished — the `needs:` edge holds. It published `bigpowers@2.88.14` to npm `latest` (13:07:22) and [GitHub release v2.88.14](https://github.com/danielvm-git/bigpowers/releases/tag/v2.88.14) (13:07:23); release commit `e03987fa`. The retired Release, Golden Anti-Vacuity Suite and Sync Skills on Push workflows did not run; Deploy Docs and Publish to Wiki ran on their own and passed.
