@@ -4,10 +4,10 @@ description: Benchmark-gated skill evolution — consume bigpowers-benchmark rep
 model: opus
 effort: standard
 ---
-# story: e23s03
+<!-- story: e23s03 -->
 
-# story: e09s01
-# story: e09s05
+<!-- story: e09s01 -->
+<!-- story: e09s05 -->
 
 # Evolve Skill
 

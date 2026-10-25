@@ -142,6 +142,10 @@ function bridgeHermesConfig(configPath) {
   if (fs.existsSync(configPath)) {
     const existing = fs.readFileSync(configPath, 'utf8');
     if (/^instructions:/m.test(existing)) return;
+    fs.copyFileSync(configPath, configPath + '.bak');
+    fs.appendFileSync(configPath, 'instructions: AGENTS.md\n');
+    console.log(`install: appended instructions to ${configPath} (existing content preserved; backup at ${configPath}.bak)`);
+    return;
   }
   fs.writeFileSync(configPath, 'instructions: AGENTS.md\n');
 }

@@ -5,8 +5,8 @@ model: haiku
 effort: standard
 ---
 
-# story: e09s01
-# story: e21s01
+<!-- story: e09s01 -->
+<!-- story: e21s01 -->
 
 # Search Skills
 

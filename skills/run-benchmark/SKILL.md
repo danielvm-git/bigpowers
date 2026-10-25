@@ -1,10 +1,10 @@
 ---
 name: run-benchmark
-# story: e45s01
+<!-- story: e45s01 -->
 model: haiku
 effort: standard
 description: Run skill quality benchmarks from specs/benchmarks/ definitions — N-run with/without-skill delta grading, train/validation split, pass@k + benchmark.json reports. Use before and after evolve-skill to prove quality changes are improvements, not regressions.
-# story: e23s02
+<!-- story: e23s02 -->
 ---
 
 # Run Benchmark

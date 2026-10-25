@@ -1,13 +1,13 @@
 ---
 name: stocktake-skills
-# story: e18s05
+<!-- story: e18s05 -->
 description: Sequential subagent batch audit of the bigpowers skill catalog — Quick Scan (changed only) or Full (all skills). Use during sustain phase, before a major release, or when catalog drift is suspected.
-# story: e22s02
+<!-- story: e22s02 -->
 model: sonnet
 effort: standard
 ---
 
-# story: e09s01
+<!-- story: e09s01 -->
 <!-- story: e45s12 -->
 <!-- story: e79s04 -->
 

@@ -5,7 +5,7 @@ effort: standard
 description: Track implementation decisions and progress in specs/state.yaml to prevent context rot. Use at the start of a session to load context, and whenever a significant decision is made or a milestone is reached.
 ---
 
-# story: e45s23
+<!-- story: e45s23 -->
 
 # Session State
 > **HARD GATE** — **HARD GATE** — Session state must be synchronized with git state. If state.yaml conflicts with the working tree, halt and ask for clarification. Do NOT assume state is correct.

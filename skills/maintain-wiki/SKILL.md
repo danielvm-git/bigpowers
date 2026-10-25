@@ -3,7 +3,7 @@ name: maintain-wiki
 model: haiku
 effort: light
 description: "Agent-maintained OKF wiki — INGEST source docs, LINT for issues, QUERY across concept pages. Run as part of build-epic Step 8 and verify-work Phase 3."
-# story: e39s07
+<!-- story: e39s07 -->
 ---
 
 # Maintain Wiki

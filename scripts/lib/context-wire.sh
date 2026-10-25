@@ -34,7 +34,13 @@ wire_config_bridge() {
   if [[ -f "$bridge_file" ]] && grep -q "^${bridge_key}:" "$bridge_file" 2>/dev/null; then
     return 0
   fi
-  printf '%s: %s\n' "$bridge_key" "$agents_path" > "$bridge_file"
+  if [[ -f "$bridge_file" ]]; then
+    cp "$bridge_file" "${bridge_file}.bak"
+    printf '%s: %s\n' "$bridge_key" "$agents_path" >> "$bridge_file"
+    echo "install: appended ${bridge_key} to ${bridge_file} (existing content preserved; backup at ${bridge_file}.bak)"
+  else
+    printf '%s: %s\n' "$bridge_key" "$agents_path" > "$bridge_file"
+  fi
 }
 
 wire_context_mode() {

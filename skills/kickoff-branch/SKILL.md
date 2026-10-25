@@ -5,9 +5,9 @@ effort: standard
 description: Create an isolated Git worktree/branch or Jujutsu workspace, then verify a clean test baseline before code. Use when starting a feature or task.
 ---
 
-# story: e51s03
-# story: e20s03
-# story: e82s02
+<!-- story: e51s03 -->
+<!-- story: e20s03 -->
+<!-- story: e82s02 -->
 
 
 # Kickoff Branch

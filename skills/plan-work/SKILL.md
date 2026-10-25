@@ -1,16 +1,16 @@
 ---
-# story: e45s04
-# story: e45s06
-# story: e45s09
-# story: e45s33
-# story: e45s35
+<!-- story: e45s04 -->
+<!-- story: e45s06 -->
+<!-- story: e45s09 -->
+<!-- story: e45s33 -->
+<!-- story: e45s35 -->
 name: plan-work
 model: opus
 effort: standard
 description: "PLANNING SPINE STEP 3 of 3 — Plan the work: write detailed implementation tasks into the active epic capsule (specs/epics/eNN-slug/). Produces countable-story-format .md specs and runnable -tasks.yaml files. Use after slice-tasks (step 2). Not a substitute for scope-work (step 1) or slice-tasks (step 2)."
 ---
 
-# story: e45s29
+<!-- story: e45s29 -->
 
 # Plan Work
 

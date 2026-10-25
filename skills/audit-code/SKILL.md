@@ -1,7 +1,7 @@
 ---
-# story: e51s04
-# story: e45s18
-# story: e45s31
+<!-- story: e51s04 -->
+<!-- story: e45s18 -->
+<!-- story: e45s31 -->
 name: audit-code
 model: haiku
 effort: standard
@@ -11,6 +11,16 @@ description: Self-review checklist for the coding agent to run before dispatchin
 # Audit Code
 > **HARD GATE** — **HARD GATE** — Audit must check for: bugs (correctness), security, performance, and clarity. Do NOT skip security review if the code touches user data, auth, or external APIs.
 
+## Target (argument)
+
+If an argument was passed after `/audit` (e.g. `/audit abc1234` or `/audit HEAD~3..HEAD`), use it as the diff target:
+
+```bash
+git diff <arg>        # range or two-ref form: abc..def, HEAD~3..HEAD
+git show <arg>        # single commit: abc1234
+```
+
+If no argument was given, review uncommitted working-tree changes (`git diff` + `git diff --staged`).
 
 Run this self-review before asking anyone else to look at the code. The goal is to catch everything that is clearly wrong or missing — so the reviewer can focus on design and architecture, not hygiene.
 

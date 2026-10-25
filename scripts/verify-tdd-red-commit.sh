@@ -6,7 +6,9 @@
 #   TDD_VERIFY_CMD='npm test' bash scripts/verify-tdd-red-commit.sh
 set -euo pipefail
 
-REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+REPO_ROOT="$(git -C "$PWD" rev-parse --show-toplevel 2>/dev/null)" || {
+  echo "verify-tdd-red-commit: not in a git repository" >&2; exit 1
+}
 cd "$REPO_ROOT"
 
 self_test() {
