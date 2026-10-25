@@ -38,7 +38,7 @@ on:
 jobs:
   verification-gates:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 15
     permissions:
       contents: read
 
@@ -49,6 +49,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
+          cache: npm
 
       - name: Install Python deps
         run: python3 -m pip install --user -r requirements.txt
@@ -60,12 +61,18 @@ jobs:
       - name: Install Node deps
         run: npm ci
 
+      # story-verify runs in the story-verify job below; running it here too
+      # doubled the critical path (BUG-2026-10-25-ci-critical-path). Its
+      # self-test still runs here. Local Preflight runs every gate.
       - name: Run verification gates (G-08/G-10 anti-vacuity)
+        env:
+          GOLDEN_SKIP_GATES: story-verify
+          GOLDEN_SKIP_REASON: runs in the story-verify job of this workflow
         run: bash scripts/run-verification-gates.sh
 
   skill-verify:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 10
     permissions:
       contents: read
     # Blocking as of #96 landing on main (was advisory during the parallel
@@ -97,7 +104,7 @@ jobs:
   # distinguishable from a skill-gate failure at a glance in the checks list.
   story-verify:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 10
     permissions:
       contents: read
     steps:
@@ -107,6 +114,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
+          cache: npm
 
       - name: Install Python deps
         run: python3 -m pip install --user -r requirements.txt

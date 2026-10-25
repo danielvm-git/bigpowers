@@ -3,7 +3,8 @@ name: Deploy Docs (GitHub Pages)
 
 concurrency:
   group: pages
-  cancel-in-progress: true
+  # Queue, don't interrupt a live Pages deploy (portfolio rule 4).
+  cancel-in-progress: false
 
 on:
   push:
@@ -28,6 +29,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
 
@@ -64,6 +66,7 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     environment:
       name: github-pages
       url: ${{ steps.deploy_attempt_1.outputs.page_url || steps.deploy_attempt_2.outputs.page_url || steps.deploy_attempt_3.outputs.page_url || 'https://danielvm-git.github.io/bigpowers/' }}

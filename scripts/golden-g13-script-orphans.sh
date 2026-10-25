@@ -53,12 +53,14 @@ is_manual_utility() { # $1 = script path
 }
 
 is_referenced() { # $1 = script basename, $2... = candidate file globs already expanded
+  # One grep over all candidate files per script, not one per (script, file)
+  # pair — the per-file loop forked ~100×N greps and took ~1 min in CI.
   local name="$1"; shift
   local f
-  for f in "$@"; do
-    [[ "$f" == *"/$name" || "$(basename "$f")" == "$name" ]] && continue # self
-    grep -q "$name" "$f" 2>/dev/null && return 0
-  done
+  while IFS= read -r f; do
+    [[ "$f" == *"/$name" || "${f##*/}" == "$name" ]] && continue # self
+    return 0
+  done < <(grep -lF -- "$name" "$@" 2>/dev/null)
   return 1
 }
 
@@ -161,7 +163,7 @@ if [[ -z "$ORPHANS" ]]; then
 fi
 
 echo "  orphaned scripts (present but reachable from no gate, doc, or workflow):"
-printf '%s' "$ORPHANS"
+printf '%s\n' "$ORPHANS"
 echo -e "${RED}FAIL${NC} wire them into a gate, reference them from a skill/doc, tag them '# bp-manual-utility: <reason>', or delete them"
 echo "G-13: FAIL"
 exit 1

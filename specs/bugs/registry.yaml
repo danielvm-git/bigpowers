@@ -530,3 +530,13 @@ bugs:
     approach: "Keep Pi prompt templates as the canonical slash-command provider and remove redundant extension command registration"
     risk_level: low
     commit_message: "fix(pi): prevent duplicate Bigpowers slash commands"
+  - id: BUG-2026-10-25-ci-critical-path
+    status: fixed
+    severity: medium
+    scope: ci / golden suite
+    title: "CI critical path ~7.5 min — story-verify runs twice, repeated verify commands, quadratic G-13 scan"
+    file: bugs/BUG-2026-10-25-ci-critical-path.md
+    files_changed: "scripts/run-story-verify.sh, scripts/golden-g13-script-orphans.sh, scripts/lib/golden-suite-gates.sh, .github/workflows/*.yml"
+    approach: "Remove duplicate gate work without dropping coverage; align timeouts and release/pages concurrency with portfolio template"
+    risk_level: low
+    commit_message: "fix(ci): cut golden suite critical path by removing duplicate gate work"

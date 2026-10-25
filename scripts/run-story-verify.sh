@@ -41,7 +41,7 @@ PASS=0; FAIL=0; SKIP=0
 TARGET="${1:-}"
 
 extract_records() {
-  "$PYTHON" "$REPO_ROOT/scripts/lib/extract-story-verify.py" "$REPO_ROOT"
+  "$PYTHON" "$REPO_ROOT/scripts/lib/extract-story-verify.py" "${EXTRACT_ROOT:-$REPO_ROOT}"
 }
 
 # Report a story whose directive can never fail. Kept separate from execution so
@@ -58,6 +58,55 @@ reject_non_executable() {
   FAIL=$((FAIL + 1))
 }
 
+# Many stories share one verify (e61s02…e76s02 all run the same installer
+# test); same command at the same commit gives the same result, so run it once
+# per gate_all and reuse the verdict for every story that declares it.
+# Sets RUN_RC, RUN_OUT, and RUN_REUSED (1 when nothing new ran).
+run_memoized() {
+  local cmd="$1" key
+  key=$(printf '%s' "$cmd" | cksum | tr -d ' ')
+  if [ -n "${MEMO_DIR:-}" ] && [ -f "$MEMO_DIR/$key.rc" ]; then
+    RUN_RC=$(cat "$MEMO_DIR/$key.rc")
+    RUN_OUT=$(cat "$MEMO_DIR/$key.out")
+    return 0
+  fi
+  RUN_REUSED=0
+  RUN_OUT=$(run_with_timeout "$cmd") && RUN_RC=0 || RUN_RC=$?
+  if [ -n "${MEMO_DIR:-}" ]; then
+    printf '%s' "$RUN_RC" > "$MEMO_DIR/$key.rc"
+    printf '%s' "$RUN_OUT" > "$MEMO_DIR/$key.out"
+  fi
+}
+
+# A plain `a && b && c` chain shares no shell state between segments when it
+# has no quoting, expansion, grouping, pipes, `;`, cd, export or assignment —
+# so each segment can be cached on its own (test-adapter-render.sh prefixes ten
+# different story verifies). Anything else is cached as one whole command.
+is_plain_and_chain() {
+  case "$1" in
+    *\'*|*\"*|*\$*|*\`*|*\(*|*\)*|*\{*|*\}*|*\|*|*\;*|*=*|*\<*) return 1 ;;
+  esac
+  printf '%s' "$1" | grep -qE '(^|&&)[[:space:]]*(cd|export|source|\.)[[:space:]]' && return 1
+  return 0
+}
+
+run_verify_cmd() {
+  local cmd="$1" seg
+  RUN_REUSED=1
+  if ! is_plain_and_chain "$cmd"; then
+    run_memoized "$cmd"
+    return
+  fi
+  local rest="$cmd"
+  while :; do
+    seg=${rest%%&&*}
+    run_memoized "$(printf '%s' "$seg" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')"
+    [ "$RUN_RC" -eq 0 ] || return
+    [ "$seg" = "$rest" ] && return
+    rest=${rest#*&&}
+  done
+}
+
 run_story_verify() {
   local sid="$1" src="$2" cmd="$3"
 
@@ -70,20 +119,23 @@ run_story_verify() {
     return 1
   fi
 
-  local output
-  if output=$(run_with_timeout "$cmd"); then
-    echo "PASS: $sid"
+  run_verify_cmd "$cmd"
+  local note=""
+  [ "$RUN_REUSED" -eq 1 ] && note=" (shared result)"
+  if [ "$RUN_RC" -eq 0 ]; then
+    echo "PASS: $sid$note"
     PASS=$((PASS + 1))
     return 0
   fi
-  echo "FAIL: $sid [$src] — $cmd"
-  echo "      output: $(echo "$output" | tail -3 | tr '\n' ' ')"
+  echo "FAIL: $sid [$src]$note — $cmd"
+  echo "      output: $(echo "$RUN_OUT" | tail -3 | tr '\n' ' ')"
   FAIL=$((FAIL + 1))
   return 1
 }
 
 gate_all() {
   local sid src status cmd
+  MEMO_DIR=$(mktemp -d)
   while IFS=$'\t' read -r sid src status cmd; do
     [ -z "${sid:-}" ] && continue
     if [ -n "$TARGET" ] && [ "$sid" != "$TARGET" ]; then
@@ -96,6 +148,58 @@ gate_all() {
     fi
     run_story_verify "$sid" "$src" "$cmd" || true
   done < <(extract_records)
+  rm -rf "$MEMO_DIR"
+  MEMO_DIR=""
+}
+
+# Shared-command proof: stories that declare the same verify run it once, yet
+# each story still gets its own verdict — a failing shared command fails every
+# story that declares it, never just the first.
+self_test_shared_commands() {
+  local root="$1/shared" out runs
+  mkdir -p "$root/specs/epics/e98-shared"
+  cat > "$root/specs/epics/e98-shared/epic.yaml" <<YAML
+id: e98
+title: shared-command capsule
+stories:
+  - id: e98s01
+    status: done
+    verify: printf x >> $root/ok-runs && test -d $root/specs
+  - id: e98s02
+    status: done
+    verify: printf x >> $root/ok-runs && test -d $root/specs
+  - id: e98s03
+    status: done
+    verify: printf x >> $root/bad-runs && test -f $root/missing
+  - id: e98s04
+    status: done
+    verify: printf x >> $root/bad-runs && test -f $root/missing
+  - id: e98s05
+    status: done
+    verify: printf x >> $root/seg-runs && test -d $root/specs
+  - id: e98s06
+    status: done
+    verify: printf x >> $root/seg-runs && test -d $root/specs/epics
+  - id: e98s07
+    status: done
+    verify: printf x >> $root/seg-runs && test -f $root/missing
+YAML
+  out=$(EXTRACT_ROOT="$root" TARGET="" PASS=0 FAIL=0 SKIP=0 gate_all)
+  local problems=0
+  runs=$(wc -c < "$root/ok-runs" | tr -d ' ')
+  [ "$runs" = "1" ] || { echo "FAIL: self-test — shared passing command ran $runs times, want 1"; problems=$((problems + 1)); }
+  runs=$(wc -c < "$root/bad-runs" | tr -d ' ')
+  [ "$runs" = "1" ] || { echo "FAIL: self-test — shared failing command ran $runs times, want 1"; problems=$((problems + 1)); }
+  runs=$(wc -c < "$root/seg-runs" | tr -d ' ')
+  [ "$runs" = "1" ] || { echo "FAIL: self-test — shared && segment ran $runs times, want 1"; problems=$((problems + 1)); }
+  local sid
+  for sid in e98s01 e98s02 e98s05 e98s06; do
+    echo "$out" | grep -q "^PASS: $sid" || { echo "FAIL: self-test — $sid not reported PASS"; problems=$((problems + 1)); }
+  done
+  for sid in e98s03 e98s04 e98s07; do
+    echo "$out" | grep -q "^FAIL: $sid" || { echo "FAIL: self-test — $sid not reported FAIL"; problems=$((problems + 1)); }
+  done
+  [ "$problems" -eq 0 ]
 }
 
 # Anti-vacuity proof: seed a capsule whose done story must fail, and one that
@@ -177,6 +281,8 @@ EOF
 
   rm -rf "$tmp_root"
   trap - EXIT
+
+  self_test_shared_commands "$tmp_root" || problems=$((problems + 1))
 
   if [ "$checked" -lt 5 ]; then
     echo "FAIL: self-test — extractor found $checked/5 fixture stories"

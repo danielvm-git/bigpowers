@@ -1,11 +1,13 @@
-active_flow: null
+active_flow: fix_bug
 active_epic: null
 active_story: null
-bug_id: null
+bug_id: BUG-2026-10-25-ci-critical-path
 bigpowers_version: 2.88.12
-bug_cycle: null
+bug_cycle:
+  current_step: 5
+  completed_steps: [1, 2, 3, 4]
 handoff:
-  next_skill: null
+  next_skill: release-branch
   context: 'BUG-2026-09-05-golden-gate-missing-node-deps RESOLVED — merged 9a457e62 (PR #120). Golden
     suite verification-gates 40/40 on the PR (run 34001321546) and on the push-triggered main run 34005859408
     (success) — the omp-extension gate now runs after npm ci and resolves typebox. Preflight fully green

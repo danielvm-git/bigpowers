@@ -72,6 +72,8 @@ GOLDEN_GATES=(
   "import-boundaries:bash scripts/check-import-boundaries.sh:false"
   "skill-catalog:bash scripts/validate-skill-catalog.sh:false"
   "specs-parse:bash scripts/validate-specs-yaml.sh:false"
+  # The runner itself: failing output is shown, skips are named and reasoned.
+  "golden-gate-runner:bash scripts/test-golden-gate-runner.sh:false"
   # Tier 2 of the verify arc (#106): executes the verify: of every story marked
   # done. Tier 1 (SKILL.md) is run-skill-verify.sh in golden-suite.yml.
   "story-verify-selftest:bash scripts/run-story-verify.sh --self-test:false"
@@ -120,14 +122,47 @@ golden_agent_dry_run() {
   return 0
 }
 
+# GOLDEN_SKIP_GATES (comma list) skips gates another CI job already runs —
+# golden-suite.yml skips story-verify because its story-verify job runs the
+# same command. Local Preflight leaves it unset, so every gate runs there. A
+# name that matches no gate is a FAIL: a typo must not look like a skip.
+golden_is_skipped() { # $1 = gate name
+  case ",${GOLDEN_SKIP_GATES:-}," in *",$1,"*) return 0 ;; esac
+  return 1
+}
+
+golden_check_skip_names() {
+  local skip gate known
+  for skip in $(printf '%s' "${GOLDEN_SKIP_GATES:-}" | tr ',' ' '); do
+    [[ -z "$skip" ]] && continue
+    known=false
+    for gate in "${GOLDEN_GATES[@]}"; do
+      [[ "${gate%%:*}" == "$skip" ]] && known=true
+    done
+    $known && continue
+    echo -e "[$skip] ${GOLDEN_RED}FAIL${GOLDEN_NC} (GOLDEN_SKIP_GATES names no such gate)"
+    GATE_RESULTS+=("  - name: $skip" "    exit_code: 2" "    duration_seconds: 0" "    status: fail" "    error: unknown gate in GOLDEN_SKIP_GATES")
+    (( FAIL_COUNT += 1 ))
+  done
+}
+
 golden_run_deterministic_gates() {
-  local gate name cmd is_optional main_cmd script_path
+  local gate name cmd is_optional main_cmd script_path gate_out
   PASS_COUNT=0 FAIL_COUNT=0 SKIP_COUNT=0
   GATE_RESULTS=()
+  golden_check_skip_names
 
   for gate in "${GOLDEN_GATES[@]}"; do
     IFS=':' read -r name cmd is_optional <<< "$gate"
     echo -n "[$name] "
+
+    if golden_is_skipped "$name"; then
+      local reason="${GOLDEN_SKIP_REASON:-listed in GOLDEN_SKIP_GATES}"
+      echo -e "${GOLDEN_YELLOW}SKIP${GOLDEN_NC} ($reason)"
+      GATE_RESULTS+=("  - name: $name" "    exit_code: skipped" "    duration_seconds: 0" "    status: skipped" "    note: $reason")
+      (( SKIP_COUNT += 1 ))
+      continue
+    fi
 
     main_cmd=$(echo "$cmd" | awk '{print $1}')
     if [[ "$main_cmd" == "bash" ]]; then
@@ -148,7 +183,7 @@ golden_run_deterministic_gates() {
 
     local START_TIME END_TIME DURATION_MS DURATION_SEC GATE_EXIT
     START_TIME=$(date +%s%N)
-    eval "$cmd" >/dev/null 2>&1 && GATE_EXIT=$? || GATE_EXIT=$?
+    gate_out=$(eval "$cmd" 2>&1) && GATE_EXIT=$? || GATE_EXIT=$?
     END_TIME=$(date +%s%N)
     DURATION_MS=$(( (END_TIME - START_TIME) / 1000000 ))
     DURATION_SEC=$(echo "scale=2; $DURATION_MS / 1000" | bc 2>/dev/null || echo "0")
@@ -159,6 +194,8 @@ golden_run_deterministic_gates() {
       (( PASS_COUNT += 1 ))
     else
       echo -e "${GOLDEN_RED}FAIL${GOLDEN_NC} (${DURATION_SEC}s, exit $GATE_EXIT)"
+      # Without the tail, CI shows FAIL with no reason (#158: compliance).
+      printf '%s\n' "$gate_out" | tail -20 | sed 's/^/    | /'
       GATE_RESULTS+=("  - name: $name" "    exit_code: $GATE_EXIT" "    duration_seconds: $DURATION_SEC" "    status: fail")
       (( FAIL_COUNT += 1 ))
     fi
