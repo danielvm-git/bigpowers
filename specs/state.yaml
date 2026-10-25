@@ -1,11 +1,13 @@
-active_flow: null
+active_flow: fix_bug
 active_epic: null
 active_story: null
-bug_id: null
+bug_id: BUG-2026-10-25-pages-not-gated
 bigpowers_version: 2.88.14
-bug_cycle: null
+bug_cycle:
+  current_step: 5
+  completed_steps: [1, 2, 3, 4]
 handoff:
-  next_skill: null
+  next_skill: release-branch
   context: 'BUG-2026-10-25-release-not-gated RESOLVED — PR #162 (14250d84). One test-build-release pipeline: sync,
     verification-gates, skill-verify, story-verify -> release (needs: all four, push to main only). First main run
     40195964858: release started 13:06:05, 3s after the last gate, and published 2.88.14. Follows #161 (Golden

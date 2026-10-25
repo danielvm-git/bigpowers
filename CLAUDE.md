@@ -68,7 +68,7 @@ Stack: Markdown / Bash (documentation-based; skills integrate with Claude Code, 
 | Lint    | `bash scripts/sync-skills.sh` (validates SKILL.md syntax) |
 | Validate specs YAML | `bash scripts/validate-specs-yaml.sh` |
 | Typecheck | N/A (Markdown / Bash project) |
-| CI platform | GitHub Actions — one pipeline `.github/workflows/test-build-release.yml` (sync, verification-gates, skill-verify, story-verify → release); plus `docs-site.yml`, `publish-wiki.yml` |
+| CI platform | GitHub Actions — one pipeline `.github/workflows/test-build-release.yml` (sync, verification-gates, skill-verify, story-verify → release, and → pages-build → pages-deploy when docs paths change); plus `publish-wiki.yml` |
 | Compliance | `npm run compliance` |
 | Verification Gates | `bash scripts/run-verification-gates.sh` |
 | Traceability | `bash scripts/trace-stories.sh --strict` | grep for story tags (traceability check) |

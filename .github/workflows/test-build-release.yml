@@ -1,8 +1,9 @@
-# story: e38s03 e51s04 BUG-2026-10-25-release-not-gated
+# story: e38s03 e51s04 e33s04 BUG-2026-10-25-release-not-gated BUG-2026-10-25-pages-not-gated
 # One pipeline per repo (danielvm-git/.github template): every gate job runs in
-# parallel, and release needs: all of them. Replaces publish.yml (Release),
-# sync-skills.yml and golden-suite.yml, which ran side by side with no edge —
-# Release could publish while a gate was red or still running.
+# parallel, and release and the Pages deploy need: all of them. Replaces
+# publish.yml (Release), sync-skills.yml, golden-suite.yml and docs-site.yml,
+# which ran side by side with no edge — Release or Pages could publish while a
+# gate was red or still running.
 # Contract asserted by scripts/test-ci-pipeline-contract.sh (golden gate).
 name: Test Build Release
 
@@ -196,3 +197,128 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  # Pages build used to be docs-site.yml, a workflow of its own with a paths
+  # trigger. Here it waits for every gate; the filter keeps the old paths so a
+  # push that touches no docs input skips the build and deploy.
+  pages-build:
+    needs: [sync, verification-gates, skill-verify, story-verify]
+    if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-22.04
+    timeout-minutes: 15
+    outputs:
+      deploy: ${{ steps.decide.outputs.deploy }}
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0  # v7.0.0
+
+      - name: Detect docs changes
+        id: filter
+        if: github.event_name == 'push'
+        uses: dorny/paths-filter@ceb8a2b8f2d89434be7ff52d3de7ec3738c5cc9d  # v4.0.3
+        with:
+          # Same branch as the push: compare against the commit before the push.
+          base: ${{ github.ref }}
+          filters: |
+            docs:
+              - 'skills/*/SKILL.md'
+              - 'docs/**'
+              - 'specs/adr/**'
+              - 'website/**'
+              - 'README.md'
+              - 'SKILL-INDEX.md'
+              - '.github/workflows/test-build-release.yml'
+              - 'scripts/build-receipts.sh'
+              - 'specs/receipts.json'
+
+      # A manual dispatch on main always redeploys.
+      - name: Decide whether to deploy
+        id: decide
+        run: echo "deploy=${{ github.event_name == 'workflow_dispatch' || steps.filter.outputs.docs == 'true' }}" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e  # v6.4.0
+        if: steps.decide.outputs.deploy == 'true'
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: website/package-lock.json
+
+      - name: Generate receipts
+        if: steps.decide.outputs.deploy == 'true'
+        run: bash scripts/build-receipts.sh
+
+      - name: Verify receipts.json
+        if: steps.decide.outputs.deploy == 'true'
+        run: |
+          if [ ! -f specs/receipts.json ]; then
+            echo "ERROR: receipts.json not generated"; exit 1
+          fi
+          python3 -c "import json; json.load(open('specs/receipts.json')); print('receipts.json: valid JSON')"
+
+      - name: Build docs site
+        if: steps.decide.outputs.deploy == 'true'
+        run: |
+          cd website
+          npm ci
+          npm run build
+
+      - uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d  # v6.0.0
+        if: steps.decide.outputs.deploy == 'true'
+        with:
+          enablement: true
+
+      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9  # v5.0.0
+        if: steps.decide.outputs.deploy == 'true'
+        with:
+          path: website/dist
+
+  pages-deploy:
+    needs: pages-build
+    if: needs.pages-build.outputs.deploy == 'true'
+    runs-on: ubuntu-22.04
+    timeout-minutes: 15
+    # Queue, don't interrupt a live Pages deploy (portfolio rule 4).
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy_attempt_1.outputs.page_url || steps.deploy_attempt_2.outputs.page_url || steps.deploy_attempt_3.outputs.page_url || 'https://danielvm-git.github.io/bigpowers/' }}
+    steps:
+      - name: Deploy to GitHub Pages (attempt 1)
+        id: deploy_attempt_1
+        uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128  # v5.0.0
+        continue-on-error: true
+
+      - name: Wait before deploy retry
+        if: steps.deploy_attempt_1.outcome == 'failure'
+        run: sleep 45
+
+      - name: Deploy to GitHub Pages (attempt 2)
+        id: deploy_attempt_2
+        if: steps.deploy_attempt_1.outcome == 'failure'
+        uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128  # v5.0.0
+        continue-on-error: true
+
+      - name: Wait before final deploy retry
+        if: steps.deploy_attempt_1.outcome == 'failure' && steps.deploy_attempt_2.outcome == 'failure'
+        run: sleep 45
+
+      - name: Deploy to GitHub Pages (attempt 3)
+        id: deploy_attempt_3
+        if: steps.deploy_attempt_1.outcome == 'failure' && steps.deploy_attempt_2.outcome == 'failure'
+        uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128  # v5.0.0
+        continue-on-error: true
+
+      - name: Verify deployment succeeded
+        run: |
+          if [ "${{ steps.deploy_attempt_1.outcome }}" = "success" ] || \
+             [ "${{ steps.deploy_attempt_2.outcome }}" = "success" ] || \
+             [ "${{ steps.deploy_attempt_3.outcome }}" = "success" ]; then
+            echo "GitHub Pages deployment succeeded"
+          else
+            echo "::error::GitHub Pages deployment failed after 3 attempts"
+            exit 1
+          fi
