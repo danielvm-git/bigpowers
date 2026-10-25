@@ -28,8 +28,10 @@ const DANGEROUS_PATTERNS = [
   /push\s+-f(?:\s|$)/,
 ];
 
+// Conventional Commits specifies `type(scope)!:`, but many repositories write
+// `type!(scope):`. Accept both; the leading type is what matters.
 const CONVENTIONAL_RE =
-  /^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\([^)]+\))?!?:\s.+/;
+  /^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)!?(?:\([^)]+\))?!?:\s.+/;
 
 const PROTECTED_BRANCH_RE = /(?:^|\s|[:])(?:main|master)(?:\s|$)/;
 const PROTECTED_BRANCHES = ["main", "master"] as const;
@@ -185,6 +187,20 @@ function commandGitCwd(command: string, upTo: number, fallback: string): string 
     return statSync(abs).isDirectory() ? abs : fallback;
   } catch {
     return fallback;
+  }
+}
+
+function inGitRepo(cwd?: string): boolean {
+  try {
+    execSync("git rev-parse --git-dir", {
+      cwd,
+      encoding: "utf-8",
+      timeout: 3000,
+      stdio: "ignore",
+    });
+    return true;
+  } catch {
+    return false;
   }
 }
 
@@ -400,6 +416,7 @@ export default function bigpowers(pi: ExtensionAPI) {
     }
 
     const sessionRoot = process.cwd();
+    if (!inGitRepo(sessionRoot)) return;
     const pushBranch = currentBranch(commandGitCwd(command, command.length, sessionRoot));
 
     if (/git\s+push/.test(command) && protectedPushTarget(command, pushBranch)) {
@@ -428,8 +445,7 @@ export default function bigpowers(pi: ExtensionAPI) {
         if (!CONVENTIONAL_RE.test(msg)) {
           return {
             block: true,
-            reason:
-              "BLOCKED: Commit message must follow Conventional Commits: <type>(<scope>): <subject>.",
+            reason: `BLOCKED: Commit subject '${msg.split("\n")[0]}' must follow Conventional Commits: <type>(<scope>): <subject>.`,
           };
         }
         if (msg.split("\n")[0].length > 72) {
