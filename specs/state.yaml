@@ -1,17 +1,15 @@
-active_flow: fix_bug
+active_flow: null
 active_epic: null
 active_story: null
-bug_id: BUG-2026-10-25-ci-critical-path
+bug_id: null
 bigpowers_version: 2.88.12
-bug_cycle:
-  current_step: 5
-  completed_steps: [1, 2, 3, 4]
+bug_cycle: null
 handoff:
-  next_skill: release-branch
-  context: 'BUG-2026-09-05-golden-gate-missing-node-deps RESOLVED — merged 9a457e62 (PR #120). Golden
-    suite verification-gates 40/40 on the PR (run 34001321546) and on the push-triggered main run 34005859408
-    (success) — the omp-extension gate now runs after npm ci and resolves typebox. Preflight fully green
-    locally before merge (compliance, gates, sync-skills, trace --strict).'
+  next_skill: null
+  context: 'BUG-2026-10-25-ci-critical-path RESOLVED — PR #161. Golden Suite 7m24s -> 1m25s (run
+    40192307998): story-verify gate skipped in CI (runs in its own job), identical story verifies run once,
+    G-13 single-pass scan, failing gates print output, workflow timeouts and non-cancelling release/pages.
+    Follow-up: consolidate into one test-build-release pipeline.'
   epic: null
 epic_cycle: null
 metrics:
