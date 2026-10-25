@@ -4,7 +4,7 @@ model: sonnet
 description: "Delegate one complex task to a single subagent, review its work in two stages before merging back. Sequential — one agent at a time, with oversight. Use when a task is complex and requires careful review before the result is accepted. Distinct from dispatch-agents (no parallelism here; reviewer sees full diff before proceeding)."
 ---
 
-# story: e45s30
+<!-- story: e45s30 -->
 
 # Delegate Task
 > **HARD GATE** — **HARD GATE** — Delegated work must have clear success criteria and verification commands. The delegate must be able to verify completion independently.

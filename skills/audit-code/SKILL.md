@@ -9,7 +9,7 @@ description: Self-review checklist for the coding agent to run before dispatchin
 ---
 
 # Audit Code
-> **HARD GATE** — **HARD GATE** — Audit must check for: bugs (correctness), security, performance, and clarity. Do NOT skip security review if the code touches user data, auth, or external APIs.
+> **HARD GATE** — Audit must check for: bugs (correctness), security, performance, and clarity. Do NOT skip security review if the code touches user data, auth, or external APIs.
 
 ## Target (argument)
 
@@ -46,7 +46,6 @@ Apply the full checklist to churn-ranked files in descending order. Files with z
 ```bash
 bash scripts/lib/parallel-review-worktrees.sh audit-code
 ```
-
 
 ## Checklist
 
@@ -145,7 +144,6 @@ In `--gate` mode, print one summary line per checklist section (`PASS Supply Cha
 
 Gate: READY -> next: commit-message
 Writes: state.yaml handoff.next_skill = commit-message
-
 
 <!-- story: e01s02 -->
 <!-- story: e06s03 -->

@@ -5,7 +5,7 @@ description: "Track implementation decisions and progress in specs/state.yaml to
 disable-model-invocation: true
 ---
 
-# story: e45s23
+<!-- story: e45s23 -->
 
 # Session State
 > **HARD GATE** — **HARD GATE** — Session state must be synchronized with git state. If state.yaml conflicts with the working tree, halt and ask for clarification. Do NOT assume state is correct.

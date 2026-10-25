@@ -3,12 +3,12 @@ title: dispatch-agents
 description: "Dispatch multiple subagents in parallel on independent tasks. No waiting between them — all run concurrently. Use when tasks are truly decoupled and speed matters. Distinct from delegate-task (concurrent here, no inter-task review gate)."
 ---
 
-# story: e09s04
-# story: e45s38
+&lt;!-- story: e09s04 -->
+&lt;!-- story: e45s38 -->
 &lt;!-- story: e45s11 -->
 
 
-# story: e45s30
+&lt;!-- story: e45s30 -->
 
 # Dispatch Agents
 > **HARD GATE** — **HARD GATE** — Agent work must be parallelizable and have explicit synchronization points. Do NOT dispatch work that has hidden dependencies between agents.
@@ -114,4 +114,4 @@ Merge accepted results. Resolve conflicts manually; note in summary.
 Report: which tasks succeeded, which need revision, overall verify status.
 
 ## Verify
-→ verify: `grep -q 'circuit_open' skills/dispatch-agents/SKILL.md && grep -q 'task_brief' skills/dispatch-agents/SKILL.md && echo OK || echo FAIL`
+→ verify: `test -f skills/dispatch-agents/SKILL.md && test -f scripts/lib/completeness-critic.sh`

@@ -3,11 +3,22 @@ description: "Dispatch a fresh reviewer agent with a clean context to critique t
 alwaysApply: false
 ---
 
-# story: e45s28
+<!-- story: e45s28 -->
 
 # Request Review
 
 Dispatch fresh reviewer agents with clean contexts. Reviewers have no shared state — they find what the coding agent missed.
+
+## Target (argument)
+
+If an argument was passed after `/request-review` (e.g. `/request-review abc1234` or `/request-review HEAD~3..HEAD`), use it as the diff target when building the reviewer brief:
+
+```bash
+git diff <arg>        # range: abc..def, HEAD~3..HEAD
+git show <arg>        # single commit: abc1234
+```
+
+If no argument was given, review uncommitted working-tree changes.
 
 **Distinct from `audit-code`:** `audit-code` is self-review (internal). This skill dispatches external agents.
 

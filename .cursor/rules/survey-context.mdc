@@ -3,7 +3,7 @@ description: "Per-task context bootstrap — reads existing specs/ and tech-arch
 alwaysApply: false
 ---
 
-# story: e82s02
+<!-- story: e82s02 -->
 
 # Survey Context
 

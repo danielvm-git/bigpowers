@@ -5,8 +5,8 @@ description: "Look-before-build — search registries, repo, existing skills, an
 disable-model-invocation: true
 ---
 
-# story: e03s01
-# story: e21s02
+<!-- story: e03s01 -->
+<!-- story: e21s02 -->
 
 # Research First
 

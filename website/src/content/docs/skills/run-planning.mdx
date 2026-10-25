@@ -3,7 +3,7 @@ title: run-planning
 description: "DISCOVER-PHASE ADVANCER — Drive the discover-phase checklist (specs/planning-status.yaml) through survey-context → scope-work → research-first → elaborate-spec → plan-release → slice-tasks. NOT a duplicate of plan-work or the planning spine; it orchestrates the pre-coding discover phase only."
 ---
 
-# story: e24s03
+&lt;!-- story: e24s03 -->
 
 # Run Planning
 
@@ -97,4 +97,4 @@ workflows:
 
 ## Verify
 
-→ verify: `test -f specs/planning-status.yaml && grep -c 'status: done' specs/planning-status.yaml | awk '{if($1>=3) print "OK"; else print "INCOMPLETE"}'`
+→ verify: `test -f specs/planning-status.yaml && [ "$(grep -c 'status: done' specs/planning-status.yaml)" -ge 3 ]`

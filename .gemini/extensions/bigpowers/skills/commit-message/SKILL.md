@@ -5,7 +5,7 @@ description: "Reviews working-tree changes, then drafts a Conventional Commits t
 disable-model-invocation: true
 ---
 
-# story: e82s02
+<!-- story: e82s02 -->
 
 # Commit Message
 > **HARD GATE** — **HARD GATE** — Commits must follow Conventional Commits spec (type(scope): description). Do NOT use vague messages like 'fix' or 'updates.' The message must explain the 'why,' not the 'what.'

@@ -5,8 +5,8 @@ description: "PLANNING SPINE STEP 1 of 3 — Scope the work: define what is in a
 disable-model-invocation: true
 ---
 
-# story: e03s01
-# story: e24s02
+<!-- story: e03s01 -->
+<!-- story: e24s02 -->
 
 # Scope Work
 

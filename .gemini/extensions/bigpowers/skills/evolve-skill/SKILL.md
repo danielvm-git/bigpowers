@@ -5,10 +5,10 @@ description: "Benchmark-gated skill evolution — consume bigpowers-benchmark re
 disable-model-invocation: true
 ---
 
-# story: e23s03
+<!-- story: e23s03 -->
 
-# story: e09s01
-# story: e09s05
+<!-- story: e09s01 -->
+<!-- story: e09s05 -->
 
 # Evolve Skill
 

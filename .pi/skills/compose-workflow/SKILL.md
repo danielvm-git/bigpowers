@@ -4,9 +4,9 @@ model: sonnet
 description: "Chain multiple bigpowers skills into a custom workflow recipe saved in specs/. Use when a project repeats a non-standard skill sequence, or user wants a documented playbook beyond orchestrate-project modes."
 ---
 
-# story: e09s01
-# story: e45s27
-# story: e21s04
+<!-- story: e09s01 -->
+<!-- story: e45s27 -->
+<!-- story: e21s04 -->
 
 # Compose Workflow
 > **HARD GATE** — **HARD GATE** — Workflows are orchestration, not automation. Do NOT create workflows for tasks that should be single skills. Workflow complexity must be justified.

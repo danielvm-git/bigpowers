@@ -4,12 +4,12 @@ model: sonnet
 description: "Dispatch multiple subagents in parallel on independent tasks. No waiting between them — all run concurrently. Use when tasks are truly decoupled and speed matters. Distinct from delegate-task (concurrent here, no inter-task review gate)."
 ---
 
-# story: e09s04
-# story: e45s38
+<!-- story: e09s04 -->
+<!-- story: e45s38 -->
 <!-- story: e45s11 -->
 
 
-# story: e45s30
+<!-- story: e45s30 -->
 
 # Dispatch Agents
 > **HARD GATE** — **HARD GATE** — Agent work must be parallelizable and have explicit synchronization points. Do NOT dispatch work that has hidden dependencies between agents.

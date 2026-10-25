@@ -3,11 +3,22 @@ title: request-review
 description: "Dispatch a fresh reviewer agent with a clean context to critique the code after audit-code passes. The reviewer has no shared state with the coding agent and gives a genuine second opinion. Use after audit-code passes, before committing, or when user wants an independent code review."
 ---
 
-# story: e45s28
+&lt;!-- story: e45s28 -->
 
 # Request Review
 
 Dispatch fresh reviewer agents with clean contexts. Reviewers have no shared state — they find what the coding agent missed.
+
+## Target (argument)
+
+If an argument was passed after `/request-review` (e.g. `/request-review abc1234` or `/request-review HEAD~3..HEAD`), use it as the diff target when building the reviewer brief:
+
+```bash
+git diff <arg>        # range: abc..def, HEAD~3..HEAD
+git show <arg>        # single commit: abc1234
+```
+
+If no argument was given, review uncommitted working-tree changes.
 
 **Distinct from `audit-code`:** `audit-code` is self-review (internal). This skill dispatches external agents.
 
@@ -85,6 +96,7 @@ Review for:
 4. Design — are there simpler or more robust approaches?
 5. Edge cases — what inputs or states could cause failures?
 6. Security — any injection, auth, or data exposure risks?
+7. Refactoring smells — explicitly name any detected Fowler smells: Mysterious Name, Duplicated Code, Feature Envy, Data Clumps, Primitive Obsession, Message Chains, Middle Man
 
 For each finding, categorize as: must-fix / should-fix / consider.
 Run the verify command and report the result.
@@ -108,4 +120,4 @@ Report to user: "Review round [N/3]. Reviewer A: [score], Reviewer B: [score]. A
 
 ## Verify
 
-→ verify: `grep -q 'AND-gate' skills/request-review/SKILL.md && grep -q 'max 3' skills/request-review/SKILL.md && echo OK`
+→ verify: `test -f scripts/lib/parallel-review-worktrees.sh && test -f skills/request-review/SKILL.md`

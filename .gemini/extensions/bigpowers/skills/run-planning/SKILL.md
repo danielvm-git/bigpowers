@@ -5,7 +5,7 @@ description: "DISCOVER-PHASE ADVANCER — Drive the discover-phase checklist (sp
 disable-model-invocation: true
 ---
 
-# story: e24s03
+<!-- story: e24s03 -->
 
 # Run Planning
 

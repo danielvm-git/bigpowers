@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-05T13:31:55.144947+00:00",
+  "generated_at": "2026-10-25T11:51:31.715908+00:00",
   "matrix_version": "1.0",
   "stories": [
     {
@@ -312,6 +312,12 @@
           "method": "explicit_tag"
         },
         {
+          "file": "website/src/content/docs/guides/WORKFLOWS.md",
+          "line": 6,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "docs/WORKFLOWS.md",
           "line": 3,
           "confidence": "high",
@@ -516,7 +522,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 38
+      "link_count": 39
     },
     {
       "id": "e37s06",
@@ -576,6 +582,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "website/src/content/docs/decisions/0007-agents-md-spine-context-derivatives.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/epics/archive/e37-reach/e37s08-tasks.yaml",
           "line": 0,
           "confidence": "low",
@@ -594,7 +606,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 11
+      "link_count": 12
     },
     {
       "id": "e37s07",
@@ -1548,18 +1560,6 @@
           "method": "explicit_tag"
         },
         {
-          "file": ".gemini/extensions/bigpowers/commands/prompts/verify-work.md",
-          "line": 8,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".gemini/extensions/bigpowers/skills/verify-work/SKILL.md",
-          "line": 10,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": ".trae/skills/verify-work/SKILL.md",
           "line": 9,
           "confidence": "high",
@@ -1639,18 +1639,6 @@
         },
         {
           "file": ".hermes/skills/verify-work/SKILL.md",
-          "line": 9,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/prompts/verify-work.md",
-          "line": 8,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/verify-work/SKILL.md",
           "line": 9,
           "confidence": "high",
           "method": "explicit_tag"
@@ -1806,7 +1794,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 45
+      "link_count": 41
     },
     {
       "id": "e45s06",
@@ -2190,18 +2178,6 @@
           "method": "explicit_tag"
         },
         {
-          "file": ".gemini/extensions/bigpowers/commands/prompts/verify-work.md",
-          "line": 9,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".gemini/extensions/bigpowers/skills/verify-work/SKILL.md",
-          "line": 11,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": ".trae/skills/verify-work/SKILL.md",
           "line": 10,
           "confidence": "high",
@@ -2275,18 +2251,6 @@
         },
         {
           "file": ".hermes/skills/verify-work/SKILL.md",
-          "line": 10,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/prompts/verify-work.md",
-          "line": 9,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/verify-work/SKILL.md",
           "line": 10,
           "confidence": "high",
           "method": "explicit_tag"
@@ -2598,6 +2562,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "website/dist/pagefind/pagefind-worker.js",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "website/src/content/docs/guides/WORKFLOWS.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "website/src/content/docs/guides/WORKFLOW-SOP-v2.md",
           "line": 0,
           "confidence": "medium",
@@ -2706,7 +2682,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 88
+      "link_count": 86
     },
     {
       "id": "e45s10",
@@ -2868,18 +2844,6 @@
           "method": "explicit_tag"
         },
         {
-          "file": ".pi/prompts/dispatch-agents.md",
-          "line": 8,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/dispatch-agents/SKILL.md",
-          "line": 9,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": "specs/skills-wiki/skills/dispatch-agents.md",
           "line": 0,
           "confidence": "medium",
@@ -2898,7 +2862,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 21
+      "link_count": 19
     },
     {
       "id": "e45s12",
@@ -3013,18 +2977,6 @@
         },
         {
           "file": ".hermes/skills/stocktake-skills/SKILL.md",
-          "line": 8,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/prompts/stocktake-skills.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/stocktake-skills/SKILL.md",
           "line": 8,
           "confidence": "high",
           "method": "explicit_tag"
@@ -3198,7 +3150,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 48
+      "link_count": 46
     },
     {
       "id": "e45s13",
@@ -3218,18 +3170,6 @@
         {
           "file": ".copilot/skills/verify-work/SKILL.md",
           "line": 11,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".gemini/extensions/bigpowers/commands/prompts/verify-work.md",
-          "line": 10,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".gemini/extensions/bigpowers/skills/verify-work/SKILL.md",
-          "line": 12,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -3306,18 +3246,6 @@
           "method": "explicit_tag"
         },
         {
-          "file": ".pi/prompts/verify-work.md",
-          "line": 10,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/verify-work/SKILL.md",
-          "line": 11,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": "specs/skills-wiki/skills/verify-work.md",
           "line": 0,
           "confidence": "medium",
@@ -3384,7 +3312,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 29
+      "link_count": 25
     },
     {
       "id": "e45s14",
@@ -3558,18 +3486,6 @@
           "method": "explicit_tag"
         },
         {
-          "file": ".pi/prompts/release-branch.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/release-branch/SKILL.md",
-          "line": 8,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": "specs/skills-wiki/skills/release-branch.md",
           "line": 0,
           "confidence": "medium",
@@ -3606,7 +3522,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 25
+      "link_count": 23
     },
     {
       "id": "e45s16",
@@ -3954,18 +3870,6 @@
           "method": "explicit_tag"
         },
         {
-          "file": ".pi/prompts/security-review.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/security-review/SKILL.md",
-          "line": 8,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": ".windsurf/rules/audit-code.md",
           "line": 0,
           "confidence": "medium",
@@ -4140,13 +4044,13 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/reports/audit-cleancode-20260905-102635.md",
+          "file": "specs/verifications/reports/audit-cleancode-20260703-165703.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/reports/audit-cleancode-20260703-165703.md",
+          "file": "specs/verifications/reports/audit-cleancode-20261025-083055.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4566,12 +4470,6 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/reports/audit-cleancode-20260905-102428.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-180901.md",
           "line": 0,
           "confidence": "medium",
@@ -4603,12 +4501,6 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-174025.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/reports/audit-cleancode-20260905-102236.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4837,6 +4729,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-181114.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261025-083830.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5304,6 +5202,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261025-085033.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-165902.md",
           "line": 0,
           "confidence": "medium",
@@ -5544,7 +5448,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 283
+      "link_count": 281
     },
     {
       "id": "e45s19",
@@ -5832,30 +5736,6 @@
           "method": "explicit_tag"
         },
         {
-          "file": ".pi/prompts/seed-conventions.md",
-          "line": 10,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/prompts/seed-conventions.md",
-          "line": 123,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/seed-conventions/SKILL.md",
-          "line": 11,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/seed-conventions/SKILL.md",
-          "line": 124,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": "specs/skills-wiki/skills/seed-conventions.md",
           "line": 0,
           "confidence": "medium",
@@ -5880,7 +5760,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 41
+      "link_count": 37
     },
     {
       "id": "e45s22",
@@ -6024,18 +5904,6 @@
           "method": "explicit_tag"
         },
         {
-          "file": ".pi/prompts/session-state.md",
-          "line": 6,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/session-state/SKILL.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": "specs/agent-guide/learned-user-preferences.md",
           "line": 0,
           "confidence": "medium",
@@ -6048,7 +5916,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 21
+      "link_count": 19
     },
     {
       "id": "e45s24",
@@ -6246,18 +6114,6 @@
           "method": "explicit_tag"
         },
         {
-          "file": ".pi/prompts/security-review.md",
-          "line": 15,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/security-review/SKILL.md",
-          "line": 16,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": "specs/skills-wiki/skills/security-review.md",
           "line": 0,
           "confidence": "medium",
@@ -6294,7 +6150,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 28
+      "link_count": 26
     },
     {
       "id": "e45s27",
@@ -6400,21 +6256,9 @@
           "line": 8,
           "confidence": "high",
           "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/prompts/compose-workflow.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/compose-workflow/SKILL.md",
-          "line": 8,
-          "confidence": "high",
-          "method": "explicit_tag"
         }
       ],
-      "link_count": 18
+      "link_count": 16
     },
     {
       "id": "e45s28",
@@ -6522,18 +6366,6 @@
           "method": "explicit_tag"
         },
         {
-          "file": ".pi/prompts/request-review.md",
-          "line": 6,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/request-review/SKILL.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": "specs/skills-wiki/skills/request-review.md",
           "line": 0,
           "confidence": "medium",
@@ -6558,7 +6390,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 22
+      "link_count": 20
     },
     {
       "id": "e45s29",
@@ -6856,45 +6688,9 @@
           "line": 7,
           "confidence": "high",
           "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/prompts/slice-tasks.md",
-          "line": 6,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/prompts/plan-work.md",
-          "line": 6,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/prompts/change-request.md",
-          "line": 6,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/plan-work/SKILL.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/change-request/SKILL.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/slice-tasks/SKILL.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
         }
       ],
-      "link_count": 54
+      "link_count": 48
     },
     {
       "id": "e45s30",
@@ -7096,33 +6892,9 @@
           "line": 12,
           "confidence": "high",
           "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/prompts/dispatch-agents.md",
-          "line": 11,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/prompts/delegate-task.md",
-          "line": 6,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/delegate-task/SKILL.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/dispatch-agents/SKILL.md",
-          "line": 12,
-          "confidence": "high",
-          "method": "explicit_tag"
         }
       ],
-      "link_count": 36
+      "link_count": 32
     },
     {
       "id": "e45s31",
@@ -7356,13 +7128,13 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/reports/audit-cleancode-20260905-102635.md",
+          "file": "specs/verifications/reports/audit-cleancode-20260703-165703.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/reports/audit-cleancode-20260703-165703.md",
+          "file": "specs/verifications/reports/audit-cleancode-20261025-083055.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -7782,12 +7554,6 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/reports/audit-cleancode-20260905-102428.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-180901.md",
           "line": 0,
           "confidence": "medium",
@@ -7819,12 +7585,6 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-174025.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/reports/audit-cleancode-20260905-102236.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8053,6 +7813,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-181114.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261025-083830.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8515,6 +8281,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-164050.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261025-085033.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8868,18 +8640,6 @@
           "method": "explicit_tag"
         },
         {
-          "file": ".pi/prompts/release-branch.md",
-          "line": 8,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/release-branch/SKILL.md",
-          "line": 9,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": ".windsurf/rules/gate-trace.md",
           "line": 0,
           "confidence": "medium",
@@ -9006,7 +8766,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 41
+      "link_count": 39
     },
     {
       "id": "e45s33",
@@ -9342,18 +9102,6 @@
           "method": "explicit_tag"
         },
         {
-          "file": ".pi/prompts/dispatch-agents.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/dispatch-agents/SKILL.md",
-          "line": 8,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": "specs/bugs/BUG-2026-07-26-null-skill-adapters-install-nothing.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -9366,7 +9114,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 21
+      "link_count": 19
     },
     {
       "id": "e45s39",
@@ -9472,21 +9220,9 @@
           "line": 10,
           "confidence": "high",
           "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/prompts/release-branch.md",
-          "line": 9,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/release-branch/SKILL.md",
-          "line": 10,
-          "confidence": "high",
-          "method": "explicit_tag"
         }
       ],
-      "link_count": 18
+      "link_count": 16
     },
     {
       "id": "e45s40",
@@ -9506,18 +9242,6 @@
         {
           "file": ".copilot/skills/verify-work/SKILL.md",
           "line": 12,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".gemini/extensions/bigpowers/commands/prompts/verify-work.md",
-          "line": 11,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".gemini/extensions/bigpowers/skills/verify-work/SKILL.md",
-          "line": 13,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -9594,18 +9318,6 @@
           "method": "explicit_tag"
         },
         {
-          "file": ".pi/prompts/verify-work.md",
-          "line": 11,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/verify-work/SKILL.md",
-          "line": 12,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": "specs/skills-wiki/skills/verify-work.md",
           "line": 0,
           "confidence": "medium",
@@ -9660,7 +9372,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 27
+      "link_count": 23
     },
     {
       "id": "e45s41",
@@ -9768,18 +9480,6 @@
           "method": "explicit_tag"
         },
         {
-          "file": ".pi/prompts/security-review.md",
-          "line": 6,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/security-review/SKILL.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": "specs/skills-wiki/skills/security-review.md",
           "line": 0,
           "confidence": "medium",
@@ -9804,7 +9504,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 22
+      "link_count": 20
     },
     {
       "id": "e48s01",
@@ -9966,6 +9666,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "website/src/content/docs/skills/maintain-wiki.mdx",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "docs/references/agent-config-files-and-okf.md",
           "line": 0,
           "confidence": "medium",
@@ -10014,7 +9720,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 33
+      "link_count": 34
     },
     {
       "id": "e48s02",
@@ -10068,13 +9774,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-2026-10-25.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/GOLDEN-2026-07-05.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/reports/audit-2026-09-05.okf.md",
+          "file": "specs/verifications/reports/GOLDEN-2026-10-25.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -10206,7 +9918,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 30
+      "link_count": 31
     },
     {
       "id": "e48s03",
@@ -10782,6 +10494,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-09-10-pi-mcp-omp-startup.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-03-golden-lock-stale-e37-ids.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -10849,6 +10567,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-25-fail-open-skill-verify.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-09-13-docs-base-path-gate-ci.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -10981,6 +10705,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-03-validate-specs-no-real-parser.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-09-09-pi-duplicate-slash-commands.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -11154,6 +10884,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-09-05-golden-gate-missing-node-deps.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-07-compliance-cross-module-sourcing.md",
           "line": 0,
           "confidence": "medium",
@@ -11232,7 +10968,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 169
+      "link_count": 173
     },
     {
       "id": "e48s04",
@@ -11388,13 +11124,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-2026-10-25.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/GOLDEN-2026-07-05.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/reports/audit-2026-09-05.okf.md",
+          "file": "specs/verifications/reports/GOLDEN-2026-10-25.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -12438,7 +12180,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 185
+      "link_count": 186
     },
     {
       "id": "e48s06",
@@ -13536,30 +13278,6 @@
           "method": "explicit_tag"
         },
         {
-          "file": ".pi/prompts/seed-conventions.md",
-          "line": 9,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/prompts/seed-conventions.md",
-          "line": 122,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/seed-conventions/SKILL.md",
-          "line": 10,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/seed-conventions/SKILL.md",
-          "line": 123,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": "specs/WORKFLOW-solo-git.md",
           "line": 0,
           "confidence": "medium",
@@ -13614,7 +13332,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 48
+      "link_count": 44
     },
     {
       "id": "e51s03",
@@ -13652,18 +13370,6 @@
         {
           "file": ".gemini/extensions/bigpowers/commands/prompts/kickoff-branch.md",
           "line": 6,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".gemini/extensions/bigpowers/commands/prompts/verify-work.md",
-          "line": 12,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".gemini/extensions/bigpowers/skills/verify-work/SKILL.md",
-          "line": 14,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -13831,30 +13537,6 @@
         },
         {
           "file": ".hermes/skills/kickoff-branch/SKILL.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/prompts/kickoff-branch.md",
-          "line": 6,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/prompts/verify-work.md",
-          "line": 12,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/verify-work/SKILL.md",
-          "line": 13,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/kickoff-branch/SKILL.md",
           "line": 7,
           "confidence": "high",
           "method": "explicit_tag"
@@ -14070,7 +13752,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 74
+      "link_count": 68
     },
     {
       "id": "e51s04",
@@ -14081,6 +13763,12 @@
       "wsjf": 7.0,
       "status": "done",
       "links": [
+        {
+          "file": "specs/bugs/BUG-2026-09-05-golden-gate-missing-node-deps.md",
+          "line": 81,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "specs/epics/archive/e51-always-green-shift-left/e51s04-fix-or-log-routing.md",
           "line": 1,
@@ -14376,13 +14064,13 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/reports/audit-cleancode-20260905-102635.md",
+          "file": "specs/verifications/reports/audit-cleancode-20260703-165703.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/reports/audit-cleancode-20260703-165703.md",
+          "file": "specs/verifications/reports/audit-cleancode-20261025-083055.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -14802,12 +14490,6 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/reports/audit-cleancode-20260905-102428.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-180901.md",
           "line": 0,
           "confidence": "medium",
@@ -14839,12 +14521,6 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-174025.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/reports/audit-cleancode-20260905-102236.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -15073,6 +14749,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-181114.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261025-083830.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -15540,6 +15222,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261025-085033.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-165902.md",
           "line": 0,
           "confidence": "medium",
@@ -15810,6 +15498,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-09-13-docs-base-path-gate-ci.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-04-tautological-verify.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -16020,7 +15714,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 323
+      "link_count": 325
     },
     {
       "id": "e51s05",
@@ -16350,6 +16044,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-09-13-docs-base-path-gate-ci.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-09-05-golden-gate-missing-node-deps.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/adr-wiki/0005-hard-gate-mandate.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -16524,7 +16230,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 50
+      "link_count": 52
     },
     {
       "id": "e53s04",
@@ -16542,6 +16248,12 @@
           "method": "explicit_tag"
         },
         {
+          "file": "website/src/content/docs/guides/TARGET-ARCHITECTURE.md",
+          "line": 6,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "docs/TARGET-ARCHITECTURE.md",
           "line": 3,
           "confidence": "high",
@@ -16554,7 +16266,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 3
+      "link_count": 4
     },
     {
       "id": "e54s01",
@@ -17184,13 +16896,25 @@
           "method": "explicit_tag"
         },
         {
+          "file": "website/dist/images/interactive-installer.png",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "website/public/images/interactive-installer.png",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "docs/images/interactive-installer.png",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         }
       ],
-      "link_count": 9
+      "link_count": 11
     },
     {
       "id": "e61s01",
@@ -17425,13 +17149,13 @@
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 316,
+          "line": 368,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 655,
+          "line": 707,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -17622,6 +17346,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "scripts/lib/adapter-render-all.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "scripts/lib/adapter-guard.sh",
           "line": 0,
           "confidence": "medium",
@@ -17640,7 +17370,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 21
+      "link_count": 22
     },
     {
       "id": "e64s02",
@@ -17803,7 +17533,7 @@
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 609,
+          "line": 661,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -17947,13 +17677,13 @@
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 243,
+          "line": 295,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 622,
+          "line": 674,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -18091,13 +17821,13 @@
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 263,
+          "line": 315,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 633,
+          "line": 685,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -18259,13 +17989,13 @@
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 223,
+          "line": 275,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 614,
+          "line": 666,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -18571,13 +18301,13 @@
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 280,
+          "line": 332,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 639,
+          "line": 691,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -18709,13 +18439,13 @@
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 325,
+          "line": 377,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 659,
+          "line": 711,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -18853,13 +18583,13 @@
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 240,
+          "line": 292,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 619,
+          "line": 671,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -18997,13 +18727,13 @@
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 307,
+          "line": 359,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 650,
+          "line": 702,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -19488,6 +19218,18 @@
           "method": "explicit_tag"
         },
         {
+          "file": "website/src/content/docs/guides/AGENTIC-STE.md",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "website/src/content/docs/guides/AGENTIC-STE.md",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "docs/AGENTIC-STE.md",
           "line": 1,
           "confidence": "high",
@@ -19524,7 +19266,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 8
+      "link_count": 10
     },
     {
       "id": "e79s02",
@@ -19782,18 +19524,6 @@
           "method": "explicit_tag"
         },
         {
-          "file": ".pi/prompts/seed-conventions.md",
-          "line": 11,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/seed-conventions/SKILL.md",
-          "line": 12,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": "specs/skills-wiki/skills/seed-conventions.md",
           "line": 0,
           "confidence": "medium",
@@ -19818,7 +19548,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 24
+      "link_count": 22
     },
     {
       "id": "e79s04",
@@ -19938,18 +19668,6 @@
           "method": "explicit_tag"
         },
         {
-          "file": ".pi/prompts/stocktake-skills.md",
-          "line": 8,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/stocktake-skills/SKILL.md",
-          "line": 9,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": "specs/skills-wiki/skills/stocktake-skills.md",
           "line": 0,
           "confidence": "medium",
@@ -19974,7 +19692,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 24
+      "link_count": 22
     },
     {
       "id": "e80s01",
@@ -21528,54 +21246,6 @@
           "method": "explicit_tag"
         },
         {
-          "file": ".pi/prompts/survey-context.md",
-          "line": 6,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/prompts/commit-message.md",
-          "line": 6,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/prompts/kickoff-branch.md",
-          "line": 8,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/prompts/release-branch.md",
-          "line": 10,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/release-branch/SKILL.md",
-          "line": 11,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/kickoff-branch/SKILL.md",
-          "line": 9,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/survey-context/SKILL.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/commit-message/SKILL.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": "specs/COMMIT_MESSAGE_e42.md",
           "line": 0,
           "confidence": "medium",
@@ -21756,7 +21426,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 103
+      "link_count": 95
     },
     {
       "id": "e82s03",
@@ -21927,6 +21597,7 @@
       "e32s03",
       "e32s04",
       "e32s05",
+      "e32s06",
       "e33s01",
       "e33s02",
       "e33s03",
@@ -21981,7 +21652,7 @@
       "e99s01",
       "e99s99"
     ],
-    "orphan_count": 143,
+    "orphan_count": 144,
     "stale_tags": [
       "e37s01",
       "e37s02",
@@ -22102,8 +21773,8 @@
     ],
     "stale_count": 116,
     "oracle_stats": {
-      "high": 999,
-      "medium": 2300,
+      "high": 928,
+      "medium": 2316,
       "low": 79
     }
   }

@@ -4,8 +4,8 @@ model: sonnet
 description: "Add a new requirement or reorder epics by WSJF against specs/release-plan.yaml and epic capsule directories. Modes Add and Reorder. Use when a new requirement arrives mid-release or the plan needs prioritization."
 ---
 
-# story: e45s29
-# story: e20s01
+<!-- story: e45s29 -->
+<!-- story: e20s01 -->
 
 # Change Request
 

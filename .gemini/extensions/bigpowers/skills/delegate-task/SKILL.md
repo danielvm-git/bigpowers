@@ -5,7 +5,7 @@ description: "Delegate one complex task to a single subagent, review its work in
 disable-model-invocation: true
 ---
 
-# story: e45s30
+<!-- story: e45s30 -->
 
 # Delegate Task
 > **HARD GATE** — **HARD GATE** — Delegated work must have clear success criteria and verification commands. The delegate must be able to verify completion independently.

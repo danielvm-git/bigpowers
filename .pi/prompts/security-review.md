@@ -3,16 +3,16 @@ name: security-review
 description: "AI-powered security analysis of code changes — traces data flow, detects injection, auth bypass, secrets exposure, and unsafe deserialization across files. Use when reviewing pending changes, before release-branch, during verify-work Phase 5, during build-epic Step 0 threat modeling, or when the user says \"security review\" or \"scan for vulns\"."
 ---
 
-# story: e45s41
+<!-- story: e45s41 -->
 <!-- story: e45s18 -->
-# story: e26s01
-# story: e26s02
-# story: e26s03
-# story: e26s04
-# story: e26s05
-# story: e26s06
-# story: e26s07
-# story: e45s26
+<!-- story: e26s01 -->
+<!-- story: e26s02 -->
+<!-- story: e26s03 -->
+<!-- story: e26s04 -->
+<!-- story: e26s05 -->
+<!-- story: e26s06 -->
+<!-- story: e26s07 -->
+<!-- story: e45s26 -->
 
 # Security Review
 

@@ -20,7 +20,7 @@ Installs a shared hook that blocks destructive git operations and enforces workf
 ## Quick start
 
 1. **Scope**: ask project-only vs global (paths differ per product).
-2. **Copy the hook bundle** from the root [hooks/](hooks/) directory to the client's hooks directory.
+2. **Write the hook bundle** from [REFERENCE.md](REFERENCE.md) into the client's hooks directory.
 3. **Run `chmod +x`** on `pre-tool-use.sh`.
 4. **Merge** the hook snippet from [REFERENCE.md](REFERENCE.md) into the right settings file — do not wipe unrelated keys.
 5. **Verify** with the tests in [REFERENCE.md](REFERENCE.md).

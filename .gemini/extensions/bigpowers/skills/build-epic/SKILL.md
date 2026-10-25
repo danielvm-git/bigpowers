@@ -5,7 +5,7 @@ description: "Eight-step epic build cycle — reads state.yaml, execution-status
 disable-model-invocation: true
 ---
 
-# story: e20s05
+<!-- story: e20s05 -->
 
 # Build Epic
 
