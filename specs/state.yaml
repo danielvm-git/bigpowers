@@ -1,22 +1,15 @@
-active_flow: fix_bug
+active_flow: null
 active_epic: null
 active_story: null
-bug_id: BUG-2026-10-25-pages-not-gated
+bug_id: null
 bigpowers_version: 2.88.15
-bug_cycle:
-  current_step: 5
-  completed_steps:
-  - 1
-  - 2
-  - 3
-  - 4
+bug_cycle: null
 handoff:
-  next_skill: release-branch
-  context: 'BUG-2026-10-25-release-not-gated RESOLVED — PR #162 (14250d84). One test-build-release pipeline:
-    sync, verification-gates, skill-verify, story-verify -> release (needs: all four, push to main only).
-    First main run 40195964858: release started 13:06:05, 3s after the last gate, and published 2.88.14.
-    Follows #161 (Golden Suite 7m24s -> ~1.5-2m). Pages deploy (docs-site.yml) is still its own workflow,
-    not gated on the pipeline.'
+  next_skill: null
+  context: 'BUG-2026-10-25-pages-not-gated RESOLVED — PR #164 (5f3e4de5). Pages build/deploy moved into
+    test-build-release.yml behind needs: on all four gate jobs; docs-site.yml removed. Main run 40203121441:
+    pages-build started 14:39:06, 2s after the last gate (sync), deployed; release published 2.88.15. CI now
+    matches the portfolio template: one pipeline, gates -> release + Pages.'
   epic: null
 epic_cycle: null
 metrics:

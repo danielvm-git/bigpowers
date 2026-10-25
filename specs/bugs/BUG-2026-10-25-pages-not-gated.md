@@ -47,3 +47,21 @@ Local, on `fix/ci-pages-gated` over 2.88.14 (`b066588c`):
 - Self-test (bash 5 and macOS `/bin/bash` 3.2): the conforming fixture with `pages-build` → `pages-deploy` passes; Pages missing gate `needs`, Pages with `always()`, Pages not limited to `main`, cancellable Pages and Pages in a separate workflow each fail for their own reason.
 - `actionlint` clean. `dorny/paths-filter` pinned to `ceb8a2b8…` (v4.0.3, 2026-08-05), resolved from the tag via the GitHub API.
 - `workflow_dispatch` on `main` still redeploys (now behind the gates, too).
+
+### CI measured
+
+**PR #164** (head `b5627ebe`): `sync`, `verification-gates`, `skill-verify`, `story-verify` pass; `release`, `pages-build`, `pages-deploy` skipped (pull_request).
+
+**main** — squash `5f3e4de5`, [Test Build Release run 40203121441](https://github.com/danielvm-git/bigpowers/actions/runs/40203121441), all jobs success:
+
+| Job | Start (UTC) | End (UTC) |
+|---|---|---|
+| `skill-verify` | 14:37:43 | 14:37:56 |
+| `story-verify` | 14:37:43 | 14:38:26 |
+| `verification-gates` | 14:37:43 | 14:38:50 |
+| `sync` | 14:37:43 | 14:39:04 |
+| `release` | 14:39:05 | 14:40:03 |
+| **`pages-build`** | **14:39:06** | 14:39:38 |
+| **`pages-deploy`** | **14:39:41** | 14:39:53 |
+
+`pages-build` started 2s after the last gate job (`sync`) finished — the `needs:` edge holds — and `pages-deploy` followed it. The merge touched `.github/workflows/test-build-release.yml` (a docs-filter path), so the filter chose to deploy. `release` published 2.88.15 (`117b7607`). No separate Deploy Docs workflow ran; Publish to Wiki (run 40203121320) passed.
