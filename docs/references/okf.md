@@ -121,11 +121,11 @@ based on `okf_kind`. Unknown kinds are SKIP-ped gracefully.
 ## CI Integration (e48s05 HARD GATE)
 
 OKF bundles are validated on every push to `main` and `develop` via the
-`sync-skills.yml` workflow. The CI step (`Validate OKF bundles`) scans
+`sync` job of the `test-build-release.yml` pipeline. The CI step (`Validate OKF bundles`) scans
 six standard directories and **fails the build** on any validation error:
 
 ```yaml
-# .github/workflows/sync-skills.yml — OKF validation step (blocking)
+# .github/workflows/test-build-release.yml — sync job, OKF validation step (blocking)
 for dir in \
   specs/metrics \
   specs/migrations \

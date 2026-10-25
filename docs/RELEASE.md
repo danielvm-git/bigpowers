@@ -39,7 +39,7 @@ git push origin main
 
 ```bash
 # View Actions
-# GitHub → Actions → Release workflow
+# GitHub → Actions → Test Build Release → release job
 
 # View published version
 npm view bigpowers
@@ -111,7 +111,7 @@ All releases in:
 
 **No release created after push?**
 → Commits may not follow conventional format
-→ Check Actions log: GitHub → Actions → Release workflow
+→ Check Actions log: GitHub → Actions → Test Build Release → release job (skipped if a gate job failed)
 
 **"ENOAUTH" error?**
 → Verify NPM_TOKEN in GitHub Secrets
@@ -125,7 +125,7 @@ chore: update docs [skip ci]
 ## Architecture
 
 - `.releaserc.json` — configuration
-- `.github/workflows/publish.yml` — GitHub Actions workflow
+- `.github/workflows/test-build-release.yml` — GitHub Actions pipeline; the `release` job runs only after every gate job passes
 - `.gitmessage` — commit template (optional)
 - `package.json` — version source of truth
 - `CHANGELOG.md` — auto-generated release notes

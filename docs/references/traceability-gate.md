@@ -125,14 +125,14 @@ This ensures the gate is honest — when the agent is guessing (relying on heuri
 
 ## CI/CD Integration Points
 
-### sync-skills.yml (CI Pipeline)
+### test-build-release.yml — `sync` job (CI Pipeline)
 
 ```yaml
-- name: Traceability Gate
-  run: |
-    bash scripts/trace-stories.sh --json --strict
-    bash scripts/check-blind-spots.sh
+- name: Traceability gate (--strict)
+  run: bash scripts/trace-stories.sh --strict --json
 ```
+
+`check-blind-spots.sh` is not a CI step; `verify-work` runs it (below).
 
 The `--strict` flag on `trace-stories.sh` fails the CI job if any P0 story has 0% coverage.
 

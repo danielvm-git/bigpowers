@@ -540,3 +540,13 @@ bugs:
     approach: "Remove duplicate gate work without dropping coverage; align timeouts and release/pages concurrency with portfolio template"
     risk_level: low
     commit_message: "fix(ci): cut golden suite critical path by removing duplicate gate work"
+  - id: BUG-2026-10-25-release-not-gated
+    status: open
+    severity: high
+    scope: ci / release
+    title: "Release publishes without waiting for the golden suite or sync gates — three workflows, no needs: edge"
+    file: bugs/BUG-2026-10-25-release-not-gated.md
+    files_changed: ".github/workflows/*.yml, scripts/test-ci-pipeline-contract.sh, scripts/lib/golden-suite-gates.sh, CLAUDE.md, docs/references/*.md, skills/gate-trace/SKILL.md"
+    approach: "One test-build-release pipeline per portfolio template; gate jobs -> release via needs:; pinned runner and SHA-pinned actions"
+    risk_level: medium
+    commit_message: "fix(ci): gate release on every check in one test-build-release pipeline"

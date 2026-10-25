@@ -1,0 +1,198 @@
+# story: e38s03 e51s04 BUG-2026-10-25-release-not-gated
+# One pipeline per repo (danielvm-git/.github template): every gate job runs in
+# parallel, and release needs: all of them. Replaces publish.yml (Release),
+# sync-skills.yml and golden-suite.yml, which ran side by side with no edge —
+# Release could publish while a gate was red or still running.
+# Contract asserted by scripts/test-ci-pipeline-contract.sh (golden gate).
+name: Test Build Release
+
+on:
+  # The solo-git profile lands via land-branch.sh, which squash-pushes straight
+  # to main with no PR, so push must run every gate, not only pull_request.
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+  schedule:
+    - cron: "0 3 * * *"  # Daily 03:00 UTC — fleet-wide anti-vacuity drift check
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# PR runs cancel stale runs; pushes queue, so a running release is never cut off.
+concurrency:
+  group: pipeline-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  sync:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0  # v7.0.0
+
+      - name: Stale-lock validation (e39s02)
+        run: bash scripts/check-stale-locks.sh
+
+      - name: Sync skills and verify artifacts committed
+        run: |
+          git reset --hard HEAD
+          bash scripts/sync-skills.sh
+          bash scripts/validate-doctrine.sh
+          git diff --exit-code \
+            .cursor/rules \
+            .gemini/extensions/bigpowers \
+            .pi \
+            SKILL-INDEX.md \
+            skills-lock.json \
+            README.md \
+            specs/SKILL-SEARCH-INDEX_LATEST.md || {
+            echo "::error::Generated artifacts out of date"
+            git status --short
+            git diff --name-only .cursor/rules .gemini/extensions/bigpowers .pi SKILL-INDEX.md skills-lock.json README.md specs/SKILL-SEARCH-INDEX_LATEST.md
+            exit 1
+          }
+
+      - name: Traceability gate (--strict)
+        run: bash scripts/trace-stories.sh --strict --json
+
+      - name: Upload traceability matrix
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
+        if: always()
+        with:
+          name: traceability-matrix
+          path: specs/traceability-matrix.json
+
+      - name: Validate OKF bundles
+        run: |
+          echo "::group::OKF validation — all directories"
+          for dir in \
+            specs/metrics \
+            specs/migrations \
+            specs/epics-wiki \
+            specs/adr-wiki \
+            specs/bugs \
+            specs/verifications/reports; do
+            if [ -d "$dir" ]; then
+              echo "  Validating: $dir"
+              bash scripts/validate-okf.sh --dir "$dir" || {
+                echo "::error::OKF validation failed in $dir"
+                exit 1
+              }
+            fi
+          done
+          echo "::endgroup::"
+
+  verification-gates:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0  # v7.0.0
+
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e  # v6.4.0
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install Python deps
+        run: python3 -m pip install --user -r requirements.txt
+
+      # The omp-extension gate executes scripts/omp-smoke.ts, which imports
+      # extensions/omp-hooks.ts -> typebox (a devDependency), so a full install.
+      - name: Install Node deps
+        run: npm ci
+
+      # story-verify runs in the story-verify job below; running it here too
+      # doubled the critical path (BUG-2026-10-25-ci-critical-path). Its
+      # self-test still runs here. Local Preflight runs every gate.
+      - name: Run verification gates (G-08/G-10 anti-vacuity)
+        env:
+          GOLDEN_SKIP_GATES: story-verify
+          GOLDEN_SKIP_REASON: runs in the story-verify job of this workflow
+        run: bash scripts/run-verification-gates.sh
+
+  skill-verify:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0  # v7.0.0
+
+      - name: Run skill verify
+        run: bash scripts/run-skill-verify.sh
+
+      # Regression guard for BUG-2026-07-02T103911 class: macOS ships bash 3.2,
+      # which lacks mapfile/declare -A. CI runs bash 5, so a 3.2-only breakage
+      # is invisible here unless we assert POSIX-compatible constructs directly.
+      - name: Assert runner is bash 3.2 compatible
+        run: |
+          # Strip comment lines first — the scripts document these constructs
+          # by name in their own comments, which must not trip the guard.
+          for script in scripts/run-skill-verify.sh scripts/run-story-verify.sh \
+                        scripts/lib/fail-open-detect.sh; do
+            if grep -vE '^[[:space:]]*#' "$script" \
+               | grep -nE '(^|[;&|[:space:]])(mapfile|readarray)[[:space:]]|declare[[:space:]]+-A'; then
+              echo "::error::bash 4+ construct in $script — breaks macOS bash 3.2"
+              exit 1
+            fi
+          done
+          echo "OK: no bash 4+ only constructs"
+
+  # Tier 2 of the verify arc (#106). Separate job so a story-gate failure is
+  # distinguishable from a skill-gate failure at a glance in the checks list.
+  story-verify:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0  # v7.0.0
+
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e  # v6.4.0
+        with:
+          node-version: '22'
+
+      - name: Install Python deps
+        run: python3 -m pip install --user -r requirements.txt
+
+      # Anti-vacuity first: prove the gate can fail before trusting it to pass.
+      - name: Story verify self-test
+        run: bash scripts/run-story-verify.sh --self-test
+
+      - name: Run story verify
+        run: bash scripts/run-story-verify.sh
+
+  # Compliance and skill-verify used to run again here; the gate jobs above
+  # already run both, and release now waits for every one of them.
+  release:
+    needs: [sync, verification-gates, skill-verify, story-verify]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-22.04
+    timeout-minutes: 15
+    # Never cancel a running semantic-release: a cancel after the tag push but
+    # before npm publish leaves a tagged, unpublished version.
+    concurrency:
+      group: release-${{ github.ref }}
+      cancel-in-progress: false
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0  # v7.0.0
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e  # v6.4.0
+        with:
+          node-version: '22'
+          registry-url: 'https://registry.npmjs.org'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Release
+        run: npm run release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

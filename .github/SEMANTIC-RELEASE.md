@@ -120,7 +120,7 @@ Requires:
 git log --oneline main | head -5
 
 # View Actions
-# GitHub → Actions → Release workflow
+# GitHub → Actions → Test Build Release → release job
 
 # View release
 # GitHub → Releases

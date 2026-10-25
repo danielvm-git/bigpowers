@@ -57,7 +57,7 @@ It provides four mechanisms that give agents structured access to project contex
 
 | Trigger | Action | Script |
 |---------|--------|--------|
-| Every push | Stale-lock check | Inline in sync-skills.yml |
+| Every push | Stale-lock check | `sync` job in test-build-release.yml |
 | Every push | Skill graph rebuild | `scripts/build-skill-graph.sh` (via sync-skills --okf) |
 | Pre-release | OKF wiki refresh | build-epic Step 9b |
 | Pre-release | Spec drift check | `scripts/check-spec-drift.sh` |

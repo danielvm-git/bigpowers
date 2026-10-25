@@ -74,8 +74,11 @@ GOLDEN_GATES=(
   "specs-parse:bash scripts/validate-specs-yaml.sh:false"
   # The runner itself: failing output is shown, skips are named and reasoned.
   "golden-gate-runner:bash scripts/test-golden-gate-runner.sh:false"
+  # One pipeline, release needs: every gate, pinned runner and actions.
+  "ci-pipeline-contract-selftest:bash scripts/test-ci-pipeline-contract.sh --self-test:false"
+  "ci-pipeline-contract:bash scripts/test-ci-pipeline-contract.sh:false"
   # Tier 2 of the verify arc (#106): executes the verify: of every story marked
-  # done. Tier 1 (SKILL.md) is run-skill-verify.sh in golden-suite.yml.
+  # done. Tier 1 (SKILL.md) is run-skill-verify.sh in test-build-release.yml.
   "story-verify-selftest:bash scripts/run-story-verify.sh --self-test:false"
   "story-verify:bash scripts/run-story-verify.sh:false"
 )
@@ -123,7 +126,7 @@ golden_agent_dry_run() {
 }
 
 # GOLDEN_SKIP_GATES (comma list) skips gates another CI job already runs —
-# golden-suite.yml skips story-verify because its story-verify job runs the
+# test-build-release.yml skips story-verify because its story-verify job runs the
 # same command. Local Preflight leaves it unset, so every gate runs there. A
 # name that matches no gate is a FAIL: a typo must not look like a skip.
 golden_is_skipped() { # $1 = gate name
