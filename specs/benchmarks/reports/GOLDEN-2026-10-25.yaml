@@ -1,185 +1,197 @@
-timestamp: "2026-10-25T11:38:29Z"
-git_commit: "5a0be551018241ae42a01175907cef33fcb466ec"
+timestamp: "2026-10-25T14:53:38Z"
+git_commit: "e447dbcf20272904a3f8b11701144440f08fa69f"
 suite: "golden-combined"
 mode: "daily"
 deterministic:
-  total: 43
-  passed: 41
-  failed: 2
+  total: 46
+  passed: 46
+  failed: 0
   skipped: 0
-  pass_rate: .95
+  pass_rate: 1.00
 gates:
   - name: compliance
     exit_code: 0
-    duration_seconds: 60.99
+    duration_seconds: 60.54
     status: pass
   - name: g04-selftest
     exit_code: 0
-    duration_seconds: .13
+    duration_seconds: .06
     status: pass
   - name: g06-migrate-version
     exit_code: 0
-    duration_seconds: 89.34
+    duration_seconds: 48.71
     status: pass
   - name: g07-negative-path
     exit_code: 0
-    duration_seconds: .19
+    duration_seconds: .10
     status: pass
   - name: g08-anti-vacuity
     exit_code: 0
-    duration_seconds: 1.49
+    duration_seconds: .82
     status: pass
   - name: g09-yaml-roundtrip
     exit_code: 0
-    duration_seconds: 2.82
+    duration_seconds: 1.08
     status: pass
   - name: g10-trace-anti-vacuity
     exit_code: 0
-    duration_seconds: 1.64
+    duration_seconds: .82
     status: pass
   - name: g11-gitignore-venv
     exit_code: 0
-    duration_seconds: .27
+    duration_seconds: .12
     status: pass
   - name: g12-status-selftest
     exit_code: 0
-    duration_seconds: 3.00
+    duration_seconds: 1.66
     status: pass
   - name: g12-status-consistency
     exit_code: 0
-    duration_seconds: 1.68
+    duration_seconds: 1.04
     status: pass
   - name: g15-compliance-runner-selftest
     exit_code: 0
-    duration_seconds: .19
+    duration_seconds: .07
     status: pass
   - name: g15-compliance-runner
     exit_code: 0
-    duration_seconds: .30
+    duration_seconds: .21
     status: pass
   - name: g13-script-orphans-selftest
     exit_code: 0
-    duration_seconds: 92.86
+    duration_seconds: 7.16
     status: pass
   - name: g13-script-orphans
     exit_code: 0
-    duration_seconds: 92.18
+    duration_seconds: 6.04
     status: pass
   - name: workflow-diagrams-fresh
     exit_code: 0
-    duration_seconds: 1.11
+    duration_seconds: 1.21
     status: pass
   - name: reference-nav-fresh
     exit_code: 0
-    duration_seconds: .98
+    duration_seconds: 1.35
     status: pass
   - name: g14-adapter-dispatch-selftest
     exit_code: 0
-    duration_seconds: 1.55
+    duration_seconds: 1.91
     status: pass
   - name: g14-adapter-dispatch
     exit_code: 0
-    duration_seconds: 1.04
+    duration_seconds: 1.14
     status: pass
   - name: g16-spec-version-gap-selftest
     exit_code: 0
-    duration_seconds: 4.19
+    duration_seconds: 3.66
     status: pass
   - name: g16-spec-version-gap
     exit_code: 0
-    duration_seconds: 1.58
+    duration_seconds: 1.76
     status: pass
   - name: target-contracts
     exit_code: 0
-    duration_seconds: 4.06
+    duration_seconds: 4.01
     status: pass
   - name: install-hub
     exit_code: 0
-    duration_seconds: 10.10
+    duration_seconds: 15.45
     status: pass
   - name: adapter-render
     exit_code: 0
-    duration_seconds: 3.69
+    duration_seconds: 7.68
     status: pass
   - name: adapters
     exit_code: 0
-    duration_seconds: 3.65
+    duration_seconds: 5.50
     status: pass
   - name: resolve-repo-root
     exit_code: 0
-    duration_seconds: .05
+    duration_seconds: .09
     status: pass
   - name: tombstone-mechanism
     exit_code: 0
-    duration_seconds: 3.32
+    duration_seconds: 4.88
     status: pass
   - name: trace-strict
     exit_code: 0
-    duration_seconds: 11.73
+    duration_seconds: 17.23
     status: pass
   - name: trace-matrix-size
     exit_code: 0
-    duration_seconds: .03
+    duration_seconds: .05
     status: pass
   - name: setup-no-pyyaml
     exit_code: 0
-    duration_seconds: 3.14
+    duration_seconds: 3.88
     status: pass
   - name: install-distribute-only
     exit_code: 0
-    duration_seconds: 15.08
+    duration_seconds: 18.73
     status: pass
   - name: completeness-critic-scope
     exit_code: 0
-    duration_seconds: .27
+    duration_seconds: .30
     status: pass
   - name: epics-wiki-zero-stories
     exit_code: 0
-    duration_seconds: 4.38
+    duration_seconds: 4.99
     status: pass
   - name: golden-g11-worktree-venv
     exit_code: 0
-    duration_seconds: .14
+    duration_seconds: .19
     status: pass
   - name: install-helpers
     exit_code: 0
-    duration_seconds: 2.26
+    duration_seconds: 2.60
     status: pass
   - name: project-runtime
     exit_code: 0
-    duration_seconds: .08
+    duration_seconds: .09
     status: pass
   - name: omp-extension
-    exit_code: 1
-    duration_seconds: .39
-    status: fail
+    exit_code: 0
+    duration_seconds: .64
+    status: pass
   - name: mcp-package
-    exit_code: 1
-    duration_seconds: .45
-    status: fail
+    exit_code: 0
+    duration_seconds: .77
+    status: pass
   - name: docs-base-path
     exit_code: 0
-    duration_seconds: 6.86
+    duration_seconds: 5.81
     status: pass
   - name: import-boundaries
     exit_code: 0
-    duration_seconds: .45
+    duration_seconds: .46
     status: pass
   - name: skill-catalog
     exit_code: 0
-    duration_seconds: 2.21
+    duration_seconds: 2.50
     status: pass
   - name: specs-parse
     exit_code: 0
-    duration_seconds: 3.55
+    duration_seconds: 4.97
+    status: pass
+  - name: golden-gate-runner
+    exit_code: 0
+    duration_seconds: .21
+    status: pass
+  - name: ci-pipeline-contract-selftest
+    exit_code: 0
+    duration_seconds: 6.12
+    status: pass
+  - name: ci-pipeline-contract
+    exit_code: 0
+    duration_seconds: 1.37
     status: pass
   - name: story-verify-selftest
     exit_code: 0
-    duration_seconds: 1.12
+    duration_seconds: 2.53
     status: pass
   - name: story-verify
     exit_code: 0
-    duration_seconds: 325.34
+    duration_seconds: 72.20
     status: pass
 agent_stories:
   total: 0
@@ -189,4 +201,4 @@ agent_stories:
   flake_count: 0
   pass_rate: n/a
 summary:
-  combined_verdict: "fail"
+  combined_verdict: "pass"

@@ -43,8 +43,9 @@ if os.path.isdir(gd):
         try:
             with open(reports[-1]) as f:
                 import yaml; data = yaml.safe_load(f)
-            sm = data.get('summary',{})
-            sections['golden_suite'] = {'value':{'pass_rate':sm.get('pass_rate'),'passed':sm.get('passed'),'total':sm.get('total'),'overall':sm.get('overall','unknown'),'timestamp':data.get('timestamp',''),'commit':data.get('git_commit','')},'generated_at':'$TIMESTAMP','source':'measured','command':'specs/benchmarks/reports/GOLDEN-*.yaml (latest)'}
+            sm = data.get('deterministic',{})
+            verdict = (data.get('summary') or {}).get('combined_verdict','unknown')
+            sections['golden_suite'] = {'value':{'pass_rate':sm.get('pass_rate'),'passed':sm.get('passed'),'total':sm.get('total'),'overall':verdict,'timestamp':data.get('timestamp',''),'commit':data.get('git_commit','')},'generated_at':'$TIMESTAMP','source':'measured','command':'specs/benchmarks/reports/GOLDEN-*.yaml (latest)'}
         except Exception as e:
             print(f'build-receipts: golden error: {e}', file=sys.stderr)
             sections['golden_suite'] = {'source':'absent','generated_at':'$TIMESTAMP','command':'specs/benchmarks/reports/GOLDEN-*.yaml'}
