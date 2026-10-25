@@ -75,4 +75,19 @@ Local Preflight on `fix/ci-critical-path` rebased onto 2.88.12 (`5b0ebab3`): com
 | `run-story-verify.sh --self-test` | PASS | PASS on bash 5 and macOS `/bin/bash` 3.2 |
 | `test-golden-gate-runner.sh` | — | PASS on bash 5 and 3.2 |
 
-CI projection from main run after #159 (7m24s, gate step ~444s): minus 221s story-verify (skipped, runs in its own job) and ~108s G-13 → verification-gates ~2 min; story-verify job ~1 min. To confirm on the PR run.
+### CI measured — PR #161, [run 40192307998](https://github.com/danielvm-git/bigpowers/actions/runs/40192307998)
+
+Baseline is the first green main run after #159 (7m 24s).
+
+| Job / gate | main after #159 | PR #161 |
+|---|---|---|
+| **Golden Suite wall time** | **7m 24s** | **1m 25s** |
+| `verification-gates` job | 7m 24s | 1m 22s |
+| `story-verify` job | ~3m | 40s (13 shared results) |
+| `skill-verify` job | ~17s | 15s |
+| `story-verify` gate in verification-gates | 221.2s | SKIP — runs in the story-verify job of this workflow |
+| `g13-script-orphans-selftest` | 57.7s | 0.89s |
+| `g13-script-orphans` | 56.1s | 0.87s |
+| slowest gate now | — | `compliance` 23.0s |
+
+Verdict: 43/44 passed, 1 skipped (story-verify, with reason), PASS. The projection (~2 min) was conservative; the critical path is now `verification-gates` at 82s, ~5.2× faster.
