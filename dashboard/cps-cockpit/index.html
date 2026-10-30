@@ -96,6 +96,8 @@ tr:last-child td { border-bottom: 0; }
 .road .o { background: var(--bg); color: var(--text); border: 1px solid var(--muted); font-weight: 600; }
 .road .o.nob { border-color: var(--amber); }
 .road .g { color: var(--muted); border: 1px dashed var(--line); opacity: .6; text-decoration: line-through; }
+.road .r { color: var(--info); border: 1px dashed var(--info); opacity: .7; text-decoration: line-through; }
+.road span.ex { font-style: italic; }
 .road .o.out::after { content: ''; position: absolute; top: 2px; right: 3px; width: 5px; height: 5px; border-radius: 50%; background: var(--amber); }
 .road-legend { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 11px; color: var(--muted); margin-bottom: 12px; }
 .road-legend span { display: inline-flex; align-items: center; gap: 5px; }
@@ -173,6 +175,8 @@ footer { color: var(--muted); font-size: 12px; text-align: center; padding: 0 16
       <span><i style="border:1px solid var(--amber)"></i>aberto sem BCP</span>
       <span><i style="border:1px solid var(--muted);background:radial-gradient(circle at 80% 25%, var(--amber) 2px, transparent 2.5px)"></i>fora do build_order</span>
       <span><i style="border:1px dashed var(--line)"></i>número aposentado / mesclado</span>
+      <span><i style="border:1px dashed var(--info)"></i>número liberado por renumeração</span>
+      <span><i style="border:1px solid var(--muted)"></i><em>itálico</em> = renumerado (ex-…)</span>
     </div>
     <div id="backlog"></div>
   </section>
@@ -279,7 +283,8 @@ function render(m) {
   const nDone = real.filter((x) => x.done).length;
   const nProg = real.filter((x) => !x.done && PROG.has(x.status)).length;
   const nOpen = real.length - nDone - nProg;
-  const nGap = sm.length - real.length;
+  const nRen = sm.filter((x) => x.gap && x.renumberedTo).length;
+  const nGap = sm.length - real.length - nRen;
   const nOut = real.filter((x) => !x.done && !x.inOrder).length;
   const bDone = real.filter((x) => x.done).reduce((a, x) => a + (x.bcps || 0), 0);
   const bOpen = real.filter((x) => !x.done).reduce((a, x) => a + (x.bcps || 0), 0);
@@ -291,14 +296,16 @@ function render(m) {
       ${nProg ? `<span style="color:var(--info)"><b>${nProg}</b> em andamento</span>` : ''}
       <span><b>${nOpen}</b> abertos</span>
       ${nGap ? `<span class="muted"><b>${nGap}</b> números aposentados</span>` : ''}
+      ${nRen ? `<span style="color:var(--info)"><b>${nRen}</b> liberados por renumeração</span>` : ''}
       <span>BCP <b>${fmt(bDone)}</b> entregue / <b>${fmt(bOpen)}</b> em aberto (${fmt(pct)}%)${nNoB ? ` · <span style="color:var(--amber)">${nNoB} sem estimativa</span>` : ''}</span>
       ${nOut ? `<span style="color:var(--amber)"><b>${nOut}</b> abertos fora do build_order</span>` : ''}
     </div>
     <div class="scope-bar" title="BCP entregue vs. em aberto"><i style="width:${pct}%;background:var(--green)"></i><i style="width:${100 - pct}%;background:var(--line)"></i></div>`;
   $('road').innerHTML = sm.map((x) => {
+    if (x.gap && x.renumberedTo) return `<span class="r" title="${x.id} — renumerado para ${x.renumberedTo} (${esc(x.renumberedOn)})">${x.id}</span>`;
     if (x.gap) return `<span class="g" title="${x.id} — ${x.absorbedBy ? `mesclado/renumerado em ${x.absorbedBy}` : 'número não usado ou aposentado'}">${x.id}</span>`;
-    const cls = x.done ? 'd' : PROG.has(x.status) ? 'p' : `o${x.bcps ? '' : ' nob'}${x.inOrder ? '' : ' out'}`;
-    const tip = `${x.id} — ${titleOf[x.id] || ''}\nstatus: ${x.status}${x.bcps ? ` · ${x.bcps} BCP${x.projected ? ' (projetado)' : ''}` : ' · sem BCP'}${x.wsjf != null ? ` · WSJF ${x.wsjf}` : ''}${!x.done && !x.inOrder ? '\nfora do build_order do release-plan' : ''}`;
+    const cls = (x.done ? 'd' : PROG.has(x.status) ? 'p' : `o${x.bcps ? '' : ' nob'}${x.inOrder ? '' : ' out'}`) + (x.formerly ? ' ex' : '');
+    const tip = `${x.id}${x.formerly ? ` (ex-${x.formerly})` : ''} — ${titleOf[x.id] || ''}\nstatus: ${x.status}${x.bcps ? ` · ${x.bcps} BCP${x.projected ? ' (projetado)' : ''}` : ' · sem BCP'}${x.wsjf != null ? ` · WSJF ${x.wsjf}` : ''}${!x.done && !x.inOrder ? '\nfora do build_order do release-plan' : ''}`;
     return `<span class="${cls}" title="${esc(tip)}">${x.id}</span>`;
   }).join('');
   const open = m.epics.filter((e) => e.status !== 'done').sort((a, b) => (b.wsjf ?? 0) - (a.wsjf ?? 0));
@@ -306,7 +313,7 @@ function render(m) {
     open.map((e) => {
       const sd = e.stories.filter((s) => ['done', 'passing'].includes(s.status)).length;
       const st = e.stories.length;
-      return `<tr><td><b>${e.id}</b> ${esc(e.title)}</td><td><span class="badge st-${esc(e.status)}">${esc(e.status)}</span></td>
+      return `<tr><td><b>${e.id}</b>${e.formerly ? ` <span class="muted" style="font-size:11px">ex-${e.formerly}</span>` : ''} ${esc(e.title)}</td><td><span class="badge st-${esc(e.status)}">${esc(e.status)}</span></td>
         <td class="num">${fmt(e.wsjf, 1)}</td><td class="num">${e.bcps ? fmt(e.bcps) + (e.projected ? '*' : '') : '<span style="color:var(--amber)">?</span>'}</td>
         <td>${st ? `${sd}/${st} · ${e.storiesWithTasks} c/ tasks<div class="bar"><i style="width:${(sd / st) * 100}%"></i></div>` : '<span class="muted">não fatiado</span>'}</td></tr>`;
     }).join('') || '<tr><td colspan="5" class="muted">Backlog vazio</td></tr>'
