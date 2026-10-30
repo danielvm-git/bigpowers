@@ -187,7 +187,9 @@ for epic_file in sorted(epics_dir.rglob("epic.yaml")):
             continue
         sid, st = story.get("id"), story.get("status")
         if sid and st and re.match(r"^e\d+s\d+$", str(sid)):
-            flipped = "backlog" if st != "backlog" else "done"
+            # Flip across normalised states: 'todo'/'planned' already mean backlog to the gate.
+            backlogish = str(st).strip().lower() in ("backlog", "todo", "planned", "not-started")
+            flipped = "done" if backlogish else "backlog"
             data.setdefault("stories", {}).setdefault(sid, {})["status"] = flipped
             data.setdefault("development_status", {})[sid] = flipped
             exec_path.write_text(
