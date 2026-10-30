@@ -81,16 +81,19 @@ function gitModel() {
   return { head: git('rev-parse', '--short', 'HEAD'), branch: git('rev-parse', '--abbrev-ref', 'HEAD'), commits, tags };
 }
 
-// epic completion date ≈ newest commit whose subject names the epic id
-function epicDoneDates(ids) {
+// epic completion date ≈ newest commit whose subject names the epic id;
+// a renumbered epic matches its new id from the renumber date on and its former id before it
+function epicDoneDates(epics) {
   const raw = git('log', '--format=%cI%x1f%s');
   const out = {};
   if (!raw) return out;
   const lines = raw.split('\n').map((l) => l.split('\x1f'));
-  for (const id of ids) {
-    const re = new RegExp(`\\b${id}(s\\d+)?\\b`, 'i');
-    const hit = lines.find(([, s]) => re.test(s || ''));
-    if (hit) out[id] = hit[0];
+  const idRe = (id) => new RegExp(`\\b${id}(s\\d+)?\\b`, 'i');
+  for (const e of epics) {
+    const now = idRe(e.id);
+    const before = e.formerly ? idRe(e.formerly) : null;
+    const hit = lines.find(([d, s]) => (!e.renumberedOn || d >= e.renumberedOn ? now : before)?.test(s || ''));
+    if (hit) out[e.id] = hit[0];
   }
   return out;
 }
@@ -188,6 +191,9 @@ function buildModel() {
   const exEpics = ex.epics || {};
   const rpById = Object.fromEntries((rp.epics || []).map((e) => [e.id, e]));
   const ids = new Set([...Object.keys(exEpics), ...Object.keys(rpById)]);
+  const renumbered = ((rp.renumbered || {}).map || []).filter((r) => r && r.from && r.to);
+  const renumberedTo = Object.fromEntries(renumbered.map((r) => [r.from, r]));
+  const renumberedFrom = Object.fromEntries(renumbered.map((r) => [r.to, r]));
   const epics = [...ids].map((id) => {
     const r = rpById[id] || {};
     const x = exEpics[id] || {};
@@ -206,6 +212,7 @@ function buildModel() {
     }
     return {
       id, title: r.title || x.title || id, status, wsjf: r.wsjf ?? null,
+      formerly: renumberedFrom[id]?.from || null, renumberedOn: renumberedFrom[id] ? String(renumberedFrom[id].date) : null,
       bcps: r.bcps || x.total_bcps || projected || 0, projected: !r.bcps && !x.total_bcps && !!projected, rationale: r.wsjf_rationale || '', stories, storiesWithTasks,
     };
   }).sort((a, b) => Number(a.id.slice(1)) - Number(b.id.slice(1)));
@@ -227,8 +234,11 @@ function buildModel() {
   const scopeMap = Array.from({ length: maxN }, (_, i) => {
     const id = `e${String(i + 1).padStart(2, '0')}`;
     const e = byId[id];
-    if (!e) return { id, gap: true, absorbedBy: absorbedBy[id] || null };
-    return { id, status: e.status, done: isDone(e.status), bcps: e.bcps, projected: e.projected, wsjf: e.wsjf, inOrder: inOrder.has(id) };
+    if (!e) {
+      const rn = renumberedTo[id];
+      return { id, gap: true, absorbedBy: absorbedBy[id] || null, renumberedTo: rn ? rn.to : null, renumberedOn: rn ? String(rn.date) : null };
+    }
+    return { id, status: e.status, done: isDone(e.status), bcps: e.bcps, projected: e.projected, wsjf: e.wsjf, inOrder: inOrder.has(id), formerly: e.formerly };
   });
   const exStories = Object.entries(ex.stories || {}).map(([id, s]) => ({ id, ...s }));
   const storiesDone = exStories.filter((s) => isDone(s.status)).length;
@@ -245,7 +255,7 @@ function buildModel() {
   for (const s of entries) sources[s.source || 'unknown'] = (sources[s.source || 'unknown'] || 0) + 1;
 
   // burn-up / velocity derived from epic completion dates in git
-  const doneDates = epicDoneDates(done.map((e) => e.id));
+  const doneDates = epicDoneDates(done);
   const weeks = [];
   const now = new Date();
   for (let i = 25; i >= 0; i--) weeks.push(weekKey(new Date(now - i * 7 * 864e5)));
