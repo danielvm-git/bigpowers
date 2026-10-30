@@ -571,7 +571,7 @@ bugs:
     risk_level: low
     commit_message: "fix(compliance): restore akita.feature to 0 FAIL — dedupe helpers, split oversized files"
   - id: BUG-2026-10-30-mcp-unset-plugin-root
-    status: open
+    status: fixed
     severity: medium
     scope: mcp / npm-package
     title: "bigpowers-mcp fails in hosts that do not set OMP_PLUGIN_ROOT (#168)"

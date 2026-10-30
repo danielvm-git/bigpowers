@@ -1,17 +1,15 @@
-active_flow: fix_bug
+active_flow: null
 active_epic: null
 active_story: null
-bug_id: BUG-2026-10-30-mcp-unset-plugin-root
+bug_id: null
 bigpowers_version: 2.88.16
-bug_cycle:
-  current_step: 5
-  completed_steps: [1, 2, 3, 4]
+bug_cycle: null
 handoff:
-  next_skill: release-branch
-  context: 'BUG-2026-10-25-pages-not-gated RESOLVED — PR #164 (5f3e4de5). Pages build/deploy moved into
-    test-build-release.yml behind needs: on all four gate jobs; docs-site.yml removed. Main run 40203121441:
-    pages-build started 14:39:06, 2s after the last gate (sync), deployed; release published 2.88.15.
-    CI now matches the portfolio template: one pipeline, gates -> release + Pages.'
+  next_skill: null
+  context: 'BUG-2026-10-30-mcp-unset-plugin-root RESOLVED (#168) — PR #169 stacked on #171, landed in squash
+    4ed9a266. .mcp.json uses ${OMP_PLUGIN_ROOT:-.} so bigpowers-mcp starts in hosts that do not set it
+    (Claude Code project scope); mcp-smoke.ts checks omp and claude-code profiles. Main run 41121956124
+    all jobs success; release deferred to the 90e12d9e run (main behind remote).'
   epic: null
 epic_cycle: null
 metrics:

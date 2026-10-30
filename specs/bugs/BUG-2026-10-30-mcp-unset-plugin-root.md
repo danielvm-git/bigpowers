@@ -1,6 +1,6 @@
 ---
 bug_id: BUG-2026-10-30-mcp-unset-plugin-root
-status: open
+status: fixed
 severity: medium
 scope: mcp / npm-package
 title: "bigpowers-mcp fails in hosts that do not set OMP_PLUGIN_ROOT (#168)"
@@ -80,8 +80,26 @@ not runnable in a host" class; that fix covered only the OMP profile.
 
 ## Acceptance Criteria
 
-- [ ] `.mcp.json` resolves under omp (variable set) and Claude Code (unset).
-- [ ] `node scripts/mcp-smoke.ts` covers both host profiles.
-- [ ] `bash scripts/validate-mcp-package.sh` passes.
-- [ ] `claude mcp list` in this repo no longer warns about `OMP_PLUGIN_ROOT`.
-- [ ] Full preflight passes.
+- [x] `.mcp.json` resolves under omp (variable set) and Claude Code (unset).
+- [x] `node scripts/mcp-smoke.ts` covers both host profiles.
+- [x] `bash scripts/validate-mcp-package.sh` passes.
+- [x] `claude mcp list` in this repo no longer warns about `OMP_PLUGIN_ROOT`.
+- [x] Full preflight passes.
+
+## Resolution
+
+PR #169 (`dcdae5d3`) was stacked on #171, because #171 replaced the `fail`/`pass`
+helpers in `validate-mcp-package.sh` with `ta_err`/`ta_ok`. #169 merged into #171's
+branch, then #171 squash-merged to `main` as `4ed9a266`. That squash carries both
+fixes. Its title is `fix(compliance): …`, so release notes do not name #168.
+
+### CI measured
+
+**PR #169** (head `dcdae5d3`): `sync`, `verification-gates`, `skill-verify`,
+`story-verify` pass. `release`, `pages-build` and `pages-deploy` skipped (pull_request).
+
+**main**: squash `4ed9a266`, [Test Build Release run 41121956124](https://github.com/danielvm-git/bigpowers/actions/runs/41121956124).
+All jobs passed, including the `mcp-package` golden gate. The `release` job passed
+but did not publish: #170 (`90e12d9e`) had already landed, so semantic-release
+reported `The local branch main is behind the remote one`. The run for `90e12d9e`
+publishes the next patch version with this fix.
