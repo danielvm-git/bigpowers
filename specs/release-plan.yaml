@@ -171,10 +171,10 @@ epics:
 - id: e76
   title: 'Integration: ZCode — Skills + Plugin Hooks'
   wsjf: 5.0
-  bcps: 0
+  bcps: 5
   capsule_dir: epics/e76-integration-zcode
   mode: capsule
-  status: scoped
+  status: done
   wsjf_rationale: BV 5 + TC 3 + RR 4 / Job 2 ≈ 6.0. Skills + plugin hooks.
   source: Research session 2026-07-23. Skills at ~/.zcode/skills/. Plugin-scoped hooks.
 - id: e75
@@ -189,10 +189,10 @@ epics:
 - id: e74
   title: 'Integration: Antigravity CLI — Google''s New CLI'
   wsjf: 4.0
-  bcps: 0
+  bcps: 4
   capsule_dir: epics/e74-integration-antigravity
   mode: capsule
-  status: scoped
+  status: done
   wsjf_rationale: BV 4 + TC 3 + RR 3 / Job 3 ≈ 3.3. Minimal docs.
   source: Research session 2026-07-23. Google new CLI. 1.7K stars.
 - id: e73
@@ -234,10 +234,10 @@ epics:
 - id: e69
   title: 'Integration: MiMo Code — Skills + Plugins (No Hooks)'
   wsjf: 5.0
-  bcps: 0
+  bcps: 4
   capsule_dir: epics/e69-integration-mimo-code
   mode: capsule
-  status: scoped
+  status: done
   wsjf_rationale: BV 5 + TC 3 + RR 4 / Job 2 ≈ 6.0. No hooks found.
   source: Research session 2026-07-23. Xiaomi tool. 12K stars.
 - id: e68
@@ -279,10 +279,10 @@ epics:
 - id: e64
   title: 'Integration: Gemini CLI — Extensions + Hooks'
   wsjf: 6.0
-  bcps: 0
+  bcps: 5
   capsule_dir: epics/e64-integration-gemini
   mode: capsule
-  status: scoped
+  status: done
   wsjf_rationale: BV 8 + TC 4 + RR 5 / Job 2 ≈ 8.5. Different naming.
   source: Research session 2026-07-23. 106K stars.
 - id: e63
@@ -306,10 +306,10 @@ epics:
 - id: e61
   title: 'Integration: Hermes Agent — Skills + 3 Hook Systems'
   wsjf: 5.0
-  bcps: 0
+  bcps: 5
   capsule_dir: epics/e61-integration-hermes
   mode: capsule
-  status: scoped
+  status: done
   wsjf_rationale: BV 5 + TC 3 + RR 4 / Job 3 ≈ 4.0. Python plugins.
   source: Research session 2026-07-23. 219K stars.
 - id: e60

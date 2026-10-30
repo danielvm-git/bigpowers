@@ -2,7 +2,7 @@ id: e64
 title: "Integration: Gemini CLI — Extensions + Hooks"
 status: done
 wsjf: 6.0
-bcps: 0
+bcps: 5
 mode: capsule
 wsjf_rationale: >
   BV 8 + TC 4 + RR 5 / Job 2 ≈ 8.5. High-star tool (106K) with full

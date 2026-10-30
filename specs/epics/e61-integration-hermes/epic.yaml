@@ -2,7 +2,7 @@ id: e61
 title: "Integration: Hermes Agent — Skills + 3 Hook Systems"
 status: done
 wsjf: 5.0
-bcps: 0
+bcps: 5
 mode: capsule
 wsjf_rationale: >
   BV 5 + TC 3 + RR 4 / Job 3 ≈ 4.0. High-star agent (219K) but niche use case

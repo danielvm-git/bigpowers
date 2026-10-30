@@ -2,7 +2,7 @@ id: e76
 title: "Integration: ZCode — Skills + Plugin Hooks"
 status: done
 wsjf: 5.0
-bcps: 0
+bcps: 5
 mode: capsule
 wsjf_rationale: >
   BV 5 + TC 3 + RR 4 / Job 2 ≈ 6.0. Zhipu's tool with skills and

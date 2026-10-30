@@ -1,6 +1,6 @@
 ---
 bug_id: BUG-2026-09-05-pi-omp-extension-load-crash
-status: open
+status: fixed
 severity: critical
 scope: extensions / pi
 title: "extensions/omp-hooks.ts calls pi.setLabel() during load → pi aborts at startup for every package consumer (#119)"
@@ -224,3 +224,9 @@ Promote discovery from the dead `omp.extensions` key to the key pi actually read
 ## Commit message (proposed)
 
 `fix(extensions): stop omp-hooks crashing pi at startup — drop load-time setLabel, port zod→TypeBox (#119)`
+
+## Resolution
+
+**Fixed:** 2026-09-05, merged as `a4875651` (#119); ships in v2.88.1. CI follow-up `9a457e62` (#120) runs `npm ci` before the gates so the omp-extension smoke resolves `typebox`.
+
+**Evidence:** issue #119 closed 2026-09-05; `extensions/omp-hooks.ts` no longer calls action methods during load (guard note at line 289). Status reconciled 2026-10-30 — the frontmatter was left `open` and the registry never listed this bug until `sync-bugs-registry.sh` was re-run.

@@ -3,6 +3,13 @@ title: 'Integration: Augment — Unknown Capabilities'
 status: scoped
 wsjf: 3.0
 bcps: 0
+bcps_projected: 4
+bcps_projection_note: >
+  Projection by analogy, not a count. Every shipped integration epic with the
+  same two-wave shape (Wave A adapter + Wave B install-hub wiring) landed at
+  4-5 BCP: e69 4, e74 4, e61/e64/e76 5. Augment has the thinnest surface
+  (no hooks confirmed), so the low end. Replace with a story-level count after
+  slice-tasks; recount with the 13D procedure once e85 ships.
 mode: capsule
 wsjf_rationale: 'BV 3 + TC 2 + RR 2 / Job 3 ≈ 2.3. Small tool (859 stars) with unknown
   capabilities.

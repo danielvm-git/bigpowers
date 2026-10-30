@@ -2,7 +2,7 @@ id: e69
 title: "Integration: MiMo Code — Skills + Plugins (No Hooks)"
 status: done
 wsjf: 5.0
-bcps: 0
+bcps: 4
 mode: capsule
 wsjf_rationale: >
   BV 5 + TC 3 + RR 4 / Job 2 ≈ 6.0. Xiaomi's tool (12K stars) with

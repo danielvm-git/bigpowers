@@ -1,6 +1,6 @@
 ---
 bug_id: BUG-2026-08-31-pi-scripts-provisioning
-status: open
+status: fixed
 severity: high
 scope: cli / install
 title: "Package installs provision skills but never scripts/ — lifecycle skills' script calls and verify gates fail in every consumer project (#116)"

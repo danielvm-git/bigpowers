@@ -14,6 +14,7 @@
     "release": "semantic-release",
     "dashboard": "node dashboard/bin/dashboard.js",
     "dashboard:web": "node dashboard/bin/dashboard.js --web",
+    "cockpit": "node dashboard/cps-cockpit/server.js",
     "site:dev": "cd website && npm run dev",
     "site:build": "cd website && npm run build",
     "site:preview": "cd website && npm run preview",

@@ -649,7 +649,7 @@ epics:
     status: done
     title: 'Integration: Hermes Agent — Skills + 3 Hook Systems'
     wsjf: 5.0
-    total_bcps: 0
+    total_bcps: 5
   e62:
     status: done
     title: 'Integration: OpenCode — Skills + No Hooks'
@@ -664,7 +664,7 @@ epics:
     status: done
     title: 'Integration: Gemini CLI — Extensions + Hooks'
     wsjf: 6.0
-    total_bcps: 0
+    total_bcps: 5
   e65:
     status: done
     title: 'Integration: Codex CLI — AGENTS.md + Hooks'
@@ -689,7 +689,7 @@ epics:
     status: done
     title: 'Integration: MiMo Code — Skills + Plugins (No Hooks)'
     wsjf: 5.0
-    total_bcps: 0
+    total_bcps: 4
   e70:
     status: done
     title: 'Integration: Trae — Skills + Hooks'
@@ -714,7 +714,7 @@ epics:
     status: done
     title: 'Integration: Antigravity CLI — Google''s New CLI'
     wsjf: 4.0
-    total_bcps: 2
+    total_bcps: 4
   e75:
     status: backlog
     title: 'Integration: Augment — Unknown Capabilities'
@@ -724,7 +724,7 @@ epics:
     status: done
     title: 'Integration: ZCode — Skills + Plugin Hooks'
     wsjf: 5.0
-    total_bcps: 0
+    total_bcps: 5
   e77:
     status: done
     title: 'Integration: pi — Skills (No Hooks)'
