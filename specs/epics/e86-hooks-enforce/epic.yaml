@@ -1,0 +1,183 @@
+# story: e86s01 e86s02 e86s03 e86s04 e86s05
+id: e86
+title: Hooks Enforce — Turn Prose Nevers into Checks
+wsjf: 4.2
+bcps: 98
+capsule_dir: epics/e86-hooks-enforce
+mode: capsule
+status: scoped
+sliced: '2026-10-30'
+wsjf_rationale: BV 8 + TC 5 + RR 8 / Job 5 ≈ 4.2
+source: >-
+  The playbook's rule is that skills advise and hooks enforce. bigpowers enforces git safety and token
+  budget by hook, and generated-path drift only later in CI. Hooks are tools, so per B3 they go in the
+  kernel (hooks/, scripts/), never in a new skill during the catalog freeze. Every hook keeps the existing
+  multi-harness deny shape (claude, cursor, gemini modes).
+playbook_plays:
+- P6 build hooks
+- P8 feedback loop
+- P11 approval gates
+value_engineering: specs/VALUE-ENGINEERING-playbook-compat.md
+stories:
+- id: e86s01
+  title: Generated paths are blocked at edit time
+  status: todo
+  bcps: 19
+  bcp_13d:
+    dimensions:
+      D1_business_rules: 6
+      D2_interface_elements: 2
+      D3_boundaries: 1
+      D5_solution_variabilities: 3
+      D6_domain_entities: 2
+      D8_background_processes: 3
+      D10_audits: 1
+      D11_quality_attributes: 1
+    cms: 4
+    counted_by: claude-opus-5-5 (planning session)
+    rubric: ciandt-oss/bcp-agent 13D rubric (src/bcp/prompts/thirteen), counted by element table
+    counted_on: '2026-10-30'
+    calibration: none — recount with the e85 procedure
+  risk: P1
+  delta: ADDED
+  depends_on: []
+  value_rank: 9
+  playbook_coverage_points: 0.25
+  description: >-
+    Edit and Write to the P0 [no-generated-edits] paths are denied at edit time with a remediation hint
+    (run sync-skills.sh), and the CI drift diff adds website/src/content/docs.
+  files:
+  - hooks/pre-tool-use.sh
+  - .github/workflows/test-build-release.yml
+  tasks: e86s01-tasks.yaml
+  verify: bash scripts/run-story-verify.sh e86s01
+- id: e86s02
+  title: Tests are locked during a fix after the RED commit
+  status: todo
+  bcps: 21
+  bcp_13d:
+    dimensions:
+      D1_business_rules: 5
+      D2_interface_elements: 2
+      D3_boundaries: 1
+      D5_solution_variabilities: 3
+      D6_domain_entities: 3
+      D8_background_processes: 6
+      D10_audits: 1
+    cms: 4
+    counted_by: claude-opus-5-5 (planning session)
+    rubric: ciandt-oss/bcp-agent 13D rubric (src/bcp/prompts/thirteen), counted by element table
+    counted_on: '2026-10-30'
+    calibration: none — recount with the e85 procedure
+  risk: P1
+  delta: ADDED
+  depends_on: []
+  value_rank: 20
+  playbook_coverage_points: 0
+  description: >-
+    While active_flow is fix_bug and the RED commit exists, edits to test files are denied; CI runs verify-tdd-red-commit.sh
+    on fix commits so the RED gate is no longer advisory.
+  files:
+  - hooks/pre-tool-use.sh
+  - scripts/verify-tdd-red-commit.sh
+  - .github/workflows/test-build-release.yml
+  tasks: e86s02-tasks.yaml
+  verify: bash scripts/run-story-verify.sh e86s02
+- id: e86s03
+  title: Secrets are blocked before commit
+  status: todo
+  bcps: 22
+  bcp_13d:
+    dimensions:
+      D1_business_rules: 3
+      D2_interface_elements: 2
+      D3_boundaries: 1
+      D5_solution_variabilities: 3
+      D6_domain_entities: 1
+      D7_new_domain_entities: 5
+      D8_background_processes: 3
+      D10_audits: 1
+      D12_security_compliance: 3
+    cms: 4
+    counted_by: claude-opus-5-5 (planning session)
+    rubric: ciandt-oss/bcp-agent 13D rubric (src/bcp/prompts/thirteen), counted by element table
+    counted_on: '2026-10-30'
+    calibration: none — recount with the e85 procedure
+  risk: P1
+  delta: ADDED
+  depends_on: []
+  value_rank: 11
+  playbook_coverage_points: 0.25
+  description: >-
+    A git commit whose staged diff matches a secret pattern is blocked, with an allowlist file for known
+    false positives.
+  files:
+  - hooks/pre-tool-use.sh
+  - .bigpowers/secret-allowlist
+  - skills/hook-commits/SKILL.md
+  tasks: e86s03-tasks.yaml
+  verify: bash scripts/run-story-verify.sh e86s03
+- id: e86s04
+  title: Production deploys ask before running
+  status: todo
+  bcps: 21
+  bcp_13d:
+    dimensions:
+      D1_business_rules: 4
+      D2_interface_elements: 5
+      D3_boundaries: 1
+      D5_solution_variabilities: 3
+      D6_domain_entities: 2
+      D8_background_processes: 3
+      D10_audits: 1
+      D12_security_compliance: 2
+    cms: 4
+    counted_by: claude-opus-5-5 (planning session)
+    rubric: ciandt-oss/bcp-agent 13D rubric (src/bcp/prompts/thirteen), counted by element table
+    counted_on: '2026-10-30'
+    calibration: none — recount with the e85 procedure
+  risk: P1
+  delta: ADDED
+  depends_on: []
+  value_rank: 3
+  playbook_coverage_points: 0.5
+  description: >-
+    A production deploy asks before it runs: Claude mode returns the ask decision; harnesses without ask
+    get a deny that names the approval route. The decision is logged.
+  files:
+  - hooks/pre-tool-use.sh
+  - skills/deploy/SKILL.md
+  tasks: e86s04-tasks.yaml
+  verify: bash scripts/run-story-verify.sh e86s04
+- id: e86s05
+  title: Catalog freeze is enforced, not advisory
+  status: todo
+  bcps: 15
+  bcp_13d:
+    dimensions:
+      D1_business_rules: 3
+      D2_interface_elements: 2
+      D3_boundaries: 1
+      D5_solution_variabilities: 3
+      D6_domain_entities: 2
+      D8_background_processes: 3
+      D10_audits: 1
+    cms: 4
+    counted_by: claude-opus-5-5 (planning session)
+    rubric: ciandt-oss/bcp-agent 13D rubric (src/bcp/prompts/thirteen), counted by element table
+    counted_on: '2026-10-30'
+    calibration: none — recount with the e85 procedure
+  risk: P2
+  delta: MODIFIED
+  depends_on:
+  - e83s04
+  value_rank: 21
+  playbook_coverage_points: 0
+  description: >-
+    A new skills/<name>/ directory without a freeze-exception marker is denied at write time until e56
+    merges; content edits stay allowed.
+  files:
+  - hooks/pre-tool-use.sh
+  - scripts/check-catalog-drift.sh
+  tasks: e86s05-tasks.yaml
+  verify: bash scripts/run-story-verify.sh e86s05

@@ -1,0 +1,114 @@
+# story: e87s01 e87s02 e87s03
+id: e87
+title: Agent at the PR — Opt-in Review, Triage and Rollback
+wsjf: 2.6
+bcps: 71
+capsule_dir: epics/e87-agent-at-the-pr
+mode: capsule
+status: scoped
+sliced: '2026-10-30'
+wsjf_rationale: BV 5 + TC 3 + RR 5 / Job 5 ≈ 2.6
+source: >-
+  Review today is strong but local; nothing runs on the PR. All three stories are opt-in templates in
+  wire-ci and deploy (content edits, freeze-safe), harness-neutral through an adapter, so a solo developer
+  chooses to pay the API cost. MCP deploy tools stay deferred per SCOPE.
+playbook_plays:
+- P10 PR review
+- P12 CI/CD
+value_engineering: specs/VALUE-ENGINEERING-playbook-compat.md
+stories:
+- id: e87s01
+  title: Opt-in agent review on every PR
+  status: todo
+  bcps: 31
+  bcp_13d:
+    dimensions:
+      D1_business_rules: 6
+      D2_interface_elements: 3
+      D3_boundaries: 5
+      D5_solution_variabilities: 3
+      D6_domain_entities: 3
+      D7_new_domain_entities: 5
+      D8_background_processes: 3
+      D9_notifications: 1
+      D12_security_compliance: 2
+    cms: 4
+    counted_by: claude-opus-5-5 (planning session)
+    rubric: ciandt-oss/bcp-agent 13D rubric (src/bcp/prompts/thirteen), counted by element table
+    counted_on: '2026-10-30'
+    calibration: none — recount with the e85 procedure
+  risk: P1
+  delta: ADDED
+  depends_on: []
+  value_rank: 7
+  playbook_coverage_points: 0.5
+  description: >-
+    wire-ci offers an opt-in PR review job with three passes (bugs, security, compliance against the story's
+    -tasks.yaml), a nit cap and a severity tally; it comments and never approves. A review-guidelines
+    template defines Important vs Nit.
+  files:
+  - skills/wire-ci/SKILL.md
+  - skills/wire-ci/templates/
+  - docs/templates/REVIEW-GUIDELINES.md
+  tasks: e87s01-tasks.yaml
+  verify: bash scripts/run-story-verify.sh e87s01
+- id: e87s02
+  title: Failed CI builds get an agent triage note
+  status: todo
+  bcps: 18
+  bcp_13d:
+    dimensions:
+      D1_business_rules: 4
+      D3_boundaries: 5
+      D5_solution_variabilities: 3
+      D6_domain_entities: 2
+      D8_background_processes: 3
+      D9_notifications: 1
+    cms: 4
+    counted_by: claude-opus-5-5 (planning session)
+    rubric: ciandt-oss/bcp-agent 13D rubric (src/bcp/prompts/thirteen), counted by element table
+    counted_on: '2026-10-30'
+    calibration: none — recount with the e85 procedure
+  risk: P2
+  delta: ADDED
+  depends_on: []
+  value_rank: 8
+  playbook_coverage_points: 0.25
+  description: >-
+    wire-ci offers an opt-in job that, on a failed build, reads the log, says flaky or real, and posts
+    a three-line summary on the PR.
+  files:
+  - skills/wire-ci/SKILL.md
+  - skills/wire-ci/templates/
+  tasks: e87s02-tasks.yaml
+  verify: bash scripts/run-story-verify.sh e87s02
+- id: e87s03
+  title: deploy gains a rehearsed rollback and risk-tier autonomy
+  status: todo
+  bcps: 22
+  bcp_13d:
+    dimensions:
+      D1_business_rules: 7
+      D2_interface_elements: 2
+      D3_boundaries: 5
+      D5_solution_variabilities: 3
+      D6_domain_entities: 2
+      D10_audits: 1
+      D12_security_compliance: 2
+    cms: 4
+    counted_by: claude-opus-5-5 (planning session)
+    rubric: ciandt-oss/bcp-agent 13D rubric (src/bcp/prompts/thirteen), counted by element table
+    counted_on: '2026-10-30'
+    calibration: none — recount with the e85 procedure
+  risk: P1
+  delta: MODIFIED
+  depends_on: []
+  value_rank: 12
+  playbook_coverage_points: 0.25
+  description: >-
+    deploy gains a single-command rollback, rehearsed in staging, and maps P0-P3 risk tiers to how far
+    the agent may go (prepare only, staging, production behind the e86s04 ask gate).
+  files:
+  - skills/deploy/SKILL.md
+  tasks: e87s03-tasks.yaml
+  verify: bash scripts/run-story-verify.sh e87s03

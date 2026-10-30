@@ -1,0 +1,22 @@
+story_id: e84s02
+title: seed-conventions writes AGENTS.md-first by default
+status: todo
+bcps: 22
+tasks:
+- id: 1
+  description: Make the AGENTS.md spine the default seed output; keep a --claude-only opt-out
+  verify: grep -q 'AGENTS.md' skills/seed-conventions/SKILL.md && grep -qi 'default' skills/seed-conventions/SKILL.md
+    && bash scripts/run-skill-verify.sh skills/seed-conventions
+  risk: P2
+  status: todo
+- id: 2
+  description: Add the CLAUDE.local.md warning and the migrate-existing-CLAUDE.md step
+  verify: grep -q 'CLAUDE.local.md' skills/seed-conventions/REFERENCE.md
+  risk: P2
+  status: todo
+- id: 3
+  description: 'Update the Claude Code row: agents-md mod, instructionFiles modes, 2.1.277'
+  verify: grep -q 'instructionFiles' docs/references/agent-config-files-and-okf.md && grep -q '2.1.277'
+    docs/references/agent-config-files-and-okf.md
+  risk: P2
+  status: todo

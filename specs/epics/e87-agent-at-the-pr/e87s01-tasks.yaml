@@ -1,0 +1,15 @@
+story_id: e87s01
+title: Opt-in agent review on every PR
+status: todo
+bcps: 31
+tasks:
+- id: 1
+  description: Add the PR review job template with a harness adapter
+  verify: ls skills/wire-ci/templates/*review* >/dev/null && bash scripts/run-skill-verify.sh skills/wire-ci
+  risk: P1
+  status: todo
+- id: 2
+  description: Add the review-guidelines template
+  verify: grep -q 'Important' docs/templates/REVIEW-GUIDELINES.md && grep -qi 'nit' docs/templates/REVIEW-GUIDELINES.md
+  risk: P1
+  status: todo

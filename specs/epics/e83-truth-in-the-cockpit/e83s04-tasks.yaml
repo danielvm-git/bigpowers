@@ -1,0 +1,15 @@
+story_id: e83s04
+title: VISION refreshed and catalog-freeze breaks resolved
+status: todo
+bcps: 8
+tasks:
+- id: 1
+  description: Refresh VISION success criteria
+  verify: '! grep -q ''61 skills'' specs/product/VISION_LATEST.yaml'
+  risk: P2
+  status: todo
+- id: 2
+  description: Resolve every drift warning
+  verify: '! bash scripts/check-catalog-drift.sh 2>&1 | grep -q ''^WARNING'''
+  risk: P2
+  status: todo

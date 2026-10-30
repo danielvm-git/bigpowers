@@ -1,0 +1,15 @@
+story_id: e88s01
+title: Control bands on the daily cron open a BUG spec
+status: todo
+bcps: 32
+tasks:
+- id: 1
+  description: Write watch-bands.sh with unit tests on fixture series
+  verify: bash scripts/test-watch-bands.sh
+  risk: P2
+  status: todo
+- id: 2
+  description: Wire it into the daily cron
+  verify: grep -q 'watch-bands.sh' .github/workflows/test-build-release.yml
+  risk: P2
+  status: todo

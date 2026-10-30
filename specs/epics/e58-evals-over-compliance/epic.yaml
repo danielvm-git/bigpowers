@@ -64,3 +64,14 @@ planned_stories:
       This is the one genuinely gate-behavior-changing story in the epic — mitigated by
       being the last story, gated on real calibration data (prior story), and grounded in
       an exhaustive pre-built dependency map (e53s03) rather than a guess at what breaks.
+  - working_title: Harness-neutral headless eval runner that fills pending_agent_eval
+    bcp_estimate: 26
+    bcp_basis: 13D element count, 2026-10-30
+    description: >-
+      Run each eval prompt headless through a harness adapter (Claude, Gemini, Codex), grade with the eval's
+      verify commands, and record pass@k with and without the skill. Fills run-benchmark.py's pending_agent_eval
+      scenarios. Added 2026-10-30 from the playbook value-engineering pass (red-team verdict R1: merge into
+      e58, keep advisory until calibrated).
+    backward_compat: >-
+      Additive: the runner only produces eval data; the compliance gate stays blocking until the calibration
+      story decides otherwise.

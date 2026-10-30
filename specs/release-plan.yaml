@@ -109,6 +109,60 @@ done_epics_summary:
   - e78
   - e79
 epics:
+- id: e84
+  title: AGENTS.md First — One Harness-Neutral Instruction File
+  wsjf: 10.5
+  bcps: 36
+  capsule_dir: epics/e84-agents-md-first
+  mode: capsule
+  status: scoped
+  wsjf_rationale: BV 8 + TC 8 + RR 5 / Job 2 ≈ 10.5
+  source: Playbook value-engineering pass 2026-10-30 — see specs/VALUE-ENGINEERING-playbook-compat.md
+- id: e83
+  title: Truth in the Cockpit — Fix the Drift the Red Team Found
+  wsjf: 6.0
+  bcps: 47
+  capsule_dir: epics/e83-truth-in-the-cockpit
+  mode: capsule
+  status: scoped
+  wsjf_rationale: BV 5 + TC 5 + RR 8 / Job 3 ≈ 6.0
+  source: Playbook value-engineering pass 2026-10-30 — see specs/VALUE-ENGINEERING-playbook-compat.md
+- id: e85
+  title: Count BCP the 13D Way — A Procedure Any LLM Follows
+  wsjf: 4.3
+  bcps: 42
+  capsule_dir: epics/e85-count-bcp-13d
+  mode: capsule
+  status: scoped
+  wsjf_rationale: BV 5 + TC 3 + RR 5 / Job 3 ≈ 4.3
+  source: Playbook value-engineering pass 2026-10-30 — see specs/VALUE-ENGINEERING-playbook-compat.md
+- id: e86
+  title: Hooks Enforce — Turn Prose Nevers into Checks
+  wsjf: 4.2
+  bcps: 98
+  capsule_dir: epics/e86-hooks-enforce
+  mode: capsule
+  status: scoped
+  wsjf_rationale: BV 8 + TC 5 + RR 8 / Job 5 ≈ 4.2
+  source: Playbook value-engineering pass 2026-10-30 — see specs/VALUE-ENGINEERING-playbook-compat.md
+- id: e87
+  title: Agent at the PR — Opt-in Review, Triage and Rollback
+  wsjf: 2.6
+  bcps: 71
+  capsule_dir: epics/e87-agent-at-the-pr
+  mode: capsule
+  status: scoped
+  wsjf_rationale: BV 5 + TC 3 + RR 5 / Job 5 ≈ 2.6
+  source: Playbook value-engineering pass 2026-10-30 — see specs/VALUE-ENGINEERING-playbook-compat.md
+- id: e88
+  title: Maintain Loop Starts Itself — Bands, Scans, Diagnosis
+  wsjf: 2.4
+  bcps: 80
+  capsule_dir: epics/e88-maintain-loop-starts-itself
+  mode: capsule
+  status: scoped
+  wsjf_rationale: BV 8 + TC 3 + RR 8 / Job 8 ≈ 2.4
+  source: Playbook value-engineering pass 2026-10-30 — see specs/VALUE-ENGINEERING-playbook-compat.md
 - id: e82
   title: Fork Innovations — Jujutsu VCS Support + OMP Plugin + Community Credit
   wsjf: 6.0

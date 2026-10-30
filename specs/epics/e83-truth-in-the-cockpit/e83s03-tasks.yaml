@@ -1,0 +1,16 @@
+story_id: e83s03
+title: Receipts read the cycle-time ledger and label sources honestly
+status: todo
+bcps: 13
+tasks:
+- id: 1
+  description: Read the cycle-time ledger instead of metrics/*.okf.md
+  verify: grep -q 'cycle-times.yaml' scripts/build-receipts.sh
+  risk: P2
+  status: todo
+- id: 2
+  description: Label source honestly and add a staleness field
+  verify: bash scripts/build-receipts.sh && python3 -c "import json;d=json.load(open('specs/receipts.json'))['metrics'];assert
+    'stale' in d['value'] and d['source']!='measured' or d['value']['source_breakdown']['measured']>0"
+  risk: P2
+  status: todo

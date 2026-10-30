@@ -1,0 +1,116 @@
+# story: e88s01 e88s02 e88s03
+id: e88
+title: Maintain Loop Starts Itself — Bands, Scans, Diagnosis
+wsjf: 2.4
+bcps: 80
+capsule_dir: epics/e88-maintain-loop-starts-itself
+mode: capsule
+status: scoped
+sliced: '2026-10-30'
+wsjf_rationale: BV 8 + TC 3 + RR 8 / Job 8 ≈ 2.4
+source: >-
+  Deterministic scheduled checks exist (daily anti-vacuity cron, hourly agent-locks, weekly references)
+  but nothing turns a signal into the next piece of work. Detection stays a kernel script (B3), not a
+  new skill; its output is a BUG-*.md, which already enters the loop at investigate-bug.
+playbook_plays:
+- P13 closing the loop
+- P14 recurring scans
+value_engineering: specs/VALUE-ENGINEERING-playbook-compat.md
+stories:
+- id: e88s01
+  title: Control bands on the daily cron open a BUG spec
+  status: todo
+  bcps: 32
+  bcp_13d:
+    dimensions:
+      D1_business_rules: 9
+      D3_boundaries: 5
+      D5_solution_variabilities: 3
+      D6_domain_entities: 2
+      D7_new_domain_entities: 5
+      D8_background_processes: 5
+      D10_audits: 1
+      D11_quality_attributes: 2
+    cms: 4
+    counted_by: claude-opus-5-5 (planning session)
+    rubric: ciandt-oss/bcp-agent 13D rubric (src/bcp/prompts/thirteen), counted by element table
+    counted_on: '2026-10-30'
+    calibration: none — recount with the e85 procedure
+  risk: P2
+  delta: ADDED
+  depends_on: []
+  value_rank: 5
+  playbook_coverage_points: 0.25
+  description: >-
+    scripts/watch-bands.sh runs on the existing daily cron, keeps a rolling baseline for one metric (CI
+    failure rate from gh run list), applies Western Electric rules from specs/bands.yaml, logs at 1 sigma
+    and writes a deduplicated BUG-*.md at 2 sigma.
+  files:
+  - scripts/watch-bands.sh
+  - specs/bands.yaml
+  - .github/workflows/test-build-release.yml
+  tasks: e88s01-tasks.yaml
+  verify: bash scripts/run-story-verify.sh e88s01
+- id: e88s02
+  title: Weekly deterministic security scan opens BUG specs
+  status: todo
+  bcps: 20
+  bcp_13d:
+    dimensions:
+      D1_business_rules: 4
+      D3_boundaries: 5
+      D5_solution_variabilities: 1
+      D6_domain_entities: 2
+      D8_background_processes: 5
+      D12_security_compliance: 3
+    cms: 4
+    counted_by: claude-opus-5-5 (planning session)
+    rubric: ciandt-oss/bcp-agent 13D rubric (src/bcp/prompts/thirteen), counted by element table
+    counted_on: '2026-10-30'
+    calibration: none — recount with the e85 procedure
+  risk: P2
+  delta: ADDED
+  depends_on: []
+  value_rank: 10
+  playbook_coverage_points: 0.25
+  description: >-
+    A weekly scheduled job runs a secret scan and a dependency audit and writes a deduplicated BUG-*.md
+    for findings above the threshold.
+  files:
+  - .github/workflows/weekly-security-scan.yml
+  - scripts/security-scan-to-bug.sh
+  tasks: e88s02-tasks.yaml
+  verify: bash scripts/run-story-verify.sh e88s02
+- id: e88s03
+  title: Breaches and weekly scans get a read-only agent diagnosis
+  status: todo
+  bcps: 28
+  bcp_13d:
+    dimensions:
+      D1_business_rules: 7
+      D3_boundaries: 5
+      D5_solution_variabilities: 3
+      D6_domain_entities: 2
+      D8_background_processes: 8
+      D10_audits: 1
+      D12_security_compliance: 2
+    cms: 4
+    counted_by: claude-opus-5-5 (planning session)
+    rubric: ciandt-oss/bcp-agent 13D rubric (src/bcp/prompts/thirteen), counted by element table
+    counted_on: '2026-10-30'
+    calibration: none — recount with the e85 procedure
+  risk: P1
+  delta: ADDED
+  depends_on:
+  - e58
+  - e88s01
+  value_rank: 6
+  playbook_coverage_points: 1.0
+  description: >-
+    A 2-sigma breach and a weekly whole-repo security-review both run a read-only headless agent through
+    the e58 harness runner; the diagnosis is written as BUG-*.md for triage.
+  files:
+  - scripts/watch-bands.sh
+  - .github/workflows/weekly-security-scan.yml
+  tasks: e88s03-tasks.yaml
+  verify: bash scripts/run-story-verify.sh e88s03

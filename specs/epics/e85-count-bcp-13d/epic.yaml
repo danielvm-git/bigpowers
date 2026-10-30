@@ -1,0 +1,84 @@
+# story: e85s01 e85s02
+id: e85
+title: Count BCP the 13D Way — A Procedure Any LLM Follows
+wsjf: 4.3
+bcps: 42
+capsule_dir: epics/e85-count-bcp-13d
+mode: capsule
+status: scoped
+sliced: '2026-10-30'
+wsjf_rationale: BV 5 + TC 3 + RR 5 / Job 3 ≈ 4.3
+source: >-
+  CONVENTIONS names docs/references/bcp.md as canonical, but it still teaches the older 6-step / 3-category
+  method and cites flow-ciandt/bcp-agent; the open-source home is ciandt-oss/bcp-agent with 13 dimensions.
+  Counting is judgment plus simple arithmetic, so it ships as a skill procedure, not a program: the LLM
+  writes the element table, shows the sum, and checks itself against the rubric's worked examples.
+playbook_plays:
+- 'beyond the playbook: effort accounting'
+value_engineering: specs/VALUE-ENGINEERING-playbook-compat.md
+stories:
+- id: e85s01
+  title: Count the 10 functional dimensions with worked-example self-checks
+  status: todo
+  bcps: 25
+  bcp_13d:
+    dimensions:
+      D1_business_rules: 13
+      D2_interface_elements: 3
+      D3_boundaries: 1
+      D5_solution_variabilities: 3
+      D6_domain_entities: 2
+      D7_new_domain_entities: 3
+    cms: 4
+    counted_by: claude-opus-5-5 (planning session)
+    rubric: ciandt-oss/bcp-agent 13D rubric (src/bcp/prompts/thirteen), counted by element table
+    counted_on: '2026-10-30'
+    calibration: none — recount with the e85 procedure
+  risk: P2
+  delta: MODIFIED
+  depends_on: []
+  value_rank: 18
+  playbook_coverage_points: 0
+  description: >-
+    The 10 functional dimensions as a step-by-step counting procedure with the aggregation rules (sum
+    per rule, groups of 5, max for boundaries, floor 1 for variabilities) and the rubric's worked examples
+    as self-checks. Lives as BCP-13D.md beside plan-release and is linked from slice-tasks and plan-work
+    (freeze-safe); promotion to its own skill is an e56 decision.
+  files:
+  - skills/plan-release/BCP-13D.md
+  - skills/slice-tasks/SKILL.md
+  - docs/references/bcp.md
+  tasks: e85s01-tasks.yaml
+  verify: bash scripts/run-story-verify.sh e85s01
+- id: e85s02
+  title: NFR dimensions, maturity gate and count provenance
+  status: todo
+  bcps: 17
+  bcp_13d:
+    dimensions:
+      D1_business_rules: 5
+      D2_interface_elements: 3
+      D3_boundaries: 1
+      D5_solution_variabilities: 3
+      D6_domain_entities: 2
+      D10_audits: 1
+      D11_quality_attributes: 2
+    cms: 4
+    counted_by: claude-opus-5-5 (planning session)
+    rubric: ciandt-oss/bcp-agent 13D rubric (src/bcp/prompts/thirteen), counted by element table
+    counted_on: '2026-10-30'
+    calibration: none — recount with the e85 procedure
+  risk: P2
+  delta: ADDED
+  depends_on:
+  - e85s01
+  value_rank: 19
+  playbook_coverage_points: 0
+  description: >-
+    D11-D13 explicit-only NFR scoring, the CMS >= 3 maturity gate, IMS, and a provenance block (counted_by,
+    rubric version, date) written beside each story's bcps.
+  files:
+  - skills/plan-release/BCP-13D.md
+  - skills/plan-work/SKILL.md
+  tasks: e85s02-tasks.yaml
+  verify: bash scripts/run-story-verify.sh e85s02

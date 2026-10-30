@@ -1,0 +1,10 @@
+story_id: e83s02
+title: bigpowers status counts only bigpowers-owned skills
+status: todo
+bcps: 8
+tasks:
+- id: 1
+  description: Count only links into the package; print foreign links separately
+  verify: grep -q 'foreign' bin/bigpowers.js && node bin/bigpowers.js status | grep -q 'skills installed'
+  risk: P2
+  status: todo

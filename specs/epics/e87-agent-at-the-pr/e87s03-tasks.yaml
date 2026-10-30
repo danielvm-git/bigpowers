@@ -1,0 +1,15 @@
+story_id: e87s03
+title: deploy gains a rehearsed rollback and risk-tier autonomy
+status: todo
+bcps: 22
+tasks:
+- id: 1
+  description: Document and verify the rollback path
+  verify: grep -qi 'rollback' skills/deploy/SKILL.md && bash scripts/run-skill-verify.sh skills/deploy
+  risk: P1
+  status: todo
+- id: 2
+  description: Map risk tiers to deploy autonomy
+  verify: grep -q 'P0' skills/deploy/SKILL.md && grep -q 'P3' skills/deploy/SKILL.md
+  risk: P1
+  status: todo

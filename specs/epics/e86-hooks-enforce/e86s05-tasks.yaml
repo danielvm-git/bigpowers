@@ -1,0 +1,10 @@
+story_id: e86s05
+title: Catalog freeze is enforced, not advisory
+status: todo
+bcps: 15
+tasks:
+- id: 1
+  description: Deny a new skill directory during the freeze
+  verify: bash scripts/test-freeze-hook.sh
+  risk: P2
+  status: todo

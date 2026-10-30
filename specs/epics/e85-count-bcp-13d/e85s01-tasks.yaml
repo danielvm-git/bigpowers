@@ -1,0 +1,16 @@
+story_id: e85s01
+title: Count the 10 functional dimensions with worked-example self-checks
+status: todo
+bcps: 25
+tasks:
+- id: 1
+  description: Write the D1-D10 procedure with worked-example self-checks
+  verify: grep -c '^### D' skills/plan-release/BCP-13D.md | grep -qx 10 && grep -q 'ciandt-oss/bcp-agent'
+    skills/plan-release/BCP-13D.md
+  risk: P2
+  status: todo
+- id: 2
+  description: Rewrite bcp.md to the 13D method and fix the source link
+  verify: '! grep -q ''flow-ciandt/bcp-agent'' docs/references/bcp.md && grep -q ''13'' docs/references/bcp.md'
+  risk: P2
+  status: todo
