@@ -1,9 +1,10 @@
-id: e57
+id: e52
+formerly: e57
 title: "Adopt OKF Envelope — Apply the Wayfinder Templates Across the Live Repo"
 wsjf: 5.0
 bcps: 0
 bcps_projected: 8
-capsule_dir: epics/e57-adopt-okf-envelope
+capsule_dir: epics/e52-adopt-okf-envelope
 mode: capsule
 status: scoped
 elaborated: 2026-07-22
@@ -22,7 +23,7 @@ source: |
 note: >
   WSJF 5.0 = (6 value + 4 urgency + 5 risk-reduction) / 3 job-size. Only depends on e54
   (needs a frozen baseline so this epic isn't chasing catalog changes while it works, same
-  reasoning as e56/e58) — notably does NOT depend on e55 or e56, since document-envelope
+  reasoning as e56/e50) — notably does NOT depend on e55 or e56, since document-envelope
   adoption is largely orthogonal to doctrine consolidation or skill reclassification. That's
   also why its WSJF can legitimately outrank e56 despite e56 being numerically earlier in
   the phase list — the two are not on each other's critical path.

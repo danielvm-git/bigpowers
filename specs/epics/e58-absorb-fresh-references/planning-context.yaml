@@ -1,5 +1,5 @@
 # planning-context.yaml — written by elaborate-spec (yolo mode, 2026-07-22); consumed by plan-work
-# Epic e59 — Absorb Fresh References. Intent USER-CONFIRMED 2026-07-22: this epic means "stay
+# Epic e58 — Absorb Fresh References. Intent USER-CONFIRMED 2026-07-22: this epic means "stay
 # synced with bigspec as it evolves" (reading A), NOT a periodic external prior-art refresh
 # (reading C). Its intent was only named (one line in state.yaml), never defined in bigpowers
 # text; the driver proposed reading A under yolo mode and the user confirmed it directly.
@@ -8,7 +8,7 @@ feature_name: "Absorb Fresh References — keep bigpowers synced with bigspec as
 confidence: confirmed
 
 problem_statement: |
-  e54-e58 close the gap between bigpowers and bigspec once. But bigspec is a living,
+  e50/e52/e54–e56 close the gap between bigpowers and bigspec once. But bigspec is a living,
   separately-evolving repository (its own architecture.md §8 lays out an M0-M5 build sequence
   that continues after bigpowers' migration lands: new ADRs, a bumped constitution_version,
   new skills as bigspec itself matures). Without an ongoing mechanism, bigpowers drifts away
@@ -40,7 +40,7 @@ main_flow: |
 
 success_criteria:
   - |
-    GIVEN bigspec keeps evolving after e54-e58 land
+    GIVEN bigspec keeps evolving after e50/e52/e54–e56 land
     WHEN bigspec's constitution or architecture changes
     THEN bigpowers has a mechanism that detects the change and surfaces it as a review report,
       rather than silently drifting out of alignment
@@ -55,7 +55,7 @@ success_criteria:
     THEN the version delta is known and reportable
 
 constraints:
-  - "Depends on e55 (a local constitution.md must exist before you can diff it against bigspec's) and e57 (staying in sync likely means comparing OKF-kind artifacts on both sides)."
+  - "Depends on e55 (a local constitution.md must exist before you can diff it against bigspec's) and e52 (staying in sync likely means comparing OKF-kind artifacts on both sides)."
   - "Report-only, human-in-the-loop: no automatic changes to bigpowers' own files. A human decides what to absorb and when."
   - "bigpowers may intentionally diverge from bigspec in places — the mechanism flags, it does not enforce convergence."
 
@@ -65,25 +65,25 @@ out_of_scope:
   - "Making bigpowers a build-time dependency of bigspec or vice versa — the two stay independent repos."
 
 key_decisions:
-  - decision: "USER-CONFIRMED (2026-07-22): e59 is an ONGOING mechanism to keep bigpowers synced with bigspec as bigspec evolves (reading A) — not a periodic external prior-art refresh (reading C)."
+  - decision: "USER-CONFIRMED (2026-07-22): e58 is an ONGOING mechanism to keep bigpowers synced with bigspec as bigspec evolves (reading A) — not a periodic external prior-art refresh (reading C)."
     rationale: |
       'Absorb fresh references' admitted three readings: (A) an ongoing mechanism that keeps
       bigpowers synced with bigspec as bigspec evolves; (B) a one-time absorption of a specific
       set of already-known references; (C) a periodic external prior-art refresh (re-run
       research-first against the current landscape). The driver proposed (A) under yolo mode —
       it is the LAST phase (a one-time absorption would sit earlier), it is the only reading
-      that makes e59 a permanent capability, and the phase belongs to a migration whose endpoint
+      that makes e58 a permanent capability, and the phase belongs to a migration whose endpoint
       is convergence on bigspec. The user confirmed (A) directly on 2026-07-22. Reading (C) is
       dropped: this epic is about bigspec sync, not general external prior-art.
   - decision: "RESOLVED: held at low confidence until user confirmation; confirmed 2026-07-22, now cleared for plan-work slicing like its siblings."
     rationale: |
-      Every other epic (e54-e58) is grounded in concrete bigspec text; e59 was inferred from a
+      Every other epic (e50/e52/e54–e56) is grounded in concrete bigspec text; e58 was inferred from a
       one-line name, so it was correctly held at low confidence rather than presented as
       settled. With the user's confirmation of reading (A) it is no longer a hypothesis and can
-      proceed to plan-work when its dependencies (e55, e57) land.
+      proceed to plan-work when its dependencies (e55, e52) land.
 
 resolved_questions:
-  - question: "Is e59 primarily (A) 'stay synced with bigspec as it evolves', (C) 'periodically refresh external prior-art', or a genuine mix?"
+  - question: "Is e58 primarily (A) 'stay synced with bigspec as it evolves', (C) 'periodically refresh external prior-art', or a genuine mix?"
     answer: "(A) stay synced with bigspec as it evolves — user-confirmed 2026-07-22."
     owner: "user"
 

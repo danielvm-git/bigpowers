@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# story: e82s01
+# story: e49s01
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"

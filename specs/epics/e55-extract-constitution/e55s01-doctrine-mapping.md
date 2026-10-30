@@ -299,7 +299,7 @@ a Gherkin-based self-compliance suite (`npm run compliance`, 94% threshold) —
 source: `docs/PRINCIPLES.md` §6/§7, `CLAUDE.md` §Commands, `code-review.md`,
 `gates.md`. `reborn-constitution.md`'s Capstone definition explicitly states
 this target block "replaces the legacy 94% Gherkin self-compliance gate" with
-outcome evals (with-skill vs without-skill delta). That replacement is **e58's
+outcome evals (with-skill vs without-skill delta). That replacement is **e50's
 job (evals-over-compliance), not yet built** — today's 94% gate is what
 actually exists and is what e55s02 must describe accurately under whichever
 block it lands in, without presenting Capstone's target-state eval mechanism as
@@ -349,7 +349,7 @@ already true.
 
 - The `--fast` flag / BCP<3 zoom-out-skip optimization (`bcp.md`) sits between
   B9 (effort/sizing) and B10 (planning tempo) — doesn't cleanly fit either.
-- **Catalog Freeze section** (`CONVENTIONS.md` §Catalog Freeze, e54-e59) is a
+- **Catalog Freeze section** (`CONVENTIONS.md` §Catalog Freeze, e50/e52/e54–e56/e58) is a
   migration-scoped, time-bound policy (expires when e56 merges) rather than a
   permanent doctrine rule — flagged for e55s02 to decide whether it belongs in
   `constitution.md` at all, or should stay only in `CONVENTIONS.md` as

@@ -13,6 +13,6 @@ tasks:
     verify: "test -f specs/tech-architecture/GOLDEN-COMPLIANCE-DEPENDENCY.md && [ \"$(grep -c '^|' specs/tech-architecture/GOLDEN-COMPLIANCE-DEPENDENCY.md)\" -ge 7 ] && echo OK"
     status: passing
   - id: 3
-    description: "State explicitly in the report: this story maps the dependency only — it does not flip golden-suite-gates.sh:9's is_optional flag. That flip belongs to e58 (evals-over-compliance)"
+    description: "State explicitly in the report: this story maps the dependency only — it does not flip golden-suite-gates.sh:9's is_optional flag. That flip belongs to e50 (evals-over-compliance)"
     verify: "grep -qi 'does not flip\\|out of scope' specs/tech-architecture/GOLDEN-COMPLIANCE-DEPENDENCY.md && echo OK"
     status: passing

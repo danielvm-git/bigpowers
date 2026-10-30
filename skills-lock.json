@@ -33,7 +33,7 @@
     },
     "commit-message": {
       "description": "Reviews working-tree changes, then drafts a Conventional Commits title/body and states the semantic-release version bump a single such commit would imply. Also notes which defensive-code categories were touched. Use when the user wants to commit recent work, prepare a Conventional Commits message, or asks for semantic-release / semver-consistent messaging before git commit.",
-      "sha256": "9c21fead0938a924",
+      "sha256": "23781bf86d430889",
       "path": "skills/commit-message/SKILL.md"
     },
     "compose-workflow": {
@@ -188,7 +188,7 @@
     },
     "kickoff-branch": {
       "description": "Create an isolated Git worktree/branch or Jujutsu workspace, then verify a clean test baseline before code. Use when starting a feature or task.",
-      "sha256": "eb70800142e4d22e",
+      "sha256": "9db1a0dcc8088ebc",
       "path": "skills/kickoff-branch/SKILL.md"
     },
     "maintain-wiki": {
@@ -253,7 +253,7 @@
     },
     "release-branch": {
       "description": "Make the merge/PR/keep/discard decision for a feature branch, verify coverage gates, create the PR with gh, and clean up the worktree. Use when a feature is done and ready to ship, or when user says \"release\", \"merge\", or \"open a PR\".",
-      "sha256": "4c3509bc9fd4a8a1",
+      "sha256": "28a2d7ea215db1ac",
       "path": "skills/release-branch/SKILL.md"
     },
     "request-review": {
@@ -353,7 +353,7 @@
     },
     "survey-context": {
       "description": "Per-task context bootstrap — reads existing specs/ and tech-architecture docs to map the current lifecycle phase and suggest the next skill. Use at the start of any task, when returning after a break, or when unsure what to do next. For deriving a tech-stack doc from scratch, use map-codebase first.",
-      "sha256": "b2d5956596076b24",
+      "sha256": "1ccc115c6e73b2a1",
       "path": "skills/survey-context/SKILL.md"
     },
     "terse-mode": {

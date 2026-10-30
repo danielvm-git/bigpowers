@@ -51,7 +51,7 @@ prior point-in-time snapshot of the full catalog exists anywhere in the repo.
    extracts `name`/`phase`/`effort`/`model`/`description` from frontmatter, and writes a
    single structural file: `specs/tech-architecture/CATALOG-BASELINE-<date>.yaml`.
 2. Include a header block: snapshot date, git commit hash, total skill count, and the explicit
-   statement "frozen for e54-e59 migration; do not hand-edit."
+   statement "frozen for bigspec migration; do not hand-edit."
 3. Commit the snapshot file and confirm `git log -1` shows it as tracked, dated, and tied to a
    real commit hash (the immutability comes from git history, not a lock file).
 

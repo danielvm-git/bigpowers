@@ -22,7 +22,7 @@ note: >
   WSJF 3.8 = (8 value + 5 urgency + 6 risk-reduction) / 5 job-size. Highest business value in
   the sequence (this IS the transformation people will notice) but the largest job size —
   reclassifying and safely renaming/merging dozens of skills is real, careful work, not a
-  quick pass. That size is exactly why it WSJF-ranks below e55/e57/e58 despite mattering
+  quick pass. That size is exactly why it WSJF-ranks below e55/e52/e50 despite mattering
   most: a large denominator earns its place later in a WSJF-sorted queue, same principle
   that put e53 first despite being the newest addition. depends_on includes e53 explicitly
   (not just transitively via e54/e55) because this epic's safety mechanism — the

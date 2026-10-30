@@ -58,7 +58,7 @@ at the repo root.
    header stating its authority ("this file is where a skill author starts
    reading; it does not yet replace `CLAUDE.md`/`CONVENTIONS.md`, which remain
    fully authoritative until e55s03/future work adds pointers") — no
-   `constitution_version`/SemVer amendment scheme (that belongs to e59).
+   `constitution_version`/SemVer amendment scheme (that belongs to e58).
 2. Write Part I: one section per block (B0 through B10, then Capstone), each
    synthesizing e55s01's mapping for that block in a few sentences plus a bullet
    list of its concrete current rules, each bullet citing its real source file
@@ -71,10 +71,10 @@ at the repo root.
    self-compliance gate (`npm run compliance`) honestly, under B5/B6 where it
    actually lives operationally today, with an explicit note that
    `reborn-constitution.md`'s Capstone definition targets replacing this
-   mechanism with outcome evals — and that replacement is **e58's job, not yet
+   mechanism with outcome evals — and that replacement is **e50's job, not yet
    built**. Do not describe the eval-based mechanism as already in place.
 5. Confirm every block section cites at least one real, currently-existing
-   source file — no invented rules, no forward-dated e57/e58/e59 concepts
+   source file — no invented rules, no forward-dated e52/e50/e58 concepts
    presented as already true.
 
 Interruption point: N/A — a single-file write, not a resumable multi-step flow.
@@ -164,15 +164,15 @@ Scenario: the Catalog Freeze section is excluded (open question 1, resolved)
 Scenario: the current compliance gate is described honestly (open question 2, resolved)
   Given bigpowers' current proof mechanism is a Gherkin-based 94% self-compliance
         gate, and reborn-constitution.md's Capstone targets replacing it with
-        outcome evals via e58 (not yet built)
+        outcome evals via e50 (not yet built)
   When  constitution.md describes verification/compliance
   Then  it states the current 94% gate as today's real mechanism and separately
-        notes e58 as the epic expected to eventually replace it — never
+        notes e50 as the epic expected to eventually replace it — never
         presenting the eval-based mechanism as already in place
 
 Scenario: no forward-dated concepts presented as already true
-  Given constitution_version/SemVer schemes (e59), universal OKF-bundle coverage
-        (e57), and a count-bcp skill (not yet built) all belong to later epics
+  Given constitution_version/SemVer schemes (e58), universal OKF-bundle coverage
+        (e52), and a count-bcp skill (not yet built) all belong to later epics
   When  constitution.md is written
   Then  none of those terms appear as already-true current-state claims
 ```
@@ -184,7 +184,7 @@ Scenario: no forward-dated concepts presented as already true
   citations, not a full-text copy-paste of every source file.
 - Adding cross-reference pointers from `CLAUDE.md`/`CONVENTIONS.md` back to
   `constitution.md` — that is e55s03's job.
-- Any `constitution_version`/amendment/SemVer scheme — that is e59's job.
+- Any `constitution_version`/amendment/SemVer scheme — that is e58's job.
 
 ### 19. Open questions [draft]
 

@@ -20,7 +20,7 @@ SIZE:      M   (Fibonacci 1/2/3/5/8)
 
 ### 1. Business narrative [draft]
 
-The planned migration sequence (e54-e59) will rename or merge several skills as bigpowers
+The planned migration sequence (e50/e52/e54–e56/e58) will rename or merge several skills as bigpowers
 reclassifies its catalog (e56, skill reclassification/merges). Today, renaming a skill
 directory breaks every reference to its old name — invocations, documentation links, and any
 consumer project pinned to the old name all fail with no transition window. The migration

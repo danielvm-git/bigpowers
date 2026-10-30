@@ -1,5 +1,5 @@
 # planning-context.yaml — written by elaborate-spec (yolo mode, 2026-07-22); consumed by plan-work
-# Epic e58 — Evals Over Compliance. Provisional epic elaborated autonomously; interpretations
+# Epic e50 — Evals Over Compliance. Provisional epic elaborated autonomously; interpretations
 # resolved by the driver and recorded under key_decisions (no interactive dialogue occurred).
 feature_name: "Evals Over Compliance — replace the 94% self-compliance gate with outcome proof"
 
@@ -52,7 +52,7 @@ success_criteria:
       threshold that replaces 94%
 
 constraints:
-  - "Depends on e53 alone — e53s03's dependency map is the precondition. Does not require e54/e55/e56/e57 first, though running after e56 means evaluating a cleaner, smaller catalog."
+  - "Depends on e53 alone — e53s03's dependency map is the precondition. Does not require e54/e55/e56/e52 first, though running after e56 means evaluating a cleaner, smaller catalog."
   - "Do NOT flip golden-suite-gates.sh:9 until calibration data justifies it (architecture.md §10's own red-team: 'ship advisory-first, promote only after calibration data')."
   - "bigspec architecture.md §11's empirical projection (reborn ≈100% on principle steps) is the sanity check the eval-based gate should roughly reproduce."
 

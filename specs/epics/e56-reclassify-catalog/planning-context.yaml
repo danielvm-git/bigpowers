@@ -65,8 +65,8 @@ constraints:
 out_of_scope:
   - "Hitting an exact count of 28. The target is directional (~28-29); bigspec's own constitution lists 'not a skill count' as a non-goal. Classify honestly and let the number fall out."
   - "Changing the behavior of any surviving procedure — pure reclassification and relocation only."
-  - "Replacing the compliance gate with evals — that is e58."
-  - "Adopting the OKF envelope across the surviving skills' docs — that is e57."
+  - "Replacing the compliance gate with evals — that is e50."
+  - "Adopting the OKF envelope across the surviving skills' docs — that is e52."
 
 key_decisions:
   - decision: "This epic classifies AND migrates (rename/merge/tombstone), not merely produces a classification table."

@@ -1,4 +1,4 @@
-// story: e82s03
+// story: e49s03
 // Runtime smoke for extensions/omp-hooks.ts.
 // Imports the extension, registers a fake ExtensionAPI, and verifies the
 // extension leaves commands to prompt templates while skill-tool injection works.

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-30T17:56:25.869067+00:00",
+  "generated_at": "2026-10-30T21:02:04.229328+00:00",
   "matrix_version": "1.0",
   "stories": [
     {
@@ -4092,6 +4092,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261030-151122.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261030-175157.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-234209.md",
           "line": 0,
           "confidence": "medium",
@@ -4320,12 +4332,6 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/reports/audit-cleancode-20261030-144938.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-163821.md",
           "line": 0,
           "confidence": "medium",
@@ -4338,13 +4344,13 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/reports/audit-cleancode-20261030-145423.md",
+          "file": "specs/verifications/reports/audit-cleancode-20260703-165945.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/reports/audit-cleancode-20260703-165945.md",
+          "file": "specs/verifications/reports/audit-cleancode-20261030-175709.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4393,12 +4399,6 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-165619.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/reports/audit-cleancode-20261030-145327.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4543,6 +4543,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260704-150417.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261030-151551.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4920,6 +4926,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261030-174839.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-164823.md",
           "line": 0,
           "confidence": "medium",
@@ -5100,6 +5112,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261030-152140.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260702-080024.md",
           "line": 0,
           "confidence": "medium",
@@ -5107,6 +5125,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-142902.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261030-152034.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5298,6 +5322,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261030-175031.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-163956.md",
           "line": 0,
           "confidence": "medium",
@@ -5329,6 +5359,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-005336.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261030-151538.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5562,7 +5598,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 283
+      "link_count": 289
     },
     {
       "id": "e45s19",
@@ -7308,6 +7344,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261030-151122.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261030-175157.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-234209.md",
           "line": 0,
           "confidence": "medium",
@@ -7536,12 +7584,6 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/reports/audit-cleancode-20261030-144938.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-163821.md",
           "line": 0,
           "confidence": "medium",
@@ -7554,13 +7596,13 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/reports/audit-cleancode-20261030-145423.md",
+          "file": "specs/verifications/reports/audit-cleancode-20260703-165945.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/reports/audit-cleancode-20260703-165945.md",
+          "file": "specs/verifications/reports/audit-cleancode-20261030-175709.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -7609,12 +7651,6 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-165619.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/reports/audit-cleancode-20261030-145327.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -7759,6 +7795,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260704-150417.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261030-151551.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8136,6 +8178,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261030-174839.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-164823.md",
           "line": 0,
           "confidence": "medium",
@@ -8316,6 +8364,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261030-152140.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260702-080024.md",
           "line": 0,
           "confidence": "medium",
@@ -8323,6 +8377,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-142902.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261030-152034.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8514,6 +8574,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261030-175031.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-163956.md",
           "line": 0,
           "confidence": "medium",
@@ -8545,6 +8611,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-005336.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261030-151538.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8766,7 +8838,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 269
+      "link_count": 275
     },
     {
       "id": "e45s32",
@@ -8952,6 +9024,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-10-25-release-not-gated.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/epics/archive/e26-security-review/e26s06-release-branch-gate.md",
           "line": 0,
           "confidence": "medium",
@@ -9030,7 +9108,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 42
+      "link_count": 43
     },
     {
       "id": "e45s33",
@@ -9936,6 +10014,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-09-09-pi-duplicate-slash-commands.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-03-codebase-wiki-venv-pollution.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -10044,7 +10128,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 34
+      "link_count": 35
     },
     {
       "id": "e48s02",
@@ -10158,6 +10242,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-09-09-pi-duplicate-slash-commands.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-23-golden-g11-worktree-venv.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -10183,6 +10273,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-09T033939-golden-g01-submodule-checkout.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-09-05-golden-gate-missing-node-deps.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -10248,7 +10344,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 32
+      "link_count": 34
     },
     {
       "id": "e48s03",
@@ -10434,6 +10530,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-10-30-mcp-unset-plugin-root.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-04-stale-bak-features.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -10536,6 +10638,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-10-30-compliance-akita-masked.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-08-31-npm-token-invalid-release.md",
           "line": 0,
           "confidence": "medium",
@@ -10555,6 +10663,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-06T124600-sync-trace-repo-root.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-09-10-pi-mcp-omp-startup.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -10615,6 +10729,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-03-trace-stories-613-line.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-10-25-pages-not-gated.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -10716,6 +10836,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-10-25-ci-critical-path.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-04-filesize-gate-python-blindspot.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -10741,6 +10867,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-06-02T164500.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-09-05-pi-omp-extension-load-crash.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -10825,6 +10957,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-07-install-gemini-plugins.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-10-30-mcp-unset-plugin-root.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -10938,6 +11076,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-09-09-pi-duplicate-slash-commands.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-23-golden-g11-worktree-venv.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -10969,6 +11113,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-30T000000.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-10-25-release-not-gated.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -11220,6 +11370,24 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-09-05-golden-gate-missing-node-deps.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-10-30-compliance-akita-masked.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-09-13-docs-base-path-gate-ci.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-03-yaml-roundtrip-corruption.md",
           "line": 0,
           "confidence": "medium",
@@ -11316,7 +11484,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 176
+      "link_count": 188
     },
     {
       "id": "e48s04",
@@ -11622,7 +11790,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-10-30-compliance-akita-masked.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-06-11T183000.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-09-10-pi-mcp-omp-startup.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -11659,6 +11839,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-03-trace-stories-613-line.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-10-25-pages-not-gated.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -11724,6 +11910,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-10-25-ci-critical-path.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-04-filesize-gate-python-blindspot.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -11742,6 +11934,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-09-05-pi-omp-extension-load-crash.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-03-capsule-release-labels.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -11755,6 +11953,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-06-27T000000.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-10-30-mcp-unset-plugin-root.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -11808,6 +12012,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-09-09-pi-duplicate-slash-commands.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-23-golden-g11-worktree-venv.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -11827,6 +12037,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-30T000000.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-10-25-release-not-gated.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -11929,6 +12145,18 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-06-craft-skill-sync-oversized.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-09-05-golden-gate-missing-node-deps.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-09-13-docs-base-path-gate-ci.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -12306,6 +12534,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/epics-wiki/e49.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/epics-wiki/e34.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -12367,12 +12601,6 @@
         },
         {
           "file": "specs/epics-wiki/e28.okf.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/epics-wiki/e82.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -12552,6 +12780,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "scripts/lib/srp_engine_okf.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "scripts/lib/emit-okf-metrics.sh",
           "line": 0,
           "confidence": "medium",
@@ -12564,7 +12798,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 192
+      "link_count": 203
     },
     {
       "id": "e48s06",
@@ -13381,6 +13615,744 @@
         }
       ],
       "link_count": 7
+    },
+    {
+      "id": "e49s01",
+      "title": "Add project-runtime.sh \u2014 configurable specs dir + VCS kind resolution",
+      "epic_id": "e49",
+      "epic_title": "Fork Innovations \u2014 Jujutsu VCS Support + OMP Plugin + Community Credit",
+      "bcp": 0,
+      "wsjf": 6.0,
+      "status": "backlog",
+      "links": [
+        {
+          "file": "specs/epics/e49-fork-innovations/epic.yaml",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/test-project-runtime.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/lib/project-runtime.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        }
+      ],
+      "link_count": 3
+    },
+    {
+      "id": "e49s02",
+      "title": "Jujutsu-aware lifecycle skills (commit-message, kickoff-branch, release-branch, survey-context)",
+      "epic_id": "e49",
+      "epic_title": "Fork Innovations \u2014 Jujutsu VCS Support + OMP Plugin + Community Credit",
+      "bcp": 0,
+      "wsjf": 6.0,
+      "status": "backlog",
+      "links": [
+        {
+          "file": ".qwen/skills/release-branch/SKILL.md",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".qwen/skills/kickoff-branch/SKILL.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".qwen/skills/survey-context/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".qwen/skills/commit-message/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".copilot/skills/release-branch/SKILL.md",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".copilot/skills/kickoff-branch/SKILL.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".copilot/skills/survey-context/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".copilot/skills/commit-message/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/commands/prompts/survey-context.md",
+          "line": 6,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/commands/prompts/commit-message.md",
+          "line": 6,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/commands/prompts/kickoff-branch.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/commands/prompts/release-branch.md",
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/skills/release-branch/SKILL.md",
+          "line": 12,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/skills/kickoff-branch/SKILL.md",
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/skills/survey-context/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".gemini/extensions/bigpowers/skills/commit-message/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".trae/skills/release-branch/SKILL.md",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".trae/skills/kickoff-branch/SKILL.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".trae/skills/survey-context/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".trae/skills/commit-message/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".windsurf/rules/survey-context.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".windsurf/rules/commit-message.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".windsurf/rules/kickoff-branch.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".windsurf/rules/release-branch.md",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e49-fork-innovations/epic.yaml",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".opencode/skills/release-branch/SKILL.md",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".opencode/skills/kickoff-branch/SKILL.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".opencode/skills/survey-context/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".opencode/skills/commit-message/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".agents/skills/release-branch/SKILL.md",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".agents/skills/kickoff-branch/SKILL.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".agents/skills/survey-context/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".agents/skills/commit-message/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".kilocode/rules/survey-context.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".kilocode/rules/commit-message.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".kilocode/rules/kickoff-branch.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".kilocode/rules/release-branch.md",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codex/skills/release-branch/SKILL.md",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codex/skills/kickoff-branch/SKILL.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codex/skills/survey-context/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codex/skills/commit-message/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".cline/skills/release-branch/SKILL.md",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".cline/skills/kickoff-branch/SKILL.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".cline/skills/survey-context/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".cline/skills/commit-message/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "skills/release-branch/SKILL.md",
+          "line": 13,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "skills/kickoff-branch/SKILL.md",
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "skills/survey-context/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "skills/commit-message/SKILL.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codebuddy/skills/release-branch/SKILL.md",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codebuddy/skills/kickoff-branch/SKILL.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codebuddy/skills/survey-context/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".codebuddy/skills/commit-message/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".zcode/skills/release-branch/SKILL.md",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".zcode/skills/kickoff-branch/SKILL.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".zcode/skills/survey-context/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".zcode/skills/commit-message/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".mimocode/skills/release-branch/SKILL.md",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".mimocode/skills/kickoff-branch/SKILL.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".mimocode/skills/survey-context/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".mimocode/skills/commit-message/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".hermes/skills/release-branch/SKILL.md",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".hermes/skills/kickoff-branch/SKILL.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".hermes/skills/survey-context/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".hermes/skills/commit-message/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/survey-context.md",
+          "line": 6,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/commit-message.md",
+          "line": 6,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/kickoff-branch.md",
+          "line": 8,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/prompts/release-branch.md",
+          "line": 10,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/release-branch/SKILL.md",
+          "line": 11,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/kickoff-branch/SKILL.md",
+          "line": 9,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/survey-context/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/commit-message/SKILL.md",
+          "line": 7,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/COMMIT_MESSAGE_e42.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/skills-wiki/skills/survey-context.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/skills-wiki/skills/commit-message.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/skills-wiki/skills/kickoff-branch.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/skills-wiki/skills/release-branch.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/conventions-wiki/commit-message-format.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-land-branch-script-exists.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-it-must-prohibit-direct-work-on-main-master-branches.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-25-land-branch-protected.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-25-land-branch-protected.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/benchmarks/survey-context.yaml",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/benchmarks/reports/benchmark-survey-context.json",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/benchmarks/reports/BENCHMARK-survey-context-2026-07-06.yaml",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/archive/e44-migrate-version/e44s05-survey-context-integration.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/archive/e26-security-review/e26s06-release-branch-gate.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/archive/e38-traceability-gate/e38s07-release-branch-gate.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/archive/e40-metrics-integrity/e40s02-wire-release-branch.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".continue/rules/survey-context.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".continue/rules/commit-message.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".continue/rules/kickoff-branch.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": ".continue/rules/release-branch.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "website/src/content/docs/guides/COMMIT-MESSAGE.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "website/src/content/docs/skills/release-branch.mdx",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "website/src/content/docs/skills/commit-message.mdx",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "website/src/content/docs/skills/kickoff-branch.mdx",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "website/src/content/docs/skills/survey-context.mdx",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "tests/test-land-branch-protected.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "docs/COMMIT-MESSAGE.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/land-branch.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/land-branch-push.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        }
+      ],
+      "link_count": 103
+    },
+    {
+      "id": "e49s03",
+      "title": "OMP plugin extension \u2014 bigpowers as native oh-my-posh/OMP entry point",
+      "epic_id": "e49",
+      "epic_title": "Fork Innovations \u2014 Jujutsu VCS Support + OMP Plugin + Community Credit",
+      "bcp": 0,
+      "wsjf": 6.0,
+      "status": "backlog",
+      "links": [
+        {
+          "file": "specs/epics/e49-fork-innovations/epic.yaml",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "extensions/omp-hooks.ts",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "hooks/pre/bash.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/validate-omp-extension.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/omp-smoke.ts",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-09-05-pi-omp-extension-load-crash.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-09-05-pi-omp-extension-load-crash.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        }
+      ],
+      "link_count": 7
+    },
+    {
+      "id": "e49s04",
+      "title": "Community attribution \u2014 CONTRIBUTORS.md + CHANGELOG credit entries",
+      "epic_id": "e49",
+      "epic_title": "Fork Innovations \u2014 Jujutsu VCS Support + OMP Plugin + Community Credit",
+      "bcp": 0,
+      "wsjf": 6.0,
+      "status": "backlog",
+      "links": [
+        {
+          "file": "specs/epics/e49-fork-innovations/epic.yaml",
+          "line": 4,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "CONTRIBUTORS.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        }
+      ],
+      "link_count": 2
     },
     {
       "id": "e51s01",
@@ -14436,6 +15408,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261030-151122.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261030-175157.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-234209.md",
           "line": 0,
           "confidence": "medium",
@@ -14664,12 +15648,6 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/reports/audit-cleancode-20261030-144938.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-163821.md",
           "line": 0,
           "confidence": "medium",
@@ -14682,13 +15660,13 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/reports/audit-cleancode-20261030-145423.md",
+          "file": "specs/verifications/reports/audit-cleancode-20260703-165945.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/reports/audit-cleancode-20260703-165945.md",
+          "file": "specs/verifications/reports/audit-cleancode-20261030-175709.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -14737,12 +15715,6 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-165619.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/reports/audit-cleancode-20261030-145327.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -14887,6 +15859,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260704-150417.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261030-151551.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -15264,6 +16242,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261030-174839.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-164823.md",
           "line": 0,
           "confidence": "medium",
@@ -15444,6 +16428,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261030-152140.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260702-080024.md",
           "line": 0,
           "confidence": "medium",
@@ -15451,6 +16441,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-142902.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261030-152034.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -15642,6 +16638,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261030-175031.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-163956.md",
           "line": 0,
           "confidence": "medium",
@@ -15673,6 +16675,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-005336.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261030-151538.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -15882,6 +16890,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-10-25-pages-not-gated.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-06-migrate-spec-migration-logic-violations.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -15948,6 +16962,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-10-25-release-not-gated.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-10-25-pages-not-gated.md",
           "line": 0,
           "confidence": "medium",
@@ -15985,6 +17005,18 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-07-compliance-skill-catalog-n7.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-09-05-golden-gate-missing-node-deps.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-09-13-docs-base-path-gate-ci.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -16164,7 +17196,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 326
+      "link_count": 336
     },
     {
       "id": "e51s05",
@@ -16470,6 +17502,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-10-25-pages-not-gated.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-04-filesize-gate-python-blindspot.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -16506,7 +17544,25 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-10-25-release-not-gated.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-10-25-pages-not-gated.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-09-05-golden-gate-missing-node-deps.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-09-13-docs-base-path-gate-ci.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -16698,7 +17754,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 55
+      "link_count": 59
     },
     {
       "id": "e53s04",
@@ -20640,6 +21696,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "scripts/lib/story-verify-memo.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "skills/align-grid/scripts/verify_grid.js",
           "line": 0,
           "confidence": "medium",
@@ -20682,7 +21744,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 81
+      "link_count": 82
     },
     {
       "id": "e80s02",
@@ -21309,738 +22371,6 @@
       "link_count": 9
     },
     {
-      "id": "e82s01",
-      "title": "Add project-runtime.sh \u2014 configurable specs dir + VCS kind resolution",
-      "epic_id": "e82",
-      "epic_title": "Fork Innovations \u2014 Jujutsu VCS Support + OMP Plugin + Community Credit",
-      "bcp": 0,
-      "wsjf": 6.0,
-      "status": "backlog",
-      "links": [
-        {
-          "file": "specs/epics/e82-fork-innovations/epic.yaml",
-          "line": 1,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": "scripts/test-project-runtime.sh",
-          "line": 2,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": "scripts/lib/project-runtime.sh",
-          "line": 2,
-          "confidence": "high",
-          "method": "explicit_tag"
-        }
-      ],
-      "link_count": 3
-    },
-    {
-      "id": "e82s02",
-      "title": "Jujutsu-aware lifecycle skills (commit-message, kickoff-branch, release-branch, survey-context)",
-      "epic_id": "e82",
-      "epic_title": "Fork Innovations \u2014 Jujutsu VCS Support + OMP Plugin + Community Credit",
-      "bcp": 0,
-      "wsjf": 6.0,
-      "status": "backlog",
-      "links": [
-        {
-          "file": ".qwen/skills/release-branch/SKILL.md",
-          "line": 11,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".qwen/skills/kickoff-branch/SKILL.md",
-          "line": 9,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".qwen/skills/survey-context/SKILL.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".qwen/skills/commit-message/SKILL.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".copilot/skills/release-branch/SKILL.md",
-          "line": 11,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".copilot/skills/kickoff-branch/SKILL.md",
-          "line": 9,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".copilot/skills/survey-context/SKILL.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".copilot/skills/commit-message/SKILL.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".gemini/extensions/bigpowers/commands/prompts/survey-context.md",
-          "line": 6,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".gemini/extensions/bigpowers/commands/prompts/commit-message.md",
-          "line": 6,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".gemini/extensions/bigpowers/commands/prompts/kickoff-branch.md",
-          "line": 8,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".gemini/extensions/bigpowers/commands/prompts/release-branch.md",
-          "line": 10,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".gemini/extensions/bigpowers/skills/release-branch/SKILL.md",
-          "line": 12,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".gemini/extensions/bigpowers/skills/kickoff-branch/SKILL.md",
-          "line": 10,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".gemini/extensions/bigpowers/skills/survey-context/SKILL.md",
-          "line": 8,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".gemini/extensions/bigpowers/skills/commit-message/SKILL.md",
-          "line": 8,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".trae/skills/release-branch/SKILL.md",
-          "line": 11,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".trae/skills/kickoff-branch/SKILL.md",
-          "line": 9,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".trae/skills/survey-context/SKILL.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".trae/skills/commit-message/SKILL.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".windsurf/rules/survey-context.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".windsurf/rules/commit-message.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".windsurf/rules/kickoff-branch.md",
-          "line": 9,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".windsurf/rules/release-branch.md",
-          "line": 11,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": "specs/epics/e82-fork-innovations/epic.yaml",
-          "line": 2,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".opencode/skills/release-branch/SKILL.md",
-          "line": 11,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".opencode/skills/kickoff-branch/SKILL.md",
-          "line": 9,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".opencode/skills/survey-context/SKILL.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".opencode/skills/commit-message/SKILL.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".agents/skills/release-branch/SKILL.md",
-          "line": 11,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".agents/skills/kickoff-branch/SKILL.md",
-          "line": 9,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".agents/skills/survey-context/SKILL.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".agents/skills/commit-message/SKILL.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".kilocode/rules/survey-context.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".kilocode/rules/commit-message.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".kilocode/rules/kickoff-branch.md",
-          "line": 9,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".kilocode/rules/release-branch.md",
-          "line": 11,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".codex/skills/release-branch/SKILL.md",
-          "line": 11,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".codex/skills/kickoff-branch/SKILL.md",
-          "line": 9,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".codex/skills/survey-context/SKILL.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".codex/skills/commit-message/SKILL.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".cline/skills/release-branch/SKILL.md",
-          "line": 11,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".cline/skills/kickoff-branch/SKILL.md",
-          "line": 9,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".cline/skills/survey-context/SKILL.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".cline/skills/commit-message/SKILL.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": "skills/release-branch/SKILL.md",
-          "line": 13,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": "skills/kickoff-branch/SKILL.md",
-          "line": 10,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": "skills/survey-context/SKILL.md",
-          "line": 8,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": "skills/commit-message/SKILL.md",
-          "line": 8,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".codebuddy/skills/release-branch/SKILL.md",
-          "line": 11,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".codebuddy/skills/kickoff-branch/SKILL.md",
-          "line": 9,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".codebuddy/skills/survey-context/SKILL.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".codebuddy/skills/commit-message/SKILL.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".zcode/skills/release-branch/SKILL.md",
-          "line": 11,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".zcode/skills/kickoff-branch/SKILL.md",
-          "line": 9,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".zcode/skills/survey-context/SKILL.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".zcode/skills/commit-message/SKILL.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".mimocode/skills/release-branch/SKILL.md",
-          "line": 11,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".mimocode/skills/kickoff-branch/SKILL.md",
-          "line": 9,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".mimocode/skills/survey-context/SKILL.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".mimocode/skills/commit-message/SKILL.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".hermes/skills/release-branch/SKILL.md",
-          "line": 11,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".hermes/skills/kickoff-branch/SKILL.md",
-          "line": 9,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".hermes/skills/survey-context/SKILL.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".hermes/skills/commit-message/SKILL.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/prompts/survey-context.md",
-          "line": 6,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/prompts/commit-message.md",
-          "line": 6,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/prompts/kickoff-branch.md",
-          "line": 8,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/prompts/release-branch.md",
-          "line": 10,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/release-branch/SKILL.md",
-          "line": 11,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/kickoff-branch/SKILL.md",
-          "line": 9,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/survey-context/SKILL.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": ".pi/skills/commit-message/SKILL.md",
-          "line": 7,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": "specs/COMMIT_MESSAGE_e42.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/skills-wiki/skills/survey-context.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/skills-wiki/skills/commit-message.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/skills-wiki/skills/kickoff-branch.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/skills-wiki/skills/release-branch.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/conventions-wiki/commit-message-format.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/steps/and-land-branch-script-exists.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/steps/and-it-must-prohibit-direct-work-on-main-master-branches.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/bugs/BUG-2026-07-25-land-branch-protected.okf.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/bugs/BUG-2026-07-25-land-branch-protected.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/benchmarks/survey-context.yaml",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/benchmarks/reports/benchmark-survey-context.json",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/benchmarks/reports/BENCHMARK-survey-context-2026-07-06.yaml",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/epics/archive/e44-migrate-version/e44s05-survey-context-integration.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/epics/archive/e26-security-review/e26s06-release-branch-gate.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/epics/archive/e38-traceability-gate/e38s07-release-branch-gate.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/epics/archive/e40-metrics-integrity/e40s02-wire-release-branch.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": ".continue/rules/survey-context.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": ".continue/rules/commit-message.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": ".continue/rules/kickoff-branch.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": ".continue/rules/release-branch.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "website/src/content/docs/guides/COMMIT-MESSAGE.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "website/src/content/docs/skills/release-branch.mdx",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "website/src/content/docs/skills/commit-message.mdx",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "website/src/content/docs/skills/kickoff-branch.mdx",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "website/src/content/docs/skills/survey-context.mdx",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "tests/test-land-branch-protected.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "docs/COMMIT-MESSAGE.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "scripts/land-branch.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "scripts/lib/land-branch-push.sh",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        }
-      ],
-      "link_count": 103
-    },
-    {
-      "id": "e82s03",
-      "title": "OMP plugin extension \u2014 bigpowers as native oh-my-posh/OMP entry point",
-      "epic_id": "e82",
-      "epic_title": "Fork Innovations \u2014 Jujutsu VCS Support + OMP Plugin + Community Credit",
-      "bcp": 0,
-      "wsjf": 6.0,
-      "status": "backlog",
-      "links": [
-        {
-          "file": "specs/epics/e82-fork-innovations/epic.yaml",
-          "line": 3,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": "extensions/omp-hooks.ts",
-          "line": 1,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": "hooks/pre/bash.sh",
-          "line": 2,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": "scripts/validate-omp-extension.sh",
-          "line": 2,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": "scripts/omp-smoke.ts",
-          "line": 1,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": "specs/bugs/BUG-2026-09-05-pi-omp-extension-load-crash.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        }
-      ],
-      "link_count": 6
-    },
-    {
-      "id": "e82s04",
-      "title": "Community attribution \u2014 CONTRIBUTORS.md + CHANGELOG credit entries",
-      "epic_id": "e82",
-      "epic_title": "Fork Innovations \u2014 Jujutsu VCS Support + OMP Plugin + Community Credit",
-      "bcp": 0,
-      "wsjf": 6.0,
-      "status": "backlog",
-      "links": [
-        {
-          "file": "specs/epics/e82-fork-innovations/epic.yaml",
-          "line": 4,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
-          "file": "CONTRIBUTORS.md",
-          "line": 1,
-          "confidence": "high",
-          "method": "explicit_tag"
-        }
-      ],
-      "link_count": 2
-    },
-    {
       "id": "e83s01",
       "title": "Release mirror stamps last_tag and skill counts",
       "epic_id": "e83",
@@ -22476,7 +22806,7 @@
       "status": "backlog",
       "links": [
         {
-          "file": "specs/conventions-wiki/catalog-freeze-e54-e59-migration.md",
+          "file": "specs/conventions-wiki/catalog-freeze-bigspec-migration.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -22890,7 +23220,7 @@
       "status": "backlog",
       "links": [
         {
-          "file": "specs/conventions-wiki/catalog-freeze-e54-e59-migration.md",
+          "file": "specs/conventions-wiki/catalog-freeze-bigspec-migration.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -23442,7 +23772,7 @@
     "stale_count": 116,
     "oracle_stats": {
       "high": 1010,
-      "medium": 2453,
+      "medium": 2508,
       "low": 98
     }
   }

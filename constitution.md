@@ -14,7 +14,7 @@
 > become a second place the same rule can drift out of sync.
 >
 > This file has no `constitution_version` or amendment scheme — that
-> compatibility-tracking mechanism is a later concern (e59, absorb-fresh-
+> compatibility-tracking mechanism is a later concern (e58, absorb-fresh-
 > references), not something this story invents ahead of schedule.
 >
 > Structure follows bigspec's 11 blocks (B0–B10) plus a Capstone category, used
@@ -121,9 +121,9 @@ with a 94% pass threshold (`docs/PRINCIPLES.md` §6/§7, `CLAUDE.md` §Commands,
 `docs/references/gates.md`). This is what genuinely exists and gates merges
 today. `specs/reborn-constitution.md`'s Capstone block describes a *target*
 state where outcome evals (with-skill vs without-skill delta) replace this
-threshold — that replacement is **e58's job (evals-over-compliance), not yet
+threshold — that replacement is **e50's job (evals-over-compliance), not yet
 built**. The 94% Gherkin gate is not deprecated; it is the live mechanism
-until e58 ships something to replace it with.
+until e50 ships something to replace it with.
 
 ## B7 · Context Isolation
 
@@ -154,7 +154,7 @@ epic ordering, and so on. Generated artifacts (`.cursor/`, `.gemini/`,
 *Note: `docs/references/okf.md` describes OKF-bundle conformance as achievable
 "if all `SKILL.md` files add frontmatter fields" — that's a conditional, not a
 claim that every generated file already carries this envelope today. Making
-that universal across the whole `specs/` tree is e57's job (adopt-okf-envelope),
+that universal across the whole `specs/` tree is e52's job (adopt-okf-envelope),
 not yet built.*
 
 ## B9 · Effort Accounting (BCP)
@@ -191,7 +191,7 @@ follows its own rules. Bigpowers doesn't have this yet in the target form —
 what exists today is described honestly in B6 above: a 94% Gherkin
 self-compliance gate. `reborn-constitution.md`'s Capstone block names the
 target (with-skill vs without-skill delta, pass@k + token cost) as what
-**e58 (evals-over-compliance)** is expected to build. Until then:
+**e50 (evals-over-compliance)** is expected to build. Until then:
 
 - Request-review checklist / quality-score gate as today's closest analog — `docs/references/code-review.md`
 - Human-in-the-loop UAT mandate after every story — `docs/references/spec-kit.md`
@@ -208,9 +208,9 @@ target (with-skill vs without-skill delta, pass@k + token cost) as what
 - **No cross-references back from `CLAUDE.md`/`CONVENTIONS.md` yet.** Those
   files don't point here yet; that's e55s03.
 - **No amendment/versioning scheme.** `constitution_version`, SemVer bumps,
-  and ADR-gated amendments are e59's job (absorb-fresh-references).
+  and ADR-gated amendments are e58's job (absorb-fresh-references).
 - **No universal OKF envelope claim.** Not every generated file in this repo
-  carries `okf_kind`/`okf_version` frontmatter yet — that's e57's job
+  carries `okf_kind`/`okf_version` frontmatter yet — that's e52's job
   (adopt-okf-envelope).
 - **No `count-bcp` skill.** BCP sizing today is the 6-step method in
   `docs/references/bcp.md`, applied by hand during `plan-work`/`plan-release` —

@@ -27,8 +27,8 @@ tasks:
         - "Constitution"
         - "scope-guard"
   - id: 3
-    description: "Confirm the current 94% Gherkin compliance gate is described honestly, with an explicit note that e58 is expected to eventually replace it — not presented as already replaced."
-    verify: "grep -q '94%' constitution.md && grep -q 'e58' constitution.md && echo OK"
+    description: "Confirm the current 94% Gherkin compliance gate is described honestly, with an explicit note that e50 is expected to eventually replace it — not presented as already replaced."
+    verify: "grep -q '94%' constitution.md && grep -q 'e50' constitution.md && echo OK"
     risk: P2
     status: passing
     allure:
@@ -37,7 +37,7 @@ tasks:
         - "Constitution"
         - "scope-guard"
   - id: 4
-    description: "Confirm no forward-dated e57/e58/e59 concepts are presented as ALREADY-ACTIVE content — i.e. no real constitution_version: frontmatter field, no active count-bcp skill directory reference, no claim that OKF-bundle coverage is already universal. (Prose that names these terms specifically to say they don't exist yet, e.g. under 'What this file deliberately doesn't do', is expected and must not trip this check.)"
+    description: "Confirm no forward-dated e52/e50/e58 concepts are presented as ALREADY-ACTIVE content — i.e. no real constitution_version: frontmatter field, no active count-bcp skill directory reference, no claim that OKF-bundle coverage is already universal. (Prose that names these terms specifically to say they don't exist yet, e.g. under 'What this file deliberately doesn't do', is expected and must not trip this check.)"
     verify: "m=constitution.md; ok=1; grep -qE '^constitution_version:' \"$m\" && ok=0; test -d skills/count-bcp && ok=0; grep -qiE 'every (generated )?file (already carries|is an|is a) .*okf' \"$m\" && ok=0; test $ok -eq 1 && echo OK || echo FAIL"
     risk: P2
     status: passing

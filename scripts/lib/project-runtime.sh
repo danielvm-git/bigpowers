@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# story: e82s01
+# story: e49s01
 # Resolve consumer-project runtime settings without external YAML dependencies.
 
 if [[ -n "${BIGPOWERS_PROJECT_RUNTIME_LOADED:-}" ]]; then

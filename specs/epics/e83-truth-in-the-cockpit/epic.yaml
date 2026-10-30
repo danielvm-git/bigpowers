@@ -127,7 +127,7 @@ stories:
   value_rank: 16
   playbook_coverage_points: 0
   description: >-
-    VISION success criteria match the live gates (no '61 skills', no '94%' once e58 lands), and each of
+    VISION success criteria match the live gates (no '61 skills', no '94%' once e50 lands), and each of
     the five catalog-freeze breaks gets a freeze-exception marker or a recorded re-baseline.
   files:
   - specs/product/VISION_LATEST.yaml

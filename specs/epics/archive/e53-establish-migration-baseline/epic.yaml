@@ -20,7 +20,7 @@ source: |
   can start. A prior scratch numbering used "e52" for this epic; e52 collided with
   a retired historical planning name ("Integration Registry," merged into e37
   2026-07-06) — the whole migration sequence shifted +1 (this epic is e53; later
-  phases renumber to e54-e59 when their turn comes).
+  phases renumber to e50/e52/e54–e56/e58 when their turn comes).
 note: >
   WSJF 8.0 = (6 value + 9 urgency + 9 risk-reduction) / 3 job-size — highest in the
   migration sequence by design: nothing else in the plan can safely start until
@@ -70,7 +70,7 @@ stories:
       WHEN this story lands
       THEN a mapped dependency report exists (via gate-trace) showing exactly
         what breaks if compliance is demoted to advisory, so a later epic
-        (e58, formerly e57, evals-over-compliance) can flip the gate without
+        (e50, formerly e58 and before that e57, evals-over-compliance) can flip the gate without
         silently hollowing out what GOLDEN verifies. This story maps the
         dependency; it does not flip the gate.
   - id: e53s04
@@ -87,5 +87,5 @@ stories:
         exist but nothing ties them together as a single cited reference
       WHEN this story lands
       THEN docs/TARGET-ARCHITECTURE.md exists, incorporates both sources, and
-        every later migration epic (e54-e59) can cite it instead of re-deriving
+        every later migration epic (e50/e52/e54–e56/e58) can cite it instead of re-deriving
         the target shape from scratch.

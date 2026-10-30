@@ -1,4 +1,4 @@
-# story: e82s04
+# story: e49s04
 # Contributors
 
 This file records external contributors whose work has been adapted or
@@ -11,7 +11,7 @@ directly by [@danielvm-git](https://github.com/danielvm-git).
 
 ### Kevin Oberlies — [favilo/bigpowers](https://github.com/favilo/bigpowers)
 
-**Contribution: Jujutsu VCS support + configurable project-runtime library (e82s01, e82s02)**
+**Contribution: Jujutsu VCS support + configurable project-runtime library (e49s01, e49s02)**
 
 Kevin built and maintained a fork that introduced two cohesive capabilities:
 
@@ -32,7 +32,7 @@ Discovered via fork audit on 2026-09-01.
 
 ### XcluEzy7 — [XcluEzy7/bigpowers](https://github.com/XcluEzy7/bigpowers)
 
-**Contribution: OMP plugin extension (e82s03)**
+**Contribution: OMP plugin extension (e49s03)**
 
 XcluEzy7 built a native [oh-my-pi](https://github.com/oh-my-pi) OMP plugin that:
 

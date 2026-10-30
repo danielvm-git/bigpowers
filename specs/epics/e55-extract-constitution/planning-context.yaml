@@ -55,14 +55,14 @@ success_criteria:
 
 constraints:
   - "No rule content changes — reorganization, not rewrite. A changed rule is a bug in this epic."
-  - "Must follow bigspec's exact B0-B10 + Capstone block structure, so e59 can later diff bigpowers' constitution against bigspec's as it evolves."
+  - "Must follow bigspec's exact B0-B10 + Capstone block structure, so e58 can later diff bigpowers' constitution against bigspec's as it evolves."
   - "Backward compatibility: CLAUDE.md and CONVENTIONS.md keep working for any tooling or contributor workflow that reads them directly."
   - "Depends on e54 (frozen catalog baseline) so the rule-source audit isn't chasing skill changes mid-epic."
 
 out_of_scope:
   - "Changing the content or meaning of any rule (this is consolidation only)."
   - "Deleting or gutting CLAUDE.md / CONVENTIONS.md — full retirement of the old files, if ever, is a separate later decision."
-  - "Introducing a constitution_version / SemVer amendment scheme for the constitution — that compatibility-tracking concern belongs to e59 (absorb-fresh-references)."
+  - "Introducing a constitution_version / SemVer amendment scheme for the constitution — that compatibility-tracking concern belongs to e58 (absorb-fresh-references)."
   - "Moving rule-classified skill CONTENT into the constitution — that is e56's job; e55 only builds the destination and its structure."
 
 key_decisions:
@@ -77,7 +77,7 @@ key_decisions:
   - decision: "Structure bigpowers' constitution on bigspec's B0-B10 + Capstone exactly, not a bigpowers-invented block layout."
     rationale: |
       The whole migration's point is convergence on bigspec as north-star. Using bigspec's
-      exact block structure is what makes e59's ongoing 'diff against bigspec' sync mechanism
+      exact block structure is what makes e58's ongoing 'diff against bigspec' sync mechanism
       possible at all — a bigpowers-specific layout would defeat the sequence's own endpoint.
 
 next_skill: plan-work

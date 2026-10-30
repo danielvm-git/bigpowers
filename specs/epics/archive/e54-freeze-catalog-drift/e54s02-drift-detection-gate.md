@@ -32,7 +32,7 @@ documents warn against, for a freeze that is temporary by design.
 ### 2. Value statement [draft]
 
 As the migration's Phase 0, I want an advisory check that flags catalog drift during the freeze
-window, so that e55-e59 aren't silently planning against a baseline that's already stale,
+window, so that e50/e52/e55/e56/e58 aren't silently planning against a baseline that's already stale,
 without introducing a hard block that outlives its own justification.
 
 ### 3. Actors and permissions [draft]

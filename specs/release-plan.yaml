@@ -27,10 +27,20 @@ build_order:
 - e71
 - e76
 - e74
-- e75
+- e59
 - e77
 - e78
 - e79
+renumbered:
+  note: 'Open epics packed into retired numbers on 2026-10-30. e49, e50 and e52 earlier named
+    other, retired epics (e49 wiki rendering, e50 codex reach, e52 integration registry); texts in
+    archived epics, ADRs, CHANGELOG and git history before this date keep that older meaning.'
+  map:
+  - {date: '2026-10-30', from: e82, to: e49}
+  - {date: '2026-10-30', from: e58, to: e50}
+  - {date: '2026-10-30', from: e57, to: e52}
+  - {date: '2026-10-30', from: e59, to: e58}
+  - {date: '2026-10-30', from: e75, to: e59}
 done_epics_summary:
   count: 67
   source: specs/execution-status.yaml (development_status) — authoritative for completed epics; not re-listed
@@ -163,11 +173,11 @@ epics:
   status: scoped
   wsjf_rationale: BV 8 + TC 3 + RR 8 / Job 8 ≈ 2.4
   source: Playbook value-engineering pass 2026-10-30 — see specs/VALUE-ENGINEERING-playbook-compat.md
-- id: e82
+- id: e49
   title: Fork Innovations — Jujutsu VCS Support + OMP Plugin + Community Credit
   wsjf: 6.0
   bcps: 0
-  capsule_dir: epics/e82-fork-innovations
+  capsule_dir: epics/e49-fork-innovations
   status: scoped
   wsjf_rationale: BV 7 (real capability gaps — Jujutsu growing, OMP emerging) + TC 5 (favilo built it
     because they needed it) + RR 6 (community health compounds) / Job 3 ≈ 6.0
@@ -231,11 +241,11 @@ epics:
   status: done
   wsjf_rationale: BV 5 + TC 3 + RR 4 / Job 2 ≈ 6.0. Skills + plugin hooks.
   source: Research session 2026-07-23. Skills at ~/.zcode/skills/. Plugin-scoped hooks.
-- id: e75
+- id: e59
   title: 'Integration: Augment — Unknown Capabilities'
   wsjf: 3.0
   bcps: 0
-  capsule_dir: epics/e75-integration-augment
+  capsule_dir: epics/e59-integration-augment
   mode: capsule
   status: scoped
   wsjf_rationale: BV 3 + TC 2 + RR 2 / Job 3 ≈ 2.3. Unknown capabilities.
@@ -444,11 +454,11 @@ epics:
     docs DROP in favor of one constitution.md. Third phase of the sequence.
 
     '
-- id: e58
+- id: e50
   title: Evals Over Compliance — Replace the 94% Gate with Outcome Proof
   wsjf: 5.3
   bcps: 0
-  capsule_dir: epics/e58-evals-over-compliance
+  capsule_dir: epics/e50-evals-over-compliance
   mode: capsule
   status: scoped
   wsjf_rationale: 'BV 6 (proof by outcome, not self-compliance) + TC 4 + RR 6 (removes reliance on a magic-number
@@ -458,7 +468,7 @@ epics:
     '
   source: 'bigspec constitution Capstone — "self-compliance is not the quality gate... replaces the legacy
     94% Gherkin self-compliance gate." Depends only on e53 (its own dependency map, e53s03, is the precondition
-    for safely flipping the gate). Sixth phase of the sequence, WSJF-promoted ahead of e56/e57/e59 since
+    for safely flipping the gate). Sixth phase of the sequence, WSJF-promoted ahead of e56/e52/e58 since
     its precondition is already built.
 
     '
@@ -471,11 +481,11 @@ epics:
   status: done
   wsjf_rationale: BV 7 (skill quality compounds) + TC 4 (OSS pattern debt) + RR 6 (benchmark/evidence
     parity) / Job 4 ≈ 5.0. Curated P1 from former e48; P2 optional wave.
-- id: e57
+- id: e52
   title: Adopt OKF Envelope — Apply the Wayfinder Templates Across the Live Repo
   wsjf: 5.0
   bcps: 0
-  capsule_dir: epics/e57-adopt-okf-envelope
+  capsule_dir: epics/e52-adopt-okf-envelope
   mode: capsule
   status: scoped
   wsjf_rationale: 'BV 6 (universal envelope per constitution B8) + TC 4 + RR 5 / Job 3 ≈ 5.0. Provisional
@@ -507,23 +517,23 @@ epics:
     for every rename/merge. Fourth phase of the sequence.
 
     '
-- id: e59
+- id: e58
   title: Absorb Fresh References — Stay in Sync with bigspec's Ongoing Evolution
   wsjf: 3.7
   bcps: 0
-  capsule_dir: epics/e59-absorb-fresh-references
+  capsule_dir: epics/e58-absorb-fresh-references
   mode: capsule
   status: scoped
   wsjf_rationale: 'BV 4 + TC 3 + RR 4 / Job 3 ≈ 3.7. Lowest in the sequence — an ongoing maintenance capability,
     not a one-time blocking transformation. Provisional — zero real stories sliced yet, so bcps is 0 (epic.yaml
     carries a bcps_projected estimate of 6). Intent user-confirmed 2026-07-22 (stay synced with bigspec)
     — was held at low confidence until then since its content was inferred, not derived from existing
-    bigpowers text the way e54-e58 are.
+    bigpowers text the way e50/e52/e54–e56 are.
 
     '
   source: 'state.yaml''s 6-phase migration list names this phase but does not define its content. bigspec
     is a living, separately-evolving repo (architecture.md §8''s own M0-M5 sequence) — this epic is inferred
-    as the ongoing mechanism that keeps bigpowers from drifting away from that target again after e54-e58
+    as the ongoing mechanism that keeps bigpowers from drifting away from that target again after e50/e52/e54–e56
     close it. Sixth and final named phase of the sequence.
 
     '

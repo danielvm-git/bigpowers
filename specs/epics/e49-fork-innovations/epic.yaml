@@ -1,10 +1,11 @@
-# story: e82s01
-# story: e82s02
-# story: e82s03
-# story: e82s04
-id: e82
+# story: e49s01
+# story: e49s02
+# story: e49s03
+# story: e49s04
+id: e49
+formerly: e82
 title: Fork Innovations — Jujutsu VCS Support + OMP Plugin + Community Credit
-slug: e82-fork-innovations
+slug: e49-fork-innovations
 status: scoped
 wsjf: 6.0
 bcps: 0
@@ -36,13 +37,13 @@ contributors:
   - handle: favilo
     name: Kevin Oberlies
     fork: https://github.com/favilo/bigpowers
-    attribution: Jujutsu VCS support + configurable project-runtime library (e82s01, e82s02)
+    attribution: Jujutsu VCS support + configurable project-runtime library (e49s01, e49s02)
   - handle: XcluEzy7
     fork: https://github.com/XcluEzy7/bigpowers
-    attribution: OMP plugin extension (e82s03)
+    attribution: OMP plugin extension (e49s03)
 
 stories:
-  - id: e82s01
+  - id: e49s01
     title: Add project-runtime.sh — configurable specs dir + VCS kind resolution
     status: todo
     wsjf: 7.5
@@ -71,7 +72,7 @@ stories:
         description: Run bash scripts/sync-skills.sh and verify no regressions
         verify: bash scripts/sync-skills.sh && bash scripts/run-verification-gates.sh
 
-  - id: e82s02
+  - id: e49s02
     title: Jujutsu-aware lifecycle skills (commit-message, kickoff-branch, release-branch, survey-context)
     status: todo
     wsjf: 6.5
@@ -86,7 +87,7 @@ stories:
       jj commit -m instead of git commit -m. survey-context step 4 reads vcs.kind
       and runs the appropriate status/log commands.
     source_fork: favilo/bigpowers
-    depends_on: [e82s01]
+    depends_on: [e49s01]
     tasks:
       - id: t01
         description: Update skills/commit-message/SKILL.md — read vcs.kind, branch on jj vs git commands
@@ -104,7 +105,7 @@ stories:
         description: Sync artifacts and run verification gates
         verify: bash scripts/sync-skills.sh && bash scripts/run-verification-gates.sh
 
-  - id: e82s03
+  - id: e49s03
     title: OMP plugin extension — bigpowers as native oh-my-posh/OMP entry point
     status: todo
     wsjf: 5.5
@@ -147,7 +148,7 @@ stories:
         description: Verify no existing targets conflict; update targets.yaml if an OMP target adapter is warranted
         verify: bash scripts/run-verification-gates.sh
 
-  - id: e82s04
+  - id: e49s04
     title: Community attribution — CONTRIBUTORS.md + CHANGELOG credit entries
     status: todo
     wsjf: 4.0
@@ -156,7 +157,7 @@ stories:
     requirement_delta: ADDED
     description: >
       Create CONTRIBUTORS.md acknowledging favilo (Kevin Oberlies) and XcluEzy7
-      for their contributions adopted in e82. Add brief credit lines in CHANGELOG
+      for their contributions adopted in e49. Add brief credit lines in CHANGELOG
       or README under a "Community" section. This is the only documentation touch
       in the epic — all other docs are generated artifacts.
     tasks:

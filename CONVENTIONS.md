@@ -419,7 +419,7 @@ This story (e53s02) builds the mechanism only; it creates no real tombstone stub
 itself, so the live skill count doesn't move yet. The first real use is expected in
 e56 (skill reclassification/merges).
 
-## Catalog Freeze (e54-e59 migration)
+## Catalog Freeze (bigspec migration)
 
 The 80-skill catalog is frozen as of `specs/tech-architecture/CATALOG-BASELINE-<date>.yaml`
 (e54s01) so e56's reclassification work (80 skills → ~28 procedures) has a stable
@@ -448,7 +448,7 @@ by adding a comment containing the literal string `freeze-exception` to the affe
 `SKILL.md`, for example:
 
 ```
-<!-- freeze-exception: urgent security fix, unrelated to the e54-e59 migration -->
+<!-- freeze-exception: urgent security fix, unrelated to the bigspec migration -->
 ```
 
 `scripts/check-catalog-drift.sh` checks for this exact substring — it must remain

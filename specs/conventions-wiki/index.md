@@ -47,6 +47,6 @@ context: conventions
 - [Defensive Code](defensive-code.md)
 - [Skill Naming — Conventions and Exceptions](skill-naming-conventions-and-exceptions.md)
 - [Tombstone Aliases (e53s02)](tombstone-aliases-e53s02.md)
-- [Catalog Freeze (e54-e59 migration)](catalog-freeze-e54-e59-migration.md)
+- [Catalog Freeze (bigspec migration)](catalog-freeze-bigspec-migration.md)
 - [File-Size Exceptions](file-size-exceptions.md)
 - [docs/references SSOT Sync (e45s10)](docs-references-ssot-sync-e45s10.md)

@@ -3,7 +3,7 @@
 <!-- story: e53s04 -->
 
 **Story:** e53s04. This document routes to two sources so every later migration epic
-(e54–e59) can cite one place instead of re-deriving the target shape from scratch. It
+(e50/e52/e54–e56/e58) can cite one place instead of re-deriving the target shape from scratch. It
 is a **router, not a restatement** — the same discipline established throughout the
 wayfinder session that produced §2 below. Follow the links for full detail; nothing
 here should be treated as the primary source.
@@ -18,7 +18,7 @@ bigspec is the reborn, greenfield redesign of bigpowers' own methodology — "wh
 the current core ideas survive contact with a blank page." It is not itself the
 migration target (bigpowers is not becoming bigspec), but its constitution is the
 methodology's clearest current statement of *why* each doctrine exists, and several
-of e54–e59's decisions (skill reclassification, evals-over-compliance) directly mirror
+of e50/e52/e54–e56/e58's decisions (skill reclassification, evals-over-compliance) directly mirror
 verdicts bigspec already reached.
 
 ### 1.1 The 11 building blocks (B0–B10) + Capstone
@@ -43,12 +43,12 @@ it exist:
 
 Full text: [`constitution.md`](https://github.com/danielvm-git/bigspec/blob/main/constitution.md).
 
-### 1.2 Why this matters for e54–e59
+### 1.2 Why this matters for e50/e52/e54–e56/e58
 
-- **e58 (evals-over-compliance)** is bigspec's Capstone block already reached and
+- **e50 (evals-over-compliance)** is bigspec's Capstone block already reached and
   reasoned through — "*Replaces the legacy 94% Gherkin self-compliance gate*"
   (constitution §Capstone). e53s03's `GOLDEN-COMPLIANCE-DEPENDENCY.md` maps exactly
-  what bigpowers' own equivalent gate touches before e58 attempts the same move.
+  what bigpowers' own equivalent gate touches before e50 attempts the same move.
 - **e56 (skill reclassification)** mirrors bigspec's primitive-on-trial verdict:
   *"'Skill' as the unit… KEEP but purify… a skill is only a procedure. Rules move to
   the constitution; deterministic tools move to the kernel."* (architecture.md §1).
@@ -100,7 +100,7 @@ small fixed set of generic dashboard views queried by `okf_kind` — replacing t
    mirror.
 4. **Known migration cost (accepted, not a blocker):** every bigpowers script parses
    `specs/…` paths today. This dissolution is a real path migration, to be sequenced
-   in a future epic — **not** something e53–e59 perform. This document records the
+   in a future epic — **not** something e50/e52/e53–e56/e58 perform. This document records the
    target; it does not schedule the cutover.
 
 **Consequence for `big-docs` itself:** its DESIGN.md and layout invariants need a

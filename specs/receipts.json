@@ -1,20 +1,20 @@
 {
   "compliance": {
     "value": 100,
-    "generated_at": "2026-07-05T20:07:57Z",
+    "generated_at": "2026-10-30T20:48:39Z",
     "source": "measured",
     "command": "bash scripts/audit-compliance.sh specs/verifications/features/"
   },
   "golden_suite": {
     "value": {
       "pass_rate": 1.0,
-      "passed": 8,
-      "total": 8,
+      "passed": 46,
+      "total": 46,
       "overall": "pass",
-      "timestamp": "2026-07-05T20:05:46Z",
-      "commit": "0d41b06e0af4f68fe41e47d24b69ef1b93bd98cf"
+      "timestamp": "2026-10-30T17:54:21Z",
+      "commit": "b814ed1a18372c4c9798cb5ce91b757756857955"
     },
-    "generated_at": "2026-07-05T20:07:57Z",
+    "generated_at": "2026-10-30T20:48:39Z",
     "source": "measured",
     "command": "specs/benchmarks/reports/GOLDEN-*.yaml (latest)"
   },
@@ -29,19 +29,19 @@
         "backfilled": 0
       }
     },
-    "generated_at": "2026-07-05T20:07:57Z",
+    "generated_at": "2026-10-30T20:48:39Z",
     "source": "measured",
     "command": "specs/metrics/*.okf.md"
   },
   "traceability": {
     "value": {
-      "total_stories": 79,
-      "linked_stories": 75,
-      "total_links": 1157,
-      "coverage_pct": 94.9,
-      "generated_at": "2026-07-04T18:18:38.119938+00:00"
+      "total_stories": 150,
+      "linked_stories": 150,
+      "total_links": 3604,
+      "coverage_pct": 100.0,
+      "generated_at": "2026-10-30T20:48:38.433301+00:00"
     },
-    "generated_at": "2026-07-05T20:07:57Z",
+    "generated_at": "2026-10-30T20:48:39Z",
     "source": "measured",
     "command": "specs/traceability-matrix.json (trace-matrix.py)"
   }

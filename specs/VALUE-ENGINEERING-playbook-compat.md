@@ -15,7 +15,7 @@ A reviewer in a fresh context checked the first analysis against bigpowers' own 
 | CLAUDE.md: Strong | 399 lines breaks bigpowers' own P2 300-line cap; ~60% is tool boilerplate | Partial |
 | Generated paths: prose only | CI `git diff --exit-code` already catches `.cursor/`, `.gemini/`, `.pi/` drift; `website/src/content/docs` is not in the diff, and there is no edit-time hook | Shift left, add website docs |
 | No test lock | `verify-tdd-red-commit.sh` exists (e80s03) but nothing calls it except prose | Wire it into CI and a hook |
-| Ship evals, retire the 94% first | Duplicates e58, whose own order is advisory first, demote after calibration | Merged into e58 as one added story |
+| Ship evals, retire the 94% first | Duplicates e50, whose own order is advisory first, demote after calibration | Merged into e50 as one added story |
 | New `watch-bands` skill | Breaks the catalog freeze; detection is deterministic, so B3 makes it a tool | Kernel script on the existing daily cron |
 | Prose intent.md views | Solo-developer target; writable copies would create a second source of truth | Dropped (epics-wiki already renders YAML) |
 | Plugin distribution | Deliberately deferred in SCOPE (depends on the MCP server) | Dropped; reopen through change-request |
@@ -48,7 +48,7 @@ The red team also found issues the first pass missed: five catalog-freeze breaks
 | P6 Build hooks | Partial | Strong | e86s01, e86s03 |
 | P7 Parallel sessions | Strong | Strong | — |
 | P8 Feedback loop | Strong (advisory RED gate) | Strong (enforced) | e86s02 (no coverage points, closes a known hole) |
-| P9 CI evals | Partial | Strong | e58 (+ runner) |
+| P9 CI evals | Partial | Strong | e50 (+ runner) |
 | P10 PR review | Partial | Strong | e87s01 |
 | P11 Approval gates | Partial | Strong | e86s04 |
 | P12 CI/CD | Partial | Strong | e87s02, e87s03 |
@@ -64,7 +64,7 @@ BCP comes from a 13D element table per story (in each `epic.yaml` under `bcp_13d
 |---|---|---|---|---|---|
 | **e84** AGENTS.md First | 2 | 36 | 0.50 | 1.39 | 10.5 |
 | **e83** Truth in the Cockpit | 5 | 47 | 0 (enabling) | — | 6.0 |
-| **e58** Evals Over Compliance (+ runner story) | +1 | 26 added | 0.50 | 1.92 | 5.3 (existing) |
+| **e50** Evals Over Compliance (+ runner story) | +1 | 26 added | 0.50 | 1.92 | 5.3 (existing) |
 | **e85** Count BCP the 13D Way | 2 | 42 | 0 (beyond playbook) | — | 4.3 |
 | **e86** Hooks Enforce | 5 | 98 | 1.00 | 1.02 | 4.2 |
 | **e87** Agent at the PR | 3 | 71 | 1.00 | 1.41 | 2.6 |
@@ -81,7 +81,7 @@ Stories ordered by coverage per BCP. A story whose value needs a prerequisite is
 | 0 | e83s05 spec-version-gap blocked (Always Green, not VE) | 7 | — | 7 | 67.9% |
 | 1 | e84s01 AGENTS.md canonical in this repo | 14 | 0.50 | 21 | 71.4% |
 | 2 | e86s04 production deploys ask first | 21 | 0.50 | 42 | 75.0% |
-| 3 | e58 runner (+ e58 calibration and gate flip) | 26 | 0.50 | 68 | 78.6% |
+| 3 | e50 runner (+ e50 calibration and gate flip) | 26 | 0.50 | 68 | 78.6% |
 | 4 | e88s01 control bands on the daily cron | 32 | 0.25 | 100 | 80.4% |
 | 5 | e88s03 read-only agent diagnosis and scheduled review | 28 | 1.00 | 128 | 87.5% |
 | 6 | e87s01 opt-in PR review | 31 | 0.50 | 159 | 91.1% |
@@ -97,8 +97,8 @@ The curve bends early: **100 BCP reaches 80%, 159 BCP reaches 91%, 260 BCP reach
 
 | Risk that can destroy value | Stories | Mitigation |
 |---|---|---|
-| Claude-only features break harness neutrality | e86s04, e87s01, e88s03, e58 runner | Adapter per harness; deny or skip fallback where a harness lacks the feature |
-| The e58 calibration window delays P9 and P13/P14 credit | e58, e88s03 | Ship e88s01/s02 (deterministic) first; agent steps switch on after calibration |
+| Claude-only features break harness neutrality | e86s04, e87s01, e88s03, e50 runner | Adapter per harness; deny or skip fallback where a harness lacks the feature |
+| The e50 calibration window delays P9 and P13/P14 credit | e50, e88s03 | Ship e88s01/s02 (deterministic) first; agent steps switch on after calibration |
 | A solo developer pays for API calls they did not choose | e87s01, e87s02, e88s03 | All opt-in templates; nothing paid runs by default |
 | Gate fatigue from new hooks | e86 | Fast, path-scoped hooks; deny messages name the fix; freeze guard lifts when e56 merges |
 | Agents read stale indicators | all | e83 makes ledgers, receipts and mirrors truthful before value is reported |
@@ -110,7 +110,7 @@ The curve bends early: **100 BCP reaches 80%, 159 BCP reaches 91%, 260 BCP reach
 |---|---|---|---|
 | **0 — Green first** | e83s05 | 7 | 68% |
 | **1 — One file, one gate** | e84s01, e84s02, e86s04 | 64 | 75% |
-| **2 — Evals and the self-starting loop** | e58 (with runner), e88s01, e88s03 | 150 + e58's own 9 | 87.5% |
+| **2 — Evals and the self-starting loop** | e50 (with runner), e88s01, e88s03 | 150 + e50's own 9 | 87.5% |
 | **3 — Agent at the PR** | e87s01, e87s02 | 199 | 93% |
 | **4 — Close the rest** | e86s01, e88s02, e86s03, e87s03 | 282 | 100% |
 | **Parallel lane** (disjoint files, no playbook points) | e83s01–s04, e85s01–s02, e86s02, e86s05 | +118 | — |

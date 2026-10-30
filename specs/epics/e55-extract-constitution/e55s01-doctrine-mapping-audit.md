@@ -139,7 +139,7 @@ Scenario: mapping covers every doctrine source file
         "no current rule maps here"
 
 Scenario: no forward-dated concepts leak in as if already true (out-of-scope guard)
-  Given specs/reborn-constitution.md contains e57/e58/e59 concepts (a
+  Given specs/reborn-constitution.md contains e52/e50/e58 concepts (a
         constitution_version scheme, a universal "every file is an OKF bundle"
         claim, a count-bcp skill/kernel module)
   When  the mapping is written

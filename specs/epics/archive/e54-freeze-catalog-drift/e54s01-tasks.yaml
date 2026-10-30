@@ -27,7 +27,7 @@ tasks:
         - "Catalog Freeze"
         - "unit"
   - id: 3
-    description: "Run the script for real, writing specs/tech-architecture/CATALOG-BASELINE-<date>.yaml with a header block (snapshot date, git commit hash, total skill count, and the literal statement 'frozen for e54-e59 migration; do not hand-edit')."
+    description: "Run the script for real, writing specs/tech-architecture/CATALOG-BASELINE-<date>.yaml with a header block (snapshot date, git commit hash, total skill count, and the literal statement 'frozen for bigspec migration; do not hand-edit')."
     verify: "f=$(ls specs/tech-architecture/CATALOG-BASELINE-*.yaml 2>/dev/null | head -1); test -n \"$f\" && grep -qi 'frozen for e54' \"$f\" && python3 -c \"import yaml,sys; yaml.safe_load(open(sys.argv[1]))\" \"$f\" && echo OK"
     risk: P2
     status: passing
@@ -37,7 +37,7 @@ tasks:
         - "Catalog Freeze"
         - "integration"
   - id: 4
-    description: "Commit the baseline snapshot file on its own, Conventional Commits format (chore: freeze skill catalog baseline for e54-e59 migration). Immutability comes from git history + the header commit hash, not a lock file."
+    description: "Commit the baseline snapshot file on its own, Conventional Commits format (chore: freeze skill catalog baseline for e50/e52/e54–e56/e58 migration). Immutability comes from git history + the header commit hash, not a lock file."
     verify: "git log -1 --format=%s -- specs/tech-architecture/CATALOG-BASELINE-*.yaml | grep -qE '^(chore|feat)' && echo OK"
     risk: P2
     status: passing

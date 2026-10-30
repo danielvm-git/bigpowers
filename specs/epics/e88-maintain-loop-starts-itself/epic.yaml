@@ -102,13 +102,13 @@ stories:
   risk: P1
   delta: ADDED
   depends_on:
-  - e58
+  - e50
   - e88s01
   value_rank: 6
   playbook_coverage_points: 1.0
   description: >-
     A 2-sigma breach and a weekly whole-repo security-review both run a read-only headless agent through
-    the e58 harness runner; the diagnosis is written as BUG-*.md for triage.
+    the e50 harness runner; the diagnosis is written as BUG-*.md for triage.
   files:
   - scripts/watch-bands.sh
   - .github/workflows/weekly-security-scan.yml

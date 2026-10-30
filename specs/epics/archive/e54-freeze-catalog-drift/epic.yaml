@@ -19,7 +19,7 @@ source: |
   the freeze window.
 note: >
   WSJF 6.7 = (5 value + 8 urgency + 7 risk-reduction) / 3 job-size — second-highest in the
-  sequence after e53, since every later phase (e55-e59) assumes a stable catalog to work
+  sequence after e53, since every later phase (e50/e52/e55/e56/e58) assumes a stable catalog to work
   against. The gate this epic adds is advisory (WARNING), not a hard block — per bigspec's
   constitution.md Part IV and architecture.md §10's own red-team note ("ship risk-tiered
   gates advisory-first, promote to BLOCKER only after calibration data"), avoiding the

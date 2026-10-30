@@ -5,7 +5,7 @@ description: "Per-task context bootstrap — reads existing specs/ and tech-arch
 disable-model-invocation: true
 ---
 
-<!-- story: e82s02 -->
+<!-- story: e49s02 -->
 
 # Survey Context
 

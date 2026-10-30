@@ -91,7 +91,7 @@ mkdir -p "$REPO_ROOT/specs/tech-architecture"
 
 {
   echo "# CATALOG-BASELINE-${DATE_STR}.yaml"
-  echo "# frozen for e54-e59 migration; do not hand-edit"
+  echo "# frozen for bigspec migration; do not hand-edit"
   echo "snapshot_date: \"${DATE_STR}\""
   echo "commit_hash: \"${COMMIT_HASH}\""
   echo "total_skill_count: ${COUNT}"

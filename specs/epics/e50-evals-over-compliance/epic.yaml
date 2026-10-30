@@ -1,9 +1,10 @@
-id: e58
+id: e50
+formerly: e58
 title: "Evals Over Compliance — Replace the 94% Gate with Outcome Proof"
 wsjf: 5.3
 bcps: 0
 bcps_projected: 9
-capsule_dir: epics/e58-evals-over-compliance
+capsule_dir: epics/e50-evals-over-compliance
 mode: capsule
 status: scoped
 elaborated: 2026-07-22
@@ -23,7 +24,7 @@ source: |
   explicitly scoped itself OUT of and left for this epic.
 note: >
   WSJF 5.3 = (6 value + 4 urgency + 6 risk-reduction) / 3 job-size. depends_on e53 alone
-  (not e54/e55/e56/e57) because its precondition — the dependency map — is already built;
+  (not e54/e55/e56/e52) because its precondition — the dependency map — is already built;
   this epic doesn't strictly need the catalog reclassified or OKF adopted everywhere first,
   though running it after e56 means evaluating a cleaner, smaller catalog.
   Provisional epic — NOT YET SCOPED. bcps: 0 / bcps_projected: 9 per B9 discipline (see e55's
@@ -71,7 +72,7 @@ planned_stories:
       Run each eval prompt headless through a harness adapter (Claude, Gemini, Codex), grade with the eval's
       verify commands, and record pass@k with and without the skill. Fills run-benchmark.py's pending_agent_eval
       scenarios. Added 2026-10-30 from the playbook value-engineering pass (red-team verdict R1: merge into
-      e58, keep advisory until calibrated).
+      e50, keep advisory until calibrated).
     backward_compat: >-
       Additive: the runner only produces eval data; the compliance gate stays blocking until the calibration
       story decides otherwise.

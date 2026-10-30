@@ -1,4 +1,4 @@
-// story: e82s03
+// story: e49s03
 // extensions/omp-hooks.ts
 // bigpowers — Single OMP extension entry exposing source skills through the
 // bigpowers_skill LLM tool and enforcing safety policy guards. Pi prompt

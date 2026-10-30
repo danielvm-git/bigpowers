@@ -46,7 +46,7 @@ in CONVENTIONS.md or CLAUDE.md today.
 
 ### 5. Main flow and business logic [draft]
 
-1. Add a "Catalog Freeze (e54-e59 migration)" section to CONVENTIONS.md stating: what's frozen
+1. Add a "Catalog Freeze (bigspec migration)" section to CONVENTIONS.md stating: what's frozen
    (new skill additions, structural SKILL.md changes to phase/effort/model), what's NOT frozen
    (bug fixes, description edits, content fixes within an existing skill's existing shape).
 2. State the exit criterion explicitly: the freeze ends when e56 (reclassify-catalog) merges —
@@ -139,7 +139,7 @@ Not applicable.
 ## Requirement deltas (plan-work, e45s29)
 
 #### ADDED: a documented Catalog Freeze section in CONVENTIONS.md
-A new "Catalog Freeze (e54-e59 migration)" section states what is frozen, what is not, the exit
+A new "Catalog Freeze (bigspec migration)" section states what is frozen, what is not, the exit
 criterion (e56's completion), and the exception-marker format. Purely additive documentation —
 no existing CONVENTIONS.md rule is changed, so there is no before/after behavior to record. The
 only cross-artifact contract is that the exception-marker string here must match byte-for-byte

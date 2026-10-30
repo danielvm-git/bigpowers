@@ -1,5 +1,5 @@
 # planning-context.yaml — written by elaborate-spec (yolo mode, 2026-07-22); consumed by plan-work
-# Epic e57 — Adopt OKF Envelope. Provisional epic elaborated autonomously; interpretations
+# Epic e52 — Adopt OKF Envelope. Provisional epic elaborated autonomously; interpretations
 # resolved by the driver and recorded under key_decisions (no interactive dialogue occurred).
 feature_name: "Adopt OKF Envelope — apply the wayfinder templates to the live repo"
 
@@ -11,7 +11,7 @@ problem_statement: |
   universal: every generated file — spec, story, epic, cockpit, report, metric — is an OKF
   bundle; one envelope, one validator. The design work is already done: the wayfinder session
   (24 tickets, 26 templates, closed and audited this month) produced exactly this blueprint,
-  grounded in real live files. e57's job is different from that session's — that session
+  grounded in real live files. e52's job is different from that session's — that session
   DESIGNED the templates; this epic APPLIES them to the actual live files in specs/.
 
 actors:
@@ -68,7 +68,7 @@ key_decisions:
       Chose B. Much of the surface is already partially enveloped; a big-bang pass over
       everything is high-risk for little marginal gain and would fight the 'additive, no body
       rewrite' constraint. Audit reveals the real gap; conversion targets it.
-  - decision: "_LATEST abolition is explicitly OUT of scope for e57, deferred to its own follow-up."
+  - decision: "_LATEST abolition is explicitly OUT of scope for e52, deferred to its own follow-up."
     rationale: |
       B8 bundles '_LATEST is abolished' with the OKF-envelope rule, so it's tempting to do both
       here. But adding an envelope (new frontmatter) and renaming a file (breaking every path a

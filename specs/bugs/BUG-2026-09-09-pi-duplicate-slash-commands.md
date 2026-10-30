@@ -32,7 +32,7 @@ Pi merges slash-command providers without deduplicating by name. In
 concatenates `templateCommands` (from `package.json` `pi.prompts` → `.pi/prompts/`)
 and `extensionCommands` (from `pi.registerCommand()` in `extensions/omp-hooks.ts`).
 
-Bigpowers ships both surfaces for every skill since v2.88.1 (e82 OMP extension, #118):
+Bigpowers ships both surfaces for every skill since v2.88.1 (e49 (ex-e82) OMP extension, #118):
 
 1. **Prompt templates (pre-existing):** `package.json` declares `"prompts": ["./.pi/prompts"]`;
    `sync-skills.sh` generates one `.md` template per skill.

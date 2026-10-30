@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# story: e82s03
+# story: e49s03
 # bigpowers — pre-tool-use hook for OMP bash tool
 # Shell fallback for runtimes that invoke hooks as processes rather than
 # calling the TypeScript extension directly. Blocks dangerous git commands

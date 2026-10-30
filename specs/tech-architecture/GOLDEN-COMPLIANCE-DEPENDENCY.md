@@ -4,13 +4,13 @@
 
 **Story:** e53s03 (Gate-trace the compliance-to-GOLDEN hard-gate coupling)
 **Purpose:** map every consumer of the `compliance` gate's pass/fail signal and every
-doc citing the 94% threshold as a Hard Stop, so a later epic (e58,
+doc citing the 94% threshold as a Hard Stop, so a later epic (e50,
 evals-over-compliance) can demote the gate without silently breaking something
 nobody remembered was coupled to it.
 
 **Scope boundary:** this document maps the dependency only — it does not flip
 `scripts/lib/golden-suite-gates.sh:9`'s `is_optional` flag, and it does not change
-any of the 5 cited docs. That work is out of scope for this story and belongs to e58.
+any of the 5 cited docs. That work is out of scope for this story and belongs to e50.
 
 ## 1. What `compliance` measures
 
@@ -59,13 +59,13 @@ actually runs (including `compliance`, whose command is `npm run compliance`, no
 branch never applies), the exit code is counted toward `PASS_COUNT`/`FAIL_COUNT`
 **unconditionally** (lines 90-105), regardless of `is_optional`'s value.
 
-**Consequence for e58:** simply flipping line 9 from `false` to `true` will change
+**Consequence for e50:** simply flipping line 9 from `false` to `true` will change
 nothing — `compliance` isn't a `bash <script>` gate, so the flag is never consulted
 for it. Demoting `compliance` to advisory requires **new logic** in
 `golden_run_deterministic_gates()` — e.g. a general "if `is_optional=true` and the
 command fails, route to `SKIP_COUNT`/a new WARN bucket instead of `FAIL_COUNT`"
 branch — not just a data-value change. This is the single most important finding for
-e58 to act on: the flag exists and is already named for this purpose, but the code
+e50 to act on: the flag exists and is already named for this purpose, but the code
 that would make it work for an executed (not missing) gate hasn't been written yet.
 
 ## 4. The 5 "Hard Stop" citations
@@ -113,9 +113,9 @@ for f in docs/PRINCIPLES.md docs/RELEASE-HISTORY.md docs/WORKFLOW-SOP-v2.md docs
 done
 ```
 
-## 6. Summary for e58
+## 6. Summary for e50
 
-To demote `compliance` from hard to advisory, e58 will need to touch **at least**:
+To demote `compliance` from hard to advisory, e50 will need to touch **at least**:
 
 1. `scripts/lib/golden-suite-gates.sh` — add real is_optional-aware handling in
    `golden_run_deterministic_gates()` for executed (not just missing) gates.

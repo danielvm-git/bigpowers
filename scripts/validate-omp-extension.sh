@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# story: e82s03
+# story: e49s03
 # OMP extension integrity guard — validates the extension entry is wired,
 # leaves slash commands to Pi prompt templates, and discovers all source skills.
 # Run before merging any branch that touches extensions/.

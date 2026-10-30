@@ -20,28 +20,28 @@ SIZE:      S   (Fibonacci 1/2/3/5/8)
 
 ### 1. Business narrative [draft]
 
-A later migration epic (e58, evals-over-compliance) plans to demote the `compliance` gate from
+A later migration epic (e50, evals-over-compliance) plans to demote the `compliance` gate from
 a hard, non-optional GOLDEN check to an advisory one. `scripts/lib/golden-suite-gates.sh:9`
 currently hardcodes it as non-optional, and the 94% compliance threshold is cited as a "Hard
 Stop" across 5 separate docs. Nobody has yet mapped exactly what breaks if that gate is
 demoted — which scripts, which CI steps, which docs would need to change in the same breath.
-Without that map, e58 risks silently hollowing out what GOLDEN actually verifies.
+Without that map, e50 risks silently hollowing out what GOLDEN actually verifies.
 
 ### 2. Value statement [draft]
 
-As the e58 story that will eventually demote the compliance gate, I want a mapped dependency
+As the e50 story that will eventually demote the compliance gate, I want a mapped dependency
 report today, so that I can flip the gate later without silently breaking something nobody
 remembered was coupled to it.
 
 ### 3. Actors and permissions [draft]
 
-- e58's future author (internal) — consumes this report as a pre-flight input.
+- e50's future author (internal) — consumes this report as a pre-flight input.
 - This story's author (internal) — produces the report via hand-authored analysis of the real
   scripts and docs.
 
 ### 4. Trigger and preconditions [draft]
 
-Trigger: this story is picked up during e53's build phase, ahead of e58.
+Trigger: this story is picked up during e53's build phase, ahead of e50.
 Precondition: `golden-suite-gates.sh:9` hardcodes `compliance` as non-optional
 (`is_optional=false`), and the 94% threshold is cited as a "Hard Stop" in 5 docs (confirmed to
 exist, not yet enumerated by file:line anywhere).
@@ -55,7 +55,7 @@ exist, not yet enumerated by file:line anywhere).
    and whether demoting the gate would require that doc to change too.
 3. Write the findings to `specs/tech-architecture/GOLDEN-COMPLIANCE-DEPENDENCY.md`, stating
    explicitly that this story maps the dependency only — it does not flip
-   `golden-suite-gates.sh:9`'s `is_optional` flag. That flip belongs to e58.
+   `golden-suite-gates.sh:9`'s `is_optional` flag. That flip belongs to e50.
 
 Interruption point: N/A — a single research-and-write pass, not a resumable multi-session flow.
 
@@ -128,7 +128,7 @@ Scenario: scope boundary is explicit
 
 ### 18. Out of scope [draft]
 
-- Flipping `is_optional` on the compliance gate — that is e58's job.
+- Flipping `is_optional` on the compliance gate — that is e50's job.
 - Updating any of the 5 cited docs — the report records what would need to change, it does not
   change it.
 

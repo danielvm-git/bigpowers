@@ -76,6 +76,6 @@ discover [warn] → elaborate [warn] → plan [warn] → build [warn] → verify
 > **On numbers:** this file previously carried precise-looking figures
 > (success rates, bugs/1000 LOC, rework percentages) with no cited study or
 > measurement behind them. They were removed rather than re-sourced —
-> quantifying mode quality is exactly what outcome evals (e58) are meant to
+> quantifying mode quality is exactly what outcome evals (e50) are meant to
 > produce, from this repo's own runs. Until that exists, the ordering above
 > is a design intent, not a measurement.

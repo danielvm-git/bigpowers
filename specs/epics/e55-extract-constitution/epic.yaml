@@ -24,7 +24,7 @@ source: |
 note: >
   WSJF 6.0 = (6 value + 6 urgency + 6 risk-reduction) / 3 job-size. Foundational for
   everything after it: e56 (reclassify-catalog) needs somewhere to move rules TO once
-  they're separated from procedures; e57 (adopt-okf-envelope) cites B8 directly.
+  they're separated from procedures; e52 (adopt-okf-envelope) cites B8 directly.
   Provisional epic — NOT YET SCOPED. bcps: 0 reflects zero real, counted stories (B9:
   "BCP is a sum of per-dimension element sizes, never hand-stamped as a gestalt" — no
   story has been sliced yet, so there is nothing real to sum). bcps_projected is a rough

@@ -20,7 +20,7 @@ epics_wiki_assign_tier() {
   local epic_id="$1"
   case "$epic_id" in
     e28|e38|e40|e41|e44|e45|e46) echo "core" ;;
-    e39|e42|e43|e47|e48|e49)       echo "extended" ;;
+    e39|e42|e43|e47|e48)           echo "extended" ;;
     e12|e18|e19|e21|e25)            echo "extended" ;;
     e33|e35|e36|e37)                echo "extended" ;;
     *)                              echo "specialized" ;;

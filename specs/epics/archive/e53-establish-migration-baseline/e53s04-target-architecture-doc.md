@@ -24,12 +24,12 @@ Two separate bodies of work currently define bigpowers' migration target: bigspe
 `constitution.md` + `architecture.md` (the overall methodology target), and this session's
 wayfinder documentation-architecture work (24 tickets, 26 template artifacts, the big-docs
 3-wave model, the specs/→docs/ dissolution decision). Nothing ties them together as a single
-cited reference — every later migration epic (e54-e59) would otherwise have to re-derive the
+cited reference — every later migration epic (e50/e52/e54–e56/e58) would otherwise have to re-derive the
 target shape from scratch or guess which source is authoritative for what.
 
 ### 2. Value statement [draft]
 
-As every later migration epic (e54-e59), I want a single `docs/TARGET-ARCHITECTURE.md` that
+As every later migration epic (e50/e52/e54–e56/e58), I want a single `docs/TARGET-ARCHITECTURE.md` that
 routes to both source bodies of work, so that I can cite one reference instead of re-deriving
 the target shape each time.
 

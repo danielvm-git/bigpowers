@@ -27,7 +27,7 @@ tasks:
         - "Constitution"
         - "documentation"
   - id: 3
-    description: "Confirm no forward-dated e57/e58/e59 concepts (constitution_version scheme, universal 'every file is an OKF bundle' claim, count-bcp skill) are presented as already-true content in the mapping doc."
+    description: "Confirm no forward-dated e52/e50/e58 concepts (constitution_version scheme, universal 'every file is an OKF bundle' claim, count-bcp skill) are presented as already-true content in the mapping doc."
     verify: "m=specs/epics/e55-extract-constitution/e55s01-doctrine-mapping.md; grep -qiE 'constitution_version|count-bcp skill' \"$m\" && echo FAIL || echo OK"
     risk: P3
     status: passing

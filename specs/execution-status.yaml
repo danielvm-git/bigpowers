@@ -337,9 +337,9 @@ development_status:
   e55s02: done
   e55s03: done
   e56: backlog
-  e57: backlog
+  e52: backlog
+  e50: backlog
   e58: backlog
-  e59: backlog
   e60: done
   e60s01: done
   e61: done
@@ -382,7 +382,7 @@ development_status:
   e74: done
   e74s01: done
   e74s02: done
-  e75: backlog
+  e59: backlog
   e76: done
   e76s01: done
   e76s02: done
@@ -401,11 +401,11 @@ development_status:
   e80s05: done
   e81: done
   e81s01: done
-  e82: backlog
-  e82s01: backlog
-  e82s02: backlog
-  e82s03: backlog
-  e82s04: backlog
+  e49: backlog
+  e49s01: backlog
+  e49s02: backlog
+  e49s03: backlog
+  e49s04: backlog
   e83: backlog
   e83s01: backlog
   e83s02: backlog
@@ -657,17 +657,17 @@ epics:
     title: Reclassify Catalog — Purify Skill to Mean Only Procedure
     wsjf: 3.8
     total_bcps: 0
-  e57:
+  e52:
     status: backlog
     title: Adopt OKF Envelope — Apply the Wayfinder Templates Across the Live Repo
     wsjf: 5.0
     total_bcps: 0
-  e58:
+  e50:
     status: backlog
     title: 'Evals Over Compliance — Replace the 94% Gate with Outcome Proof'
     wsjf: 5.3
     total_bcps: 0
-  e59:
+  e58:
     status: backlog
     title: 'Absorb Fresh References — Stay in Sync with bigspec''s Ongoing Evolution'
     wsjf: 3.7
@@ -747,7 +747,7 @@ epics:
     title: 'Integration: Antigravity CLI — Google''s New CLI'
     wsjf: 4.0
     total_bcps: 4
-  e75:
+  e59:
     status: backlog
     title: 'Integration: Augment — Unknown Capabilities'
     wsjf: 3.0
@@ -782,7 +782,7 @@ epics:
     title: 'Agent code economy — 8-rules knowledge distillation'
     wsjf: 4.5
     total_bcps: 2
-  e82:
+  e49:
     status: backlog
     title: Fork Innovations — Jujutsu VCS Support + OMP Plugin + Community Credit
     wsjf: 6.0
@@ -3496,31 +3496,31 @@ stories:
     tasks_failing: 0
     risk_max: P2
     security_max: none
-  e82s01:
+  e49s01:
     status: backlog
     title: 'Add project-runtime.sh — configurable specs dir + VCS kind resolution'
-    epic: e82
+    epic: e49
     tasks_total: 0
     tasks_passing: 0
     tasks_failing: 0
-  e82s02:
+  e49s02:
     status: backlog
     title: 'Jujutsu-aware lifecycle skills (commit-message, kickoff-branch, release-branch, survey-context)'
-    epic: e82
+    epic: e49
     tasks_total: 0
     tasks_passing: 0
     tasks_failing: 0
-  e82s03:
+  e49s03:
     status: backlog
     title: 'OMP plugin extension — bigpowers as native oh-my-posh/OMP entry point'
-    epic: e82
+    epic: e49
     tasks_total: 0
     tasks_passing: 0
     tasks_failing: 0
-  e82s04:
+  e49s04:
     status: backlog
     title: Community attribution — CONTRIBUTORS.md + CHANGELOG credit entries
-    epic: e82
+    epic: e49
     tasks_total: 0
     tasks_passing: 0
     tasks_failing: 0
