@@ -9,29 +9,22 @@ WEBSITE="$REPO_ROOT/website"
 SITE_BASE="/bigpowers"
 ERRORS=0
 
-fail() {
-  echo "FAIL: $*"
-  ERRORS=$((ERRORS + 1))
-}
-
-pass() {
-  echo "ok  : $*"
-}
+source "$REPO_ROOT/scripts/lib/test-assertions.sh"
 
 ensure_website_deps() {
   if [[ -d "$WEBSITE/node_modules/astro" ]]; then
     return 0
   fi
   if ! command -v npm >/dev/null 2>&1; then
-    fail "npm unavailable and website/node_modules missing — cannot run build check"
+    ta_err "npm unavailable and website/node_modules missing — cannot run build check"
     return 1
   fi
   echo "info: installing website deps (golden-suite only installs repo root npm ci)"
   if ! (cd "$WEBSITE" && npm ci >/dev/null 2>&1); then
-    fail "website npm ci failed — cannot run build check"
+    ta_err "website npm ci failed — cannot run build check"
     return 1
   fi
-  pass "website deps installed for build check"
+  ta_ok "website deps installed for build check"
 }
 
 INDEX_MDX="$WEBSITE/src/content/docs/index.mdx"
@@ -39,27 +32,27 @@ LLMS_TXT="$WEBSITE/public/llms.txt"
 
 echo "--- [docs] generated landing hero link ---"
 if [[ ! -f "$INDEX_MDX" ]]; then
-  fail "missing $INDEX_MDX — run cd website && npm run generate"
+  ta_err "missing $INDEX_MDX — run cd website && npm run generate"
 elif grep -q "link: ${SITE_BASE}/skills/" "$INDEX_MDX"; then
-  pass "hero Browse skills link includes SITE_BASE"
+  ta_ok "hero Browse skills link includes SITE_BASE"
 else
-  fail "hero link missing ${SITE_BASE}/skills/ prefix in index.mdx"
+  ta_err "hero link missing ${SITE_BASE}/skills/ prefix in index.mdx"
 fi
 
 echo "--- [docs] no root-absolute skill links in landing page ---"
 if [[ -f "$INDEX_MDX" ]] && grep -E '\]\(/skills/' "$INDEX_MDX" >/dev/null 2>&1; then
-  fail "index.mdx still contains root-absolute /skills/ links"
+  ta_err "index.mdx still contains root-absolute /skills/ links"
 else
-  pass "index.mdx skill links are base-prefixed or absent"
+  ta_ok "index.mdx skill links are base-prefixed or absent"
 fi
 
 echo "--- [docs] llms.txt URL shape ---"
 if [[ ! -f "$LLMS_TXT" ]]; then
-  fail "missing $LLMS_TXT — run cd website && npm run generate"
+  ta_err "missing $LLMS_TXT — run cd website && npm run generate"
 elif grep -q '/bigpowers/bigpowers/' "$LLMS_TXT"; then
-  fail "llms.txt double-prefixes SITE_BASE in URLs"
+  ta_err "llms.txt double-prefixes SITE_BASE in URLs"
 else
-  pass "llms.txt has no /bigpowers/bigpowers/ double prefix"
+  ta_ok "llms.txt has no /bigpowers/bigpowers/ double prefix"
 fi
 
 echo "--- [docs] production build hero href ---"
@@ -69,12 +62,12 @@ elif ensure_website_deps; then
   BUILD_ERR=$(mktemp)
   if (cd "$WEBSITE" && npm run build >/dev/null 2>"$BUILD_ERR"); then
     if grep -q 'href="/bigpowers/skills/"' "$WEBSITE/dist/index.html" 2>/dev/null; then
-      pass "dist/index.html hero href includes /bigpowers/skills/"
+      ta_ok "dist/index.html hero href includes /bigpowers/skills/"
     else
-      fail "dist/index.html missing href=\"/bigpowers/skills/\" for Browse skills"
+      ta_err "dist/index.html missing href=\"/bigpowers/skills/\" for Browse skills"
     fi
   else
-    fail "website build failed — $(head -3 "$BUILD_ERR" 2>/dev/null | tr '\n' ' ')"
+    ta_err "website build failed — $(head -3 "$BUILD_ERR" 2>/dev/null | tr '\n' ' ')"
   fi
   rm -f "$BUILD_ERR"
 fi

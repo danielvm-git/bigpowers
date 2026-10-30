@@ -16,13 +16,13 @@ source "$(dirname "${BASH_SOURCE[0]}")/lib/skill-common.sh"
 resolve_repo_root
 cd "$REPO_ROOT"
 
-FAILURES=0
-pass() { echo "PASS $1"; }
-fail() { echo "FAIL $1"; FAILURES=$((FAILURES + 1)); }
+source scripts/lib/test-assertions.sh
+TA_PASS=0
+TA_FAIL=0
 
 # Run the runner in a subshell with a fixture gate list; prints its stdout and
 # the final counters as "COUNTS pass fail skip".
-run_fixture() {
+ggr_run_fixture() {
   (
     source scripts/lib/golden-suite-gates.sh
     GOLDEN_GATES=(
@@ -35,25 +35,25 @@ run_fixture() {
   )
 }
 
-out=$(GOLDEN_SKIP_GATES="" run_fixture)
+out=$(GOLDEN_SKIP_GATES="" ggr_run_fixture)
 echo "$out" | grep -q 'marker-line-from-failing-gate' \
-  && pass "(a) failing gate output is printed" \
-  || fail "(a) failing gate output is missing"
+  && ta_pass "(a) failing gate output is printed" \
+  || ta_fail "(a) failing gate output is missing"
 echo "$out" | grep -q '^COUNTS 2 1 0$' \
-  && pass "(d) no skip list runs every gate" \
-  || fail "(d) default run counts wrong: $(echo "$out" | grep COUNTS)"
+  && ta_pass "(d) no skip list runs every gate" \
+  || ta_fail "(d) default run counts wrong: $(echo "$out" | grep COUNTS)"
 
-out=$(GOLDEN_SKIP_GATES="covered-gate" GOLDEN_SKIP_REASON="runs in its own CI job" run_fixture)
+out=$(GOLDEN_SKIP_GATES="covered-gate" GOLDEN_SKIP_REASON="runs in its own CI job" ggr_run_fixture)
 echo "$out" | grep -q '^\[covered-gate\] .*SKIP.*runs in its own CI job' \
-  && pass "(b) skipped gate reported with reason" \
-  || fail "(b) skipped gate not reported with reason"
+  && ta_pass "(b) skipped gate reported with reason" \
+  || ta_fail "(b) skipped gate not reported with reason"
 echo "$out" | grep -q '^COUNTS 1 1 1$' \
-  && pass "(b) skipped gate counted as skip, not pass" \
-  || fail "(b) skip counts wrong: $(echo "$out" | grep COUNTS)"
+  && ta_pass "(b) skipped gate counted as skip, not pass" \
+  || ta_fail "(b) skip counts wrong: $(echo "$out" | grep COUNTS)"
 
-out=$(GOLDEN_SKIP_GATES="no-such-gate" run_fixture)
+out=$(GOLDEN_SKIP_GATES="no-such-gate" ggr_run_fixture)
 echo "$out" | grep -q 'no-such-gate' && echo "$out" | grep -q '^COUNTS 2 2 0$' \
-  && pass "(c) unknown skip name fails the run" \
-  || fail "(c) unknown skip name accepted: $(echo "$out" | grep COUNTS)"
+  && ta_pass "(c) unknown skip name fails the run" \
+  || ta_fail "(c) unknown skip name accepted: $(echo "$out" | grep COUNTS)"
 
-[ "$FAILURES" -eq 0 ] && echo "OK: golden gate runner" || { echo "$FAILURES check(s) failed"; exit 1; }
+[ "$TA_FAIL" -eq 0 ] && echo "OK: golden gate runner" || { echo "$TA_FAIL check(s) failed"; exit 1; }
