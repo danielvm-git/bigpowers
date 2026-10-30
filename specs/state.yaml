@@ -2,14 +2,14 @@ active_flow: null
 active_epic: null
 active_story: null
 bug_id: null
-bigpowers_version: 2.88.16
+bigpowers_version: 2.88.17
 bug_cycle: null
 handoff:
   next_skill: null
   context: 'BUG-2026-10-30-mcp-unset-plugin-root RESOLVED (#168) — PR #169 stacked on #171, landed in squash
     4ed9a266. .mcp.json uses ${OMP_PLUGIN_ROOT:-.} so bigpowers-mcp starts in hosts that do not set it
     (Claude Code project scope); mcp-smoke.ts checks omp and claude-code profiles. Main run 41121956124
-    all jobs success; release deferred to the 90e12d9e run (main behind remote).'
+    all jobs success; released in 2.88.17 (1e7eb38a) by the 90e12d9e run.'
   epic: null
 epic_cycle: null
 metrics:

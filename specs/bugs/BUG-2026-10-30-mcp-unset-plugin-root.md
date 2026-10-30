@@ -91,7 +91,8 @@ not runnable in a host" class; that fix covered only the OMP profile.
 PR #169 (`dcdae5d3`) was stacked on #171, because #171 replaced the `fail`/`pass`
 helpers in `validate-mcp-package.sh` with `ta_err`/`ta_ok`. #169 merged into #171's
 branch, then #171 squash-merged to `main` as `4ed9a266`. That squash carries both
-fixes. Its title is `fix(compliance): …`, so release notes do not name #168.
+fixes. Its title is `fix(compliance): …`; the 2.88.17 changelog lists #168 only
+under that entry's `closes` references.
 
 ### CI measured
 
@@ -102,4 +103,4 @@ fixes. Its title is `fix(compliance): …`, so release notes do not name #168.
 All jobs passed, including the `mcp-package` golden gate. The `release` job passed
 but did not publish: #170 (`90e12d9e`) had already landed, so semantic-release
 reported `The local branch main is behind the remote one`. The run for `90e12d9e`
-publishes the next patch version with this fix.
+published **2.88.17** (`1e7eb38a`) with this fix.
