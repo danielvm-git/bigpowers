@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CPS Manager Cockpit</title>
+<style>
+:root {
+  --bg: #f4f5f7; --card: #ffffff; --ink: #16181d; --muted: #646b78; --line: #e3e6eb;
+  --green: #1f9d55; --amber: #d48a00; --red: #d64545; --info: #3a6fd8;
+  --c1: #3a6fd8; --c2: #8a5cd1; --c3: #9aa3b2; --c4: #1f9d55;
+  --soft-green: #e6f5ec; --soft-amber: #fdf3dd; --soft-red: #fbe7e7; --soft-info: #e8effc;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1115; --card: #181b21; --ink: #e8eaee; --muted: #9098a6; --line: #2a2f38;
+    --green: #3ec27a; --amber: #f0aa2a; --red: #ef6464; --info: #6c97ee;
+    --c1: #6c97ee; --c2: #a988e3; --c3: #5d6573; --c4: #3ec27a;
+    --soft-green: #15301f; --soft-amber: #33280f; --soft-red: #361a1a; --soft-info: #18243d;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 14px/1.45 -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif; }
+header { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; padding: 16px 24px; background: var(--card); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 5; }
+header h1 { font-size: 18px; margin: 0; letter-spacing: -.01em; }
+header .sub { color: var(--muted); font-size: 13px; }
+.spacer { flex: 1; }
+.pill { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; background: var(--bg); border: 1px solid var(--line); }
+.dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; background: var(--muted); }
+.dot.green { background: var(--green); } .dot.amber { background: var(--amber); } .dot.red { background: var(--red); } .dot.info { background: var(--info); }
+.live .dot { background: var(--green); box-shadow: 0 0 0 0 var(--green); animation: pulse 2s infinite; }
+.live.off .dot { background: var(--red); animation: none; }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(31,157,85,.5);} 70% { box-shadow: 0 0 0 8px rgba(31,157,85,0);} 100% { box-shadow: 0 0 0 0 rgba(31,157,85,0);} }
+main { padding: 20px 24px 40px; display: grid; gap: 16px; grid-template-columns: repeat(12, 1fr); max-width: 1600px; margin: 0 auto; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; min-width: 0; transition: box-shadow .6s; }
+.card.flash { box-shadow: 0 0 0 2px var(--info); }
+.card h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 0 0 12px; display: flex; gap: 8px; align-items: baseline; }
+.card h2 .ref { font-weight: 400; text-transform: none; letter-spacing: 0; font-size: 12px; }
+.s12 { grid-column: span 12; } .s8 { grid-column: span 8; } .s7 { grid-column: span 7; } .s6 { grid-column: span 6; } .s5 { grid-column: span 5; } .s4 { grid-column: span 4; }
+@media (max-width: 1100px) { .s8, .s7, .s6, .s5, .s4 { grid-column: span 12; } }
+@media (max-width: 640px) { main { padding: 12px 16px 32px; } header { padding: 12px 16px; } }
+.rag-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 8px; }
+.rag { border-radius: 10px; padding: 10px 12px; border: 1px solid var(--line); }
+.rag b { display: block; font-size: 12px; color: var(--muted); font-weight: 600; }
+.rag span { font-size: 15px; font-weight: 700; }
+.rag.green { background: var(--soft-green); } .rag.green span { color: var(--green); }
+.rag.amber { background: var(--soft-amber); } .rag.amber span { color: var(--amber); }
+.rag.red { background: var(--soft-red); } .rag.red span { color: var(--red); }
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-top: 14px; }
+.kpi { padding: 10px 12px; border-radius: 10px; background: var(--bg); }
+.kpi .v { font-size: 24px; font-weight: 700; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.kpi .l { font-size: 12px; color: var(--muted); }
+.kpi .h { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.phases { display: grid; grid-template-columns: 1fr 1.7fr 1fr; gap: 12px; }
+@media (max-width: 1100px) { .phases { grid-template-columns: 1fr; } }
+.phase { border: 1px solid var(--line); border-radius: 10px; padding: 12px; }
+.phase.current { border-color: var(--info); box-shadow: inset 0 3px 0 var(--info); }
+.phase h3 { margin: 0 0 8px; font-size: 14px; display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.phase h3 small { color: var(--muted); font-weight: 500; font-size: 12px; }
+.prac { display: grid; grid-template-columns: 26px 1fr auto; gap: 6px; align-items: center; padding: 4px 0; border-top: 1px dashed var(--line); font-size: 13px; }
+.prac:first-of-type { border-top: 0; }
+.prac .n { color: var(--muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+.prac .ev { color: var(--muted); font-size: 11px; display: block; }
+.badge { font-size: 11px; font-weight: 600; padding: 1px 8px; border-radius: 999px; white-space: nowrap; }
+.badge.ok { background: var(--soft-green); color: var(--green); }
+.badge.partial { background: var(--soft-amber); color: var(--amber); }
+.badge.missing { background: var(--soft-red); color: var(--red); }
+.badge.manual { background: var(--bg); color: var(--muted); border: 1px solid var(--line); }
+.badge.st-done { background: var(--soft-green); color: var(--green); }
+.badge.st-scoped, .badge.st-todo { background: var(--bg); color: var(--muted); border: 1px solid var(--line); }
+.badge.st-in_progress, .badge.st-in-progress, .badge.st-planned { background: var(--soft-info); color: var(--info); }
+.chart svg { width: 100%; height: auto; display: block; overflow: visible; }
+.chart text { fill: var(--muted); font-size: 10px; }
+.legend { display: flex; gap: 14px; flex-wrap: wrap; font-size: 12px; color: var(--muted); margin-top: 6px; }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 5px; vertical-align: -1px; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { text-align: left; color: var(--muted); font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: .04em; padding: 6px 8px; border-bottom: 1px solid var(--line); }
+td { padding: 7px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+td.num { text-align: right; font-variant-numeric: tabular-nums; }
+tr:last-child td { border-bottom: 0; }
+.bar { height: 6px; background: var(--bg); border-radius: 3px; overflow: hidden; margin-top: 4px; }
+.bar > i { display: block; height: 100%; background: var(--green); }
+.alert { display: grid; grid-template-columns: 12px 1fr; gap: 10px; padding: 8px 0; border-top: 1px solid var(--line); }
+.alert:first-child { border-top: 0; }
+.alert .dot { margin-top: 5px; }
+.alert small { color: var(--muted); display: block; font-size: 11px; }
+.scope-sum { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 12px; margin-bottom: 6px; }
+.scope-sum b { font-variant-numeric: tabular-nums; }
+.scope-bar { display: flex; height: 8px; border-radius: 4px; overflow: hidden; background: var(--bg); border: 1px solid var(--line); margin-bottom: 10px; }
+.scope-bar i { display: block; height: 100%; }
+.road { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 4px; margin-bottom: 8px; }
+@media (max-width: 560px) { .road { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+.road span { position: relative; font-size: 11px; padding: 3px 0; text-align: center; border-radius: 4px; font-variant-numeric: tabular-nums; cursor: default; }
+.road .d { background: var(--soft-green); color: var(--green); }
+.road .p { background: var(--soft-info); color: var(--info); font-weight: 600; outline: 1px solid var(--info); }
+.road .o { background: var(--bg); color: var(--text); border: 1px solid var(--muted); font-weight: 600; }
+.road .o.nob { border-color: var(--amber); }
+.road .g { color: var(--muted); border: 1px dashed var(--line); opacity: .6; text-decoration: line-through; }
+.road .o.out::after { content: ''; position: absolute; top: 2px; right: 3px; width: 5px; height: 5px; border-radius: 50%; background: var(--amber); }
+.road-legend { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 11px; color: var(--muted); margin-bottom: 12px; }
+.road-legend span { display: inline-flex; align-items: center; gap: 5px; }
+.road-legend i { display: inline-block; width: 18px; height: 11px; border-radius: 3px; }
+.feed { list-style: none; margin: 0; padding: 0; font-size: 13px; }
+.feed li { display: grid; grid-template-columns: 74px 52px 1fr; gap: 8px; padding: 5px 0; border-top: 1px solid var(--line); }
+.feed li:first-child { border-top: 0; }
+.feed code, code { font: 11px ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--muted); }
+.t { font-size: 11px; font-weight: 600; text-transform: lowercase; }
+.t.feat { color: var(--c1); } .t.fix { color: var(--red); } .t.chore, .t.docs, .t.other, .t.ci, .t.refactor, .t.test { color: var(--muted); }
+.handoff { background: var(--bg); border-radius: 10px; padding: 12px; font-size: 13px; white-space: pre-wrap; }
+.muted { color: var(--muted); }
+.gauges { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; }
+.gauge { background: var(--bg); border-radius: 10px; padding: 10px 12px; }
+.gauge .v { font-size: 20px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.gauge .l { font-size: 12px; color: var(--muted); }
+.gauge .h { font-size: 11px; color: var(--muted); }
+.sev { display: flex; gap: 6px; margin: 10px 0 4px; flex-wrap: wrap; }
+details summary { cursor: pointer; color: var(--muted); font-size: 12px; margin-top: 8px; }
+footer { color: var(--muted); font-size: 12px; text-align: center; padding: 0 16px 24px; }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1 id="title">CPS Manager Cockpit</h1>
+    <div class="sub" id="subtitle">carregando…</div>
+  </div>
+  <span class="pill" id="phasePill">Fase: —</span>
+  <span class="pill" id="healthPill"><span class="dot"></span> Saúde geral</span>
+  <div class="spacer"></div>
+  <span class="pill live off" id="live"><span class="dot"></span><span id="liveTxt">conectando</span></span>
+</header>
+
+<main>
+  <section class="card s12" id="c-exec">
+    <h2>Resumo executivo <span class="ref">Project Status Report · Cap. 19 Monitoring &amp; Control</span></h2>
+    <div class="rag-row" id="rag"></div>
+    <div class="kpis" id="kpis"></div>
+  </section>
+
+  <section class="card s12" id="c-phases">
+    <h2>Ciclo de vida CPS — evidência das práticas <span class="ref">Setup → Production Flow → Value Activation (Cap. 4–37)</span></h2>
+    <div class="phases" id="phases"></div>
+  </section>
+
+  <section class="card s7" id="c-alerts">
+    <h2>Riscos, impedimentos e alertas <span class="ref">Cap. 22 Impediment Management · regras RAG</span></h2>
+    <div id="alerts"></div>
+  </section>
+
+  <section class="card s5" id="c-next">
+    <h2>Próxima ação <span class="ref">Cap. 30 Evaluate Inputs &amp; Forward Actions</span></h2>
+    <div id="next"></div>
+  </section>
+
+  <section class="card s6 chart" id="c-vel">
+    <h2>Velocidade — BCP entregue por semana <span class="ref">Cap. 18 Delivery Capacity</span></h2>
+    <div id="vel"></div>
+  </section>
+
+  <section class="card s6 chart" id="c-burn">
+    <h2>Burn-up do produto <span class="ref">Cap. 19 Progress Control</span></h2>
+    <div id="burn"></div>
+  </section>
+
+  <section class="card s7" id="c-backlog">
+    <h2>Escopo e backlog priorizado (WSJF) <span class="ref">Cap. 12 Scope · Cap. 17 Value Governance · Cap. 21 Review Roadmap</span></h2>
+    <div id="scope-sum"></div>
+    <div id="road" class="road"></div>
+    <div class="road-legend">
+      <span><i style="background:var(--soft-green)"></i>concluído</span>
+      <span><i style="background:var(--soft-info);outline:1px solid var(--info)"></i>em andamento</span>
+      <span><i style="border:1px solid var(--muted)"></i>aberto</span>
+      <span><i style="border:1px solid var(--amber)"></i>aberto sem BCP</span>
+      <span><i style="border:1px solid var(--muted);background:radial-gradient(circle at 80% 25%, var(--amber) 2px, transparent 2.5px)"></i>fora do build_order</span>
+      <span><i style="border:1px dashed var(--line)"></i>número aposentado / mesclado</span>
+    </div>
+    <div id="backlog"></div>
+  </section>
+
+  <section class="card s5" id="c-quality">
+    <h2>Qualidade e estabilidade <span class="ref">Cap. 24, 27, 28</span></h2>
+    <div class="gauges" id="quality"></div>
+    <div id="sev"></div>
+  </section>
+
+  <section class="card s6 chart" id="c-through">
+    <h2>Throughput — commits por semana <span class="ref">Cap. 26 One Piece Flow</span></h2>
+    <div id="through"></div>
+  </section>
+
+  <section class="card s6" id="c-feed">
+    <h2>Atividade recente <span class="ref">git</span></h2>
+    <ul class="feed" id="feed"></ul>
+  </section>
+
+  <section class="card s12" id="c-sources">
+    <h2>Fontes de dados e frescor <span class="ref">o cockpit recalcula a cada mudança em specs/ ou no git</span></h2>
+    <div id="sources"></div>
+  </section>
+</main>
+<footer id="foot"></footer>
+
+<script>
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const fmt = (n, d = 0) => (n == null || Number.isNaN(n) ? '—' : Number(n).toLocaleString('pt-BR', { maximumFractionDigits: d, minimumFractionDigits: d }));
+const ago = (iso) => {
+  if (!iso) return '—';
+  const s = (Date.now() - Date.parse(iso)) / 1000;
+  if (s < 90) return 'agora';
+  if (s < 3600) return `há ${Math.round(s / 60)} min`;
+  if (s < 86400 * 2) return `há ${Math.round(s / 3600)} h`;
+  return `há ${Math.round(s / 86400)} dias`;
+};
+const minutes = (m) => (m == null ? '—' : m < 120 ? `${fmt(m)} min` : `${fmt(m / 60, 1)} h`);
+const RAGTXT = { green: 'No trilho', amber: 'Atenção', red: 'Crítico' };
+const PHASE = { setup: 'Setup', flow: 'Production Flow', activation: 'Value Activation' };
+const STLBL = { ok: 'evidência', partial: 'parcial', missing: 'ausente', manual: 'manual' };
+const PROG = new Set(['in_progress', 'in-progress', 'active', 'building', 'executing', 'in_review', 'review']);
+let prev = null;
+
+function render(m) {
+  const k = m.kpis;
+  $('title').textContent = `${m.project.name} · CPS Manager Cockpit`;
+  $('subtitle').textContent = `v${m.project.version} "${m.project.codename || ''}" (${m.project.release_status || '—'}) → próximo: ${m.project.next || '—'} · branch ${m.git.branch} @ ${m.git.head}`;
+  $('phasePill').innerHTML = `Fase CPS: <b>${PHASE[m.phase]}</b>`;
+  $('healthPill').innerHTML = `<span class="dot ${m.health.overall}"></span> Saúde geral: <b>${RAGTXT[m.health.overall]}</b>`;
+  document.title = `${m.health.overall === 'green' ? '🟢' : m.health.overall === 'amber' ? '🟡' : '🔴'} CPS Cockpit · ${m.project.name}`;
+
+  $('rag').innerHTML = m.health.dims.map((d) => `<div class="rag ${d.rag}"><b>${d.area}</b><span>${RAGTXT[d.rag]}</span></div>`).join('');
+
+  const tiles = [
+    ['Épicos concluídos', `${k.epics_done}/${k.epics_total}`, `${fmt((k.epics_done / Math.max(1, k.epics_total)) * 100)}% do roadmap`],
+    ['BCP entregue', fmt(k.bcp_done), `${fmt(k.bcp_open)} BCP estimado em aberto`],
+    ['Velocidade (4 sem.)', `${fmt(k.velocity_4w, 1)}`, 'BCP/semana, média'],
+    ['Cycle time p50 / p85', `${minutes(k.cycle_p50)}`, `p85 ${minutes(k.cycle_p85)} · medido p50 ${minutes(k.cycle_measured_p50)}`],
+    ['Impedimentos abertos', fmt(k.bugs_open), `${k.bugs_total} registrados no total`],
+    ['Último release', k.days_since_release == null ? '—' : `${fmt(k.days_since_release, 0)} d`, `${k.releases_30d} releases em 30 dias`],
+    ['Rastreabilidade', k.trace == null ? '—' : `${fmt(k.trace, 1)}%`, 'histórias ligadas a código'],
+    ['Retrabalho (fix/feat+fix)', k.fix_ratio_30d == null ? '—' : `${fmt(k.fix_ratio_30d * 100)}%`, 'commits nos últimos 30 dias'],
+  ];
+  $('kpis').innerHTML = tiles.map(([l, v, h]) => `<div class="kpi"><div class="l">${l}</div><div class="v">${v}</div><div class="h">${h}</div></div>`).join('');
+
+  const phaseCard = (key, label, sub) => {
+    const list = m.practices[key];
+    const okN = list.filter((p) => p.status === 'ok').length;
+    return `<div class="phase ${m.phase === key ? 'current' : ''}">
+      <h3>${label} <small>${sub} · ${okN}/${list.length} com evidência</small></h3>
+      ${list.map((p) => `<div class="prac"><span class="n">${p.n}</span><span>${esc(p.name)}<span class="ev">${esc(p.evidence)}</span></span><span class="badge ${p.status}">${STLBL[p.status]}</span></div>`).join('')}
+    </div>`;
+  };
+  $('phases').innerHTML = phaseCard('setup', 'Setup', '1–3 semanas') + phaseCard('flow', 'Production Flow', 'contínuo') + phaseCard('activation', 'Value Activation', '1–2 semanas');
+
+  const order = { red: 0, amber: 1, info: 2 };
+  const al = [...m.alerts].sort((a, b) => order[a.level] - order[b.level]);
+  $('alerts').innerHTML = al.length
+    ? al.map((a) => `<div class="alert"><span class="dot ${a.level}"></span><div>${esc(a.msg)}<small>${a.area} · prática CPS ${a.practice}</small></div></div>`).join('')
+    : '<p class="muted">Nenhum alerta. Tudo no trilho.</p>';
+
+  const top = m.epics.filter((e) => e.status !== 'done').sort((a, b) => (b.wsjf ?? 0) - (a.wsjf ?? 0))[0];
+  const h = m.state.handoff || {};
+  $('next').innerHTML = `
+    <div class="kpis" style="margin:0 0 12px">
+      <div class="kpi"><div class="l">Fluxo ativo</div><div class="v" style="font-size:16px">${esc(m.state.active_flow || 'ocioso')}</div><div class="h">épico ${esc(m.state.active_epic || '—')} · história ${esc(m.state.active_story || '—')}</div></div>
+      <div class="kpi"><div class="l">Puxar a seguir (maior WSJF)</div><div class="v" style="font-size:16px">${top ? esc(top.id) + ' · WSJF ' + fmt(top.wsjf, 1) : '—'}</div><div class="h">${top ? esc(top.title) : 'backlog vazio'}</div></div>
+    </div>
+    <div class="muted" style="font-size:12px;margin-bottom:4px">Handoff da última sessão${h.next_skill ? ` · próxima skill: <b>${esc(h.next_skill)}</b>` : ''}</div>
+    <div class="handoff">${esc(h.context || 'sem handoff registrado')}</div>`;
+
+  $('vel').innerHTML = barChart(m.weeks.map((w) => ({ x: w, y: m.bcpByWeek[w], tip: `${w}: ${m.bcpByWeek[w]} BCP ${m.epicsByWeek[w].join(', ')}` })), 'var(--c1)') +
+    `<div class="legend"><span><i style="background:var(--c1)"></i>BCP de épicos concluídos (data do último commit do épico)</span><span>últimas 26 semanas</span></div>`;
+
+  $('burn').innerHTML = burnChart(m.burnup, m.scope_total) +
+    `<div class="legend"><span><i style="background:var(--c4)"></i>BCP acumulado entregue</span><span><i style="background:var(--c3)"></i>Escopo total (entregue + estimado aberto) = ${fmt(m.scope_total)}</span></div>`;
+
+  const sm = m.scope_map;
+  const titleOf = Object.fromEntries(m.epics.map((e) => [e.id, e.title]));
+  const real = sm.filter((x) => !x.gap);
+  const nDone = real.filter((x) => x.done).length;
+  const nProg = real.filter((x) => !x.done && PROG.has(x.status)).length;
+  const nOpen = real.length - nDone - nProg;
+  const nGap = sm.length - real.length;
+  const nOut = real.filter((x) => !x.done && !x.inOrder).length;
+  const bDone = real.filter((x) => x.done).reduce((a, x) => a + (x.bcps || 0), 0);
+  const bOpen = real.filter((x) => !x.done).reduce((a, x) => a + (x.bcps || 0), 0);
+  const nNoB = real.filter((x) => !x.done && !x.bcps).length;
+  const pct = bDone + bOpen ? (bDone / (bDone + bOpen)) * 100 : 0;
+  $('scope-sum').innerHTML = `<div class="scope-sum">
+      <span><b>${real.length}</b> épicos (e01–${sm.length ? sm[sm.length - 1].id : '—'})</span>
+      <span style="color:var(--green)"><b>${nDone}</b> concluídos</span>
+      ${nProg ? `<span style="color:var(--info)"><b>${nProg}</b> em andamento</span>` : ''}
+      <span><b>${nOpen}</b> abertos</span>
+      ${nGap ? `<span class="muted"><b>${nGap}</b> números aposentados</span>` : ''}
+      <span>BCP <b>${fmt(bDone)}</b> entregue / <b>${fmt(bOpen)}</b> em aberto (${fmt(pct)}%)${nNoB ? ` · <span style="color:var(--amber)">${nNoB} sem estimativa</span>` : ''}</span>
+      ${nOut ? `<span style="color:var(--amber)"><b>${nOut}</b> abertos fora do build_order</span>` : ''}
+    </div>
+    <div class="scope-bar" title="BCP entregue vs. em aberto"><i style="width:${pct}%;background:var(--green)"></i><i style="width:${100 - pct}%;background:var(--line)"></i></div>`;
+  $('road').innerHTML = sm.map((x) => {
+    if (x.gap) return `<span class="g" title="${x.id} — ${x.absorbedBy ? `mesclado/renumerado em ${x.absorbedBy}` : 'número não usado ou aposentado'}">${x.id}</span>`;
+    const cls = x.done ? 'd' : PROG.has(x.status) ? 'p' : `o${x.bcps ? '' : ' nob'}${x.inOrder ? '' : ' out'}`;
+    const tip = `${x.id} — ${titleOf[x.id] || ''}\nstatus: ${x.status}${x.bcps ? ` · ${x.bcps} BCP${x.projected ? ' (projetado)' : ''}` : ' · sem BCP'}${x.wsjf != null ? ` · WSJF ${x.wsjf}` : ''}${!x.done && !x.inOrder ? '\nfora do build_order do release-plan' : ''}`;
+    return `<span class="${cls}" title="${esc(tip)}">${x.id}</span>`;
+  }).join('');
+  const open = m.epics.filter((e) => e.status !== 'done').sort((a, b) => (b.wsjf ?? 0) - (a.wsjf ?? 0));
+  $('backlog').innerHTML = `<table><thead><tr><th>Épico</th><th>Status</th><th class="num">WSJF</th><th class="num">BCP</th><th>Histórias</th></tr></thead><tbody>${
+    open.map((e) => {
+      const sd = e.stories.filter((s) => ['done', 'passing'].includes(s.status)).length;
+      const st = e.stories.length;
+      return `<tr><td><b>${e.id}</b> ${esc(e.title)}</td><td><span class="badge st-${esc(e.status)}">${esc(e.status)}</span></td>
+        <td class="num">${fmt(e.wsjf, 1)}</td><td class="num">${e.bcps ? fmt(e.bcps) + (e.projected ? '*' : '') : '<span style="color:var(--amber)">?</span>'}</td>
+        <td>${st ? `${sd}/${st} · ${e.storiesWithTasks} c/ tasks<div class="bar"><i style="width:${(sd / st) * 100}%"></i></div>` : '<span class="muted">não fatiado</span>'}</td></tr>`;
+    }).join('') || '<tr><td colspan="5" class="muted">Backlog vazio</td></tr>'
+  }</tbody></table><div class="muted" style="font-size:11px;margin-top:6px">* BCP projetado (bcps_projected) · ? sem estimativa · mapa acima = todos os épicos de e01 ao último; passe o mouse para detalhes</div>`;
+
+  const g = k.golden;
+  const gauges = [
+    ['Compliance', k.compliance == null ? '—' : `${fmt(k.compliance)}%`, 'audit-compliance'],
+    ['Golden suite', g ? `${g.passed}/${g.total}` : '—', g ? `homologação · ${g.overall}` : ''],
+    ['Rastreabilidade', k.trace == null ? '—' : `${fmt(k.trace, 1)}%`, 'trace-stories'],
+    ['CI no último release', m.state.release.ci_verified ? 'verificado' : 'não verif.', esc(m.state.release.last_tag || '')],
+    ['Idade das métricas', k.receipts_age_days == null ? '—' : `${fmt(k.receipts_age_days)} d`, 'specs/receipts.json'],
+    ['Lead time p50 (bugs)', minutes(k.lead_p50), 'cycle-times.yaml'],
+  ];
+  $('quality').innerHTML = gauges.map(([l, v, hh]) => `<div class="gauge"><div class="l">${l}</div><div class="v">${v}</div><div class="h">${hh}</div></div>`).join('');
+  const sv = m.severity;
+  $('sev').innerHTML = `<div class="muted" style="font-size:12px;margin-top:12px">Defeitos por severidade (histórico)</div>
+    <div class="sev">${['critical', 'high', 'medium', 'low'].map((s) => `<span class="badge ${s === 'critical' || s === 'high' ? 'missing' : s === 'medium' ? 'partial' : 'manual'}">${s}: ${sv[s]}</span>`).join('')}</div>
+    ${m.bugsOpen.length ? `<table><tbody>${m.bugsOpen.map((b) => `<tr><td><span class="badge missing">${esc(b.severity)}</span></td><td>${esc(b.title)}<br><code>${esc(b.id)} · ${esc(b.scope)}</code></td></tr>`).join('')}</tbody></table>` : ''}`;
+
+  $('through').innerHTML = stackChart(m.weeks.map((w) => ({ x: w, ...m.commitsByWeek[w] }))) +
+    `<div class="legend"><span><i style="background:var(--c1)"></i>feat</span><span><i style="background:var(--red)"></i>fix</span><span><i style="background:var(--c2)"></i>release</span><span><i style="background:var(--c3)"></i>outros</span></div>`;
+
+  $('feed').innerHTML = m.git.recent.slice(0, 14).map((c) => `<li><span class="muted" title="${c.date}">${ago(c.date)}</span><span class="t ${esc(c.type)}">${esc(c.type)}</span><span>${esc(c.subject)} <code>${c.hash}</code></span></li>`).join('');
+
+  const srcLabel = Object.entries(m.sources).map(([s, n]) => `${s}: ${n}`).join(' · ');
+  $('sources').innerHTML = `<table><thead><tr><th>Arquivo</th><th>Última modificação</th></tr></thead><tbody>${
+    Object.entries(m.sources_mtime).map(([f, t]) => `<tr><td><code>${f}</code></td><td>${t ? `${new Date(t).toLocaleString('pt-BR')} <span class="muted">(${ago(t)})</span>` : '<span style="color:var(--red)">ausente</span>'}</td></tr>`).join('')
+  }</tbody></table><div class="muted" style="font-size:12px;margin-top:8px">Origem dos registros de cycle time — ${esc(srcLabel)}</div>
+  <details><summary>Como as cores RAG são calculadas</summary><div class="muted" style="font-size:12px;line-height:1.6">
+  Impedimentos: bug aberto crítico = vermelho, alto = amarelo · Qualidade: golden &lt; 100% = vermelho; compliance &lt; 100% ou rastreabilidade &lt; 95% = amarelo (&lt; 80% vermelho) ·
+  Fluxo: &gt; 14 dias sem release = amarelo (&gt; 30 vermelho); 0 BCP em 4 semanas com backlog aberto = amarelo · Escopo: épicos abertos sem BCP = amarelo ·
+  Dados: receipts &gt; 30 dias ou &gt; 50% de cycle times backfilled = amarelo · Estabilidade: CI não verificado = vermelho.
+  Saúde geral: qualquer vermelho = Crítico; dois ou mais amarelos = Atenção.</div></details>`;
+
+  $('foot').textContent = `Recalculado ${new Date(m.generated_at).toLocaleTimeString('pt-BR')}${m.reason ? ' · gatilho: ' + m.reason : ''} · raiz ${m.root}`;
+
+  if (prev) flashChanged(prev, m);
+  prev = m;
+}
+
+function flashChanged(a, b) {
+  const map = { 'c-exec': ['kpis', 'health'], 'c-alerts': ['alerts'], 'c-backlog': ['epics', 'build_order'], 'c-quality': ['bugsOpen', 'kpis'], 'c-feed': ['git'], 'c-next': ['state'], 'c-phases': ['practices'], 'c-vel': ['bcpByWeek'], 'c-burn': ['burnup'] };
+  for (const [id, keys] of Object.entries(map)) {
+    if (keys.some((key) => JSON.stringify(a[key]) !== JSON.stringify(b[key]))) {
+      const el = $(id);
+      el.classList.add('flash');
+      setTimeout(() => el.classList.remove('flash'), 1800);
+    }
+  }
+}
+
+const W = 600, H = 180, PL = 30, PB = 22, PT = 8;
+function axis(max, ticks = 4) {
+  let s = '';
+  for (let i = 0; i <= ticks; i++) {
+    const v = (max / ticks) * i;
+    const y = H - PB - ((H - PB - PT) * i) / ticks;
+    s += `<line x1="${PL}" x2="${W}" y1="${y}" y2="${y}" stroke="var(--line)"/><text x="${PL - 6}" y="${y + 3}" text-anchor="end">${Math.round(v)}</text>`;
+  }
+  return s;
+}
+function niceMax(v) { if (v <= 4) return 4; const p = 10 ** Math.floor(Math.log10(v)); return Math.ceil(v / p) * p; }
+function xLabels(data, bw) {
+  return data.map((d, i) => ((i % 4 === 0 && i < data.length - 2) || i === data.length - 1 ? `<text x="${PL + i * bw + bw / 2}" y="${H - 6}" text-anchor="middle">${d.x.slice(5).split('-').reverse().join('/')}</text>` : '')).join('');
+}
+function barChart(data, color) {
+  const max = niceMax(Math.max(...data.map((d) => d.y), 1));
+  const bw = (W - PL) / data.length;
+  const bars = data.map((d, i) => {
+    const h = ((H - PB - PT) * d.y) / max;
+    return `<rect x="${PL + i * bw + 2}" y="${H - PB - h}" width="${bw - 4}" height="${h}" rx="2" fill="${color}"><title>${esc(d.tip)}</title></rect>`;
+  }).join('');
+  return `<svg viewBox="0 0 ${W} ${H}" role="img">${axis(max)}${bars}${xLabels(data, bw)}</svg>`;
+}
+function stackChart(data) {
+  const keys = [['feat', 'var(--c1)'], ['fix', 'var(--red)'], ['release', 'var(--c2)'], ['other', 'var(--c3)']];
+  const max = niceMax(Math.max(...data.map((d) => d.feat + d.fix + d.release + d.other), 1));
+  const bw = (W - PL) / data.length;
+  const bars = data.map((d, i) => {
+    let y = H - PB;
+    return keys.map(([key, c]) => {
+      const h = ((H - PB - PT) * d[key]) / max;
+      y -= h;
+      return h ? `<rect x="${PL + i * bw + 2}" y="${y}" width="${bw - 4}" height="${h}" fill="${c}"><title>${d.x} · ${key}: ${d[key]}</title></rect>` : '';
+    }).join('');
+  }).join('');
+  return `<svg viewBox="0 0 ${W} ${H}" role="img">${axis(max)}${bars}${xLabels(data, bw)}</svg>`;
+}
+function burnChart(pts, scope) {
+  if (!pts.length) return '<p class="muted">Sem dados de conclusão de épicos no git.</p>';
+  const t0 = Date.parse(pts[0].date), t1 = Date.now();
+  const max = niceMax(Math.max(scope, pts[pts.length - 1].cum));
+  const X = (t) => PL + ((W - PL) * (t - t0)) / Math.max(1, t1 - t0);
+  const Y = (v) => H - PB - ((H - PB - PT) * v) / max;
+  let d = `M${X(t0)},${Y(0)}`;
+  for (const p of pts) d += ` H${X(Date.parse(p.date))} V${Y(p.cum)}`;
+  d += ` H${X(t1)}`;
+  const dots = pts.map((p) => `<circle cx="${X(Date.parse(p.date))}" cy="${Y(p.cum)}" r="2.5" fill="var(--c4)"><title>${p.id} · ${p.date.slice(0, 10)} · acumulado ${p.cum} BCP</title></circle>`).join('');
+  const months = [];
+  for (let t = new Date(t0); t <= t1; t.setMonth(t.getMonth() + 1)) months.push(new Date(t.getFullYear(), t.getMonth(), 1));
+  const ml = months.filter((t) => +t >= t0).map((t) => `<text x="${X(+t)}" y="${H - 6}" text-anchor="middle">${t.toLocaleDateString('pt-BR', { month: 'short' })}</text>`).join('');
+  return `<svg viewBox="0 0 ${W} ${H}" role="img">${axis(max)}
+    <line x1="${PL}" x2="${W}" y1="${Y(scope)}" y2="${Y(scope)}" stroke="var(--c3)" stroke-dasharray="4 4" stroke-width="1.5"/>
+    <path d="${d}" fill="none" stroke="var(--c4)" stroke-width="2"/>${dots}${ml}</svg>`;
+}
+
+function connect() {
+  const es = new EventSource('/events');
+  es.onopen = () => { $('live').classList.remove('off'); $('liveTxt').textContent = 'ao vivo'; };
+  es.onmessage = (ev) => { try { render(JSON.parse(ev.data)); } catch (e) { console.error(e); } };
+  es.onerror = () => { $('live').classList.add('off'); $('liveTxt').textContent = 'reconectando…'; };
+}
+connect();
+setInterval(() => prev && ($('feed').innerHTML = prev.git.recent.slice(0, 14).map((c) => `<li><span class="muted" title="${c.date}">${ago(c.date)}</span><span class="t ${esc(c.type)}">${esc(c.type)}</span><span>${esc(c.subject)} <code>${c.hash}</code></span></li>`).join('')), 60000);
+</script>
+</body>
+</html>
