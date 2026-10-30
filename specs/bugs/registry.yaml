@@ -501,7 +501,7 @@ bugs:
     title: "Package installs provision skills but never scripts/ — lifecycle skills' script calls and verify gates fail in every consumer project (#116)"
     file: bugs/BUG-2026-08-31-pi-scripts-provisioning.md
   - id: BUG-2026-09-10-pi-mcp-omp-startup
-    status: open
+    status: fixed
     severity: high
     scope: mcp / pi / npm-package
     title: "Published MCP server cannot start as an OMP plugin (#123)"
@@ -570,3 +570,13 @@ bugs:
     approach: "Fix the code, not the checks: shared ta_* helpers, rename name-only duplicates, extract cohesive helpers under the 300-line cap"
     risk_level: low
     commit_message: "fix(compliance): restore akita.feature to 0 FAIL — dedupe helpers, split oversized files"
+  - id: BUG-2026-10-30-mcp-unset-plugin-root
+    status: open
+    severity: medium
+    scope: mcp / npm-package
+    title: "bigpowers-mcp fails in hosts that do not set OMP_PLUGIN_ROOT (#168)"
+    file: bugs/BUG-2026-10-30-mcp-unset-plugin-root.md
+    files_changed: ".mcp.json, scripts/mcp-smoke.ts, scripts/validate-mcp-package.sh, docs/references/bigpowers-mcp.md"
+    approach: "Give every ${OMP_PLUGIN_ROOT} reference a ':-.' default; smoke-test the manifest under omp and Claude Code host profiles"
+    risk_level: low
+    commit_message: "fix(mcp): default OMP_PLUGIN_ROOT so bigpowers-mcp starts outside OMP (#168)"

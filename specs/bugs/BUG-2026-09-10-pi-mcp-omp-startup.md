@@ -1,6 +1,6 @@
 ---
 bug_id: BUG-2026-09-10-pi-mcp-omp-startup
-status: open
+status: fixed
 severity: high
 scope: mcp / pi / npm-package
 title: "Published MCP server cannot start as an OMP plugin (#123)"
@@ -66,3 +66,10 @@ tarball path coverage — same class of "published artifact not runnable after i
 - [ ] Golden gate `mcp-package` passes.
 - [ ] npm tarball includes `.mcp.json` and `bigpowers-mcp/build/index.js`.
 - [ ] Full preflight passes.
+
+## Resolution
+
+Released in 2.88.4 (PR #125). Re-verified 2026-10-30 on 2.88.16: `npm pack` →
+fresh `npm install` → server completes `initialize` + `tools/list` with no
+separate dependency install. Residual non-OMP host defect tracked in
+BUG-2026-10-30-mcp-unset-plugin-root (#168).
