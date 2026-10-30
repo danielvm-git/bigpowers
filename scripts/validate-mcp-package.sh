@@ -26,6 +26,11 @@ else
   else
     ta_err ".mcp.json must reference OMP_PLUGIN_ROOT for OMP plugin cwd/args"
   fi
+  if grep -q '\${OMP_PLUGIN_ROOT}' "$MCP_JSON" 2>/dev/null; then
+    ta_err ".mcp.json uses \${OMP_PLUGIN_ROOT} without a :- default — hosts that do not set it spawn a literal path (#168)"
+  else
+    ta_ok ".mcp.json OMP_PLUGIN_ROOT references carry a :- default"
+  fi
 fi
 
 echo "--- [MCP] root runtime dependencies ---"

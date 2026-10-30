@@ -1,11 +1,13 @@
-active_flow: null
+active_flow: fix_bug
 active_epic: null
 active_story: null
-bug_id: null
+bug_id: BUG-2026-10-30-mcp-unset-plugin-root
 bigpowers_version: 2.88.16
-bug_cycle: null
+bug_cycle:
+  current_step: 5
+  completed_steps: [1, 2, 3, 4]
 handoff:
-  next_skill: null
+  next_skill: release-branch
   context: 'BUG-2026-10-25-pages-not-gated RESOLVED — PR #164 (5f3e4de5). Pages build/deploy moved into
     test-build-release.yml behind needs: on all four gate jobs; docs-site.yml removed. Main run 40203121441:
     pages-build started 14:39:06, 2s after the last gate (sync), deployed; release published 2.88.15.
