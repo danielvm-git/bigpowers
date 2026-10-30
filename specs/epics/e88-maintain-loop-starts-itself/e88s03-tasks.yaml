@@ -1,0 +1,15 @@
+story_id: e88s03
+title: Breaches and weekly scans get a read-only agent diagnosis
+status: todo
+bcps: 28
+tasks:
+- id: 1
+  description: Invoke the read-only agent diagnosis on breach
+  verify: grep -q 'diagnose' specs/bands.yaml && bash scripts/test-watch-bands.sh
+  risk: P1
+  status: todo
+- id: 2
+  description: Schedule the agent security-review
+  verify: grep -q 'security-review' .github/workflows/weekly-security-scan.yml
+  risk: P1
+  status: todo

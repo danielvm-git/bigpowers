@@ -1,0 +1,15 @@
+story_id: e88s02
+title: Weekly deterministic security scan opens BUG specs
+status: todo
+bcps: 20
+tasks:
+- id: 1
+  description: Add the weekly scan workflow
+  verify: grep -q 'schedule' .github/workflows/weekly-security-scan.yml
+  risk: P2
+  status: todo
+- id: 2
+  description: Findings become BUG specs
+  verify: bash scripts/test-security-scan-to-bug.sh
+  risk: P2
+  status: todo

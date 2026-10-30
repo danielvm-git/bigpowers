@@ -1,0 +1,86 @@
+# story: e84s01 e84s02
+id: e84
+title: AGENTS.md First — One Harness-Neutral Instruction File
+wsjf: 10.5
+bcps: 36
+capsule_dir: epics/e84-agents-md-first
+mode: capsule
+status: scoped
+sliced: '2026-10-30'
+wsjf_rationale: BV 8 + TC 8 + RR 5 / Job 2 ≈ 10.5
+source: >-
+  Claude Code 2.1.277 (2026-09-18) reads AGENTS.md through the built-in agents-md mod (option instructionFiles,
+  default claude-md-or-agents-md). bigpowers already designs an AGENTS.md spine for consumers but keeps
+  it opt-in and uses CLAUDE.md as its own primary file, which is 399 lines against its own 300-line cap.
+  One file every harness reads is the harness-neutral form of playbook play 4.
+playbook_plays:
+- P4 instruction file
+value_engineering: specs/VALUE-ENGINEERING-playbook-compat.md
+stories:
+- id: e84s01
+  title: AGENTS.md is the canonical instruction file in this repo
+  status: todo
+  bcps: 14
+  bcp_13d:
+    dimensions:
+      D1_business_rules: 7
+      D3_boundaries: 1
+      D5_solution_variabilities: 3
+      D6_domain_entities: 3
+    cms: 4
+    counted_by: claude-opus-5-5 (planning session)
+    rubric: ciandt-oss/bcp-agent 13D rubric (src/bcp/prompts/thirteen), counted by element table
+    counted_on: '2026-10-30'
+    calibration: none — recount with the e85 procedure
+  risk: P2
+  delta: MODIFIED
+  depends_on: []
+  value_rank: 2
+  playbook_coverage_points: 0.5
+  description: >-
+    Make AGENTS.md the canonical instruction file of this repo, under 300 lines and harness-neutral. CLAUDE.md
+    and GEMINI.md become symlinks to it: the agents-md mod dedupes a linked CLAUDE.md in every mode, and
+    the symlink keeps Claude Code below 2.1.277 and Bedrock/Vertex/Foundry working. Tool-specific boilerplate
+    (bts, sqz, RTK, hook install snippets) moves to docs/references.
+  files:
+  - AGENTS.md
+  - CLAUDE.md
+  - GEMINI.md
+  - CONVENTIONS.md
+  - docs/references/agent-tooling.md
+  tasks: e84s01-tasks.yaml
+  verify: bash scripts/run-story-verify.sh e84s01
+- id: e84s02
+  title: seed-conventions writes AGENTS.md-first by default
+  status: todo
+  bcps: 22
+  bcp_13d:
+    dimensions:
+      D1_business_rules: 8
+      D2_interface_elements: 5
+      D3_boundaries: 1
+      D5_solution_variabilities: 5
+      D6_domain_entities: 3
+    cms: 4
+    counted_by: claude-opus-5-5 (planning session)
+    rubric: ciandt-oss/bcp-agent 13D rubric (src/bcp/prompts/thirteen), counted by element table
+    counted_on: '2026-10-30'
+    calibration: none — recount with the e85 procedure
+  risk: P2
+  delta: MODIFIED
+  depends_on:
+  - e84s01
+  value_rank: 17
+  playbook_coverage_points: 0
+  description: >-
+    seed-conventions writes the AGENTS.md spine by default (today it is opt-in) with CLAUDE.md and GEMINI.md
+    shims, migrates an existing CLAUDE.md without touching prose outside the bigpowers fences, warns when
+    a lone CLAUDE.local.md would make Claude Code skip AGENTS.md, and the agent-config reference documents
+    the four instructionFiles modes and the 2.1.277 floor.
+  files:
+  - skills/seed-conventions/SKILL.md
+  - skills/seed-conventions/REFERENCE.md
+  - docs/templates/AGENTS.md
+  - docs/references/agent-config-files-and-okf.md
+  tasks: e84s02-tasks.yaml
+  verify: bash scripts/run-story-verify.sh e84s02

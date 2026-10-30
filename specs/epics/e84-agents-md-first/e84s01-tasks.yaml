@@ -1,0 +1,28 @@
+story_id: e84s01
+title: AGENTS.md is the canonical instruction file in this repo
+status: todo
+bcps: 14
+tasks:
+- id: 1
+  description: 'Create AGENTS.md from the harness-neutral parts of CLAUDE.md; keep # story tags'
+  verify: 'test -f AGENTS.md && [ $(wc -l < AGENTS.md) -le 300 ] && grep -q ''story: e84s01'' AGENTS.md'
+  risk: P2
+  status: todo
+- id: 2
+  description: Move bts/sqz/RTK and hook-install sections to docs/references/agent-tooling.md and route
+    to it
+  verify: test -f docs/references/agent-tooling.md && ! grep -q '^## sqz' AGENTS.md && grep -q 'agent-tooling.md'
+    AGENTS.md
+  risk: P2
+  status: todo
+- id: 3
+  description: Replace CLAUDE.md and GEMINI.md with symlinks to AGENTS.md
+  verify: '[ "$(readlink CLAUDE.md)" = AGENTS.md ] && [ "$(readlink GEMINI.md)" = AGENTS.md ]'
+  risk: P2
+  status: todo
+- id: 4
+  description: Point every script that reads CLAUDE.md at AGENTS.md, then run Preflight
+  verify: npm run compliance && bash scripts/run-verification-gates.sh && bash scripts/trace-stories.sh
+    --strict
+  risk: P2
+  status: todo

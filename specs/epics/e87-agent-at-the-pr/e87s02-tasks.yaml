@@ -1,0 +1,10 @@
+story_id: e87s02
+title: Failed CI builds get an agent triage note
+status: todo
+bcps: 18
+tasks:
+- id: 1
+  description: Add the build-triage job template
+  verify: 'ls skills/wire-ci/templates/*triage* >/dev/null && grep -q ''if: failure()'' skills/wire-ci/templates/*triage*'
+  risk: P2
+  status: todo

@@ -1,0 +1,16 @@
+story_id: e83s01
+title: Release mirror stamps last_tag and skill counts
+status: todo
+bcps: 11
+tasks:
+- id: 1
+  description: Mirror release.last_tag in sync-version-mirrors.sh
+  verify: grep -q 'last_tag' scripts/sync-version-mirrors.sh
+  risk: P2
+  status: todo
+- id: 2
+  description: Stamp the skill count in package.json and mcp-server.js from sync-skills.sh
+  verify: n=$(ls -d skills/*/ | wc -l | tr -d ' '); grep -q "$n agent skills" package.json && grep -q
+    "$n skills" scripts/mcp-server.js
+  risk: P2
+  status: todo

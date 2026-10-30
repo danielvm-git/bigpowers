@@ -501,7 +501,7 @@ bugs:
     title: "Package installs provision skills but never scripts/ — lifecycle skills' script calls and verify gates fail in every consumer project (#116)"
     file: bugs/BUG-2026-08-31-pi-scripts-provisioning.md
   - id: BUG-2026-09-10-pi-mcp-omp-startup
-    status: open
+    status: fixed
     severity: high
     scope: mcp / pi / npm-package
     title: "Published MCP server cannot start as an OMP plugin (#123)"
@@ -560,3 +560,23 @@ bugs:
     approach: "Move the Pages build/deploy into test-build-release.yml behind needs: on every gate job; deploy only on push to main when docs paths changed"
     risk_level: low
     commit_message: "fix(ci): gate the GitHub Pages deploy on every check in test-build-release"
+  - id: BUG-2026-10-30-compliance-akita-masked
+    status: fixed
+    severity: medium
+    scope: ci / compliance
+    title: "akita.feature at PASS 17 / FAIL 2 on main — duplicate function names and two files over 300 lines, masked by the 94% global gate"
+    file: bugs/BUG-2026-10-30-compliance-akita-masked.md
+    files_changed: "scripts/lib/test-assertions.sh, scripts/validate-*.sh (3), scripts/test-project-runtime.sh, scripts/test-golden-gate-runner.sh, scripts/run-story-verify.sh, scripts/lib/story-verify-memo.sh, scripts/lib/srp-engine.py, scripts/lib/srp_engine_okf.py"
+    approach: "Fix the code, not the checks: shared ta_* helpers, rename name-only duplicates, extract cohesive helpers under the 300-line cap"
+    risk_level: low
+    commit_message: "fix(compliance): restore akita.feature to 0 FAIL — dedupe helpers, split oversized files"
+  - id: BUG-2026-10-30-mcp-unset-plugin-root
+    status: open
+    severity: medium
+    scope: mcp / npm-package
+    title: "bigpowers-mcp fails in hosts that do not set OMP_PLUGIN_ROOT (#168)"
+    file: bugs/BUG-2026-10-30-mcp-unset-plugin-root.md
+    files_changed: ".mcp.json, scripts/mcp-smoke.ts, scripts/validate-mcp-package.sh, docs/references/bigpowers-mcp.md"
+    approach: "Give every ${OMP_PLUGIN_ROOT} reference a ':-.' default; smoke-test the manifest under omp and Claude Code host profiles"
+    risk_level: low
+    commit_message: "fix(mcp): default OMP_PLUGIN_ROOT so bigpowers-mcp starts outside OMP (#168)"

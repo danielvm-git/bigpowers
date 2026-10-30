@@ -1,0 +1,15 @@
+story_id: e86s03
+title: Secrets are blocked before commit
+status: todo
+bcps: 22
+tasks:
+- id: 1
+  description: Block commits whose staged diff matches secret patterns
+  verify: bash scripts/test-secret-hook.sh
+  risk: P1
+  status: todo
+- id: 2
+  description: Allowlist file honoured and documented in hook-commits
+  verify: grep -q 'secret-allowlist' skills/hook-commits/SKILL.md
+  risk: P1
+  status: todo

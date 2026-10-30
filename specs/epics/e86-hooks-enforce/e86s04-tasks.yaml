@@ -1,0 +1,15 @@
+story_id: e86s04
+title: Production deploys ask before running
+status: todo
+bcps: 21
+tasks:
+- id: 1
+  description: Detect production deploy commands and return ask in Claude mode
+  verify: bash scripts/test-deploy-ask-hook.sh claude
+  risk: P1
+  status: todo
+- id: 2
+  description: Deny with approval route on other harnesses
+  verify: bash scripts/test-deploy-ask-hook.sh gemini
+  risk: P1
+  status: todo

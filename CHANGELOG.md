@@ -1,3 +1,10 @@
+## [2.88.17](https://github.com/danielvm-git/bigpowers/compare/v2.88.16...v2.88.17) (2026-10-30)
+
+
+### Bug Fixes
+
+* **compliance:** restore akita.feature to 0 FAIL — dedupe helpers, split oversized files ([#171](https://github.com/danielvm-git/bigpowers/issues/171)) ([4ed9a26](https://github.com/danielvm-git/bigpowers/commit/4ed9a2663c39689de04fd2ff796b09777a78cfcf)), closes [#118](https://github.com/danielvm-git/bigpowers/issues/118) [123/#125](https://github.com/danielvm-git/bigpowers/issues/125) [#161](https://github.com/danielvm-git/bigpowers/issues/161) [#155](https://github.com/danielvm-git/bigpowers/issues/155) [#161](https://github.com/danielvm-git/bigpowers/issues/161) [#168](https://github.com/danielvm-git/bigpowers/issues/168) [#169](https://github.com/danielvm-git/bigpowers/issues/169) [#168](https://github.com/danielvm-git/bigpowers/issues/168) [#168](https://github.com/danielvm-git/bigpowers/issues/168)
+
 ## [2.88.16](https://github.com/danielvm-git/bigpowers/compare/v2.88.15...v2.88.16) (2026-10-25)
 
 

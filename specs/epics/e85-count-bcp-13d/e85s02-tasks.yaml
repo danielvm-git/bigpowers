@@ -1,0 +1,11 @@
+story_id: e85s02
+title: NFR dimensions, maturity gate and count provenance
+status: todo
+bcps: 17
+tasks:
+- id: 1
+  description: Add NFR, maturity and provenance sections
+  verify: grep -q 'D13' skills/plan-release/BCP-13D.md && grep -q 'CMS' skills/plan-release/BCP-13D.md
+    && grep -q 'counted_by' skills/plan-release/BCP-13D.md
+  risk: P2
+  status: todo

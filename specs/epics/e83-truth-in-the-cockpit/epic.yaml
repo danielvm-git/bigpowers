@@ -1,0 +1,165 @@
+# story: e83s01 e83s02 e83s03 e83s04 e83s05
+id: e83
+title: Truth in the Cockpit — Fix the Drift the Red Team Found
+wsjf: 6.0
+bcps: 47
+capsule_dir: epics/e83-truth-in-the-cockpit
+mode: capsule
+status: scoped
+sliced: '2026-10-30'
+wsjf_rationale: BV 5 + TC 5 + RR 8 / Job 3 ≈ 6.0
+source: >-
+  Red-team review 2026-10-30: release.last_tag is not mirrored, `bigpowers status` counts foreign symlinks,
+  receipts read the wrong metrics source and label an estimate as measured, VISION success criteria are
+  stale, the catalog freeze is broken in five places, and check-spec-version-gap reports blocked. Value
+  engineering reads its indicators from these files, so they must be true first.
+playbook_plays:
+- 'cross-cutting: leading and lagging indicators'
+value_engineering: specs/VALUE-ENGINEERING-playbook-compat.md
+stories:
+- id: e83s01
+  title: Release mirror stamps last_tag and skill counts
+  status: todo
+  bcps: 11
+  bcp_13d:
+    dimensions:
+      D1_business_rules: 3
+      D3_boundaries: 1
+      D5_solution_variabilities: 1
+      D6_domain_entities: 3
+      D8_background_processes: 3
+    cms: 4
+    counted_by: claude-opus-5-5 (planning session)
+    rubric: ciandt-oss/bcp-agent 13D rubric (src/bcp/prompts/thirteen), counted by element table
+    counted_on: '2026-10-30'
+    calibration: none — recount with the e85 procedure
+  risk: P2
+  delta: MODIFIED
+  depends_on: []
+  value_rank: 13
+  playbook_coverage_points: 0
+  description: >-
+    The semantic-release mirror also writes release.last_tag, and sync stamps the live skill count into
+    the package.json description and the mcp-server.js header.
+  files:
+  - scripts/sync-version-mirrors.sh
+  - scripts/sync-skills.sh
+  - package.json
+  - scripts/mcp-server.js
+  tasks: e83s01-tasks.yaml
+  verify: bash scripts/run-story-verify.sh e83s01
+- id: e83s02
+  title: bigpowers status counts only bigpowers-owned skills
+  status: todo
+  bcps: 8
+  bcp_13d:
+    dimensions:
+      D1_business_rules: 2
+      D2_interface_elements: 2
+      D3_boundaries: 1
+      D5_solution_variabilities: 1
+      D6_domain_entities: 2
+    cms: 4
+    counted_by: claude-opus-5-5 (planning session)
+    rubric: ciandt-oss/bcp-agent 13D rubric (src/bcp/prompts/thirteen), counted by element table
+    counted_on: '2026-10-30'
+    calibration: none — recount with the e85 procedure
+  risk: P2
+  delta: MODIFIED
+  depends_on: []
+  value_rank: 14
+  playbook_coverage_points: 0
+  description: >-
+    `bigpowers status` counts only links that resolve into the installed package and reports foreign skill
+    links on a separate line.
+  files:
+  - bin/bigpowers.js
+  tasks: e83s02-tasks.yaml
+  verify: bash scripts/run-story-verify.sh e83s02
+- id: e83s03
+  title: Receipts read the cycle-time ledger and label sources honestly
+  status: todo
+  bcps: 13
+  bcp_13d:
+    dimensions:
+      D1_business_rules: 4
+      D2_interface_elements: 2
+      D3_boundaries: 1
+      D5_solution_variabilities: 1
+      D6_domain_entities: 2
+      D8_background_processes: 3
+    cms: 4
+    counted_by: claude-opus-5-5 (planning session)
+    rubric: ciandt-oss/bcp-agent 13D rubric (src/bcp/prompts/thirteen), counted by element table
+    counted_on: '2026-10-30'
+    calibration: none — recount with the e85 procedure
+  risk: P2
+  delta: MODIFIED
+  depends_on: []
+  value_rank: 15
+  playbook_coverage_points: 0
+  description: >-
+    Receipts read specs/metrics/cycle-times.yaml, publish the measured/estimated/backfilled breakdown,
+    label the source by what was measured, and warn when the last entry is stale.
+  files:
+  - scripts/build-receipts.sh
+  - specs/receipts.json
+  tasks: e83s03-tasks.yaml
+  verify: bash scripts/run-story-verify.sh e83s03
+- id: e83s04
+  title: VISION refreshed and catalog-freeze breaks resolved
+  status: todo
+  bcps: 8
+  bcp_13d:
+    dimensions:
+      D1_business_rules: 3
+      D3_boundaries: 1
+      D5_solution_variabilities: 1
+      D6_domain_entities: 3
+    cms: 4
+    counted_by: claude-opus-5-5 (planning session)
+    rubric: ciandt-oss/bcp-agent 13D rubric (src/bcp/prompts/thirteen), counted by element table
+    counted_on: '2026-10-30'
+    calibration: none — recount with the e85 procedure
+  risk: P2
+  delta: MODIFIED
+  depends_on: []
+  value_rank: 16
+  playbook_coverage_points: 0
+  description: >-
+    VISION success criteria match the live gates (no '61 skills', no '94%' once e58 lands), and each of
+    the five catalog-freeze breaks gets a freeze-exception marker or a recorded re-baseline.
+  files:
+  - specs/product/VISION_LATEST.yaml
+  - specs/tech-architecture/
+  - skills/simple-english/SKILL.md
+  tasks: e83s04-tasks.yaml
+  verify: bash scripts/run-story-verify.sh e83s04
+- id: e83s05
+  title: Investigate spec-version-gap blocked with no active flow
+  status: todo
+  bcps: 7
+  bcp_13d:
+    dimensions:
+      D1_business_rules: 3
+      D3_boundaries: 1
+      D5_solution_variabilities: 1
+      D6_domain_entities: 2
+    cms: 3
+    counted_by: claude-opus-5-5 (planning session)
+    rubric: ciandt-oss/bcp-agent 13D rubric (src/bcp/prompts/thirteen), counted by element table
+    counted_on: '2026-10-30'
+    calibration: none — recount with the e85 procedure
+  risk: P1
+  delta: MODIFIED
+  depends_on: []
+  value_rank: 1
+  playbook_coverage_points: 0
+  description: >-
+    check-spec-version-gap.sh returns {gap:true, blocked:true, reason:ACTIVE_WORK} while state.yaml has
+    active_flow null. Route through investigate-bug (fix-or-log ladder) and fix or log it.
+  files:
+  - scripts/check-spec-version-gap.sh
+  - specs/bugs/
+  tasks: e83s05-tasks.yaml
+  verify: bash scripts/run-story-verify.sh e83s05

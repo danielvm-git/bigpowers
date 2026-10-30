@@ -92,17 +92,30 @@ Project `.mcp.json` registers the server:
   "mcpServers": {
     "bigpowers-mcp": {
       "command": "node",
-      "args": ["${OMP_PLUGIN_ROOT}/bigpowers-mcp/build/index.js"],
-      "cwd": "${OMP_PLUGIN_ROOT}"
+      "args": ["${OMP_PLUGIN_ROOT:-.}/bigpowers-mcp/build/index.js"],
+      "cwd": "${OMP_PLUGIN_ROOT:-.}"
     }
   }
 }
 ```
 
-OMP and Claude Code plugins expand `${OMP_PLUGIN_ROOT}` to the installed package
-directory ([OMP MCP config](https://github.com/can1357/oh-my-pi/blob/HEAD/docs/mcp-config.md)).
+OMP plugins expand `${OMP_PLUGIN_ROOT}` to the installed package directory
+([OMP MCP config](https://github.com/can1357/oh-my-pi/blob/HEAD/docs/mcp-config.md)).
+Claude Code project scope does not set it and leaves an unset `${VAR}` literal, so
+every reference carries a `:-.` default that resolves from the project root (#168).
 Do **not** use `${workspaceFolder}` in the shipped manifest — OMP treats it as a
 literal env var name and spawn fails with a misleading `ENOENT` (#123).
+
+### Troubleshooting
+
+| Symptom | Cause | Fix |
+|---------|-------|-----|
+| `ENOENT: ... posix_spawn 'node'` | Bun names the command when the spawn **cwd** is missing — the `${workspaceFolder}` cwd shipped before 2.88.4 | Upgrade to bigpowers ≥ 2.88.4 |
+| `ERR_MODULE_NOT_FOUND: @modelcontextprotocol/sdk` | Runtime deps lived only in `bigpowers-mcp/package.json` before 2.88.4 | Upgrade to bigpowers ≥ 2.88.4 (deps are in the root package) |
+| `CONNECTION_CLOSED` / `Missing environment variables: OMP_PLUGIN_ROOT` in Claude Code | `${OMP_PLUGIN_ROOT}` without a default | Upgrade to the release that closes #168 |
+
+`node scripts/mcp-smoke.ts` starts the server from `.mcp.json` under both host
+profiles (OMP and Claude Code) and is part of the `mcp-package` golden gate.
 
 For a checkout used directly as the project cwd (no plugin wrapper), run from the
 repo root or set `BIGPOWERS_ROOT` to the workspace you want indexed.

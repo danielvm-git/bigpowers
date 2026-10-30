@@ -1,0 +1,15 @@
+story_id: e86s02
+title: Tests are locked during a fix after the RED commit
+status: todo
+bcps: 21
+tasks:
+- id: 1
+  description: Deny test-file edits in fix_bug after RED
+  verify: bash scripts/test-test-lock-hook.sh
+  risk: P1
+  status: todo
+- id: 2
+  description: Run verify-tdd-red-commit.sh in CI
+  verify: grep -q 'verify-tdd-red-commit.sh' .github/workflows/test-build-release.yml
+  risk: P1
+  status: todo

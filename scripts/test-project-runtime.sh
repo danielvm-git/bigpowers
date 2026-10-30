@@ -6,27 +6,18 @@ ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 # shellcheck disable=SC1091
 source "$ROOT/scripts/lib/project-runtime.sh"
 
-PASS=0
-FAIL=0
+source "$ROOT/scripts/lib/test-assertions.sh"
+TA_PASS=0
+TA_FAIL=0
 TMPDIR_ROOT="$(mktemp -d)"
 trap 'rm -rf "$TMPDIR_ROOT"' EXIT
-
-pass() {
-  echo "  PASS $1"
-  PASS=$((PASS + 1))
-}
-
-fail() {
-  echo "  FAIL $1" >&2
-  FAIL=$((FAIL + 1))
-}
 
 assert_eq() {
   local name="$1" expected="$2" actual="$3"
   if [[ "$actual" == "$expected" ]]; then
-    pass "$name"
+    ta_pass "$name"
   else
-    fail "$name — expected '$expected', got '$actual'"
+    ta_fail "$name — expected '$expected', got '$actual'"
   fi
 }
 
@@ -35,11 +26,11 @@ assert_fails_with() {
   shift 2
   local output
   if output="$("$@" 2>&1)"; then
-    fail "$name — command unexpectedly succeeded"
+    ta_fail "$name — command unexpectedly succeeded"
   elif [[ "$output" == *"$expected"* ]]; then
-    pass "$name"
+    ta_pass "$name"
   else
-    fail "$name — expected error containing '$expected', got '$output'"
+    ta_fail "$name — expected error containing '$expected', got '$output'"
   fi
 }
 
@@ -87,5 +78,5 @@ assert_fails_with "empty specs directory is rejected" \
   "specs_dir must not be empty" bp_specs_dir "$EMPTY_PROJECT"
 
 echo "---"
-echo "test-project-runtime: $PASS passed, $FAIL failed"
-[[ "$FAIL" -eq 0 ]]
+echo "test-project-runtime: $TA_PASS passed, $TA_FAIL failed"
+[[ "$TA_FAIL" -eq 0 ]]

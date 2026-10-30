@@ -1,0 +1,15 @@
+story_id: e86s01
+title: Generated paths are blocked at edit time
+status: todo
+bcps: 19
+tasks:
+- id: 1
+  description: Deny Edit/Write under .cursor/rules, .gemini/extensions, .pi, website/src/content/docs
+  verify: bash scripts/test-generated-path-hook.sh
+  risk: P1
+  status: todo
+- id: 2
+  description: Add website/src/content/docs to the CI drift diff
+  verify: grep -q 'website/src/content/docs' .github/workflows/test-build-release.yml
+  risk: P1
+  status: todo
