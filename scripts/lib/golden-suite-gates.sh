@@ -67,6 +67,7 @@ GOLDEN_GATES=(
   "golden-g11-worktree-venv:bash scripts/test-golden-g11-worktree-venv.sh:false"
   "install-helpers:bash scripts/test-install-helpers.sh:false"
   "project-runtime:bash scripts/test-project-runtime.sh:false"
+  "security-agents-import:node tests/security/agents-import.cjs:false"
   "omp-extension:bash scripts/validate-omp-extension.sh:false"
   "mcp-package:bash scripts/validate-mcp-package.sh:false"
   "docs-base-path:bash scripts/validate-docs-base-path.sh:false"

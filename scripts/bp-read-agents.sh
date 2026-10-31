@@ -53,9 +53,11 @@ if $PRINT_MODE; then
   if [ -n "$BP_LINT" ];      then echo "Lint:      $BP_LINT"; fi
   if [ -n "$BP_DEPLOY" ];    then echo "Deploy:    $BP_DEPLOY"; fi
 else
-  if [ -n "$BP_PREFLIGHT" ]; then echo "export BP_PREFLIGHT='$BP_PREFLIGHT'"; fi
-  if [ -n "$BP_TEST" ];      then echo "export BP_TEST='$BP_TEST'"; fi
-  if [ -n "$BP_BUILD" ];     then echo "export BP_BUILD='$BP_BUILD'"; fi
-  if [ -n "$BP_LINT" ];      then echo "export BP_LINT='$BP_LINT'"; fi
-  if [ -n "$BP_DEPLOY" ];    then echo "export BP_DEPLOY='$BP_DEPLOY'"; fi
+  # Bash %q preserves the command as data when the caller evaluates exports.
+  if [ -n "$BP_PREFLIGHT" ]; then printf 'export BP_PREFLIGHT=%q\n' "$BP_PREFLIGHT"; fi
+  if [ -n "$BP_TEST" ];      then printf 'export BP_TEST=%q\n' "$BP_TEST"; fi
+  if [ -n "$BP_BUILD" ];     then printf 'export BP_BUILD=%q\n' "$BP_BUILD"; fi
+  if [ -n "$BP_LINT" ];      then printf 'export BP_LINT=%q\n' "$BP_LINT"; fi
+  if [ -n "$BP_DEPLOY" ];    then printf 'export BP_DEPLOY=%q\n' "$BP_DEPLOY"; fi
 fi
+
