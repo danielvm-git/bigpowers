@@ -218,6 +218,12 @@
     let eventSource = null;
     let pollInterval = null;
 
+    // Project metadata belongs in HTML text content, never in markup.
+    function escapeHtml(value) {
+      const entities = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
+      return String(value).replace(/[&<>"']/g, char => entities[char]);
+    }
+
     function render(data) {
       if (!data) return;
       renderPipeline(data);
@@ -246,14 +252,14 @@
 
       let html = '';
       if (metrics) {
-        html += `<div class="metric-row"><span class="metric-label">Total BCPs</span><span class="metric-value">${metrics.totalBcps}</span></div>`;
+        html += `<div class="metric-row"><span class="metric-label">Total BCPs</span><span class="metric-value">${escapeHtml(metrics.totalBcps)}</span></div>`;
         html += `<div class="metric-row"><span class="metric-label">Avg BCP/Hour</span><span class="metric-value">${metrics.avgBcpPerHour.toFixed(2)}</span></div>`;
       }
       if (velocity) {
         html += `<div class="metric-row"><span class="metric-label">Current Velocity</span><span class="metric-value">${velocity.avgBcpPerHour.toFixed(2)} BCP/h</span></div>`;
       }
       if (data.state?.release?.version) {
-        html += `<div class="metric-row"><span class="metric-label">Version</span><span class="metric-value">${data.state.release.version}</span></div>`;
+        html += `<div class="metric-row"><span class="metric-label">Version</span><span class="metric-value">${escapeHtml(data.state.release.version)}</span></div>`;
       }
       if (timestamp) {
         html += `<div class="metric-row"><span class="metric-label">Updated</span><span class="metric-value" style="font-size: 10px;">${new Date(timestamp).toLocaleTimeString()}</span></div>`;
@@ -271,7 +277,7 @@
         { key: 'Git Branch', value: state.gitBranch }
       ];
       container.innerHTML = pairs.map(pair => {
-        const val = pair.value || '(none)';
+        const val = escapeHtml(pair.value || '(none)');
         return `<div class="state-pair"><span class="state-key">${pair.key}</span><span class="state-value">${val}</span></div>`;
       }).join('');
     }
@@ -288,8 +294,8 @@
         const storyCount = stories.length;
         return `
           <div class="epic-item">
-            <div class="epic-title">${epic.id || 'Unknown'}</div>
-            <div style="color: var(--ink-soft); font-size: 11px; margin-bottom: 0;">${epic.title || 'Untitled'}</div>
+            <div class="epic-title">${escapeHtml(epic.id || 'Unknown')}</div>
+            <div style="color: var(--ink-soft); font-size: 11px; margin-bottom: 0;">${escapeHtml(epic.title || 'Untitled')}</div>
             <div class="epic-stories">${storyCount} stories</div>
           </div>
         `;
@@ -308,10 +314,10 @@
         const end = row.end ? new Date(row.end).toLocaleDateString() : '(active)';
         return `
           <div class="ledger-row">
-            <div class="ledger-id">${row.id}</div>
+            <div class="ledger-id">${escapeHtml(row.id)}</div>
             <div style="text-align: right;">
-              <div class="ledger-value">${row.bcps} BCP</div>
-              <div class="ledger-meta">${row.cycleMin}min | ${row.bcpPerHour.toFixed(2)}/h</div>
+              <div class="ledger-value">${escapeHtml(row.bcps)} BCP</div>
+              <div class="ledger-meta">${escapeHtml(row.cycleMin)}min | ${row.bcpPerHour.toFixed(2)}/h</div>
             </div>
           </div>
         `;
@@ -417,3 +423,4 @@
   </script>
 </body>
 </html>
+
