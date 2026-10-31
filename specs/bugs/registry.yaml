@@ -592,3 +592,9 @@ bugs:
     scope: scripts
     title: "Escape AGENTS command exports before Bash import"
     file: bugs/BUG-2026-10-29-agents-export-quoting.md
+  - id: BUG-2026-10-29-mcp-secret-diffs
+    status: open
+    severity: medium
+    scope: mcp
+    title: "Exclude secret files from every MCP diff block"
+    file: bugs/BUG-2026-10-29-mcp-secret-diffs.md
