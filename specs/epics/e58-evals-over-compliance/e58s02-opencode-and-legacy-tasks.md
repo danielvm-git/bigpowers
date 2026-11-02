@@ -23,7 +23,7 @@ the tasks into the outcome-only A/B format and adds an opencode adapter.
 ### ADDED
 
 - `specs/benchmarks/ab/config.yaml` MUST define an `opencode` adapter that runs
-  `opencode run --format json` with model `opencode-go/kimi-k2.7-code` unless `--model` is given.
+  `opencode run --format json` with model `opencode-go/deepseek-v4-pro` (was kimi-k2.7-code until the 2026-11-02 smoke runs) unless `--model` is given.
 - The opencode adapter MUST isolate both arms from the maintainer's global setup: a fresh empty
   `HOME` per run (`$AB_HOME`), `XDG_CONFIG_HOME` inside it, `OPENCODE_DISABLE_CLAUDE_CODE=1`
   (so only `.agents/skills` and `AGENTS.md` load), while `XDG_DATA_HOME` keeps the real

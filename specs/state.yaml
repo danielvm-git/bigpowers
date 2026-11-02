@@ -8,7 +8,7 @@ handoff:
   next_skill: release-branch
   context: 'e58s01+e58s02 done on branch danielvm-git/bigpowers-evaluation-roadmap-4d0758: run-ab-eval.sh
     (vanilla vs bigpowers, outcome-only hidden tests) now has an opencode adapter (OpenCode Go, default
-    opencode-go/kimi-k2.7-code, per-run empty HOME isolation) and 8 tasks (ab-04..ab-08 ported from the
+    opencode-go/deepseek-v4-pro, per-run empty HOME isolation) and 8 tasks (ab-04..ab-08 ported from the
     legacy bigpowers-benchmark T01-T05). Live run waits on connecting the OpenCode Go key
     (opencode auth login) and on a sandbox decision for --auto runs.'
   epic: e58

@@ -40,7 +40,7 @@ adapters:
       OPENCODE_DISABLE_CLAUDE_CODE=1
       opencode run --format json --auto -m "$AB_MODEL" "$AB_PROMPT"
     parser: opencode-jsonl
-    default_model: opencode-go/kimi-k2.7-code
+    default_model: opencode-go/deepseek-v4-pro  # 2026-11-02 smoke on ab-01: both arms pass, ~3x cheaper than kimi-k2.7-code
   gemini:
     # Not isolated from ~/.gemini yet: uninstall global bigpowers extensions first.
     command: gemini -p "$AB_PROMPT" --approval-mode yolo --output-format json ${AB_MODEL:+-m "$AB_MODEL"}

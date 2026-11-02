@@ -48,7 +48,7 @@ agent CLI and grades only the outcome. It is advisory: exit 0 after a run, 2 on 
 ```bash
 bash scripts/run-ab-eval.sh --dry-run                       # print the matrix, spend nothing
 bash scripts/run-ab-eval.sh --tasks ab-01 --k 1             # one task, both arms, claude adapter
-bash scripts/run-ab-eval.sh --adapter opencode              # OpenCode Go, default opencode-go/kimi-k2.7-code
+bash scripts/run-ab-eval.sh --adapter opencode              # OpenCode Go, default opencode-go/deepseek-v4-pro
 bash scripts/run-ab-eval.sh --adapter gemini --model <m>    # another harness
 ```
 
