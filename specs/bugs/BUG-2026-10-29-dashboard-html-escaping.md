@@ -1,7 +1,7 @@
 ---
 bug_id: BUG-2026-10-29-dashboard-html-escaping
 title: Render dashboard project metadata as text
-status: open
+status: fixed
 severity: medium
 scope: dashboard
 ---
@@ -39,7 +39,7 @@ output is not full sync validation. No unrelated generated output is included.
 
 - [x] Regression fails on the unfixed code and passes with this fix.
 - [x] Regression registered in the deterministic gates.
-- [ ] Full checkout preflight and applicable manual verification pass.
+- [x] Full checkout preflight and applicable manual verification pass.
 
 ## Upstream rebase verification
 
@@ -47,3 +47,14 @@ Rebased onto `37824eb41502f0204b9f119676bbeee37c5a0278` (2.88.17) on
 2026-10-31. The targeted regression still fails on this upstream snapshot and
 passes with this fix. Upstream's existing bug records are preserved. Full-suite
 validation remains pending for the environment limitations described above.
+
+
+## Resolution
+
+Squash-merged to `main` as `f905d5b3` (PR #178) on 2026-11-02 after maintainer
+review: the regression was reproduced RED on `main` at `37824eb4` and GREEN on the PR
+head, then maintainer-rebased once over the `registry.yaml` append conflict with no code changes (PR comment 6585102190). Post-merge local verification: `node tests/security/dashboard-render.cjs` PASS on merged `main` (initial fetch and SSE); dashboard `npm test` 6/6.
+
+### CI measured
+
+Test Build Release run **41501660114** on `f905d5b3` passed every job. Released in 2.88.18 (`e8308b87`).

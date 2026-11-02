@@ -7,7 +7,7 @@ title: "Render dashboard project metadata as text"
 category: bug
 tier: extended
 severity: medium
-status: open
+status: fixed
 generator: scripts/sync-bugs-registry.sh
 references:
     - specs/bugs/BUG-2026-10-29-dashboard-html-escaping.md

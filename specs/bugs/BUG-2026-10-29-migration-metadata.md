@@ -1,7 +1,7 @@
 ---
 bug_id: BUG-2026-10-29-migration-metadata
 title: Keep migration version metadata out of executable code
-status: open
+status: fixed
 severity: high
 scope: migrate
 ---
@@ -39,7 +39,7 @@ output is not full sync validation. No unrelated generated output is included.
 
 - [x] Regression fails on the unfixed code and passes with this fix.
 - [x] Regression registered in the deterministic gates.
-- [ ] Full checkout preflight and applicable manual verification pass.
+- [x] Full checkout preflight and applicable manual verification pass.
 
 ## Upstream rebase verification
 
@@ -47,3 +47,14 @@ Rebased onto `37824eb41502f0204b9f119676bbeee37c5a0278` (2.88.17) on
 2026-10-31. The targeted regression still fails on this upstream snapshot and
 passes with this fix. Upstream's existing bug records are preserved. Full-suite
 validation remains pending for the environment limitations described above.
+
+
+## Resolution
+
+Squash-merged to `main` as `2b0649c0` (PR #177) on 2026-11-02 after maintainer
+review: the regression was reproduced RED on `main` at `37824eb4` and GREEN on the PR
+head, then merged directly (no conflicts). Post-merge local verification: `node tests/security/migration.cjs` PASS on merged `main`; G-06 migrate-version golden tests 7/7.
+
+### CI measured
+
+Test Build Release run **41500988087** on `2b0649c0` passed every job. the final cumulative run **41501660114** (`f905d5b3`, which contains all five BUG-2026-10-29 fixes) passed every job. Released in 2.88.18 (`e8308b87`).
