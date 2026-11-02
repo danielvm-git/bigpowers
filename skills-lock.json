@@ -41,11 +41,6 @@
       "sha256": "5dc23c0642af9d2b",
       "path": "skills/compose-workflow/SKILL.md"
     },
-    "context7-mcp": {
-      "description": "Fetch current library docs via Context7 MCP instead of training data. Use when user asks about frameworks, APIs, setup, or code examples for React, Next.js, Prisma, etc.",
-      "sha256": "f58dcec5aff6a0bf",
-      "path": "skills/context7-mcp/SKILL.md"
-    },
     "craft-skill": {
       "description": "Create new bigpowers skills with proper structure, progressive disclosure, and bundled resources. Use when user wants to create, write, or build a new skill for the bigpowers lifecycle.",
       "sha256": "7acb068f458fa1b4",
