@@ -22,7 +22,7 @@ Source: [`specs/TRUE-NORTH_LATEST.md`](../../TRUE-NORTH_LATEST.md) §4 — "e58 
 - `scripts/run-ab-eval.sh` MUST run every selected task once per arm per run (`--k`, default 3) in a fresh temporary git workdir outside the repository, copied from the task's fixture.
 - An **arm** is a named setup command from `specs/benchmarks/ab/config.yaml`. Arm `vanilla` adds nothing. Arm `bigpowers` provisions the workdir the way a bigpowers user has it (skills in `.claude/skills/` and `.agents/skills/`, `scripts/`, `specs/` folders, a `CLAUDE.md`/`AGENTS.md` seed).
 - An **adapter** is a named command template from the same config (`claude`, `gemini`, `codex`), or a custom `--adapter-cmd`. The prompt reaches the adapter as `$AB_PROMPT`. The task prompt never names bigpowers.
-- The `claude` adapter MUST run with `CLAUDE_CONFIG_DIR` set to an isolated directory so the user's global skills (including a global bigpowers install) never leak into the vanilla arm.
+- The `claude` adapter MUST load only project-level settings (`--setting-sources project --strict-mcp-config`) so the user's global skills (including a global bigpowers install), CLAUDE.md, hooks, plugins and MCP servers never leak into either arm. `AB_CLAUDE_CONFIG_DIR` optionally points it at a separate config directory.
 - Grading MUST be outcome-only: after the agent exits, the runner copies the task's hidden tests (never visible to the agent) into the workdir and runs the task's `grade` command. Exit 0 = pass.
 - The runner MUST record per run: `pass`, `tampered` (any `protected` file changed or deleted), `diff_lines` (added + deleted, excluding hidden tests), `duration_s`, and — when the adapter output parser supports it — `cost_usd`, `input_tokens`, `output_tokens`, `turns`, `agent_error`.
 - The runner MUST write `specs/benchmarks/reports/AB-<YYYY-MM-DD>.yaml` with per-arm and per-task pass rate, tamper rate, mean cost/tokens/duration, and the pass-rate delta (`bigpowers − vanilla`) with a seeded bootstrap 95% confidence interval, plus the raw runs as `ab-runs-<YYYY-MM-DD>.jsonl`.
@@ -49,7 +49,7 @@ As the solo maintainer, I want to run the same real tasks with and without bigpo
 - CI: runs only the unit tests with the `fake` adapter (no agent spend).
 
 ### 4. Trigger and preconditions [reviewed]
-Manual `bash scripts/run-ab-eval.sh`. Requires Python 3 + PyYAML (`requirements.txt`), git, the task's toolchain (Node for the starter tasks), and, for a live run, an authenticated agent CLI. For `claude`, the isolated config dir must hold a login or `ANTHROPIC_API_KEY` must be set.
+Manual `bash scripts/run-ab-eval.sh`. Requires Python 3 + PyYAML (`requirements.txt`), git, the task's toolchain (Node for the starter tasks), and, for a live run, an authenticated agent CLI. For `claude`, a working `claude -p` login (or `ANTHROPIC_API_KEY`).
 
 ### 5. Main flow and business logic [reviewed]
 1. Load `config.yaml` and the selected task files; validate arms, adapter and fixtures.
@@ -72,7 +72,7 @@ CLI: `run-ab-eval.sh [--tasks ID,..] [--arms A,..] [--k N] [--adapter NAME | --a
 Task {id, fixture, prompt, protected[], hidden_dir, grade, timeout_s}; Arm {name, setup}; Adapter {name, command, env, parser}; Run {task, arm, run, pass, tampered, diff_lines, duration_s, cost_usd, input_tokens, output_tokens, turns, agent_error}.
 
 ### 9. Integrations and boundaries [reviewed]
-Agent CLIs via shell command templates only. `claude -p --output-format json` returns `total_cost_usd`, `usage`, `num_turns`, `is_error` (code.claude.com/docs/en/headless). `CLAUDE_CONFIG_DIR` replaces `~/.claude` for settings, skills and plugins (code.claude.com/docs/en/env-vars).
+Agent CLIs via shell command templates only. `claude -p --output-format json` returns `total_cost_usd`, `usage`, `num_turns`, `is_error` (code.claude.com/docs/en/headless). Skills load through the `user` and `project` setting sources, so `--setting-sources project` keeps only the workdir's (code.claude.com/docs/en/agent-sdk/skills).
 
 ### 10. Background processes [reviewed]
 Not applicable — synchronous CLI run.

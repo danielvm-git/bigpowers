@@ -52,8 +52,9 @@ bash scripts/run-ab-eval.sh --adapter gemini --model <m>    # another harness
 ```
 
 - **Config:** `specs/benchmarks/ab/config.yaml` — `arms` (setup commands) and `adapters`
-  (command templates; the prompt is in `$AB_PROMPT`). The `claude` adapter uses an isolated
-  `CLAUDE_CONFIG_DIR` so global skills do not leak into the vanilla arm.
+  (command templates; the prompt is in `$AB_PROMPT`). The `claude` adapter runs with
+  `--setting-sources project --strict-mcp-config`, so user-level skills (including a global
+  bigpowers install), CLAUDE.md, hooks, plugins and MCP servers do not leak into either arm.
 - **Tasks:** `specs/benchmarks/ab/tasks/<id>/` with `task.yaml` (`id`, `prompt`, `protected`,
   `grade`, `timeout_s`), `fixture/` (what the agent sees), `hidden/` (copied in only after the
   agent exits) and `solution/` (reference; the unit tests check fixture fails, solution passes).

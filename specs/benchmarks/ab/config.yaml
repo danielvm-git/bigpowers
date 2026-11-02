@@ -17,12 +17,14 @@ arms:
 
 adapters:
   claude:
-    # CLAUDE_CONFIG_DIR isolates the run from ~/.claude, so a global bigpowers
-    # install never leaks into the vanilla arm. Authenticate that directory once
-    # (CLAUDE_CONFIG_DIR=~/.bigpowers-eval/claude claude) or export ANTHROPIC_API_KEY.
+    # --setting-sources project loads only the workdir's .claude/ (skills, CLAUDE.md),
+    # so ~/.claude/skills (incl. a global bigpowers install), user CLAUDE.md, hooks and
+    # plugins never reach either arm. --strict-mcp-config with no config drops MCP servers.
+    # Uses your normal `claude` login; set AB_CLAUDE_CONFIG_DIR to use a separate one.
     command: >-
-      CLAUDE_CONFIG_DIR="${AB_CLAUDE_CONFIG_DIR:-$HOME/.bigpowers-eval/claude}"
+      env ${AB_CLAUDE_CONFIG_DIR:+CLAUDE_CONFIG_DIR="$AB_CLAUDE_CONFIG_DIR"}
       claude -p "$AB_PROMPT" --output-format json --permission-mode bypassPermissions
+      --setting-sources project --strict-mcp-config
       --no-session-persistence ${AB_MODEL:+--model "$AB_MODEL"}
     parser: claude-json
   gemini:
