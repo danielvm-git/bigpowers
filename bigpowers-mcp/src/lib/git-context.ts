@@ -2,7 +2,7 @@
 import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
-import { GIT_SCOPE_DIRS, SECRET_DENYLIST } from "../config.js";
+import { GIT_SCOPE_DIRS } from "../config.js";
 import { isSecretPath } from "./paths.js";
 
 export interface GitContextResult {
@@ -76,9 +76,14 @@ export function getGitContext(repoRoot: string, action: "status" | "log" | "diff
   const diffs: Record<string, string> = {};
   let currentFile = "";
   let buf: string[] = [];
+  const flushDiff = () => {
+    if (currentFile && buf.length && inScope(currentFile)) {
+      diffs[currentFile] = buf.join("\n");
+    }
+  };
   for (const line of diffOut.split("\n")) {
     if (line.startsWith("diff --git")) {
-      if (currentFile && buf.length) diffs[currentFile] = buf.join("\n");
+      flushDiff();
       const match = / b\/(.+)$/.exec(line);
       currentFile = match?.[1] ?? "";
       buf = [line];
@@ -86,9 +91,7 @@ export function getGitContext(repoRoot: string, action: "status" | "log" | "diff
       buf.push(line);
     }
   }
-  if (currentFile && buf.length && inScope(currentFile) && !isSecretPath(currentFile)) {
-    diffs[currentFile] = buf.join("\n");
-  }
+  flushDiff();
 
   const changed = Object.keys(diffs);
   return { action, changed_files: groupByDir(changed), diffs };
@@ -97,3 +100,4 @@ export function getGitContext(repoRoot: string, action: "status" | "log" | "diff
 export function isGitRepo(repoRoot: string): boolean {
   return fs.existsSync(path.join(repoRoot, ".git"));
 }
+
