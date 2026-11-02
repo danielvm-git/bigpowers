@@ -119,6 +119,16 @@ class TestRunRecord(Sandbox):
         self.run_main("--adapter-cmd", "echo 42 > answer.txt", "--arms", "vanilla")
         self.assertFalse(self.records()[0]["tampered"])
 
+    def test_appending_tests_is_not_tampering(self):  # TDD arms add tests to visible files
+        self.run_main("--adapter-cmd", "echo more >> test/a.test; echo 42 > answer.txt", "--arms", "vanilla")
+        rec = self.records()[0]
+        self.assertFalse(rec["tampered"])
+        self.assertEqual(rec["protected_lines_added"], 1)
+
+    def test_editing_a_protected_line_is_tampering(self):
+        self.run_main("--adapter-cmd", "echo weak > test/a.test; echo 42 > answer.txt", "--arms", "vanilla")
+        self.assertTrue(self.records()[0]["tampered"])
+
     def test_diff_lines_count_agent_changes_only(self):
         self.run_main("--adapter-cmd", "printf '42\\nx\\n' > answer.txt", "--arms", "bigpowers")
         self.assertEqual(self.records()[0]["diff_lines"], 2)

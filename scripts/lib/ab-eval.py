@@ -10,7 +10,6 @@ completed run, 2 on configuration errors.
 from __future__ import annotations
 
 import argparse
-import hashlib
 import os
 import shutil
 import subprocess
@@ -18,6 +17,7 @@ import sys
 import tempfile
 import time
 from datetime import datetime, timezone
+from difflib import SequenceMatcher
 from pathlib import Path
 
 import yaml
@@ -99,12 +99,23 @@ def snapshot(workdir: Path, message: str) -> str:
     return git(workdir, "rev-parse", "HEAD")
 
 
-def file_hashes(workdir: Path, paths: list[str]) -> dict:
-    hashes = {}
-    for rel in paths:
-        target = workdir / rel
-        hashes[rel] = hashlib.sha256(target.read_bytes()).hexdigest() if target.is_file() else None
-    return hashes
+def file_lines(workdir: Path, paths: list[str]) -> dict:
+    return {rel: (workdir / rel).read_text().splitlines() if (workdir / rel).is_file() else None
+            for rel in paths}
+
+
+def protected_changes(workdir: Path, before: dict) -> tuple[bool, int]:
+    """Tampered = an original line removed or changed. Added lines are counted, not flagged:
+    a TDD arm adds tests to the visible files, and hidden tests decide the grade (e58s02)."""
+    tampered, added = False, 0
+    for rel, now in file_lines(workdir, list(before)).items():
+        if before[rel] is None or now is None:
+            tampered = tampered or before[rel] is not None
+            continue
+        for op, _, _, j1, j2 in SequenceMatcher(None, before[rel], now, autojunk=False).get_opcodes():
+            added += j2 - j1 if op == "insert" else 0
+            tampered = tampered or op not in ("equal", "insert")
+    return tampered, added
 
 
 def changed_lines(workdir: Path, base: str) -> int:
@@ -137,7 +148,7 @@ def run_once(task: dict, arm: str, setup: str, adapter: dict, model: str | None,
             raise ConfigError(f"arm '{arm}' setup failed in {workdir}")
         base = snapshot(workdir, f"arm {arm}")
         protected = task.get("protected", [])
-        before = file_hashes(workdir, protected)
+        before = file_lines(workdir, protected)
 
         started = time.monotonic()
         timed_out = False
@@ -149,14 +160,14 @@ def run_once(task: dict, arm: str, setup: str, adapter: dict, model: str | None,
             stdout = exc.stdout.decode() if isinstance(exc.stdout, bytes) else (exc.stdout or "")
         duration = round(time.monotonic() - started, 1)
 
-        tampered = file_hashes(workdir, protected) != before
+        tampered, protected_added = protected_changes(workdir, before)
         diff = changed_lines(workdir, base)
         shutil.copytree(task["dir"] / "hidden", workdir, dirs_exist_ok=True)
         passed = sh(task["grade"], workdir, timeout=300).returncode == 0
         metrics = parse_metrics(adapter.get("parser", "none"), stdout)
         return {
             "task": task["id"], "arm": arm, "run": run_idx, "pass": passed, "tampered": tampered,
-            "diff_lines": diff, "duration_s": duration, "agent_exit": exit_code,
+            "protected_lines_added": protected_added, "diff_lines": diff, "duration_s": duration, "agent_exit": exit_code,
             "agent_error": timed_out or exit_code != 0 or bool(metrics.pop("agent_reported_error")),
             "timed_out": timed_out, **metrics,
         }

@@ -64,7 +64,9 @@ bash scripts/run-ab-eval.sh --adapter gemini --model <m>    # another harness
   `XDG_CONFIG_HOME` at it (global skills, AGENTS.md and plugins never load) and keeps
   `XDG_DATA_HOME` for credentials. Adapter stdin is always closed. An adapter may set
   `default_model`, used when `--model` is absent and recorded in the report.
-- **Per run:** `pass`, `tampered` (a `protected` file changed), `diff_lines`, `duration_s`,
+- **Per run:** `pass`, `tampered` (an original line of a `protected` file was removed or changed,
+  or the file was deleted), `protected_lines_added` (lines added to protected files, e.g. new
+  tests from a TDD arm: counted, not flagged, since hidden tests decide `pass`), `diff_lines`, `duration_s`,
   `agent_error`, plus `cost_usd`, `input_tokens`, `output_tokens`, `turns` from the adapter's
   parser (`scripts/lib/ab_metrics.py`): `claude-json` (one result object) or `opencode-jsonl`
   (sums `step_finish` events; an `error` event marks an agent error).
