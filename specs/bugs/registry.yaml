@@ -604,3 +604,9 @@ bugs:
     scope: dashboard
     title: "Bind the project dashboard to loopback"
     file: bugs/BUG-2026-10-29-dashboard-loopback.md
+  - id: BUG-2026-10-29-dashboard-html-escaping
+    status: open
+    severity: medium
+    scope: dashboard
+    title: "Render dashboard project metadata as text"
+    file: bugs/BUG-2026-10-29-dashboard-html-escaping.md
