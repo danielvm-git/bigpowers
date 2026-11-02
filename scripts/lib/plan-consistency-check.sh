@@ -69,7 +69,7 @@ for tasks in "${TASKS[@]+"${TASKS[@]}"}"; do
   sid="$(echo "$base" | grep -oE 'e[0-9]+s[0-9]+' | head -1)"
   [[ -n "$sid" ]] || continue
 
-  spec_name="$(grep -E '^spec:' "$tasks" | head -1 | sed -E 's/^spec:[[:space:]]*//; s/^"(.*)"$/\1/')"
+  spec_name="$(grep -E '^spec:' "$tasks" | head -1 | sed -E 's/^spec:[[:space:]]*//; s/^"(.*)"$/\1/' || true)"
   spec="$CAPSULE/$spec_name"
   if [[ -z "$spec_name" || ! -f "$spec" ]]; then
     report CRITICAL "Story $sid tasks.yaml declares no valid spec: file"
