@@ -2,15 +2,14 @@ active_flow: null
 active_epic: null
 active_story: null
 bug_id: null
-bigpowers_version: 2.88.18
+bigpowers_version: 2.89.0
 bug_cycle: null
 handoff:
   next_skill: null
-  context: 'All five BUG-2026-10-29-* security fixes by @vomba (PRs #174–#178) squash-merged to main
-    on 2026-11-02 after maintainer RED/GREEN verification: mcp secret diffs, dashboard loopback bind,
-    dashboard HTML escaping, AGENTS export quoting, migration metadata injection. Closed as fixed with
-    CI evidence — cumulative Test Build Release run 41501660114 (f905d5b3) all jobs success; released
-    in 2.88.18 (e8308b87).'
+  context: 'All five BUG-2026-10-29-* security fixes by @vomba (PRs #174–#178) squash-merged to main on
+    2026-11-02 after maintainer RED/GREEN verification: mcp secret diffs, dashboard loopback bind, dashboard
+    HTML escaping, AGENTS export quoting, migration metadata injection. Closed as fixed with CI evidence
+    — cumulative Test Build Release run 41501660114 (f905d5b3) all jobs success; released in 2.88.18 (e8308b87).'
   epic: null
 epic_cycle: null
 metrics:

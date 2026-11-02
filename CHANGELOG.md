@@ -1,3 +1,10 @@
+# [2.89.0](https://github.com/danielvm-git/bigpowers/compare/v2.88.18...v2.89.0) (2026-11-02)
+
+
+### Features
+
+* **skills:** remove context7-mcp skill for provider-agnostic catalog ([#180](https://github.com/danielvm-git/bigpowers/issues/180)) ([514826b](https://github.com/danielvm-git/bigpowers/commit/514826b9c5c003aad45349e9cf54b2f09976a7ce))
+
 ## [2.88.18](https://github.com/danielvm-git/bigpowers/compare/v2.88.17...v2.88.18) (2026-11-02)
 
 
