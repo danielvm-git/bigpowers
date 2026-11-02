@@ -33,6 +33,7 @@ def load_module(name: str, filename: str):
 
 ab = load_module("ab_eval", "ab-eval.py")
 rep = load_module("ab_report", "ab_report.py")
+met = load_module("ab_metrics", "ab_metrics.py")
 bench = load_module("run_benchmark", "run-benchmark.py")
 
 SOLVE_IF_SKILLS = 'if [ -d .claude/skills ]; then echo 42 > answer.txt; fi'
@@ -137,7 +138,7 @@ class TestRunRecord(Sandbox):
 
 class TestMetrics(unittest.TestCase):
     def test_claude_json_fields_are_parsed(self):
-        m = ab.parse_metrics("claude-json", "noise line\n" + CLAUDE_JSON + "\n")
+        m = met.parse_metrics("claude-json", "noise line\n" + CLAUDE_JSON + "\n")
         self.assertEqual(m["cost_usd"], 0.1234)
         self.assertEqual(m["input_tokens"], 1500)
         self.assertEqual(m["output_tokens"], 300)
@@ -146,7 +147,7 @@ class TestMetrics(unittest.TestCase):
         self.assertFalse(m["agent_reported_error"])
 
     def test_unparseable_output_gives_nulls(self):
-        m = ab.parse_metrics("claude-json", "not json")
+        m = met.parse_metrics("claude-json", "not json")
         self.assertIsNone(m["cost_usd"])
 
     def test_bootstrap_is_deterministic_and_brackets_estimate(self):
@@ -157,6 +158,61 @@ class TestMetrics(unittest.TestCase):
         self.assertEqual(ci1, ci2)
         self.assertLessEqual(ci1[0], 2 / 6)
         self.assertGreaterEqual(ci1[1], 2 / 6)
+
+
+OPENCODE_JSONL = "\n".join(json.dumps(e) for e in [
+    {"type": "step_start", "part": {"type": "step-start"}},
+    {"type": "step_finish", "part": {"type": "step-finish", "cost": 0.01,
+                                     "tokens": {"input": 100, "output": 20, "reasoning": 5,
+                                                "cache": {"read": 300, "write": 50}}}},
+    {"type": "text", "part": {"type": "text", "text": "done"}},
+    {"type": "step_finish", "part": {"type": "step-finish", "cost": 0.02,
+                                     "tokens": {"input": 10, "output": 2, "reasoning": 0,
+                                                "cache": {"read": 400, "write": 0}}}},
+])
+
+
+class TestOpencodeParser(unittest.TestCase):
+    def test_opencode_jsonl_sums_steps(self):
+        m = met.parse_metrics("opencode-jsonl", "log noise\n" + OPENCODE_JSONL + "\n")
+        self.assertAlmostEqual(m["cost_usd"], 0.03)
+        self.assertEqual(m["input_tokens"], 100 + 300 + 50 + 10 + 400)
+        self.assertEqual(m["output_tokens"], 20 + 5 + 2)
+        self.assertEqual(m["turns"], 2)
+        self.assertFalse(m["agent_reported_error"])
+
+    def test_opencode_error_event_is_agent_error(self):
+        out = OPENCODE_JSONL + "\n" + json.dumps({"type": "error", "error": {"name": "APIError"}})
+        self.assertTrue(met.parse_metrics("opencode-jsonl", out)["agent_reported_error"])
+
+    def test_opencode_without_steps_gives_nulls(self):
+        self.assertIsNone(met.parse_metrics("opencode-jsonl", "")["cost_usd"])
+
+
+class TestRunEnvironment(Sandbox):
+    def test_each_run_gets_fresh_home_removed_afterwards(self):
+        cmd = (f'ls -A "$AB_HOME" | wc -l | tr -d " " > {self.tmp}/n.txt; '
+               f'echo "$AB_HOME" > {self.tmp}/home.txt; echo 42 > answer.txt')
+        self.run_main("--adapter-cmd", cmd, "--arms", "vanilla")
+        self.assertEqual((self.tmp / "n.txt").read_text().strip(), "0")
+        home = Path((self.tmp / "home.txt").read_text().strip())
+        self.assertTrue(str(home))
+        self.assertFalse(home.exists())
+
+    def test_adapter_stdin_is_closed(self):
+        self.run_main("--adapter-cmd", "cat > /dev/null; echo 42 > answer.txt", "--arms", "vanilla")
+        self.assertTrue(self.records()[0]["pass"])
+
+    def test_adapter_default_model_is_used_and_recorded(self):
+        cfg = yaml.safe_load(self.config.read_text())
+        cfg["adapters"]["fake"] = {
+            "command": f'printf "%s" "$AB_MODEL" > {self.tmp}/model.txt; echo 42 > answer.txt',
+            "parser": "none", "default_model": "prov/model-x"}
+        self.config.write_text(yaml.safe_dump(cfg))
+        self.run_main("--adapter", "fake", "--arms", "vanilla")
+        self.assertEqual((self.tmp / "model.txt").read_text(), "prov/model-x")
+        report = yaml.safe_load(next(self.out.glob("AB-*.yaml")).read_text())
+        self.assertEqual(report["model"], "prov/model-x")
 
 
 class TestCli(Sandbox):
@@ -202,8 +258,8 @@ class TestStarterTasks(unittest.TestCase):
         finally:
             shutil.rmtree(work, ignore_errors=True)
 
-    def test_three_starter_tasks_ship(self):
-        self.assertGreaterEqual(len(list(self.TASKS.glob("*/task.yaml"))), 3)
+    def test_eight_tasks_ship(self):
+        self.assertGreaterEqual(len(list(self.TASKS.glob("*/task.yaml"))), 8)
 
     def test_fixture_fails_and_solution_passes(self):
         for task_yaml in sorted(self.TASKS.glob("*/task.yaml")):

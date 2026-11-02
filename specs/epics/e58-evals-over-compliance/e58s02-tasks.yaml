@@ -1,0 +1,54 @@
+story_id: e58s02
+spec: e58s02-opencode-and-legacy-tasks.md
+title: opencode adapter + the five legacy benchmark tasks
+status: failing
+bcps: 13
+tasks:
+- id: 1
+  description: Failing tests for the opencode parser, fresh AB_HOME, closed stdin, default model
+  verify: grep -q 'opencode-jsonl' tests/test_ab_eval.py
+  risk: P1
+  status: failing
+  allure:
+    severity: high
+    categories: ["unit", "Evals"]
+- id: 2
+  description: Move parsers to ab_metrics.py and add the opencode-jsonl parser
+  verify: python3 tests/test_ab_eval.py
+  risk: P1
+  status: failing
+  allure:
+    severity: high
+    categories: ["unit", "Evals"]
+- id: 3
+  description: Runner creates and removes AB_HOME, closes stdin, applies default_model
+  verify: python3 tests/test_ab_eval.py
+  risk: P1
+  status: failing
+  allure:
+    severity: high
+    categories: ["unit", "Evals"]
+- id: 4
+  description: opencode adapter in config.yaml with Go default model and isolation env
+  verify: bash scripts/run-ab-eval.sh --dry-run --adapter opencode --k 1
+  risk: P1
+  status: failing
+  allure:
+    severity: high
+    categories: ["Evals"]
+- id: 5
+  description: Port T01–T05 as ab-04..ab-08 with hidden tests and reference solutions
+  verify: python3 tests/test_ab_eval.py
+  risk: P2
+  status: failing
+  allure:
+    severity: normal
+    categories: ["Evals", "fixtures"]
+- id: 6
+  description: Document the opencode adapter and task count in SCHEMA.md
+  verify: grep -q 'opencode-jsonl' specs/benchmarks/SCHEMA.md
+  risk: P3
+  status: failing
+  allure:
+    severity: minor
+    categories: ["docs"]

@@ -1,7 +1,7 @@
 id: e58
 title: "Evals Over Compliance — Replace the 94% Gate with Outcome Proof"
 wsjf: 5.3
-bcps: 26
+bcps: 39
 bcps_projected: 9
 capsule_dir: epics/e58-evals-over-compliance
 mode: capsule
@@ -52,6 +52,26 @@ stories:
       - tests/test_ab_eval.py
     tasks: e58s01-tasks.yaml
     verify: python3 tests/test_ab_eval.py && bash scripts/run-ab-eval.sh --dry-run
+  - id: e58s02
+    title: "opencode adapter + the five legacy benchmark tasks"
+    status: todo
+    bcps: 13
+    bcp_basis: estimate, 2026-11-02 (adapter + parser + 5 ported tasks)
+    risk: P1
+    delta: ADDED + MODIFIED (parse_metrics moved to ab_metrics.py)
+    source: maintainer runs agents via opencode (OpenCode Go); legacy bigpowers-benchmark T01-T05
+    description: >-
+      opencode adapter with per-run fresh HOME isolation and an opencode-jsonl metrics parser, plus
+      tasks ab-04..ab-08 ported from the legacy benchmark with neutral prompts, protected visible
+      tests, hidden tests and reference solutions.
+    files:
+      - scripts/lib/ab-eval.py
+      - scripts/lib/ab_metrics.py
+      - specs/benchmarks/ab/config.yaml
+      - specs/benchmarks/ab/tasks/
+      - tests/test_ab_eval.py
+    tasks: e58s02-tasks.yaml
+    verify: python3 tests/test_ab_eval.py && bash scripts/run-ab-eval.sh --dry-run --adapter opencode
 planned_stories:
   - working_title: "Extend run-evals to cover a meaningful skill subset with real with/without-skill deltas"
     bcp_estimate: 3
