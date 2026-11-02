@@ -1,0 +1,264 @@
+#!/usr/bin/env python3
+# story: e58s01
+"""A/B eval: run the same tasks with and without bigpowers and grade only the outcome.
+
+Each run gets a fresh temp git workdir (outside the repo) copied from the task fixture.
+The arm setup runs, the agent runs through an adapter command, then hidden tests are
+copied in and the task's grade command decides pass/fail. Advisory: exit 0 after a
+completed run, 2 on configuration errors.
+"""
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import os
+import shutil
+import subprocess
+import sys
+import tempfile
+import time
+from datetime import datetime, timezone
+from pathlib import Path
+
+import yaml
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from ab_report import (  # type: ignore[import]  # noqa: E402
+    BOOTSTRAP_RESAMPLES, BOOTSTRAP_SEED, aggregate, bigpowers_sha, print_summary, write_reports,
+)
+
+REPO_ROOT = Path(__file__).resolve().parents[2]
+AB_DIR = REPO_ROOT / "specs" / "benchmarks" / "ab"
+DEFAULT_CONFIG = AB_DIR / "config.yaml"
+DEFAULT_TASKS_DIR = AB_DIR / "tasks"
+DEFAULT_OUT = REPO_ROOT / "specs" / "benchmarks" / "reports"
+DEFAULT_ARMS = "vanilla,bigpowers"
+GIT_ID = ["-c", "user.name=ab-eval", "-c", "user.email=ab-eval@localhost", "-c", "commit.gpgsign=false"]
+
+
+class ConfigError(Exception):
+    pass
+
+
+# ── loading ──────────────────────────────────────────────────────────────────
+
+def load_yaml(path: Path) -> dict:
+    if not path.is_file():
+        raise ConfigError(f"missing file: {path}")
+    return yaml.safe_load(path.read_text()) or {}
+
+
+def load_tasks(tasks_dir: Path, wanted: list[str] | None) -> list[dict]:
+    tasks = {}
+    for task_yaml in sorted(tasks_dir.glob("*/task.yaml")):
+        task = load_yaml(task_yaml)
+        task["dir"] = task_yaml.parent
+        tasks[task["id"]] = task
+    if not wanted:
+        return list(tasks.values())
+    unknown = [t for t in wanted if t not in tasks]
+    if unknown:
+        raise ConfigError(f"unknown task(s) {unknown}; valid: {sorted(tasks)}")
+    return [tasks[t] for t in wanted]
+
+
+def pick(section: dict, names: list[str], kind: str) -> dict:
+    unknown = [n for n in names if n not in section]
+    if unknown:
+        raise ConfigError(f"unknown {kind}(s) {unknown}; valid: {sorted(section)}")
+    return {n: section[n] for n in names}
+
+
+def resolve_adapter(config: dict, name: str, custom_cmd: str | None, parser: str | None) -> dict:
+    if custom_cmd:
+        return {"name": "custom", "command": custom_cmd, "parser": parser or "none"}
+    adapter = dict(pick(config.get("adapters", {}), [name], "adapter")[name])
+    adapter["name"] = name
+    if parser:
+        adapter["parser"] = parser
+    return adapter
+
+
+# ── one run ──────────────────────────────────────────────────────────────────
+
+def sh(cmd: str, cwd: Path, env: dict | None = None, timeout: float | None = None):
+    return subprocess.run(["bash", "-c", cmd], cwd=cwd, env=env, capture_output=True,
+                          text=True, timeout=timeout)
+
+
+def git(workdir: Path, *args: str) -> str:
+    res = subprocess.run(["git", *GIT_ID, *args], cwd=workdir, capture_output=True, text=True, check=True)
+    return res.stdout.strip()
+
+
+def snapshot(workdir: Path, message: str) -> str:
+    git(workdir, "add", "-A")
+    git(workdir, "commit", "-q", "--allow-empty", "--no-verify", "-m", message)
+    return git(workdir, "rev-parse", "HEAD")
+
+
+def file_hashes(workdir: Path, paths: list[str]) -> dict:
+    hashes = {}
+    for rel in paths:
+        target = workdir / rel
+        hashes[rel] = hashlib.sha256(target.read_bytes()).hexdigest() if target.is_file() else None
+    return hashes
+
+
+def changed_lines(workdir: Path, base: str) -> int:
+    git(workdir, "add", "-A")
+    total = 0
+    for line in git(workdir, "diff", "--cached", "--numstat", base).splitlines():
+        added, deleted, _ = line.split("\t", 2)
+        total += (int(added) if added.isdigit() else 0) + (int(deleted) if deleted.isdigit() else 0)
+    return total
+
+
+def env_for(prompt: str, model: str | None, workdir: Path) -> dict:
+    env = dict(os.environ)
+    env.update({"AB_PROMPT": prompt, "AB_MODEL": model or "", "AB_WORKDIR": str(workdir),
+                "AB_BP_ROOT": str(REPO_ROOT)})
+    return env
+
+
+def parse_metrics(parser: str, stdout: str) -> dict:
+    metrics: dict = {"cost_usd": None, "input_tokens": None, "output_tokens": None, "turns": None,
+                     "agent_reported_error": None}
+    if parser != "claude-json":
+        return metrics
+    result = None
+    for line in reversed(stdout.strip().splitlines()):
+        try:
+            obj = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+        if isinstance(obj, dict) and "num_turns" in obj:
+            result = obj
+            break
+    if result is None:
+        return metrics
+    usage = result.get("usage") or {}
+    metrics.update({
+        "cost_usd": result.get("total_cost_usd"),
+        "input_tokens": usage.get("input_tokens"),
+        "output_tokens": usage.get("output_tokens"),
+        "turns": result.get("num_turns"),
+        "agent_reported_error": bool(result.get("is_error")),
+    })
+    return metrics
+
+
+def run_once(task: dict, arm: str, setup: str, adapter: dict, model: str | None,
+             run_idx: int, keep: bool) -> dict:
+    workdir = Path(tempfile.mkdtemp(prefix=f"bp-ab-{task['id']}-{arm}-"))
+    try:
+        shutil.copytree(task["dir"] / "fixture", workdir, dirs_exist_ok=True)
+        git(workdir, "init", "-q")
+        snapshot(workdir, "fixture")
+        env = env_for(task["prompt"], model, workdir)
+        if sh(setup, workdir, env).returncode != 0:
+            raise ConfigError(f"arm '{arm}' setup failed in {workdir}")
+        base = snapshot(workdir, f"arm {arm}")
+        protected = task.get("protected", [])
+        before = file_hashes(workdir, protected)
+
+        started = time.monotonic()
+        timed_out = False
+        try:
+            agent = sh(adapter["command"], workdir, env, timeout=task.get("timeout_s", 900))
+            exit_code, stdout = agent.returncode, agent.stdout
+        except subprocess.TimeoutExpired as exc:
+            timed_out, exit_code = True, None
+            stdout = exc.stdout.decode() if isinstance(exc.stdout, bytes) else (exc.stdout or "")
+        duration = round(time.monotonic() - started, 1)
+
+        tampered = file_hashes(workdir, protected) != before
+        diff = changed_lines(workdir, base)
+        shutil.copytree(task["dir"] / "hidden", workdir, dirs_exist_ok=True)
+        passed = sh(task["grade"], workdir, timeout=300).returncode == 0
+        metrics = parse_metrics(adapter.get("parser", "none"), stdout)
+        return {
+            "task": task["id"], "arm": arm, "run": run_idx, "pass": passed, "tampered": tampered,
+            "diff_lines": diff, "duration_s": duration, "agent_exit": exit_code,
+            "agent_error": timed_out or exit_code != 0 or bool(metrics.pop("agent_reported_error")),
+            "timed_out": timed_out, **metrics,
+        }
+    finally:
+        if keep:
+            print(f"  kept workdir: {workdir}")
+        else:
+            shutil.rmtree(workdir, ignore_errors=True)
+
+
+# ── CLI ──────────────────────────────────────────────────────────────────────
+
+def parse_args(argv: list[str] | None) -> argparse.Namespace:
+    p = argparse.ArgumentParser(description="A/B eval: vanilla agent vs bigpowers, outcome-graded")
+    p.add_argument("--config", type=Path, default=DEFAULT_CONFIG)
+    p.add_argument("--tasks-dir", type=Path, default=DEFAULT_TASKS_DIR)
+    p.add_argument("--tasks", help="comma-separated task ids (default: all)")
+    p.add_argument("--arms", default=DEFAULT_ARMS)
+    p.add_argument("--k", type=int, help="runs per task per arm (default: config k)")
+    p.add_argument("--adapter", default="claude")
+    p.add_argument("--adapter-cmd", help="custom adapter command; prompt is in $AB_PROMPT")
+    p.add_argument("--parser", help="output parser: claude-json | none")
+    p.add_argument("--model", help="exported as $AB_MODEL for the adapter")
+    p.add_argument("--out", type=Path, default=DEFAULT_OUT)
+    p.add_argument("--keep", action="store_true", help="keep workdirs for inspection")
+    p.add_argument("--dry-run", action="store_true", help="print the run matrix; run nothing")
+    return p.parse_args(argv)
+
+
+def main(argv: list[str] | None = None) -> int:
+    args = parse_args(argv)
+    try:
+        config = load_yaml(args.config)
+        arm_names = [a.strip() for a in args.arms.split(",") if a.strip()]
+        arms = pick(config.get("arms", {}), arm_names, "arm")
+        adapter = resolve_adapter(config, args.adapter, args.adapter_cmd, args.parser)
+        tasks = load_tasks(args.tasks_dir, args.tasks.split(",") if args.tasks else None)
+        if not tasks:
+            raise ConfigError(f"no tasks found in {args.tasks_dir}")
+    except ConfigError as exc:
+        print(f"ERROR: {exc}")
+        return 2
+    k = args.k or int(config.get("k", 3))
+
+    print(f"A/B eval: {len(tasks)} task(s) x {len(arms)} arm(s) x k={k} via adapter '{adapter['name']}'")
+    if args.dry_run:
+        for task in tasks:
+            for arm, spec in arms.items():
+                print(f"  {task['id']:<8} {arm:<10} setup: {spec['setup']}")
+        print(f"  adapter command: {adapter['command']}")
+        return 0
+
+    records = []
+    try:
+        for task in tasks:
+            for arm, spec in arms.items():
+                for i in range(1, k + 1):
+                    rec = run_once(task, arm, spec["setup"], adapter, args.model, i, args.keep)
+                    records.append(rec)
+                    print(f"  {task['id']:<8} {arm:<10} run {i}: {'PASS' if rec['pass'] else 'FAIL'}"
+                          f"{' TAMPERED' if rec['tampered'] else ''}{' AGENT-ERROR' if rec['agent_error'] else ''}")
+    except ConfigError as exc:
+        print(f"ERROR: {exc}")
+        return 2
+
+    result = aggregate(records, list(arms), [t["id"] for t in tasks])
+    meta = {
+        "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "bigpowers_sha": bigpowers_sha(), "adapter": adapter["name"], "model": args.model,
+        "k": k, "tasks": [t["id"] for t in tasks], "arms": list(arms),
+        "arm_setup": {a: s["setup"] for a, s in arms.items()},
+        "ci_method": f"bootstrap over runs, {BOOTSTRAP_RESAMPLES} resamples, seed {BOOTSTRAP_SEED}",
+    }
+    report = write_reports(args.out, meta, result, records)
+    print_summary(result)
+    print(f"Wrote {report}")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

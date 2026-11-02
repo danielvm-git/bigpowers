@@ -1,7 +1,7 @@
 ---
 type: Index
-generated_at: 2026-10-30T17:56:25.872770+00:00
-total_concepts: 150
+generated_at: 2026-11-02T19:48:09.240694+00:00
+total_concepts: 151
 ---
 
 # Codebase Wiki — Story Traceability
@@ -43,8 +43,8 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e45s15](./e45s15.md) | release-branch / deploy: three-independent-facts verificatio | high | 25 |
 | [e45s16](./e45s16.md) | CLAUDE.md rtk mandate: wire rtk-ai/rtk PreToolUse hook | high | 4 |
 | [e45s17](./e45s17.md) | request-review: fan-out to parallel review subagents | high | 30 |
-| [e45s18](./e45s18.md) | audit-code / security-review: worktree-isolated parallel che | high | 283 |
-| [e45s19](./e45s19.md) | Context7: bounded retry cap and explicit fallback block | high | 8 |
+| [e45s18](./e45s18.md) | audit-code / security-review: worktree-isolated parallel che | high | 290 |
+| [e45s19](./e45s19.md) | Context7: bounded retry cap and explicit fallback block | medium | 7 |
 | [e45s20](./e45s20.md) | Context7 / bts docs: wrap in ETag-revalidated fetch cache | high | 1 |
 | [e45s21](./e45s21.md) | seed-conventions / AGENTS.md: self-installing fenced markers | high | 41 |
 | [e45s22](./e45s22.md) | CLAUDE.md: context-aware directory routing | high | 3 |
@@ -56,23 +56,23 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e45s28](./e45s28.md) | request-review: hard max-iteration cap | high | 22 |
 | [e45s29](./e45s29.md) | requirements: ADDED/MODIFIED/REMOVED/RENAMED tags | high | 54 |
 | [e45s30](./e45s30.md) | subagent depth: formalize depth tiers | high | 36 |
-| [e45s31](./e45s31.md) | audit-code / deepen-architecture: churn-based look-here-firs | high | 269 |
+| [e45s31](./e45s31.md) | audit-code / deepen-architecture: churn-based look-here-firs | high | 276 |
 | [e45s32](./e45s32.md) | gate-trace / release-branch: adversarial-review refute frami | high | 42 |
 | [e45s33](./e45s33.md) | requirements: per-section approval state | high | 3 |
 | [e45s34](./e45s34.md) | develop-tdd: snapshot-before-transition hardening | high | 7 |
 | [e45s35](./e45s35.md) | plan-work: 5 fixed EARS sentence patterns | high | 7 |
 | [e45s36](./e45s36.md) | specs: Documentation Responsibilities table | high | 2 |
-| [e45s37](./e45s37.md) | run-evals: graduated eval-strictness tiers | high | 8 |
+| [e45s37](./e45s37.md) | run-evals: graduated eval-strictness tiers | high | 10 |
 | [e45s38](./e45s38.md) | orchestration: why-did-this-stall diagnostic skill | high | 21 |
 | [e45s39](./e45s39.md) | PR generation: literal provenance marker | high | 18 |
 | [e45s40](./e45s40.md) | verify-work: mandatory real-browser verification | high | 27 |
 | [e45s41](./e45s41.md) | security-review: proven authorship SQL-safety doctrine | high | 22 |
 | [e48s01](./e48s01.md) | Generate epics-wiki and adr-wiki as OKF concept bundles from | high | 34 |
-| [e48s02](./e48s02.md) | Emit verification reports as OKF bundles from run-golden-sui | medium | 32 |
-| [e48s03](./e48s03.md) | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | high | 176 |
+| [e48s02](./e48s02.md) | Emit verification reports as OKF bundles from run-golden-sui | medium | 34 |
+| [e48s03](./e48s03.md) | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | high | 188 |
 | [e48s04](./e48s04.md) | Create viz.html — interactive force-layout graph companion f | medium | 12 |
-| [e48s05](./e48s05.md) | Wire OKF validation into CI (sync-skills.yml) and document i | medium | 192 |
-| [e48s06](./e48s06.md) | Add tier: field (core/extended/specialized) to OKF wiki inde | medium | 10 |
+| [e48s05](./e48s05.md) | Wire OKF validation into CI (sync-skills.yml) and document i | medium | 201 |
+| [e48s06](./e48s06.md) | Add tier: field (core/extended/specialized) to OKF wiki inde | medium | 11 |
 | [e48s07](./e48s07.md) | Create publish-to-wiki kernel tool | high | 2 |
 | [e48s08](./e48s08.md) | Add GitHub Action Template for publish-wiki.yml [HARD GATE] | high | 8 |
 | [e48s09](./e48s09.md) | Create Wiki Scaffold Templates and provenance header injecti | medium | 2 |
@@ -85,7 +85,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e51s01](./e51s01.md) | CONVENTIONS — Always Green, Shift Left, Discovered Defects,  | high | 8 |
 | [e51s02](./e51s02.md) | seed-conventions — Preflight default, solo-git default, embe | high | 48 |
 | [e51s03](./e51s03.md) | kickoff-branch + verify-work — Preflight hard block and CI g | high | 74 |
-| [e51s04](./e51s04.md) | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | high | 326 |
+| [e51s04](./e51s04.md) | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | high | 333 |
 | [e51s05](./e51s05.md) | CLAUDE.md — solo-default agent rules + bigpowers Preflight c | high | 7 |
 | [e53s01](./e53s01.md) | Commit the untracked GOLDEN baseline | high | 12 |
 | [e53s02](./e53s02.md) | Build the tombstone-alias mechanism | high | 7 |
@@ -97,6 +97,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e55s01](./e55s01.md) | Map every current doctrine source to a B0-B10 + Capstone blo | high | 5 |
 | [e55s02](./e55s02.md) | Write constitution.md from the mapping, CLAUDE.md/CONVENTION | high | 4 |
 | [e55s03](./e55s03.md) | Point CLAUDE.md/CONVENTIONS.md at constitution.md, don't del | high | 6 |
+| [e58s01](./e58s01.md) | Outcome A/B eval runner — vanilla agent vs bigpowers | high | 12 |
 | [e60s01](./e60s01.md) | Interactive installer with ASCII banner, global/local, tool  | high | 11 |
 | [e61s01](./e61s01.md) | Hermes adapter + hook templates (Wave A) | high | 10 |
 | [e61s02](./e61s02.md) | Install hub wiring (Wave B) | high | 15 |
@@ -130,7 +131,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e79s02](./e79s02.md) | Validator script + craft-skill HARD GATE | high | 21 |
 | [e79s03](./e79s03.md) | seed-conventions applies ruleset | high | 24 |
 | [e79s04](./e79s04.md) | stocktake-skills violation scanner | high | 24 |
-| [e80s01](./e80s01.md) | Core verify skills → verify directives | high | 81 |
+| [e80s01](./e80s01.md) | Core verify skills → verify directives | high | 82 |
 | [e80s02](./e80s02.md) | smoke-test and validate-contracts real bodies | high | 32 |
 | [e80s03](./e80s03.md) | develop-tdd RED commit isolation check | high | 10 |
 | [e80s04](./e80s04.md) | generalize-fix phase in validate-fix | high | 32 |
@@ -141,7 +142,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e82s03](./e82s03.md) | OMP plugin extension — bigpowers as native oh-my-posh/OMP en | high | 6 |
 | [e82s04](./e82s04.md) | Community attribution — CONTRIBUTORS.md + CHANGELOG credit e | high | 2 |
 | [e83s01](./e83s01.md) | Release mirror stamps last_tag and skill counts | high | 7 |
-| [e83s02](./e83s02.md) | bigpowers status counts only bigpowers-owned skills | medium | 16 |
+| [e83s02](./e83s02.md) | bigpowers status counts only bigpowers-owned skills | medium | 17 |
 | [e83s03](./e83s03.md) | Receipts read the cycle-time ledger and label sources honest | medium | 42 |
 | [e83s04](./e83s04.md) | VISION refreshed and catalog-freeze breaks resolved | medium | 4 |
 | [e83s05](./e83s05.md) | Investigate spec-version-gap blocked with no active flow | medium | 3 |

@@ -1,0 +1,35 @@
+# story: e58s01
+# A/B eval config — read by scripts/run-ab-eval.sh. Arms and adapters are data:
+# a trimmed bigpowers arm or a new harness is one entry here, not new code.
+#
+# Commands run with bash inside the temp workdir. Variables available:
+#   $AB_PROMPT   task prompt        $AB_MODEL  --model value (may be empty)
+#   $AB_WORKDIR  temp workdir       $AB_BP_ROOT  this bigpowers checkout
+k: 3
+
+arms:
+  vanilla:
+    setup: "true"
+  bigpowers:
+    # Skills, scripts/, specs/ folders and the CLAUDE.md/AGENTS.md seed in
+    # arms/bigpowers/. Record any change to the seed: it is part of the result.
+    setup: bash "$AB_BP_ROOT/scripts/lib/ab-arm-bigpowers.sh"
+
+adapters:
+  claude:
+    # CLAUDE_CONFIG_DIR isolates the run from ~/.claude, so a global bigpowers
+    # install never leaks into the vanilla arm. Authenticate that directory once
+    # (CLAUDE_CONFIG_DIR=~/.bigpowers-eval/claude claude) or export ANTHROPIC_API_KEY.
+    command: >-
+      CLAUDE_CONFIG_DIR="${AB_CLAUDE_CONFIG_DIR:-$HOME/.bigpowers-eval/claude}"
+      claude -p "$AB_PROMPT" --output-format json --permission-mode bypassPermissions
+      --no-session-persistence ${AB_MODEL:+--model "$AB_MODEL"}
+    parser: claude-json
+  gemini:
+    # Not isolated from ~/.gemini yet: uninstall global bigpowers extensions first.
+    command: gemini -p "$AB_PROMPT" --approval-mode yolo --output-format json ${AB_MODEL:+-m "$AB_MODEL"}
+    parser: none
+  codex:
+    # Not isolated from ~/.codex yet: check for a global AGENTS.md first.
+    command: codex exec --full-auto ${AB_MODEL:+-m "$AB_MODEL"} "$AB_PROMPT"
+    parser: none

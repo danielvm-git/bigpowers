@@ -60,24 +60,42 @@ def scenario_pass_rate(scenario: dict, runs: int, with_skill: bool) -> tuple[flo
     if not command:
         return (-1.0, "missing_command")
     if not with_skill:
-        command = f"test -f /dev/null"  # bare agent: code graders cannot pass without skill context
+        # No agent runs here, so there is no honest without-skill number (e58s01).
+        # Real with/without deltas come from scripts/run-ab-eval.sh.
+        return (-1.0, "unmeasured")
     passes = sum(1 for _ in range(runs) if run_code_grader(command, REPO_ROOT))
     return (passes / runs, "code")
 
 
-def pass_at_k(scenarios: list[dict], runs: int, with_skill: bool) -> float:
+def pass_at_k(scenarios: list[dict], runs: int, with_skill: bool) -> float | None:
     total_weight = 0.0
     weighted = 0.0
     for sc in scenarios:
         rate, status = scenario_pass_rate(sc, runs, with_skill)
-        if status == "pending_agent_eval":
+        if status in ("pending_agent_eval", "unmeasured"):
             continue
         weight = float(sc.get("weight", 1.0))
         total_weight += weight
         weighted += weight * max(rate, 0.0)
     if total_weight == 0:
-        return 0.0
+        return None
     return round(weighted / total_weight, 2)
+
+
+def delta_of(with_score: float | None, without_score: float | None) -> float | None:
+    if with_score is None or without_score is None:
+        return None
+    return round(with_score - without_score, 2)
+
+
+def delta_summary(val_delta: float | None) -> str:
+    if val_delta is None:
+        return "UNMEASURED: no without-skill agent run — use scripts/run-ab-eval.sh for a real delta"
+    if val_delta < 0:
+        return f"REGRESSION: validation Δ {val_delta} — do NOT ship"
+    if val_delta < 0.05:
+        return f"WARN: validation Δ {val_delta} — marginal contribution"
+    return f"OK: validation Δ {val_delta}"
 
 
 def partition_scenarios(scenarios: list[dict]) -> tuple[list[dict], list[dict]]:
@@ -93,13 +111,13 @@ def partition_scenarios(scenarios: list[dict]) -> tuple[list[dict], list[dict]]:
 
 def build_split_report(scenarios: list[dict], runs: int) -> dict:
     if not scenarios:
-        return {"with_skill": 0.0, "without_skill": 0.0, "delta": 0.0, "scenarios": []}
+        return {"with_skill": None, "without_skill": None, "delta": None, "scenarios": []}
     with_score = pass_at_k(scenarios, runs, with_skill=True)
     without_score = pass_at_k(scenarios, runs, with_skill=False)
     return {
         "with_skill": with_score,
         "without_skill": without_score,
-        "delta": round(with_score - without_score, 2),
+        "delta": delta_of(with_score, without_score),
         "scenarios": [sc["id"] for sc in scenarios],
     }
 
@@ -119,13 +137,15 @@ def scenario_details(scenarios: list[dict], runs: int) -> list[dict]:
                 }
             )
             continue
+        with_value = round(max(with_rate, 0.0), 2)
+        without_value = None if without_rate < 0 else round(without_rate, 2)
         rows.append(
             {
                 "id": sc["id"],
                 "split": sc.get("split", "validation"),
-                "with_pass_rate": round(max(with_rate, 0.0), 2),
-                "without_pass_rate": round(max(without_rate, 0.0), 2),
-                "delta": round(max(with_rate, 0.0) - max(without_rate, 0.0), 2),
+                "with_pass_rate": with_value,
+                "without_pass_rate": without_value,
+                "delta": delta_of(with_value, without_value),
                 "weight": sc.get("weight", 1.0),
             }
         )
@@ -180,13 +200,7 @@ def run_benchmark(skill: str, baseline: bool = False) -> dict:
         shutil.copy(yaml_path, REPORTS_DIR / f"BASELINE-{skill}.yaml")
         shutil.copy(json_path, REPORTS_DIR / f"baseline-{skill}.json")
         print(f"Pinned baseline for {skill}")
-    val_delta = report["validation"]["delta"]
-    if val_delta < 0:
-        print(f"REGRESSION: validation Δ {val_delta} — do NOT ship")
-    elif val_delta < 0.05:
-        print(f"WARN: validation Δ {val_delta} — marginal contribution")
-    else:
-        print(f"OK: validation Δ {val_delta}")
+    print(delta_summary(report["validation"]["delta"]))
     return report
 
 

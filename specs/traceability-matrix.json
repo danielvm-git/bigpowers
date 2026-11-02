@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-30T17:56:25.869067+00:00",
+  "generated_at": "2026-11-02T19:48:09.236953+00:00",
   "matrix_version": "1.0",
   "stories": [
     {
@@ -4320,12 +4320,6 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/reports/audit-cleancode-20261030-144938.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-163821.md",
           "line": 0,
           "confidence": "medium",
@@ -4338,12 +4332,6 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/reports/audit-cleancode-20261030-145423.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-165945.md",
           "line": 0,
           "confidence": "medium",
@@ -4351,6 +4339,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-181656.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-164149.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4393,12 +4387,6 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-165619.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/reports/audit-cleancode-20261030-145327.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4531,6 +4519,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260704-143840.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261030-142605.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4759,6 +4753,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260704-082609.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-164248.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5076,6 +5076,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-162625.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260704-145833.md",
           "line": 0,
           "confidence": "medium",
@@ -5161,6 +5167,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-165111.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-162526.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5274,6 +5286,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261030-142648.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260704-083101.md",
           "line": 0,
           "confidence": "medium",
@@ -5293,6 +5311,18 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260704-004226.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-163426.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261030-151104.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5424,6 +5454,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261030-151010.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-163837.md",
           "line": 0,
           "confidence": "medium",
@@ -5461,6 +5497,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260704-144506.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-163522.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5562,7 +5604,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 283
+      "link_count": 290
     },
     {
       "id": "e45s19",
@@ -5573,12 +5615,6 @@
       "wsjf": 5.0,
       "status": "done",
       "links": [
-        {
-          "file": "skills/context7-mcp/SKILL.md",
-          "line": 3,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
         {
           "file": "specs/wayfinder/doc-templates/tickets/T2-template-landscape.md",
           "line": 0,
@@ -5622,7 +5658,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 8
+      "link_count": 7
     },
     {
       "id": "e45s20",
@@ -7536,12 +7572,6 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/reports/audit-cleancode-20261030-144938.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-163821.md",
           "line": 0,
           "confidence": "medium",
@@ -7554,12 +7584,6 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/reports/audit-cleancode-20261030-145423.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-165945.md",
           "line": 0,
           "confidence": "medium",
@@ -7567,6 +7591,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-181656.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-164149.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -7609,12 +7639,6 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-165619.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/reports/audit-cleancode-20261030-145327.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -7747,6 +7771,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260704-143840.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261030-142605.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -7975,6 +8005,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260704-082609.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-164248.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8292,6 +8328,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-162625.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260704-145833.md",
           "line": 0,
           "confidence": "medium",
@@ -8377,6 +8419,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-165111.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-162526.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8490,6 +8538,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261030-142648.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260704-083101.md",
           "line": 0,
           "confidence": "medium",
@@ -8509,6 +8563,18 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260704-004226.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-163426.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261030-151104.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8640,6 +8706,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261030-151010.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-163837.md",
           "line": 0,
           "confidence": "medium",
@@ -8677,6 +8749,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260704-144506.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-163522.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8766,7 +8844,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 269
+      "link_count": 276
     },
     {
       "id": "e45s32",
@@ -9234,6 +9312,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/epics/e58-evals-over-compliance/e58s01-ab-eval-runner.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": ".continue/rules/run-evals.md",
           "line": 0,
           "confidence": "medium",
@@ -9250,9 +9334,15 @@
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/run-ab-eval.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
         }
       ],
-      "link_count": 8
+      "link_count": 10
     },
     {
       "id": "e45s38",
@@ -10104,6 +10194,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/GOLDEN-2026-11-02.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/GOLDEN-2026-10-30.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -10117,6 +10213,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-2026-10-30.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-2026-11-02.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -10248,7 +10350,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 32
+      "link_count": 34
     },
     {
       "id": "e48s03",
@@ -10434,6 +10536,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-10-30-mcp-unset-plugin-root.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-04-stale-bak-features.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -10530,6 +10638,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-10-29-dashboard-html-escaping.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-23-epics-wiki-empty-references.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -10561,6 +10675,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-02-skill-verify-false-fails.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-10-29-migration-metadata.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -10632,6 +10752,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-10-29-mcp-secret-diffs.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-26-null-skill-adapters-install-nothing.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -10663,6 +10789,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-18-skill-index-phase-table-drift.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-10-29-agents-export-quoting.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -10740,6 +10872,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-10-29-mcp-secret-diffs.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-06-02T164500.md",
           "line": 0,
           "confidence": "medium",
@@ -10765,6 +10903,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-08-07-interactive-uninstall-silent-noop.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-10-29-agents-export-quoting.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -10855,6 +10999,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-06-13T090000.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-10-29-dashboard-loopback.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -10980,6 +11130,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-10-29-dashboard-loopback.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-10-25-pages-not-gated.md",
           "line": 0,
           "confidence": "medium",
@@ -11077,6 +11233,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-18-setup-pyyaml-missing.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-10-29-migration-metadata.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -11220,7 +11382,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-10-30-compliance-akita-masked.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-03-yaml-roundtrip-corruption.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-10-29-dashboard-html-escaping.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -11316,7 +11490,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 176
+      "link_count": 188
     },
     {
       "id": "e48s04",
@@ -11478,6 +11652,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/GOLDEN-2026-11-02.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/GOLDEN-2026-10-30.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -11491,6 +11671,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-2026-10-30.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-2026-11-02.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -11694,6 +11880,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-10-29-agents-export-quoting.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-23-completeness-critic-code-tags-schema-drift.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -11737,6 +11929,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-06-11T160000.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-10-29-mcp-secret-diffs.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -11838,6 +12036,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-10-29-dashboard-loopback.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-04-tautological-verify.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -11892,6 +12096,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-10-29-migration-metadata.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-06-audit-code-auditor-oversized.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -11929,6 +12139,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-06-craft-skill-sync-oversized.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-10-29-dashboard-html-escaping.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -12115,6 +12331,12 @@
         },
         {
           "file": "specs/epics-wiki/e25.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics-wiki/e58.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -12552,6 +12774,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "scripts/lib/srp_engine_okf.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "scripts/lib/emit-okf-metrics.sh",
           "line": 0,
           "confidence": "medium",
@@ -12564,7 +12792,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 192
+      "link_count": 201
     },
     {
       "id": "e48s06",
@@ -12589,6 +12817,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-23-epics-wiki-empty-references.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-10-29-agents-export-quoting.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -12636,7 +12870,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 10
+      "link_count": 11
     },
     {
       "id": "e48s07",
@@ -14664,12 +14898,6 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/reports/audit-cleancode-20261030-144938.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-163821.md",
           "line": 0,
           "confidence": "medium",
@@ -14682,12 +14910,6 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/reports/audit-cleancode-20261030-145423.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-165945.md",
           "line": 0,
           "confidence": "medium",
@@ -14695,6 +14917,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-181656.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-164149.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -14737,12 +14965,6 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-165619.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/reports/audit-cleancode-20261030-145327.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -14875,6 +15097,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260704-143840.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261030-142605.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -15103,6 +15331,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260704-082609.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-164248.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -15420,6 +15654,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-162625.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260704-145833.md",
           "line": 0,
           "confidence": "medium",
@@ -15505,6 +15745,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-165111.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-162526.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -15618,6 +15864,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261030-142648.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260704-083101.md",
           "line": 0,
           "confidence": "medium",
@@ -15637,6 +15889,18 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260704-004226.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-163426.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261030-151104.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -15768,6 +16032,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261030-151010.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-163837.md",
           "line": 0,
           "confidence": "medium",
@@ -15805,6 +16075,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260704-144506.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-163522.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -16164,7 +16440,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 326
+      "link_count": 333
     },
     {
       "id": "e51s05",
@@ -17305,6 +17581,90 @@
         }
       ],
       "link_count": 6
+    },
+    {
+      "id": "e58s01",
+      "title": "Outcome A/B eval runner \u2014 vanilla agent vs bigpowers",
+      "epic_id": "e58",
+      "epic_title": "Evals Over Compliance \u2014 Replace the 94% Gate with Outcome Proof",
+      "bcp": 0,
+      "wsjf": 5.3,
+      "status": "done",
+      "links": [
+        {
+          "file": "specs/benchmarks/ab/tasks/ab-02-cart-discount-bug/task.yaml",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/benchmarks/ab/tasks/ab-01-email-validation/task.yaml",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/benchmarks/ab/tasks/ab-03-red-suite-slugify/task.yaml",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/benchmarks/ab/config.yaml",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e58-evals-over-compliance/e58s01-ab-eval-runner.md",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "tests/test_ab_eval.py",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/lib/ab-arm-bigpowers.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/lib/ab_report.py",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/lib/ab-eval.py",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/run-ab-eval.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/bigpowers-skills-evaluation.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e58-evals-over-compliance/e58s01-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        }
+      ],
+      "link_count": 12
     },
     {
       "id": "e60s01",
@@ -20640,6 +21000,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "scripts/lib/story-verify-memo.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "skills/align-grid/scripts/verify_grid.js",
           "line": 0,
           "confidence": "medium",
@@ -20682,7 +21048,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 81
+      "link_count": 82
     },
     {
       "id": "e80s02",
@@ -22194,13 +22560,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "scripts/lib/ab-arm-bigpowers.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/epics/e83-truth-in-the-cockpit/e83s02-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         }
       ],
-      "link_count": 16
+      "link_count": 17
     },
     {
       "id": "e83s03",
@@ -23170,7 +23542,7 @@
     }
   ],
   "summary": {
-    "total_stories": 150,
+    "total_stories": 151,
     "tagged_stories": 126,
     "dark_stories": [],
     "dark_count": 0,
@@ -23354,7 +23726,6 @@
       "e45s16",
       "e45s17",
       "e45s18",
-      "e45s19",
       "e45s20",
       "e45s21",
       "e45s22",
@@ -23399,6 +23770,7 @@
       "e55s01",
       "e55s02",
       "e55s03",
+      "e58s01",
       "e60s01",
       "e61s01",
       "e61s02",
@@ -23441,9 +23813,9 @@
     ],
     "stale_count": 116,
     "oracle_stats": {
-      "high": 1010,
-      "medium": 2453,
-      "low": 98
+      "high": 1019,
+      "medium": 2503,
+      "low": 99
     }
   }
 }

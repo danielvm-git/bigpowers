@@ -1,0 +1,12 @@
+# story: e58s01
+id: ab-02
+title: Fix wrong cart totals for prices with cents
+kind: bugfix
+prompt: |
+  Customers report wrong cart totals. Three items at 8.99 with a 10% discount should
+  cost 24.27 (26.97 before the discount), but the cart shows a different amount.
+  Find the cause in this Node project and fix it.
+protected:
+  - test/cart.test.js
+grade: node --test test/*.test.js
+timeout_s: 900

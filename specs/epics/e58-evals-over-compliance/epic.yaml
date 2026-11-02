@@ -1,7 +1,7 @@
 id: e58
 title: "Evals Over Compliance — Replace the 94% Gate with Outcome Proof"
 wsjf: 5.3
-bcps: 0
+bcps: 26
 bcps_projected: 9
 capsule_dir: epics/e58-evals-over-compliance
 mode: capsule
@@ -28,7 +28,30 @@ note: >
   though running it after e56 means evaluating a cleaner, smaller catalog.
   Provisional epic — NOT YET SCOPED. bcps: 0 / bcps_projected: 9 per B9 discipline (see e55's
   note). Run elaborate-spec before slicing real stories.
-stories: []
+stories:
+  - id: e58s01
+    title: "Outcome A/B eval runner — vanilla agent vs bigpowers"
+    status: done
+    bcps: 26
+    bcp_basis: 13D element count, 2026-10-30 (carried from the runner working title below)
+    risk: P1
+    delta: ADDED + MODIFIED (run-benchmark without-skill arm)
+    source: specs/TRUE-NORTH_LATEST.md §4 — measure first
+    description: >-
+      Run each task in a fresh temp workdir once per arm (vanilla, bigpowers) per run through a
+      harness adapter (claude, gemini, codex). Grade only the outcome with hidden tests, detect test
+      tampering, record cost and tokens, and report the pass-rate delta with a bootstrap CI. Also stops
+      run-benchmark.py from faking the without-skill arm.
+    files:
+      - scripts/run-ab-eval.sh
+      - scripts/lib/ab-eval.py
+      - scripts/lib/ab_report.py
+      - scripts/lib/ab-arm-bigpowers.sh
+      - specs/benchmarks/ab/
+      - scripts/lib/run-benchmark.py
+      - tests/test_ab_eval.py
+    tasks: e58s01-tasks.yaml
+    verify: python3 tests/test_ab_eval.py && bash scripts/run-ab-eval.sh --dry-run
 planned_stories:
   - working_title: "Extend run-evals to cover a meaningful skill subset with real with/without-skill deltas"
     bcp_estimate: 3

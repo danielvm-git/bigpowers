@@ -1,0 +1,62 @@
+story_id: e58s01
+spec: e58s01-ab-eval-runner.md
+title: Outcome A/B eval runner — vanilla agent vs bigpowers
+status: passing
+bcps: 26
+tasks:
+- id: 1
+  description: Unit tests for the runner with a fake adapter (RED)
+  verify: test -f tests/test_ab_eval.py && grep -q 'class' tests/test_ab_eval.py
+  risk: P1
+  status: passing
+  allure:
+    severity: high
+    categories: ["unit", "Evals"]
+- id: 2
+  description: Runner core — workdir, arms, adapter, outcome grading, tamper and diff checks
+  verify: python3 tests/test_ab_eval.py
+  risk: P1
+  status: passing
+  allure:
+    severity: high
+    categories: ["unit", "Evals"]
+- id: 3
+  description: Aggregation with seeded bootstrap CI and YAML/JSONL reports
+  verify: python3 tests/test_ab_eval.py
+  risk: P1
+  status: passing
+  allure:
+    severity: high
+    categories: ["unit", "Evals"]
+- id: 4
+  description: Config (arms, adapters) and bigpowers arm setup script
+  verify: bash scripts/run-ab-eval.sh --dry-run --k 1
+  risk: P1
+  status: passing
+  allure:
+    severity: high
+    categories: ["Evals"]
+- id: 5
+  description: Three starter tasks with hidden tests; reference solutions pass, fixtures fail
+  verify: python3 tests/test_ab_eval.py
+  risk: P2
+  status: passing
+  allure:
+    severity: normal
+    categories: ["Evals", "fixtures"]
+- id: 6
+  description: Stop faking the without-skill arm in run-benchmark.py
+  verify: python3 tests/test_ab_eval.py
+  risk: P1
+  status: passing
+  allure:
+    severity: high
+    categories: ["unit", "Evals"]
+- id: 7
+  description: Document the A/B runner in SCHEMA.md
+  verify: grep -q 'run-ab-eval.sh' specs/benchmarks/SCHEMA.md
+  risk: P3
+  status: passing
+  allure:
+    severity: minor
+    categories: ["docs"]

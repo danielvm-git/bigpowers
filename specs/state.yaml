@@ -5,12 +5,12 @@ bug_id: null
 bigpowers_version: 2.89.0
 bug_cycle: null
 handoff:
-  next_skill: null
-  context: 'All five BUG-2026-10-29-* security fixes by @vomba (PRs #174–#178) squash-merged to main on
-    2026-11-02 after maintainer RED/GREEN verification: mcp secret diffs, dashboard loopback bind, dashboard
-    HTML escaping, AGENTS export quoting, migration metadata injection. Closed as fixed with CI evidence
-    — cumulative Test Build Release run 41501660114 (f905d5b3) all jobs success; released in 2.88.18 (e8308b87).'
-  epic: null
+  next_skill: release-branch
+  context: 'e58s01 done on branch danielvm-git/bigpowers-evaluation-roadmap-4d0758: scripts/run-ab-eval.sh
+    runs tasks with and without bigpowers (vanilla vs bigpowers arms) and grades only the outcome with
+    hidden tests; run-benchmark.py no longer fakes the without-skill arm. First live run (claude adapter,
+    3 tasks, k=3) awaits maintainer go-ahead for agent spend. Evaluation: specs/TRUE-NORTH_LATEST.md.'
+  epic: e58
 epic_cycle: null
 metrics:
   story_start: null
@@ -30,6 +30,10 @@ metrics:
       total_seconds: 0
       avg_seconds: 0
       _start: '2026-08-07T11:24:34Z'
+    plan-work:
+      calls: 1
+      total_seconds: 632.0
+      avg_seconds: 632.0
 release:
   ci_verified: true
   last_commit: 3daf6225

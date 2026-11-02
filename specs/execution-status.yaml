@@ -339,6 +339,7 @@ development_status:
   e56: backlog
   e57: backlog
   e58: backlog
+  e58s01: done
   e59: backlog
   e60: done
   e60s01: done
@@ -666,7 +667,7 @@ epics:
     status: backlog
     title: 'Evals Over Compliance — Replace the 94% Gate with Outcome Proof'
     wsjf: 5.3
-    total_bcps: 0
+    total_bcps: 26
   e59:
     status: backlog
     title: 'Absorb Fresh References — Stay in Sync with bigspec''s Ongoing Evolution'
@@ -3149,6 +3150,15 @@ stories:
     tasks_passing: 5
     tasks_failing: 0
     risk_max: P2
+  e58s01:
+    status: done
+    title: Outcome A/B eval runner — vanilla agent vs bigpowers
+    bcps: 26
+    epic: e58
+    tasks_total: 7
+    tasks_passing: 7
+    tasks_failing: 0
+    risk_max: P1
   e60s01:
     status: done
     title: 'Interactive installer with ASCII banner, global/local, tool selection'

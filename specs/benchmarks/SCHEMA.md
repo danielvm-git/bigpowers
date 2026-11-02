@@ -36,6 +36,33 @@ scenarios:
 Calculated separately for train/validation splits and with/without-skill modes.
 Delta `Δ = pass@k_with − pass@k_without` isolates the skill's contribution. Negative delta = regression.
 
+`run-benchmark.sh` runs no agent, so it cannot measure the without-skill arm. Since e58s01 it
+reports that arm as `null` and prints `UNMEASURED` (it used to force it to 0, which made every
+delta look positive). Real with/without numbers come from the A/B runner below.
+
+## A/B outcome eval (e58s01)
+
+`bash scripts/run-ab-eval.sh` runs the same tasks with and without bigpowers through a real
+agent CLI and grades only the outcome. It is advisory: exit 0 after a run, 2 on config errors.
+
+```bash
+bash scripts/run-ab-eval.sh --dry-run                       # print the matrix, spend nothing
+bash scripts/run-ab-eval.sh --tasks ab-01 --k 1             # one task, both arms, claude adapter
+bash scripts/run-ab-eval.sh --adapter gemini --model <m>    # another harness
+```
+
+- **Config:** `specs/benchmarks/ab/config.yaml` — `arms` (setup commands) and `adapters`
+  (command templates; the prompt is in `$AB_PROMPT`). The `claude` adapter uses an isolated
+  `CLAUDE_CONFIG_DIR` so global skills do not leak into the vanilla arm.
+- **Tasks:** `specs/benchmarks/ab/tasks/<id>/` with `task.yaml` (`id`, `prompt`, `protected`,
+  `grade`, `timeout_s`), `fixture/` (what the agent sees), `hidden/` (copied in only after the
+  agent exits) and `solution/` (reference; the unit tests check fixture fails, solution passes).
+  Prompts never name bigpowers.
+- **Per run:** `pass`, `tampered` (a `protected` file changed), `diff_lines`, `duration_s`,
+  `agent_error`, and for `claude-json` output `cost_usd`, `input_tokens`, `output_tokens`, `turns`.
+- **Reports:** `specs/benchmarks/reports/AB-<date>.yaml` (per-arm and per-task rates, delta
+  `bigpowers − vanilla` with a seeded bootstrap 95% CI) and `ab-runs-<date>.jsonl` (raw runs).
+
 ## Reports
 
 - **YAML:** `specs/benchmarks/reports/BENCHMARK-<skill>-<YYYY-MM-DD>.yaml`
