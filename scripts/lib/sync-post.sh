@@ -73,7 +73,7 @@ sync_post_run() {
     bash "$REPO_ROOT/scripts/build-skill-index.sh" || true
   fi
 
-  local CURSOR_KEEP="context7.mdc" mdc mdc_base
+  local CURSOR_KEEP="" mdc mdc_base
   for mdc in "$CURSOR_RULES"/*.mdc; do
     [[ -e "$mdc" ]] || continue
     mdc_base=$(basename "$mdc")

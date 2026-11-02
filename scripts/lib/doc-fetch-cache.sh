@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # story: e45s20
-# doc-fetch-cache.sh — ETag-revalidated fetch cache for Context7 / bts docs queries.
+# doc-fetch-cache.sh — ETag-revalidated fetch cache for bts docs queries.
 # Usage:
 #   bash scripts/lib/doc-fetch-cache.sh get <cache-key>     # print cached body or empty
 #   bash scripts/lib/doc-fetch-cache.sh put <key> <etag> <body-file>

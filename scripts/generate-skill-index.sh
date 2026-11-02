@@ -44,7 +44,7 @@ phase_of() {
     # Build
     develop-tdd|kickoff-branch|execute-plan|build-epic|spike-prototype|craft-skill|quick-fix|setup-environment|wire-observability|wire-ci|publish-package|align-grid|orchestrate-project|guard-git|hook-commits|deploy|smoke-test|validate-contracts|extract-design) echo "Build" ;;
     # Verify
-    verify-work|validate-fix|audit-code|enforce-first|run-evals|investigate-bug|diagnose-root|fix-bug|inspect-quality|request-review|respond-review|trace-requirement|security-review|context7-mcp|diagnose-stall|gate-trace|generate-allure-report|plan-tests) echo "Verify" ;;
+    verify-work|validate-fix|audit-code|enforce-first|run-evals|investigate-bug|diagnose-root|fix-bug|inspect-quality|request-review|respond-review|trace-requirement|security-review|diagnose-stall|gate-trace|generate-allure-report|plan-tests) echo "Verify" ;;
     # Release
     release-branch|commit-message) echo "Release" ;;
     # Sustain

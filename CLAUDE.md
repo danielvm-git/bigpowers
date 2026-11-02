@@ -173,7 +173,7 @@ Before any task, run this sequence — not optional:
 - Search with `bts find` before opening files to locate a symbol or pattern.
 - Pipe anything > 200 lines through `bts compress` before adding to context.
 - Run `bts map` when asked for a repo overview.
-- Use `bts docs <lib>` before answering questions about library APIs. Doc fetches use `scripts/lib/doc-fetch-cache.sh` (ETag-revalidated, 300s TTL — see `context7-mcp` skill, e45s20).
+- Use `bts docs <lib>` before answering questions about library APIs. Doc fetches use `scripts/lib/doc-fetch-cache.sh` (ETag-revalidated, 300s TTL).
 - If a tool is missing, say so and run `bts doctor` — do not silently substitute.
 
 <!-- BEGIN rtk-pretooluse-hook (e45s16 — mechanical PreToolUse backstop; remove block to disable) -->
