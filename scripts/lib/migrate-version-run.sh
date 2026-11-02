@@ -28,6 +28,8 @@ migrate_version_main() {
 
   INSTALLED="$(migrate_installed_version)"
   migrate_detect_version || exit $?
+  migrate_validate_version "$DETECTED" detected || exit $?
+  migrate_validate_version "$INSTALLED" installed || exit $?
 
   echo "migrate-version: detected=$DETECTED installed=$INSTALLED"
 
@@ -51,3 +53,4 @@ migrate_version_main() {
   migrate_finalize
   exit 0
 }
+

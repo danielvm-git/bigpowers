@@ -21,23 +21,32 @@ EOF
 }
 
 migrate_installed_version() {
-  node -e "console.log(require('$BIGPOWERS_ROOT/package.json').version)" 2>/dev/null || echo "unknown"
+  node -e 'console.log(require(process.argv[1]).version)' "$BIGPOWERS_ROOT/package.json" 2>/dev/null || echo "unknown"
+}
+
+migrate_validate_version() {
+  local version="$1" label="$2"
+  local pattern='^[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?(\+[0-9A-Za-z.-]+)?$'
+  if [[ ! "$version" =~ $pattern ]]; then
+    echo "migrate-version: invalid $label version; expected major.minor.patch with optional prerelease/build metadata" >&2
+    return 4
+  fi
 }
 
 migrate_yaml_get() {
   local file="$1" key="$2"
-  $PYTHON -c "
+  "$PYTHON" -c "
 import yaml, sys
 try:
-    d = yaml.safe_load(open('$file'))
+    d = yaml.safe_load(open(sys.argv[1]))
     val = d
-    for k in '$key'.split('.'):
+    for k in sys.argv[2].split('.'):
         if not isinstance(val, dict): sys.exit(1)
         val = val.get(k)
     if val is None: sys.exit(1)
     print(val)
 except: sys.exit(1)
-" 2>/dev/null
+" "$file" "$key" 2>/dev/null
 }
 
 log_info()  { echo "  [INFO] $*"; }
@@ -111,3 +120,4 @@ migrate_detect_version() {
   fi
   return 0
 }
+

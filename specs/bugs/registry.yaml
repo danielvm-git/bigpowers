@@ -580,3 +580,9 @@ bugs:
     approach: "Give every ${OMP_PLUGIN_ROOT} reference a ':-.' default; smoke-test the manifest under omp and Claude Code host profiles"
     risk_level: low
     commit_message: "fix(mcp): default OMP_PLUGIN_ROOT so bigpowers-mcp starts outside OMP (#168)"
+  - id: BUG-2026-10-29-migration-metadata
+    status: open
+    severity: high
+    scope: migrate
+    title: "Keep migration version metadata out of executable code"
+    file: bugs/BUG-2026-10-29-migration-metadata.md

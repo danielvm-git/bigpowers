@@ -8,15 +8,14 @@ MIGRATE_VERSION_PLAN_LOADED=1
 migrate_build_plan() {
   echo "migrate-version: building migration plan from $REGISTRY …"
 
-  MIGRATION_PLAN="$($PYTHON -c "
+  MIGRATION_PLAN="$("$PYTHON" -c "
 import yaml, json, sys
 
-with open('$REGISTRY') as f:
+with open(sys.argv[1]) as f:
     parts = f.read().split('---')
     fm = yaml.safe_load(parts[1])
 
-detected = '$DETECTED'
-installed = '$INSTALLED'
+detected, installed = sys.argv[2:4]
 
 plan = []
 for m in sorted(fm.get('migrations', []), key=lambda x: x.get('order', 99)):
@@ -30,7 +29,7 @@ for m in sorted(fm.get('migrations', []), key=lambda x: x.get('order', 99)):
 
 applicable = [m for m in plan if m['since_version'] > detected and m['since_version'] <= installed]
 print(json.dumps(applicable))
-" 2>/dev/null)"
+" "$REGISTRY" "$DETECTED" "$INSTALLED")"
 
   MIGRATION_COUNT="$(echo "$MIGRATION_PLAN" | $PYTHON -c "import json,sys; print(len(json.load(sys.stdin)))" 2>/dev/null)"
 
@@ -79,7 +78,7 @@ for m in json.load(sys.stdin):
   echo "$MIGRATION_PLAN" | $PYTHON -c "
 import json, sys, os
 for m in json.load(sys.stdin):
-    bundle_path = os.path.join('$MIGRATIONS_DIR', m['file'])
+    bundle_path = os.path.join(sys.argv[1], m['file'])
     if not os.path.exists(bundle_path):
         print(f\"  WARN {m['id']}: bundle file not found ({m['file']})\")
         continue
@@ -112,8 +111,9 @@ for m in json.load(sys.stdin):
     for a in fm.get('actions_needed', []):
         v = a.get('verify', '')
         if v: print(f\"  verify: {v}\")
-" 2>/dev/null
+" "$MIGRATIONS_DIR" 2>/dev/null
 
   echo ""
   echo "Run without --dry-run to apply these migrations."
 }
+
