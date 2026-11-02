@@ -39,6 +39,7 @@ SOLVE_IF_SKILLS = 'if [ -d .claude/skills ]; then echo 42 > answer.txt; fi'
 CLAUDE_JSON = json.dumps({
     "type": "result", "subtype": "success", "is_error": False, "num_turns": 7,
     "total_cost_usd": 0.1234, "usage": {"input_tokens": 1500, "output_tokens": 300},
+    "modelUsage": {"claude-opus-5-5": {"costUSD": 0.1}, "claude-haiku-5-5": {"costUSD": 0.0234}},
 })
 
 
@@ -141,6 +142,7 @@ class TestMetrics(unittest.TestCase):
         self.assertEqual(m["input_tokens"], 1500)
         self.assertEqual(m["output_tokens"], 300)
         self.assertEqual(m["turns"], 7)
+        self.assertEqual(m["models"], ["claude-haiku-5-5", "claude-opus-5-5"])
         self.assertFalse(m["agent_reported_error"])
 
     def test_unparseable_output_gives_nulls(self):

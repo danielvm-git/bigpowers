@@ -124,7 +124,7 @@ def env_for(prompt: str, model: str | None, workdir: Path) -> dict:
 
 def parse_metrics(parser: str, stdout: str) -> dict:
     metrics: dict = {"cost_usd": None, "input_tokens": None, "output_tokens": None, "turns": None,
-                     "agent_reported_error": None}
+                     "models": None, "agent_reported_error": None}
     if parser != "claude-json":
         return metrics
     result = None
@@ -138,15 +138,31 @@ def parse_metrics(parser: str, stdout: str) -> dict:
             break
     if result is None:
         return metrics
-    usage = result.get("usage") or {}
+    input_tokens, output_tokens = token_totals(result)
     metrics.update({
         "cost_usd": result.get("total_cost_usd"),
-        "input_tokens": usage.get("input_tokens"),
-        "output_tokens": usage.get("output_tokens"),
+        "input_tokens": input_tokens,
+        "output_tokens": output_tokens,
         "turns": result.get("num_turns"),
+        "models": sorted(result.get("modelUsage") or {}) or None,
         "agent_reported_error": bool(result.get("is_error")),
     })
     return metrics
+
+
+def token_totals(result: dict) -> tuple[int | None, int | None]:
+    """Whole-tree tokens from modelUsage (incl. subagents and cache), else main-loop usage."""
+    per_model = [m for m in (result.get("modelUsage") or {}).values() if "inputTokens" in m]
+    if per_model:
+        inputs = sum(m.get("inputTokens", 0) + m.get("cacheReadInputTokens", 0)
+                     + m.get("cacheCreationInputTokens", 0) for m in per_model)
+        return inputs, sum(m.get("outputTokens", 0) for m in per_model)
+    usage = result.get("usage") or {}
+    if "input_tokens" not in usage:
+        return None, usage.get("output_tokens")
+    inputs = (usage["input_tokens"] + usage.get("cache_read_input_tokens", 0)
+              + usage.get("cache_creation_input_tokens", 0))
+    return inputs, usage.get("output_tokens")
 
 
 def run_once(task: dict, arm: str, setup: str, adapter: dict, model: str | None,
