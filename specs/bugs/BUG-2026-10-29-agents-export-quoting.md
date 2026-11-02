@@ -1,7 +1,7 @@
 ---
 bug_id: BUG-2026-10-29-agents-export-quoting
 title: Escape AGENTS command exports before Bash import
-status: open
+status: fixed
 severity: medium
 scope: scripts
 ---
@@ -39,7 +39,7 @@ output is not full sync validation. No unrelated generated output is included.
 
 - [x] Regression fails on the unfixed code and passes with this fix.
 - [x] Regression registered in the deterministic gates.
-- [ ] Full checkout preflight and applicable manual verification pass.
+- [x] Full checkout preflight and applicable manual verification pass.
 
 ## Upstream rebase verification
 
@@ -47,3 +47,14 @@ Rebased onto `37824eb41502f0204b9f119676bbeee37c5a0278` (2.88.17) on
 2026-10-31. The targeted regression still fails on this upstream snapshot and
 passes with this fix. Upstream's existing bug records are preserved. Full-suite
 validation remains pending for the environment limitations described above.
+
+
+## Resolution
+
+Squash-merged to `main` as `1800dd5f` (PR #176) on 2026-11-02 after maintainer
+review: the regression was reproduced RED on `main` at `37824eb4` and GREEN on the PR
+head, then maintainer-rebased once over the `registry.yaml` append conflict with no code changes (PR comment 6585047921). Post-merge local verification: `node tests/security/agents-import.cjs` PASS on merged `main`, including on macOS Bash 3.2 (the pending check in this file).
+
+### CI measured
+
+The Test Build Release run for `1800dd5f` was cancelled by workflow concurrency and superseded; the final cumulative run **41501660114** (`f905d5b3`, which contains all five BUG-2026-10-29 fixes) passed every job. Released in 2.88.18 (`e8308b87`).

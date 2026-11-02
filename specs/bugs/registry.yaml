@@ -581,31 +581,31 @@ bugs:
     risk_level: low
     commit_message: "fix(mcp): default OMP_PLUGIN_ROOT so bigpowers-mcp starts outside OMP (#168)"
   - id: BUG-2026-10-29-migration-metadata
-    status: open
+    status: fixed
     severity: high
     scope: migrate
     title: "Keep migration version metadata out of executable code"
     file: bugs/BUG-2026-10-29-migration-metadata.md
   - id: BUG-2026-10-29-agents-export-quoting
-    status: open
+    status: fixed
     severity: medium
     scope: scripts
     title: "Escape AGENTS command exports before Bash import"
     file: bugs/BUG-2026-10-29-agents-export-quoting.md
   - id: BUG-2026-10-29-mcp-secret-diffs
-    status: open
+    status: fixed
     severity: medium
     scope: mcp
     title: "Exclude secret files from every MCP diff block"
     file: bugs/BUG-2026-10-29-mcp-secret-diffs.md
   - id: BUG-2026-10-29-dashboard-loopback
-    status: open
+    status: fixed
     severity: medium
     scope: dashboard
     title: "Bind the project dashboard to loopback"
     file: bugs/BUG-2026-10-29-dashboard-loopback.md
   - id: BUG-2026-10-29-dashboard-html-escaping
-    status: open
+    status: fixed
     severity: medium
     scope: dashboard
     title: "Render dashboard project metadata as text"

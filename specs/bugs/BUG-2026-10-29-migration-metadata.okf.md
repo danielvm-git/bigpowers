@@ -7,7 +7,7 @@ title: "Keep migration version metadata out of executable code"
 category: bug
 tier: extended
 severity: high
-status: open
+status: fixed
 generator: scripts/sync-bugs-registry.sh
 references:
     - specs/bugs/BUG-2026-10-29-migration-metadata.md
