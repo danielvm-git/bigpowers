@@ -598,3 +598,9 @@ bugs:
     scope: mcp
     title: "Exclude secret files from every MCP diff block"
     file: bugs/BUG-2026-10-29-mcp-secret-diffs.md
+  - id: BUG-2026-10-29-dashboard-loopback
+    status: open
+    severity: medium
+    scope: dashboard
+    title: "Bind the project dashboard to loopback"
+    file: bugs/BUG-2026-10-29-dashboard-loopback.md

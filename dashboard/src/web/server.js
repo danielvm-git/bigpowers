@@ -104,9 +104,10 @@ function createServer(projectRoot, port = 7742) {
 
   return {
     listen(portNum = port, cb) {
-      return app.listen(portNum, cb);
+      return app.listen(portNum, '127.0.0.1', cb);
     }
   };
 }
 
 module.exports = { createServer };
+
