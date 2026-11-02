@@ -48,6 +48,7 @@ agent CLI and grades only the outcome. It is advisory: exit 0 after a run, 2 on 
 ```bash
 bash scripts/run-ab-eval.sh --dry-run                       # print the matrix, spend nothing
 bash scripts/run-ab-eval.sh --tasks ab-01 --k 1             # one task, both arms, claude adapter
+bash scripts/run-ab-eval.sh --adapter opencode              # OpenCode Go, default opencode-go/kimi-k2.7-code
 bash scripts/run-ab-eval.sh --adapter gemini --model <m>    # another harness
 ```
 
@@ -59,8 +60,16 @@ bash scripts/run-ab-eval.sh --adapter gemini --model <m>    # another harness
   `grade`, `timeout_s`), `fixture/` (what the agent sees), `hidden/` (copied in only after the
   agent exits) and `solution/` (reference; the unit tests check fixture fails, solution passes).
   Prompts never name bigpowers.
+- **Isolation:** each run gets a fresh empty `$AB_HOME`; the `opencode` adapter points `HOME` and
+  `XDG_CONFIG_HOME` at it (global skills, AGENTS.md and plugins never load) and keeps
+  `XDG_DATA_HOME` for credentials. Adapter stdin is always closed. An adapter may set
+  `default_model`, used when `--model` is absent and recorded in the report.
 - **Per run:** `pass`, `tampered` (a `protected` file changed), `diff_lines`, `duration_s`,
-  `agent_error`, and for `claude-json` output `cost_usd`, `input_tokens`, `output_tokens`, `turns`.
+  `agent_error`, plus `cost_usd`, `input_tokens`, `output_tokens`, `turns` from the adapter's
+  parser (`scripts/lib/ab_metrics.py`): `claude-json` (one result object) or `opencode-jsonl`
+  (sums `step_finish` events; an `error` event marks an agent error).
+- **Suite:** `ab-01`–`ab-03` (written for e58s01) and `ab-04`–`ab-08`, ported from the legacy
+  bigpowers-benchmark T01–T05 with neutral prompts, protected visible tests and hidden tests.
 - **Reports:** `specs/benchmarks/reports/AB-<date>.yaml` (per-arm and per-task rates, delta
   `bigpowers − vanilla` with a seeded bootstrap 95% CI) and `ab-runs-<date>.jsonl` (raw runs).
 

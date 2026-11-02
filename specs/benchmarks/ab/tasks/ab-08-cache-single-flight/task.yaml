@@ -1,0 +1,17 @@
+# story: e58s02
+# Ported from bigpowers-benchmark T05 (prompt made neutral, hidden tests added).
+id: ab-08
+title: Make concurrent cache misses share a single fetch per key
+kind: bugfix
+prompt: |
+  When several callers ask TTLCache in src/cache.js for the same missing or expired key at
+  the same time, each one calls fetchFn, which overloads our backend. Fix it so that:
+  - only one fetch per key is in flight at a time, and all concurrent callers for that key
+    get the value from that one fetch;
+  - different keys do not wait for each other (no global lock);
+  - a failed fetch is not cached: its callers see the error, and the next call fetches again.
+  `node test.js` must pass.
+protected:
+  - test.js
+grade: node test.js && node --test test-hidden/*.test.js
+timeout_s: 900

@@ -27,6 +27,20 @@ adapters:
       --setting-sources project --strict-mcp-config
       --no-session-persistence ${AB_MODEL:+--model "$AB_MODEL"}
     parser: claude-json
+  opencode:
+    # OpenCode Go subscription: connect it once with `opencode auth login` → OpenCode Go.
+    # Isolation: HOME and XDG_CONFIG_HOME point at the per-run empty $AB_HOME, so global
+    # ~/.config/opencode (skills, AGENTS.md, plugins), ~/.claude and ~/.agents never load.
+    # OPENCODE_DISABLE_CLAUDE_CODE=1 stops .claude/ duplicates: the bigpowers arm is read from
+    # .agents/skills + AGENTS.md. XDG_DATA_HOME stays real: credentials (and session history)
+    # live there. --auto approves tool calls inside the throwaway workdir.
+    command: >-
+      env HOME="$AB_HOME" XDG_CONFIG_HOME="$AB_HOME/.config"
+      XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}" XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
+      OPENCODE_DISABLE_CLAUDE_CODE=1
+      opencode run --format json --auto -m "$AB_MODEL" "$AB_PROMPT"
+    parser: opencode-jsonl
+    default_model: opencode-go/kimi-k2.7-code
   gemini:
     # Not isolated from ~/.gemini yet: uninstall global bigpowers extensions first.
     command: gemini -p "$AB_PROMPT" --approval-mode yolo --output-format json ${AB_MODEL:+-m "$AB_MODEL"}

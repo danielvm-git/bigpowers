@@ -1,0 +1,15 @@
+# story: e58s02
+# Ported from bigpowers-benchmark T02 (prompt made neutral, hidden tests added).
+id: ab-05
+title: Paginate GET /users with an X-Total-Count header
+kind: feature
+prompt: |
+  GET /users in src/server.js returns all 50 users at once. Add pagination:
+  - query parameters `page` (1-indexed) and `limit`, defaulting to page 1 and limit 10;
+  - every /users response carries an `X-Total-Count` header with the total number of users;
+  - a page past the end returns an empty array.
+  `node test.js` must pass.
+protected:
+  - test.js
+grade: node test.js && node --test test-hidden/*.test.js
+timeout_s: 900

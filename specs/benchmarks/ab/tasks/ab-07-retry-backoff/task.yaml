@@ -1,0 +1,13 @@
+# story: e58s02
+# Ported from bigpowers-benchmark T04. The spec is deliberately vague (FEATURE_REQUEST.md);
+# the visible test pins the contract (3 retries, delays starting at 100 ms and doubling).
+id: ab-07
+title: Implement retry with exponential backoff from a vague request
+kind: feature
+prompt: |
+  Finish withRetry in src/retry.js as asked in FEATURE_REQUEST.md. test.js shows the
+  behaviour we expect from it. `node test.js` must pass.
+protected:
+  - test.js
+grade: node test.js && node --test test-hidden/*.test.js
+timeout_s: 900

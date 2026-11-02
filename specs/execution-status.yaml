@@ -340,6 +340,7 @@ development_status:
   e57: backlog
   e58: backlog
   e58s01: done
+  e58s02: done
   e59: backlog
   e60: done
   e60s01: done
@@ -667,7 +668,7 @@ epics:
     status: backlog
     title: 'Evals Over Compliance — Replace the 94% Gate with Outcome Proof'
     wsjf: 5.3
-    total_bcps: 26
+    total_bcps: 39
   e59:
     status: backlog
     title: 'Absorb Fresh References — Stay in Sync with bigspec''s Ongoing Evolution'
@@ -3158,6 +3159,15 @@ stories:
     tasks_total: 7
     tasks_passing: 7
     tasks_failing: 0
+    risk_max: P1
+  e58s02:
+    status: done
+    title: opencode adapter + the five legacy benchmark tasks
+    bcps: 13
+    epic: e58
+    tasks_total: 6
+    tasks_passing: 0
+    tasks_failing: 6
     risk_max: P1
   e60s01:
     status: done

@@ -11,7 +11,6 @@ from __future__ import annotations
 
 import argparse
 import hashlib
-import json
 import os
 import shutil
 import subprocess
@@ -24,6 +23,7 @@ from pathlib import Path
 import yaml
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from ab_metrics import parse_metrics  # type: ignore[import]  # noqa: E402
 from ab_report import (  # type: ignore[import]  # noqa: E402
     BOOTSTRAP_RESAMPLES, BOOTSTRAP_SEED, aggregate, bigpowers_sha, print_summary, write_reports,
 )
@@ -83,8 +83,9 @@ def resolve_adapter(config: dict, name: str, custom_cmd: str | None, parser: str
 # ── one run ──────────────────────────────────────────────────────────────────
 
 def sh(cmd: str, cwd: Path, env: dict | None = None, timeout: float | None = None):
-    return subprocess.run(["bash", "-c", cmd], cwd=cwd, env=env, capture_output=True,
-                          text=True, timeout=timeout)
+    # stdin closed: `opencode run` otherwise waits on an open stdin forever (e58s02).
+    return subprocess.run(["bash", "-c", cmd], cwd=cwd, env=env, stdin=subprocess.DEVNULL,
+                          capture_output=True, text=True, timeout=timeout)
 
 
 def git(workdir: Path, *args: str) -> str:
@@ -115,64 +116,23 @@ def changed_lines(workdir: Path, base: str) -> int:
     return total
 
 
-def env_for(prompt: str, model: str | None, workdir: Path) -> dict:
+def env_for(prompt: str, model: str | None, workdir: Path, home: Path) -> dict:
+    """$AB_HOME is a fresh empty dir per run: adapters point HOME at it to hide global skills."""
     env = dict(os.environ)
     env.update({"AB_PROMPT": prompt, "AB_MODEL": model or "", "AB_WORKDIR": str(workdir),
-                "AB_BP_ROOT": str(REPO_ROOT)})
+                "AB_HOME": str(home), "AB_BP_ROOT": str(REPO_ROOT)})
     return env
-
-
-def parse_metrics(parser: str, stdout: str) -> dict:
-    metrics: dict = {"cost_usd": None, "input_tokens": None, "output_tokens": None, "turns": None,
-                     "models": None, "agent_reported_error": None}
-    if parser != "claude-json":
-        return metrics
-    result = None
-    for line in reversed(stdout.strip().splitlines()):
-        try:
-            obj = json.loads(line)
-        except json.JSONDecodeError:
-            continue
-        if isinstance(obj, dict) and "num_turns" in obj:
-            result = obj
-            break
-    if result is None:
-        return metrics
-    input_tokens, output_tokens = token_totals(result)
-    metrics.update({
-        "cost_usd": result.get("total_cost_usd"),
-        "input_tokens": input_tokens,
-        "output_tokens": output_tokens,
-        "turns": result.get("num_turns"),
-        "models": sorted(result.get("modelUsage") or {}) or None,
-        "agent_reported_error": bool(result.get("is_error")),
-    })
-    return metrics
-
-
-def token_totals(result: dict) -> tuple[int | None, int | None]:
-    """Whole-tree tokens from modelUsage (incl. subagents and cache), else main-loop usage."""
-    per_model = [m for m in (result.get("modelUsage") or {}).values() if "inputTokens" in m]
-    if per_model:
-        inputs = sum(m.get("inputTokens", 0) + m.get("cacheReadInputTokens", 0)
-                     + m.get("cacheCreationInputTokens", 0) for m in per_model)
-        return inputs, sum(m.get("outputTokens", 0) for m in per_model)
-    usage = result.get("usage") or {}
-    if "input_tokens" not in usage:
-        return None, usage.get("output_tokens")
-    inputs = (usage["input_tokens"] + usage.get("cache_read_input_tokens", 0)
-              + usage.get("cache_creation_input_tokens", 0))
-    return inputs, usage.get("output_tokens")
 
 
 def run_once(task: dict, arm: str, setup: str, adapter: dict, model: str | None,
              run_idx: int, keep: bool) -> dict:
     workdir = Path(tempfile.mkdtemp(prefix=f"bp-ab-{task['id']}-{arm}-"))
+    home = Path(tempfile.mkdtemp(prefix="bp-ab-home-"))
     try:
         shutil.copytree(task["dir"] / "fixture", workdir, dirs_exist_ok=True)
         git(workdir, "init", "-q")
         snapshot(workdir, "fixture")
-        env = env_for(task["prompt"], model, workdir)
+        env = env_for(task["prompt"], model, workdir, home)
         if sh(setup, workdir, env).returncode != 0:
             raise ConfigError(f"arm '{arm}' setup failed in {workdir}")
         base = snapshot(workdir, f"arm {arm}")
@@ -201,6 +161,7 @@ def run_once(task: dict, arm: str, setup: str, adapter: dict, model: str | None,
             "timed_out": timed_out, **metrics,
         }
     finally:
+        shutil.rmtree(home, ignore_errors=True)
         if keep:
             print(f"  kept workdir: {workdir}")
         else:
@@ -240,8 +201,10 @@ def main(argv: list[str] | None = None) -> int:
         print(f"ERROR: {exc}")
         return 2
     k = args.k or int(config.get("k", 3))
+    model = args.model or adapter.get("default_model")
 
-    print(f"A/B eval: {len(tasks)} task(s) x {len(arms)} arm(s) x k={k} via adapter '{adapter['name']}'")
+    print(f"A/B eval: {len(tasks)} task(s) x {len(arms)} arm(s) x k={k} via adapter '{adapter['name']}'"
+          f"{f' model {model}' if model else ''}")
     if args.dry_run:
         for task in tasks:
             for arm, spec in arms.items():
@@ -254,7 +217,7 @@ def main(argv: list[str] | None = None) -> int:
         for task in tasks:
             for arm, spec in arms.items():
                 for i in range(1, k + 1):
-                    rec = run_once(task, arm, spec["setup"], adapter, args.model, i, args.keep)
+                    rec = run_once(task, arm, spec["setup"], adapter, model, i, args.keep)
                     records.append(rec)
                     print(f"  {task['id']:<8} {arm:<10} run {i}: {'PASS' if rec['pass'] else 'FAIL'}"
                           f"{' TAMPERED' if rec['tampered'] else ''}{' AGENT-ERROR' if rec['agent_error'] else ''}")
@@ -265,7 +228,7 @@ def main(argv: list[str] | None = None) -> int:
     result = aggregate(records, list(arms), [t["id"] for t in tasks])
     meta = {
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-        "bigpowers_sha": bigpowers_sha(), "adapter": adapter["name"], "model": args.model,
+        "bigpowers_sha": bigpowers_sha(), "adapter": adapter["name"], "model": model,
         "k": k, "tasks": [t["id"] for t in tasks], "arms": list(arms),
         "arm_setup": {a: s["setup"] for a, s in arms.items()},
         "ci_method": f"bootstrap over runs, {BOOTSTRAP_RESAMPLES} resamples, seed {BOOTSTRAP_SEED}",

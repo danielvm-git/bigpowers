@@ -6,10 +6,11 @@ bigpowers_version: 2.89.0
 bug_cycle: null
 handoff:
   next_skill: release-branch
-  context: 'e58s01 done on branch danielvm-git/bigpowers-evaluation-roadmap-4d0758: scripts/run-ab-eval.sh
-    runs tasks with and without bigpowers (vanilla vs bigpowers arms) and grades only the outcome with
-    hidden tests; run-benchmark.py no longer fakes the without-skill arm. First live run (claude adapter,
-    3 tasks, k=3) awaits maintainer go-ahead for agent spend. Evaluation: specs/TRUE-NORTH_LATEST.md.'
+  context: 'e58s01+e58s02 done on branch danielvm-git/bigpowers-evaluation-roadmap-4d0758: run-ab-eval.sh
+    (vanilla vs bigpowers, outcome-only hidden tests) now has an opencode adapter (OpenCode Go, default
+    opencode-go/kimi-k2.7-code, per-run empty HOME isolation) and 8 tasks (ab-04..ab-08 ported from the
+    legacy bigpowers-benchmark T01-T05). Live run waits on connecting the OpenCode Go key
+    (opencode auth login) and on a sandbox decision for --auto runs.'
   epic: e58
 epic_cycle: null
 metrics:

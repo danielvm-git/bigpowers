@@ -54,7 +54,7 @@ stories:
     verify: python3 tests/test_ab_eval.py && bash scripts/run-ab-eval.sh --dry-run
   - id: e58s02
     title: "opencode adapter + the five legacy benchmark tasks"
-    status: todo
+    status: done
     bcps: 13
     bcp_basis: estimate, 2026-11-02 (adapter + parser + 5 ported tasks)
     risk: P1
