@@ -1,7 +1,7 @@
 id: e58
 title: "Evals Over Compliance — Replace the 94% Gate with Outcome Proof"
 wsjf: 5.3
-bcps: 85
+bcps: 90
 bcps_projected: 9
 capsule_dir: epics/e58-evals-over-compliance
 mode: capsule
@@ -203,6 +203,25 @@ stories:
       - tests/test_ab_waste.py
     tasks: e58s09-tasks.yaml
     verify: python3 tests/test_ab_waste.py
+  - id: e58s10
+    title: "value stream and waste views in progress and reports"
+    status: todo
+    bcps: 5
+    bcp_basis: estimate, 2026-11-03 (aggregation + deltas + bars + table + one waste metric)
+    risk: P2
+    delta: ADDED
+    source: specs/benchmarks/LEAN-VSM_LATEST.md step 4
+    description: >-
+      Aggregate vsm and waste per arm with deltas against vanilla, print VSM bars and a waste table
+      in the live progress view and the report, and count redundant green test runs.
+    files:
+      - scripts/lib/ab_lean.py
+      - scripts/lib/ab_report.py
+      - scripts/lib/ab_progress.py
+      - scripts/lib/ab_waste.py
+      - tests/test_ab_lean.py
+    tasks: e58s10-tasks.yaml
+    verify: python3 tests/test_ab_lean.py
 planned_stories:
   - working_title: "Extend run-evals to cover a meaningful skill subset with real with/without-skill deltas"
     bcp_estimate: 3
