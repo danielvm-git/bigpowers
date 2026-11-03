@@ -51,7 +51,8 @@ while IFS= read -r row; do
 
   adapter_script="$SCRIPT_DIR/adapters/${adapter}.sh"
   # shellcheck source=/dev/null
-  source "$adapter_script"
+  # stdin is this loop's target list: an adapter that reads stdin when sourced would swallow it.
+  source "$adapter_script" </dev/null
   case "$mode" in
     symlink) wire_context_mode symlink "$file" ;;
     copy) wire_context_mode copy "$file" ;;

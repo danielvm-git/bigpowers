@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# story: e58s05
+# story: e58s05 e58s10
 """Live view of an A/B eval while it runs: reads every ab-live.jsonl under the given folders
 (one per shard) and prints runs, pass rate, score and cost per task and arm, each arm's delta
 against vanilla with its bootstrap CI, and how those deltas evolved as runs accumulated.
@@ -16,6 +16,7 @@ from datetime import datetime
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from ab_lean import lean_lines  # type: ignore[import]  # noqa: E402
 from ab_report import aggregate, mean  # type: ignore[import]  # noqa: E402
 
 CHECKPOINTS = (5, 10, 20, 30, 50, 75, 100)
@@ -79,6 +80,7 @@ def render(records: list[dict]) -> str:
         out += ["", "deltas (all runs so far, 95% CI):"]
         out += [delta_line(n, d) for n, d in result["deltas_vs_vanilla"].items()]
         out += ["", "evolution (pass and score delta by run index):"] + evolution(records, tasks, arms)
+    out += lean_lines(result.get("lean"))
     return "\n".join(out)
 
 

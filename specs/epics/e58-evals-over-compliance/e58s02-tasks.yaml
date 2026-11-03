@@ -38,7 +38,7 @@ tasks:
     categories: ["Evals"]
 - id: 5
   description: Port T01–T05 as ab-04..ab-08 with hidden tests and reference solutions
-  verify: python3 tests/test_ab_eval.py
+  verify: python3 tests/test_ab_tasks.py
   risk: P2
   status: passing
   allure:

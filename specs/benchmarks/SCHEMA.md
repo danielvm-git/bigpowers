@@ -107,6 +107,24 @@ bash scripts/run-ab-eval.sh --adapter gemini --model <m>    # another harness
   saved to `<out>/traces/<task>-<arm>-<run>.jsonl.gz`. Watch one or many shards with
   `python3 scripts/lib/ab_progress.py <out-dir>... [--watch 600]`: runs, pass, score, cost and
   errors per task and arm, deltas against vanilla with CIs, and their evolution by run index.
+- **Value stream map (e58s08):** every record has a `vsm` block for pi transcripts (`null` for
+  other parsers): `lead_time_s`, `time_to_first_build_s`, `switches`, `sequence` and
+  `stages.<plan|design|build|test|deploy|maintain|wrap-up>` = `{s, cost_usd, output_tokens, turns}`.
+  Each model turn, from its start to the next turn's start, goes to the stage of the action it takes.
+  The rules are in `specs/benchmarks/ab/vsm.yaml`. Map saved transcripts with
+  `python3 scripts/lib/ab_vsm.py <traces>/*.jsonl.gz`. Rationale: `LEAN-VSM_LATEST.md`.
+- **Waste metrics (e58s09):** each run's final patch is saved as `<out>/traces/<id>.patch.gz` and the
+  record gets a `waste` block (`scripts/lib/ab_waste.py`). Patch metrics, any adapter:
+  `product/test/doc/plan_lines`, `solution_lines`, `diff_ratio` (product ÷ reference solution),
+  `extra_files`, `leftovers` (regex in `vsm.yaml`), `review_load` (changed lines + files + Markdown
+  words). Transcript metrics, pi only (else `null`): `rereads`, `repeated_commands`, `test_runs`,
+  `rework_loops` (failing test runs after the first build edit, from `exit_code` or a `fail N`
+  summary), `reedits`, `ftt`, `pce` = (build + test time) ÷ lead time.
+- **Lean views (e58s10):** the report has `lean` (`scripts/lib/ab_lean.py`): per arm, mean lead
+  time, first build, switches, stage seconds and shares, waste means, `ftt_rate`, `leftover_rate`,
+  `cost_per_pass`; `lean.deltas.<arm>.<metric>` = `{delta, ci95}` against vanilla. `print_summary` and
+  `ab_progress.py` print a VSM bar per arm (length = mean lead time) and the waste table.
+  `waste.redundant_test_runs` counts green test runs with no edit since the previous green run.
 - **Reports:** `specs/benchmarks/reports/AB-<date>.yaml` (per-arm and per-task rates and
   `mean_score`, `per_task_score`, delta `bigpowers − vanilla` for pass rate and score, each with a
   seeded bootstrap 95% CI; `deltas_vs_vanilla` gives the same for every non-vanilla arm) and

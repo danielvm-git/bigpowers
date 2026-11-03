@@ -1,0 +1,30 @@
+story_id: e58s08
+spec: e58s08-vsm-classifier.md
+title: value stream map per run (stage classifier)
+status: passing
+bcps: 5
+tasks:
+- id: 1
+  description: Failing tests for classify_call, per-turn stage time, null cases and run records
+  verify: test -f tests/test_ab_vsm.py
+  risk: P2
+  status: passing
+  allure:
+    severity: normal
+    categories: ["unit", "Evals", "Lean"]
+- id: 2
+  description: vsm.yaml rules and ab_vsm.py classifier with CLI
+  verify: python3 tests/test_ab_vsm.py
+  risk: P2
+  status: passing
+  allure:
+    severity: normal
+    categories: ["unit", "Evals", "Lean"]
+- id: 3
+  description: Runner adds vsm to every record; checked on saved transcripts; documented
+  verify: python3 tests/test_ab_vsm.py && grep -q 'ab_vsm' specs/benchmarks/SCHEMA.md
+  risk: P3
+  status: passing
+  allure:
+    severity: minor
+    categories: ["Evals", "docs"]

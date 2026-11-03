@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# story: e58s01 e58s03 e58s04
+# story: e58s01 e58s03 e58s04 e58s10
 """A/B eval aggregation and reports — pure functions over run records (no agent, no subprocess
 except reading the bigpowers git SHA). Split from ab-eval.py to keep both under the 300-line cap."""
 from __future__ import annotations
@@ -47,6 +47,7 @@ def arm_summary(runs: list[dict]) -> dict:
         "runs": len(runs),
         "pass_rate": mean([float(r["pass"]) for r in runs]),
         "mean_score": mean([r.get("score") for r in runs]),
+        "mean_bugs_opened": mean([r.get("bugs_opened", 0) for r in runs]),
         "tamper_rate": mean([float(r["tampered"]) for r in runs]),
         "agent_error_rate": mean([float(r["agent_error"]) for r in runs]),
         "mean_cost_usd": mean([r["cost_usd"] for r in runs]),
@@ -66,8 +67,10 @@ def aggregate(records: list[dict], arms: list[str], tasks: list[str]) -> dict:
     per_task_score = {t: {a: mean([r.get("score") for r in by_arm[a] if r["task"] == t]) for a in arms}
                       for t in tasks}
     deltas = {a: arm_delta(by_arm, summary, a) for a in arms if a != "vanilla"} if "vanilla" in arms else {}
+    from ab_lean import lean_summary  # type: ignore[import]  # lazy: ab_lean imports this module
     return {"arms_summary": summary, "per_task": per_task, "per_task_score": per_task_score,
-            "delta": deltas.get("bigpowers"), "deltas_vs_vanilla": deltas}
+            "delta": deltas.get("bigpowers"), "deltas_vs_vanilla": deltas,
+            "lean": lean_summary(records, arms)}
 
 
 def arm_delta(by_arm: dict, summary: dict, arm: str) -> dict:
@@ -86,6 +89,8 @@ def arm_delta(by_arm: dict, summary: dict, arm: str) -> dict:
     if scores[arm] and scores["vanilla"]:
         delta["score"] = round(tr["mean_score"] - va["mean_score"], 4)
         delta["score_ci95"] = bootstrap_delta_ci(scores[arm], scores["vanilla"])
+    if tr.get("mean_bugs_opened") is not None and va.get("mean_bugs_opened") is not None:
+        delta["bugs_opened"] = round(tr["mean_bugs_opened"] - va["mean_bugs_opened"], 4)
     return delta
 
 
@@ -111,13 +116,19 @@ def write_reports(out: Path, meta: dict, result: dict, records: list[dict]) -> P
 
 
 def print_summary(result: dict) -> None:
-    print(f"{'arm':<10} {'pass':>6} {'score':>6} {'tamper':>7} {'cost$':>8} {'turns':>6} {'secs':>7}")
+    print(f"{'arm':<10} {'pass':>6} {'score':>6} {'bugs':>6} {'tamper':>7} {'cost$':>8} {'turns':>6} {'secs':>7}")
     for arm, s in result["arms_summary"].items():
         fmt = lambda v, p=2: "-" if v is None else f"{v:.{p}f}"
-        print(f"{arm:<10} {fmt(s['pass_rate']):>6} {fmt(s['mean_score']):>6} {fmt(s['tamper_rate']):>7} "
+        b_str = "-" if s.get("mean_bugs_opened") is None else f"{s['mean_bugs_opened']:.1f}"
+        print(f"{arm:<10} {fmt(s['pass_rate']):>6} {fmt(s['mean_score']):>6} {b_str:>6} {fmt(s['tamper_rate']):>7} "
               f"{fmt(s['mean_cost_usd'], 3):>8} {fmt(s['mean_turns'], 1):>6} {fmt(s['mean_duration_s'], 0):>7}")
     for arm, d in result.get("deltas_vs_vanilla", {}).items():
         line = f"delta {arm:<10} - vanilla: pass {d['pass_rate']:+.2f} CI {d['ci95']}"
         if "score" in d:
             line += f"  score {d['score']:+.2f} CI {d['score_ci95']}"
+        if "bugs_opened" in d:
+            line += f"  bugs {d['bugs_opened']:+.1f}"
+        print(line)
+    from ab_lean import lean_lines  # type: ignore[import]
+    for line in lean_lines(result.get("lean")):
         print(line)

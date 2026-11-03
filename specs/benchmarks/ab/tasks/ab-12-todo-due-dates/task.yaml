@@ -1,0 +1,15 @@
+# story: e58s11
+# Changing requirements: the issue thread revises itself (DD/MM -> ISO, then --json, then v1
+# compatibility). Implied rules: a task due today is not overdue; the old date form is rejected;
+# v1 tasks stay byte-for-byte untouched. Fixture scores 5/17 on hidden tests (the regressions).
+id: ab-12
+title: Due dates for the todo CLI, as settled in issue #42
+kind: feature
+prompt: |
+  Implement issue #42 (docs/ISSUE-42.md) in this todo CLI. Follow docs/CONVENTIONS.md.
+  `npm test` must keep passing.
+protected:
+  - test/todo.test.js
+grade: node --test test/*.test.js test-hidden/*.test.js
+score: node --test --test-reporter=tap test-hidden/*.test.js
+timeout_s: 1800
