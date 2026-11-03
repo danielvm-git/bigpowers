@@ -53,6 +53,9 @@ GOLDEN_GATES=(
   "target-contracts:bash scripts/test-target-contracts.sh:false"
   # Registry-driven replacements for the 25 hand-written per-target scripts.
   "install-hub:bash scripts/test-install-hub.sh:false"
+  # Whether the package *builds* was gated; whether its tree is *safe* was not.
+  # `npm audit --omit=dev` was 10 advisories (1 critical) with nothing watching.
+  "prod-dependency-audit:bash scripts/test-prod-dependency-audit.sh:false"
   # `bigpowers update` runs `npm install -g @latest` inside a live process; a
   # version captured by require() at startup then reports the release that was
   # just replaced (BUG-2026-11-03-cli-update-stale-version).
