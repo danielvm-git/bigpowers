@@ -1,0 +1,30 @@
+story_id: e58s05
+spec: e58s05-live-progress.md
+title: live progress, interleaved runs and saved transcripts
+status: failing
+bcps: 5
+tasks:
+- id: 1
+  description: Failing tests for ab-live.jsonl, interleaving, traces and ab_progress
+  verify: test -f tests/test_ab_progress.py
+  risk: P2
+  status: failing
+  allure:
+    severity: normal
+    categories: ["unit", "Evals"]
+- id: 2
+  description: Runner streams records, interleaves runs and saves gzipped transcripts
+  verify: python3 tests/test_ab_progress.py && python3 tests/test_ab_eval.py
+  risk: P2
+  status: failing
+  allure:
+    severity: normal
+    categories: ["unit", "Evals"]
+- id: 3
+  description: ab_progress.py live table, deltas and evolution; documented in SCHEMA.md
+  verify: python3 tests/test_ab_progress.py && grep -q 'ab_progress' specs/benchmarks/SCHEMA.md
+  risk: P3
+  status: failing
+  allure:
+    severity: minor
+    categories: ["Evals", "docs"]

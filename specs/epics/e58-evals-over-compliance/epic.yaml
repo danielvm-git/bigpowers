@@ -1,7 +1,7 @@
 id: e58
 title: "Evals Over Compliance — Replace the 94% Gate with Outcome Proof"
 wsjf: 5.3
-bcps: 57
+bcps: 62
 bcps_projected: 9
 capsule_dir: epics/e58-evals-over-compliance
 mode: capsule
@@ -111,6 +111,23 @@ stories:
       - tests/test_ab_ablation.py
     tasks: e58s04-tasks.yaml
     verify: python3 tests/test_ab_ablation.py
+  - id: e58s05
+    title: "live progress, interleaved runs and saved transcripts"
+    status: todo
+    bcps: 5
+    bcp_basis: estimate, 2026-11-02 (stream records + interleave + traces + progress script)
+    risk: P2
+    delta: ADDED + MODIFIED (run order is round-robin)
+    source: maintainer wants the orchestrating agent to show a long sharded run as it evolves
+    description: >-
+      Stream each run record to ab-live.jsonl, interleave runs round-robin, save gzipped agent
+      transcripts, and add ab_progress.py for a live table, deltas and their evolution.
+    files:
+      - scripts/lib/ab-eval.py
+      - scripts/lib/ab_progress.py
+      - tests/test_ab_progress.py
+    tasks: e58s05-tasks.yaml
+    verify: python3 tests/test_ab_progress.py
 planned_stories:
   - working_title: "Extend run-evals to cover a meaningful skill subset with real with/without-skill deltas"
     bcp_estimate: 3
