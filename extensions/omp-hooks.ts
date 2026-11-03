@@ -205,11 +205,19 @@ function inGitRepo(cwd?: string): boolean {
 }
 
 function currentBranch(cwd: string): string {
+  // Probing a directory that is not a repository makes git print
+  // "fatal: not a git repository (or any of the parent directories): .git".
+  // execSync inherits fd 2 when no stdio option is given, so that message is
+  // painted straight over the TUI input line and vanishes on the next redraw
+  // (BUG-2026-11-03-omp-hooks-stderr-leak, issue #189). Ask inGitRepo() first —
+  // it is silent — so a non-repo target spawns no git process at all.
+  if (!inGitRepo(cwd)) return "unknown";
   try {
     return execSync("git rev-parse --abbrev-ref HEAD", {
       encoding: "utf-8",
       timeout: 3000,
       cwd,
+      stdio: ["ignore", "pipe", "ignore"],
     }).trim();
   } catch {
     return "unknown";
