@@ -361,6 +361,46 @@ function currentBranch(cwd: string): string {
   }
 }
 
+/** Everything the tool_call handler decides, as a pure function (testable). */
+export function evaluateBashCall(
+  command: string,
+  opts: {
+    landMode: boolean;
+    hasRepo: boolean;
+    branchFor: (upTo: number) => string | undefined;
+  },
+): string | null {
+  const gitReason = dangerousGitCommand(command);
+  if (gitReason) return `BLOCKED: ${gitReason}. Use a safer approach or ask the user.`;
+
+  if (!opts.hasRepo) return null;
+
+  const pushBranch = opts.branchFor(command.length) ?? "unknown";
+  if (/git\s+push/.test(command) && !opts.landMode && protectedPushTarget(command, pushBranch)) {
+    return "BLOCKED: Direct push to protected branch. Use kickoff-branch + release-branch.";
+  }
+
+  if (/git\s+commit/.test(command)) {
+    const commitBranches = [...command.matchAll(/\bgit\s+commit\b/g)].map(
+      (m) => opts.branchFor(m.index ?? 0) ?? "unknown",
+    );
+    const hit = commitBranches.find((b) => (PROTECTED_BRANCHES as readonly string[]).includes(b));
+    if (hit) {
+      return `BLOCKED: Direct commits to '${hit}' are forbidden. Use a feature branch.`;
+    }
+    const msg = extractCommitMessage(command);
+    if (msg) {
+      if (!CONVENTIONAL_RE.test(msg)) {
+        return `BLOCKED: Commit subject '${msg.split("\n")[0]}' must follow Conventional Commits: <type>(<scope>): <subject>.`;
+      }
+      if (msg.split("\n")[0].length > 72) {
+        return "BLOCKED: Commit subject line must be \u226472 characters.";
+      }
+    }
+  }
+  return null;
+}
+
 function protectedPushTarget(command: string, branch: string): boolean {
   if (PROTECTED_BRANCH_RE.test(command)) return true;
   const trimmed = command.trim();
@@ -551,54 +591,17 @@ export default function bigpowers(pi: ExtensionAPI) {
     const { command } = event.input as { command?: string };
     if (!command) return;
 
-    const gitReason = dangerousGitCommand(command);
-    if (gitReason) {
-      return {
-        block: true,
-        reason: `BLOCKED: ${gitReason}. Use a safer approach or ask the user.`,
-      };
-    }
-
     const sessionRoot = process.cwd();
-    if (!inGitRepo(sessionRoot)) return;
-    const pushBranch = currentBranch(commandGitCwd(command, command.length, sessionRoot));
-
-    if (/git\s+push/.test(command) && protectedPushTarget(command, pushBranch)) {
-      return {
-        block: true,
-        reason:
-          "BLOCKED: Direct push to protected branch. Use kickoff-branch + release-branch.",
-      };
-    }
-
-    if (/git\s+commit/.test(command)) {
-      const commitBranches = [...command.matchAll(/\bgit\s+commit\b/g)].map((m) =>
-        currentBranch(commandGitCwd(command, m.index ?? 0, sessionRoot)),
-      );
-      const hit = commitBranches.find((b) =>
-        (PROTECTED_BRANCHES as readonly string[]).includes(b),
-      );
-      if (hit) {
-        return {
-          block: true,
-          reason: `BLOCKED: Direct commits to '${hit}' are forbidden. Use a feature branch.`,
-        };
-      }
-      const msg = extractCommitMessage(command);
-      if (msg) {
-        if (!CONVENTIONAL_RE.test(msg)) {
-          return {
-            block: true,
-            reason: `BLOCKED: Commit subject '${msg.split("\n")[0]}' must follow Conventional Commits: <type>(<scope>): <subject>.`,
-          };
-        }
-        if (msg.split("\n")[0].length > 72) {
-          return {
-            block: true,
-            reason: "BLOCKED: Commit subject line must be ≤72 characters.",
-          };
-        }
-      }
-    }
+    const verdict = evaluateBashCall(command, {
+      landMode: process.env.GIT_BIGPOWERS_LAND === "1",
+      // `undefined` means "there is no repo here"; the guard then only judges
+      // the argv rules, which need no branch.
+      branchFor: (upTo: number) =>
+        inGitRepo(sessionRoot)
+          ? currentBranch(commandGitCwd(command, upTo, sessionRoot))
+          : undefined,
+      hasRepo: inGitRepo(sessionRoot),
+    });
+    if (verdict) return { block: true, reason: verdict };
   });
 }

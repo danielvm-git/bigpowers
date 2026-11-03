@@ -77,9 +77,12 @@ cases:
   - command: git push origin +main
     verdict: block
     why: plus-refspec is a force push
-  - command: git push --force-with-lease origin main
+  - command: git push --force-with-lease origin feature/x
     verdict: allow
     why: lease-protected force is the sanctioned shape (still explicit, not silent)
+  - command: git push --force-with-lease origin main
+    verdict: block
+    why: blocked by the PROTECTED-BRANCH rule, not the force rule — lease does not unlock main
 
   # --- must NOT be blocked (false-positive control) -------------------------
   - command: git status

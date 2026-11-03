@@ -662,6 +662,16 @@ bugs:
     approach: "Tokenize the command (quote-aware), strip git's global options, then judge the (subcommand, arguments) pair against one rule table — implemented in scripts/lib/git-argv.py for the shell hooks and mirrored in extensions/omp-hooks.ts, with a fixture gate that fails if the two disagree"
     risk_level: "medium"
     commit_message: "fix(hooks): judge git argv instead of command substrings in guard-git"
+  - id: BUG-2026-11-03-guard-normalize-parity-vacuous
+    status: fixed
+    severity: high
+    scope: hooks / guard-git / verification
+    title: "The guard-git parity gate asserted 'allow' for a push to protected main and only compared the destructive-argv rule against the whole hook, so CI went red and the gate was vacuous for the protected-branch rules"
+    file: bugs/BUG-2026-11-03-guard-normalize-parity-vacuous.md
+    files_changed: "specs/verifications/fixtures/guard-git-normalize.yaml, scripts/omp-guard-probe.ts, scripts/test-guard-git-normalize.sh, extensions/omp-hooks.ts, skills/guard-git/SKILL.md"
+    approach: "Probe the same pure function the tool_call handler calls (evaluateBashCall) instead of only dangerousGitCommand, fix the fixture row to the protected-branch verdict, and strip GIT_BIGPOWERS_LAND from the harness environment"
+    risk_level: "medium"
+    commit_message: "fix(hooks): judge the TS guard through evaluateBashCall so parity covers every rule"
   - id: BUG-2026-11-03-guard-push-target-matches-text
     status: open
     severity: medium

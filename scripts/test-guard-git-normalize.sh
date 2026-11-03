@@ -7,13 +7,19 @@
 # pins four things:
 #
 #   (a) the shell hook (hooks/pre-tool-use.sh) reaches the expected verdict
-#   (b) the TS extension (dangerousGitCommand) reaches the same verdict
+#   (b) the TS extension reaches the same verdict — through evaluateBashCall(),
+#       the function the tool_call handler calls, so protected-branch and commit
+#       rules are compared too, not only the destructive-argv table
 #   (c) the two agree with each other on every row — that is what "consistent
 #       across Claude Code, Cursor and Gemini CLI modes" means
 #   (d) the rules that share the hook (commits, protected branch, JSON
 #       envelopes, the pi/OMP fallback) still behave
 #
-# The row loop runs inside one Python process: 29 rows x (hook + probe) with a
+# Both sides run with GIT_BIGPOWERS_LAND stripped: land mode disables the
+# protected-branch block, so an inherited value would let a developer's shell
+# turn a red gate green (BUG-2026-11-03-guard-normalize-parity-vacuous).
+#
+# The row loop runs inside one Python process: every row x (hook + probe) with a
 # Python start per row cost ~70s on a pyenv host, which is too much for a gate.
 #
 # Usage: bash scripts/test-guard-git-normalize.sh
@@ -38,9 +44,12 @@ if [[ ! -f "$FIXTURE" ]]; then
 fi
 
 REPORT=$($PYTHON - "$FIXTURE" <<'PY'
-import json, subprocess, sys, yaml
+import json, os, subprocess, sys, yaml
 
 fixture = sys.argv[1]
+# Ambient LAND mode disables the protected-branch block. A gate that depends on
+# the developer's shell is not a gate (this masked a CI failure once).
+ENV = {k: v for k, v in os.environ.items() if k != "GIT_BIGPOWERS_LAND"}
 cases = yaml.safe_load(open(fixture, encoding="utf-8"))["cases"]
 commands = [c["command"] for c in cases]
 
@@ -57,7 +66,9 @@ ts = json.loads(probe.stdout.strip().splitlines()[-1])
 shell_fails = ts_fails = disagree = 0
 for case, ts_verdict in zip(cases, ts):
     payload = json.dumps({"command": case["command"]})
-    run = subprocess.run(["bash", "hooks/pre-tool-use.sh"], input=payload, capture_output=True, text=True)
+    run = subprocess.run(
+        ["bash", "hooks/pre-tool-use.sh"], input=payload, capture_output=True, text=True, env=ENV,
+    )
     shell_verdict = "block" if run.returncode == 2 else "allow"
     expected = case["verdict"]
     if shell_verdict != expected:
@@ -102,7 +113,7 @@ fi
 json_cmd() { $PYTHON -c 'import json,sys;print(json.dumps({"command": sys.argv[1]}))' "$1"; }
 adjacent() { # name want_rc command [hook]
   local name="$1" want="$2" command="$3" hook="${4:-hooks/pre-tool-use.sh}" rc
-  json_cmd "$command" | bash "$hook" >/dev/null 2>&1 && rc=0 || rc=$?
+  json_cmd "$command" | env -u GIT_BIGPOWERS_LAND bash "$hook" >/dev/null 2>&1 && rc=0 || rc=$?
   [ "$rc" -eq "$want" ] || ta_fail "(d) $name: rc=$rc (want $want) — $command"
 }
 adjacent "plain status allowed" 0 "git status"
@@ -111,11 +122,11 @@ adjacent "feature push allowed" 0 "git push origin feature/x"
 adjacent "non-conventional commit blocked" 2 'git commit -m "bad message"'
 
 DESTRUCTIVE="git reset --hard"
-GEMINI_OUT=$(json_cmd "$DESTRUCTIVE" | GIT_GUARDRAILS_MODE=gemini bash hooks/pre-tool-use.sh 2>&1)
+GEMINI_OUT=$(json_cmd "$DESTRUCTIVE" | env -u GIT_BIGPOWERS_LAND GIT_GUARDRAILS_MODE=gemini bash hooks/pre-tool-use.sh 2>&1)
 echo "$GEMINI_OUT" | grep -q '"decision": *"deny"' \
   || ta_fail "(d) gemini mode must emit deny JSON, got: $(echo "$GEMINI_OUT" | head -c 120)"
 
-PI_OUT=$(json_cmd "$DESTRUCTIVE" | bash hooks/pre/bash.sh 2>&1)
+PI_OUT=$(json_cmd "$DESTRUCTIVE" | env -u GIT_BIGPOWERS_LAND bash hooks/pre/bash.sh 2>&1)
 echo "$PI_OUT" | grep -q '"decision":"block"' \
   || ta_fail "(d) pi/OMP fallback must emit block JSON, got: $(echo "$PI_OUT" | head -c 120)"
 

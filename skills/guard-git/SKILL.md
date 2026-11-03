@@ -39,7 +39,9 @@ Installs a shared hook that blocks destructive git operations and enforces workf
 
 ## Customization
 
-Destructive-operation rules live in one table: `scripts/lib/git-argv.py` (shell hooks) mirrored by `dangerousGitCommand()` in `extensions/omp-hooks.ts`. Add a rule to both and a row to `specs/verifications/fixtures/guard-git-normalize.yaml` — the gate (`bash scripts/test-guard-git-normalize.sh`) proves both implementations agree and nothing false-positives. Protected branches and commit rules stay in `pre-tool-use.sh`.
+The rule table lives in `scripts/lib/git-argv.py` (shell hooks) and is mirrored in `extensions/omp-hooks.ts`. Add a rule to both and a row to `specs/verifications/fixtures/guard-git-normalize.yaml`.
+
+The TS side is judged through `evaluateBashCall()` — the single pure function the `tool_call` handler calls — so the fixture covers **every** rule (destructive argv, protected-branch push, Conventional Commits), not just the argv table. The gate (`bash scripts/test-guard-git-normalize.sh`) runs both implementations with `GIT_BIGPOWERS_LAND` unset and fails if they disagree, so a verdict can never depend on the developer's shell.
 
 ## Advanced
 
