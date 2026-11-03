@@ -1,7 +1,7 @@
 # Lean value-stream measurement for the A/B benchmark — proposal
 
-Status: proposal, 2026-11-03. Steps 2 and 3 (e58s08 stage classifier, e58s09 waste metrics) are
-built; steps 4–6 are designs. Builds on e58s01–e58s07.
+Status: proposal, 2026-11-03. Steps 2–4 (e58s08 stage classifier, e58s09 waste metrics, e58s10
+views) are built; steps 5–6 are designs. Builds on e58s01–e58s07.
 
 **First VSM at scale (e58s08, 2026-11-03).** 120 sandboxed runs (`pi-docker`, deepseek-v4.1-flash,
 ab-09/11/13/17/19/20 × 2 arms × k=10): outcome equal (pass 0.98 vs 0.97, delta −0.02
@@ -28,6 +28,18 @@ as often, for the same first-time-through rate. **Caveat:** PCE counts all test 
 added, so heavy testing looks efficient. Step 4 should split test time into runs that found a
 defect (value) and runs that repeated a green result (overprocessing). Patch metrics (`diff_ratio`,
 leftovers, review load) need runs made after e58s09, since older runs kept no patch.
+
+**The lean view on the same 120 runs (e58s10, `ab_progress.py`):**
+
+```text
+vanilla    |PDDDDDDDBBBBBBBBBBBBTTTTTTTTT                     |  72 s  first build 16 s  FTT 0.58  $/pass 0.0075
+bigpowers  |PPPPPDDDDDDDDBBBBBBBBTTTTTTTTTTTTTTTTTTTTTTTTRRRM | 124 s  first build 69 s  FTT 0.60  $/pass 0.0151
+```
+
+Deltas whose 95% CI excludes zero: stage switches +5.5, build share −0.23, test share +0.20, test
+runs +4.8, **redundant green test runs +1.7 [1.1, 2.4]**, re-edits +0.6. Not different: rework
+loops, first-time-through, PCE. The extra testing is mostly repeated green runs: overprocessing
+that buys no quality on these tasks, at twice the cost per passed task.
 
 ## Why
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# story: e58s09
+# story: e58s09 e58s10
 """Lean waste metrics for one A/B run, from its final patch and its pi transcript.
 
 Patch (any adapter): changed lines per file class, the reference solution's size, extra files,
@@ -135,20 +135,34 @@ def transcript_waste(stdout: str, rules: dict | None = None) -> dict | None:
     runs = [c for c in calls if c["tool"] == "bash" and c["stage"] == "test"]
     after = [c for c in calls[first_build:] if c in runs] if first_build is not None else []
     rework = sum(c["failed"] for c in after)
+    redundant = redundant_runs(calls)
     stages = (vsm or {}).get("stages", {})
     lead = (vsm or {}).get("lead_time_s") or 0
     value_add = sum(stages.get(s, {}).get("s", 0) for s in ("build", "test"))
     return {
         "rereads": sum(n - 1 for n in reads.values()),
         "repeated_commands": sum(n - 1 for n in commands.values()),
-        "test_runs": len(runs), "rework_loops": rework,
+        "test_runs": len(runs), "redundant_test_runs": redundant, "rework_loops": rework,
         "reedits": sum(n - 1 for n in edits.values()),
         "ftt": bool(after) and rework == 0,
         "pce": round(value_add / lead, 3) if lead else None,
     }
 
 
-EMPTY_TRANSCRIPT = dict.fromkeys(["rereads", "repeated_commands", "test_runs", "rework_loops", "reedits", "ftt", "pce"])
+def redundant_runs(calls: list[dict]) -> int:
+    """Passing test runs with no file edited since the previous passing run (overprocessing, e58s10)."""
+    redundant, green, dirty = 0, False, False
+    for call in calls:
+        if call["tool"] in ("edit", "write"):
+            dirty = True
+        elif call["tool"] == "bash" and call["stage"] == "test" and not call["failed"]:
+            redundant += green and not dirty
+            green, dirty = True, False
+    return redundant
+
+
+EMPTY_TRANSCRIPT = dict.fromkeys(["rereads", "repeated_commands", "test_runs", "redundant_test_runs",
+                                  "rework_loops", "reedits", "ftt", "pce"])
 
 
 def waste_for(workdir: Path, base: str, stdout: str, parser: str, task_dir: Path,

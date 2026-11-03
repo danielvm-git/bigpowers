@@ -1,17 +1,17 @@
 # Traceability Matrix
 
-**Generated:** 2026-11-03 13:32:32 UTC
-**Total stories:** 159
-**Tagged stories:** 134
+**Generated:** 2026-11-03 13:40:09 UTC
+**Total stories:** 160
+**Tagged stories:** 135
 **Dark stories:** 0
 **Orphan tags:** 144
-**Stale tags:** 124
+**Stale tags:** 125
 
 ## Oracle Stats
 
-- **High** (explicit tag): 1052
-- **Medium** (file heuristic): 2645
-- **Low** (task reference): 107
+- **High** (explicit tag): 1055
+- **Medium** (file heuristic): 2775
+- **Low** (task reference): 108
 
 ## Story Coverage
 
@@ -113,6 +113,7 @@
 | e58s07 | Docker sandbox for agent runs and grading | e58 | 0 | 5.3 | done | 23 |
 | e58s08 | value stream map per run (stage classifier) | e58 | 0 | 5.3 | done | 9 |
 | e58s09 | lean waste metrics per run | e58 | 0 | 5.3 | done | 4 |
+| e58s10 | value stream and waste views in progress and reports | e58 | 0 | 5.3 | done | 134 |
 | e60s01 | Interactive installer with ASCII banner, global/local, tool  | e60 | 0 | 9.0 | done | 11 |
 | e61s01 | Hermes adapter + hook templates (Wave A) | e61 | 0 | 5.0 | done | 10 |
 | e61s02 | Install hub wiring (Wave B) | e61 | 0 | 5.0 | done | 15 |
@@ -411,6 +412,7 @@
 - `e58s07`
 - `e58s08`
 - `e58s09`
+- `e58s10`
 - `e60s01`
 - `e61s01`
 - `e61s02`

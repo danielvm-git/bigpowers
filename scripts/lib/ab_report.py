@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# story: e58s01 e58s03 e58s04
+# story: e58s01 e58s03 e58s04 e58s10
 """A/B eval aggregation and reports — pure functions over run records (no agent, no subprocess
 except reading the bigpowers git SHA). Split from ab-eval.py to keep both under the 300-line cap."""
 from __future__ import annotations
@@ -63,8 +63,10 @@ def aggregate(records: list[dict], arms: list[str], tasks: list[str]) -> dict:
     per_task_score = {t: {a: mean([r.get("score") for r in by_arm[a] if r["task"] == t]) for a in arms}
                       for t in tasks}
     deltas = {a: arm_delta(by_arm, summary, a) for a in arms if a != "vanilla"} if "vanilla" in arms else {}
+    from ab_lean import lean_summary  # type: ignore[import]  # lazy: ab_lean imports this module
     return {"arms_summary": summary, "per_task": per_task, "per_task_score": per_task_score,
-            "delta": deltas.get("bigpowers"), "deltas_vs_vanilla": deltas}
+            "delta": deltas.get("bigpowers"), "deltas_vs_vanilla": deltas,
+            "lean": lean_summary(records, arms)}
 
 
 def arm_delta(by_arm: dict, summary: dict, arm: str) -> dict:
@@ -119,4 +121,7 @@ def print_summary(result: dict) -> None:
             line += f"  score {d['score']:+.2f} CI {d['score_ci95']}"
         if "bugs_opened" in d:
             line += f"  bugs {d['bugs_opened']:+.1f}"
+        print(line)
+    from ab_lean import lean_lines  # type: ignore[import]
+    for line in lean_lines(result.get("lean")):
         print(line)

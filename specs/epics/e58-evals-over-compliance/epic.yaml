@@ -205,7 +205,7 @@ stories:
     verify: python3 tests/test_ab_waste.py
   - id: e58s10
     title: "value stream and waste views in progress and reports"
-    status: todo
+    status: done
     bcps: 5
     bcp_basis: estimate, 2026-11-03 (aggregation + deltas + bars + table + one waste metric)
     risk: P2

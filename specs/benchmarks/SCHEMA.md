@@ -120,6 +120,11 @@ bash scripts/run-ab-eval.sh --adapter gemini --model <m>    # another harness
   words). Transcript metrics, pi only (else `null`): `rereads`, `repeated_commands`, `test_runs`,
   `rework_loops` (failing test runs after the first build edit, from `exit_code` or a `fail N`
   summary), `reedits`, `ftt`, `pce` = (build + test time) ÷ lead time.
+- **Lean views (e58s10):** the report has `lean` (`scripts/lib/ab_lean.py`): per arm, mean lead
+  time, first build, switches, stage seconds and shares, waste means, `ftt_rate`, `leftover_rate`,
+  `cost_per_pass`; `lean.deltas.<arm>.<metric>` = `{delta, ci95}` against vanilla. `print_summary` and
+  `ab_progress.py` print a VSM bar per arm (length = mean lead time) and the waste table.
+  `waste.redundant_test_runs` counts green test runs with no edit since the previous green run.
 - **Reports:** `specs/benchmarks/reports/AB-<date>.yaml` (per-arm and per-task rates and
   `mean_score`, `per_task_score`, delta `bigpowers − vanilla` for pass rate and score, each with a
   seeded bootstrap 95% CI; `deltas_vs_vanilla` gives the same for every non-vanilla arm) and

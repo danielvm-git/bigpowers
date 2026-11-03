@@ -1,14 +1,14 @@
 story_id: e58s10
 spec: e58s10-lean-views.md
 title: value stream and waste views in progress and reports
-status: failing
+status: passing
 bcps: 5
 tasks:
 - id: 1
   description: Failing tests for lean_summary, deltas, bars, old records and redundant test runs
   verify: test -f tests/test_ab_lean.py
   risk: P2
-  status: failing
+  status: passing
   allure:
     severity: normal
     categories: ["unit", "Evals", "Lean"]
@@ -16,7 +16,7 @@ tasks:
   description: ab_lean.py summary, deltas, bars and waste table; redundant_test_runs in ab_waste
   verify: python3 tests/test_ab_lean.py
   risk: P2
-  status: failing
+  status: passing
   allure:
     severity: normal
     categories: ["unit", "Evals", "Lean"]
@@ -24,7 +24,7 @@ tasks:
   description: Report, print_summary and ab_progress show the lean views; validated; documented
   verify: python3 tests/test_ab_lean.py && python3 tests/test_ab_progress.py && grep -q 'ab_lean' specs/benchmarks/SCHEMA.md
   risk: P3
-  status: failing
+  status: passing
   allure:
     severity: minor
     categories: ["Evals", "docs"]
