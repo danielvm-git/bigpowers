@@ -652,6 +652,16 @@ bugs:
     approach: "Tokenize the command (quote-aware), strip git's global options, then judge the (subcommand, arguments) pair against one rule table — implemented in scripts/lib/git-argv.py for the shell hooks and mirrored in extensions/omp-hooks.ts, with a fixture gate that fails if the two disagree"
     risk_level: "medium"
     commit_message: "fix(hooks): judge git argv instead of command substrings in guard-git"
+  - id: BUG-2026-11-03-guard-push-target-matches-text
+    status: open
+    severity: medium
+    scope: hooks / guard-git
+    title: "Protected-branch push check matches the word 'main' anywhere in the command, so an unrelated echo or comment blocks a legitimate feature push"
+    file: bugs/BUG-2026-11-03-guard-push-target-matches-text.md
+    files_changed: "hooks/pre-tool-use.sh, extensions/omp-hooks.ts"
+    approach: "Decide the push target from the normalized argv of each git push invocation (remote + refspec), not from a substring match over the whole command string"
+    risk_level: "low"
+    commit_message: "fix(hooks): derive push targets from git argv, not from command text"
   - id: BUG-2026-11-03-omp-hooks-stderr-leak
     status: open
     severity: medium
