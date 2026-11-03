@@ -2,11 +2,12 @@ active_flow: build
 active_epic: e84
 active_story: e84s01
 bug_id: null
-bigpowers_version: 2.92.0
+bigpowers_version: 2.93.0
 bug_cycle: null
 handoff:
   next_skill: audit-code
-  context: 'Pillar B: Shaved always-loaded context in CLAUDE.md (symlink to AGENTS.md, 98 lines) and CONVENTIONS.md (105 lines), cutting always-loaded context by ~77%. Toolchain syntax tables moved to docs/references/agent-tooling.md.'
+  context: 'Pillar B: Shaved always-loaded context in CLAUDE.md (symlink to AGENTS.md, 98 lines) and CONVENTIONS.md
+    (105 lines), cutting always-loaded context by ~77%. Toolchain syntax tables moved to docs/references/agent-tooling.md.'
   epic: e84
 epic_cycle: null
 metrics:

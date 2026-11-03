@@ -1,3 +1,10 @@
+# [2.93.0](https://github.com/danielvm-git/bigpowers/compare/v2.92.0...v2.93.0) (2026-11-03)
+
+
+### Features
+
+* **context:** shave always-loaded context in AGENTS.md and CONVENTIONS.md to <=150 lines (e84s01) ([#197](https://github.com/danielvm-git/bigpowers/issues/197)) ([34f6366](https://github.com/danielvm-git/bigpowers/commit/34f6366d481fc582e7d556148870298811a5d0ff))
+
 # [2.92.0](https://github.com/danielvm-git/bigpowers/compare/v2.91.1...v2.92.0) (2026-11-03)
 
 
