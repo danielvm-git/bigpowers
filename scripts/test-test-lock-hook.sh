@@ -10,7 +10,7 @@ HOOK="$REPO_ROOT/hooks/pre-tool-use.sh"
 pass_count=0
 fail_count=0
 
-assert_denied() {
+lock_assert_denied() {
   local label="$1"
   local input="$2"
   local expected_substr="${3:-}"
@@ -30,7 +30,7 @@ assert_denied() {
   fi
 }
 
-assert_allowed() {
+lock_assert_allowed() {
   local label="$1"
   local input="$2"
   local output exit_code=0
@@ -64,7 +64,7 @@ git add .
 git commit -q -m "feat(app): initial commit"
 
 # 1. Without a RED commit yet during fix_bug, test edits should be allowed (to author the RED test)
-assert_allowed "Test file edit allowed when authoring RED test" \
+lock_assert_allowed "Test file edit allowed when authoring RED test" \
   '{"tool": "Edit", "file_path": "test/app.test.js"}'
 
 # 2. Commit a RED test
@@ -73,23 +73,23 @@ git add test/app.test.js
 git commit -q -m "test(app): red test reproducing defect"
 
 # 3. Now that a RED commit exists and active_flow is fix_bug, test edits must be LOCKED
-assert_denied "Test file edit denied after RED commit in fix_bug" \
+lock_assert_denied "Test file edit denied after RED commit in fix_bug" \
   '{"tool": "Edit", "file_path": "test/app.test.js"}' \
   "locked"
 
-assert_denied "Test file write denied after RED commit in fix_bug" \
+lock_assert_denied "Test file write denied after RED commit in fix_bug" \
   '{"tool": "Write", "file_path": "tests/test_other.py"}' \
   "locked"
 
 # 4. Source file edits must remain allowed
-assert_allowed "Source file edit allowed after RED commit in fix_bug" \
+lock_assert_allowed "Source file edit allowed after RED commit in fix_bug" \
   '{"tool": "Edit", "file_path": "src/app.js"}'
 
 # 5. When active_flow is not fix_bug, test edits are allowed
 cat > specs/state.yaml <<'YAML'
 active_flow: build_epic
 YAML
-assert_allowed "Test file edit allowed when active_flow is not fix_bug" \
+lock_assert_allowed "Test file edit allowed when active_flow is not fix_bug" \
   '{"tool": "Edit", "file_path": "test/app.test.js"}'
 
 echo ""
