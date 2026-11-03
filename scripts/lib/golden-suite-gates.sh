@@ -53,6 +53,10 @@ GOLDEN_GATES=(
   "target-contracts:bash scripts/test-target-contracts.sh:false"
   # Registry-driven replacements for the 25 hand-written per-target scripts.
   "install-hub:bash scripts/test-install-hub.sh:false"
+  # `bigpowers update` runs `npm install -g @latest` inside a live process; a
+  # version captured by require() at startup then reports the release that was
+  # just replaced (BUG-2026-11-03-cli-update-stale-version).
+  "bigpowers-cli-version:bash scripts/test-bigpowers-cli-version.sh:false"
   "adapter-render:bash scripts/test-adapter-render.sh:false"
   "adapters:bash scripts/test-adapters.sh:false"
   # Previously orphaned: present in scripts/ but reachable from no gate.
