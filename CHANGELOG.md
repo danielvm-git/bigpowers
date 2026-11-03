@@ -1,3 +1,10 @@
+# [2.92.0](https://github.com/danielvm-git/bigpowers/compare/v2.91.1...v2.92.0) (2026-11-03)
+
+
+### Features
+
+* **benchmarks:** lean value-stream and waste metrics for the A/B eval, via pi in the Docker sandbox (e58s05–e58s11) ([#195](https://github.com/danielvm-git/bigpowers/issues/195)) ([11f5c8f](https://github.com/danielvm-git/bigpowers/commit/11f5c8f4b6407c67c4131620861345b49fce6193)), closes [#191](https://github.com/danielvm-git/bigpowers/issues/191)
+
 ## [2.91.1](https://github.com/danielvm-git/bigpowers/compare/v2.91.0...v2.91.1) (2026-11-03)
 
 
