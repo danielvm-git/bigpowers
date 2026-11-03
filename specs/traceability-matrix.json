@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-03T03:12:24.131682+00:00",
+  "generated_at": "2026-11-03T03:23:55.148304+00:00",
   "matrix_version": "1.0",
   "stories": [
     {
@@ -4332,6 +4332,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261103-001451.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-201018.md",
           "line": 0,
           "confidence": "medium",
@@ -5070,6 +5076,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261103-001346.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-175521.md",
           "line": 0,
           "confidence": "medium",
@@ -5484,6 +5496,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261103-002125.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260629-130700.md",
           "line": 0,
           "confidence": "medium",
@@ -5670,7 +5688,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 301
+      "link_count": 304
     },
     {
       "id": "e45s19",
@@ -7650,6 +7668,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261103-001451.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-201018.md",
           "line": 0,
           "confidence": "medium",
@@ -8388,6 +8412,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261103-001346.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-175521.md",
           "line": 0,
           "confidence": "medium",
@@ -8802,6 +8832,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261103-002125.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260629-130700.md",
           "line": 0,
           "confidence": "medium",
@@ -8976,7 +9012,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 287
+      "link_count": 290
     },
     {
       "id": "e45s32",
@@ -9162,6 +9198,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-10-25-release-not-gated.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/epics/archive/e26-security-review/e26s06-release-branch-gate.md",
           "line": 0,
           "confidence": "medium",
@@ -9240,7 +9282,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 42
+      "link_count": 43
     },
     {
       "id": "e45s33",
@@ -10140,6 +10182,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-11-03-wiki-indexes-ignored-reports.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-23-epics-wiki-empty-references.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -10158,6 +10206,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-09-09-pi-duplicate-slash-commands.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-03-codebase-wiki-venv-pollution.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -10165,6 +10219,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-03-codebase-wiki-venv-pollution.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-03-wiki-indexes-ignored-reports.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -10266,7 +10326,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 34
+      "link_count": 37
     },
     {
       "id": "e48s02",
@@ -10404,6 +10464,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-09-09-pi-duplicate-slash-commands.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-23-golden-g11-worktree-venv.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -10429,6 +10495,18 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-09T033939-golden-g01-submodule-checkout.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-03-wiki-indexes-ignored-reports.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-09-05-golden-gate-missing-node-deps.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -10494,7 +10572,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 36
+      "link_count": 39
     },
     {
       "id": "e48s03",
@@ -10722,6 +10800,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-11-03-wiki-indexes-ignored-reports.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-06-verify-work-runner-scripts-oversized.md",
           "line": 0,
           "confidence": "medium",
@@ -10794,6 +10878,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-10-30-compliance-akita-masked.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-08-31-npm-token-invalid-release.md",
           "line": 0,
           "confidence": "medium",
@@ -10813,6 +10903,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-06T124600-sync-trace-repo-root.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-09-10-pi-mcp-omp-startup.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -10879,6 +10975,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-03-trace-stories-613-line.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-10-25-pages-not-gated.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -10992,6 +11094,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-10-25-ci-critical-path.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-04-filesize-gate-python-blindspot.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -11023,6 +11131,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-06-02T164500.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-09-05-pi-omp-extension-load-crash.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -11113,6 +11227,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-07-install-gemini-plugins.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-10-30-mcp-unset-plugin-root.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -11232,6 +11352,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-09-09-pi-duplicate-slash-commands.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-23-golden-g11-worktree-venv.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -11263,6 +11389,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-30T000000.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-10-25-release-not-gated.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -11496,6 +11628,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-11-03-wiki-indexes-ignored-reports.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-25-land-branch-protected.md",
           "line": 0,
           "confidence": "medium",
@@ -11526,7 +11664,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-09-05-golden-gate-missing-node-deps.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-10-30-compliance-akita-masked.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-09-13-docs-base-path-gate-ci.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -11634,7 +11784,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 188
+      "link_count": 200
     },
     {
       "id": "e48s04",
@@ -11964,7 +12114,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-10-30-compliance-akita-masked.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-06-11T183000.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-09-10-pi-mcp-omp-startup.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -12001,6 +12163,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-03-trace-stories-613-line.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-10-25-pages-not-gated.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -12072,6 +12240,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-10-25-ci-critical-path.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-04-filesize-gate-python-blindspot.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -12096,6 +12270,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-09-05-pi-omp-extension-load-crash.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-03-capsule-release-labels.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -12109,6 +12289,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-06-27T000000.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-10-30-mcp-unset-plugin-root.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -12162,6 +12348,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-09-09-pi-duplicate-slash-commands.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-23-golden-g11-worktree-venv.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -12181,6 +12373,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-30T000000.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-10-25-release-not-gated.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -12288,6 +12486,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-11-03-wiki-indexes-ignored-reports.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-03T020000.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -12295,6 +12499,18 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-06-craft-skill-sync-oversized.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-09-05-golden-gate-missing-node-deps.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-09-13-docs-base-path-gate-ci.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -12960,7 +13176,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 205
+      "link_count": 216
     },
     {
       "id": "e48s06",
@@ -12984,6 +13200,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-11-03-wiki-indexes-ignored-reports.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-23-epics-wiki-empty-references.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -12997,6 +13219,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-03-codebase-wiki-venv-pollution.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-03-wiki-indexes-ignored-reports.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -13038,7 +13266,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 11
+      "link_count": 13
     },
     {
       "id": "e48s07",
@@ -15096,6 +15324,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261103-001451.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-201018.md",
           "line": 0,
           "confidence": "medium",
@@ -15834,6 +16068,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261103-001346.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-175521.md",
           "line": 0,
           "confidence": "medium",
@@ -16248,6 +16488,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261103-002125.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260629-130700.md",
           "line": 0,
           "confidence": "medium",
@@ -16410,6 +16656,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-10-25-pages-not-gated.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-06-migrate-spec-migration-logic-violations.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -16476,6 +16728,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-10-25-release-not-gated.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-10-25-pages-not-gated.md",
           "line": 0,
           "confidence": "medium",
@@ -16513,6 +16771,18 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-07-compliance-skill-catalog-n7.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-09-05-golden-gate-missing-node-deps.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-09-13-docs-base-path-gate-ci.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -16692,7 +16962,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 344
+      "link_count": 351
     },
     {
       "id": "e51s05",
@@ -16998,6 +17268,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-10-25-pages-not-gated.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-04-filesize-gate-python-blindspot.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -17034,7 +17310,25 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-10-25-release-not-gated.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-10-25-pages-not-gated.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-09-05-golden-gate-missing-node-deps.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-09-13-docs-base-path-gate-ci.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -17226,7 +17520,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 55
+      "link_count": 59
     },
     {
       "id": "e53s04",
@@ -23010,13 +23304,19 @@
           "method": "explicit_tag"
         },
         {
+          "file": "specs/bugs/BUG-2026-09-05-pi-omp-extension-load-crash.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-09-05-pi-omp-extension-load-crash.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         }
       ],
-      "link_count": 6
+      "link_count": 7
     },
     {
       "id": "e82s04",
@@ -24456,7 +24756,7 @@
     "stale_count": 122,
     "oracle_stats": {
       "high": 1040,
-      "medium": 2570,
+      "medium": 2620,
       "low": 105
     }
   }
