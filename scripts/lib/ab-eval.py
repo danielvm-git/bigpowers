@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# story: e58s01 e58s02 e58s03 e58s05
+# story: e58s01 e58s02 e58s03 e58s05 e58s06
 """A/B eval: run the same tasks with and without bigpowers and grade only the outcome.
 
 Each run gets a fresh temp git workdir (outside the repo) copied from the task fixture.
@@ -199,7 +199,7 @@ def parse_args(argv: list[str] | None) -> argparse.Namespace:
     p.add_argument("--tasks", help="comma-separated task ids (default: all)")
     p.add_argument("--arms", default=DEFAULT_ARMS)
     p.add_argument("--k", type=int, help="runs per task per arm (default: config k)")
-    p.add_argument("--adapter", default="claude")
+    p.add_argument("--adapter", help="adapter name (default: config default_adapter, else claude)")
     p.add_argument("--adapter-cmd", help="custom adapter command; prompt is in $AB_PROMPT")
     p.add_argument("--parser", help="output parser: claude-json | none")
     p.add_argument("--model", help="exported as $AB_MODEL for the adapter")
@@ -215,7 +215,8 @@ def main(argv: list[str] | None = None) -> int:
         config = load_yaml(args.config)
         arm_names = [a.strip() for a in args.arms.split(",") if a.strip()]
         arms = pick(config.get("arms", {}), arm_names, "arm")
-        adapter = resolve_adapter(config, args.adapter, args.adapter_cmd, args.parser)
+        adapter_name = args.adapter or config.get("default_adapter", "claude")
+        adapter = resolve_adapter(config, adapter_name, args.adapter_cmd, args.parser)
         tasks = load_tasks(args.tasks_dir, args.tasks.split(",") if args.tasks else None)
         if not tasks:
             raise ConfigError(f"no tasks found in {args.tasks_dir}")

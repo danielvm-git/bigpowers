@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-03T02:21:13.916759+00:00",
+  "generated_at": "2026-11-03T02:32:32.156502+00:00",
   "matrix_version": "1.0",
   "stories": [
     {
@@ -18033,6 +18033,48 @@
       "link_count": 6
     },
     {
+      "id": "e58s06",
+      "title": "pi adapter (default), OpenCode Go deepseek-v4.1-flash",
+      "epic_id": "e58",
+      "epic_title": "Evals Over Compliance \u2014 Replace the 94% Gate with Outcome Proof",
+      "bcp": 0,
+      "wsjf": 5.3,
+      "status": "done",
+      "links": [
+        {
+          "file": "specs/epics/e58-evals-over-compliance/e58s06-pi-adapter.md",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "tests/test_ab_pi.py",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/benchmarks/reports/AB-2026-11-02-deepseek-v4.1-flash-k10.yaml",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/benchmarks/reports/ab-runs-2026-11-02-deepseek-v4.1-flash-k10.jsonl",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e58-evals-over-compliance/e58s06-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        }
+      ],
+      "link_count": 5
+    },
+    {
       "id": "e60s01",
       "title": "Interactive installer with ASCII banner, global/local, tool selection",
       "epic_id": "e60",
@@ -18504,6 +18546,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/epics/e58-evals-over-compliance/e58s06-pi-adapter.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/epics/e69-integration-mimo-code/e69s01-mimo-adapter.md",
           "line": 0,
           "confidence": "medium",
@@ -18564,7 +18612,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 22
+      "link_count": 23
     },
     {
       "id": "e64s02",
@@ -23908,8 +23956,8 @@
     }
   ],
   "summary": {
-    "total_stories": 155,
-    "tagged_stories": 130,
+    "total_stories": 156,
+    "tagged_stories": 131,
     "dark_stories": [],
     "dark_count": 0,
     "orphan_tags": [
@@ -24141,6 +24189,7 @@
       "e58s03",
       "e58s04",
       "e58s05",
+      "e58s06",
       "e60s01",
       "e61s01",
       "e61s02",
@@ -24181,11 +24230,11 @@
       "e80s05",
       "e81s01"
     ],
-    "stale_count": 120,
+    "stale_count": 121,
     "oracle_stats": {
-      "high": 1035,
-      "medium": 2536,
-      "low": 103
+      "high": 1037,
+      "medium": 2539,
+      "low": 104
     }
   }
 }

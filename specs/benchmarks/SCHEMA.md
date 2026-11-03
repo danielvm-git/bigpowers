@@ -47,8 +47,9 @@ agent CLI and grades only the outcome. It is advisory: exit 0 after a run, 2 on 
 
 ```bash
 bash scripts/run-ab-eval.sh --dry-run                       # print the matrix, spend nothing
-bash scripts/run-ab-eval.sh --tasks ab-01 --k 1             # one task, both arms, claude adapter
-bash scripts/run-ab-eval.sh --adapter opencode              # OpenCode Go, default opencode-go/deepseek-v4-pro
+bash scripts/run-ab-eval.sh --tasks ab-01 --k 1             # one task, both arms, default adapter (pi)
+bash scripts/run-ab-eval.sh --adapter opencode              # opencode CLI, default opencode-go/deepseek-v4-pro
+bash scripts/run-ab-eval.sh --adapter claude --model <m>    # Claude Code
 bash scripts/run-ab-eval.sh --adapter gemini --model <m>    # another harness
 ```
 
@@ -60,6 +61,12 @@ bash scripts/run-ab-eval.sh --adapter gemini --model <m>    # another harness
   `grade`, `timeout_s`, optional `score`), `fixture/` (what the agent sees), `hidden/` (copied in only after the
   agent exits) and `solution/` (reference; the unit tests check fixture fails, solution passes).
   Prompts never name bigpowers.
+- **Default adapter (e58s06):** `pi` (`default_adapter` in config), model
+  `opencode-go/deepseek-v4.1-flash`, parser `pi-json` (sums assistant `message_end` usage; a
+  `stopReason` of `error`/`aborted` or an aborted run marks an agent error). Isolation: `HOME` and
+  `PI_CODING_AGENT_DIR` point inside `$AB_HOME`, which gets only a copy of the user's pi
+  `auth.json`; user settings and packages (which may load bigpowers globally) never load.
+  `--approve` lets the bigpowers arms' `.agents/skills` load.
 - **Isolation:** each run gets a fresh empty `$AB_HOME`; the `opencode` adapter points `HOME` and
   `XDG_CONFIG_HOME` at it (global skills, AGENTS.md and plugins never load) and keeps
   `XDG_DATA_HOME` for credentials. Adapter stdin is always closed. An adapter may set

@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-# story: e58s01 e58s02 e58s03
+# story: e58s01 e58s02 e58s03 e58s06
 """A/B eval adapter output parsers: turn an agent CLI's stdout into cost, token and turn counts.
 
 claude-json      one result object (claude -p --output-format json)
 opencode-jsonl   one event per line (opencode run --format json); step_finish carries tokens + cost
+pi-json          one event per line (pi -p --mode json); assistant message_end carries usage + cost
 none             no metrics
 
 tap_score reads `node --test` summaries for a task's partial-credit score (e58s03).
@@ -36,6 +37,8 @@ def parse_metrics(parser: str, stdout: str) -> dict:
         return parse_claude_json(stdout)
     if parser == "opencode-jsonl":
         return parse_opencode_jsonl(stdout)
+    if parser == "pi-json":
+        return parse_pi_json(stdout)
     return empty_metrics()
 
 
@@ -89,6 +92,26 @@ def parse_opencode_jsonl(stdout: str) -> dict:
         outputs += tokens.get("output", 0) + tokens.get("reasoning", 0)
     metrics.update({"cost_usd": round(cost, 6), "input_tokens": int(inputs), "output_tokens": int(outputs),
                     "turns": len(steps), "agent_reported_error": errored})
+    return metrics
+
+
+def parse_pi_json(stdout: str) -> dict:
+    metrics = empty_metrics()
+    events = json_lines(stdout)
+    replies = [e["message"] for e in events if e.get("type") == "message_end"
+               and (e.get("message") or {}).get("role") == "assistant"]
+    if not replies:
+        return metrics
+    aborted = any(e.get("type") == "agent_settled" and e.get("aborted") for e in events)
+    cost = inputs = outputs = 0.0
+    for msg in replies:
+        usage = msg.get("usage") or {}
+        cost += (usage.get("cost") or {}).get("total") or 0
+        inputs += usage.get("input", 0) + usage.get("cacheRead", 0) + usage.get("cacheWrite", 0)
+        outputs += usage.get("output", 0)
+    errored = aborted or any(m.get("stopReason") in ("error", "aborted") for m in replies)
+    metrics.update({"cost_usd": round(cost, 6), "input_tokens": int(inputs), "output_tokens": int(outputs),
+                    "turns": len(replies), "agent_reported_error": errored})
     return metrics
 
 

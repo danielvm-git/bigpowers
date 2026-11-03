@@ -1,7 +1,7 @@
 ---
 type: Index
-generated_at: 2026-11-03T02:21:13.922271+00:00
-total_concepts: 155
+generated_at: 2026-11-03T02:32:32.161121+00:00
+total_concepts: 156
 ---
 
 # Codebase Wiki — Story Traceability
@@ -102,12 +102,13 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e58s03](./e58s03.md) | partial-credit scoring + two hard tasks (ab-11, ab-13) | high | 7 |
 | [e58s04](./e58s04.md) | ablation arms — which part of bigpowers produces the gain | high | 4 |
 | [e58s05](./e58s05.md) | live progress, interleaved runs and saved transcripts | high | 6 |
+| [e58s06](./e58s06.md) | pi adapter (default), OpenCode Go deepseek-v4.1-flash | high | 5 |
 | [e60s01](./e60s01.md) | Interactive installer with ASCII banner, global/local, tool  | high | 11 |
 | [e61s01](./e61s01.md) | Hermes adapter + hook templates (Wave A) | high | 10 |
 | [e61s02](./e61s02.md) | Install hub wiring (Wave B) | high | 15 |
 | [e62s01](./e62s01.md) | Integration: OpenCode adapter (Wave A) | high | 2 |
 | [e62s02](./e62s02.md) | Install hub wiring (Wave B) | high | 17 |
-| [e64s01](./e64s01.md) | Gemini hooks adapter — event docs, templates, adapter comple | high | 22 |
+| [e64s01](./e64s01.md) | Gemini hooks adapter — event docs, templates, adapter comple | high | 23 |
 | [e64s02](./e64s02.md) | Install hub wiring (Wave B) | high | 15 |
 | [e65s01](./e65s01.md) | Integration: Codex CLI adapter (Wave A) | high | 3 |
 | [e65s02](./e65s02.md) | Install hub wiring (Wave B) | high | 16 |

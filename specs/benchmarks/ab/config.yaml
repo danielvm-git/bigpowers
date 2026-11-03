@@ -1,4 +1,4 @@
-# story: e58s01 e58s04
+# story: e58s01 e58s04 e58s06
 # A/B eval config — read by scripts/run-ab-eval.sh. Arms and adapters are data:
 # a trimmed bigpowers arm or a new harness is one entry here, not new code.
 #
@@ -6,6 +6,8 @@
 #   $AB_PROMPT   task prompt        $AB_MODEL  --model value (may be empty)
 #   $AB_WORKDIR  temp workdir       $AB_BP_ROOT  this bigpowers checkout
 k: 3
+# Used when --adapter is not given (e58s06).
+default_adapter: pi
 
 arms:
   vanilla:
@@ -33,6 +35,20 @@ arms:
       bash "$AB_BP_ROOT/scripts/lib/ab-arm-bigpowers.sh"
 
 adapters:
+  pi:
+    # pi (@earendil-works/pi-coding-agent) with the OpenCode Go provider. Isolation: HOME and
+    # PI_CODING_AGENT_DIR point inside the per-run empty $AB_HOME, which gets only a copy of the
+    # user's pi auth.json (deleted with $AB_HOME). User settings and packages (the maintainer's
+    # loads bigpowers globally), user skills, ~/.agents and ~/.claude never load. --approve
+    # trusts the workdir so the bigpowers arms' .agents/skills load. Set AB_PI_AUTH to use
+    # another auth file.
+    command: >-
+      mkdir -p "$AB_HOME/.pi/agent" &&
+      install -m 600 "${AB_PI_AUTH:-$HOME/.pi/agent/auth.json}" "$AB_HOME/.pi/agent/auth.json" &&
+      env HOME="$AB_HOME" PI_CODING_AGENT_DIR="$AB_HOME/.pi/agent"
+      pi -p --mode json --approve --no-session --no-mcp --offline --model "$AB_MODEL" "$AB_PROMPT"
+    parser: pi-json
+    default_model: opencode-go/deepseek-v4.1-flash
   claude:
     # --setting-sources project loads only the workdir's .claude/ (skills, CLAUDE.md),
     # so ~/.claude/skills (incl. a global bigpowers install), user CLAUDE.md, hooks and

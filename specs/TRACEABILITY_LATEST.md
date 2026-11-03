@@ -1,17 +1,17 @@
 # Traceability Matrix
 
-**Generated:** 2026-11-03 02:21:13 UTC
-**Total stories:** 155
-**Tagged stories:** 130
+**Generated:** 2026-11-03 02:32:32 UTC
+**Total stories:** 156
+**Tagged stories:** 131
 **Dark stories:** 0
 **Orphan tags:** 144
-**Stale tags:** 120
+**Stale tags:** 121
 
 ## Oracle Stats
 
-- **High** (explicit tag): 1035
-- **Medium** (file heuristic): 2536
-- **Low** (task reference): 103
+- **High** (explicit tag): 1037
+- **Medium** (file heuristic): 2539
+- **Low** (task reference): 104
 
 ## Story Coverage
 
@@ -109,12 +109,13 @@
 | e58s03 | partial-credit scoring + two hard tasks (ab-11, ab-13) | e58 | 0 | 5.3 | done | 7 |
 | e58s04 | ablation arms — which part of bigpowers produces the gain | e58 | 0 | 5.3 | done | 4 |
 | e58s05 | live progress, interleaved runs and saved transcripts | e58 | 0 | 5.3 | done | 6 |
+| e58s06 | pi adapter (default), OpenCode Go deepseek-v4.1-flash | e58 | 0 | 5.3 | done | 5 |
 | e60s01 | Interactive installer with ASCII banner, global/local, tool  | e60 | 0 | 9.0 | done | 11 |
 | e61s01 | Hermes adapter + hook templates (Wave A) | e61 | 0 | 5.0 | done | 10 |
 | e61s02 | Install hub wiring (Wave B) | e61 | 0 | 5.0 | done | 15 |
 | e62s01 | Integration: OpenCode adapter (Wave A) | e62 | 0 | 4.0 | done | 2 |
 | e62s02 | Install hub wiring (Wave B) | e62 | 0 | 4.0 | done | 17 |
-| e64s01 | Gemini hooks adapter — event docs, templates, adapter comple | e64 | 0 | 6.0 | done | 22 |
+| e64s01 | Gemini hooks adapter — event docs, templates, adapter comple | e64 | 0 | 6.0 | done | 23 |
 | e64s02 | Install hub wiring (Wave B) | e64 | 0 | 6.0 | done | 15 |
 | e65s01 | Integration: Codex CLI adapter (Wave A) | e65 | 0 | 6.0 | done | 3 |
 | e65s02 | Install hub wiring (Wave B) | e65 | 0 | 6.0 | done | 16 |
@@ -403,6 +404,7 @@
 - `e58s03`
 - `e58s04`
 - `e58s05`
+- `e58s06`
 - `e60s01`
 - `e61s01`
 - `e61s02`

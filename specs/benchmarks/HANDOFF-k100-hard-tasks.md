@@ -10,7 +10,7 @@ tasks, the skills or any spec. Do not push.
 ## Where
 
 - Worktree: `/Users/danielvm/Developer/bigpowers/.claude/worktrees/bigpowers-bug-investigation-9fa73c`
-- Branch: `danielvm-git/bigpowers-evaluation-roadmap-4d0758`, at or after the commit that adds `scripts/lib/ab_progress.py`
+- Branch: `danielvm-git/bigpowers-evaluation-roadmap-4d0758`, at or after the commit that adds the `pi` adapter (e58s06)
 - Run every command from the worktree root. Read `specs/benchmarks/SCHEMA.md` (section "A/B outcome
   eval") first. It explains arms, tasks, hidden tests, `score` and the report fields.
 
@@ -20,7 +20,8 @@ Run the A/B eval on the two hard tasks with k=100 per arm:
 
 - Tasks: `ab-11` (ledger rounding bug) and `ab-13` (orders module split)
 - Arms: `vanilla` and `bigpowers`
-- Adapter: `opencode` (OpenCode Go subscription; the credential is already connected)
+- Adapter: `pi` (the default; OpenCode Go provider, credential already in `~/.pi/agent/auth.json`).
+  Each run uses an isolated pi config folder, so your global pi settings and packages never load.
 - Model: `opencode-go/deepseek-v4.1-flash`
 - Total: 2 tasks × 2 arms × 100 = **400 agent runs**
 
@@ -29,9 +30,9 @@ Expect about $3–8 of Go quota and 8–9 hours if run one after another. Run in
 ## Preflight checks (stop and report if any fails)
 
 ```bash
-opencode auth list | grep -q 'OpenCode Go'
+pi auth check --provider opencode-go | grep -q ready
 python3 tests/test_ab_score.py
-bash scripts/run-ab-eval.sh --dry-run --adapter opencode --tasks ab-11,ab-13 --k 1
+bash scripts/run-ab-eval.sh --dry-run --tasks ab-11,ab-13 --k 1 | grep -q "adapter 'pi'"
 ```
 
 ## Run in shards
@@ -43,7 +44,7 @@ output folder. Shards must never share an `--out` folder: report files are named
 OUT=/tmp/bp-ab-k100; mkdir -p "$OUT"
 for task in ab-11 ab-13; do
   for shard in 1 2 3 4 5; do
-    bash scripts/run-ab-eval.sh --adapter opencode --model opencode-go/deepseek-v4.1-flash \
+    bash scripts/run-ab-eval.sh --model opencode-go/deepseek-v4.1-flash \
       --tasks "$task" --k 20 --arms vanilla,bigpowers --out "$OUT/$task-$shard" \
       > "$OUT/$task-$shard.log" 2>&1 &
   done
@@ -91,7 +92,7 @@ for a in arms:
         print(f"{t} {a}: {n} runs")   # expect 100 each
 result = aggregate(records, arms, tasks)
 meta = {"generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-        "bigpowers_sha": bigpowers_sha(), "adapter": "opencode", "model": "opencode-go/deepseek-v4.1-flash",
+        "bigpowers_sha": bigpowers_sha(), "adapter": "pi", "model": "opencode-go/deepseek-v4.1-flash",
         "k": 100, "tasks": tasks, "arms": arms, "shards": "10 shards (5 per task) x k=20, merged",
         "ci_method": f"bootstrap over runs, {BOOTSTRAP_RESAMPLES} resamples, seed {BOOTSTRAP_SEED}"}
 out = Path("/tmp/bp-ab-k100/merged")
@@ -129,7 +130,8 @@ Give a short summary with:
 4. Total cost and wall-clock time.
 5. Anything unusual: shards that failed, errors, runs that timed out, tampering.
 
-Prior results for context:
+Prior results for context (the k=10 and smoke runs used the opencode CLI; this run uses pi, so
+compare deltas, not absolute rates):
 - k=10 on all 8 easy tasks (same model): bigpowers 0.97 vs vanilla 0.96, delta +0.01
   [−0.05, +0.06].
 - k=1 smoke on these two tasks: vanilla passed both. bigpowers passed ab-13 and scored 17/18 on

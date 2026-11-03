@@ -130,7 +130,7 @@ stories:
     verify: python3 tests/test_ab_progress.py
   - id: e58s06
     title: "pi adapter (default), OpenCode Go deepseek-v4.1-flash"
-    status: todo
+    status: done
     bcps: 5
     bcp_basis: estimate, 2026-11-02 (adapter + isolation + parser + default_adapter)
     risk: P2
