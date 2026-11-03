@@ -187,7 +187,7 @@ stories:
     verify: python3 tests/test_ab_vsm.py
   - id: e58s09
     title: "lean waste metrics per run"
-    status: todo
+    status: done
     bcps: 5
     bcp_basis: estimate, 2026-11-03 (transcript + patch metrics, solution diff, runner hook)
     risk: P2

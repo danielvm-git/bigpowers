@@ -1,7 +1,7 @@
 ---
 type: Index
-generated_at: 2026-11-03T13:16:28.154602+00:00
-total_concepts: 158
+generated_at: 2026-11-03T13:32:32.914931+00:00
+total_concepts: 159
 ---
 
 # Codebase Wiki — Story Traceability
@@ -105,6 +105,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e58s06](./e58s06.md) | pi adapter (default), OpenCode Go deepseek-v4.1-flash | high | 5 |
 | [e58s07](./e58s07.md) | Docker sandbox for agent runs and grading | high | 23 |
 | [e58s08](./e58s08.md) | value stream map per run (stage classifier) | high | 9 |
+| [e58s09](./e58s09.md) | lean waste metrics per run | high | 4 |
 | [e60s01](./e60s01.md) | Interactive installer with ASCII banner, global/local, tool  | high | 11 |
 | [e61s01](./e61s01.md) | Hermes adapter + hook templates (Wave A) | high | 10 |
 | [e61s02](./e61s02.md) | Install hub wiring (Wave B) | high | 15 |

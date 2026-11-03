@@ -347,7 +347,7 @@ development_status:
   e58s06: done
   e58s07: done
   e58s08: done
-  e58s09: todo
+  e58s09: done
   e59: backlog
   e60: done
   e60s01: done
@@ -3231,13 +3231,13 @@ stories:
     tasks_failing: 0
     risk_max: P2
   e58s09:
-    status: todo
+    status: done
     title: lean waste metrics per run
     bcps: 5
     epic: e58
     tasks_total: 3
-    tasks_passing: 0
-    tasks_failing: 3
+    tasks_passing: 3
+    tasks_failing: 0
     risk_max: P2
   e60s01:
     status: done

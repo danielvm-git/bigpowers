@@ -1,4 +1,4 @@
-# story: e58s08
+# story: e58s08 e58s09
 # Value stream stages for A/B runs, read by scripts/lib/ab_vsm.py.
 # Each tool call is matched against `rules` in order; the first rule whose `tools` regex matches the
 # tool name and whose `target` regex matches the call's command or path wins. A model turn with
@@ -41,3 +41,6 @@ rules:
   - stage: design
     tools: .
     target: .*
+
+# Waste metrics (e58s09): added files that look like scratch work left behind (partially done work).
+leftovers: (^|/)[^/]*\.(tmp|bak|orig|rej|swp)(\.[a-z0-9]+)?$|(^|/)[^/]*\.tmp\.[a-z0-9]+$|(^|/)(scratch|debug|tmp)[-_][^/]*$

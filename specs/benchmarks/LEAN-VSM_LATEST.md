@@ -1,7 +1,7 @@
 # Lean value-stream measurement for the A/B benchmark — proposal
 
-Status: proposal, 2026-11-03. Step 2 (e58s08, the per-run stage classifier) is built; steps 3–6 are
-designs. Builds on e58s01–e58s07.
+Status: proposal, 2026-11-03. Steps 2 and 3 (e58s08 stage classifier, e58s09 waste metrics) are
+built; steps 4–6 are designs. Builds on e58s01–e58s07.
 
 **First VSM at scale (e58s08, 2026-11-03).** 120 sandboxed runs (`pi-docker`, deepseek-v4.1-flash,
 ab-09/11/13/17/19/20 × 2 arms × k=10): outcome equal (pass 0.98 vs 0.97, delta −0.02
@@ -15,6 +15,19 @@ ab-09/11/13/17/19/20 × 2 arms × k=10): outcome equal (pass 0.98 vs 0.97, delta
 The extra time is mostly Test (50% of a longer run) and a 4× later first build, with twice the
 task switching, and it buys no outcome on these tasks. 5 of 6 tasks were 10/10 on both arms, so
 the tasks are still too easy to show where that testing would pay off.
+
+**Waste metrics on the same 120 runs (e58s09, transcript part):**
+
+| Arm | Test runs | Rework loops | Re-edits | Rereads | First-time-through | PCE |
+|---|---|---|---|---|---|---|
+| vanilla | 3.7 | 0.48 | 0.32 | 0.08 | 0.58 | 0.69 |
+| bigpowers | **8.5** | **0.77** | **0.90** | 0.08 | 0.60 | 0.66 |
+
+bigpowers runs 2.3× more tests, has 60% more failing runs after its first build and re-edits 2.8×
+as often, for the same first-time-through rate. **Caveat:** PCE counts all test time as value
+added, so heavy testing looks efficient. Step 4 should split test time into runs that found a
+defect (value) and runs that repeated a green result (overprocessing). Patch metrics (`diff_ratio`,
+leftovers, review load) need runs made after e58s09, since older runs kept no patch.
 
 ## Why
 

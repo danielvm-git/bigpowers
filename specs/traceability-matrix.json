@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-03T13:16:28.150084+00:00",
+  "generated_at": "2026-11-03T13:32:32.907716+00:00",
   "matrix_version": "1.0",
   "stories": [
     {
@@ -18765,6 +18765,42 @@
       "link_count": 9
     },
     {
+      "id": "e58s09",
+      "title": "lean waste metrics per run",
+      "epic_id": "e58",
+      "epic_title": "Evals Over Compliance \u2014 Replace the 94% Gate with Outcome Proof",
+      "bcp": 0,
+      "wsjf": 5.3,
+      "status": "done",
+      "links": [
+        {
+          "file": "specs/epics/e58-evals-over-compliance/e58s09-waste-metrics.md",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "tests/test_ab_waste.py",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/lib/ab_waste.py",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e58-evals-over-compliance/e58s09-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        }
+      ],
+      "link_count": 4
+    },
+    {
       "id": "e60s01",
       "title": "Interactive installer with ASCII banner, global/local, tool selection",
       "epic_id": "e60",
@@ -24700,8 +24736,8 @@
     }
   ],
   "summary": {
-    "total_stories": 158,
-    "tagged_stories": 133,
+    "total_stories": 159,
+    "tagged_stories": 134,
     "dark_stories": [],
     "dark_count": 0,
     "orphan_tags": [
@@ -24936,6 +24972,7 @@
       "e58s06",
       "e58s07",
       "e58s08",
+      "e58s09",
       "e60s01",
       "e61s01",
       "e61s02",
@@ -24976,11 +25013,11 @@
       "e80s05",
       "e81s01"
     ],
-    "stale_count": 123,
+    "stale_count": 124,
     "oracle_stats": {
-      "high": 1049,
+      "high": 1052,
       "medium": 2645,
-      "low": 106
+      "low": 107
     }
   }
 }

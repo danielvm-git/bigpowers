@@ -113,6 +113,13 @@ bash scripts/run-ab-eval.sh --adapter gemini --model <m>    # another harness
   Each model turn, from its start to the next turn's start, goes to the stage of the action it takes.
   The rules are in `specs/benchmarks/ab/vsm.yaml`. Map saved transcripts with
   `python3 scripts/lib/ab_vsm.py <traces>/*.jsonl.gz`. Rationale: `LEAN-VSM_LATEST.md`.
+- **Waste metrics (e58s09):** each run's final patch is saved as `<out>/traces/<id>.patch.gz` and the
+  record gets a `waste` block (`scripts/lib/ab_waste.py`). Patch metrics, any adapter:
+  `product/test/doc/plan_lines`, `solution_lines`, `diff_ratio` (product ÷ reference solution),
+  `extra_files`, `leftovers` (regex in `vsm.yaml`), `review_load` (changed lines + files + Markdown
+  words). Transcript metrics, pi only (else `null`): `rereads`, `repeated_commands`, `test_runs`,
+  `rework_loops` (failing test runs after the first build edit, from `exit_code` or a `fail N`
+  summary), `reedits`, `ftt`, `pce` = (build + test time) ÷ lead time.
 - **Reports:** `specs/benchmarks/reports/AB-<date>.yaml` (per-arm and per-task rates and
   `mean_score`, `per_task_score`, delta `bigpowers − vanilla` for pass rate and score, each with a
   seeded bootstrap 95% CI; `deltas_vs_vanilla` gives the same for every non-vanilla arm) and
