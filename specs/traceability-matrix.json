@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T22:46:41.759627+00:00",
+  "generated_at": "2026-11-03T01:51:44.283010+00:00",
   "matrix_version": "1.0",
   "stories": [
     {
@@ -4662,6 +4662,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-224623.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-173348.md",
           "line": 0,
           "confidence": "medium",
@@ -5412,6 +5418,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-224518.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20261102-192521.md",
           "line": 0,
           "confidence": "medium",
@@ -5640,7 +5652,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 296
+      "link_count": 298
     },
     {
       "id": "e45s19",
@@ -7950,6 +7962,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-224623.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-173348.md",
           "line": 0,
           "confidence": "medium",
@@ -8700,6 +8718,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-224518.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20261102-192521.md",
           "line": 0,
           "confidence": "medium",
@@ -8916,7 +8940,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 282
+      "link_count": 284
     },
     {
       "id": "e45s32",
@@ -12330,6 +12354,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/epics/e58-evals-over-compliance/e58s03-partial-credit-and-hard-tasks.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/epics-wiki/e35.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -12864,7 +12894,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 201
+      "link_count": 202
     },
     {
       "id": "e48s06",
@@ -14448,6 +14478,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/epics/e58-evals-over-compliance/e58s03-partial-credit-and-hard-tasks.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": ".continue/rules/kickoff-branch.md",
           "line": 0,
           "confidence": "medium",
@@ -14502,7 +14538,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 74
+      "link_count": 75
     },
     {
       "id": "e51s04",
@@ -15312,6 +15348,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-224623.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-173348.md",
           "line": 0,
           "confidence": "medium",
@@ -16062,6 +16104,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-224518.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20261102-192521.md",
           "line": 0,
           "confidence": "medium",
@@ -16548,7 +16596,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 339
+      "link_count": 341
     },
     {
       "id": "e51s05",
@@ -17833,6 +17881,54 @@
         }
       ],
       "link_count": 7
+    },
+    {
+      "id": "e58s03",
+      "title": "partial-credit scoring + two hard tasks (ab-11, ab-13)",
+      "epic_id": "e58",
+      "epic_title": "Evals Over Compliance \u2014 Replace the 94% Gate with Outcome Proof",
+      "bcp": 0,
+      "wsjf": 5.3,
+      "status": "done",
+      "links": [
+        {
+          "file": "specs/benchmarks/ab/tasks/ab-13-orders-split/task.yaml",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/benchmarks/ab/tasks/ab-11-ledger-rounding/task.yaml",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e58-evals-over-compliance/e58s03-partial-credit-and-hard-tasks.md",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "tests/test_ab_score.py",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/benchmarks/HARDER-TASKS_LATEST.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e58-evals-over-compliance/e58s03-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        }
+      ],
+      "link_count": 6
     },
     {
       "id": "e60s01",
@@ -23710,8 +23806,8 @@
     }
   ],
   "summary": {
-    "total_stories": 152,
-    "tagged_stories": 127,
+    "total_stories": 153,
+    "tagged_stories": 128,
     "dark_stories": [],
     "dark_count": 0,
     "orphan_tags": [
@@ -23940,6 +24036,7 @@
       "e55s03",
       "e58s01",
       "e58s02",
+      "e58s03",
       "e60s01",
       "e61s01",
       "e61s02",
@@ -23980,11 +24077,11 @@
       "e80s05",
       "e81s01"
     ],
-    "stale_count": 117,
+    "stale_count": 118,
     "oracle_stats": {
-      "high": 1026,
-      "medium": 2521,
-      "low": 100
+      "high": 1030,
+      "medium": 2530,
+      "low": 101
     }
   }
 }

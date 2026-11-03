@@ -1,7 +1,7 @@
 ---
 type: Index
-generated_at: 2026-11-02T22:46:41.763545+00:00
-total_concepts: 152
+generated_at: 2026-11-03T01:51:44.289429+00:00
+total_concepts: 153
 ---
 
 # Codebase Wiki — Story Traceability
@@ -43,7 +43,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e45s15](./e45s15.md) | release-branch / deploy: three-independent-facts verificatio | high | 25 |
 | [e45s16](./e45s16.md) | CLAUDE.md rtk mandate: wire rtk-ai/rtk PreToolUse hook | high | 4 |
 | [e45s17](./e45s17.md) | request-review: fan-out to parallel review subagents | high | 30 |
-| [e45s18](./e45s18.md) | audit-code / security-review: worktree-isolated parallel che | high | 296 |
+| [e45s18](./e45s18.md) | audit-code / security-review: worktree-isolated parallel che | high | 298 |
 | [e45s19](./e45s19.md) | Context7: bounded retry cap and explicit fallback block | medium | 7 |
 | [e45s20](./e45s20.md) | Context7 / bts docs: wrap in ETag-revalidated fetch cache | high | 1 |
 | [e45s21](./e45s21.md) | seed-conventions / AGENTS.md: self-installing fenced markers | high | 41 |
@@ -56,7 +56,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e45s28](./e45s28.md) | request-review: hard max-iteration cap | high | 22 |
 | [e45s29](./e45s29.md) | requirements: ADDED/MODIFIED/REMOVED/RENAMED tags | high | 54 |
 | [e45s30](./e45s30.md) | subagent depth: formalize depth tiers | high | 36 |
-| [e45s31](./e45s31.md) | audit-code / deepen-architecture: churn-based look-here-firs | high | 282 |
+| [e45s31](./e45s31.md) | audit-code / deepen-architecture: churn-based look-here-firs | high | 284 |
 | [e45s32](./e45s32.md) | gate-trace / release-branch: adversarial-review refute frami | high | 42 |
 | [e45s33](./e45s33.md) | requirements: per-section approval state | high | 3 |
 | [e45s34](./e45s34.md) | develop-tdd: snapshot-before-transition hardening | high | 7 |
@@ -71,7 +71,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e48s02](./e48s02.md) | Emit verification reports as OKF bundles from run-golden-sui | medium | 34 |
 | [e48s03](./e48s03.md) | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | high | 188 |
 | [e48s04](./e48s04.md) | Create viz.html — interactive force-layout graph companion f | medium | 12 |
-| [e48s05](./e48s05.md) | Wire OKF validation into CI (sync-skills.yml) and document i | medium | 201 |
+| [e48s05](./e48s05.md) | Wire OKF validation into CI (sync-skills.yml) and document i | medium | 202 |
 | [e48s06](./e48s06.md) | Add tier: field (core/extended/specialized) to OKF wiki inde | medium | 11 |
 | [e48s07](./e48s07.md) | Create publish-to-wiki kernel tool | high | 2 |
 | [e48s08](./e48s08.md) | Add GitHub Action Template for publish-wiki.yml [HARD GATE] | high | 8 |
@@ -84,8 +84,8 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e48s15](./e48s15.md) | Refactor Skills Render Pipeline to Hybrid JSON Seam | high | 7 |
 | [e51s01](./e51s01.md) | CONVENTIONS — Always Green, Shift Left, Discovered Defects,  | high | 8 |
 | [e51s02](./e51s02.md) | seed-conventions — Preflight default, solo-git default, embe | high | 48 |
-| [e51s03](./e51s03.md) | kickoff-branch + verify-work — Preflight hard block and CI g | high | 74 |
-| [e51s04](./e51s04.md) | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | high | 339 |
+| [e51s03](./e51s03.md) | kickoff-branch + verify-work — Preflight hard block and CI g | high | 75 |
+| [e51s04](./e51s04.md) | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | high | 341 |
 | [e51s05](./e51s05.md) | CLAUDE.md — solo-default agent rules + bigpowers Preflight c | high | 7 |
 | [e53s01](./e53s01.md) | Commit the untracked GOLDEN baseline | high | 12 |
 | [e53s02](./e53s02.md) | Build the tombstone-alias mechanism | high | 7 |
@@ -99,6 +99,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e55s03](./e55s03.md) | Point CLAUDE.md/CONVENTIONS.md at constitution.md, don't del | high | 6 |
 | [e58s01](./e58s01.md) | Outcome A/B eval runner — vanilla agent vs bigpowers | high | 13 |
 | [e58s02](./e58s02.md) | opencode adapter + the five legacy benchmark tasks | high | 7 |
+| [e58s03](./e58s03.md) | partial-credit scoring + two hard tasks (ab-11, ab-13) | high | 6 |
 | [e60s01](./e60s01.md) | Interactive installer with ASCII banner, global/local, tool  | high | 11 |
 | [e61s01](./e61s01.md) | Hermes adapter + hook templates (Wave A) | high | 10 |
 | [e61s02](./e61s02.md) | Install hub wiring (Wave B) | high | 15 |

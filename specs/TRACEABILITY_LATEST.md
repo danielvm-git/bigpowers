@@ -1,17 +1,17 @@
 # Traceability Matrix
 
-**Generated:** 2026-11-02 22:46:41 UTC
-**Total stories:** 152
-**Tagged stories:** 127
+**Generated:** 2026-11-03 01:51:44 UTC
+**Total stories:** 153
+**Tagged stories:** 128
 **Dark stories:** 0
 **Orphan tags:** 144
-**Stale tags:** 117
+**Stale tags:** 118
 
 ## Oracle Stats
 
-- **High** (explicit tag): 1026
-- **Medium** (file heuristic): 2521
-- **Low** (task reference): 100
+- **High** (explicit tag): 1030
+- **Medium** (file heuristic): 2530
+- **Low** (task reference): 101
 
 ## Story Coverage
 
@@ -50,7 +50,7 @@
 | e45s15 | release-branch / deploy: three-independent-facts verificatio | e45 | 2 | 5.0 | done | 25 |
 | e45s16 | CLAUDE.md rtk mandate: wire rtk-ai/rtk PreToolUse hook | e45 | 2 | 5.0 | done | 4 |
 | e45s17 | request-review: fan-out to parallel review subagents | e45 | 2 | 5.0 | done | 30 |
-| e45s18 | audit-code / security-review: worktree-isolated parallel che | e45 | 2 | 5.0 | done | 296 |
+| e45s18 | audit-code / security-review: worktree-isolated parallel che | e45 | 2 | 5.0 | done | 298 |
 | e45s19 | Context7: bounded retry cap and explicit fallback block | e45 | 2 | 5.0 | done | 7 |
 | e45s20 | Context7 / bts docs: wrap in ETag-revalidated fetch cache | e45 | 2 | 5.0 | done | 1 |
 | e45s21 | seed-conventions / AGENTS.md: self-installing fenced markers | e45 | 2 | 5.0 | done | 41 |
@@ -63,7 +63,7 @@
 | e45s28 | request-review: hard max-iteration cap | e45 | 2 | 5.0 | done | 22 |
 | e45s29 | requirements: ADDED/MODIFIED/REMOVED/RENAMED tags | e45 | 2 | 5.0 | done | 54 |
 | e45s30 | subagent depth: formalize depth tiers | e45 | 2 | 5.0 | done | 36 |
-| e45s31 | audit-code / deepen-architecture: churn-based look-here-firs | e45 | 2 | 5.0 | done | 282 |
+| e45s31 | audit-code / deepen-architecture: churn-based look-here-firs | e45 | 2 | 5.0 | done | 284 |
 | e45s32 | gate-trace / release-branch: adversarial-review refute frami | e45 | 2 | 5.0 | done | 42 |
 | e45s33 | requirements: per-section approval state | e45 | 2 | 5.0 | done | 3 |
 | e45s34 | develop-tdd: snapshot-before-transition hardening | e45 | 2 | 5.0 | done | 7 |
@@ -78,7 +78,7 @@
 | e48s02 | Emit verification reports as OKF bundles from run-golden-sui | e48 | 2 | 2.5 | done | 34 |
 | e48s03 | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | e48 | 1 | 2.5 | done | 188 |
 | e48s04 | Create viz.html — interactive force-layout graph companion f | e48 | 2 | 2.5 | done | 12 |
-| e48s05 | Wire OKF validation into CI (sync-skills.yml) and document i | e48 | 1 | 2.5 | done | 201 |
+| e48s05 | Wire OKF validation into CI (sync-skills.yml) and document i | e48 | 1 | 2.5 | done | 202 |
 | e48s06 | Add tier: field (core/extended/specialized) to OKF wiki inde | e48 | 2 | 2.5 | done | 11 |
 | e48s07 | Create publish-to-wiki kernel tool | e48 | 3 | 2.5 | done | 2 |
 | e48s08 | Add GitHub Action Template for publish-wiki.yml [HARD GATE] | e48 | 1 | 2.5 | done | 8 |
@@ -91,8 +91,8 @@
 | e48s15 | Refactor Skills Render Pipeline to Hybrid JSON Seam | e48 | 4 | 2.5 | done | 7 |
 | e51s01 | CONVENTIONS — Always Green, Shift Left, Discovered Defects,  | e51 | 3 | 7.0 | done | 8 |
 | e51s02 | seed-conventions — Preflight default, solo-git default, embe | e51 | 3 | 7.0 | done | 48 |
-| e51s03 | kickoff-branch + verify-work — Preflight hard block and CI g | e51 | 2 | 7.0 | done | 74 |
-| e51s04 | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | e51 | 2 | 7.0 | done | 339 |
+| e51s03 | kickoff-branch + verify-work — Preflight hard block and CI g | e51 | 2 | 7.0 | done | 75 |
+| e51s04 | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | e51 | 2 | 7.0 | done | 341 |
 | e51s05 | CLAUDE.md — solo-default agent rules + bigpowers Preflight c | e51 | 2 | 7.0 | done | 7 |
 | e53s01 | Commit the untracked GOLDEN baseline | e53 | 1 | 8.0 | done | 12 |
 | e53s02 | Build the tombstone-alias mechanism | e53 | 3 | 8.0 | done | 7 |
@@ -106,6 +106,7 @@
 | e55s03 | Point CLAUDE.md/CONVENTIONS.md at constitution.md, don't del | e55 | 0 | 6.0 | done | 6 |
 | e58s01 | Outcome A/B eval runner — vanilla agent vs bigpowers | e58 | 0 | 5.3 | done | 13 |
 | e58s02 | opencode adapter + the five legacy benchmark tasks | e58 | 0 | 5.3 | done | 7 |
+| e58s03 | partial-credit scoring + two hard tasks (ab-11, ab-13) | e58 | 0 | 5.3 | done | 6 |
 | e60s01 | Interactive installer with ASCII banner, global/local, tool  | e60 | 0 | 9.0 | done | 11 |
 | e61s01 | Hermes adapter + hook templates (Wave A) | e61 | 0 | 5.0 | done | 10 |
 | e61s02 | Install hub wiring (Wave B) | e61 | 0 | 5.0 | done | 15 |
@@ -397,6 +398,7 @@
 - `e55s03`
 - `e58s01`
 - `e58s02`
+- `e58s03`
 - `e60s01`
 - `e61s01`
 - `e61s02`
