@@ -1,7 +1,7 @@
 id: e58
 title: "Evals Over Compliance — Replace the 94% Gate with Outcome Proof"
 wsjf: 5.3
-bcps: 52
+bcps: 57
 bcps_projected: 9
 capsule_dir: epics/e58-evals-over-compliance
 mode: capsule
@@ -92,6 +92,25 @@ stories:
       - tests/test_ab_score.py
     tasks: e58s03-tasks.yaml
     verify: python3 tests/test_ab_score.py && python3 tests/test_ab_eval.py
+  - id: e58s04
+    title: "ablation arms — which part of bigpowers produces the gain"
+    status: todo
+    bcps: 5
+    bcp_basis: estimate, 2026-11-02 (env options in arm script + report deltas + config arms)
+    risk: P2
+    delta: ADDED
+    source: k=3/k=10 runs; bigpowers wins only ab-06 (refactor). e56 needs to know which part helps.
+    description: >-
+      Arm script options for a skill subset and seed choice, four ablation arms (bp-core, bp-seed,
+      bp-skills, tdd-line) and a per-arm delta against vanilla in the report.
+    files:
+      - scripts/lib/ab-arm-bigpowers.sh
+      - scripts/lib/ab_report.py
+      - specs/benchmarks/ab/config.yaml
+      - specs/benchmarks/ab/arms/
+      - tests/test_ab_ablation.py
+    tasks: e58s04-tasks.yaml
+    verify: python3 tests/test_ab_ablation.py
 planned_stories:
   - working_title: "Extend run-evals to cover a meaningful skill subset with real with/without-skill deltas"
     bcp_estimate: 3
