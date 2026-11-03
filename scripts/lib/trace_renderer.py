@@ -3,6 +3,8 @@
 import json
 from pathlib import Path
 from datetime import datetime, timezone
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from atomic_write import atomic_write_text  # noqa: E402
 
 def emit_matrix_json(matrix_json_path: Path, stories: dict, tagged_sids: set, dark_stories: list, orphan_tags: list, stale_tags: list, matrix_stories: list) -> dict:
     matrix = {
@@ -26,7 +28,7 @@ def emit_matrix_json(matrix_json_path: Path, stories: dict, tagged_sids: set, da
         }
     }
     matrix_json_path.parent.mkdir(parents=True, exist_ok=True)
-    matrix_json_path.write_text(json.dumps(matrix, indent=2), encoding="utf-8")
+    atomic_write_text(matrix_json_path, json.dumps(matrix, indent=2), encoding="utf-8")
     return matrix
 
 def emit_trace_md(trace_md_path: Path, stories: dict, tagged_sids: set, dark_stories: list, orphan_tags: list, stale_tags: list, matrix_stories: list, matrix: dict, dev_status: dict) -> None:
@@ -80,7 +82,7 @@ def emit_trace_md(trace_md_path: Path, stories: dict, tagged_sids: set, dark_sto
         lines.append("")
     
     trace_md_path.parent.mkdir(parents=True, exist_ok=True)
-    trace_md_path.write_text("\n".join(lines), encoding="utf-8")
+    atomic_write_text(trace_md_path, "\n".join(lines))
 
 def emit_okf_bundle(okf_dir: Path, stories: dict, matrix_stories: list) -> None:
     okf_dir.mkdir(parents=True, exist_ok=True)
@@ -104,7 +106,7 @@ def emit_okf_bundle(okf_dir: Path, stories: dict, matrix_stories: list) -> None:
         max_conf = "high" if "high" in confs else ("medium" if "medium" in confs else ("low" if confs else "none"))
         idx_lines.append(f"| [{s['id']}](./{s['id']}.md) | {s['title'][:60]} | {max_conf} | {s['link_count']} |")
     idx_lines.append("")
-    (okf_dir / "index.md").write_text("\n".join(idx_lines), encoding="utf-8")
+    atomic_write_text(okf_dir / "index.md", "\n".join(idx_lines))
     
     # Generate one concept per story
     for s in matrix_stories:
@@ -144,4 +146,4 @@ def emit_okf_bundle(okf_dir: Path, stories: dict, matrix_stories: list) -> None:
         else:
             concept.append("*No code links found — this is a dark story.*")
         concept.append("")
-        (okf_dir / f"{s['id']}.md").write_text("\n".join(concept), encoding="utf-8")
+        atomic_write_text(okf_dir / f"{s['id']}.md", "\n".join(concept))

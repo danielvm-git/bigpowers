@@ -17,6 +17,9 @@ from typing import Any
 
 import yaml
 
+sys.path.insert(0, str(Path(__file__).resolve().parent / "lib"))
+from atomic_write import atomic_write_text  # noqa: E402
+
 
 def set_path(path: Path, dotted_key: str, value: str) -> None:
     """Surgically set one dotted-path key, preserving everything else in the file."""
@@ -43,12 +46,12 @@ def set_path(path: Path, dotted_key: str, value: str) -> None:
             except ValueError:
                 cur[last] = value.strip('"').strip("'")
 
-    path.parent.mkdir(parents=True, exist_ok=True)
     # sort_keys=False preserves author-intended ordering (e.g. epics[]
     # sequencing by WSJF priority) instead of alphabetizing every key.
-    path.write_text(
+    # atomic_write_text: a reader must never see this file truncated (#181).
+    atomic_write_text(
+        path,
         yaml.safe_dump(data, sort_keys=False, allow_unicode=True, width=100),
-        encoding="utf-8",
     )
 
 

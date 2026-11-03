@@ -12,6 +12,9 @@ import re
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(sys.argv[2]) / "scripts" / "lib"))
+from atomic_write import atomic_write_text
+
 bugs_dir = Path(sys.argv[1])
 repo_root = Path(sys.argv[2])
 
@@ -61,7 +64,7 @@ for e in entries:
             val = e[opt].replace('"', "'")
             lines.append(f'    {opt}: "{val}"')
 lines.append("")
-out.write_text("\n".join(lines), encoding="utf-8")
+atomic_write_text(out, "\n".join(lines))
 print(f"sync-bugs-registry: {len(entries)} bugs -> {out}")
 
 # ---- Phase 2: Emit OKF concept bundles (e45s03) ----
@@ -96,7 +99,7 @@ references:
 
 See `specs/bugs/{bug_id}.md` for full investigation and fix details.
 """
-    bundle_path.write_text(bundle, encoding="utf-8")
+    atomic_write_text(bundle_path, bundle)
     okf_count += 1
 
 print(f"sync-bugs-registry: {okf_count} OKF concept bundles -> {bugs_dir}/")
