@@ -349,6 +349,7 @@ development_status:
   e58s08: done
   e58s09: done
   e58s10: done
+  e58s11: todo
   e59: backlog
   e60: done
   e60s01: done
@@ -3248,6 +3249,15 @@ stories:
     tasks_total: 3
     tasks_passing: 3
     tasks_failing: 0
+    risk_max: P2
+  e58s11:
+    status: todo
+    title: three tasks with changing, spread and implied requirements
+    bcps: 8
+    epic: e58
+    tasks_total: 5
+    tasks_passing: 0
+    tasks_failing: 5
     risk_max: P2
   e60s01:
     status: done

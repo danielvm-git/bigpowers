@@ -1,7 +1,7 @@
 id: e58
 title: "Evals Over Compliance — Replace the 94% Gate with Outcome Proof"
 wsjf: 5.3
-bcps: 90
+bcps: 98
 bcps_projected: 9
 capsule_dir: epics/e58-evals-over-compliance
 mode: capsule
@@ -222,6 +222,24 @@ stories:
       - tests/test_ab_lean.py
     tasks: e58s10-tasks.yaml
     verify: python3 tests/test_ab_lean.py
+  - id: e58s11
+    title: "three tasks with changing, spread and implied requirements"
+    status: todo
+    bcps: 8
+    bcp_basis: estimate, 2026-11-03 (3 fixtures + hidden suites + solutions + calibration run)
+    risk: P2
+    delta: ADDED
+    source: specs/benchmarks/TASK-REVIEW_LATEST.md (0 of 14 tasks discriminate)
+    description: >-
+      ab-12 (todo CLI, requirements changed across an issue thread), ab-15 (config precedence with
+      example-only rules and five callers), ab-16 (site tags + RSS, byte-identical existing pages),
+      each with full hidden coverage, then a vanilla k=10 difficulty calibration.
+    files:
+      - specs/benchmarks/ab/tasks/
+      - tests/test_ab_score.py
+      - specs/benchmarks/TASK-REVIEW_LATEST.md
+    tasks: e58s11-tasks.yaml
+    verify: python3 tests/test_ab_score.py && python3 tests/test_ab_tasks.py
 planned_stories:
   - working_title: "Extend run-evals to cover a meaningful skill subset with real with/without-skill deltas"
     bcp_estimate: 3

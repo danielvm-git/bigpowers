@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# story: e58s03
+# story: e58s03 e58s11
 """tests/test_ab_score.py — partial-credit scoring and the hard tasks (ab-11, ab-13).
 
 Run: python3 tests/test_ab_score.py
@@ -21,7 +21,10 @@ TASKS = REPO_ROOT / "specs" / "benchmarks" / "ab" / "tasks"
 HARD_TASKS = [
     "ab-09-inventory-reservations",
     "ab-11-ledger-rounding",
+    "ab-12-todo-due-dates",
     "ab-13-orders-split",
+    "ab-15-config-precedence",
+    "ab-16-site-tags-rss",
     "ab-17-payment-alias",
     "ab-19-catalog-segregation",
     "ab-20-brand-discount",
