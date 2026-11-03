@@ -5,7 +5,7 @@ wsjf: 4.2
 bcps: 98
 capsule_dir: epics/e86-hooks-enforce
 mode: capsule
-status: scoped
+status: in_progress
 sliced: '2026-10-30'
 wsjf_rationale: BV 8 + TC 5 + RR 8 / Job 5 ≈ 4.2
 source: >-
@@ -21,7 +21,7 @@ value_engineering: specs/VALUE-ENGINEERING-playbook-compat.md
 stories:
 - id: e86s01
   title: Generated paths are blocked at edit time
-  status: todo
+  status: done
   bcps: 19
   bcp_13d:
     dimensions:
@@ -50,10 +50,10 @@ stories:
   - hooks/pre-tool-use.sh
   - .github/workflows/test-build-release.yml
   tasks: e86s01-tasks.yaml
-  verify: bash scripts/run-story-verify.sh e86s01
+  verify: bash scripts/test-generated-path-hook.sh
 - id: e86s02
   title: Tests are locked during a fix after the RED commit
-  status: todo
+  status: done
   bcps: 21
   bcp_13d:
     dimensions:
@@ -82,7 +82,7 @@ stories:
   - scripts/verify-tdd-red-commit.sh
   - .github/workflows/test-build-release.yml
   tasks: e86s02-tasks.yaml
-  verify: bash scripts/run-story-verify.sh e86s02
+  verify: bash scripts/test-test-lock-hook.sh
 - id: e86s03
   title: Secrets are blocked before commit
   status: todo

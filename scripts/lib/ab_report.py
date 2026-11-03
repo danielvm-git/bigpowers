@@ -7,10 +7,14 @@ from __future__ import annotations
 import json
 import random
 import subprocess
+import sys
 from datetime import date
 from pathlib import Path
 
 import yaml
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from atomic_write import atomic_write_text  # noqa: E402
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 BOOTSTRAP_RESAMPLES = 1000
@@ -96,10 +100,13 @@ def write_reports(out: Path, meta: dict, result: dict, records: list[dict]) -> P
     out.mkdir(parents=True, exist_ok=True)
     today = date.today().isoformat()
     report = out / f"AB-{today}.yaml"
-    report.write_text(yaml.safe_dump({**meta, **result}, sort_keys=False))
-    with (out / f"ab-runs-{today}.jsonl").open("w") as f:
-        for rec in records:
-            f.write(json.dumps({**rec, "bigpowers_sha": meta["bigpowers_sha"]}) + "\n")
+    # Atomic (#181): the dashboard reads these while a run is still appending.
+    atomic_write_text(report, yaml.safe_dump({**meta, **result}, sort_keys=False))
+    records_path = out / f"ab-runs-{today}.jsonl"
+    atomic_write_text(
+        records_path,
+        "".join(json.dumps({**rec, "bigpowers_sha": meta["bigpowers_sha"]}) + "\n" for rec in records),
+    )
     return report
 
 

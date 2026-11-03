@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-07-07T03:07:38Z",
+  "generated_at": "2026-11-03T13:43:50Z",
   "matrix_version": "1.0.0",
   "source": "CONVENTIONS.md",
-  "source_hash": "77d7e4d49b562a2c",
+  "source_hash": "0e97ada4f0a70a08",
   "source_section": "Risk Tiers (Effective Rule Matrix)",
   "tiers": {
     "P0": [

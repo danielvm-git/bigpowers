@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # convert-legado.sh — RELEASE-PLAN.md + SCOPE.md → YAML layout (one-time migration helper)
+# bp-manual-utility: legacy MD spec converter (pre-e44 migration)
 set -euo pipefail
 source "$(dirname "${BASH_SOURCE[0]}")/lib/python-env.sh"
 SPECS="$REPO_ROOT/specs"

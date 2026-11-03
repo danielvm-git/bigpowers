@@ -23,7 +23,7 @@
     },
     "build-epic": {
       "description": "Eight-step epic build cycle — reads state.yaml, execution-status.yaml, and one epic capsule; updates status via bp-yaml-set or direct edit. Resume mode runs one step per invocation. Use instead of ad-hoc execute-plan for release work.",
-      "sha256": "a524120e0bf940c2",
+      "sha256": "c1687698f60f5df1",
       "path": "skills/build-epic/SKILL.md"
     },
     "change-request": {
@@ -33,7 +33,7 @@
     },
     "commit-message": {
       "description": "Reviews working-tree changes, then drafts a Conventional Commits title/body and states the semantic-release version bump a single such commit would imply. Also notes which defensive-code categories were touched. Use when the user wants to commit recent work, prepare a Conventional Commits message, or asks for semantic-release / semver-consistent messaging before git commit.",
-      "sha256": "9c21fead0938a924",
+      "sha256": "58bc72a02aa4ce00",
       "path": "skills/commit-message/SKILL.md"
     },
     "compose-workflow": {
@@ -248,7 +248,7 @@
     },
     "release-branch": {
       "description": "Make the merge/PR/keep/discard decision for a feature branch, verify coverage gates, create the PR with gh, and clean up the worktree. Use when a feature is done and ready to ship, or when user says \"release\", \"merge\", or \"open a PR\".",
-      "sha256": "4c3509bc9fd4a8a1",
+      "sha256": "41b42f5d409de4cb",
       "path": "skills/release-branch/SKILL.md"
     },
     "request-review": {
@@ -283,7 +283,7 @@
     },
     "run-planning": {
       "description": "\"DISCOVER-PHASE ADVANCER — Drive the discover-phase checklist (specs/planning-status.yaml) through survey-context → scope-work → research-first → elaborate-spec → plan-release → slice-tasks. NOT a duplicate of plan-work or the planning spine; it orchestrates the pre-coding discover phase only.\"",
-      "sha256": "9a28211414df158a",
+      "sha256": "5cdd1e03360f0f6c",
       "path": "skills/run-planning/SKILL.md"
     },
     "scope-work": {
@@ -378,7 +378,7 @@
     },
     "verify-work": {
       "description": "Multi-phase UAT gate — cold-start smoke, build, typecheck, lint, tests, step-by-step manual verification, gaps-closure loop. Use after execute-plan or develop-tdd, before audit-code.",
-      "sha256": "518ffc602775b589",
+      "sha256": "b395c44051f4ac3c",
       "path": "skills/verify-work/SKILL.md"
     },
     "visual-dashboard": {
