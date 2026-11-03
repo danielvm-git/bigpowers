@@ -27,7 +27,7 @@ wire_context() {
 }
 
 # If stdin is a pipe/redirect, read the SkillIR JSON and render
-if [[ ! -t 0 ]]; then
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]] && [[ ! -t 0 ]]; then
   JSON_INPUT=$(cat)
   if [[ -n "$JSON_INPUT" ]]; then
     IR_NAME=$(echo "$JSON_INPUT" | jq -r '.name')

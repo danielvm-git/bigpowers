@@ -346,6 +346,10 @@ development_status:
   e58s05: done
   e58s06: done
   e58s07: done
+  e58s08: done
+  e58s09: done
+  e58s10: done
+  e58s11: done
   e59: backlog
   e60: done
   e60s01: done
@@ -420,7 +424,7 @@ development_status:
   e83s04: backlog
   e83s05: backlog
   e84: backlog
-  e84s01: backlog
+  e84s01: done
   e84s02: backlog
   e85: backlog
   e85s01: backlog
@@ -3219,6 +3223,42 @@ stories:
     tasks_passing: 4
     tasks_failing: 0
     risk_max: P1
+  e58s08:
+    status: done
+    title: value stream map per run (stage classifier)
+    bcps: 5
+    epic: e58
+    tasks_total: 3
+    tasks_passing: 3
+    tasks_failing: 0
+    risk_max: P2
+  e58s09:
+    status: done
+    title: lean waste metrics per run
+    bcps: 5
+    epic: e58
+    tasks_total: 3
+    tasks_passing: 3
+    tasks_failing: 0
+    risk_max: P2
+  e58s10:
+    status: done
+    title: value stream and waste views in progress and reports
+    bcps: 5
+    epic: e58
+    tasks_total: 3
+    tasks_passing: 3
+    tasks_failing: 0
+    risk_max: P2
+  e58s11:
+    status: done
+    title: three tasks with changing, spread and implied requirements
+    bcps: 8
+    epic: e58
+    tasks_total: 5
+    tasks_passing: 5
+    tasks_failing: 0
+    risk_max: P2
   e60s01:
     status: done
     title: 'Interactive installer with ASCII banner, global/local, tool selection'
@@ -3640,12 +3680,12 @@ stories:
     tasks_failing: 0
     risk_max: P1
   e84s01:
-    status: backlog
+    status: done
     title: AGENTS.md is the canonical instruction file in this repo
     bcps: 14
     epic: e84
     tasks_total: 4
-    tasks_passing: 0
+    tasks_passing: 4
     tasks_failing: 0
     risk_max: P2
   e84s02:

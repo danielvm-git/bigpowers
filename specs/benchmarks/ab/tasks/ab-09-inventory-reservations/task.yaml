@@ -1,0 +1,13 @@
+# story: e58s08
+# Hard temporal feature: inventory reservations with injected clock and hold expiration.
+id: ab-09
+title: Add reservation holds with clock injection to inventory API
+kind: feature
+prompt: |
+  Implement the reservations feature described in docs/SPEC-reservations.md.
+  Use the clock injected in src/clock.js for all time checks. Keep all existing tests in test/inventory.test.js passing.
+protected:
+  - test/inventory.test.js
+grade: node --test test/*.test.js test-hidden/*.test.js
+score: node --test --test-reporter=tap test-hidden/*.test.js
+timeout_s: 1800

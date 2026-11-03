@@ -1,0 +1,96 @@
+generated_at: '2026-11-03T12:40:10+00:00'
+bigpowers_sha: bff2f153
+adapter: pi-docker
+model: opencode-go/deepseek-v4.1-flash
+k: 10
+tasks:
+- ab-09
+- ab-11
+- ab-13
+- ab-17
+- ab-19
+- ab-20
+arms:
+- vanilla
+- bigpowers
+shards: 6 tasks x 2 arms x k=10
+ci_method: bootstrap over runs, 1000 resamples, seed 58
+arms_summary:
+  vanilla:
+    runs: 60
+    pass_rate: 0.9833
+    mean_score: 0.9991
+    mean_bugs_opened: 0.1667
+    tamper_rate: 0.0
+    agent_error_rate: 0.0
+    mean_cost_usd: 0.0074
+    mean_input_tokens: 107130.5
+    mean_output_tokens: 8375.0833
+    mean_turns: 9.75
+    mean_duration_s: 77.4233
+    mean_diff_lines: 144.35
+  bigpowers:
+    runs: 60
+    pass_rate: 0.9667
+    mean_score: 0.9981
+    mean_bugs_opened: 0.1667
+    tamper_rate: 0.0333
+    agent_error_rate: 0.0
+    mean_cost_usd: 0.0146
+    mean_input_tokens: 512593.55
+    mean_output_tokens: 14844.1333
+    mean_turns: 20.25
+    mean_duration_s: 130.5733
+    mean_diff_lines: 537.8667
+per_task:
+  ab-09:
+    vanilla: 1.0
+    bigpowers: 1.0
+  ab-11:
+    vanilla: 0.9
+    bigpowers: 0.8
+  ab-13:
+    vanilla: 1.0
+    bigpowers: 1.0
+  ab-17:
+    vanilla: 1.0
+    bigpowers: 1.0
+  ab-19:
+    vanilla: 1.0
+    bigpowers: 1.0
+  ab-20:
+    vanilla: 1.0
+    bigpowers: 1.0
+per_task_score:
+  ab-09:
+    vanilla: 1.0
+    bigpowers: 1.0
+  ab-11:
+    vanilla: 0.9944
+    bigpowers: 0.9889
+  ab-13:
+    vanilla: 1.0
+    bigpowers: 1.0
+  ab-17:
+    vanilla: 1.0
+    bigpowers: 1.0
+  ab-19:
+    vanilla: 1.0
+    bigpowers: 1.0
+  ab-20:
+    vanilla: 1.0
+    bigpowers: 1.0
+delta: &id001
+  pass_rate: -0.0166
+  ci95:
+  - -0.0833
+  - 0.0333
+  tamper_rate: 0.0333
+  cost_usd: 0.0072
+  score: -0.001
+  score_ci95:
+  - -0.0046
+  - 0.0019
+  bugs_opened: 0.0
+deltas_vs_vanilla:
+  bigpowers: *id001

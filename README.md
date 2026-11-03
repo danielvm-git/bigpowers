@@ -67,6 +67,8 @@ Use **arrow keys** to navigate, **space** to select, and **Enter** to confirm.
 
 ![Interactive Installer](docs/images/interactive-installer.png)
 
+*Screenshot from an earlier release; the current installer may differ.*
+
 ### From source (contributors)
 
 ```bash

@@ -1,16 +1,14 @@
-active_flow: fix_bug
-active_epic: null
-active_story: null
-bug_id: BUG-2026-11-03-epic-status-rollup-drift
-bigpowers_version: 2.91.1
-bug_cycle:
-  current_step: 5
-  completed_steps: [1, 2, 3, 4]
+active_flow: build
+active_epic: e84
+active_story: e84s01
+bug_id: null
+bigpowers_version: 2.93.2
+bug_cycle: null
 handoff:
-  next_skill: release-branch
-  context: 'Fixed BUG-2026-11-03-story-verify-ab-sandbox-daemon-required: removed background docker daemon
-    requirement from e58s07 story verify directive. Full story-verify suite passes (50 PASS, 0 FAIL).'
-  epic: e58
+  next_skill: audit-code
+  context: 'Pillar B: Shaved always-loaded context in CLAUDE.md (symlink to AGENTS.md, 98 lines) and CONVENTIONS.md
+    (105 lines), cutting always-loaded context by ~77%. Toolchain syntax tables moved to docs/references/agent-tooling.md.'
+  epic: e84
 epic_cycle: null
 metrics:
   story_start: null
@@ -41,4 +39,4 @@ release:
   last_tag: v2.87.2
   last_publish: '2026-08-05T16:28:27Z'
 git:
-  branch: danielvm-git/bigpowers-evaluation-roadmap-4d0758
+  branch: feat/e84-shave-always-loaded-context

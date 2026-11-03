@@ -109,9 +109,16 @@ fi
 DEFECTS_FOUND=0
 mkdir -p specs/verifications
 
+# A JS/TS source file that exists and is not a test: the files the boundary scan inspects.
+is_scannable_source() {
+  local file="$1"
+  [[ "$file" =~ \.(js|ts|mjs)$ && -f "$file" ]] || return 1
+  [[ ! "$file" =~ (^|/)test/ && ! "$file" =~ \.test\. ]]
+}
+
 # 2. Check for common unsafe property access patterns on JS/TS files
 for file in $CHANGED_FILES; do
-  if [[ "$file" =~ \.(js|ts|mjs)$ ]] && [[ -f "$file" ]] && [[ ! "$file" =~ (^|/)test/ ]] && [[ ! "$file" =~ \.test\. ]]; then
+  if is_scannable_source "$file"; then
     # Look for unsafe chained property access like item.brand.toLowerCase() or item.prop.subprop
     if grep -nE '\.[a-zA-Z0-9_]+\.(toLowerCase|toUpperCase|trim|length|slice)\(' "$file" | grep -v '\?\.' >/dev/null 2>&1; then
       echo "WARNING [boundary-mutation]: Potential unhandled undefined access without optional chaining in $file:"

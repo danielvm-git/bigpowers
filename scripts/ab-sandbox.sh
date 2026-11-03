@@ -15,7 +15,7 @@ INTERNAL_NET="bp-ab-internal"
 EGRESS_NET="bp-ab-egress"
 ASSETS="$(cd "$(dirname "${BASH_SOURCE[0]}")/lib/ab-sandbox" && pwd)"
 
-die() { echo "ERROR: $*" >&2; exit 1; }
+sandbox_die() { echo "ERROR: $*" >&2; exit 1; }
 
 have_image() { docker image inspect "$1" >/dev/null 2>&1; }
 have_net() { docker network inspect "$1" >/dev/null 2>&1; }
@@ -43,7 +43,7 @@ wait_for_proxy() {
     sleep 1
   done
   docker logs "$PROXY_NAME" >&2 || true
-  die "proxy did not start listening"
+  sandbox_die "proxy did not start listening"
 }
 
 cmd_up() {
@@ -81,5 +81,5 @@ case "${1:-status}" in
   up) cmd_up ;;
   down) cmd_down ;;
   status) cmd_status ;;
-  *) die "usage: $(basename "$0") up|down|status" ;;
+  *) sandbox_die "usage: $(basename "$0") up|down|status" ;;
 esac

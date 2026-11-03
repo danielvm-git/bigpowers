@@ -1,7 +1,7 @@
 id: e58
 title: "Evals Over Compliance — Replace the 94% Gate with Outcome Proof"
 wsjf: 5.3
-bcps: 75
+bcps: 98
 bcps_projected: 9
 capsule_dir: epics/e58-evals-over-compliance
 mode: capsule
@@ -71,7 +71,7 @@ stories:
       - specs/benchmarks/ab/tasks/
       - tests/test_ab_eval.py
     tasks: e58s02-tasks.yaml
-    verify: python3 tests/test_ab_eval.py && bash scripts/run-ab-eval.sh --dry-run --adapter opencode
+    verify: python3 tests/test_ab_eval.py && python3 tests/test_ab_tasks.py && bash scripts/run-ab-eval.sh --dry-run --adapter opencode
   - id: e58s03
     title: "partial-credit scoring + two hard tasks (ab-11, ab-13)"
     status: done
@@ -167,6 +167,79 @@ stories:
       - tests/test_ab_sandbox.py
     tasks: e58s07-tasks.yaml
     verify: python3 tests/test_ab_sandbox.py
+  - id: e58s08
+    title: "value stream map per run (stage classifier)"
+    status: done
+    bcps: 5
+    bcp_basis: estimate, 2026-11-03 (rules file + classifier + runner hook)
+    risk: P2
+    delta: ADDED
+    source: specs/benchmarks/LEAN-VSM_LATEST.md step 2
+    description: >-
+      Credit each model turn's time, tokens and cost to the lean stage of the action it takes
+      (plan, design, build, test, deploy, maintain) and add a vsm block to every run record.
+    files:
+      - specs/benchmarks/ab/vsm.yaml
+      - scripts/lib/ab_vsm.py
+      - scripts/lib/ab-eval.py
+      - tests/test_ab_vsm.py
+    tasks: e58s08-tasks.yaml
+    verify: python3 tests/test_ab_vsm.py
+  - id: e58s09
+    title: "lean waste metrics per run"
+    status: done
+    bcps: 5
+    bcp_basis: estimate, 2026-11-03 (transcript + patch metrics, solution diff, runner hook)
+    risk: P2
+    delta: ADDED
+    source: specs/benchmarks/LEAN-VSM_LATEST.md step 3
+    description: >-
+      Save each run's patch and add a waste block: extra features against the reference solution,
+      leftovers, relearning, rework loops, first-time-through, PCE and review load.
+    files:
+      - scripts/lib/ab_waste.py
+      - specs/benchmarks/ab/vsm.yaml
+      - scripts/lib/ab-eval.py
+      - tests/test_ab_waste.py
+    tasks: e58s09-tasks.yaml
+    verify: python3 tests/test_ab_waste.py
+  - id: e58s10
+    title: "value stream and waste views in progress and reports"
+    status: done
+    bcps: 5
+    bcp_basis: estimate, 2026-11-03 (aggregation + deltas + bars + table + one waste metric)
+    risk: P2
+    delta: ADDED
+    source: specs/benchmarks/LEAN-VSM_LATEST.md step 4
+    description: >-
+      Aggregate vsm and waste per arm with deltas against vanilla, print VSM bars and a waste table
+      in the live progress view and the report, and count redundant green test runs.
+    files:
+      - scripts/lib/ab_lean.py
+      - scripts/lib/ab_report.py
+      - scripts/lib/ab_progress.py
+      - scripts/lib/ab_waste.py
+      - tests/test_ab_lean.py
+    tasks: e58s10-tasks.yaml
+    verify: python3 tests/test_ab_lean.py
+  - id: e58s11
+    title: "three tasks with changing, spread and implied requirements"
+    status: done
+    bcps: 8
+    bcp_basis: estimate, 2026-11-03 (3 fixtures + hidden suites + solutions + calibration run)
+    risk: P2
+    delta: ADDED
+    source: specs/benchmarks/TASK-REVIEW_LATEST.md (0 of 14 tasks discriminate)
+    description: >-
+      ab-12 (todo CLI, requirements changed across an issue thread), ab-15 (config precedence with
+      example-only rules and five callers), ab-16 (site tags + RSS, byte-identical existing pages),
+      each with full hidden coverage, then a vanilla k=10 difficulty calibration.
+    files:
+      - specs/benchmarks/ab/tasks/
+      - tests/test_ab_score.py
+      - specs/benchmarks/TASK-REVIEW_LATEST.md
+    tasks: e58s11-tasks.yaml
+    verify: python3 tests/test_ab_score.py && python3 tests/test_ab_tasks.py
 planned_stories:
   - working_title: "Extend run-evals to cover a meaningful skill subset with real with/without-skill deltas"
     bcp_estimate: 3

@@ -1,0 +1,13 @@
+# story: e58s08
+# Hard security feature: role-based catalog visibility segregation with metadata oracle defense.
+id: ab-19
+title: Implement role-based catalog segregation with metadata oracle defense
+kind: feature
+prompt: |
+  Implement role-based product visibility in src/catalog.js as described in docs/SPEC-segregation.md.
+  Prevent unauthorized access and metadata oracles. Keep all tests in test/catalog.test.js passing.
+protected:
+  - test/catalog.test.js
+grade: node --test test/*.test.js test-hidden/*.test.js
+score: node --test --test-reporter=tap test-hidden/*.test.js
+timeout_s: 1800
