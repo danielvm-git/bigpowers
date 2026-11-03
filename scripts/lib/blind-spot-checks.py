@@ -6,6 +6,8 @@
 import json, os, re, sys
 from pathlib import Path
 from datetime import datetime, timezone
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from atomic_write import atomic_write_text  # noqa: E402
 
 ROOT = Path(sys.argv[1])
 BLIND_SPOTS_JSON = Path(sys.argv[2])
@@ -202,7 +204,7 @@ blind_spots = {
 }
 
 BLIND_SPOTS_JSON.parent.mkdir(parents=True, exist_ok=True)
-BLIND_SPOTS_JSON.write_text(json.dumps(blind_spots, indent=2), encoding="utf-8")
+atomic_write_text(BLIND_SPOTS_JSON, json.dumps(blind_spots, indent=2), encoding="utf-8")
 
 print(f"check-blind-spots.sh: {len(findings)} findings ({high_count} HIGH, {medium_count} MEDIUM, {low_count} LOW)")
 for f in findings:

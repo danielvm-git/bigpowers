@@ -8,6 +8,9 @@ import re
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent / "lib"))
+from atomic_write import atomic_write_text  # noqa: E402
+
 
 def main() -> int:
     graph_json = Path(sys.argv[1])
@@ -69,7 +72,7 @@ def main() -> int:
                 content,
             )
         count_updated += 1
-        path.write_text(content, encoding="utf-8")
+        atomic_write_text(path, content)
 
     print(f"  concepts with cross-references: {count_updated}", file=sys.stderr)
     return 0

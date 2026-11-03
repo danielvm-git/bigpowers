@@ -12,6 +12,9 @@ from pathlib import Path
 
 import yaml
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from atomic_write import atomic_write_text  # noqa: E402
+
 REPO_ROOT = Path(__file__).resolve().parents[2]
 BENCH_DIR = REPO_ROOT / "specs" / "benchmarks"
 REPORTS_DIR = BENCH_DIR / "reports"
@@ -169,8 +172,7 @@ def run_benchmark(skill: str, baseline: bool = False) -> dict:
     REPORTS_DIR.mkdir(parents=True, exist_ok=True)
     yaml_path = REPORTS_DIR / f"BENCHMARK-{skill}-{today}.yaml"
     json_path = REPORTS_DIR / f"benchmark-{skill}.json"
-    with yaml_path.open("w") as f:
-        yaml.dump(
+    yaml_text = yaml.dump(
             {
                 "skill": skill,
                 "run_date": today,
@@ -189,9 +191,9 @@ def run_benchmark(skill: str, baseline: bool = False) -> dict:
             },
             f,
             default_flow_style=False,
-        )
-    with json_path.open("w") as f:
-        json.dump(report, f, separators=(",", ":"))
+    )
+    atomic_write_text(yaml_path, yaml_text)
+    atomic_write_text(json_path, json.dumps(report, separators=(",", ":")))
     print(f"Wrote {yaml_path}")
     print(f"Wrote {json_path}")
     if baseline:
