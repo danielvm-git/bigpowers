@@ -56,7 +56,7 @@ Both commands sync skill artifacts and link them to Claude Code, Gemini CLI, and
 
 ### Interactive Installer
 
-The `npx bigpowers setup` command launches an interactive menu where you can:
+The `npx bigpowers setup` command launches an interactive menu where you can (needs a terminal — see [Non-interactive](#non-interactive-agents-ci-no-tty) for scripts and CI):
 
 1. **Choose install mode**: Setup/Update or Uninstall
 2. **Select location**: Global (available everywhere) or Local (current project only)
@@ -293,6 +293,10 @@ Or add manually to `.claude/settings.json`:
 bigpowers update   # fetches bigpowers@latest (global installs), then re-syncs + refreshes symlinks
 ```
 
+`bigpowers update` never prompts. It fetches the newest release, then replays the run recorded in
+`~/.bigpowers/install-state.json` (or `./.bigpowers/install-state.json` for a local install) — same
+scope, same tools. With nothing installed it prints `Run: bigpowers setup` and exits 1.
+
 `bigpowers update` now runs `npm install -g bigpowers@latest` for you when bigpowers is installed globally, so running it alone is enough to reach the newest release. Prefer to do it by hand? `npm install -g bigpowers@latest && bigpowers update`. (Avoid `npm update -g bigpowers` — it does not reliably cross to `@latest`.)
 
 **git clone:**
@@ -304,6 +308,18 @@ bash scripts/install.sh
 ```
 
 *Install uses symlinks — re-running setup refreshes links without duplicating files.*
+
+### Non-interactive (agents, CI, no TTY)
+
+```bash
+bigpowers setup --yes --tools=claude,pi --scope=global
+bigpowers setup --help
+```
+
+Without a TTY the installer never draws a menu. `--yes` accepts the resolved plan (flags → last
+recorded run → what is on disk); without `--yes` it exits `2` with the exact command to run. Earlier
+releases drew the first menu and exited `0` having installed nothing
+([BUG-2026-11-03-cli-nontty-silent-noop](specs/bugs/BUG-2026-11-03-cli-nontty-silent-noop.md)).
 
 ### Uninstall
 

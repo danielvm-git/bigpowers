@@ -11,6 +11,7 @@ const path = require('path');
 const ROOT = path.dirname(path.dirname(__filename));
 const SKILLS_MARKER = path.join(os.homedir(), '.claude', 'skills', 'survey-context');
 const pkg = require(path.join(ROOT, 'package.json'));
+const { readPackageVersion } = require(path.join(ROOT, 'scripts', 'lib', 'cli-version'));
 
 function isInstalled() {
   try {
@@ -50,6 +51,10 @@ function selfUpdateGlobalPackage() {
     return;
   }
   console.log('bigpowers: fetching the latest release from npm (npm install -g bigpowers@latest)...');
+  if (process.env.BIGPOWERS_SKIP_SELF_UPDATE === '1') {
+    console.log('bigpowers: BIGPOWERS_SKIP_SELF_UPDATE=1 — re-syncing the installed version instead.');
+    return;
+  }
   try {
     execSync('npm install -g bigpowers@latest', { stdio: 'inherit' });
   } catch {
@@ -84,7 +89,16 @@ if (cmd === 'init') {
 
 if (cmd === 'update') {
   // Pull the newest release first (global installs), then re-sync + refresh symlinks.
+  // `update` has no choices to make, so it never prompts: it replays the recorded
+  // install (scripts/lib/install-state.js) and installs without a menu. Prompting
+  // here meant, with no TTY, drawing a menu nobody could answer and exiting 0
+  // without installing anything (BUG-2026-11-03-cli-nontty-silent-noop).
   selfUpdateGlobalPackage();
+  if (!isInstalled() && !fs.existsSync(path.join(os.homedir(), '.bigpowers', 'install-state.json'))) {
+    console.error('bigpowers: nothing installed yet. Run: bigpowers setup');
+    process.exit(1);
+  }
+  process.env.BIGPOWERS_NONINTERACTIVE = '1';
   const setupScript = path.join(ROOT, 'bin', 'setup.js');
   require(setupScript);
   return;
@@ -95,11 +109,12 @@ if (cmd === 'status') {
     const count = fs.readdirSync(path.join(os.homedir(), '.claude', 'skills'))
       .filter(d => fs.lstatSync(path.join(os.homedir(), '.claude', 'skills', d)).isSymbolicLink())
       .length;
-    console.log(`bigpowers v${pkg.version} — ${count} skills installed`);
+    const version = readPackageVersion(ROOT);
+    console.log(`bigpowers v${version} — ${count} skills installed`);
     const latest = latestPublishedVersion();
-    if (latest && latest !== pkg.version) {
-      console.log(`\n⬆️  A newer release is available: v${latest} (you have v${pkg.version}).`);
-      console.log('   Upgrade: npm install -g bigpowers@latest && bigpowers update');
+    if (latest && latest !== version) {
+      console.log(`\n⬆️  A newer release is available: v${latest} (you have v${version}).`);
+      console.log('   Upgrade: bigpowers update');
     }
   } else {
     console.log('bigpowers not installed. Run: bigpowers setup');
@@ -112,21 +127,28 @@ if (cmd === '--help' || cmd === '-h' || cmd === 'help') {
 bigpowers — agent skills for spec-driven, test-first development
 
 Commands:
-  bigpowers setup    Install skills into ~/.claude/skills/
+  bigpowers setup    Install skills into ~/.claude/skills/ (interactive; see --yes below)
   bigpowers init     Provision the CURRENT project: scripts/ link + specs/ scaffolding (run per project)
   bigpowers update   Fetch the latest release (global installs) + re-sync and refresh symlinks
   bigpowers status   Show installed version and skill count (warns if a newer release exists)
   bigpowers help     This message
+
+Non-interactive (no TTY: agents, CI, a pipe on stdin):
+  bigpowers setup --yes --tools=claude,pi --scope=global
+  bigpowers setup --help        Full flag list
+
+Without a TTY the installer never prompts: it uses --yes, or exits 2 with the
+command to run. bigpowers update never prompts at all.
 `);
   process.exit(0);
 }
 
 // Default: check state and guide
 if (isInstalled()) {
-  console.log(`bigpowers v${pkg.version} — already installed.`);
+  console.log(`bigpowers v${readPackageVersion(ROOT)} — already installed.`);
   console.log('Commands: bigpowers {setup|update|status|help}');
 } else {
-  console.log(`🚀 bigpowers v${pkg.version} — skills not yet installed.`);
+  console.log(`🚀 bigpowers v${readPackageVersion(ROOT)} — skills not yet installed.`);
   console.log('   Run: bigpowers setup');
   process.exit(1);
 }

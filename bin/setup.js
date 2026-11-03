@@ -14,11 +14,18 @@
 
 const { execSync, spawn } = require('child_process');
 const fs = require('fs');
+const os = require('os');
 const path = require('path');
 const { installGlobal, installLocal, uninstallTool, detectExistingInstall } = require('../scripts/lib/install-helpers');
+const { readPackageVersion } = require('../scripts/lib/cli-version');
+const { parseArgs, printSetupHelp } = require('../scripts/lib/cli-args');
+const {
+  anyInstallState, clearInstallState, detectInstalledTools, resolvePlan, writeInstallState,
+} = require('../scripts/lib/install-state');
+const { consoleUi, spinnerUi, skillCount, syncAndInstall, reportResults } = require('../scripts/lib/install-run');
+const { runUninstallInteractive } = require('../scripts/lib/install-uninstall');
 
 const ROOT = path.resolve(path.dirname(__filename), '..');
-const pkg = require(path.join(ROOT, 'package.json'));
 
 // ── ANSI helpers ─────────────────────────────────────────────────────────────
 const c = {
@@ -30,7 +37,11 @@ const c = {
 };
 
 // ── ASCII banner ─────────────────────────────────────────────────────────────
-const BANNER = `
+// Version is passed in, read fresh from disk: `bigpowers update` reinstalls this
+// package mid-process, so a require() cache from startup would print the version
+// that was replaced (BUG-2026-11-03-cli-update-stale-version).
+function banner(version) {
+  return `
 ${c.cyan('╔════════════════════════════════════════════════════════════════════════════╗')}
 ${c.cyan('║')}                                                                            ${c.cyan('║')}
 ${c.cyan('║')}   ${c.bold(c.cyan('██████╗ ██╗ ██████╗ ██████╗  ██████╗ █      █ ███████╗██████╗ ███████╗'))}   ${c.cyan('║')}
@@ -41,9 +52,10 @@ ${c.cyan('║')}   ${c.bold(c.cyan('██████╔╝██║╚██�
 ${c.cyan('║')}   ${c.bold(c.cyan('╚═════╝ ╚═╝ ╚═════╝ ╚═╝      ╚═════╝ ╚═╝  ╚═╝ ╚══════╝╚═╝  ╚═╝╚══════╝'))}   ${c.cyan('║')}
 ${c.cyan('║')}                                                                            ${c.cyan('║')}
 ${c.cyan('║')}           ${c.dim('Spec-Driven & Test-First Skills for Solo Developers')}              ${c.cyan('║')}
-${c.cyan('║')}           ${c.dim(`v${pkg.version}`)}                                                          ${c.cyan('║')}
+${c.cyan('║')}           ${c.dim(`v${version}`)}                                                          ${c.cyan('║')}
 ${c.cyan('╚════════════════════════════════════════════════════════════════════════════╝')}
 `;
+}
 
 // ── Tool definitions ─────────────────────────────────────────────────────────
 const TOOLS = [
@@ -103,75 +115,83 @@ function runInheritedAsync(cmd) {
 
 
 
-// ── Uninstall flow ──────────────────────────────────────────────────────────
-async function handleUninstall() {
-  const { multiselect: ms, confirm: cf, spinner: sp, outro: ot, isCancel: ic } = await clack();
+// The catalogue with its support flag resolved once, so the state helpers do not
+// need to know about SUPPORTED_IDS.
+const TARGETS = TOOLS.map((tool) => ({ ...tool, supported: SUPPORTED_IDS.has(tool.id) }));
 
-  const toolOptions = TOOLS.filter((t) => SUPPORTED_IDS.has(t.id)).map((tool) => {
-    return { value: tool.id, label: tool.name, hint: `(${tool.globalPath})` };
-  });
-
-  const selectedToolIds = await ms({
-    message: 'Uninstall from which tools?',
-    options: toolOptions,
-    initialValues: ['claude'],
-    required: true,
-  });
-
-  if (ic(selectedToolIds)) {
-    ot('Cancelled.');
-    process.exit(0);
-  }
-
-  const yes = await cf({
-    message: `Remove symlinks from ${selectedToolIds.length} tool${selectedToolIds.length > 1 ? 's' : ''}?`,
-    initialValue: true,
-  });
-
-  if (!yes || ic(yes)) {
-    ot('Cancelled.');
-    process.exit(0);
-  }
-
-  const s = await sp();
-  s.start('Removing...');
-
-  const results = [];
-  for (const toolId of selectedToolIds) {
+// ── Non-interactive path ────────────────────────────────────────────────────
+// Uninstall without a menu: remove the links for the resolved tools, then forget
+// the recorded run so a later `update` does not reinstall what was just removed.
+function runUninstallBatch(tools) {
+  console.log(`  Removing bigpowers from ${tools.length} runtime(s): ${tools.join(', ')}`);
+  let failed = false;
+  for (const toolId of tools) {
     const tool = TOOLS.find((t) => t.id === toolId);
     try {
       uninstallTool(toolId, ROOT);
-      results.push({ name: tool.name, ok: true });
+      console.log(`  ${c.green('✓')} ${tool.name} — ${c.dim('removed')}`);
     } catch (err) {
-      results.push({ name: tool.name, ok: false, error: err.message });
+      failed = true;
+      console.log(`  ${c.red('✗')} ${tool.name} — ${c.red(err.message)}`);
     }
   }
-
-  s.stop('Done.');
-
-  console.log('');
-  for (const r of results) {
-    const icon = r.ok ? c.green('✓') : c.red('✗');
-    const detail = r.ok ? c.dim('removed') : c.red(r.error);
-    console.log(`  ${icon} ${r.name} — ${detail}`);
-  }
-  console.log('');
-
-  ot('Uninstall complete.');
+  clearInstallState(tools);
+  console.log(failed ? 'Some removals failed. Check errors above.' : 'Uninstall complete.');
+  if (failed) process.exit(1);
 }
 
-// ── Main ─────────────────────────────────────────────────────────────────────
-async function main() {
+async function runNonInteractive(opts, version) {
+  const plan = resolvePlan(opts, TARGETS);
+  const consented = opts.yes || process.env.BIGPOWERS_NONINTERACTIVE === '1';
+
+  if (!consented || plan.tools.length === 0) {
+    console.error(`${c.red('bigpowers: no TTY — refusing to prompt.')}`);
+    console.error('');
+    console.error(`  Run: bigpowers setup --yes --tools=${plan.tools.join(',') || 'claude'}`);
+    console.error('  Or run the installer in a terminal for the interactive menu.');
+    process.exit(2);
+  }
+
+  if (opts.uninstall) {
+    runUninstallBatch(plan.tools);
+    return;
+  }
+
+  console.log(
+    `  bigpowers v${version} — installing ${plan.tools.length} runtime(s) (${plan.scope}): ${plan.tools.join(', ')}`
+  );
+  const results = await syncAndInstall(plan, {
+    root: ROOT,
+    catalogue: TOOLS,
+    installGlobal,
+    installLocal,
+    uninstallTool,
+    runInheritedAsync,
+    ui: consoleUi(),
+    hadExisting: detectExistingInstall(),
+  });
+  reportResults(results, { tools: plan.tools, root: ROOT, c });
+
+  const allOk = results.every((r) => r.ok);
+  if (allOk) writeInstallState(plan.scope, plan.tools, { version });
+  console.log(
+    allOk
+      ? `bigpowers installed. ${c.dim('Run bigpowers update anytime.')}`
+      : 'Some installations failed. Check errors above.'
+  );
+  if (!allOk) process.exit(1);
+}
+
+// ── Interactive path ────────────────────────────────────────────────────────
+async function runInteractive(opts, version) {
   const { intro, outro, select, multiselect, spinner, confirm, isCancel } = await clack();
+  intro(c.bold(`bigpowers v${version}`));
 
-  console.log(BANNER);
-  intro(c.bold(`bigpowers v${pkg.version}`));
-
-  // ── Step 0: Detect existing install ────────────────────────────────────
   const hasExisting = detectExistingInstall();
-  let mode = 'install';
+  const saved = anyInstallState();
+  let mode = opts.uninstall ? 'uninstall' : 'install';
 
-  if (hasExisting) {
+  if (hasExisting && !opts.uninstall) {
     mode = await select({
       message: 'Existing installation detected. How would you like to proceed?',
       options: [
@@ -179,7 +199,6 @@ async function main() {
         { value: 'uninstall', label: 'Uninstall', hint: '(remove symlinks and hooks)' },
       ],
     });
-
     if (isCancel(mode)) {
       outro('Cancelled.');
       process.exit(0);
@@ -187,25 +206,24 @@ async function main() {
   }
 
   if (mode === 'uninstall') {
-    await handleUninstall();
+    await runUninstallInteractive({ clack, catalogue: TOOLS, supportedIds: SUPPORTED_IDS, uninstallTool, root: ROOT, c });
     return;
   }
 
-  // ── Step 1: Global vs Local ──────────────────────────────────────────────
   const installMode = await select({
     message: 'Where would you like to install?',
     options: [
       { value: 'global', label: 'Global', hint: '(~/.claude/skills/) — available in all projects' },
       { value: 'local', label: 'Local', hint: '(./.claude/skills/) — this project only' },
     ],
+    initialValue: (saved && saved.scope) || 'global',
   });
-
   if (isCancel(installMode)) {
     outro('Setup cancelled.');
     process.exit(0);
   }
 
-  // ── Step 2: Tool selection ─────────────────────────────────────────────
+  const preselected = (saved && saved.scope === installMode ? saved.tools : null) || detectInstalledTools(TARGETS);
   const toolOptions = TOOLS.map((tool) => {
     const p = installMode === 'global' ? tool.globalPath : tool.localPath;
     const supported = SUPPORTED_IDS.has(tool.id);
@@ -216,121 +234,74 @@ async function main() {
     };
   });
 
-  let selectedToolIds = await multiselect({
+  const selectedToolIds = await multiselect({
     message: 'Install for which tools?',
     options: toolOptions,
-    initialValues: ['claude'],
+    initialValues: preselected.length > 0 ? preselected : ['claude'],
     required: true,
   });
-
   if (isCancel(selectedToolIds)) {
     outro('Setup cancelled.');
     process.exit(0);
   }
 
-  // Filter out TODO tools — they can't be installed yet
-  const selectedTools = selectedToolIds.filter((id) => SUPPORTED_IDS.has(id));
+  const tools = selectedToolIds.filter((id) => SUPPORTED_IDS.has(id));
   const todoSkipped = selectedToolIds.filter((id) => !SUPPORTED_IDS.has(id));
   if (todoSkipped.length > 0) {
     const names = todoSkipped.map((id) => TOOLS.find((t) => t.id === id)?.name || id);
     console.log(`\n  ${c.dim('TODO (not yet implemented):')} ${names.join(', ')}`);
   }
-  if (selectedTools.length === 0) {
+  if (tools.length === 0) {
     console.log(`\n  ${c.red('No supported tools selected.')}`);
     outro('Setup cancelled.');
     process.exit(0);
   }
 
-  // ── Step 3: Confirm ───────────────────────────────────────────────────
-  const skillsDir = path.join(ROOT, 'skills');
-  const skillCount = fs
-    .readdirSync(skillsDir)
-    .filter((d) => fs.existsSync(path.join(skillsDir, d, 'SKILL.md'))).length;
-
+  const count = skillCount(ROOT);
   const yes = await confirm({
-    message: `Install ${skillCount} skills to ${selectedTools.length} runtime${selectedTools.length > 1 ? 's' : ''}?`,
+    message: `Install ${count} skills to ${tools.length} runtime${tools.length > 1 ? 's' : ''}?`,
     initialValue: true,
   });
-
   if (!yes || isCancel(yes)) {
     outro('Setup cancelled.');
     process.exit(0);
   }
 
-  // ── Step 4: Clean old symlinks ─────────────────────────────────────────
-  const s = await spinner();
-  s.start('Preparing installation...');
-  await sleep(200);
-
-  // Uninstall existing symlinks for selected tools before reinstalling
-  if (hasExisting) {
-    s.message('Cleaning old symlinks...');
-    for (const toolId of selectedTools) {
-      try {
-        uninstallTool(toolId, ROOT);
-      } catch {
-        // Ignore errors during cleanup — tool might not be installed yet
-      }
-    }
-    await sleep(100);
-  }
-
-  s.message('Syncing skills...');
-  try {
-    const output = await runInheritedAsync('bash scripts/sync-skills.sh --distribute-only');
-    const summary = output.trim().split('\n').find((l) => l.includes('skills synced'));
-    if (summary) s.message(summary.trim());
-  } catch (err) {
-    s.stop('Sync failed.', 1);
-    console.error(err.message);
-    process.exit(1);
-  }
-  s.message('Installing to selected tools...');
-
-  const results = [];
-  for (const toolId of selectedTools) {
-    const tool = TOOLS.find((t) => t.id === toolId);
-    const p = installMode === 'global' ? tool.globalPath : tool.localPath;
-
-    s.message(`Installing ${tool.name}...`);
-    await sleep(300);
-
-    try {
-      if (installMode === 'global') {
-        installGlobal(tool, ROOT);
-      } else {
-        installLocal(tool, ROOT);
-      }
-      results.push({ name: tool.name, path: p, ok: true });
-    } catch (err) {
-      results.push({ name: tool.name, path: p, ok: false, error: err.message });
-    }
-  }
-
-  s.stop('Installation complete.');
-
-  // ── Step 5: Results ────────────────────────────────────────────────────
-  console.log('');
-  for (const r of results) {
-    const icon = r.ok ? c.green('✓') : c.red('✗');
-    const detail = r.ok ? c.dim(r.path) : c.red(r.error);
-    console.log(`  ${icon} ${r.name} — ${detail}`);
-  }
-  if (selectedTools.includes('cursor') && results.some((r) => r.name === 'Cursor' && r.ok)) {
-    console.log(
-      `  ${c.dim('NOTE: Cursor does not scan ~/.cursor/rules globally — also symlink into each project:')}`
-    );
-    console.log(`  ${c.dim('  ln -sfn ' + path.join(ROOT, '.cursor', 'rules') + ' .cursor/rules')}`);
-  }
-  console.log('');
+  const results = await syncAndInstall({ scope: installMode, tools }, {
+    root: ROOT,
+    catalogue: TOOLS,
+    installGlobal,
+    installLocal,
+    uninstallTool,
+    runInheritedAsync,
+    ui: spinnerUi(spinner),
+    hadExisting: hasExisting,
+  });
+  reportResults(results, { tools, root: ROOT, c });
 
   const allOk = results.every((r) => r.ok);
-  if (allOk) {
-    outro(`bigpowers installed. ${c.dim('Run bigpowers update anytime.')}`);
-  } else {
+  if (!allOk) {
     outro('Some installations failed. Check errors above.');
     process.exit(1);
   }
+  writeInstallState(installMode, tools, { version });
+  outro(`bigpowers installed. ${c.dim('Run bigpowers update anytime.')}`);
+}
+
+// ── Main ─────────────────────────────────────────────────────────────────────
+async function main() {
+  const opts = parseArgs(process.argv.slice(2));
+  if (opts.help) {
+    printSetupHelp();
+    return;
+  }
+
+  const version = readPackageVersion(ROOT); // fresh: `update` may have replaced it
+  console.log(banner(version));
+
+  const interactive = Boolean(process.stdin.isTTY) && !opts.yes && process.env.BIGPOWERS_NONINTERACTIVE !== '1';
+  if (interactive) await runInteractive(opts, version);
+  else await runNonInteractive(opts, version);
 }
 
 // ── Run ──────────────────────────────────────────────────────────────────────
