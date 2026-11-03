@@ -46,7 +46,7 @@ tasks:
       bash -n scripts/adapters/gemini.sh &&
       bash -n scripts/lib/sync-render.sh &&
       grep -q 'list_hook_events' scripts/adapters/gemini.sh &&
-      grep -q 'render_gemini_hooks_manifest' scripts/lib/sync-render.sh && echo OK
+      bash scripts/test-adapter-render.sh && echo OK
     risk: P1
     security: none
     status: passing
