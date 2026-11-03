@@ -86,8 +86,11 @@ if ! git show-ref --verify --quiet "refs/heads/$FEATURE_BRANCH"; then
   land_branch_deny "Feature branch '$FEATURE_BRANCH' does not exist"
 fi
 
-# Scan all commits in feature branch for Co-authored-by: footers
-if git log "$DEFAULT_BRANCH..$FEATURE_BRANCH" --format="%B" 2>/dev/null | grep -qiE '^co[- ]authored[- ]by:'; then
+# Scan all commits in feature branch for Co-authored-by: footers.
+# Capture first: `git log | grep -q` under pipefail fails at random when grep
+# exits before git finishes writing (SIGPIPE) — BUG-2026-11-02-pipefail-pipe-race.
+FEATURE_BODIES="$(git log "$DEFAULT_BRANCH..$FEATURE_BRANCH" --format="%B" 2>/dev/null || true)"
+if grep -qiE '^co[- ]authored[- ]by:' <<<"$FEATURE_BODIES"; then
   land_branch_deny "Feature branch '$FEATURE_BRANCH' contains Co-authored-by: footer(s). Amend commits to remove all AI agent attribution before landing."
 fi
 
@@ -194,7 +197,8 @@ fi
 
 # Worktree cleanup
 WORKTREE_PATH="../$FEATURE_BRANCH"
-if git worktree list --porcelain 2>/dev/null | grep -q "^worktree $WORKTREE_PATH$"; then
+WORKTREES="$(git worktree list --porcelain 2>/dev/null || true)"
+if grep -q "^worktree $WORKTREE_PATH$" <<<"$WORKTREES"; then
   echo "==> Removing worktree $WORKTREE_PATH"
   git worktree remove "$WORKTREE_PATH" 2>/dev/null || git worktree remove -f "$WORKTREE_PATH"
 fi

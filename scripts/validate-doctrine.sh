@@ -55,7 +55,7 @@ else
   grep -rE "PLAN\.md|STATE\.md|PROJECT\.md|CONTEXT\.md|SUMMARY\.md|VERIFICATION\.md|RESEARCH\.md|RELEASE-PLAN\.md" \
     docs/ 2>/dev/null \
     | grep -v "docs/archive/" \
-    | grep -v "specs/archive" | head -20 >&2
+    | grep -v "specs/archive" | sed -n '1,20p' >&2  # sed reads to the end; `head` races pipefail (BUG-2026-11-02-pipefail-pipe-race)
 fi
 
 # ── Epic 1: Skill count consistency ───────────────────────────────────────────
@@ -94,7 +94,7 @@ else
     2>/dev/null \
     | grep -v "specs/archive\|specs/epics/archive\|docs/archive/\|\.git\|node_modules\|\.gemini\|\.cursor" \
     | grep -v "CHANGELOG\.md\|specs/verifications/reports/\|PLAN-evolve-structure\.md" \
-    | head -10 >&2
+    | sed -n '1,10p' >&2
 fi
 
 # ── Epic 3: BCP slop guard ────────────────────────────────────────────────────
@@ -107,7 +107,7 @@ if [[ "$BCP_SLOP" -eq 0 ]]; then
 else
   doctrine_fail "'Build Commit Point' found ($BCP_SLOP hits) — canonical term is 'Business Complexity Points'; see docs/references/bcp.md"
   grep -ri "build commit point" . 2>/dev/null \
-    | grep -v "specs/archive\|\.git\|node_modules\|\.gemini\|\.cursor\|validate-doctrine\.sh" | head -5 >&2
+    | grep -v "specs/archive\|\.git\|node_modules\|\.gemini\|\.cursor\|validate-doctrine\.sh" | sed -n '1,5p' >&2
 fi
 
 # ── Epic 4: SKILL.md size cap ─────────────────────────────────────────────────

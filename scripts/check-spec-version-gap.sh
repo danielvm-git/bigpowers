@@ -81,7 +81,8 @@ yaml_value_set() {
 }
 
 has_dirty_specs() {
-  [[ -d "$SPECS" ]] && git -C "$PROJECT_DIR" status --porcelain -- specs/ 2>/dev/null | grep -q .
+  # Test the captured output, not `git status | grep -q .` — a pipefail race (BUG-2026-11-02-pipefail-pipe-race).
+  [[ -d "$SPECS" ]] && [[ -n "$(git -C "$PROJECT_DIR" status --porcelain -- specs/ 2>/dev/null)" ]]
 }
 
 is_blocking_active_flow() {
