@@ -1,7 +1,7 @@
 id: e58
 title: "Evals Over Compliance — Replace the 94% Gate with Outcome Proof"
 wsjf: 5.3
-bcps: 75
+bcps: 80
 bcps_projected: 9
 capsule_dir: epics/e58-evals-over-compliance
 mode: capsule
@@ -167,6 +167,24 @@ stories:
       - tests/test_ab_sandbox.py
     tasks: e58s07-tasks.yaml
     verify: python3 tests/test_ab_sandbox.py
+  - id: e58s08
+    title: "value stream map per run (stage classifier)"
+    status: todo
+    bcps: 5
+    bcp_basis: estimate, 2026-11-03 (rules file + classifier + runner hook)
+    risk: P2
+    delta: ADDED
+    source: specs/benchmarks/LEAN-VSM_LATEST.md step 2
+    description: >-
+      Credit each model turn's time, tokens and cost to the lean stage of the action it takes
+      (plan, design, build, test, deploy, maintain) and add a vsm block to every run record.
+    files:
+      - specs/benchmarks/ab/vsm.yaml
+      - scripts/lib/ab_vsm.py
+      - scripts/lib/ab-eval.py
+      - tests/test_ab_vsm.py
+    tasks: e58s08-tasks.yaml
+    verify: python3 tests/test_ab_vsm.py
 planned_stories:
   - working_title: "Extend run-evals to cover a meaningful skill subset with real with/without-skill deltas"
     bcp_estimate: 3
