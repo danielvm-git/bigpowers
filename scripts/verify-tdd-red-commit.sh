@@ -79,6 +79,22 @@ if [[ -z "$VERIFY_CMD" ]]; then
 fi
 
 LATEST_MSG=$(git log -1 --format=%s 2>/dev/null || echo "")
+
+# Enforce during fix_bug flow, bug-fix commits, or when explicitly requested
+IS_FIX_FLOW=false
+if [ -f specs/state.yaml ] && grep -qE "active_flow:[[:space:]]*fix_bug" specs/state.yaml 2>/dev/null; then
+  IS_FIX_FLOW=true
+elif [[ -n "${TDD_ENFORCE_RED:-}" ]]; then
+  IS_FIX_FLOW=true
+elif [[ "$LATEST_MSG" =~ ^fix\(bug ]] || [[ "$LATEST_MSG" =~ BUG-[0-9] ]]; then
+  IS_FIX_FLOW=true
+fi
+
+if [ "$IS_FIX_FLOW" = false ] && [[ "${CHECK_PENDING_FIX:-0}" != "1" ]]; then
+  echo "SKIP: verify-tdd-red-commit only enforces during fix_bug flow or bug-fix commits"
+  exit 0
+fi
+
 if [[ "$LATEST_MSG" =~ ^fix ]]; then
   RED_SHA=$(git rev-parse HEAD~1 2>/dev/null || echo "")
   RED_MSG=$(git log -1 --format=%s "$RED_SHA" 2>/dev/null || echo "")
