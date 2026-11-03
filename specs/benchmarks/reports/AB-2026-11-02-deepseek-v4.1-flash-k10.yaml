@@ -1,0 +1,76 @@
+generated_at: '2026-11-03T01:24:43+00:00'
+bigpowers_sha: e242dfdc
+adapter: opencode
+model: opencode-go/deepseek-v4.1-flash
+k: 10
+tasks:
+- ab-01
+- ab-02
+- ab-03
+- ab-04
+- ab-05
+- ab-06
+- ab-07
+- ab-08
+arms:
+- vanilla
+- bigpowers
+arm_setup:
+  vanilla: 'true'
+  bigpowers: bash "$AB_BP_ROOT/scripts/lib/ab-arm-bigpowers.sh"
+ci_method: bootstrap over runs, 1000 resamples, seed 58
+arms_summary:
+  vanilla:
+    runs: 80
+    pass_rate: 0.9625
+    tamper_rate: 0.0
+    agent_error_rate: 0.0
+    mean_cost_usd: 0.0026
+    mean_input_tokens: 46982.2
+    mean_output_tokens: 1045.4
+    mean_turns: 5.0
+    mean_duration_s: 14.56
+    mean_diff_lines: 34.975
+  bigpowers:
+    runs: 80
+    pass_rate: 0.975
+    tamper_rate: 0.0
+    agent_error_rate: 0.0
+    mean_cost_usd: 0.0049
+    mean_input_tokens: 147298.05
+    mean_output_tokens: 1903.9625
+    mean_turns: 6.9625
+    mean_duration_s: 21.6575
+    mean_diff_lines: 44.1375
+per_task:
+  ab-01:
+    vanilla: 1.0
+    bigpowers: 1.0
+  ab-02:
+    vanilla: 1.0
+    bigpowers: 1.0
+  ab-03:
+    vanilla: 1.0
+    bigpowers: 0.8
+  ab-04:
+    vanilla: 1.0
+    bigpowers: 1.0
+  ab-05:
+    vanilla: 1.0
+    bigpowers: 1.0
+  ab-06:
+    vanilla: 0.7
+    bigpowers: 1.0
+  ab-07:
+    vanilla: 1.0
+    bigpowers: 1.0
+  ab-08:
+    vanilla: 1.0
+    bigpowers: 1.0
+delta:
+  pass_rate: 0.0125
+  ci95:
+  - -0.05
+  - 0.0625
+  tamper_rate: 0.0
+  cost_usd: 0.0023
