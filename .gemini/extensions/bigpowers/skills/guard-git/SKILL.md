@@ -13,7 +13,8 @@ Installs a shared hook that blocks destructive git operations and enforces workf
 
 ## What gets blocked/enforced
 
-- **Safety**: `git push --force`, `git reset --hard`, `git clean -f`, `git branch -D`, `git checkout .`, `git restore .`.
+- **Safety**: force push (`-f`, `--force`, `+refspec`), `reset` with `--hard`, `clean` with any `-f*`, `branch -D` / `--delete --force`, `checkout`/`restore` that discard work (`-f`, `.` pathspec).
+- **Argv, not substrings**: the hook tokenizes each command, strips git's global options (`-C <path>`, `-c k=v`, `--no-pager`, `--git-dir=…`) and judges the `(subcommand, arguments)` pair — so `git -C repo reset -q --hard` is blocked, while `git push --force-with-lease` is allowed. Rules live in `scripts/lib/git-argv.py`, mirrored in `extensions/omp-hooks.ts`; `scripts/test-guard-git-normalize.sh` fails if the two disagree.
 - **Discipline**: Blocks direct commits or pushes to protected branches (`main`, `master`) unless `GIT_BIGPOWERS_LAND=1` (set only by `scripts/land-branch.sh`).
 - **Allows**: `git push origin <feature-branch>` for backup/CI; solo land push to `main` only inside `land-branch.sh`.
 - **Standardization**: Enforces [Conventional Commits](https://www.conventionalcommits.org/) for all `git commit` commands.
@@ -38,7 +39,9 @@ Installs a shared hook that blocks destructive git operations and enforces workf
 
 ## Customization
 
-To add or remove patterns or protected branches, edit `pre-tool-use.sh`.
+The rule table lives in `scripts/lib/git-argv.py` (shell hooks) and is mirrored in `extensions/omp-hooks.ts`. Add a rule to both and a row to `specs/verifications/fixtures/guard-git-normalize.yaml`.
+
+The TS side is judged through `evaluateBashCall()` — the single pure function the `tool_call` handler calls — so the fixture covers **every** rule (destructive argv, protected-branch push, Conventional Commits), not just the argv table. The gate (`bash scripts/test-guard-git-normalize.sh`) runs both implementations with `GIT_BIGPOWERS_LAND` unset and fails if they disagree, so a verdict can never depend on the developer's shell.
 
 ## Advanced
 

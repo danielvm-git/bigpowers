@@ -76,6 +76,8 @@ GOLDEN_GATES=(
   "import-boundaries:bash scripts/check-import-boundaries.sh:false"
   "security-dashboard-render:node tests/security/dashboard-render.cjs:false"
   "skill-catalog:bash scripts/validate-skill-catalog.sh:false"
+  # Guard-git judges git argv, not substrings; shell and TS must agree (#184).
+  "guard-git-normalize:bash scripts/test-guard-git-normalize.sh:false"
   "specs-parse:bash scripts/validate-specs-yaml.sh:false"
   # The runner itself: failing output is shown, skips are named and reasoned.
   "golden-gate-runner:bash scripts/test-golden-gate-runner.sh:false"

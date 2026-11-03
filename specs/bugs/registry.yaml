@@ -642,6 +642,46 @@ bugs:
     approach: "One helper, one shape: same-directory temp file, write, flush, fsync, os.replace (atomic rename), then fsync the directory. Every runtime writer of state YAML/JSON goes through it, and a golden gate proves the race is real before proving it is gone"
     risk_level: "medium"
     commit_message: "fix(scripts): write spec state atomically instead of in place"
+  - id: BUG-2026-11-03-guard-attribution-second-m
+    status: open
+    severity: high
+    scope: hooks / guard-git
+    title: "Co-authored-by check only inspects the first -m value, so a footer in a second -m or in -F passes the P1 rule"
+    file: bugs/BUG-2026-11-03-guard-attribution-second-m.md
+    files_changed: "hooks/pre-tool-use.sh, extensions/omp-hooks.ts"
+    approach: "Collect every message argument of a git commit invocation (all -m values, and -F/--file targets) and match the footer regex against each, in both the shell hook and the extension"
+    risk_level: "medium"
+    commit_message: "fix(hooks): inspect every commit message argument for AI attribution"
+  - id: BUG-2026-11-03-guard-git-flag-normalize
+    status: fixed
+    severity: high
+    scope: hooks / guard-git
+    title: "guard-git matches command substrings, so global flags and reordered options bypass the destructive-command deny list"
+    file: bugs/BUG-2026-11-03-guard-git-flag-normalize.md
+    files_changed: "hooks/pre-tool-use.sh, hooks/pre/bash.sh, scripts/lib/git-argv.py (new), scripts/omp-guard-probe.ts (new), scripts/test-guard-git-normalize.sh (new), specs/verifications/fixtures/guard-git-normalize.yaml (new), extensions/omp-hooks.ts, scripts/lib/golden-suite-gates.sh, skills/guard-git/SKILL.md"
+    approach: "Tokenize the command (quote-aware), strip git's global options, then judge the (subcommand, arguments) pair against one rule table — implemented in scripts/lib/git-argv.py for the shell hooks and mirrored in extensions/omp-hooks.ts, with a fixture gate that fails if the two disagree"
+    risk_level: "medium"
+    commit_message: "fix(hooks): judge git argv instead of command substrings in guard-git"
+  - id: BUG-2026-11-03-guard-normalize-parity-vacuous
+    status: fixed
+    severity: high
+    scope: hooks / guard-git / verification
+    title: "The guard-git parity gate asserted 'allow' for a push to protected main and only compared the destructive-argv rule against the whole hook, so CI went red and the gate was vacuous for the protected-branch rules"
+    file: bugs/BUG-2026-11-03-guard-normalize-parity-vacuous.md
+    files_changed: "specs/verifications/fixtures/guard-git-normalize.yaml, scripts/omp-guard-probe.ts, scripts/test-guard-git-normalize.sh, extensions/omp-hooks.ts, skills/guard-git/SKILL.md"
+    approach: "Probe the same pure function the tool_call handler calls (evaluateBashCall) instead of only dangerousGitCommand, fix the fixture row to the protected-branch verdict, and strip GIT_BIGPOWERS_LAND from the harness environment"
+    risk_level: "medium"
+    commit_message: "fix(hooks): judge the TS guard through evaluateBashCall so parity covers every rule"
+  - id: BUG-2026-11-03-guard-push-target-matches-text
+    status: open
+    severity: medium
+    scope: hooks / guard-git
+    title: "Protected-branch push check matches the word 'main' anywhere in the command, so an unrelated echo or comment blocks a legitimate feature push"
+    file: bugs/BUG-2026-11-03-guard-push-target-matches-text.md
+    files_changed: "hooks/pre-tool-use.sh, extensions/omp-hooks.ts"
+    approach: "Decide the push target from the normalized argv of each git push invocation (remote + refspec), not from a substring match over the whole command string"
+    risk_level: "low"
+    commit_message: "fix(hooks): derive push targets from git argv, not from command text"
   - id: BUG-2026-11-03-omp-hooks-stderr-leak
     status: open
     severity: medium
@@ -652,6 +692,16 @@ bugs:
     approach: "Give the branch probe a silent stdio (mirroring inGitRepo) and short-circuit with inGitRepo(cwd) so no git process is spawned for a non-repo target; assert the silence from the shell gate by capturing the smoke's stderr"
     risk_level: "low"
     commit_message: "fix(omp): keep the tool_call branch probe quiet outside a git repo"
+  - id: BUG-2026-11-03-pi-shell-hook-dead
+    status: fixed
+    severity: high
+    scope: hooks / omp
+    title: "hooks/pre/bash.sh has not parsed since #118 — the pi/OMP shell fallback guard never ran"
+    file: bugs/BUG-2026-11-03-pi-shell-hook-dead.md
+    files_changed: "hooks/pre/bash.sh"
+    approach: "Hoist the -m regex into a variable: parentheses inside [[ =~ ]] must come from a variable, not the literal pattern, or bash rejects the whole file at parse time"
+    risk_level: "low"
+    commit_message: "fix(hooks): make the pi/OMP fallback hook parse and run the normalizer"
   - id: BUG-2026-11-03-story-verify-ab-sandbox-daemon-required
     status: fixed
     severity: high
