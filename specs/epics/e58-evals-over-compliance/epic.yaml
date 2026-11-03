@@ -1,7 +1,7 @@
 id: e58
 title: "Evals Over Compliance — Replace the 94% Gate with Outcome Proof"
 wsjf: 5.3
-bcps: 67
+bcps: 75
 bcps_projected: 9
 capsule_dir: epics/e58-evals-over-compliance
 mode: capsule
@@ -146,6 +146,26 @@ stories:
       - tests/test_ab_pi.py
     tasks: e58s06-tasks.yaml
     verify: python3 tests/test_ab_pi.py
+  - id: e58s07
+    title: "Docker sandbox for agent runs and grading"
+    status: todo
+    bcps: 8
+    bcp_basis: estimate, 2026-11-02 (2 images + network + adapter + grade wrapper + isolation tests)
+    risk: P1
+    delta: ADDED
+    source: host runs could read hidden tests/solutions, write outside the workdir and reach the web
+    description: >-
+      Per-run pi container with only the workdir and auth copy mounted, internal network with an
+      opencode.ai-only proxy, grading in a no-network container, AB_TIMEOUT, and pi-docker as the
+      default adapter.
+    files:
+      - scripts/ab-sandbox.sh
+      - specs/benchmarks/ab/sandbox/
+      - scripts/lib/ab-eval.py
+      - specs/benchmarks/ab/config.yaml
+      - tests/test_ab_sandbox.py
+    tasks: e58s07-tasks.yaml
+    verify: python3 tests/test_ab_sandbox.py
 planned_stories:
   - working_title: "Extend run-evals to cover a meaningful skill subset with real with/without-skill deltas"
     bcp_estimate: 3
