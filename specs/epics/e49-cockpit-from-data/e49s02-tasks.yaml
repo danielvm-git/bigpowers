@@ -1,0 +1,21 @@
+story_id: e49s02
+title: 'bigpowers cockpit: runs in any project and follows its changes live'
+status: todo
+bcps: 19
+tasks:
+- id: 1
+  description: bigpowers cockpit prints the URL for the current project
+  verify: node bin/bigpowers.js cockpit --print-url --project-dir tests/fixtures/cockpit-project | grep
+    -q '^http'
+  risk: P2
+  status: todo
+- id: 2
+  description: A minimal project renders and lists absent sources
+  verify: node skills/visual-dashboard/scripts/test-cockpit-model.cjs --minimal
+  risk: P2
+  status: todo
+- id: 3
+  description: A specs/ change or a new commit changes the fingerprint and the served data
+  verify: bash scripts/test-dashboard-cockpit-api.sh --live
+  risk: P2
+  status: todo

@@ -145,6 +145,15 @@ epics:
   status: scoped
   wsjf_rationale: BV 8 + TC 5 + RR 8 / Job 5 ≈ 4.2
   source: Playbook value-engineering pass 2026-10-30 — see specs/VALUE-ENGINEERING-playbook-compat.md
+- id: e49
+  title: Cockpit From the Data — Live in Every Project, No Build
+  wsjf: 2.6
+  bcps: 221
+  capsule_dir: epics/e49-cockpit-from-data
+  mode: capsule
+  status: scoped
+  wsjf_rationale: BV 8 + TC 6 + RR 7 / Job 8 ≈ 2.6
+  source: Cockpit revamp 2026-11-03 — prototype https://claude.ai/artifact/2g8uM6Fhb2R6DMQoqDVL5Q
 - id: e87
   title: Agent at the PR — Opt-in Review, Triage and Rollback
   wsjf: 2.6

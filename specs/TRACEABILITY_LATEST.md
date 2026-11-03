@@ -1,183 +1,193 @@
 # Traceability Matrix
 
-**Generated:** 2026-11-03 19:45:01 UTC
-**Total stories:** 161
+**Generated:** 2026-11-03 20:37:42 UTC
+**Total stories:** 171
 **Tagged stories:** 138
 **Dark stories:** 0
-**Orphan tags:** 150
-**Stale tags:** 130
+**Orphan tags:** 144
+**Stale tags:** 129
 
 ## Oracle Stats
 
-- **High** (explicit tag): 15584
-- **Medium** (file heuristic): 43974
-- **Low** (task reference): 109
+- **High** (explicit tag): 1072
+- **Medium** (file heuristic): 2875
+- **Low** (task reference): 119
 
 ## Story Coverage
 
 | Story | Title | Epic | BCP | WSJF | Status | Links |
 |-------|-------|------|-----|------|--------|-------|
-| e37s01 | seed-conventions — unified AGENTS.md template with e51 Prefl | e37 | 3 | 7.0 | done | 228 |
-| e37s02 | verify-install.sh + docs — Cline native AGENTS.md verificati | e37 | 2 | 7.0 | done | 35 |
-| e37s03 | seed-conventions — .aider.conf.yml read:AGENTS.md bridge for | e37 | 1 | 7.0 | done | 129 |
-| e37s04 | verify-install.sh — AGENTS.md spine assertions (OSS P1 + opt | e37 | 2 | 7.0 | done | 19 |
-| e37s05 | scripts/targets.yaml — declarative integration registry for  | e37 | 5 | 7.0 | done | 437 |
-| e37s06 | scripts/generate-context-bundle.sh — AGENTS.md single source | e37 | 3 | 7.0 | done | 139 |
-| e37s07 | sync-skills.sh — adapter dispatch from targets.yaml | e37 | 5 | 7.0 | done | 88 |
-| e37s08 | verify-install.sh — per-target contract matrix from targets. | e37 | 3 | 7.0 | done | 71 |
-| e37s09 | targets.yaml — Wave A: Goose (OSS) + Antigravity agy (propri | e37 | 3 | 7.0 | done | 65 |
-| e37s10 | targets.yaml — Wave B: zed, omp, hermes (skills-dir adapters | e37 | 4 | 7.0 | done | 113 |
-| e37s11 | targets.yaml — Wave C: qwen, kilocode (markdown commands + r | e37 | 3 | 7.0 | done | 32 |
-| e37s12 | targets.yaml — Wave D: continue (rules adapter; re-opened ac | e37 | 2 | 7.0 | done | 80 |
-| e37s13 | targets.yaml — Wave E: iflow, vibe, shai (markdown commands; | e37 | 2 | 7.0 | done | 96 |
-| e37s14 | seed-conventions — optional Codex wiring step (AGENTS.md + . | e37 | 3 | 7.0 | done | 114 |
-| e37s15 | install.sh — global ~/.codex/ AGENTS.md starter symlink | e37 | 2 | 7.0 | done | 34 |
-| e37s16 | using-bigpowers — Codex CLI onboarding section | e37 | 2 | 7.0 | done | 129 |
-| e45s01 | run-benchmark: add train/validation-split + with/without-ski | e45 | 3 | 5.0 | done | 221 |
-| e45s02 | craft-skill: CSO description discipline + completion-honesty | e45 | 2 | 5.0 | done | 287 |
-| e45s03 | CLAUDE.md token mgmt: mechanical PreToolUse hook backstop | e45 | 3 | 5.0 | done | 64 |
-| e45s04 | slice-tasks / plan-work: pre-build cross-artifact consistenc | e45 | 3 | 5.0 | done | 290 |
-| e45s05 | verify-work / gate-trace: adversarial gap-finding completene | e45 | 4 | 5.0 | done | 733 |
-| e45s06 | tasks.yaml: literal failing→passing task ledger | e45 | 2 | 5.0 | done | 32 |
-| e45s07 | request-review: dual-blind AND-gate review (Santa Method) | e45 | 2 | 5.0 | done | 638 |
-| e45s08 | develop-tdd / validate-fix: two-commit red/green regression  | e45 | 2 | 5.0 | done | 222 |
-| e45s09 | verify-work / plan-work: Pre-Implementation and Validation g | e45 | 2 | 5.0 | done | 1544 |
-| e45s10 | docs/references: auto-regenerate from source-of-truth docs v | e45 | 2 | 5.0 | done | 112 |
-| e45s11 | orchestration / dispatch-agents: typed message protocol + 3- | e45 | 2 | 5.0 | done | 323 |
-| e45s12 | stocktake-skills / craft-skill: code-enforced validator + au | e45 | 2 | 5.0 | done | 771 |
-| e45s13 | verify-work: one-test-minimum terminal-verdict rule | e45 | 2 | 5.0 | done | 471 |
-| e45s14 | deepen-architecture: declared import-boundary allowlist enfo | e45 | 2 | 5.0 | done | 127 |
-| e45s15 | release-branch / deploy: three-independent-facts verificatio | e45 | 2 | 5.0 | done | 387 |
-| e45s16 | CLAUDE.md rtk mandate: wire rtk-ai/rtk PreToolUse hook | e45 | 2 | 5.0 | done | 63 |
-| e45s17 | request-review: fan-out to parallel review subagents | e45 | 2 | 5.0 | done | 511 |
-| e45s18 | audit-code / security-review: worktree-isolated parallel che | e45 | 2 | 5.0 | done | 4977 |
-| e45s19 | Context7: bounded retry cap and explicit fallback block | e45 | 2 | 5.0 | done | 122 |
-| e45s20 | Context7 / bts docs: wrap in ETag-revalidated fetch cache | e45 | 2 | 5.0 | done | 16 |
-| e45s21 | seed-conventions / AGENTS.md: self-installing fenced markers | e45 | 2 | 5.0 | done | 631 |
-| e45s22 | CLAUDE.md: context-aware directory routing | e45 | 2 | 5.0 | done | 47 |
-| e45s23 | CLAUDE.md: live Learned User Preferences / Workspace Facts | e45 | 2 | 5.0 | done | 322 |
-| e45s24 | REFERENCE.md files: embedded line-range navigation guides | e45 | 2 | 5.0 | done | 32 |
-| e45s25 | CONVENTIONS.md risk tiers: compile to versioned, diffable ru | e45 | 4 | 5.0 | done | 79 |
-| e45s26 | security-review: CWE mapping + 2 positive/2 negative fixture | e45 | 2 | 5.0 | done | 436 |
-| e45s27 | loop / workflow: terminal-state taxonomy | e45 | 2 | 5.0 | done | 276 |
-| e45s28 | request-review: hard max-iteration cap | e45 | 2 | 5.0 | done | 339 |
-| e45s29 | requirements: ADDED/MODIFIED/REMOVED/RENAMED tags | e45 | 2 | 5.0 | done | 828 |
-| e45s30 | subagent depth: formalize depth tiers | e45 | 2 | 5.0 | done | 552 |
-| e45s31 | audit-code / deepen-architecture: churn-based look-here-firs | e45 | 2 | 5.0 | done | 4765 |
-| e45s32 | gate-trace / release-branch: adversarial-review refute frami | e45 | 2 | 5.0 | done | 659 |
-| e45s33 | requirements: per-section approval state | e45 | 2 | 5.0 | done | 48 |
-| e45s34 | develop-tdd: snapshot-before-transition hardening | e45 | 2 | 5.0 | done | 111 |
-| e45s35 | plan-work: 5 fixed EARS sentence patterns | e45 | 2 | 5.0 | done | 126 |
-| e45s36 | specs: Documentation Responsibilities table | e45 | 2 | 5.0 | done | 31 |
-| e45s37 | run-evals: graduated eval-strictness tiers | e45 | 2 | 5.0 | done | 139 |
-| e45s38 | orchestration: why-did-this-stall diagnostic skill | e45 | 2 | 5.0 | done | 324 |
-| e45s39 | PR generation: literal provenance marker | e45 | 2 | 5.0 | done | 276 |
-| e45s40 | verify-work: mandatory real-browser verification | e45 | 2 | 5.0 | done | 434 |
-| e45s41 | security-review: proven authorship SQL-safety doctrine | e45 | 2 | 5.0 | done | 339 |
-| e48s01 | Generate epics-wiki and adr-wiki as OKF concept bundles from | e48 | 2 | 2.5 | done | 584 |
-| e48s02 | Emit verification reports as OKF bundles from run-golden-sui | e48 | 2 | 2.5 | done | 569 |
-| e48s03 | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | e48 | 1 | 2.5 | done | 3017 |
-| e48s04 | Create viz.html — interactive force-layout graph companion f | e48 | 2 | 2.5 | done | 190 |
-| e48s05 | Wire OKF validation into CI (sync-skills.yml) and document i | e48 | 1 | 2.5 | done | 3145 |
-| e48s06 | Add tier: field (core/extended/specialized) to OKF wiki inde | e48 | 2 | 2.5 | done | 177 |
-| e48s07 | Create publish-to-wiki kernel tool | e48 | 3 | 2.5 | done | 30 |
-| e48s08 | Add GitHub Action Template for publish-wiki.yml [HARD GATE] | e48 | 1 | 2.5 | done | 126 |
-| e48s09 | Create Wiki Scaffold Templates and provenance header injecti | e48 | 2 | 2.5 | done | 32 |
-| e48s10 | Extend bigspec init with --with-wiki flag | e48 | 2 | 2.5 | done | 239 |
-| e48s11 | BCP Plus counter integration — install and smoke-test big-co | e48 | 5 | 2.5 | done | 492 |
-| e48s12 | BCP Plus template — 13-dimension breakdown in story specs | e48 | 5 | 2.5 | done | 129 |
-| e48s13 | NFR Gate integration — security-review and wire-observabilit | e48 | 4 | 2.5 | done | 286 |
-| e48s14 | Build-epic integration — BCP Plus in story sizing workflow | e48 | 4 | 2.5 | done | 223 |
-| e48s15 | Refactor Skills Render Pipeline to Hybrid JSON Seam | e48 | 4 | 2.5 | done | 112 |
-| e51s01 | CONVENTIONS — Always Green, Shift Left, Discovered Defects,  | e51 | 3 | 7.0 | done | 125 |
-| e51s02 | seed-conventions — Preflight default, solo-git default, embe | e51 | 3 | 7.0 | done | 745 |
-| e51s03 | kickoff-branch + verify-work — Preflight hard block and CI g | e51 | 2 | 7.0 | done | 1230 |
-| e51s04 | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | e51 | 2 | 7.0 | done | 5686 |
-| e51s05 | CLAUDE.md — solo-default agent rules + bigpowers Preflight c | e51 | 2 | 7.0 | done | 111 |
-| e53s01 | Commit the untracked GOLDEN baseline | e53 | 1 | 8.0 | done | 191 |
-| e53s02 | Build the tombstone-alias mechanism | e53 | 3 | 8.0 | done | 82 |
-| e53s03 | Gate-trace the compliance-to-GOLDEN hard-gate coupling | e53 | 2 | 8.0 | done | 884 |
-| e53s04 | Adopt docs/TARGET-ARCHITECTURE.md as the migration's north-s | e53 | 3 | 8.0 | done | 57 |
-| e54s01 | Snapshot the current skill catalog as an immutable baseline | e54 | 2 | 6.7 | done | 130 |
-| e54s02 | Add a soft drift-detection gate for the freeze window | e54 | 3 | 6.7 | done | 194 |
-| e54s03 | Document the freeze's scope, exit criteria, and exception pr | e54 | 1 | 6.7 | done | 687 |
-| e55s01 | Map every current doctrine source to a B0-B10 + Capstone blo | e55 | 0 | 6.0 | done | 65 |
-| e55s02 | Write constitution.md from the mapping, CLAUDE.md/CONVENTION | e55 | 0 | 6.0 | done | 49 |
-| e55s03 | Point CLAUDE.md/CONVENTIONS.md at constitution.md, don't del | e55 | 0 | 6.0 | done | 96 |
-| e58s01 | Outcome A/B eval runner — vanilla agent vs bigpowers | e58 | 0 | 5.3 | done | 86 |
-| e58s02 | opencode adapter + the five legacy benchmark tasks | e58 | 0 | 5.3 | done | 37 |
-| e58s03 | partial-credit scoring + two hard tasks (ab-11, ab-13) | e58 | 0 | 5.3 | done | 37 |
-| e58s04 | ablation arms — which part of bigpowers produces the gain | e58 | 0 | 5.3 | done | 29 |
-| e58s05 | live progress, interleaved runs and saved transcripts | e58 | 0 | 5.3 | done | 51 |
-| e58s06 | pi adapter (default), OpenCode Go deepseek-v4.1-flash | e58 | 0 | 5.3 | done | 31 |
-| e58s07 | Docker sandbox for agent runs and grading | e58 | 0 | 5.3 | done | 295 |
-| e58s08 | value stream map per run (stage classifier) | e58 | 0 | 5.3 | done | 28 |
-| e58s09 | lean waste metrics per run | e58 | 0 | 5.3 | done | 10 |
-| e58s10 | value stream and waste views in progress and reports | e58 | 0 | 5.3 | done | 1942 |
-| e58s11 | three tasks with changing, spread and implied requirements | e58 | 0 | 5.3 | done | 159 |
-| e60s01 | Interactive installer with ASCII banner, global/local, tool  | e60 | 0 | 9.0 | done | 163 |
-| e61s01 | Hermes adapter + hook templates (Wave A) | e61 | 0 | 5.0 | done | 160 |
-| e61s02 | Install hub wiring (Wave B) | e61 | 0 | 5.0 | done | 240 |
-| e62s01 | Integration: OpenCode adapter (Wave A) | e62 | 0 | 4.0 | done | 32 |
-| e62s02 | Install hub wiring (Wave B) | e62 | 0 | 4.0 | done | 270 |
-| e64s01 | Gemini hooks adapter — event docs, templates, adapter comple | e64 | 0 | 6.0 | done | 321 |
-| e64s02 | Install hub wiring (Wave B) | e64 | 0 | 6.0 | done | 240 |
-| e65s01 | Integration: Codex CLI adapter (Wave A) | e65 | 0 | 6.0 | done | 48 |
-| e65s02 | Install hub wiring (Wave B) | e65 | 0 | 6.0 | done | 256 |
-| e66s01 | Integration: Cline adapter (Wave A) | e66 | 0 | 5.0 | done | 48 |
-| e66s02 | Install hub wiring (Wave B) | e66 | 0 | 5.0 | done | 270 |
-| e67s01 | Integration: Kilo adapter (Wave A) | e67 | 0 | 5.0 | done | 48 |
-| e67s02 | Install hub wiring (Wave B) | e67 | 0 | 5.0 | done | 270 |
-| e68s01 | Integration: Qwen Code adapter (Wave A) | e68 | 0 | 6.0 | done | 96 |
-| e68s02 | Install hub wiring (Wave B) | e68 | 0 | 6.0 | done | 286 |
-| e69s01 | MiMo Code adapter — Wave A skills-dir (.mimocode/skills/) | e69 | 0 | 5.0 | done | 160 |
-| e69s02 | Install hub wiring (Wave B) | e69 | 0 | 5.0 | done | 224 |
-| e70s01 | Integration: Trae adapter (Wave A) | e70 | 0 | 5.0 | done | 48 |
-| e70s02 | Install hub wiring (Wave B) | e70 | 0 | 5.0 | done | 270 |
-| e71s01 | Integration: Copilot adapter (Wave A) | e71 | 0 | 4.0 | done | 32 |
-| e71s02 | Install hub wiring (Wave B) | e71 | 0 | 4.0 | done | 270 |
-| e72s01 | Integration: CodeBuddy adapter (Wave A) | e72 | 0 | 6.0 | done | 48 |
-| e72s02 | Install hub wiring (Wave B) | e72 | 0 | 6.0 | done | 270 |
-| e73s01 | Integration: Windsurf adapter (Wave A) | e73 | 0 | 5.0 | done | 48 |
-| e73s02 | Install hub wiring (Wave B) | e73 | 0 | 5.0 | done | 270 |
-| e74s01 | Wave A — Antigravity CLI adapter research and agy.sh stub | e74 | 0 | 4.0 | done | 112 |
-| e74s02 | Install hub wiring (Wave B) | e74 | 0 | 4.0 | done | 416 |
-| e76s01 | ZCode adapter — Wave A greenfield skills-dir | e76 | 0 | 5.0 | done | 128 |
-| e76s02 | Install hub wiring (Wave B) | e76 | 0 | 5.0 | done | 256 |
-| e79s01 | AGENTIC-STE ruleset document | e79 | 0 | 6.0 | done | 101 |
-| e79s02 | Validator script + craft-skill HARD GATE | e79 | 0 | 6.0 | done | 319 |
-| e79s03 | seed-conventions applies ruleset | e79 | 0 | 6.0 | done | 371 |
-| e79s04 | stocktake-skills violation scanner | e79 | 0 | 6.0 | done | 371 |
-| e80s01 | Core verify skills → verify directives | e80 | 0 | 7.5 | done | 1299 |
-| e80s02 | smoke-test and validate-contracts real bodies | e80 | 0 | 7.5 | done | 507 |
-| e80s03 | develop-tdd RED commit isolation check | e80 | 0 | 7.5 | done | 144 |
-| e80s04 | generalize-fix phase in validate-fix | e80 | 0 | 7.5 | done | 478 |
-| e80s05 | security-review fixture table growth | e80 | 0 | 7.5 | done | 160 |
-| e81s01 | AGENTS.md template Token Economy section + reference doc | e81 | 0 | 4.5 | done | 143 |
-| e82s01 | Add project-runtime.sh — configurable specs dir + VCS kind r | e82 | 0 | 6.0 | backlog | 36 |
-| e82s02 | Jujutsu-aware lifecycle skills (commit-message, kickoff-bran | e82 | 0 | 6.0 | backlog | 1341 |
-| e82s03 | OMP plugin extension — bigpowers as native oh-my-posh/OMP en | e82 | 0 | 6.0 | backlog | 80 |
-| e82s04 | Community attribution — CONTRIBUTORS.md + CHANGELOG credit e | e82 | 0 | 6.0 | backlog | 24 |
-| e83s01 | Release mirror stamps last_tag and skill counts | e83 | 0 | 6.0 | backlog | 86 |
-| e83s02 | bigpowers status counts only bigpowers-owned skills | e83 | 0 | 6.0 | backlog | 292 |
-| e83s03 | Receipts read the cycle-time ledger and label sources honest | e83 | 0 | 6.0 | backlog | 654 |
-| e83s04 | VISION refreshed and catalog-freeze breaks resolved | e83 | 0 | 6.0 | backlog | 49 |
-| e83s05 | Investigate spec-version-gap blocked with no active flow | e83 | 0 | 6.0 | backlog | 33 |
-| e84s01 | AGENTS.md is the canonical instruction file in this repo | e84 | 0 | 10.5 | done | 70 |
-| e84s02 | seed-conventions writes AGENTS.md-first by default | e84 | 0 | 10.5 | backlog | 112 |
-| e85s01 | Count the 10 functional dimensions with worked-example self- | e85 | 0 | 4.3 | backlog | 73 |
-| e85s02 | NFR dimensions, maturity gate and count provenance | e85 | 0 | 4.3 | backlog | 133 |
-| e86s01 | Generated paths are blocked at edit time | e86 | 0 | 4.2 | done | 14 |
-| e86s02 | Tests are locked during a fix after the RED commit | e86 | 0 | 4.2 | done | 150 |
+| e37s01 | seed-conventions — unified AGENTS.md template with e51 Prefl | e37 | 3 | 7.0 | done | 19 |
+| e37s02 | verify-install.sh + docs — Cline native AGENTS.md verificati | e37 | 2 | 7.0 | done | 5 |
+| e37s03 | seed-conventions — .aider.conf.yml read:AGENTS.md bridge for | e37 | 1 | 7.0 | done | 10 |
+| e37s04 | verify-install.sh — AGENTS.md spine assertions (OSS P1 + opt | e37 | 2 | 7.0 | done | 4 |
+| e37s05 | scripts/targets.yaml — declarative integration registry for  | e37 | 5 | 7.0 | done | 39 |
+| e37s06 | scripts/generate-context-bundle.sh — AGENTS.md single source | e37 | 3 | 7.0 | done | 12 |
+| e37s07 | sync-skills.sh — adapter dispatch from targets.yaml | e37 | 5 | 7.0 | done | 13 |
+| e37s08 | verify-install.sh — per-target contract matrix from targets. | e37 | 3 | 7.0 | done | 11 |
+| e37s09 | targets.yaml — Wave A: Goose (OSS) + Antigravity agy (propri | e37 | 3 | 7.0 | done | 5 |
+| e37s10 | targets.yaml — Wave B: zed, omp, hermes (skills-dir adapters | e37 | 4 | 7.0 | done | 8 |
+| e37s11 | targets.yaml — Wave C: qwen, kilocode (markdown commands + r | e37 | 3 | 7.0 | done | 2 |
+| e37s12 | targets.yaml — Wave D: continue (rules adapter; re-opened ac | e37 | 2 | 7.0 | done | 5 |
+| e37s13 | targets.yaml — Wave E: iflow, vibe, shai (markdown commands; | e37 | 2 | 7.0 | done | 6 |
+| e37s14 | seed-conventions — optional Codex wiring step (AGENTS.md + . | e37 | 3 | 7.0 | done | 10 |
+| e37s15 | install.sh — global ~/.codex/ AGENTS.md starter symlink | e37 | 2 | 7.0 | done | 4 |
+| e37s16 | using-bigpowers — Codex CLI onboarding section | e37 | 2 | 7.0 | done | 10 |
+| e45s01 | run-benchmark: add train/validation-split + with/without-ski | e45 | 3 | 5.0 | done | 14 |
+| e45s02 | craft-skill: CSO description discipline + completion-honesty | e45 | 2 | 5.0 | done | 18 |
+| e45s03 | CLAUDE.md token mgmt: mechanical PreToolUse hook backstop | e45 | 3 | 5.0 | done | 4 |
+| e45s04 | slice-tasks / plan-work: pre-build cross-artifact consistenc | e45 | 3 | 5.0 | done | 18 |
+| e45s05 | verify-work / gate-trace: adversarial gap-finding completene | e45 | 4 | 5.0 | done | 47 |
+| e45s06 | tasks.yaml: literal failing→passing task ledger | e45 | 2 | 5.0 | done | 2 |
+| e45s07 | request-review: dual-blind AND-gate review (Santa Method) | e45 | 2 | 5.0 | done | 39 |
+| e45s08 | develop-tdd / validate-fix: two-commit red/green regression  | e45 | 2 | 5.0 | done | 14 |
+| e45s09 | verify-work / plan-work: Pre-Implementation and Validation g | e45 | 2 | 5.0 | done | 93 |
+| e45s10 | docs/references: auto-regenerate from source-of-truth docs v | e45 | 2 | 5.0 | done | 8 |
+| e45s11 | orchestration / dispatch-agents: typed message protocol + 3- | e45 | 2 | 5.0 | done | 21 |
+| e45s12 | stocktake-skills / craft-skill: code-enforced validator + au | e45 | 2 | 5.0 | done | 47 |
+| e45s13 | verify-work: one-test-minimum terminal-verdict rule | e45 | 2 | 5.0 | done | 30 |
+| e45s14 | deepen-architecture: declared import-boundary allowlist enfo | e45 | 2 | 5.0 | done | 8 |
+| e45s15 | release-branch / deploy: three-independent-facts verificatio | e45 | 2 | 5.0 | done | 25 |
+| e45s16 | CLAUDE.md rtk mandate: wire rtk-ai/rtk PreToolUse hook | e45 | 2 | 5.0 | done | 4 |
+| e45s17 | request-review: fan-out to parallel review subagents | e45 | 2 | 5.0 | done | 31 |
+| e45s18 | audit-code / security-review: worktree-isolated parallel che | e45 | 2 | 5.0 | done | 290 |
+| e45s19 | Context7: bounded retry cap and explicit fallback block | e45 | 2 | 5.0 | done | 7 |
+| e45s20 | Context7 / bts docs: wrap in ETag-revalidated fetch cache | e45 | 2 | 5.0 | done | 1 |
+| e45s21 | seed-conventions / AGENTS.md: self-installing fenced markers | e45 | 2 | 5.0 | done | 41 |
+| e45s22 | CLAUDE.md: context-aware directory routing | e45 | 2 | 5.0 | done | 3 |
+| e45s23 | CLAUDE.md: live Learned User Preferences / Workspace Facts | e45 | 2 | 5.0 | done | 21 |
+| e45s24 | REFERENCE.md files: embedded line-range navigation guides | e45 | 2 | 5.0 | done | 2 |
+| e45s25 | CONVENTIONS.md risk tiers: compile to versioned, diffable ru | e45 | 4 | 5.0 | done | 5 |
+| e45s26 | security-review: CWE mapping + 2 positive/2 negative fixture | e45 | 2 | 5.0 | done | 28 |
+| e45s27 | loop / workflow: terminal-state taxonomy | e45 | 2 | 5.0 | done | 18 |
+| e45s28 | request-review: hard max-iteration cap | e45 | 2 | 5.0 | done | 22 |
+| e45s29 | requirements: ADDED/MODIFIED/REMOVED/RENAMED tags | e45 | 2 | 5.0 | done | 54 |
+| e45s30 | subagent depth: formalize depth tiers | e45 | 2 | 5.0 | done | 36 |
+| e45s31 | audit-code / deepen-architecture: churn-based look-here-firs | e45 | 2 | 5.0 | done | 276 |
+| e45s32 | gate-trace / release-branch: adversarial-review refute frami | e45 | 2 | 5.0 | done | 43 |
+| e45s33 | requirements: per-section approval state | e45 | 2 | 5.0 | done | 3 |
+| e45s34 | develop-tdd: snapshot-before-transition hardening | e45 | 2 | 5.0 | done | 7 |
+| e45s35 | plan-work: 5 fixed EARS sentence patterns | e45 | 2 | 5.0 | done | 7 |
+| e45s36 | specs: Documentation Responsibilities table | e45 | 2 | 5.0 | done | 2 |
+| e45s37 | run-evals: graduated eval-strictness tiers | e45 | 2 | 5.0 | done | 10 |
+| e45s38 | orchestration: why-did-this-stall diagnostic skill | e45 | 2 | 5.0 | done | 21 |
+| e45s39 | PR generation: literal provenance marker | e45 | 2 | 5.0 | done | 18 |
+| e45s40 | verify-work: mandatory real-browser verification | e45 | 2 | 5.0 | done | 27 |
+| e45s41 | security-review: proven authorship SQL-safety doctrine | e45 | 2 | 5.0 | done | 22 |
+| e48s01 | Generate epics-wiki and adr-wiki as OKF concept bundles from | e48 | 2 | 2.5 | done | 38 |
+| e48s02 | Emit verification reports as OKF bundles from run-golden-sui | e48 | 2 | 2.5 | done | 39 |
+| e48s03 | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | e48 | 1 | 2.5 | done | 224 |
+| e48s04 | Create viz.html — interactive force-layout graph companion f | e48 | 2 | 2.5 | done | 12 |
+| e48s05 | Wire OKF validation into CI (sync-skills.yml) and document i | e48 | 1 | 2.5 | done | 226 |
+| e48s06 | Add tier: field (core/extended/specialized) to OKF wiki inde | e48 | 2 | 2.5 | done | 13 |
+| e48s07 | Create publish-to-wiki kernel tool | e48 | 3 | 2.5 | done | 2 |
+| e48s08 | Add GitHub Action Template for publish-wiki.yml [HARD GATE] | e48 | 1 | 2.5 | done | 8 |
+| e48s09 | Create Wiki Scaffold Templates and provenance header injecti | e48 | 2 | 2.5 | done | 2 |
+| e48s10 | Extend bigspec init with --with-wiki flag | e48 | 2 | 2.5 | done | 15 |
+| e48s11 | BCP Plus counter integration — install and smoke-test big-co | e48 | 5 | 2.5 | done | 33 |
+| e48s12 | BCP Plus template — 13-dimension breakdown in story specs | e48 | 5 | 2.5 | done | 9 |
+| e48s13 | NFR Gate integration — security-review and wire-observabilit | e48 | 4 | 2.5 | done | 19 |
+| e48s14 | Build-epic integration — BCP Plus in story sizing workflow | e48 | 4 | 2.5 | done | 14 |
+| e48s15 | Refactor Skills Render Pipeline to Hybrid JSON Seam | e48 | 4 | 2.5 | done | 7 |
+| e49s01 | Epic board e00–e99 computed per request from specs/ and git | e49 | 0 | 2.6 | backlog | 8 |
+| e49s02 | bigpowers cockpit: runs in any project and follows its chang | e49 | 0 | 2.6 | backlog | 12 |
+| e49s03 | Status-consistency rules and an opt-in --check for CI | e49 | 0 | 2.6 | backlog | 16 |
+| e49s04 | Evidence-freshness rules: tags, receipts, ledger, matrix | e49 | 0 | 2.6 | backlog | 1 |
+| e49s05 | Delivery charts by day, week, month and year | e49 | 0 | 2.6 | backlog | 2 |
+| e49s06 | Are we delivering: four goal-carrying tiles and goals.yaml | e49 | 0 | 2.6 | backlog | 1 |
+| e49s07 | What is it costing and next month: four more tiles | e49 | 0 | 2.6 | backlog | 5 |
+| e49s08 | Quality view and a found_in stage on every BUG | e49 | 0 | 2.6 | backlog | 13 |
+| e49s09 | Roadmap view from value_rank and coverage points | e49 | 0 | 2.6 | backlog | 4 |
+| e49s10 | dashboard/ TUI and web reuse the same cockpit model | e49 | 0 | 2.6 | backlog | 30 |
+| e51s01 | CONVENTIONS — Always Green, Shift Left, Discovered Defects,  | e51 | 3 | 7.0 | done | 8 |
+| e51s02 | seed-conventions — Preflight default, solo-git default, embe | e51 | 3 | 7.0 | done | 49 |
+| e51s03 | kickoff-branch + verify-work — Preflight hard block and CI g | e51 | 2 | 7.0 | done | 79 |
+| e51s04 | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | e51 | 2 | 7.0 | done | 337 |
+| e51s05 | CLAUDE.md — solo-default agent rules + bigpowers Preflight c | e51 | 2 | 7.0 | done | 7 |
+| e53s01 | Commit the untracked GOLDEN baseline | e53 | 1 | 8.0 | done | 12 |
+| e53s02 | Build the tombstone-alias mechanism | e53 | 3 | 8.0 | done | 8 |
+| e53s03 | Gate-trace the compliance-to-GOLDEN hard-gate coupling | e53 | 2 | 8.0 | done | 60 |
+| e53s04 | Adopt docs/TARGET-ARCHITECTURE.md as the migration's north-s | e53 | 3 | 8.0 | done | 4 |
+| e54s01 | Snapshot the current skill catalog as an immutable baseline | e54 | 2 | 6.7 | done | 10 |
+| e54s02 | Add a soft drift-detection gate for the freeze window | e54 | 3 | 6.7 | done | 14 |
+| e54s03 | Document the freeze's scope, exit criteria, and exception pr | e54 | 1 | 6.7 | done | 45 |
+| e55s01 | Map every current doctrine source to a B0-B10 + Capstone blo | e55 | 0 | 6.0 | done | 5 |
+| e55s02 | Write constitution.md from the mapping, CLAUDE.md/CONVENTION | e55 | 0 | 6.0 | done | 4 |
+| e55s03 | Point CLAUDE.md/CONVENTIONS.md at constitution.md, don't del | e55 | 0 | 6.0 | done | 6 |
+| e58s01 | Outcome A/B eval runner — vanilla agent vs bigpowers | e58 | 0 | 5.3 | done | 14 |
+| e58s02 | opencode adapter + the five legacy benchmark tasks | e58 | 0 | 5.3 | done | 7 |
+| e58s03 | partial-credit scoring + two hard tasks (ab-11, ab-13) | e58 | 0 | 5.3 | done | 7 |
+| e58s04 | ablation arms — which part of bigpowers produces the gain | e58 | 0 | 5.3 | done | 4 |
+| e58s05 | live progress, interleaved runs and saved transcripts | e58 | 0 | 5.3 | done | 6 |
+| e58s06 | pi adapter (default), OpenCode Go deepseek-v4.1-flash | e58 | 0 | 5.3 | done | 7 |
+| e58s07 | Docker sandbox for agent runs and grading | e58 | 0 | 5.3 | done | 24 |
+| e58s08 | value stream map per run (stage classifier) | e58 | 0 | 5.3 | done | 10 |
+| e58s09 | lean waste metrics per run | e58 | 0 | 5.3 | done | 4 |
+| e58s10 | value stream and waste views in progress and reports | e58 | 0 | 5.3 | done | 136 |
+| e58s11 | three tasks with changing, spread and implied requirements | e58 | 0 | 5.3 | done | 16 |
+| e60s01 | Interactive installer with ASCII banner, global/local, tool  | e60 | 0 | 9.0 | done | 11 |
+| e61s01 | Hermes adapter + hook templates (Wave A) | e61 | 0 | 5.0 | done | 10 |
+| e61s02 | Install hub wiring (Wave B) | e61 | 0 | 5.0 | done | 15 |
+| e62s01 | Integration: OpenCode adapter (Wave A) | e62 | 0 | 4.0 | done | 2 |
+| e62s02 | Install hub wiring (Wave B) | e62 | 0 | 4.0 | done | 17 |
+| e64s01 | Gemini hooks adapter — event docs, templates, adapter comple | e64 | 0 | 6.0 | done | 24 |
+| e64s02 | Install hub wiring (Wave B) | e64 | 0 | 6.0 | done | 15 |
+| e65s01 | Integration: Codex CLI adapter (Wave A) | e65 | 0 | 6.0 | done | 3 |
+| e65s02 | Install hub wiring (Wave B) | e65 | 0 | 6.0 | done | 16 |
+| e66s01 | Integration: Cline adapter (Wave A) | e66 | 0 | 5.0 | done | 3 |
+| e66s02 | Install hub wiring (Wave B) | e66 | 0 | 5.0 | done | 17 |
+| e67s01 | Integration: Kilo adapter (Wave A) | e67 | 0 | 5.0 | done | 3 |
+| e67s02 | Install hub wiring (Wave B) | e67 | 0 | 5.0 | done | 17 |
+| e68s01 | Integration: Qwen Code adapter (Wave A) | e68 | 0 | 6.0 | done | 6 |
+| e68s02 | Install hub wiring (Wave B) | e68 | 0 | 6.0 | done | 18 |
+| e69s01 | MiMo Code adapter — Wave A skills-dir (.mimocode/skills/) | e69 | 0 | 5.0 | done | 10 |
+| e69s02 | Install hub wiring (Wave B) | e69 | 0 | 5.0 | done | 14 |
+| e70s01 | Integration: Trae adapter (Wave A) | e70 | 0 | 5.0 | done | 3 |
+| e70s02 | Install hub wiring (Wave B) | e70 | 0 | 5.0 | done | 17 |
+| e71s01 | Integration: Copilot adapter (Wave A) | e71 | 0 | 4.0 | done | 2 |
+| e71s02 | Install hub wiring (Wave B) | e71 | 0 | 4.0 | done | 17 |
+| e72s01 | Integration: CodeBuddy adapter (Wave A) | e72 | 0 | 6.0 | done | 3 |
+| e72s02 | Install hub wiring (Wave B) | e72 | 0 | 6.0 | done | 17 |
+| e73s01 | Integration: Windsurf adapter (Wave A) | e73 | 0 | 5.0 | done | 3 |
+| e73s02 | Install hub wiring (Wave B) | e73 | 0 | 5.0 | done | 17 |
+| e74s01 | Wave A — Antigravity CLI adapter research and agy.sh stub | e74 | 0 | 4.0 | done | 7 |
+| e74s02 | Install hub wiring (Wave B) | e74 | 0 | 4.0 | done | 26 |
+| e76s01 | ZCode adapter — Wave A greenfield skills-dir | e76 | 0 | 5.0 | done | 8 |
+| e76s02 | Install hub wiring (Wave B) | e76 | 0 | 5.0 | done | 16 |
+| e79s01 | AGENTIC-STE ruleset document | e79 | 0 | 6.0 | done | 10 |
+| e79s02 | Validator script + craft-skill HARD GATE | e79 | 0 | 6.0 | done | 21 |
+| e79s03 | seed-conventions applies ruleset | e79 | 0 | 6.0 | done | 24 |
+| e79s04 | stocktake-skills violation scanner | e79 | 0 | 6.0 | done | 24 |
+| e80s01 | Core verify skills → verify directives | e80 | 0 | 7.5 | done | 89 |
+| e80s02 | smoke-test and validate-contracts real bodies | e80 | 0 | 7.5 | done | 35 |
+| e80s03 | develop-tdd RED commit isolation check | e80 | 0 | 7.5 | done | 10 |
+| e80s04 | generalize-fix phase in validate-fix | e80 | 0 | 7.5 | done | 32 |
+| e80s05 | security-review fixture table growth | e80 | 0 | 7.5 | done | 11 |
+| e81s01 | AGENTS.md template Token Economy section + reference doc | e81 | 0 | 4.5 | done | 9 |
+| e82s01 | Add project-runtime.sh — configurable specs dir + VCS kind r | e82 | 0 | 6.0 | backlog | 3 |
+| e82s02 | Jujutsu-aware lifecycle skills (commit-message, kickoff-bran | e82 | 0 | 6.0 | backlog | 105 |
+| e82s03 | OMP plugin extension — bigpowers as native oh-my-posh/OMP en | e82 | 0 | 6.0 | backlog | 7 |
+| e82s04 | Community attribution — CONTRIBUTORS.md + CHANGELOG credit e | e82 | 0 | 6.0 | backlog | 2 |
+| e83s01 | Release mirror stamps last_tag and skill counts | e83 | 0 | 6.0 | backlog | 7 |
+| e83s02 | bigpowers status counts only bigpowers-owned skills | e83 | 0 | 6.0 | backlog | 17 |
+| e83s03 | Receipts read the cycle-time ledger and label sources honest | e83 | 0 | 6.0 | backlog | 42 |
+| e83s04 | VISION refreshed and catalog-freeze breaks resolved | e83 | 0 | 6.0 | backlog | 5 |
+| e83s05 | Investigate spec-version-gap blocked with no active flow | e83 | 0 | 6.0 | backlog | 3 |
+| e84s01 | AGENTS.md is the canonical instruction file in this repo | e84 | 0 | 10.5 | done | 11 |
+| e84s02 | seed-conventions writes AGENTS.md-first by default | e84 | 0 | 10.5 | backlog | 8 |
+| e85s01 | Count the 10 functional dimensions with worked-example self- | e85 | 0 | 4.3 | backlog | 6 |
+| e85s02 | NFR dimensions, maturity gate and count provenance | e85 | 0 | 4.3 | backlog | 11 |
+| e86s01 | Generated paths are blocked at edit time | e86 | 0 | 4.2 | done | 3 |
+| e86s02 | Tests are locked during a fix after the RED commit | e86 | 0 | 4.2 | done | 11 |
 | e86s03 | Secrets are blocked before commit | e86 | 0 | 4.2 | backlog | 1 |
 | e86s04 | Production deploys ask before running | e86 | 0 | 4.2 | backlog | 1 |
-| e86s05 | Catalog freeze is enforced, not advisory | e86 | 0 | 4.2 | backlog | 17 |
-| e87s01 | Opt-in agent review on every PR | e87 | 0 | 2.6 | backlog | 25 |
+| e86s05 | Catalog freeze is enforced, not advisory | e86 | 0 | 4.2 | backlog | 3 |
+| e87s01 | Opt-in agent review on every PR | e87 | 0 | 2.6 | backlog | 3 |
 | e87s02 | Failed CI builds get an agent triage note | e87 | 0 | 2.6 | backlog | 1 |
-| e87s03 | deploy gains a rehearsed rollback and risk-tier autonomy | e87 | 0 | 2.6 | backlog | 48 |
-| e88s01 | Control bands on the daily cron open a BUG spec | e88 | 0 | 2.4 | backlog | 171 |
-| e88s02 | Weekly deterministic security scan opens BUG specs | e88 | 0 | 2.4 | backlog | 33 |
-| e88s03 | Breaches and weekly scans get a read-only agent diagnosis | e88 | 0 | 2.4 | backlog | 128 |
+| e87s03 | deploy gains a rehearsed rollback and risk-tier autonomy | e87 | 0 | 2.6 | backlog | 4 |
+| e88s01 | Control bands on the daily cron open a BUG spec | e88 | 0 | 2.4 | backlog | 12 |
+| e88s02 | Weekly deterministic security scan opens BUG specs | e88 | 0 | 2.4 | backlog | 3 |
+| e88s03 | Breaches and weekly scans get a read-only agent diagnosis | e88 | 0 | 2.4 | backlog | 9 |
 
 ## Orphan Tags (tag in code, no matching story)
 
@@ -314,8 +324,6 @@
 - `e42s02`
 - `e42s03`
 - `e42s04`
-- `e43s01`
-- `e43s02`
 - `e44s01`
 - `e44s02`
 - `e44s03`
@@ -325,10 +333,6 @@
 - `e46s01`
 - `e47s02`
 - `e47s04`
-- `e49s01`
-- `e49s02`
-- `e49s03`
-- `e49s04`
 - `e99s01`
 - `e99s99`
 
@@ -366,7 +370,6 @@
 - `e45s16`
 - `e45s17`
 - `e45s18`
-- `e45s19`
 - `e45s20`
 - `e45s21`
 - `e45s22`
