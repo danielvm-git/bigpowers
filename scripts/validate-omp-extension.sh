@@ -121,6 +121,28 @@ else
   rm -f "$SMOKE_ERR"
 fi
 
+# ── 7. tool_call is silent outside a repo (BUG-2026-11-03, issue #189) ────────
+# A guard that inspects the command must not paint git's stderr on the agent
+# TTY. The probe runs the REAL tool_call handler with a command that cds into a
+# directory that is not a repository; any leaked "fatal:" lands on this
+# script's captured stderr because execSync inherits fd 2.
+echo "--- [OMP] tool_call stays quiet outside a git repo ---"
+if [[ ! -f "$SMOKE" ]] || ! command -v node >/dev/null 2>&1; then
+  echo "warn: node or $SMOKE unavailable — skipping the silent-probe check"
+else
+  SILENT_ERR=$(mktemp)
+  if OMP_SMOKE_SILENT_TOOL_CALL=1 node "$SMOKE" >/dev/null 2>"$SILENT_ERR"; then
+    if grep -qi 'fatal: not a git repository' "$SILENT_ERR"; then
+      ta_err "tool_call leaked git stderr onto the TUI: $(grep -i -m1 'fatal: not a git repository' "$SILENT_ERR")"
+    else
+      ta_ok "tool_call writes nothing to stderr for a non-repo target"
+    fi
+  else
+    ta_err "silent tool_call probe failed — $(head -3 "$SILENT_ERR" 2>/dev/null | tr '\n' ' ')"
+  fi
+  rm -f "$SILENT_ERR"
+fi
+
 # ── Summary ────────────────────────────────────────────────────────────────
 echo "---"
 if [[ "$ERRORS" -eq 0 ]]; then
