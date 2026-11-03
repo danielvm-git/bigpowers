@@ -1,17 +1,17 @@
 # Traceability Matrix
 
-**Generated:** 2026-11-03 13:40:09 UTC
-**Total stories:** 160
-**Tagged stories:** 135
+**Generated:** 2026-11-03 14:21:59 UTC
+**Total stories:** 161
+**Tagged stories:** 136
 **Dark stories:** 0
 **Orphan tags:** 144
 **Stale tags:** 125
 
 ## Oracle Stats
 
-- **High** (explicit tag): 1055
-- **Medium** (file heuristic): 2775
-- **Low** (task reference): 108
+- **High** (explicit tag): 1060
+- **Medium** (file heuristic): 2808
+- **Low** (task reference): 109
 
 ## Story Coverage
 
@@ -39,7 +39,7 @@
 | e45s04 | slice-tasks / plan-work: pre-build cross-artifact consistenc | e45 | 3 | 5.0 | done | 17 |
 | e45s05 | verify-work / gate-trace: adversarial gap-finding completene | e45 | 4 | 5.0 | done | 45 |
 | e45s06 | tasks.yaml: literal failing→passing task ledger | e45 | 2 | 5.0 | done | 2 |
-| e45s07 | request-review: dual-blind AND-gate review (Santa Method) | e45 | 2 | 5.0 | done | 38 |
+| e45s07 | request-review: dual-blind AND-gate review (Santa Method) | e45 | 2 | 5.0 | done | 39 |
 | e45s08 | develop-tdd / validate-fix: two-commit red/green regression  | e45 | 2 | 5.0 | done | 14 |
 | e45s09 | verify-work / plan-work: Pre-Implementation and Validation g | e45 | 2 | 5.0 | done | 93 |
 | e45s10 | docs/references: auto-regenerate from source-of-truth docs v | e45 | 2 | 5.0 | done | 7 |
@@ -49,8 +49,8 @@
 | e45s14 | deepen-architecture: declared import-boundary allowlist enfo | e45 | 2 | 5.0 | done | 8 |
 | e45s15 | release-branch / deploy: three-independent-facts verificatio | e45 | 2 | 5.0 | done | 25 |
 | e45s16 | CLAUDE.md rtk mandate: wire rtk-ai/rtk PreToolUse hook | e45 | 2 | 5.0 | done | 4 |
-| e45s17 | request-review: fan-out to parallel review subagents | e45 | 2 | 5.0 | done | 30 |
-| e45s18 | audit-code / security-review: worktree-isolated parallel che | e45 | 2 | 5.0 | done | 304 |
+| e45s17 | request-review: fan-out to parallel review subagents | e45 | 2 | 5.0 | done | 31 |
+| e45s18 | audit-code / security-review: worktree-isolated parallel che | e45 | 2 | 5.0 | done | 308 |
 | e45s19 | Context7: bounded retry cap and explicit fallback block | e45 | 2 | 5.0 | done | 7 |
 | e45s20 | Context7 / bts docs: wrap in ETag-revalidated fetch cache | e45 | 2 | 5.0 | done | 1 |
 | e45s21 | seed-conventions / AGENTS.md: self-installing fenced markers | e45 | 2 | 5.0 | done | 41 |
@@ -63,7 +63,7 @@
 | e45s28 | request-review: hard max-iteration cap | e45 | 2 | 5.0 | done | 22 |
 | e45s29 | requirements: ADDED/MODIFIED/REMOVED/RENAMED tags | e45 | 2 | 5.0 | done | 54 |
 | e45s30 | subagent depth: formalize depth tiers | e45 | 2 | 5.0 | done | 36 |
-| e45s31 | audit-code / deepen-architecture: churn-based look-here-firs | e45 | 2 | 5.0 | done | 290 |
+| e45s31 | audit-code / deepen-architecture: churn-based look-here-firs | e45 | 2 | 5.0 | done | 294 |
 | e45s32 | gate-trace / release-branch: adversarial-review refute frami | e45 | 2 | 5.0 | done | 43 |
 | e45s33 | requirements: per-section approval state | e45 | 2 | 5.0 | done | 3 |
 | e45s34 | develop-tdd: snapshot-before-transition hardening | e45 | 2 | 5.0 | done | 7 |
@@ -76,7 +76,7 @@
 | e45s41 | security-review: proven authorship SQL-safety doctrine | e45 | 2 | 5.0 | done | 22 |
 | e48s01 | Generate epics-wiki and adr-wiki as OKF concept bundles from | e48 | 2 | 2.5 | done | 38 |
 | e48s02 | Emit verification reports as OKF bundles from run-golden-sui | e48 | 2 | 2.5 | done | 41 |
-| e48s03 | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | e48 | 1 | 2.5 | done | 203 |
+| e48s03 | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | e48 | 1 | 2.5 | done | 204 |
 | e48s04 | Create viz.html — interactive force-layout graph companion f | e48 | 2 | 2.5 | done | 12 |
 | e48s05 | Wire OKF validation into CI (sync-skills.yml) and document i | e48 | 1 | 2.5 | done | 217 |
 | e48s06 | Add tier: field (core/extended/specialized) to OKF wiki inde | e48 | 2 | 2.5 | done | 13 |
@@ -90,9 +90,9 @@
 | e48s14 | Build-epic integration — BCP Plus in story sizing workflow | e48 | 4 | 2.5 | done | 14 |
 | e48s15 | Refactor Skills Render Pipeline to Hybrid JSON Seam | e48 | 4 | 2.5 | done | 7 |
 | e51s01 | CONVENTIONS — Always Green, Shift Left, Discovered Defects,  | e51 | 3 | 7.0 | done | 8 |
-| e51s02 | seed-conventions — Preflight default, solo-git default, embe | e51 | 3 | 7.0 | done | 48 |
+| e51s02 | seed-conventions — Preflight default, solo-git default, embe | e51 | 3 | 7.0 | done | 49 |
 | e51s03 | kickoff-branch + verify-work — Preflight hard block and CI g | e51 | 2 | 7.0 | done | 79 |
-| e51s04 | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | e51 | 2 | 7.0 | done | 351 |
+| e51s04 | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | e51 | 2 | 7.0 | done | 355 |
 | e51s05 | CLAUDE.md — solo-default agent rules + bigpowers Preflight c | e51 | 2 | 7.0 | done | 7 |
 | e53s01 | Commit the untracked GOLDEN baseline | e53 | 1 | 8.0 | done | 12 |
 | e53s02 | Build the tombstone-alias mechanism | e53 | 3 | 8.0 | done | 7 |
@@ -109,17 +109,18 @@
 | e58s03 | partial-credit scoring + two hard tasks (ab-11, ab-13) | e58 | 0 | 5.3 | done | 7 |
 | e58s04 | ablation arms — which part of bigpowers produces the gain | e58 | 0 | 5.3 | done | 4 |
 | e58s05 | live progress, interleaved runs and saved transcripts | e58 | 0 | 5.3 | done | 6 |
-| e58s06 | pi adapter (default), OpenCode Go deepseek-v4.1-flash | e58 | 0 | 5.3 | done | 5 |
-| e58s07 | Docker sandbox for agent runs and grading | e58 | 0 | 5.3 | done | 23 |
-| e58s08 | value stream map per run (stage classifier) | e58 | 0 | 5.3 | done | 9 |
+| e58s06 | pi adapter (default), OpenCode Go deepseek-v4.1-flash | e58 | 0 | 5.3 | done | 7 |
+| e58s07 | Docker sandbox for agent runs and grading | e58 | 0 | 5.3 | done | 24 |
+| e58s08 | value stream map per run (stage classifier) | e58 | 0 | 5.3 | done | 10 |
 | e58s09 | lean waste metrics per run | e58 | 0 | 5.3 | done | 4 |
-| e58s10 | value stream and waste views in progress and reports | e58 | 0 | 5.3 | done | 134 |
+| e58s10 | value stream and waste views in progress and reports | e58 | 0 | 5.3 | done | 136 |
+| e58s11 | three tasks with changing, spread and implied requirements | e58 | 0 | 5.3 | todo | 16 |
 | e60s01 | Interactive installer with ASCII banner, global/local, tool  | e60 | 0 | 9.0 | done | 11 |
 | e61s01 | Hermes adapter + hook templates (Wave A) | e61 | 0 | 5.0 | done | 10 |
 | e61s02 | Install hub wiring (Wave B) | e61 | 0 | 5.0 | done | 15 |
 | e62s01 | Integration: OpenCode adapter (Wave A) | e62 | 0 | 4.0 | done | 2 |
 | e62s02 | Install hub wiring (Wave B) | e62 | 0 | 4.0 | done | 17 |
-| e64s01 | Gemini hooks adapter — event docs, templates, adapter comple | e64 | 0 | 6.0 | done | 23 |
+| e64s01 | Gemini hooks adapter — event docs, templates, adapter comple | e64 | 0 | 6.0 | done | 24 |
 | e64s02 | Install hub wiring (Wave B) | e64 | 0 | 6.0 | done | 15 |
 | e65s01 | Integration: Codex CLI adapter (Wave A) | e65 | 0 | 6.0 | done | 3 |
 | e65s02 | Install hub wiring (Wave B) | e65 | 0 | 6.0 | done | 16 |

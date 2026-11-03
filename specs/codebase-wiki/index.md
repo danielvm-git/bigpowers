@@ -1,7 +1,7 @@
 ---
 type: Index
-generated_at: 2026-11-03T13:40:09.959024+00:00
-total_concepts: 160
+generated_at: 2026-11-03T14:21:59.507295+00:00
+total_concepts: 161
 ---
 
 # Codebase Wiki — Story Traceability
@@ -32,7 +32,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e45s04](./e45s04.md) | slice-tasks / plan-work: pre-build cross-artifact consistenc | high | 17 |
 | [e45s05](./e45s05.md) | verify-work / gate-trace: adversarial gap-finding completene | high | 45 |
 | [e45s06](./e45s06.md) | tasks.yaml: literal failing→passing task ledger | high | 2 |
-| [e45s07](./e45s07.md) | request-review: dual-blind AND-gate review (Santa Method) | high | 38 |
+| [e45s07](./e45s07.md) | request-review: dual-blind AND-gate review (Santa Method) | high | 39 |
 | [e45s08](./e45s08.md) | develop-tdd / validate-fix: two-commit red/green regression  | high | 14 |
 | [e45s09](./e45s09.md) | verify-work / plan-work: Pre-Implementation and Validation g | high | 93 |
 | [e45s10](./e45s10.md) | docs/references: auto-regenerate from source-of-truth docs v | high | 7 |
@@ -42,8 +42,8 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e45s14](./e45s14.md) | deepen-architecture: declared import-boundary allowlist enfo | high | 8 |
 | [e45s15](./e45s15.md) | release-branch / deploy: three-independent-facts verificatio | high | 25 |
 | [e45s16](./e45s16.md) | CLAUDE.md rtk mandate: wire rtk-ai/rtk PreToolUse hook | high | 4 |
-| [e45s17](./e45s17.md) | request-review: fan-out to parallel review subagents | high | 30 |
-| [e45s18](./e45s18.md) | audit-code / security-review: worktree-isolated parallel che | high | 304 |
+| [e45s17](./e45s17.md) | request-review: fan-out to parallel review subagents | high | 31 |
+| [e45s18](./e45s18.md) | audit-code / security-review: worktree-isolated parallel che | high | 308 |
 | [e45s19](./e45s19.md) | Context7: bounded retry cap and explicit fallback block | medium | 7 |
 | [e45s20](./e45s20.md) | Context7 / bts docs: wrap in ETag-revalidated fetch cache | high | 1 |
 | [e45s21](./e45s21.md) | seed-conventions / AGENTS.md: self-installing fenced markers | high | 41 |
@@ -56,7 +56,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e45s28](./e45s28.md) | request-review: hard max-iteration cap | high | 22 |
 | [e45s29](./e45s29.md) | requirements: ADDED/MODIFIED/REMOVED/RENAMED tags | high | 54 |
 | [e45s30](./e45s30.md) | subagent depth: formalize depth tiers | high | 36 |
-| [e45s31](./e45s31.md) | audit-code / deepen-architecture: churn-based look-here-firs | high | 290 |
+| [e45s31](./e45s31.md) | audit-code / deepen-architecture: churn-based look-here-firs | high | 294 |
 | [e45s32](./e45s32.md) | gate-trace / release-branch: adversarial-review refute frami | high | 43 |
 | [e45s33](./e45s33.md) | requirements: per-section approval state | high | 3 |
 | [e45s34](./e45s34.md) | develop-tdd: snapshot-before-transition hardening | high | 7 |
@@ -69,7 +69,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e45s41](./e45s41.md) | security-review: proven authorship SQL-safety doctrine | high | 22 |
 | [e48s01](./e48s01.md) | Generate epics-wiki and adr-wiki as OKF concept bundles from | high | 38 |
 | [e48s02](./e48s02.md) | Emit verification reports as OKF bundles from run-golden-sui | medium | 41 |
-| [e48s03](./e48s03.md) | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | high | 203 |
+| [e48s03](./e48s03.md) | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | high | 204 |
 | [e48s04](./e48s04.md) | Create viz.html — interactive force-layout graph companion f | medium | 12 |
 | [e48s05](./e48s05.md) | Wire OKF validation into CI (sync-skills.yml) and document i | medium | 217 |
 | [e48s06](./e48s06.md) | Add tier: field (core/extended/specialized) to OKF wiki inde | medium | 13 |
@@ -83,9 +83,9 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e48s14](./e48s14.md) | Build-epic integration — BCP Plus in story sizing workflow | high | 14 |
 | [e48s15](./e48s15.md) | Refactor Skills Render Pipeline to Hybrid JSON Seam | high | 7 |
 | [e51s01](./e51s01.md) | CONVENTIONS — Always Green, Shift Left, Discovered Defects,  | high | 8 |
-| [e51s02](./e51s02.md) | seed-conventions — Preflight default, solo-git default, embe | high | 48 |
+| [e51s02](./e51s02.md) | seed-conventions — Preflight default, solo-git default, embe | high | 49 |
 | [e51s03](./e51s03.md) | kickoff-branch + verify-work — Preflight hard block and CI g | high | 79 |
-| [e51s04](./e51s04.md) | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | high | 351 |
+| [e51s04](./e51s04.md) | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | high | 355 |
 | [e51s05](./e51s05.md) | CLAUDE.md — solo-default agent rules + bigpowers Preflight c | high | 7 |
 | [e53s01](./e53s01.md) | Commit the untracked GOLDEN baseline | high | 12 |
 | [e53s02](./e53s02.md) | Build the tombstone-alias mechanism | high | 7 |
@@ -102,17 +102,18 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e58s03](./e58s03.md) | partial-credit scoring + two hard tasks (ab-11, ab-13) | high | 7 |
 | [e58s04](./e58s04.md) | ablation arms — which part of bigpowers produces the gain | high | 4 |
 | [e58s05](./e58s05.md) | live progress, interleaved runs and saved transcripts | high | 6 |
-| [e58s06](./e58s06.md) | pi adapter (default), OpenCode Go deepseek-v4.1-flash | high | 5 |
-| [e58s07](./e58s07.md) | Docker sandbox for agent runs and grading | high | 23 |
-| [e58s08](./e58s08.md) | value stream map per run (stage classifier) | high | 9 |
+| [e58s06](./e58s06.md) | pi adapter (default), OpenCode Go deepseek-v4.1-flash | high | 7 |
+| [e58s07](./e58s07.md) | Docker sandbox for agent runs and grading | high | 24 |
+| [e58s08](./e58s08.md) | value stream map per run (stage classifier) | high | 10 |
 | [e58s09](./e58s09.md) | lean waste metrics per run | high | 4 |
-| [e58s10](./e58s10.md) | value stream and waste views in progress and reports | high | 134 |
+| [e58s10](./e58s10.md) | value stream and waste views in progress and reports | high | 136 |
+| [e58s11](./e58s11.md) | three tasks with changing, spread and implied requirements | high | 16 |
 | [e60s01](./e60s01.md) | Interactive installer with ASCII banner, global/local, tool  | high | 11 |
 | [e61s01](./e61s01.md) | Hermes adapter + hook templates (Wave A) | high | 10 |
 | [e61s02](./e61s02.md) | Install hub wiring (Wave B) | high | 15 |
 | [e62s01](./e62s01.md) | Integration: OpenCode adapter (Wave A) | high | 2 |
 | [e62s02](./e62s02.md) | Install hub wiring (Wave B) | high | 17 |
-| [e64s01](./e64s01.md) | Gemini hooks adapter — event docs, templates, adapter comple | high | 23 |
+| [e64s01](./e64s01.md) | Gemini hooks adapter — event docs, templates, adapter comple | high | 24 |
 | [e64s02](./e64s02.md) | Install hub wiring (Wave B) | high | 15 |
 | [e65s01](./e65s01.md) | Integration: Codex CLI adapter (Wave A) | high | 3 |
 | [e65s02](./e65s02.md) | Install hub wiring (Wave B) | high | 16 |
