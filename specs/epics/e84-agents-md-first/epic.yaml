@@ -19,7 +19,7 @@ value_engineering: specs/VALUE-ENGINEERING-playbook-compat.md
 stories:
 - id: e84s01
   title: AGENTS.md is the canonical instruction file in this repo
-  status: todo
+  status: done
   bcps: 14
   bcp_13d:
     dimensions:
@@ -49,7 +49,7 @@ stories:
   - CONVENTIONS.md
   - docs/references/agent-tooling.md
   tasks: e84s01-tasks.yaml
-  verify: bash scripts/run-story-verify.sh e84s01
+  verify: test -f AGENTS.md && [ "$(readlink CLAUDE.md)" = AGENTS.md ] && [ $(wc -l < AGENTS.md) -le 150 ] && [ $(wc -l < CONVENTIONS.md) -le 150 ]
 - id: e84s02
   title: seed-conventions writes AGENTS.md-first by default
   status: todo

@@ -16,9 +16,9 @@ const { execSync, spawn } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 const { installGlobal, installLocal, uninstallTool, detectExistingInstall } = require('../scripts/lib/install-helpers');
+const { readPackageVersion } = require('../scripts/lib/cli-version');
 
 const ROOT = path.resolve(path.dirname(__filename), '..');
-const pkg = require(path.join(ROOT, 'package.json'));
 
 // ── ANSI helpers ─────────────────────────────────────────────────────────────
 const c = {
@@ -30,7 +30,11 @@ const c = {
 };
 
 // ── ASCII banner ─────────────────────────────────────────────────────────────
-const BANNER = `
+// The version is a parameter, read fresh from disk at render time: `update`
+// reinstalls this package mid-process, so a value captured at startup is the one
+// that was just replaced (BUG-2026-11-03-cli-update-stale-version).
+function banner(version) {
+  return `
 ${c.cyan('╔════════════════════════════════════════════════════════════════════════════╗')}
 ${c.cyan('║')}                                                                            ${c.cyan('║')}
 ${c.cyan('║')}   ${c.bold(c.cyan('██████╗ ██╗ ██████╗ ██████╗  ██████╗ █      █ ███████╗██████╗ ███████╗'))}   ${c.cyan('║')}
@@ -41,9 +45,10 @@ ${c.cyan('║')}   ${c.bold(c.cyan('██████╔╝██║╚██�
 ${c.cyan('║')}   ${c.bold(c.cyan('╚═════╝ ╚═╝ ╚═════╝ ╚═╝      ╚═════╝ ╚═╝  ╚═╝ ╚══════╝╚═╝  ╚═╝╚══════╝'))}   ${c.cyan('║')}
 ${c.cyan('║')}                                                                            ${c.cyan('║')}
 ${c.cyan('║')}           ${c.dim('Spec-Driven & Test-First Skills for Solo Developers')}              ${c.cyan('║')}
-${c.cyan('║')}           ${c.dim(`v${pkg.version}`)}                                                          ${c.cyan('║')}
+${c.cyan('║')}           ${c.dim(`v${version}`)}                                                          ${c.cyan('║')}
 ${c.cyan('╚════════════════════════════════════════════════════════════════════════════╝')}
 `;
+}
 
 // ── Tool definitions ─────────────────────────────────────────────────────────
 const TOOLS = [
@@ -164,8 +169,9 @@ async function handleUninstall() {
 async function main() {
   const { intro, outro, select, multiselect, spinner, confirm, isCancel } = await clack();
 
-  console.log(BANNER);
-  intro(c.bold(`bigpowers v${pkg.version}`));
+  const version = readPackageVersion(ROOT); // after a self-update this is the NEW version
+  console.log(banner(version));
+  intro(c.bold(`bigpowers v${version}`));
 
   // ── Step 0: Detect existing install ────────────────────────────────────
   const hasExisting = detectExistingInstall();

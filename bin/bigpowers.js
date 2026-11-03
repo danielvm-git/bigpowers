@@ -10,7 +10,9 @@ const path = require('path');
 
 const ROOT = path.dirname(path.dirname(__filename));
 const SKILLS_MARKER = path.join(os.homedir(), '.claude', 'skills', 'survey-context');
-const pkg = require(path.join(ROOT, 'package.json'));
+// Version strings come from disk, not from a require cache captured at startup:
+// `update` reinstalls this package mid-process (BUG-2026-11-03-cli-update-stale-version).
+const { readPackageVersion } = require(path.join(ROOT, 'scripts', 'lib', 'cli-version'));
 
 function isInstalled() {
   try {
@@ -95,10 +97,11 @@ if (cmd === 'status') {
     const count = fs.readdirSync(path.join(os.homedir(), '.claude', 'skills'))
       .filter(d => fs.lstatSync(path.join(os.homedir(), '.claude', 'skills', d)).isSymbolicLink())
       .length;
-    console.log(`bigpowers v${pkg.version} — ${count} skills installed`);
+    const version = readPackageVersion(ROOT);
+    console.log(`bigpowers v${version} — ${count} skills installed`);
     const latest = latestPublishedVersion();
-    if (latest && latest !== pkg.version) {
-      console.log(`\n⬆️  A newer release is available: v${latest} (you have v${pkg.version}).`);
+    if (latest && latest !== version) {
+      console.log(`\n⬆️  A newer release is available: v${latest} (you have v${version}).`);
       console.log('   Upgrade: npm install -g bigpowers@latest && bigpowers update');
     }
   } else {
@@ -123,10 +126,10 @@ Commands:
 
 // Default: check state and guide
 if (isInstalled()) {
-  console.log(`bigpowers v${pkg.version} — already installed.`);
+  console.log(`bigpowers v${readPackageVersion(ROOT)} — already installed.`);
   console.log('Commands: bigpowers {setup|update|status|help}');
 } else {
-  console.log(`🚀 bigpowers v${pkg.version} — skills not yet installed.`);
+  console.log(`🚀 bigpowers v${readPackageVersion(ROOT)} — skills not yet installed.`);
   console.log('   Run: bigpowers setup');
   process.exit(1);
 }

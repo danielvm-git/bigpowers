@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-03T20:00:09.630892+00:00",
+  "generated_at": "2026-11-03T21:20:09.256686+00:00",
   "matrix_version": "1.0",
   "stories": [
     {
@@ -1122,6 +1122,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "scripts/test-bigpowers-cli-version.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/epics/archive/e37-reach/e37s16-codex-onboarding-docs.md",
           "line": 0,
           "confidence": "medium",
@@ -1158,7 +1164,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 10
+      "link_count": 11
     },
     {
       "id": "e45s01",
@@ -2748,6 +2754,12 @@
           "method": "explicit_tag"
         },
         {
+          "file": "docs/references/ssot-sync.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "scripts/lib/sync-context-engineering-ref.sh",
           "line": 2,
           "confidence": "high",
@@ -2778,7 +2790,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 7
+      "link_count": 8
     },
     {
       "id": "e45s11",
@@ -5724,7 +5736,19 @@
       "status": "done",
       "links": [
         {
+          "file": "AGENTS.md",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "CLAUDE.md",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "GEMINI.md",
           "line": 3,
           "confidence": "high",
           "method": "explicit_tag"
@@ -5742,7 +5766,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 3
+      "link_count": 5
     },
     {
       "id": "e45s23",
@@ -5832,7 +5856,19 @@
           "method": "explicit_tag"
         },
         {
+          "file": "AGENTS.md",
+          "line": 4,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "CLAUDE.md",
+          "line": 4,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "GEMINI.md",
           "line": 4,
           "confidence": "high",
           "method": "explicit_tag"
@@ -5856,7 +5892,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 17
+      "link_count": 19
     },
     {
       "id": "e45s24",
@@ -10944,6 +10980,42 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-11-03-cli-nontty-silent-noop.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-03-cli-nontty-silent-noop.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-03-cli-update-stale-version.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-03-cli-update-stale-version.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-03-dev-dependency-advisories.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-03-dev-dependency-advisories.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-11-03-guard-attribution-second-m.md",
           "line": 0,
           "confidence": "medium",
@@ -11023,6 +11095,18 @@
         },
         {
           "file": "specs/bugs/BUG-2026-11-03-pi-shell-hook-dead.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-03-prod-dependency-advisories.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-03-prod-dependency-advisories.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -11136,7 +11220,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 227
+      "link_count": 235
     },
     {
       "id": "e48s04",
@@ -11892,6 +11976,24 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-11-03-cli-nontty-silent-noop.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-03-cli-update-stale-version.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-03-dev-dependency-advisories.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-11-03-guard-attribution-second-m.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -11929,6 +12031,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-11-03-pi-shell-hook-dead.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-03-prod-dependency-advisories.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -12570,7 +12678,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 223
+      "link_count": 227
     },
     {
       "id": "e48s06",
@@ -12918,6 +13026,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "scripts/test-bigpowers-cli-version.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "scripts/test-install-distribute-only.sh",
           "line": 0,
           "confidence": "medium",
@@ -13086,7 +13200,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 33
+      "link_count": 34
     },
     {
       "id": "e48s12",
@@ -16170,7 +16284,19 @@
       "status": "done",
       "links": [
         {
+          "file": "AGENTS.md",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "CLAUDE.md",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "GEMINI.md",
           "line": 2,
           "confidence": "high",
           "method": "explicit_tag"
@@ -16212,7 +16338,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 7
+      "link_count": 9
     },
     {
       "id": "e53s01",
@@ -16308,6 +16434,12 @@
       "status": "done",
       "links": [
         {
+          "file": "docs/references/tombstones.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "scripts/test-tombstone-mechanism.sh",
           "line": 2,
           "confidence": "high",
@@ -16350,7 +16482,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 7
+      "link_count": 8
     },
     {
       "id": "e53s03",
@@ -16776,6 +16908,12 @@
       "status": "done",
       "links": [
         {
+          "file": "docs/references/catalog-freeze.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "scripts/snapshot-catalog-baseline.sh",
           "line": 2,
           "confidence": "high",
@@ -16830,7 +16968,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 9
+      "link_count": 10
     },
     {
       "id": "e54s02",
@@ -17298,6 +17436,12 @@
       "status": "done",
       "links": [
         {
+          "file": "AGENTS.md",
+          "line": 5,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "CLAUDE.md",
           "line": 5,
           "confidence": "high",
@@ -17306,6 +17450,12 @@
         {
           "file": "CONVENTIONS.md",
           "line": 14,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "GEMINI.md",
+          "line": 5,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -17334,7 +17484,7 @@
           "method": "explicit_tag"
         }
       ],
-      "link_count": 6
+      "link_count": 8
     },
     {
       "id": "e58s01",
@@ -23670,6 +23820,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "scripts/test-bigpowers-cli-version.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/BIGPOWERS-ENHANCEMENT-PLAN.md",
           "line": 0,
           "confidence": "medium",
@@ -23718,7 +23874,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 17
+      "link_count": 18
     },
     {
       "id": "e83s03",
@@ -23994,6 +24150,12 @@
       "status": "backlog",
       "links": [
         {
+          "file": "docs/references/catalog-freeze.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/conventions-wiki/catalog-freeze-e54-e59-migration.md",
           "line": 0,
           "confidence": "medium",
@@ -24018,7 +24180,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 4
+      "link_count": 5
     },
     {
       "id": "e83s05",
@@ -24057,8 +24219,50 @@
       "epic_title": "AGENTS.md First \u2014 One Harness-Neutral Instruction File",
       "bcp": 0,
       "wsjf": 10.5,
-      "status": "backlog",
+      "status": "done",
       "links": [
+        {
+          "file": "AGENTS.md",
+          "line": 6,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "CLAUDE.md",
+          "line": 6,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "CONVENTIONS.md",
+          "line": 15,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "GEMINI.md",
+          "line": 6,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "docs/references/agent-tooling.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "docs/references/file-size-exceptions.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "docs/references/skill-naming.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "specs/epics/e84-agents-md-first/e84s01-tasks.yaml",
           "line": 8,
@@ -24068,6 +24272,12 @@
         {
           "file": "specs/epics/e84-agents-md-first/epic.yaml",
           "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/state.yaml",
+          "line": 3,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -24090,7 +24300,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 5
+      "link_count": 13
     },
     {
       "id": "e84s02",
@@ -24432,6 +24642,12 @@
       "status": "backlog",
       "links": [
         {
+          "file": "docs/references/catalog-freeze.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/conventions-wiki/catalog-freeze-e54-e59-migration.md",
           "line": 0,
           "confidence": "medium",
@@ -24444,7 +24660,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 2
+      "link_count": 3
     },
     {
       "id": "e87s01",
@@ -25002,13 +25218,14 @@
       "e80s04",
       "e80s05",
       "e81s01",
+      "e84s01",
       "e86s01",
       "e86s02"
     ],
-    "stale_count": 128,
+    "stale_count": 129,
     "oracle_stats": {
-      "high": 926,
-      "medium": 2763,
+      "high": 945,
+      "medium": 2780,
       "low": 109
     }
   }

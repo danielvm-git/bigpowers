@@ -1,3 +1,24 @@
+## [2.93.2](https://github.com/danielvm-git/bigpowers/compare/v2.93.1...v2.93.2) (2026-11-03)
+
+
+### Bug Fixes
+
+* **deps:** clear the production dependency advisories ([#200](https://github.com/danielvm-git/bigpowers/issues/200)) ([1ff6dea](https://github.com/danielvm-git/bigpowers/commit/1ff6dea73d7fdc06ebb3172839758f7a1be995c4))
+
+## [2.93.1](https://github.com/danielvm-git/bigpowers/compare/v2.93.0...v2.93.1) (2026-11-03)
+
+
+### Bug Fixes
+
+* **cli:** report the installed version after a self-update ([#198](https://github.com/danielvm-git/bigpowers/issues/198)) ([4a2d8d0](https://github.com/danielvm-git/bigpowers/commit/4a2d8d0131d593c83c86151f6c716d2bfae96498))
+
+# [2.93.0](https://github.com/danielvm-git/bigpowers/compare/v2.92.0...v2.93.0) (2026-11-03)
+
+
+### Features
+
+* **context:** shave always-loaded context in AGENTS.md and CONVENTIONS.md to <=150 lines (e84s01) ([#197](https://github.com/danielvm-git/bigpowers/issues/197)) ([34f6366](https://github.com/danielvm-git/bigpowers/commit/34f6366d481fc582e7d556148870298811a5d0ff))
+
 # [2.92.0](https://github.com/danielvm-git/bigpowers/compare/v2.91.1...v2.92.0) (2026-11-03)
 
 

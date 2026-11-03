@@ -1,6 +1,6 @@
 ---
 type: Index
-generated_at: 2026-11-03T20:00:09.635505+00:00
+generated_at: 2026-11-03T21:20:09.260992+00:00
 total_concepts: 161
 ---
 
@@ -25,7 +25,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e37s13](./e37s13.md) | targets.yaml — Wave E: iflow, vibe, shai (markdown commands; | high | 6 |
 | [e37s14](./e37s14.md) | seed-conventions — optional Codex wiring step (AGENTS.md + . | medium | 10 |
 | [e37s15](./e37s15.md) | install.sh — global ~/.codex/ AGENTS.md starter symlink | high | 4 |
-| [e37s16](./e37s16.md) | using-bigpowers — Codex CLI onboarding section | medium | 10 |
+| [e37s16](./e37s16.md) | using-bigpowers — Codex CLI onboarding section | medium | 11 |
 | [e45s01](./e45s01.md) | run-benchmark: add train/validation-split + with/without-ski | high | 14 |
 | [e45s02](./e45s02.md) | craft-skill: CSO description discipline + completion-honesty | high | 18 |
 | [e45s03](./e45s03.md) | CLAUDE.md token mgmt: mechanical PreToolUse hook backstop | high | 4 |
@@ -35,7 +35,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e45s07](./e45s07.md) | request-review: dual-blind AND-gate review (Santa Method) | high | 39 |
 | [e45s08](./e45s08.md) | develop-tdd / validate-fix: two-commit red/green regression  | high | 14 |
 | [e45s09](./e45s09.md) | verify-work / plan-work: Pre-Implementation and Validation g | high | 89 |
-| [e45s10](./e45s10.md) | docs/references: auto-regenerate from source-of-truth docs v | high | 7 |
+| [e45s10](./e45s10.md) | docs/references: auto-regenerate from source-of-truth docs v | high | 8 |
 | [e45s11](./e45s11.md) | orchestration / dispatch-agents: typed message protocol + 3- | high | 17 |
 | [e45s12](./e45s12.md) | stocktake-skills / craft-skill: code-enforced validator + au | high | 43 |
 | [e45s13](./e45s13.md) | verify-work: one-test-minimum terminal-verdict rule | high | 26 |
@@ -47,8 +47,8 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e45s19](./e45s19.md) | Context7: bounded retry cap and explicit fallback block | medium | 7 |
 | [e45s20](./e45s20.md) | Context7 / bts docs: wrap in ETag-revalidated fetch cache | high | 1 |
 | [e45s21](./e45s21.md) | seed-conventions / AGENTS.md: self-installing fenced markers | high | 33 |
-| [e45s22](./e45s22.md) | CLAUDE.md: context-aware directory routing | high | 3 |
-| [e45s23](./e45s23.md) | CLAUDE.md: live Learned User Preferences / Workspace Facts | high | 17 |
+| [e45s22](./e45s22.md) | CLAUDE.md: context-aware directory routing | high | 5 |
+| [e45s23](./e45s23.md) | CLAUDE.md: live Learned User Preferences / Workspace Facts | high | 19 |
 | [e45s24](./e45s24.md) | REFERENCE.md files: embedded line-range navigation guides | medium | 2 |
 | [e45s25](./e45s25.md) | CONVENTIONS.md risk tiers: compile to versioned, diffable ru | high | 5 |
 | [e45s26](./e45s26.md) | security-review: CWE mapping + 2 positive/2 negative fixture | high | 24 |
@@ -69,15 +69,15 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e45s41](./e45s41.md) | security-review: proven authorship SQL-safety doctrine | high | 18 |
 | [e48s01](./e48s01.md) | Generate epics-wiki and adr-wiki as OKF concept bundles from | high | 37 |
 | [e48s02](./e48s02.md) | Emit verification reports as OKF bundles from run-golden-sui | medium | 35 |
-| [e48s03](./e48s03.md) | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | high | 227 |
+| [e48s03](./e48s03.md) | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | high | 235 |
 | [e48s04](./e48s04.md) | Create viz.html — interactive force-layout graph companion f | medium | 12 |
-| [e48s05](./e48s05.md) | Wire OKF validation into CI (sync-skills.yml) and document i | medium | 223 |
+| [e48s05](./e48s05.md) | Wire OKF validation into CI (sync-skills.yml) and document i | medium | 227 |
 | [e48s06](./e48s06.md) | Add tier: field (core/extended/specialized) to OKF wiki inde | medium | 14 |
 | [e48s07](./e48s07.md) | Create publish-to-wiki kernel tool | high | 2 |
 | [e48s08](./e48s08.md) | Add GitHub Action Template for publish-wiki.yml [HARD GATE] | high | 8 |
 | [e48s09](./e48s09.md) | Create Wiki Scaffold Templates and provenance header injecti | medium | 2 |
 | [e48s10](./e48s10.md) | Extend bigspec init with --with-wiki flag | medium | 15 |
-| [e48s11](./e48s11.md) | BCP Plus counter integration — install and smoke-test big-co | medium | 33 |
+| [e48s11](./e48s11.md) | BCP Plus counter integration — install and smoke-test big-co | medium | 34 |
 | [e48s12](./e48s12.md) | BCP Plus template — 13-dimension breakdown in story specs | high | 9 |
 | [e48s13](./e48s13.md) | NFR Gate integration — security-review and wire-observabilit | high | 19 |
 | [e48s14](./e48s14.md) | Build-epic integration — BCP Plus in story sizing workflow | high | 14 |
@@ -86,17 +86,17 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e51s02](./e51s02.md) | seed-conventions — Preflight default, solo-git default, embe | high | 41 |
 | [e51s03](./e51s03.md) | kickoff-branch + verify-work — Preflight hard block and CI g | high | 71 |
 | [e51s04](./e51s04.md) | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | high | 327 |
-| [e51s05](./e51s05.md) | CLAUDE.md — solo-default agent rules + bigpowers Preflight c | high | 7 |
+| [e51s05](./e51s05.md) | CLAUDE.md — solo-default agent rules + bigpowers Preflight c | high | 9 |
 | [e53s01](./e53s01.md) | Commit the untracked GOLDEN baseline | high | 12 |
-| [e53s02](./e53s02.md) | Build the tombstone-alias mechanism | high | 7 |
+| [e53s02](./e53s02.md) | Build the tombstone-alias mechanism | high | 8 |
 | [e53s03](./e53s03.md) | Gate-trace the compliance-to-GOLDEN hard-gate coupling | high | 62 |
 | [e53s04](./e53s04.md) | Adopt docs/TARGET-ARCHITECTURE.md as the migration's north-s | high | 3 |
-| [e54s01](./e54s01.md) | Snapshot the current skill catalog as an immutable baseline | high | 9 |
+| [e54s01](./e54s01.md) | Snapshot the current skill catalog as an immutable baseline | high | 10 |
 | [e54s02](./e54s02.md) | Add a soft drift-detection gate for the freeze window | high | 14 |
 | [e54s03](./e54s03.md) | Document the freeze's scope, exit criteria, and exception pr | high | 45 |
 | [e55s01](./e55s01.md) | Map every current doctrine source to a B0-B10 + Capstone blo | high | 5 |
 | [e55s02](./e55s02.md) | Write constitution.md from the mapping, CLAUDE.md/CONVENTION | high | 4 |
-| [e55s03](./e55s03.md) | Point CLAUDE.md/CONVENTIONS.md at constitution.md, don't del | high | 6 |
+| [e55s03](./e55s03.md) | Point CLAUDE.md/CONVENTIONS.md at constitution.md, don't del | high | 8 |
 | [e58s01](./e58s01.md) | Outcome A/B eval runner — vanilla agent vs bigpowers | high | 14 |
 | [e58s02](./e58s02.md) | opencode adapter + the five legacy benchmark tasks | high | 7 |
 | [e58s03](./e58s03.md) | partial-credit scoring + two hard tasks (ab-11, ab-13) | high | 7 |
@@ -152,11 +152,11 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e82s03](./e82s03.md) | OMP plugin extension — bigpowers as native oh-my-posh/OMP en | high | 7 |
 | [e82s04](./e82s04.md) | Community attribution — CONTRIBUTORS.md + CHANGELOG credit e | high | 2 |
 | [e83s01](./e83s01.md) | Release mirror stamps last_tag and skill counts | high | 7 |
-| [e83s02](./e83s02.md) | bigpowers status counts only bigpowers-owned skills | medium | 17 |
+| [e83s02](./e83s02.md) | bigpowers status counts only bigpowers-owned skills | medium | 18 |
 | [e83s03](./e83s03.md) | Receipts read the cycle-time ledger and label sources honest | medium | 42 |
-| [e83s04](./e83s04.md) | VISION refreshed and catalog-freeze breaks resolved | medium | 4 |
+| [e83s04](./e83s04.md) | VISION refreshed and catalog-freeze breaks resolved | medium | 5 |
 | [e83s05](./e83s05.md) | Investigate spec-version-gap blocked with no active flow | medium | 3 |
-| [e84s01](./e84s01.md) | AGENTS.md is the canonical instruction file in this repo | high | 5 |
+| [e84s01](./e84s01.md) | AGENTS.md is the canonical instruction file in this repo | high | 13 |
 | [e84s02](./e84s02.md) | seed-conventions writes AGENTS.md-first by default | medium | 8 |
 | [e85s01](./e85s01.md) | Count the 10 functional dimensions with worked-example self- | high | 6 |
 | [e85s02](./e85s02.md) | NFR dimensions, maturity gate and count provenance | medium | 11 |
@@ -164,7 +164,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e86s02](./e86s02.md) | Tests are locked during a fix after the RED commit | high | 11 |
 | [e86s03](./e86s03.md) | Secrets are blocked before commit | low | 1 |
 | [e86s04](./e86s04.md) | Production deploys ask before running | low | 1 |
-| [e86s05](./e86s05.md) | Catalog freeze is enforced, not advisory | medium | 2 |
+| [e86s05](./e86s05.md) | Catalog freeze is enforced, not advisory | medium | 3 |
 | [e87s01](./e87s01.md) | Opt-in agent review on every PR | high | 3 |
 | [e87s02](./e87s02.md) | Failed CI builds get an agent triage note | low | 1 |
 | [e87s03](./e87s03.md) | deploy gains a rehearsed rollback and risk-tier autonomy | medium | 4 |
