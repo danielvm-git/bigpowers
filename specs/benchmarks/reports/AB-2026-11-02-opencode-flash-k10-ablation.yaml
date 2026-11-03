@@ -1,0 +1,207 @@
+generated_at: '2026-11-02T23:59:00Z'
+bigpowers_sha: 09ee887d,367c3e0a,f6092b8b
+adapter: opencode
+model: opencode-go/deepseek-v4.1-flash
+k: 10
+tasks:
+- ab-06
+- ab-11
+- ab-13
+arms:
+- vanilla
+- bigpowers
+- bp-core
+- bp-seed
+- bp-skills
+- tdd-line
+notes:
+- e58s04 ablation, 3 parallel shards (one per task); host opencode CLI, not sandboxed.
+- ab-11/13 fixtures had the broken `npm test` script fixed later in b2a4cf49.
+- ab-06 has no score command; its per-task score reads null.
+ci_method: bootstrap over runs, 1000 resamples, seed 58
+arms_summary:
+  vanilla:
+    runs: 30
+    pass_rate: 0.9
+    mean_score: 0.9944
+    mean_bugs_opened: 0.0
+    tamper_rate: 0.0
+    agent_error_rate: 0.0
+    mean_cost_usd: 0.0078
+    mean_input_tokens: 124593.7333
+    mean_output_tokens: 7469.6
+    mean_turns: 7.1
+    mean_duration_s: 66.4233
+    mean_diff_lines: 226.5667
+  bigpowers:
+    runs: 30
+    pass_rate: 0.9
+    mean_score: 0.9944
+    mean_bugs_opened: 0.0
+    tamper_rate: 0.0
+    agent_error_rate: 0.0
+    mean_cost_usd: 0.013
+    mean_input_tokens: 386516.2333
+    mean_output_tokens: 10199.7333
+    mean_turns: 12.1333
+    mean_duration_s: 75.7967
+    mean_diff_lines: 272.4667
+  bp-core:
+    runs: 30
+    pass_rate: 0.8333
+    mean_score: 0.9917
+    mean_bugs_opened: 0.0
+    tamper_rate: 0.0
+    agent_error_rate: 0.0
+    mean_cost_usd: 0.011
+    mean_input_tokens: 284068.4
+    mean_output_tokens: 9659.3333
+    mean_turns: 12.8667
+    mean_duration_s: 71.5367
+    mean_diff_lines: 298.6667
+  bp-seed:
+    runs: 30
+    pass_rate: 0.9
+    mean_score: 0.9972
+    mean_bugs_opened: 0.0
+    tamper_rate: 0.0
+    agent_error_rate: 0.0
+    mean_cost_usd: 0.0099
+    mean_input_tokens: 210274.1667
+    mean_output_tokens: 9474.7667
+    mean_turns: 11.9333
+    mean_duration_s: 69.21
+    mean_diff_lines: 245.3
+  bp-skills:
+    runs: 30
+    pass_rate: 0.9
+    mean_score: 0.9972
+    mean_bugs_opened: 0.0
+    tamper_rate: 0.0
+    agent_error_rate: 0.0
+    mean_cost_usd: 0.0101
+    mean_input_tokens: 252400.0
+    mean_output_tokens: 7570.7333
+    mean_turns: 8.4333
+    mean_duration_s: 58.01
+    mean_diff_lines: 230.9333
+  tdd-line:
+    runs: 30
+    pass_rate: 0.8667
+    mean_score: 0.9944
+    mean_bugs_opened: 0.0
+    tamper_rate: 0.0333
+    agent_error_rate: 0.0
+    mean_cost_usd: 0.0098
+    mean_input_tokens: 215455.3
+    mean_output_tokens: 9409.3333
+    mean_turns: 11.7667
+    mean_duration_s: 76.11
+    mean_diff_lines: 261.8
+per_task:
+  ab-06:
+    vanilla: 0.9
+    bigpowers: 0.9
+    bp-core: 0.8
+    bp-seed: 0.8
+    bp-skills: 0.8
+    tdd-line: 0.8
+  ab-11:
+    vanilla: 0.8
+    bigpowers: 0.8
+    bp-core: 0.7
+    bp-seed: 0.9
+    bp-skills: 0.9
+    tdd-line: 0.8
+  ab-13:
+    vanilla: 1.0
+    bigpowers: 1.0
+    bp-core: 1.0
+    bp-seed: 1.0
+    bp-skills: 1.0
+    tdd-line: 1.0
+per_task_score:
+  ab-06:
+    vanilla: null
+    bigpowers: null
+    bp-core: null
+    bp-seed: null
+    bp-skills: null
+    tdd-line: null
+  ab-11:
+    vanilla: 0.9889
+    bigpowers: 0.9889
+    bp-core: 0.9833
+    bp-seed: 0.9944
+    bp-skills: 0.9944
+    tdd-line: 0.9889
+  ab-13:
+    vanilla: 1.0
+    bigpowers: 1.0
+    bp-core: 1.0
+    bp-seed: 1.0
+    bp-skills: 1.0
+    tdd-line: 1.0
+delta: &id001
+  pass_rate: 0.0
+  ci95:
+  - -0.1667
+  - 0.1333
+  tamper_rate: 0.0
+  cost_usd: 0.0052
+  score: 0.0
+  score_ci95:
+  - -0.0111
+  - 0.0083
+  bugs_opened: 0.0
+deltas_vs_vanilla:
+  bigpowers: *id001
+  bp-core:
+    pass_rate: -0.0667
+    ci95:
+    - -0.2333
+    - 0.1
+    tamper_rate: 0.0
+    cost_usd: 0.0032
+    score: -0.0027
+    score_ci95:
+    - -0.0139
+    - 0.0083
+    bugs_opened: 0.0
+  bp-seed:
+    pass_rate: 0.0
+    ci95:
+    - -0.1333
+    - 0.1667
+    tamper_rate: 0.0
+    cost_usd: 0.0021
+    score: 0.0028
+    score_ci95:
+    - -0.0056
+    - 0.0111
+    bugs_opened: 0.0
+  bp-skills:
+    pass_rate: 0.0
+    ci95:
+    - -0.1333
+    - 0.1667
+    tamper_rate: 0.0
+    cost_usd: 0.0023
+    score: 0.0028
+    score_ci95:
+    - -0.0056
+    - 0.0111
+    bugs_opened: 0.0
+  tdd-line:
+    pass_rate: -0.0333
+    ci95:
+    - -0.1667
+    - 0.1333
+    tamper_rate: 0.0333
+    cost_usd: 0.002
+    score: 0.0
+    score_ci95:
+    - -0.0111
+    - 0.0083
+    bugs_opened: 0.0
+lean: null

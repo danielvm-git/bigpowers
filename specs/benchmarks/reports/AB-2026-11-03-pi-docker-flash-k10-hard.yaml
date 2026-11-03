@@ -1,0 +1,226 @@
+generated_at: '2026-11-03T12:40:10Z'
+bigpowers_sha: bff2f153
+adapter: pi-docker
+model: opencode-go/deepseek-v4.1-flash
+k: 10
+tasks:
+- ab-09
+- ab-11
+- ab-13
+- ab-17
+- ab-19
+- ab-20
+arms:
+- vanilla
+- bigpowers
+notes:
+- Run by another agent from /tmp/bp-ab-k10 (6 shards); pinned 2026-11-03 by e58 review.
+- 'ab-09/17/19/20 ran from uncommitted files: their task code is the one committed
+  in b0cfa015, not bff2f153.'
+- 'ab-11/13/20 fixtures had a broken `npm test` script (fixed in b2a4cf49): agents
+  spent effort repairing package.json.'
+- vsm and waste blocks were back-filled from saved transcripts with ab_vsm/ab_waste;
+  patch metrics are null (no patches kept).
+ci_method: bootstrap over runs, 1000 resamples, seed 58
+arms_summary:
+  vanilla:
+    runs: 60
+    pass_rate: 0.9833
+    mean_score: 0.9991
+    mean_bugs_opened: 0.1667
+    tamper_rate: 0.0
+    agent_error_rate: 0.0
+    mean_cost_usd: 0.0074
+    mean_input_tokens: 107130.5
+    mean_output_tokens: 8375.0833
+    mean_turns: 9.75
+    mean_duration_s: 77.4233
+    mean_diff_lines: 144.35
+  bigpowers:
+    runs: 60
+    pass_rate: 0.9667
+    mean_score: 0.9981
+    mean_bugs_opened: 0.1667
+    tamper_rate: 0.0333
+    agent_error_rate: 0.0
+    mean_cost_usd: 0.0146
+    mean_input_tokens: 512593.55
+    mean_output_tokens: 14844.1333
+    mean_turns: 20.25
+    mean_duration_s: 130.5733
+    mean_diff_lines: 537.8667
+per_task:
+  ab-09:
+    vanilla: 1.0
+    bigpowers: 1.0
+  ab-11:
+    vanilla: 0.9
+    bigpowers: 0.8
+  ab-13:
+    vanilla: 1.0
+    bigpowers: 1.0
+  ab-17:
+    vanilla: 1.0
+    bigpowers: 1.0
+  ab-19:
+    vanilla: 1.0
+    bigpowers: 1.0
+  ab-20:
+    vanilla: 1.0
+    bigpowers: 1.0
+per_task_score:
+  ab-09:
+    vanilla: 1.0
+    bigpowers: 1.0
+  ab-11:
+    vanilla: 0.9944
+    bigpowers: 0.9889
+  ab-13:
+    vanilla: 1.0
+    bigpowers: 1.0
+  ab-17:
+    vanilla: 1.0
+    bigpowers: 1.0
+  ab-19:
+    vanilla: 1.0
+    bigpowers: 1.0
+  ab-20:
+    vanilla: 1.0
+    bigpowers: 1.0
+delta: &id001
+  pass_rate: -0.0166
+  ci95:
+  - -0.0833
+  - 0.0333
+  tamper_rate: 0.0333
+  cost_usd: 0.0072
+  score: -0.001
+  score_ci95:
+  - -0.0046
+  - 0.0019
+  bugs_opened: 0.0
+deltas_vs_vanilla:
+  bigpowers: *id001
+lean:
+  arms:
+    vanilla:
+      runs: 60
+      lead_time_s: 72.2697
+      time_to_first_build_s: 16.1285
+      switches: 6.4333
+      stage_s:
+        plan: 2.9899
+        design: 17.1699
+        build: 28.957
+        test: 22.5625
+        deploy: 0.579
+        maintain: 0.0
+      stage_share:
+        plan: 0.0656
+        design: 0.2362
+        build: 0.3866
+        test: 0.3068
+        deploy: 0.0045
+        maintain: 0.0
+      waste:
+        test_runs: 3.7
+        redundant_test_runs: 0.9333
+        rework_loops: 0.4833
+        reedits: 0.3167
+        rereads: 0.0833
+        repeated_commands: 0.0333
+        review_load: null
+        diff_ratio: null
+        pce: 0.6934
+      ftt_rate: 0.5833
+      leftover_rate: 0.0
+      cost_per_pass: 0.007476
+    bigpowers:
+      runs: 60
+      lead_time_s: 123.7722
+      time_to_first_build_s: 68.729
+      switches: 11.8833
+      stage_s:
+        plan: 12.8747
+        design: 19.8084
+        build: 20.1532
+        test: 59.7733
+        deploy: 8.3061
+        maintain: 2.8445
+      stage_share:
+        plan: 0.1043
+        design: 0.1542
+        build: 0.1585
+        test: 0.505
+        deploy: 0.0611
+        maintain: 0.0168
+      waste:
+        test_runs: 8.5167
+        redundant_test_runs: 2.6667
+        rework_loops: 0.7667
+        reedits: 0.9
+        rereads: 0.0833
+        repeated_commands: 0.0
+        review_load: null
+        diff_ratio: null
+        pce: 0.6634
+      ftt_rate: 0.6
+      leftover_rate: 0.0
+      cost_per_pass: 0.015056
+  deltas:
+    bigpowers:
+      lead_time_s:
+        delta: 51.5025
+        ci95:
+        - 28.4811
+        - 73.7453
+      time_to_first_build_s:
+        delta: 52.6005
+        ci95:
+        - 40.4812
+        - 64.965
+      switches:
+        delta: 5.45
+        ci95:
+        - 3.5667
+        - 7.8667
+      build_share:
+        delta: -0.2281
+        ci95:
+        - -0.2839
+        - -0.1702
+      test_share:
+        delta: 0.1981
+        ci95:
+        - 0.1314
+        - 0.2594
+      test_runs:
+        delta: 4.8167
+        ci95:
+        - 3.6833
+        - 6.0167
+      redundant_test_runs:
+        delta: 1.7333
+        ci95:
+        - 1.1333
+        - 2.3667
+      rework_loops:
+        delta: 0.2833
+        ci95:
+        - -0.1333
+        - 0.7833
+      reedits:
+        delta: 0.5833
+        ci95:
+        - 0.2
+        - 1.0333
+      ftt:
+        delta: 0.0167
+        ci95:
+        - -0.15
+        - 0.1833
+      pce:
+        delta: -0.03
+        ci95:
+        - -0.0875
+        - 0.0308
