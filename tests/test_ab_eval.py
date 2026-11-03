@@ -281,6 +281,16 @@ class TestStarterTasks(unittest.TestCase):
         for task_yaml in self.TASKS.glob("*/task.yaml"):
             self.assertNotIn("bigpowers", yaml.safe_load(task_yaml.read_text())["prompt"].lower())
 
+    def test_grade_commands_never_pass_a_bare_directory(self):
+        """`node --test test/` exits 1 on node 24 (it resolves the directory as a module path), so
+        such a task can never pass however good the solution is, while a hidden-only `score`
+        command still looks healthy (BUG found in e58s07: ab-11 and ab-13 read pass=0 forever)."""
+        for task_yaml in self.TASKS.glob("*/task.yaml"):
+            with self.subTest(task=task_yaml.parent.name):
+                for token in yaml.safe_load(task_yaml.read_text())["grade"].split():
+                    self.assertNotIn(token.rstrip("/"), ("test", "test-hidden"),
+                                     f"{task_yaml.parent.name} grades a directory, not a glob")
+
 
 class TestRunBenchmarkHonesty(unittest.TestCase):
     def test_without_skill_arm_is_unmeasured_not_zero(self):

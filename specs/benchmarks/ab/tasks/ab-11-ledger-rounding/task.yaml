@@ -10,6 +10,6 @@ prompt: |
   Fix it. Keep the public API in src/index.js as it is.
 protected:
   - test/ledger.test.js
-grade: node --test test/ test-hidden/*.test.js
+grade: node --test test/*.test.js test-hidden/*.test.js
 score: node --test --test-reporter=tap test-hidden/*.test.js
 timeout_s: 1800
