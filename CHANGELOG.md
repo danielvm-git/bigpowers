@@ -1,3 +1,10 @@
+## [2.90.2](https://github.com/danielvm-git/bigpowers/compare/v2.90.1...v2.90.2) (2026-11-03)
+
+
+### Bug Fixes
+
+* **scripts:** write spec state atomically instead of in place ([#192](https://github.com/danielvm-git/bigpowers/issues/192)) ([6198138](https://github.com/danielvm-git/bigpowers/commit/61981388c6ab80e493ae7582749730b41c89fa24)), closes [#181](https://github.com/danielvm-git/bigpowers/issues/181)
+
 ## [2.90.1](https://github.com/danielvm-git/bigpowers/compare/v2.90.0...v2.90.1) (2026-11-03)
 
 
