@@ -1,7 +1,7 @@
 id: e58
 title: "Evals Over Compliance — Replace the 94% Gate with Outcome Proof"
 wsjf: 5.3
-bcps: 80
+bcps: 85
 bcps_projected: 9
 capsule_dir: epics/e58-evals-over-compliance
 mode: capsule
@@ -185,6 +185,24 @@ stories:
       - tests/test_ab_vsm.py
     tasks: e58s08-tasks.yaml
     verify: python3 tests/test_ab_vsm.py
+  - id: e58s09
+    title: "lean waste metrics per run"
+    status: todo
+    bcps: 5
+    bcp_basis: estimate, 2026-11-03 (transcript + patch metrics, solution diff, runner hook)
+    risk: P2
+    delta: ADDED
+    source: specs/benchmarks/LEAN-VSM_LATEST.md step 3
+    description: >-
+      Save each run's patch and add a waste block: extra features against the reference solution,
+      leftovers, relearning, rework loops, first-time-through, PCE and review load.
+    files:
+      - scripts/lib/ab_waste.py
+      - specs/benchmarks/ab/vsm.yaml
+      - scripts/lib/ab-eval.py
+      - tests/test_ab_waste.py
+    tasks: e58s09-tasks.yaml
+    verify: python3 tests/test_ab_waste.py
 planned_stories:
   - working_title: "Extend run-evals to cover a meaningful skill subset with real with/without-skill deltas"
     bcp_estimate: 3

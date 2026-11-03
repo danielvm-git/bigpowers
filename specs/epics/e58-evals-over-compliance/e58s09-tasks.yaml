@@ -1,0 +1,30 @@
+story_id: e58s09
+spec: e58s09-waste-metrics.md
+title: lean waste metrics per run
+status: failing
+bcps: 5
+tasks:
+- id: 1
+  description: Failing tests for transcript waste, first-time-through and patch metrics
+  verify: test -f tests/test_ab_waste.py
+  risk: P2
+  status: failing
+  allure:
+    severity: normal
+    categories: ["unit", "Evals", "Lean"]
+- id: 2
+  description: ab_waste.py (transcript + patch metrics, solution diff, leftovers rule)
+  verify: python3 tests/test_ab_waste.py
+  risk: P2
+  status: failing
+  allure:
+    severity: normal
+    categories: ["unit", "Evals", "Lean"]
+- id: 3
+  description: Runner saves the patch and adds waste to every record; validated; documented
+  verify: python3 tests/test_ab_waste.py && grep -q 'ab_waste' specs/benchmarks/SCHEMA.md
+  risk: P3
+  status: failing
+  allure:
+    severity: minor
+    categories: ["Evals", "docs"]
