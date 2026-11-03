@@ -60,7 +60,7 @@ for adapter in scripts/adapters/*.sh; do
         IR_DESC_ESCAPED="test desc"; IR_MODEL=""
         declare -f render_skill >/dev/null || exit 1
         render_skill
-      ' _ "$PWD/$adapter" "$nm" >/dev/null 2>&1 )
+      ' _ "$PWD/$adapter" "$nm" </dev/null >/dev/null 2>&1 )
   }
 
   dest="$TMP_ROOT/$id"
