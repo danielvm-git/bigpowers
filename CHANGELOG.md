@@ -1,3 +1,10 @@
+## [2.90.1](https://github.com/danielvm-git/bigpowers/compare/v2.90.0...v2.90.1) (2026-11-03)
+
+
+### Bug Fixes
+
+* **omp:** keep the tool_call branch probe quiet outside a git repo ([#190](https://github.com/danielvm-git/bigpowers/issues/190)) ([bcacf33](https://github.com/danielvm-git/bigpowers/commit/bcacf33ec72a8705c6b0dbbcf91f2ea2bed4b406)), closes [#189](https://github.com/danielvm-git/bigpowers/issues/189)
+
 # [2.90.0](https://github.com/danielvm-git/bigpowers/compare/v2.89.1...v2.90.0) (2026-11-03)
 
 
