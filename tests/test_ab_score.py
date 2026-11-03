@@ -18,7 +18,14 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from test_ab_eval import REPO_ROOT, Sandbox, met, rep  # noqa: E402
 
 TASKS = REPO_ROOT / "specs" / "benchmarks" / "ab" / "tasks"
-HARD_TASKS = ["ab-11-ledger-rounding", "ab-13-orders-split"]
+HARD_TASKS = [
+    "ab-09-inventory-reservations",
+    "ab-11-ledger-rounding",
+    "ab-13-orders-split",
+    "ab-17-payment-alias",
+    "ab-19-catalog-segregation",
+    "ab-20-brand-discount",
+]
 
 
 class TestTapScore(unittest.TestCase):

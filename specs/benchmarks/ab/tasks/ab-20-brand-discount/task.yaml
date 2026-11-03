@@ -1,0 +1,16 @@
+# story: e58s08
+# Hard brownfield feature: add brand-specific percentage discount rule with spend threshold.
+# Must preserve all existing discounts, allocate discounts strictly to brand items, and correctly compute tax.
+id: ab-20
+title: Add brand discount rule with spend threshold to orders pricing
+kind: feature
+prompt: |
+  Add support for brand-specific percentage discounts to the orders pricing module.
+  See docs/SPEC-brand-discount.md for requirements and error message formats.
+  Keep all existing tests in test/orders.test.js passing.
+protected:
+  - test/orders.test.js
+grade: node --test test/*.test.js test-hidden/*.test.js
+score: node --test --test-reporter=tap test-hidden/*.test.js
+audit: node --test --test-reporter=tap test-audit/*.test.js
+timeout_s: 1800

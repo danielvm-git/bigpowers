@@ -121,3 +121,11 @@ def tap_score(stdout: str) -> float | None:
     passed = sum(int(n) for n in re.findall(r"^# pass (\d+)", stdout, re.M))
     failed = sum(int(n) for n in re.findall(r"^# (?:fail|cancelled) (\d+)", stdout, re.M))
     return round(passed / (passed + failed), 4) if passed + failed else None
+
+
+def tap_failures(stdout: str) -> int:
+    return sum(int(n) for n in re.findall(r"^# (?:fail|cancelled) (\d+)", stdout, re.M))
+
+
+def tap_failed_names(stdout: str) -> list[str]:
+    return [m.strip() for m in re.findall(r"^not ok \d+ - (.+)$", stdout, re.M)]
