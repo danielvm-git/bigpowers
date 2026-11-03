@@ -424,7 +424,7 @@ development_status:
   e83s04: backlog
   e83s05: backlog
   e84: backlog
-  e84s01: backlog
+  e84s01: done
   e84s02: backlog
   e85: backlog
   e85s01: backlog
@@ -3680,12 +3680,12 @@ stories:
     tasks_failing: 0
     risk_max: P1
   e84s01:
-    status: backlog
+    status: done
     title: AGENTS.md is the canonical instruction file in this repo
     bcps: 14
     epic: e84
     tasks_total: 4
-    tasks_passing: 0
+    tasks_passing: 4
     tasks_failing: 0
     risk_max: P2
   e84s02:
