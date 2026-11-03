@@ -1,3 +1,10 @@
+## [2.89.1](https://github.com/danielvm-git/bigpowers/compare/v2.89.0...v2.89.1) (2026-11-03)
+
+
+### Bug Fixes
+
+* **scripts:** remove pipefail SIGPIPE races from git and long-output pipelines ([#186](https://github.com/danielvm-git/bigpowers/issues/186)) ([f55cbb7](https://github.com/danielvm-git/bigpowers/commit/f55cbb7d8883dd0af4777ac2467d5b550fde23db))
+
 # [2.89.0](https://github.com/danielvm-git/bigpowers/compare/v2.88.18...v2.89.0) (2026-11-02)
 
 
