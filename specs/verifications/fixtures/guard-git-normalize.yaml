@@ -1,0 +1,108 @@
+# story: BUG-2026-11-03-guard-git-flag-normalize
+# Guard-git normalization fixtures (#184).
+#
+# One table, two implementations. The shell hook (hooks/pre-tool-use.sh) and the
+# TS extension (extensions/omp-hooks.ts tool_call handler) must return the SAME
+# verdict for every row — that is what "consistent across Claude Code, Cursor and
+# Gemini CLI modes" means in practice.
+#
+# verdict: block | allow
+# why: the bypass or false positive this row pins down.
+
+cases:
+  # --- reordered / interleaved flags on a destructive subcommand -------------
+  - command: git reset --hard
+    verdict: block
+    why: the literal baseline
+  - command: git reset -q --hard
+    verdict: block
+    why: a flag between the subcommand and the destructive flag
+  - command: git reset --hard HEAD~1
+    verdict: block
+    why: block regardless of the revision argument
+  - command: git reset --keep --hard
+    verdict: block
+    why: --hard anywhere in the argv is destructive
+
+  # --- global flags before the subcommand -----------------------------------
+  - command: git -C /tmp/repo reset --hard
+    verdict: block
+    why: -C with a path argument must not hide the subcommand
+  - command: git --no-pager reset --hard
+    verdict: block
+    why: a valueless global flag
+  - command: git -c core.pager=cat reset --hard
+    verdict: block
+    why: -c with a key=value argument
+  - command: git --git-dir=/tmp/repo/.git --work-tree=/tmp/repo reset --hard
+    verdict: block
+    why: = joined global options
+
+  # --- checkout / restore / clean / branch ----------------------------------
+  - command: git checkout -- .
+    verdict: block
+    why: discards work; the literal "git checkout ." pattern missed "--"
+  - command: git checkout -f main
+    verdict: block
+    why: forced checkout discards local changes
+  - command: git restore .
+    verdict: block
+    why: literal baseline for restore
+  - command: git restore --staged --worktree .
+    verdict: block
+    why: flags before the pathspec
+  - command: git clean -fdx
+    verdict: block
+    why: any clean -f* destroys untracked work
+  - command: git branch -D feature/x
+    verdict: block
+    why: literal baseline for forced delete
+  - command: git -C /tmp/repo branch --delete --force feature/x
+    verdict: block
+    why: long-form forced delete behind a global flag
+
+  # --- push: force forms and flag position ----------------------------------
+  - command: git push --force origin main
+    verdict: block
+    why: literal baseline
+  - command: git push -f origin main
+    verdict: block
+    why: short form
+  - command: git push origin main -f
+    verdict: block
+    why: the flag AFTER the refspec
+  - command: git -C /tmp/repo push --force origin main
+    verdict: block
+    why: global flag in front
+  - command: git push origin +main
+    verdict: block
+    why: plus-refspec is a force push
+  - command: git push --force-with-lease origin main
+    verdict: allow
+    why: lease-protected force is the sanctioned shape (still explicit, not silent)
+
+  # --- must NOT be blocked (false-positive control) -------------------------
+  - command: git status
+    verdict: allow
+    why: ordinary read
+  - command: git log --oneline -5
+    verdict: allow
+    why: ordinary read
+  - command: 'git commit -m "fix(guard): normalize argv"'
+    verdict: allow
+    why: conventional commit on a feature branch
+  - command: git checkout -b feature/new
+    verdict: allow
+    why: creating a branch is not destructive
+  - command: git restore --staged file.txt
+    verdict: allow
+    why: unstaging is reversible and not destructive
+  - command: git push origin feature/x
+    verdict: allow
+    why: plain feature push
+  - command: git reset --mixed HEAD~1
+    verdict: allow
+    why: non-destructive reset keeps the working tree
+  - command: ls -la && git status
+    verdict: allow
+    why: compound commands still evaluate the git segment

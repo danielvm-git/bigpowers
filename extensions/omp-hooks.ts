@@ -18,15 +18,152 @@ import { fileURLToPath } from "node:url";
 // only truly foreign entries (e.g. a stray node_modules symlink) need exclusion.
 const EXCLUDED_DIRS = new Set([".git", "node_modules"]);
 
-const DANGEROUS_PATTERNS = [
-  /git\s+reset\s+--hard/,
-  /git\s+clean\s+-f/,
-  /git\s+branch\s+-D/,
-  /git\s+checkout\s+\./,
-  /git\s+restore\s+\./,
-  /push\s+--force/,
-  /push\s+-f(?:\s|$)/,
-];
+// ---------------------------------------------------------------------------
+// Git argv normalization (BUG-2026-11-03-guard-git-flag-normalize, #184).
+//
+// Literal substring patterns cannot see a global flag in front of the
+// subcommand (`git -C repo reset --hard`), a flag between the subcommand and the
+// destructive option (`git reset -q --hard`), or an alternative spelling of the
+// same act (`git checkout -- .`, `git branch --delete --force`). Tokenize the
+// command, drop the global options, then judge (subcommand, arguments).
+//
+// scripts/lib/git-argv.py is the same rule table in Python for the shell hooks;
+// scripts/test-guard-git-normalize.sh fails if the two disagree on any fixture.
+// ---------------------------------------------------------------------------
+
+/** Quote-aware split; a quoting error degrades to whitespace splitting, never to eval. */
+export function tokenizeArgs(command: string): string[] {
+  const tokens: string[] = [];
+  let current = "";
+  let quote: '"' | "'" | null = null;
+  let hasToken = false;
+  for (let i = 0; i < command.length; i++) {
+    const ch = command[i];
+    if (quote) {
+      if (ch === quote) quote = null;
+      else current += ch;
+      continue;
+    }
+    if (ch === '"' || ch === "'") {
+      quote = ch as '"' | "'";
+      hasToken = true;
+      continue;
+    }
+    if (/\s/.test(ch)) {
+      if (hasToken) {
+        tokens.push(current);
+        current = "";
+        hasToken = false;
+      }
+      continue;
+    }
+    current += ch;
+    hasToken = true;
+  }
+  if (hasToken) tokens.push(current);
+  return tokens;
+}
+
+// Global options that consume the next token as their value.
+const GIT_VALUE_FLAGS = new Set([
+  "-C", "-c", "--exec-path", "--git-dir", "--work-tree", "--namespace",
+  "--super-prefix", "--config-env",
+]);
+
+// Global options that stand alone.
+const GIT_BARE_FLAGS = new Set([
+  "-p", "--paginate", "--no-pager", "--bare", "--no-replace-objects",
+  "--literal-pathspecs", "--glob-pathspecs", "--icase-pathspecs",
+  "--no-optional-locks", "--version", "--help",
+]);
+
+const SEPARATORS = new Set([";", "&&", "||", "|", "&", "(", ")", "\n"]);
+
+function shortFlagHas(args: string[], letter: string): boolean {
+  return args.some((a) => a.startsWith("-") && !a.startsWith("--") && a.slice(1).includes(letter));
+}
+
+/** Block reason for one normalized git invocation, or null. Mirror git-argv.py. */
+export function classifyGitInvocation(sub: string, args: string[]): string | null {
+  if (sub === "reset" && args.includes("--hard")) return "git reset --hard discards uncommitted work";
+  if (sub === "clean" && (shortFlagHas(args, "f") || args.includes("--force"))) {
+    return "git clean -f deletes untracked files";
+  }
+  if (sub === "branch") {
+    const forced =
+      args.includes("-D") ||
+      (args.includes("--delete") && (args.includes("--force") || shortFlagHas(args, "f")));
+    if (forced) return "git branch -D deletes an unmerged branch";
+  }
+  if (sub === "checkout") {
+    if (args.includes("-f") || args.includes("--force")) return "git checkout -f discards local changes";
+    if (args.includes(".")) return "git checkout . discards local changes";
+  }
+  if (sub === "restore" && (args.includes("--worktree") || args.includes("."))) {
+    return "git restore discards local changes";
+  }
+  if (sub === "push") {
+    const leased = args.some((a) => a === "--force-with-lease" || a.startsWith("--force-with-lease="));
+    const forced =
+      args.includes("-f") ||
+      args.includes("--force") ||
+      args.some((a) => a.startsWith("+") && !a.startsWith("++"));
+    if (forced && !leased) return "force push rewrites remote history";
+  }
+  return null;
+}
+
+/** Every (subcommand, args) pair in a command, with global options stripped. */
+export function gitInvocations(tokens: string[]): Array<{ sub: string; args: string[] }> {
+  const found: Array<{ sub: string; args: string[] }> = [];
+  let i = 0;
+  while (i < tokens.length) {
+    const token = tokens[i];
+    if (token.split("/").pop() !== "git") {
+      i += 1;
+      continue;
+    }
+    let j = i + 1;
+    while (j < tokens.length) {
+      const opt = tokens[j];
+      if (SEPARATORS.has(opt)) break;
+      const name = opt.split("=")[0];
+      if (GIT_VALUE_FLAGS.has(name)) {
+        j += opt.includes("=") ? 1 : 2;
+        continue;
+      }
+      if (GIT_BARE_FLAGS.has(name) || (opt.startsWith("-") && !opt.startsWith("--") && opt.length > 1)) {
+        j += 1;
+        continue;
+      }
+      break;
+    }
+    if (j >= tokens.length || SEPARATORS.has(tokens[j])) {
+      i = j + 1;
+      continue;
+    }
+    const sub = tokens[j];
+    const args: string[] = [];
+    let k = j + 1;
+    while (k < tokens.length && !SEPARATORS.has(tokens[k])) {
+      args.push(tokens[k]);
+      k += 1;
+    }
+    found.push({ sub, args });
+    i = k;
+  }
+  return found;
+}
+
+/** The normalized verdict for a whole shell command: a reason to block, or null. */
+export function dangerousGitCommand(command: string): string | null {
+  for (const { sub, args } of gitInvocations(tokenizeArgs(command))) {
+    const reason = classifyGitInvocation(sub, args);
+    if (reason) return reason;
+  }
+  return null;
+}
+
 
 // Conventional Commits specifies `type(scope)!:`, but many repositories write
 // `type!(scope):`. Accept both; the leading type is what matters.
@@ -414,13 +551,12 @@ export default function bigpowers(pi: ExtensionAPI) {
     const { command } = event.input as { command?: string };
     if (!command) return;
 
-    for (const pat of DANGEROUS_PATTERNS) {
-      if (pat.test(command)) {
-        return {
-          block: true,
-          reason: `BLOCKED: '${command}' matches dangerous pattern '${pat}'.`,
-        };
-      }
+    const gitReason = dangerousGitCommand(command);
+    if (gitReason) {
+      return {
+        block: true,
+        reason: `BLOCKED: ${gitReason}. Use a safer approach or ask the user.`,
+      };
     }
 
     const sessionRoot = process.cwd();
