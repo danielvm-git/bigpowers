@@ -85,7 +85,7 @@ After writing capsule tasks, suggest `kickoff-branch` (if not already on a featu
 
 ## Verify
 
-→ verify: `test -f scripts/lib/plan-consistency-check.sh && EPIC=$(ls -d specs/epics/*/ 2>/dev/null | grep -v archive | sort | head -1) && test -n "$EPIC" && bash scripts/lib/plan-consistency-check.sh "$EPIC" >/dev/null 2>&1`
+→ verify: `test -f scripts/lib/plan-consistency-check.sh && TASKS=$(grep -l '^spec:' specs/epics/*/*-tasks.yaml 2>/dev/null | sort | head -1) && test -n "$TASKS" && bash scripts/lib/plan-consistency-check.sh "$(dirname "$TASKS")" >/dev/null 2>&1`
 
 
 
