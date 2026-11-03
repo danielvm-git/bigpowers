@@ -1,0 +1,30 @@
+story_id: e58s04
+spec: e58s04-ablation-arms.md
+title: ablation arms — which part of bigpowers produces the gain
+status: passing
+bcps: 5
+tasks:
+- id: 1
+  description: Failing tests for AB_BP_SKILLS / AB_BP_SEED and deltas_vs_vanilla
+  verify: test -f tests/test_ab_ablation.py
+  risk: P2
+  status: passing
+  allure:
+    severity: normal
+    categories: ["unit", "Evals"]
+- id: 2
+  description: Arm script honours AB_BP_SKILLS and AB_BP_SEED; report adds deltas_vs_vanilla
+  verify: python3 tests/test_ab_ablation.py
+  risk: P2
+  status: passing
+  allure:
+    severity: normal
+    categories: ["unit", "Evals"]
+- id: 3
+  description: Four ablation arms in config.yaml plus the tdd-line seed
+  verify: bash scripts/run-ab-eval.sh --dry-run --arms vanilla,bigpowers,bp-core,bp-seed,bp-skills,tdd-line
+  risk: P3
+  status: passing
+  allure:
+    severity: minor
+    categories: ["Evals"]

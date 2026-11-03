@@ -1,0 +1,11 @@
+{
+  "defect_class": "daemon-state-in-verify-command",
+  "grep_pattern": "ab-sandbox\\.sh status",
+  "match_count": 0,
+  "sweep_scope": "specs/epics/*/epic.yaml",
+  "patched_in_pr": [
+    "specs/epics/e58-evals-over-compliance/epic.yaml",
+    "specs/epics/e58-evals-over-compliance/e58s07-tasks.yaml"
+  ],
+  "tracked_issues": []
+}

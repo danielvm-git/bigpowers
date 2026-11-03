@@ -1,0 +1,18 @@
+# story: e58s02
+# Ported from bigpowers-benchmark T03. The visible test passes before any work, so grading adds
+# hidden output-equivalence tests against the original function and a structural check.
+id: ab-06
+title: Refactor processData to read top-down (stepdown rule)
+kind: refactor
+prompt: |
+  Refactor processData in src/processor.js so the file reads top-down:
+  - processData comes first and reads as a short, high-level summary of the steps
+    (at most 15 lines of body);
+  - the details move into small helper functions (at least three), each defined below
+    the code that calls it.
+  External behaviour must stay exactly the same: same output for every input, same errors.
+  `node test.js` must keep passing.
+protected:
+  - test.js
+grade: node test.js && node --test test-hidden/*.test.js
+timeout_s: 900

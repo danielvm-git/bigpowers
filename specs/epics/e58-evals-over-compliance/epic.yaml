@@ -1,7 +1,7 @@
 id: e58
 title: "Evals Over Compliance — Replace the 94% Gate with Outcome Proof"
 wsjf: 5.3
-bcps: 0
+bcps: 75
 bcps_projected: 9
 capsule_dir: epics/e58-evals-over-compliance
 mode: capsule
@@ -28,7 +28,145 @@ note: >
   though running it after e56 means evaluating a cleaner, smaller catalog.
   Provisional epic — NOT YET SCOPED. bcps: 0 / bcps_projected: 9 per B9 discipline (see e55's
   note). Run elaborate-spec before slicing real stories.
-stories: []
+stories:
+  - id: e58s01
+    title: "Outcome A/B eval runner — vanilla agent vs bigpowers"
+    status: done
+    bcps: 26
+    bcp_basis: 13D element count, 2026-10-30 (carried from the runner working title below)
+    risk: P1
+    delta: ADDED + MODIFIED (run-benchmark without-skill arm)
+    source: specs/TRUE-NORTH_LATEST.md §4 — measure first
+    description: >-
+      Run each task in a fresh temp workdir once per arm (vanilla, bigpowers) per run through a
+      harness adapter (claude, gemini, codex). Grade only the outcome with hidden tests, detect test
+      tampering, record cost and tokens, and report the pass-rate delta with a bootstrap CI. Also stops
+      run-benchmark.py from faking the without-skill arm.
+    files:
+      - scripts/run-ab-eval.sh
+      - scripts/lib/ab-eval.py
+      - scripts/lib/ab_report.py
+      - scripts/lib/ab-arm-bigpowers.sh
+      - specs/benchmarks/ab/
+      - scripts/lib/run-benchmark.py
+      - tests/test_ab_eval.py
+    tasks: e58s01-tasks.yaml
+    verify: python3 tests/test_ab_eval.py && bash scripts/run-ab-eval.sh --dry-run
+  - id: e58s02
+    title: "opencode adapter + the five legacy benchmark tasks"
+    status: done
+    bcps: 13
+    bcp_basis: estimate, 2026-11-02 (adapter + parser + 5 ported tasks)
+    risk: P1
+    delta: ADDED + MODIFIED (parse_metrics moved to ab_metrics.py)
+    source: maintainer runs agents via opencode (OpenCode Go); legacy bigpowers-benchmark T01-T05
+    description: >-
+      opencode adapter with per-run fresh HOME isolation and an opencode-jsonl metrics parser, plus
+      tasks ab-04..ab-08 ported from the legacy benchmark with neutral prompts, protected visible
+      tests, hidden tests and reference solutions.
+    files:
+      - scripts/lib/ab-eval.py
+      - scripts/lib/ab_metrics.py
+      - specs/benchmarks/ab/config.yaml
+      - specs/benchmarks/ab/tasks/
+      - tests/test_ab_eval.py
+    tasks: e58s02-tasks.yaml
+    verify: python3 tests/test_ab_eval.py && bash scripts/run-ab-eval.sh --dry-run --adapter opencode
+  - id: e58s03
+    title: "partial-credit scoring + two hard tasks (ab-11, ab-13)"
+    status: done
+    bcps: 13
+    bcp_basis: estimate, 2026-11-02 (score parser + report + 2 multi-file tasks)
+    risk: P1
+    delta: ADDED + MODIFIED (bootstrap_delta_ci takes numeric values)
+    source: k=10 run showed the suite at its ceiling; specs/benchmarks/HARDER-TASKS_LATEST.md
+    description: >-
+      Optional per-task score command that runs hidden tests only and records the share passing,
+      per-arm mean score and a bootstrap CI on the score delta, plus tasks ab-11 (multi-file ledger
+      rounding bug) and ab-13 (split a god module behind a stable API).
+    files:
+      - scripts/lib/ab-eval.py
+      - scripts/lib/ab_metrics.py
+      - scripts/lib/ab_report.py
+      - specs/benchmarks/ab/tasks/
+      - tests/test_ab_score.py
+    tasks: e58s03-tasks.yaml
+    verify: python3 tests/test_ab_score.py && python3 tests/test_ab_eval.py
+  - id: e58s04
+    title: "ablation arms — which part of bigpowers produces the gain"
+    status: done
+    bcps: 5
+    bcp_basis: estimate, 2026-11-02 (env options in arm script + report deltas + config arms)
+    risk: P2
+    delta: ADDED
+    source: k=3/k=10 runs; bigpowers wins only ab-06 (refactor). e56 needs to know which part helps.
+    description: >-
+      Arm script options for a skill subset and seed choice, four ablation arms (bp-core, bp-seed,
+      bp-skills, tdd-line) and a per-arm delta against vanilla in the report.
+    files:
+      - scripts/lib/ab-arm-bigpowers.sh
+      - scripts/lib/ab_report.py
+      - specs/benchmarks/ab/config.yaml
+      - specs/benchmarks/ab/arms/
+      - tests/test_ab_ablation.py
+    tasks: e58s04-tasks.yaml
+    verify: python3 tests/test_ab_ablation.py
+  - id: e58s05
+    title: "live progress, interleaved runs and saved transcripts"
+    status: done
+    bcps: 5
+    bcp_basis: estimate, 2026-11-02 (stream records + interleave + traces + progress script)
+    risk: P2
+    delta: ADDED + MODIFIED (run order is round-robin)
+    source: maintainer wants the orchestrating agent to show a long sharded run as it evolves
+    description: >-
+      Stream each run record to ab-live.jsonl, interleave runs round-robin, save gzipped agent
+      transcripts, and add ab_progress.py for a live table, deltas and their evolution.
+    files:
+      - scripts/lib/ab-eval.py
+      - scripts/lib/ab_progress.py
+      - tests/test_ab_progress.py
+    tasks: e58s05-tasks.yaml
+    verify: python3 tests/test_ab_progress.py
+  - id: e58s06
+    title: "pi adapter (default), OpenCode Go deepseek-v4.1-flash"
+    status: done
+    bcps: 5
+    bcp_basis: estimate, 2026-11-02 (adapter + isolation + parser + default_adapter)
+    risk: P2
+    delta: ADDED
+    source: maintainer runs agents via pi with the OpenCode Go provider
+    description: >-
+      Isolated pi adapter (per-run PI_CODING_AGENT_DIR with only auth.json), pi-json metrics
+      parser, and a config default_adapter set to pi.
+    files:
+      - scripts/lib/ab-eval.py
+      - scripts/lib/ab_metrics.py
+      - specs/benchmarks/ab/config.yaml
+      - tests/test_ab_pi.py
+    tasks: e58s06-tasks.yaml
+    verify: python3 tests/test_ab_pi.py
+  - id: e58s07
+    title: "Docker sandbox for agent runs and grading"
+    status: done
+    bcps: 8
+    bcp_basis: estimate, 2026-11-02 (2 images + network + adapter + grade wrapper + isolation tests)
+    risk: P1
+    delta: ADDED
+    source: host runs could read hidden tests/solutions, write outside the workdir and reach the web
+    description: >-
+      Per-run pi container with only the workdir and auth copy mounted, internal network with an
+      opencode.ai-only proxy, grading in a no-network container, AB_TIMEOUT, and pi-docker as the
+      default adapter.
+    files:
+      - scripts/ab-sandbox.sh
+      - scripts/lib/ab-sandbox/
+      - scripts/lib/ab-eval.py
+      - specs/benchmarks/ab/config.yaml
+      - specs/benchmarks/SCHEMA.md
+      - tests/test_ab_sandbox.py
+    tasks: e58s07-tasks.yaml
+    verify: python3 tests/test_ab_sandbox.py
 planned_stories:
   - working_title: "Extend run-evals to cover a meaningful skill subset with real with/without-skill deltas"
     bcp_estimate: 3

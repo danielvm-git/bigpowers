@@ -632,3 +632,23 @@ bugs:
     approach: "Do not let the reader close the pipe early: capture producer output first, test the captured string, or use a reader that reads to the end (awk NR<=n, sed -n '1,Np')"
     risk_level: "low"
     commit_message: "fix(scripts): remove pipefail SIGPIPE races from git and long-output pipelines"
+  - id: BUG-2026-11-03-story-verify-ab-sandbox-daemon-required
+    status: fixed
+    severity: high
+    scope: ci / story-verify
+    title: "e58s07 story-verify fails in CI because ab-sandbox.sh status requires background Docker containers"
+    file: bugs/BUG-2026-11-03-story-verify-ab-sandbox-daemon-required.md
+    files_changed: "specs/epics/e58-evals-over-compliance/epic.yaml, specs/epics/e58-evals-over-compliance/e58s07-tasks.yaml, specs/epics/e58-evals-over-compliance/e58s07-docker-sandbox.md, tests/test_ab_sandbox.py"
+    approach: "Remove daemon status check from story-verify directive, relying on test_ab_sandbox.py which gates grade wrapper and timeout while cleanly handling offline sandbox"
+    risk_level: "low"
+    commit_message: "fix(ci): remove live docker daemon requirement from e58s07 story verify"
+  - id: BUG-2026-11-03-wiki-indexes-ignored-reports
+    status: open
+    severity: low
+    scope: trace-stories / wiki
+    title: "Generated wikis link to gitignored verification reports, so every Preflight dirties the tree"
+    file: bugs/BUG-2026-11-03-wiki-indexes-ignored-reports.md
+    files_changed: "scripts/lib/trace-stories.py"
+    approach: "Exclude gitignored report prefixes (specs/verifications/reports/, allure-results/) from trace-stories.py indexing, then regenerate the wikis once"
+    risk_level: "low"
+    commit_message: "fix(trace): stop indexing gitignored verification reports"

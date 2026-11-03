@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-30T17:56:25.869067+00:00",
+  "generated_at": "2026-11-03T03:23:55.148304+00:00",
   "matrix_version": "1.0",
   "stories": [
     {
@@ -4248,6 +4248,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-192412.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-180244.md",
           "line": 0,
           "confidence": "medium",
@@ -4320,25 +4326,19 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/reports/audit-cleancode-20261030-144938.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-163821.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/reports/audit-cleancode-20260703-201018.md",
+          "file": "specs/verifications/reports/audit-cleancode-20261103-001451.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/reports/audit-cleancode-20261030-145423.md",
+          "file": "specs/verifications/reports/audit-cleancode-20260703-201018.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4351,6 +4351,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-181656.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-164149.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4393,12 +4399,6 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-165619.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/reports/audit-cleancode-20261030-145327.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4536,6 +4536,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261030-142605.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-214041.md",
           "line": 0,
           "confidence": "medium",
@@ -4656,7 +4662,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261103-000647.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-005800.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-224623.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -4764,6 +4782,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-173823.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-164248.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-165256.md",
           "line": 0,
           "confidence": "medium",
@@ -4831,6 +4861,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-130915.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-173915.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5010,6 +5046,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-170330.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260626-204755.md",
           "line": 0,
           "confidence": "medium",
@@ -5029,6 +5071,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260704-082326.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261103-001346.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5070,7 +5118,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-235941.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-130821.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-162625.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5166,6 +5226,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-162526.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-154214.md",
           "line": 0,
           "confidence": "medium",
@@ -5197,6 +5263,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260629-132750.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261103-000050.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5274,6 +5346,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261030-142648.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260704-083101.md",
           "line": 0,
           "confidence": "medium",
@@ -5293,6 +5371,18 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260704-004226.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-163426.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261030-151104.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5358,6 +5448,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-224518.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-192521.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-170706.md",
           "line": 0,
           "confidence": "medium",
@@ -5394,6 +5496,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261103-002125.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260629-130700.md",
           "line": 0,
           "confidence": "medium",
@@ -5419,6 +5527,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-170431.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261030-151010.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5461,6 +5575,18 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260704-144506.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-163522.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-171102.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5562,7 +5688,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 283
+      "link_count": 304
     },
     {
       "id": "e45s19",
@@ -5573,12 +5699,6 @@
       "wsjf": 5.0,
       "status": "done",
       "links": [
-        {
-          "file": "skills/context7-mcp/SKILL.md",
-          "line": 3,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
         {
           "file": "specs/wayfinder/doc-templates/tickets/T2-template-landscape.md",
           "line": 0,
@@ -5622,7 +5742,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 8
+      "link_count": 7
     },
     {
       "id": "e45s20",
@@ -7464,6 +7584,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-192412.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-180244.md",
           "line": 0,
           "confidence": "medium",
@@ -7536,25 +7662,19 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/reports/audit-cleancode-20261030-144938.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-163821.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/reports/audit-cleancode-20260703-201018.md",
+          "file": "specs/verifications/reports/audit-cleancode-20261103-001451.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/reports/audit-cleancode-20261030-145423.md",
+          "file": "specs/verifications/reports/audit-cleancode-20260703-201018.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -7567,6 +7687,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-181656.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-164149.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -7609,12 +7735,6 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-165619.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/reports/audit-cleancode-20261030-145327.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -7752,6 +7872,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261030-142605.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-214041.md",
           "line": 0,
           "confidence": "medium",
@@ -7872,7 +7998,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261103-000647.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-005800.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-224623.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -7980,6 +8118,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-173823.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-164248.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-165256.md",
           "line": 0,
           "confidence": "medium",
@@ -8047,6 +8197,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-130915.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-173915.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8226,6 +8382,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-170330.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260626-204755.md",
           "line": 0,
           "confidence": "medium",
@@ -8245,6 +8407,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260704-082326.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261103-001346.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8286,7 +8454,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-235941.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-130821.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-162625.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8382,6 +8562,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-162526.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-154214.md",
           "line": 0,
           "confidence": "medium",
@@ -8413,6 +8599,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260629-132750.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261103-000050.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8490,6 +8682,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261030-142648.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260704-083101.md",
           "line": 0,
           "confidence": "medium",
@@ -8509,6 +8707,18 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260704-004226.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-163426.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261030-151104.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8574,6 +8784,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-224518.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-192521.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-170706.md",
           "line": 0,
           "confidence": "medium",
@@ -8610,6 +8832,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261103-002125.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260629-130700.md",
           "line": 0,
           "confidence": "medium",
@@ -8635,6 +8863,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-170431.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261030-151010.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8677,6 +8911,18 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260704-144506.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-163522.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-171102.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8766,7 +9012,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 269
+      "link_count": 290
     },
     {
       "id": "e45s32",
@@ -8952,6 +9198,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-10-25-release-not-gated.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/epics/archive/e26-security-review/e26s06-release-branch-gate.md",
           "line": 0,
           "confidence": "medium",
@@ -9030,7 +9282,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 42
+      "link_count": 43
     },
     {
       "id": "e45s33",
@@ -9234,6 +9486,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/epics/e58-evals-over-compliance/e58s01-ab-eval-runner.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": ".continue/rules/run-evals.md",
           "line": 0,
           "confidence": "medium",
@@ -9250,9 +9508,15 @@
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/run-ab-eval.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
         }
       ],
-      "link_count": 8
+      "link_count": 10
     },
     {
       "id": "e45s38",
@@ -9918,6 +10182,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-11-03-wiki-indexes-ignored-reports.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-23-epics-wiki-empty-references.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -9936,6 +10206,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-09-09-pi-duplicate-slash-commands.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-03-codebase-wiki-venv-pollution.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -9943,6 +10219,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-03-codebase-wiki-venv-pollution.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-03-wiki-indexes-ignored-reports.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -10044,7 +10326,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 34
+      "link_count": 37
     },
     {
       "id": "e48s02",
@@ -10104,6 +10386,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/GOLDEN-2026-11-02.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-2026-11-03.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/GOLDEN-2026-10-30.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -10116,7 +10410,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/GOLDEN-2026-11-03.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-2026-10-30.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-2026-11-02.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -10158,6 +10464,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-09-09-pi-duplicate-slash-commands.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-23-golden-g11-worktree-venv.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -10183,6 +10495,18 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-09T033939-golden-g01-submodule-checkout.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-03-wiki-indexes-ignored-reports.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-09-05-golden-gate-missing-node-deps.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -10248,7 +10572,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 32
+      "link_count": 39
     },
     {
       "id": "e48s03",
@@ -10434,6 +10758,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-10-30-mcp-unset-plugin-root.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-04-stale-bak-features.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -10465,6 +10795,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-25-anti-vacuity-ci.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-03-wiki-indexes-ignored-reports.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -10530,7 +10866,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-10-29-dashboard-html-escaping.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-23-epics-wiki-empty-references.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-10-30-compliance-akita-masked.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -10560,7 +10908,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-09-10-pi-mcp-omp-startup.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-02-skill-verify-false-fails.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-10-29-migration-metadata.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -10620,6 +10980,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-10-25-pages-not-gated.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-08-07-gemini-hooks-missing-npm-package.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -10627,6 +10993,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-06-migrate-spec-migration-logic-violations.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-10-29-mcp-secret-diffs.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -10663,6 +11035,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-18-skill-index-phase-table-drift.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-10-29-agents-export-quoting.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -10716,6 +11094,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-10-25-ci-critical-path.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-04-filesize-gate-python-blindspot.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -10740,7 +11124,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-10-29-mcp-secret-diffs.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-06-02T164500.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-09-05-pi-omp-extension-load-crash.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -10765,6 +11161,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-08-07-interactive-uninstall-silent-noop.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-10-29-agents-export-quoting.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -10830,6 +11232,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-10-30-mcp-unset-plugin-root.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-09-10-pi-mcp-omp-startup.md",
           "line": 0,
           "confidence": "medium",
@@ -10855,6 +11263,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-06-13T090000.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-10-29-dashboard-loopback.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -10938,6 +11352,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-09-09-pi-duplicate-slash-commands.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-23-golden-g11-worktree-venv.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -10974,7 +11394,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-10-25-release-not-gated.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-06-trace-requirement-stories-oversized.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-10-29-dashboard-loopback.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -11077,6 +11509,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-18-setup-pyyaml-missing.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-10-29-migration-metadata.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -11190,6 +11628,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-11-03-wiki-indexes-ignored-reports.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-25-land-branch-protected.md",
           "line": 0,
           "confidence": "medium",
@@ -11220,7 +11664,31 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-09-05-golden-gate-missing-node-deps.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-10-30-compliance-akita-masked.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-09-13-docs-base-path-gate-ci.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-03-yaml-roundtrip-corruption.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-10-29-dashboard-html-escaping.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -11316,7 +11784,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 176
+      "link_count": 200
     },
     {
       "id": "e48s04",
@@ -11478,6 +11946,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/GOLDEN-2026-11-02.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-2026-11-03.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/GOLDEN-2026-10-30.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -11490,7 +11970,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/GOLDEN-2026-11-03.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-2026-10-30.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-2026-11-02.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -11622,7 +12114,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-10-30-compliance-akita-masked.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-06-11T183000.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-09-10-pi-mcp-omp-startup.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -11664,6 +12168,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-10-25-pages-not-gated.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-08-07-gemini-hooks-missing-npm-package.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -11689,6 +12199,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-18-skill-index-phase-table-drift.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-10-29-agents-export-quoting.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -11724,6 +12240,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-10-25-ci-critical-path.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-04-filesize-gate-python-blindspot.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -11742,6 +12264,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-10-29-mcp-secret-diffs.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-09-05-pi-omp-extension-load-crash.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-03-capsule-release-labels.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -11755,6 +12289,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-06-27T000000.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-10-30-mcp-unset-plugin-root.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -11808,6 +12348,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-09-09-pi-duplicate-slash-commands.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-23-golden-g11-worktree-venv.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -11832,7 +12378,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-10-25-release-not-gated.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-06-trace-requirement-stories-oversized.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-10-29-dashboard-loopback.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -11892,6 +12450,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-10-29-migration-metadata.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-06-audit-code-auditor-oversized.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -11922,6 +12486,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-11-03-wiki-indexes-ignored-reports.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-03T020000.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -11929,6 +12499,24 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-06-craft-skill-sync-oversized.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-09-05-golden-gate-missing-node-deps.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-09-13-docs-base-path-gate-ci.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-10-29-dashboard-html-escaping.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -11977,6 +12565,12 @@
         },
         {
           "file": "specs/adr-wiki/0004-context-isolation.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/benchmarks/HANDOFF-k100-hard-tasks.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -12037,6 +12631,12 @@
         },
         {
           "file": "specs/epics/archive/e39-knowledge-graph/e39s10-extend-validate-okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e58-evals-over-compliance/e58s03-partial-credit-and-hard-tasks.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -12115,6 +12715,12 @@
         },
         {
           "file": "specs/epics-wiki/e25.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics-wiki/e58.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -12552,6 +13158,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "scripts/lib/srp_engine_okf.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "scripts/lib/emit-okf-metrics.sh",
           "line": 0,
           "confidence": "medium",
@@ -12564,7 +13176,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 192
+      "link_count": 216
     },
     {
       "id": "e48s06",
@@ -12588,13 +13200,31 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-11-03-wiki-indexes-ignored-reports.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-23-epics-wiki-empty-references.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-10-29-agents-export-quoting.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-03-codebase-wiki-venv-pollution.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-03-wiki-indexes-ignored-reports.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -12636,7 +13266,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 10
+      "link_count": 13
     },
     {
       "id": "e48s07",
@@ -12990,6 +13620,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "tests/test_ab_sandbox.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "tests/test-land-branch-protected.sh",
           "line": 0,
           "confidence": "medium",
@@ -13038,7 +13674,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 30
+      "link_count": 31
     },
     {
       "id": "e48s12",
@@ -14088,6 +14724,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/benchmarks/HANDOFF-k100-hard-tasks.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/benchmarks/verify-work.yaml",
           "line": 0,
           "confidence": "medium",
@@ -14137,6 +14779,12 @@
         },
         {
           "file": "specs/epics/archive/e25-migrate-spec-enhancements/e25s03-handoff-block.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e58-evals-over-compliance/e58s03-partial-credit-and-hard-tasks.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -14196,7 +14844,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 74
+      "link_count": 76
     },
     {
       "id": "e51s04",
@@ -14592,6 +15240,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-192412.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-180244.md",
           "line": 0,
           "confidence": "medium",
@@ -14664,25 +15318,19 @@
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/reports/audit-cleancode-20261030-144938.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-163821.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/reports/audit-cleancode-20260703-201018.md",
+          "file": "specs/verifications/reports/audit-cleancode-20261103-001451.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         },
         {
-          "file": "specs/verifications/reports/audit-cleancode-20261030-145423.md",
+          "file": "specs/verifications/reports/audit-cleancode-20260703-201018.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -14695,6 +15343,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-181656.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-164149.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -14737,12 +15391,6 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-165619.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "specs/verifications/reports/audit-cleancode-20261030-145327.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -14880,6 +15528,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261030-142605.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-214041.md",
           "line": 0,
           "confidence": "medium",
@@ -15000,7 +15654,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261103-000647.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-005800.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-224623.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -15108,6 +15774,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-173823.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-164248.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-165256.md",
           "line": 0,
           "confidence": "medium",
@@ -15175,6 +15853,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260703-130915.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-173915.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -15354,6 +16038,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-170330.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260626-204755.md",
           "line": 0,
           "confidence": "medium",
@@ -15373,6 +16063,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260704-082326.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261103-001346.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -15414,7 +16110,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-235941.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-130821.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-162625.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -15510,6 +16218,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-162526.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-154214.md",
           "line": 0,
           "confidence": "medium",
@@ -15541,6 +16255,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260629-132750.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261103-000050.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -15618,6 +16338,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261030-142648.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260704-083101.md",
           "line": 0,
           "confidence": "medium",
@@ -15637,6 +16363,18 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260704-004226.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-163426.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261030-151104.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -15702,6 +16440,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-224518.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-192521.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260705-170706.md",
           "line": 0,
           "confidence": "medium",
@@ -15738,6 +16488,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261103-002125.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260629-130700.md",
           "line": 0,
           "confidence": "medium",
@@ -15763,6 +16519,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260705-170431.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261030-151010.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -15805,6 +16567,18 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260704-144506.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-163522.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-171102.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -15882,6 +16656,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-10-25-pages-not-gated.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-06-migrate-spec-migration-logic-violations.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -15948,6 +16728,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-10-25-release-not-gated.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-10-25-pages-not-gated.md",
           "line": 0,
           "confidence": "medium",
@@ -15985,6 +16771,18 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-07-compliance-skill-catalog-n7.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-09-05-golden-gate-missing-node-deps.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-09-13-docs-base-path-gate-ci.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -16164,7 +16962,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 326
+      "link_count": 351
     },
     {
       "id": "e51s05",
@@ -16470,6 +17268,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-10-25-pages-not-gated.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-04-filesize-gate-python-blindspot.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -16506,7 +17310,25 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-10-25-release-not-gated.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-10-25-pages-not-gated.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-09-05-golden-gate-missing-node-deps.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-09-13-docs-base-path-gate-ci.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -16698,7 +17520,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 55
+      "link_count": 59
     },
     {
       "id": "e53s04",
@@ -17307,6 +18129,462 @@
       "link_count": 6
     },
     {
+      "id": "e58s01",
+      "title": "Outcome A/B eval runner \u2014 vanilla agent vs bigpowers",
+      "epic_id": "e58",
+      "epic_title": "Evals Over Compliance \u2014 Replace the 94% Gate with Outcome Proof",
+      "bcp": 0,
+      "wsjf": 5.3,
+      "status": "done",
+      "links": [
+        {
+          "file": "specs/benchmarks/ab/tasks/ab-02-cart-discount-bug/task.yaml",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/benchmarks/ab/tasks/ab-01-email-validation/task.yaml",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/benchmarks/ab/tasks/ab-03-red-suite-slugify/task.yaml",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/benchmarks/ab/config.yaml",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e58-evals-over-compliance/e58s01-ab-eval-runner.md",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "tests/test_ab_eval.py",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/lib/ab-arm-bigpowers.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/lib/ab_report.py",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/lib/ab-eval.py",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/lib/ab_metrics.py",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/run-ab-eval.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/bigpowers-skills-evaluation.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e58-evals-over-compliance/e58s01-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        }
+      ],
+      "link_count": 13
+    },
+    {
+      "id": "e58s02",
+      "title": "opencode adapter + the five legacy benchmark tasks",
+      "epic_id": "e58",
+      "epic_title": "Evals Over Compliance \u2014 Replace the 94% Gate with Outcome Proof",
+      "bcp": 0,
+      "wsjf": 5.3,
+      "status": "done",
+      "links": [
+        {
+          "file": "specs/benchmarks/ab/tasks/ab-04-rate-limiter-window/task.yaml",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/benchmarks/ab/tasks/ab-05-users-pagination/task.yaml",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/benchmarks/ab/tasks/ab-07-retry-backoff/task.yaml",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/benchmarks/ab/tasks/ab-06-stepdown-refactor/task.yaml",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/benchmarks/ab/tasks/ab-08-cache-single-flight/task.yaml",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e58-evals-over-compliance/e58s02-opencode-and-legacy-tasks.md",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e58-evals-over-compliance/e58s02-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        }
+      ],
+      "link_count": 7
+    },
+    {
+      "id": "e58s03",
+      "title": "partial-credit scoring + two hard tasks (ab-11, ab-13)",
+      "epic_id": "e58",
+      "epic_title": "Evals Over Compliance \u2014 Replace the 94% Gate with Outcome Proof",
+      "bcp": 0,
+      "wsjf": 5.3,
+      "status": "done",
+      "links": [
+        {
+          "file": "specs/benchmarks/ab/tasks/ab-13-orders-split/task.yaml",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/benchmarks/ab/tasks/ab-11-ledger-rounding/task.yaml",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e58-evals-over-compliance/e58s03-partial-credit-and-hard-tasks.md",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "tests/test_ab_score.py",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/benchmarks/HANDOFF-k100-hard-tasks.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/benchmarks/HARDER-TASKS_LATEST.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e58-evals-over-compliance/e58s03-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        }
+      ],
+      "link_count": 7
+    },
+    {
+      "id": "e58s04",
+      "title": "ablation arms \u2014 which part of bigpowers produces the gain",
+      "epic_id": "e58",
+      "epic_title": "Evals Over Compliance \u2014 Replace the 94% Gate with Outcome Proof",
+      "bcp": 0,
+      "wsjf": 5.3,
+      "status": "done",
+      "links": [
+        {
+          "file": "specs/epics/e58-evals-over-compliance/e58s04-ablation-arms.md",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "tests/test_ab_ablation.py",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/verifications/steps/then-it-produces-specs-tech-architecture-enn-test-plan-latest-md.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e58-evals-over-compliance/e58s04-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        }
+      ],
+      "link_count": 4
+    },
+    {
+      "id": "e58s05",
+      "title": "live progress, interleaved runs and saved transcripts",
+      "epic_id": "e58",
+      "epic_title": "Evals Over Compliance \u2014 Replace the 94% Gate with Outcome Proof",
+      "bcp": 0,
+      "wsjf": 5.3,
+      "status": "done",
+      "links": [
+        {
+          "file": "specs/epics/e58-evals-over-compliance/e58s05-live-progress.md",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "tests/test_ab_progress.py",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/lib/ab_progress.py",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/MISSING-REFERENCES-AND-DELIVERY-PLAN.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-i-should-visualize-implementation-progress-as-a-roadmap.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e58-evals-over-compliance/e58s05-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        }
+      ],
+      "link_count": 6
+    },
+    {
+      "id": "e58s06",
+      "title": "pi adapter (default), OpenCode Go deepseek-v4.1-flash",
+      "epic_id": "e58",
+      "epic_title": "Evals Over Compliance \u2014 Replace the 94% Gate with Outcome Proof",
+      "bcp": 0,
+      "wsjf": 5.3,
+      "status": "done",
+      "links": [
+        {
+          "file": "specs/epics/e58-evals-over-compliance/e58s06-pi-adapter.md",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "tests/test_ab_pi.py",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/benchmarks/reports/AB-2026-11-02-deepseek-v4.1-flash-k10.yaml",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/benchmarks/reports/ab-runs-2026-11-02-deepseek-v4.1-flash-k10.jsonl",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e58-evals-over-compliance/e58s06-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        }
+      ],
+      "link_count": 5
+    },
+    {
+      "id": "e58s07",
+      "title": "Docker sandbox for agent runs and grading",
+      "epic_id": "e58",
+      "epic_title": "Evals Over Compliance \u2014 Replace the 94% Gate with Outcome Proof",
+      "bcp": 0,
+      "wsjf": 5.3,
+      "status": "done",
+      "links": [
+        {
+          "file": "specs/epics/e58-evals-over-compliance/e58s07-docker-sandbox.md",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "tests/test_ab_sandbox.py",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/ab-sandbox.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/conventions-wiki/agent-workflow-mandates.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/wayfinder/doc-templates/tickets/T18-agents-and-conventions.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-formatting-should-be-consistent.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-i-should-enforce-a-two-stage-review-gate.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-there-should-be-clear-seams-for-testing-and-extension.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-i-should-compact-session-state-for-cold-starts.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-it-must-mandate-provenance-links-for-complex-logic.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-i-should-define-verifiable-success-criteria-for-every-step.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-i-should-not-write-code-before-the-design-is-approved.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-it-must-mandate-the-f-i-r-s-t-rubric-for-tests.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-i-should-use-fresh-subagent-context-for-independent-reviews.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-error-messages-should-include-a-remediation-hint-for-the-agent.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-the-plan-contains-scenario-ids-in-the-format-sc-ennsyy-p-0-1-2-3-nn.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-information-should-be-hidden-within-modules-not-leaked.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-i-should-explain-the-code-s-purpose-and-callers-before-modifying-zoom-out.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "docs/references/agent-config-files-and-okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e58-evals-over-compliance/e58s07-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        }
+      ],
+      "link_count": 20
+    },
+    {
       "id": "e60s01",
       "title": "Interactive installer with ASCII banner, global/local, tool selection",
       "epic_id": "e60",
@@ -17778,6 +19056,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/epics/e58-evals-over-compliance/e58s06-pi-adapter.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/epics/e69-integration-mimo-code/e69s01-mimo-adapter.md",
           "line": 0,
           "confidence": "medium",
@@ -17838,7 +19122,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 22
+      "link_count": 23
     },
     {
       "id": "e64s02",
@@ -20640,6 +21924,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "scripts/lib/story-verify-memo.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "skills/align-grid/scripts/verify_grid.js",
           "line": 0,
           "confidence": "medium",
@@ -20682,7 +21972,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 81
+      "link_count": 82
     },
     {
       "id": "e80s02",
@@ -20850,6 +22140,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "tests/test_ab_sandbox.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "tests/test-land-branch-protected.sh",
           "line": 0,
           "confidence": "medium",
@@ -20886,7 +22182,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 32
+      "link_count": 33
     },
     {
       "id": "e80s03",
@@ -22008,13 +23304,19 @@
           "method": "explicit_tag"
         },
         {
+          "file": "specs/bugs/BUG-2026-09-05-pi-omp-extension-load-crash.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-09-05-pi-omp-extension-load-crash.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         }
       ],
-      "link_count": 6
+      "link_count": 7
     },
     {
       "id": "e82s04",
@@ -22194,13 +23496,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "scripts/lib/ab-arm-bigpowers.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/epics/e83-truth-in-the-cockpit/e83s02-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         }
       ],
-      "link_count": 16
+      "link_count": 17
     },
     {
       "id": "e83s03",
@@ -23170,8 +24478,8 @@
     }
   ],
   "summary": {
-    "total_stories": 150,
-    "tagged_stories": 126,
+    "total_stories": 157,
+    "tagged_stories": 132,
     "dark_stories": [],
     "dark_count": 0,
     "orphan_tags": [
@@ -23354,7 +24662,6 @@
       "e45s16",
       "e45s17",
       "e45s18",
-      "e45s19",
       "e45s20",
       "e45s21",
       "e45s22",
@@ -23399,6 +24706,13 @@
       "e55s01",
       "e55s02",
       "e55s03",
+      "e58s01",
+      "e58s02",
+      "e58s03",
+      "e58s04",
+      "e58s05",
+      "e58s06",
+      "e58s07",
       "e60s01",
       "e61s01",
       "e61s02",
@@ -23439,11 +24753,11 @@
       "e80s05",
       "e81s01"
     ],
-    "stale_count": 116,
+    "stale_count": 122,
     "oracle_stats": {
-      "high": 1010,
-      "medium": 2453,
-      "low": 98
+      "high": 1040,
+      "medium": 2620,
+      "low": 105
     }
   }
 }

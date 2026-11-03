@@ -15,7 +15,7 @@ references:
 
 # Render dashboard project metadata as text
 
-**Bug:** BUG-2026-10-29-dashboard-html-escaping | **Severity:** medium | **Status:** open | **Scope:** dashboard
+**Bug:** BUG-2026-10-29-dashboard-html-escaping | **Severity:** medium | **Status:** fixed | **Scope:** dashboard
 **Tier:** extended
 
 See `specs/bugs/BUG-2026-10-29-dashboard-html-escaping.md` for full investigation and fix details.

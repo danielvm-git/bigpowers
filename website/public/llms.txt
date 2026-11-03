@@ -5,7 +5,7 @@
 ## Documentation
 
 - [Getting Started](https://danielvm-git.github.io/bigpowers/): Project overview and quick start
-- [Skills](https://danielvm-git.github.io/bigpowers/skills/): 81 lifecycle skills
+- [Skills](https://danielvm-git.github.io/bigpowers/skills/): 80 lifecycle skills
 - [Skill Index](https://danielvm-git.github.io/bigpowers/reference/skill-index/): Auto-generated catalog
 
 ## Skills
@@ -52,7 +52,6 @@
 - [wire-ci](https://danielvm-git.github.io/bigpowers/skills/wire-ci/): CI pipeline setup with bundled, forge-neutral templates and local validation. Detects the forge from the git remote, generates workflows for supported forges, and skips honestly for the rest. The CI equivalent of wire-observability.
 - [wire-observability](https://danielvm-git.github.io/bigpowers/skills/wire-observability/): Add structured JSON logging, observability commands, and idempotent setup scripts to a project. Use when a project needs production-readiness instrumentation, when user wants structured logging, or as a production-readiness gate at any phase of development.
 - [audit-code](https://danielvm-git.github.io/bigpowers/skills/audit-code/): Self-review checklist for the coding agent to run before dispatching a reviewer. Checks CONVENTIONS.md compliance, Boy Scout Rule, test coverage, types, and SOLID. Produces a pass/fail checklist. Use before request-review, before committing, or when user asks for a code quality check.
-- [context7-mcp](https://danielvm-git.github.io/bigpowers/skills/context7-mcp/): Fetch current library docs via Context7 MCP instead of training data. Use when user asks about frameworks, APIs, setup, or code examples for React, Next.js, Prisma, etc.
 - [diagnose-root](https://danielvm-git.github.io/bigpowers/skills/diagnose-root/): Run 4-phase root cause analysis — reproduce, isolate, hypothesize, verify. Use when a bug is confirmed but root cause is unclear, after investigate-bug, or when user mentions root cause analysis.
 - [diagnose-stall](https://danielvm-git.github.io/bigpowers/skills/diagnose-stall/): Diagnose why agent orchestration stopped producing progress — silent stalls in /loop, dispatch-agents, or execute-plan. Use when work appears hung, no output for several minutes, or a subagent never returned.
 - [enforce-first](https://danielvm-git.github.io/bigpowers/skills/enforce-first/): Apply the F.I.R.S.T test quality rubric (per CONVENTIONS.md §Tests) to a test suite or individual tests. Use when develop-tdd is writing tests, when test quality needs to be checked, or when user mentions F.I.R.S.T or "test quality".

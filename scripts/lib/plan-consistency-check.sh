@@ -69,7 +69,7 @@ for tasks in "${TASKS[@]+"${TASKS[@]}"}"; do
   sid="$(echo "$base" | grep -oE 'e[0-9]+s[0-9]+' | head -1)"
   [[ -n "$sid" ]] || continue
 
-  spec_name="$(grep -E '^spec:' "$tasks" | head -1 | sed -E 's/^spec:[[:space:]]*//; s/^"(.*)"$/\1/')"
+  spec_name="$(grep -E '^spec:' "$tasks" | head -1 | sed -E 's/^spec:[[:space:]]*//; s/^"(.*)"$/\1/' || true)"
   spec="$CAPSULE/$spec_name"
   if [[ -z "$spec_name" || ! -f "$spec" ]]; then
     report CRITICAL "Story $sid tasks.yaml declares no valid spec: file"
@@ -92,7 +92,9 @@ for tasks in "${TASKS[@]+"${TASKS[@]}"}"; do
     report CRITICAL "Story $sid tasks.yaml missing runnable verify: commands"
   else
     verify_cmd="$("$PYTHON_BIN" "$SCRIPT_LIB_DIR/extract-story-verify.py" "$REPO_ROOT" 2>/dev/null \
-      | awk -F'\t' -v s="$sid" '$1 == s { print $4; exit }')"
+      | awk -F'\t' -v s="$sid" '$1 == s && !found { print $4; found = 1 }')"
+    # awk reads to the end: exiting early closes the pipe, Python fails to flush and exits 120,
+    # and pipefail turns that into a random failure of this check.
     if [[ -n "$verify_cmd" ]]; then
       is_executable_verify "$verify_cmd" \
         || report CRITICAL "Story $sid verify: is prose, not a runnable command: $verify_cmd"

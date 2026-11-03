@@ -1,0 +1,14 @@
+# story: e58s02
+# Ported from bigpowers-benchmark T01 (prompt made neutral, hidden tests added).
+id: ab-04
+title: Fix the rate limiter window bugs
+kind: bugfix
+prompt: |
+  Users report two problems with the rate limiter in src/limiter.js. Once the limit is
+  reached, it never lets requests through again, even after the time window has passed.
+  It also mishandles the window boundary: a request made exactly windowMs after the last
+  reset must be allowed. Find the causes and fix them. `node test.js` must pass.
+protected:
+  - test.js
+grade: node test.js && node --test test-hidden/*.test.js
+timeout_s: 900

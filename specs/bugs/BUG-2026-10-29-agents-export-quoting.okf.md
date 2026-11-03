@@ -15,7 +15,7 @@ references:
 
 # Escape AGENTS command exports before Bash import
 
-**Bug:** BUG-2026-10-29-agents-export-quoting | **Severity:** medium | **Status:** open | **Scope:** scripts
+**Bug:** BUG-2026-10-29-agents-export-quoting | **Severity:** medium | **Status:** fixed | **Scope:** scripts
 **Tier:** extended
 
 See `specs/bugs/BUG-2026-10-29-agents-export-quoting.md` for full investigation and fix details.

@@ -15,7 +15,7 @@ references:
 
 # Exclude secret files from every MCP diff block
 
-**Bug:** BUG-2026-10-29-mcp-secret-diffs | **Severity:** medium | **Status:** open | **Scope:** mcp
+**Bug:** BUG-2026-10-29-mcp-secret-diffs | **Severity:** medium | **Status:** fixed | **Scope:** mcp
 **Tier:** extended
 
 See `specs/bugs/BUG-2026-10-29-mcp-secret-diffs.md` for full investigation and fix details.

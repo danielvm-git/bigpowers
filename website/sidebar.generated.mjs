@@ -207,10 +207,6 @@ export const generatedSidebar = [
 						"slug": "skills/audit-code"
 					},
 					{
-						"label": "context7-mcp",
-						"slug": "skills/context7-mcp"
-					},
-					{
 						"label": "diagnose-root",
 						"slug": "skills/diagnose-root"
 					},

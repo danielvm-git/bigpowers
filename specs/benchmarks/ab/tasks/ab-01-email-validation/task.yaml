@@ -1,0 +1,15 @@
+# story: e58s01
+id: ab-01
+title: Reject malformed email addresses in createUser
+kind: feature
+prompt: |
+  In this Node project, createUser currently accepts any non-empty string as an email.
+  Make it reject malformed addresses. A valid address has exactly one "@", a non-empty
+  part before it, and a domain after it that contains at least one dot with no empty
+  labels (so "a@b.co" is valid, "a@b", "a@b." and "a@@b.co" are not). For an invalid
+  address, throw a TypeError whose message mentions "email". Everything else about
+  createUser must keep working as it does today.
+protected:
+  - test/createUser.test.js
+grade: node --test test/*.test.js
+timeout_s: 900

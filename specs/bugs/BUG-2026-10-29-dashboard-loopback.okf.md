@@ -15,7 +15,7 @@ references:
 
 # Bind the project dashboard to loopback
 
-**Bug:** BUG-2026-10-29-dashboard-loopback | **Severity:** medium | **Status:** open | **Scope:** dashboard
+**Bug:** BUG-2026-10-29-dashboard-loopback | **Severity:** medium | **Status:** fixed | **Scope:** dashboard
 **Tier:** extended
 
 See `specs/bugs/BUG-2026-10-29-dashboard-loopback.md` for full investigation and fix details.

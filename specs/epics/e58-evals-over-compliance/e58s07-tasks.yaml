@@ -1,0 +1,38 @@
+story_id: e58s07
+spec: e58s07-docker-sandbox.md
+title: Docker sandbox for agent runs and grading
+status: passing
+bcps: 8
+tasks:
+- id: 1
+  description: Failing tests for grade_wrapper, AB_TIMEOUT and container isolation
+  verify: test -f tests/test_ab_sandbox.py
+  risk: P1
+  status: passing
+  allure:
+    severity: high
+    categories: ["unit", "Evals", "Security Review"]
+- id: 2
+  description: Runner exports AB_TIMEOUT and runs grade/score through grade_wrapper
+  verify: python3 tests/test_ab_sandbox.py
+  risk: P1
+  status: passing
+  allure:
+    severity: high
+    categories: ["unit", "Evals"]
+- id: 3
+  description: Pinned agent and proxy images, internal network, ab-sandbox.sh up/down/status
+  verify: python3 tests/test_ab_sandbox.py
+  risk: P1
+  status: passing
+  allure:
+    severity: high
+    categories: ["Evals", "Security Review"]
+- id: 4
+  description: pi-docker adapter as default; isolation proven; live smoke; docs and handoff
+  verify: grep -q 'pi-docker' specs/benchmarks/SCHEMA.md && python3 tests/test_ab_sandbox.py
+  risk: P1
+  status: passing
+  allure:
+    severity: high
+    categories: ["Evals", "docs"]

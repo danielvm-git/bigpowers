@@ -1,0 +1,108 @@
+# story: e58s01 e58s04 e58s06
+# A/B eval config — read by scripts/run-ab-eval.sh. Arms and adapters are data:
+# a trimmed bigpowers arm or a new harness is one entry here, not new code.
+#
+# Commands run with bash inside the temp workdir. Variables available:
+#   $AB_PROMPT   task prompt        $AB_MODEL  --model value (may be empty)
+#   $AB_WORKDIR  temp workdir       $AB_BP_ROOT  this bigpowers checkout
+k: 3
+# Used when --adapter is not given (e58s07).
+default_adapter: pi-docker
+
+arms:
+  vanilla:
+    setup: "true"
+  bigpowers:
+    # Skills, scripts/, specs/ folders and the CLAUDE.md/AGENTS.md seed in
+    # arms/bigpowers/. Record any change to the seed: it is part of the result.
+    setup: bash "$AB_BP_ROOT/scripts/lib/ab-arm-bigpowers.sh"
+  # Ablations (e58s04): which part of bigpowers produces the gain. See ab-arm-bigpowers.sh.
+  bp-core:
+    # The seed plus only the six skills it names.
+    setup: >-
+      AB_BP_SKILLS=survey-context,plan-work,develop-tdd,verify-work,audit-code,fix-bug
+      bash "$AB_BP_ROOT/scripts/lib/ab-arm-bigpowers.sh"
+  bp-seed:
+    # The seed instructions alone: no skills, no scripts.
+    setup: AB_BP_SKILLS=none bash "$AB_BP_ROOT/scripts/lib/ab-arm-bigpowers.sh"
+  bp-skills:
+    # Every skill, no AGENTS.md/CLAUDE.md telling the agent to use them.
+    setup: AB_BP_SEED=none bash "$AB_BP_ROOT/scripts/lib/ab-arm-bigpowers.sh"
+  tdd-line:
+    # Three plain lines of TDD discipline, no skills and no bigpowers names.
+    setup: >-
+      AB_BP_SKILLS=none AB_BP_SEED=specs/benchmarks/ab/arms/tdd-line/AGENTS.md
+      bash "$AB_BP_ROOT/scripts/lib/ab-arm-bigpowers.sh"
+
+adapters:
+  pi-docker:
+    # The default (e58s07): pi inside a fresh bp-ab-agent container per run. The container mounts
+    # only the run's workdir and $AB_HOME (which gets just a copy of your pi auth.json), runs on
+    # the internal network with no route to the internet, and reaches only opencode.ai through the
+    # allowlisting proxy. CPU, memory and process limits apply, and an in-container `timeout`
+    # stops the agent $AB_TIMEOUT seconds in, before the runner's own timeout. Build and start the
+    # sandbox once with `bash scripts/ab-sandbox.sh up`.
+    command: >-
+      mkdir -p "$AB_HOME/.pi/agent" &&
+      install -m 600 "${AB_PI_AUTH:-$HOME/.pi/agent/auth.json}" "$AB_HOME/.pi/agent/auth.json" &&
+      docker run --rm --network "${AB_SANDBOX_NET:-bp-ab-internal}"
+      --cpus "${AB_CPUS:-2}" --memory "${AB_MEMORY:-4g}" --pids-limit "${AB_PIDS:-512}"
+      -e HOME=/home/node -e PI_CODING_AGENT_DIR=/home/node/.pi/agent
+      -v "$AB_WORKDIR:/work" -v "$AB_HOME:/home/node" -w /work
+      "${AB_IMAGE:-bp-ab-agent:pi-1.5.0}"
+      timeout "$AB_TIMEOUT" pi -p --mode json --approve --no-session --no-mcp --offline
+      --model "$AB_MODEL" "$AB_PROMPT"
+    # Grading runs agent-written code, so it gets its own container with no network at all.
+    grade_wrapper: >-
+      docker run --rm --network none -v "$AB_WORKDIR:/work" -w /work
+      "${AB_IMAGE:-bp-ab-agent:pi-1.5.0}" bash -c "$AB_CMD"
+    parser: pi-json
+    default_model: opencode-go/deepseek-v4.1-flash
+  pi:
+    # Host pi, for quick local checks only: it can read this repo and reach any website.
+    # pi (@earendil-works/pi-coding-agent) with the OpenCode Go provider. Isolation: HOME and
+    # PI_CODING_AGENT_DIR point inside the per-run empty $AB_HOME, which gets only a copy of the
+    # user's pi auth.json (deleted with $AB_HOME). User settings and packages (the maintainer's
+    # loads bigpowers globally), user skills, ~/.agents and ~/.claude never load. --approve
+    # trusts the workdir so the bigpowers arms' .agents/skills load. Set AB_PI_AUTH to use
+    # another auth file.
+    command: >-
+      mkdir -p "$AB_HOME/.pi/agent" &&
+      install -m 600 "${AB_PI_AUTH:-$HOME/.pi/agent/auth.json}" "$AB_HOME/.pi/agent/auth.json" &&
+      env HOME="$AB_HOME" PI_CODING_AGENT_DIR="$AB_HOME/.pi/agent"
+      pi -p --mode json --approve --no-session --no-mcp --offline --model "$AB_MODEL" "$AB_PROMPT"
+    parser: pi-json
+    default_model: opencode-go/deepseek-v4.1-flash
+  claude:
+    # --setting-sources project loads only the workdir's .claude/ (skills, CLAUDE.md),
+    # so ~/.claude/skills (incl. a global bigpowers install), user CLAUDE.md, hooks and
+    # plugins never reach either arm. --strict-mcp-config with no config drops MCP servers.
+    # Uses your normal `claude` login; set AB_CLAUDE_CONFIG_DIR to use a separate one.
+    command: >-
+      env ${AB_CLAUDE_CONFIG_DIR:+CLAUDE_CONFIG_DIR="$AB_CLAUDE_CONFIG_DIR"}
+      claude -p "$AB_PROMPT" --output-format json --permission-mode bypassPermissions
+      --setting-sources project --strict-mcp-config
+      --no-session-persistence ${AB_MODEL:+--model "$AB_MODEL"}
+    parser: claude-json
+  opencode:
+    # OpenCode Go subscription: connect it once with `opencode auth login` → OpenCode Go.
+    # Isolation: HOME and XDG_CONFIG_HOME point at the per-run empty $AB_HOME, so global
+    # ~/.config/opencode (skills, AGENTS.md, plugins), ~/.claude and ~/.agents never load.
+    # OPENCODE_DISABLE_CLAUDE_CODE=1 stops .claude/ duplicates: the bigpowers arm is read from
+    # .agents/skills + AGENTS.md. XDG_DATA_HOME stays real: credentials (and session history)
+    # live there. --auto approves tool calls inside the throwaway workdir.
+    command: >-
+      env HOME="$AB_HOME" XDG_CONFIG_HOME="$AB_HOME/.config"
+      XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}" XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
+      OPENCODE_DISABLE_CLAUDE_CODE=1
+      opencode run --format json --auto -m "$AB_MODEL" "$AB_PROMPT"
+    parser: opencode-jsonl
+    default_model: opencode-go/deepseek-v4-pro  # 2026-11-02 smoke on ab-01: both arms pass, ~3x cheaper than kimi-k2.7-code
+  gemini:
+    # Not isolated from ~/.gemini yet: uninstall global bigpowers extensions first.
+    command: gemini -p "$AB_PROMPT" --approval-mode yolo --output-format json ${AB_MODEL:+-m "$AB_MODEL"}
+    parser: none
+  codex:
+    # Not isolated from ~/.codex yet: check for a global AGENTS.md first.
+    command: codex exec --full-auto ${AB_MODEL:+-m "$AB_MODEL"} "$AB_PROMPT"
+    parser: none

@@ -15,7 +15,7 @@ references:
 
 # Keep migration version metadata out of executable code
 
-**Bug:** BUG-2026-10-29-migration-metadata | **Severity:** high | **Status:** open | **Scope:** migrate
+**Bug:** BUG-2026-10-29-migration-metadata | **Severity:** high | **Status:** fixed | **Scope:** migrate
 **Tier:** extended
 
 See `specs/bugs/BUG-2026-10-29-migration-metadata.md` for full investigation and fix details.
