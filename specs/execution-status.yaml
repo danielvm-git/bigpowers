@@ -341,7 +341,7 @@ development_status:
   e58: backlog
   e58s01: done
   e58s02: done
-  e58s03: todo
+  e58s03: done
   e59: backlog
   e60: done
   e60s01: done
@@ -3171,13 +3171,13 @@ stories:
     tasks_failing: 0
     risk_max: P1
   e58s03:
-    status: todo
+    status: done
     title: partial-credit scoring + two hard tasks (ab-11, ab-13)
     bcps: 13
     epic: e58
     tasks_total: 5
-    tasks_passing: 0
-    tasks_failing: 5
+    tasks_passing: 5
+    tasks_failing: 0
     risk_max: P1
   e60s01:
     status: done

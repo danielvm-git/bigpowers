@@ -1,14 +1,14 @@
 story_id: e58s03
 spec: e58s03-partial-credit-and-hard-tasks.md
 title: partial-credit scoring + two hard tasks (ab-11, ab-13)
-status: failing
+status: passing
 bcps: 13
 tasks:
 - id: 1
   description: Failing tests for TAP score parsing, score in run records and report, new tasks
   verify: test -f tests/test_ab_score.py
   risk: P1
-  status: failing
+  status: passing
   allure:
     severity: high
     categories: ["unit", "Evals"]
@@ -16,7 +16,7 @@ tasks:
   description: tap_score parser, score command in run_once, mean_score and delta.score in report
   verify: python3 tests/test_ab_score.py
   risk: P1
-  status: failing
+  status: passing
   allure:
     severity: high
     categories: ["unit", "Evals"]
@@ -24,7 +24,7 @@ tasks:
   description: Task ab-13-orders-split with oracle, structure checks and reference solution
   verify: test -f specs/benchmarks/ab/tasks/ab-13-orders-split/task.yaml && python3 tests/test_ab_score.py
   risk: P2
-  status: failing
+  status: passing
   allure:
     severity: normal
     categories: ["Evals", "fixtures"]
@@ -32,7 +32,7 @@ tasks:
   description: Task ab-11-ledger-rounding with bug report, regression tests and reference fix
   verify: test -f specs/benchmarks/ab/tasks/ab-11-ledger-rounding/task.yaml && python3 tests/test_ab_score.py
   risk: P2
-  status: failing
+  status: passing
   allure:
     severity: normal
     categories: ["Evals", "fixtures"]
@@ -40,7 +40,7 @@ tasks:
   description: Document score in SCHEMA.md; existing suite still green
   verify: grep -q 'score' specs/benchmarks/SCHEMA.md && python3 tests/test_ab_eval.py
   risk: P3
-  status: failing
+  status: passing
   allure:
     severity: minor
     categories: ["docs"]

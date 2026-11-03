@@ -1,6 +1,6 @@
 # Harder A/B tasks — candidate catalog (e58)
 
-Status: proposal, 2026-11-02. Nothing here is built yet.
+Status: proposal, 2026-11-02. Built so far (e58s03): partial-credit `score`, ab-11 (as `ab-11-ledger-rounding`, a 6-module ledger) and ab-13 (`ab-13-orders-split`, a 240-line module). The rest are designs.
 
 ## Why the current suite cannot tell the arms apart
 

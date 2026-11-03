@@ -74,7 +74,7 @@ stories:
     verify: python3 tests/test_ab_eval.py && bash scripts/run-ab-eval.sh --dry-run --adapter opencode
   - id: e58s03
     title: "partial-credit scoring + two hard tasks (ab-11, ab-13)"
-    status: todo
+    status: done
     bcps: 13
     bcp_basis: estimate, 2026-11-02 (score parser + report + 2 multi-file tasks)
     risk: P1

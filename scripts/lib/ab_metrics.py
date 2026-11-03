@@ -1,14 +1,17 @@
 #!/usr/bin/env python3
-# story: e58s01 e58s02
+# story: e58s01 e58s02 e58s03
 """A/B eval adapter output parsers: turn an agent CLI's stdout into cost, token and turn counts.
 
 claude-json      one result object (claude -p --output-format json)
 opencode-jsonl   one event per line (opencode run --format json); step_finish carries tokens + cost
 none             no metrics
+
+tap_score reads `node --test` summaries for a task's partial-credit score (e58s03).
 """
 from __future__ import annotations
 
 import json
+import re
 
 
 def empty_metrics() -> dict:
@@ -87,3 +90,11 @@ def parse_opencode_jsonl(stdout: str) -> dict:
     metrics.update({"cost_usd": round(cost, 6), "input_tokens": int(inputs), "output_tokens": int(outputs),
                     "turns": len(steps), "agent_reported_error": errored})
     return metrics
+
+
+def tap_score(stdout: str) -> float | None:
+    """Share of tests passing over every TAP summary (`node --test --test-reporter=tap`: piped
+    output is the spec reporter otherwise). Cancelled tests (timeouts) count as failed."""
+    passed = sum(int(n) for n in re.findall(r"^# pass (\d+)", stdout, re.M))
+    failed = sum(int(n) for n in re.findall(r"^# (?:fail|cancelled) (\d+)", stdout, re.M))
+    return round(passed / (passed + failed), 4) if passed + failed else None

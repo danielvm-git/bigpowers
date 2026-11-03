@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# story: e58s01
+# story: e58s01 e58s03
 """A/B eval aggregation and reports — pure functions over run records (no agent, no subprocess
 except reading the bigpowers git SHA). Split from ab-eval.py to keep both under the 300-line cap."""
 from __future__ import annotations
@@ -24,7 +24,8 @@ def mean(values: list) -> float | None:
     return round(sum(vals) / len(vals), 4) if vals else None
 
 
-def bootstrap_delta_ci(treatment: list[bool], control: list[bool]) -> list[float]:
+def bootstrap_delta_ci(treatment: list[float], control: list[float]) -> list[float]:
+    """Seeded 95% CI of mean(treatment) - mean(control); bools or scores in [0, 1]."""
     rng = random.Random(BOOTSTRAP_SEED)
     deltas = []
     for _ in range(BOOTSTRAP_RESAMPLES):
@@ -41,6 +42,7 @@ def arm_summary(runs: list[dict]) -> dict:
     return {
         "runs": len(runs),
         "pass_rate": mean([float(r["pass"]) for r in runs]),
+        "mean_score": mean([r.get("score") for r in runs]),
         "tamper_rate": mean([float(r["tampered"]) for r in runs]),
         "agent_error_rate": mean([float(r["agent_error"]) for r in runs]),
         "mean_cost_usd": mean([r["cost_usd"] for r in runs]),
@@ -57,6 +59,8 @@ def aggregate(records: list[dict], arms: list[str], tasks: list[str]) -> dict:
     summary = {a: arm_summary(runs) for a, runs in by_arm.items()}
     per_task = {t: {a: mean([float(r["pass"]) for r in by_arm[a] if r["task"] == t]) for a in arms}
                 for t in tasks}
+    per_task_score = {t: {a: mean([r.get("score") for r in by_arm[a] if r["task"] == t]) for a in arms}
+                      for t in tasks}
     delta = None
     if "vanilla" in arms and "bigpowers" in arms:
         bp, va = summary["bigpowers"], summary["vanilla"]
@@ -70,7 +74,11 @@ def aggregate(records: list[dict], arms: list[str], tasks: list[str]) -> dict:
             "tamper_rate": round(bp["tamper_rate"] - va["tamper_rate"], 4),
             "cost_usd": cost,
         }
-    return {"arms_summary": summary, "per_task": per_task, "delta": delta}
+        scores = {a: [r["score"] for r in by_arm[a] if r.get("score") is not None] for a in ("bigpowers", "vanilla")}
+        if scores["bigpowers"] and scores["vanilla"]:
+            delta["score"] = round(bp["mean_score"] - va["mean_score"], 4)
+            delta["score_ci95"] = bootstrap_delta_ci(scores["bigpowers"], scores["vanilla"])
+    return {"arms_summary": summary, "per_task": per_task, "per_task_score": per_task_score, "delta": delta}
 
 
 # ── reporting ────────────────────────────────────────────────────────────────
@@ -92,11 +100,13 @@ def write_reports(out: Path, meta: dict, result: dict, records: list[dict]) -> P
 
 
 def print_summary(result: dict) -> None:
-    print(f"{'arm':<10} {'pass':>6} {'tamper':>7} {'cost$':>8} {'turns':>6} {'secs':>7}")
+    print(f"{'arm':<10} {'pass':>6} {'score':>6} {'tamper':>7} {'cost$':>8} {'turns':>6} {'secs':>7}")
     for arm, s in result["arms_summary"].items():
         fmt = lambda v, p=2: "-" if v is None else f"{v:.{p}f}"
-        print(f"{arm:<10} {fmt(s['pass_rate']):>6} {fmt(s['tamper_rate']):>7} "
+        print(f"{arm:<10} {fmt(s['pass_rate']):>6} {fmt(s['mean_score']):>6} {fmt(s['tamper_rate']):>7} "
               f"{fmt(s['mean_cost_usd'], 3):>8} {fmt(s['mean_turns'], 1):>6} {fmt(s['mean_duration_s'], 0):>7}")
     d = result["delta"]
     if d:
         print(f"delta pass_rate (bigpowers - vanilla): {d['pass_rate']:+.2f}  95% CI {d['ci95']}")
+        if "score" in d:
+            print(f"delta score     (bigpowers - vanilla): {d['score']:+.2f}  95% CI {d['score_ci95']}")

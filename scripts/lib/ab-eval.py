@@ -23,7 +23,7 @@ from pathlib import Path
 import yaml
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from ab_metrics import parse_metrics  # type: ignore[import]  # noqa: E402
+from ab_metrics import parse_metrics, tap_score  # type: ignore[import]  # noqa: E402
 from ab_report import (  # type: ignore[import]  # noqa: E402
     BOOTSTRAP_RESAMPLES, BOOTSTRAP_SEED, aggregate, bigpowers_sha, print_summary, write_reports,
 )
@@ -164,9 +164,10 @@ def run_once(task: dict, arm: str, setup: str, adapter: dict, model: str | None,
         diff = changed_lines(workdir, base)
         shutil.copytree(task["dir"] / "hidden", workdir, dirs_exist_ok=True)
         passed = sh(task["grade"], workdir, timeout=300).returncode == 0
+        score = tap_score(sh(task["score"], workdir, timeout=300).stdout) if task.get("score") else None
         metrics = parse_metrics(adapter.get("parser", "none"), stdout)
         return {
-            "task": task["id"], "arm": arm, "run": run_idx, "pass": passed, "tampered": tampered,
+            "task": task["id"], "arm": arm, "run": run_idx, "pass": passed, "score": score, "tampered": tampered,
             "protected_lines_added": protected_added, "diff_lines": diff, "duration_s": duration, "agent_exit": exit_code,
             "agent_error": timed_out or exit_code != 0 or bool(metrics.pop("agent_reported_error")),
             "timed_out": timed_out, **metrics,

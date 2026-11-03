@@ -57,7 +57,7 @@ bash scripts/run-ab-eval.sh --adapter gemini --model <m>    # another harness
   `--setting-sources project --strict-mcp-config`, so user-level skills (including a global
   bigpowers install), CLAUDE.md, hooks, plugins and MCP servers do not leak into either arm.
 - **Tasks:** `specs/benchmarks/ab/tasks/<id>/` with `task.yaml` (`id`, `prompt`, `protected`,
-  `grade`, `timeout_s`), `fixture/` (what the agent sees), `hidden/` (copied in only after the
+  `grade`, `timeout_s`, optional `score`), `fixture/` (what the agent sees), `hidden/` (copied in only after the
   agent exits) and `solution/` (reference; the unit tests check fixture fails, solution passes).
   Prompts never name bigpowers.
 - **Isolation:** each run gets a fresh empty `$AB_HOME`; the `opencode` adapter points `HOME` and
@@ -70,10 +70,18 @@ bash scripts/run-ab-eval.sh --adapter gemini --model <m>    # another harness
   `agent_error`, plus `cost_usd`, `input_tokens`, `output_tokens`, `turns` from the adapter's
   parser (`scripts/lib/ab_metrics.py`): `claude-json` (one result object) or `opencode-jsonl`
   (sums `step_finish` events; an `error` event marks an agent error).
+- **Partial credit (e58s03):** a task's optional `score` command runs **hidden tests only**
+  (`node --test --test-reporter=tap test-hidden/*.test.js`; piped output is not TAP without the
+  flag). `score` = passed / (passed + failed + cancelled) over every `# pass` / `# fail` summary,
+  or `null`. Tests an agent adds to visible files cannot raise it.
 - **Suite:** `ab-01`–`ab-03` (written for e58s01) and `ab-04`–`ab-08`, ported from the legacy
   bigpowers-benchmark T01–T05 with neutral prompts, protected visible tests and hidden tests.
-- **Reports:** `specs/benchmarks/reports/AB-<date>.yaml` (per-arm and per-task rates, delta
-  `bigpowers − vanilla` with a seeded bootstrap 95% CI) and `ab-runs-<date>.jsonl` (raw runs).
+  Hard tasks with `score` (e58s03): `ab-11` (ledger rounding bug from a user report, two
+  trap fixes; fixture 11/18) and `ab-13` (split a 240-line module, oracle on ~420 seeded orders
+  plus structure checks; fixture 15/18). Candidates: `HARDER-TASKS_LATEST.md`.
+- **Reports:** `specs/benchmarks/reports/AB-<date>.yaml` (per-arm and per-task rates and
+  `mean_score`, `per_task_score`, delta `bigpowers − vanilla` for pass rate and score, each with a
+  seeded bootstrap 95% CI) and `ab-runs-<date>.jsonl` (raw runs).
 
 ## Reports
 

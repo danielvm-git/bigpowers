@@ -45,7 +45,7 @@ class TestScoreInRuns(Sandbox):
         self.assertEqual(self.records()[0]["score"], 0.75)
 
     def test_no_score_key_means_null(self):
-        self.run_main("--adapter-cmd", "echo 42 > answer.txt", "--arms", "vanilla")
+        self.run_main("--adapter-cmd", "echo 42 > answer.txt")
         self.assertIsNone(self.records()[0]["score"])
         report = yaml.safe_load(next(self.out.glob("AB-*.yaml")).read_text())
         self.assertIsNone(report["delta"].get("score"))

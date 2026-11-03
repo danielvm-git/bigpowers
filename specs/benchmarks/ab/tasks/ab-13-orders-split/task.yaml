@@ -1,0 +1,26 @@
+# story: e58s03
+# Hard refactor: ab-06's discipline at ~4x the size. The visible tests pass before any work;
+# hidden tests compare against the original module (oracle) on ~420 seeded random orders and check
+# the stated structure. Score = share of hidden tests passing (fixture: 15/18).
+id: ab-13
+title: Split the orders module into single-responsibility modules
+kind: refactor
+prompt: |
+  src/orders.js has grown into one 240-line file that parses order text, prices orders
+  (discount codes, shipping, tax, currency conversion) and renders invoices in three formats.
+  Split it into modules that each have one responsibility.
+
+  Constraints:
+  - src/orders.js stays the entry point. It exports exactly the same names as today and only
+    wires the other modules together (at most 40 non-blank lines).
+  - At least four new modules under src/, none longer than 100 non-blank lines.
+  - parseOrder, priceOrder and formatInvoice end up in three different modules.
+  - Behaviour must not change at all: same results, same rounding, same error messages, for
+    every input, including invalid ones.
+
+  `node --test test/` must keep passing.
+protected:
+  - test/orders.test.js
+grade: node --test test/ test-hidden/*.test.js
+score: node --test --test-reporter=tap test-hidden/*.test.js
+timeout_s: 1800
