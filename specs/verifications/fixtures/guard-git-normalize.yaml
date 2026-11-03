@@ -7,6 +7,9 @@
 # Gemini CLI modes" means in practice.
 #
 # verdict: block | allow
+# branch:  optional HEAD the row is judged on (default: a feature branch).
+#          Protected-branch rules answer differently on `main`, so every row
+#          that touches commit/push semantics states its branch explicitly.
 # why: the bypass or false positive this row pins down.
 
 cases:
@@ -93,7 +96,12 @@ cases:
     why: ordinary read
   - command: 'git commit -m "fix(guard): normalize argv"'
     verdict: allow
+    branch: fix/guard-git-normalize
     why: conventional commit on a feature branch
+  - command: 'git commit -m "fix(guard): normalize argv"'
+    verdict: block
+    branch: main
+    why: the SAME command is blocked by the protected-branch rule on main — the pair pins that the verdict follows the branch, not the text
   - command: git checkout -b feature/new
     verdict: allow
     why: creating a branch is not destructive
@@ -102,6 +110,7 @@ cases:
     why: unstaging is reversible and not destructive
   - command: git push origin feature/x
     verdict: allow
+    branch: fix/guard-git-normalize
     why: plain feature push
   - command: git reset --mixed HEAD~1
     verdict: allow

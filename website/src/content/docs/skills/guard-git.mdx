@@ -41,6 +41,8 @@ The rule table lives in `scripts/lib/git-argv.py` (shell hooks) and is mirrored 
 
 The TS side is judged through `evaluateBashCall()` — the single pure function the `tool_call` handler calls — so the fixture covers **every** rule (destructive argv, protected-branch push, Conventional Commits), not just the argv table. The gate (`bash scripts/test-guard-git-normalize.sh`) runs both implementations with `GIT_BIGPOWERS_LAND` unset and fails if they disagree, so a verdict can never depend on the developer's shell.
 
+Protected-branch rules answer differently on `main` than on a feature branch, so a row that touches commit/push semantics states its `branch:` and both sides are run in it (the shell hook in a throwaway repo checked out on that branch). A row without `branch:` is judged on a feature branch. Do not pin the branch inside either implementation — that is what made the gate pass on PRs and fail on `main`.
+
 ## Advanced
 
 Full JSON examples, merge rules, Antigravity deny-list entries, and test commands: [REFERENCE.md](REFERENCE.md).
