@@ -425,9 +425,9 @@ development_status:
   e85: backlog
   e85s01: backlog
   e85s02: backlog
-  e86: backlog
-  e86s01: backlog
-  e86s02: backlog
+  e86: in_progress
+  e86s01: done
+  e86s02: done
   e86s03: backlog
   e86s04: backlog
   e86s05: backlog
@@ -810,7 +810,7 @@ epics:
     wsjf: 4.3
     total_bcps: 42
   e86:
-    status: backlog
+    status: in_progress
     title: Hooks Enforce — Turn Prose Nevers into Checks
     wsjf: 4.2
     total_bcps: 98
@@ -3676,21 +3676,21 @@ stories:
     tasks_failing: 0
     risk_max: P2
   e86s01:
-    status: backlog
+    status: done
     title: Generated paths are blocked at edit time
     bcps: 19
     epic: e86
     tasks_total: 2
-    tasks_passing: 0
+    tasks_passing: 2
     tasks_failing: 0
     risk_max: P1
   e86s02:
-    status: backlog
+    status: done
     title: Tests are locked during a fix after the RED commit
     bcps: 21
     epic: e86
     tasks_total: 2
-    tasks_passing: 0
+    tasks_passing: 2
     tasks_failing: 0
     risk_max: P1
   e86s03:

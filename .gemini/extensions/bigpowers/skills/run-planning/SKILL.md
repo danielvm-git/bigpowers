@@ -63,7 +63,12 @@ if written:
    - `plan-release` — sequence epics by WSJF
    - `slice-tasks` — cut vertical slices
 
-4. **Update status** — On successful completion, set `status: done` for that workflow key in `planning-status.yaml`.
+4. **Mechanical artifact assertion before status update (HARD GATE — Issue #183):**
+   Before marking any workflow key `status: done`, run:
+   ```bash
+   bash scripts/lib/assert-planning-artifacts.sh <workflow-key>
+   ```
+   If the artifact assertion fails, do NOT advance status. Remediate missing output files before continuing. On success, set `status: done` for that workflow key in `planning-status.yaml`.
 
 5. **Advance** — Set `state.yaml` `active_flow: planning` while in this chain. When all required keys are done, set `handoff.next_skill` to `plan-work`.
 

@@ -55,13 +55,12 @@ git log main...HEAD --format="%B" | grep -qiE 'co[- ]authored[- ]by' && echo "�
 ### 2a. Security gate
 
 - [ ] `specs/security/REVIEW.md` exists and is fresh (matches current branch diff)
-- [ ] No unresolved HIGH findings with confidence ≥ 8 (or all documented in `specs/security/EXCEPTIONS.md` with sign-off rationale)
 
-If REVIEW.md is missing or stale → run `security-review` inline. Findings block the merge unless documented in EXCEPTIONS.md.
+### 2b. Audit-code & Traceability gates (HARD GATES — Issue #182)
 
-### 2b. Traceability gate
-
-Run `gate-trace` before merge. FAIL blocks merge; CONCERNS requires explicit override in `specs/state.yaml` (`traceability_override: CONCERNS accepted, reason: &lt;explanation>`). WAIVED if no matrix available.
+- [ ] Run `bash scripts/lib/assert-epic-gate.sh release` (asserts `specs/AUDIT_LATEST.md` passed; blocks release on failure).
+- [ ] No unresolved HIGH security findings with confidence ≥ 8 (or documented in `specs/security/EXCEPTIONS.md`).
+- [ ] Run `gate-trace`. FAIL blocks merge; CONCERNS requires explicit override in `specs/state.yaml`. WAIVED if no matrix available.
 
 > **Adversarial refute framing (e45s32):** The final pre-merge check is **refute, not rubber-stamp**. Before declaring ready, actively try to disprove traceability completeness — missing story tags, absent verify evidence, stale security review. Only proceed when refutation fails.
 
