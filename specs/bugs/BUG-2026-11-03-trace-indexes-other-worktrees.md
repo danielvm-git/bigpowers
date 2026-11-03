@@ -18,9 +18,9 @@ commit_message: "fix(trace): index only files git would track, never other workt
   50,473 links to `.claude/worktrees/<other-session>/...` (for example
   `specs/codebase-wiki/e37s01.md` linked
   `.claude/worktrees/cps-manager-cockpit-visual-a472d6/docs/templates/AGENTS.md`).
-  The links were not committed: they appeared in the main checkout's working tree only.
-  Running the generator from a worktree instead dropped them, so the outputs depended on
-  which checkout ran Preflight.
+  At first the links were only in the main checkout's working tree. Then #197 (`34f6366d`)
+  committed them to `main` (54,340 matches, matrix size 13.8 MB). Running the generator from
+  a worktree instead dropped them, so the outputs depended on which checkout ran Preflight.
 - **Expected:** the outputs depend only on the files in version control.
 
 ## Root Cause Analysis
@@ -50,6 +50,9 @@ longer depends on `readdir`.
 Regeneration dropped 108 linked files. `git check-ignore` matches all 108, so no tracked
 link was lost. The oracle stats changed from 1062/2838/109 to 926/2748/109
 (high/medium/low).
+
+After merging #197 and regenerating, the matrix has 0 `.claude/worktrees` matches and its
+size is 0.77 MB.
 
 ## Regression guard
 

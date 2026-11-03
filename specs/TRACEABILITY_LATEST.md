@@ -1,6 +1,6 @@
 # Traceability Matrix
 
-**Generated:** 2026-11-03 21:20:09 UTC
+**Generated:** 2026-11-03 21:28:49 UTC
 **Total stories:** 161
 **Tagged stories:** 137
 **Dark stories:** 0
