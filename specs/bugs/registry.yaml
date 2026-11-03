@@ -662,6 +662,16 @@ bugs:
     approach: "Tokenize the command (quote-aware), strip git's global options, then judge the (subcommand, arguments) pair against one rule table — implemented in scripts/lib/git-argv.py for the shell hooks and mirrored in extensions/omp-hooks.ts, with a fixture gate that fails if the two disagree"
     risk_level: "medium"
     commit_message: "fix(hooks): judge git argv instead of command substrings in guard-git"
+  - id: BUG-2026-11-03-guard-normalize-branch-context
+    status: fixed
+    severity: high
+    scope: hooks / guard-git / verification
+    title: "The parity gate pinned the TS side to a feature branch and left the shell side on the real HEAD, so it passed on every PR and went red the moment the merge landed on main"
+    file: bugs/BUG-2026-11-03-guard-normalize-branch-context.md
+    files_changed: "specs/verifications/fixtures/guard-git-normalize.yaml, scripts/omp-guard-probe.ts, scripts/test-guard-git-normalize.sh, skills/guard-git/SKILL.md"
+    approach: "Give each fixture row an explicit branch context and run both implementations in it — the probe through branchFor, the shell hook through a throwaway repo checked out on that branch"
+    risk_level: "medium"
+    commit_message: "fix(hooks): give each guard fixture row its own branch context"
   - id: BUG-2026-11-03-guard-normalize-parity-vacuous
     status: fixed
     severity: high

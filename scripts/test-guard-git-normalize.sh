@@ -19,6 +19,12 @@
 # protected-branch block, so an inherited value would let a developer's shell
 # turn a red gate green (BUG-2026-11-03-guard-normalize-parity-vacuous).
 #
+# Both sides also run in a throwaway repo checked out on the row's `branch:`
+# (default: a feature branch). Protected-branch rules answer differently on
+# `main`, so pinning only the probe to a feature branch made the table agree in
+# one direction and go red as soon as CI ran it on `main`
+# (BUG-2026-11-03-guard-normalize-branch-context).
+#
 # The row loop runs inside one Python process: every row x (hook + probe) with a
 # Python start per row cost ~70s on a pyenv host, which is too much for a gate.
 #
@@ -44,42 +50,65 @@ if [[ ! -f "$FIXTURE" ]]; then
 fi
 
 REPORT=$($PYTHON - "$FIXTURE" <<'PY'
-import json, os, subprocess, sys, yaml
+import json, os, subprocess, sys, tempfile, yaml
 
 fixture = sys.argv[1]
 # Ambient LAND mode disables the protected-branch block. A gate that depends on
 # the developer's shell is not a gate (this masked a CI failure once).
 ENV = {k: v for k, v in os.environ.items() if k != "GIT_BIGPOWERS_LAND"}
+DEFAULT_BRANCH = "fix/guard-git-normalize"
 cases = yaml.safe_load(open(fixture, encoding="utf-8"))["cases"]
-commands = [c["command"] for c in cases]
+rows = [{"command": c["command"], "branch": c.get("branch", DEFAULT_BRANCH)} for c in cases]
 
 # (b) one node start for every row.
 probe = subprocess.run(
     ["node", "scripts/omp-guard-probe.ts"],
-    input=json.dumps(commands), capture_output=True, text=True,
+    input=json.dumps(rows), capture_output=True, text=True,
 )
 if probe.returncode != 0:
     print(f"PROBE_ERROR {probe.stderr.strip().splitlines()[-1][:300] if probe.stderr.strip() else 'no stderr'}")
     sys.exit(0)
 ts = json.loads(probe.stdout.strip().splitlines()[-1])
 
+
+def make_repo(root, branch):
+    """A throwaway repo on `branch`, so the hook resolves that branch as HEAD."""
+    path = os.path.join(root, f"repo-{len(os.listdir(root))}")
+    def git(*args):
+        subprocess.run(["git", "-C", path, *args], check=True, capture_output=True)
+    subprocess.run(["git", "init", "-q", "-b", "main", path], check=True, capture_output=True)
+    git("config", "user.email", "fixture@example.com")
+    git("config", "user.name", "fixture")
+    git("commit", "-q", "--allow-empty", "-m", "init")
+    if branch != "main":
+        git("checkout", "-q", "-b", branch)
+    return path
+
+
+hook = os.path.abspath("hooks/pre-tool-use.sh")
 shell_fails = ts_fails = disagree = 0
-for case, ts_verdict in zip(cases, ts):
-    payload = json.dumps({"command": case["command"]})
-    run = subprocess.run(
-        ["bash", "hooks/pre-tool-use.sh"], input=payload, capture_output=True, text=True, env=ENV,
-    )
-    shell_verdict = "block" if run.returncode == 2 else "allow"
-    expected = case["verdict"]
-    if shell_verdict != expected:
-        shell_fails += 1
-        print(f"SHELL_FAIL expected={expected} got={shell_verdict} :: {case['command']}")
-    if ts_verdict != expected:
-        ts_fails += 1
-        print(f"TS_FAIL expected={expected} got={ts_verdict} :: {case['command']}")
-    if shell_verdict != ts_verdict:
-        disagree += 1
-        print(f"PARITY_FAIL shell={shell_verdict} ts={ts_verdict} :: {case['command']}")
+with tempfile.TemporaryDirectory() as tmp:
+    repos = {}
+    for case, row, ts_verdict in zip(cases, rows, ts):
+        branch = row["branch"]
+        if branch not in repos:
+            repos[branch] = make_repo(tmp, branch)
+        payload = json.dumps({"command": row["command"]})
+        run = subprocess.run(
+            ["bash", hook], input=payload, capture_output=True, text=True,
+            env=ENV, cwd=repos[branch],
+        )
+        shell_verdict = "block" if run.returncode == 2 else "allow"
+        expected = case["verdict"]
+        if shell_verdict != expected:
+            shell_fails += 1
+            print(f"SHELL_FAIL expected={expected} got={shell_verdict} :: {row['command']}")
+        if ts_verdict != expected:
+            ts_fails += 1
+            print(f"TS_FAIL expected={expected} got={ts_verdict} :: {row['command']}")
+        if shell_verdict != ts_verdict:
+            disagree += 1
+            print(f"PARITY_FAIL shell={shell_verdict} ts={ts_verdict} :: {row['command']}")
 
 print(f"RESULT rows={len(cases)} shell_fails={shell_fails} ts_fails={ts_fails} disagree={disagree}")
 PY
@@ -110,16 +139,37 @@ fi
 # The normalizer replaced the pattern loop in the same handler; a regression in
 # the neighbouring checks (protected branches, Conventional Commits, the gemini
 # JSON envelope, the pi/OMP fallback) would be invisible to the rows above.
+#
+# These run in a throwaway repo on a feature branch, like the rows: "a commit is
+# allowed" is only true off `main`, and the gate itself runs on `main` after a
+# merge. Duplicating the repo setup here keeps each block self-contained.
 json_cmd() { $PYTHON -c 'import json,sys;print(json.dumps({"command": sys.argv[1]}))' "$1"; }
+FEATURE_REPO="$($PYTHON - "$(mktemp -d)" <<'PY'
+import subprocess, sys
+path = sys.argv[1]
+def git(*args):
+    subprocess.run(["git", "-C", path, *args], check=True, capture_output=True)
+subprocess.run(["git", "init", "-q", "-b", "main", path], check=True, capture_output=True)
+git("config", "user.email", "fixture@example.com")
+git("config", "user.name", "fixture")
+git("commit", "-q", "--allow-empty", "-m", "init")
+git("checkout", "-q", "-b", "fix/guard-git-normalize")
+print(path)
+PY
+)"
 adjacent() { # name want_rc command [hook]
-  local name="$1" want="$2" command="$3" hook="${4:-hooks/pre-tool-use.sh}" rc
+  local name="$1" want="$2" command="$3" hook="${4:-}" rc
+  hook="${hook:-$REPO_ROOT/hooks/pre-tool-use.sh}"
+  cd "$FEATURE_REPO" || ta_fail "(d) $name: cannot enter fixture repo"
   json_cmd "$command" | env -u GIT_BIGPOWERS_LAND bash "$hook" >/dev/null 2>&1 && rc=0 || rc=$?
+  cd "$REPO_ROOT" || true
   [ "$rc" -eq "$want" ] || ta_fail "(d) $name: rc=$rc (want $want) — $command"
 }
 adjacent "plain status allowed" 0 "git status"
 adjacent "conventional commit allowed" 0 'git commit -m "fix(scope): subject"'
 adjacent "feature push allowed" 0 "git push origin feature/x"
 adjacent "non-conventional commit blocked" 2 'git commit -m "bad message"'
+rm -rf "$FEATURE_REPO"
 
 DESTRUCTIVE="git reset --hard"
 GEMINI_OUT=$(json_cmd "$DESTRUCTIVE" | env -u GIT_BIGPOWERS_LAND GIT_GUARDRAILS_MODE=gemini bash hooks/pre-tool-use.sh 2>&1)
