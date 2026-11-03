@@ -10,7 +10,7 @@ tasks, the skills or any spec. Do not push.
 ## Where
 
 - Worktree: `/Users/danielvm/Developer/bigpowers/.claude/worktrees/bigpowers-bug-investigation-9fa73c`
-- Branch: `danielvm-git/bigpowers-evaluation-roadmap-4d0758`, at or after commit `4af8526f`
+- Branch: `danielvm-git/bigpowers-evaluation-roadmap-4d0758`, at or after the commit that adds `scripts/lib/ab_progress.py`
 - Run every command from the worktree root. Read `specs/benchmarks/SCHEMA.md` (section "A/B outcome
   eval") first. It explains arms, tasks, hidden tests, `score` and the report fields.
 
@@ -52,15 +52,24 @@ wait
 grep -h '^EXIT\|Wrote' "$OUT"/*.log; ls "$OUT"/*/ab-runs-*.jsonl | wc -l   # expect 10
 ```
 
-(5 shards × k=20 = 100 per task and arm.)
+(5 shards × k=20 = 100 per task and arm. Run indices repeat across shards (1–20 each), so the
+evolution block reads "runs<=N" per shard: 5 × N runs per task and arm.)
 
-Watch the rate of `AGENT-ERROR` lines while it runs:
+## Show the evolution while it runs (required)
+
+Every 20 minutes, and once more at the end, run the progress view over all shards and paste its
+whole output into the conversation, with one line on what changed since the last one:
 
 ```bash
-grep -c 'AGENT-ERROR' "$OUT"/*.log
+python3 scripts/lib/ab_progress.py "$OUT"/ab-11-* "$OUT"/ab-13-*
 ```
 
-**Stop rule:** if more than 10% of finished runs in any shard are `AGENT-ERROR` (usually rate
+It shows runs, pass rate, score, cost and agent errors per task and arm, each arm's delta
+against vanilla with a 95% CI, and the "evolution" block: how the delta and its CI moved as runs
+accumulated (runs<=5, <=10, <=20, …). Runs are interleaved, so every snapshot is fair to both arms.
+Say plainly when a CI still crosses zero. Transcripts land in `"$OUT"/<shard>/traces/`.
+
+**Stop rule:** if the `errors` column passes 10% of the runs for any task and arm (usually rate
 limiting or quota), kill the shards (`pkill -f run-ab-eval`), wait 15 minutes, and rerun only the
 missing shards with 3 in parallel instead of 10. Never mix runs from two different models.
 

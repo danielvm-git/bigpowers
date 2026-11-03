@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-03T02:00:18.810321+00:00",
+  "generated_at": "2026-11-03T02:21:13.916759+00:00",
   "matrix_version": "1.0",
   "stories": [
     {
@@ -12294,6 +12294,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/benchmarks/HANDOFF-k100-hard-tasks.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/templates/migration.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -12894,7 +12900,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 202
+      "link_count": 203
     },
     {
       "id": "e48s06",
@@ -14424,6 +14430,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/benchmarks/HANDOFF-k100-hard-tasks.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/benchmarks/verify-work.yaml",
           "line": 0,
           "confidence": "medium",
@@ -14538,7 +14550,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 75
+      "link_count": 76
     },
     {
       "id": "e51s04",
@@ -17916,6 +17928,12 @@
           "method": "explicit_tag"
         },
         {
+          "file": "specs/benchmarks/HANDOFF-k100-hard-tasks.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/benchmarks/HARDER-TASKS_LATEST.md",
           "line": 0,
           "confidence": "medium",
@@ -17928,7 +17946,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 6
+      "link_count": 7
     },
     {
       "id": "e58s04",
@@ -17965,6 +17983,54 @@
         }
       ],
       "link_count": 4
+    },
+    {
+      "id": "e58s05",
+      "title": "live progress, interleaved runs and saved transcripts",
+      "epic_id": "e58",
+      "epic_title": "Evals Over Compliance \u2014 Replace the 94% Gate with Outcome Proof",
+      "bcp": 0,
+      "wsjf": 5.3,
+      "status": "done",
+      "links": [
+        {
+          "file": "specs/epics/e58-evals-over-compliance/e58s05-live-progress.md",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "tests/test_ab_progress.py",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/lib/ab_progress.py",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/MISSING-REFERENCES-AND-DELIVERY-PLAN.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-i-should-visualize-implementation-progress-as-a-roadmap.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e58-evals-over-compliance/e58s05-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        }
+      ],
+      "link_count": 6
     },
     {
       "id": "e60s01",
@@ -23842,8 +23908,8 @@
     }
   ],
   "summary": {
-    "total_stories": 154,
-    "tagged_stories": 129,
+    "total_stories": 155,
+    "tagged_stories": 130,
     "dark_stories": [],
     "dark_count": 0,
     "orphan_tags": [
@@ -24074,6 +24140,7 @@
       "e58s02",
       "e58s03",
       "e58s04",
+      "e58s05",
       "e60s01",
       "e61s01",
       "e61s02",
@@ -24114,11 +24181,11 @@
       "e80s05",
       "e81s01"
     ],
-    "stale_count": 119,
+    "stale_count": 120,
     "oracle_stats": {
-      "high": 1032,
-      "medium": 2531,
-      "low": 102
+      "high": 1035,
+      "medium": 2536,
+      "low": 103
     }
   }
 }

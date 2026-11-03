@@ -113,7 +113,7 @@ stories:
     verify: python3 tests/test_ab_ablation.py
   - id: e58s05
     title: "live progress, interleaved runs and saved transcripts"
-    status: todo
+    status: done
     bcps: 5
     bcp_basis: estimate, 2026-11-02 (stream records + interleave + traces + progress script)
     risk: P2

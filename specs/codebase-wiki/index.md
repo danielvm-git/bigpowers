@@ -1,7 +1,7 @@
 ---
 type: Index
-generated_at: 2026-11-03T02:00:18.815044+00:00
-total_concepts: 154
+generated_at: 2026-11-03T02:21:13.922271+00:00
+total_concepts: 155
 ---
 
 # Codebase Wiki — Story Traceability
@@ -71,7 +71,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e48s02](./e48s02.md) | Emit verification reports as OKF bundles from run-golden-sui | medium | 34 |
 | [e48s03](./e48s03.md) | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | high | 188 |
 | [e48s04](./e48s04.md) | Create viz.html — interactive force-layout graph companion f | medium | 12 |
-| [e48s05](./e48s05.md) | Wire OKF validation into CI (sync-skills.yml) and document i | medium | 202 |
+| [e48s05](./e48s05.md) | Wire OKF validation into CI (sync-skills.yml) and document i | medium | 203 |
 | [e48s06](./e48s06.md) | Add tier: field (core/extended/specialized) to OKF wiki inde | medium | 11 |
 | [e48s07](./e48s07.md) | Create publish-to-wiki kernel tool | high | 2 |
 | [e48s08](./e48s08.md) | Add GitHub Action Template for publish-wiki.yml [HARD GATE] | high | 8 |
@@ -84,7 +84,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e48s15](./e48s15.md) | Refactor Skills Render Pipeline to Hybrid JSON Seam | high | 7 |
 | [e51s01](./e51s01.md) | CONVENTIONS — Always Green, Shift Left, Discovered Defects,  | high | 8 |
 | [e51s02](./e51s02.md) | seed-conventions — Preflight default, solo-git default, embe | high | 48 |
-| [e51s03](./e51s03.md) | kickoff-branch + verify-work — Preflight hard block and CI g | high | 75 |
+| [e51s03](./e51s03.md) | kickoff-branch + verify-work — Preflight hard block and CI g | high | 76 |
 | [e51s04](./e51s04.md) | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | high | 341 |
 | [e51s05](./e51s05.md) | CLAUDE.md — solo-default agent rules + bigpowers Preflight c | high | 7 |
 | [e53s01](./e53s01.md) | Commit the untracked GOLDEN baseline | high | 12 |
@@ -99,8 +99,9 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e55s03](./e55s03.md) | Point CLAUDE.md/CONVENTIONS.md at constitution.md, don't del | high | 6 |
 | [e58s01](./e58s01.md) | Outcome A/B eval runner — vanilla agent vs bigpowers | high | 13 |
 | [e58s02](./e58s02.md) | opencode adapter + the five legacy benchmark tasks | high | 7 |
-| [e58s03](./e58s03.md) | partial-credit scoring + two hard tasks (ab-11, ab-13) | high | 6 |
+| [e58s03](./e58s03.md) | partial-credit scoring + two hard tasks (ab-11, ab-13) | high | 7 |
 | [e58s04](./e58s04.md) | ablation arms — which part of bigpowers produces the gain | high | 4 |
+| [e58s05](./e58s05.md) | live progress, interleaved runs and saved transcripts | high | 6 |
 | [e60s01](./e60s01.md) | Interactive installer with ASCII banner, global/local, tool  | high | 11 |
 | [e61s01](./e61s01.md) | Hermes adapter + hook templates (Wave A) | high | 10 |
 | [e61s02](./e61s02.md) | Install hub wiring (Wave B) | high | 15 |

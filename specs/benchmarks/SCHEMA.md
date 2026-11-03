@@ -82,6 +82,11 @@ bash scripts/run-ab-eval.sh --adapter gemini --model <m>    # another harness
 - **Ablation arms (e58s04):** `ab-arm-bigpowers.sh` takes `AB_BP_SKILLS` (`all` | `none` | comma
   list) and `AB_BP_SEED` (seed path or `none`). Config arms: `bp-core` (seed + 6 named skills),
   `bp-seed` (seed only), `bp-skills` (all skills, no seed), `tdd-line` (3-line TDD rule, no skills).
+- **Live progress (e58s05):** runs go round-robin (run 1 of every task and arm, then run 2, …).
+  Each record is appended to `<out>/ab-live.jsonl` as it finishes, and each agent transcript is
+  saved to `<out>/traces/<task>-<arm>-<run>.jsonl.gz`. Watch one or many shards with
+  `python3 scripts/lib/ab_progress.py <out-dir>... [--watch 600]`: runs, pass, score, cost and
+  errors per task and arm, deltas against vanilla with CIs, and their evolution by run index.
 - **Reports:** `specs/benchmarks/reports/AB-<date>.yaml` (per-arm and per-task rates and
   `mean_score`, `per_task_score`, delta `bigpowers − vanilla` for pass rate and score, each with a
   seeded bootstrap 95% CI; `deltas_vs_vanilla` gives the same for every non-vanilla arm) and

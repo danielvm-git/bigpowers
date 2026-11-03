@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# story: e58s01
+# story: e58s01 e58s02 e58s03 e58s05
 """A/B eval: run the same tasks with and without bigpowers and grade only the outcome.
 
 Each run gets a fresh temp git workdir (outside the repo) copied from the task fixture.
@@ -10,6 +10,8 @@ completed run, 2 on configuration errors.
 from __future__ import annotations
 
 import argparse
+import gzip
+import json
 import os
 import shutil
 import subprocess
@@ -127,6 +129,12 @@ def changed_lines(workdir: Path, base: str) -> int:
     return total
 
 
+def save_trace(path: Path, stdout: str) -> None:
+    """Agent transcript for later process analysis (e58s05)."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_bytes(gzip.compress(stdout.encode()))
+
+
 def env_for(prompt: str, model: str | None, workdir: Path, home: Path) -> dict:
     """$AB_HOME is a fresh empty dir per run: adapters point HOME at it to hide global skills."""
     env = dict(os.environ)
@@ -136,7 +144,7 @@ def env_for(prompt: str, model: str | None, workdir: Path, home: Path) -> dict:
 
 
 def run_once(task: dict, arm: str, setup: str, adapter: dict, model: str | None,
-             run_idx: int, keep: bool) -> dict:
+             run_idx: int, keep: bool, trace_dir: Path | None = None) -> dict:
     workdir = Path(tempfile.mkdtemp(prefix=f"bp-ab-{task['id']}-{arm}-"))
     home = Path(tempfile.mkdtemp(prefix="bp-ab-home-"))
     try:
@@ -159,6 +167,8 @@ def run_once(task: dict, arm: str, setup: str, adapter: dict, model: str | None,
             timed_out, exit_code = True, None
             stdout = exc.stdout.decode() if isinstance(exc.stdout, bytes) else (exc.stdout or "")
         duration = round(time.monotonic() - started, 1)
+        if trace_dir is not None:
+            save_trace(trace_dir / f"{task['id']}-{arm}-{run_idx}.jsonl.gz", stdout)
 
         tampered, protected_added = protected_changes(workdir, before)
         diff = changed_lines(workdir, base)
@@ -224,13 +234,20 @@ def main(argv: list[str] | None = None) -> int:
         print(f"  adapter command: {adapter['command']}")
         return 0
 
+    # Round-robin (e58s05): any prefix of the run covers every arm, and slow provider periods hit
+    # all arms alike. Each record is appended to ab-live.jsonl as soon as its run finishes.
     records = []
+    sha = bigpowers_sha()
+    args.out.mkdir(parents=True, exist_ok=True)
+    live = args.out / "ab-live.jsonl"
     try:
-        for task in tasks:
-            for arm, spec in arms.items():
-                for i in range(1, k + 1):
-                    rec = run_once(task, arm, spec["setup"], adapter, model, i, args.keep)
+        for i in range(1, k + 1):
+            for task in tasks:
+                for arm, spec in arms.items():
+                    rec = run_once(task, arm, spec["setup"], adapter, model, i, args.keep, args.out / "traces")
                     records.append(rec)
+                    with live.open("a") as f:
+                        f.write(json.dumps({**rec, "bigpowers_sha": sha, "model": model}) + "\n")
                     print(f"  {task['id']:<8} {arm:<10} run {i}: {'PASS' if rec['pass'] else 'FAIL'}"
                           f"{' TAMPERED' if rec['tampered'] else ''}{' AGENT-ERROR' if rec['agent_error'] else ''}")
     except ConfigError as exc:
@@ -240,7 +257,7 @@ def main(argv: list[str] | None = None) -> int:
     result = aggregate(records, list(arms), [t["id"] for t in tasks])
     meta = {
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-        "bigpowers_sha": bigpowers_sha(), "adapter": adapter["name"], "model": model,
+        "bigpowers_sha": sha, "adapter": adapter["name"], "model": model,
         "k": k, "tasks": [t["id"] for t in tasks], "arms": list(arms),
         "arm_setup": {a: s["setup"] for a, s in arms.items()},
         "ci_method": f"bootstrap over runs, {BOOTSTRAP_RESAMPLES} resamples, seed {BOOTSTRAP_SEED}",

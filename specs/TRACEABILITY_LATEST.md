@@ -1,17 +1,17 @@
 # Traceability Matrix
 
-**Generated:** 2026-11-03 02:00:18 UTC
-**Total stories:** 154
-**Tagged stories:** 129
+**Generated:** 2026-11-03 02:21:13 UTC
+**Total stories:** 155
+**Tagged stories:** 130
 **Dark stories:** 0
 **Orphan tags:** 144
-**Stale tags:** 119
+**Stale tags:** 120
 
 ## Oracle Stats
 
-- **High** (explicit tag): 1032
-- **Medium** (file heuristic): 2531
-- **Low** (task reference): 102
+- **High** (explicit tag): 1035
+- **Medium** (file heuristic): 2536
+- **Low** (task reference): 103
 
 ## Story Coverage
 
@@ -78,7 +78,7 @@
 | e48s02 | Emit verification reports as OKF bundles from run-golden-sui | e48 | 2 | 2.5 | done | 34 |
 | e48s03 | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | e48 | 1 | 2.5 | done | 188 |
 | e48s04 | Create viz.html — interactive force-layout graph companion f | e48 | 2 | 2.5 | done | 12 |
-| e48s05 | Wire OKF validation into CI (sync-skills.yml) and document i | e48 | 1 | 2.5 | done | 202 |
+| e48s05 | Wire OKF validation into CI (sync-skills.yml) and document i | e48 | 1 | 2.5 | done | 203 |
 | e48s06 | Add tier: field (core/extended/specialized) to OKF wiki inde | e48 | 2 | 2.5 | done | 11 |
 | e48s07 | Create publish-to-wiki kernel tool | e48 | 3 | 2.5 | done | 2 |
 | e48s08 | Add GitHub Action Template for publish-wiki.yml [HARD GATE] | e48 | 1 | 2.5 | done | 8 |
@@ -91,7 +91,7 @@
 | e48s15 | Refactor Skills Render Pipeline to Hybrid JSON Seam | e48 | 4 | 2.5 | done | 7 |
 | e51s01 | CONVENTIONS — Always Green, Shift Left, Discovered Defects,  | e51 | 3 | 7.0 | done | 8 |
 | e51s02 | seed-conventions — Preflight default, solo-git default, embe | e51 | 3 | 7.0 | done | 48 |
-| e51s03 | kickoff-branch + verify-work — Preflight hard block and CI g | e51 | 2 | 7.0 | done | 75 |
+| e51s03 | kickoff-branch + verify-work — Preflight hard block and CI g | e51 | 2 | 7.0 | done | 76 |
 | e51s04 | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | e51 | 2 | 7.0 | done | 341 |
 | e51s05 | CLAUDE.md — solo-default agent rules + bigpowers Preflight c | e51 | 2 | 7.0 | done | 7 |
 | e53s01 | Commit the untracked GOLDEN baseline | e53 | 1 | 8.0 | done | 12 |
@@ -106,8 +106,9 @@
 | e55s03 | Point CLAUDE.md/CONVENTIONS.md at constitution.md, don't del | e55 | 0 | 6.0 | done | 6 |
 | e58s01 | Outcome A/B eval runner — vanilla agent vs bigpowers | e58 | 0 | 5.3 | done | 13 |
 | e58s02 | opencode adapter + the five legacy benchmark tasks | e58 | 0 | 5.3 | done | 7 |
-| e58s03 | partial-credit scoring + two hard tasks (ab-11, ab-13) | e58 | 0 | 5.3 | done | 6 |
+| e58s03 | partial-credit scoring + two hard tasks (ab-11, ab-13) | e58 | 0 | 5.3 | done | 7 |
 | e58s04 | ablation arms — which part of bigpowers produces the gain | e58 | 0 | 5.3 | done | 4 |
+| e58s05 | live progress, interleaved runs and saved transcripts | e58 | 0 | 5.3 | done | 6 |
 | e60s01 | Interactive installer with ASCII banner, global/local, tool  | e60 | 0 | 9.0 | done | 11 |
 | e61s01 | Hermes adapter + hook templates (Wave A) | e61 | 0 | 5.0 | done | 10 |
 | e61s02 | Install hub wiring (Wave B) | e61 | 0 | 5.0 | done | 15 |
@@ -401,6 +402,7 @@
 - `e58s02`
 - `e58s03`
 - `e58s04`
+- `e58s05`
 - `e60s01`
 - `e61s01`
 - `e61s02`
