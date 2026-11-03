@@ -248,7 +248,7 @@
     },
     "release-branch": {
       "description": "Make the merge/PR/keep/discard decision for a feature branch, verify coverage gates, create the PR with gh, and clean up the worktree. Use when a feature is done and ready to ship, or when user says \"release\", \"merge\", or \"open a PR\".",
-      "sha256": "7cf49c230f1ca349",
+      "sha256": "41b42f5d409de4cb",
       "path": "skills/release-branch/SKILL.md"
     },
     "request-review": {
@@ -378,7 +378,7 @@
     },
     "verify-work": {
       "description": "Multi-phase UAT gate — cold-start smoke, build, typecheck, lint, tests, step-by-step manual verification, gaps-closure loop. Use after execute-plan or develop-tdd, before audit-code.",
-      "sha256": "2646f5d217dfa821",
+      "sha256": "b395c44051f4ac3c",
       "path": "skills/verify-work/SKILL.md"
     },
     "visual-dashboard": {

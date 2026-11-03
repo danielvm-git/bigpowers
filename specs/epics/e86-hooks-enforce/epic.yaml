@@ -50,7 +50,7 @@ stories:
   - hooks/pre-tool-use.sh
   - .github/workflows/test-build-release.yml
   tasks: e86s01-tasks.yaml
-  verify: bash scripts/run-story-verify.sh e86s01
+  verify: bash scripts/test-generated-path-hook.sh
 - id: e86s02
   title: Tests are locked during a fix after the RED commit
   status: done
@@ -82,7 +82,7 @@ stories:
   - scripts/verify-tdd-red-commit.sh
   - .github/workflows/test-build-release.yml
   tasks: e86s02-tasks.yaml
-  verify: bash scripts/run-story-verify.sh e86s02
+  verify: bash scripts/test-test-lock-hook.sh
 - id: e86s03
   title: Secrets are blocked before commit
   status: todo

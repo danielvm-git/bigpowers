@@ -61,9 +61,8 @@ Review answers "is the code good?"; Verify answers "does the built thing do what
 5a. **Blind-spot check** — run `bash scripts/check-blind-spots.sh`. This detects structural quality gaps (verify-gap, test-gap, stale-tag, etc.) beyond percentage coverage. If any HIGH-severity findings exist → **block the verify-work PASS gate**. Findings are written to `specs/blind-spots.json`. MEDIUM/LOW findings warn but don't block.
 5a2. **Completeness critic (e45s05)** — `bash scripts/lib/completeness-critic.sh`. **BLOCKER** aborts merge gate; WARNING → gaps loop; FILLED = evidence only.
 
-5b. **NFR Evidence Gate** (P0 only) — Produces go/no-go output on three dimensions: Performance (response time, throughput), Reliability (error rate, recovery), and Operability (logging, health checks). Reads thresholds from `specs/tech-architecture/eNN-TEST_PLAN_LATEST.md` and writes evidence as OKF verification-report bundles to `specs/verifications/NFR-eNNsYY.json`. FAIL on any dimension blocks the gate.
-
-5c. **Adversarial Defect Mutation Gate (HARD GATE — e86 / ab-20)** — run `bash scripts/verify-adversarial.sh`. This runs boundary fuzzing and negative parameter injection against all modified interfaces to detect escaped defects before UAT. Any unhandled exception, boundary crash, or defect failure **blocks the verify-work PASS gate**. Evidence is persisted to `specs/verifications/ADVERSARIAL_LATEST.yaml`.
+5b. **NFR Evidence Gate** (P0 only) — Go/no-go on Performance, Reliability, Operability against `specs/tech-architecture/eNN-TEST_PLAN_LATEST.md`. Evidence written to `specs/verifications/NFR-eNNsYY.json`. FAIL blocks gate.
+5c. **Adversarial Defect Mutation Gate (HARD GATE — e86 / ab-20)** — `bash scripts/verify-adversarial.sh`. Boundary fuzzing & parameter injection against modified interfaces. Crashes or failures block PASS gate; evidence in `specs/verifications/ADVERSARIAL_LATEST.yaml`.
 6. **Step-by-step UAT** (skip if P2/P3) — one user-observable action at a time.
 7. **Gaps loop** — failures → log → `plan-work` → re-verify. Unaddressed HIGH findings from step 5 feed into this loop alongside other quality gaps.
 

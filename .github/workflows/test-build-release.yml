@@ -48,11 +48,10 @@ jobs:
             SKILL-INDEX.md \
             skills-lock.json \
             README.md \
-            website/src/content/docs \
             specs/SKILL-SEARCH-INDEX_LATEST.md || {
             echo "::error::Generated artifacts out of date"
             git status --short
-            git diff --name-only .cursor/rules .gemini/extensions/bigpowers .pi SKILL-INDEX.md skills-lock.json README.md website/src/content/docs specs/SKILL-SEARCH-INDEX_LATEST.md
+            git diff --name-only .cursor/rules .gemini/extensions/bigpowers .pi SKILL-INDEX.md skills-lock.json README.md specs/SKILL-SEARCH-INDEX_LATEST.md
             exit 1
           }
 
