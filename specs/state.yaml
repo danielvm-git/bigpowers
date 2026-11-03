@@ -5,12 +5,8 @@ bug_id: null
 bigpowers_version: 2.89.0
 bug_cycle: null
 handoff:
-  next_skill: release-branch
-  context: 'e58s01+e58s02 done on branch danielvm-git/bigpowers-evaluation-roadmap-4d0758: run-ab-eval.sh
-    (vanilla vs bigpowers, outcome-only hidden tests) now has an opencode adapter (OpenCode Go, default
-    opencode-go/deepseek-v4-pro, per-run empty HOME isolation) and 8 tasks (ab-04..ab-08 ported from the
-    legacy bigpowers-benchmark T01-T05). Live run waits on connecting the OpenCode Go key
-    (opencode auth login) and on a sandbox decision for --auto runs.'
+  next_skill: null
+  context: 'Fixed BUG-2026-11-03-story-verify-ab-sandbox-daemon-required: removed background docker daemon requirement from e58s07 story verify directive. Full story-verify suite passes (50 PASS, 0 FAIL).'
   epic: e58
 epic_cycle: null
 metrics:
@@ -36,10 +32,10 @@ metrics:
       total_seconds: 632.0
       avg_seconds: 632.0
 release:
-  ci_verified: true
+  ci_verified: false
   last_commit: 3daf6225
   last_epic: e79-simple-english-skill
   last_tag: v2.87.2
   last_publish: '2026-08-05T16:28:27Z'
 git:
-  branch: main
+  branch: danielvm-git/bigpowers-evaluation-roadmap-4d0758

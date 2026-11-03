@@ -622,6 +622,16 @@ bugs:
     approach: "Give every ${OMP_PLUGIN_ROOT} reference a ':-.' default so hosts that do not inject it resolve the package-relative path; smoke-test the manifest under both host profiles"
     risk_level: "low"
     commit_message: "fix(mcp): default OMP_PLUGIN_ROOT so bigpowers-mcp starts outside OMP (#168)"
+  - id: BUG-2026-11-03-story-verify-ab-sandbox-daemon-required
+    status: fixed
+    severity: high
+    scope: ci / story-verify
+    title: "e58s07 story-verify fails in CI because ab-sandbox.sh status requires background Docker containers"
+    file: bugs/BUG-2026-11-03-story-verify-ab-sandbox-daemon-required.md
+    files_changed: "specs/epics/e58-evals-over-compliance/epic.yaml, specs/epics/e58-evals-over-compliance/e58s07-tasks.yaml, specs/epics/e58-evals-over-compliance/e58s07-docker-sandbox.md, tests/test_ab_sandbox.py"
+    approach: "Remove daemon status check from story-verify directive, relying on test_ab_sandbox.py which gates grade wrapper and timeout while cleanly handling offline sandbox"
+    risk_level: "low"
+    commit_message: "fix(ci): remove live docker daemon requirement from e58s07 story verify"
   - id: BUG-2026-11-03-wiki-indexes-ignored-reports
     status: open
     severity: low

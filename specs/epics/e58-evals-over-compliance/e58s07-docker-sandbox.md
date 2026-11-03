@@ -56,5 +56,6 @@ Scenario: The sandbox cannot see the host or the internet (needs Docker)
 ## Acceptance
 
 ```bash
-python3 tests/test_ab_sandbox.py && bash scripts/ab-sandbox.sh status && echo OK
+python3 tests/test_ab_sandbox.py && echo OK
 ```
+*(When testing live isolation locally with the sandbox running: `bash scripts/ab-sandbox.sh status && python3 tests/test_ab_sandbox.py`)*

@@ -22,7 +22,7 @@ tasks:
     categories: ["unit", "Evals"]
 - id: 3
   description: Pinned agent and proxy images, internal network, ab-sandbox.sh up/down/status
-  verify: bash scripts/ab-sandbox.sh status
+  verify: python3 tests/test_ab_sandbox.py
   risk: P1
   status: passing
   allure:

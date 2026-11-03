@@ -166,7 +166,7 @@ stories:
       - specs/benchmarks/SCHEMA.md
       - tests/test_ab_sandbox.py
     tasks: e58s07-tasks.yaml
-    verify: python3 tests/test_ab_sandbox.py && bash scripts/ab-sandbox.sh status
+    verify: python3 tests/test_ab_sandbox.py
 planned_stories:
   - working_title: "Extend run-evals to cover a meaningful skill subset with real with/without-skill deltas"
     bcp_estimate: 3

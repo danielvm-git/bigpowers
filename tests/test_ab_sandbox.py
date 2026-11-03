@@ -52,6 +52,18 @@ class TestGradeWrapper(Sandbox):
         self.assertEqual((self.tmp / "timeout.txt").read_text().strip(), "10")
 
 
+class TestSandboxScript(unittest.TestCase):
+    def test_sandbox_script_syntax_and_usage(self):
+        script = REPO_ROOT / "scripts" / "ab-sandbox.sh"
+        self.assertTrue(script.exists())
+        self.assertTrue(bool(script.stat().st_mode & 0o111), "ab-sandbox.sh must be executable")
+        res = subprocess.run(["bash", "-n", str(script)], capture_output=True, text=True)
+        self.assertEqual(res.returncode, 0, res.stderr)
+        res = subprocess.run(["bash", str(script), "unknown-cmd"], capture_output=True, text=True)
+        self.assertEqual(res.returncode, 1)
+        self.assertIn("usage: ab-sandbox.sh up|down|status", res.stderr)
+
+
 @unittest.skipUnless(sandbox_up(), "Docker sandbox not up (bash scripts/ab-sandbox.sh up)")
 class TestIsolation(unittest.TestCase):
     def agent(self, script: str, network: str = "bp-ab-internal") -> subprocess.CompletedProcess:
