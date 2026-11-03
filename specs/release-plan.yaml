@@ -142,7 +142,7 @@ epics:
   bcps: 98
   capsule_dir: epics/e86-hooks-enforce
   mode: capsule
-  status: scoped
+  status: in_progress
   wsjf_rationale: BV 8 + TC 5 + RR 8 / Job 5 ≈ 4.2
   source: Playbook value-engineering pass 2026-10-30 — see specs/VALUE-ENGINEERING-playbook-compat.md
 - id: e87
