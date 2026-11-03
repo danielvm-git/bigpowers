@@ -1,3 +1,15 @@
+# [2.90.0](https://github.com/danielvm-git/bigpowers/compare/v2.89.1...v2.90.0) (2026-11-03)
+
+
+### Bug Fixes
+
+* **scripts:** name the failing test when story verify goes red ([#188](https://github.com/danielvm-git/bigpowers/issues/188)) ([45fe450](https://github.com/danielvm-git/bigpowers/commit/45fe4505caea2522038951d5774c6a5b5ae5cb57))
+
+
+### Features
+
+* **benchmarks:** run the A/B eval in a Docker sandbox (e58s07) ([#187](https://github.com/danielvm-git/bigpowers/issues/187)) ([9377f16](https://github.com/danielvm-git/bigpowers/commit/9377f1642682afcde5387afbfb9373f11b0ec40c))
+
 ## [2.89.1](https://github.com/danielvm-git/bigpowers/compare/v2.89.0...v2.89.1) (2026-11-03)
 
 
