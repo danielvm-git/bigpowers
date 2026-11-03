@@ -344,6 +344,7 @@ development_status:
   e58s03: done
   e58s04: done
   e58s05: done
+  e58s06: todo
   e59: backlog
   e60: done
   e60s01: done
@@ -3198,6 +3199,15 @@ stories:
     tasks_total: 3
     tasks_passing: 3
     tasks_failing: 0
+    risk_max: P2
+  e58s06:
+    status: todo
+    title: pi adapter (default), OpenCode Go deepseek-v4.1-flash
+    bcps: 5
+    epic: e58
+    tasks_total: 3
+    tasks_passing: 0
+    tasks_failing: 3
     risk_max: P2
   e60s01:
     status: done

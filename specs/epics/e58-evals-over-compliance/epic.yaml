@@ -1,7 +1,7 @@
 id: e58
 title: "Evals Over Compliance — Replace the 94% Gate with Outcome Proof"
 wsjf: 5.3
-bcps: 62
+bcps: 67
 bcps_projected: 9
 capsule_dir: epics/e58-evals-over-compliance
 mode: capsule
@@ -128,6 +128,24 @@ stories:
       - tests/test_ab_progress.py
     tasks: e58s05-tasks.yaml
     verify: python3 tests/test_ab_progress.py
+  - id: e58s06
+    title: "pi adapter (default), OpenCode Go deepseek-v4.1-flash"
+    status: todo
+    bcps: 5
+    bcp_basis: estimate, 2026-11-02 (adapter + isolation + parser + default_adapter)
+    risk: P2
+    delta: ADDED
+    source: maintainer runs agents via pi with the OpenCode Go provider
+    description: >-
+      Isolated pi adapter (per-run PI_CODING_AGENT_DIR with only auth.json), pi-json metrics
+      parser, and a config default_adapter set to pi.
+    files:
+      - scripts/lib/ab-eval.py
+      - scripts/lib/ab_metrics.py
+      - specs/benchmarks/ab/config.yaml
+      - tests/test_ab_pi.py
+    tasks: e58s06-tasks.yaml
+    verify: python3 tests/test_ab_pi.py
 planned_stories:
   - working_title: "Extend run-evals to cover a meaningful skill subset with real with/without-skill deltas"
     bcp_estimate: 3

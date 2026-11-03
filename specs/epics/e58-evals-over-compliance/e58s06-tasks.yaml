@@ -1,0 +1,30 @@
+story_id: e58s06
+spec: e58s06-pi-adapter.md
+title: pi adapter (default), OpenCode Go deepseek-v4.1-flash
+status: failing
+bcps: 5
+tasks:
+- id: 1
+  description: Failing tests for the pi-json parser and default_adapter
+  verify: test -f tests/test_ab_pi.py
+  risk: P2
+  status: failing
+  allure:
+    severity: normal
+    categories: ["unit", "Evals"]
+- id: 2
+  description: pi-json parser and default_adapter fallback in the runner
+  verify: python3 tests/test_ab_pi.py
+  risk: P2
+  status: failing
+  allure:
+    severity: normal
+    categories: ["unit", "Evals"]
+- id: 3
+  description: Isolated pi adapter in config.yaml as default; docs and handoff use pi
+  verify: bash scripts/run-ab-eval.sh --dry-run --k 1 --tasks ab-01 | grep -q "adapter 'pi'"
+  risk: P2
+  status: failing
+  allure:
+    severity: normal
+    categories: ["Evals", "docs"]
