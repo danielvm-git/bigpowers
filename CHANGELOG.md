@@ -1,3 +1,10 @@
+# [2.91.0](https://github.com/danielvm-git/bigpowers/compare/v2.90.2...v2.91.0) (2026-11-03)
+
+
+### Features
+
+* **hooks:** enforce mechanical gates for red-commit, artifacts, and adversarial mutation (e86) ([#191](https://github.com/danielvm-git/bigpowers/issues/191)) ([7a1b090](https://github.com/danielvm-git/bigpowers/commit/7a1b0907aa20962ee71e825c4996aa80c213be3f))
+
 ## [2.90.2](https://github.com/danielvm-git/bigpowers/compare/v2.90.1...v2.90.2) (2026-11-03)
 
 
