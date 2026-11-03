@@ -642,6 +642,16 @@ bugs:
     approach: "Remove daemon status check from story-verify directive, relying on test_ab_sandbox.py which gates grade wrapper and timeout while cleanly handling offline sandbox"
     risk_level: "low"
     commit_message: "fix(ci): remove live docker daemon requirement from e58s07 story verify"
+  - id: BUG-2026-11-03-story-verify-e58-eval-flake
+    status: open
+    severity: high
+    scope: ci / story-verify
+    title: "story-verify goes red on main for e58s01/e58s02/e58s03 on an intermittent failure inside test_ab_eval.py that does not reproduce locally"
+    file: bugs/BUG-2026-11-03-story-verify-e58-eval-flake.md
+    files_changed: "scripts/run-story-verify.sh"
+    approach: "Gate now prints a 'detail:' line naming the failing test so the next occurrence is diagnosable; root cause unknown after ~280 reproduction attempts, so it is logged rather than papered over"
+    risk_level: "low"
+    commit_message: "fix(scripts): name the failing test when story verify goes red"
   - id: BUG-2026-11-03-wiki-indexes-ignored-reports
     status: open
     severity: low
