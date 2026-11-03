@@ -1,3 +1,10 @@
+## [2.93.2](https://github.com/danielvm-git/bigpowers/compare/v2.93.1...v2.93.2) (2026-11-03)
+
+
+### Bug Fixes
+
+* **deps:** clear the production dependency advisories ([#200](https://github.com/danielvm-git/bigpowers/issues/200)) ([1ff6dea](https://github.com/danielvm-git/bigpowers/commit/1ff6dea73d7fdc06ebb3172839758f7a1be995c4))
+
 ## [2.93.1](https://github.com/danielvm-git/bigpowers/compare/v2.93.0...v2.93.1) (2026-11-03)
 
 
