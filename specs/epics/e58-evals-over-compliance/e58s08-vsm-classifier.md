@@ -31,8 +31,9 @@ only 1–3% of lead time, so time must be credited per model turn, by the action
     other parser or an unreadable stream:
     `lead_time_s`, `time_to_first_build_s`, `switches` (stage changes between turns),
     `sequence` (stage per turn) and `stages.<stage>` = `{s, cost_usd, output_tokens, turns}`.
-  - A turn lasts from its assistant message's timestamp to the next message's timestamp (pi
-    stamps a message when it starts).
+  - A turn lasts from its assistant message's timestamp to the next assistant message's (pi stamps
+    a message when it starts), so it owns the model time and the tools it ran. The last turn ends
+    at the last message.
   - CLI: `python3 scripts/lib/ab_vsm.py <trace.jsonl.gz>...` prints one VSM line per transcript,
     so existing saved runs can be mapped too.
 - The runner adds `vsm` to every run record (so to `ab-live.jsonl` and the jsonl report).

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-03T03:23:55.148304+00:00",
+  "generated_at": "2026-11-03T13:16:28.150084+00:00",
   "matrix_version": "1.0",
   "stories": [
     {
@@ -2418,6 +2418,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/generalize-sweep-BUG-2026-11-03-story-verify-ab-sandbox-daemon-required.json",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/compliance-margin-and-orphans-verify.yaml",
           "line": 0,
           "confidence": "medium",
@@ -2508,7 +2514,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-11-03-story-verify-ab-sandbox-daemon-required.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-23-golden-g11-worktree-venv.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-03-story-verify-ab-sandbox-daemon-required.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -2730,7 +2748,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 90
+      "link_count": 93
     },
     {
       "id": "e45s10",
@@ -10206,6 +10224,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-11-03-story-verify-ab-sandbox-daemon-required.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-09-09-pi-duplicate-slash-commands.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -10326,7 +10350,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 37
+      "link_count": 38
     },
     {
       "id": "e48s02",
@@ -10464,6 +10488,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-11-03-story-verify-ab-sandbox-daemon-required.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-09-09-pi-duplicate-slash-commands.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -10513,6 +10543,12 @@
         },
         {
           "file": "specs/adr-wiki/0005-hard-gate-mandate.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/benchmarks/ab/tasks/ab-20-brand-discount/audit/test-audit/brand-audit.test.js",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -10572,7 +10608,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 39
+      "link_count": 41
     },
     {
       "id": "e48s03",
@@ -10627,6 +10663,12 @@
         },
         {
           "file": "specs/agent-guide/analysis-debug-70-90-savings.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/generalize-sweep-BUG-2026-11-03-story-verify-ab-sandbox-daemon-required.json",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -11124,6 +11166,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-11-03-story-verify-ab-sandbox-daemon-required.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-10-29-mcp-secret-diffs.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -11335,6 +11383,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-10-25-release-not-gated.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-03-story-verify-ab-sandbox-daemon-required.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -11784,7 +11838,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 200
+      "link_count": 203
     },
     {
       "id": "e48s04",
@@ -12337,6 +12391,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-25-fail-open-skill-verify.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-03-story-verify-ab-sandbox-daemon-required.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -13176,7 +13236,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 216
+      "link_count": 217
     },
     {
       "id": "e48s06",
@@ -13566,6 +13626,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/benchmarks/ab/tasks/ab-20-brand-discount/hidden/test-hidden/brand-discount.test.js",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/benchmarks/ab/tasks/ab-20-brand-discount/audit/test-audit/brand-audit.test.js",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/epics/archive/e16-deployment-pipeline/e16s02-smoke-test.md",
           "line": 0,
           "confidence": "medium",
@@ -13674,7 +13746,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 31
+      "link_count": 33
     },
     {
       "id": "e48s12",
@@ -14652,6 +14724,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/generalize-sweep-BUG-2026-11-03-story-verify-ab-sandbox-daemon-required.json",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/compliance-margin-and-orphans-verify.yaml",
           "line": 0,
           "confidence": "medium",
@@ -14701,6 +14779,18 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-06-verify-work-runner-scripts-oversized.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-03-story-verify-ab-sandbox-daemon-required.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-03-story-verify-ab-sandbox-daemon-required.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -14844,7 +14934,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 76
+      "link_count": 79
     },
     {
       "id": "e51s04",
@@ -18174,6 +18264,12 @@
           "method": "explicit_tag"
         },
         {
+          "file": "tests/test_ab_tasks.py",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "scripts/lib/ab-arm-bigpowers.sh",
           "line": 2,
           "confidence": "high",
@@ -18216,7 +18312,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 13
+      "link_count": 14
     },
     {
       "id": "e58s02",
@@ -18492,6 +18588,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/generalize-sweep-BUG-2026-11-03-story-verify-ab-sandbox-daemon-required.json",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/steps/and-formatting-should-be-consistent.sh",
           "line": 0,
           "confidence": "medium",
@@ -18570,6 +18672,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-11-03-story-verify-ab-sandbox-daemon-required.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-03-story-verify-ab-sandbox-daemon-required.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "docs/references/agent-config-files-and-okf.md",
           "line": 0,
           "confidence": "medium",
@@ -18582,7 +18696,73 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 20
+      "link_count": 23
+    },
+    {
+      "id": "e58s08",
+      "title": "value stream map per run (stage classifier)",
+      "epic_id": "e58",
+      "epic_title": "Evals Over Compliance \u2014 Replace the 94% Gate with Outcome Proof",
+      "bcp": 0,
+      "wsjf": 5.3,
+      "status": "done",
+      "links": [
+        {
+          "file": "specs/benchmarks/ab/tasks/ab-20-brand-discount/task.yaml",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/benchmarks/ab/tasks/ab-17-payment-alias/task.yaml",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/benchmarks/ab/tasks/ab-19-catalog-segregation/task.yaml",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/benchmarks/ab/tasks/ab-09-inventory-reservations/task.yaml",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/benchmarks/ab/vsm.yaml",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e58-evals-over-compliance/e58s08-vsm-classifier.md",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "tests/test_ab_vsm.py",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/lib/ab_vsm.py",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/epics/e58-evals-over-compliance/e58s08-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        }
+      ],
+      "link_count": 9
     },
     {
       "id": "e60s01",
@@ -21570,6 +21750,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/generalize-sweep-BUG-2026-11-03-story-verify-ab-sandbox-daemon-required.json",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/e48s15-verify.yaml",
           "line": 0,
           "confidence": "medium",
@@ -21780,6 +21966,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-11-03-story-verify-ab-sandbox-daemon-required.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-07-26-story-verify-never-executed.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -21787,6 +21979,12 @@
         },
         {
           "file": "specs/bugs/BUG-2026-07-25-fail-open-skill-verify.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-03-story-verify-ab-sandbox-daemon-required.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -21972,7 +22170,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 82
+      "link_count": 85
     },
     {
       "id": "e80s02",
@@ -22104,6 +22302,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/benchmarks/ab/tasks/ab-20-brand-discount/hidden/test-hidden/brand-discount.test.js",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/benchmarks/ab/tasks/ab-20-brand-discount/audit/test-audit/brand-audit.test.js",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/epics/archive/e17-data-contract-validation/e17s01-validate-contracts.md",
           "line": 0,
           "confidence": "medium",
@@ -22182,7 +22392,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 33
+      "link_count": 35
     },
     {
       "id": "e80s03",
@@ -24042,6 +24252,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/benchmarks/ab/tasks/ab-20-brand-discount/hidden/test-hidden/brand-discount.test.js",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/benchmarks/ab/tasks/ab-20-brand-discount/fixture/docs/SPEC-brand-discount.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "website/src/content/docs/decisions/0005-hard-gate-mandate.md",
           "line": 0,
           "confidence": "medium",
@@ -24054,7 +24276,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 9
+      "link_count": 11
     },
     {
       "id": "e86s01",
@@ -24478,8 +24700,8 @@
     }
   ],
   "summary": {
-    "total_stories": 157,
-    "tagged_stories": 132,
+    "total_stories": 158,
+    "tagged_stories": 133,
     "dark_stories": [],
     "dark_count": 0,
     "orphan_tags": [
@@ -24713,6 +24935,7 @@
       "e58s05",
       "e58s06",
       "e58s07",
+      "e58s08",
       "e60s01",
       "e61s01",
       "e61s02",
@@ -24753,11 +24976,11 @@
       "e80s05",
       "e81s01"
     ],
-    "stale_count": 122,
+    "stale_count": 123,
     "oracle_stats": {
-      "high": 1040,
-      "medium": 2620,
-      "low": 105
+      "high": 1049,
+      "medium": 2645,
+      "low": 106
     }
   }
 }

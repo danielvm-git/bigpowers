@@ -71,7 +71,7 @@ stories:
       - specs/benchmarks/ab/tasks/
       - tests/test_ab_eval.py
     tasks: e58s02-tasks.yaml
-    verify: python3 tests/test_ab_eval.py && bash scripts/run-ab-eval.sh --dry-run --adapter opencode
+    verify: python3 tests/test_ab_eval.py && python3 tests/test_ab_tasks.py && bash scripts/run-ab-eval.sh --dry-run --adapter opencode
   - id: e58s03
     title: "partial-credit scoring + two hard tasks (ab-11, ab-13)"
     status: done
@@ -169,7 +169,7 @@ stories:
     verify: python3 tests/test_ab_sandbox.py
   - id: e58s08
     title: "value stream map per run (stage classifier)"
-    status: todo
+    status: done
     bcps: 5
     bcp_basis: estimate, 2026-11-03 (rules file + classifier + runner hook)
     risk: P2

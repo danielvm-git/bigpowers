@@ -107,6 +107,12 @@ bash scripts/run-ab-eval.sh --adapter gemini --model <m>    # another harness
   saved to `<out>/traces/<task>-<arm>-<run>.jsonl.gz`. Watch one or many shards with
   `python3 scripts/lib/ab_progress.py <out-dir>... [--watch 600]`: runs, pass, score, cost and
   errors per task and arm, deltas against vanilla with CIs, and their evolution by run index.
+- **Value stream map (e58s08):** every record has a `vsm` block for pi transcripts (`null` for
+  other parsers): `lead_time_s`, `time_to_first_build_s`, `switches`, `sequence` and
+  `stages.<plan|design|build|test|deploy|maintain|wrap-up>` = `{s, cost_usd, output_tokens, turns}`.
+  Each model turn, from its start to the next turn's start, goes to the stage of the action it takes.
+  The rules are in `specs/benchmarks/ab/vsm.yaml`. Map saved transcripts with
+  `python3 scripts/lib/ab_vsm.py <traces>/*.jsonl.gz`. Rationale: `LEAN-VSM_LATEST.md`.
 - **Reports:** `specs/benchmarks/reports/AB-<date>.yaml` (per-arm and per-task rates and
   `mean_score`, `per_task_score`, delta `bigpowers − vanilla` for pass rate and score, each with a
   seeded bootstrap 95% CI; `deltas_vs_vanilla` gives the same for every non-vanilla arm) and

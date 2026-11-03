@@ -1,6 +1,20 @@
 # Lean value-stream measurement for the A/B benchmark — proposal
 
-Status: proposal, 2026-11-03. Nothing here is built yet. Builds on e58s01–e58s07.
+Status: proposal, 2026-11-03. Step 2 (e58s08, the per-run stage classifier) is built; steps 3–6 are
+designs. Builds on e58s01–e58s07.
+
+**First VSM at scale (e58s08, 2026-11-03).** 120 sandboxed runs (`pi-docker`, deepseek-v4.1-flash,
+ab-09/11/13/17/19/20 × 2 arms × k=10): outcome equal (pass 0.98 vs 0.97, delta −0.02
+[−0.08, +0.03]); bigpowers costs 2.0× and takes 1.7× the lead time.
+
+| Arm | Lead | First build | Stage switches | Plan | Design | Build | Test | Deploy | Maintain |
+|---|---|---|---|---|---|---|---|---|---|
+| vanilla | 72 s | 16 s | 6.4 | 7% | 24% | **39%** | 31% | 0% | 0% |
+| bigpowers | 124 s | **69 s** | 11.9 | 10% | 15% | **16%** | **50%** | 6% | 2% |
+
+The extra time is mostly Test (50% of a longer run) and a 4× later first build, with twice the
+task switching, and it buys no outcome on these tasks. 5 of 6 tasks were 10/10 on both arms, so
+the tasks are still too easy to show where that testing would pay off.
 
 ## Why
 

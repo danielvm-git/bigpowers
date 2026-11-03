@@ -1,7 +1,7 @@
 ---
 type: Index
-generated_at: 2026-11-03T03:23:55.153250+00:00
-total_concepts: 157
+generated_at: 2026-11-03T13:16:28.154602+00:00
+total_concepts: 158
 ---
 
 # Codebase Wiki — Story Traceability
@@ -34,7 +34,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e45s06](./e45s06.md) | tasks.yaml: literal failing→passing task ledger | high | 2 |
 | [e45s07](./e45s07.md) | request-review: dual-blind AND-gate review (Santa Method) | high | 38 |
 | [e45s08](./e45s08.md) | develop-tdd / validate-fix: two-commit red/green regression  | high | 14 |
-| [e45s09](./e45s09.md) | verify-work / plan-work: Pre-Implementation and Validation g | high | 90 |
+| [e45s09](./e45s09.md) | verify-work / plan-work: Pre-Implementation and Validation g | high | 93 |
 | [e45s10](./e45s10.md) | docs/references: auto-regenerate from source-of-truth docs v | high | 7 |
 | [e45s11](./e45s11.md) | orchestration / dispatch-agents: typed message protocol + 3- | high | 21 |
 | [e45s12](./e45s12.md) | stocktake-skills / craft-skill: code-enforced validator + au | high | 47 |
@@ -67,24 +67,24 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e45s39](./e45s39.md) | PR generation: literal provenance marker | high | 18 |
 | [e45s40](./e45s40.md) | verify-work: mandatory real-browser verification | high | 27 |
 | [e45s41](./e45s41.md) | security-review: proven authorship SQL-safety doctrine | high | 22 |
-| [e48s01](./e48s01.md) | Generate epics-wiki and adr-wiki as OKF concept bundles from | high | 37 |
-| [e48s02](./e48s02.md) | Emit verification reports as OKF bundles from run-golden-sui | medium | 39 |
-| [e48s03](./e48s03.md) | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | high | 200 |
+| [e48s01](./e48s01.md) | Generate epics-wiki and adr-wiki as OKF concept bundles from | high | 38 |
+| [e48s02](./e48s02.md) | Emit verification reports as OKF bundles from run-golden-sui | medium | 41 |
+| [e48s03](./e48s03.md) | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | high | 203 |
 | [e48s04](./e48s04.md) | Create viz.html — interactive force-layout graph companion f | medium | 12 |
-| [e48s05](./e48s05.md) | Wire OKF validation into CI (sync-skills.yml) and document i | medium | 216 |
+| [e48s05](./e48s05.md) | Wire OKF validation into CI (sync-skills.yml) and document i | medium | 217 |
 | [e48s06](./e48s06.md) | Add tier: field (core/extended/specialized) to OKF wiki inde | medium | 13 |
 | [e48s07](./e48s07.md) | Create publish-to-wiki kernel tool | high | 2 |
 | [e48s08](./e48s08.md) | Add GitHub Action Template for publish-wiki.yml [HARD GATE] | high | 8 |
 | [e48s09](./e48s09.md) | Create Wiki Scaffold Templates and provenance header injecti | medium | 2 |
 | [e48s10](./e48s10.md) | Extend bigspec init with --with-wiki flag | medium | 15 |
-| [e48s11](./e48s11.md) | BCP Plus counter integration — install and smoke-test big-co | medium | 31 |
+| [e48s11](./e48s11.md) | BCP Plus counter integration — install and smoke-test big-co | medium | 33 |
 | [e48s12](./e48s12.md) | BCP Plus template — 13-dimension breakdown in story specs | high | 9 |
 | [e48s13](./e48s13.md) | NFR Gate integration — security-review and wire-observabilit | high | 19 |
 | [e48s14](./e48s14.md) | Build-epic integration — BCP Plus in story sizing workflow | high | 14 |
 | [e48s15](./e48s15.md) | Refactor Skills Render Pipeline to Hybrid JSON Seam | high | 7 |
 | [e51s01](./e51s01.md) | CONVENTIONS — Always Green, Shift Left, Discovered Defects,  | high | 8 |
 | [e51s02](./e51s02.md) | seed-conventions — Preflight default, solo-git default, embe | high | 48 |
-| [e51s03](./e51s03.md) | kickoff-branch + verify-work — Preflight hard block and CI g | high | 76 |
+| [e51s03](./e51s03.md) | kickoff-branch + verify-work — Preflight hard block and CI g | high | 79 |
 | [e51s04](./e51s04.md) | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | high | 351 |
 | [e51s05](./e51s05.md) | CLAUDE.md — solo-default agent rules + bigpowers Preflight c | high | 7 |
 | [e53s01](./e53s01.md) | Commit the untracked GOLDEN baseline | high | 12 |
@@ -97,13 +97,14 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e55s01](./e55s01.md) | Map every current doctrine source to a B0-B10 + Capstone blo | high | 5 |
 | [e55s02](./e55s02.md) | Write constitution.md from the mapping, CLAUDE.md/CONVENTION | high | 4 |
 | [e55s03](./e55s03.md) | Point CLAUDE.md/CONVENTIONS.md at constitution.md, don't del | high | 6 |
-| [e58s01](./e58s01.md) | Outcome A/B eval runner — vanilla agent vs bigpowers | high | 13 |
+| [e58s01](./e58s01.md) | Outcome A/B eval runner — vanilla agent vs bigpowers | high | 14 |
 | [e58s02](./e58s02.md) | opencode adapter + the five legacy benchmark tasks | high | 7 |
 | [e58s03](./e58s03.md) | partial-credit scoring + two hard tasks (ab-11, ab-13) | high | 7 |
 | [e58s04](./e58s04.md) | ablation arms — which part of bigpowers produces the gain | high | 4 |
 | [e58s05](./e58s05.md) | live progress, interleaved runs and saved transcripts | high | 6 |
 | [e58s06](./e58s06.md) | pi adapter (default), OpenCode Go deepseek-v4.1-flash | high | 5 |
-| [e58s07](./e58s07.md) | Docker sandbox for agent runs and grading | high | 20 |
+| [e58s07](./e58s07.md) | Docker sandbox for agent runs and grading | high | 23 |
+| [e58s08](./e58s08.md) | value stream map per run (stage classifier) | high | 9 |
 | [e60s01](./e60s01.md) | Interactive installer with ASCII banner, global/local, tool  | high | 11 |
 | [e61s01](./e61s01.md) | Hermes adapter + hook templates (Wave A) | high | 10 |
 | [e61s02](./e61s02.md) | Install hub wiring (Wave B) | high | 15 |
@@ -137,8 +138,8 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e79s02](./e79s02.md) | Validator script + craft-skill HARD GATE | high | 21 |
 | [e79s03](./e79s03.md) | seed-conventions applies ruleset | high | 24 |
 | [e79s04](./e79s04.md) | stocktake-skills violation scanner | high | 24 |
-| [e80s01](./e80s01.md) | Core verify skills → verify directives | high | 82 |
-| [e80s02](./e80s02.md) | smoke-test and validate-contracts real bodies | high | 33 |
+| [e80s01](./e80s01.md) | Core verify skills → verify directives | high | 85 |
+| [e80s02](./e80s02.md) | smoke-test and validate-contracts real bodies | high | 35 |
 | [e80s03](./e80s03.md) | develop-tdd RED commit isolation check | high | 10 |
 | [e80s04](./e80s04.md) | generalize-fix phase in validate-fix | high | 32 |
 | [e80s05](./e80s05.md) | security-review fixture table growth | high | 11 |
@@ -155,7 +156,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e84s01](./e84s01.md) | AGENTS.md is the canonical instruction file in this repo | high | 5 |
 | [e84s02](./e84s02.md) | seed-conventions writes AGENTS.md-first by default | medium | 8 |
 | [e85s01](./e85s01.md) | Count the 10 functional dimensions with worked-example self- | high | 6 |
-| [e85s02](./e85s02.md) | NFR dimensions, maturity gate and count provenance | medium | 9 |
+| [e85s02](./e85s02.md) | NFR dimensions, maturity gate and count provenance | medium | 11 |
 | [e86s01](./e86s01.md) | Generated paths are blocked at edit time | high | 2 |
 | [e86s02](./e86s02.md) | Tests are locked during a fix after the RED commit | medium | 10 |
 | [e86s03](./e86s03.md) | Secrets are blocked before commit | low | 1 |

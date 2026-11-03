@@ -1,17 +1,17 @@
 # Traceability Matrix
 
-**Generated:** 2026-11-03 03:23:55 UTC
-**Total stories:** 157
-**Tagged stories:** 132
+**Generated:** 2026-11-03 13:16:28 UTC
+**Total stories:** 158
+**Tagged stories:** 133
 **Dark stories:** 0
 **Orphan tags:** 144
-**Stale tags:** 122
+**Stale tags:** 123
 
 ## Oracle Stats
 
-- **High** (explicit tag): 1040
-- **Medium** (file heuristic): 2620
-- **Low** (task reference): 105
+- **High** (explicit tag): 1049
+- **Medium** (file heuristic): 2645
+- **Low** (task reference): 106
 
 ## Story Coverage
 
@@ -41,7 +41,7 @@
 | e45s06 | tasks.yaml: literal failing→passing task ledger | e45 | 2 | 5.0 | done | 2 |
 | e45s07 | request-review: dual-blind AND-gate review (Santa Method) | e45 | 2 | 5.0 | done | 38 |
 | e45s08 | develop-tdd / validate-fix: two-commit red/green regression  | e45 | 2 | 5.0 | done | 14 |
-| e45s09 | verify-work / plan-work: Pre-Implementation and Validation g | e45 | 2 | 5.0 | done | 90 |
+| e45s09 | verify-work / plan-work: Pre-Implementation and Validation g | e45 | 2 | 5.0 | done | 93 |
 | e45s10 | docs/references: auto-regenerate from source-of-truth docs v | e45 | 2 | 5.0 | done | 7 |
 | e45s11 | orchestration / dispatch-agents: typed message protocol + 3- | e45 | 2 | 5.0 | done | 21 |
 | e45s12 | stocktake-skills / craft-skill: code-enforced validator + au | e45 | 2 | 5.0 | done | 47 |
@@ -74,24 +74,24 @@
 | e45s39 | PR generation: literal provenance marker | e45 | 2 | 5.0 | done | 18 |
 | e45s40 | verify-work: mandatory real-browser verification | e45 | 2 | 5.0 | done | 27 |
 | e45s41 | security-review: proven authorship SQL-safety doctrine | e45 | 2 | 5.0 | done | 22 |
-| e48s01 | Generate epics-wiki and adr-wiki as OKF concept bundles from | e48 | 2 | 2.5 | done | 37 |
-| e48s02 | Emit verification reports as OKF bundles from run-golden-sui | e48 | 2 | 2.5 | done | 39 |
-| e48s03 | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | e48 | 1 | 2.5 | done | 200 |
+| e48s01 | Generate epics-wiki and adr-wiki as OKF concept bundles from | e48 | 2 | 2.5 | done | 38 |
+| e48s02 | Emit verification reports as OKF bundles from run-golden-sui | e48 | 2 | 2.5 | done | 41 |
+| e48s03 | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | e48 | 1 | 2.5 | done | 203 |
 | e48s04 | Create viz.html — interactive force-layout graph companion f | e48 | 2 | 2.5 | done | 12 |
-| e48s05 | Wire OKF validation into CI (sync-skills.yml) and document i | e48 | 1 | 2.5 | done | 216 |
+| e48s05 | Wire OKF validation into CI (sync-skills.yml) and document i | e48 | 1 | 2.5 | done | 217 |
 | e48s06 | Add tier: field (core/extended/specialized) to OKF wiki inde | e48 | 2 | 2.5 | done | 13 |
 | e48s07 | Create publish-to-wiki kernel tool | e48 | 3 | 2.5 | done | 2 |
 | e48s08 | Add GitHub Action Template for publish-wiki.yml [HARD GATE] | e48 | 1 | 2.5 | done | 8 |
 | e48s09 | Create Wiki Scaffold Templates and provenance header injecti | e48 | 2 | 2.5 | done | 2 |
 | e48s10 | Extend bigspec init with --with-wiki flag | e48 | 2 | 2.5 | done | 15 |
-| e48s11 | BCP Plus counter integration — install and smoke-test big-co | e48 | 5 | 2.5 | done | 31 |
+| e48s11 | BCP Plus counter integration — install and smoke-test big-co | e48 | 5 | 2.5 | done | 33 |
 | e48s12 | BCP Plus template — 13-dimension breakdown in story specs | e48 | 5 | 2.5 | done | 9 |
 | e48s13 | NFR Gate integration — security-review and wire-observabilit | e48 | 4 | 2.5 | done | 19 |
 | e48s14 | Build-epic integration — BCP Plus in story sizing workflow | e48 | 4 | 2.5 | done | 14 |
 | e48s15 | Refactor Skills Render Pipeline to Hybrid JSON Seam | e48 | 4 | 2.5 | done | 7 |
 | e51s01 | CONVENTIONS — Always Green, Shift Left, Discovered Defects,  | e51 | 3 | 7.0 | done | 8 |
 | e51s02 | seed-conventions — Preflight default, solo-git default, embe | e51 | 3 | 7.0 | done | 48 |
-| e51s03 | kickoff-branch + verify-work — Preflight hard block and CI g | e51 | 2 | 7.0 | done | 76 |
+| e51s03 | kickoff-branch + verify-work — Preflight hard block and CI g | e51 | 2 | 7.0 | done | 79 |
 | e51s04 | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | e51 | 2 | 7.0 | done | 351 |
 | e51s05 | CLAUDE.md — solo-default agent rules + bigpowers Preflight c | e51 | 2 | 7.0 | done | 7 |
 | e53s01 | Commit the untracked GOLDEN baseline | e53 | 1 | 8.0 | done | 12 |
@@ -104,13 +104,14 @@
 | e55s01 | Map every current doctrine source to a B0-B10 + Capstone blo | e55 | 0 | 6.0 | done | 5 |
 | e55s02 | Write constitution.md from the mapping, CLAUDE.md/CONVENTION | e55 | 0 | 6.0 | done | 4 |
 | e55s03 | Point CLAUDE.md/CONVENTIONS.md at constitution.md, don't del | e55 | 0 | 6.0 | done | 6 |
-| e58s01 | Outcome A/B eval runner — vanilla agent vs bigpowers | e58 | 0 | 5.3 | done | 13 |
+| e58s01 | Outcome A/B eval runner — vanilla agent vs bigpowers | e58 | 0 | 5.3 | done | 14 |
 | e58s02 | opencode adapter + the five legacy benchmark tasks | e58 | 0 | 5.3 | done | 7 |
 | e58s03 | partial-credit scoring + two hard tasks (ab-11, ab-13) | e58 | 0 | 5.3 | done | 7 |
 | e58s04 | ablation arms — which part of bigpowers produces the gain | e58 | 0 | 5.3 | done | 4 |
 | e58s05 | live progress, interleaved runs and saved transcripts | e58 | 0 | 5.3 | done | 6 |
 | e58s06 | pi adapter (default), OpenCode Go deepseek-v4.1-flash | e58 | 0 | 5.3 | done | 5 |
-| e58s07 | Docker sandbox for agent runs and grading | e58 | 0 | 5.3 | done | 20 |
+| e58s07 | Docker sandbox for agent runs and grading | e58 | 0 | 5.3 | done | 23 |
+| e58s08 | value stream map per run (stage classifier) | e58 | 0 | 5.3 | done | 9 |
 | e60s01 | Interactive installer with ASCII banner, global/local, tool  | e60 | 0 | 9.0 | done | 11 |
 | e61s01 | Hermes adapter + hook templates (Wave A) | e61 | 0 | 5.0 | done | 10 |
 | e61s02 | Install hub wiring (Wave B) | e61 | 0 | 5.0 | done | 15 |
@@ -144,8 +145,8 @@
 | e79s02 | Validator script + craft-skill HARD GATE | e79 | 0 | 6.0 | done | 21 |
 | e79s03 | seed-conventions applies ruleset | e79 | 0 | 6.0 | done | 24 |
 | e79s04 | stocktake-skills violation scanner | e79 | 0 | 6.0 | done | 24 |
-| e80s01 | Core verify skills → verify directives | e80 | 0 | 7.5 | done | 82 |
-| e80s02 | smoke-test and validate-contracts real bodies | e80 | 0 | 7.5 | done | 33 |
+| e80s01 | Core verify skills → verify directives | e80 | 0 | 7.5 | done | 85 |
+| e80s02 | smoke-test and validate-contracts real bodies | e80 | 0 | 7.5 | done | 35 |
 | e80s03 | develop-tdd RED commit isolation check | e80 | 0 | 7.5 | done | 10 |
 | e80s04 | generalize-fix phase in validate-fix | e80 | 0 | 7.5 | done | 32 |
 | e80s05 | security-review fixture table growth | e80 | 0 | 7.5 | done | 11 |
@@ -162,7 +163,7 @@
 | e84s01 | AGENTS.md is the canonical instruction file in this repo | e84 | 0 | 10.5 | backlog | 5 |
 | e84s02 | seed-conventions writes AGENTS.md-first by default | e84 | 0 | 10.5 | backlog | 8 |
 | e85s01 | Count the 10 functional dimensions with worked-example self- | e85 | 0 | 4.3 | backlog | 6 |
-| e85s02 | NFR dimensions, maturity gate and count provenance | e85 | 0 | 4.3 | backlog | 9 |
+| e85s02 | NFR dimensions, maturity gate and count provenance | e85 | 0 | 4.3 | backlog | 11 |
 | e86s01 | Generated paths are blocked at edit time | e86 | 0 | 4.2 | backlog | 2 |
 | e86s02 | Tests are locked during a fix after the RED commit | e86 | 0 | 4.2 | backlog | 10 |
 | e86s03 | Secrets are blocked before commit | e86 | 0 | 4.2 | backlog | 1 |
@@ -407,6 +408,7 @@
 - `e58s05`
 - `e58s06`
 - `e58s07`
+- `e58s08`
 - `e60s01`
 - `e61s01`
 - `e61s02`

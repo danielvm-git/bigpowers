@@ -1,0 +1,43 @@
+# story: e58s08
+# Value stream stages for A/B runs, read by scripts/lib/ab_vsm.py.
+# Each tool call is matched against `rules` in order; the first rule whose `tools` regex matches the
+# tool name and whose `target` regex matches the call's command or path wins. A model turn with
+# several calls takes the first stage of `turn_priority` among them; a turn with no call is wrap-up.
+# Stages follow the before/after-agents value stream: plan (requirements), design, build,
+# test (review), deploy (release), maintain. See specs/benchmarks/LEAN-VSM_LATEST.md.
+
+turn_priority: [deploy, build, test, maintain, plan, design]
+
+rules:
+  # Release: branches, commits, tags, packaging.
+  - stage: deploy
+    tools: ^bash$
+    target: (^|[;&|]\s*|\bcd\s+\S+\s*&&\s*)git\s+(checkout\s+-b|switch\s+-c|commit|merge|push|tag)\b|\bnpm\s+(version|publish)\b
+  # Review: running tests, checks and examples.
+  - stage: test
+    tools: ^bash$
+    target: \b(npm|pnpm|yarn)\s+(run\s+)?test\b|\bnode\s+(--test|\S*test)|\bnpx\s+(vitest|jest|mocha)\b|\bpytest\b|\.test\.|\bexamples/
+  # Maintenance artifacts: docs, changelogs, bug notes, state files.
+  - stage: maintain
+    tools: ^(edit|write)$
+    target: (^|/)(README|CHANGELOG)[^/]*$|(^|/)docs/|(^|/)specs/bugs/|(^|/)state\.yaml$
+  # Requirements artifacts: plans and specs.
+  - stage: plan
+    tools: ^(edit|write)$
+    target: (^|/)specs/|(^|/)PLAN[^/]*$
+  # Tests written or changed.
+  - stage: test
+    tools: ^(edit|write)$
+    target: (^|/)tests?/|(^|/)test-hidden/|\.(test|spec)\.[a-z]+$
+  # Product code.
+  - stage: build
+    tools: ^(edit|write)$
+    target: .
+  # Reading requirements: issue, spec, agent instructions, skills, specs.
+  - stage: plan
+    tools: ^(read|bash)$
+    target: ISSUE|SPEC|FEATURE_REQUEST|AGENTS\.md|CLAUDE\.md|(^|/|\s)\.?(agents|claude)/skills/|(^|/|\s)specs/
+  # Everything else: exploring the code to decide the change.
+  - stage: design
+    tools: .
+    target: .*

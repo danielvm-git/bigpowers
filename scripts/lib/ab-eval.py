@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# story: e58s01 e58s02 e58s03 e58s05 e58s06 e58s07
+# story: e58s01 e58s02 e58s03 e58s05 e58s06 e58s07 e58s08
 """A/B eval: run the same tasks with and without bigpowers and grade only the outcome.
 
 Each run gets a fresh temp git workdir (outside the repo) copied from the task fixture.
@@ -26,6 +26,7 @@ import yaml
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from ab_metrics import parse_metrics, tap_score, tap_failures, tap_failed_names  # type: ignore[import]  # noqa: E402
+from ab_vsm import vsm_from  # type: ignore[import]  # noqa: E402
 from ab_report import (  # type: ignore[import]  # noqa: E402
     BOOTSTRAP_RESAMPLES, BOOTSTRAP_SEED, aggregate, bigpowers_sha, print_summary, write_reports,
 )
@@ -202,7 +203,7 @@ def run_once(task: dict, arm: str, setup: str, adapter: dict, model: str | None,
             "bugs_opened": bugs_opened, "bug_details": bug_details, "tampered": tampered,
             "protected_lines_added": protected_added, "diff_lines": diff, "duration_s": duration, "agent_exit": exit_code,
             "agent_error": timed_out or exit_code != 0 or bool(metrics.pop("agent_reported_error")),
-            "timed_out": timed_out, **metrics,
+            "timed_out": timed_out, "vsm": vsm_from(adapter.get("parser", "none"), stdout), **metrics,
         }
     finally:
         shutil.rmtree(home, ignore_errors=True)
