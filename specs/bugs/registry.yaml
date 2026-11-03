@@ -622,6 +622,16 @@ bugs:
     approach: "Give every ${OMP_PLUGIN_ROOT} reference a ':-.' default so hosts that do not inject it resolve the package-relative path; smoke-test the manifest under both host profiles"
     risk_level: "low"
     commit_message: "fix(mcp): default OMP_PLUGIN_ROOT so bigpowers-mcp starts outside OMP (#168)"
+  - id: BUG-2026-11-02-pipefail-pipe-race
+    status: fixed
+    severity: medium
+    scope: scripts / gates
+    title: "Pipelines with an early-exit reader (grep -q, head) fail at random under set -o pipefail"
+    file: bugs/BUG-2026-11-02-pipefail-pipe-race.md
+    files_changed: "scripts/land-branch.sh, scripts/lib/parallel-review-worktrees.sh, scripts/check-spec-version-gap.sh, scripts/bp-churn-rank.sh, scripts/run-smoke.sh, scripts/validate-doctrine.sh, scripts/test-pipefail-pipe-race.sh (new), scripts/lib/golden-suite-gates.sh"
+    approach: "Do not let the reader close the pipe early: capture producer output first, test the captured string, or use a reader that reads to the end (awk NR<=n, sed -n '1,Np')"
+    risk_level: "low"
+    commit_message: "fix(scripts): remove pipefail SIGPIPE races from git and long-output pipelines"
   - id: BUG-2026-11-03-story-verify-ab-sandbox-daemon-required
     status: fixed
     severity: high

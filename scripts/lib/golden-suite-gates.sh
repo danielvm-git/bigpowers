@@ -79,6 +79,8 @@ GOLDEN_GATES=(
   "specs-parse:bash scripts/validate-specs-yaml.sh:false"
   # The runner itself: failing output is shown, skips are named and reasoned.
   "golden-gate-runner:bash scripts/test-golden-gate-runner.sh:false"
+  # Pipefail SIGPIPE races: fix shapes hold, git output never feeds grep -q/head.
+  "pipefail-pipe-race:bash scripts/test-pipefail-pipe-race.sh:false"
   # One pipeline, release needs: every gate, pinned runner and actions.
   "ci-pipeline-contract-selftest:bash scripts/test-ci-pipeline-contract.sh --self-test:false"
   "ci-pipeline-contract:bash scripts/test-ci-pipeline-contract.sh:false"
