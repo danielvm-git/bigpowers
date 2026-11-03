@@ -1,3 +1,11 @@
+## [2.91.1](https://github.com/danielvm-git/bigpowers/compare/v2.91.0...v2.91.1) (2026-11-03)
+
+
+### Bug Fixes
+
+* **hooks:** give each guard fixture row its own branch context ([#196](https://github.com/danielvm-git/bigpowers/issues/196)) ([5d379df](https://github.com/danielvm-git/bigpowers/commit/5d379df5dc1d9f139636a3f361ee35a1a1ceedd0))
+* **hooks:** judge git argv instead of command substrings in guard-git ([#194](https://github.com/danielvm-git/bigpowers/issues/194)) ([9532372](https://github.com/danielvm-git/bigpowers/commit/95323721c0257964b572d9e0a37834b34955944f)), closes [#184](https://github.com/danielvm-git/bigpowers/issues/184)
+
 # [2.91.0](https://github.com/danielvm-git/bigpowers/compare/v2.90.2...v2.91.0) (2026-11-03)
 
 
