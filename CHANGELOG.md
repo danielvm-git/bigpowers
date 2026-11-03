@@ -1,3 +1,10 @@
+## [2.93.1](https://github.com/danielvm-git/bigpowers/compare/v2.93.0...v2.93.1) (2026-11-03)
+
+
+### Bug Fixes
+
+* **cli:** report the installed version after a self-update ([#198](https://github.com/danielvm-git/bigpowers/issues/198)) ([4a2d8d0](https://github.com/danielvm-git/bigpowers/commit/4a2d8d0131d593c83c86151f6c716d2bfae96498))
+
 # [2.93.0](https://github.com/danielvm-git/bigpowers/compare/v2.92.0...v2.93.0) (2026-11-03)
 
 
