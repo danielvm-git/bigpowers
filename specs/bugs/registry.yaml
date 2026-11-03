@@ -672,6 +672,16 @@ bugs:
     approach: "Read package.json from disk at render time instead of reusing the require() cache populated before the self-update, and route every user-facing version string through that one helper"
     risk_level: "low"
     commit_message: "fix(cli): report the installed version after a self-update"
+  - id: BUG-2026-11-03-dev-dependency-advisories
+    status: open
+    severity: medium
+    scope: development dependencies / release tooling
+    title: "The dev tree reports 49 advisories (2 critical) in the npm bundle inside @semantic-release/npm and the semantic-release/ts-morph/glob toolchain; clearing them needs major release-plugin upgrades"
+    file: bugs/BUG-2026-11-03-dev-dependency-advisories.md
+    files_changed: "(none yet)"
+    approach: "Review the supported semantic-release plugin matrix, move the release tooling to a non-vulnerable set (or apply narrowly scoped overrides), then re-run the release dry-run, compliance and every gate before accepting the new graph"
+    risk_level: "medium"
+    commit_message: "chore(deps): clear the development dependency advisories"
   - id: BUG-2026-11-03-guard-attribution-second-m
     status: open
     severity: high
@@ -742,6 +752,16 @@ bugs:
     approach: "Hoist the -m regex into a variable: parentheses inside [[ =~ ]] must come from a variable, not the literal pattern, or bash rejects the whole file at parse time"
     risk_level: "low"
     commit_message: "fix(hooks): make the pi/OMP fallback hook parse and run the normalizer"
+  - id: BUG-2026-11-03-prod-dependency-advisories
+    status: fixed
+    severity: high
+    scope: dependencies / shipped runtime
+    title: "The production dependency tree carried 10 advisories including a critical (proxy-addr IP spoofing) and two high direct dependencies (js-yaml, zod), with no gate watching it"
+    file: bugs/BUG-2026-11-03-prod-dependency-advisories.md
+    files_changed: "package.json, package-lock.json, scripts/test-prod-dependency-audit.sh (new), scripts/lib/golden-suite-gates.sh, README.md"
+    approach: "Update the production tree with a non-breaking `npm audit fix --omit=dev`, take the one remaining high (zod) as the major bump its own SDK peer range already allows, and gate `npm audit --omit=dev` so the tree cannot rot silently again"
+    risk_level: "medium"
+    commit_message: "fix(deps): clear the production dependency advisories and gate the audit"
   - id: BUG-2026-11-03-story-verify-ab-sandbox-daemon-required
     status: fixed
     severity: high
