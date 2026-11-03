@@ -57,8 +57,11 @@ if [ -n "$FILE_PATH" ]; then
   # e86s02: Tests are locked during fix_bug flow after RED commit
   if [[ "$FILE_PATH" =~ (^|/)test/ ]] || [[ "$FILE_PATH" =~ (^|/)tests/ ]] || [[ "$FILE_PATH" =~ \.test\.[^/]+$ ]] || [[ "$FILE_PATH" =~ _test\.[^/]+$ ]] || [[ "$FILE_PATH" =~ (^|/)test_[^/]+$ ]]; then
     if [ -f specs/state.yaml ] && grep -qE "active_flow:[[:space:]]*fix_bug" specs/state.yaml 2>/dev/null; then
-      if git rev-parse --git-dir >/dev/null 2>&1 && git log -n 5 --format=%s 2>/dev/null | grep -qE '^test(\(.+\))?:'; then
-        deny "BLOCKED: Test files ($FILE_PATH) are locked during fix_bug after the RED commit. Write the fix in production code (src/), not in tests."
+      if git rev-parse --git-dir >/dev/null 2>&1; then
+        recent_log=$(git log -n 5 --format=%s 2>/dev/null || true)
+        if echo "$recent_log" | grep -qE '^test(\(.+\))?:'; then
+          deny "BLOCKED: Test files ($FILE_PATH) are locked during fix_bug after the RED commit. Write the fix in production code (src/), not in tests."
+        fi
       fi
     fi
   fi
