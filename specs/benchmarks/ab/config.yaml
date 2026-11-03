@@ -6,8 +6,8 @@
 #   $AB_PROMPT   task prompt        $AB_MODEL  --model value (may be empty)
 #   $AB_WORKDIR  temp workdir       $AB_BP_ROOT  this bigpowers checkout
 k: 3
-# Used when --adapter is not given (e58s06).
-default_adapter: pi
+# Used when --adapter is not given (e58s07).
+default_adapter: pi-docker
 
 arms:
   vanilla:
@@ -35,7 +35,31 @@ arms:
       bash "$AB_BP_ROOT/scripts/lib/ab-arm-bigpowers.sh"
 
 adapters:
+  pi-docker:
+    # The default (e58s07): pi inside a fresh bp-ab-agent container per run. The container mounts
+    # only the run's workdir and $AB_HOME (which gets just a copy of your pi auth.json), runs on
+    # the internal network with no route to the internet, and reaches only opencode.ai through the
+    # allowlisting proxy. CPU, memory and process limits apply, and an in-container `timeout`
+    # stops the agent $AB_TIMEOUT seconds in, before the runner's own timeout. Build and start the
+    # sandbox once with `bash scripts/ab-sandbox.sh up`.
+    command: >-
+      mkdir -p "$AB_HOME/.pi/agent" &&
+      install -m 600 "${AB_PI_AUTH:-$HOME/.pi/agent/auth.json}" "$AB_HOME/.pi/agent/auth.json" &&
+      docker run --rm --network "${AB_SANDBOX_NET:-bp-ab-internal}"
+      --cpus "${AB_CPUS:-2}" --memory "${AB_MEMORY:-4g}" --pids-limit "${AB_PIDS:-512}"
+      -e HOME=/home/node -e PI_CODING_AGENT_DIR=/home/node/.pi/agent
+      -v "$AB_WORKDIR:/work" -v "$AB_HOME:/home/node" -w /work
+      "${AB_IMAGE:-bp-ab-agent:pi-1.5.0}"
+      timeout "$AB_TIMEOUT" pi -p --mode json --approve --no-session --no-mcp --offline
+      --model "$AB_MODEL" "$AB_PROMPT"
+    # Grading runs agent-written code, so it gets its own container with no network at all.
+    grade_wrapper: >-
+      docker run --rm --network none -v "$AB_WORKDIR:/work" -w /work
+      "${AB_IMAGE:-bp-ab-agent:pi-1.5.0}" bash -c "$AB_CMD"
+    parser: pi-json
+    default_model: opencode-go/deepseek-v4.1-flash
   pi:
+    # Host pi, for quick local checks only: it can read this repo and reach any website.
     # pi (@earendil-works/pi-coding-agent) with the OpenCode Go provider. Isolation: HOME and
     # PI_CODING_AGENT_DIR point inside the per-run empty $AB_HOME, which gets only a copy of the
     # user's pi auth.json (deleted with $AB_HOME). User settings and packages (the maintainer's

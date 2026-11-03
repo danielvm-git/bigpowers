@@ -10,7 +10,8 @@ tasks, the skills or any spec. Do not push.
 ## Where
 
 - Worktree: `/Users/danielvm/Developer/bigpowers/.claude/worktrees/bigpowers-bug-investigation-9fa73c`
-- Branch: `danielvm-git/bigpowers-evaluation-roadmap-4d0758`, at or after the commit that adds the `pi` adapter (e58s06)
+- Branch: `danielvm-git/bigpowers-evaluation-roadmap-4d0758`, at or after the commit that adds the
+  `pi-docker` adapter (e58s07)
 - Run every command from the worktree root. Read `specs/benchmarks/SCHEMA.md` (section "A/B outcome
   eval") first. It explains arms, tasks, hidden tests, `score` and the report fields.
 
@@ -20,8 +21,10 @@ Run the A/B eval on the two hard tasks with k=100 per arm:
 
 - Tasks: `ab-11` (ledger rounding bug) and `ab-13` (orders module split)
 - Arms: `vanilla` and `bigpowers`
-- Adapter: `pi` (the default; OpenCode Go provider, credential already in `~/.pi/agent/auth.json`).
-  Each run uses an isolated pi config folder, so your global pi settings and packages never load.
+- Adapter: `pi-docker` (the default; OpenCode Go provider, credential already in
+  `~/.pi/agent/auth.json`). Each run gets a fresh container that cannot read this repo, cannot
+  reach the internet except through the allowlisting proxy, and cannot write outside its workdir.
+  Grading runs in a second container with no network.
 - Model: `opencode-go/deepseek-v4.1-flash`
 - Total: 2 tasks × 2 arms × 100 = **400 agent runs**
 
@@ -30,15 +33,21 @@ Expect about $3–8 of Go quota and 8–9 hours if run one after another. Run in
 ## Preflight checks (stop and report if any fails)
 
 ```bash
+bash scripts/ab-sandbox.sh up   # builds the pinned images and starts the proxy (~2 min)
+bash scripts/ab-sandbox.sh status
 pi auth check --provider opencode-go | grep -q ready
+python3 tests/test_ab_sandbox.py    # includes the isolation tests; all must pass, none skipped
 python3 tests/test_ab_score.py
-bash scripts/run-ab-eval.sh --dry-run --tasks ab-11,ab-13 --k 1 | grep -q "adapter 'pi'"
+bash scripts/run-ab-eval.sh --dry-run --tasks ab-11,ab-13 --k 1 | grep -q "adapter 'pi-docker'"
 ```
+
+If `status` reports anything MISSING, run `up` again before spending quota.
 
 ## Run in shards
 
-The runner is sequential, so run 10 shards in parallel (5 per task, k=20 each), each with its own
-output folder. Shards must never share an `--out` folder: report files are named by date.
+The runner is sequential, so run shards in parallel — but each run is now a container with 2 CPUs
+and 4 GB, so use 4 shards at a time (5 shards per task, k=20 each) rather than 10. Each shard needs
+its own output folder: report files are named by date.
 
 ```bash
 OUT=/tmp/bp-ab-k100; mkdir -p "$OUT"
@@ -92,7 +101,7 @@ for a in arms:
         print(f"{t} {a}: {n} runs")   # expect 100 each
 result = aggregate(records, arms, tasks)
 meta = {"generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-        "bigpowers_sha": bigpowers_sha(), "adapter": "pi", "model": "opencode-go/deepseek-v4.1-flash",
+        "bigpowers_sha": bigpowers_sha(), "adapter": "pi-docker", "model": "opencode-go/deepseek-v4.1-flash",
         "k": 100, "tasks": tasks, "arms": arms, "shards": "10 shards (5 per task) x k=20, merged",
         "ci_method": f"bootstrap over runs, {BOOTSTRAP_RESAMPLES} resamples, seed {BOOTSTRAP_SEED}"}
 out = Path("/tmp/bp-ab-k100/merged")
@@ -130,9 +139,15 @@ Give a short summary with:
 4. Total cost and wall-clock time.
 5. Anything unusual: shards that failed, errors, runs that timed out, tampering.
 
-Prior results for context (the k=10 and smoke runs used the opencode CLI; this run uses pi, so
-compare deltas, not absolute rates):
+Prior results for context (the k=10 and smoke runs used the opencode CLI; this run uses pi in a
+sandbox, so compare deltas, not absolute rates):
 - k=10 on all 8 easy tasks (same model): bigpowers 0.97 vs vanilla 0.96, delta +0.01
   [−0.05, +0.06].
 - k=1 smoke on these two tasks: vanilla passed both. bigpowers passed ab-13 and scored 17/18 on
   ab-11.
+
+**Do not reuse any pass rate recorded for ab-11 or ab-13 before e58s07.** Their `grade` command was
+`node --test test/ test-hidden/*.test.js`, and node 24 resolves `test/` as a module path and exits
+1, so `pass` was false for every run of those two tasks no matter how good the solution was. The
+`score` column was unaffected (it runs hidden tests only), which is why the defect looked healthy.
+This handoff starts the first trustworthy pass-rate series for both tasks.

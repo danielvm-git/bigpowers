@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-03T02:32:32.156502+00:00",
+  "generated_at": "2026-11-03T03:12:24.131682+00:00",
   "matrix_version": "1.0",
   "stories": [
     {
@@ -4656,6 +4656,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261103-000647.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-005800.md",
           "line": 0,
           "confidence": "medium",
@@ -5100,6 +5106,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-235941.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-130821.md",
           "line": 0,
           "confidence": "medium",
@@ -5239,6 +5251,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260629-132750.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261103-000050.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -5652,7 +5670,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 298
+      "link_count": 301
     },
     {
       "id": "e45s19",
@@ -7956,6 +7974,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261103-000647.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-005800.md",
           "line": 0,
           "confidence": "medium",
@@ -8400,6 +8424,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-235941.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-130821.md",
           "line": 0,
           "confidence": "medium",
@@ -8539,6 +8569,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260629-132750.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261103-000050.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -8940,7 +8976,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 284
+      "link_count": 287
     },
     {
       "id": "e45s32",
@@ -10296,6 +10332,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-2026-11-03.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/GOLDEN-2026-10-30.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -10303,6 +10345,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-2026-07-05.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/GOLDEN-2026-11-03.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -10446,7 +10494,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 34
+      "link_count": 36
     },
     {
       "id": "e48s03",
@@ -11754,6 +11802,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-2026-11-03.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/GOLDEN-2026-10-30.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -11761,6 +11815,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-2026-07-05.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/GOLDEN-2026-11-03.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -12900,7 +12960,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 203
+      "link_count": 205
     },
     {
       "id": "e48s06",
@@ -13332,6 +13392,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "tests/test_ab_sandbox.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "tests/test-land-branch-protected.sh",
           "line": 0,
           "confidence": "medium",
@@ -13380,7 +13446,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 30
+      "link_count": 31
     },
     {
       "id": "e48s12",
@@ -15354,6 +15420,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261103-000647.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-005800.md",
           "line": 0,
           "confidence": "medium",
@@ -15798,6 +15870,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/reports/audit-cleancode-20261102-235941.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/reports/audit-cleancode-20260703-130821.md",
           "line": 0,
           "confidence": "medium",
@@ -15937,6 +16015,12 @@
         },
         {
           "file": "specs/verifications/reports/audit-cleancode-20260629-132750.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/reports/audit-cleancode-20261103-000050.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -16608,7 +16692,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 341
+      "link_count": 344
     },
     {
       "id": "e51s05",
@@ -18073,6 +18157,138 @@
         }
       ],
       "link_count": 5
+    },
+    {
+      "id": "e58s07",
+      "title": "Docker sandbox for agent runs and grading",
+      "epic_id": "e58",
+      "epic_title": "Evals Over Compliance \u2014 Replace the 94% Gate with Outcome Proof",
+      "bcp": 0,
+      "wsjf": 5.3,
+      "status": "done",
+      "links": [
+        {
+          "file": "specs/epics/e58-evals-over-compliance/e58s07-docker-sandbox.md",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "tests/test_ab_sandbox.py",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/ab-sandbox.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/conventions-wiki/agent-workflow-mandates.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/wayfinder/doc-templates/tickets/T18-agents-and-conventions.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-formatting-should-be-consistent.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-i-should-enforce-a-two-stage-review-gate.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-there-should-be-clear-seams-for-testing-and-extension.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-i-should-compact-session-state-for-cold-starts.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-it-must-mandate-provenance-links-for-complex-logic.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-i-should-define-verifiable-success-criteria-for-every-step.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-i-should-not-write-code-before-the-design-is-approved.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-it-must-mandate-the-f-i-r-s-t-rubric-for-tests.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-i-should-use-fresh-subagent-context-for-independent-reviews.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-error-messages-should-include-a-remediation-hint-for-the-agent.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-the-plan-contains-scenario-ids-in-the-format-sc-ennsyy-p-0-1-2-3-nn.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-information-should-be-hidden-within-modules-not-leaked.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-i-should-explain-the-code-s-purpose-and-callers-before-modifying-zoom-out.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "docs/references/agent-config-files-and-okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e58-evals-over-compliance/e58s07-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        }
+      ],
+      "link_count": 20
     },
     {
       "id": "e60s01",
@@ -21630,6 +21846,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "tests/test_ab_sandbox.py",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "tests/test-land-branch-protected.sh",
           "line": 0,
           "confidence": "medium",
@@ -21666,7 +21888,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 32
+      "link_count": 33
     },
     {
       "id": "e80s03",
@@ -23956,8 +24178,8 @@
     }
   ],
   "summary": {
-    "total_stories": 156,
-    "tagged_stories": 131,
+    "total_stories": 157,
+    "tagged_stories": 132,
     "dark_stories": [],
     "dark_count": 0,
     "orphan_tags": [
@@ -24190,6 +24412,7 @@
       "e58s04",
       "e58s05",
       "e58s06",
+      "e58s07",
       "e60s01",
       "e61s01",
       "e61s02",
@@ -24230,11 +24453,11 @@
       "e80s05",
       "e81s01"
     ],
-    "stale_count": 121,
+    "stale_count": 122,
     "oracle_stats": {
-      "high": 1037,
-      "medium": 2539,
-      "low": 104
+      "high": 1040,
+      "medium": 2570,
+      "low": 105
     }
   }
 }

@@ -148,7 +148,7 @@ stories:
     verify: python3 tests/test_ab_pi.py
   - id: e58s07
     title: "Docker sandbox for agent runs and grading"
-    status: todo
+    status: done
     bcps: 8
     bcp_basis: estimate, 2026-11-02 (2 images + network + adapter + grade wrapper + isolation tests)
     risk: P1
@@ -160,12 +160,13 @@ stories:
       default adapter.
     files:
       - scripts/ab-sandbox.sh
-      - specs/benchmarks/ab/sandbox/
+      - scripts/lib/ab-sandbox/
       - scripts/lib/ab-eval.py
       - specs/benchmarks/ab/config.yaml
+      - specs/benchmarks/SCHEMA.md
       - tests/test_ab_sandbox.py
     tasks: e58s07-tasks.yaml
-    verify: python3 tests/test_ab_sandbox.py
+    verify: python3 tests/test_ab_sandbox.py && bash scripts/ab-sandbox.sh status
 planned_stories:
   - working_title: "Extend run-evals to cover a meaningful skill subset with real with/without-skill deltas"
     bcp_estimate: 3

@@ -60,15 +60,28 @@ bash scripts/run-ab-eval.sh --adapter gemini --model <m>    # another harness
 - **Tasks:** `specs/benchmarks/ab/tasks/<id>/` with `task.yaml` (`id`, `prompt`, `protected`,
   `grade`, `timeout_s`, optional `score`), `fixture/` (what the agent sees), `hidden/` (copied in only after the
   agent exits) and `solution/` (reference; the unit tests check fixture fails, solution passes).
-  Prompts never name bigpowers.
-- **Default adapter (e58s06):** `pi` (`default_adapter` in config), model
-  `opencode-go/deepseek-v4.1-flash`, parser `pi-json` (sums assistant `message_end` usage; a
-  `stopReason` of `error`/`aborted` or an aborted run marks an agent error). Isolation: `HOME` and
-  `PI_CODING_AGENT_DIR` point inside `$AB_HOME`, which gets only a copy of the user's pi
-  `auth.json`; user settings and packages (which may load bigpowers globally) never load.
-  `--approve` lets the bigpowers arms' `.agents/skills` load.
-- **Isolation:** each run gets a fresh empty `$AB_HOME`; the `opencode` adapter points `HOME` and
-  `XDG_CONFIG_HOME` at it (global skills, AGENTS.md and plugins never load) and keeps
+  Prompts never name bigpowers. A `grade` command must name test **files/globs**
+  (`node --test test/*.test.js`): on node 24 a bare `node --test test/` resolves the directory as a
+  module path and exits 1, which silently pins that task's pass rate at 0.
+- **Default adapter (e58s07):** `pi-docker` — pi inside a fresh `bp-ab-agent` container per run.
+  Start the sandbox once with `bash scripts/ab-sandbox.sh up` (`down`, `status`); it builds two
+  images pinned by digest (`bp-ab-agent:pi-1.5.0`, `bp-ab-proxy:tinyproxy-1`), creates the
+  internal network `bp-ab-internal` (no route to the internet) and starts the proxy, which allows
+  `opencode.ai` and nothing else. The container mounts only the run's workdir and `$AB_HOME` (it
+  gets a copy of your pi `auth.json`), runs as uid 1000 with `--cpus`/`--memory`/`--pids-limit`
+  limits, and an in-container `timeout "$AB_TIMEOUT"` stops the agent before the runner's own
+  timeout. `AB_TIMEOUT` is the task's `timeout_s` minus 30 s. The host `pi` adapter remains for
+  quick local checks: it can read this repo and reach any website, so its numbers are not comparable.
+- **grade_wrapper (e58s07):** an adapter may declare `grade_wrapper`, a command template with
+  `$AB_CMD`. The runner then runs the task's `grade` and `score` through it, so agent-written code
+  never executes on the host. `pi-docker` grades in a container with `--network none`.
+- **Default adapter (e58s06):** `pi` (host) with model `opencode-go/deepseek-v4.1-flash` and parser
+  `pi-json` (sums assistant `message_end` usage; a `stopReason` of `error`/`aborted` or an aborted
+  run marks an agent error). Isolation: `HOME` and `PI_CODING_AGENT_DIR` point inside `$AB_HOME`,
+  which gets only a copy of the user's pi `auth.json`; user settings and packages (which may load
+  bigpowers globally) never load. `--approve` lets the bigpowers arms' `.agents/skills` load.
+- **Isolation on the host:** each run gets a fresh empty `$AB_HOME`; the `opencode` adapter points
+  `HOME` and `XDG_CONFIG_HOME` at it (global skills, AGENTS.md and plugins never load) and keeps
   `XDG_DATA_HOME` for credentials. Adapter stdin is always closed. An adapter may set
   `default_model`, used when `--model` is absent and recorded in the report.
 - **Per run:** `pass`, `tampered` (an original line of a `protected` file was removed or changed,

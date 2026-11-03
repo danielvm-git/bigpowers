@@ -1,0 +1,6 @@
+# story: e58s07
+# Allowlist for the A/B eval proxy (FilterDefaultDeny Yes: everything else is refused).
+# opencode.ai serves the OpenCode Go inference endpoints pi uses:
+#   https://opencode.ai/inference/go/openai/v1
+^opencode\.ai(:[0-9]+)?$
+^.*\.opencode\.ai(:[0-9]+)?$

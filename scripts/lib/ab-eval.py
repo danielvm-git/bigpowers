@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# story: e58s01 e58s02 e58s03 e58s05 e58s06
+# story: e58s01 e58s02 e58s03 e58s05 e58s06 e58s07
 """A/B eval: run the same tasks with and without bigpowers and grade only the outcome.
 
 Each run gets a fresh temp git workdir (outside the repo) copied from the task fixture.
@@ -135,12 +135,20 @@ def save_trace(path: Path, stdout: str) -> None:
     path.write_bytes(gzip.compress(stdout.encode()))
 
 
-def env_for(prompt: str, model: str | None, workdir: Path, home: Path) -> dict:
-    """$AB_HOME is a fresh empty dir per run: adapters point HOME at it to hide global skills."""
+def env_for(prompt: str, model: str | None, workdir: Path, home: Path, timeout_s: int = 900) -> dict:
+    """$AB_HOME is a fresh empty dir per run: adapters point HOME at it to hide global skills.
+    $AB_TIMEOUT leaves 30 s for an in-container `timeout` to stop the agent first (e58s07)."""
     env = dict(os.environ)
     env.update({"AB_PROMPT": prompt, "AB_MODEL": model or "", "AB_WORKDIR": str(workdir),
-                "AB_HOME": str(home), "AB_BP_ROOT": str(REPO_ROOT)})
+                "AB_HOME": str(home), "AB_BP_ROOT": str(REPO_ROOT), "AB_TIMEOUT": str(max(10, timeout_s - 30))})
     return env
+
+
+def grade_cmd(adapter: dict, cmd: str, env: dict) -> tuple[str, dict]:
+    """Runs grade/score through the adapter's grade_wrapper (e.g. a no-network container)."""
+    if not adapter.get("grade_wrapper"):
+        return cmd, env
+    return adapter["grade_wrapper"], {**env, "AB_CMD": cmd}
 
 
 def run_once(task: dict, arm: str, setup: str, adapter: dict, model: str | None,
@@ -151,7 +159,7 @@ def run_once(task: dict, arm: str, setup: str, adapter: dict, model: str | None,
         shutil.copytree(task["dir"] / "fixture", workdir, dirs_exist_ok=True)
         git(workdir, "init", "-q")
         snapshot(workdir, "fixture")
-        env = env_for(task["prompt"], model, workdir, home)
+        env = env_for(task["prompt"], model, workdir, home, task.get("timeout_s", 900))
         if sh(setup, workdir, env).returncode != 0:
             raise ConfigError(f"arm '{arm}' setup failed in {workdir}")
         base = snapshot(workdir, f"arm {arm}")
@@ -173,8 +181,12 @@ def run_once(task: dict, arm: str, setup: str, adapter: dict, model: str | None,
         tampered, protected_added = protected_changes(workdir, before)
         diff = changed_lines(workdir, base)
         shutil.copytree(task["dir"] / "hidden", workdir, dirs_exist_ok=True)
-        passed = sh(task["grade"], workdir, timeout=300).returncode == 0
-        score = tap_score(sh(task["score"], workdir, timeout=300).stdout) if task.get("score") else None
+        cmd, genv = grade_cmd(adapter, task["grade"], env)
+        passed = sh(cmd, workdir, genv, timeout=300).returncode == 0
+        score = None
+        if task.get("score"):
+            cmd, genv = grade_cmd(adapter, task["score"], env)
+            score = tap_score(sh(cmd, workdir, genv, timeout=300).stdout)
         metrics = parse_metrics(adapter.get("parser", "none"), stdout)
         return {
             "task": task["id"], "arm": arm, "run": run_idx, "pass": passed, "score": score, "tampered": tampered,
