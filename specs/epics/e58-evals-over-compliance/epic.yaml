@@ -94,7 +94,7 @@ stories:
     verify: python3 tests/test_ab_score.py && python3 tests/test_ab_eval.py
   - id: e58s04
     title: "ablation arms — which part of bigpowers produces the gain"
-    status: todo
+    status: done
     bcps: 5
     bcp_basis: estimate, 2026-11-02 (env options in arm script + report deltas + config arms)
     risk: P2

@@ -79,9 +79,13 @@ bash scripts/run-ab-eval.sh --adapter gemini --model <m>    # another harness
   Hard tasks with `score` (e58s03): `ab-11` (ledger rounding bug from a user report, two
   trap fixes; fixture 11/18) and `ab-13` (split a 240-line module, oracle on ~420 seeded orders
   plus structure checks; fixture 15/18). Candidates: `HARDER-TASKS_LATEST.md`.
+- **Ablation arms (e58s04):** `ab-arm-bigpowers.sh` takes `AB_BP_SKILLS` (`all` | `none` | comma
+  list) and `AB_BP_SEED` (seed path or `none`). Config arms: `bp-core` (seed + 6 named skills),
+  `bp-seed` (seed only), `bp-skills` (all skills, no seed), `tdd-line` (3-line TDD rule, no skills).
 - **Reports:** `specs/benchmarks/reports/AB-<date>.yaml` (per-arm and per-task rates and
   `mean_score`, `per_task_score`, delta `bigpowers − vanilla` for pass rate and score, each with a
-  seeded bootstrap 95% CI) and `ab-runs-<date>.jsonl` (raw runs).
+  seeded bootstrap 95% CI; `deltas_vs_vanilla` gives the same for every non-vanilla arm) and
+  `ab-runs-<date>.jsonl` (raw runs).
 
 ## Reports
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# story: e58s01 e58s03
+# story: e58s01 e58s03 e58s04
 """A/B eval aggregation and reports — pure functions over run records (no agent, no subprocess
 except reading the bigpowers git SHA). Split from ab-eval.py to keep both under the 300-line cap."""
 from __future__ import annotations
@@ -61,24 +61,28 @@ def aggregate(records: list[dict], arms: list[str], tasks: list[str]) -> dict:
                 for t in tasks}
     per_task_score = {t: {a: mean([r.get("score") for r in by_arm[a] if r["task"] == t]) for a in arms}
                       for t in tasks}
-    delta = None
-    if "vanilla" in arms and "bigpowers" in arms:
-        bp, va = summary["bigpowers"], summary["vanilla"]
-        cost = None
-        if bp["mean_cost_usd"] is not None and va["mean_cost_usd"] is not None:
-            cost = round(bp["mean_cost_usd"] - va["mean_cost_usd"], 4)
-        delta = {
-            "pass_rate": round(bp["pass_rate"] - va["pass_rate"], 4),
-            "ci95": bootstrap_delta_ci([r["pass"] for r in by_arm["bigpowers"]],
-                                       [r["pass"] for r in by_arm["vanilla"]]),
-            "tamper_rate": round(bp["tamper_rate"] - va["tamper_rate"], 4),
-            "cost_usd": cost,
-        }
-        scores = {a: [r["score"] for r in by_arm[a] if r.get("score") is not None] for a in ("bigpowers", "vanilla")}
-        if scores["bigpowers"] and scores["vanilla"]:
-            delta["score"] = round(bp["mean_score"] - va["mean_score"], 4)
-            delta["score_ci95"] = bootstrap_delta_ci(scores["bigpowers"], scores["vanilla"])
-    return {"arms_summary": summary, "per_task": per_task, "per_task_score": per_task_score, "delta": delta}
+    deltas = {a: arm_delta(by_arm, summary, a) for a in arms if a != "vanilla"} if "vanilla" in arms else {}
+    return {"arms_summary": summary, "per_task": per_task, "per_task_score": per_task_score,
+            "delta": deltas.get("bigpowers"), "deltas_vs_vanilla": deltas}
+
+
+def arm_delta(by_arm: dict, summary: dict, arm: str) -> dict:
+    """arm - vanilla: pass rate and score with seeded bootstrap CIs, tamper rate and cost (e58s04)."""
+    tr, va = summary[arm], summary["vanilla"]
+    cost = None
+    if tr["mean_cost_usd"] is not None and va["mean_cost_usd"] is not None:
+        cost = round(tr["mean_cost_usd"] - va["mean_cost_usd"], 4)
+    delta = {
+        "pass_rate": round(tr["pass_rate"] - va["pass_rate"], 4),
+        "ci95": bootstrap_delta_ci([r["pass"] for r in by_arm[arm]], [r["pass"] for r in by_arm["vanilla"]]),
+        "tamper_rate": round(tr["tamper_rate"] - va["tamper_rate"], 4),
+        "cost_usd": cost,
+    }
+    scores = {a: [r["score"] for r in by_arm[a] if r.get("score") is not None] for a in (arm, "vanilla")}
+    if scores[arm] and scores["vanilla"]:
+        delta["score"] = round(tr["mean_score"] - va["mean_score"], 4)
+        delta["score_ci95"] = bootstrap_delta_ci(scores[arm], scores["vanilla"])
+    return delta
 
 
 # ── reporting ────────────────────────────────────────────────────────────────
@@ -105,8 +109,8 @@ def print_summary(result: dict) -> None:
         fmt = lambda v, p=2: "-" if v is None else f"{v:.{p}f}"
         print(f"{arm:<10} {fmt(s['pass_rate']):>6} {fmt(s['mean_score']):>6} {fmt(s['tamper_rate']):>7} "
               f"{fmt(s['mean_cost_usd'], 3):>8} {fmt(s['mean_turns'], 1):>6} {fmt(s['mean_duration_s'], 0):>7}")
-    d = result["delta"]
-    if d:
-        print(f"delta pass_rate (bigpowers - vanilla): {d['pass_rate']:+.2f}  95% CI {d['ci95']}")
+    for arm, d in result.get("deltas_vs_vanilla", {}).items():
+        line = f"delta {arm:<10} - vanilla: pass {d['pass_rate']:+.2f} CI {d['ci95']}"
         if "score" in d:
-            print(f"delta score     (bigpowers - vanilla): {d['score']:+.2f}  95% CI {d['score_ci95']}")
+            line += f"  score {d['score']:+.2f} CI {d['score_ci95']}"
+        print(line)

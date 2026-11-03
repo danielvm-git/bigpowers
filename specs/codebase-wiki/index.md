@@ -1,7 +1,7 @@
 ---
 type: Index
-generated_at: 2026-11-03T01:51:44.289429+00:00
-total_concepts: 153
+generated_at: 2026-11-03T02:00:18.815044+00:00
+total_concepts: 154
 ---
 
 # Codebase Wiki — Story Traceability
@@ -100,6 +100,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e58s01](./e58s01.md) | Outcome A/B eval runner — vanilla agent vs bigpowers | high | 13 |
 | [e58s02](./e58s02.md) | opencode adapter + the five legacy benchmark tasks | high | 7 |
 | [e58s03](./e58s03.md) | partial-credit scoring + two hard tasks (ab-11, ab-13) | high | 6 |
+| [e58s04](./e58s04.md) | ablation arms — which part of bigpowers produces the gain | high | 4 |
 | [e60s01](./e60s01.md) | Interactive installer with ASCII banner, global/local, tool  | high | 11 |
 | [e61s01](./e61s01.md) | Hermes adapter + hook templates (Wave A) | high | 10 |
 | [e61s02](./e61s02.md) | Install hub wiring (Wave B) | high | 15 |

@@ -1,4 +1,4 @@
-# story: e58s01
+# story: e58s01 e58s04
 # A/B eval config — read by scripts/run-ab-eval.sh. Arms and adapters are data:
 # a trimmed bigpowers arm or a new harness is one entry here, not new code.
 #
@@ -14,6 +14,23 @@ arms:
     # Skills, scripts/, specs/ folders and the CLAUDE.md/AGENTS.md seed in
     # arms/bigpowers/. Record any change to the seed: it is part of the result.
     setup: bash "$AB_BP_ROOT/scripts/lib/ab-arm-bigpowers.sh"
+  # Ablations (e58s04): which part of bigpowers produces the gain. See ab-arm-bigpowers.sh.
+  bp-core:
+    # The seed plus only the six skills it names.
+    setup: >-
+      AB_BP_SKILLS=survey-context,plan-work,develop-tdd,verify-work,audit-code,fix-bug
+      bash "$AB_BP_ROOT/scripts/lib/ab-arm-bigpowers.sh"
+  bp-seed:
+    # The seed instructions alone: no skills, no scripts.
+    setup: AB_BP_SKILLS=none bash "$AB_BP_ROOT/scripts/lib/ab-arm-bigpowers.sh"
+  bp-skills:
+    # Every skill, no AGENTS.md/CLAUDE.md telling the agent to use them.
+    setup: AB_BP_SEED=none bash "$AB_BP_ROOT/scripts/lib/ab-arm-bigpowers.sh"
+  tdd-line:
+    # Three plain lines of TDD discipline, no skills and no bigpowers names.
+    setup: >-
+      AB_BP_SKILLS=none AB_BP_SEED=specs/benchmarks/ab/arms/tdd-line/AGENTS.md
+      bash "$AB_BP_ROOT/scripts/lib/ab-arm-bigpowers.sh"
 
 adapters:
   claude:

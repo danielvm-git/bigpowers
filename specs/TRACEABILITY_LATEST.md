@@ -1,17 +1,17 @@
 # Traceability Matrix
 
-**Generated:** 2026-11-03 01:51:44 UTC
-**Total stories:** 153
-**Tagged stories:** 128
+**Generated:** 2026-11-03 02:00:18 UTC
+**Total stories:** 154
+**Tagged stories:** 129
 **Dark stories:** 0
 **Orphan tags:** 144
-**Stale tags:** 118
+**Stale tags:** 119
 
 ## Oracle Stats
 
-- **High** (explicit tag): 1030
-- **Medium** (file heuristic): 2530
-- **Low** (task reference): 101
+- **High** (explicit tag): 1032
+- **Medium** (file heuristic): 2531
+- **Low** (task reference): 102
 
 ## Story Coverage
 
@@ -107,6 +107,7 @@
 | e58s01 | Outcome A/B eval runner — vanilla agent vs bigpowers | e58 | 0 | 5.3 | done | 13 |
 | e58s02 | opencode adapter + the five legacy benchmark tasks | e58 | 0 | 5.3 | done | 7 |
 | e58s03 | partial-credit scoring + two hard tasks (ab-11, ab-13) | e58 | 0 | 5.3 | done | 6 |
+| e58s04 | ablation arms — which part of bigpowers produces the gain | e58 | 0 | 5.3 | done | 4 |
 | e60s01 | Interactive installer with ASCII banner, global/local, tool  | e60 | 0 | 9.0 | done | 11 |
 | e61s01 | Hermes adapter + hook templates (Wave A) | e61 | 0 | 5.0 | done | 10 |
 | e61s02 | Install hub wiring (Wave B) | e61 | 0 | 5.0 | done | 15 |
@@ -399,6 +400,7 @@
 - `e58s01`
 - `e58s02`
 - `e58s03`
+- `e58s04`
 - `e60s01`
 - `e61s01`
 - `e61s02`
