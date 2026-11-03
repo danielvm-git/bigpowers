@@ -1,6 +1,6 @@
 ---
 bug_id: BUG-2026-11-03-wiki-indexes-ignored-reports
-status: open
+status: fixed
 severity: low
 scope: trace-stories / wiki
 title: "Generated wikis link to gitignored verification reports, so every Preflight dirties the tree"
@@ -49,3 +49,12 @@ bash scripts/run-verification-gates.sh && bash scripts/sync-skills.sh
 bash scripts/trace-stories.sh --strict
 git status --short    # only intentionally changed files
 ```
+
+## Resolution
+
+Fixed by `BUG-2026-11-03-trace-indexes-other-worktrees`. The two bugs have the same root
+cause. `trace-stories.py` now indexes only the files that `git ls-files --cached --others
+--exclude-standard` lists, so all gitignored trees (this reports prefix included) are
+skipped without a hand-kept exclude list. The 1,793 reports that were committed before the
+ignore rule are tracked, so they keep their links. Only new, untracked reports (37 files at
+fix time) stopped being linked. Guard: `scripts/test-trace-ignored-paths.sh`.
