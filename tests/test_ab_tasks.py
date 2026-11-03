@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-# story: e58s01 e58s02 e58s07
+# story: e58s01 e58s02 e58s07 e58s09
 """tests/test_ab_tasks.py — every shipped A/B task is calibrated: its fixture fails, its reference
 solution passes, its prompt never names bigpowers, and its grade command uses file globs.
 
 Run: python3 tests/test_ab_tasks.py
 Split from test_ab_eval.py (300-line cap).
 """
+import json
 import shutil
 import subprocess
 import sys
@@ -50,6 +51,14 @@ class TestStarterTasks(unittest.TestCase):
     def test_prompts_never_name_bigpowers(self):
         for task_yaml in self.TASKS.glob("*/task.yaml"):
             self.assertNotIn("bigpowers", yaml.safe_load(task_yaml.read_text())["prompt"].lower())
+
+    def test_fixture_test_scripts_never_pass_a_bare_directory(self):
+        """`npm test` must work in every fixture: a `node --test test/` script fails on node 24, and
+        agents then spend the run repairing the harness (found by e58s09 waste metrics)."""
+        for package in self.TASKS.glob("*/fixture/package.json"):
+            with self.subTest(task=package.parent.parent.name):
+                script = json.loads(package.read_text()).get("scripts", {}).get("test", "")
+                self.assertNotRegex(script, r"--test\s+\S*/(\s|$)", script)
 
     def test_grade_commands_never_pass_a_bare_directory(self):
         """`node --test test/` exits 1 on node 24 (it resolves the directory as a module path), so
