@@ -5,7 +5,7 @@ bcps: 75
 bcps_projected: 9
 capsule_dir: epics/e58-evals-over-compliance
 mode: capsule
-status: scoped
+status: done
 elaborated: 2026-07-22
 elaboration: planning-context.yaml
 depends_on: [e53]

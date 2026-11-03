@@ -1,11 +1,13 @@
-active_flow: null
+active_flow: fix_bug
 active_epic: null
 active_story: null
-bug_id: null
+bug_id: BUG-2026-11-03-epic-status-rollup-drift
 bigpowers_version: 2.91.1
-bug_cycle: null
+bug_cycle:
+  current_step: 5
+  completed_steps: [1, 2, 3, 4]
 handoff:
-  next_skill: null
+  next_skill: release-branch
   context: 'Fixed BUG-2026-11-03-story-verify-ab-sandbox-daemon-required: removed background docker daemon
     requirement from e58s07 story verify directive. Full story-verify suite passes (50 PASS, 0 FAIL).'
   epic: e58

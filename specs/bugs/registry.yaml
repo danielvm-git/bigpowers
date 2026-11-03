@@ -642,6 +642,16 @@ bugs:
     approach: "One helper, one shape: same-directory temp file, write, flush, fsync, os.replace (atomic rename), then fsync the directory. Every runtime writer of state YAML/JSON goes through it, and a golden gate proves the race is real before proving it is gone"
     risk_level: "medium"
     commit_message: "fix(scripts): write spec state atomically instead of in place"
+  - id: BUG-2026-11-03-epic-status-rollup-drift
+    status: fixed
+    severity: medium
+    scope: planning
+    title: "Epic-level status drifts from its stories and from shipped code; G-12 checks only story status"
+    file: bugs/BUG-2026-11-03-epic-status-rollup-drift.md
+    files_changed: "scripts/golden-g12-status-consistency.sh, specs/execution-status.yaml, specs/release-plan.yaml, specs/epics/e58-evals-over-compliance/epic.yaml, specs/epics/e82-fork-innovations/epic.yaml"
+    approach: "Extend G-12 with an epic roll-up check and a shipped-code-vs-backlog check, then correct e58 and e82 in the three status files"
+    risk_level: "low"
+    commit_message: "fix(specs): gate epic status roll-up in G-12 and close e58 and e82"
   - id: BUG-2026-11-03-guard-attribution-second-m
     status: open
     severity: high

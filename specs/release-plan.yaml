@@ -168,7 +168,7 @@ epics:
   wsjf: 6.0
   bcps: 0
   capsule_dir: epics/e82-fork-innovations
-  status: scoped
+  status: done
   wsjf_rationale: BV 7 (real capability gaps — Jujutsu growing, OMP emerging) + TC 5 (favilo built it
     because they needed it) + RR 6 (community health compounds) / Job 3 ≈ 6.0
   source: Third-party fork audit 2026-09-01 — two forks (favilo/bigpowers by Kevin Oberlies; XcluEzy7/bigpowers)
@@ -450,7 +450,7 @@ epics:
   bcps: 0
   capsule_dir: epics/e58-evals-over-compliance
   mode: capsule
-  status: scoped
+  status: done
   wsjf_rationale: 'BV 6 (proof by outcome, not self-compliance) + TC 4 + RR 6 (removes reliance on a magic-number
     gate) / Job 3 ≈ 5.3. Provisional — zero real stories sliced yet, so bcps is 0 (epic.yaml carries a
     bcps_projected estimate of 9).

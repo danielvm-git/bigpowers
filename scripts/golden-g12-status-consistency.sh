@@ -26,6 +26,12 @@
 #   2. Every capsule_dir in release-plan.yaml must resolve to a real directory.
 #   3. A live capsule must not also exist under archive/ — two shards for one
 #      epic makes "which status is authoritative" undecidable.
+#   4. A live epic's own status must agree across development_status, epics:,
+#      release-plan.yaml and epic.yaml, and match its stories: all stories
+#      done means the epic is done, and a done epic has no open story.
+#   5. Tracked source tagged `story: <id>` for a live story the SoT still calls
+#      backlog is shipped work that was never recorded.
+#   Checks 4-5: BUG-2026-11-03-epic-status-rollup-drift.
 #
 # Usage: bash scripts/golden-g12-status-consistency.sh [--self-test]
 # Exit 0: SoT is consistent
@@ -47,11 +53,12 @@ SELF_TEST=0
 check_tree() {
   # $1 = specs dir to check
   $PYTHON - "$1" <<'PY'
-import sys, re
+import sys, re, subprocess
 from pathlib import Path
 import yaml
 
 specs = Path(sys.argv[1])
+repo = specs.parent
 epics_dir = specs / "epics"
 exec_path = specs / "execution-status.yaml"
 rp_path = specs / "release-plan.yaml"
@@ -140,6 +147,105 @@ if archive_dir.is_dir():
                 f"authoritative status is undecidable"
             )
 
+# --- Check 4: epic status agrees across files and with its stories ---
+# release-plan.yaml says 'scoped' and 'released' where execution-status.yaml
+# says 'backlog' and 'done' (BUG-2026-11-03-epic-status-rollup-drift).
+EPIC_ALIASES = {"scoped": "backlog", "released": "done"}
+
+
+def epic_norm(v):
+    n = norm(v)
+    return EPIC_ALIASES.get(n, n)
+
+
+rp_status = {}
+if rp_path.exists():
+    for ep in (yaml.safe_load(rp_path.read_text(encoding="utf-8")) or {}).get("epics") or []:
+        if isinstance(ep, dict) and ep.get("id"):
+            rp_status[ep["id"]] = ep.get("status")
+epic_sections = exec_data.get("epics") or {}
+live_story_status = {}
+
+for epic_file in sorted(epics_dir.rglob("epic.yaml")):
+    if "archive" in epic_file.relative_to(epics_dir).parts:
+        continue
+    ed = yaml.safe_load(epic_file.read_text(encoding="utf-8")) or {}
+    eid = str(ed.get("id") or "")
+    if not re.match(r"^e\d+$", eid):
+        continue
+    detail = epic_sections.get(eid)
+    sources = {
+        "development_status": dev.get(eid),
+        "epics": detail.get("status") if isinstance(detail, dict) else None,
+        "release-plan.yaml": rp_status.get(eid),
+        str(epic_file.relative_to(specs)): ed.get("status"),
+    }
+    seen = {k: v for k, v in sources.items() if v}
+    if len({epic_norm(v) for v in seen.values()}) > 1:
+        problems.append(
+            f"{eid}: epic status disagrees — "
+            + ", ".join(f"{k}={v}" for k, v in seen.items())
+        )
+
+    sids = [
+        str(s["id"]) for s in ed.get("stories") or []
+        if isinstance(s, dict) and re.match(r"^e\d+s\d+$", str(s.get("id", "")))
+    ]
+    for sid in sids:
+        if dev.get(sid) is not None:
+            live_story_status[sid] = norm(dev[sid])
+    states = [live_story_status.get(sid) for sid in sids]
+    if not sids or None in states or not dev.get(eid):
+        continue
+    all_done = all(st == "done" for st in states)
+    epic_sot = epic_norm(dev[eid])
+    if all_done and epic_sot != "done":
+        problems.append(
+            f"{eid}: all {len(sids)} stories are done in execution-status.yaml "
+            f"but the epic is '{dev[eid]}'"
+        )
+    if epic_sot == "done" and not all_done:
+        open_ids = [sid for sid, st in zip(sids, states) if st != "done"]
+        problems.append(f"{eid}: epic is done but {', '.join(open_ids)} are not")
+
+# --- Check 5: tracked source tagged with a story the SoT calls backlog ---
+# A story whose code shipped outside build-epic (e82, PR #118) stays 'backlog'
+# in every status file, so the agreement checks above cannot see it.
+
+
+def source_files():
+    if (repo / ".git").exists():
+        listed = subprocess.run(
+            ["git", "-C", str(repo), "ls-files"], capture_output=True, text=True
+        ).stdout.splitlines()
+        paths = [repo / p for p in listed]
+    else:
+        paths = [p for p in repo.rglob("*") if p.is_file()]
+    for p in paths:
+        top = p.relative_to(repo).parts[0]
+        # specs/ holds plans, dot-dirs and website/ hold generated copies.
+        if top.startswith(".") or top in ("specs", "website", "node_modules"):
+            continue
+        yield p
+
+
+backlog = {sid for sid, st in live_story_status.items() if st == "backlog"}
+tagged = {}
+for path in source_files() if backlog else ():
+    try:
+        text = path.read_text(encoding="utf-8", errors="ignore")
+    except OSError:
+        continue
+    for line in re.findall(r"story:[^\n]*", text):
+        for sid in re.findall(r"\be\d+s\d+\b", line):
+            if sid in backlog:
+                tagged.setdefault(sid, path.relative_to(repo))
+for sid, path in sorted(tagged.items()):
+    problems.append(
+        f"{sid}: execution-status.yaml says backlog but {path} carries its "
+        f"story tag — shipped work never recorded"
+    )
+
 if archived_skipped:
     print(f"  info: {archived_skipped} archived capsule(s) skipped (frozen history)")
 
@@ -205,14 +311,69 @@ PY
   injected_exit=$?
   set -e
 
-  if [[ $injected_exit -ne 0 ]]; then
-    echo -e "${GREEN}PASS${NC} G-12 detected injected drift (exit $injected_exit)"
-    echo "G-12 self-test: PASS"
-    exit 0
+  if [[ $injected_exit -eq 0 ]]; then
+    echo -e "${RED}FAIL${NC} G-12 passed on deliberately drifted specs — vacuous gate"
+    echo "G-12 self-test: FAIL — same bug class as G-08 / BUG-2026-07-26-planning-sot-drift"
+    exit 1
   fi
-  echo -e "${RED}FAIL${NC} G-12 passed on deliberately drifted specs — vacuous gate"
-  echo "G-12 self-test: FAIL — same bug class as G-08 / BUG-2026-07-26-planning-sot-drift"
-  exit 1
+  echo -e "${GREEN}PASS${NC} G-12 detected injected story drift (exit $injected_exit)"
+
+  # Checks 4 and 5 (BUG-2026-11-03-epic-status-rollup-drift) each get a fresh
+  # copy and must fail with their own message, so one check firing cannot
+  # hide the other being vacuous.
+  for case in rollup tagged; do
+    CASE_DIR="$TMP/$case"
+    mkdir -p "$CASE_DIR/specs"
+    cp -R "$REPO_ROOT/specs/epics" "$CASE_DIR/specs/epics"
+    cp "$REPO_ROOT/specs/execution-status.yaml" "$REPO_ROOT/specs/release-plan.yaml" "$CASE_DIR/specs/"
+    $PYTHON - "$CASE_DIR" "$case" <<'PY' || exit 1
+import sys, re
+from pathlib import Path
+import yaml
+
+root, case = Path(sys.argv[1]), sys.argv[2]
+exec_path = root / "specs" / "execution-status.yaml"
+data = yaml.safe_load(exec_path.read_text(encoding="utf-8")) or {}
+dev = data.setdefault("development_status", {})
+
+for epic_file in sorted((root / "specs" / "epics").glob("*/epic.yaml")):
+    ed = yaml.safe_load(epic_file.read_text(encoding="utf-8")) or {}
+    eid = str(ed.get("id") or "")
+    stories = [s for s in ed.get("stories") or [] if isinstance(s, dict) and s.get("id")]
+    if not stories or any(dev.get(s["id"]) != "done" for s in stories):
+        continue
+    if case == "rollup":
+        dev[eid] = "backlog"
+        print(f"injected: {eid} -> backlog with all stories done")
+    else:
+        sid = stories[0]["id"]
+        dev[sid] = "backlog"
+        if isinstance((data.get("stories") or {}).get(sid), dict):
+            data["stories"][sid]["status"] = "backlog"
+        stories[0]["status"] = "backlog"
+        epic_file.write_text(yaml.dump(ed, sort_keys=False), encoding="utf-8")
+        (root / "scripts").mkdir(exist_ok=True)
+        (root / "scripts" / "shipped.sh").write_text(f"# story: {sid}\n", encoding="utf-8")
+        print(f"injected: {sid} -> backlog with a tagged source file")
+    exec_path.write_text(yaml.dump(data, default_flow_style=False, sort_keys=False), encoding="utf-8")
+    sys.exit(0)
+print("ERROR: no live epic with every story done found to mutate", file=sys.stderr)
+sys.exit(2)
+PY
+    expect="all [0-9]+ stories are done"
+    [[ "$case" == "tagged" ]] && expect="carries its story tag"
+    set +e
+    case_out=$(check_tree "$CASE_DIR/specs" 2>&1)
+    set -e
+    if ! grep -qE "$expect" <<<"$case_out"; then
+      echo -e "${RED}FAIL${NC} G-12 missed injected $case drift — vacuous check"
+      echo "G-12 self-test: FAIL — same bug class as G-08 / BUG-2026-11-03-epic-status-rollup-drift"
+      exit 1
+    fi
+    echo -e "${GREEN}PASS${NC} G-12 detected injected $case drift"
+  done
+  echo "G-12 self-test: PASS"
+  exit 0
 fi
 
 echo "=== G-12: Planning SoT Consistency ==="
