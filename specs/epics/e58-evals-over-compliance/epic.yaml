@@ -224,7 +224,7 @@ stories:
     verify: python3 tests/test_ab_lean.py
   - id: e58s11
     title: "three tasks with changing, spread and implied requirements"
-    status: todo
+    status: done
     bcps: 8
     bcp_basis: estimate, 2026-11-03 (3 fixtures + hidden suites + solutions + calibration run)
     risk: P2

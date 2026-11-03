@@ -23,6 +23,22 @@ pass rates from every pinned run:
 **0 of 14 tasks are in the band.** Running more repetitions of these tasks cannot produce a
 gate-worthy signal. The suite needs harder or less prescriptive tasks first.
 
+### New tasks (e58s11): still saturated
+
+ab-12, ab-15 and ab-16 were built for changing, spread and example-only requirements. Vanilla
+calibration (`pi-docker`, k=10 planned; the run was stopped at 15 of 30 runs):
+
+| Task | Vanilla runs | Pass | Hidden score |
+|---|---|---|---|
+| ab-12 todo due dates (changing thread) | 6 | 6/6 | 1.00 |
+| ab-15 config precedence (example-only rules) | 4 | 4/4 | 1.00 |
+| ab-16 tags + RSS (byte-identical pages) | 5 | 5/5 | 1.00 |
+
+15 of 15 passed with a full hidden score, so none is in the band. The model handles changing,
+spread and implied requirements when they fit in a few small files. The next lever is length and
+state, not better-hidden rules: multi-step or multi-session work (the cockpit claim) and larger
+codebases.
+
 ## 2. Review of ab-09, ab-17, ab-19, ab-20
 
 All four pass the calibration tests (the fixture fails, the solution passes, the prompt does not name

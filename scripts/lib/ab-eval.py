@@ -276,7 +276,7 @@ def main(argv: list[str] | None = None) -> int:
                     with live.open("a") as f:
                         f.write(json.dumps({**rec, "bigpowers_sha": sha, "model": model}) + "\n")
                     print(f"  {task['id']:<8} {arm:<10} run {i}: {'PASS' if rec['pass'] else 'FAIL'}"
-                          f"{' TAMPERED' if rec['tampered'] else ''}{' AGENT-ERROR' if rec['agent_error'] else ''}")
+                          f"{' TAMPERED' if rec['tampered'] else ''}{' AGENT-ERROR' if rec['agent_error'] else ''}", flush=True)
     except ConfigError as exc:
         print(f"ERROR: {exc}")
         return 2
