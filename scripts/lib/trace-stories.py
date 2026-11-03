@@ -15,6 +15,8 @@ import json, os, re, subprocess, sys
 from pathlib import Path
 from datetime import datetime, timezone
 import yaml
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from atomic_write import atomic_write_text  # noqa: E402
 
 ROOT = Path(sys.argv[1])
 MATRIX_JSON = Path(sys.argv[2])
@@ -189,7 +191,7 @@ matrix = {
     }
 }
 MATRIX_JSON.parent.mkdir(parents=True, exist_ok=True)
-MATRIX_JSON.write_text(json.dumps(matrix, indent=2), encoding="utf-8")
+atomic_write_text(MATRIX_JSON, json.dumps(matrix, indent=2), encoding="utf-8")
 
 # --- 6. Emit TRACEABILITY_LATEST.md
 lines = ["# Traceability Matrix", "",
@@ -224,7 +226,7 @@ if stale_tags:
     for st in stale_tags: lines.append(f"- `{st}`")
     lines.append("")
 TRACE_MD.parent.mkdir(parents=True, exist_ok=True)
-TRACE_MD.write_text("\n".join(lines), encoding="utf-8")
+atomic_write_text(TRACE_MD, "\n".join(lines))
 
 # --- 7. Emit OKF bundle (specs/codebase-wiki/)
 OKF_DIR.mkdir(parents=True, exist_ok=True)
@@ -240,7 +242,7 @@ for s in matrix_stories:
     mc = "high" if "high" in confs else ("medium" if "medium" in confs else ("low" if confs else "none"))
     idx_lines.append(f"| [{s['id']}](./{s['id']}.md) | {s['title'][:60]} | {mc} | {s['link_count']} |")
 idx_lines.append("")
-(OKF_DIR / "index.md").write_text("\n".join(idx_lines), encoding="utf-8")
+atomic_write_text(OKF_DIR / "index.md", "\n".join(idx_lines))
 for s in matrix_stories:
     concept = ["---", f"type: Story", f"id: {s['id']}", f"epic: {s['epic_id']}",
         f"bcps: {s['bcp']}", f"wsjf: {s['wsjf']}",
@@ -263,7 +265,7 @@ for s in matrix_stories:
     else:
         concept.append("*No code links found — this is a dark story.*")
     concept.append("")
-    (OKF_DIR / f"{s['id']}.md").write_text("\n".join(concept), encoding="utf-8")
+    atomic_write_text(OKF_DIR / f"{s['id']}.md", "\n".join(concept))
 
 # --- 8. Strict mode
 if STRICT:

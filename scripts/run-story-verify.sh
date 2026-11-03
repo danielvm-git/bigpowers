@@ -82,6 +82,13 @@ run_story_verify() {
   fi
   echo "FAIL: $sid [$src]$note — $cmd"
   echo "      output: $(echo "$RUN_OUT" | tail -3 | tr '\n' ' ')"
+  # Name the failing test. unittest/pytest footers ("FAILED (failures=1)") say a test
+  # broke but not which one, so a red gate is undiagnosable from CI logs alone
+  # (BUG-2026-11-03-story-verify-output-hides-failing-test).
+  local detail
+  detail="$(echo "$RUN_OUT" | grep -E '^(FAIL|ERROR): |\.\.\. (FAIL|ERROR)$|^AssertionError|^[A-Za-z]*Error: |^Traceback' \
+    | head -3 | tr '\n' ' ')"
+  [ -n "$detail" ] && echo "      detail: $detail"
   FAIL=$((FAIL + 1))
   return 1
 }

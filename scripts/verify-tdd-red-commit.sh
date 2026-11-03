@@ -78,7 +78,45 @@ if [[ -z "$VERIFY_CMD" ]]; then
   fi
 fi
 
-RED_SHA=$(git rev-parse HEAD~1)
+LATEST_MSG=$(git log -1 --format=%s 2>/dev/null || echo "")
+
+# Enforce during fix_bug flow, bug-fix commits, or when explicitly requested
+IS_FIX_FLOW=false
+if [ -f specs/state.yaml ] && grep -qE "active_flow:[[:space:]]*fix_bug" specs/state.yaml 2>/dev/null; then
+  IS_FIX_FLOW=true
+elif [[ -n "${TDD_ENFORCE_RED:-}" ]]; then
+  IS_FIX_FLOW=true
+elif [[ "$LATEST_MSG" =~ ^fix\(bug ]] || [[ "$LATEST_MSG" =~ BUG-[0-9] ]]; then
+  IS_FIX_FLOW=true
+fi
+
+if [ "$IS_FIX_FLOW" = false ] && [[ "${CHECK_PENDING_FIX:-0}" != "1" ]]; then
+  echo "SKIP: verify-tdd-red-commit only enforces during fix_bug flow or bug-fix commits"
+  exit 0
+fi
+
+if [[ "$LATEST_MSG" =~ ^fix ]]; then
+  RED_SHA=$(git rev-parse HEAD~1 2>/dev/null || echo "")
+  RED_MSG=$(git log -1 --format=%s "$RED_SHA" 2>/dev/null || echo "")
+  if [[ ! "$RED_MSG" =~ ^test ]]; then
+    echo "FAIL: preceding commit $RED_SHA is not a test-only commit (found: '$RED_MSG') — RED gate violated"
+    exit 1
+  fi
+elif [[ "$LATEST_MSG" =~ ^test ]]; then
+  RED_SHA=$(git rev-parse HEAD 2>/dev/null || echo "")
+else
+  if [[ "${CHECK_PENDING_FIX:-0}" == "1" ]]; then
+    echo "FAIL: latest commit '$LATEST_MSG' is not a test-only (RED) commit — RED gate violated"
+    exit 1
+  fi
+  RED_SHA=$(git rev-parse HEAD~1 2>/dev/null || echo "")
+fi
+
+if [[ -z "$RED_SHA" ]]; then
+  echo "FAIL: could not identify RED commit"
+  exit 1
+fi
+
 WORKTREE=$(mktemp -d)
 trap 'git worktree remove -f "$WORKTREE" 2>/dev/null || rm -rf "$WORKTREE"' EXIT
 

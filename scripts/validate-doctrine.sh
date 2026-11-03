@@ -55,7 +55,7 @@ else
   grep -rE "PLAN\.md|STATE\.md|PROJECT\.md|CONTEXT\.md|SUMMARY\.md|VERIFICATION\.md|RESEARCH\.md|RELEASE-PLAN\.md" \
     docs/ 2>/dev/null \
     | grep -v "docs/archive/" \
-    | grep -v "specs/archive" | head -20 >&2
+    | grep -v "specs/archive" | sed -n '1,20p' >&2  # sed reads to the end; `head` races pipefail (BUG-2026-11-02-pipefail-pipe-race)
 fi
 
 # ── Epic 1: Skill count consistency ───────────────────────────────────────────
@@ -79,7 +79,7 @@ fi
 #   specs/verifications/reports/ (generated reports), PLAN-evolve-structure.md
 #   (migration plan that documents the before→after paths as historical record).
 echo "--- [Epic 2] canonical specs/ subpaths ---"
-LEGACY_SPECS=$(grep -rE "specs/(requirements|plans|audit)\b" \
+LEGACY_SPECS=$(grep -rE --exclude-dir=.claude --exclude-dir=.venv "specs/(requirements|plans|audit)\b" \
   --include="*.md" --include="*.sh" --include="*.yaml" --include="*.yml" --include="*.json" . \
   2>/dev/null \
   | grep -v "specs/archive\|specs/epics/archive\|docs/archive/\|\.git\|node_modules\|\.gemini\|\.cursor" \
@@ -89,25 +89,25 @@ if [[ "$LEGACY_SPECS" -eq 0 ]]; then
   doctrine_pass "no legacy specs/ subpaths (requirements/, plans/, audit/)"
 else
   doctrine_fail "legacy specs/ subpaths found ($LEGACY_SPECS occurrences)"
-  grep -rE "specs/(requirements|plans|audit)\b" \
+  grep -rE --exclude-dir=.claude --exclude-dir=.venv "specs/(requirements|plans|audit)\b" \
     --include="*.md" --include="*.sh" --include="*.yaml" --include="*.yml" --include="*.json" . \
     2>/dev/null \
     | grep -v "specs/archive\|specs/epics/archive\|docs/archive/\|\.git\|node_modules\|\.gemini\|\.cursor" \
     | grep -v "CHANGELOG\.md\|specs/verifications/reports/\|PLAN-evolve-structure\.md" \
-    | head -10 >&2
+    | sed -n '1,10p' >&2
 fi
 
 # ── Epic 3: BCP slop guard ────────────────────────────────────────────────────
 echo "--- [Epic 3] BCP terminology ---"
-BCP_SLOP=$(grep -ri "build commit point" . 2>/dev/null \
+BCP_SLOP=$(grep -ri --exclude-dir=.claude --exclude-dir=.venv --exclude-dir=.git --exclude-dir=node_modules "build commit point" . 2>/dev/null \
   | grep -v "specs/archive\|\.git\|node_modules\|\.gemini\|\.cursor\|validate-doctrine\.sh" \
   | wc -l | tr -d ' ') || true
 if [[ "$BCP_SLOP" -eq 0 ]]; then
   doctrine_pass "no 'Build Commit Point' slop — BCP = Business Complexity Points"
 else
   doctrine_fail "'Build Commit Point' found ($BCP_SLOP hits) — canonical term is 'Business Complexity Points'; see docs/references/bcp.md"
-  grep -ri "build commit point" . 2>/dev/null \
-    | grep -v "specs/archive\|\.git\|node_modules\|\.gemini\|\.cursor\|validate-doctrine\.sh" | head -5 >&2
+  grep -ri --exclude-dir=.claude --exclude-dir=.venv --exclude-dir=.git --exclude-dir=node_modules "build commit point" . 2>/dev/null \
+    | grep -v "specs/archive\|\.git\|node_modules\|\.gemini\|\.cursor\|validate-doctrine\.sh" | sed -n '1,5p' >&2
 fi
 
 # ── Epic 4: SKILL.md size cap ─────────────────────────────────────────────────

@@ -37,6 +37,7 @@ disable-model-invocation: true
 
 ## Checklist before finalizing
 
+- [ ] **Audit pass confirmed (HARD GATE — Issue #182):** In active epic flow, `bash scripts/lib/assert-epic-gate.sh commit` passes.
 - [ ] Type matches the **dominant** user-visible outcome (`feat` vs `fix` vs `perf`, etc.).
 - [ ] **Scope** is a short noun in parentheses if it helps (e.g. `fix(api): …`).
 - [ ] Breaking changes are explicit (`!` and/or `BREAKING CHANGE:` in the body/footer).

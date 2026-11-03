@@ -11,7 +11,9 @@ cd "$REPO_ROOT"
 BASE=".bigpowers/worktrees/review-${CHECK}"
 mkdir -p "$(dirname "$BASE")"
 
-if git worktree list | grep -q "$BASE"; then
+# Capture first: `git worktree list | grep -q` is a pipefail race (BUG-2026-11-02-pipefail-pipe-race).
+WORKTREES="$(git worktree list)"
+if grep -q "$BASE" <<<"$WORKTREES"; then
   git worktree remove --force "$BASE" 2>/dev/null || true
 fi
 

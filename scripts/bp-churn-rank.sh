@@ -45,5 +45,6 @@ git log --since="$SINCE" --name-only --pretty=format: $PATHSPEC \
   | sort \
   | uniq -c \
   | sort -rn \
-  | head -n "$LIMIT" \
-  | awk '{printf "%4d  %s\n", $1, $2}'
+  | awk -v limit="$LIMIT" 'NR <= limit {printf "%4d  %s\n", $1, $2}'
+# awk reads to the end instead of `head -n`, which closed the pipe early and
+# made `sort` die with SIGPIPE under pipefail (BUG-2026-11-02-pipefail-pipe-race).

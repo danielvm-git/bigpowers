@@ -622,6 +622,36 @@ bugs:
     approach: "Give every ${OMP_PLUGIN_ROOT} reference a ':-.' default so hosts that do not inject it resolve the package-relative path; smoke-test the manifest under both host profiles"
     risk_level: "low"
     commit_message: "fix(mcp): default OMP_PLUGIN_ROOT so bigpowers-mcp starts outside OMP (#168)"
+  - id: BUG-2026-11-02-pipefail-pipe-race
+    status: fixed
+    severity: medium
+    scope: scripts / gates
+    title: "Pipelines with an early-exit reader (grep -q, head) fail at random under set -o pipefail"
+    file: bugs/BUG-2026-11-02-pipefail-pipe-race.md
+    files_changed: "scripts/land-branch.sh, scripts/lib/parallel-review-worktrees.sh, scripts/check-spec-version-gap.sh, scripts/bp-churn-rank.sh, scripts/run-smoke.sh, scripts/validate-doctrine.sh, scripts/test-pipefail-pipe-race.sh (new), scripts/lib/golden-suite-gates.sh"
+    approach: "Do not let the reader close the pipe early: capture producer output first, test the captured string, or use a reader that reads to the end (awk NR<=n, sed -n '1,Np')"
+    risk_level: "low"
+    commit_message: "fix(scripts): remove pipefail SIGPIPE races from git and long-output pipelines"
+  - id: BUG-2026-11-03-atomic-yaml-writes
+    status: fixed
+    severity: high
+    scope: scripts / specs state
+    title: "Spec state YAML/JSON is written in place, so a concurrent reader or an interrupted run sees a truncated file (yaml ScannerError)"
+    file: bugs/BUG-2026-11-03-atomic-yaml-writes.md
+    files_changed: "scripts/lib/atomic_write.py (new), scripts/test-atomic-writes.sh (new), scripts/yaml-tools.py, scripts/sync-bugs-registry.sh, scripts/lib/trace-stories.py, scripts/lib/trace_renderer.py, scripts/lib/blind-spots.py, scripts/lib/blind-spot-checks.py, scripts/lib/ab_report.py, scripts/lib/run-benchmark.py, scripts/okf-add-references.py, scripts/lib/srp_engine_okf.py, scripts/lib/golden-suite-gates.sh"
+    approach: "One helper, one shape: same-directory temp file, write, flush, fsync, os.replace (atomic rename), then fsync the directory. Every runtime writer of state YAML/JSON goes through it, and a golden gate proves the race is real before proving it is gone"
+    risk_level: "medium"
+    commit_message: "fix(scripts): write spec state atomically instead of in place"
+  - id: BUG-2026-11-03-omp-hooks-stderr-leak
+    status: open
+    severity: medium
+    scope: extensions / omp-hooks
+    title: "tool_call hook leaks git's fatal: not a git repository onto the TUI when a bash command cds outside the session repo"
+    file: bugs/BUG-2026-11-03-omp-hooks-stderr-leak.md
+    files_changed: "extensions/omp-hooks.ts, scripts/omp-smoke.ts, scripts/validate-omp-extension.sh"
+    approach: "Give the branch probe a silent stdio (mirroring inGitRepo) and short-circuit with inGitRepo(cwd) so no git process is spawned for a non-repo target; assert the silence from the shell gate by capturing the smoke's stderr"
+    risk_level: "low"
+    commit_message: "fix(omp): keep the tool_call branch probe quiet outside a git repo"
   - id: BUG-2026-11-03-story-verify-ab-sandbox-daemon-required
     status: fixed
     severity: high
@@ -632,6 +662,16 @@ bugs:
     approach: "Remove daemon status check from story-verify directive, relying on test_ab_sandbox.py which gates grade wrapper and timeout while cleanly handling offline sandbox"
     risk_level: "low"
     commit_message: "fix(ci): remove live docker daemon requirement from e58s07 story verify"
+  - id: BUG-2026-11-03-story-verify-e58-eval-flake
+    status: open
+    severity: high
+    scope: ci / story-verify
+    title: "story-verify goes red on main for e58s01/e58s02/e58s03 on an intermittent failure inside test_ab_eval.py that does not reproduce locally"
+    file: bugs/BUG-2026-11-03-story-verify-e58-eval-flake.md
+    files_changed: "scripts/run-story-verify.sh"
+    approach: "Gate now prints a 'detail:' line naming the failing test so the next occurrence is diagnosable; root cause unknown after ~280 reproduction attempts, so it is logged rather than papered over"
+    risk_level: "low"
+    commit_message: "fix(scripts): name the failing test when story verify goes red"
   - id: BUG-2026-11-03-wiki-indexes-ignored-reports
     status: open
     severity: low

@@ -1,3 +1,43 @@
+# [2.91.0](https://github.com/danielvm-git/bigpowers/compare/v2.90.2...v2.91.0) (2026-11-03)
+
+
+### Features
+
+* **hooks:** enforce mechanical gates for red-commit, artifacts, and adversarial mutation (e86) ([#191](https://github.com/danielvm-git/bigpowers/issues/191)) ([7a1b090](https://github.com/danielvm-git/bigpowers/commit/7a1b0907aa20962ee71e825c4996aa80c213be3f))
+
+## [2.90.2](https://github.com/danielvm-git/bigpowers/compare/v2.90.1...v2.90.2) (2026-11-03)
+
+
+### Bug Fixes
+
+* **scripts:** write spec state atomically instead of in place ([#192](https://github.com/danielvm-git/bigpowers/issues/192)) ([6198138](https://github.com/danielvm-git/bigpowers/commit/61981388c6ab80e493ae7582749730b41c89fa24)), closes [#181](https://github.com/danielvm-git/bigpowers/issues/181)
+
+## [2.90.1](https://github.com/danielvm-git/bigpowers/compare/v2.90.0...v2.90.1) (2026-11-03)
+
+
+### Bug Fixes
+
+* **omp:** keep the tool_call branch probe quiet outside a git repo ([#190](https://github.com/danielvm-git/bigpowers/issues/190)) ([bcacf33](https://github.com/danielvm-git/bigpowers/commit/bcacf33ec72a8705c6b0dbbcf91f2ea2bed4b406)), closes [#189](https://github.com/danielvm-git/bigpowers/issues/189)
+
+# [2.90.0](https://github.com/danielvm-git/bigpowers/compare/v2.89.1...v2.90.0) (2026-11-03)
+
+
+### Bug Fixes
+
+* **scripts:** name the failing test when story verify goes red ([#188](https://github.com/danielvm-git/bigpowers/issues/188)) ([45fe450](https://github.com/danielvm-git/bigpowers/commit/45fe4505caea2522038951d5774c6a5b5ae5cb57))
+
+
+### Features
+
+* **benchmarks:** run the A/B eval in a Docker sandbox (e58s07) ([#187](https://github.com/danielvm-git/bigpowers/issues/187)) ([9377f16](https://github.com/danielvm-git/bigpowers/commit/9377f1642682afcde5387afbfb9373f11b0ec40c))
+
+## [2.89.1](https://github.com/danielvm-git/bigpowers/compare/v2.89.0...v2.89.1) (2026-11-03)
+
+
+### Bug Fixes
+
+* **scripts:** remove pipefail SIGPIPE races from git and long-output pipelines ([#186](https://github.com/danielvm-git/bigpowers/issues/186)) ([f55cbb7](https://github.com/danielvm-git/bigpowers/commit/f55cbb7d8883dd0af4777ac2467d5b550fde23db))
+
 # [2.89.0](https://github.com/danielvm-git/bigpowers/compare/v2.88.18...v2.89.0) (2026-11-02)
 
 

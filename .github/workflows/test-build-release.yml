@@ -48,10 +48,11 @@ jobs:
             SKILL-INDEX.md \
             skills-lock.json \
             README.md \
-            specs/SKILL-SEARCH-INDEX_LATEST.md || {
+            specs/SKILL-SEARCH-INDEX_LATEST.md \
+            website/src/content/docs || {
             echo "::error::Generated artifacts out of date"
             git status --short
-            git diff --name-only .cursor/rules .gemini/extensions/bigpowers .pi SKILL-INDEX.md skills-lock.json README.md specs/SKILL-SEARCH-INDEX_LATEST.md
+            git diff --name-only .cursor/rules .gemini/extensions/bigpowers .pi SKILL-INDEX.md skills-lock.json README.md specs/SKILL-SEARCH-INDEX_LATEST.md website/src/content/docs
             exit 1
           }
 
@@ -160,6 +161,9 @@ jobs:
 
       - name: Run story verify
         run: bash scripts/run-story-verify.sh
+
+      - name: Verify TDD RED commit on fix commits
+        run: bash scripts/verify-tdd-red-commit.sh
 
   # Compliance and skill-verify used to run again here; the gate jobs above
   # already run both, and release now waits for every one of them.
