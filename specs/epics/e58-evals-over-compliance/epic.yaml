@@ -1,7 +1,7 @@
 id: e58
 title: "Evals Over Compliance — Replace the 94% Gate with Outcome Proof"
 wsjf: 5.3
-bcps: 39
+bcps: 52
 bcps_projected: 9
 capsule_dir: epics/e58-evals-over-compliance
 mode: capsule
@@ -72,6 +72,26 @@ stories:
       - tests/test_ab_eval.py
     tasks: e58s02-tasks.yaml
     verify: python3 tests/test_ab_eval.py && bash scripts/run-ab-eval.sh --dry-run --adapter opencode
+  - id: e58s03
+    title: "partial-credit scoring + two hard tasks (ab-11, ab-13)"
+    status: todo
+    bcps: 13
+    bcp_basis: estimate, 2026-11-02 (score parser + report + 2 multi-file tasks)
+    risk: P1
+    delta: ADDED + MODIFIED (bootstrap_delta_ci takes numeric values)
+    source: k=10 run showed the suite at its ceiling; specs/benchmarks/HARDER-TASKS_LATEST.md
+    description: >-
+      Optional per-task score command that runs hidden tests only and records the share passing,
+      per-arm mean score and a bootstrap CI on the score delta, plus tasks ab-11 (multi-file ledger
+      rounding bug) and ab-13 (split a god module behind a stable API).
+    files:
+      - scripts/lib/ab-eval.py
+      - scripts/lib/ab_metrics.py
+      - scripts/lib/ab_report.py
+      - specs/benchmarks/ab/tasks/
+      - tests/test_ab_score.py
+    tasks: e58s03-tasks.yaml
+    verify: python3 tests/test_ab_score.py && python3 tests/test_ab_eval.py
 planned_stories:
   - working_title: "Extend run-evals to cover a meaningful skill subset with real with/without-skill deltas"
     bcp_estimate: 3
