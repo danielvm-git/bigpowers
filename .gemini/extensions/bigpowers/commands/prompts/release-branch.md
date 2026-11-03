@@ -55,6 +55,10 @@ git log main...HEAD --format="%B" | grep -qiE 'co[- ]authored[- ]by' && echo "�
 ### 2a. Security gate
 
 - [ ] `specs/security/REVIEW.md` exists and is fresh (matches current branch diff)
+
+### 2b. Audit-code gate (HARD GATE — Issue #182)
+
+- [ ] Run `bash scripts/lib/assert-epic-gate.sh release`. Fails if `specs/AUDIT_LATEST.md` is missing or did not pass. Block release and return to `develop-tdd` if failed.
 - [ ] No unresolved HIGH findings with confidence ≥ 8 (or all documented in `specs/security/EXCEPTIONS.md` with sign-off rationale)
 
 If REVIEW.md is missing or stale → run `security-review` inline. Findings block the merge unless documented in EXCEPTIONS.md.

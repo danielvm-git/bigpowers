@@ -42,8 +42,27 @@ deny() {
 # Read input from stdin
 INPUT=$(cat)
 
-# Extract command using jq (standard in bigpowers)
+# Extract command and file path using jq (standard in bigpowers)
 COMMAND=$(echo "$INPUT" | jq -r '.command // .tool_input.command // empty')
+FILE_PATH=$(echo "$INPUT" | jq -r '.file_path // .tool_input.file_path // .path // .tool_input.path // .target_file // .tool_input.target_file // empty')
+TOOL_NAME=$(echo "$INPUT" | jq -r '.tool // .name // .tool_name // empty')
+
+# 0. Check file editing rules
+if [ -n "$FILE_PATH" ]; then
+  # e86s01: Generated paths are blocked at edit time
+  if [[ "$FILE_PATH" =~ ^\.cursor/rules/ ]] || [[ "$FILE_PATH" =~ ^\.gemini/extensions/ ]] || [[ "$FILE_PATH" =~ ^\.windsurf/ ]]; then
+    deny "BLOCKED: Generated file '$FILE_PATH' cannot be edited directly. Edit the source SKILL.md instead and run bash scripts/sync-skills.sh."
+  fi
+
+  # e86s02: Tests are locked during fix_bug flow after RED commit
+  if [[ "$FILE_PATH" =~ (^|/)test/ ]] || [[ "$FILE_PATH" =~ (^|/)tests/ ]] || [[ "$FILE_PATH" =~ \.test\.[^/]+$ ]] || [[ "$FILE_PATH" =~ _test\.[^/]+$ ]] || [[ "$FILE_PATH" =~ (^|/)test_[^/]+$ ]]; then
+    if [ -f specs/state.yaml ] && grep -qE "active_flow:[[:space:]]*fix_bug" specs/state.yaml 2>/dev/null; then
+      if git rev-parse --git-dir >/dev/null 2>&1 && git log -n 5 --format=%s 2>/dev/null | grep -qE '^test(\(.+\))?:'; then
+        deny "BLOCKED: Test files ($FILE_PATH) are locked during fix_bug after the RED commit. Write the fix in production code (src/), not in tests."
+      fi
+    fi
+  fi
+fi
 
 if [ -z "$COMMAND" ]; then
   [ "$MODE" = "gemini" ] && echo '{"decision":"allow"}'
