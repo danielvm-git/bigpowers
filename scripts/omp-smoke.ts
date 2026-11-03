@@ -10,7 +10,9 @@
 // fails here exactly as it does in real pi, instead of silently passing.
 // See pi 0.85.1 src/core/extensions/loader.ts (createExtensionRuntime).
 
-import { readFileSync } from "node:fs";
+import { mkdtempSync, readFileSync, rmSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import bigpowers from "../extensions/omp-hooks.ts";
 
 type AnyObj = Record<string, unknown>;
@@ -118,3 +120,27 @@ console.log(JSON.stringify({
   sendCalls,
   runDetails: runResult.details,
 }));
+
+// Silent-probe check (BUG-2026-11-03-omp-hooks-stderr-leak, issue #189).
+// The tool_call handler resolves the branch of the directory the command will
+// run in. When that directory is not a repository, a git probe that inherits
+// fd 2 paints "fatal: not a git repository" over the TUI. The handler must be
+// invisible: validate-omp-extension.sh runs this mode with stderr captured and
+// fails on any leaked git noise.
+if (process.env.OMP_SMOKE_SILENT_TOOL_CALL === "1") {
+  const toolCall = events.get("tool_call");
+  if (typeof toolCall !== "function") throw new Error("tool_call handler not registered");
+  const nonRepo = mkdtempSync(join(tmpdir(), "omp-nonrepo-"));
+  try {
+    const verdict = await toolCall({
+      toolName: "bash",
+      input: { command: `cd ${nonRepo} && ls` },
+    });
+    // Fail-closed contract: a harmless command in a non-repo dir is not blocked.
+    if (verdict && (verdict as { block?: boolean }).block) {
+      throw new Error(`harmless command in a non-repo dir was blocked: ${JSON.stringify(verdict)}`);
+    }
+  } finally {
+    rmSync(nonRepo, { recursive: true, force: true });
+  }
+}

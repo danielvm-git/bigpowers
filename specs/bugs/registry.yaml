@@ -632,6 +632,16 @@ bugs:
     approach: "Do not let the reader close the pipe early: capture producer output first, test the captured string, or use a reader that reads to the end (awk NR<=n, sed -n '1,Np')"
     risk_level: "low"
     commit_message: "fix(scripts): remove pipefail SIGPIPE races from git and long-output pipelines"
+  - id: BUG-2026-11-03-omp-hooks-stderr-leak
+    status: open
+    severity: medium
+    scope: extensions / omp-hooks
+    title: "tool_call hook leaks git's fatal: not a git repository onto the TUI when a bash command cds outside the session repo"
+    file: bugs/BUG-2026-11-03-omp-hooks-stderr-leak.md
+    files_changed: "extensions/omp-hooks.ts, scripts/omp-smoke.ts, scripts/validate-omp-extension.sh"
+    approach: "Give the branch probe a silent stdio (mirroring inGitRepo) and short-circuit with inGitRepo(cwd) so no git process is spawned for a non-repo target; assert the silence from the shell gate by capturing the smoke's stderr"
+    risk_level: "low"
+    commit_message: "fix(omp): keep the tool_call branch probe quiet outside a git repo"
   - id: BUG-2026-11-03-story-verify-ab-sandbox-daemon-required
     status: fixed
     severity: high
