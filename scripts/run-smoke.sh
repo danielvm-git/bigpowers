@@ -46,7 +46,8 @@ run_single_url_check() {
 
   # Assert content signal
   if [ -n "$content_signal" ]; then
-    if echo "$body" | grep -qiE "$content_signal"; then
+    # Here-string, not `echo "$body" | grep -q`: a large body races pipefail (BUG-2026-11-02-pipefail-pipe-race).
+    if grep -qiE "$content_signal" <<<"$body"; then
       echo "  PASS: body matches \"$content_signal\""
     else
       echo "  FAIL: body does not match \"$content_signal\""
@@ -165,7 +166,7 @@ run_parsed_check() {
 
   # Assert content signal
   if [ -n "$content_signal" ]; then
-    if echo "$body" | grep -qiE "$content_signal"; then
+    if grep -qiE "$content_signal" <<<"$body"; then
       echo "  PASS: body matches \"$content_signal\""
       checks_passed=$((checks_passed + 1))
     else

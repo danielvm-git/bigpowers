@@ -1,20 +1,35 @@
-# Security Review — e53s04 (Adopt docs/TARGET-ARCHITECTURE.md as the migration's north-star reference)
+# Security Review — BUG-2026-11-02-pipefail-pipe-race
 
 ## Scope Resolution
-Scanned changes: `e53s04-target-architecture-doc` vs `main` (3 commits)
+Scanned: `danielvm-git/angry-einstein-728328` vs `main` (1 commit).
 Files changed:
-- `docs/TARGET-ARCHITECTURE.md` (new — router document, links only)
-- `specs/epics/e53-establish-migration-baseline/{epic.yaml,e53s04-tasks.yaml}` (bookkeeping)
+- `scripts/bp-churn-rank.sh`, `scripts/check-spec-version-gap.sh`, `scripts/land-branch.sh`
+- `scripts/lib/golden-suite-gates.sh`, `scripts/lib/parallel-review-worktrees.sh`
+- `scripts/run-smoke.sh`, `scripts/validate-doctrine.sh`
+- `scripts/test-pipefail-pipe-race.sh` (new regression guard)
+- `specs/bugs/BUG-2026-11-02-pipefail-pipe-race.md` (+ `.okf.md`, `registry.yaml`)
 
-Languages: Markdown only. No code changes.
+Languages: Bash + Markdown. No network, no credentials, no new dependencies.
 
-## Vulnerability Assessment
+## Threat Trace
+The change replaces `producer | grep -q` / `| head` pipelines with captured
+output (`out="$(...)"` then `grep -q ... <<<"$out"`) or full-read readers
+(`awk -v limit=`, `sed -n '1,Np'`). Static assertions live in
+`scripts/test-pipefail-pipe-race.sh`, wired into the golden gate suite.
 
 | Category | Finding | Severity | Mitigation |
 |----------|---------|----------|------------|
-| All categories | N/A | NONE | Pure documentation — a router with external links to `bigspec` (a sibling repo the same user owns) and internal links to existing repo files. No executable code, no data flow, no attacker-reachable surface. |
+| Command injection | Here-strings pass data as stdin, never as argv or `eval` | NONE | No new interpolation site; `$content_signal` was already passed to `grep -E` pre-change |
+| Auth/attribution bypass | `land-branch.sh` Co-authored-by scan now captures `git log` output before matching | LOW | Fix removes a *false negative* (race made a real footer read as absent); regex and deny path unchanged |
+| Fail-open gates | Race could make a found match read as "not found" | LOW | Each gate now compares captured text; `|| true` keeps the earlier empty-log semantics |
+| Secrets exposure | None — no new file reads, no logging of env | NONE | — |
+| Data handling | `run-smoke.sh` content-signal match moved off an `echo`-piped `grep -q` | NONE | Same here-string path already used elsewhere in the script |
+| Supply chain | No new actions, packages, or pinned versions | NONE | — |
 
-Also covered by the epic-level threat model (`specs/security/epics/e53/THREAT_MODEL.md`).
+Residual risk: `set -o pipefail` remains on; other call sites outside `scripts/`
+and `hooks/` are covered by check (c) of the regression test only for git-fed
+pipelines. Documented as scope of BUG-2026-11-02.
 
 ## Verdict
-**PASS** — No security surface introduced. Documentation-only change.
+**PASS** — no exploitable surface introduced; the change removes a
+false-negative class in the attribution and gate-scan paths.
