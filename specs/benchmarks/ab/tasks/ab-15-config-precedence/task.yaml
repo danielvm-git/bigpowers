@@ -1,0 +1,15 @@
+# story: e58s11
+# Spread and implied requirements: precedence, coercion and unknown-key rules are in prose; two
+# rules appear only in the examples table (an empty env value is unset; APP_DB__MAX_CONNECTIONS ->
+# db.maxConnections). Five modules depend on the result. Fixture scores 3/18 on hidden tests.
+id: ab-15
+title: Config precedence across file, environment and flags
+kind: feature
+prompt: |
+  Make the configuration loader follow docs/CONFIG.md. docs/ARCHITECTURE.md describes how the
+  modules use it. `npm test` must keep passing.
+protected:
+  - test/config.test.js
+grade: node --test test/*.test.js test-hidden/*.test.js
+score: node --test --test-reporter=tap test-hidden/*.test.js
+timeout_s: 1800

@@ -1,0 +1,17 @@
+# story: e58s11
+# Regression discipline: existing pages must stay byte-identical (compared with an oracle copy of
+# the original generator) while tag pages, a tag index and an RSS feed are added. Edge cases:
+# case/accent folding, a draft-only tag, XML escaping, RFC-822 dates, the 20-item limit, the first
+# paragraph after a heading. v1 already shows tags as text, which tempts a byte change. Fixture
+# scores 2/12 on hidden tests.
+id: ab-16
+title: Tag pages and an RSS feed for the static site generator
+kind: feature
+prompt: |
+  Add the tag pages and the RSS feed described in docs/SPEC-tags-rss.md to this static site
+  generator. `npm test` must keep passing.
+protected:
+  - test/build.test.js
+grade: node --test test/*.test.js test-hidden/*.test.js
+score: node --test --test-reporter=tap test-hidden/*.test.js
+timeout_s: 1800
