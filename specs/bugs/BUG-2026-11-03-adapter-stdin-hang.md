@@ -1,3 +1,15 @@
+---
+bug_id: BUG-2026-11-03-adapter-stdin-hang
+status: fixed
+severity: high
+scope: adapters / verification gates
+title: "Adapters read stdin when sourced, so Preflight hangs and context wiring can skip targets"
+files_changed: "scripts/adapters/{agy,cursor,gemini,mimo,pi,zcode}.sh, scripts/test-adapter-render.sh, scripts/generate-context-bundle.sh"
+approach: "Guard each adapter's stdin branch with BASH_SOURCE == $0 (as the other 10 do) and source adapters with </dev/null"
+risk_level: low
+commit_message: "fix(adapters): stop reading stdin when an adapter is only sourced"
+---
+
 # BUG-2026-11-03: adapters read stdin when sourced, so Preflight hangs and context wiring skips targets
 
 **Severity:** high (Preflight hangs forever under some callers; targets silently not wired)
