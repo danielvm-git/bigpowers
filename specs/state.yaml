@@ -1,14 +1,16 @@
-active_flow: build
-active_epic: e84
-active_story: e84s01
+active_flow: null
+active_epic: null
+active_story: null
 bug_id: null
 bigpowers_version: 2.93.3
 bug_cycle: null
 handoff:
-  next_skill: audit-code
-  context: 'Pillar B: Shaved always-loaded context in CLAUDE.md (symlink to AGENTS.md, 98 lines) and CONVENTIONS.md
-    (105 lines), cutting always-loaded context by ~77%. Toolchain syntax tables moved to docs/references/agent-tooling.md.'
-  epic: e84
+  next_skill: survey-context
+  context: 'PR #202 merged as 87b1cd12: BUG-2026-11-03 epic status roll-up drift (G-12 checks 4-5,
+    e58/e82 status corrected) plus the CI fix that installs Node deps before story verify so
+    e82s03''s OMP smoke can import typebox. Golden suite 56/56, all PR checks green, v2.93.3
+    released and published to npm.'
+  epic: null
 epic_cycle: null
 metrics:
   story_start: null
@@ -33,10 +35,11 @@ metrics:
       total_seconds: 632.0
       avg_seconds: 632.0
 release:
-  ci_verified: false
-  last_commit: 3daf6225
+  ci_verified: true
+  last_commit: 3251e1b0
   last_epic: e79-simple-english-skill
-  last_tag: v2.87.2
-  last_publish: '2026-08-05T16:28:27Z'
+  last_tag: v2.93.3
+  last_publish: '2026-11-04T01:52:15Z'
 git:
-  branch: feat/e84-shave-always-loaded-context
+  branch: main
+  hash: 3251e1b0
