@@ -1,3 +1,10 @@
+## [2.93.3](https://github.com/danielvm-git/bigpowers/compare/v2.93.2...v2.93.3) (2026-11-04)
+
+
+### Bug Fixes
+
+* **specs:** gate epic status roll-up in G-12 and close e58/e82 ([#202](https://github.com/danielvm-git/bigpowers/issues/202)) ([87b1cd1](https://github.com/danielvm-git/bigpowers/commit/87b1cd12a2a71a046f59b6ed0d2517db636a1cce)), closes [#118](https://github.com/danielvm-git/bigpowers/issues/118)
+
 ## [2.93.2](https://github.com/danielvm-git/bigpowers/compare/v2.93.1...v2.93.2) (2026-11-03)
 
 

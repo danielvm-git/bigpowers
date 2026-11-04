@@ -2,7 +2,7 @@ active_flow: build
 active_epic: e84
 active_story: e84s01
 bug_id: null
-bigpowers_version: 2.93.2
+bigpowers_version: 2.93.3
 bug_cycle: null
 handoff:
   next_skill: audit-code
