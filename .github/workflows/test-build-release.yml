@@ -152,6 +152,12 @@ jobs:
         with:
           node-version: '22'
 
+      # The omp extension story verify (e82s03) executes scripts/omp-smoke.ts,
+      # which imports extensions/omp-hooks.ts -> typebox (a devDependency), so a
+      # full install. Same reason the verification-gates job installs deps.
+      - name: Install Node deps
+        run: npm ci
+
       - name: Install Python deps
         run: python3 -m pip install --user -r requirements.txt
 
