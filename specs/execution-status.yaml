@@ -338,7 +338,7 @@ development_status:
   e55s03: done
   e56: backlog
   e57: backlog
-  e58: backlog
+  e58: done
   e58s01: done
   e58s02: done
   e58s03: done
@@ -412,11 +412,11 @@ development_status:
   e80s05: done
   e81: done
   e81s01: done
-  e82: backlog
-  e82s01: backlog
-  e82s02: backlog
-  e82s03: backlog
-  e82s04: backlog
+  e82: done
+  e82s01: done
+  e82s02: done
+  e82s03: done
+  e82s04: done
   e83: backlog
   e83s01: backlog
   e83s02: backlog
@@ -674,7 +674,7 @@ epics:
     wsjf: 5.0
     total_bcps: 0
   e58:
-    status: backlog
+    status: done
     title: 'Evals Over Compliance — Replace the 94% Gate with Outcome Proof'
     wsjf: 5.3
     total_bcps: 75
@@ -794,7 +794,7 @@ epics:
     wsjf: 4.5
     total_bcps: 2
   e82:
-    status: backlog
+    status: done
     title: Fork Innovations — Jujutsu VCS Support + OMP Plugin + Community Credit
     wsjf: 6.0
     total_bcps: 0
@@ -3607,28 +3607,28 @@ stories:
     risk_max: P2
     security_max: none
   e82s01:
-    status: backlog
+    status: done
     title: 'Add project-runtime.sh — configurable specs dir + VCS kind resolution'
     epic: e82
     tasks_total: 0
     tasks_passing: 0
     tasks_failing: 0
   e82s02:
-    status: backlog
+    status: done
     title: 'Jujutsu-aware lifecycle skills (commit-message, kickoff-branch, release-branch, survey-context)'
     epic: e82
     tasks_total: 0
     tasks_passing: 0
     tasks_failing: 0
   e82s03:
-    status: backlog
+    status: done
     title: 'OMP plugin extension — bigpowers as native oh-my-posh/OMP entry point'
     epic: e82
     tasks_total: 0
     tasks_passing: 0
     tasks_failing: 0
   e82s04:
-    status: backlog
+    status: done
     title: Community attribution — CONTRIBUTORS.md + CHANGELOG credit entries
     epic: e82
     tasks_total: 0
