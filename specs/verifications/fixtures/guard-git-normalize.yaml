@@ -118,3 +118,10 @@ cases:
   - command: ls -la && git status
     verdict: allow
     why: compound commands still evaluate the git segment
+  - command: 'git push -u origin fix/guard-git-flag-normalize; echo "commits ahead of main"'
+    verdict: allow
+    branch: fix/guard-git-flag-normalize
+    why: a protected name in trailing prose (after a command separator) must not block the feature push (BUG-2026-11-03-guard-push-target-matches-text)
+  - command: git push origin main && echo done
+    verdict: block
+    why: main IS the push target — the segment cut must not also cut the real target away
