@@ -1,3 +1,10 @@
+## [2.93.7](https://github.com/danielvm-git/bigpowers/compare/v2.93.6...v2.93.7) (2026-11-06)
+
+
+### Bug Fixes
+
+* **install:** manifest + resolved-path uninstall; pi project path .pi/skills ([#224](https://github.com/danielvm-git/bigpowers/issues/224)) ([6172b55](https://github.com/danielvm-git/bigpowers/commit/6172b559b55c95b4525be857224e70aa540097df)), closes [#219](https://github.com/danielvm-git/bigpowers/issues/219) [#220](https://github.com/danielvm-git/bigpowers/issues/220)
+
 ## [2.93.6](https://github.com/danielvm-git/bigpowers/compare/v2.93.5...v2.93.6) (2026-11-06)
 
 
