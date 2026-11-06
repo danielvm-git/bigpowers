@@ -693,7 +693,7 @@ bugs:
     risk_level: "low"
     commit_message: "fix(specs): gate epic status roll-up in G-12 and close e58 and e82"
   - id: BUG-2026-11-03-guard-attribution-second-m
-    status: open
+    status: fixed
     severity: high
     scope: hooks / guard-git
     title: "Co-authored-by check only inspects the first -m value, so a footer in a second -m or in -F passes the P1 rule"
@@ -733,7 +733,7 @@ bugs:
     risk_level: "medium"
     commit_message: "fix(hooks): judge the TS guard through evaluateBashCall so parity covers every rule"
   - id: BUG-2026-11-03-guard-push-target-matches-text
-    status: open
+    status: fixed
     severity: medium
     scope: hooks / guard-git
     title: "Protected-branch push check matches the word 'main' anywhere in the command, so an unrelated echo or comment blocks a legitimate feature push"
@@ -802,3 +802,112 @@ bugs:
     approach: "Exclude gitignored report prefixes (specs/verifications/reports/, allure-results/) from trace-stories.py indexing, then regenerate the wikis once"
     risk_level: "low"
     commit_message: "fix(trace): stop indexing gitignored verification reports"
+  - id: BUG-2026-11-06-agents-skills-render-hijack
+    status: open
+    severity: medium
+    scope: distribution / pi
+    title: "Antigravity render target .agents/skills is auto-discovered by pi (#209)"
+    file: bugs/BUG-2026-11-06-agents-skills-render-hijack.md
+    files_changed: "scripts/lib/install-targets-b.sh, bin/setup.js, .gitignore, scripts/sync-skills.sh"
+    approach: "Render Antigravity skills outside host discovery roots; assert no render target is a discovery root"
+    risk_level: "medium"
+    commit_message: "fix(dist): move the Antigravity render target out of pi discovery (#209)"
+  - id: BUG-2026-11-06-dist-render-missing-assets
+    status: open
+    severity: high
+    scope: distribution
+    title: "Rendered .pi/skills and .agents/skills ship 0 of 92 bundled assets (#218)"
+    file: bugs/BUG-2026-11-06-dist-render-missing-assets.md
+    files_changed: "scripts/lib/sync-render.sh, scripts/lib/sync-post.sh, .pi/skills, .agents/skills, tests/"
+    approach: "Mirror sibling files and nested dirs into rendered skill dirs; assert payload parity and link resolution"
+    risk_level: "medium"
+    commit_message: "fix(dist): copy bundled skill assets into rendered targets (#218)"
+  - id: BUG-2026-11-06-install-multi-channel-collisions
+    status: open
+    severity: high
+    scope: distribution / pi
+    title: "Five install channels produce 80 skill-name collisions (#208)"
+    file: bugs/BUG-2026-11-06-install-multi-channel-collisions.md
+    files_changed: "scripts/install.sh, bin/setup.js, scripts/sync-skills.sh, distribution target manifest"
+    approach: "Single target manifest; refuse a second channel for the same host; add --verify duplicate-root report"
+    risk_level: "medium"
+    commit_message: "fix(dist): one install channel per host and a --verify report (#208)"
+  - id: BUG-2026-11-06-install-uninstall-noop
+    status: open
+    severity: high
+    scope: install
+    title: "install.sh --uninstall is a no-op from a checkout and never removes copy-mode channels (#219)"
+    file: bugs/BUG-2026-11-06-install-uninstall-noop.md
+    files_changed: "scripts/install.sh, scripts/lib/install-targets-*.sh, scripts/test-install-helpers.js"
+    approach: "Match by resolved realpath; record an install manifest; handle copy-mode entries; always print a summary"
+    risk_level: "medium"
+    commit_message: "fix(install): make --uninstall actually remove every managed entry (#219)"
+  - id: BUG-2026-11-06-mcp-directtools-wrong-file
+    status: open
+    severity: medium
+    scope: mcp / docs
+    title: "directTools in pi's mcp.json is ignored by pi-mcp-adapter (#211)"
+    file: bugs/BUG-2026-11-06-mcp-directtools-wrong-file.md
+    files_changed: "docs/references/bigpowers-mcp.md, README.md, bin/setup.js"
+    approach: "Document mcp-adapter.json as the owner of adapter keys; write adapter keys there only"
+    risk_level: "medium"
+    commit_message: "docs(mcp): document mcp-adapter.json ownership of adapter keys (#211)"
+  - id: BUG-2026-11-06-mcp-json-project-server-blocked
+    status: open
+    severity: medium
+    scope: mcp / pi
+    title: "Tracked .mcp.json declares a project server pi blocks on every start (#210)"
+    file: bugs/BUG-2026-11-06-mcp-json-project-server-blocked.md
+    files_changed: ".mcp.json, bin/setup.js, scripts/validate-mcp-package.sh, docs/references/bigpowers-mcp.md"
+    approach: "Generate .mcp.json at install time for OMP only; document the approval path; keep package smoke test"
+    risk_level: "medium"
+    commit_message: "fix(mcp): stop shipping a blocked project server in clones (#210)"
+  - id: BUG-2026-11-06-pi-frontmatter-html-comments
+    status: open
+    severity: high
+    scope: skills / pi
+    title: "HTML comments inside SKILL.md frontmatter drop 10 skills in pi (#173)"
+    file: bugs/BUG-2026-11-06-pi-frontmatter-html-comments.md
+    files_changed: "skills/*/SKILL.md, .pi/skills, .cursor/rules, .gemini/extensions/bigpowers, website/src/content/docs, specs/skills-wiki"
+    approach: "Rewrite frontmatter story tags as YAML '#' comments; keep body tags in HTML form; regenerate all targets"
+    risk_level: "medium"
+    commit_message: "fix(skills): use YAML comments for story tags inside frontmatter (#173)"
+  - id: BUG-2026-11-06-setup-pi-localpath
+    status: open
+    severity: medium
+    scope: install / pi
+    title: "setup.js uses .pi/agent/skills for pi's project-local path (#220)"
+    file: bugs/BUG-2026-11-06-setup-pi-localpath.md
+    files_changed: "bin/setup.js, scripts/test-install-helpers.js"
+    approach: "Correct localPath to .pi/skills; add a per-target verify probe and a path table test"
+    risk_level: "medium"
+    commit_message: "fix(setup): install pi skills to the project path pi scans (#220)"
+  - id: BUG-2026-11-06-setup-update-guidance
+    status: open
+    severity: low
+    scope: docs
+    title: "No guidance for pi update --extensions in setup output (#212)"
+    file: bugs/BUG-2026-11-06-setup-update-guidance.md
+    files_changed: "bin/setup.js, docs/references/agent-tooling.md, README.md"
+    approach: "Add the package-update step to post-install output and docs"
+    risk_level: "medium"
+    commit_message: "docs(setup): mention pi update --extensions after install (#212)"
+  - id: BUG-2026-11-06-sync-specs-artifact-churn
+    status: open
+    severity: low
+    scope: ci / specs
+    title: "sync-skills rewrites committed traceability artifacts with worktree paths (local finding)"
+    file: bugs/BUG-2026-11-06-sync-specs-artifact-churn.md
+    files_changed: "scripts/trace-stories.sh, scripts/lib/*wiki*, specs/codebase-wiki, specs/traceability-matrix.json"
+    approach: "Exclude .claude/worktrees from traceability generation; make the artifacts idempotent"
+    risk_level: "medium"
+  - id: BUG-2026-11-06-validator-yaml-strictness
+    status: open
+    severity: high
+    scope: ci
+    title: "validate-skill-yaml.py cannot detect the form that drops skills (#207)"
+    file: bugs/BUG-2026-11-06-validator-yaml-strictness.md
+    files_changed: "scripts/validate-skill-yaml.py, tests/"
+    approach: "Detect duplicate keys via yaml.compose; reject '<!--' inside frontmatter; add a host-parser golden test"
+    risk_level: "medium"
+    commit_message: "fix(ci): make validate-skill-yaml reject forms pi cannot load (#207)"
