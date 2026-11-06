@@ -411,7 +411,7 @@ function installLocal(tool, repoRoot) {
       break;
     }
     case 'pi': {
-      const targetDir = path.join(cwd, '.pi', 'agent', 'skills');
+      const targetDir = path.join(cwd, '.pi', 'skills');
       fs.mkdirSync(targetDir, { recursive: true });
       linkSkills(skillsDir, targetDir);
       break;
@@ -557,7 +557,7 @@ function uninstallTool(toolId, repoRoot) {
       break;
     case 'pi': {
       removeRepoRootedSkillLinks(path.join(homeDir, '.pi', 'agent', 'skills'), repoRoot);
-      removeRepoRootedSkillLinks(path.join(cwd, '.pi', 'agent', 'skills'), repoRoot);
+      removeRepoRootedSkillLinks(path.join(cwd, '.pi', 'skills'), repoRoot);
       break;
     }
     case 'hermes': {
