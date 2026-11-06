@@ -8,6 +8,9 @@ render_skill() {
   bp_assert_safe_skill_name "${IR_NAME-}" pi >/dev/null || return 1
   if declare -f render_pi_skill >/dev/null 2>&1; then
     render_pi_skill
+    # shellcheck source=../lib/adapter-assets.sh
+    source "$(dirname "${BASH_SOURCE[0]}")/../lib/adapter-assets.sh"
+    mirror_skill_assets "${PI_SKILLS:-.pi/skills}/$IR_NAME" "$IR_NAME"
     render_pi_prompt
     return
   fi
@@ -23,6 +26,10 @@ render_skill() {
       echo "${IR_BODY_SKILL:-$IR_BODY}"
     } > "${PI_SKILLS:-.pi/skills}/$IR_NAME/SKILL.md"
   }
+
+  # shellcheck source=../lib/adapter-assets.sh
+  source "$(dirname "${BASH_SOURCE[0]}")/../lib/adapter-assets.sh"
+  mirror_skill_assets "${PI_SKILLS:-.pi/skills}/$IR_NAME" "$IR_NAME"
 
   mkdir -p "${PI_PROMPTS:-.pi/prompts}"
   {
