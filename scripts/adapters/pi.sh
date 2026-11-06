@@ -10,7 +10,7 @@ render_skill() {
     render_pi_skill
     # shellcheck source=../lib/adapter-assets.sh
     source "$(dirname "${BASH_SOURCE[0]}")/../lib/adapter-assets.sh"
-    mirror_skill_assets "${PI_SKILLS:-.pi/skills}/$IR_NAME" "$IR_NAME"
+    mirror_skill_assets "${PI_SKILLS:-.pi/skills}/$IR_NAME" "$IR_NAME" || true
     render_pi_prompt
     return
   fi
@@ -29,7 +29,7 @@ render_skill() {
 
   # shellcheck source=../lib/adapter-assets.sh
   source "$(dirname "${BASH_SOURCE[0]}")/../lib/adapter-assets.sh"
-  mirror_skill_assets "${PI_SKILLS:-.pi/skills}/$IR_NAME" "$IR_NAME"
+  mirror_skill_assets "${PI_SKILLS:-.pi/skills}/$IR_NAME" "$IR_NAME" || true
 
   mkdir -p "${PI_PROMPTS:-.pi/prompts}"
   {

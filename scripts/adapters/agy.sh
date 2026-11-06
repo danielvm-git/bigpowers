@@ -17,7 +17,7 @@ render_skill() {
     render_agy_skill
     # shellcheck source=../lib/adapter-assets.sh
     source "$(dirname "${BASH_SOURCE[0]}")/../lib/adapter-assets.sh"
-    mirror_skill_assets "${AGY_SKILLS}/${IR_NAME}" "$IR_NAME"
+    mirror_skill_assets "${AGY_SKILLS}/${IR_NAME}" "$IR_NAME" || true
     return
   fi
   local out="${AGY_SKILLS}/${IR_NAME}"
@@ -35,7 +35,7 @@ render_skill() {
   }
   # shellcheck source=../lib/adapter-assets.sh
   source "$(dirname "${BASH_SOURCE[0]}")/../lib/adapter-assets.sh"
-  mirror_skill_assets "$out" "$IR_NAME"
+  mirror_skill_assets "$out" "$IR_NAME" || true
 }
 
 wire_context() {
