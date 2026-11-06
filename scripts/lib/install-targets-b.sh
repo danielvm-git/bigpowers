@@ -87,7 +87,7 @@ uninstall_mimo() {
 
 AGY_CONFIG_DIR="$HOME/.gemini/antigravity-cli"
 AGY_SKILLS_DIR="$AGY_CONFIG_DIR/skills"
-AGY_RENDERED="$REPO_ROOT/.agents/skills"
+AGY_RENDERED="$REPO_ROOT/.bigpowers/rendered/antigravity/skills"
 
 install_agy() {
   echo ""

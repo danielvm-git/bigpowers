@@ -2,10 +2,12 @@
 # story: e37s09
 # story: e74s01
 # story: e74s02
-# Antigravity CLI (agy) — skills at .agents/skills/ (workspace) and
-# ~/.gemini/antigravity-cli/skills/ (global). See RESEARCH-ANTIGRAVITY.md.
+# Antigravity CLI (agy). The RENDER output lives at
+# .bigpowers/rendered/antigravity/skills/ (not .agents/skills, which is a
+# discovery root pi also scans — #209). install() links it into
+# ~/.gemini/antigravity-cli/skills/ (global) or .agents/skills (workspace).
 
-AGY_SKILLS="${AGY_SKILLS:-.agents/skills}"
+AGY_SKILLS="${AGY_SKILLS:-.bigpowers/rendered/antigravity/skills}"
 AGY_HOOKS_GLOBAL="${AGY_HOOKS_GLOBAL:-$HOME/.gemini/config/hooks.json}"
 AGY_HOOKS_WORKSPACE="${AGY_HOOKS_WORKSPACE:-.agents/hooks.json}"
 

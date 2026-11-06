@@ -154,7 +154,7 @@ sync_post_regression_guards() {
   if [[ -f "$assets_lib" ]]; then
     # shellcheck source=adapter-assets.sh
     source "$assets_lib"
-    for rendered in "$REPO_ROOT/.pi/skills" "$REPO_ROOT/.agents/skills"; do
+    for rendered in "$REPO_ROOT/.pi/skills" "$REPO_ROOT/.bigpowers/rendered/antigravity/skills"; do
       [[ -d "$rendered" ]] || continue
       if ! assert_skill_assets "$rendered" > /tmp/bp-missing-assets.$$ 2>&1; then
         echo "sync-skills: FAIL — rendered payload is missing bundled skill assets in $rendered" >&2
