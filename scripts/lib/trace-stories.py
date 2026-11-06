@@ -311,11 +311,11 @@ if STRICT:
     # This is not "strict requires implemented stories": an unimplemented story
     # is legitimately skipped below (see BUG-2026-07-06T205700 and
     # scripts/test-trace-strict.sh).
-    if not epics:
-        print("trace-stories.py: STRICT FAIL — release-plan.yaml declares no epics; refusing to pass on an empty matrix", file=sys.stderr)
-        sys.exit(2)
     if unresolved_capsules:
         print(f"trace-stories.py: STRICT FAIL — declared capsules did not resolve (live or archived): {', '.join(unresolved_capsules)}", file=sys.stderr)
+        sys.exit(2)
+    if not stories:
+        print("trace-stories.py: STRICT FAIL — the matrix resolved 0 stories; release-plan.yaml and its capsules produced nothing to verify", file=sys.stderr)
         sys.exit(2)
     if matrix_stories:
         wsjf_sorted = sorted(set(s["wsjf"] for s in matrix_stories), reverse=True)
