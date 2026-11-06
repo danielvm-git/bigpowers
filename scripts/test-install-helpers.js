@@ -173,7 +173,9 @@ try {
     process.chdir(tmpCwd);
 
     installLocal({ id: 'pi', name: 'pi' }, ROOT);
-    const localPiSkills = path.join(tmpCwd, '.pi', 'agent', 'skills');
+    // pi scans <cwd>/.pi/skills for project resources; .pi/agent/skills is
+    // only the user-global dir and is never scanned as a project path (#220).
+    const localPiSkills = path.join(tmpCwd, '.pi', 'skills');
     const localPiSample = fs.readdirSync(localPiSkills).find((n) => {
       try { return fs.lstatSync(path.join(localPiSkills, n)).isSymbolicLink(); } catch { return false; }
     });

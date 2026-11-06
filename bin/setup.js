@@ -65,7 +65,7 @@ const TOOLS = [
   { id: 'mimo', name: 'MiMo Code', globalPath: '~/.mimocode', localPath: '.mimocode' },
   { id: 'kilo', name: 'Kilo', globalPath: '~/.config/kilo', localPath: '.config/kilo' },
   { id: 'opencode', name: 'OpenCode', globalPath: '~/.config/opencode', localPath: '.config/opencode' },
-  { id: 'pi', name: 'pi', globalPath: '~/.pi/agent/skills', localPath: '.pi/agent/skills' },
+  { id: 'pi', name: 'pi', globalPath: '~/.pi/agent/skills', localPath: '.pi/skills' },
   { id: 'qwen', name: 'Qwen Code', globalPath: '~/.qwen', localPath: '.qwen' },
   { id: 'trae', name: 'Trae', globalPath: '~/.trae', localPath: '.trae' },
   { id: 'windsurf', name: 'Windsurf', globalPath: '~/.codeium/windsurf', localPath: '.codeium/windsurf' },
