@@ -37,16 +37,25 @@ resolve_repo_root
 
 DRY_RUN=false
 UNINSTALL=false
+VERIFY=false
 
 for arg in "$@"; do
   case "$arg" in
     --dry-run)   DRY_RUN=true ;;
     --uninstall) UNINSTALL=true ;;
+    --verify)    VERIFY=true ;;
     *) echo "Unknown flag: $arg" >&2; exit 1 ;;
   esac
 done
 
 export DRY_RUN
+
+if $VERIFY; then
+  # story: BUG-2026-11-06-install-multi-channel-collisions (#208)
+  # Report when more than one channel owns the same host instead of installing.
+  bash "$REPO_ROOT/scripts/verify-distribution.sh" --strict
+  exit $?
+fi
 
 # ── helpers ──────────────────────────────────────────────────────────────────
 
