@@ -1,3 +1,10 @@
+# [2.94.0](https://github.com/danielvm-git/bigpowers/compare/v2.93.8...v2.94.0) (2026-11-06)
+
+
+### Features
+
+* **dist:** verify-distribution reports duplicate install channels ([#226](https://github.com/danielvm-git/bigpowers/issues/226)) ([6a55a91](https://github.com/danielvm-git/bigpowers/commit/6a55a91da024887cdb4f084c2c4edb4ea0e5845f)), closes [#208](https://github.com/danielvm-git/bigpowers/issues/208)
+
 ## [2.93.8](https://github.com/danielvm-git/bigpowers/compare/v2.93.7...v2.93.8) (2026-11-06)
 
 
