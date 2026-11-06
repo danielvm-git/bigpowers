@@ -94,8 +94,13 @@ GOLDEN_GATES=(
   "skill-frontmatter-strict:bash tests/test-skill-frontmatter-strict.sh:false"
   # A rendered payload that ships only SKILL.md is a broken skill: 38 of 80
   # reference sibling files. The pi package (.pi/skills) and Antigravity
-  # (.agents/skills) channels must carry the same bundled files as the source.
+  # (.bigpowers/rendered/antigravity/skills) channels must carry the same
+  # bundled files as the source.
   "render-assets:bash tests/test-render-assets.sh:false"
+  # A host render target must not live at a path another host auto-discovers:
+  # .agents/skills is a discovery root pi scans, so the Antigravity render
+  # moved to .bigpowers/rendered/antigravity/skills (#209).
+  "render-targets-not-discoverable:bash tests/test-render-targets-not-discoverable.sh:false"
   # Guard-git judges git argv, not substrings; shell and TS must agree (#184).
   "guard-git-normalize:bash scripts/test-guard-git-normalize.sh:false"
   "specs-parse:bash scripts/validate-specs-yaml.sh:false"

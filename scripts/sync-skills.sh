@@ -64,13 +64,17 @@ GEMINI_MANIFEST="$GEMINI_EXT_DIR/gemini-extension.json"
 PI_SKILLS="$REPO_ROOT/.pi/skills"
 PI_PROMPTS="$REPO_ROOT/.pi/prompts"
 PI_PACKAGE_JSON="$REPO_ROOT/.pi/package.json"
+# Antigravity (agy) render output. Lives under .bigpowers/, NOT .agents/skills:
+# .agents/skills is an Agent Skills discovery root that pi also scans, so
+# rendering there made a generated artifact win over the maintained source (#209).
+AGY_SKILLS="$REPO_ROOT/.bigpowers/rendered/antigravity/skills"
 OKF_WIKI_SKILLS="$REPO_ROOT/specs/skills-wiki/skills"
 OKF_WIKI_DIR="$REPO_ROOT/specs/skills-wiki"
 
-export CURSOR_RULES GEMINI_EXT_DIR GEMINI_SKILLS GEMINI_COMMANDS GEMINI_MANIFEST PI_SKILLS PI_PROMPTS PI_PACKAGE_JSON OKF_WIKI_SKILLS OKF_WIKI_DIR
+export CURSOR_RULES GEMINI_EXT_DIR GEMINI_SKILLS GEMINI_COMMANDS GEMINI_MANIFEST PI_SKILLS PI_PROMPTS PI_PACKAGE_JSON AGY_SKILLS OKF_WIKI_SKILLS OKF_WIKI_DIR
 
-mkdir -p "$CURSOR_RULES" "$GEMINI_SKILLS" "$GEMINI_COMMANDS" "$PI_SKILLS" "$PI_PROMPTS"
-rm -rf "${GEMINI_SKILLS:?}"/* "${GEMINI_COMMANDS:?}"/* "${PI_SKILLS:?}"/* "${PI_PROMPTS:?}"/*
+mkdir -p "$CURSOR_RULES" "$GEMINI_SKILLS" "$GEMINI_COMMANDS" "$PI_SKILLS" "$PI_PROMPTS" "$AGY_SKILLS"
+rm -rf "${GEMINI_SKILLS:?}"/* "${GEMINI_COMMANDS:?}"/* "${PI_SKILLS:?}"/* "${PI_PROMPTS:?}"/* "${AGY_SKILLS:?}"/*
 
 IR_NAME="" IR_MODEL="" IR_DESCRIPTION="" IR_DESC_ESCAPED="" IR_BODY=""
 

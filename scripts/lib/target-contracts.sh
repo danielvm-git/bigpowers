@@ -74,11 +74,11 @@ assert_aider_bridge() {
 
 assert_agy_skills_nonempty() {
   local id="$1"
-  if [[ -d .agents/skills ]] && [[ -n "$(ls -A .agents/skills 2>/dev/null)" ]]; then
+  if [[ -d .bigpowers/rendered/antigravity/skills ]] && [[ -n "$(ls -A .bigpowers/rendered/antigravity/skills 2>/dev/null)" ]]; then
     echo "PASS $id:agy_skills_nonempty"
     return 0
   fi
-  echo "FAIL $id:agy_skills_nonempty — .agents/skills empty"
+  echo "FAIL $id:agy_skills_nonempty — .bigpowers/rendered/antigravity/skills empty"
   return 1
 }
 

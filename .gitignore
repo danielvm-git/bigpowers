@@ -47,3 +47,6 @@ allure-results/
 
 # A/B eval live progress shard (rewritten by every run; the report is the durable artifact)
 specs/benchmarks/reports/ab-live.jsonl
+
+# Generated render targets (not committed)
+.bigpowers/
