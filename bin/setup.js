@@ -332,7 +332,9 @@ async function main() {
 
   const allOk = results.every((r) => r.ok);
   if (allOk) {
-    outro(`bigpowers installed. ${c.dim('Run bigpowers update anytime.')}`);
+    outro(
+      `bigpowers installed. ${c.dim('Run bigpowers update anytime; pi packages: pi update --extensions.')}`
+    );
   } else {
     outro('Some installations failed. Check errors above.');
     process.exit(1);
