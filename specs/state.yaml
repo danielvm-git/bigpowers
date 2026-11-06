@@ -2,7 +2,7 @@ active_flow: null
 active_epic: null
 active_story: null
 bug_id: null
-bigpowers_version: 2.94.0
+bigpowers_version: 2.94.1
 bug_cycle: null
 handoff:
   next_skill: build-epic
@@ -26,14 +26,17 @@ decisions:
   reason: 'Frontmatter story tags become ''#'' comments, body tags stay HTML. Verified against pi 1.5.0''s
     yaml parser: 80/80 parse, keys name/description/model/effort/phase.'
 - gate: epic-tracking
-  reason: 'Epics #213-#217 became capsules e89-e93 in the bug-batch PR; not yet registered in
-    release-plan.yaml / execution-status.yaml (build-epic step 1 for each epic).'
+  reason: 'Epics #213-#217 became capsules e89-e93 in the bug-batch PR; not yet registered in release-plan.yaml
+    / execution-status.yaml (build-epic step 1 for each epic).'
 - gate: bug-batch-complete
-  reason: "All 10 SCOPE issues closed via 7 PRs: #173/#207, #218, #219/#220, #209, #208, #210/#211/#212. 7 new golden gates."
+  reason: 'All 10 SCOPE issues closed via 7 PRs: #173/#207, #218, #219/#220, #209, #208, #210/#211/#212.
+    7 new golden gates.'
 - gate: epic-intake
-  reason: "Epics #213-#217 converted to capsules e89-e93 with story breakdowns; delivered bug-batch work marked done, remaining stories todo."
+  reason: 'Epics #213-#217 converted to capsules e89-e93 with story breakdowns; delivered bug-batch work
+    marked done, remaining stories todo.'
 - gate: main-protected-recovery
-  reason: "guard-git blocks direct commit and push to main. Recovered one stray local reset by fast-forwarding to origin/main; verified byte-identical before discard."
+  reason: guard-git blocks direct commit and push to main. Recovered one stray local reset by fast-forwarding
+    to origin/main; verified byte-identical before discard.
 metrics:
   story_start: null
   story_end: null

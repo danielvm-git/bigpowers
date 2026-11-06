@@ -1,3 +1,11 @@
+## [2.94.1](https://github.com/danielvm-git/bigpowers/compare/v2.94.0...v2.94.1) (2026-11-06)
+
+
+### Bug Fixes
+
+* **guard-git:** segment push targets; scan all -m ([#229](https://github.com/danielvm-git/bigpowers/issues/229)) ([e72e2ad](https://github.com/danielvm-git/bigpowers/commit/e72e2ad70171c97e75a557212ccca8fd1139c6f3))
+* **trace:** index only git-tracked files and avoid other worktrees ([#203](https://github.com/danielvm-git/bigpowers/issues/203)) ([6becdc3](https://github.com/danielvm-git/bigpowers/commit/6becdc3cc02ed8999169bb97a2de11e2659fa5ca)), closes [#197](https://github.com/danielvm-git/bigpowers/issues/197)
+
 # [2.94.0](https://github.com/danielvm-git/bigpowers/compare/v2.93.8...v2.94.0) (2026-11-06)
 
 
