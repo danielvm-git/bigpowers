@@ -5,7 +5,7 @@
 id: e82
 title: Fork Innovations — Jujutsu VCS Support + OMP Plugin + Community Credit
 slug: e82-fork-innovations
-status: scoped
+status: done
 wsjf: 6.0
 bcps: 0
 bcps_projected: 8
@@ -44,7 +44,8 @@ contributors:
 stories:
   - id: e82s01
     title: Add project-runtime.sh — configurable specs dir + VCS kind resolution
-    status: todo
+    status: done
+    verify: bash scripts/test-project-runtime.sh
     wsjf: 7.5
     size: 2
     tags: [ADDED]
@@ -73,7 +74,8 @@ stories:
 
   - id: e82s02
     title: Jujutsu-aware lifecycle skills (commit-message, kickoff-branch, release-branch, survey-context)
-    status: todo
+    status: done
+    verify: grep -l 'vcs.kind' skills/commit-message/SKILL.md skills/kickoff-branch/SKILL.md skills/release-branch/SKILL.md skills/survey-context/SKILL.md | wc -l | grep -qx ' *4' && grep -q 'jj bookmark set' skills/release-branch/SKILL.md
     wsjf: 6.5
     size: 2
     tags: [MODIFIED]
@@ -106,7 +108,8 @@ stories:
 
   - id: e82s03
     title: OMP plugin extension — bigpowers as native oh-my-posh/OMP entry point
-    status: todo
+    status: done
+    verify: bash scripts/validate-omp-extension.sh
     wsjf: 5.5
     size: 3
     tags: [ADDED]
@@ -149,7 +152,8 @@ stories:
 
   - id: e82s04
     title: Community attribution — CONTRIBUTORS.md + CHANGELOG credit entries
-    status: todo
+    status: done
+    verify: grep -q favilo CONTRIBUTORS.md && grep -q XcluEzy7 CONTRIBUTORS.md && grep -q '### Community Contributors' README.md
     wsjf: 4.0
     size: 1
     tags: [ADDED]

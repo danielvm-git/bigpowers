@@ -1,3 +1,24 @@
+## [2.93.3](https://github.com/danielvm-git/bigpowers/compare/v2.93.2...v2.93.3) (2026-11-04)
+
+
+### Bug Fixes
+
+* **specs:** gate epic status roll-up in G-12 and close e58/e82 ([#202](https://github.com/danielvm-git/bigpowers/issues/202)) ([87b1cd1](https://github.com/danielvm-git/bigpowers/commit/87b1cd12a2a71a046f59b6ed0d2517db636a1cce)), closes [#118](https://github.com/danielvm-git/bigpowers/issues/118)
+
+## [2.93.2](https://github.com/danielvm-git/bigpowers/compare/v2.93.1...v2.93.2) (2026-11-03)
+
+
+### Bug Fixes
+
+* **deps:** clear the production dependency advisories ([#200](https://github.com/danielvm-git/bigpowers/issues/200)) ([1ff6dea](https://github.com/danielvm-git/bigpowers/commit/1ff6dea73d7fdc06ebb3172839758f7a1be995c4))
+
+## [2.93.1](https://github.com/danielvm-git/bigpowers/compare/v2.93.0...v2.93.1) (2026-11-03)
+
+
+### Bug Fixes
+
+* **cli:** report the installed version after a self-update ([#198](https://github.com/danielvm-git/bigpowers/issues/198)) ([4a2d8d0](https://github.com/danielvm-git/bigpowers/commit/4a2d8d0131d593c83c86151f6c716d2bfae96498))
+
 # [2.93.0](https://github.com/danielvm-git/bigpowers/compare/v2.92.0...v2.93.0) (2026-11-03)
 
 

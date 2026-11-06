@@ -1,11 +1,12 @@
 {
   "name": "bigpowers",
-  "version": "2.93.0",
+  "version": "2.93.3",
   "description": "73 agent skills synthesizing 17 years of software engineering discipline into a prescriptive methodology for solo developers",
   "main": "index.js",
   "scripts": {
     "setup": "node bin/setup.js",
     "compliance": "bash scripts/audit-compliance.sh specs/verifications/features && bash scripts/validate-doctrine.sh && python3 scripts/check-skill-links.py",
+    "audit:prod": "npm audit --omit=dev",
     "doctrine": "bash scripts/validate-doctrine.sh",
     "sync": "bash scripts/sync-skills.sh",
     "validate-specs": "bash scripts/validate-specs-yaml.sh",
@@ -65,7 +66,7 @@
     "remark-frontmatter": "^5.0.0",
     "remark-parse": "^11.0.0",
     "unified": "^11.0.5",
-    "zod": "^3.24.2"
+    "zod": "^4.6.7"
   },
   "devDependencies": {
     "@ctxo/lang-typescript": "^0.11.0",

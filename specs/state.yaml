@@ -1,15 +1,28 @@
-active_flow: build
-active_epic: e84
-active_story: e84s01
-bug_id: null
-bigpowers_version: 2.93.0
+active_flow: fix_bug
+active_epic: null
+active_story: null
+bug_id: BUG-2026-11-06-pi-frontmatter-html-comments
+bigpowers_version: 2.93.3
 bug_cycle: null
 handoff:
-  next_skill: audit-code
-  context: 'Pillar B: Shaved always-loaded context in CLAUDE.md (symlink to AGENTS.md, 98 lines) and CONVENTIONS.md
-    (105 lines), cutting always-loaded context by ~77%. Toolchain syntax tables moved to docs/references/agent-tooling.md.'
-  epic: e84
+  next_skill: release-branch
+  context: 'PR #202 merged as 87b1cd12: BUG-2026-11-03 epic status roll-up drift (G-12 checks 4-5,
+    e58/e82 status corrected) plus the CI fix that installs Node deps before story verify so
+    e82s03''s OMP smoke can import typebox. Golden suite 56/56, all PR checks green, v2.93.3
+    released and published to npm.'
+  epic: null
 epic_cycle: null
+decisions:
+  - gate: baseline-preflight
+    reason: "main @ 52842a2f green before any change: compliance 0, 56/56 deterministic gates, trace --strict 0. No red baseline to fix."
+  - gate: batch-order
+    reason: "SCOPE order kept as dependency order; B1 (#173 data + #207 gate) sequential in one branch because the validator must reject exactly what the data fix removes."
+  - gate: sync-skills-specs-churn
+    reason: "sync-skills regenerates 162 committed specs/ artifacts (worktree paths, timestamps). Reverted those hunks rather than committing 506k lines of churn; logged as BUG-2026-11-06-sync-specs-artifact-churn, out of SCOPE."
+  - gate: frontmatter-form
+    reason: "Frontmatter story tags become '#' comments, body tags stay HTML. Verified against pi 1.5.0's yaml parser: 80/80 parse, keys name/description/model/effort/phase."
+  - gate: epic-tracking
+    reason: "Epics #213-#217 tracked in this file and in the #173 batch table, not as epic capsules: five capsules would need plan-work, release-plan WSJF entries and status roll-up gates before their first story. Capsules get created by build-epic per epic when B5 starts."
 metrics:
   story_start: null
   story_end: null
@@ -33,10 +46,11 @@ metrics:
       total_seconds: 632.0
       avg_seconds: 632.0
 release:
-  ci_verified: false
-  last_commit: 3daf6225
+  ci_verified: true
+  last_commit: 3251e1b0
   last_epic: e79-simple-english-skill
-  last_tag: v2.87.2
-  last_publish: '2026-08-05T16:28:27Z'
+  last_tag: v2.93.3
+  last_publish: '2026-11-04T01:52:15Z'
 git:
-  branch: feat/e84-shave-always-loaded-context
+  branch: main
+  hash: 3251e1b0
