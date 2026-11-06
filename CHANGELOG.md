@@ -1,3 +1,10 @@
+## [2.93.6](https://github.com/danielvm-git/bigpowers/compare/v2.93.5...v2.93.6) (2026-11-06)
+
+
+### Bug Fixes
+
+* **dist:** ship bundled skill assets in rendered payloads ([#223](https://github.com/danielvm-git/bigpowers/issues/223)) ([7726939](https://github.com/danielvm-git/bigpowers/commit/7726939aebe31f19bbc7ae1f3368e9499f9b9911)), closes [#218](https://github.com/danielvm-git/bigpowers/issues/218)
+
 ## [2.93.5](https://github.com/danielvm-git/bigpowers/compare/v2.93.4...v2.93.5) (2026-11-06)
 
 
