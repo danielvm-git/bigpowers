@@ -240,3 +240,7 @@ bash scripts/verify-distribution.sh --strict
 
 Acceptance line for a clean install: `pi` starts with `bigpowers: 80 skills
 loaded` and **zero** skill warnings, collisions, or ignored settings.
+
+A pending pi package update renders as `Package Updates Available` in the pi
+banner; refresh with `pi update --extensions`. That banner is pi reporting a
+stale pin, not a bigpowers defect.
