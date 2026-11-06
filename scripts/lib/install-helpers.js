@@ -251,7 +251,7 @@ function installGlobal(tool, repoRoot) {
     }
     case 'antigravity':
     case 'agy': {
-      const renderedDir = path.join(repoRoot, '.agents', 'skills');
+      const renderedDir = path.join(repoRoot, '.bigpowers', 'rendered', 'antigravity', 'skills');
       const targetDir = path.join(homeDir, '.gemini', 'antigravity-cli', 'skills');
       linkRenderedSkills(renderedDir, targetDir);
       break;
@@ -411,7 +411,7 @@ function installLocal(tool, repoRoot) {
       break;
     }
     case 'pi': {
-      const targetDir = path.join(cwd, '.pi', 'agent', 'skills');
+      const targetDir = path.join(cwd, '.pi', 'skills');
       fs.mkdirSync(targetDir, { recursive: true });
       linkSkills(skillsDir, targetDir);
       break;
@@ -445,7 +445,7 @@ function installLocal(tool, repoRoot) {
     }
     case 'antigravity':
     case 'agy': {
-      const renderedDir = path.join(repoRoot, '.agents', 'skills');
+      const renderedDir = path.join(repoRoot, '.bigpowers', 'rendered', 'antigravity', 'skills');
       const targetDir = path.join(cwd, '.agents', 'skills');
       linkRenderedSkills(renderedDir, targetDir);
       const agentsSrc = path.join(repoRoot, 'AGENTS.md');
@@ -557,7 +557,7 @@ function uninstallTool(toolId, repoRoot) {
       break;
     case 'pi': {
       removeRepoRootedSkillLinks(path.join(homeDir, '.pi', 'agent', 'skills'), repoRoot);
-      removeRepoRootedSkillLinks(path.join(cwd, '.pi', 'agent', 'skills'), repoRoot);
+      removeRepoRootedSkillLinks(path.join(cwd, '.pi', 'skills'), repoRoot);
       break;
     }
     case 'hermes': {
@@ -629,11 +629,12 @@ function uninstallTool(toolId, repoRoot) {
           }
         }
       }
-      // installLocal('antigravity') renders into cwd/.agents/skills and — only
-      // if absent — symlinks cwd/AGENTS.md. Skip the local skills dir entirely
-      // when cwd === repoRoot: that's this repo's own tracked .agents/skills
-      // source tree (the installer's rendered-skill INPUT), not an install
-      // target, and must never be touched by uninstall.
+      // installLocal('antigravity') links the render output
+      // (.bigpowers/rendered/antigravity/skills) into cwd/.agents/skills — the
+      // Antigravity workspace discovery path — and, only if absent, symlinks
+      // cwd/AGENTS.md. Skip the local skills dir entirely when cwd === repoRoot:
+      // that is this repo's own workspace (the installer's INPUT), not an
+      // install target, and must never be touched by uninstall (#209).
       if (cwd !== repoRoot) {
         removeManagedSkillLinks(path.join(cwd, '.agents', 'skills'), repoRoot);
       }

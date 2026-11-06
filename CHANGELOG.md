@@ -1,3 +1,45 @@
+# [2.94.0](https://github.com/danielvm-git/bigpowers/compare/v2.93.8...v2.94.0) (2026-11-06)
+
+
+### Features
+
+* **dist:** verify-distribution reports duplicate install channels ([#226](https://github.com/danielvm-git/bigpowers/issues/226)) ([6a55a91](https://github.com/danielvm-git/bigpowers/commit/6a55a91da024887cdb4f084c2c4edb4ea0e5845f)), closes [#208](https://github.com/danielvm-git/bigpowers/issues/208)
+
+## [2.93.8](https://github.com/danielvm-git/bigpowers/compare/v2.93.7...v2.93.8) (2026-11-06)
+
+
+### Bug Fixes
+
+* **dist:** relocate Antigravity render out of pi discovery ([#225](https://github.com/danielvm-git/bigpowers/issues/225)) ([24bbbd9](https://github.com/danielvm-git/bigpowers/commit/24bbbd9435d3013037149baa32b4f5c721189639)), closes [#209](https://github.com/danielvm-git/bigpowers/issues/209)
+
+## [2.93.7](https://github.com/danielvm-git/bigpowers/compare/v2.93.6...v2.93.7) (2026-11-06)
+
+
+### Bug Fixes
+
+* **install:** manifest + resolved-path uninstall; pi project path .pi/skills ([#224](https://github.com/danielvm-git/bigpowers/issues/224)) ([6172b55](https://github.com/danielvm-git/bigpowers/commit/6172b559b55c95b4525be857224e70aa540097df)), closes [#219](https://github.com/danielvm-git/bigpowers/issues/219) [#220](https://github.com/danielvm-git/bigpowers/issues/220)
+
+## [2.93.6](https://github.com/danielvm-git/bigpowers/compare/v2.93.5...v2.93.6) (2026-11-06)
+
+
+### Bug Fixes
+
+* **dist:** ship bundled skill assets in rendered payloads ([#223](https://github.com/danielvm-git/bigpowers/issues/223)) ([7726939](https://github.com/danielvm-git/bigpowers/commit/7726939aebe31f19bbc7ae1f3368e9499f9b9911)), closes [#218](https://github.com/danielvm-git/bigpowers/issues/218)
+
+## [2.93.5](https://github.com/danielvm-git/bigpowers/compare/v2.93.4...v2.93.5) (2026-11-06)
+
+
+### Bug Fixes
+
+* **trace:** read story status from stories: and derive the strict floor ([#222](https://github.com/danielvm-git/bigpowers/issues/222)) ([3bec31c](https://github.com/danielvm-git/bigpowers/commit/3bec31c9a485d7ddb6af6455b9587d7157cebf2d))
+
+## [2.93.4](https://github.com/danielvm-git/bigpowers/compare/v2.93.3...v2.93.4) (2026-11-06)
+
+
+### Bug Fixes
+
+* **skills:** YAML comments for frontmatter story tags, and a gate that rejects what pi rejects ([#221](https://github.com/danielvm-git/bigpowers/issues/221)) ([28110b8](https://github.com/danielvm-git/bigpowers/commit/28110b815b331fe64a72b3648ff68114b7d86827)), closes [#173](https://github.com/danielvm-git/bigpowers/issues/173) [#207](https://github.com/danielvm-git/bigpowers/issues/207) [#173](https://github.com/danielvm-git/bigpowers/issues/173) [#207](https://github.com/danielvm-git/bigpowers/issues/207) [208-#212](https://github.com/208-/issues/212) [218-#220](https://github.com/218-/issues/220)
+
 ## [2.93.3](https://github.com/danielvm-git/bigpowers/compare/v2.93.2...v2.93.3) (2026-11-04)
 
 

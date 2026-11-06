@@ -2,10 +2,12 @@
 # story: e37s09
 # story: e74s01
 # story: e74s02
-# Antigravity CLI (agy) — skills at .agents/skills/ (workspace) and
-# ~/.gemini/antigravity-cli/skills/ (global). See RESEARCH-ANTIGRAVITY.md.
+# Antigravity CLI (agy). The RENDER output lives at
+# .bigpowers/rendered/antigravity/skills/ (not .agents/skills, which is a
+# discovery root pi also scans — #209). install() links it into
+# ~/.gemini/antigravity-cli/skills/ (global) or .agents/skills (workspace).
 
-AGY_SKILLS="${AGY_SKILLS:-.agents/skills}"
+AGY_SKILLS="${AGY_SKILLS:-.bigpowers/rendered/antigravity/skills}"
 AGY_HOOKS_GLOBAL="${AGY_HOOKS_GLOBAL:-$HOME/.gemini/config/hooks.json}"
 AGY_HOOKS_WORKSPACE="${AGY_HOOKS_WORKSPACE:-.agents/hooks.json}"
 
@@ -15,6 +17,9 @@ render_skill() {
   bp_assert_safe_skill_name "${IR_NAME-}" agy >/dev/null || return 1
   if declare -f render_agy_skill >/dev/null 2>&1; then
     render_agy_skill
+    # shellcheck source=../lib/adapter-assets.sh
+    source "$(dirname "${BASH_SOURCE[0]}")/../lib/adapter-assets.sh"
+    mirror_skill_assets "${AGY_SKILLS}/${IR_NAME}" "$IR_NAME" || true
     return
   fi
   local out="${AGY_SKILLS}/${IR_NAME}"
@@ -30,6 +35,9 @@ render_skill() {
       echo "${IR_BODY_SKILL:-$IR_BODY}"
     } > "$out/SKILL.md"
   }
+  # shellcheck source=../lib/adapter-assets.sh
+  source "$(dirname "${BASH_SOURCE[0]}")/../lib/adapter-assets.sh"
+  mirror_skill_assets "$out" "$IR_NAME" || true
 }
 
 wire_context() {

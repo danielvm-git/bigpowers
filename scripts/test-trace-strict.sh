@@ -5,6 +5,12 @@
 #   - todo/planned/backlog P0 stories with 0 links do not fail --strict
 #   - done P0 stories with 0 links still fail --strict
 #
+# The fixtures below deliberately keep story statuses under `stories:` (the real
+# schema) and plant a decoy `development_status:` entry naming a story. The gate
+# used to read `development_status:`, so every story resolved to "backlog", the
+# done-dark case passed, and --strict certified nothing. The decoy makes that
+# regression fail here instead of shipping.
+#
 # Usage: bash scripts/test-trace-strict.sh
 
 set -euo pipefail
@@ -71,12 +77,20 @@ EOF
 
   {
     echo "development_status:"
+    echo "  current_iteration: 1"
+    echo "  phase: build"
+    echo "  audit_passed: false"
+    # Decoy: phase metadata must never be read as a story status.
+    echo "  e99s01: todo"
+    echo "stories:"
     for i in $(seq 1 51); do
       sid=$(printf 'e99s%02d' "$i")
       if [[ -n "$done_story" && "$sid" == "$done_story" ]]; then
-        echo "  $sid: done"
+        echo "  $sid:"
+        echo "    status: done"
       else
-        echo "  $sid: todo"
+        echo "  $sid:"
+        echo "    status: todo"
       fi
     done
   } >"$root/specs/execution-status.yaml"

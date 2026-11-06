@@ -66,6 +66,8 @@ GOLDEN_GATES=(
   "resolve-repo-root:bash scripts/test-resolve-repo-root.sh:false"
   "tombstone-mechanism:bash scripts/test-tombstone-mechanism.sh:false"
   "trace-strict:bash scripts/test-trace-strict.sh:false"
+  # Trace links only files git would track — never other worktrees or reports.
+  "trace-ignored-paths:bash scripts/test-trace-ignored-paths.sh:false"
   "trace-matrix-size:bash scripts/test-trace-matrix-size.sh:false"
   "setup-no-pyyaml:bash scripts/test-setup-no-pyyaml.sh:false"
   "install-distribute-only:bash scripts/test-install-distribute-only.sh:false"
@@ -73,6 +75,14 @@ GOLDEN_GATES=(
   "epics-wiki-zero-stories:bash scripts/test-generate-epics-wiki-zero-stories.sh:false"
   "golden-g11-worktree-venv:bash scripts/test-golden-g11-worktree-venv.sh:false"
   "install-helpers:bash scripts/test-install-helpers.sh:false"
+  # install.sh --uninstall matched only the literal link text against
+  # $REPO_ROOT/, so a checkout uninstall of an npm install removed 0 of N.
+  # The manifest + resolved-path matching fix is guarded here (#219).
+  "install-manifest:bash tests/test-install-manifest.sh:false"
+  # Five channels shipped the same catalog to four places pi scans, giving
+  # 80 skill-name collisions per start (#208). verify-distribution names each
+  # channel and fails when package + symlink both own pi.
+  "verify-distribution:bash tests/test-verify-distribution.sh:false"
   "project-runtime:bash scripts/test-project-runtime.sh:false"
   "security-agents-import:node tests/security/agents-import.cjs:false"
   "omp-extension:bash scripts/validate-omp-extension.sh:false"
@@ -88,6 +98,15 @@ GOLDEN_GATES=(
   # duplicate top-level key (#207). PyYAML accepts both, which is how 10 skills
   # shipped broken while `npm run compliance` stayed green.
   "skill-frontmatter-strict:bash tests/test-skill-frontmatter-strict.sh:false"
+  # A rendered payload that ships only SKILL.md is a broken skill: 38 of 80
+  # reference sibling files. The pi package (.pi/skills) and Antigravity
+  # (.bigpowers/rendered/antigravity/skills) channels must carry the same
+  # bundled files as the source.
+  "render-assets:bash tests/test-render-assets.sh:false"
+  # A host render target must not live at a path another host auto-discovers:
+  # .agents/skills is a discovery root pi scans, so the Antigravity render
+  # moved to .bigpowers/rendered/antigravity/skills (#209).
+  "render-targets-not-discoverable:bash tests/test-render-targets-not-discoverable.sh:false"
   # Guard-git judges git argv, not substrings; shell and TS must agree (#184).
   "guard-git-normalize:bash scripts/test-guard-git-normalize.sh:false"
   "specs-parse:bash scripts/validate-specs-yaml.sh:false"

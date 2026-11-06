@@ -37,16 +37,25 @@ resolve_repo_root
 
 DRY_RUN=false
 UNINSTALL=false
+VERIFY=false
 
 for arg in "$@"; do
   case "$arg" in
     --dry-run)   DRY_RUN=true ;;
     --uninstall) UNINSTALL=true ;;
+    --verify)    VERIFY=true ;;
     *) echo "Unknown flag: $arg" >&2; exit 1 ;;
   esac
 done
 
 export DRY_RUN
+
+if $VERIFY; then
+  # story: BUG-2026-11-06-install-multi-channel-collisions (#208)
+  # Report when more than one channel owns the same host instead of installing.
+  bash "$REPO_ROOT/scripts/verify-distribution.sh" --strict
+  exit $?
+fi
 
 # ── helpers ──────────────────────────────────────────────────────────────────
 
@@ -64,21 +73,29 @@ link() {
   run mkdir -p "$dst_dir"
   run ln -sfn "$src" "$dst"
   echo "  linked: $dst → $src"
+  $DRY_RUN || bp_manifest_add "$dst" "$src"
 }
+
+# Count of entries removed this run, for the end-of-run summary.
+BP_UNINSTALL_REMOVED=0
 
 unlink_if_managed() {
   local dst="$1" src_prefix="$2"
-  if [[ -L "$dst" ]]; then
-    local target; target="$(readlink "$dst")"
-    if [[ "$target" == "$src_prefix"* ]]; then
-      run rm "$dst"
-      echo "  removed: $dst"
-    fi
-  fi
+  local target
+  # Resolve symlink chains to the real file/dir, then accept the entry when it
+  # lives under either the current repo or a node_modules/bigpowers install.
+  target="$(bp_target_managed "$dst")" || return 0
+  [[ -n "$target" ]] || return 0
+  run rm -f "$dst"
+  echo "  removed: $dst"
+  bp_manifest_remove "$dst"
+  BP_UNINSTALL_REMOVED=$((BP_UNINSTALL_REMOVED + 1))
 }
 
 # Per-target install/uninstall functions (extracted for file-size cap)
 _INSTALL_LIB="$(dirname "${BASH_SOURCE[0]}")/lib"
+# shellcheck source=lib/install-manifest.sh
+source "$_INSTALL_LIB/install-manifest.sh"
 source "$_INSTALL_LIB/install-targets-a.sh"
 source "$_INSTALL_LIB/install-targets-b.sh"
 source "$_INSTALL_LIB/install-targets-c.sh"
@@ -108,8 +125,9 @@ if $UNINSTALL; then
   uninstall_windsurf
   uninstall_opencode
   uninstall_copilot
+  bp_manifest_replay_cleanup
   echo ""
-  echo "bigpowers uninstalled."
+  echo "bigpowers uninstalled ($BP_UNINSTALL_REMOVED entr$([ "$BP_UNINSTALL_REMOVED" -eq 1 ] && echo y || echo ies) removed)."
 else
   install_claude
   install_gemini
