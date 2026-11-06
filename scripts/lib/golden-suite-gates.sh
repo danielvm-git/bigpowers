@@ -73,6 +73,10 @@ GOLDEN_GATES=(
   "epics-wiki-zero-stories:bash scripts/test-generate-epics-wiki-zero-stories.sh:false"
   "golden-g11-worktree-venv:bash scripts/test-golden-g11-worktree-venv.sh:false"
   "install-helpers:bash scripts/test-install-helpers.sh:false"
+  # install.sh --uninstall matched only the literal link text against
+  # $REPO_ROOT/, so a checkout uninstall of an npm install removed 0 of N.
+  # The manifest + resolved-path matching fix is guarded here (#219).
+  "install-manifest:bash tests/test-install-manifest.sh:false"
   "project-runtime:bash scripts/test-project-runtime.sh:false"
   "security-agents-import:node tests/security/agents-import.cjs:false"
   "omp-extension:bash scripts/validate-omp-extension.sh:false"
