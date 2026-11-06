@@ -175,21 +175,17 @@ class ArchiveFallback(TraceStoriesCase):
         self.assertIn("e01", result.stderr)
 
 
-class AntiVacuityFloor(TraceStoriesCase):
-    """A matrix where nothing is implemented cannot certify anything."""
+class UnimplementedPlan(TraceStoriesCase):
+    """Documented contract (BUG-2026-07-06T205700, scripts/test-trace-strict.sh):
+    an unimplemented story must not block --strict. Only used to reach the
+    anti-vacuity floors, never to hide a done story."""
 
     def setUp(self):
         super().setUp()
         self.write_exec_status(EXEC_STATUS_BACKLOG)
 
-    def test_strict_refuses_an_all_backlog_matrix(self):
+    def test_strict_passes_when_every_story_is_still_unimplemented(self):
         result = self.run_gate(strict=True)
-
-        self.assertEqual(result.returncode, 2, result.stdout)
-        self.assertIn("backlog/todo/planned", result.stderr)
-
-    def test_non_strict_run_still_writes_the_matrix(self):
-        result = self.run_gate(strict=False)
 
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertTrue((self.root / "matrix.json").is_file())
