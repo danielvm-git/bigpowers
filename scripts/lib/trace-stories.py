@@ -303,21 +303,19 @@ if STRICT:
     # Floor assertion — anti-vacuity guard derived from the source of truth.
     # A hardcoded minimum (the old `_MIN_STORY_BASELINE = 50`) can be lowered to
     # hide a degenerate matrix, and it says nothing about *which* stories went
-    # missing. Instead, every epic declared in release-plan.yaml must resolve at
-    # least one story: an unreadable or unarchived capsule, or a renamed
-    # capsule_dir, drops that epic's stories and fails here.
+    # missing. Instead, every capsule declared in release-plan.yaml must resolve
+    # to an epic.yaml (live or archived, see the archive fallback above): an
+    # unarchived, moved or renamed capsule drops that epic's stories, and the
+    # matrix silently shrinks. That is now a STRICT FAIL naming the epic.
+    #
+    # This is not "strict requires implemented stories": an unimplemented story
+    # is legitimately skipped below (see BUG-2026-07-06T205700 and
+    # scripts/test-trace-strict.sh).
     if not epics:
         print("trace-stories.py: STRICT FAIL — release-plan.yaml declares no epics; refusing to pass on an empty matrix", file=sys.stderr)
         sys.exit(2)
     if unresolved_capsules:
         print(f"trace-stories.py: STRICT FAIL — declared capsules did not resolve (live or archived): {', '.join(unresolved_capsules)}", file=sys.stderr)
-        sys.exit(2)
-    # Second floor: a matrix in which nothing is implemented cannot certify
-    # anything. This is exactly the shape the wrong-key status read produced —
-    # every story resolved to "backlog" and --strict skipped all of them.
-    implemented = [sid for sid in stories if story_status(sid) not in _STRICT_UNIMPLEMENTED_STATUSES]
-    if not implemented:
-        print(f"trace-stories.py: STRICT FAIL — all {len(stories)} resolved stories are backlog/todo/planned; either nothing is implemented or the status source is unreadable, so --strict would certify an empty verification", file=sys.stderr)
         sys.exit(2)
     if matrix_stories:
         wsjf_sorted = sorted(set(s["wsjf"] for s in matrix_stories), reverse=True)
