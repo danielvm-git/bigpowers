@@ -792,8 +792,18 @@ bugs:
     approach: "Gate now prints a 'detail:' line naming the failing test so the next occurrence is diagnosable; root cause unknown after ~280 reproduction attempts, so it is logged rather than papered over"
     risk_level: "low"
     commit_message: "fix(scripts): name the failing test when story verify goes red"
+  - id: BUG-2026-11-03-trace-indexes-other-worktrees
+    status: fixed
+    severity: medium
+    scope: trace-stories / wiki
+    title: "trace-stories links files from other sessions' gitignored .claude/worktrees/ checkouts"
+    file: bugs/BUG-2026-11-03-trace-indexes-other-worktrees.md
+    files_changed: "scripts/lib/trace-stories.py, scripts/test-trace-ignored-paths.sh (new), scripts/lib/golden-suite-gates.sh, specs/traceability-matrix.json, specs/TRACEABILITY_LATEST.md, specs/codebase-wiki/"
+    approach: "Build the file inventory from git ls-files --cached --others --exclude-standard (os.walk minus .claude/ outside a git repo), and use it for both the tag scan and the file heuristic"
+    risk_level: "low"
+    commit_message: "fix(trace): index only files git would track, never other worktrees"
   - id: BUG-2026-11-03-wiki-indexes-ignored-reports
-    status: open
+    status: fixed
     severity: low
     scope: trace-stories / wiki
     title: "Generated wikis link to gitignored verification reports, so every Preflight dirties the tree"

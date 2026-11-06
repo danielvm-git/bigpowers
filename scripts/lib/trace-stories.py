@@ -94,48 +94,59 @@ for epic in epics:
                         "bcp": s.get("bcp", 0), "wsjf": float(ewsjf),
                         "description": s.get("description", "")}
 
-# --- 3. Grep codebase for story tags
-result = subprocess.run(
-    ["grep", "-rn", "--include=*.md", "--include=*.sh", "--include=*.py",
-     "--include=*.js", "--include=*.ts", "--include=*.yaml", "--include=*.yml",
-     "-E", r"story:\s*e[0-9]{2}s[0-9]{2}", str(ROOT)],
-    capture_output=True, text=True, cwd=str(ROOT))
+# --- 3. Scan codebase for story tags
+# Only files git would track (tracked + untracked-not-ignored): gitignored trees such as
+# other sessions' .claude/worktrees/ copies or specs/verifications/reports/ are not code
+# (BUG-2026-11-03-trace-indexes-other-worktrees, BUG-2026-11-03-wiki-indexes-ignored-reports).
+EXCLUDE_DIRS = {".git", "node_modules", ".cursor", ".gemini", ".pi", ".venv", "venv", ".tox", "__pycache__", "site-packages", ".mypy_cache", ".pytest_cache", ".ruff_cache"}
+EXCLUDE_PREFIXES = ("specs/archive/", "specs/codebase-wiki/")
+TAG_SUFFIXES = {".md", ".sh", ".py", ".js", ".ts", ".yaml", ".yml"}
+TAG_RE = re.compile(r"story:\s*(e\d{2}s\d{2})")
+
+def _list_repo_files() -> list[str]:
+    """Repo-relative paths git would track; outside a git repo, walk minus .claude/."""
+    try:
+        out = subprocess.run(
+            ["git", "-C", str(ROOT), "ls-files", "-z", "--cached", "--others", "--exclude-standard"],
+            capture_output=True, text=True, check=True).stdout
+        return sorted({p for p in out.split("\0") if p and (ROOT / p).is_file()})
+    except (OSError, subprocess.CalledProcessError):
+        files = []
+        for root_dir, dirs, names in os.walk(str(ROOT)):
+            dirs[:] = sorted(d for d in dirs if d not in EXCLUDE_DIRS | {".claude"})
+            files += [str(Path(root_dir, f).relative_to(ROOT)) for f in sorted(names)]
+        return files
+
+def _is_excluded(rel_path: str) -> bool:
+    """True if path is in an excluded dir or under an excluded prefix."""
+    return bool(EXCLUDE_DIRS & set(rel_path.split("/"))) or rel_path.startswith(EXCLUDE_PREFIXES)
+
+repo_files = _list_repo_files()
+def _scan_tags(rel_paths: list[str]) -> list[tuple[str, int, str]]:
+    """(file, line, story_id) for each line tagged `story: eNNsNN`; last tag on a line wins."""
+    hits = []
+    for rel in rel_paths:
+        if Path(rel).suffix not in TAG_SUFFIXES or rel.split("/")[0] == ".git":
+            continue
+        try: text = (ROOT / rel).read_text(encoding="utf-8", errors="replace")
+        except OSError: continue
+        for n, line in enumerate(text.split("\n"), 1):
+            sids = TAG_RE.findall(line)
+            if sids: hits.append((rel, n, sids[-1]))
+    return hits
 
 tag_inventory: list[dict] = []
 tagged_sids: set[str] = set()
 tag_index: dict[str, list] = {}
-if result.returncode != 0 and result.stderr:
-    print(f"trace-stories.py: grep stderr: {result.stderr[:200]}", file=sys.stderr)
-if not result.stdout.strip():
-    print(f"trace-stories.py: grep returned no matches (ROOT={ROOT}, returncode={result.returncode})", file=sys.stderr)
-for line in result.stdout.splitlines():
-    m = re.match(r"^(.+?):(\d+):(.*story:\s*(e\d{2}s\d{2}).*)$", line)
-    if m:
-        fpath = m.group(1); fline = int(m.group(2)); sid = m.group(4)
-        try: fpath = str(Path(fpath).relative_to(ROOT))
-        except ValueError: pass
-        tag_inventory.append({"file": fpath, "line": fline, "story_id": sid})
-        tagged_sids.add(sid)
-        tag_index.setdefault(sid, []).append({"file": fpath, "line": fline})
+if not (tag_hits := _scan_tags(repo_files)):
+    print(f"trace-stories.py: tag scan found no matches (ROOT={ROOT})", file=sys.stderr)
+for fpath, fline, sid in tag_hits:
+    tag_inventory.append({"file": fpath, "line": fline, "story_id": sid})
+    tagged_sids.add(sid)
+    tag_index.setdefault(sid, []).append({"file": fpath, "line": fline})
 
 # --- 4. Oracle tiers
-EXCLUDE_DIRS = {".git", "node_modules", ".cursor", ".gemini", ".pi", ".venv", "venv", ".tox", "__pycache__", "site-packages", ".mypy_cache", ".pytest_cache", ".ruff_cache"}
-EXCLUDE_PREFIXES = ("specs/archive/", "specs/codebase-wiki/")
-
-def _is_excluded(rel_path: str) -> bool:
-    """True if path is in an excluded dir or under an excluded prefix."""
-    parts = rel_path.split(os.sep)
-    if any(d in EXCLUDE_DIRS for d in parts):
-        return True
-    return any(rel_path.startswith(p) for p in EXCLUDE_PREFIXES)
-
-all_files = []
-for root_dir, dirs, files in os.walk(str(ROOT)):
-    dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
-    for f in files:
-        rel = str(Path(root_dir, f).relative_to(ROOT))
-        if not _is_excluded(rel):
-            all_files.append(rel)
+all_files = [rel for rel in repo_files if not _is_excluded(rel)]
 
 def slugify(text: str) -> str:
     text = re.sub(r"[^a-zA-Z0-9\s-]", "", text.lower())

@@ -66,6 +66,8 @@ GOLDEN_GATES=(
   "resolve-repo-root:bash scripts/test-resolve-repo-root.sh:false"
   "tombstone-mechanism:bash scripts/test-tombstone-mechanism.sh:false"
   "trace-strict:bash scripts/test-trace-strict.sh:false"
+  # Trace links only files git would track — never other worktrees or reports.
+  "trace-ignored-paths:bash scripts/test-trace-ignored-paths.sh:false"
   "trace-matrix-size:bash scripts/test-trace-matrix-size.sh:false"
   "setup-no-pyyaml:bash scripts/test-setup-no-pyyaml.sh:false"
   "install-distribute-only:bash scripts/test-install-distribute-only.sh:false"
