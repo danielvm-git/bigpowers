@@ -219,3 +219,24 @@ rtk init --global       # Add RTK to ~/.claude/CLAUDE.md
 | Network | curl, wget | 65-70% |
 
 Overall average: **60-90% token reduction** on common development operations.
+
+## pi Install Channels (story: BUG-2026-11-06-install-multi-channel-collisions)
+
+pi discovers bigpowers skills through **exactly one** channel. Two channels at
+once loads every skill name twice and prints one `collision` block per skill
+(80 blocks), and the copy pi keeps is not necessarily the one you edit.
+
+| Channel | What it is | Owned by |
+|---|---|---|
+| package | `~/.pi/agent/settings.json` → `packages` lists `bigpowers` (serves `.pi/skills`) | `bigpowers setup` / manual |
+| symlinks | `~/.pi/agent/skills/<name>` → links into `skills/` | `bash scripts/install.sh` |
+
+Verify which channel owns pi, and fail the build when both are present:
+
+```bash
+bash scripts/verify-distribution.sh --strict
+# or: bash scripts/install.sh --verify
+```
+
+Acceptance line for a clean install: `pi` starts with `bigpowers: 80 skills
+loaded` and **zero** skill warnings, collisions, or ignored settings.

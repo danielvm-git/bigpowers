@@ -77,6 +77,10 @@ GOLDEN_GATES=(
   # $REPO_ROOT/, so a checkout uninstall of an npm install removed 0 of N.
   # The manifest + resolved-path matching fix is guarded here (#219).
   "install-manifest:bash tests/test-install-manifest.sh:false"
+  # Five channels shipped the same catalog to four places pi scans, giving
+  # 80 skill-name collisions per start (#208). verify-distribution names each
+  # channel and fails when package + symlink both own pi.
+  "verify-distribution:bash tests/test-verify-distribution.sh:false"
   "project-runtime:bash scripts/test-project-runtime.sh:false"
   "security-agents-import:node tests/security/agents-import.cjs:false"
   "omp-extension:bash scripts/validate-omp-extension.sh:false"
