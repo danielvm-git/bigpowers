@@ -83,6 +83,11 @@ GOLDEN_GATES=(
   "import-boundaries:bash scripts/check-import-boundaries.sh:false"
   "security-dashboard-render:node tests/security/dashboard-render.cjs:false"
   "skill-catalog:bash scripts/validate-skill-catalog.sh:false"
+  # The validator stands in for the host parser, so it must reject exactly what
+  # pi rejects: an HTML comment inside the frontmatter block (#173) and a
+  # duplicate top-level key (#207). PyYAML accepts both, which is how 10 skills
+  # shipped broken while `npm run compliance` stayed green.
+  "skill-frontmatter-strict:bash tests/test-skill-frontmatter-strict.sh:false"
   # Guard-git judges git argv, not substrings; shell and TS must agree (#184).
   "guard-git-normalize:bash scripts/test-guard-git-normalize.sh:false"
   "specs-parse:bash scripts/validate-specs-yaml.sh:false"

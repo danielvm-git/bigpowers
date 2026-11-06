@@ -1,17 +1,28 @@
-active_flow: null
+active_flow: fix_bug
 active_epic: null
 active_story: null
-bug_id: null
+bug_id: BUG-2026-11-06-pi-frontmatter-html-comments
 bigpowers_version: 2.93.3
 bug_cycle: null
 handoff:
-  next_skill: survey-context
+  next_skill: release-branch
   context: 'PR #202 merged as 87b1cd12: BUG-2026-11-03 epic status roll-up drift (G-12 checks 4-5,
     e58/e82 status corrected) plus the CI fix that installs Node deps before story verify so
     e82s03''s OMP smoke can import typebox. Golden suite 56/56, all PR checks green, v2.93.3
     released and published to npm.'
   epic: null
 epic_cycle: null
+decisions:
+  - gate: baseline-preflight
+    reason: "main @ 52842a2f green before any change: compliance 0, 56/56 deterministic gates, trace --strict 0. No red baseline to fix."
+  - gate: batch-order
+    reason: "SCOPE order kept as dependency order; B1 (#173 data + #207 gate) sequential in one branch because the validator must reject exactly what the data fix removes."
+  - gate: sync-skills-specs-churn
+    reason: "sync-skills regenerates 162 committed specs/ artifacts (worktree paths, timestamps). Reverted those hunks rather than committing 506k lines of churn; logged as BUG-2026-11-06-sync-specs-artifact-churn, out of SCOPE."
+  - gate: frontmatter-form
+    reason: "Frontmatter story tags become '#' comments, body tags stay HTML. Verified against pi 1.5.0's yaml parser: 80/80 parse, keys name/description/model/effort/phase."
+  - gate: epic-tracking
+    reason: "Epics #213-#217 tracked in this file and in the #173 batch table, not as epic capsules: five capsules would need plan-work, release-plan WSJF entries and status roll-up gates before their first story. Capsules get created by build-epic per epic when B5 starts."
 metrics:
   story_start: null
   story_end: null
