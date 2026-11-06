@@ -7,7 +7,7 @@ title: "Five install channels produce 80 skill-name collisions (#208)"
 category: bug
 tier: extended
 severity: high
-status: open
+status: fixed
 generator: scripts/sync-bugs-registry.sh
 references:
     - specs/bugs/BUG-2026-11-06-install-multi-channel-collisions.md
@@ -15,7 +15,7 @@ references:
 
 # Five install channels produce 80 skill-name collisions (#208)
 
-**Bug:** BUG-2026-11-06-install-multi-channel-collisions | **Severity:** high | **Status:** open | **Scope:** distribution / pi
+**Bug:** BUG-2026-11-06-install-multi-channel-collisions | **Severity:** high | **Status:** fixed | **Scope:** distribution / pi
 **Tier:** extended
 
 See `specs/bugs/BUG-2026-11-06-install-multi-channel-collisions.md` for full investigation and fix details.

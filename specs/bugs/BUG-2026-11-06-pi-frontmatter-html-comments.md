@@ -1,6 +1,6 @@
 ---
 bug_id: BUG-2026-11-06-pi-frontmatter-html-comments
-status: open
+status: fixed
 severity: high
 scope: "skills / pi"
 title: "HTML comments inside SKILL.md frontmatter drop 10 skills in pi (#173)"
@@ -9,6 +9,7 @@ files_changed: "skills/*/SKILL.md, .pi/skills, .cursor/rules, .gemini/extensions
 approach: "Rewrite frontmatter story tags as YAML '#' comments; keep body tags in HTML form; regenerate all targets"
 risk_level: medium
 commit_message: "fix(skills): use YAML comments for story tags inside frontmatter (#173)"
+fix_evidence: "PR #221 — frontmatter tags restored to '#' comments; pi 1.5.0 parser 80/80"
 ---
 
 # BUG-2026-11-06-pi-frontmatter-html-comments: HTML comments inside SKILL.md frontmatter drop 10 skills in pi (#173)

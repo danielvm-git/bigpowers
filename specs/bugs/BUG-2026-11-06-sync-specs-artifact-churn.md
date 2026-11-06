@@ -1,12 +1,13 @@
 ---
 bug_id: BUG-2026-11-06-sync-specs-artifact-churn
-status: open
+status: fixed
 severity: low
 scope: "ci / specs"
 title: "sync-skills rewrites committed traceability artifacts with worktree paths (local finding)"
 files_changed: "scripts/trace-stories.sh, scripts/lib/*wiki*, specs/codebase-wiki, specs/traceability-matrix.json"
 approach: "Exclude .claude/worktrees from traceability generation; make the artifacts idempotent"
 risk_level: medium
+fix_evidence: "PR #203 — trace indexes only git-tracked files, never worktrees"
 ---
 
 # BUG-2026-11-06-sync-specs-artifact-churn: sync-skills rewrites committed traceability artifacts with worktree paths (local finding)

@@ -7,7 +7,7 @@ title: "sync-skills rewrites committed traceability artifacts with worktree path
 category: bug
 tier: extended
 severity: low
-status: open
+status: fixed
 generator: scripts/sync-bugs-registry.sh
 references:
     - specs/bugs/BUG-2026-11-06-sync-specs-artifact-churn.md
@@ -15,7 +15,7 @@ references:
 
 # sync-skills rewrites committed traceability artifacts with worktree paths (local finding)
 
-**Bug:** BUG-2026-11-06-sync-specs-artifact-churn | **Severity:** low | **Status:** open | **Scope:** ci / specs
+**Bug:** BUG-2026-11-06-sync-specs-artifact-churn | **Severity:** low | **Status:** fixed | **Scope:** ci / specs
 **Tier:** extended
 
 See `specs/bugs/BUG-2026-11-06-sync-specs-artifact-churn.md` for full investigation and fix details.

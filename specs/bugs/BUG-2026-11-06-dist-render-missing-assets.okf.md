@@ -7,7 +7,7 @@ title: "Rendered .pi/skills and .agents/skills ship 0 of 92 bundled assets (#218
 category: bug
 tier: extended
 severity: high
-status: open
+status: fixed
 generator: scripts/sync-bugs-registry.sh
 references:
     - specs/bugs/BUG-2026-11-06-dist-render-missing-assets.md
@@ -15,7 +15,7 @@ references:
 
 # Rendered .pi/skills and .agents/skills ship 0 of 92 bundled assets (#218)
 
-**Bug:** BUG-2026-11-06-dist-render-missing-assets | **Severity:** high | **Status:** open | **Scope:** distribution
+**Bug:** BUG-2026-11-06-dist-render-missing-assets | **Severity:** high | **Status:** fixed | **Scope:** distribution
 **Tier:** extended
 
 See `specs/bugs/BUG-2026-11-06-dist-render-missing-assets.md` for full investigation and fix details.

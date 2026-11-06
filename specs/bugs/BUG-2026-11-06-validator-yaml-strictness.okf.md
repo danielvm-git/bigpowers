@@ -7,7 +7,7 @@ title: "validate-skill-yaml.py cannot detect the form that drops skills (#207)"
 category: bug
 tier: extended
 severity: high
-status: open
+status: fixed
 generator: scripts/sync-bugs-registry.sh
 references:
     - specs/bugs/BUG-2026-11-06-validator-yaml-strictness.md
@@ -15,7 +15,7 @@ references:
 
 # validate-skill-yaml.py cannot detect the form that drops skills (#207)
 
-**Bug:** BUG-2026-11-06-validator-yaml-strictness | **Severity:** high | **Status:** open | **Scope:** ci
+**Bug:** BUG-2026-11-06-validator-yaml-strictness | **Severity:** high | **Status:** fixed | **Scope:** ci
 **Tier:** extended
 
 See `specs/bugs/BUG-2026-11-06-validator-yaml-strictness.md` for full investigation and fix details.

@@ -1,6 +1,6 @@
 ---
 bug_id: BUG-2026-11-06-dist-render-missing-assets
-status: open
+status: fixed
 severity: high
 scope: "distribution"
 title: "Rendered .pi/skills and .agents/skills ship 0 of 92 bundled assets (#218)"
@@ -9,6 +9,7 @@ files_changed: "scripts/lib/sync-render.sh, scripts/lib/sync-post.sh, .pi/skills
 approach: "Mirror sibling files and nested dirs into rendered skill dirs; assert payload parity and link resolution"
 risk_level: medium
 commit_message: "fix(dist): copy bundled skill assets into rendered targets (#218)"
+fix_evidence: "PR #223 — .pi/skills ships 92 assets; render-assets gate"
 ---
 
 # BUG-2026-11-06-dist-render-missing-assets: Rendered .pi/skills and .agents/skills ship 0 of 92 bundled assets (#218)
