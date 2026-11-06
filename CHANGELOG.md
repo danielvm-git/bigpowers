@@ -1,3 +1,10 @@
+## [2.93.8](https://github.com/danielvm-git/bigpowers/compare/v2.93.7...v2.93.8) (2026-11-06)
+
+
+### Bug Fixes
+
+* **dist:** relocate Antigravity render out of pi discovery ([#225](https://github.com/danielvm-git/bigpowers/issues/225)) ([24bbbd9](https://github.com/danielvm-git/bigpowers/commit/24bbbd9435d3013037149baa32b4f5c721189639)), closes [#209](https://github.com/danielvm-git/bigpowers/issues/209)
+
 ## [2.93.7](https://github.com/danielvm-git/bigpowers/compare/v2.93.6...v2.93.7) (2026-11-06)
 
 
