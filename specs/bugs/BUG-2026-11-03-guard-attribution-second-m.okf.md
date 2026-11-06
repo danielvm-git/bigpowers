@@ -7,7 +7,7 @@ title: "Co-authored-by check only inspects the first -m value, so a footer in a 
 category: bug
 tier: extended
 severity: high
-status: open
+status: fixed
 generator: scripts/sync-bugs-registry.sh
 references:
     - specs/bugs/BUG-2026-11-03-guard-attribution-second-m.md
@@ -15,7 +15,7 @@ references:
 
 # Co-authored-by check only inspects the first -m value, so a footer in a second -m or in -F passes the P1 rule
 
-**Bug:** BUG-2026-11-03-guard-attribution-second-m | **Severity:** high | **Status:** open | **Scope:** hooks / guard-git
+**Bug:** BUG-2026-11-03-guard-attribution-second-m | **Severity:** high | **Status:** fixed | **Scope:** hooks / guard-git
 **Tier:** extended
 
 See `specs/bugs/BUG-2026-11-03-guard-attribution-second-m.md` for full investigation and fix details.
