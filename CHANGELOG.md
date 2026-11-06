@@ -1,3 +1,10 @@
+## [2.93.4](https://github.com/danielvm-git/bigpowers/compare/v2.93.3...v2.93.4) (2026-11-06)
+
+
+### Bug Fixes
+
+* **skills:** YAML comments for frontmatter story tags, and a gate that rejects what pi rejects ([#221](https://github.com/danielvm-git/bigpowers/issues/221)) ([28110b8](https://github.com/danielvm-git/bigpowers/commit/28110b815b331fe64a72b3648ff68114b7d86827)), closes [#173](https://github.com/danielvm-git/bigpowers/issues/173) [#207](https://github.com/danielvm-git/bigpowers/issues/207) [#173](https://github.com/danielvm-git/bigpowers/issues/173) [#207](https://github.com/danielvm-git/bigpowers/issues/207) [208-#212](https://github.com/208-/issues/212) [218-#220](https://github.com/218-/issues/220)
+
 ## [2.93.3](https://github.com/danielvm-git/bigpowers/compare/v2.93.2...v2.93.3) (2026-11-04)
 
 
