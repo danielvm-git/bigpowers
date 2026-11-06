@@ -206,7 +206,10 @@ def render_all(records, adapters, repo_root):
             if not os.path.isfile(adapter_path):
                 print(f"Error: adapter not found: {adapter_path}", file=sys.stderr)
                 sys.exit(1)
-            proc = subprocess.run([bash, driver, adapter_path, stream_path])
+            env = dict(os.environ)
+            env.setdefault("BP_REPO_ROOT", repo_root)
+            env.setdefault("SKILLS_ROOT", os.path.join(repo_root, "skills"))
+            proc = subprocess.run([bash, driver, adapter_path, stream_path], env=env)
             if proc.returncode != 0:
                 print(f"Error: adapter {adapter} failed with exit code {proc.returncode}", file=sys.stderr)
                 sys.exit(1)

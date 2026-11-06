@@ -145,6 +145,27 @@ sync_post_regression_guards() {
     fi
   fi
 
+  # story: BUG-2026-11-06-dist-render-missing-assets (issue #218)
+  # A rendered payload that ships only SKILL.md is a broken skill: the same
+  # skill then behaves differently depending on the install channel. Compare
+  # every rendered tree that claims to be a full skill directory.
+  local assets_lib="$REPO_ROOT/scripts/lib/adapter-assets.sh"
+  local rendered
+  if [[ -f "$assets_lib" ]]; then
+    # shellcheck source=adapter-assets.sh
+    source "$assets_lib"
+    for rendered in "$REPO_ROOT/.pi/skills" "$REPO_ROOT/.agents/skills"; do
+      [[ -d "$rendered" ]] || continue
+      if ! assert_skill_assets "$rendered" > /tmp/bp-missing-assets.$$ 2>&1; then
+        echo "sync-skills: FAIL — rendered payload is missing bundled skill assets in $rendered" >&2
+        head -10 /tmp/bp-missing-assets.$$ >&2
+        rm -f /tmp/bp-missing-assets.$$
+        exit 1
+      fi
+      rm -f /tmp/bp-missing-assets.$$
+    done
+  fi
+
   if grep -rn '^declare -A\|^[[:space:]]*declare -A' \
       scripts/sync-skills.sh scripts/generate-skill-index.sh \
       scripts/regenerate-lockfile.sh scripts/build-skill-index.sh 2>/dev/null; then

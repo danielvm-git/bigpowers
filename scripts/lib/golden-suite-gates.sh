@@ -88,6 +88,10 @@ GOLDEN_GATES=(
   # duplicate top-level key (#207). PyYAML accepts both, which is how 10 skills
   # shipped broken while `npm run compliance` stayed green.
   "skill-frontmatter-strict:bash tests/test-skill-frontmatter-strict.sh:false"
+  # A rendered payload that ships only SKILL.md is a broken skill: 38 of 80
+  # reference sibling files. The pi package (.pi/skills) and Antigravity
+  # (.agents/skills) channels must carry the same bundled files as the source.
+  "render-assets:bash tests/test-render-assets.sh:false"
   # Guard-git judges git argv, not substrings; shell and TS must agree (#184).
   "guard-git-normalize:bash scripts/test-guard-git-normalize.sh:false"
   "specs-parse:bash scripts/validate-specs-yaml.sh:false"

@@ -15,6 +15,9 @@ render_skill() {
   bp_assert_safe_skill_name "${IR_NAME-}" agy >/dev/null || return 1
   if declare -f render_agy_skill >/dev/null 2>&1; then
     render_agy_skill
+    # shellcheck source=../lib/adapter-assets.sh
+    source "$(dirname "${BASH_SOURCE[0]}")/../lib/adapter-assets.sh"
+    mirror_skill_assets "${AGY_SKILLS}/${IR_NAME}" "$IR_NAME" || true
     return
   fi
   local out="${AGY_SKILLS}/${IR_NAME}"
@@ -30,6 +33,9 @@ render_skill() {
       echo "${IR_BODY_SKILL:-$IR_BODY}"
     } > "$out/SKILL.md"
   }
+  # shellcheck source=../lib/adapter-assets.sh
+  source "$(dirname "${BASH_SOURCE[0]}")/../lib/adapter-assets.sh"
+  mirror_skill_assets "$out" "$IR_NAME" || true
 }
 
 wire_context() {
