@@ -56,6 +56,17 @@ stories:
     status: 'backlog'
 """
 
+RELEASE_PLAN_NO_CAPSULE = """\
+release:
+  version: '9.9.9'
+epics:
+  - id: 'e01'
+    title: 'Fixture epic with no capsule'
+    wsjf: 10
+    bcps: 3
+    status: 'proposed'
+"""
+
 EPIC = """\
 id: 'e01'
 title: 'Fixture epic'
@@ -189,6 +200,26 @@ class UnimplementedPlan(TraceStoriesCase):
 
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertTrue((self.root / "matrix.json").is_file())
+
+
+class DegenerateMatrix(TraceStoriesCase):
+    """G-10 (scripts/golden-g10-trace-anti-vacuity.sh): a release plan that
+    produces 0 stories must fail --strict, never pass vacuously."""
+
+    def setUp(self):
+        super().setUp()
+        (self.root / "specs" / "release-plan.yaml").write_text(
+            RELEASE_PLAN_NO_CAPSULE, encoding="utf-8"
+        )
+        (self.root / "specs" / "epics" / "e01-fixture" / "epic.yaml").unlink()
+        (self.root / "specs" / "epics" / "e01-fixture").rmdir()
+        self.write_exec_status(EXEC_STATUS_DONE)
+
+    def test_strict_fails_on_a_zero_story_matrix(self):
+        result = self.run_gate(strict=True)
+
+        self.assertEqual(result.returncode, 2, result.stdout)
+        self.assertIn("0 stories", result.stderr)
 
 
 class FullyCovered(TraceStoriesCase):
