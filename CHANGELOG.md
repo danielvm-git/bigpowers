@@ -1,3 +1,10 @@
+## [2.93.5](https://github.com/danielvm-git/bigpowers/compare/v2.93.4...v2.93.5) (2026-11-06)
+
+
+### Bug Fixes
+
+* **trace:** read story status from stories: and derive the strict floor ([#222](https://github.com/danielvm-git/bigpowers/issues/222)) ([3bec31c](https://github.com/danielvm-git/bigpowers/commit/3bec31c9a485d7ddb6af6455b9587d7157cebf2d))
+
 ## [2.93.4](https://github.com/danielvm-git/bigpowers/compare/v2.93.3...v2.93.4) (2026-11-06)
 
 
