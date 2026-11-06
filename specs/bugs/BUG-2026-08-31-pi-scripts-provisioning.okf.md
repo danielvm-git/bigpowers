@@ -7,7 +7,7 @@ title: "Package installs provision skills but never scripts/ — lifecycle skill
 category: bug
 tier: extended
 severity: high
-status: open
+status: fixed
 generator: scripts/sync-bugs-registry.sh
 references:
     - specs/bugs/BUG-2026-08-31-pi-scripts-provisioning.md
@@ -15,7 +15,7 @@ references:
 
 # Package installs provision skills but never scripts/ — lifecycle skills' script calls and verify gates fail in every consumer project (#116)
 
-**Bug:** BUG-2026-08-31-pi-scripts-provisioning | **Severity:** high | **Status:** open | **Scope:** cli / install
+**Bug:** BUG-2026-08-31-pi-scripts-provisioning | **Severity:** high | **Status:** fixed | **Scope:** cli / install
 **Tier:** extended
 
 See `specs/bugs/BUG-2026-08-31-pi-scripts-provisioning.md` for full investigation and fix details.

@@ -1,6 +1,6 @@
 ---
 bug_id: BUG-2026-11-06-agents-skills-render-hijack
-status: open
+status: fixed
 severity: medium
 scope: "distribution / pi"
 title: "Antigravity render target .agents/skills is auto-discovered by pi (#209)"
@@ -9,6 +9,7 @@ files_changed: "scripts/lib/install-targets-b.sh, bin/setup.js, .gitignore, scri
 approach: "Render Antigravity skills outside host discovery roots; assert no render target is a discovery root"
 risk_level: medium
 commit_message: "fix(dist): move the Antigravity render target out of pi discovery (#209)"
+fix_evidence: "PR #225 — Antigravity render relocated to .bigpowers/rendered/antigravity/skills"
 ---
 
 # BUG-2026-11-06-agents-skills-render-hijack: Antigravity render target .agents/skills is auto-discovered by pi (#209)

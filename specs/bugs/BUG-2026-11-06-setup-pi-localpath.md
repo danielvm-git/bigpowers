@@ -1,6 +1,6 @@
 ---
 bug_id: BUG-2026-11-06-setup-pi-localpath
-status: open
+status: fixed
 severity: medium
 scope: "install / pi"
 title: "setup.js uses .pi/agent/skills for pi's project-local path (#220)"
@@ -9,6 +9,7 @@ files_changed: "bin/setup.js, scripts/test-install-helpers.js"
 approach: "Correct localPath to .pi/skills; add a per-target verify probe and a path table test"
 risk_level: medium
 commit_message: "fix(setup): install pi skills to the project path pi scans (#220)"
+fix_evidence: "PR #224 — pi project-local path .pi/skills"
 ---
 
 # BUG-2026-11-06-setup-pi-localpath: setup.js uses .pi/agent/skills for pi's project-local path (#220)

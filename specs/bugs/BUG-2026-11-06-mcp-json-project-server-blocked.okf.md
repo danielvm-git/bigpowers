@@ -7,7 +7,7 @@ title: "Tracked .mcp.json declares a project server pi blocks on every start (#2
 category: bug
 tier: extended
 severity: medium
-status: open
+status: fixed
 generator: scripts/sync-bugs-registry.sh
 references:
     - specs/bugs/BUG-2026-11-06-mcp-json-project-server-blocked.md
@@ -15,7 +15,7 @@ references:
 
 # Tracked .mcp.json declares a project server pi blocks on every start (#210)
 
-**Bug:** BUG-2026-11-06-mcp-json-project-server-blocked | **Severity:** medium | **Status:** open | **Scope:** mcp / pi
+**Bug:** BUG-2026-11-06-mcp-json-project-server-blocked | **Severity:** medium | **Status:** fixed | **Scope:** mcp / pi
 **Tier:** extended
 
 See `specs/bugs/BUG-2026-11-06-mcp-json-project-server-blocked.md` for full investigation and fix details.

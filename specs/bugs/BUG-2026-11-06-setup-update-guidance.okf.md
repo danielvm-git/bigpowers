@@ -7,7 +7,7 @@ title: "No guidance for pi update --extensions in setup output (#212)"
 category: bug
 tier: extended
 severity: low
-status: open
+status: fixed
 generator: scripts/sync-bugs-registry.sh
 references:
     - specs/bugs/BUG-2026-11-06-setup-update-guidance.md
@@ -15,7 +15,7 @@ references:
 
 # No guidance for pi update --extensions in setup output (#212)
 
-**Bug:** BUG-2026-11-06-setup-update-guidance | **Severity:** low | **Status:** open | **Scope:** docs
+**Bug:** BUG-2026-11-06-setup-update-guidance | **Severity:** low | **Status:** fixed | **Scope:** docs
 **Tier:** extended
 
 See `specs/bugs/BUG-2026-11-06-setup-update-guidance.md` for full investigation and fix details.

@@ -1,6 +1,6 @@
 ---
 bug_id: BUG-2026-11-06-install-multi-channel-collisions
-status: open
+status: fixed
 severity: high
 scope: "distribution / pi"
 title: "Five install channels produce 80 skill-name collisions (#208)"
@@ -9,6 +9,7 @@ files_changed: "scripts/install.sh, bin/setup.js, scripts/sync-skills.sh, distri
 approach: "Single target manifest; refuse a second channel for the same host; add --verify duplicate-root report"
 risk_level: medium
 commit_message: "fix(dist): one install channel per host and a --verify report (#208)"
+fix_evidence: "PR #226 — verify-distribution.sh --strict + channel matrix doc"
 ---
 
 # BUG-2026-11-06-install-multi-channel-collisions: Five install channels produce 80 skill-name collisions (#208)

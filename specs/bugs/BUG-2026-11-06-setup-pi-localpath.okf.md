@@ -7,7 +7,7 @@ title: "setup.js uses .pi/agent/skills for pi's project-local path (#220)"
 category: bug
 tier: extended
 severity: medium
-status: open
+status: fixed
 generator: scripts/sync-bugs-registry.sh
 references:
     - specs/bugs/BUG-2026-11-06-setup-pi-localpath.md
@@ -15,7 +15,7 @@ references:
 
 # setup.js uses .pi/agent/skills for pi's project-local path (#220)
 
-**Bug:** BUG-2026-11-06-setup-pi-localpath | **Severity:** medium | **Status:** open | **Scope:** install / pi
+**Bug:** BUG-2026-11-06-setup-pi-localpath | **Severity:** medium | **Status:** fixed | **Scope:** install / pi
 **Tier:** extended
 
 See `specs/bugs/BUG-2026-11-06-setup-pi-localpath.md` for full investigation and fix details.

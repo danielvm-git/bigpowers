@@ -495,7 +495,7 @@ bugs:
     title: "Release workflow fails EINVALIDNPMTOKEN — npm publish credential expired, v2.87.6 never published"
     file: bugs/BUG-2026-08-31-npm-token-invalid-release.md
   - id: BUG-2026-08-31-pi-scripts-provisioning
-    status: open
+    status: fixed
     severity: high
     scope: cli / install
     title: "Package installs provision skills but never scripts/ — lifecycle skills' script calls and verify gates fail in every consumer project (#116)"
@@ -507,7 +507,7 @@ bugs:
     title: "golden-suite omp-extension gate fails: CI never installs node deps, so smoke's typebox import is unresolvable"
     file: bugs/BUG-2026-09-05-golden-gate-missing-node-deps.md
   - id: BUG-2026-09-05-pi-omp-extension-load-crash
-    status: open
+    status: fixed
     severity: critical
     scope: extensions / pi
     title: "extensions/omp-hooks.ts calls pi.setLabel() during load → pi aborts at startup for every package consumer (#119)"
@@ -743,7 +743,7 @@ bugs:
     risk_level: "low"
     commit_message: "fix(hooks): derive push targets from git argv, not from command text"
   - id: BUG-2026-11-03-omp-hooks-stderr-leak
-    status: open
+    status: fixed
     severity: medium
     scope: extensions / omp-hooks
     title: "tool_call hook leaks git's fatal: not a git repository onto the TUI when a bash command cds outside the session repo"
@@ -813,7 +813,7 @@ bugs:
     risk_level: "low"
     commit_message: "fix(trace): stop indexing gitignored verification reports"
   - id: BUG-2026-11-06-agents-skills-render-hijack
-    status: open
+    status: fixed
     severity: medium
     scope: distribution / pi
     title: "Antigravity render target .agents/skills is auto-discovered by pi (#209)"
@@ -823,7 +823,7 @@ bugs:
     risk_level: "medium"
     commit_message: "fix(dist): move the Antigravity render target out of pi discovery (#209)"
   - id: BUG-2026-11-06-dist-render-missing-assets
-    status: open
+    status: fixed
     severity: high
     scope: distribution
     title: "Rendered .pi/skills and .agents/skills ship 0 of 92 bundled assets (#218)"
@@ -833,7 +833,7 @@ bugs:
     risk_level: "medium"
     commit_message: "fix(dist): copy bundled skill assets into rendered targets (#218)"
   - id: BUG-2026-11-06-install-multi-channel-collisions
-    status: open
+    status: fixed
     severity: high
     scope: distribution / pi
     title: "Five install channels produce 80 skill-name collisions (#208)"
@@ -843,7 +843,7 @@ bugs:
     risk_level: "medium"
     commit_message: "fix(dist): one install channel per host and a --verify report (#208)"
   - id: BUG-2026-11-06-install-uninstall-noop
-    status: open
+    status: fixed
     severity: high
     scope: install
     title: "install.sh --uninstall is a no-op from a checkout and never removes copy-mode channels (#219)"
@@ -853,7 +853,7 @@ bugs:
     risk_level: "medium"
     commit_message: "fix(install): make --uninstall actually remove every managed entry (#219)"
   - id: BUG-2026-11-06-mcp-directtools-wrong-file
-    status: open
+    status: fixed
     severity: medium
     scope: mcp / docs
     title: "directTools in pi's mcp.json is ignored by pi-mcp-adapter (#211)"
@@ -863,7 +863,7 @@ bugs:
     risk_level: "medium"
     commit_message: "docs(mcp): document mcp-adapter.json ownership of adapter keys (#211)"
   - id: BUG-2026-11-06-mcp-json-project-server-blocked
-    status: open
+    status: fixed
     severity: medium
     scope: mcp / pi
     title: "Tracked .mcp.json declares a project server pi blocks on every start (#210)"
@@ -873,7 +873,7 @@ bugs:
     risk_level: "medium"
     commit_message: "fix(mcp): stop shipping a blocked project server in clones (#210)"
   - id: BUG-2026-11-06-pi-frontmatter-html-comments
-    status: open
+    status: fixed
     severity: high
     scope: skills / pi
     title: "HTML comments inside SKILL.md frontmatter drop 10 skills in pi (#173)"
@@ -883,7 +883,7 @@ bugs:
     risk_level: "medium"
     commit_message: "fix(skills): use YAML comments for story tags inside frontmatter (#173)"
   - id: BUG-2026-11-06-setup-pi-localpath
-    status: open
+    status: fixed
     severity: medium
     scope: install / pi
     title: "setup.js uses .pi/agent/skills for pi's project-local path (#220)"
@@ -893,7 +893,7 @@ bugs:
     risk_level: "medium"
     commit_message: "fix(setup): install pi skills to the project path pi scans (#220)"
   - id: BUG-2026-11-06-setup-update-guidance
-    status: open
+    status: fixed
     severity: low
     scope: docs
     title: "No guidance for pi update --extensions in setup output (#212)"
@@ -903,7 +903,7 @@ bugs:
     risk_level: "medium"
     commit_message: "docs(setup): mention pi update --extensions after install (#212)"
   - id: BUG-2026-11-06-sync-specs-artifact-churn
-    status: open
+    status: fixed
     severity: low
     scope: ci / specs
     title: "sync-skills rewrites committed traceability artifacts with worktree paths (local finding)"
@@ -912,7 +912,7 @@ bugs:
     approach: "Exclude .claude/worktrees from traceability generation; make the artifacts idempotent"
     risk_level: "medium"
   - id: BUG-2026-11-06-validator-yaml-strictness
-    status: open
+    status: fixed
     severity: high
     scope: ci
     title: "validate-skill-yaml.py cannot detect the form that drops skills (#207)"
