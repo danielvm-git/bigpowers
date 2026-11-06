@@ -402,7 +402,11 @@ export function evaluateBashCall(
 }
 
 function protectedPushTarget(command: string, branch: string): boolean {
-  if (PROTECTED_BRANCH_RE.test(command)) return true;
+  // Judge only the push segment (up to the next command separator): a protected
+  // name in trailing prose or a later command must not block an unrelated
+  // feature push (BUG-2026-11-03-guard-push-target-matches-text).
+  const pushSegment = command.split(/[;&|]/)[0] ?? command;
+  if (PROTECTED_BRANCH_RE.test(pushSegment)) return true;
   const trimmed = command.trim();
   return (
     branch === "main" &&

@@ -169,6 +169,8 @@ adjacent "plain status allowed" 0 "git status"
 adjacent "conventional commit allowed" 0 'git commit -m "fix(scope): subject"'
 adjacent "feature push allowed" 0 "git push origin feature/x"
 adjacent "non-conventional commit blocked" 2 'git commit -m "bad message"'
+adjacent "attribution footer in second -m blocked" 2 'git commit -m "fix(scope): subject" -m "Co-authored-by: agent <agent@example.com>"'
+adjacent "attribution mention in prose still allowed" 0 'git commit -m "fix(scope): see the Co-authored-by policy"'
 rm -rf "$FEATURE_REPO"
 
 DESTRUCTIVE="git reset --hard"
