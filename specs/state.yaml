@@ -1,11 +1,11 @@
-active_flow: fix_bug
+active_flow: null
 active_epic: null
 active_story: null
-bug_id: BUG-2026-11-06-pi-frontmatter-html-comments
+bug_id: null
 bigpowers_version: 2.94.0
 bug_cycle: null
 handoff:
-  next_skill: release-branch
+  next_skill: build-epic
   context: 'PR #202 merged as 87b1cd12: BUG-2026-11-03 epic status roll-up drift (G-12 checks 4-5, e58/e82
     status corrected) plus the CI fix that installs Node deps before story verify so e82s03''s OMP smoke
     can import typebox. Golden suite 56/56, all PR checks green, v2.93.3 released and published to npm.'
@@ -60,3 +60,9 @@ release:
 git:
   branch: main
   hash: 3251e1b0
+  - gate: bug-batch-complete
+    reason: "All 10 SCOPE issues closed via 7 PRs: #173/#207 (frontmatter + validator), #218 (render assets), #219/#220 (uninstall manifest + pi project path), #209 (render relocation), #208 (verify-distribution), #210/#211/#212 (MCP + update docs). 7 new golden gates."
+  - gate: epic-intake
+    reason: "Epics #213-#217 converted to capsules e89-e93 under specs/epics/ with story breakdowns; delivered bug-batch work marked done, remaining stories todo. Capsules are NOT registered in release-plan.yaml/execution-status.yaml yet (that registration is build-epic step 1 for each epic)."
+  - gate: main-protected-recovery
+    reason: "guard-git blocks direct commit and push to main. Recovered one stray local reset by fast-forwarding to origin/main; verified byte-identical before discard."

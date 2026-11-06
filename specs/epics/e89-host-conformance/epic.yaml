@@ -1,0 +1,81 @@
+id: e89
+title: "Host conformance harness — no host-visible warning may pass CI"
+status: active
+wsjf: 9.0
+bcps: 12
+mode: capsule
+wsjf_rationale: >
+  BV 8 + TC 5 + RR 7 / Job 2 ≈ 10. Four host-integration defects in six months
+  (skills dropped, duplicate commands, MCP crash, collisions) all reached users
+  because no gate executed the host's own rules. The harness is the only thing
+  that stops the regression family.
+github_issue: 213
+source: >
+  GH #213 — a conformance harness that loads every installed SKILL.md the way
+  each host does and fails CI on any host-visible warning. Grown organically from
+  the bug batch that motivated it: each fix added one deterministic golden gate.
+stories:
+  - id: e89s01
+    title: pi frontmatter parser conformance (yaml uniqueKeys)
+    status: done
+    bcps: 2
+    description: >
+      validate-skill-yaml.py rejects the frontmatter forms pi's `yaml` package
+      rejects (R4 HTML comment, R5 duplicate key) and accepts `#` comments.
+      tests/test-skill-frontmatter-strict.sh drives it over fixture trees.
+    files:
+      - scripts/validate-skill-yaml.py
+      - tests/test-skill-frontmatter-strict.sh
+    verify: bash tests/test-skill-frontmatter-strict.sh
+    tags: ["story: e89s01"]
+  - id: e89s02
+    title: rendered-payload asset conformance
+    status: done
+    bcps: 2
+    description: >
+      A rendered skill dir must carry the same bundled files as the source;
+      tests/test-render-assets.sh + sync-post assert_skill_assets.
+    files:
+      - scripts/lib/adapter-assets.sh
+      - tests/test-render-assets.sh
+    verify: bash tests/test-render-assets.sh
+    tags: ["story: e89s02"]
+  - id: e89s03
+    title: discovery-root and install-channel conformance
+    status: done
+    bcps: 2
+    description: >
+      No render target may live at a host discovery root, and no host may have
+      two install channels. tests/test-render-targets-not-discoverable.sh +
+      tests/test-verify-distribution.sh + tests/test-install-manifest.sh.
+    files:
+      - tests/test-render-targets-not-discoverable.sh
+      - tests/test-verify-distribution.sh
+      - tests/test-install-manifest.sh
+    verify: bash tests/test-render-targets-not-discoverable.sh && bash tests/test-verify-distribution.sh && bash tests/test-install-manifest.sh
+    tags: ["story: e89s03"]
+  - id: e89s04
+    title: single run-host-conformance entrypoint + sandboxed $HOME fixture
+    status: todo
+    bcps: 3
+    description: >
+      One command runs every host check from a scratch HOME so dev-machine
+      leftovers cannot mask a defect (that masking is how #173 shipped broken
+      while local gates stayed green).
+    files:
+      - scripts/run-host-conformance.sh
+    verify: bash scripts/run-host-conformance.sh
+    tags: ["story: e89s04"]
+  - id: e89s05
+    title: Claude Code / Cursor / Gemini CLI / Antigravity artifact conformance
+    status: todo
+    bcps: 3
+    description: >
+      Assert each host's documented artifact shape (`.claude/skills/<name>/SKILL.md`,
+      `.cursor/rules/*.mdc`, `.gemini/extensions/bigpowers`, Antigravity render)
+      plus frontmatter validity, beyond the pi checks delivered so far.
+    files:
+      - scripts/run-host-conformance.sh
+      - tests/fixtures/host-artifacts/
+    verify: bash scripts/run-host-conformance.sh
+    tags: ["story: e89s05"]

@@ -1,0 +1,82 @@
+id: e90
+title: "Single-channel distribution driven by one target manifest"
+status: active
+wsjf: 7.5
+bcps: 10
+mode: capsule
+wsjf_rationale: >
+  BV 6 + TC 5 + RR 5 / Job 2 ≈ 8. Five channels shipped the same catalog to four
+  places pi scans (80 collisions/start). One manifest is the source of truth for
+  which path each host owns.
+github_issue: 214
+source: >
+  GH #214 — distribution-targets.yaml declares, per host, one owned path and one
+  mode; sync-skills.sh / install.sh / bin/setup.js derive targets from it and
+  refuse a second channel.
+stories:
+  - id: e90s01
+    title: duplicate-channel detection + pi channel matrix doc
+    status: done
+    bcps: 2
+    description: >
+      scripts/verify-distribution.sh names each active pi channel and fails when
+      package + symlinks both own pi; install.sh --verify exposes it; the channel
+      matrix and acceptance line are documented in docs/references/agent-tooling.md.
+    files:
+      - scripts/verify-distribution.sh
+      - scripts/install.sh
+      - docs/references/agent-tooling.md
+    verify: bash scripts/verify-distribution.sh --strict
+    tags: ["story: e90s01"]
+  - id: e90s02
+    title: Antigravity render relocated out of pi discovery
+    status: done
+    bcps: 2
+    description: >
+      The Antigravity render output moved from .agents/skills (a discovery root pi
+      scans) to .bigpowers/rendered/antigravity/skills; install destinations are
+      unchanged. tests/test-render-targets-not-discoverable.sh guards it.
+    files:
+      - scripts/adapters/agy.sh
+      - scripts/targets.yaml
+      - scripts/lib/install-targets-b.sh
+      - scripts/lib/install-helpers.js
+    verify: bash tests/test-render-targets-not-discoverable.sh
+    tags: ["story: e90s02"]
+  - id: e90s03
+    title: distribution-targets.yaml schema + validation
+    status: todo
+    bcps: 2
+    description: >
+      Add the manifest schema (hosts: pi/claude/cursor/gemini/antigravity/…, each
+      with path + mode) and a validator that fails on a host with two owners.
+    files:
+      - distribution-targets.yaml
+      - scripts/validate-distribution-targets.sh
+    verify: bash scripts/validate-distribution-targets.sh
+    tags: ["story: e90s03"]
+  - id: e90s04
+    title: route sync-skills / install.sh / bin/setup.js through the manifest
+    status: todo
+    bcps: 3
+    description: >
+      All three code paths derive their targets from distribution-targets.yaml and
+      refuse a second channel for the same host at setup time.
+    files:
+      - scripts/sync-skills.sh
+      - scripts/install.sh
+      - bin/setup.js
+    verify: bash scripts/run-verification-gates.sh
+    tags: ["story: e90s04"]
+  - id: e90s05
+    title: exclusive-per-host setup with conflict refusal
+    status: todo
+    bcps: 3
+    description: >
+      bigpowers setup is exclusive per host: installing for pi removes/refuses the
+      pi package entry and vice versa, and prints the single path it owns.
+    files:
+      - bin/setup.js
+      - scripts/install.sh
+    verify: bash tests/test-install-helpers.sh
+    tags: ["story: e90s05"]
