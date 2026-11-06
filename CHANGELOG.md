@@ -1,3 +1,10 @@
+## [2.94.2](https://github.com/danielvm-git/bigpowers/compare/v2.94.1...v2.94.2) (2026-11-06)
+
+
+### Bug Fixes
+
+* **install:** self-heal stale sibling installs; fix skill-count drift ([#232](https://github.com/danielvm-git/bigpowers/issues/232)) ([73960ed](https://github.com/danielvm-git/bigpowers/commit/73960ed09000da240ecb91fd7209c3b61c33bf41))
+
 ## [2.94.1](https://github.com/danielvm-git/bigpowers/compare/v2.94.0...v2.94.1) (2026-11-06)
 
 
