@@ -1,6 +1,6 @@
 ---
 bug_id: BUG-2026-11-03-guard-attribution-second-m
-status: open
+status: fixed
 severity: high
 scope: hooks / guard-git
 title: "Co-authored-by check only inspects the first -m value, so a footer in a second -m or in -F passes the P1 rule"
@@ -8,6 +8,7 @@ files_changed: "hooks/pre-tool-use.sh, extensions/omp-hooks.ts"
 approach: "Collect every message argument of a git commit invocation (all -m values, and -F/--file targets) and match the footer regex against each, in both the shell hook and the extension"
 risk_level: medium
 commit_message: "fix(hooks): inspect every commit message argument for AI attribution"
+fix_evidence: "PR #229 — regression rows in guard-git-normalize.yaml + adjacent shell-hook cases; 33/33 rows pass both implementations"
 ---
 
 # BUG-2026-11-03: attribution footer escapes the guard

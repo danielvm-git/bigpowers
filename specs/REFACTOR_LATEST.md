@@ -3,7 +3,7 @@
 ## Problem Statement
 
 bigpowers already ships a working global installer (`scripts/install.sh`, invoked via
-`bigpowers setup`) that symlinks all 73 skills into `~/.claude/skills/` (Claude Code)
+`bigpowers setup`) that symlinks all 80 skills into `~/.claude/skills/` (Claude Code)
 and `~/.gemini/extensions/bigpowers` (Gemini CLI) once per machine — no per-project
 step needed, "type `/` and see bigpowers skills" already works for those two tools
 today.

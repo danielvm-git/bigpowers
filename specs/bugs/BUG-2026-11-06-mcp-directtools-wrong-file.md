@@ -1,6 +1,6 @@
 ---
 bug_id: BUG-2026-11-06-mcp-directtools-wrong-file
-status: open
+status: fixed
 severity: medium
 scope: "mcp / docs"
 title: "directTools in pi's mcp.json is ignored by pi-mcp-adapter (#211)"
@@ -9,6 +9,7 @@ files_changed: "docs/references/bigpowers-mcp.md, README.md, bin/setup.js"
 approach: "Document mcp-adapter.json as the owner of adapter keys; write adapter keys there only"
 risk_level: medium
 commit_message: "docs(mcp): document mcp-adapter.json ownership of adapter keys (#211)"
+fix_evidence: "PR #227 — documented mcp-adapter.json ownership"
 ---
 
 # BUG-2026-11-06-mcp-directtools-wrong-file: directTools in pi's mcp.json is ignored by pi-mcp-adapter (#211)

@@ -1,6 +1,6 @@
 ---
 bug_id: BUG-2026-11-06-setup-update-guidance
-status: open
+status: fixed
 severity: low
 scope: "docs"
 title: "No guidance for pi update --extensions in setup output (#212)"
@@ -9,6 +9,7 @@ files_changed: "bin/setup.js, docs/references/agent-tooling.md, README.md"
 approach: "Add the package-update step to post-install output and docs"
 risk_level: medium
 commit_message: "docs(setup): mention pi update --extensions after install (#212)"
+fix_evidence: "PR #227 — setup/README pi update --extensions"
 ---
 
 # BUG-2026-11-06-setup-update-guidance: No guidance for pi update --extensions in setup output (#212)

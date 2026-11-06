@@ -1,6 +1,6 @@
 ---
 bug_id: BUG-2026-11-03-omp-hooks-stderr-leak
-status: open
+status: fixed
 severity: medium
 scope: extensions / omp-hooks
 title: "tool_call hook leaks git's fatal: not a git repository onto the TUI when a bash command cds outside the session repo"
@@ -8,6 +8,7 @@ files_changed: "extensions/omp-hooks.ts, scripts/omp-smoke.ts, scripts/validate-
 approach: "Give the branch probe a silent stdio (mirroring inGitRepo) and short-circuit with inGitRepo(cwd) so no git process is spawned for a non-repo target; assert the silence from the shell gate by capturing the smoke's stderr"
 risk_level: low
 commit_message: "fix(omp): keep the tool_call branch probe quiet outside a git repo"
+fix_evidence: "currentBranch() now gates on inGitRepo() with stdio:'ignore', so a non-repo target spawns no git process (issue #189)."
 ---
 
 # BUG-2026-11-03: tool_call hook paints git's stderr over the TUI

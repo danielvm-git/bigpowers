@@ -86,6 +86,14 @@ function assertReplaceable(dst) {
     if (target === REPO_ROOT || target.startsWith(REPO_ROOT + path.sep)) {
       return; // managed by bigpowers — safe to re-link
     }
+    // A previous bigpowers install under another package manager or node
+    // prefix (Homebrew, mise, a second nvm) points into a different
+    // `node_modules/bigpowers` root. That is still bigpowers-managed — replace
+    // it so `bigpowers update` self-heals from a stale sibling install instead
+    // of refusing and telling the user to clean up by hand.
+    if (target.includes(path.sep + 'node_modules' + path.sep + 'bigpowers')) {
+      return;
+    }
   }
   if (st.isFile() && managedCopies().has(dst)) {
     return; // file copy placed by the Windows fallback — safe to re-link

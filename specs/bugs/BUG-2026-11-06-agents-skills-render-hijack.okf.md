@@ -7,7 +7,7 @@ title: "Antigravity render target .agents/skills is auto-discovered by pi (#209)
 category: bug
 tier: extended
 severity: medium
-status: open
+status: fixed
 generator: scripts/sync-bugs-registry.sh
 references:
     - specs/bugs/BUG-2026-11-06-agents-skills-render-hijack.md
@@ -15,7 +15,7 @@ references:
 
 # Antigravity render target .agents/skills is auto-discovered by pi (#209)
 
-**Bug:** BUG-2026-11-06-agents-skills-render-hijack | **Severity:** medium | **Status:** open | **Scope:** distribution / pi
+**Bug:** BUG-2026-11-06-agents-skills-render-hijack | **Severity:** medium | **Status:** fixed | **Scope:** distribution / pi
 **Tier:** extended
 
 See `specs/bugs/BUG-2026-11-06-agents-skills-render-hijack.md` for full investigation and fix details.

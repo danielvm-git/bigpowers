@@ -204,10 +204,10 @@ bigpowers already uses OKF:
 | `CLAUDE.md` | ~220 | Low | Single flat file. OKF's value is in multi-concept bundles with typed frontmatter and cross-links. At 220 lines, splitting into concepts adds ceremony without payoff. |
 | `GEMINI.md` | ~85 | Low | Even smaller; mostly redirects to CLAUDE.md. |
 | `AGENTS.md` (hypothetical) | N/A | Low | Would be another thin redirect. |
-| **`skills/*/SKILL.md`** (73 files) | 50–300 each | **High** | Already structured like OKF concepts — YAML frontmatter (`name`, `description`, `model`, `effort`), markdown body. Adding `type: Skill` and `okf_version: "0.1"` would make them conformant with zero structural change. |
+| **`skills/*/SKILL.md`** (80 files) | 50–300 each | **High** | Already structured like OKF concepts — YAML frontmatter (`name`, `description`, `model`, `effort`), markdown body. Adding `type: Skill` and `okf_version: "0.1"` would make them conformant with zero structural change. |
 | **`specs/` directory** | Various | **High** | Already migrating. `state.yaml`, `release-plan.yaml`, epics, ADRs, bugs all benefit from typed, linkable structure. |
 
-**If all 73 SKILL.md files add `type: Skill` and `okf_version: "0.1"` to frontmatter**, the entire skill catalog becomes an OKF-compliant knowledge bundle. Benefits:
+**If all 80 SKILL.md files add `type: Skill` and `okf_version: "0.1"` to frontmatter**, the entire skill catalog becomes an OKF-compliant knowledge bundle. Benefits:
 
 - `grep 'type: Skill'` → discover all skills (already possible with `search-skills`)
 - Traverse skill dependencies as graph edges via markdown links (`[plan-work](/skills/plan-work/SKILL.md)`)
