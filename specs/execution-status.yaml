@@ -317,6 +317,17 @@ development_status:
   e48s13: done
   e48s14: done
   e48s15: done
+  e49: backlog
+  e49s01: backlog
+  e49s02: backlog
+  e49s03: backlog
+  e49s04: backlog
+  e49s05: backlog
+  e49s06: backlog
+  e49s07: backlog
+  e49s08: backlog
+  e49s09: backlog
+  e49s10: backlog
   e51: done
   e51s01: done
   e51s02: done
@@ -643,6 +654,11 @@ epics:
     title: Foundation — Knowledge Layer + Process Maturity
     wsjf: 2.5
     total_bcps: 40
+  e49:
+    status: backlog
+    title: 'Cockpit From the Data — Live in Every Project, No Build'
+    wsjf: 2.6
+    total_bcps: 221
   e51:
     status: done
     title: 'Always Green — Shift Left, Preflight Hard Block & Fix-or-Log Doctrine'
@@ -677,7 +693,7 @@ epics:
     status: done
     title: 'Evals Over Compliance — Replace the 94% Gate with Outcome Proof'
     wsjf: 5.3
-    total_bcps: 75
+    total_bcps: 98
   e59:
     status: backlog
     title: 'Absorb Fresh References — Stay in Sync with bigspec''s Ongoing Evolution'
@@ -3029,6 +3045,96 @@ stories:
     tasks_passing: 4
     tasks_failing: 0
     risk_max: P0
+  e49s01:
+    status: backlog
+    title: Epic board e00–e99 computed per request from specs/ and git
+    bcps: 29
+    epic: e49
+    tasks_total: 4
+    tasks_passing: 0
+    tasks_failing: 0
+    risk_max: P2
+  e49s02:
+    status: backlog
+    title: 'bigpowers cockpit: runs in any project and follows its changes live'
+    bcps: 19
+    epic: e49
+    tasks_total: 3
+    tasks_passing: 0
+    tasks_failing: 0
+    risk_max: P2
+  e49s03:
+    status: backlog
+    title: 'Status-consistency rules and an opt-in --check for CI'
+    bcps: 25
+    epic: e49
+    tasks_total: 3
+    tasks_passing: 0
+    tasks_failing: 0
+    risk_max: P2
+  e49s04:
+    status: backlog
+    title: 'Evidence-freshness rules: tags, receipts, ledger, matrix'
+    bcps: 14
+    epic: e49
+    tasks_total: 1
+    tasks_passing: 0
+    tasks_failing: 0
+    risk_max: P3
+  e49s05:
+    status: backlog
+    title: 'Delivery charts by day, week, month and year'
+    bcps: 26
+    epic: e49
+    tasks_total: 3
+    tasks_passing: 0
+    tasks_failing: 0
+    risk_max: P3
+  e49s06:
+    status: backlog
+    title: 'Are we delivering: four goal-carrying tiles and goals.yaml'
+    bcps: 21
+    epic: e49
+    tasks_total: 2
+    tasks_passing: 0
+    tasks_failing: 0
+    risk_max: P3
+  e49s07:
+    status: backlog
+    title: 'What is it costing and next month: four more tiles'
+    bcps: 18
+    epic: e49
+    tasks_total: 1
+    tasks_passing: 0
+    tasks_failing: 0
+    risk_max: P3
+  e49s08:
+    status: backlog
+    title: Quality view and a found_in stage on every BUG
+    bcps: 30
+    epic: e49
+    tasks_total: 3
+    tasks_passing: 0
+    tasks_failing: 0
+    risk_max: P2
+  e49s09:
+    status: backlog
+    title: Roadmap view from value_rank and coverage points
+    bcps: 20
+    epic: e49
+    tasks_total: 1
+    tasks_passing: 0
+    tasks_failing: 0
+    risk_max: P3
+  e49s10:
+    status: backlog
+    title: dashboard/ TUI and web reuse the same cockpit model
+    bcps: 19
+    epic: e49
+    tasks_total: 2
+    tasks_passing: 0
+    tasks_failing: 0
+    risk_max: P2
   e51s01:
     status: done
     title: 'CONVENTIONS — Always Green, Shift Left, Discovered Defects, banned phrases'
@@ -3252,7 +3358,7 @@ stories:
     risk_max: P2
   e58s11:
     status: done
-    title: three tasks with changing, spread and implied requirements
+    title: 'three tasks with changing, spread and implied requirements'
     bcps: 8
     epic: e58
     tasks_total: 5

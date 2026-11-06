@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-03T21:28:49.378087+00:00",
+  "generated_at": "2026-11-06T22:48:51.426190+00:00",
   "matrix_version": "1.0",
   "stories": [
     {
@@ -3096,6 +3096,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-11-06-agents-skills-render-hijack.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-06-agents-skills-render-hijack.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/epics/archive/e12-pi-support/e12s04-sync-skills-pi-target.md",
           "line": 0,
           "confidence": "medium",
@@ -3174,7 +3186,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 43
+      "link_count": 45
     },
     {
       "id": "e45s13",
@@ -3336,13 +3348,19 @@
           "method": "file_heuristic"
         },
         {
+          "file": "tests/test-verify-distribution.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "website/src/content/docs/skills/verify-work.mdx",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         }
       ],
-      "link_count": 26
+      "link_count": 27
     },
     {
       "id": "e45s14",
@@ -3878,6 +3896,12 @@
         {
           "file": "skills/security-review/SKILL.md",
           "line": 14,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-06-pi-frontmatter-html-comments.md",
+          "line": 18,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -5442,7 +5466,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 276
+      "link_count": 277
     },
     {
       "id": "e45s19",
@@ -5634,6 +5658,12 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".pi/skills/seed-conventions/REFERENCE.md",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": ".pi/skills/seed-conventions/SKILL.md",
           "line": 11,
           "confidence": "high",
@@ -5724,7 +5754,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 33
+      "link_count": 34
     },
     {
       "id": "e45s22",
@@ -6030,6 +6060,30 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".pi/skills/security-review/fixtures/CWE-79-xss-negative.js",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/security-review/fixtures/CWE-79-xss-positive.js",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/security-review/fixtures/CWE-89-sqli-negative.py",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/security-review/fixtures/CWE-89-sqli-positive.py",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": ".qwen/skills/security-review/SKILL.md",
           "line": 16,
           "confidence": "high",
@@ -6114,7 +6168,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 24
+      "link_count": 28
     },
     {
       "id": "e45s27",
@@ -9546,6 +9600,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-11-06-sync-specs-artifact-churn.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/epics/archive/e39-knowledge-graph/e39s04-okf-skills-wiki.md",
           "line": 0,
           "confidence": "medium",
@@ -9576,7 +9636,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 37
+      "link_count": 38
     },
     {
       "id": "e48s02",
@@ -11016,6 +11076,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-11-03-epic-status-rollup-drift.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-03-epic-status-rollup-drift.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-11-03-guard-attribution-second-m.md",
           "line": 0,
           "confidence": "medium",
@@ -11160,6 +11232,138 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-11-06-agents-skills-render-hijack.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-06-agents-skills-render-hijack.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-06-dist-render-missing-assets.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-06-dist-render-missing-assets.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-06-install-multi-channel-collisions.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-06-install-multi-channel-collisions.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-06-install-uninstall-noop.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-06-install-uninstall-noop.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-06-mcp-directtools-wrong-file.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-06-mcp-directtools-wrong-file.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-06-mcp-json-project-server-blocked.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-06-mcp-json-project-server-blocked.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-06-pi-frontmatter-html-comments.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-06-pi-frontmatter-html-comments.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-06-setup-pi-localpath.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-06-setup-pi-localpath.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-06-setup-update-guidance.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-06-setup-update-guidance.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-06-sync-specs-artifact-churn.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-06-sync-specs-artifact-churn.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-06-validator-yaml-strictness.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-06-validator-yaml-strictness.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/epics/archive/e26-security-review/e26s07-fix-bug-integration.md",
           "line": 0,
           "confidence": "medium",
@@ -11220,7 +11424,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 235
+      "link_count": 259
     },
     {
       "id": "e48s04",
@@ -11994,6 +12198,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-11-03-epic-status-rollup-drift.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/bugs/BUG-2026-11-03-guard-attribution-second-m.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -12061,6 +12271,72 @@
         },
         {
           "file": "specs/bugs/BUG-2026-11-03-wiki-indexes-ignored-reports.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-06-agents-skills-render-hijack.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-06-dist-render-missing-assets.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-06-install-multi-channel-collisions.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-06-install-uninstall-noop.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-06-mcp-directtools-wrong-file.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-06-mcp-json-project-server-blocked.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-06-pi-frontmatter-html-comments.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-06-setup-pi-localpath.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-06-setup-update-guidance.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-06-sync-specs-artifact-churn.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-06-validator-yaml-strictness.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -12354,6 +12630,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/epics-wiki/e49.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/epics-wiki/e51.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -12534,6 +12816,36 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/epics-wiki/e89.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics-wiki/e90.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics-wiki/e91.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics-wiki/e92.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics-wiki/e93.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/epics/archive/e39-knowledge-graph/e39s04-okf-skills-wiki.md",
           "line": 0,
           "confidence": "medium",
@@ -12678,7 +12990,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 227
+      "link_count": 245
     },
     {
       "id": "e48s06",
@@ -12744,6 +13056,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-11-06-agents-skills-render-hijack.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/epics/archive/e39-knowledge-graph/e39s04-okf-skills-wiki.md",
           "line": 0,
           "confidence": "medium",
@@ -12774,7 +13092,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 14
+      "link_count": 15
     },
     {
       "id": "e48s07",
@@ -13182,6 +13500,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "tests/test-install-manifest.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "tests/test-land-branch-protected.sh",
           "line": 0,
           "confidence": "medium",
@@ -13200,7 +13524,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 34
+      "link_count": 35
     },
     {
       "id": "e48s12",
@@ -13536,13 +13860,697 @@
           "method": "explicit_tag"
         },
         {
+          "file": "specs/bugs/BUG-2026-11-06-agents-skills-render-hijack.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-06-agents-skills-render-hijack.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/epics/archive/e48-foundation/e48s15-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         }
       ],
-      "link_count": 7
+      "link_count": 9
+    },
+    {
+      "id": "e49s01",
+      "title": "Epic board e00\u2013e99 computed per request from specs/ and git",
+      "epic_id": "e49",
+      "epic_title": "Cockpit From the Data \u2014 Live in Every Project, No Build",
+      "bcp": 0,
+      "wsjf": 2.6,
+      "status": "backlog",
+      "links": [
+        {
+          "file": "specs/epics/e49-cockpit-from-data/epic.yaml",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/enrich-epics-from-archive.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/sync-status-from-epics.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/conventions-wiki/github-git-operations.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-files-should-remain-under-500-lines-newspaper-metaphor.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-i-should-present-multiple-interpretations-of-ambiguous-requests.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-solo-git-profile-exists.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e49-cockpit-from-data/e49s01-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        }
+      ],
+      "link_count": 8
+    },
+    {
+      "id": "e49s02",
+      "title": "bigpowers cockpit: runs in any project and follows its changes live",
+      "epic_id": "e49",
+      "epic_title": "Cockpit From the Data \u2014 Live in Every Project, No Build",
+      "bcp": 0,
+      "wsjf": 2.6,
+      "status": "backlog",
+      "links": [
+        {
+          "file": "docs/archive/file-structure/projected-structure-bigpowers-evolved.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/MISSING-REFERENCES-AND-DELIVERY-PLAN.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/conventions-wiki/yaml-cockpit-runtime-delivery.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-complex-logic-should-include-provenance-links-adrs-jira-or-commits.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-i-should-automatically-bootstrap-project-context-at-session-start.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-i-should-reject-work-that-fails-its-risk-tier-verification-gate.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-it-must-mandate-file-size-limits-300-lines.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-it-must-mandate-function-size-limits-4-20-lines.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-my-changes-should-be-surgical-touching-only-what-is-required.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/given-a-project-with-bigpowers-conventions.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/then-it-must-mandate-conventional-commits-1-0-0-and-semver-2-0-0.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e49-cockpit-from-data/e49s02-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        }
+      ],
+      "link_count": 12
+    },
+    {
+      "id": "e49s03",
+      "title": "Status-consistency rules and an opt-in --check for CI",
+      "epic_id": "e49",
+      "epic_title": "Cockpit From the Data \u2014 Live in Every Project, No Build",
+      "bcp": 0,
+      "wsjf": 2.6,
+      "status": "backlog",
+      "links": [
+        {
+          "file": "scripts/golden-g12-status-consistency.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "scripts/lib/plan-consistency-check.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-error-messages-should-include-a-remediation-hint-for-the-agent.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-formatting-should-be-consistent.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-i-should-compact-session-state-for-cold-starts.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-i-should-define-verifiable-success-criteria-for-every-step.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-i-should-enforce-a-two-stage-review-gate.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-i-should-explain-the-code-s-purpose-and-callers-before-modifying-zoom-out.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-i-should-not-write-code-before-the-design-is-approved.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-i-should-use-fresh-subagent-context-for-independent-reviews.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-information-should-be-hidden-within-modules-not-leaked.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-it-must-mandate-provenance-links-for-complex-logic.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-it-must-mandate-the-f-i-r-s-t-rubric-for-tests.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-the-plan-contains-scenario-ids-in-the-format-sc-ennsyy-p-0-1-2-3-nn.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-there-should-be-clear-seams-for-testing-and-extension.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e49-cockpit-from-data/e49s03-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        }
+      ],
+      "link_count": 16
+    },
+    {
+      "id": "e49s04",
+      "title": "Evidence-freshness rules: tags, receipts, ledger, matrix",
+      "epic_id": "e49",
+      "epic_title": "Cockpit From the Data \u2014 Live in Every Project, No Build",
+      "bcp": 0,
+      "wsjf": 2.6,
+      "status": "backlog",
+      "links": [
+        {
+          "file": "specs/epics/e49-cockpit-from-data/e49s04-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        }
+      ],
+      "link_count": 1
+    },
+    {
+      "id": "e49s05",
+      "title": "Delivery charts by day, week, month and year",
+      "epic_id": "e49",
+      "epic_title": "Cockpit From the Data \u2014 Live in Every Project, No Build",
+      "bcp": 0,
+      "wsjf": 2.6,
+      "status": "backlog",
+      "links": [
+        {
+          "file": "specs/MISSING-REFERENCES-AND-DELIVERY-PLAN.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e49-cockpit-from-data/e49s05-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        }
+      ],
+      "link_count": 2
+    },
+    {
+      "id": "e49s06",
+      "title": "Are we delivering: four goal-carrying tiles and goals.yaml",
+      "epic_id": "e49",
+      "epic_title": "Cockpit From the Data \u2014 Live in Every Project, No Build",
+      "bcp": 0,
+      "wsjf": 2.6,
+      "status": "backlog",
+      "links": [
+        {
+          "file": "specs/epics/e49-cockpit-from-data/e49s06-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        }
+      ],
+      "link_count": 1
+    },
+    {
+      "id": "e49s07",
+      "title": "What is it costing and next month: four more tiles",
+      "epic_id": "e49",
+      "epic_title": "Cockpit From the Data \u2014 Live in Every Project, No Build",
+      "bcp": 0,
+      "wsjf": 2.6,
+      "status": "backlog",
+      "links": [
+        {
+          "file": "specs/conventions-wiki/next-skill-signaling-mandate-v2-0-0.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-comments-should-explain-why-not-what.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-it-must-mandate-the-why-not-what-commenting-rule.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-my-changes-should-be-surgical-touching-only-what-is-required.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e49-cockpit-from-data/e49s07-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        }
+      ],
+      "link_count": 5
+    },
+    {
+      "id": "e49s08",
+      "title": "Quality view and a found_in stage on every BUG",
+      "epic_id": "e49",
+      "epic_title": "Cockpit From the Data \u2014 Live in Every Project, No Build",
+      "bcp": 0,
+      "wsjf": 2.6,
+      "status": "backlog",
+      "links": [
+        {
+          "file": "specs/bugs/BUG-2026-07-25-land-branch-protected.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-07-25-land-branch-protected.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-09-09-pi-duplicate-slash-commands.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-09-09-pi-duplicate-slash-commands.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-03-story-verify-ab-sandbox-daemon-required.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-03-story-verify-ab-sandbox-daemon-required.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/generalize-sweep-BUG-2026-11-03-story-verify-ab-sandbox-daemon-required.json",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-every-change-should-include-runnable-tests-as-verification.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-i-should-define-verifiable-success-criteria-for-every-step.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-i-should-enforce-a-two-stage-review-gate.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-i-should-use-fresh-subagent-context-for-independent-reviews.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-it-must-require-every-change-to-be-verified-with-a-runnable-command.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e49-cockpit-from-data/e49s08-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        }
+      ],
+      "link_count": 13
+    },
+    {
+      "id": "e49s09",
+      "title": "Roadmap view from value_rank and coverage points",
+      "epic_id": "e49",
+      "epic_title": "Cockpit From the Data \u2014 Live in Every Project, No Build",
+      "bcp": 0,
+      "wsjf": 2.6,
+      "status": "backlog",
+      "links": [
+        {
+          "file": "specs/verifications/steps/and-i-should-enforce-a-two-stage-review-gate.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-i-should-use-fresh-subagent-context-for-independent-reviews.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-i-should-visualize-implementation-progress-as-a-roadmap.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e49-cockpit-from-data/e49s09-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        }
+      ],
+      "link_count": 4
+    },
+    {
+      "id": "e49s10",
+      "title": "dashboard/ TUI and web reuse the same cockpit model",
+      "epic_id": "e49",
+      "epic_title": "Cockpit From the Data \u2014 Live in Every Project, No Build",
+      "bcp": 0,
+      "wsjf": 2.6,
+      "status": "backlog",
+      "links": [
+        {
+          "file": "specs/conventions-wiki/guardrails-and-other-artifacts.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/conventions-wiki/semantic-release-the-real-version-is-never-hand-tracked.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-classes-should-follow-the-single-responsibility-principle-srp.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-each-module-should-follow-the-single-responsibility-principle.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-error-messages-should-include-a-remediation-hint-for-the-agent.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-error-messages-should-include-the-offending-value-and-expected-shape.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-filenames-should-accurately-describe-their-contents-to-minimize-read-file-calls.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-i-should-explain-the-code-s-purpose-and-callers-before-modifying-zoom-out.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-i-should-match-the-existing-code-style-and-conventions.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-i-should-not-write-code-before-the-design-is-approved.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-i-should-prioritize-the-minimum-viable-implementation.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-it-must-mandate-the-boy-scout-rule-leave-code-cleaner.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-it-must-mandate-the-f-i-r-s-t-rubric-for-tests.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-it-must-mandate-the-srp-single-responsibility-principle.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-it-must-mandate-the-why-not-what-commenting-rule.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-the-directory-structure-should-be-predictable.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-the-plan-contains-a-risk-matrix.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-the-plan-contains-scenario-ids-in-the-format-sc-ennsyy-p-0-1-2-3-nn.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-the-plan-specifies-test-levels-and-fixture-architectures.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-the-skill-packaging-pipeline-round-trips-a-golden-fixture-without-data-loss.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-there-should-be-clear-seams-for-testing-and-extension.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-there-should-be-no-code-duplication-dry-g5.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-there-should-be-no-code-duplication-dry.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-there-should-be-no-commented-out-code-c5.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-there-should-be-no-ignored-tests-without-an-explicit-ambiguity-note-t4.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-there-should-be-no-magic-strings-or-numbers-g25.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/and-there-should-be-no-redundant-comments-that-restate-code.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/then-it-must-mandate-conventional-commits-1-0-0-and-semver-2-0-0.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/verifications/steps/then-names-should-be-intention-revealing-and-unambiguous-n1-n4.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/epics/e49-cockpit-from-data/e49s10-tasks.yaml",
+          "line": 0,
+          "confidence": "low",
+          "method": "task_reference"
+        }
+      ],
+      "link_count": 30
     },
     {
       "id": "e51s01",
@@ -13722,6 +14730,12 @@
           "method": "explicit_tag"
         },
         {
+          "file": ".pi/skills/seed-conventions/REFERENCE.md",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": ".pi/skills/seed-conventions/SKILL.md",
           "line": 10,
           "confidence": "high",
@@ -13860,7 +14874,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 41
+      "link_count": 42
     },
     {
       "id": "e51s03",
@@ -19333,7 +20347,7 @@
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 707,
+          "line": 708,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -19464,6 +20478,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "scripts/lib/adapter-assets.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "scripts/lib/adapter-guard.sh",
           "line": 0,
           "confidence": "medium",
@@ -19572,7 +20592,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 25
+      "link_count": 26
     },
     {
       "id": "e64s02",
@@ -19735,7 +20755,7 @@
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 661,
+          "line": 662,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -19879,7 +20899,7 @@
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 674,
+          "line": 675,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -20023,7 +21043,7 @@
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 685,
+          "line": 686,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -20185,7 +21205,7 @@
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 666,
+          "line": 667,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -20503,7 +21523,7 @@
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 691,
+          "line": 692,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -20641,7 +21661,7 @@
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 711,
+          "line": 712,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -20785,7 +21805,7 @@
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 671,
+          "line": 672,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -20929,7 +21949,7 @@
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 702,
+          "line": 703,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -21984,6 +23004,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "scripts/verify-distribution.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "scripts/verify-generalize-sweep.sh",
           "line": 0,
           "confidence": "medium",
@@ -22374,6 +23400,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "tests/test-verify-distribution.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "website/src/content/docs/skills/verify-work.mdx",
           "line": 0,
           "confidence": "medium",
@@ -22404,7 +23436,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 89
+      "link_count": 91
     },
     {
       "id": "e80s02",
@@ -22914,6 +23946,18 @@
       "status": "done",
       "links": [
         {
+          "file": ".pi/skills/security-review/fixtures/CWE-fail-open-verify-negative.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": ".pi/skills/security-review/fixtures/CWE-fail-open-verify-positive.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
           "file": "scripts/verify-cwe-fixture-sync.sh",
           "line": 2,
           "confidence": "high",
@@ -22980,7 +24024,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 11
+      "link_count": 13
     },
     {
       "id": "e81s01",
@@ -23055,7 +24099,7 @@
       "epic_title": "Fork Innovations \u2014 Jujutsu VCS Support + OMP Plugin + Community Credit",
       "bcp": 0,
       "wsjf": 6.0,
-      "status": "backlog",
+      "status": "done",
       "links": [
         {
           "file": "scripts/lib/project-runtime.sh",
@@ -23085,7 +24129,7 @@
       "epic_title": "Fork Innovations \u2014 Jujutsu VCS Support + OMP Plugin + Community Credit",
       "bcp": 0,
       "wsjf": 6.0,
-      "status": "backlog",
+      "status": "done",
       "links": [
         {
           "file": ".cline/skills/commit-message/SKILL.md",
@@ -23631,7 +24675,7 @@
       "epic_title": "Fork Innovations \u2014 Jujutsu VCS Support + OMP Plugin + Community Credit",
       "bcp": 0,
       "wsjf": 6.0,
-      "status": "backlog",
+      "status": "done",
       "links": [
         {
           "file": "extensions/omp-hooks.ts",
@@ -23685,7 +24729,7 @@
       "epic_title": "Fork Innovations \u2014 Jujutsu VCS Support + OMP Plugin + Community Credit",
       "bcp": 0,
       "wsjf": 6.0,
-      "status": "backlog",
+      "status": "done",
       "links": [
         {
           "file": "CONTRIBUTORS.md",
@@ -24276,12 +25320,6 @@
           "method": "explicit_tag"
         },
         {
-          "file": "specs/state.yaml",
-          "line": 3,
-          "confidence": "high",
-          "method": "explicit_tag"
-        },
-        {
           "file": "specs/verifications/steps/and-filenames-should-accurately-describe-their-contents-to-minimize-read-file-calls.sh",
           "line": 0,
           "confidence": "medium",
@@ -24300,7 +25338,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 13
+      "link_count": 12
     },
     {
       "id": "e84s02",
@@ -24822,6 +25860,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-11-06-sync-specs-artifact-churn.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-06-sync-specs-artifact-churn.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/steps/and-the-plan-specifies-test-levels-and-fixture-architectures.sh",
           "line": 0,
           "confidence": "medium",
@@ -24840,7 +25890,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 14
+      "link_count": 16
     },
     {
       "id": "e88s02",
@@ -24864,13 +25914,25 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-11-06-sync-specs-artifact-churn.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-06-sync-specs-artifact-churn.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/epics/e88-maintain-loop-starts-itself/e88s02-tasks.yaml",
           "line": 0,
           "confidence": "low",
           "method": "task_reference"
         }
       ],
-      "link_count": 3
+      "link_count": 5
     },
     {
       "id": "e88s03",
@@ -24940,8 +26002,8 @@
     }
   ],
   "summary": {
-    "total_stories": 161,
-    "tagged_stories": 137,
+    "total_stories": 171,
+    "tagged_stories": 138,
     "dark_stories": [],
     "dark_count": 0,
     "orphan_tags": [
@@ -25087,10 +26149,32 @@
       "e46s01",
       "e47s02",
       "e47s04",
+      "e89s01",
+      "e89s02",
+      "e89s03",
+      "e89s04",
+      "e89s05",
+      "e90s01",
+      "e90s02",
+      "e90s03",
+      "e90s04",
+      "e90s05",
+      "e91s01",
+      "e91s02",
+      "e91s03",
+      "e91s04",
+      "e92s01",
+      "e92s02",
+      "e92s03",
+      "e92s04",
+      "e93s01",
+      "e93s02",
+      "e93s03",
+      "e93s04",
       "e99s01",
       "e99s99"
     ],
-    "orphan_count": 144,
+    "orphan_count": 166,
     "stale_tags": [
       "e37s01",
       "e37s02",
@@ -25218,15 +26302,19 @@
       "e80s04",
       "e80s05",
       "e81s01",
+      "e82s01",
+      "e82s02",
+      "e82s03",
+      "e82s04",
       "e84s01",
       "e86s01",
       "e86s02"
     ],
-    "stale_count": 129,
+    "stale_count": 133,
     "oracle_stats": {
-      "high": 945,
-      "medium": 2780,
-      "low": 109
+      "high": 954,
+      "medium": 2918,
+      "low": 119
     }
   }
 }

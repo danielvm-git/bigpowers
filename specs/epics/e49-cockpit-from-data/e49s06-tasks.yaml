@@ -1,0 +1,15 @@
+story_id: e49s06
+title: 'Are we delivering: four goal-carrying tiles and goals.yaml'
+status: todo
+bcps: 21
+tasks:
+- id: 1
+  description: The goals template validates as specs YAML
+  verify: test -f skills/visual-dashboard/templates/goals.yaml && bash scripts/validate-specs-yaml.sh
+  risk: P3
+  status: todo
+- id: 2
+  description: Delivering tiles judge against goals; defaults are declared
+  verify: node skills/visual-dashboard/scripts/test-cockpit-tiles.cjs --delivering
+  risk: P3
+  status: todo

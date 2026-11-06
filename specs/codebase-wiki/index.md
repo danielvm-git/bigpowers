@@ -1,7 +1,7 @@
 ---
 type: Index
-generated_at: 2026-11-03T21:20:09.260992+00:00
-total_concepts: 161
+generated_at: 2026-11-06T22:48:51.432189+00:00
+total_concepts: 171
 ---
 
 # Codebase Wiki — Story Traceability
@@ -37,21 +37,21 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e45s09](./e45s09.md) | verify-work / plan-work: Pre-Implementation and Validation g | high | 89 |
 | [e45s10](./e45s10.md) | docs/references: auto-regenerate from source-of-truth docs v | high | 8 |
 | [e45s11](./e45s11.md) | orchestration / dispatch-agents: typed message protocol + 3- | high | 17 |
-| [e45s12](./e45s12.md) | stocktake-skills / craft-skill: code-enforced validator + au | high | 43 |
-| [e45s13](./e45s13.md) | verify-work: one-test-minimum terminal-verdict rule | high | 26 |
+| [e45s12](./e45s12.md) | stocktake-skills / craft-skill: code-enforced validator + au | high | 45 |
+| [e45s13](./e45s13.md) | verify-work: one-test-minimum terminal-verdict rule | high | 27 |
 | [e45s14](./e45s14.md) | deepen-architecture: declared import-boundary allowlist enfo | high | 8 |
 | [e45s15](./e45s15.md) | release-branch / deploy: three-independent-facts verificatio | high | 21 |
 | [e45s16](./e45s16.md) | CLAUDE.md rtk mandate: wire rtk-ai/rtk PreToolUse hook | high | 4 |
 | [e45s17](./e45s17.md) | request-review: fan-out to parallel review subagents | high | 31 |
-| [e45s18](./e45s18.md) | audit-code / security-review: worktree-isolated parallel che | high | 276 |
+| [e45s18](./e45s18.md) | audit-code / security-review: worktree-isolated parallel che | high | 277 |
 | [e45s19](./e45s19.md) | Context7: bounded retry cap and explicit fallback block | medium | 7 |
 | [e45s20](./e45s20.md) | Context7 / bts docs: wrap in ETag-revalidated fetch cache | high | 1 |
-| [e45s21](./e45s21.md) | seed-conventions / AGENTS.md: self-installing fenced markers | high | 33 |
+| [e45s21](./e45s21.md) | seed-conventions / AGENTS.md: self-installing fenced markers | high | 34 |
 | [e45s22](./e45s22.md) | CLAUDE.md: context-aware directory routing | high | 5 |
 | [e45s23](./e45s23.md) | CLAUDE.md: live Learned User Preferences / Workspace Facts | high | 19 |
 | [e45s24](./e45s24.md) | REFERENCE.md files: embedded line-range navigation guides | medium | 2 |
 | [e45s25](./e45s25.md) | CONVENTIONS.md risk tiers: compile to versioned, diffable ru | high | 5 |
-| [e45s26](./e45s26.md) | security-review: CWE mapping + 2 positive/2 negative fixture | high | 24 |
+| [e45s26](./e45s26.md) | security-review: CWE mapping + 2 positive/2 negative fixture | high | 28 |
 | [e45s27](./e45s27.md) | loop / workflow: terminal-state taxonomy | high | 14 |
 | [e45s28](./e45s28.md) | request-review: hard max-iteration cap | high | 18 |
 | [e45s29](./e45s29.md) | requirements: ADDED/MODIFIED/REMOVED/RENAMED tags | high | 42 |
@@ -67,23 +67,33 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e45s39](./e45s39.md) | PR generation: literal provenance marker | high | 14 |
 | [e45s40](./e45s40.md) | verify-work: mandatory real-browser verification | high | 23 |
 | [e45s41](./e45s41.md) | security-review: proven authorship SQL-safety doctrine | high | 18 |
-| [e48s01](./e48s01.md) | Generate epics-wiki and adr-wiki as OKF concept bundles from | high | 37 |
+| [e48s01](./e48s01.md) | Generate epics-wiki and adr-wiki as OKF concept bundles from | high | 38 |
 | [e48s02](./e48s02.md) | Emit verification reports as OKF bundles from run-golden-sui | medium | 35 |
-| [e48s03](./e48s03.md) | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | high | 235 |
+| [e48s03](./e48s03.md) | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | high | 259 |
 | [e48s04](./e48s04.md) | Create viz.html — interactive force-layout graph companion f | medium | 12 |
-| [e48s05](./e48s05.md) | Wire OKF validation into CI (sync-skills.yml) and document i | medium | 227 |
-| [e48s06](./e48s06.md) | Add tier: field (core/extended/specialized) to OKF wiki inde | medium | 14 |
+| [e48s05](./e48s05.md) | Wire OKF validation into CI (sync-skills.yml) and document i | medium | 245 |
+| [e48s06](./e48s06.md) | Add tier: field (core/extended/specialized) to OKF wiki inde | medium | 15 |
 | [e48s07](./e48s07.md) | Create publish-to-wiki kernel tool | high | 2 |
 | [e48s08](./e48s08.md) | Add GitHub Action Template for publish-wiki.yml [HARD GATE] | high | 8 |
 | [e48s09](./e48s09.md) | Create Wiki Scaffold Templates and provenance header injecti | medium | 2 |
 | [e48s10](./e48s10.md) | Extend bigspec init with --with-wiki flag | medium | 15 |
-| [e48s11](./e48s11.md) | BCP Plus counter integration — install and smoke-test big-co | medium | 34 |
+| [e48s11](./e48s11.md) | BCP Plus counter integration — install and smoke-test big-co | medium | 35 |
 | [e48s12](./e48s12.md) | BCP Plus template — 13-dimension breakdown in story specs | high | 9 |
 | [e48s13](./e48s13.md) | NFR Gate integration — security-review and wire-observabilit | high | 19 |
 | [e48s14](./e48s14.md) | Build-epic integration — BCP Plus in story sizing workflow | high | 14 |
-| [e48s15](./e48s15.md) | Refactor Skills Render Pipeline to Hybrid JSON Seam | high | 7 |
+| [e48s15](./e48s15.md) | Refactor Skills Render Pipeline to Hybrid JSON Seam | high | 9 |
+| [e49s01](./e49s01.md) | Epic board e00–e99 computed per request from specs/ and git | high | 8 |
+| [e49s02](./e49s02.md) | bigpowers cockpit: runs in any project and follows its chang | medium | 12 |
+| [e49s03](./e49s03.md) | Status-consistency rules and an opt-in --check for CI | medium | 16 |
+| [e49s04](./e49s04.md) | Evidence-freshness rules: tags, receipts, ledger, matrix | low | 1 |
+| [e49s05](./e49s05.md) | Delivery charts by day, week, month and year | medium | 2 |
+| [e49s06](./e49s06.md) | Are we delivering: four goal-carrying tiles and goals.yaml | low | 1 |
+| [e49s07](./e49s07.md) | What is it costing and next month: four more tiles | medium | 5 |
+| [e49s08](./e49s08.md) | Quality view and a found_in stage on every BUG | medium | 13 |
+| [e49s09](./e49s09.md) | Roadmap view from value_rank and coverage points | medium | 4 |
+| [e49s10](./e49s10.md) | dashboard/ TUI and web reuse the same cockpit model | medium | 30 |
 | [e51s01](./e51s01.md) | CONVENTIONS — Always Green, Shift Left, Discovered Defects,  | high | 8 |
-| [e51s02](./e51s02.md) | seed-conventions — Preflight default, solo-git default, embe | high | 41 |
+| [e51s02](./e51s02.md) | seed-conventions — Preflight default, solo-git default, embe | high | 42 |
 | [e51s03](./e51s03.md) | kickoff-branch + verify-work — Preflight hard block and CI g | high | 71 |
 | [e51s04](./e51s04.md) | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | high | 327 |
 | [e51s05](./e51s05.md) | CLAUDE.md — solo-default agent rules + bigpowers Preflight c | high | 9 |
@@ -113,7 +123,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e61s02](./e61s02.md) | Install hub wiring (Wave B) | high | 15 |
 | [e62s01](./e62s01.md) | Integration: OpenCode adapter (Wave A) | high | 2 |
 | [e62s02](./e62s02.md) | Install hub wiring (Wave B) | high | 17 |
-| [e64s01](./e64s01.md) | Gemini hooks adapter — event docs, templates, adapter comple | high | 25 |
+| [e64s01](./e64s01.md) | Gemini hooks adapter — event docs, templates, adapter comple | high | 26 |
 | [e64s02](./e64s02.md) | Install hub wiring (Wave B) | high | 15 |
 | [e65s01](./e65s01.md) | Integration: Codex CLI adapter (Wave A) | high | 3 |
 | [e65s02](./e65s02.md) | Install hub wiring (Wave B) | high | 16 |
@@ -141,11 +151,11 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e79s02](./e79s02.md) | Validator script + craft-skill HARD GATE | high | 21 |
 | [e79s03](./e79s03.md) | seed-conventions applies ruleset | high | 20 |
 | [e79s04](./e79s04.md) | stocktake-skills violation scanner | high | 20 |
-| [e80s01](./e80s01.md) | Core verify skills → verify directives | high | 89 |
+| [e80s01](./e80s01.md) | Core verify skills → verify directives | high | 91 |
 | [e80s02](./e80s02.md) | smoke-test and validate-contracts real bodies | high | 35 |
 | [e80s03](./e80s03.md) | develop-tdd RED commit isolation check | high | 10 |
 | [e80s04](./e80s04.md) | generalize-fix phase in validate-fix | high | 32 |
-| [e80s05](./e80s05.md) | security-review fixture table growth | high | 11 |
+| [e80s05](./e80s05.md) | security-review fixture table growth | high | 13 |
 | [e81s01](./e81s01.md) | AGENTS.md template Token Economy section + reference doc | high | 9 |
 | [e82s01](./e82s01.md) | Add project-runtime.sh — configurable specs dir + VCS kind r | high | 3 |
 | [e82s02](./e82s02.md) | Jujutsu-aware lifecycle skills (commit-message, kickoff-bran | high | 89 |
@@ -156,7 +166,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e83s03](./e83s03.md) | Receipts read the cycle-time ledger and label sources honest | medium | 42 |
 | [e83s04](./e83s04.md) | VISION refreshed and catalog-freeze breaks resolved | medium | 5 |
 | [e83s05](./e83s05.md) | Investigate spec-version-gap blocked with no active flow | medium | 3 |
-| [e84s01](./e84s01.md) | AGENTS.md is the canonical instruction file in this repo | high | 13 |
+| [e84s01](./e84s01.md) | AGENTS.md is the canonical instruction file in this repo | high | 12 |
 | [e84s02](./e84s02.md) | seed-conventions writes AGENTS.md-first by default | medium | 8 |
 | [e85s01](./e85s01.md) | Count the 10 functional dimensions with worked-example self- | high | 6 |
 | [e85s02](./e85s02.md) | NFR dimensions, maturity gate and count provenance | medium | 11 |
@@ -168,6 +178,6 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e87s01](./e87s01.md) | Opt-in agent review on every PR | high | 3 |
 | [e87s02](./e87s02.md) | Failed CI builds get an agent triage note | low | 1 |
 | [e87s03](./e87s03.md) | deploy gains a rehearsed rollback and risk-tier autonomy | medium | 4 |
-| [e88s01](./e88s01.md) | Control bands on the daily cron open a BUG spec | high | 14 |
-| [e88s02](./e88s02.md) | Weekly deterministic security scan opens BUG specs | medium | 3 |
+| [e88s01](./e88s01.md) | Control bands on the daily cron open a BUG spec | high | 16 |
+| [e88s02](./e88s02.md) | Weekly deterministic security scan opens BUG specs | medium | 5 |
 | [e88s03](./e88s03.md) | Breaches and weekly scans get a read-only agent diagnosis | medium | 9 |

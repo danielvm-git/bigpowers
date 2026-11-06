@@ -1,0 +1,15 @@
+story_id: e49s10
+title: dashboard/ TUI and web reuse the same cockpit model
+status: todo
+bcps: 19
+tasks:
+- id: 1
+  description: bigpowers-dashboard uses cockpit-model.cjs; its tests pass
+  verify: npm --prefix dashboard test
+  risk: P2
+  status: todo
+- id: 2
+  description: No dashboard loader re-derives metrics from specs/ itself
+  verify: '! grep -q ''cycle-times.yaml'' dashboard/src/loaders/metrics.js'
+  risk: P2
+  status: todo
