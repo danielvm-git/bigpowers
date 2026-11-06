@@ -115,6 +115,37 @@ try {
     'uninstallTool(pi) must remove repo-rooted skill symlinks'
   );
 
+  // A previous bigpowers install under a different package manager or node
+  // prefix (Homebrew, mise, a second nvm) leaves links into a sibling
+  // node_modules/bigpowers root. assertReplaceable must treat those as managed
+  // and replace them, not refuse and strand the user on 'Refusing to replace'.
+  {
+    const siblingRoot = path.join(tmpHome, 'homebrew', 'lib', 'node_modules', 'bigpowers');
+    const siblingSkill = path.join(siblingRoot, 'skills', 'audit-code');
+    fs.mkdirSync(siblingSkill, { recursive: true });
+    fs.writeFileSync(path.join(siblingSkill, 'SKILL.md'), '---\nname: audit-code\ndescription: x\n---\n');
+    const claudeSkills = path.join(tmpHome, '.claude', 'skills');
+    fs.mkdirSync(claudeSkills, { recursive: true });
+    const staleLink = path.join(claudeSkills, 'audit-code');
+    // The claude install above already linked audit-code; replace it with a
+    // stale sibling link to prove the reinstall self-heals.
+    fs.rmSync(staleLink, { force: true });
+    fs.symlinkSync(siblingSkill, staleLink);
+
+    assert.doesNotThrow(
+      () => installGlobal({ id: 'claude', name: 'Claude Code' }, ROOT),
+      'a sibling bigpowers install must be replaceable, not refused'
+    );
+    assert.ok(
+      fs.readlinkSync(staleLink).includes(path.join('skills', 'audit-code')),
+      'the stale sibling link must be re-pointed at this repo\'s skills/'
+    );
+    assert.ok(
+      !fs.readlinkSync(staleLink).includes('homebrew'),
+      'the stale sibling link must no longer point into the sibling root'
+    );
+  }
+
   const rulesSrc = path.join(ROOT, '.cursor', 'rules');
   assert.ok(fs.existsSync(rulesSrc), '.cursor/rules must exist (run sync-skills)');
   installGlobal({ id: 'cursor', name: 'Cursor' }, ROOT);
