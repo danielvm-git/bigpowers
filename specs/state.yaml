@@ -26,9 +26,14 @@ decisions:
   reason: 'Frontmatter story tags become ''#'' comments, body tags stay HTML. Verified against pi 1.5.0''s
     yaml parser: 80/80 parse, keys name/description/model/effort/phase.'
 - gate: epic-tracking
-  reason: 'Epics #213-#217 tracked in this file and in the #173 batch table, not as epic capsules: five
-    capsules would need plan-work, release-plan WSJF entries and status roll-up gates before their first
-    story. Capsules get created by build-epic per epic when B5 starts.'
+  reason: 'Epics #213-#217 became capsules e89-e93 in the bug-batch PR; not yet registered in
+    release-plan.yaml / execution-status.yaml (build-epic step 1 for each epic).'
+- gate: bug-batch-complete
+  reason: "All 10 SCOPE issues closed via 7 PRs: #173/#207, #218, #219/#220, #209, #208, #210/#211/#212. 7 new golden gates."
+- gate: epic-intake
+  reason: "Epics #213-#217 converted to capsules e89-e93 with story breakdowns; delivered bug-batch work marked done, remaining stories todo."
+- gate: main-protected-recovery
+  reason: "guard-git blocks direct commit and push to main. Recovered one stray local reset by fast-forwarding to origin/main; verified byte-identical before discard."
 metrics:
   story_start: null
   story_end: null
@@ -60,9 +65,3 @@ release:
 git:
   branch: main
   hash: 3251e1b0
-  - gate: bug-batch-complete
-    reason: "All 10 SCOPE issues closed via 7 PRs: #173/#207 (frontmatter + validator), #218 (render assets), #219/#220 (uninstall manifest + pi project path), #209 (render relocation), #208 (verify-distribution), #210/#211/#212 (MCP + update docs). 7 new golden gates."
-  - gate: epic-intake
-    reason: "Epics #213-#217 converted to capsules e89-e93 under specs/epics/ with story breakdowns; delivered bug-batch work marked done, remaining stories todo. Capsules are NOT registered in release-plan.yaml/execution-status.yaml yet (that registration is build-epic step 1 for each epic)."
-  - gate: main-protected-recovery
-    reason: "guard-git blocks direct commit and push to main. Recovered one stray local reset by fast-forwarding to origin/main; verified byte-identical before discard."
