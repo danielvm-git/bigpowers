@@ -1,83 +1,70 @@
-# Security Review — fix/guard-git-flag-normalize
+# Security Review — epic e83 "Truth in the Cockpit"
 
-## Scope Resolution
+Branch `danielvm-git/epic-build-end-to-end-0a32fb` vs `main` (15 commits).
+Reviewed: `git diff origin/main...HEAD`, excluding generated adapter copies
+(`.cursor/rules`, `.gemini/extensions`, `.pi`, `specs/codebase-wiki`,
+`specs/traceability-matrix.json`) which are renders of reviewed sources.
 
-Branch `fix/guard-git-flag-normalize` vs `main` (2 commits, PR #194).
+**Verdict: no HIGH findings. No new dependency, network, auth, PII or
+deserialization surface.**
 
-Files reviewed (excluding generated adapter copies under `.cursor/`, `.gemini/`, `.pi/`, … which are
-byte-identical renders of `skills/guard-git/SKILL.md`):
+## Surface changed
 
-- `scripts/lib/git-argv.py` (new) — quote-aware tokenizer + rule table, the shell side of the guard
-- `extensions/omp-hooks.ts` — TS mirror (`tokenizeArgs`, `gitInvocations`, `classifyGitInvocation`,
-  `dangerousGitCommand`, `evaluateBashCall`) called from the `tool_call` handler
-- `hooks/pre-tool-use.sh`, `hooks/pre/bash.sh` — wire the helper in, keep legacy literals as fallback
-- `scripts/omp-guard-probe.ts`, `scripts/test-guard-git-normalize.sh`,
-  `specs/verifications/fixtures/guard-git-normalize.yaml` — the parity gate
-- `skills/guard-git/SKILL.md` — rule documentation
+| File | Security relevance |
+|---|---|
+| `bin/bigpowers.js` | reads `~/.claude/skills`, follows symlinks |
+| `scripts/stamp-skill-counts.sh` | in-place writes to `package.json`, `mcp-server.js` |
+| `scripts/sync-version-mirrors.sh` | YAML writes to `specs/state.yaml`, `release-plan.yaml` |
+| `scripts/check-spec-version-gap.sh` | reads git branch state, emits JSON |
+| `scripts/run-story-verify.sh` | executes story verify commands |
+| `scripts/lib/check-catalog-drift.py` | new, reads `skills/` |
+| `scripts/lib/sync-post.sh` | builds host manifests |
 
-Languages: Bash + Python + TypeScript. No network, no credentials, no new dependencies
-(`package.json` changed only the version string).
+## Checks performed
 
-## Threat model
+### Secrets
+`git diff origin/main...HEAD | grep -Ei '(sk-[a-z0-9]{10}|ghp_|AKIA[0-9A-Z]{12}|-----BEGIN [A-Z ]*PRIVATE KEY)'`
+→ no matches.
 
-The guard is a **deny-list for destructive git operations run by an AI agent or a human through a
-shell tool**. Adversary = the command string. The attacker's goal is not RCE (the command runs
-anyway, by design) but *silent destruction of uncommitted work / remote history* — the guard's job
-is to stop the agent from doing it by accident or by plausible inference.
+### Injection
+- No `eval`, `exec(`, `os.system`, `subprocess`, `pickle`, `yaml.load` (safe-load only) in any
+  changed script.
+- `stamp-skill-counts.sh` interpolates `$n` into a `perl -0pi -e` pattern. `$n` is
+  `find … | wc -l` — decimal digits only. No metacharacter can reach the pattern.
+- `check-catalog-drift.py` walks `skills/` with `pathlib`; no shell-out.
 
-## Findings
+### Symlink handling — `countSkillLinks()` (e83s02)
+Follows symlinks in `~/.claude/skills` to classify each as bigpowers-owned or foreign.
+- `fs.realpathSync` is wrapped in `try/catch`; a dangling or looping link **increments
+  `foreign`**, i.e. fails closed (never over-reports owned skills).
+- Ownership is decided by realpath *target* (`…/bigpowers/skills` or this package's `skills/`),
+  not by link name, so an attacker-planted link named like a bigpowers skill is counted foreign.
+- No path is written, only `readdirSync`/`lstatSync`/`realpathSync` — read-only.
+- Residual: a symlink whose realpath lands inside a *different* bigpowers checkout would be
+  counted owned. Impact is a cosmetic count, not privilege. **Low, accepted.**
 
-| # | Area | Severity | Status |
-|---|------|----------|--------|
-| 1 | Command-injection into the guard itself | — | not applicable |
-| 2 | Quoting / escaping bypass of the tokenizer | low | tested |
-| 3 | Indirection bypass (command substitution, aliases) | medium | **accepted, documented** |
-| 4 | Fail-open path when the helper is unreachable | low | mitigated |
-| 5 | Gate that cannot fail (vacuous verification) | high | **fixed** |
+### Command execution — `run-story-verify.sh` (e83s04)
+The new recursion guard *reduces* execution surface: re-entry is refused via
+`BP_STORY_VERIFY_ACTIVE` and a regex on the command shape. Verify commands still come from
+`specs/epics/*/epic.yaml`, which is repo-controlled and already the trust boundary for this
+gate — unchanged by this branch.
 
-### 1. Command injection into the guard — not applicable
-`git-argv.py` receives the command as argv (`--command "$cmd"`, quoted) and parses it with
-`shlex.split`, never `eval`/`shell=True`. The TS side tokenizes in-process. The guard does not
-execute any part of the command it inspects.
+### In-place writes
+`stamp-skill-counts.sh` and `sync-version-mirrors.sh` rewrite tracked files non-atomically.
+A crash mid-write leaves a corrupt file, but both are regenerated by `sync-skills.sh` and the
+CI drift gate compares the result to HEAD, so corruption surfaces as a red gate rather than a
+silent bad release. This is the `BUG-2026-11-03-atomic-yaml-writes` class. **Low, accepted.**
 
-### 2. Quoting / escaping — tested
-`shlex.split` normalises `"git"`, `\git`, `'git'` to `git`, so quote-obfuscation of the program name
-does not bypass classification. A `ValueError` (unbalanced quote) degrades to whitespace splitting,
-never to eval and never to "allow because unparseable" — the tokens are still classified.
+### Data exposure
+`check-spec-version-gap.sh` now emits a `trigger` field (`feature_branch` / `dirty_specs` /
+`active_flow`). Only local branch/flow names — no paths, no credentials, no remote data.
+`specs/receipts.json` gains a `source_breakdown`; local metrics only.
 
-### 3. Indirection bypass — accepted residual (medium, not addressed)
-`git $(printf reset) --hard` and a shell alias for `git` are not seen as a `git` invocation, so the
-argv rules do not fire. The previous literal matcher would not reliably catch these either (the
-destructive phrase is not present as text). Exploiting this requires deliberately obfuscating the
-command — it is an evasion, not an accident, and the guard's purpose is accident-prevention.
-Consequence for reviewers: **the guard is a guardrail, not a sandbox.** Recorded here rather than
-silently fixed; closing it needs process-level controls (allow-list of subcommands), which is a
-separate design decision.
+## Residual risk summary
 
-### 4. Fail-open when the helper is unreachable — mitigated
-`hooks/pre-tool-use.sh` falls back to the legacy literal `DANGEROUS_PATTERNS` when
-`scripts/lib/git-argv.py` is absent (the hook can be symlinked outside an installed package). The
-fallback is weaker but never "allow everything". Non-git commands skip the helper entirely (no
-Python spawn per tool call) — `classify_git_argv()` short-circuits when the string has no `git` token.
+| Item | Severity | Status |
+|---|---|---|
+| Foreign-vs-owned classification via realpath target | Low | accepted (cosmetic count) |
+| Non-atomic in-place writes to tracked files | Low | accepted (CI drift gate catches) |
 
-### 5. A gate that could not fail — fixed (this is why the review exists)
-`guard-git-normalize` compared `dangerousGitCommand()` (destructive argv only) against the whole
-shell hook, so the protected-branch and Conventional-Commit rules had no TS oracle; the fixture also
-asserted `allow` for a push to protected `main`, and the harness inherited `GIT_BIGPOWERS_LAND`,
-which disables the protected-branch block. The gate was green locally and red in CI for the same
-commit. Fixed in `a7345487` — probe `evaluateBashCall()` (what the handler actually calls), strip
-`GIT_BIGPOWERS_LAND`, split the mislabelled fixture row. Non-vacuity proven by mutation: disabling
-`protectedPushTarget` on the TS side alone now fails (b) and (c).
-
-## Secrets / sensitive data
-
-No secrets in the diff (`git diff main...HEAD` scanned for `sk-`, `ghp_`, `AKIA`, `.env` values). No
-PII. No auth surface touched. No new external calls.
-
-## Verdict
-
-**PASS** — no unresolved HIGH findings. One documented medium residual (finding 3) inherent to any
-argv-based deny-list.
-
-Gates: `npm run compliance` pass · `bash scripts/run-verification-gates.sh` 54/54 pass ·
-`bash scripts/run-gate-trace-verify.sh` BLOCKER=0 · CI run 41662950007 green.
+No unresolved HIGH finding with confidence ≥ 8.
