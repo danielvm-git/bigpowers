@@ -49,6 +49,10 @@ decisions:
   reason: 'CONVENTIONS forbids Co-authored-by footers; omitted the trailer the harness suggested.'
 - gate: sync-skills-churn-left
   reason: 'sync-skills regenerated spec artifacts again (BUG-2026-11-06-sync-specs-artifact-churn); left unstaged.'
+- gate: story-verify-recursion
+  reason: 'e83 epic.yaml verify lines called run-story-verify.sh, so a done story re-entered the gate without end (thousands of orphan processes, Preflight hung). Replaced with scripts/verify-e83.sh and added a self-reference guard to run-story-verify.sh. The same template remains in e49, e85-e88 (not done, so dormant); the guard turns it into a clear FAIL.'
+- gate: preflight-green-e83
+  reason: 'After the fix: compliance GATE PASS 98%, golden gates 62/62, trace-stories strict exit 0.'
 metrics:
   story_start: null
   story_end: null
