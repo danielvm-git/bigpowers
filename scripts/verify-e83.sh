@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 # story: e83s01 e83s02 e83s03 e83s04 e83s05
+# bp-manual-utility: e83 acceptance harness — re-runs all five story checks on demand
+#   after the capsule moved to specs/epics/archive/ (no live caller by design).
 # verify-e83.sh <story-id> — the acceptance checks for epic e83, one case per story.
 # Called from the story verify: lines in specs/epics/e83-*/epic.yaml. It must never
 # call run-story-verify.sh (that recurses; see the guard in run-story-verify.sh).

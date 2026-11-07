@@ -1,6 +1,6 @@
 ---
 type: Index
-generated_at: 2026-11-07T21:35:57.471508+00:00
+generated_at: 2026-11-07T22:38:03.255813+00:00
 total_concepts: 171
 ---
 
@@ -67,11 +67,11 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e45s39](./e45s39.md) | PR generation: literal provenance marker | high | 14 |
 | [e45s40](./e45s40.md) | verify-work: mandatory real-browser verification | high | 23 |
 | [e45s41](./e45s41.md) | security-review: proven authorship SQL-safety doctrine | high | 18 |
-| [e48s01](./e48s01.md) | Generate epics-wiki and adr-wiki as OKF concept bundles from | high | 38 |
-| [e48s02](./e48s02.md) | Emit verification reports as OKF bundles from run-golden-sui | medium | 35 |
-| [e48s03](./e48s03.md) | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | high | 263 |
+| [e48s01](./e48s01.md) | Generate epics-wiki and adr-wiki as OKF concept bundles from | high | 39 |
+| [e48s02](./e48s02.md) | Emit verification reports as OKF bundles from run-golden-sui | medium | 36 |
+| [e48s03](./e48s03.md) | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | high | 264 |
 | [e48s04](./e48s04.md) | Create viz.html — interactive force-layout graph companion f | medium | 12 |
-| [e48s05](./e48s05.md) | Wire OKF validation into CI (sync-skills.yml) and document i | medium | 247 |
+| [e48s05](./e48s05.md) | Wire OKF validation into CI (sync-skills.yml) and document i | medium | 248 |
 | [e48s06](./e48s06.md) | Add tier: field (core/extended/specialized) to OKF wiki inde | medium | 15 |
 | [e48s07](./e48s07.md) | Create publish-to-wiki kernel tool | high | 2 |
 | [e48s08](./e48s08.md) | Add GitHub Action Template for publish-wiki.yml [HARD GATE] | high | 8 |
@@ -163,7 +163,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e82s04](./e82s04.md) | Community attribution — CONTRIBUTORS.md + CHANGELOG credit e | high | 2 |
 | [e83s01](./e83s01.md) | Release mirror stamps last_tag and skill counts | high | 11 |
 | [e83s02](./e83s02.md) | bigpowers status counts only bigpowers-owned skills | high | 18 |
-| [e83s03](./e83s03.md) | Receipts read the cycle-time ledger and label sources honest | high | 43 |
+| [e83s03](./e83s03.md) | Receipts read the cycle-time ledger and label sources honest | high | 44 |
 | [e83s04](./e83s04.md) | VISION refreshed and catalog-freeze breaks resolved | high | 10 |
 | [e83s05](./e83s05.md) | Investigate spec-version-gap blocked with no active flow | high | 6 |
 | [e84s01](./e84s01.md) | AGENTS.md is the canonical instruction file in this repo | high | 12 |

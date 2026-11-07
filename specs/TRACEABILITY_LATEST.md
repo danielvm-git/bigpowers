@@ -1,6 +1,6 @@
 # Traceability Matrix
 
-**Generated:** 2026-11-07 21:35:57 UTC
+**Generated:** 2026-11-07 22:38:03 UTC
 **Total stories:** 171
 **Tagged stories:** 142
 **Dark stories:** 0
@@ -9,8 +9,8 @@
 
 ## Oracle Stats
 
-- **High** (explicit tag): 968
-- **Medium** (file heuristic): 2937
+- **High** (explicit tag): 969
+- **Medium** (file heuristic): 2941
 - **Low** (task reference): 119
 
 ## Story Coverage
@@ -74,11 +74,11 @@
 | e45s39 | PR generation: literal provenance marker | e45 | 2 | 5.0 | done | 14 |
 | e45s40 | verify-work: mandatory real-browser verification | e45 | 2 | 5.0 | done | 23 |
 | e45s41 | security-review: proven authorship SQL-safety doctrine | e45 | 2 | 5.0 | done | 18 |
-| e48s01 | Generate epics-wiki and adr-wiki as OKF concept bundles from | e48 | 2 | 2.5 | done | 38 |
-| e48s02 | Emit verification reports as OKF bundles from run-golden-sui | e48 | 2 | 2.5 | done | 35 |
-| e48s03 | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | e48 | 1 | 2.5 | done | 263 |
+| e48s01 | Generate epics-wiki and adr-wiki as OKF concept bundles from | e48 | 2 | 2.5 | done | 39 |
+| e48s02 | Emit verification reports as OKF bundles from run-golden-sui | e48 | 2 | 2.5 | done | 36 |
+| e48s03 | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | e48 | 1 | 2.5 | done | 264 |
 | e48s04 | Create viz.html — interactive force-layout graph companion f | e48 | 2 | 2.5 | done | 12 |
-| e48s05 | Wire OKF validation into CI (sync-skills.yml) and document i | e48 | 1 | 2.5 | done | 247 |
+| e48s05 | Wire OKF validation into CI (sync-skills.yml) and document i | e48 | 1 | 2.5 | done | 248 |
 | e48s06 | Add tier: field (core/extended/specialized) to OKF wiki inde | e48 | 2 | 2.5 | done | 15 |
 | e48s07 | Create publish-to-wiki kernel tool | e48 | 3 | 2.5 | done | 2 |
 | e48s08 | Add GitHub Action Template for publish-wiki.yml [HARD GATE] | e48 | 1 | 2.5 | done | 8 |
@@ -170,7 +170,7 @@
 | e82s04 | Community attribution — CONTRIBUTORS.md + CHANGELOG credit e | e82 | 0 | 6.0 | done | 2 |
 | e83s01 | Release mirror stamps last_tag and skill counts | e83 | 0 | 6.0 | done | 11 |
 | e83s02 | bigpowers status counts only bigpowers-owned skills | e83 | 0 | 6.0 | done | 18 |
-| e83s03 | Receipts read the cycle-time ledger and label sources honest | e83 | 0 | 6.0 | done | 43 |
+| e83s03 | Receipts read the cycle-time ledger and label sources honest | e83 | 0 | 6.0 | done | 44 |
 | e83s04 | VISION refreshed and catalog-freeze breaks resolved | e83 | 0 | 6.0 | done | 10 |
 | e83s05 | Investigate spec-version-gap blocked with no active flow | e83 | 0 | 6.0 | done | 6 |
 | e84s01 | AGENTS.md is the canonical instruction file in this repo | e84 | 0 | 10.5 | done | 12 |

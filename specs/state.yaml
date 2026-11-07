@@ -5,7 +5,7 @@ bug_id: null
 bigpowers_version: 2.95.0
 bug_cycle: null
 handoff:
-  next_skill: audit-code
+  next_skill: survey-context
   context: 'PR #202 merged as 87b1cd12: BUG-2026-11-03 epic status roll-up drift (G-12 checks 4-5, e58/e82
     status corrected) plus the CI fix that installs Node deps before story verify so e82s03''s OMP smoke
     can import typebox. Golden suite 56/56, all PR checks green, v2.93.3 released and published to npm.'
@@ -85,7 +85,7 @@ metrics:
       avg_seconds: 632.0
 release:
   ci_verified: true
-  last_commit: 3251e1b0
+  last_commit: 2be64ecc
   last_epic: e79-simple-english-skill
   last_tag: v2.95.0
   last_publish: '2026-11-04T01:52:15Z'
