@@ -1,6 +1,6 @@
 ---
 type: Index
-generated_at: 2026-11-06T22:48:51.432189+00:00
+generated_at: 2026-11-07T21:32:53.620130+00:00
 total_concepts: 171
 ---
 
@@ -38,7 +38,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e45s10](./e45s10.md) | docs/references: auto-regenerate from source-of-truth docs v | high | 8 |
 | [e45s11](./e45s11.md) | orchestration / dispatch-agents: typed message protocol + 3- | high | 17 |
 | [e45s12](./e45s12.md) | stocktake-skills / craft-skill: code-enforced validator + au | high | 45 |
-| [e45s13](./e45s13.md) | verify-work: one-test-minimum terminal-verdict rule | high | 27 |
+| [e45s13](./e45s13.md) | verify-work: one-test-minimum terminal-verdict rule | high | 28 |
 | [e45s14](./e45s14.md) | deepen-architecture: declared import-boundary allowlist enfo | high | 8 |
 | [e45s15](./e45s15.md) | release-branch / deploy: three-independent-facts verificatio | high | 21 |
 | [e45s16](./e45s16.md) | CLAUDE.md rtk mandate: wire rtk-ai/rtk PreToolUse hook | high | 4 |
@@ -69,7 +69,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e45s41](./e45s41.md) | security-review: proven authorship SQL-safety doctrine | high | 18 |
 | [e48s01](./e48s01.md) | Generate epics-wiki and adr-wiki as OKF concept bundles from | high | 38 |
 | [e48s02](./e48s02.md) | Emit verification reports as OKF bundles from run-golden-sui | medium | 35 |
-| [e48s03](./e48s03.md) | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | high | 259 |
+| [e48s03](./e48s03.md) | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | high | 260 |
 | [e48s04](./e48s04.md) | Create viz.html — interactive force-layout graph companion f | medium | 12 |
 | [e48s05](./e48s05.md) | Wire OKF validation into CI (sync-skills.yml) and document i | medium | 245 |
 | [e48s06](./e48s06.md) | Add tier: field (core/extended/specialized) to OKF wiki inde | medium | 15 |
@@ -101,8 +101,8 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e53s02](./e53s02.md) | Build the tombstone-alias mechanism | high | 8 |
 | [e53s03](./e53s03.md) | Gate-trace the compliance-to-GOLDEN hard-gate coupling | high | 62 |
 | [e53s04](./e53s04.md) | Adopt docs/TARGET-ARCHITECTURE.md as the migration's north-s | high | 3 |
-| [e54s01](./e54s01.md) | Snapshot the current skill catalog as an immutable baseline | high | 10 |
-| [e54s02](./e54s02.md) | Add a soft drift-detection gate for the freeze window | high | 14 |
+| [e54s01](./e54s01.md) | Snapshot the current skill catalog as an immutable baseline | high | 11 |
+| [e54s02](./e54s02.md) | Add a soft drift-detection gate for the freeze window | high | 15 |
 | [e54s03](./e54s03.md) | Document the freeze's scope, exit criteria, and exception pr | high | 45 |
 | [e55s01](./e55s01.md) | Map every current doctrine source to a B0-B10 + Capstone blo | high | 5 |
 | [e55s02](./e55s02.md) | Write constitution.md from the mapping, CLAUDE.md/CONVENTION | high | 4 |
@@ -151,7 +151,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e79s02](./e79s02.md) | Validator script + craft-skill HARD GATE | high | 21 |
 | [e79s03](./e79s03.md) | seed-conventions applies ruleset | high | 20 |
 | [e79s04](./e79s04.md) | stocktake-skills violation scanner | high | 20 |
-| [e80s01](./e80s01.md) | Core verify skills → verify directives | high | 91 |
+| [e80s01](./e80s01.md) | Core verify skills → verify directives | high | 94 |
 | [e80s02](./e80s02.md) | smoke-test and validate-contracts real bodies | high | 35 |
 | [e80s03](./e80s03.md) | develop-tdd RED commit isolation check | high | 10 |
 | [e80s04](./e80s04.md) | generalize-fix phase in validate-fix | high | 32 |
@@ -161,11 +161,11 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e82s02](./e82s02.md) | Jujutsu-aware lifecycle skills (commit-message, kickoff-bran | high | 89 |
 | [e82s03](./e82s03.md) | OMP plugin extension — bigpowers as native oh-my-posh/OMP en | high | 7 |
 | [e82s04](./e82s04.md) | Community attribution — CONTRIBUTORS.md + CHANGELOG credit e | high | 2 |
-| [e83s01](./e83s01.md) | Release mirror stamps last_tag and skill counts | high | 7 |
-| [e83s02](./e83s02.md) | bigpowers status counts only bigpowers-owned skills | medium | 18 |
-| [e83s03](./e83s03.md) | Receipts read the cycle-time ledger and label sources honest | medium | 42 |
-| [e83s04](./e83s04.md) | VISION refreshed and catalog-freeze breaks resolved | medium | 5 |
-| [e83s05](./e83s05.md) | Investigate spec-version-gap blocked with no active flow | medium | 3 |
+| [e83s01](./e83s01.md) | Release mirror stamps last_tag and skill counts | high | 11 |
+| [e83s02](./e83s02.md) | bigpowers status counts only bigpowers-owned skills | high | 18 |
+| [e83s03](./e83s03.md) | Receipts read the cycle-time ledger and label sources honest | high | 43 |
+| [e83s04](./e83s04.md) | VISION refreshed and catalog-freeze breaks resolved | high | 10 |
+| [e83s05](./e83s05.md) | Investigate spec-version-gap blocked with no active flow | high | 5 |
 | [e84s01](./e84s01.md) | AGENTS.md is the canonical instruction file in this repo | high | 12 |
 | [e84s02](./e84s02.md) | seed-conventions writes AGENTS.md-first by default | medium | 8 |
 | [e85s01](./e85s01.md) | Count the 10 functional dimensions with worked-example self- | high | 6 |
@@ -178,6 +178,6 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e87s01](./e87s01.md) | Opt-in agent review on every PR | high | 3 |
 | [e87s02](./e87s02.md) | Failed CI builds get an agent triage note | low | 1 |
 | [e87s03](./e87s03.md) | deploy gains a rehearsed rollback and risk-tier autonomy | medium | 4 |
-| [e88s01](./e88s01.md) | Control bands on the daily cron open a BUG spec | high | 16 |
+| [e88s01](./e88s01.md) | Control bands on the daily cron open a BUG spec | high | 17 |
 | [e88s02](./e88s02.md) | Weekly deterministic security scan opens BUG specs | medium | 5 |
 | [e88s03](./e88s03.md) | Breaches and weekly scans get a read-only agent diagnosis | medium | 9 |
