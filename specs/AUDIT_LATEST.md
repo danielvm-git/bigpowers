@@ -12,7 +12,7 @@ Generated adapters (`.cursor/`, `.gemini/`, `.pi/`, `specs/codebase-wiki/`,
 | Gate | Command | Result |
 |---|---|---|
 | Compliance | `npm run compliance` | exit 0 — `validate-doctrine: ALL checks passed`, `check-skill-links: OK` |
-| Verification gates | `bash scripts/run-verification-gates.sh` | **62/62 deterministic**, combined verdict PASS |
+| Verification gates | `bash scripts/run-verification-gates.sh` | **63/63 deterministic**, combined verdict PASS |
 | Traceability | `bash scripts/trace-stories.sh --strict` | exit 0 |
 | Story verifies | `bash scripts/verify-e83.sh e83s01..e83s05` | 5/5 exit 0 |
 | Generated-artifact drift | CI's exact step (`sync-skills.sh` + `git diff --exit-code .pi .gemini …`) | exit 0 |
@@ -44,6 +44,17 @@ Generated adapters (`.cursor/`, `.gemini/`, `.pi/`, `specs/codebase-wiki/`,
 - e83s04 — `VISION_LATEST.yaml` no longer claims "61 skills"; `check-catalog-drift.sh` is silent.
 - e83s05 — the false `ACTIVE_WORK` block is gone; the gate now emits the trigger
   (`{"trigger":"feature_branch"}`), so an unearned block is diagnosable instead of opaque.
+
+## Found while releasing (fixed here)
+
+- **Local/CI gate parity gap.** `npm run compliance` and
+  `scripts/run-verification-gates.sh` never ran `validate-okf.sh` over `specs/`, so both went
+  green while CI's `sync` job was red: e83s03 labels a blended reading `source: "mixed"` and
+  `verify-e83.sh` asserts that label, but `validate-okf-kinds.sh` allowlisted only
+  measured/estimated/backfilled/absent. Fixed by accepting `mixed` **and** requiring
+  `value.source_breakdown` whose parts sum to `value.story_count`, plus a new `okf-bundles`
+  golden gate over the same six directories CI validates. Negative path proven: a breakdown
+  that does not sum fails.
 
 ## Waived items
 
