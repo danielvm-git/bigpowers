@@ -5,7 +5,7 @@ bug_id: null
 bigpowers_version: 2.94.2
 bug_cycle: null
 handoff:
-  next_skill: build-epic
+  next_skill: audit-code
   context: 'PR #202 merged as 87b1cd12: BUG-2026-11-03 epic status roll-up drift (G-12 checks 4-5, e58/e82
     status corrected) plus the CI fix that installs Node deps before story verify so e82s03''s OMP smoke
     can import typebox. Golden suite 56/56, all PR checks green, v2.93.3 released and published to npm.'
@@ -38,19 +38,27 @@ decisions:
   reason: guard-git blocks direct commit and push to main. Recovered one stray local reset by fast-forwarding
     to origin/main; verified byte-identical before discard.
 - gate: e83-order
-  reason: 'Built e83s05, s01, s02, s03, s04 (value_rank and user guidance: false ACTIVE_WORK block and stale last_tag first).'
+  reason: 'Built e83s05, s01, s02, s03, s04 (value_rank and user guidance: false ACTIVE_WORK block and
+    stale last_tag first).'
 - gate: e83s05-log-not-fix
-  reason: 'ACTIVE_WORK is the by-design feature-branch/dirty-specs guard. Added a trigger field; status logged because changing the block semantics is a behaviour decision for the owner.'
+  reason: ACTIVE_WORK is the by-design feature-branch/dirty-specs guard. Added a trigger field; status
+    logged because changing the block semantics is a behaviour decision for the owner.
 - gate: e83s04-rebaseline
-  reason: 'Five catalog-freeze breaks resolved by a fresh dated baseline (CATALOG-BASELINE-2026-11-07) instead of five freeze-exception markers; the 2026-07-23 file stays intact. Recorded in docs/references/catalog-freeze.md.'
+  reason: Five catalog-freeze breaks resolved by a fresh dated baseline (CATALOG-BASELINE-2026-11-07)
+    instead of five freeze-exception markers; the 2026-07-23 file stays intact. Recorded in docs/references/catalog-freeze.md.
 - gate: worktree-guard-misread
-  reason: 'The pre-tool-use hook reads the branch of the main checkout, not the worktree, so a plain commit was denied. User approved using git -C.'
+  reason: The pre-tool-use hook reads the branch of the main checkout, not the worktree, so a plain commit
+    was denied. User approved using git -C.
 - gate: attribution-trailer
-  reason: 'CONVENTIONS forbids Co-authored-by footers; omitted the trailer the harness suggested.'
+  reason: CONVENTIONS forbids Co-authored-by footers; omitted the trailer the harness suggested.
 - gate: sync-skills-churn-left
-  reason: 'sync-skills regenerated spec artifacts again (BUG-2026-11-06-sync-specs-artifact-churn); left unstaged.'
+  reason: sync-skills regenerated spec artifacts again (BUG-2026-11-06-sync-specs-artifact-churn); left
+    unstaged.
 - gate: story-verify-recursion
-  reason: 'e83 epic.yaml verify lines called run-story-verify.sh, so a done story re-entered the gate without end (thousands of orphan processes, Preflight hung). Replaced with scripts/verify-e83.sh and added a self-reference guard to run-story-verify.sh. The same template remains in e49, e85-e88 (not done, so dormant); the guard turns it into a clear FAIL.'
+  reason: e83 epic.yaml verify lines called run-story-verify.sh, so a done story re-entered the gate without
+    end (thousands of orphan processes, Preflight hung). Replaced with scripts/verify-e83.sh and added
+    a self-reference guard to run-story-verify.sh. The same template remains in e49, e85-e88 (not done,
+    so dormant); the guard turns it into a clear FAIL.
 - gate: preflight-green-e83
   reason: 'After the fix: compliance GATE PASS 98%, golden gates 62/62, trace-stories strict exit 0.'
 metrics:
@@ -63,9 +71,9 @@ metrics:
       avg_seconds: 0
       _start: '2026-07-26T19:03:50Z'
     verify-work:
-      calls: 1
-      total_seconds: 1052.0
-      avg_seconds: 1052.0
+      calls: 2
+      total_seconds: 1083.0
+      avg_seconds: 541.5
     release-branch:
       calls: 0
       total_seconds: 0
