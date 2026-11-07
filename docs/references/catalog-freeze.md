@@ -24,3 +24,6 @@ A change genuinely unrelated to the migration can suppress its drift warning by 
 ```
 
 `scripts/check-catalog-drift.sh` checks for this exact substring. Use sparingly.
+
+## Re-baselines
+- 2026-11-07 (e83s04): five post-freeze breaks (define-success tombstone, simple-english added, smoke-test and validate-contracts phase set, context7-mcp removed) were resolved by a fresh `snapshot-catalog-baseline.sh` run. The 2026-07-23 file stays as the frozen e56 starting point; the drift check reads the newest baseline.
