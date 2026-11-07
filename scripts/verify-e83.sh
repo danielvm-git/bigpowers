@@ -9,7 +9,7 @@ cd "$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 case "${1:?usage: verify-e83.sh <e83s01..e83s05>}" in
   e83s01)
     grep -q 'last_tag' scripts/sync-version-mirrors.sh
-    n=$(find skills -mindepth 1 -maxdepth 1 -type d | wc -l | tr -d ' ')
+    n=$(find skills -mindepth 2 -maxdepth 2 -name SKILL.md | wc -l | tr -d ' ')
     grep -q "$n agent skills" package.json
     grep -q "$n skills" scripts/mcp-server.js ;;
   e83s02)
@@ -20,9 +20,9 @@ case "${1:?usage: verify-e83.sh <e83s01..e83s05>}" in
     bash scripts/build-receipts.sh >/dev/null 2>&1
     python3 -c "import json;d=json.load(open('specs/receipts.json'))['metrics'];assert 'stale' in d['value'] and d['source']!='measured' or d['value']['source_breakdown']['measured']>0" ;;
   e83s04)
-    ! grep -q '61 skills' specs/product/VISION_LATEST.yaml
+    if grep -q '61 skills' specs/product/VISION_LATEST.yaml; then echo 'VISION still says 61 skills'; exit 1; fi
     out=$(bash scripts/check-catalog-drift.sh 2>&1 </dev/null)
-    ! grep -q '^WARNING' <<<"$out" ;;
+    if grep -q '^WARNING' <<<"$out"; then echo "$out"; exit 1; fi ;;
   e83s05)
     ls specs/bugs/BUG-*spec-version-gap*.md >/dev/null
     bash tests/test-spec-version-gap-trigger.sh >/dev/null

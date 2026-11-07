@@ -26,7 +26,7 @@ function countSkillLinks(dir) {
     let real;
     try { real = fs.realpathSync(full); } catch { foreign++; continue; }
     const parent = path.dirname(real);
-    const mine = parent === path.join(ROOT, 'skills') ||
+    const mine = parent === path.join(fs.realpathSync(ROOT), 'skills') ||
       (path.basename(parent) === 'skills' && path.basename(path.dirname(parent)) === 'bigpowers');
     if (mine) owned++; else foreign++;
   }
