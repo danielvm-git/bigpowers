@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # story: e41s01
+# story: e83s03
 # build-receipts.sh — aggregate all quality evidence into specs/receipts.json.
 set -euo pipefail
 source "$(dirname "${BASH_SOURCE[0]}")/lib/python-env.sh"
@@ -54,35 +55,42 @@ if os.path.isdir(gd):
 else:
     sections['golden_suite'] = {'source':'absent','generated_at':'$TIMESTAMP','command':'specs/benchmarks/reports/GOLDEN-*.yaml'}
 
-# metrics
-md = '$ROOT/specs/metrics/'
-if os.path.isdir(md):
-    mfs = sorted(gb.glob(os.path.join(md, '*.okf.md')))
-    sc = 0; st = {'measured':0,'estimated':0,'backfilled':0}; te = 0.0; tb = 0
-    for mf in mfs:
-        try:
-            with open(mf) as f: content = f.read()
-            parts = content.split('---')
-            if len(parts) < 3: continue
-            import yaml; fm = yaml.safe_load(parts[1])
-            if fm is None or fm.get('okf_kind') != 'story-metrics': continue
-            sc += 1; src = fm.get('source','absent')
-            if src in st: st[src] += 1
-            e = (fm.get('effort') or {}).get('effort_hours')
-            if e is not None:
-                try: te += float(e)
-                except: pass
-            b = fm.get('bcps')
-            if b is not None:
-                try: tb += int(b)
-                except: pass
-        except: pass
-    if sc > 0:
-        sections['metrics'] = {'value':{'story_count':sc,'total_effort_hours':round(te,1),'total_bcps':tb,'source_breakdown':st},'generated_at':'$TIMESTAMP','source':'measured','command':'specs/metrics/*.okf.md'}
-    else:
-        sections['metrics'] = {'source':'absent','generated_at':'$TIMESTAMP','command':'specs/metrics/*.okf.md'}
+# metrics (e83s03): read the cycle-time ledger, label the source by what was measured
+mf = '$ROOT/specs/metrics/cycle-times.yaml'
+mcmd = 'specs/metrics/cycle-times.yaml'
+if os.path.isfile(mf):
+    try:
+        import yaml, datetime
+        stories = (yaml.safe_load(open(mf)) or {}).get('stories') or []
+        st = {'measured':0,'estimated':0,'backfilled':0}
+        te = 0.0; tb = 0; last = None
+        for e in stories:
+            src = e.get('source')
+            st['measured' if src == 'measured' else 'backfilled' if src == 'backfilled' else 'estimated'] += 1
+            te += float(e.get('cycle_minutes') or 0) / 60
+            tb += int(e.get('bcps') or 0)
+            end = str(e.get('end') or '')
+            if end and (last is None or end > last): last = end
+        n = len(stories)
+        if n == 0:
+            sections['metrics'] = {'source':'absent','generated_at':'$TIMESTAMP','command':mcmd}
+        else:
+            label = 'measured' if st['measured'] == n else 'mixed' if st['measured'] > 0 else 'estimated'
+            stale_days = None; stale = True
+            if last:
+                try:
+                    ld = datetime.datetime.fromisoformat(last.replace('Z','+00:00'))
+                    if ld.tzinfo is None: ld = ld.replace(tzinfo=datetime.timezone.utc)
+                    stale_days = (datetime.datetime.now(datetime.timezone.utc) - ld).days
+                    stale = stale_days > 30
+                except ValueError: pass
+            if stale: print(f'build-receipts: WARNING cycle-time ledger is stale (last entry {last})', file=sys.stderr)
+            sections['metrics'] = {'value':{'story_count':n,'total_effort_hours':round(te,1),'total_bcps':tb,'source_breakdown':st,'last_entry':last,'stale_days':stale_days,'stale':stale},'generated_at':'$TIMESTAMP','source':label,'command':mcmd}
+    except Exception as e:
+        print(f'build-receipts: metrics error: {e}', file=sys.stderr)
+        sections['metrics'] = {'source':'absent','generated_at':'$TIMESTAMP','command':mcmd}
 else:
-    sections['metrics'] = {'source':'absent','generated_at':'$TIMESTAMP','command':'specs/metrics/*.okf.md'}
+    sections['metrics'] = {'source':'absent','generated_at':'$TIMESTAMP','command':mcmd}
 
 # traceability
 tf = '$ROOT/specs/traceability-matrix.json'
