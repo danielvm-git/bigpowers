@@ -63,7 +63,7 @@ release:
   ci_verified: true
   last_commit: 3251e1b0
   last_epic: e79-simple-english-skill
-  last_tag: v2.93.3
+  last_tag: v2.94.2
   last_publish: '2026-11-04T01:52:15Z'
 git:
   branch: main

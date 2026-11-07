@@ -113,5 +113,7 @@ if [[ "$DISTRIBUTE_ONLY" -eq 1 ]]; then
   exit 0
 fi
 
+bash "$REPO_ROOT/scripts/stamp-skill-counts.sh"
+
 sync_post_run "$skill_count" "$opencode_count"
 exit 0
