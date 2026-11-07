@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# story: e83s05
 # check-spec-version-gap.sh — detect spec format gap (e44s02)
 set -euo pipefail
 source "$(dirname "${BASH_SOURCE[0]}")/lib/python-env.sh"
@@ -112,21 +113,24 @@ print(json.dumps(out))
 " 2>/dev/null
 }
 
+# Echoes the trigger name that makes work "active", or "" when none fires.
 check_active_work() {
   local branch af
   branch=$(git -C "$PROJECT_DIR" branch --show-current 2>/dev/null || echo "")
-  if on_feature_branch "$branch"; then echo "true"; return; fi
-  if has_dirty_specs; then echo "true"; return; fi
+  if on_feature_branch "$branch"; then echo "feature_branch"; return; fi
+  if has_dirty_specs; then echo "dirty_specs"; return; fi
   af=$(gap_yaml_get "$SPECS/state.yaml" "active_flow")
-  if is_blocking_active_flow "$af"; then echo "true"; return; fi
-  echo "false"
+  if is_blocking_active_flow "$af"; then echo "active_flow"; return; fi
+  echo ""
 }
 
 # Main
 [[ ! -d "$SPECS" ]] && { gap_emit_json '{"gap":false,"reason":"NO_SPECS"}'; exit 2; }
 IV=$(get_installed_version)
-if [ "$SKIP_BLOCK" != "true" ] && [[ "$(check_active_work)" == "true" ]]; then
-  gap_emit_json '{"gap":true,"blocked":true,"reason":"ACTIVE_WORK","installed_version":"'"$IV"'"}'
+TRIGGER=""
+[ "$SKIP_BLOCK" != "true" ] && TRIGGER=$(check_active_work)
+if [[ -n "$TRIGGER" ]]; then
+  gap_emit_json '{"gap":true,"blocked":true,"reason":"ACTIVE_WORK","trigger":"'"$TRIGGER"'","installed_version":"'"$IV"'"}'
   exit 3
 fi
 
