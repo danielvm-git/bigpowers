@@ -110,6 +110,10 @@ GOLDEN_GATES=(
   # Guard-git judges git argv, not substrings; shell and TS must agree (#184).
   "guard-git-normalize:bash scripts/test-guard-git-normalize.sh:false"
   "specs-parse:bash scripts/validate-specs-yaml.sh:false"
+  # CI's sync job validates OKF bundles in six specs/ dirs; the local gate set did
+  # not, so a green Preflight coexisted with a red CI sync job (e83s03, source
+  # "mixed" in receipts.json). Keep both lists identical.
+  "okf-bundles:bash tests/test-okf-bundles.sh:false"
   # The runner itself: failing output is shown, skips are named and reasoned.
   "golden-gate-runner:bash scripts/test-golden-gate-runner.sh:false"
   # Pipefail SIGPIPE races: fix shapes hold, git output never feeds grep -q/head.
