@@ -1,16 +1,15 @@
 story_id: e83s05
 title: Investigate spec-version-gap blocked with no active flow
-status: todo
+status: done
 bcps: 7
 tasks:
 - id: 1
   description: investigate-bug writes BUG-*.md with the reproduction
   verify: ls specs/bugs/BUG-*spec-version-gap*.md >/dev/null
   risk: P1
-  status: todo
+  status: done
 - id: 2
   description: Fix test-first, or log with reason if reproduction is blocked
-  verify: 'bash scripts/check-spec-version-gap.sh | grep -q ''"blocked":false'' || grep -q ''status: logged''
-    specs/bugs/BUG-*spec-version-gap*.md'
+  verify: bash scripts/verify-e83.sh e83s05
   risk: P1
-  status: todo
+  status: done

@@ -1,16 +1,16 @@
 # Traceability Matrix
 
-**Generated:** 2026-11-06 22:48:51 UTC
+**Generated:** 2026-11-07 21:35:57 UTC
 **Total stories:** 171
-**Tagged stories:** 138
+**Tagged stories:** 142
 **Dark stories:** 0
 **Orphan tags:** 166
-**Stale tags:** 133
+**Stale tags:** 138
 
 ## Oracle Stats
 
-- **High** (explicit tag): 954
-- **Medium** (file heuristic): 2918
+- **High** (explicit tag): 968
+- **Medium** (file heuristic): 2937
 - **Low** (task reference): 119
 
 ## Story Coverage
@@ -45,7 +45,7 @@
 | e45s10 | docs/references: auto-regenerate from source-of-truth docs v | e45 | 2 | 5.0 | done | 8 |
 | e45s11 | orchestration / dispatch-agents: typed message protocol + 3- | e45 | 2 | 5.0 | done | 17 |
 | e45s12 | stocktake-skills / craft-skill: code-enforced validator + au | e45 | 2 | 5.0 | done | 45 |
-| e45s13 | verify-work: one-test-minimum terminal-verdict rule | e45 | 2 | 5.0 | done | 27 |
+| e45s13 | verify-work: one-test-minimum terminal-verdict rule | e45 | 2 | 5.0 | done | 28 |
 | e45s14 | deepen-architecture: declared import-boundary allowlist enfo | e45 | 2 | 5.0 | done | 8 |
 | e45s15 | release-branch / deploy: three-independent-facts verificatio | e45 | 2 | 5.0 | done | 21 |
 | e45s16 | CLAUDE.md rtk mandate: wire rtk-ai/rtk PreToolUse hook | e45 | 2 | 5.0 | done | 4 |
@@ -76,9 +76,9 @@
 | e45s41 | security-review: proven authorship SQL-safety doctrine | e45 | 2 | 5.0 | done | 18 |
 | e48s01 | Generate epics-wiki and adr-wiki as OKF concept bundles from | e48 | 2 | 2.5 | done | 38 |
 | e48s02 | Emit verification reports as OKF bundles from run-golden-sui | e48 | 2 | 2.5 | done | 35 |
-| e48s03 | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | e48 | 1 | 2.5 | done | 259 |
+| e48s03 | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | e48 | 1 | 2.5 | done | 263 |
 | e48s04 | Create viz.html — interactive force-layout graph companion f | e48 | 2 | 2.5 | done | 12 |
-| e48s05 | Wire OKF validation into CI (sync-skills.yml) and document i | e48 | 1 | 2.5 | done | 245 |
+| e48s05 | Wire OKF validation into CI (sync-skills.yml) and document i | e48 | 1 | 2.5 | done | 247 |
 | e48s06 | Add tier: field (core/extended/specialized) to OKF wiki inde | e48 | 2 | 2.5 | done | 15 |
 | e48s07 | Create publish-to-wiki kernel tool | e48 | 3 | 2.5 | done | 2 |
 | e48s08 | Add GitHub Action Template for publish-wiki.yml [HARD GATE] | e48 | 1 | 2.5 | done | 8 |
@@ -102,14 +102,14 @@
 | e51s01 | CONVENTIONS — Always Green, Shift Left, Discovered Defects,  | e51 | 3 | 7.0 | done | 8 |
 | e51s02 | seed-conventions — Preflight default, solo-git default, embe | e51 | 3 | 7.0 | done | 42 |
 | e51s03 | kickoff-branch + verify-work — Preflight hard block and CI g | e51 | 2 | 7.0 | done | 71 |
-| e51s04 | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | e51 | 2 | 7.0 | done | 327 |
+| e51s04 | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | e51 | 2 | 7.0 | done | 329 |
 | e51s05 | CLAUDE.md — solo-default agent rules + bigpowers Preflight c | e51 | 2 | 7.0 | done | 9 |
 | e53s01 | Commit the untracked GOLDEN baseline | e53 | 1 | 8.0 | done | 12 |
 | e53s02 | Build the tombstone-alias mechanism | e53 | 3 | 8.0 | done | 8 |
-| e53s03 | Gate-trace the compliance-to-GOLDEN hard-gate coupling | e53 | 2 | 8.0 | done | 62 |
+| e53s03 | Gate-trace the compliance-to-GOLDEN hard-gate coupling | e53 | 2 | 8.0 | done | 64 |
 | e53s04 | Adopt docs/TARGET-ARCHITECTURE.md as the migration's north-s | e53 | 3 | 8.0 | done | 3 |
-| e54s01 | Snapshot the current skill catalog as an immutable baseline | e54 | 2 | 6.7 | done | 10 |
-| e54s02 | Add a soft drift-detection gate for the freeze window | e54 | 3 | 6.7 | done | 14 |
+| e54s01 | Snapshot the current skill catalog as an immutable baseline | e54 | 2 | 6.7 | done | 11 |
+| e54s02 | Add a soft drift-detection gate for the freeze window | e54 | 3 | 6.7 | done | 15 |
 | e54s03 | Document the freeze's scope, exit criteria, and exception pr | e54 | 1 | 6.7 | done | 45 |
 | e55s01 | Map every current doctrine source to a B0-B10 + Capstone blo | e55 | 0 | 6.0 | done | 5 |
 | e55s02 | Write constitution.md from the mapping, CLAUDE.md/CONVENTION | e55 | 0 | 6.0 | done | 4 |
@@ -158,7 +158,7 @@
 | e79s02 | Validator script + craft-skill HARD GATE | e79 | 0 | 6.0 | done | 21 |
 | e79s03 | seed-conventions applies ruleset | e79 | 0 | 6.0 | done | 20 |
 | e79s04 | stocktake-skills violation scanner | e79 | 0 | 6.0 | done | 20 |
-| e80s01 | Core verify skills → verify directives | e80 | 0 | 7.5 | done | 91 |
+| e80s01 | Core verify skills → verify directives | e80 | 0 | 7.5 | done | 94 |
 | e80s02 | smoke-test and validate-contracts real bodies | e80 | 0 | 7.5 | done | 35 |
 | e80s03 | develop-tdd RED commit isolation check | e80 | 0 | 7.5 | done | 10 |
 | e80s04 | generalize-fix phase in validate-fix | e80 | 0 | 7.5 | done | 32 |
@@ -168,11 +168,11 @@
 | e82s02 | Jujutsu-aware lifecycle skills (commit-message, kickoff-bran | e82 | 0 | 6.0 | done | 89 |
 | e82s03 | OMP plugin extension — bigpowers as native oh-my-posh/OMP en | e82 | 0 | 6.0 | done | 7 |
 | e82s04 | Community attribution — CONTRIBUTORS.md + CHANGELOG credit e | e82 | 0 | 6.0 | done | 2 |
-| e83s01 | Release mirror stamps last_tag and skill counts | e83 | 0 | 6.0 | backlog | 7 |
-| e83s02 | bigpowers status counts only bigpowers-owned skills | e83 | 0 | 6.0 | backlog | 18 |
-| e83s03 | Receipts read the cycle-time ledger and label sources honest | e83 | 0 | 6.0 | backlog | 42 |
-| e83s04 | VISION refreshed and catalog-freeze breaks resolved | e83 | 0 | 6.0 | backlog | 5 |
-| e83s05 | Investigate spec-version-gap blocked with no active flow | e83 | 0 | 6.0 | backlog | 3 |
+| e83s01 | Release mirror stamps last_tag and skill counts | e83 | 0 | 6.0 | done | 11 |
+| e83s02 | bigpowers status counts only bigpowers-owned skills | e83 | 0 | 6.0 | done | 18 |
+| e83s03 | Receipts read the cycle-time ledger and label sources honest | e83 | 0 | 6.0 | done | 43 |
+| e83s04 | VISION refreshed and catalog-freeze breaks resolved | e83 | 0 | 6.0 | done | 10 |
+| e83s05 | Investigate spec-version-gap blocked with no active flow | e83 | 0 | 6.0 | done | 6 |
 | e84s01 | AGENTS.md is the canonical instruction file in this repo | e84 | 0 | 10.5 | done | 12 |
 | e84s02 | seed-conventions writes AGENTS.md-first by default | e84 | 0 | 10.5 | backlog | 8 |
 | e85s01 | Count the 10 functional dimensions with worked-example self- | e85 | 0 | 4.3 | backlog | 6 |
@@ -185,7 +185,7 @@
 | e87s01 | Opt-in agent review on every PR | e87 | 0 | 2.6 | backlog | 3 |
 | e87s02 | Failed CI builds get an agent triage note | e87 | 0 | 2.6 | backlog | 1 |
 | e87s03 | deploy gains a rehearsed rollback and risk-tier autonomy | e87 | 0 | 2.6 | backlog | 4 |
-| e88s01 | Control bands on the daily cron open a BUG spec | e88 | 0 | 2.4 | backlog | 16 |
+| e88s01 | Control bands on the daily cron open a BUG spec | e88 | 0 | 2.4 | backlog | 20 |
 | e88s02 | Weekly deterministic security scan opens BUG specs | e88 | 0 | 2.4 | backlog | 5 |
 | e88s03 | Breaches and weekly scans get a read-only agent diagnosis | e88 | 0 | 2.4 | backlog | 9 |
 
@@ -490,6 +490,11 @@
 - `e82s02`
 - `e82s03`
 - `e82s04`
+- `e83s01`
+- `e83s02`
+- `e83s03`
+- `e83s04`
+- `e83s05`
 - `e84s01`
 - `e86s01`
 - `e86s02`

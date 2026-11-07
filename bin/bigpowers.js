@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 // story: e38s08
+// story: e83s02
 // bigpowers CLI — detects install state, runs setup on demand.
 // No npm lifecycle scripts needed → bypasses npm v10+ allow-scripts gate.
 
@@ -13,6 +14,24 @@ const SKILLS_MARKER = path.join(os.homedir(), '.claude', 'skills', 'survey-conte
 // Version strings come from disk, not from a require cache captured at startup:
 // `update` reinstalls this package mid-process (BUG-2026-11-03-cli-update-stale-version).
 const { readPackageVersion } = require(path.join(ROOT, 'scripts', 'lib', 'cli-version'));
+
+// A link is bigpowers-owned when it resolves into a `bigpowers/skills` dir (this
+// package, or any bigpowers install). Anything else is foreign (e83s02).
+function countSkillLinks(dir) {
+  let owned = 0;
+  let foreign = 0;
+  for (const d of fs.readdirSync(dir)) {
+    const full = path.join(dir, d);
+    if (!fs.lstatSync(full).isSymbolicLink()) continue;
+    let real;
+    try { real = fs.realpathSync(full); } catch { foreign++; continue; }
+    const parent = path.dirname(real);
+    const mine = parent === path.join(fs.realpathSync(ROOT), 'skills') ||
+      (path.basename(parent) === 'skills' && path.basename(path.dirname(parent)) === 'bigpowers');
+    if (mine) owned++; else foreign++;
+  }
+  return { owned, foreign };
+}
 
 function isInstalled() {
   try {
@@ -94,11 +113,11 @@ if (cmd === 'update') {
 
 if (cmd === 'status') {
   if (isInstalled()) {
-    const count = fs.readdirSync(path.join(os.homedir(), '.claude', 'skills'))
-      .filter(d => fs.lstatSync(path.join(os.homedir(), '.claude', 'skills', d)).isSymbolicLink())
-      .length;
+    const skillsDir = path.join(os.homedir(), '.claude', 'skills');
+    const { owned: count, foreign } = countSkillLinks(skillsDir);
     const version = readPackageVersion(ROOT);
     console.log(`bigpowers v${version} — ${count} skills installed`);
+    if (foreign > 0) console.log(`${foreign} foreign skill links (not owned by bigpowers)`);
     const latest = latestPublishedVersion();
     if (latest && latest !== version) {
       console.log(`\n⬆️  A newer release is available: v${latest} (you have v${version}).`);

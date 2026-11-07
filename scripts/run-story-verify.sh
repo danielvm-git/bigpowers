@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # story: BUG-2026-07-26-story-verify-never-executed
+# story: e83s04
 # Execute story-level verify: commands declared in specs/epics/*/epic.yaml.
 # Tier 2 of the verify arc (GH #106). Tier 1 is run-skill-verify.sh.
 #
@@ -38,6 +39,12 @@ else
   run_with_timeout() { bash -c "$1" </dev/null 2>&1; }
 fi
 
+# Set for every child: a verify that re-enters this gate (even via a wrapper) is refused.
+if [ -n "${BP_STORY_VERIFY_ACTIVE:-}" ]; then
+  echo "FAIL: run-story-verify.sh re-entered from inside a story verify (recursion refused)" >&2
+  exit 1
+fi
+export BP_STORY_VERIFY_ACTIVE=1
 GATED_STATUS="done"
 PASS=0; FAIL=0; SKIP=0
 TARGET="${1:-}"
@@ -63,6 +70,11 @@ reject_non_executable() {
 run_story_verify() {
   local sid="$1" src="$2" cmd="$3"
 
+  if [[ "$cmd" =~ (bash|sh|source|\.)[[:space:]]+[^[:space:]]*run-story-verify\.sh ]]; then
+    echo "FAIL: $sid [$src] — self-referential verify (would recurse): $cmd"
+    FAIL=$((FAIL + 1))
+    return 1
+  fi
   if ! is_executable_verify "$cmd"; then
     reject_non_executable "$sid" "$src" "$cmd"
     return 1

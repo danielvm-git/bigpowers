@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-06T22:48:51.426190+00:00",
+  "generated_at": "2026-11-07T21:35:57.466351+00:00",
   "matrix_version": "1.0",
   "stories": [
     {
@@ -3342,6 +3342,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "tests/test-story-verify-recursion.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "tests/test-verify-adversarial.sh",
           "line": 0,
           "confidence": "medium",
@@ -3360,7 +3366,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 27
+      "link_count": 28
     },
     {
       "id": "e45s14",
@@ -3901,7 +3907,7 @@
         },
         {
           "file": "specs/bugs/BUG-2026-11-06-pi-frontmatter-html-comments.md",
-          "line": 18,
+          "line": 19,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -11364,6 +11370,30 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-11-07-assert-epic-gate-fail-open.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-07-assert-epic-gate-fail-open.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-07-spec-version-gap-blocked.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-07-spec-version-gap-blocked.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/epics/archive/e26-security-review/e26s07-fix-bug-integration.md",
           "line": 0,
           "confidence": "medium",
@@ -11424,7 +11454,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 259
+      "link_count": 263
     },
     {
       "id": "e48s04",
@@ -12342,6 +12372,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-11-07-assert-epic-gate-fail-open.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-07-spec-version-gap-blocked.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/epics-wiki/e01.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -12990,7 +13032,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 245
+      "link_count": 247
     },
     {
       "id": "e48s06",
@@ -15684,6 +15726,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-11-07-assert-epic-gate-fail-open.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-07-assert-epic-gate-fail-open.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/conventions-wiki/p1-high-fix-before-merge.md",
           "line": 0,
           "confidence": "medium",
@@ -17286,7 +17340,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 327
+      "link_count": 329
     },
     {
       "id": "e51s05",
@@ -17742,6 +17796,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-11-07-assert-epic-gate-fail-open.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-07-assert-epic-gate-fail-open.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/conventions-wiki/pre-merge-golden-gate.md",
           "line": 0,
           "confidence": "medium",
@@ -17880,7 +17946,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 62
+      "link_count": 64
     },
     {
       "id": "e53s04",
@@ -17964,6 +18030,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/tech-architecture/CATALOG-BASELINE-2026-11-07.yaml",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/steps/and-the-skill-packaging-pipeline-round-trips-a-golden-fixture-without-data-loss.sh",
           "line": 0,
           "confidence": "medium",
@@ -17982,7 +18054,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 10
+      "link_count": 11
     },
     {
       "id": "e54s02",
@@ -17996,6 +18068,12 @@
         {
           "file": "scripts/check-catalog-drift.sh",
           "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/lib/check-catalog-drift.py",
+          "line": 1,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -18078,7 +18156,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 14
+      "link_count": 15
     },
     {
       "id": "e54s03",
@@ -20341,13 +20419,13 @@
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 368,
+          "line": 376,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 708,
+          "line": 716,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -20755,7 +20833,7 @@
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 662,
+          "line": 670,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -20893,13 +20971,13 @@
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 295,
+          "line": 303,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 675,
+          "line": 683,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -21037,13 +21115,13 @@
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 315,
+          "line": 323,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 686,
+          "line": 694,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -21199,13 +21277,13 @@
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 275,
+          "line": 283,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 667,
+          "line": 675,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -21517,13 +21595,13 @@
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 332,
+          "line": 340,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 692,
+          "line": 700,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -21655,13 +21733,13 @@
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 377,
+          "line": 385,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 712,
+          "line": 720,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -21799,13 +21877,13 @@
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 292,
+          "line": 300,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 672,
+          "line": 680,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -21943,13 +22021,13 @@
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 359,
+          "line": 367,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 703,
+          "line": 711,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -23010,6 +23088,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "scripts/verify-e83.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "scripts/verify-generalize-sweep.sh",
           "line": 0,
           "confidence": "medium",
@@ -23382,6 +23466,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/verifications/e83-verify.yaml",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/generalize-sweep-BUG-2026-11-03-story-verify-ab-sandbox-daemon-required.json",
           "line": 0,
           "confidence": "medium",
@@ -23389,6 +23479,12 @@
         },
         {
           "file": "specs/verifications/steps/and-tests-should-verify-behavior-through-public-apis-not-implementation-t8.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "tests/test-story-verify-recursion.sh",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -23436,7 +23532,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 91
+      "link_count": 94
     },
     {
       "id": "e80s02",
@@ -24753,11 +24849,35 @@
       "epic_title": "Truth in the Cockpit \u2014 Fix the Drift the Red Team Found",
       "bcp": 0,
       "wsjf": 6.0,
-      "status": "backlog",
+      "status": "done",
       "links": [
+        {
+          "file": "scripts/stamp-skill-counts.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/verify-e83.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "specs/epics/e83-truth-in-the-cockpit/epic.yaml",
           "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/verifications/e83-verify.yaml",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "tests/test-manifest-skill-count-once.sh",
+          "line": 2,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -24798,7 +24918,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 7
+      "link_count": 11
     },
     {
       "id": "e83s02",
@@ -24807,8 +24927,14 @@
       "epic_title": "Truth in the Cockpit \u2014 Fix the Drift the Red Team Found",
       "bcp": 0,
       "wsjf": 6.0,
-      "status": "backlog",
+      "status": "done",
       "links": [
+        {
+          "file": "bin/bigpowers.js",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": ".continue/rules/using-bigpowers.md",
           "line": 0,
@@ -24829,12 +24955,6 @@
         },
         {
           "file": "GSD_WORKFLOW_ANALYSIS_VS_BIGPOWERS.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
-          "file": "bin/bigpowers.js",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -24927,8 +25047,14 @@
       "epic_title": "Truth in the Cockpit \u2014 Fix the Drift the Red Team Found",
       "bcp": 0,
       "wsjf": 6.0,
-      "status": "backlog",
+      "status": "done",
       "links": [
+        {
+          "file": "scripts/build-receipts.sh",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "scripts/lib/record-cycle-time-lib.sh",
           "line": 0,
@@ -25182,7 +25308,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 42
+      "link_count": 43
     },
     {
       "id": "e83s04",
@@ -25191,8 +25317,38 @@
       "epic_title": "Truth in the Cockpit \u2014 Fix the Drift the Red Team Found",
       "bcp": 0,
       "wsjf": 6.0,
-      "status": "backlog",
+      "status": "done",
       "links": [
+        {
+          "file": "scripts/check-catalog-drift.sh",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/lib/check-catalog-drift.py",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/run-story-verify.sh",
+          "line": 3,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "specs/product/VISION_LATEST.yaml",
+          "line": 1,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "tests/test-story-verify-recursion.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
         {
           "file": "docs/references/catalog-freeze.md",
           "line": 0,
@@ -25224,7 +25380,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 5
+      "link_count": 10
     },
     {
       "id": "e83s05",
@@ -25233,16 +25389,34 @@
       "epic_title": "Truth in the Cockpit \u2014 Fix the Drift the Red Team Found",
       "bcp": 0,
       "wsjf": 6.0,
-      "status": "backlog",
+      "status": "done",
       "links": [
         {
           "file": "scripts/check-spec-version-gap.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "tests/test-spec-version-gap-trigger.sh",
+          "line": 2,
+          "confidence": "high",
+          "method": "explicit_tag"
+        },
+        {
+          "file": "scripts/golden-g16-spec-version-gap.sh",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
         },
         {
-          "file": "scripts/golden-g16-spec-version-gap.sh",
+          "file": "specs/bugs/BUG-2026-11-07-spec-version-gap-blocked.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-07-spec-version-gap-blocked.okf.md",
           "line": 0,
           "confidence": "medium",
           "method": "file_heuristic"
@@ -25254,7 +25428,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 3
+      "link_count": 6
     },
     {
       "id": "e84s01",
@@ -25872,6 +26046,30 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-11-07-assert-epic-gate-fail-open.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-07-assert-epic-gate-fail-open.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-07-spec-version-gap-blocked.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-07-spec-version-gap-blocked.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/verifications/steps/and-the-plan-specifies-test-levels-and-fixture-architectures.sh",
           "line": 0,
           "confidence": "medium",
@@ -25890,7 +26088,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 16
+      "link_count": 20
     },
     {
       "id": "e88s02",
@@ -26003,7 +26201,7 @@
   ],
   "summary": {
     "total_stories": 171,
-    "tagged_stories": 138,
+    "tagged_stories": 142,
     "dark_stories": [],
     "dark_count": 0,
     "orphan_tags": [
@@ -26306,14 +26504,19 @@
       "e82s02",
       "e82s03",
       "e82s04",
+      "e83s01",
+      "e83s02",
+      "e83s03",
+      "e83s04",
+      "e83s05",
       "e84s01",
       "e86s01",
       "e86s02"
     ],
-    "stale_count": 133,
+    "stale_count": 138,
     "oracle_stats": {
-      "high": 954,
-      "medium": 2918,
+      "high": 968,
+      "medium": 2937,
       "low": 119
     }
   }

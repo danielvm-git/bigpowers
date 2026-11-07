@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# story: e13s03 e28s03
+# story: e13s03 e28s03 e83s01
 # Post-sync pipeline for sync-skills.sh — manifests, lockfiles, guards, OKF wikis.
 # Args: $1=skill_count  $2=opencode_count (optional, default 0)
 
@@ -20,6 +20,11 @@ sync_post_run() {
 
   pkg_version=$(jq -r '.version' "$REPO_ROOT/package.json")
   pkg_desc=$(jq -r '.description' "$REPO_ROOT/package.json")
+  # package.json's description is stamped with the live count by stamp-skill-counts.sh
+  # ("80 agent skills …"). Strip that prefix before adding it again below, otherwise
+  # the host manifests read "80 skills — 80 agent skills …" and sync-skills.sh can no
+  # longer reproduce the committed artifact (CI: git diff --exit-code .pi).
+  pkg_desc="${pkg_desc#"${skill_count} "}"
 
   jq -n --arg name "bigpowers" \
         --arg version "$pkg_version" \

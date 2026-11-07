@@ -921,3 +921,23 @@ bugs:
     approach: "Detect duplicate keys via yaml.compose; reject '<!--' inside frontmatter; add a host-parser golden test"
     risk_level: "medium"
     commit_message: "fix(ci): make validate-skill-yaml reject forms pi cannot load (#207)"
+  - id: BUG-2026-11-07-assert-epic-gate-fail-open
+    status: open
+    severity: high
+    scope: release gate / scripts/lib/assert-epic-gate.sh
+    title: "assert-epic-gate.sh release passes on audit evidence from a different branch, so an unaudited 13-commit branch reports audit-code verified"
+    file: bugs/BUG-2026-11-07-assert-epic-gate-fail-open.md
+    files_changed: "scripts/lib/assert-epic-gate.sh (proposed)"
+    approach: "Record the audited commit range in specs/AUDIT_LATEST.md and specs/security/REVIEW.md, and make the gate fail when the recorded range does not cover the current branch diff"
+    risk_level: "medium"
+    commit_message: "fix(gates): fail the release audit gate when the audit covers a different diff"
+  - id: BUG-2026-11-07-spec-version-gap-blocked
+    status: fixed
+    severity: low
+    scope: tooling
+    title: "check-spec-version-gap reports ACTIVE_WORK with state.yaml active_flow null"
+    file: bugs/BUG-2026-11-07-spec-version-gap-blocked.md
+    files_changed: "scripts/check-spec-version-gap.sh, tests/test-spec-version-gap-trigger.sh"
+    approach: "Name the trigger in the JSON so the cause of the block is visible; keep the block semantics"
+    risk_level: "low"
+    commit_message: "fix(tooling): name the ACTIVE_WORK trigger in check-spec-version-gap (e83s05)"

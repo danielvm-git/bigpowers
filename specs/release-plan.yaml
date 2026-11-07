@@ -124,7 +124,7 @@ epics:
   bcps: 47
   capsule_dir: epics/e83-truth-in-the-cockpit
   mode: capsule
-  status: scoped
+  status: done
   wsjf_rationale: BV 5 + TC 5 + RR 8 / Job 3 ≈ 6.0
   source: Playbook value-engineering pass 2026-10-30 — see specs/VALUE-ENGINEERING-playbook-compat.md
 - id: e85
