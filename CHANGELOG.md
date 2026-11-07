@@ -1,3 +1,10 @@
+# [2.95.0](https://github.com/danielvm-git/bigpowers/compare/v2.94.2...v2.95.0) (2026-11-07)
+
+
+### Features
+
+* **e83:** truth in the cockpit — fix the drift the red team found ([#233](https://github.com/danielvm-git/bigpowers/issues/233)) ([2be64ec](https://github.com/danielvm-git/bigpowers/commit/2be64ecc763c8af7378ff1a0a808b0aea1c6072b)), closes [#194](https://github.com/danielvm-git/bigpowers/issues/194)
+
 ## [2.94.2](https://github.com/danielvm-git/bigpowers/compare/v2.94.1...v2.94.2) (2026-11-06)
 
 
