@@ -47,7 +47,7 @@ stories:
   - package.json
   - scripts/mcp-server.js
   tasks: e83s01-tasks.yaml
-  verify: bash scripts/run-story-verify.sh e83s01
+  verify: bash scripts/verify-e83.sh e83s01
 - id: e83s02
   title: bigpowers status counts only bigpowers-owned skills
   status: done
@@ -75,7 +75,7 @@ stories:
   files:
   - bin/bigpowers.js
   tasks: e83s02-tasks.yaml
-  verify: bash scripts/run-story-verify.sh e83s02
+  verify: bash scripts/verify-e83.sh e83s02
 - id: e83s03
   title: Receipts read the cycle-time ledger and label sources honestly
   status: done
@@ -105,7 +105,7 @@ stories:
   - scripts/build-receipts.sh
   - specs/receipts.json
   tasks: e83s03-tasks.yaml
-  verify: bash scripts/run-story-verify.sh e83s03
+  verify: bash scripts/verify-e83.sh e83s03
 - id: e83s04
   title: VISION refreshed and catalog-freeze breaks resolved
   status: done
@@ -134,7 +134,7 @@ stories:
   - specs/tech-architecture/
   - skills/simple-english/SKILL.md
   tasks: e83s04-tasks.yaml
-  verify: bash scripts/run-story-verify.sh e83s04
+  verify: bash scripts/verify-e83.sh e83s04
 - id: e83s05
   title: Investigate spec-version-gap blocked with no active flow
   status: done
@@ -162,4 +162,4 @@ stories:
   - scripts/check-spec-version-gap.sh
   - specs/bugs/
   tasks: e83s05-tasks.yaml
-  verify: bash scripts/run-story-verify.sh e83s05
+  verify: bash scripts/verify-e83.sh e83s05

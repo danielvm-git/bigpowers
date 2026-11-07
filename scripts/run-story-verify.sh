@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # story: BUG-2026-07-26-story-verify-never-executed
+# story: e83s04
 # Execute story-level verify: commands declared in specs/epics/*/epic.yaml.
 # Tier 2 of the verify arc (GH #106). Tier 1 is run-skill-verify.sh.
 #
@@ -63,6 +64,11 @@ reject_non_executable() {
 run_story_verify() {
   local sid="$1" src="$2" cmd="$3"
 
+  if [[ "$cmd" == *run-story-verify.sh* ]]; then
+    echo "FAIL: $sid [$src] — self-referential verify (would recurse): $cmd"
+    FAIL=$((FAIL + 1))
+    return 1
+  fi
   if ! is_executable_verify "$cmd"; then
     reject_non_executable "$sid" "$src" "$cmd"
     return 1
