@@ -5,7 +5,7 @@ wsjf: 6.0
 bcps: 47
 capsule_dir: epics/e83-truth-in-the-cockpit
 mode: capsule
-status: scoped
+status: done
 sliced: '2026-10-30'
 wsjf_rationale: BV 5 + TC 5 + RR 8 / Job 3 ≈ 6.0
 source: >-
@@ -19,7 +19,7 @@ value_engineering: specs/VALUE-ENGINEERING-playbook-compat.md
 stories:
 - id: e83s01
   title: Release mirror stamps last_tag and skill counts
-  status: todo
+  status: done
   bcps: 11
   bcp_13d:
     dimensions:
@@ -50,7 +50,7 @@ stories:
   verify: bash scripts/run-story-verify.sh e83s01
 - id: e83s02
   title: bigpowers status counts only bigpowers-owned skills
-  status: todo
+  status: done
   bcps: 8
   bcp_13d:
     dimensions:
@@ -78,7 +78,7 @@ stories:
   verify: bash scripts/run-story-verify.sh e83s02
 - id: e83s03
   title: Receipts read the cycle-time ledger and label sources honestly
-  status: todo
+  status: done
   bcps: 13
   bcp_13d:
     dimensions:
@@ -108,7 +108,7 @@ stories:
   verify: bash scripts/run-story-verify.sh e83s03
 - id: e83s04
   title: VISION refreshed and catalog-freeze breaks resolved
-  status: todo
+  status: done
   bcps: 8
   bcp_13d:
     dimensions:
@@ -137,7 +137,7 @@ stories:
   verify: bash scripts/run-story-verify.sh e83s04
 - id: e83s05
   title: Investigate spec-version-gap blocked with no active flow
-  status: todo
+  status: done
   bcps: 7
   bcp_13d:
     dimensions:

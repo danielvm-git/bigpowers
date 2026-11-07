@@ -428,12 +428,12 @@ development_status:
   e82s02: done
   e82s03: done
   e82s04: done
-  e83: backlog
-  e83s01: backlog
-  e83s02: backlog
-  e83s03: backlog
-  e83s04: backlog
-  e83s05: backlog
+  e83: done
+  e83s01: done
+  e83s02: done
+  e83s03: done
+  e83s04: done
+  e83s05: done
   e84: backlog
   e84s01: done
   e84s02: backlog
@@ -815,7 +815,7 @@ epics:
     wsjf: 6.0
     total_bcps: 0
   e83:
-    status: backlog
+    status: done
     title: Truth in the Cockpit — Fix the Drift the Red Team Found
     wsjf: 6.0
     total_bcps: 47
@@ -3741,48 +3741,48 @@ stories:
     tasks_passing: 0
     tasks_failing: 0
   e83s01:
-    status: backlog
+    status: done
     title: Release mirror stamps last_tag and skill counts
     bcps: 11
     epic: e83
     tasks_total: 2
-    tasks_passing: 0
+    tasks_passing: 2
     tasks_failing: 0
     risk_max: P2
   e83s02:
-    status: backlog
+    status: done
     title: 'bigpowers status counts only bigpowers-owned skills'
     bcps: 8
     epic: e83
     tasks_total: 1
-    tasks_passing: 0
+    tasks_passing: 1
     tasks_failing: 0
     risk_max: P2
   e83s03:
-    status: backlog
+    status: done
     title: 'Receipts read the cycle-time ledger and label sources honestly'
     bcps: 13
     epic: e83
     tasks_total: 2
-    tasks_passing: 0
+    tasks_passing: 2
     tasks_failing: 0
     risk_max: P2
   e83s04:
-    status: backlog
+    status: done
     title: 'VISION refreshed and catalog-freeze breaks resolved'
     bcps: 8
     epic: e83
     tasks_total: 2
-    tasks_passing: 0
+    tasks_passing: 2
     tasks_failing: 0
     risk_max: P2
   e83s05:
-    status: backlog
+    status: done
     title: 'Investigate spec-version-gap blocked with no active flow'
     bcps: 7
     epic: e83
     tasks_total: 2
-    tasks_passing: 0
+    tasks_passing: 2
     tasks_failing: 0
     risk_max: P1
   e84s01:

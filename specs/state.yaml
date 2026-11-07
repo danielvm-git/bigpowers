@@ -37,6 +37,18 @@ decisions:
 - gate: main-protected-recovery
   reason: guard-git blocks direct commit and push to main. Recovered one stray local reset by fast-forwarding
     to origin/main; verified byte-identical before discard.
+- gate: e83-order
+  reason: 'Built e83s05, s01, s02, s03, s04 (value_rank and user guidance: false ACTIVE_WORK block and stale last_tag first).'
+- gate: e83s05-log-not-fix
+  reason: 'ACTIVE_WORK is the by-design feature-branch/dirty-specs guard. Added a trigger field; status logged because changing the block semantics is a behaviour decision for the owner.'
+- gate: e83s04-rebaseline
+  reason: 'Five catalog-freeze breaks resolved by a fresh dated baseline (CATALOG-BASELINE-2026-11-07) instead of five freeze-exception markers; the 2026-07-23 file stays intact. Recorded in docs/references/catalog-freeze.md.'
+- gate: worktree-guard-misread
+  reason: 'The pre-tool-use hook reads the branch of the main checkout, not the worktree, so a plain commit was denied. User approved using git -C.'
+- gate: attribution-trailer
+  reason: 'CONVENTIONS forbids Co-authored-by footers; omitted the trailer the harness suggested.'
+- gate: sync-skills-churn-left
+  reason: 'sync-skills regenerated spec artifacts again (BUG-2026-11-06-sync-specs-artifact-churn); left unstaged.'
 metrics:
   story_start: null
   story_end: null
