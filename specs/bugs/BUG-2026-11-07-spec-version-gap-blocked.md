@@ -1,6 +1,6 @@
 ---
 bug_id: BUG-2026-11-07-spec-version-gap-blocked
-status: logged
+status: fixed
 severity: low
 scope: "tooling"
 title: "check-spec-version-gap reports ACTIVE_WORK with state.yaml active_flow null"
@@ -29,5 +29,5 @@ On `main` with a clean tree the same state returns `gap:false` (verified in a sc
 
 The block is by design: a spec migration must not run mid-work. The defect was the missing diagnosis.
 The JSON now carries `trigger` = `feature_branch | dirty_specs | active_flow`.
-Status is `logged`, not `fixed`: whether a feature branch alone should block is a behaviour decision
-and stays open for the owner. It changes no acceptance criteria of e83.
+Status is `fixed` for the diagnosability defect. Whether a feature branch alone should block is a
+separate behaviour decision, left for the owner. It changes no acceptance criteria of e83.

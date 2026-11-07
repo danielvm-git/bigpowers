@@ -10,7 +10,6 @@ tasks:
   status: done
 - id: 2
   description: Fix test-first, or log with reason if reproduction is blocked
-  verify: 'bash scripts/check-spec-version-gap.sh | grep -q ''"blocked":false'' || grep -q ''status: logged''
-    specs/bugs/BUG-*spec-version-gap*.md'
+  verify: bash scripts/verify-e83.sh e83s05
   risk: P1
   status: done

@@ -17,8 +17,19 @@ case "${1:?usage: verify-e83.sh <e83s01..e83s05>}" in
     grep -q 'skills installed' bin/bigpowers.js ;;
   e83s03)
     grep -q 'cycle-times.yaml' scripts/build-receipts.sh
-    bash scripts/build-receipts.sh >/dev/null 2>&1
-    python3 -c "import json;d=json.load(open('specs/receipts.json'))['metrics'];assert 'stale' in d['value'] and d['source']!='measured' or d['value']['source_breakdown']['measured']>0" ;;
+    out=$(mktemp); trap 'rm -f "$out"' EXIT
+    RECEIPTS_OUT="$out" bash scripts/build-receipts.sh >/dev/null 2>&1
+    python3 - "$out" <<'PY'
+import json, sys
+d = json.load(open(sys.argv[1]))['metrics']
+v, b = d['value'], d['value']['source_breakdown']
+assert 'stale' in v, 'missing stale flag'
+n = sum(b.values())
+want = ('measured' if b['measured'] == n else 'mixed' if b['measured'] else
+        'backfilled' if b['backfilled'] == n else 'estimated')
+assert d['source'] == want, f"source {d['source']} != {want}"
+PY
+    ;;
   e83s04)
     if grep -q '61 skills' specs/product/VISION_LATEST.yaml; then echo 'VISION still says 61 skills'; exit 1; fi
     out=$(bash scripts/check-catalog-drift.sh 2>&1 </dev/null)
@@ -26,6 +37,6 @@ case "${1:?usage: verify-e83.sh <e83s01..e83s05>}" in
   e83s05)
     ls specs/bugs/BUG-*spec-version-gap*.md >/dev/null
     bash tests/test-spec-version-gap-trigger.sh >/dev/null
-    grep -q 'status: logged' specs/bugs/BUG-*spec-version-gap*.md ;;
+    grep -qE '^status: (fixed|resolved)' specs/bugs/BUG-*spec-version-gap*.md ;;
   *) echo "verify-e83: unknown story $1" >&2; exit 2 ;;
 esac

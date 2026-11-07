@@ -1,20 +1,20 @@
 {
   "compliance": {
     "value": 100,
-    "generated_at": "2026-11-07T03:31:21Z",
+    "generated_at": "2026-11-07T15:05:58Z",
     "source": "measured",
     "command": "bash scripts/audit-compliance.sh specs/verifications/features/"
   },
   "golden_suite": {
     "value": {
-      "pass_rate": 1.0,
-      "passed": 62,
+      "pass_rate": 0.98,
+      "passed": 61,
       "total": 62,
-      "overall": "pass",
-      "timestamp": "2026-11-07T03:05:12Z",
-      "commit": "abad4a467ac4a814930648ef2090255555b2f517"
+      "overall": "fail",
+      "timestamp": "2026-11-07T14:45:48Z",
+      "commit": "ea1ed00546fa05c60003d895cc34860b1d57caef"
     },
-    "generated_at": "2026-11-07T03:31:21Z",
+    "generated_at": "2026-11-07T15:05:58Z",
     "source": "measured",
     "command": "specs/benchmarks/reports/GOLDEN-*.yaml (latest)"
   },
@@ -32,7 +32,7 @@
       "stale_days": 93,
       "stale": true
     },
-    "generated_at": "2026-11-07T03:31:21Z",
+    "generated_at": "2026-11-07T15:05:58Z",
     "source": "mixed",
     "command": "specs/metrics/cycle-times.yaml"
   },
@@ -40,11 +40,11 @@
     "value": {
       "total_stories": 171,
       "linked_stories": 171,
-      "total_links": 3991,
+      "total_links": 4005,
       "coverage_pct": 100.0,
-      "generated_at": "2026-11-07T03:13:16.366364+00:00"
+      "generated_at": "2026-11-07T15:01:35.761513+00:00"
     },
-    "generated_at": "2026-11-07T03:31:21Z",
+    "generated_at": "2026-11-07T15:05:58Z",
     "source": "measured",
     "command": "specs/traceability-matrix.json (trace-matrix.py)"
   }

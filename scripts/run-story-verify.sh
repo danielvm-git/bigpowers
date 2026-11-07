@@ -39,6 +39,12 @@ else
   run_with_timeout() { bash -c "$1" </dev/null 2>&1; }
 fi
 
+# Set for every child: a verify that re-enters this gate (even via a wrapper) is refused.
+if [ -n "${BP_STORY_VERIFY_ACTIVE:-}" ]; then
+  echo "FAIL: run-story-verify.sh re-entered from inside a story verify (recursion refused)" >&2
+  exit 1
+fi
+export BP_STORY_VERIFY_ACTIVE=1
 GATED_STATUS="done"
 PASS=0; FAIL=0; SKIP=0
 TARGET="${1:-}"
@@ -64,7 +70,7 @@ reject_non_executable() {
 run_story_verify() {
   local sid="$1" src="$2" cmd="$3"
 
-  if [[ "$cmd" == *run-story-verify.sh* ]]; then
+  if [[ "$cmd" =~ (bash|sh|source|\.)[[:space:]]+[^[:space:]]*run-story-verify\.sh ]]; then
     echo "FAIL: $sid [$src] — self-referential verify (would recurse): $cmd"
     FAIL=$((FAIL + 1))
     return 1

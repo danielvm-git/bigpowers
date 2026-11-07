@@ -5,7 +5,7 @@
 set -euo pipefail
 source "$(dirname "${BASH_SOURCE[0]}")/lib/python-env.sh"
 ROOT="$(git rev-parse --show-toplevel 2>/dev/null)" || { echo "build-receipts: not inside a git repo" >&2; exit 1; }
-OUTFILE="$ROOT/specs/receipts.json"
+OUTFILE="${RECEIPTS_OUT:-$ROOT/specs/receipts.json}"
 TIMESTAMP="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
 receipts_emit_json() {
   $PYTHON -c "
@@ -64,26 +64,35 @@ if os.path.isfile(mf):
         stories = (yaml.safe_load(open(mf)) or {}).get('stories') or []
         st = {'measured':0,'estimated':0,'backfilled':0}
         te = 0.0; tb = 0; last = None
+        def parse_end(v):
+            d = datetime.datetime.fromisoformat(str(v).replace('Z','+00:00'))
+            return d if d.tzinfo else d.replace(tzinfo=datetime.timezone.utc)
+        last_dt = None
         for e in stories:
+            try:
+                mins = float(e.get('cycle_minutes') or 0); bc = int(e.get('bcps') or 0)
+            except (TypeError, ValueError):
+                print(f'build-receipts: skipping ledger row {e.get(\"id\")}: bad number', file=sys.stderr)
+                continue
             src = e.get('source')
             st['measured' if src == 'measured' else 'backfilled' if src == 'backfilled' else 'estimated'] += 1
-            te += float(e.get('cycle_minutes') or 0) / 60
-            tb += int(e.get('bcps') or 0)
-            end = str(e.get('end') or '')
-            if end and (last is None or end > last): last = end
-        n = len(stories)
+            te += mins / 60; tb += bc
+            try:
+                ed = parse_end(e.get('end'))
+                if last_dt is None or ed > last_dt: last_dt = ed
+            except (TypeError, ValueError):
+                pass
+        last = last_dt.isoformat() if last_dt else None
+        n = sum(st.values())
         if n == 0:
             sections['metrics'] = {'source':'absent','generated_at':'$TIMESTAMP','command':mcmd}
         else:
-            label = 'measured' if st['measured'] == n else 'mixed' if st['measured'] > 0 else 'estimated'
+            label = ('measured' if st['measured'] == n else 'mixed' if st['measured'] > 0 else
+                     'backfilled' if st['backfilled'] == n else 'estimated')
             stale_days = None; stale = True
             if last:
-                try:
-                    ld = datetime.datetime.fromisoformat(last.replace('Z','+00:00'))
-                    if ld.tzinfo is None: ld = ld.replace(tzinfo=datetime.timezone.utc)
-                    stale_days = (datetime.datetime.now(datetime.timezone.utc) - ld).days
-                    stale = stale_days > 30
-                except ValueError: pass
+                stale_days = (datetime.datetime.now(datetime.timezone.utc) - last_dt).days
+                stale = stale_days > 30
             if stale: print(f'build-receipts: WARNING cycle-time ledger is stale (last entry {last})', file=sys.stderr)
             sections['metrics'] = {'value':{'story_count':n,'total_effort_hours':round(te,1),'total_bcps':tb,'source_breakdown':st,'last_entry':last,'stale_days':stale_days,'stale':stale},'generated_at':'$TIMESTAMP','source':label,'command':mcmd}
     except Exception as e:
