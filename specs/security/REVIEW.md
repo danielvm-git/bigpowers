@@ -1,6 +1,6 @@
 # Security Review — epic e83 "Truth in the Cockpit"
 
-Branch `danielvm-git/epic-build-end-to-end-0a32fb` vs `main` (15 commits).
+Branch `danielvm-git/epic-build-end-to-end-0a32fb` vs `main` (18 commits).
 Reviewed: `git diff origin/main...HEAD`, excluding generated adapter copies
 (`.cursor/rules`, `.gemini/extensions`, `.pi`, `specs/codebase-wiki`,
 `specs/traceability-matrix.json`) which are renders of reviewed sources.

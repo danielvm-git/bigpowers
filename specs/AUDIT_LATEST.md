@@ -1,6 +1,6 @@
 # Audit Code — danielvm-git/epic-build-end-to-end-0a32fb (epic e83)
 
-Target: `git diff origin/main...HEAD` (15 commits — the 13 e83 story commits plus the
+Target: `git diff origin/main...HEAD` (18 commits — the 13 e83 story commits plus the
 two `sync-post.sh` drift fixes landed while releasing).
 Generated adapters (`.cursor/`, `.gemini/`, `.pi/`, `specs/codebase-wiki/`,
 `specs/traceability-matrix.json`) are renders and are not reviewed line by line.
@@ -60,7 +60,7 @@ Generated adapters (`.cursor/`, `.gemini/`, `.pi/`, `specs/codebase-wiki/`,
 
 ## CONVENTIONS.md Compliance
 
-- ✓ Conventional Commits on all 15 commits.
+- ✓ Conventional Commits on all 18 commits.
 - ✓ No `Co-authored-by` / AI attribution footer in any commit body (P1).
 - ✓ Story tags present as `#` comments in file headers (`sync-post.sh`, `verify-e83.sh`,
   `check-spec-version-gap.sh`, `bin/bigpowers.js`, `run-story-verify.sh`), not as
