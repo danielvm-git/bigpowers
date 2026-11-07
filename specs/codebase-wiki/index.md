@@ -1,6 +1,6 @@
 ---
 type: Index
-generated_at: 2026-11-07T21:32:53.620130+00:00
+generated_at: 2026-11-07T21:35:57.471508+00:00
 total_concepts: 171
 ---
 
@@ -69,9 +69,9 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e45s41](./e45s41.md) | security-review: proven authorship SQL-safety doctrine | high | 18 |
 | [e48s01](./e48s01.md) | Generate epics-wiki and adr-wiki as OKF concept bundles from | high | 38 |
 | [e48s02](./e48s02.md) | Emit verification reports as OKF bundles from run-golden-sui | medium | 35 |
-| [e48s03](./e48s03.md) | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | high | 260 |
+| [e48s03](./e48s03.md) | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | high | 263 |
 | [e48s04](./e48s04.md) | Create viz.html — interactive force-layout graph companion f | medium | 12 |
-| [e48s05](./e48s05.md) | Wire OKF validation into CI (sync-skills.yml) and document i | medium | 245 |
+| [e48s05](./e48s05.md) | Wire OKF validation into CI (sync-skills.yml) and document i | medium | 247 |
 | [e48s06](./e48s06.md) | Add tier: field (core/extended/specialized) to OKF wiki inde | medium | 15 |
 | [e48s07](./e48s07.md) | Create publish-to-wiki kernel tool | high | 2 |
 | [e48s08](./e48s08.md) | Add GitHub Action Template for publish-wiki.yml [HARD GATE] | high | 8 |
@@ -95,11 +95,11 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e51s01](./e51s01.md) | CONVENTIONS — Always Green, Shift Left, Discovered Defects,  | high | 8 |
 | [e51s02](./e51s02.md) | seed-conventions — Preflight default, solo-git default, embe | high | 42 |
 | [e51s03](./e51s03.md) | kickoff-branch + verify-work — Preflight hard block and CI g | high | 71 |
-| [e51s04](./e51s04.md) | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | high | 327 |
+| [e51s04](./e51s04.md) | audit-code, develop-tdd, quick-fix, fix-bug — fix-or-log rou | high | 329 |
 | [e51s05](./e51s05.md) | CLAUDE.md — solo-default agent rules + bigpowers Preflight c | high | 9 |
 | [e53s01](./e53s01.md) | Commit the untracked GOLDEN baseline | high | 12 |
 | [e53s02](./e53s02.md) | Build the tombstone-alias mechanism | high | 8 |
-| [e53s03](./e53s03.md) | Gate-trace the compliance-to-GOLDEN hard-gate coupling | high | 62 |
+| [e53s03](./e53s03.md) | Gate-trace the compliance-to-GOLDEN hard-gate coupling | high | 64 |
 | [e53s04](./e53s04.md) | Adopt docs/TARGET-ARCHITECTURE.md as the migration's north-s | high | 3 |
 | [e54s01](./e54s01.md) | Snapshot the current skill catalog as an immutable baseline | high | 11 |
 | [e54s02](./e54s02.md) | Add a soft drift-detection gate for the freeze window | high | 15 |
@@ -165,7 +165,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e83s02](./e83s02.md) | bigpowers status counts only bigpowers-owned skills | high | 18 |
 | [e83s03](./e83s03.md) | Receipts read the cycle-time ledger and label sources honest | high | 43 |
 | [e83s04](./e83s04.md) | VISION refreshed and catalog-freeze breaks resolved | high | 10 |
-| [e83s05](./e83s05.md) | Investigate spec-version-gap blocked with no active flow | high | 5 |
+| [e83s05](./e83s05.md) | Investigate spec-version-gap blocked with no active flow | high | 6 |
 | [e84s01](./e84s01.md) | AGENTS.md is the canonical instruction file in this repo | high | 12 |
 | [e84s02](./e84s02.md) | seed-conventions writes AGENTS.md-first by default | medium | 8 |
 | [e85s01](./e85s01.md) | Count the 10 functional dimensions with worked-example self- | high | 6 |
@@ -178,6 +178,6 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e87s01](./e87s01.md) | Opt-in agent review on every PR | high | 3 |
 | [e87s02](./e87s02.md) | Failed CI builds get an agent triage note | low | 1 |
 | [e87s03](./e87s03.md) | deploy gains a rehearsed rollback and risk-tier autonomy | medium | 4 |
-| [e88s01](./e88s01.md) | Control bands on the daily cron open a BUG spec | high | 17 |
+| [e88s01](./e88s01.md) | Control bands on the daily cron open a BUG spec | high | 20 |
 | [e88s02](./e88s02.md) | Weekly deterministic security scan opens BUG specs | medium | 5 |
 | [e88s03](./e88s03.md) | Breaches and weekly scans get a read-only agent diagnosis | medium | 9 |
