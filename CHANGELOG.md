@@ -1,3 +1,10 @@
+## [2.95.1](https://github.com/danielvm-git/bigpowers/compare/v2.95.0...v2.95.1) (2026-11-08)
+
+
+### Bug Fixes
+
+* **ci:** scope the agent-locks token and smoke-test the Pages deploy ([#235](https://github.com/danielvm-git/bigpowers/issues/235)) ([bfa8a27](https://github.com/danielvm-git/bigpowers/commit/bfa8a276854e5fb9e1e4120fadc8571ab664ec11))
+
 # [2.95.0](https://github.com/danielvm-git/bigpowers/compare/v2.94.2...v2.95.0) (2026-11-07)
 
 
