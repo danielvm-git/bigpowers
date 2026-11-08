@@ -1,6 +1,11 @@
 # story: e39s02
 name: Agent Locks Validation
 
+# Workflow-level token scope: the audit requires an explicit permissions block
+# here, not only on the job, so the default token is never broad.
+permissions:
+  contents: read
+
 concurrency:
   group: agent-locks-${{ github.ref }}
   cancel-in-progress: true
@@ -23,8 +28,6 @@ jobs:
   stale-check:
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    permissions:
-      contents: read
 
     steps:
       - uses: actions/checkout@v6

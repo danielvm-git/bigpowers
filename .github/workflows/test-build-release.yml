@@ -332,3 +332,23 @@ jobs:
             echo "::error::GitHub Pages deployment failed after 3 attempts"
             exit 1
           fi
+
+      # The outcomes above only prove the action returned; fetch the live site so
+      # a broken deploy is caught here rather than by a visitor. GH_TOKEN is used
+      # to read the Pages build status through the API.
+      - name: Smoke test the deployed site
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SITE_URL: https://danielvm-git.github.io/bigpowers/
+        run: |
+          for attempt in 1 2 3 4 5; do
+            if curl -sfS --max-time 20 -o /dev/null "$SITE_URL"; then
+              echo "Smoke test OK: $SITE_URL responded"
+              gh api "/repos/${GITHUB_REPOSITORY}/pages" --jq '.status' || true
+              exit 0
+            fi
+            echo "attempt $attempt: $SITE_URL not ready; retrying in 10s"
+            sleep 10
+          done
+          echo "::error::Smoke test failed: $SITE_URL did not respond"
+          exit 1
