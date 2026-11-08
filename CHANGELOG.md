@@ -1,3 +1,10 @@
+# [2.96.0](https://github.com/danielvm-git/bigpowers/compare/v2.95.2...v2.96.0) (2026-11-08)
+
+
+### Features
+
+* **dashboard:** CPS manager cockpit with live spec watching (supersedes [#204](https://github.com/danielvm-git/bigpowers/issues/204)) ([#238](https://github.com/danielvm-git/bigpowers/issues/238)) ([792ac3c](https://github.com/danielvm-git/bigpowers/commit/792ac3c5deac26beaefc94baaaf9b8ae49c2d311))
+
 ## [2.95.2](https://github.com/danielvm-git/bigpowers/compare/v2.95.1...v2.95.2) (2026-11-08)
 
 

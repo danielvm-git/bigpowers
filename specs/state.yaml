@@ -2,7 +2,7 @@ active_flow: null
 active_epic: null
 active_story: null
 bug_id: null
-bigpowers_version: 2.95.2
+bigpowers_version: 2.96.0
 bug_cycle: null
 handoff:
   next_skill: survey-context
@@ -87,7 +87,7 @@ release:
   ci_verified: true
   last_commit: 2be64ecc
   last_epic: e79-simple-english-skill
-  last_tag: v2.95.2
+  last_tag: v2.96.0
   last_publish: '2026-11-04T01:52:15Z'
 git:
   branch: main
