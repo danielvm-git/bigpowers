@@ -1,0 +1,134 @@
+# story: e38s03 BUG-2026-10-25-pages-not-gated
+# v3 CI/CD pair: test-build-release.yml runs every gate, and this file deploys.
+# The workflow_run trigger is the gate — deploy starts only after a *successful*
+# pipeline run on main, so a red gate can never publish (BUG-2026-10-25-pages-not-gated).
+# Keep the upstream workflow's `name:` exactly "Test Build Release" or this never fires.
+name: Deploy
+
+on:
+  workflow_run:
+    workflows: ["Test Build Release"]
+    types: [completed]
+  # Manual redeploy of whatever is on main.
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+# Queue, never interrupt a live Pages deploy (portfolio rule 4).
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: >
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.workflow_run.conclusion == 'success' &&
+       github.event.workflow_run.head_branch == 'main')
+    runs-on: ubuntu-22.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0  # v7.0.0
+        with:
+          # workflow_run does not check out the triggering commit by default.
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e  # v6.4.0
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: website/package-lock.json
+
+      - name: Generate receipts
+        run: bash scripts/build-receipts.sh
+
+      - name: Verify receipts.json
+        run: |
+          if [ ! -f specs/receipts.json ]; then
+            echo "ERROR: receipts.json not generated"; exit 1
+          fi
+          python3 -c "import json; json.load(open('specs/receipts.json')); print('receipts.json: valid JSON')"
+
+      - name: Build docs site
+        run: |
+          cd website
+          npm ci
+          npm run build
+
+      - uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d  # v6.0.0
+        with:
+          enablement: true
+
+      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9  # v5.0.0
+        with:
+          path: website/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-22.04
+    timeout-minutes: 15
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy_attempt_1.outputs.page_url || steps.deploy_attempt_2.outputs.page_url || steps.deploy_attempt_3.outputs.page_url || 'https://danielvm-git.github.io/bigpowers/' }}
+    steps:
+      - name: Deploy to GitHub Pages (attempt 1)
+        id: deploy_attempt_1
+        uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128  # v5.0.0
+        continue-on-error: true
+
+      - name: Wait before deploy retry
+        if: steps.deploy_attempt_1.outcome == 'failure'
+        run: sleep 45
+
+      - name: Deploy to GitHub Pages (attempt 2)
+        id: deploy_attempt_2
+        if: steps.deploy_attempt_1.outcome == 'failure'
+        uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128  # v5.0.0
+        continue-on-error: true
+
+      - name: Wait before final deploy retry
+        if: steps.deploy_attempt_1.outcome == 'failure' && steps.deploy_attempt_2.outcome == 'failure'
+        run: sleep 45
+
+      - name: Deploy to GitHub Pages (attempt 3)
+        id: deploy_attempt_3
+        if: steps.deploy_attempt_1.outcome == 'failure' && steps.deploy_attempt_2.outcome == 'failure'
+        uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128  # v5.0.0
+        continue-on-error: true
+
+      - name: Verify deployment succeeded
+        run: |
+          if [ "${{ steps.deploy_attempt_1.outcome }}" = "success" ] || \
+             [ "${{ steps.deploy_attempt_2.outcome }}" = "success" ] || \
+             [ "${{ steps.deploy_attempt_3.outcome }}" = "success" ]; then
+            echo "GitHub Pages deployment succeeded"
+          else
+            echo "::error::GitHub Pages deployment failed after 3 attempts"
+            exit 1
+          fi
+
+      # The outcomes above only prove the action returned; fetch the live site so
+      # a broken deploy is caught here rather than by a visitor. GH_TOKEN is used
+      # to read the Pages build status through the API.
+      - name: Smoke test the deployed site
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SITE_URL: https://danielvm-git.github.io/bigpowers/
+        run: |
+          for attempt in 1 2 3 4 5; do
+            if curl -sfS --max-time 20 -o /dev/null "$SITE_URL"; then
+              echo "Smoke test OK: $SITE_URL responded"
+              gh api "/repos/${GITHUB_REPOSITORY}/pages" --jq '.status' || true
+              exit 0
+            fi
+            echo "attempt $attempt: $SITE_URL not ready; retrying in 10s"
+            sleep 10
+          done
+          echo "::error::Smoke test failed: $SITE_URL did not respond"
+          exit 1
