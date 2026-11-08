@@ -109,6 +109,8 @@ GOLDEN_GATES=(
   "render-targets-not-discoverable:bash tests/test-render-targets-not-discoverable.sh:false"
   # Guard-git judges git argv, not substrings; shell and TS must agree (#184).
   "guard-git-normalize:bash scripts/test-guard-git-normalize.sh:false"
+  # Guard reads branch from session cwd, not hook process cwd.
+  "guard-session-cwd:bash scripts/test-guard-session-cwd.sh:false"
   "specs-parse:bash scripts/validate-specs-yaml.sh:false"
   # CI's sync job validates OKF bundles in six specs/ dirs; the local gate set did
   # not, so a green Preflight coexisted with a red CI sync job (e83s03, source
