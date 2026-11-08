@@ -1,3 +1,10 @@
+## [2.95.2](https://github.com/danielvm-git/bigpowers/compare/v2.95.1...v2.95.2) (2026-11-08)
+
+
+### Bug Fixes
+
+* **hooks:** read protected-branch check from session cwd ([#237](https://github.com/danielvm-git/bigpowers/issues/237)) ([fe3fa3b](https://github.com/danielvm-git/bigpowers/commit/fe3fa3b3e673059f8a50882ef764b33cb327d1cf))
+
 ## [2.95.1](https://github.com/danielvm-git/bigpowers/compare/v2.95.0...v2.95.1) (2026-11-08)
 
 
