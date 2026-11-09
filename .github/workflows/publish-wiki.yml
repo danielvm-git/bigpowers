@@ -9,6 +9,11 @@ on:
 permissions:
   contents: read
 
+# One publish at a time per ref; a newer commit supersedes an older publish.
+concurrency:
+  group: publish-wiki-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   publish:
     runs-on: ubuntu-22.04

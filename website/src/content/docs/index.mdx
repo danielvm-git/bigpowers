@@ -14,6 +14,7 @@ hero:
       variant: minimal
 ---
 
+[![Test Build Release](https://github.com/danielvm-git/bigpowers/actions/workflows/test-build-release.yml/badge.svg)](https://github.com/danielvm-git/bigpowers/actions/workflows/test-build-release.yml)
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 ![npm version](https://img.shields.io/npm/v/bigpowers.svg)
 ![Skills](https://img.shields.io/badge/skills-80-brightgreen.svg)
@@ -33,6 +34,22 @@ Docs: [bigpowers docs site](https://danielvm-git.github.io/bigpowers/) — searc
 **See it working:** [bigpowers-showcase](https://github.com/danielvm-git/bigpowers-showcase) — a real URL shortener (CLI + SQLite) built from scratch with the full spec trail committed from day one.
 
 ---
+
+## Build status
+
+[![Test Build Release](https://github.com/danielvm-git/bigpowers/actions/workflows/test-build-release.yml/badge.svg)](https://github.com/danielvm-git/bigpowers/actions/workflows/test-build-release.yml)
+
+Every gate (compliance, the deterministic golden suite, skill verify, story verify) runs in
+one pipeline; release and the Pages deploy start only after that pipeline succeeds on `main`.
+
+## Tech stack
+
+| Layer | What it uses |
+|---|---|
+| Content | Markdown skills (`skills/*/SKILL.md`), YAML specs (`specs/`) |
+| Tooling | Bash scripts, Node.js 22, Python 3 (YAML/JSON tooling) |
+| Distribution | npm package, Agent Skills renders, MCP server |
+| CI/CD | GitHub Actions — gates → release → Pages, one pipeline |
 
 ## 🗺 How to Read This README
 
@@ -361,6 +378,21 @@ npm install
 # Sync artifacts from SKILL.md sources
 npm run sync
 ```
+
+### Preflight
+
+One command runs every gate before you push — compliance, the deterministic golden
+suite, skill sync, and the strict traceability check:
+
+```bash
+npm run compliance \
+  && bash scripts/run-verification-gates.sh \
+  && bash scripts/sync-skills.sh \
+  && bash scripts/trace-stories.sh --strict
+```
+
+Preflight is the gate, not a suggestion: a red Preflight means forward work stops
+until it is green or the defect is logged (see `CONVENTIONS.md` § Always Green).
 
 ### Tests
 
