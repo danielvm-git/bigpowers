@@ -1,5 +1,6 @@
 # bigpowers — Best-in-Class Agentic Skills
 
+[![Test Build Release](https://github.com/danielvm-git/bigpowers/actions/workflows/test-build-release.yml/badge.svg)](https://github.com/danielvm-git/bigpowers/actions/workflows/test-build-release.yml)
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 ![npm version](https://img.shields.io/npm/v/bigpowers.svg)
 ![Skills](https://img.shields.io/badge/skills-80-brightgreen.svg)
@@ -19,6 +20,22 @@ Docs: [bigpowers docs site](https://danielvm-git.github.io/bigpowers/) — searc
 **See it working:** [bigpowers-showcase](https://github.com/danielvm-git/bigpowers-showcase) — a real URL shortener (CLI + SQLite) built from scratch with the full spec trail committed from day one.
 
 ---
+
+## Build status
+
+[![Test Build Release](https://github.com/danielvm-git/bigpowers/actions/workflows/test-build-release.yml/badge.svg)](https://github.com/danielvm-git/bigpowers/actions/workflows/test-build-release.yml)
+
+Every gate (compliance, the deterministic golden suite, skill verify, story verify) runs in
+one pipeline; release and the Pages deploy start only after that pipeline succeeds on `main`.
+
+## Tech stack
+
+| Layer | What it uses |
+|---|---|
+| Content | Markdown skills (`skills/*/SKILL.md`), YAML specs (`specs/`) |
+| Tooling | Bash scripts, Node.js 22, Python 3 (YAML/JSON tooling) |
+| Distribution | npm package, Agent Skills renders, MCP server |
+| CI/CD | GitHub Actions — gates → release → Pages, one pipeline |
 
 ## 🗺 How to Read This README
 
