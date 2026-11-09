@@ -348,6 +348,21 @@ npm install
 npm run sync
 ```
 
+### Preflight
+
+One command runs every gate before you push — compliance, the deterministic golden
+suite, skill sync, and the strict traceability check:
+
+```bash
+npm run compliance \
+  && bash scripts/run-verification-gates.sh \
+  && bash scripts/sync-skills.sh \
+  && bash scripts/trace-stories.sh --strict
+```
+
+Preflight is the gate, not a suggestion: a red Preflight means forward work stops
+until it is green or the defect is logged (see `CONVENTIONS.md` § Always Green).
+
 ### Tests
 
 ```bash
