@@ -116,6 +116,10 @@ GOLDEN_GATES=(
   # not, so a green Preflight coexisted with a red CI sync job (e83s03, source
   # "mixed" in receipts.json). Keep both lists identical.
   "okf-bundles:bash tests/test-okf-bundles.sh:false"
+  # P1: hooks and land-branch.sh block AI attribution, but neither runs when a PR
+  # is merged with `gh pr merge`, so the rule was enforced only on the solo-local
+  # path. This gate covers the commits a change introduces.
+  "no-ai-coauthors:bash tests/test-no-ai-coauthors.sh:false"
   # The runner itself: failing output is shown, skips are named and reasoned.
   "golden-gate-runner:bash scripts/test-golden-gate-runner.sh:false"
   # Pipefail SIGPIPE races: fix shapes hold, git output never feeds grep -q/head.
