@@ -1,3 +1,10 @@
+## [2.96.1](https://github.com/danielvm-git/bigpowers/compare/v2.96.0...v2.96.1) (2026-11-09)
+
+
+### Bug Fixes
+
+* **ci:** resolve the eight Grimoire findings (7 fixed, 3 partially) ([#239](https://github.com/danielvm-git/bigpowers/issues/239)) ([765670f](https://github.com/danielvm-git/bigpowers/commit/765670fb1ae3286132916fafb23fd7a07d18636b)), closes [#aw](https://github.com/danielvm-git/bigpowers/issues/aw) [#aw](https://github.com/danielvm-git/bigpowers/issues/aw)
+
 # [2.96.0](https://github.com/danielvm-git/bigpowers/compare/v2.95.2...v2.96.0) (2026-11-08)
 
 
