@@ -72,7 +72,7 @@ const TOOLS = [
   { id: 'zcode', name: 'ZCode', globalPath: '~/.zcode', localPath: '.zcode' },
 ];
 const SUPPORTED_IDS = new Set(['claude', 'gemini', 'pi', 'hermes', 'mimo', 'zcode', 'cursor', 'codex', 'antigravity', 'agy', 'qwen', 'codebuddy', 'cline', 'kilo', 'trae', 'windsurf', 'opencode', 'copilot']);
-const UNSUPPORTED_HINT = '(TODO)';
+const UNSUPPORTED_HINT = '(unsupported)';
 
 // ── clack helpers (lazy ESM import from CJS) ─────────────────────────────────
 let _clack;
@@ -234,12 +234,12 @@ async function main() {
     process.exit(0);
   }
 
-  // Filter out TODO tools — they can't be installed yet
+  // Filter out unsupported tools — they can't be installed yet
   const selectedTools = selectedToolIds.filter((id) => SUPPORTED_IDS.has(id));
   const todoSkipped = selectedToolIds.filter((id) => !SUPPORTED_IDS.has(id));
   if (todoSkipped.length > 0) {
     const names = todoSkipped.map((id) => TOOLS.find((t) => t.id === id)?.name || id);
-    console.log(`\n  ${c.dim('TODO (not yet implemented):')} ${names.join(', ')}`);
+    console.log(`\n  ${c.dim('Not yet supported:')} ${names.join(', ')}`);
   }
   if (selectedTools.length === 0) {
     console.log(`\n  ${c.red('No supported tools selected.')}`);
