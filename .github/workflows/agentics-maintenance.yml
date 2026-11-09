@@ -86,6 +86,11 @@ on:
 
 permissions: {}
 
+# One maintenance pass at a time; a newer schedule supersedes a stale one.
+concurrency:
+  group: agentic-maintenance-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   close-expired-entities:
     if: ${{ (!(github.event.repository.fork)) && github.event_name != 'push' && (github.event_name != 'workflow_dispatch' && github.event_name != 'workflow_call' || inputs.operation == '') }}
