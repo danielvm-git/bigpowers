@@ -36,27 +36,24 @@ jobs:
           ref: ${{ github.event.workflow_run.head_sha || github.sha }}
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e  # v6.4.0
+      # Reuse, never rebuild: the site was compiled once in the pipeline
+      # (CI/CD audit rules 3g/4a). deploy-pages needs the artifact in its own run,
+      # so download the built dist/ and re-upload it as the Pages artifact.
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c  # v8.0.1
         with:
-          node-version: '22'
-          cache: npm
-          cache-dependency-path: website/package-lock.json
+          name: site-dist
+          path: site-dist
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: ${{ github.event.workflow_run.id || github.run_id }}
 
-      - name: Generate receipts
-        run: bash scripts/build-receipts.sh
-
-      - name: Verify receipts.json
+      - name: Verify the downloaded artifact is a built site
         run: |
-          if [ ! -f specs/receipts.json ]; then
-            echo "ERROR: receipts.json not generated"; exit 1
+          if [ ! -f site-dist/index.html ]; then
+            echo "ERROR: site-dist/index.html missing — the pipeline build artifact was not reused"
+            ls -la site-dist || true
+            exit 1
           fi
-          python3 -c "import json; json.load(open('specs/receipts.json')); print('receipts.json: valid JSON')"
-
-      - name: Build docs site
-        run: |
-          cd website
-          npm ci
-          npm run build
+          echo "artifact OK: $(find site-dist -type f | wc -l | tr -d ' ') files"
 
       - uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d  # v6.0.0
         with:
@@ -64,7 +61,7 @@ jobs:
 
       - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9  # v5.0.0
         with:
-          path: website/dist
+          path: site-dist
 
   deploy:
     needs: build

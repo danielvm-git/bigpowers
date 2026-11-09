@@ -210,6 +210,52 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-  # Pages build and deploy moved to deploy.yml (the v3 CI/CD pair): that workflow
+  # The site is built ONCE here and the artifact is reused by deploy.yml, so the
+  # deploy never rebuilds (CI/CD audit rules 3g/4a). deploy-pages needs the
+  # github-pages artifact in its own run, so deploy.yml re-uploads the downloaded
+  # dist/ rather than compiling it a second time.
+  pages-build:
+    needs: [sync, verification-gates, skill-verify, story-verify]
+    if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-22.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0  # v7.0.0
+
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e  # v6.4.0
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: website/package-lock.json
+
+      - name: Generate receipts
+        run: bash scripts/build-receipts.sh
+
+      - name: Verify receipts.json
+        run: |
+          if [ ! -f specs/receipts.json ]; then
+            echo "ERROR: receipts.json not generated"; exit 1
+          fi
+          python3 -c "import json; json.load(open('specs/receipts.json')); print('receipts.json: valid JSON')"
+
+      # configure-pages exports the base path the build needs for GitHub Pages.
+      - uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d  # v6.0.0
+        with:
+          enablement: true
+
+      - name: Build docs site
+        run: |
+          cd website
+          npm ci
+          npm run build
+
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
+        with:
+          name: site-dist
+          path: website/dist
+          retention-days: 7
+
+  # Pages deploy lives in deploy.yml (the v3 CI/CD pair); it is triggered by
+  # workflow_run on this pipeline and reuses the site-dist artifact built above.
   # is gated by the workflow_run trigger on this pipeline, so a red gate still
   # cannot publish, and this file no longer mixes delivery concerns with gates.
