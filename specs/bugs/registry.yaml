@@ -941,3 +941,9 @@ bugs:
     approach: "Name the trigger in the JSON so the cause of the block is visible; keep the block semantics"
     risk_level: "low"
     commit_message: "fix(tooling): name the ACTIVE_WORK trigger in check-spec-version-gap (e83s05)"
+  - id: BUG-2026-11-26-agy-plugin-install
+    status: resolved
+    severity: high
+    scope: installer
+    title: "Antigravity global installer targets undiscoverable ~/.gemini/antigravity-cli/skills instead of ~/.gemini/config/plugins/bigpowers"
+    file: bugs/BUG-2026-11-26-agy-plugin-install.md

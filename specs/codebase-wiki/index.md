@@ -1,6 +1,6 @@
 ---
 type: Index
-generated_at: 2026-11-09T17:09:59.211741+00:00
+generated_at: 2026-11-26T14:04:30.485960+00:00
 total_concepts: 171
 ---
 
@@ -69,15 +69,15 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e45s41](./e45s41.md) | security-review: proven authorship SQL-safety doctrine | high | 18 |
 | [e48s01](./e48s01.md) | Generate epics-wiki and adr-wiki as OKF concept bundles from | high | 39 |
 | [e48s02](./e48s02.md) | Emit verification reports as OKF bundles from run-golden-sui | medium | 36 |
-| [e48s03](./e48s03.md) | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | high | 264 |
+| [e48s03](./e48s03.md) | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | high | 266 |
 | [e48s04](./e48s04.md) | Create viz.html — interactive force-layout graph companion f | medium | 12 |
-| [e48s05](./e48s05.md) | Wire OKF validation into CI (sync-skills.yml) and document i | medium | 248 |
+| [e48s05](./e48s05.md) | Wire OKF validation into CI (sync-skills.yml) and document i | medium | 249 |
 | [e48s06](./e48s06.md) | Add tier: field (core/extended/specialized) to OKF wiki inde | medium | 15 |
 | [e48s07](./e48s07.md) | Create publish-to-wiki kernel tool | high | 2 |
 | [e48s08](./e48s08.md) | Add GitHub Action Template for publish-wiki.yml [HARD GATE] | high | 8 |
 | [e48s09](./e48s09.md) | Create Wiki Scaffold Templates and provenance header injecti | medium | 2 |
 | [e48s10](./e48s10.md) | Extend bigspec init with --with-wiki flag | medium | 15 |
-| [e48s11](./e48s11.md) | BCP Plus counter integration — install and smoke-test big-co | medium | 35 |
+| [e48s11](./e48s11.md) | BCP Plus counter integration — install and smoke-test big-co | medium | 36 |
 | [e48s12](./e48s12.md) | BCP Plus template — 13-dimension breakdown in story specs | high | 9 |
 | [e48s13](./e48s13.md) | NFR Gate integration — security-review and wire-observabilit | high | 19 |
 | [e48s14](./e48s14.md) | Build-epic integration — BCP Plus in story sizing workflow | high | 14 |

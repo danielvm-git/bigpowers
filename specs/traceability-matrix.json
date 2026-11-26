@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-09T17:09:59.193740+00:00",
+  "generated_at": "2026-11-26T14:04:30.472516+00:00",
   "matrix_version": "1.0",
   "stories": [
     {
@@ -11406,6 +11406,18 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-11-26-agy-plugin-install.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
+          "file": "specs/bugs/BUG-2026-11-26-agy-plugin-install.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/epics/archive/e26-security-review/e26s07-fix-bug-integration.md",
           "line": 0,
           "confidence": "medium",
@@ -11472,7 +11484,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 264
+      "link_count": 266
     },
     {
       "id": "e48s04",
@@ -12402,6 +12414,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "specs/bugs/BUG-2026-11-26-agy-plugin-install.okf.md",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/epics-wiki/e01.okf.md",
           "line": 0,
           "confidence": "medium",
@@ -13056,7 +13074,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 248
+      "link_count": 249
     },
     {
       "id": "e48s06",
@@ -13566,6 +13584,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "tests/test-agy-plugin-install.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "tests/test-install-manifest.sh",
           "line": 0,
           "confidence": "medium",
@@ -13590,7 +13614,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 35
+      "link_count": 36
     },
     {
       "id": "e48s12",
@@ -20443,13 +20467,13 @@
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 376,
+          "line": 380,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 716,
+          "line": 721,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -20857,7 +20881,7 @@
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 670,
+          "line": 675,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -20995,13 +21019,13 @@
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 303,
+          "line": 307,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 683,
+          "line": 688,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -21139,13 +21163,13 @@
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 323,
+          "line": 327,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 694,
+          "line": 699,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -21301,13 +21325,13 @@
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 283,
+          "line": 287,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 675,
+          "line": 680,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -21619,13 +21643,13 @@
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 340,
+          "line": 344,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 700,
+          "line": 705,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -21757,13 +21781,13 @@
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 385,
+          "line": 389,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 720,
+          "line": 725,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -21901,13 +21925,13 @@
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 300,
+          "line": 304,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 680,
+          "line": 685,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -22045,13 +22069,13 @@
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 367,
+          "line": 371,
           "confidence": "high",
           "method": "explicit_tag"
         },
         {
           "file": "scripts/lib/install-helpers.js",
-          "line": 711,
+          "line": 716,
           "confidence": "high",
           "method": "explicit_tag"
         },
@@ -26546,7 +26570,7 @@
     "stale_count": 138,
     "oracle_stats": {
       "high": 969,
-      "medium": 2941,
+      "medium": 2945,
       "low": 119
     }
   }

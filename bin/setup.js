@@ -53,7 +53,7 @@ ${c.cyan('╚══════════════════════�
 // ── Tool definitions ─────────────────────────────────────────────────────────
 const TOOLS = [
   { id: 'claude', name: 'Claude Code', globalPath: '~/.claude', localPath: '.claude' },
-  { id: 'antigravity', name: 'Antigravity', globalPath: '~/.gemini/antigravity-cli/skills', localPath: '.agents/skills' },
+  { id: 'antigravity', name: 'Antigravity', globalPath: '~/.gemini/config/plugins/bigpowers', localPath: '.agents/skills' },
   { id: 'augment', name: 'Augment', globalPath: '~/.augment', localPath: '.augment' },
   { id: 'cline', name: 'Cline', globalPath: '.clinerules', localPath: '.clinerules' },
   { id: 'codebuddy', name: 'CodeBuddy', globalPath: '~/.codebuddy', localPath: '.codebuddy' },

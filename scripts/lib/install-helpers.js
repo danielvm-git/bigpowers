@@ -259,9 +259,13 @@ function installGlobal(tool, repoRoot) {
     }
     case 'antigravity':
     case 'agy': {
-      const renderedDir = path.join(repoRoot, '.bigpowers', 'rendered', 'antigravity', 'skills');
-      const targetDir = path.join(homeDir, '.gemini', 'antigravity-cli', 'skills');
-      linkRenderedSkills(renderedDir, targetDir);
+      // story: BUG-2026-11-26-agy-plugin-install
+      const pluginSrc = path.join(repoRoot, '.bigpowers', 'rendered', 'antigravity');
+      const pluginDst = path.join(homeDir, '.gemini', 'config', 'plugins', 'bigpowers');
+      fs.mkdirSync(path.dirname(pluginDst), { recursive: true });
+      linkDir(pluginSrc, pluginDst);
+      // Clean up legacy per-skill symlinks from the old undiscoverable CLI path.
+      removeManagedSkillLinks(path.join(homeDir, '.gemini', 'antigravity-cli', 'skills'), repoRoot);
       break;
     }
     case 'qwen':
@@ -627,6 +631,7 @@ function uninstallTool(toolId, repoRoot) {
     }
     case 'antigravity':
     case 'agy': {
+      removeSymlink(path.join(homeDir, '.gemini', 'config', 'plugins', 'bigpowers'));
       const skillsDir = path.join(homeDir, '.gemini', 'antigravity-cli', 'skills');
       if (fs.existsSync(skillsDir)) {
         for (const entry of fs.readdirSync(skillsDir, { withFileTypes: true })) {

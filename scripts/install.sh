@@ -22,7 +22,7 @@
 #   Hermes Agent → ~/.hermes/skills/<name>/ (symlink rendered .hermes/skills/)
 #   ZCode        → ~/.zcode/skills/<name>/ (symlink rendered .zcode/skills/)
 #   MiMo Code    → ~/.mimocode/skills/<name>/ (symlink rendered .mimocode/skills/)
-#   Antigravity  → ~/.gemini/antigravity-cli/skills/ (NOT .gemini/extensions/ — e64 Gemini)
+#   Antigravity  → ~/.gemini/config/plugins/bigpowers (native plugin; NOT .gemini/extensions/ — e64 Gemini)
 #   Cursor       → ~/.cursor/rules/ (one dir symlink; per-project note printed)
 #
 # Usage:
