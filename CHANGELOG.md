@@ -1,3 +1,123 @@
+## [2.96.2](https://github.com/danielvm-git/bigpowers/compare/v2.96.1...v2.96.2) (2026-11-26)
+
+
+### Bug Fixes
+
+* **install:** install Antigravity as global plugin in config/plugins ([#241](https://github.com/danielvm-git/bigpowers/issues/241)) ([d4331bc](https://github.com/danielvm-git/bigpowers/commit/d4331bc6bbb4f1913951b3fc87027c70d51d595b))
+
+## [2.96.1](https://github.com/danielvm-git/bigpowers/compare/v2.96.0...v2.96.1) (2026-11-09)
+
+
+### Bug Fixes
+
+* **ci:** resolve the eight Grimoire findings (7 fixed, 3 partially) ([#239](https://github.com/danielvm-git/bigpowers/issues/239)) ([765670f](https://github.com/danielvm-git/bigpowers/commit/765670fb1ae3286132916fafb23fd7a07d18636b)), closes [#aw](https://github.com/danielvm-git/bigpowers/issues/aw) [#aw](https://github.com/danielvm-git/bigpowers/issues/aw)
+
+# [2.96.0](https://github.com/danielvm-git/bigpowers/compare/v2.95.2...v2.96.0) (2026-11-08)
+
+
+### Features
+
+* **dashboard:** CPS manager cockpit with live spec watching (supersedes [#204](https://github.com/danielvm-git/bigpowers/issues/204)) ([#238](https://github.com/danielvm-git/bigpowers/issues/238)) ([792ac3c](https://github.com/danielvm-git/bigpowers/commit/792ac3c5deac26beaefc94baaaf9b8ae49c2d311))
+
+## [2.95.2](https://github.com/danielvm-git/bigpowers/compare/v2.95.1...v2.95.2) (2026-11-08)
+
+
+### Bug Fixes
+
+* **hooks:** read protected-branch check from session cwd ([#237](https://github.com/danielvm-git/bigpowers/issues/237)) ([fe3fa3b](https://github.com/danielvm-git/bigpowers/commit/fe3fa3b3e673059f8a50882ef764b33cb327d1cf))
+
+## [2.95.1](https://github.com/danielvm-git/bigpowers/compare/v2.95.0...v2.95.1) (2026-11-08)
+
+
+### Bug Fixes
+
+* **ci:** scope the agent-locks token and smoke-test the Pages deploy ([#235](https://github.com/danielvm-git/bigpowers/issues/235)) ([bfa8a27](https://github.com/danielvm-git/bigpowers/commit/bfa8a276854e5fb9e1e4120fadc8571ab664ec11))
+
+# [2.95.0](https://github.com/danielvm-git/bigpowers/compare/v2.94.2...v2.95.0) (2026-11-07)
+
+
+### Features
+
+* **e83:** truth in the cockpit — fix the drift the red team found ([#233](https://github.com/danielvm-git/bigpowers/issues/233)) ([2be64ec](https://github.com/danielvm-git/bigpowers/commit/2be64ecc763c8af7378ff1a0a808b0aea1c6072b)), closes [#194](https://github.com/danielvm-git/bigpowers/issues/194)
+
+## [2.94.2](https://github.com/danielvm-git/bigpowers/compare/v2.94.1...v2.94.2) (2026-11-06)
+
+
+### Bug Fixes
+
+* **install:** self-heal stale sibling installs; fix skill-count drift ([#232](https://github.com/danielvm-git/bigpowers/issues/232)) ([73960ed](https://github.com/danielvm-git/bigpowers/commit/73960ed09000da240ecb91fd7209c3b61c33bf41))
+
+## [2.94.1](https://github.com/danielvm-git/bigpowers/compare/v2.94.0...v2.94.1) (2026-11-06)
+
+
+### Bug Fixes
+
+* **guard-git:** segment push targets; scan all -m ([#229](https://github.com/danielvm-git/bigpowers/issues/229)) ([e72e2ad](https://github.com/danielvm-git/bigpowers/commit/e72e2ad70171c97e75a557212ccca8fd1139c6f3))
+* **trace:** index only git-tracked files and avoid other worktrees ([#203](https://github.com/danielvm-git/bigpowers/issues/203)) ([6becdc3](https://github.com/danielvm-git/bigpowers/commit/6becdc3cc02ed8999169bb97a2de11e2659fa5ca)), closes [#197](https://github.com/danielvm-git/bigpowers/issues/197)
+
+# [2.94.0](https://github.com/danielvm-git/bigpowers/compare/v2.93.8...v2.94.0) (2026-11-06)
+
+
+### Features
+
+* **dist:** verify-distribution reports duplicate install channels ([#226](https://github.com/danielvm-git/bigpowers/issues/226)) ([6a55a91](https://github.com/danielvm-git/bigpowers/commit/6a55a91da024887cdb4f084c2c4edb4ea0e5845f)), closes [#208](https://github.com/danielvm-git/bigpowers/issues/208)
+
+## [2.93.8](https://github.com/danielvm-git/bigpowers/compare/v2.93.7...v2.93.8) (2026-11-06)
+
+
+### Bug Fixes
+
+* **dist:** relocate Antigravity render out of pi discovery ([#225](https://github.com/danielvm-git/bigpowers/issues/225)) ([24bbbd9](https://github.com/danielvm-git/bigpowers/commit/24bbbd9435d3013037149baa32b4f5c721189639)), closes [#209](https://github.com/danielvm-git/bigpowers/issues/209)
+
+## [2.93.7](https://github.com/danielvm-git/bigpowers/compare/v2.93.6...v2.93.7) (2026-11-06)
+
+
+### Bug Fixes
+
+* **install:** manifest + resolved-path uninstall; pi project path .pi/skills ([#224](https://github.com/danielvm-git/bigpowers/issues/224)) ([6172b55](https://github.com/danielvm-git/bigpowers/commit/6172b559b55c95b4525be857224e70aa540097df)), closes [#219](https://github.com/danielvm-git/bigpowers/issues/219) [#220](https://github.com/danielvm-git/bigpowers/issues/220)
+
+## [2.93.6](https://github.com/danielvm-git/bigpowers/compare/v2.93.5...v2.93.6) (2026-11-06)
+
+
+### Bug Fixes
+
+* **dist:** ship bundled skill assets in rendered payloads ([#223](https://github.com/danielvm-git/bigpowers/issues/223)) ([7726939](https://github.com/danielvm-git/bigpowers/commit/7726939aebe31f19bbc7ae1f3368e9499f9b9911)), closes [#218](https://github.com/danielvm-git/bigpowers/issues/218)
+
+## [2.93.5](https://github.com/danielvm-git/bigpowers/compare/v2.93.4...v2.93.5) (2026-11-06)
+
+
+### Bug Fixes
+
+* **trace:** read story status from stories: and derive the strict floor ([#222](https://github.com/danielvm-git/bigpowers/issues/222)) ([3bec31c](https://github.com/danielvm-git/bigpowers/commit/3bec31c9a485d7ddb6af6455b9587d7157cebf2d))
+
+## [2.93.4](https://github.com/danielvm-git/bigpowers/compare/v2.93.3...v2.93.4) (2026-11-06)
+
+
+### Bug Fixes
+
+* **skills:** YAML comments for frontmatter story tags, and a gate that rejects what pi rejects ([#221](https://github.com/danielvm-git/bigpowers/issues/221)) ([28110b8](https://github.com/danielvm-git/bigpowers/commit/28110b815b331fe64a72b3648ff68114b7d86827)), closes [#173](https://github.com/danielvm-git/bigpowers/issues/173) [#207](https://github.com/danielvm-git/bigpowers/issues/207) [#173](https://github.com/danielvm-git/bigpowers/issues/173) [#207](https://github.com/danielvm-git/bigpowers/issues/207) [208-#212](https://github.com/208-/issues/212) [218-#220](https://github.com/218-/issues/220)
+
+## [2.93.3](https://github.com/danielvm-git/bigpowers/compare/v2.93.2...v2.93.3) (2026-11-04)
+
+
+### Bug Fixes
+
+* **specs:** gate epic status roll-up in G-12 and close e58/e82 ([#202](https://github.com/danielvm-git/bigpowers/issues/202)) ([87b1cd1](https://github.com/danielvm-git/bigpowers/commit/87b1cd12a2a71a046f59b6ed0d2517db636a1cce)), closes [#118](https://github.com/danielvm-git/bigpowers/issues/118)
+
+## [2.93.2](https://github.com/danielvm-git/bigpowers/compare/v2.93.1...v2.93.2) (2026-11-03)
+
+
+### Bug Fixes
+
+* **deps:** clear the production dependency advisories ([#200](https://github.com/danielvm-git/bigpowers/issues/200)) ([1ff6dea](https://github.com/danielvm-git/bigpowers/commit/1ff6dea73d7fdc06ebb3172839758f7a1be995c4))
+
+## [2.93.1](https://github.com/danielvm-git/bigpowers/compare/v2.93.0...v2.93.1) (2026-11-03)
+
+
+### Bug Fixes
+
+* **cli:** report the installed version after a self-update ([#198](https://github.com/danielvm-git/bigpowers/issues/198)) ([4a2d8d0](https://github.com/danielvm-git/bigpowers/commit/4a2d8d0131d593c83c86151f6c716d2bfae96498))
+
 # [2.93.0](https://github.com/danielvm-git/bigpowers/compare/v2.92.0...v2.93.0) (2026-11-03)
 
 

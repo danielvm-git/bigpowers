@@ -1,0 +1,362 @@
+# story: e49s01 e49s02 e49s03 e49s04 e49s05 e49s06 e49s07 e49s08 e49s09 e49s10
+id: e49
+title: Cockpit From the Data — Live in Every Project, No Build
+wsjf: 2.6
+bcps: 221
+capsule_dir: epics/e49-cockpit-from-data
+mode: capsule
+status: scoped
+sliced: '2026-11-03'
+wsjf_rationale: BV 8 + TC 6 + RR 7 / Job 8 ≈ 2.6
+source: >-
+  Today three cockpit surfaces (visual-dashboard, the dashboard/ package, an unmerged cps-cockpit) each
+  re-read the hand-maintained YAML, show contradicting sources side by side without flagging them, and
+  no gate asserts their numbers. The seventh-layer rules apply: every number answers a question and carries
+  a goal, nothing is retyped, and a metric not measured yet is declared PLANNED. One deterministic model,
+  computed live inside each project by the shipped visual-dashboard skill, feeds every view: a solo developer
+  runs `bigpowers cockpit` and never builds or runs Preflight to see fresh numbers. Prototype: https://claude.ai/artifact/2g8uM6Fhb2R6DMQoqDVL5Q.
+scope_ref: specs/product/SCOPE_LATEST.yaml fr-07 (YAML specs cockpit)
+related:
+- e83 fixes the drift that e49s03 and e49s04 detect
+- e85 recounts these BCP with the 13D procedure
+out_of_scope:
+- a committed or prebuilt cockpit.json — the model is computed on request
+- check-status CLI (not in this repository)
+- portfolio, margin or multi-project views
+- writing to specs/ from the cockpit — it stays read-only
+stories:
+- id: e49s01
+  title: Epic board e00–e99 computed per request from specs/ and git
+  status: todo
+  bcps: 29
+  bcp_13d:
+    dimensions:
+      D1_business_rules: 6
+      D2_interface_elements: 8
+      D3_boundaries: 1
+      D5_solution_variabilities: 1
+      D6_domain_entities: 3
+      D7_new_domain_entities: 5
+      D8_background_processes: 3
+      D11_quality_attributes: 2
+    cms: 4
+    counted_by: claude-opus-5-5 (planning session)
+    rubric: ciandt-oss/bcp-agent 13D rubric (src/bcp/prompts/thirteen), counted by element table
+    counted_on: '2026-11-03'
+    calibration: none — recount with the e85 procedure
+  risk: P2
+  delta: ADDED
+  depends_on: []
+  description: >-
+    Tracer bullet. skills/visual-dashboard/scripts/cockpit-model.cjs builds the cockpit model (schema
+    bigpowers/cockpit@1) from the project's own specs/ YAML and git log, using js-yaml which the package
+    already ships. visual-dashboard computes it on each /api/cockpit request, cached by a fingerprint
+    of git HEAD and the specs/ files it read. cockpit.html renders the epic board: 100 rows e00-e99, unused
+    numbers kept as empty rows, steps Scoped/Capsule/Tasks/Test plan/Threat model/Built/Audited/Status,
+    BCP, WSJF, open bugs. Nothing is built, committed or typed by hand; the Python prototype extractor
+    is a test oracle only and is not shipped.
+  files:
+  - skills/visual-dashboard/scripts/cockpit-model.cjs
+  - skills/visual-dashboard/scripts/test-cockpit-model.cjs
+  - skills/visual-dashboard/scripts/server.cjs
+  - skills/visual-dashboard/scripts/cockpit.html
+  - scripts/test-dashboard-cockpit-api.sh
+  - tests/fixtures/cockpit-project/
+  tasks: e49s01-tasks.yaml
+  verify: bash scripts/run-story-verify.sh e49s01
+- id: e49s02
+  title: 'bigpowers cockpit: runs in any project and follows its changes live'
+  status: todo
+  bcps: 19
+  bcp_13d:
+    dimensions:
+      D1_business_rules: 6
+      D2_interface_elements: 3
+      D3_boundaries: 1
+      D5_solution_variabilities: 2
+      D6_domain_entities: 2
+      D8_background_processes: 3
+      D11_quality_attributes: 2
+    cms: 4
+    counted_by: claude-opus-5-5 (planning session)
+    rubric: ciandt-oss/bcp-agent 13D rubric (src/bcp/prompts/thirteen), counted by element table
+    counted_on: '2026-11-03'
+    calibration: none — recount with the e85 procedure
+  risk: P2
+  delta: ADDED
+  depends_on:
+  - e49s01
+  description: >-
+    What a solo developer types: `bigpowers cockpit` in any project starts the dashboard for the current
+    directory and prints the URL. No build, no Preflight. The server watches specs/ and git refs; when
+    the fingerprint changes the page refreshes its data in place. A project with only state.yaml and release-plan.yaml
+    still renders: every missing source is listed in absent[] and its tiles read NOT AVAILABLE instead
+    of failing.
+  files:
+  - bin/bigpowers.js
+  - skills/visual-dashboard/scripts/server.cjs
+  - skills/visual-dashboard/scripts/cockpit.html
+  - skills/visual-dashboard/scripts/test-cockpit-model.cjs
+  - tests/fixtures/cockpit-minimal/
+  - skills/visual-dashboard/SKILL.md
+  tasks: e49s02-tasks.yaml
+  verify: bash scripts/run-story-verify.sh e49s02
+- id: e49s03
+  title: Status-consistency rules and an opt-in --check for CI
+  status: todo
+  bcps: 25
+  bcp_13d:
+    dimensions:
+      D1_business_rules: 6
+      D2_interface_elements: 8
+      D3_boundaries: 1
+      D5_solution_variabilities: 1
+      D6_domain_entities: 3
+      D7_new_domain_entities: 3
+      D8_background_processes: 3
+    cms: 4
+    counted_by: claude-opus-5-5 (planning session)
+    rubric: ciandt-oss/bcp-agent 13D rubric (src/bcp/prompts/thirteen), counted by element table
+    counted_on: '2026-11-03'
+    calibration: none — recount with the e85 procedure
+  risk: P2
+  delta: ADDED
+  depends_on:
+  - e49s01
+  description: >-
+    Status-consistency rules run inside the model and land in truth[] with rule, severity, subject, observed,
+    expected and sources: status-split, all-built-not-closed, shipped-not-marked, active-epic-status,
+    story-not-in-commit. The board flags rows the rules name and a Data Truth tab lists every check. `bigpowers
+    cockpit --check` exits non-zero on a FAIL so any project can opt in from its own CI; this repository
+    runs it advisory in the verification gates until e83 clears today's findings.
+  files:
+  - skills/visual-dashboard/scripts/cockpit-model.cjs
+  - skills/visual-dashboard/scripts/test-cockpit-model.cjs
+  - skills/visual-dashboard/scripts/cockpit.html
+  - bin/bigpowers.js
+  - scripts/run-verification-gates.sh
+  tasks: e49s03-tasks.yaml
+  verify: bash scripts/run-story-verify.sh e49s03
+- id: e49s04
+  title: 'Evidence-freshness rules: tags, receipts, ledger, matrix'
+  status: todo
+  bcps: 14
+  bcp_13d:
+    dimensions:
+      D1_business_rules: 4
+      D2_interface_elements: 5
+      D3_boundaries: 1
+      D5_solution_variabilities: 1
+      D6_domain_entities: 3
+    cms: 4
+    counted_by: claude-opus-5-5 (planning session)
+    rubric: ciandt-oss/bcp-agent 13D rubric (src/bcp/prompts/thirteen), counted by element table
+    counted_on: '2026-11-03'
+    calibration: none — recount with the e85 procedure
+  risk: P3
+  delta: ADDED
+  depends_on:
+  - e49s03
+  description: >-
+    Evidence-freshness rules: mirror-last-tag (state.yaml vs the latest git tag), ledger-coverage, receipts-stale
+    (receipts vs the latest golden report) and matrix-scope (traceability matrix vs execution-status).
+    Each one is skipped, and says so, when its source is absent.
+  files:
+  - skills/visual-dashboard/scripts/cockpit-model.cjs
+  - skills/visual-dashboard/scripts/test-cockpit-model.cjs
+  tasks: e49s04-tasks.yaml
+  verify: bash scripts/run-story-verify.sh e49s04
+- id: e49s05
+  title: Delivery charts by day, week, month and year
+  status: todo
+  bcps: 26
+  bcp_13d:
+    dimensions:
+      D1_business_rules: 6
+      D2_interface_elements: 11
+      D3_boundaries: 1
+      D5_solution_variabilities: 3
+      D6_domain_entities: 2
+      D7_new_domain_entities: 3
+    cms: 4
+    counted_by: claude-opus-5-5 (planning session)
+    rubric: ciandt-oss/bcp-agent 13D rubric (src/bcp/prompts/thirteen), counted by element table
+    counted_on: '2026-11-03'
+    calibration: none — recount with the e85 procedure
+  risk: P3
+  delta: ADDED
+  depends_on:
+  - e49s01
+  description: >-
+    The model gains a daily series: BCP and stories delivered (a story is dated by the first commit that
+    names it, else by its epic's first feat/fix commit, and the fallback is counted), commits by Conventional
+    Commit type, changed and fix lines with generated paths excluded. The page buckets it by day, week,
+    month or year, keeps empty periods, and scales each goal line by the days in the bucket. Delivery
+    tab: cumulative BCP, BCP per period, effort mix, non-feature share, BCP per active day.
+  files:
+  - skills/visual-dashboard/scripts/cockpit-model.cjs
+  - skills/visual-dashboard/scripts/cockpit.html
+  - skills/visual-dashboard/scripts/cockpit-buckets.cjs
+  - skills/visual-dashboard/scripts/test-cockpit-buckets.cjs
+  tasks: e49s05-tasks.yaml
+  verify: bash scripts/run-story-verify.sh e49s05
+- id: e49s06
+  title: 'Are we delivering: four goal-carrying tiles and goals.yaml'
+  status: todo
+  bcps: 21
+  bcp_13d:
+    dimensions:
+      D1_business_rules: 4
+      D2_interface_elements: 8
+      D3_boundaries: 1
+      D5_solution_variabilities: 1
+      D6_domain_entities: 2
+      D7_new_domain_entities: 5
+    cms: 4
+    counted_by: claude-opus-5-5 (planning session)
+    rubric: ciandt-oss/bcp-agent 13D rubric (src/bcp/prompts/thirteen), counted by element table
+    counted_on: '2026-11-03'
+    calibration: none — recount with the e85 procedure
+  risk: P3
+  delta: ADDED
+  depends_on:
+  - e49s05
+  description: >-
+    Each project may declare its goals in specs/metrics/goals.yaml (throughput per day, quarter BCP, non-feature
+    ceiling, rework ceiling, traceability floor, ready-backlog weeks); the skill ships a commented template.
+    The overview answers 'Are we delivering, and how much is left?' with four tiles: value to date, BCP
+    this period, quarter burn-up against a straight line, scope done/in progress/backlog. Each tile reads
+    ON or OFF target; without goals.yaml the page says it uses defaults.
+  files:
+  - skills/visual-dashboard/templates/goals.yaml
+  - scripts/validate-specs-yaml.sh
+  - skills/visual-dashboard/scripts/cockpit.html
+  - skills/visual-dashboard/scripts/test-cockpit-tiles.cjs
+  tasks: e49s06-tasks.yaml
+  verify: bash scripts/run-story-verify.sh e49s06
+- id: e49s07
+  title: 'What is it costing and next month: four more tiles'
+  status: todo
+  bcps: 18
+  bcp_13d:
+    dimensions:
+      D1_business_rules: 6
+      D2_interface_elements: 8
+      D3_boundaries: 1
+      D5_solution_variabilities: 1
+      D6_domain_entities: 2
+    cms: 4
+    counted_by: claude-opus-5-5 (planning session)
+    rubric: ciandt-oss/bcp-agent 13D rubric (src/bcp/prompts/thirteen), counted by element table
+    counted_on: '2026-11-03'
+    calibration: none — recount with the e85 procedure
+  risk: P3
+  delta: ADDED
+  depends_on:
+  - e49s06
+  description: >-
+    Four tiles answer 'What is it costing?' and 'Will we still be delivering next month?': BCP per active
+    person-day, effort mix by commit type, non-feature share against its ceiling, and weeks of ready backlog
+    (open stories with tasks over the 12-week average velocity).
+  files:
+  - skills/visual-dashboard/scripts/cockpit.html
+  - skills/visual-dashboard/scripts/test-cockpit-tiles.cjs
+  tasks: e49s07-tasks.yaml
+  verify: bash scripts/run-story-verify.sh e49s07
+- id: e49s08
+  title: Quality view and a found_in stage on every BUG
+  status: todo
+  bcps: 30
+  bcp_13d:
+    dimensions:
+      D1_business_rules: 6
+      D2_interface_elements: 16
+      D3_boundaries: 1
+      D5_solution_variabilities: 1
+      D6_domain_entities: 3
+      D7_new_domain_entities: 3
+    cms: 3
+    counted_by: claude-opus-5-5 (planning session)
+    rubric: ciandt-oss/bcp-agent 13D rubric (src/bcp/prompts/thirteen), counted by element table
+    counted_on: '2026-11-03'
+    calibration: none — recount with the e85 procedure
+  risk: P2
+  delta: MODIFIED
+  depends_on:
+  - e49s05
+  description: >-
+    Quality tab and the 'Is any of it good?' tiles: bugs per period by severity, rework share of changed
+    lines, golden gates per report, traceability against its floor, open bugs. BUG specs gain found_in
+    (preflight | ci | review | released, plus the version tag when released) so escape rate can be counted;
+    the tile shows PLANNED until at least one bug carries it.
+  files:
+  - skills/investigate-bug/SKILL.md
+  - scripts/sync-bugs-registry.sh
+  - skills/visual-dashboard/scripts/cockpit-model.cjs
+  - skills/visual-dashboard/scripts/cockpit.html
+  - skills/visual-dashboard/scripts/test-cockpit-tiles.cjs
+  tasks: e49s08-tasks.yaml
+  verify: bash scripts/run-story-verify.sh e49s08
+- id: e49s09
+  title: Roadmap view from value_rank and coverage points
+  status: todo
+  bcps: 20
+  bcp_13d:
+    dimensions:
+      D1_business_rules: 5
+      D2_interface_elements: 11
+      D3_boundaries: 1
+      D5_solution_variabilities: 1
+      D6_domain_entities: 2
+    cms: 4
+    counted_by: claude-opus-5-5 (planning session)
+    rubric: ciandt-oss/bcp-agent 13D rubric (src/bcp/prompts/thirteen), counted by element table
+    counted_on: '2026-11-03'
+    calibration: none — recount with the e85 procedure
+  risk: P3
+  delta: ADDED
+  depends_on:
+  - e49s01
+  description: >-
+    Roadmap tab: open stories ordered by value_rank from their epic.yaml, cumulative BCP, playbook coverage
+    points earned and left, and the week each lands at the 12-week average velocity. Stories without value_rank
+    are listed after, by epic WSJF.
+  files:
+  - skills/visual-dashboard/scripts/cockpit-model.cjs
+  - skills/visual-dashboard/scripts/cockpit.html
+  - skills/visual-dashboard/scripts/test-cockpit-tiles.cjs
+  tasks: e49s09-tasks.yaml
+  verify: bash scripts/run-story-verify.sh e49s09
+- id: e49s10
+  title: dashboard/ TUI and web reuse the same cockpit model
+  status: todo
+  bcps: 19
+  bcp_13d:
+    dimensions:
+      D1_business_rules: 6
+      D2_interface_elements: 5
+      D3_boundaries: 1
+      D5_solution_variabilities: 2
+      D6_domain_entities: 2
+      D7_new_domain_entities: 3
+    cms: 3
+    counted_by: claude-opus-5-5 (planning session)
+    rubric: ciandt-oss/bcp-agent 13D rubric (src/bcp/prompts/thirteen), counted by element table
+    counted_on: '2026-11-03'
+    calibration: none — recount with the e85 procedure
+  risk: P2
+  delta: MODIFIED
+  depends_on:
+  - e49s01
+  description: >-
+    One data model for every surface. The bigpowers-dashboard TUI and its :7742 web mode require cockpit-model.cjs
+    instead of their own loaders; the duplicate metrics and pipeline loaders are retired. The unmerged
+    cps-manager-cockpit-visual branch is reconciled: its epic board folds into this view or the branch
+    closes with a note.
+  files:
+  - dashboard/src/loaders/reader.js
+  - dashboard/src/loaders/metrics.js
+  - dashboard/src/web/server.js
+  - dashboard/test/smoke.test.js
+  tasks: e49s10-tasks.yaml
+  verify: bash scripts/run-story-verify.sh e49s10

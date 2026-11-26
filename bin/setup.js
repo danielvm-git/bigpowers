@@ -37,9 +37,9 @@ const c = {
 };
 
 // ── ASCII banner ─────────────────────────────────────────────────────────────
-// Version is passed in, read fresh from disk: `bigpowers update` reinstalls this
-// package mid-process, so a require() cache from startup would print the version
-// that was replaced (BUG-2026-11-03-cli-update-stale-version).
+// The version is a parameter, read fresh from disk at render time: `update`
+// reinstalls this package mid-process, so a value captured at startup is the one
+// that was just replaced (BUG-2026-11-03-cli-update-stale-version).
 function banner(version) {
   return `
 ${c.cyan('╔════════════════════════════════════════════════════════════════════════════╗')}
@@ -60,7 +60,7 @@ ${c.cyan('╚══════════════════════�
 // ── Tool definitions ─────────────────────────────────────────────────────────
 const TOOLS = [
   { id: 'claude', name: 'Claude Code', globalPath: '~/.claude', localPath: '.claude' },
-  { id: 'antigravity', name: 'Antigravity', globalPath: '~/.gemini/antigravity-cli/skills', localPath: '.agents/skills' },
+  { id: 'antigravity', name: 'Antigravity', globalPath: '~/.gemini/config/plugins/bigpowers', localPath: '.agents/skills' },
   { id: 'augment', name: 'Augment', globalPath: '~/.augment', localPath: '.augment' },
   { id: 'cline', name: 'Cline', globalPath: '.clinerules', localPath: '.clinerules' },
   { id: 'codebuddy', name: 'CodeBuddy', globalPath: '~/.codebuddy', localPath: '.codebuddy' },
@@ -72,14 +72,14 @@ const TOOLS = [
   { id: 'mimo', name: 'MiMo Code', globalPath: '~/.mimocode', localPath: '.mimocode' },
   { id: 'kilo', name: 'Kilo', globalPath: '~/.config/kilo', localPath: '.config/kilo' },
   { id: 'opencode', name: 'OpenCode', globalPath: '~/.config/opencode', localPath: '.config/opencode' },
-  { id: 'pi', name: 'pi', globalPath: '~/.pi/agent/skills', localPath: '.pi/agent/skills' },
+  { id: 'pi', name: 'pi', globalPath: '~/.pi/agent/skills', localPath: '.pi/skills' },
   { id: 'qwen', name: 'Qwen Code', globalPath: '~/.qwen', localPath: '.qwen' },
   { id: 'trae', name: 'Trae', globalPath: '~/.trae', localPath: '.trae' },
   { id: 'windsurf', name: 'Windsurf', globalPath: '~/.codeium/windsurf', localPath: '.codeium/windsurf' },
   { id: 'zcode', name: 'ZCode', globalPath: '~/.zcode', localPath: '.zcode' },
 ];
 const SUPPORTED_IDS = new Set(['claude', 'gemini', 'pi', 'hermes', 'mimo', 'zcode', 'cursor', 'codex', 'antigravity', 'agy', 'qwen', 'codebuddy', 'cline', 'kilo', 'trae', 'windsurf', 'opencode', 'copilot']);
-const UNSUPPORTED_HINT = '(TODO)';
+const UNSUPPORTED_HINT = '(unsupported)';
 
 // ── clack helpers (lazy ESM import from CJS) ─────────────────────────────────
 let _clack;
@@ -187,6 +187,7 @@ async function runInteractive(opts, version) {
   const { intro, outro, select, multiselect, spinner, confirm, isCancel } = await clack();
   intro(c.bold(`bigpowers v${version}`));
 
+  // ── Step 0: Detect existing install ────────────────────────────────────
   const hasExisting = detectExistingInstall();
   const saved = anyInstallState();
   let mode = opts.uninstall ? 'uninstall' : 'install';
@@ -245,11 +246,12 @@ async function runInteractive(opts, version) {
     process.exit(0);
   }
 
+  // Filter out unsupported tools — they can't be installed yet
   const tools = selectedToolIds.filter((id) => SUPPORTED_IDS.has(id));
   const todoSkipped = selectedToolIds.filter((id) => !SUPPORTED_IDS.has(id));
   if (todoSkipped.length > 0) {
     const names = todoSkipped.map((id) => TOOLS.find((t) => t.id === id)?.name || id);
-    console.log(`\n  ${c.dim('TODO (not yet implemented):')} ${names.join(', ')}`);
+    console.log(`\n  ${c.dim('Not yet supported:')} ${names.join(', ')}`);
   }
   if (tools.length === 0) {
     console.log(`\n  ${c.red('No supported tools selected.')}`);
@@ -285,7 +287,9 @@ async function runInteractive(opts, version) {
     process.exit(1);
   }
   writeInstallState(installMode, tools, { version });
-  outro(`bigpowers installed. ${c.dim('Run bigpowers update anytime.')}`);
+  outro(
+    `bigpowers installed. ${c.dim('Run bigpowers update anytime; pi packages: pi update --extensions.')}`
+  );
 }
 
 // ── Main ─────────────────────────────────────────────────────────────────────

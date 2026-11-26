@@ -1,0 +1,10 @@
+story_id: e49s07
+title: 'What is it costing and next month: four more tiles'
+status: todo
+bcps: 18
+tasks:
+- id: 1
+  description: Cost and backlog tiles compute from the model
+  verify: node skills/visual-dashboard/scripts/test-cockpit-tiles.cjs --cost
+  risk: P3
+  status: todo

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# story: e13s03 e28s03
+# story: e13s03 e28s03 e83s01
 # Post-sync pipeline for sync-skills.sh — manifests, lockfiles, guards, OKF wikis.
 # Args: $1=skill_count  $2=opencode_count (optional, default 0)
 
@@ -20,6 +20,11 @@ sync_post_run() {
 
   pkg_version=$(jq -r '.version' "$REPO_ROOT/package.json")
   pkg_desc=$(jq -r '.description' "$REPO_ROOT/package.json")
+  # package.json's description is stamped with the live count by stamp-skill-counts.sh
+  # ("80 agent skills …"). Strip that prefix before adding it again below, otherwise
+  # the host manifests read "80 skills — 80 agent skills …" and sync-skills.sh can no
+  # longer reproduce the committed artifact (CI: git diff --exit-code .pi).
+  pkg_desc="${pkg_desc#"${skill_count} "}"
 
   jq -n --arg name "bigpowers" \
         --arg version "$pkg_version" \
@@ -143,6 +148,27 @@ sync_post_regression_guards() {
       $PYTHON "$validate_script" >&2
       exit 1
     fi
+  fi
+
+  # story: BUG-2026-11-06-dist-render-missing-assets (issue #218)
+  # A rendered payload that ships only SKILL.md is a broken skill: the same
+  # skill then behaves differently depending on the install channel. Compare
+  # every rendered tree that claims to be a full skill directory.
+  local assets_lib="$REPO_ROOT/scripts/lib/adapter-assets.sh"
+  local rendered
+  if [[ -f "$assets_lib" ]]; then
+    # shellcheck source=adapter-assets.sh
+    source "$assets_lib"
+    for rendered in "$REPO_ROOT/.pi/skills" "$REPO_ROOT/.bigpowers/rendered/antigravity/skills"; do
+      [[ -d "$rendered" ]] || continue
+      if ! assert_skill_assets "$rendered" > /tmp/bp-missing-assets.$$ 2>&1; then
+        echo "sync-skills: FAIL — rendered payload is missing bundled skill assets in $rendered" >&2
+        head -10 /tmp/bp-missing-assets.$$ >&2
+        rm -f /tmp/bp-missing-assets.$$
+        exit 1
+      fi
+      rm -f /tmp/bp-missing-assets.$$
+    done
   fi
 
   if grep -rn '^declare -A\|^[[:space:]]*declare -A' \

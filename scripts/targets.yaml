@@ -85,7 +85,7 @@ targets:
     tier: opt_in
     skill:
       adapter: agy
-      output: .agents/skills
+      output: .bigpowers/rendered/antigravity/skills
     context:
       adapter: agy
       mode: symlink

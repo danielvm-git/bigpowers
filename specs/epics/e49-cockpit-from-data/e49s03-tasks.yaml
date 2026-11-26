@@ -1,0 +1,20 @@
+story_id: e49s03
+title: Status-consistency rules and an opt-in --check for CI
+status: todo
+bcps: 25
+tasks:
+- id: 1
+  description: One fixture per rule proves it fires and stays quiet
+  verify: node skills/visual-dashboard/scripts/test-cockpit-model.cjs --rules status
+  risk: P2
+  status: todo
+- id: 2
+  description: --check exits 1 on a FAIL fixture and 0 on a clean one
+  verify: bash scripts/test-dashboard-cockpit-api.sh --check
+  risk: P2
+  status: todo
+- id: 3
+  description: cockpit-truth reports in this repo's verification gates (advisory)
+  verify: bash scripts/run-verification-gates.sh 2>&1 | grep -q 'cockpit-truth'
+  risk: P2
+  status: todo

@@ -1,0 +1,67 @@
+id: e91
+title: "Move bigpowers metadata out of the Agent Skills frontmatter contract"
+status: active
+wsjf: 6.0
+bcps: 8
+mode: capsule
+wsjf_rationale: >
+  BV 6 + TC 4 + RR 4 / Job 2 ≈ 7. Story tags/model/effort injected into the
+  frontmatter have broken a host parser twice (#108, #173). The spec sanctions
+  `metadata:` for vendor extensions; bigpowers should use it.
+github_issue: 215
+source: >
+  GH #215 — machine metadata lives in spec-legal fields only (metadata: block or
+  a sidecar), never as HTML comments or bare keys in the frontmatter block.
+stories:
+  - id: e91s01
+    title: frontmatter tags restored to YAML comments
+    status: done
+    bcps: 2
+    description: >
+      22 SKILL.md sources had HTML comment story tags inside the frontmatter,
+      dropping 10 skills in pi. Restored to `#` comments; the strict validator
+      (R4/R5) now prevents the form returning.
+    files:
+      - skills/*/SKILL.md
+      - scripts/validate-skill-yaml.py
+    verify: python3 scripts/validate-skill-yaml.py
+    tags: ["story: e91s01"]
+  - id: e91s02
+    title: "ADR — metadata: block vs sidecar"
+    status: todo
+    bcps: 2
+    description: >
+      Decide the canonical metadata carrier (Agent Skills `metadata:` field vs a
+      sidecar skill.meta.yaml) and record it in specs/adr/.
+    files:
+      - specs/adr/
+    verify: test -f specs/adr/ADR-0008-skill-metadata.md
+    tags: ["story: e91s02"]
+  - id: e91s03
+    title: migrate sources + readers to the metadata carrier
+    status: todo
+    bcps: 3
+    description: >
+      Move story tags/model/effort out of bare frontmatter; update
+      trace-stories.sh, trace-matrix.py and skill-common.sh readers without
+      losing traceability coverage.
+    files:
+      - skills/*/SKILL.md
+      - scripts/trace-stories.sh
+      - scripts/lib/trace-matrix.py
+      - scripts/lib/skill-common.sh
+    verify: bash scripts/trace-stories.sh --strict
+    tags: ["story: e91s03"]
+  - id: e91s04
+    title: enforce "spec keys + '#' comments only" in the validator
+    status: todo
+    bcps: 1
+    description: >
+      Add an allowlist rule so no non-spec key or HTML comment can enter the
+      frontmatter block again; update craft-skill and the docs convention.
+    files:
+      - scripts/validate-skill-yaml.py
+      - skills/craft-skill/SKILL.md
+      - docs/references/traceability-gate.md
+    verify: bash tests/test-skill-frontmatter-strict.sh
+    tags: ["story: e91s04"]

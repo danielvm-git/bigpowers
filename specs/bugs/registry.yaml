@@ -495,7 +495,7 @@ bugs:
     title: "Release workflow fails EINVALIDNPMTOKEN — npm publish credential expired, v2.87.6 never published"
     file: bugs/BUG-2026-08-31-npm-token-invalid-release.md
   - id: BUG-2026-08-31-pi-scripts-provisioning
-    status: open
+    status: fixed
     severity: high
     scope: cli / install
     title: "Package installs provision skills but never scripts/ — lifecycle skills' script calls and verify gates fail in every consumer project (#116)"
@@ -507,7 +507,7 @@ bugs:
     title: "golden-suite omp-extension gate fails: CI never installs node deps, so smoke's typebox import is unresolvable"
     file: bugs/BUG-2026-09-05-golden-gate-missing-node-deps.md
   - id: BUG-2026-09-05-pi-omp-extension-load-crash
-    status: open
+    status: fixed
     severity: critical
     scope: extensions / pi
     title: "extensions/omp-hooks.ts calls pi.setLabel() during load → pi aborts at startup for every package consumer (#119)"
@@ -654,26 +654,46 @@ bugs:
     commit_message: "fix(scripts): write spec state atomically instead of in place"
   - id: BUG-2026-11-03-cli-nontty-silent-noop
     status: fixed
-    severity: high
+    severity: medium
     scope: cli / installer
     title: "With no TTY, `bigpowers setup` and `bigpowers update` draw the first menu, install nothing and exit 0 — a silent no-op that reports success"
     file: bugs/BUG-2026-11-03-cli-nontty-silent-noop.md
-    files_changed: "bin/setup.js, bin/bigpowers.js, scripts/lib/cli-version.js (new), scripts/test-bigpowers-cli.sh (new), scripts/lib/golden-suite-gates.sh, README.md"
-    approach: "Add a documented non-interactive mode (--yes, --tools, --scope, --help), make `update` replay the persisted install manifest, and fail fast with an actionable message when a prompt would be required but no TTY exists"
+    files_changed: "bin/setup.js, bin/bigpowers.js, scripts/lib/cli-args.js, scripts/lib/install-run.js, scripts/lib/install-state.js, scripts/lib/install-uninstall.js, scripts/test-bigpowers-cli.sh, scripts/lib/golden-suite-gates.sh, README.md"
+    approach: "Documented non-interactive mode (--yes, --tools, --scope, --help), a persisted install manifest so `update` can replay a run, and fail-fast with an actionable message when a prompt is required but no TTY exists"
     risk_level: "medium"
     commit_message: "fix(cli): never prompt without a TTY; add a non-interactive install mode"
   - id: BUG-2026-11-03-cli-update-stale-version
     status: fixed
     severity: medium
     scope: cli / installer
-    title: "`bigpowers update` prints the version the process started with, not what it just installed — the banner said v2.88.5 after installing v2.92.0"
+    title: "`bigpowers update` prints the version the process booted with, so after installing v2.92.0 the banner still said v2.88.5 while `bigpowers install` correctly said v2.92.0"
     file: bugs/BUG-2026-11-03-cli-update-stale-version.md
-    files_changed: "scripts/lib/cli-version.js (new), bin/bigpowers.js, bin/setup.js, scripts/test-bigpowers-cli.sh (new), scripts/lib/golden-suite-gates.sh, README.md"
-    approach: "Read package.json from disk when the banner is rendered instead of reusing the require() cache populated before the self-update"
+    files_changed: "scripts/lib/cli-version.js (new), bin/bigpowers.js, bin/setup.js, scripts/test-bigpowers-cli-version.sh (new), scripts/lib/golden-suite-gates.sh"
+    approach: "Read package.json from disk at render time instead of reusing the require() cache populated before the self-update, and route every user-facing version string through that one helper"
     risk_level: "low"
     commit_message: "fix(cli): report the installed version after a self-update"
-  - id: BUG-2026-11-03-guard-attribution-second-m
+  - id: BUG-2026-11-03-dev-dependency-advisories
     status: open
+    severity: medium
+    scope: development dependencies / release tooling
+    title: "The dev tree reports 49 advisories (2 critical) in the npm bundle inside @semantic-release/npm and the semantic-release/ts-morph/glob toolchain; clearing them needs major release-plugin upgrades"
+    file: bugs/BUG-2026-11-03-dev-dependency-advisories.md
+    files_changed: "(none yet)"
+    approach: "Review the supported semantic-release plugin matrix, move the release tooling to a non-vulnerable set (or apply narrowly scoped overrides), then re-run the release dry-run, compliance and every gate before accepting the new graph"
+    risk_level: "medium"
+    commit_message: "chore(deps): clear the development dependency advisories"
+  - id: BUG-2026-11-03-epic-status-rollup-drift
+    status: fixed
+    severity: medium
+    scope: planning
+    title: "Epic-level status drifts from its stories and from shipped code; G-12 checks only story status"
+    file: bugs/BUG-2026-11-03-epic-status-rollup-drift.md
+    files_changed: "scripts/golden-g12-status-consistency.sh, specs/execution-status.yaml, specs/release-plan.yaml, specs/epics/e58-evals-over-compliance/epic.yaml, specs/epics/e82-fork-innovations/epic.yaml"
+    approach: "Extend G-12 with an epic roll-up check and a shipped-code-vs-backlog check, then correct e58 and e82 in the three status files"
+    risk_level: "low"
+    commit_message: "fix(specs): gate epic status roll-up in G-12 and close e58 and e82"
+  - id: BUG-2026-11-03-guard-attribution-second-m
+    status: fixed
     severity: high
     scope: hooks / guard-git
     title: "Co-authored-by check only inspects the first -m value, so a footer in a second -m or in -F passes the P1 rule"
@@ -713,7 +733,7 @@ bugs:
     risk_level: "medium"
     commit_message: "fix(hooks): judge the TS guard through evaluateBashCall so parity covers every rule"
   - id: BUG-2026-11-03-guard-push-target-matches-text
-    status: open
+    status: fixed
     severity: medium
     scope: hooks / guard-git
     title: "Protected-branch push check matches the word 'main' anywhere in the command, so an unrelated echo or comment blocks a legitimate feature push"
@@ -723,7 +743,7 @@ bugs:
     risk_level: "low"
     commit_message: "fix(hooks): derive push targets from git argv, not from command text"
   - id: BUG-2026-11-03-omp-hooks-stderr-leak
-    status: open
+    status: fixed
     severity: medium
     scope: extensions / omp-hooks
     title: "tool_call hook leaks git's fatal: not a git repository onto the TUI when a bash command cds outside the session repo"
@@ -742,6 +762,16 @@ bugs:
     approach: "Hoist the -m regex into a variable: parentheses inside [[ =~ ]] must come from a variable, not the literal pattern, or bash rejects the whole file at parse time"
     risk_level: "low"
     commit_message: "fix(hooks): make the pi/OMP fallback hook parse and run the normalizer"
+  - id: BUG-2026-11-03-prod-dependency-advisories
+    status: fixed
+    severity: high
+    scope: dependencies / shipped runtime
+    title: "The production dependency tree carried 10 advisories including a critical (proxy-addr IP spoofing) and two high direct dependencies (js-yaml, zod), with no gate watching it"
+    file: bugs/BUG-2026-11-03-prod-dependency-advisories.md
+    files_changed: "package.json, package-lock.json, scripts/test-prod-dependency-audit.sh (new), scripts/lib/golden-suite-gates.sh, README.md"
+    approach: "Update the production tree with a non-breaking `npm audit fix --omit=dev`, take the one remaining high (zod) as the major bump its own SDK peer range already allows, and gate `npm audit --omit=dev` so the tree cannot rot silently again"
+    risk_level: "medium"
+    commit_message: "fix(deps): clear the production dependency advisories and gate the audit"
   - id: BUG-2026-11-03-story-verify-ab-sandbox-daemon-required
     status: fixed
     severity: high
@@ -762,8 +792,18 @@ bugs:
     approach: "Gate now prints a 'detail:' line naming the failing test so the next occurrence is diagnosable; root cause unknown after ~280 reproduction attempts, so it is logged rather than papered over"
     risk_level: "low"
     commit_message: "fix(scripts): name the failing test when story verify goes red"
+  - id: BUG-2026-11-03-trace-indexes-other-worktrees
+    status: fixed
+    severity: medium
+    scope: trace-stories / wiki
+    title: "trace-stories links files from other sessions' gitignored .claude/worktrees/ checkouts"
+    file: bugs/BUG-2026-11-03-trace-indexes-other-worktrees.md
+    files_changed: "scripts/lib/trace-stories.py, scripts/test-trace-ignored-paths.sh (new), scripts/lib/golden-suite-gates.sh, specs/traceability-matrix.json, specs/TRACEABILITY_LATEST.md, specs/codebase-wiki/"
+    approach: "Build the file inventory from git ls-files --cached --others --exclude-standard (os.walk minus .claude/ outside a git repo), and use it for both the tag scan and the file heuristic"
+    risk_level: "low"
+    commit_message: "fix(trace): index only files git would track, never other worktrees"
   - id: BUG-2026-11-03-wiki-indexes-ignored-reports
-    status: open
+    status: fixed
     severity: low
     scope: trace-stories / wiki
     title: "Generated wikis link to gitignored verification reports, so every Preflight dirties the tree"
@@ -772,3 +812,138 @@ bugs:
     approach: "Exclude gitignored report prefixes (specs/verifications/reports/, allure-results/) from trace-stories.py indexing, then regenerate the wikis once"
     risk_level: "low"
     commit_message: "fix(trace): stop indexing gitignored verification reports"
+  - id: BUG-2026-11-06-agents-skills-render-hijack
+    status: fixed
+    severity: medium
+    scope: distribution / pi
+    title: "Antigravity render target .agents/skills is auto-discovered by pi (#209)"
+    file: bugs/BUG-2026-11-06-agents-skills-render-hijack.md
+    files_changed: "scripts/lib/install-targets-b.sh, bin/setup.js, .gitignore, scripts/sync-skills.sh"
+    approach: "Render Antigravity skills outside host discovery roots; assert no render target is a discovery root"
+    risk_level: "medium"
+    commit_message: "fix(dist): move the Antigravity render target out of pi discovery (#209)"
+  - id: BUG-2026-11-06-dist-render-missing-assets
+    status: fixed
+    severity: high
+    scope: distribution
+    title: "Rendered .pi/skills and .agents/skills ship 0 of 92 bundled assets (#218)"
+    file: bugs/BUG-2026-11-06-dist-render-missing-assets.md
+    files_changed: "scripts/lib/sync-render.sh, scripts/lib/sync-post.sh, .pi/skills, .agents/skills, tests/"
+    approach: "Mirror sibling files and nested dirs into rendered skill dirs; assert payload parity and link resolution"
+    risk_level: "medium"
+    commit_message: "fix(dist): copy bundled skill assets into rendered targets (#218)"
+  - id: BUG-2026-11-06-install-multi-channel-collisions
+    status: fixed
+    severity: high
+    scope: distribution / pi
+    title: "Five install channels produce 80 skill-name collisions (#208)"
+    file: bugs/BUG-2026-11-06-install-multi-channel-collisions.md
+    files_changed: "scripts/install.sh, bin/setup.js, scripts/sync-skills.sh, distribution target manifest"
+    approach: "Single target manifest; refuse a second channel for the same host; add --verify duplicate-root report"
+    risk_level: "medium"
+    commit_message: "fix(dist): one install channel per host and a --verify report (#208)"
+  - id: BUG-2026-11-06-install-uninstall-noop
+    status: fixed
+    severity: high
+    scope: install
+    title: "install.sh --uninstall is a no-op from a checkout and never removes copy-mode channels (#219)"
+    file: bugs/BUG-2026-11-06-install-uninstall-noop.md
+    files_changed: "scripts/install.sh, scripts/lib/install-targets-*.sh, scripts/test-install-helpers.js"
+    approach: "Match by resolved realpath; record an install manifest; handle copy-mode entries; always print a summary"
+    risk_level: "medium"
+    commit_message: "fix(install): make --uninstall actually remove every managed entry (#219)"
+  - id: BUG-2026-11-06-mcp-directtools-wrong-file
+    status: fixed
+    severity: medium
+    scope: mcp / docs
+    title: "directTools in pi's mcp.json is ignored by pi-mcp-adapter (#211)"
+    file: bugs/BUG-2026-11-06-mcp-directtools-wrong-file.md
+    files_changed: "docs/references/bigpowers-mcp.md, README.md, bin/setup.js"
+    approach: "Document mcp-adapter.json as the owner of adapter keys; write adapter keys there only"
+    risk_level: "medium"
+    commit_message: "docs(mcp): document mcp-adapter.json ownership of adapter keys (#211)"
+  - id: BUG-2026-11-06-mcp-json-project-server-blocked
+    status: fixed
+    severity: medium
+    scope: mcp / pi
+    title: "Tracked .mcp.json declares a project server pi blocks on every start (#210)"
+    file: bugs/BUG-2026-11-06-mcp-json-project-server-blocked.md
+    files_changed: ".mcp.json, bin/setup.js, scripts/validate-mcp-package.sh, docs/references/bigpowers-mcp.md"
+    approach: "Generate .mcp.json at install time for OMP only; document the approval path; keep package smoke test"
+    risk_level: "medium"
+    commit_message: "fix(mcp): stop shipping a blocked project server in clones (#210)"
+  - id: BUG-2026-11-06-pi-frontmatter-html-comments
+    status: fixed
+    severity: high
+    scope: skills / pi
+    title: "HTML comments inside SKILL.md frontmatter drop 10 skills in pi (#173)"
+    file: bugs/BUG-2026-11-06-pi-frontmatter-html-comments.md
+    files_changed: "skills/*/SKILL.md, .pi/skills, .cursor/rules, .gemini/extensions/bigpowers, website/src/content/docs, specs/skills-wiki"
+    approach: "Rewrite frontmatter story tags as YAML '#' comments; keep body tags in HTML form; regenerate all targets"
+    risk_level: "medium"
+    commit_message: "fix(skills): use YAML comments for story tags inside frontmatter (#173)"
+  - id: BUG-2026-11-06-setup-pi-localpath
+    status: fixed
+    severity: medium
+    scope: install / pi
+    title: "setup.js uses .pi/agent/skills for pi's project-local path (#220)"
+    file: bugs/BUG-2026-11-06-setup-pi-localpath.md
+    files_changed: "bin/setup.js, scripts/test-install-helpers.js"
+    approach: "Correct localPath to .pi/skills; add a per-target verify probe and a path table test"
+    risk_level: "medium"
+    commit_message: "fix(setup): install pi skills to the project path pi scans (#220)"
+  - id: BUG-2026-11-06-setup-update-guidance
+    status: fixed
+    severity: low
+    scope: docs
+    title: "No guidance for pi update --extensions in setup output (#212)"
+    file: bugs/BUG-2026-11-06-setup-update-guidance.md
+    files_changed: "bin/setup.js, docs/references/agent-tooling.md, README.md"
+    approach: "Add the package-update step to post-install output and docs"
+    risk_level: "medium"
+    commit_message: "docs(setup): mention pi update --extensions after install (#212)"
+  - id: BUG-2026-11-06-sync-specs-artifact-churn
+    status: fixed
+    severity: low
+    scope: ci / specs
+    title: "sync-skills rewrites committed traceability artifacts with worktree paths (local finding)"
+    file: bugs/BUG-2026-11-06-sync-specs-artifact-churn.md
+    files_changed: "scripts/trace-stories.sh, scripts/lib/*wiki*, specs/codebase-wiki, specs/traceability-matrix.json"
+    approach: "Exclude .claude/worktrees from traceability generation; make the artifacts idempotent"
+    risk_level: "medium"
+  - id: BUG-2026-11-06-validator-yaml-strictness
+    status: fixed
+    severity: high
+    scope: ci
+    title: "validate-skill-yaml.py cannot detect the form that drops skills (#207)"
+    file: bugs/BUG-2026-11-06-validator-yaml-strictness.md
+    files_changed: "scripts/validate-skill-yaml.py, tests/"
+    approach: "Detect duplicate keys via yaml.compose; reject '<!--' inside frontmatter; add a host-parser golden test"
+    risk_level: "medium"
+    commit_message: "fix(ci): make validate-skill-yaml reject forms pi cannot load (#207)"
+  - id: BUG-2026-11-07-assert-epic-gate-fail-open
+    status: fixed
+    severity: high
+    scope: release gate / scripts/lib/assert-epic-gate.sh
+    title: "assert-epic-gate.sh release passes on audit evidence from a different branch, so an unaudited 13-commit branch reports audit-code verified"
+    file: bugs/BUG-2026-11-07-assert-epic-gate-fail-open.md
+    files_changed: "scripts/lib/assert-epic-gate.sh, tests/test-assert-epic-gate.sh, scripts/lib/golden-suite-gates.sh"
+    approach: "Record the audited commit range in specs/AUDIT_LATEST.md and specs/security/REVIEW.md, and make the gate fail when the recorded range does not cover the current branch diff"
+    risk_level: "medium"
+    commit_message: "fix(gates): fail the release audit gate when the audit covers a different diff"
+  - id: BUG-2026-11-07-spec-version-gap-blocked
+    status: fixed
+    severity: low
+    scope: tooling
+    title: "check-spec-version-gap reports ACTIVE_WORK with state.yaml active_flow null"
+    file: bugs/BUG-2026-11-07-spec-version-gap-blocked.md
+    files_changed: "scripts/check-spec-version-gap.sh, tests/test-spec-version-gap-trigger.sh"
+    approach: "Name the trigger in the JSON so the cause of the block is visible; keep the block semantics"
+    risk_level: "low"
+    commit_message: "fix(tooling): name the ACTIVE_WORK trigger in check-spec-version-gap (e83s05)"
+  - id: BUG-2026-11-26-agy-plugin-install
+    status: resolved
+    severity: high
+    scope: installer
+    title: "Antigravity global installer targets undiscoverable ~/.gemini/antigravity-cli/skills instead of ~/.gemini/config/plugins/bigpowers"
+    file: bugs/BUG-2026-11-26-agy-plugin-install.md

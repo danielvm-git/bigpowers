@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// bigpowers MCP server — exposes 68 skills as MCP tools via stdio transport
+// bigpowers MCP server — exposes 80 skills as MCP tools via stdio transport
 // Zero dependencies — raw JSON-RPC over stdio (newline-delimited, per MCP spec)
 
 'use strict';

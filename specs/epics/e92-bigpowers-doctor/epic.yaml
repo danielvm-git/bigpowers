@@ -1,0 +1,64 @@
+id: e92
+title: "bigpowers doctor — self-diagnose host integration defects"
+status: active
+wsjf: 6.0
+bcps: 8
+mode: capsule
+wsjf_rationale: >
+  BV 5 + TC 4 + RR 5 / Job 2 ≈ 7. Diagnosing the four startup-warning classes
+  required reading pi's and the adapter's source by hand; users cannot. A
+  read-only doctor makes the checks self-serve.
+github_issue: 216
+source: >
+  GH #216 — one read-only command (bigpowers doctor) that reports frontmatter
+  parse failures, duplicate discovery roots, stale render targets, install-channel
+  conflicts, MCP config placement, and pending package updates.
+stories:
+  - id: e92s01
+    title: install-channel check
+    status: done
+    bcps: 2
+    description: >
+      scripts/verify-distribution.sh detects the package+symlink collision for pi;
+      exposed via install.sh --verify and the golden suite.
+    files:
+      - scripts/verify-distribution.sh
+      - tests/test-verify-distribution.sh
+    verify: bash scripts/verify-distribution.sh --strict
+    tags: ["story: e92s01"]
+  - id: e92s02
+    title: render-target and install-manifest checks
+    status: done
+    bcps: 2
+    description: >
+      tests/test-render-targets-not-discoverable.sh and
+      tests/test-install-manifest.sh cover the render-target and resolved-path
+      uninstall checks that would otherwise be doctor checks.
+    files:
+      - tests/test-render-targets-not-discoverable.sh
+      - tests/test-install-manifest.sh
+    verify: bash tests/test-render-targets-not-discoverable.sh && bash tests/test-install-manifest.sh
+    tags: ["story: e92s02"]
+  - id: e92s03
+    title: doctor CLI skeleton + registry of checks
+    status: todo
+    bcps: 2
+    description: >
+      A single bigpowers doctor command that runs every check, prints a short
+      table plus copy-pasteable fixes, and supports --json.
+    files:
+      - scripts/doctor.sh
+      - bin/bigpowers.js
+    verify: bash scripts/doctor.sh --json
+    tags: ["story: e92s03"]
+  - id: e92s04
+    title: frontmatter + MCP placement checks in doctor
+    status: todo
+    bcps: 2
+    description: >
+      Fold the frontmatter strictness and the mcp-adapter.json vs mcp.json key
+      ownership checks into the doctor.
+    files:
+      - scripts/doctor.sh
+    verify: bash scripts/doctor.sh
+    tags: ["story: e92s04"]

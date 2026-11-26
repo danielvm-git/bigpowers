@@ -23,6 +23,10 @@ $PYTHON "$REPO_ROOT/scripts/yaml-tools.py" set \
 $PYTHON "$REPO_ROOT/scripts/yaml-tools.py" set \
   "$REPO_ROOT/specs/release-plan.yaml" release.version "$VERSION"
 
+# release.last_tag mirrors the tag semantic-release is about to create (e83s01)
+$PYTHON "$REPO_ROOT/scripts/yaml-tools.py" set \
+  "$REPO_ROOT/specs/state.yaml" release.last_tag "v$VERSION"
+
 # ── 2. Regenerate derived artifacts (reads already-bumped package.json) ─
 bash "$REPO_ROOT/scripts/sync-skills.sh"
 

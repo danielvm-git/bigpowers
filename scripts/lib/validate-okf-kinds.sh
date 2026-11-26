@@ -204,7 +204,7 @@ validate_receipts() {
   $PYTHON -c "
 import json, sys
 d=json.load(open('$f'))
-vs={'measured','estimated','backfilled','absent'}
+vs={'measured','estimated','backfilled','absent','mixed'}
 ss=('compliance','golden_suite','metrics','traceability')
 errs=0
 for sec in ss:
@@ -214,8 +214,21 @@ for sec in ss:
     if not src: print(f'FAIL: receipts.json — {sec}: missing source tag'); errs+=1; continue
     if src not in vs: print(f'FAIL: receipts.json — {sec}: unknown source \"{src}\"'); errs+=1; continue
     hv='value' in data
-    if src=='absent' and hv: print(f'FAIL: receipts.json — {sec}: tagged absent but carries value'); errs+=1
-    elif src!='absent' and not hv: print(f'FAIL: receipts.json — {sec}: tagged {src} but missing value'); errs+=1
+    if src=='absent' and hv: print(f'FAIL: receipts.json — {sec}: tagged absent but carries value'); errs+=1; continue
+    elif src!='absent' and not hv: print(f'FAIL: receipts.json — {sec}: tagged {src} but missing value'); errs+=1; continue
+    # A blended reading must show its parts (e83s03), and the parts must sum to
+    # the total it claims — otherwise 'mixed' is just an unmeasured label.
+    if src=='mixed':
+        v=data['value']
+        sb=v.get('source_breakdown') if isinstance(v,dict) else None
+        if not isinstance(sb,dict) or not sb:
+            print(f'FAIL: receipts.json — {sec}: tagged mixed but carries no value.source_breakdown'); errs+=1; continue
+        bad=[k for k in sb if k not in {'measured','estimated','backfilled','absent'}]
+        if bad:
+            print(f'FAIL: receipts.json — {sec}: source_breakdown has unknown keys {sorted(bad)}'); errs+=1; continue
+        total=v.get('story_count')
+        if total is not None and sum(sb.values())!=total:
+            print(f'FAIL: receipts.json — {sec}: source_breakdown sums to {sum(sb.values())} but story_count is {total}'); errs+=1; continue
 if errs==0: print('PASS receipts.json')
 else: print(f'{errs} violation(s) in receipts.json')
 sys.exit(errs)

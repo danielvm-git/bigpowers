@@ -1,0 +1,25 @@
+story_id: e49s01
+title: Epic board e00–e99 computed per request from specs/ and git
+status: todo
+bcps: 29
+tasks:
+- id: 1
+  description: cockpit-model.cjs builds the model from a fixture consumer project
+  verify: node skills/visual-dashboard/scripts/test-cockpit-model.cjs
+  risk: P2
+  status: todo
+- id: 2
+  description: Same inputs give identical JSON
+  verify: node skills/visual-dashboard/scripts/test-cockpit-model.cjs --determinism
+  risk: P2
+  status: todo
+- id: 3
+  description: /api/cockpit computes on request and serves a cached copy while the fingerprint holds
+  verify: bash scripts/test-dashboard-cockpit-api.sh
+  risk: P2
+  status: todo
+- id: 4
+  description: cockpit.html renders 100 epic rows from /api/cockpit
+  verify: bash scripts/test-dashboard-cockpit-api.sh --rows 100
+  risk: P2
+  status: todo

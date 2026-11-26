@@ -1,0 +1,63 @@
+id: e93
+title: "MCP integration profile — one config source projected per host"
+status: active
+wsjf: 5.0
+bcps: 8
+mode: capsule
+wsjf_rationale: >
+  BV 4 + TC 4 + RR 4 / Job 2 ≈ 6. Three MCP config files with three owners and
+  no documented mapping produced blocked servers and ignored settings on every
+  start. One profile projected per host removes the confusion.
+github_issue: 217
+source: >
+  GH #217 — one bigpowers MCP profile projected per host: .mcp.json for OMP/Claude,
+  mcp-adapter.json for pi, nothing for hosts without MCP; approval workflow and
+  dual-install smoke test documented and enforced.
+stories:
+  - id: e93s01
+    title: document MCP config ownership + approval path
+    status: done
+    bcps: 2
+    description: >
+      docs/references/bigpowers-mcp.md now documents the file→key ownership
+      (mcp-adapter.json for adapter keys, pi's mcp.json for pi keys) and the
+      project-server approval workflow (settings.projectServers allow).
+    files:
+      - docs/references/bigpowers-mcp.md
+    verify: grep -q 'mcp-adapter.json' docs/references/bigpowers-mcp.md
+    tags: ["story: e93s01"]
+  - id: e93s02
+    title: ADR — MCP config ownership
+    status: todo
+    bcps: 1
+    description: >
+      Record the MCP file ownership decision in specs/adr/ so it is not re-litigated.
+    files:
+      - specs/adr/
+    verify: test -f specs/adr/ADR-0009-mcp-config-ownership.md
+    tags: ["story: e93s02"]
+  - id: e93s03
+    title: profile file + per-host projection
+    status: todo
+    bcps: 3
+    description: >
+      One .bigpowers/mcp.profile.yaml projected to .mcp.json (OMP/Claude) and
+      mcp-adapter.json (pi); project server opt-in; no committed project server in
+      a contributor clone.
+    files:
+      - .bigpowers/mcp.profile.yaml
+      - scripts/generate-mcp-config.sh
+    verify: bash scripts/generate-mcp-config.sh
+    tags: ["story: e93s03"]
+  - id: e93s04
+    title: dual-install smoke test
+    status: todo
+    bcps: 2
+    description: >
+      Prove bigpowers-mcp starts from both an installed package and an OMP plugin;
+      extend scripts/validate-mcp-package.sh to assert both.
+    files:
+      - scripts/validate-mcp-package.sh
+      - scripts/mcp-smoke.ts
+    verify: bash scripts/validate-mcp-package.sh
+    tags: ["story: e93s04"]

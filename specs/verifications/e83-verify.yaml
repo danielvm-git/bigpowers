@@ -1,0 +1,60 @@
+# story: e83s01 e83s02 e83s03 e83s04 e83s05
+story_id: e83
+stories: [e83s01, e83s02, e83s03, e83s04, e83s05]
+verified_at: "2026-11-07T16:00:00Z"
+verifier: verify-work
+risk: P1
+phases:
+  preflight:
+    passed: true
+    note: "npm run compliance GATE PASS 98%; run-verification-gates 62/62; trace-stories --strict exit 0"
+  smoke:
+    passed: true
+    note: "Repo has no server process; bigpowers status and the version-gap check were run directly (see manual)"
+  build:
+    passed: true
+    command: "bash scripts/sync-skills.sh"
+    note: "Ran in Preflight; its generated spec churn is deliberately not committed (BUG-2026-11-06-sync-specs-artifact-churn)"
+  typecheck:
+    passed: true
+    note: "Not applicable (Markdown/Bash); bash -n on every changed script"
+  lint:
+    passed: true
+    command: "bash scripts/validate-specs-yaml.sh"
+  tests:
+    passed: true
+    command: "bash scripts/verify-e83.sh e83s01..e83s05; bash tests/test-spec-version-gap-trigger.sh; bash tests/test-story-verify-recursion.sh"
+  terminal_verdict:
+    command: "bash scripts/run-verification-gates.sh"
+    exit_code: 0
+    result: "62/62 passed, Combined verdict PASS"
+    captured_at: "2026-11-07T15:50:00Z"
+    note: "Single contiguous run; earlier runs that hung on the story-verify recursion are not merged in"
+  security_and_blind_spots:
+    blind_spots: "0 HIGH; 5 LOW stale-tag (e83 stories keep tags by design); MEDIUM double-tag noise is pre-existing"
+    completeness_critic: "BLOCKER=0 WARNING=1 (active_story null, zero-tag check skipped) FILLED=1"
+    adversarial: "PASS"
+    security_review: "Skill not run separately; independent reviewer agent covered the diff (no serious findings) and no new untrusted-input surface was added"
+  manual:
+    steps:
+      - step: "bash scripts/check-spec-version-gap.sh on this feature branch"
+        expected: "blocked result names its trigger"
+        actual: '{"gap":true,"blocked":true,"reason":"ACTIVE_WORK","trigger":"feature_branch",...}'
+        passed: true
+      - step: "node bin/bigpowers.js status"
+        expected: "owned count and a separate foreign line"
+        actual: "80 skills installed / 5 foreign skill links (not owned by bigpowers)"
+        passed: true
+      - step: "bash scripts/build-receipts.sh"
+        expected: "metrics source label, breakdown and stale flag"
+        actual: "source=mixed, breakdown 1/52/12, stale=true (93 days), stderr warning"
+        passed: true
+      - step: "bash scripts/check-catalog-drift.sh against the new baseline"
+        expected: "no WARNING lines"
+        actual: "no output, exit 0"
+        passed: true
+  gaps:
+    closed: true
+    deferred:
+      - "verify-work did not run the security-review skill itself"
+      - "stamp/mirror release path (semantic-release prepareCmd) not exercised end to end; only its pieces were"

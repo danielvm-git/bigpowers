@@ -86,6 +86,14 @@ function assertReplaceable(dst) {
     if (target === REPO_ROOT || target.startsWith(REPO_ROOT + path.sep)) {
       return; // managed by bigpowers — safe to re-link
     }
+    // A previous bigpowers install under another package manager or node
+    // prefix (Homebrew, mise, a second nvm) points into a different
+    // `node_modules/bigpowers` root. That is still bigpowers-managed — replace
+    // it so `bigpowers update` self-heals from a stale sibling install instead
+    // of refusing and telling the user to clean up by hand.
+    if (target.includes(path.sep + 'node_modules' + path.sep + 'bigpowers')) {
+      return;
+    }
   }
   if (st.isFile() && managedCopies().has(dst)) {
     return; // file copy placed by the Windows fallback — safe to re-link
@@ -251,9 +259,13 @@ function installGlobal(tool, repoRoot) {
     }
     case 'antigravity':
     case 'agy': {
-      const renderedDir = path.join(repoRoot, '.agents', 'skills');
-      const targetDir = path.join(homeDir, '.gemini', 'antigravity-cli', 'skills');
-      linkRenderedSkills(renderedDir, targetDir);
+      // story: BUG-2026-11-26-agy-plugin-install
+      const pluginSrc = path.join(repoRoot, '.bigpowers', 'rendered', 'antigravity');
+      const pluginDst = path.join(homeDir, '.gemini', 'config', 'plugins', 'bigpowers');
+      fs.mkdirSync(path.dirname(pluginDst), { recursive: true });
+      linkDir(pluginSrc, pluginDst);
+      // Clean up legacy per-skill symlinks from the old undiscoverable CLI path.
+      removeManagedSkillLinks(path.join(homeDir, '.gemini', 'antigravity-cli', 'skills'), repoRoot);
       break;
     }
     case 'qwen':
@@ -411,7 +423,7 @@ function installLocal(tool, repoRoot) {
       break;
     }
     case 'pi': {
-      const targetDir = path.join(cwd, '.pi', 'agent', 'skills');
+      const targetDir = path.join(cwd, '.pi', 'skills');
       fs.mkdirSync(targetDir, { recursive: true });
       linkSkills(skillsDir, targetDir);
       break;
@@ -445,7 +457,7 @@ function installLocal(tool, repoRoot) {
     }
     case 'antigravity':
     case 'agy': {
-      const renderedDir = path.join(repoRoot, '.agents', 'skills');
+      const renderedDir = path.join(repoRoot, '.bigpowers', 'rendered', 'antigravity', 'skills');
       const targetDir = path.join(cwd, '.agents', 'skills');
       linkRenderedSkills(renderedDir, targetDir);
       const agentsSrc = path.join(repoRoot, 'AGENTS.md');
@@ -557,7 +569,7 @@ function uninstallTool(toolId, repoRoot) {
       break;
     case 'pi': {
       removeRepoRootedSkillLinks(path.join(homeDir, '.pi', 'agent', 'skills'), repoRoot);
-      removeRepoRootedSkillLinks(path.join(cwd, '.pi', 'agent', 'skills'), repoRoot);
+      removeRepoRootedSkillLinks(path.join(cwd, '.pi', 'skills'), repoRoot);
       break;
     }
     case 'hermes': {
@@ -619,6 +631,7 @@ function uninstallTool(toolId, repoRoot) {
     }
     case 'antigravity':
     case 'agy': {
+      removeSymlink(path.join(homeDir, '.gemini', 'config', 'plugins', 'bigpowers'));
       const skillsDir = path.join(homeDir, '.gemini', 'antigravity-cli', 'skills');
       if (fs.existsSync(skillsDir)) {
         for (const entry of fs.readdirSync(skillsDir, { withFileTypes: true })) {
@@ -629,11 +642,12 @@ function uninstallTool(toolId, repoRoot) {
           }
         }
       }
-      // installLocal('antigravity') renders into cwd/.agents/skills and — only
-      // if absent — symlinks cwd/AGENTS.md. Skip the local skills dir entirely
-      // when cwd === repoRoot: that's this repo's own tracked .agents/skills
-      // source tree (the installer's rendered-skill INPUT), not an install
-      // target, and must never be touched by uninstall.
+      // installLocal('antigravity') links the render output
+      // (.bigpowers/rendered/antigravity/skills) into cwd/.agents/skills — the
+      // Antigravity workspace discovery path — and, only if absent, symlinks
+      // cwd/AGENTS.md. Skip the local skills dir entirely when cwd === repoRoot:
+      // that is this repo's own workspace (the installer's INPUT), not an
+      // install target, and must never be touched by uninstall (#209).
       if (cwd !== repoRoot) {
         removeManagedSkillLinks(path.join(cwd, '.agents', 'skills'), repoRoot);
       }

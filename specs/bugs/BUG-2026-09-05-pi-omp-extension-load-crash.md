@@ -1,10 +1,11 @@
 ---
 bug_id: BUG-2026-09-05-pi-omp-extension-load-crash
-status: open
+status: fixed
 severity: critical
 scope: extensions / pi
 title: "extensions/omp-hooks.ts calls pi.setLabel() during load → pi aborts at startup for every package consumer (#119)"
 issue: https://github.com/danielvm-git/bigpowers/issues/119
+fix_evidence: "setLabel('bigpowers') removed from the extension factory body; a NOTE comment in omp-hooks.ts documents the load-phase rule (issue #119)."
 ---
 
 # BUG-2026-09-05: OMP extension crashes pi at startup (#119)

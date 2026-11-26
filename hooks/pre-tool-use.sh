@@ -78,6 +78,11 @@ INPUT=$(cat)
 COMMAND=$(echo "$INPUT" | jq -r '.command // .tool_input.command // empty')
 FILE_PATH=$(echo "$INPUT" | jq -r '.file_path // .tool_input.file_path // .path // .tool_input.path // .target_file // .tool_input.target_file // empty')
 TOOL_NAME=$(echo "$INPUT" | jq -r '.tool // .name // .tool_name // empty')
+# Session working directory from the hook payload. The hook process can start in a
+# different checkout than the session (a git worktree session runs from its own
+# folder while the harness runs the hook elsewhere), so the branch check below must
+# read the session's repo, not the hook's own cwd.
+HOOK_CWD=$(echo "$INPUT" | jq -r '.cwd // .tool_input.cwd // empty')
 
 # 0. Check file editing rules
 if [ -n "$FILE_PATH" ]; then
@@ -119,15 +124,23 @@ fi
 
 # 2. Check for git commit / git push
 if [[ "$COMMAND" =~ git[[:space:]]+commit ]] || [[ "$COMMAND" =~ git[[:space:]]+push ]]; then
-  CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo "unknown")
+  if [ -n "$HOOK_CWD" ] && [ -d "$HOOK_CWD" ]; then
+    CURRENT_BRANCH=$(git -C "$HOOK_CWD" rev-parse --abbrev-ref HEAD 2>/dev/null || echo "unknown")
+  else
+    CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo "unknown")
+  fi
 
-  # Push to protected branches
+  # Push to protected branches. Judge only the push segment (up to the next
+  # command separator): a protected name in trailing prose or a later command
+  # must not block an unrelated feature push
+  # (BUG-2026-11-03-guard-push-target-matches-text).
   if [[ "$COMMAND" =~ git[[:space:]]+push ]]; then
+    PUSH_SEG="${COMMAND%%[;&|]*}"
     PUSH_TARGETS_PROTECTED=false
     for b in "${PROTECTED_BRANCHES[@]}"; do
-      if [[ "$COMMAND" =~ [[:space:]]+$b([[:space:]]|$) ]] \
-        || [[ "$COMMAND" =~ :$b([[:space:]]|$) ]] \
-        || [[ "$COMMAND" =~ refs/heads/$b ]]; then
+      if [[ "$PUSH_SEG" =~ [[:space:]]+$b([[:space:]]|$) ]] \
+        || [[ "$PUSH_SEG" =~ :$b([[:space:]]|$) ]] \
+        || [[ "$PUSH_SEG" =~ refs/heads/$b ]]; then
         PUSH_TARGETS_PROTECTED=true
         break
       fi
@@ -168,8 +181,11 @@ if [[ "$COMMAND" =~ git[[:space:]]+commit ]] || [[ "$COMMAND" =~ git[[:space:]]+
         deny "BLOCKED: Commit subject line must be 72 characters or less."
       fi
 
-      # Block AI agent attribution (P1 — NEVER Co-authored-by:)
-      if echo "$MSG" | grep -qiE '^co[- ]authored[- ]by:' || echo "$MSG" | grep -qiE '\nco[- ]authored[- ]by:'; then
+      # Block AI agent attribution (P1 — NEVER Co-authored-by:). The footer may
+      # ride ANY -m paragraph, not only the first; the subject check above only
+      # reads the first paragraph, so scan the whole command for the token
+      # (BUG-2026-11-03-guard-attribution-second-m).
+      if echo "$COMMAND" | grep -qiE 'co[- ]authored[- ]by:[[:space:]]'; then
         deny "BLOCKED: Commit must not include Co-authored-by: footer. All commits must appear as if authored solely by the human user (CONVENTIONS.md § Git Attribution)."
       fi
     fi

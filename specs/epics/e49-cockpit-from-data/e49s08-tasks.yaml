@@ -1,0 +1,20 @@
+story_id: e49s08
+title: Quality view and a found_in stage on every BUG
+status: todo
+bcps: 30
+tasks:
+- id: 1
+  description: investigate-bug writes found_in and the registry carries it
+  verify: grep -q 'found_in' skills/investigate-bug/SKILL.md && grep -q 'found_in' scripts/sync-bugs-registry.sh
+  risk: P2
+  status: todo
+- id: 2
+  description: Escape tile is PLANNED until found_in exists, then counts by stage
+  verify: node skills/visual-dashboard/scripts/test-cockpit-tiles.cjs --quality
+  risk: P2
+  status: todo
+- id: 3
+  description: Quality charts render from the model
+  verify: bash scripts/test-dashboard-cockpit-api.sh --quality
+  risk: P2
+  status: todo

@@ -53,10 +53,16 @@ GOLDEN_GATES=(
   "target-contracts:bash scripts/test-target-contracts.sh:false"
   # Registry-driven replacements for the 25 hand-written per-target scripts.
   "install-hub:bash scripts/test-install-hub.sh:false"
+  # Whether the package *builds* was gated; whether its tree is *safe* was not.
+  # `npm audit --omit=dev` was 10 advisories (1 critical) with nothing watching.
+  "prod-dependency-audit:bash scripts/test-prod-dependency-audit.sh:false"
+  # `bigpowers update` runs `npm install -g @latest` inside a live process; a
+  # version captured by require() at startup then reports the release that was
+  # just replaced (BUG-2026-11-03-cli-update-stale-version).
+  "bigpowers-cli-version:bash scripts/test-bigpowers-cli-version.sh:false"
   # The CLI must be usable without a TTY (BUG-2026-11-03-cli-nontty-silent-noop):
   # with stdin at EOF the installer used to draw its first menu, install nothing
-  # and exit 0. Also pins the version a self-update reports
-  # (BUG-2026-11-03-cli-update-stale-version).
+  # and exit 0.
   "bigpowers-cli:bash scripts/test-bigpowers-cli.sh:false"
   "adapter-render:bash scripts/test-adapter-render.sh:false"
   "adapters:bash scripts/test-adapters.sh:false"
@@ -64,6 +70,8 @@ GOLDEN_GATES=(
   "resolve-repo-root:bash scripts/test-resolve-repo-root.sh:false"
   "tombstone-mechanism:bash scripts/test-tombstone-mechanism.sh:false"
   "trace-strict:bash scripts/test-trace-strict.sh:false"
+  # Trace links only files git would track — never other worktrees or reports.
+  "trace-ignored-paths:bash scripts/test-trace-ignored-paths.sh:false"
   "trace-matrix-size:bash scripts/test-trace-matrix-size.sh:false"
   "setup-no-pyyaml:bash scripts/test-setup-no-pyyaml.sh:false"
   "install-distribute-only:bash scripts/test-install-distribute-only.sh:false"
@@ -71,6 +79,14 @@ GOLDEN_GATES=(
   "epics-wiki-zero-stories:bash scripts/test-generate-epics-wiki-zero-stories.sh:false"
   "golden-g11-worktree-venv:bash scripts/test-golden-g11-worktree-venv.sh:false"
   "install-helpers:bash scripts/test-install-helpers.sh:false"
+  # install.sh --uninstall matched only the literal link text against
+  # $REPO_ROOT/, so a checkout uninstall of an npm install removed 0 of N.
+  # The manifest + resolved-path matching fix is guarded here (#219).
+  "install-manifest:bash tests/test-install-manifest.sh:false"
+  # Five channels shipped the same catalog to four places pi scans, giving
+  # 80 skill-name collisions per start (#208). verify-distribution names each
+  # channel and fails when package + symlink both own pi.
+  "verify-distribution:bash tests/test-verify-distribution.sh:false"
   "project-runtime:bash scripts/test-project-runtime.sh:false"
   "security-agents-import:node tests/security/agents-import.cjs:false"
   "omp-extension:bash scripts/validate-omp-extension.sh:false"
@@ -81,9 +97,33 @@ GOLDEN_GATES=(
   "import-boundaries:bash scripts/check-import-boundaries.sh:false"
   "security-dashboard-render:node tests/security/dashboard-render.cjs:false"
   "skill-catalog:bash scripts/validate-skill-catalog.sh:false"
+  # The validator stands in for the host parser, so it must reject exactly what
+  # pi rejects: an HTML comment inside the frontmatter block (#173) and a
+  # duplicate top-level key (#207). PyYAML accepts both, which is how 10 skills
+  # shipped broken while `npm run compliance` stayed green.
+  "skill-frontmatter-strict:bash tests/test-skill-frontmatter-strict.sh:false"
+  # A rendered payload that ships only SKILL.md is a broken skill: 38 of 80
+  # reference sibling files. The pi package (.pi/skills) and Antigravity
+  # (.bigpowers/rendered/antigravity/skills) channels must carry the same
+  # bundled files as the source.
+  "render-assets:bash tests/test-render-assets.sh:false"
+  # A host render target must not live at a path another host auto-discovers:
+  # .agents/skills is a discovery root pi scans, so the Antigravity render
+  # moved to .bigpowers/rendered/antigravity/skills (#209).
+  "render-targets-not-discoverable:bash tests/test-render-targets-not-discoverable.sh:false"
   # Guard-git judges git argv, not substrings; shell and TS must agree (#184).
   "guard-git-normalize:bash scripts/test-guard-git-normalize.sh:false"
+  # Guard reads branch from session cwd, not hook process cwd.
+  "guard-session-cwd:bash scripts/test-guard-session-cwd.sh:false"
   "specs-parse:bash scripts/validate-specs-yaml.sh:false"
+  # CI's sync job validates OKF bundles in six specs/ dirs; the local gate set did
+  # not, so a green Preflight coexisted with a red CI sync job (e83s03, source
+  # "mixed" in receipts.json). Keep both lists identical.
+  "okf-bundles:bash tests/test-okf-bundles.sh:false"
+  # P1: hooks and land-branch.sh block AI attribution, but neither runs when a PR
+  # is merged with `gh pr merge`, so the rule was enforced only on the solo-local
+  # path. This gate covers the commits a change introduces.
+  "no-ai-coauthors:bash tests/test-no-ai-coauthors.sh:false"
   # The runner itself: failing output is shown, skips are named and reasoned.
   "golden-gate-runner:bash scripts/test-golden-gate-runner.sh:false"
   # Pipefail SIGPIPE races: fix shapes hold, git output never feeds grep -q/head.
@@ -93,6 +133,9 @@ GOLDEN_GATES=(
   # One pipeline, release needs: every gate, pinned runner and actions.
   "ci-pipeline-contract-selftest:bash scripts/test-ci-pipeline-contract.sh --self-test:false"
   "ci-pipeline-contract:bash scripts/test-ci-pipeline-contract.sh:false"
+  # Release audit gate must fail-closed on missing or stale audited_range
+  # (BUG-2026-11-07-assert-epic-gate-fail-open).
+  "assert-epic-gate:bash tests/test-assert-epic-gate.sh:false"
   # Tier 2 of the verify arc (#106): executes the verify: of every story marked
   # done. Tier 1 (SKILL.md) is run-skill-verify.sh in test-build-release.yml.
   "story-verify-selftest:bash scripts/run-story-verify.sh --self-test:false"

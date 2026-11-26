@@ -48,7 +48,7 @@ bigpowers-mcp/
 
 | NFR | Threshold | Verify |
 |-----|-----------|--------|
-| Performance | Cold start + index 73 skills < 2s on M-series Mac | `npm test -- perf` (vitest bench, e32s02+) |
+| Performance | Cold start + index 80 skills < 2s on M-series Mac | `npm test -- perf` (vitest bench, e32s02+) |
 | Reliability | Zero parse failures on catalog run | e32s01 verify + vitest integration |
 | Operability | stderr logs tool name on error; no secrets in stdout | manual MCP Inspector + code review |
 

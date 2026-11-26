@@ -1,0 +1,20 @@
+story_id: e49s05
+title: Delivery charts by day, week, month and year
+status: todo
+bcps: 26
+tasks:
+- id: 1
+  description: Daily series with dated-by-epic counts
+  verify: node skills/visual-dashboard/scripts/test-cockpit-model.cjs --daily
+  risk: P3
+  status: todo
+- id: 2
+  description: Bucketing by day/week/month/year keeps empty periods
+  verify: node skills/visual-dashboard/scripts/test-cockpit-buckets.cjs
+  risk: P3
+  status: todo
+- id: 3
+  description: Delivery tab charts switch grain
+  verify: grep -q 'data-grain' skills/visual-dashboard/scripts/cockpit.html
+  risk: P3
+  status: todo

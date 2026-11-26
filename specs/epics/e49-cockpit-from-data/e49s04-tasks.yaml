@@ -1,0 +1,10 @@
+story_id: e49s04
+title: 'Evidence-freshness rules: tags, receipts, ledger, matrix'
+status: todo
+bcps: 14
+tasks:
+- id: 1
+  description: One fixture per rule, plus a skipped case per rule
+  verify: node skills/visual-dashboard/scripts/test-cockpit-model.cjs --rules freshness
+  risk: P3
+  status: todo

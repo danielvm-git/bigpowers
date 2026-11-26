@@ -1,0 +1,15 @@
+story_id: e83s04
+title: VISION refreshed and catalog-freeze breaks resolved
+status: done
+bcps: 8
+tasks:
+- id: 1
+  description: Refresh VISION success criteria
+  verify: bash scripts/verify-e83.sh e83s04
+  risk: P2
+  status: done
+- id: 2
+  description: Resolve every drift warning
+  verify: bash scripts/verify-e83.sh e83s04
+  risk: P2
+  status: done

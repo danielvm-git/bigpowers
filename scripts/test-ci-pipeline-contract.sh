@@ -10,8 +10,10 @@
 #   3. no ubuntu-latest; every non-local action is pinned to a 40-char SHA
 #   4. every job has timeout-minutes
 #   5. release and Pages never cancel a run in progress
-#   6. the Pages deploy (any job using actions/deploy-pages) lives in the
-#      pipeline, needs: every gate job and runs only for main
+#   6. the Pages deploy lives either in the pipeline (needing every gate job) or
+#      in deploy.yml, where a workflow_run trigger on "Test Build Release" plus
+#      a conclusion == 'success' / head_branch == 'main' condition is the gate.
+#      Either way a red gate cannot publish (BUG-2026-10-25-pages-not-gated).
 #
 # Agent workflows (agent-locks.yml, generated agentics-maintenance.yml) are
 # exempt from 3–4 per migration plan v2.
@@ -63,6 +65,37 @@ def main_only(cond):
     return ("refs/heads/main" in cond and
             ("github.event_name == 'push'" in cond or "workflow_dispatch" in cond))
 
+def on_block(doc):
+    # PyYAML parses the bare key `on` as boolean True.
+    return doc.get("on", doc.get(True)) or {}
+
+def run_gated_by_pipeline(doc, job_name):
+    """A deploy outside the pipeline is legal only when the pipeline gates it:
+    workflow_run on Test Build Release + completed, and a job on the deploy's own
+    needs: chain requires a successful run on main. Gating propagates through
+    needs:, so the condition may sit on build rather than deploy. This keeps
+    BUG-2026-10-25-pages-not-gated fixed."""
+    onb = on_block(doc)
+    if not isinstance(onb, dict):
+        return False
+    wr = onb.get("workflow_run") or {}
+    if not isinstance(wr, dict):
+        return False
+    wfs = wr.get("workflows") or []
+    wfs = [wfs] if isinstance(wfs, str) else list(wfs)
+    if "Test Build Release" not in wfs:
+        return False
+    types = wr.get("types") or []
+    types = [types] if isinstance(types, str) else list(types)
+    if "completed" not in types:
+        return False
+    jobs = doc.get("jobs") or {}
+    for name in {job_name} | ancestors(jobs, job_name):
+        cond = str((jobs.get(name) or {}).get("if", ""))
+        if "conclusion == 'success'" in cond and "head_branch == 'main'" in cond:
+            return True
+    return False
+
 pipe_path = os.path.join(d, "test-build-release.yml")
 if not os.path.isfile(pipe_path):
     bad.append("test-build-release.yml missing")
@@ -77,10 +110,18 @@ else:
     gate_jobs = (GATES | {n for n, j in jobs.items() if not needs_of(j)}) - {"release"}
     rel = jobs.get("release")
     if not rel:
-        bad.append("pipeline has no release job")
+        # v3 pair: release may live in release.yml, gated by a successful pipeline
+        # run on main, so a workflow-level cancel cannot kill a mid-publish release.
+        rel_wf = os.path.join(d, "release.yml")
+        rel_doc = load(rel_wf) if os.path.isfile(rel_wf) else None
+        if rel_doc is None or not run_gated_by_pipeline(rel_doc, "release"):
+            bad.append("no release job in the pipeline and no workflow_run-gated "
+                       "release.yml (release must follow a successful run on main)")
+        else:
+            rjob = (rel_doc.get("jobs") or {}).get("release") or {}
+            if cancels(rel_doc.get("concurrency")) or cancels(rjob.get("concurrency")):
+                bad.append("release.yml: release can be cancelled in progress")
     pages = [n for n, j in jobs.items() if deploys_pages(j)]
-    if not pages:
-        bad.append("pipeline has no Pages deploy job")
     for name in pages:
         job, up = jobs[name], ancestors(jobs, name)
         if not gate_jobs <= up:
@@ -108,14 +149,37 @@ for name in RETIRED:
     if os.path.exists(os.path.join(d, name)):
         bad.append(f"retired workflow still present: {name}")
 
+# Rule 6, v3 pair: exactly one Pages deploy, either inside the pipeline (gated by
+# needs: on every gate job) or in deploy.yml (gated by a successful pipeline run).
+# Anywhere else is an ungated deploy path.
+deploy_sites = []
+for path in sorted(glob.glob(os.path.join(d, "*.yml"))):
+    fname = os.path.basename(path)
+    doc = load(path)
+    for job_name, job in (doc.get("jobs") or {}).items():
+        if not deploys_pages(job):
+            continue
+        where = f"{fname}:{job_name}"
+        if fname == "test-build-release.yml":
+            deploy_sites.append(where)  # needs: edge already asserted above
+        elif fname == "deploy.yml":
+            if not run_gated_by_pipeline(doc, job_name):
+                bad.append(f"{where}: deploy.yml is not gated by a successful "
+                           "Test Build Release run on main (workflow_run + conclusion/head_branch)")
+            else:
+                deploy_sites.append(where)
+        else:
+            bad.append(f"{where}: Pages deploy outside the v3 pair "
+                       "(move it to deploy.yml, gated by workflow_run)")
+if not deploy_sites:
+    bad.append("no Pages deploy job in test-build-release.yml or deploy.yml")
+
 for path in sorted(glob.glob(os.path.join(d, "*.yml"))):
     name = os.path.basename(path)
     if name in EXEMPT:
         continue
     for job_name, job in (load(path).get("jobs") or {}).items():
         where = f"{name}:{job_name}"
-        if name != "test-build-release.yml" and deploys_pages(job):
-            bad.append(f"{where}: Pages deploy outside the pipeline (no needs: edge to the gates)")
         if "uses" in job:  # reusable-workflow call: no runner of its own
             continue
         if "ubuntu-latest" in str(job.get("runs-on", "")):
@@ -171,7 +235,13 @@ jobs:
 YAML
   }
   expect() { # $1 = label, $2 = want pass|fail, $3 = dir
-    if check_dir "$3" >/dev/null; then got=pass; else got=fail; fi
+    local out
+    if out=$(check_dir "$3" 2>&1); then got=pass; else got=fail; fi
+    # A crash is not a verdict: it would make every "expect fail" case pass
+    # for the wrong reason and hide a broken checker.
+    if grep -q 'Traceback (most recent call last)' <<<"$out"; then
+      echo "FAIL ($1): checker crashed instead of returning a verdict"; ok=0; return
+    fi
     if [ "$got" = "$2" ]; then echo "PASS ($1)"; else echo "FAIL ($1): got $got, want $2"; ok=0; fi
   }
 
@@ -213,10 +283,104 @@ YAML
   sed -i.bak 's/group: pages, cancel-in-progress: false/group: pages, cancel-in-progress: true/' "$tmp/pages-cancel/test-build-release.yml"
   expect "cancellable Pages deploy fails" fail "$tmp/pages-cancel"
 
+  # v3 pair: the deploy may leave the pipeline, but only behind a workflow_run
+  # gate on a successful run — the invariant behind BUG-2026-10-25-pages-not-gated.
+  write_deploy_fixture() { # $1 = dir, $2 = job if-condition, $3 = on: block
+    mkdir -p "$1"
+    cat > "$1/test-build-release.yml" <<YAML
+on: push
+jobs:
+  sync: {runs-on: ubuntu-22.04, timeout-minutes: 10, steps: [{uses: $pin}]}
+  verification-gates: {runs-on: ubuntu-22.04, timeout-minutes: 15, steps: [{run: "true"}]}
+  skill-verify: {runs-on: ubuntu-22.04, timeout-minutes: 10, steps: [{run: "true"}]}
+  story-verify: {runs-on: ubuntu-22.04, timeout-minutes: 10, steps: [{run: "true"}]}
+  release:
+    needs: [sync, verification-gates, skill-verify, story-verify]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-22.04
+    timeout-minutes: 15
+    concurrency: {group: release, cancel-in-progress: false}
+    steps: [{run: "true"}]
+YAML
+    cat > "$1/deploy.yml" <<YAML
+$3
+jobs:
+  deploy:
+    if: $2
+    runs-on: ubuntu-22.04
+    timeout-minutes: 15
+    steps: [{uses: "$deploy"}]
+YAML
+  }
+  local wr_on="on:
+  workflow_run:
+    workflows: [\"Test Build Release\"]
+    types: [completed]"
+  local gated="github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main'"
+
+  write_deploy_fixture "$tmp/deploy-ok" "$gated" "$wr_on"
+  expect "v3 pair: deploy.yml gated by workflow_run passes" pass "$tmp/deploy-ok"
+
+  # Gating propagates through needs:, so the condition may sit on an ancestor —
+  # this is the shape the real deploy.yml uses (gate on build, deploy needs build).
+  write_deploy_fixture "$tmp/deploy-needs-ok" "true" "$wr_on"
+  sed -i.bak 's|^jobs:|jobs:\n  build:\n    if: github.event.workflow_run.conclusion == '\''success'\'' \&\& github.event.workflow_run.head_branch == '\''main'\''\n    runs-on: ubuntu-22.04\n    timeout-minutes: 10\n    steps: [{run: "true"}]|' "$tmp/deploy-needs-ok/deploy.yml"
+  sed -i.bak '/^  deploy:/a\
+    needs: build' "$tmp/deploy-needs-ok/deploy.yml"
+  expect "deploy gated via a needs: ancestor passes" pass "$tmp/deploy-needs-ok"
+
+  write_deploy_fixture "$tmp/deploy-ungated" "github.event.workflow_run.head_branch == 'main'" "$wr_on"
+  expect "deploy.yml without a success gate fails" fail "$tmp/deploy-ungated"
+
+  write_deploy_fixture "$tmp/deploy-norun" "$gated" "on: push"
+  expect "deploy.yml not triggered by workflow_run fails" fail "$tmp/deploy-norun"
+
   write_fixture "$tmp/pages-split"
   printf 'on: push\njobs:\n  deploy: {runs-on: ubuntu-22.04, timeout-minutes: 15, steps: [{uses: %s}]}\n' \
     "$deploy" > "$tmp/pages-split/docs-site.yml"
-  expect "Pages deploy in a separate workflow fails" fail "$tmp/pages-split"
+  expect "Pages deploy in an unrelated workflow fails" fail "$tmp/pages-split"
+
+  # v3 pair: release may live in release.yml, gated by a successful pipeline run.
+  write_release_fixture() { # $1 = dir, $2 = release job if-condition
+    mkdir -p "$1"
+    cat > "$1/test-build-release.yml" <<YAML
+on: push
+jobs:
+  sync: {runs-on: ubuntu-22.04, timeout-minutes: 10, steps: [{uses: $pin}]}
+  verification-gates: {runs-on: ubuntu-22.04, timeout-minutes: 15, steps: [{run: "true"}]}
+  skill-verify: {runs-on: ubuntu-22.04, timeout-minutes: 10, steps: [{run: "true"}]}
+  story-verify: {runs-on: ubuntu-22.04, timeout-minutes: 10, steps: [{run: "true"}]}
+YAML
+    cat > "$1/release.yml" <<YAML
+on:
+  workflow_run:
+    workflows: ["Test Build Release"]
+    types: [completed]
+concurrency: {group: release, cancel-in-progress: false}
+jobs:
+  release:
+    if: $2
+    runs-on: ubuntu-22.04
+    timeout-minutes: 15
+    steps: [{run: "true"}]
+YAML
+  }
+
+  write_release_fixture "$tmp/release-ok" "$gated"
+  printf 'on:\n  workflow_run:\n    workflows: ["Test Build Release"]\n    types: [completed]\njobs:\n  deploy:\n    if: %s\n    runs-on: ubuntu-22.04\n    timeout-minutes: 15\n    steps: [{uses: "%s"}]\n' \
+    "$gated" "$deploy" > "$tmp/release-ok/deploy.yml"
+  expect "v3 pair: release.yml gated by workflow_run passes" pass "$tmp/release-ok"
+
+  write_release_fixture "$tmp/release-ungated" "github.event.workflow_run.head_branch == 'main'"
+  printf 'on:\n  workflow_run:\n    workflows: ["Test Build Release"]\n    types: [completed]\njobs:\n  deploy:\n    if: %s\n    runs-on: ubuntu-22.04\n    timeout-minutes: 15\n    steps: [{uses: "%s"}]\n' \
+    "$gated" "$deploy" > "$tmp/release-ungated/deploy.yml"
+  expect "release.yml without a success gate fails" fail "$tmp/release-ungated"
+
+  write_release_fixture "$tmp/release-cancel" "$gated"
+  printf 'on:\n  workflow_run:\n    workflows: ["Test Build Release"]\n    types: [completed]\njobs:\n  deploy:\n    if: %s\n    runs-on: ubuntu-22.04\n    timeout-minutes: 15\n    steps: [{uses: "%s"}]\n' \
+    "$gated" "$deploy" > "$tmp/release-cancel/deploy.yml"
+  sed -i.bak 's/cancel-in-progress: false/cancel-in-progress: true/' "$tmp/release-cancel/release.yml"
+  expect "cancellable release.yml fails" fail "$tmp/release-cancel"
 
   [ "$ok" -eq 1 ] && echo "OK: pipeline contract self-test" || { echo "pipeline contract self-test FAILED"; exit 1; }
 }

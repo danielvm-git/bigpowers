@@ -106,6 +106,47 @@ every reference carries a `:-.` default that resolves from the project root (#16
 Do **not** use `${workspaceFolder}` in the shipped manifest — OMP treats it as a
 literal env var name and spawn fails with a misleading `ENOENT` (#123).
 
+### pi and the shipped .mcp.json (issue #210)
+
+`.mcp.json` ships for OMP and Claude Code project scope. pi's MCP adapter
+(`pi-mcp-adapter`) also reads `.mcp.json` from the project cwd and treats its
+servers as **untrusted project servers**, so running pi from inside a bigpowers
+checkout prints:
+
+```
+Warning: MCP: Project servers blocked: bigpowers-mcp
+```
+
+That is expected — the server is for OMP/Claude, not pi. Resolve it one of:
+
+1. **Approve once** in a trusted interactive session (`pi` prompts for it), or
+2. Allow project servers globally in the adapter's own file:
+
+   ```json
+   // ~/.pi/agent/mcp-adapter.json
+   { "settings": { "projectServers": "allow" } }
+   ```
+
+   `settings.projectServers` is a **user-global** setting; the adapter refuses
+   it in a project config, so it must live in `mcp-adapter.json`.
+3. If you only use pi and never OMP/Claude, delete the `bigpowers-mcp` entry
+   from the `.mcp.json` in your project (or don't run pi from a bigpowers
+   checkout).
+
+### Adapter keys go in mcp-adapter.json, not pi's mcp.json (issue #211)
+
+`pi-mcp-adapter` reads pi's `mcp.json` for server definitions but strips every
+key pi's schema does not define, reporting `Ignored settings`. `directTools`,
+`toolExposure`, and every other adapter-only key belong in
+`~/.pi/agent/mcp-adapter.json` (global) or `.pi/mcp-adapter.json` (project).
+The adapter never writes pi's files — changes such as direct tools always go to
+the adapter file.
+
+```json
+// ~/.pi/agent/mcp-adapter.json
+{ "mcpServers": { "bigbase": { "url": "https://mcp.bigbase.click/mcp", "directTools": true } } }
+```
+
 ### Troubleshooting
 
 | Symptom | Cause | Fix |

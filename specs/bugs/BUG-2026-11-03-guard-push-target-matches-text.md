@@ -1,6 +1,6 @@
 ---
 bug_id: BUG-2026-11-03-guard-push-target-matches-text
-status: open
+status: fixed
 severity: medium
 scope: hooks / guard-git
 title: "Protected-branch push check matches the word 'main' anywhere in the command, so an unrelated echo or comment blocks a legitimate feature push"
@@ -8,6 +8,7 @@ files_changed: "hooks/pre-tool-use.sh, extensions/omp-hooks.ts"
 approach: "Decide the push target from the normalized argv of each git push invocation (remote + refspec), not from a substring match over the whole command string"
 risk_level: low
 commit_message: "fix(hooks): derive push targets from git argv, not from command text"
+fix_evidence: "PR #229 — regression rows in guard-git-normalize.yaml + adjacent shell-hook cases; 33/33 rows pass both implementations"
 ---
 
 # BUG-2026-11-03: guard blocks a feature push because of an echo

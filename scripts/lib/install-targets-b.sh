@@ -82,36 +82,37 @@ uninstall_mimo() {
   unlink_if_managed "$MIMO_AGENTS" "$REPO_ROOT/"
 }
 
-# ── Antigravity CLI / agy (e74s02) ────────────────────────────────────────────
-# Global skills: ~/.gemini/antigravity-cli/skills/ (separate from e64 Gemini extension)
+# ── Antigravity CLI / agy (e74s02, BUG-2026-11-26-agy-plugin-install) ─────────
+# Global native plugin: ~/.gemini/config/plugins/bigpowers (separate from e64 Gemini extension)
 
-AGY_CONFIG_DIR="$HOME/.gemini/antigravity-cli"
-AGY_SKILLS_DIR="$AGY_CONFIG_DIR/skills"
-AGY_RENDERED="$REPO_ROOT/.agents/skills"
+AGY_PLUGIN_SRC="$REPO_ROOT/.bigpowers/rendered/antigravity"
+AGY_RENDERED="$REPO_ROOT/.bigpowers/rendered/antigravity/skills"
+AGY_PLUGIN_DST="$HOME/.gemini/config/plugins/bigpowers"
+AGY_LEGACY_SKILLS_DIR="$HOME/.gemini/antigravity-cli/skills"
 
 install_agy() {
   echo ""
-  echo "Antigravity CLI → $AGY_SKILLS_DIR/"
-  if [[ ! -d "$AGY_RENDERED" ]]; then
-    echo "  WARNING: $AGY_RENDERED not found — run sync-skills.sh first"
+  echo "Antigravity CLI → $AGY_PLUGIN_DST"
+  if [[ ! -d "$AGY_RENDERED" || ! -f "$AGY_PLUGIN_SRC/plugin.json" ]]; then
+    echo "  WARNING: $AGY_PLUGIN_SRC (plugin.json + skills/) not found — run sync-skills.sh first"
     return
   fi
-  local count=0
-  for skill_dir in "$AGY_RENDERED"/*/; do
-    [[ -f "${skill_dir}SKILL.md" ]] || continue
-    local name; name="$(basename "$skill_dir")"
-    link "$skill_dir" "$AGY_SKILLS_DIR/$name"
-    count=$((count + 1))
-  done
-  echo "  $count skills installed"
-  echo "  NOTE: Antigravity uses ~/.gemini/antigravity-cli/skills/ — not .gemini/extensions/ (Gemini CLI)"
+  link "$AGY_PLUGIN_SRC" "$AGY_PLUGIN_DST"
+  if [[ -d "$AGY_LEGACY_SKILLS_DIR" ]]; then
+    for dst in "$AGY_LEGACY_SKILLS_DIR"/*/; do
+      [[ -L "${dst%/}" ]] || continue
+      unlink_if_managed "${dst%/}" "$REPO_ROOT/"
+    done
+  fi
+  echo "  NOTE: Antigravity uses ~/.gemini/config/plugins/bigpowers — not .gemini/extensions/ (Gemini CLI)"
 }
 
 uninstall_agy() {
   echo ""
-  echo "Antigravity CLI → removing management from $AGY_CONFIG_DIR/"
-  if [[ -d "$AGY_SKILLS_DIR" ]]; then
-    for dst in "$AGY_SKILLS_DIR"/*/; do
+  echo "Antigravity CLI → removing management from $AGY_PLUGIN_DST"
+  unlink_if_managed "$AGY_PLUGIN_DST" "$REPO_ROOT/"
+  if [[ -d "$AGY_LEGACY_SKILLS_DIR" ]]; then
+    for dst in "$AGY_LEGACY_SKILLS_DIR"/*/; do
       [[ -L "${dst%/}" ]] || continue
       unlink_if_managed "${dst%/}" "$REPO_ROOT/"
     done
