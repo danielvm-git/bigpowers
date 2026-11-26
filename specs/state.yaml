@@ -2,7 +2,7 @@ active_flow: fix_bug
 active_epic: null
 active_story: null
 bug_id: BUG-2026-11-26-agy-plugin-install
-bigpowers_version: 2.96.2
+bigpowers_version: 2.96.3
 bug_cycle:
   current_step: 4
   completed_steps:
@@ -94,7 +94,7 @@ release:
   ci_verified: true
   last_commit: 2be64ecc
   last_epic: e79-simple-english-skill
-  last_tag: v2.96.2
+  last_tag: v2.96.3
   last_publish: '2026-11-04T01:52:15Z'
 git:
   branch: main

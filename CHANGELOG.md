@@ -1,3 +1,10 @@
+## [2.96.3](https://github.com/danielvm-git/bigpowers/compare/v2.96.2...v2.96.3) (2026-11-26)
+
+
+### Bug Fixes
+
+* **gates:** fail the release audit gate when the audit covers a different diff ([#242](https://github.com/danielvm-git/bigpowers/issues/242)) ([b44137f](https://github.com/danielvm-git/bigpowers/commit/b44137ff8fb0218b2b1d7a4f2d15e0cc86744851))
+
 ## [2.96.2](https://github.com/danielvm-git/bigpowers/compare/v2.96.1...v2.96.2) (2026-11-26)
 
 
