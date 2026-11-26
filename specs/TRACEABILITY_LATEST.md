@@ -1,6 +1,6 @@
 # Traceability Matrix
 
-**Generated:** 2026-11-26 14:04:30 UTC
+**Generated:** 2026-11-26 14:47:54 UTC
 **Total stories:** 171
 **Tagged stories:** 142
 **Dark stories:** 0
@@ -10,7 +10,7 @@
 ## Oracle Stats
 
 - **High** (explicit tag): 969
-- **Medium** (file heuristic): 2945
+- **Medium** (file heuristic): 2944
 - **Low** (task reference): 119
 
 ## Story Coverage
@@ -41,7 +41,7 @@
 | e45s06 | tasks.yaml: literal failing→passing task ledger | e45 | 2 | 5.0 | done | 2 |
 | e45s07 | request-review: dual-blind AND-gate review (Santa Method) | e45 | 2 | 5.0 | done | 39 |
 | e45s08 | develop-tdd / validate-fix: two-commit red/green regression  | e45 | 2 | 5.0 | done | 14 |
-| e45s09 | verify-work / plan-work: Pre-Implementation and Validation g | e45 | 2 | 5.0 | done | 89 |
+| e45s09 | verify-work / plan-work: Pre-Implementation and Validation g | e45 | 2 | 5.0 | done | 88 |
 | e45s10 | docs/references: auto-regenerate from source-of-truth docs v | e45 | 2 | 5.0 | done | 8 |
 | e45s11 | orchestration / dispatch-agents: typed message protocol + 3- | e45 | 2 | 5.0 | done | 17 |
 | e45s12 | stocktake-skills / craft-skill: code-enforced validator + au | e45 | 2 | 5.0 | done | 45 |
@@ -106,7 +106,7 @@
 | e51s05 | CLAUDE.md — solo-default agent rules + bigpowers Preflight c | e51 | 2 | 7.0 | done | 9 |
 | e53s01 | Commit the untracked GOLDEN baseline | e53 | 1 | 8.0 | done | 12 |
 | e53s02 | Build the tombstone-alias mechanism | e53 | 3 | 8.0 | done | 8 |
-| e53s03 | Gate-trace the compliance-to-GOLDEN hard-gate coupling | e53 | 2 | 8.0 | done | 64 |
+| e53s03 | Gate-trace the compliance-to-GOLDEN hard-gate coupling | e53 | 2 | 8.0 | done | 65 |
 | e53s04 | Adopt docs/TARGET-ARCHITECTURE.md as the migration's north-s | e53 | 3 | 8.0 | done | 3 |
 | e54s01 | Snapshot the current skill catalog as an immutable baseline | e54 | 2 | 6.7 | done | 11 |
 | e54s02 | Add a soft drift-detection gate for the freeze window | e54 | 3 | 6.7 | done | 15 |
@@ -169,7 +169,7 @@
 | e82s03 | OMP plugin extension — bigpowers as native oh-my-posh/OMP en | e82 | 0 | 6.0 | done | 7 |
 | e82s04 | Community attribution — CONTRIBUTORS.md + CHANGELOG credit e | e82 | 0 | 6.0 | done | 2 |
 | e83s01 | Release mirror stamps last_tag and skill counts | e83 | 0 | 6.0 | done | 11 |
-| e83s02 | bigpowers status counts only bigpowers-owned skills | e83 | 0 | 6.0 | done | 18 |
+| e83s02 | bigpowers status counts only bigpowers-owned skills | e83 | 0 | 6.0 | done | 17 |
 | e83s03 | Receipts read the cycle-time ledger and label sources honest | e83 | 0 | 6.0 | done | 44 |
 | e83s04 | VISION refreshed and catalog-freeze breaks resolved | e83 | 0 | 6.0 | done | 10 |
 | e83s05 | Investigate spec-version-gap blocked with no active flow | e83 | 0 | 6.0 | done | 6 |

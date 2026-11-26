@@ -7,7 +7,7 @@ title: "assert-epic-gate.sh release passes on audit evidence from a different br
 category: bug
 tier: extended
 severity: high
-status: open
+status: fixed
 generator: scripts/sync-bugs-registry.sh
 references:
     - specs/bugs/BUG-2026-11-07-assert-epic-gate-fail-open.md
@@ -15,7 +15,7 @@ references:
 
 # assert-epic-gate.sh release passes on audit evidence from a different branch, so an unaudited 13-commit branch reports audit-code verified
 
-**Bug:** BUG-2026-11-07-assert-epic-gate-fail-open | **Severity:** high | **Status:** open | **Scope:** release gate / scripts/lib/assert-epic-gate.sh
+**Bug:** BUG-2026-11-07-assert-epic-gate-fail-open | **Severity:** high | **Status:** fixed | **Scope:** release gate / scripts/lib/assert-epic-gate.sh
 **Tier:** extended
 
 See `specs/bugs/BUG-2026-11-07-assert-epic-gate-fail-open.md` for full investigation and fix details.

@@ -129,6 +129,9 @@ GOLDEN_GATES=(
   # One pipeline, release needs: every gate, pinned runner and actions.
   "ci-pipeline-contract-selftest:bash scripts/test-ci-pipeline-contract.sh --self-test:false"
   "ci-pipeline-contract:bash scripts/test-ci-pipeline-contract.sh:false"
+  # Release audit gate must fail-closed on missing or stale audited_range
+  # (BUG-2026-11-07-assert-epic-gate-fail-open).
+  "assert-epic-gate:bash tests/test-assert-epic-gate.sh:false"
   # Tier 2 of the verify arc (#106): executes the verify: of every story marked
   # done. Tier 1 (SKILL.md) is run-skill-verify.sh in test-build-release.yml.
   "story-verify-selftest:bash scripts/run-story-verify.sh --self-test:false"

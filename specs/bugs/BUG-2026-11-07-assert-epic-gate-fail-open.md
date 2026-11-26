@@ -1,10 +1,10 @@
 ---
 bug_id: BUG-2026-11-07-assert-epic-gate-fail-open
-status: open
+status: fixed
 severity: high
 scope: release gate / scripts/lib/assert-epic-gate.sh
 title: "assert-epic-gate.sh release passes on audit evidence from a different branch, so an unaudited 13-commit branch reports audit-code verified"
-files_changed: "scripts/lib/assert-epic-gate.sh (proposed)"
+files_changed: "scripts/lib/assert-epic-gate.sh, tests/test-assert-epic-gate.sh, scripts/lib/golden-suite-gates.sh"
 approach: "Record the audited commit range in specs/AUDIT_LATEST.md and specs/security/REVIEW.md, and make the gate fail when the recorded range does not cover the current branch diff"
 risk_level: medium
 commit_message: "fix(gates): fail the release audit gate when the audit covers a different diff"

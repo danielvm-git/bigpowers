@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T14:04:30.472516+00:00",
+  "generated_at": "2026-11-26T14:47:54.264413+00:00",
   "matrix_version": "1.0",
   "stories": [
     {
@@ -2364,12 +2364,6 @@
           "method": "file_heuristic"
         },
         {
-          "file": "GSD_WORKFLOW_ANALYSIS_VS_BIGPOWERS.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
           "file": "docs/WORKFLOW-SOP-v2.md",
           "line": 0,
           "confidence": "medium",
@@ -2730,7 +2724,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 89
+      "link_count": 88
     },
     {
       "id": "e45s10",
@@ -17970,6 +17964,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "tests/test-assert-epic-gate.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "website/src/content/docs/decisions/0005-hard-gate-mandate.md",
           "line": 0,
           "confidence": "medium",
@@ -17994,7 +17994,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 64
+      "link_count": 65
     },
     {
       "id": "e53s04",
@@ -25002,12 +25002,6 @@
           "method": "file_heuristic"
         },
         {
-          "file": "GSD_WORKFLOW_ANALYSIS_VS_BIGPOWERS.md",
-          "line": 0,
-          "confidence": "medium",
-          "method": "file_heuristic"
-        },
-        {
           "file": "docs/archive/file-structure/projected-structure-bigpowers-evolved.md",
           "line": 0,
           "confidence": "medium",
@@ -25086,7 +25080,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 18
+      "link_count": 17
     },
     {
       "id": "e83s03",
@@ -26570,7 +26564,7 @@
     "stale_count": 138,
     "oracle_stats": {
       "high": 969,
-      "medium": 2945,
+      "medium": 2944,
       "low": 119
     }
   }
