@@ -67,11 +67,13 @@ PI_PACKAGE_JSON="$REPO_ROOT/.pi/package.json"
 # Antigravity (agy) render output. Lives under .bigpowers/, NOT .agents/skills:
 # .agents/skills is an Agent Skills discovery root that pi also scans, so
 # rendering there made a generated artifact win over the maintained source (#209).
-AGY_SKILLS="$REPO_ROOT/.bigpowers/rendered/antigravity/skills"
+AGY_PLUGIN_DIR="$REPO_ROOT/.bigpowers/rendered/antigravity"
+AGY_SKILLS="$AGY_PLUGIN_DIR/skills"
+AGY_PLUGIN_MANIFEST="$AGY_PLUGIN_DIR/plugin.json"
 OKF_WIKI_SKILLS="$REPO_ROOT/specs/skills-wiki/skills"
 OKF_WIKI_DIR="$REPO_ROOT/specs/skills-wiki"
 
-export CURSOR_RULES GEMINI_EXT_DIR GEMINI_SKILLS GEMINI_COMMANDS GEMINI_MANIFEST PI_SKILLS PI_PROMPTS PI_PACKAGE_JSON AGY_SKILLS OKF_WIKI_SKILLS OKF_WIKI_DIR
+export CURSOR_RULES GEMINI_EXT_DIR GEMINI_SKILLS GEMINI_COMMANDS GEMINI_MANIFEST PI_SKILLS PI_PROMPTS PI_PACKAGE_JSON AGY_PLUGIN_DIR AGY_SKILLS AGY_PLUGIN_MANIFEST OKF_WIKI_SKILLS OKF_WIKI_DIR
 
 mkdir -p "$CURSOR_RULES" "$GEMINI_SKILLS" "$GEMINI_COMMANDS" "$PI_SKILLS" "$PI_PROMPTS" "$AGY_SKILLS"
 rm -rf "${GEMINI_SKILLS:?}"/* "${GEMINI_COMMANDS:?}"/* "${PI_SKILLS:?}"/* "${PI_PROMPTS:?}"/* "${AGY_SKILLS:?}"/*
@@ -98,6 +100,19 @@ OKF_FLAG=""
 
 # Count generated skills
 skill_count=$(find "$CURSOR_RULES" -maxdepth 1 -name "*.mdc" | wc -l | tr -d ' ')
+
+# story: BUG-2026-11-26-agy-plugin-install
+# Emit native Antigravity plugin manifest before --distribute-only exit so
+# .bigpowers/rendered/antigravity/ is a valid plugin bundle in every install channel.
+if [[ -f "$REPO_ROOT/package.json" ]] && command -v jq >/dev/null 2>&1; then
+  agy_pkg_ver=$(jq -r '.version' "$REPO_ROOT/package.json")
+  agy_pkg_desc=$(jq -r '.description' "$REPO_ROOT/package.json")
+  agy_pkg_desc="${agy_pkg_desc#"${skill_count} "}"
+  jq -n --arg name "bigpowers" \
+        --arg version "$agy_pkg_ver" \
+        --arg desc "${skill_count} skills — ${agy_pkg_desc}" \
+        '{ name: $name, version: $version, description: $desc }' > "$AGY_PLUGIN_MANIFEST"
+fi
 
 opencode_count=0
 [[ -n "$OPN_TARGET" ]] && sync_opencode_copy && opencode_count="${SYNC_OPENCODE_COUNT:-0}"

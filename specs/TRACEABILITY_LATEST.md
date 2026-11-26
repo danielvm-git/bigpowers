@@ -1,6 +1,6 @@
 # Traceability Matrix
 
-**Generated:** 2026-11-09 17:09:59 UTC
+**Generated:** 2026-11-26 14:04:30 UTC
 **Total stories:** 171
 **Tagged stories:** 142
 **Dark stories:** 0
@@ -10,7 +10,7 @@
 ## Oracle Stats
 
 - **High** (explicit tag): 969
-- **Medium** (file heuristic): 2941
+- **Medium** (file heuristic): 2945
 - **Low** (task reference): 119
 
 ## Story Coverage
@@ -76,15 +76,15 @@
 | e45s41 | security-review: proven authorship SQL-safety doctrine | e45 | 2 | 5.0 | done | 18 |
 | e48s01 | Generate epics-wiki and adr-wiki as OKF concept bundles from | e48 | 2 | 2.5 | done | 39 |
 | e48s02 | Emit verification reports as OKF bundles from run-golden-sui | e48 | 2 | 2.5 | done | 36 |
-| e48s03 | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | e48 | 1 | 2.5 | done | 264 |
+| e48s03 | OKF-ify bug-registry: specs/bugs/registry.yaml emits concept | e48 | 1 | 2.5 | done | 266 |
 | e48s04 | Create viz.html — interactive force-layout graph companion f | e48 | 2 | 2.5 | done | 12 |
-| e48s05 | Wire OKF validation into CI (sync-skills.yml) and document i | e48 | 1 | 2.5 | done | 248 |
+| e48s05 | Wire OKF validation into CI (sync-skills.yml) and document i | e48 | 1 | 2.5 | done | 249 |
 | e48s06 | Add tier: field (core/extended/specialized) to OKF wiki inde | e48 | 2 | 2.5 | done | 15 |
 | e48s07 | Create publish-to-wiki kernel tool | e48 | 3 | 2.5 | done | 2 |
 | e48s08 | Add GitHub Action Template for publish-wiki.yml [HARD GATE] | e48 | 1 | 2.5 | done | 8 |
 | e48s09 | Create Wiki Scaffold Templates and provenance header injecti | e48 | 2 | 2.5 | done | 2 |
 | e48s10 | Extend bigspec init with --with-wiki flag | e48 | 2 | 2.5 | done | 15 |
-| e48s11 | BCP Plus counter integration — install and smoke-test big-co | e48 | 5 | 2.5 | done | 35 |
+| e48s11 | BCP Plus counter integration — install and smoke-test big-co | e48 | 5 | 2.5 | done | 36 |
 | e48s12 | BCP Plus template — 13-dimension breakdown in story specs | e48 | 5 | 2.5 | done | 9 |
 | e48s13 | NFR Gate integration — security-review and wire-observabilit | e48 | 4 | 2.5 | done | 19 |
 | e48s14 | Build-epic integration — BCP Plus in story sizing workflow | e48 | 4 | 2.5 | done | 14 |

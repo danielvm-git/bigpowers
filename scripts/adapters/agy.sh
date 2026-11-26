@@ -5,7 +5,7 @@
 # Antigravity CLI (agy). The RENDER output lives at
 # .bigpowers/rendered/antigravity/skills/ (not .agents/skills, which is a
 # discovery root pi also scans — #209). install() links it into
-# ~/.gemini/antigravity-cli/skills/ (global) or .agents/skills (workspace).
+# ~/.gemini/config/plugins/bigpowers (global plugin) or .agents/skills (workspace).
 
 AGY_SKILLS="${AGY_SKILLS:-.bigpowers/rendered/antigravity/skills}"
 AGY_HOOKS_GLOBAL="${AGY_HOOKS_GLOBAL:-$HOME/.gemini/config/hooks.json}"

@@ -1,17 +1,19 @@
-active_flow: null
+active_flow: fix_bug
 active_epic: null
 active_story: null
-bug_id: null
+bug_id: BUG-2026-11-26-agy-plugin-install
 bigpowers_version: 2.96.1
-bug_cycle: null
+bug_cycle:
+  current_step: 4
+  completed_steps: [1, 2, 3]
 handoff:
-  next_skill: survey-context
-  context: 'PR #202 merged as 87b1cd12: BUG-2026-11-03 epic status roll-up drift (G-12 checks 4-5, e58/e82
-    status corrected) plus the CI fix that installs Node deps before story verify so e82s03''s OMP smoke
-    can import typebox. Golden suite 56/56, all PR checks green, v2.93.3 released and published to npm.'
+  next_skill: validate-fix
+  context: 'BUG-2026-11-26-agy-plugin-install: Antigravity global installer targets ~/.gemini/config/plugins/bigpowers as a native plugin with plugin.json. Golden suite 65/65 passed.'
   epic: null
 epic_cycle: null
 decisions:
+- gate: baseline-preflight-2026-11-26
+  reason: 'fix/agy-plugin-install green: compliance 98%, 65/65 deterministic golden gates, trace --strict 0.'
 - gate: baseline-preflight
   reason: 'main @ 52842a2f green before any change: compliance 0, 56/56 deterministic gates, trace --strict
     0. No red baseline to fix.'
