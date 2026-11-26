@@ -1,6 +1,6 @@
 ---
 type: Index
-generated_at: 2026-11-26T14:04:30.485960+00:00
+generated_at: 2026-11-26T14:47:54.283007+00:00
 total_concepts: 171
 ---
 
@@ -34,7 +34,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e45s06](./e45s06.md) | tasks.yaml: literal failing→passing task ledger | high | 2 |
 | [e45s07](./e45s07.md) | request-review: dual-blind AND-gate review (Santa Method) | high | 39 |
 | [e45s08](./e45s08.md) | develop-tdd / validate-fix: two-commit red/green regression  | high | 14 |
-| [e45s09](./e45s09.md) | verify-work / plan-work: Pre-Implementation and Validation g | high | 89 |
+| [e45s09](./e45s09.md) | verify-work / plan-work: Pre-Implementation and Validation g | high | 88 |
 | [e45s10](./e45s10.md) | docs/references: auto-regenerate from source-of-truth docs v | high | 8 |
 | [e45s11](./e45s11.md) | orchestration / dispatch-agents: typed message protocol + 3- | high | 17 |
 | [e45s12](./e45s12.md) | stocktake-skills / craft-skill: code-enforced validator + au | high | 45 |
@@ -99,7 +99,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e51s05](./e51s05.md) | CLAUDE.md — solo-default agent rules + bigpowers Preflight c | high | 9 |
 | [e53s01](./e53s01.md) | Commit the untracked GOLDEN baseline | high | 12 |
 | [e53s02](./e53s02.md) | Build the tombstone-alias mechanism | high | 8 |
-| [e53s03](./e53s03.md) | Gate-trace the compliance-to-GOLDEN hard-gate coupling | high | 64 |
+| [e53s03](./e53s03.md) | Gate-trace the compliance-to-GOLDEN hard-gate coupling | high | 65 |
 | [e53s04](./e53s04.md) | Adopt docs/TARGET-ARCHITECTURE.md as the migration's north-s | high | 3 |
 | [e54s01](./e54s01.md) | Snapshot the current skill catalog as an immutable baseline | high | 11 |
 | [e54s02](./e54s02.md) | Add a soft drift-detection gate for the freeze window | high | 15 |
@@ -162,7 +162,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e82s03](./e82s03.md) | OMP plugin extension — bigpowers as native oh-my-posh/OMP en | high | 7 |
 | [e82s04](./e82s04.md) | Community attribution — CONTRIBUTORS.md + CHANGELOG credit e | high | 2 |
 | [e83s01](./e83s01.md) | Release mirror stamps last_tag and skill counts | high | 11 |
-| [e83s02](./e83s02.md) | bigpowers status counts only bigpowers-owned skills | high | 18 |
+| [e83s02](./e83s02.md) | bigpowers status counts only bigpowers-owned skills | high | 17 |
 | [e83s03](./e83s03.md) | Receipts read the cycle-time ledger and label sources honest | high | 44 |
 | [e83s04](./e83s04.md) | VISION refreshed and catalog-freeze breaks resolved | high | 10 |
 | [e83s05](./e83s05.md) | Investigate spec-version-gap blocked with no active flow | high | 6 |
