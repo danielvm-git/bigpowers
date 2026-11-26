@@ -1,3 +1,10 @@
+## [2.96.4](https://github.com/danielvm-git/bigpowers/compare/v2.96.3...v2.96.4) (2026-11-26)
+
+
+### Bug Fixes
+
+* **cli:** never prompt without a TTY; add non-interactive install mode ([#201](https://github.com/danielvm-git/bigpowers/issues/201)) ([710286b](https://github.com/danielvm-git/bigpowers/commit/710286bc58bc42c00f8aa7fc1b950629b1908265))
+
 ## [2.96.3](https://github.com/danielvm-git/bigpowers/compare/v2.96.2...v2.96.3) (2026-11-26)
 
 
