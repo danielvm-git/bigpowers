@@ -1,3 +1,10 @@
+## [2.96.2](https://github.com/danielvm-git/bigpowers/compare/v2.96.1...v2.96.2) (2026-11-26)
+
+
+### Bug Fixes
+
+* **install:** install Antigravity as global plugin in config/plugins ([#241](https://github.com/danielvm-git/bigpowers/issues/241)) ([d4331bc](https://github.com/danielvm-git/bigpowers/commit/d4331bc6bbb4f1913951b3fc87027c70d51d595b))
+
 ## [2.96.1](https://github.com/danielvm-git/bigpowers/compare/v2.96.0...v2.96.1) (2026-11-09)
 
 

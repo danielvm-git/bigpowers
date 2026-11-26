@@ -2,18 +2,23 @@ active_flow: fix_bug
 active_epic: null
 active_story: null
 bug_id: BUG-2026-11-26-agy-plugin-install
-bigpowers_version: 2.96.1
+bigpowers_version: 2.96.2
 bug_cycle:
   current_step: 4
-  completed_steps: [1, 2, 3]
+  completed_steps:
+  - 1
+  - 2
+  - 3
 handoff:
   next_skill: validate-fix
-  context: 'BUG-2026-11-26-agy-plugin-install: Antigravity global installer targets ~/.gemini/config/plugins/bigpowers as a native plugin with plugin.json. Golden suite 65/65 passed.'
+  context: 'BUG-2026-11-26-agy-plugin-install: Antigravity global installer targets ~/.gemini/config/plugins/bigpowers
+    as a native plugin with plugin.json. Golden suite 65/65 passed.'
   epic: null
 epic_cycle: null
 decisions:
 - gate: baseline-preflight-2026-11-26
-  reason: 'fix/agy-plugin-install green: compliance 98%, 65/65 deterministic golden gates, trace --strict 0.'
+  reason: 'fix/agy-plugin-install green: compliance 98%, 65/65 deterministic golden gates, trace --strict
+    0.'
 - gate: baseline-preflight
   reason: 'main @ 52842a2f green before any change: compliance 0, 56/56 deterministic gates, trace --strict
     0. No red baseline to fix.'
@@ -89,7 +94,7 @@ release:
   ci_verified: true
   last_commit: 2be64ecc
   last_epic: e79-simple-english-skill
-  last_tag: v2.96.1
+  last_tag: v2.96.2
   last_publish: '2026-11-04T01:52:15Z'
 git:
   branch: main
