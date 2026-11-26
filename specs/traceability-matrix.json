@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T14:47:54.264413+00:00",
+  "generated_at": "2026-11-26T14:57:17.985591+00:00",
   "matrix_version": "1.0",
   "stories": [
     {
@@ -1128,6 +1128,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "scripts/test-bigpowers-cli.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/epics/archive/e37-reach/e37s16-codex-onboarding-docs.md",
           "line": 0,
           "confidence": "medium",
@@ -1164,7 +1170,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 11
+      "link_count": 12
     },
     {
       "id": "e45s01",
@@ -13428,6 +13434,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "scripts/test-bigpowers-cli.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "scripts/test-install-distribute-only.sh",
           "line": 0,
           "confidence": "medium",
@@ -13608,7 +13620,7 @@
           "method": "file_heuristic"
         }
       ],
-      "link_count": 36
+      "link_count": 37
     },
     {
       "id": "e48s12",
@@ -25032,6 +25044,12 @@
           "method": "file_heuristic"
         },
         {
+          "file": "scripts/test-bigpowers-cli.sh",
+          "line": 0,
+          "confidence": "medium",
+          "method": "file_heuristic"
+        },
+        {
           "file": "specs/BIGPOWERS-ENHANCEMENT-PLAN.md",
           "line": 0,
           "confidence": "medium",
@@ -25080,7 +25098,7 @@
           "method": "task_reference"
         }
       ],
-      "link_count": 17
+      "link_count": 18
     },
     {
       "id": "e83s03",
@@ -26564,7 +26582,7 @@
     "stale_count": 138,
     "oracle_stats": {
       "high": 969,
-      "medium": 2944,
+      "medium": 2947,
       "low": 119
     }
   }

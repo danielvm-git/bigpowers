@@ -1,6 +1,6 @@
 # Traceability Matrix
 
-**Generated:** 2026-11-26 14:47:54 UTC
+**Generated:** 2026-11-26 14:57:17 UTC
 **Total stories:** 171
 **Tagged stories:** 142
 **Dark stories:** 0
@@ -10,7 +10,7 @@
 ## Oracle Stats
 
 - **High** (explicit tag): 969
-- **Medium** (file heuristic): 2944
+- **Medium** (file heuristic): 2947
 - **Low** (task reference): 119
 
 ## Story Coverage
@@ -32,7 +32,7 @@
 | e37s13 | targets.yaml — Wave E: iflow, vibe, shai (markdown commands; | e37 | 2 | 7.0 | done | 6 |
 | e37s14 | seed-conventions — optional Codex wiring step (AGENTS.md + . | e37 | 3 | 7.0 | done | 10 |
 | e37s15 | install.sh — global ~/.codex/ AGENTS.md starter symlink | e37 | 2 | 7.0 | done | 4 |
-| e37s16 | using-bigpowers — Codex CLI onboarding section | e37 | 2 | 7.0 | done | 11 |
+| e37s16 | using-bigpowers — Codex CLI onboarding section | e37 | 2 | 7.0 | done | 12 |
 | e45s01 | run-benchmark: add train/validation-split + with/without-ski | e45 | 3 | 5.0 | done | 14 |
 | e45s02 | craft-skill: CSO description discipline + completion-honesty | e45 | 2 | 5.0 | done | 18 |
 | e45s03 | CLAUDE.md token mgmt: mechanical PreToolUse hook backstop | e45 | 3 | 5.0 | done | 4 |
@@ -84,7 +84,7 @@
 | e48s08 | Add GitHub Action Template for publish-wiki.yml [HARD GATE] | e48 | 1 | 2.5 | done | 8 |
 | e48s09 | Create Wiki Scaffold Templates and provenance header injecti | e48 | 2 | 2.5 | done | 2 |
 | e48s10 | Extend bigspec init with --with-wiki flag | e48 | 2 | 2.5 | done | 15 |
-| e48s11 | BCP Plus counter integration — install and smoke-test big-co | e48 | 5 | 2.5 | done | 36 |
+| e48s11 | BCP Plus counter integration — install and smoke-test big-co | e48 | 5 | 2.5 | done | 37 |
 | e48s12 | BCP Plus template — 13-dimension breakdown in story specs | e48 | 5 | 2.5 | done | 9 |
 | e48s13 | NFR Gate integration — security-review and wire-observabilit | e48 | 4 | 2.5 | done | 19 |
 | e48s14 | Build-epic integration — BCP Plus in story sizing workflow | e48 | 4 | 2.5 | done | 14 |
@@ -169,7 +169,7 @@
 | e82s03 | OMP plugin extension — bigpowers as native oh-my-posh/OMP en | e82 | 0 | 6.0 | done | 7 |
 | e82s04 | Community attribution — CONTRIBUTORS.md + CHANGELOG credit e | e82 | 0 | 6.0 | done | 2 |
 | e83s01 | Release mirror stamps last_tag and skill counts | e83 | 0 | 6.0 | done | 11 |
-| e83s02 | bigpowers status counts only bigpowers-owned skills | e83 | 0 | 6.0 | done | 17 |
+| e83s02 | bigpowers status counts only bigpowers-owned skills | e83 | 0 | 6.0 | done | 18 |
 | e83s03 | Receipts read the cycle-time ledger and label sources honest | e83 | 0 | 6.0 | done | 44 |
 | e83s04 | VISION refreshed and catalog-freeze breaks resolved | e83 | 0 | 6.0 | done | 10 |
 | e83s05 | Investigate spec-version-gap blocked with no active flow | e83 | 0 | 6.0 | done | 6 |

@@ -7,7 +7,7 @@ title: "With no TTY, `bigpowers setup` and `bigpowers update` draw the first men
 category: bug
 tier: extended
 severity: medium
-status: open
+status: fixed
 generator: scripts/sync-bugs-registry.sh
 references:
     - specs/bugs/BUG-2026-11-03-cli-nontty-silent-noop.md
@@ -15,7 +15,7 @@ references:
 
 # With no TTY, `bigpowers setup` and `bigpowers update` draw the first menu, install nothing and exit 0 — a silent no-op that reports success
 
-**Bug:** BUG-2026-11-03-cli-nontty-silent-noop | **Severity:** medium | **Status:** open | **Scope:** cli / installer
+**Bug:** BUG-2026-11-03-cli-nontty-silent-noop | **Severity:** medium | **Status:** fixed | **Scope:** cli / installer
 **Tier:** extended
 
 See `specs/bugs/BUG-2026-11-03-cli-nontty-silent-noop.md` for full investigation and fix details.

@@ -1,6 +1,6 @@
 ---
 type: Index
-generated_at: 2026-11-26T14:47:54.283007+00:00
+generated_at: 2026-11-26T14:57:17.999906+00:00
 total_concepts: 171
 ---
 
@@ -25,7 +25,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e37s13](./e37s13.md) | targets.yaml — Wave E: iflow, vibe, shai (markdown commands; | high | 6 |
 | [e37s14](./e37s14.md) | seed-conventions — optional Codex wiring step (AGENTS.md + . | medium | 10 |
 | [e37s15](./e37s15.md) | install.sh — global ~/.codex/ AGENTS.md starter symlink | high | 4 |
-| [e37s16](./e37s16.md) | using-bigpowers — Codex CLI onboarding section | medium | 11 |
+| [e37s16](./e37s16.md) | using-bigpowers — Codex CLI onboarding section | medium | 12 |
 | [e45s01](./e45s01.md) | run-benchmark: add train/validation-split + with/without-ski | high | 14 |
 | [e45s02](./e45s02.md) | craft-skill: CSO description discipline + completion-honesty | high | 18 |
 | [e45s03](./e45s03.md) | CLAUDE.md token mgmt: mechanical PreToolUse hook backstop | high | 4 |
@@ -77,7 +77,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e48s08](./e48s08.md) | Add GitHub Action Template for publish-wiki.yml [HARD GATE] | high | 8 |
 | [e48s09](./e48s09.md) | Create Wiki Scaffold Templates and provenance header injecti | medium | 2 |
 | [e48s10](./e48s10.md) | Extend bigspec init with --with-wiki flag | medium | 15 |
-| [e48s11](./e48s11.md) | BCP Plus counter integration — install and smoke-test big-co | medium | 36 |
+| [e48s11](./e48s11.md) | BCP Plus counter integration — install and smoke-test big-co | medium | 37 |
 | [e48s12](./e48s12.md) | BCP Plus template — 13-dimension breakdown in story specs | high | 9 |
 | [e48s13](./e48s13.md) | NFR Gate integration — security-review and wire-observabilit | high | 19 |
 | [e48s14](./e48s14.md) | Build-epic integration — BCP Plus in story sizing workflow | high | 14 |
@@ -162,7 +162,7 @@ Auto-generated OKF bundle from trace-stories.sh.
 | [e82s03](./e82s03.md) | OMP plugin extension — bigpowers as native oh-my-posh/OMP en | high | 7 |
 | [e82s04](./e82s04.md) | Community attribution — CONTRIBUTORS.md + CHANGELOG credit e | high | 2 |
 | [e83s01](./e83s01.md) | Release mirror stamps last_tag and skill counts | high | 11 |
-| [e83s02](./e83s02.md) | bigpowers status counts only bigpowers-owned skills | high | 17 |
+| [e83s02](./e83s02.md) | bigpowers status counts only bigpowers-owned skills | high | 18 |
 | [e83s03](./e83s03.md) | Receipts read the cycle-time ledger and label sources honest | high | 44 |
 | [e83s04](./e83s04.md) | VISION refreshed and catalog-freeze breaks resolved | high | 10 |
 | [e83s05](./e83s05.md) | Investigate spec-version-gap blocked with no active flow | high | 6 |

@@ -60,6 +60,10 @@ GOLDEN_GATES=(
   # version captured by require() at startup then reports the release that was
   # just replaced (BUG-2026-11-03-cli-update-stale-version).
   "bigpowers-cli-version:bash scripts/test-bigpowers-cli-version.sh:false"
+  # The CLI must be usable without a TTY (BUG-2026-11-03-cli-nontty-silent-noop):
+  # with stdin at EOF the installer used to draw its first menu, install nothing
+  # and exit 0.
+  "bigpowers-cli:bash scripts/test-bigpowers-cli.sh:false"
   "adapter-render:bash scripts/test-adapter-render.sh:false"
   "adapters:bash scripts/test-adapters.sh:false"
   # Previously orphaned: present in scripts/ but reachable from no gate.

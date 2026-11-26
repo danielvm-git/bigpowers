@@ -1,10 +1,10 @@
 ---
 bug_id: BUG-2026-11-03-cli-nontty-silent-noop
-status: open
+status: fixed
 severity: medium
 scope: cli / installer
 title: "With no TTY, `bigpowers setup` and `bigpowers update` draw the first menu, install nothing and exit 0 — a silent no-op that reports success"
-files_changed: "bin/setup.js, bin/bigpowers.js (proposed)"
+files_changed: "bin/setup.js, bin/bigpowers.js, scripts/lib/cli-args.js, scripts/lib/install-run.js, scripts/lib/install-state.js, scripts/lib/install-uninstall.js, scripts/test-bigpowers-cli.sh, scripts/lib/golden-suite-gates.sh, README.md"
 approach: "Documented non-interactive mode (--yes, --tools, --scope, --help), a persisted install manifest so `update` can replay a run, and fail-fast with an actionable message when a prompt is required but no TTY exists"
 risk_level: medium
 commit_message: "fix(cli): never prompt without a TTY; add a non-interactive install mode"

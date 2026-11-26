@@ -16,12 +16,13 @@ echo "=== test-install-distribute-only.sh ==="
 
 SYNC_SH="$REPO_ROOT/scripts/sync-skills.sh"
 SETUP_JS="$REPO_ROOT/bin/setup.js"
+INSTALL_RUN_JS="$REPO_ROOT/scripts/lib/install-run.js"
 
 grep -q -- '--distribute-only' "$SYNC_SH" && ta_pass 'sync-skills.sh: --distribute-only flag defined' \
   || ta_fail 'sync-skills.sh: missing --distribute-only flag'
-grep -q "sync-skills.sh --distribute-only" "$SETUP_JS" && ta_pass 'setup.js: invokes sync-skills.sh with --distribute-only' \
+grep -q "sync-skills.sh --distribute-only" "$SETUP_JS" "$INSTALL_RUN_JS" && ta_pass 'setup.js: invokes sync-skills.sh with --distribute-only' \
   || ta_fail 'setup.js: does not pass --distribute-only'
-grep -q "runInheritedAsync('bash scripts/sync-skills.sh --distribute-only')" "$SETUP_JS" \
+grep -q "runInheritedAsync('bash scripts/sync-skills.sh --distribute-only')" "$SETUP_JS" "$INSTALL_RUN_JS" \
   && ta_pass 'setup.js: sync-skills call is async (spinner can animate)' \
   || ta_fail 'setup.js: sync-skills call reverted to blocking runInherited (spinner would freeze)'
 
